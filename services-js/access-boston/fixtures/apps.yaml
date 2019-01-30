@@ -51,6 +51,7 @@ categories:
         url: /change-password
       - title: Change MFA Device or Email Address
         url: https://identity.boston.gov/identityiq/changePassword.jsf
+        new_window: true
       - title: Create Sponsored Account
         url: https://identity.boston.gov/identityiq/createSponsor.jsf
         groups:

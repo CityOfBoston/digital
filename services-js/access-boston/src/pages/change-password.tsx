@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import Router from 'next/router';
 import { Formik, FormikProps } from 'formik';
 
@@ -278,10 +279,10 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               {...commonPasswordProps}
             />
 
-            <div className="ta-r">
+            <div>
               <button
                 type="submit"
-                className="btn"
+                className="btn btn--b"
                 disabled={!isValid || isSubmitting}
               >
                 {account.needsNewPassword
@@ -289,6 +290,14 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
                   : 'Change Password'}
               </button>
             </div>
+
+            {!account.needsNewPassword && (
+              <div className="ta-c t--subinfo m-v700">
+                <Link href="/">
+                  <a>Cancel and go back to Access Boston</a>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </form>

@@ -353,16 +353,24 @@ Array [
                  
               </div>
             </div>
-            <div
-              className="ta-r"
-            >
+            <div>
               <button
-                className="btn"
+                className="btn btn--b"
                 disabled={true}
                 type="submit"
               >
                 Change Password
               </button>
+            </div>
+            <div
+              className="ta-c t--subinfo m-v700"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                Cancel and go back to Access Boston
+              </a>
             </div>
           </div>
         </div>
@@ -699,11 +707,9 @@ Array [
                  
               </div>
             </div>
-            <div
-              className="ta-r"
-            >
+            <div>
               <button
-                className="btn"
+                className="btn btn--b"
                 disabled={true}
                 type="submit"
               >
@@ -1050,11 +1056,9 @@ Array [
                  
               </div>
             </div>
-            <div
-              className="ta-r"
-            >
+            <div>
               <button
-                className="btn"
+                className="btn btn--b"
                 disabled={true}
                 type="submit"
               >
@@ -1382,16 +1386,24 @@ Array [
                  
               </div>
             </div>
-            <div
-              className="ta-r"
-            >
+            <div>
               <button
-                className="btn"
+                className="btn btn--b"
                 disabled={true}
                 type="submit"
               >
                 Change Password
               </button>
+            </div>
+            <div
+              className="ta-c t--subinfo m-v700"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                Cancel and go back to Access Boston
+              </a>
             </div>
           </div>
         </div>
@@ -1769,16 +1781,24 @@ Array [
                  
               </div>
             </div>
-            <div
-              className="ta-r"
-            >
+            <div>
               <button
-                className="btn"
+                className="btn btn--b"
                 disabled={true}
                 type="submit"
               >
                 Change Password
               </button>
+            </div>
+            <div
+              className="ta-c t--subinfo m-v700"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                Cancel and go back to Access Boston
+              </a>
             </div>
           </div>
         </div>
@@ -2481,6 +2501,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="#"
             onClick={[Function]}
+            target="_self"
           >
             <span
               className="lwi-ic"
@@ -2506,6 +2527,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="#"
             onClick={[Function]}
+            target="_self"
           >
             <span
               className="lwi-ic"
@@ -2566,6 +2588,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"
@@ -2593,6 +2616,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -2620,6 +2644,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"
@@ -2647,6 +2672,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"
@@ -2674,6 +2700,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"
@@ -2780,6 +2807,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="#"
             onClick={[Function]}
+            target="_self"
           >
             <span
               className="lwi-ic"
@@ -2805,6 +2833,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="#"
             onClick={[Function]}
+            target="_self"
           >
             <span
               className="lwi-ic"
@@ -2865,6 +2894,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"
@@ -2892,6 +2922,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -2919,6 +2950,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"
@@ -2946,6 +2978,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"
@@ -2973,6 +3006,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
+                target="_self"
               >
                 <div
                   className="t--info"

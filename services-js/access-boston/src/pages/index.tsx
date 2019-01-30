@@ -13,6 +13,7 @@ import AccessBostonHeader from '../client/AccessBostonHeader';
 import fetchAccountAndApps, {
   Account,
   Apps,
+  CategoryApps,
 } from '../client/graphql/fetch-account-and-apps';
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
 import { MAIN_CLASS } from '../client/styles';
@@ -127,13 +128,16 @@ export default class IndexPage extends React.Component<Props> {
     );
   }
 
-  private renderAppList(apps) {
+  private renderAppList(apps: CategoryApps) {
     return (
       <ul className="ul m-v500">
-        {apps.map(({ title, url, description }) => (
+        {apps.map(({ title, url, description, newWindow }) => (
           <li key={title}>
             <Link href={url}>
-              <a className={`p-a300 ${APP_ROW_STYLE}`}>
+              <a
+                className={`p-a300 ${APP_ROW_STYLE}`}
+                target={newWindow ? '_blank' : '_self'}
+              >
                 <div className="t--info" style={{ color: 'inherit' }}>
                   {title}
                 </div>
@@ -146,12 +150,15 @@ export default class IndexPage extends React.Component<Props> {
     );
   }
 
-  private renderAppIcons(apps) {
+  private renderAppIcons(apps: CategoryApps) {
     return (
       <div className="g">
-        {apps.map(({ title, url, iconUrl }) => (
+        {apps.map(({ title, url, iconUrl, newWindow }) => (
           <Link href={url} key={title}>
-            <a className="lwi m-t200 g--3 g--3--sl">
+            <a
+              className="lwi m-t200 g--3 g--3--sl"
+              target={newWindow ? '_blank' : '_self'}
+            >
               <span className="lwi-ic" style={{ width: 'auto' }}>
                 <img
                   src={

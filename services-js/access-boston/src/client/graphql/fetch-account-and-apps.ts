@@ -1,8 +1,12 @@
 import { gql, FetchGraphql } from '@cityofboston/next-client-common';
-import { FetchAccountAndApps } from './queries';
+import {
+  FetchAccountAndApps,
+  FetchAccountAndApps_apps_categories_apps,
+} from './queries';
 
 export type Account = FetchAccountAndApps['account'];
 export type Apps = FetchAccountAndApps['apps'];
+export type CategoryApps = Array<FetchAccountAndApps_apps_categories_apps>;
 
 const QUERY = gql`
   query FetchAccountAndApps {
@@ -24,6 +28,7 @@ const QUERY = gql`
           url
           iconUrl
           description
+          newWindow
         }
       }
     }
