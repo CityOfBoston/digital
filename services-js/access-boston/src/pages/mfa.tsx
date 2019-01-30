@@ -29,6 +29,7 @@ import verifyMfaDevice from '../client/graphql/verify-mfa-device';
 import { MfaError, VerificationType } from '../client/graphql/queries';
 import RedirectForm from '../client/RedirectForm';
 import { registerDeviceSchema } from '../lib/validation';
+import { RedirectError } from '../client/auth-helpers';
 
 interface InitialProps {
   account: Account;
@@ -67,6 +68,10 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
     // We need to do this up top because if the forgot password succeeds on a
     // POST it torches the session.
     const account = await fetchAccount(fetchGraphql);
+
+    if (!account.needsMfaDevice) {
+      throw new RedirectError('/');
+    }
 
     const out: InitialProps = {
       account,
@@ -178,6 +183,8 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
         this.doneRedirectRef.current!.redirect();
       } else if (error === MfaError.WRONG_CODE) {
         this.setState({ status: VerificationStatus.INCORRECT_CODE });
+      } else if (error === MfaError.ALREADY_REGISTERED) {
+        this.setState({ status: VerificationStatus.ALREADY_REGISTERED });
       } else {
         this.setState({ status: VerificationStatus.OTHER_ERROR });
       }

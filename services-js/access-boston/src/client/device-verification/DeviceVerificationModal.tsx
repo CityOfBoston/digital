@@ -15,6 +15,7 @@ export enum VerificationStatus {
   CHECKING,
   INCORRECT_CODE,
   OTHER_ERROR,
+  ALREADY_REGISTERED,
 }
 
 interface Props {
@@ -81,6 +82,12 @@ export default class DeviceVerificationModal extends React.Component<Props> {
           That code didn’t seem right. Can you try again?
         </span>
       );
+    } else if (status === VerificationStatus.ALREADY_REGISTERED) {
+      header = (
+        <span className="t--err">
+          Your account already has a device registered.
+        </span>
+      );
     } else if (type === VerificationType.EMAIL) {
       header = (
         <>
@@ -90,14 +97,15 @@ export default class DeviceVerificationModal extends React.Component<Props> {
     } else if (type === VerificationType.SMS) {
       header = (
         <>
-          Check your phone! We’ve sent a text to <strong>{phoneNumber}</strong>.
+          Check your phone! We’ve sent a text to{' '}
+          <strong>{elidePhoneNumber(phoneNumber)}</strong>.
         </>
       );
     } else if (type === VerificationType.VOICE) {
       header = (
         <>
           Please pick up! We’re making a phone call to{' '}
-          <strong>{phoneNumber}</strong>.
+          <strong>{elidePhoneNumber(phoneNumber)}</strong>.
         </>
       );
     }
@@ -156,13 +164,13 @@ export default class DeviceVerificationModal extends React.Component<Props> {
   renderFormContents = ({
     values: { code },
     handleChange,
-    submitForm,
+    handleSubmit,
     isValid,
   }: FormikProps<{ code: string }>) => {
     const { status, resendVerification, resetVerification } = this.props;
 
     return (
-      <>
+      <form onSubmit={handleSubmit}>
         <div className="m-v500">
           <TextInput
             label="Authentication code"
@@ -179,9 +187,8 @@ export default class DeviceVerificationModal extends React.Component<Props> {
               <div className={VERIFICATION_CODE_ROW_STYLE}>
                 {inputEl}
                 <button
-                  type="button"
+                  type="submit"
                   className="btn"
-                  onClick={submitForm}
                   disabled={!isValid || status === VerificationStatus.CHECKING}
                   style={{
                     whiteSpace: 'nowrap',
@@ -207,7 +214,16 @@ export default class DeviceVerificationModal extends React.Component<Props> {
             try a different number or email
           </button>.
         </div>
-      </>
+      </form>
     );
   };
+}
+
+function elidePhoneNumber(phoneNumber: string | null): string {
+  const match = phoneNumber && phoneNumber.trim().match(/\d\d$/);
+  if (match) {
+    return `(xxx) xxx-xx${match[0]}`;
+  } else {
+    return '';
+  }
 }

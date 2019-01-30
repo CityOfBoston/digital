@@ -4032,90 +4032,94 @@ Array [
         <div
           className="t--intro"
         >
-          Check your phone! We’ve sent a text to 
+          Check your phone! We’ve sent a text to
+           
           <strong>
             
           </strong>
           .
         </div>
-        <div
-          className="m-v500"
+        <form
+          onSubmit={[Function]}
         >
           <div
-            className="txt"
-            style={
-              Object {
-                "marginBottom": "0.5rem",
-              }
-            }
+            className="m-v500"
           >
-            <label
-              className="txt-l"
-              htmlFor="input-3718645000"
+            <div
+              className="txt"
               style={
                 Object {
-                  "marginTop": 0,
+                  "marginBottom": "0.5rem",
                 }
               }
             >
-              Authentication code
-            </label>
-            <div
-              className="css-70qvj9"
-            >
-              <input
-                autoFocus={true}
-                className="css-15p77ot txt-f "
-                id="input-3718645000"
-                maxLength={6}
-                name="code"
-                onChange={[Function]}
-                pattern="[0-9]*"
-                size={6}
-                type="text"
-                value=""
-              />
-              <button
-                className="btn"
-                disabled={true}
-                onClick={[Function]}
+              <label
+                className="txt-l"
+                htmlFor="input-3718645000"
                 style={
                   Object {
-                    "marginLeft": "1em",
-                    "whiteSpace": "nowrap",
+                    "marginTop": 0,
                   }
                 }
-                type="button"
               >
-                Activate
-              </button>
+                Authentication code
+              </label>
+              <div
+                className="css-70qvj9"
+              >
+                <input
+                  autoFocus={true}
+                  className="css-15p77ot txt-f "
+                  id="input-3718645000"
+                  maxLength={6}
+                  name="code"
+                  onChange={[Function]}
+                  pattern="[0-9]*"
+                  size={6}
+                  type="text"
+                  value=""
+                />
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "marginLeft": "1em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                  type="submit"
+                >
+                  Activate
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          className="t--subinfo ta-c"
-        >
-          Didn’t get it?
-           
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="t--subinfo ta-c"
           >
-            Resend the code
-          </button>
-           
-          or
-           
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
-          >
-            try a different number or email
-          </button>
-          .
-        </div>
+            Didn’t get it?
+             
+            <button
+              className="lnk"
+              onClick={[Function]}
+              type="button"
+            >
+              Resend the code
+            </button>
+             
+            or
+             
+            <button
+              className="lnk"
+              onClick={[Function]}
+              type="button"
+            >
+              try a different number or email
+            </button>
+            .
+          </div>
+        </form>
       </div>
     </div>
   </div>,
@@ -4641,88 +4645,91 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal checking the code 1`
         Please pick up! We’re making a phone call to
          
         <strong>
-          (617) 555-1234
+          (xxx) xxx-xx34
         </strong>
         .
       </div>
-      <div
-        className="m-v500"
+      <form
+        onSubmit={[Function]}
       >
         <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
+          className="m-v500"
         >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
+          <div
+            className="txt"
             style={
               Object {
-                "marginTop": 0,
+                "marginBottom": "0.5rem",
               }
             }
           >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-15p77ot txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              size={6}
-              type="text"
-              value="133789"
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
+            <label
+              className="txt-l"
+              htmlFor="input-3718645000"
               style={
                 Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
+                  "marginTop": 0,
                 }
               }
-              type="button"
             >
-              Checking…
-            </button>
+              Authentication code
+            </label>
+            <div
+              className="css-70qvj9"
+            >
+              <input
+                autoFocus={true}
+                className="css-15p77ot txt-f "
+                id="input-3718645000"
+                maxLength={6}
+                name="code"
+                onChange={[Function]}
+                pattern="[0-9]*"
+                size={6}
+                type="text"
+                value="133789"
+              />
+              <button
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "marginLeft": "1em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+                type="submit"
+              >
+                Checking…
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
+        <div
+          className="t--subinfo ta-c"
         >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
+          Didn’t get it?
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            Resend the code
+          </button>
+           
+          or
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            try a different number or email
+          </button>
+          .
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -4747,84 +4754,87 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal incorrect code 1`] =
           That code didn’t seem right. Can you try again?
         </span>
       </div>
-      <div
-        className="m-v500"
+      <form
+        onSubmit={[Function]}
       >
         <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
+          className="m-v500"
         >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
+          <div
+            className="txt"
             style={
               Object {
-                "marginTop": 0,
+                "marginBottom": "0.5rem",
               }
             }
           >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-15p77ot txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              size={6}
-              type="text"
-              value=""
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
+            <label
+              className="txt-l"
+              htmlFor="input-3718645000"
               style={
                 Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
+                  "marginTop": 0,
                 }
               }
-              type="button"
             >
-              Activate
-            </button>
+              Authentication code
+            </label>
+            <div
+              className="css-70qvj9"
+            >
+              <input
+                autoFocus={true}
+                className="css-15p77ot txt-f "
+                id="input-3718645000"
+                maxLength={6}
+                name="code"
+                onChange={[Function]}
+                pattern="[0-9]*"
+                size={6}
+                type="text"
+                value=""
+              />
+              <button
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "marginLeft": "1em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+                type="submit"
+              >
+                Activate
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
+        <div
+          className="t--subinfo ta-c"
         >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
+          Didn’t get it?
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            Resend the code
+          </button>
+           
+          or
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            try a different number or email
+          </button>
+          .
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -4916,90 +4926,94 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for SMS code
       <div
         className="t--intro"
       >
-        Check your phone! We’ve sent a text to 
+        Check your phone! We’ve sent a text to
+         
         <strong>
-          (617) 555-1234
+          (xxx) xxx-xx34
         </strong>
         .
       </div>
-      <div
-        className="m-v500"
+      <form
+        onSubmit={[Function]}
       >
         <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
+          className="m-v500"
         >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
+          <div
+            className="txt"
             style={
               Object {
-                "marginTop": 0,
+                "marginBottom": "0.5rem",
               }
             }
           >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-15p77ot txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              size={6}
-              type="text"
-              value=""
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
+            <label
+              className="txt-l"
+              htmlFor="input-3718645000"
               style={
                 Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
+                  "marginTop": 0,
                 }
               }
-              type="button"
             >
-              Activate
-            </button>
+              Authentication code
+            </label>
+            <div
+              className="css-70qvj9"
+            >
+              <input
+                autoFocus={true}
+                className="css-15p77ot txt-f "
+                id="input-3718645000"
+                maxLength={6}
+                name="code"
+                onChange={[Function]}
+                pattern="[0-9]*"
+                size={6}
+                type="text"
+                value=""
+              />
+              <button
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "marginLeft": "1em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+                type="submit"
+              >
+                Activate
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
+        <div
+          className="t--subinfo ta-c"
         >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
+          Didn’t get it?
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            Resend the code
+          </button>
+           
+          or
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            try a different number or email
+          </button>
+          .
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -5024,84 +5038,87 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for email co
         </strong>
         .
       </div>
-      <div
-        className="m-v500"
+      <form
+        onSubmit={[Function]}
       >
         <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
+          className="m-v500"
         >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
+          <div
+            className="txt"
             style={
               Object {
-                "marginTop": 0,
+                "marginBottom": "0.5rem",
               }
             }
           >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-15p77ot txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              size={6}
-              type="text"
-              value="133789"
-            />
-            <button
-              className="btn"
-              disabled={false}
-              onClick={[Function]}
+            <label
+              className="txt-l"
+              htmlFor="input-3718645000"
               style={
                 Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
+                  "marginTop": 0,
                 }
               }
-              type="button"
             >
-              Activate
-            </button>
+              Authentication code
+            </label>
+            <div
+              className="css-70qvj9"
+            >
+              <input
+                autoFocus={true}
+                className="css-15p77ot txt-f "
+                id="input-3718645000"
+                maxLength={6}
+                name="code"
+                onChange={[Function]}
+                pattern="[0-9]*"
+                size={6}
+                type="text"
+                value="133789"
+              />
+              <button
+                className="btn"
+                disabled={false}
+                style={
+                  Object {
+                    "marginLeft": "1em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+                type="submit"
+              >
+                Activate
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
+        <div
+          className="t--subinfo ta-c"
         >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
+          Didn’t get it?
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            Resend the code
+          </button>
+           
+          or
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            try a different number or email
+          </button>
+          .
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -5123,88 +5140,91 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
         Please pick up! We’re making a phone call to
          
         <strong>
-          (617) 555-1234
+          (xxx) xxx-xx34
         </strong>
         .
       </div>
-      <div
-        className="m-v500"
+      <form
+        onSubmit={[Function]}
       >
         <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
+          className="m-v500"
         >
-          <label
-            className="txt-l"
-            htmlFor="input-3718645000"
+          <div
+            className="txt"
             style={
               Object {
-                "marginTop": 0,
+                "marginBottom": "0.5rem",
               }
             }
           >
-            Authentication code
-          </label>
-          <div
-            className="css-70qvj9"
-          >
-            <input
-              autoFocus={true}
-              className="css-15p77ot txt-f "
-              id="input-3718645000"
-              maxLength={6}
-              name="code"
-              onChange={[Function]}
-              pattern="[0-9]*"
-              size={6}
-              type="text"
-              value=""
-            />
-            <button
-              className="btn"
-              disabled={true}
-              onClick={[Function]}
+            <label
+              className="txt-l"
+              htmlFor="input-3718645000"
               style={
                 Object {
-                  "marginLeft": "1em",
-                  "whiteSpace": "nowrap",
+                  "marginTop": 0,
                 }
               }
-              type="button"
             >
-              Activate
-            </button>
+              Authentication code
+            </label>
+            <div
+              className="css-70qvj9"
+            >
+              <input
+                autoFocus={true}
+                className="css-15p77ot txt-f "
+                id="input-3718645000"
+                maxLength={6}
+                name="code"
+                onChange={[Function]}
+                pattern="[0-9]*"
+                size={6}
+                type="text"
+                value=""
+              />
+              <button
+                className="btn"
+                disabled={true}
+                style={
+                  Object {
+                    "marginLeft": "1em",
+                    "whiteSpace": "nowrap",
+                  }
+                }
+                type="submit"
+              >
+                Activate
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className="t--subinfo ta-c"
-      >
-        Didn’t get it?
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
+        <div
+          className="t--subinfo ta-c"
         >
-          Resend the code
-        </button>
-         
-        or
-         
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
-        >
-          try a different number or email
-        </button>
-        .
-      </div>
+          Didn’t get it?
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            Resend the code
+          </button>
+           
+          or
+           
+          <button
+            className="lnk"
+            onClick={[Function]}
+            type="button"
+          >
+            try a different number or email
+          </button>
+          .
+        </div>
+      </form>
     </div>
   </div>
 </div>
