@@ -15,6 +15,7 @@ export interface App {
   description: string;
   // null groups means "everyone can see this"
   groups: string[] | null;
+  newWindow: boolean;
 }
 
 export default class AppsRegistry {
@@ -41,7 +42,7 @@ export default class AppsRegistry {
       }
 
       const apps: App[] = yamlApps.map(a => {
-        const { title, url, groups, description, icon } = a;
+        const { title, url, groups, description, icon, new_window } = a;
 
         if (!title || typeof title !== 'string') {
           throw new Error('App missing a title: ' + JSON.stringify(a));
@@ -61,6 +62,7 @@ export default class AppsRegistry {
           iconUrl: icon,
           description: description || '',
           groups: groups || null,
+          newWindow: new_window || false,
         };
       });
 

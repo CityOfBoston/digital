@@ -288,7 +288,7 @@ export default class SamlAuth {
           firstName: (attributes.FirstName && attributes.FirstName[0]) || '',
           lastName: (attributes.LastName && attributes.LastName[0]) || '',
           email: (attributes.email && attributes.email[0]) || '',
-          groups: parseGroupsAttribute(attributes.groups || []),
+          groups: attributes.groups || [],
           needsNewPassword: attributeIsTrue(attributes.changePasswordRequired),
           needsMfaDevice: attributeIsTrue(attributes.mfaRegistrationRequired),
           userAccessToken:
@@ -360,22 +360,6 @@ export default class SamlAuth {
       );
     });
   }
-}
-
-export function parseGroupsAttribute(groupsAttribute: string[]): string[] {
-  // attr here is something like
-  // "cn=SG_AB_SERVICEDESK_USERS,cn=Groups,dc=boston,dc=cob"
-  return groupsAttribute
-    .map(attr => {
-      const firstGroupPiece = attr.split(',')[0];
-      if (!firstGroupPiece) {
-        return '';
-      }
-
-      const commonNameMatch = firstGroupPiece.match(/cn=(.*)/);
-      return (commonNameMatch && commonNameMatch[1]) || '';
-    })
-    .filter(s => !!s);
 }
 
 const attributeIsTrue = (attr: string[] | undefined): boolean =>

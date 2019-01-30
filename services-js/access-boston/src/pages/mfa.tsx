@@ -242,6 +242,7 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
           )}
         />
 
+        {/* TODO(fiona): This needs to go through a single-sign out flow */}
         <RedirectForm ref={this.doneRedirectRef} path="/done" />
       </>
     );
