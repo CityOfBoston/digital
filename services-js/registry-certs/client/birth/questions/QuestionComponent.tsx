@@ -36,6 +36,18 @@ export default function QuestionComponent(props: Props): JSX.Element {
                 {props.nextButtonText || 'Next question'}
               </button>
             )}
+
+          {/* Button only appears if handler was passed in AND props.startOver is true. */}
+          {props.handleReset &&
+            props.startOver && (
+              <button
+                type="button"
+                className="btn btn--b-sm btn--br btn--w"
+                onClick={props.handleReset}
+              >
+                Start over
+              </button>
+            )}
         </div>
 
         <div className="g--6 m-b500">
@@ -48,18 +60,6 @@ export default function QuestionComponent(props: Props): JSX.Element {
               Back
             </button>
           )}
-
-          {/* Button only appears if handler was passed in AND props.startOver is true. */}
-          {props.handleReset &&
-            props.startOver && (
-              <button
-                type="button"
-                className="btn btn--b-sm btn--br btn--w"
-                onClick={props.handleReset}
-              >
-                Back to start
-              </button>
-            )}
         </div>
       </div>
     </>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 
 import RadioItemComponent from '../RadioItemComponent';
 import QuestionComponent from './QuestionComponent';
@@ -6,6 +7,7 @@ import FieldsetComponent from './FieldsetComponent';
 import RelatedIcon from '../icons/RelatedIcon';
 
 import { Relation } from '../../types';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 import {
   HOW_RELATED_CONTAINER_STYLING,
@@ -15,58 +17,49 @@ import {
 } from '../styling';
 
 interface Props {
-  forSelf: boolean | null;
-  howRelated?: Relation;
-
-  handleStepCompletion: (isStepComplete: boolean) => void;
-  handleProceed: (answers: State) => void;
-}
-
-interface State {
-  forSelf: string;
-  howRelated?: Relation;
+  birthCertificateRequest: BirthCertificateRequest;
+  handleProceed: () => void;
 }
 
 /**
  * Initial question of the workflow. If the user is not requesting their
  * own record, the howRelated question is also asked.
  */
-export default class ForWhom extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      forSelf: props.forSelf !== null ? props.forSelf.toString() : '',
-      howRelated: props.howRelated,
-    };
-
-    props.handleStepCompletion(!!(props.forSelf === true || props.howRelated));
+@observer
+export default class ForWhom extends React.Component<Props> {
+  public static isComplete(
+    birthCertificateRequest: BirthCertificateRequest
+  ): boolean {
+    const { forSelf, howRelated } = birthCertificateRequest.requestInformation;
+    return !!(forSelf === true || howRelated);
   }
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-      } as any,
-      () => {
-        this.props.handleStepCompletion(this.allowProceed());
-      }
-    );
+  private handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    const { birthCertificateRequest } = this.props;
+    birthCertificateRequest.answerQuestion({
+      [ev.currentTarget.name]: ev.currentTarget.value,
+    });
   };
 
-  // Shows progress for this step.
-  private allowProceed(): boolean {
-    return !!(this.state.forSelf === 'true' || this.state.howRelated);
-  }
+  private handleBooleanChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    const { birthCertificateRequest } = this.props;
+    birthCertificateRequest.answerQuestion({
+      [ev.currentTarget.name]: ev.currentTarget.value === 'true',
+    });
+  };
 
   private relationQuestion(
     answerValue: Relation,
     questionDisplayText: string
   ): React.ReactChild {
+    const {
+      requestInformation: { howRelated },
+    } = this.props.birthCertificateRequest;
+
     return (
       <RadioItemComponent
         questionName="howRelated"
-        questionValue={this.state.howRelated}
+        questionValue={howRelated}
         itemValue={answerValue}
         labelText={questionDisplayText}
         className={RADIOITEM_STYLING}
@@ -78,10 +71,15 @@ export default class ForWhom extends React.Component<Props, State> {
   }
 
   public render() {
+    const { birthCertificateRequest, handleProceed } = this.props;
+    const { forSelf } = birthCertificateRequest.requestInformation;
+
+    const forSelfValue: string = forSelf === null ? '' : forSelf.toString();
+
     return (
       <QuestionComponent
-        handleProceed={() => this.props.handleProceed(this.state)}
-        allowProceed={this.allowProceed()}
+        handleProceed={handleProceed}
+        allowProceed={ForWhom.isComplete(birthCertificateRequest)}
       >
         <FieldsetComponent
           legendText={
@@ -97,29 +95,29 @@ export default class ForWhom extends React.Component<Props, State> {
           >
             <RadioItemComponent
               questionName="forSelf"
-              questionValue={this.state.forSelf}
+              questionValue={forSelfValue}
               itemValue="true"
               labelText="Myself"
               className={RADIOITEM_STYLING}
-              handleChange={this.handleChange}
+              handleChange={this.handleBooleanChange}
             >
               <RelatedIcon name="myself" />
             </RadioItemComponent>
 
             <RadioItemComponent
               questionName="forSelf"
-              questionValue={this.state.forSelf}
+              questionValue={forSelfValue}
               itemValue="false"
               labelText="Someone else"
               className={RADIOITEM_STYLING}
-              handleChange={this.handleChange}
+              handleChange={this.handleBooleanChange}
             >
               <RelatedIcon name="someoneElse" />
             </RadioItemComponent>
           </div>
         </FieldsetComponent>
 
-        {this.state.forSelf === 'false' && (
+        {forSelf === false && (
           <FieldsetComponent
             legendText={
               <h3 id="howRelated" className={SECTION_HEADING_STYLING}>

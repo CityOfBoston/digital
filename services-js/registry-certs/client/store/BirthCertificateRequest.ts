@@ -1,4 +1,5 @@
-import { action, observable } from 'mobx';
+import { action, observable, computed } from 'mobx';
+import 'core-js/fn/object/assign';
 
 import { BirthCertificateRequestInformation, Step } from '../types';
 
@@ -22,11 +23,16 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   parent2LastName: '',
 };
 
-export const DEFAULT_STEPS: Step[] = [
+export const QUESTION_STEPS: Step[] = [
   'forWhom',
   'bornInBoston',
   'personalInformation',
   'parentalInformation',
+];
+
+export const VERIFY_IDENTIFICATION_STEPS: Step[] = ['verifyIdentification'];
+
+export const CHECKOUT_STEPS: Step[] = [
   'reviewRequest',
   'shippingInformation',
   'billingInformation',
@@ -50,64 +56,109 @@ export const DEFAULT_STEPS: Step[] = [
  */
 export default class BirthCertificateRequest {
   @observable quantity: number = 1;
-  @observable steps: Step[] = DEFAULT_STEPS;
-  @observable currentStepCompleted: boolean = false;
+
   @observable
   requestInformation: Readonly<
     BirthCertificateRequestInformation
   > = INITIAL_REQUEST_INFORMATION;
+
+  @computed
+  public get steps(): Step[] {
+    const { forSelf, howRelated } = this.requestInformation;
+
+    if (!forSelf && howRelated === 'client') {
+      return ['forWhom', 'clientInstructions'];
+    } else {
+      return [
+        ...QUESTION_STEPS,
+        ...(this.needsIdentityVerification ? VERIFY_IDENTIFICATION_STEPS : []),
+        ...CHECKOUT_STEPS,
+      ];
+    }
+  }
+
+  @computed
+  public get needsIdentityVerification(): boolean {
+    const { parentsMarried } = this.requestInformation;
+    return !!(parentsMarried && parentsMarried !== 'yes');
+  }
 
   @action
   public setQuantity(newQuantity: number): void {
     this.quantity = newQuantity;
   }
 
-  @action
-  public setCurrentStepCompleted = (isCompleted: boolean): void => {
-    this.currentStepCompleted = isCompleted;
-  };
-
-  @action
-  public addVerificationStep = (): void => {
-    const targetIndex = this.steps.indexOf('parentalInformation') + 1;
-
-    // Normally would avoid mutation, but if we replace the variable with a
-    // new array, the progress bar loses its steps information.
-    if (!this.steps.includes('verifyIdentification')) {
-      this.steps.splice(targetIndex, 0, 'verifyIdentification');
-    }
-  };
-
-  @action
-  public removeVerificationStep = (): void => {
-    const targetIndex = this.steps.indexOf('verifyIdentification');
-
-    // See comment directly above ^^
-    if (this.steps.includes('verifyIdentification')) {
-      this.steps.splice(targetIndex, 1);
-    }
-  };
-
-  @action
-  public verificationStepRequired = (mustVerify: boolean): void => {
-    mustVerify ? this.addVerificationStep() : this.removeVerificationStep();
-  };
-
   // A user’s answer may span several fields:
   @action
-  public answerQuestion = (
+  public answerQuestion(
     answers: Partial<BirthCertificateRequestInformation>
-  ): void => {
+  ): void {
     this.requestInformation = {
       ...this.requestInformation,
       ...answers,
     };
-  };
+  }
 
   @action
   public clearBirthCertificateRequest(): void {
     this.quantity = 0;
-    this.steps = DEFAULT_STEPS;
     this.requestInformation = INITIAL_REQUEST_INFORMATION;
+  }
+
+  /**
+   * Use this to make a copy that you can modify without changing the global
+   * BirthCertificateRequest.
+   */
+  public clone(): BirthCertificateRequest {
+    return Object.assign(new BirthCertificateRequest(), this);
+  }
+
+  /**
+   * Use this to move any changes from a local BirthCertificateRequest, created
+   * with clone(), to the global BirthCertificateRequest.
+   */
+  @action
+  public updateFrom(req: BirthCertificateRequest) {
+    Object.assign(this, req);
+  }
+
+  /**
+   * True if, based on the user’s answers to whether or not they were born in
+   * Boston and whether or not their parents lived in Boston, we don’t have the
+   * birth certificate.
+   */
+  @computed
+  public get definitelyDontHaveRecord(): boolean {
+    const { bornInBoston, parentsLivedInBoston } = this.requestInformation;
+
+    return bornInBoston === 'no' && parentsLivedInBoston === 'no';
+  }
+
+  /**
+   * True if we might not have the birth certificate based on the user’s answers
+   * to whether they were born in Boston and whether their parents lived here.
+   *
+   * Will always return false if definitelyDontHaveRecord returns true.
+   */
+  @computed
+  public get mightNotHaveRecord(): boolean {
+    const { bornInBoston, parentsLivedInBoston } = this.requestInformation;
+
+    return (
+      !!(
+        bornInBoston !== '' &&
+        bornInBoston !== 'yes' &&
+        parentsLivedInBoston !== '' &&
+        parentsLivedInBoston !== 'yes'
+      ) && !this.definitelyDontHaveRecord
+    );
+  }
+
+  // Unless user has specified that the parents were married at the time of
+  // birth, we must inform the user that the record may be restricted.
+  @computed
+  public get mayBeRestricted(): boolean {
+    const { parentsMarried } = this.requestInformation;
+    return parentsMarried === 'no' || parentsMarried === 'unknown';
   }
 }

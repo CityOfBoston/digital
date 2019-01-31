@@ -1,72 +1,128 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { BirthCertificateRequestInformation } from '../types';
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
 
 import QuestionsPage from './QuestionsPage';
-import ForWhom from './questions/ForWhom';
-import PersonalInformation from './questions/PersonalInformation';
-import BornInBoston from './questions/BornInBoston';
-import ParentalInformation from './questions/ParentalInformation';
-import VerifyIdentification from './questions/VerifyIdentification';
 
-const birthCertificateRequest = new BirthCertificateRequest();
+function makeBirthCertificateRequest(
+  answers: Partial<BirthCertificateRequestInformation> = {}
+): BirthCertificateRequest {
+  const birthCertificateRequest = new BirthCertificateRequest();
+  birthCertificateRequest.answerQuestion(answers);
+  return birthCertificateRequest;
+}
 
-storiesOf('Birth/QuestionsFlow', module)
-  .add('QuestionsPage', () => (
+storiesOf('Birth/QuestionsFlow/1. Who is this for?', module)
+  .add('blank', () => (
     <QuestionsPage
-      birthCertificateRequest={birthCertificateRequest}
-      currentStep={'forWhom'}
+      currentStep="forWhom"
+      birthCertificateRequest={makeBirthCertificateRequest()}
     />
   ))
-  .add('who is this for?', () => (
-    <div className="b-c b-c--nbp b-c--hsm">
-      <ForWhom
-        forSelf={null}
-        handleProceed={() => {}}
-        handleStepCompletion={() => {}}
-      />
-    </div>
-  ))
-  .add('born in Boston?', () => (
-    <div className="b-c b-c--nbp b-c--hsm">
-      <BornInBoston
-        forSelf={true}
-        handleProceed={() => {}}
-        handleStepCompletion={() => {}}
-        handleStepBack={() => {}}
-        handleUserReset={() => {}}
-      />
-    </div>
-  ))
-  .add('personal information', () => (
-    <div className="b-c b-c--nbp b-c--hsm">
-      <PersonalInformation
-        forSelf={true}
-        handleProceed={() => {}}
-        handleStepCompletion={() => {}}
-        handleStepBack={() => {}}
-      />
-    </div>
-  ))
-  .add('parental information', () => (
-    <div className="b-c b-c--nbp b-c--hsm">
-      <ParentalInformation
-        forSelf={false}
-        firstName="Stacy"
-        handleProceed={() => {}}
-        handleStepCompletion={() => {}}
-        handleStepBack={() => {}}
-        verificationStepRequired={() => {}}
-      />
-    </div>
-  ))
-  .add('verify identification', () => (
-    <div className="b-c b-c--nbp b-c--hsm">
-      <VerifyIdentification
-        handleStepCompletion={() => {}}
-        handleProceed={() => {}}
-        handleStepBack={() => {}}
-      />
-    </div>
+  .add('for someone else', () => (
+    <QuestionsPage
+      currentStep="forWhom"
+      birthCertificateRequest={makeBirthCertificateRequest({ forSelf: false })}
+    />
   ));
+
+storiesOf('Birth/QuestionsFlow/1a. Client instructions', module).add(
+  'default',
+  () => (
+    <QuestionsPage
+      currentStep="clientInstructions"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: false,
+        howRelated: 'client',
+      })}
+    />
+  )
+);
+
+storiesOf('Birth/QuestionsFlow/2. Born in Boston?', module)
+  .add('blank', () => (
+    <QuestionsPage
+      currentStep="bornInBoston"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+      })}
+    />
+  ))
+  .add('maybe no', () => (
+    <QuestionsPage
+      currentStep="bornInBoston"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+        bornInBoston: 'unknown',
+        parentsLivedInBoston: 'unknown',
+      })}
+    />
+  ))
+  .add('hard no', () => (
+    <QuestionsPage
+      currentStep="bornInBoston"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+        bornInBoston: 'no',
+        parentsLivedInBoston: 'no',
+      })}
+    />
+  ));
+
+storiesOf('Birth/QuestionsFlow/3. Personal information', module).add(
+  'blank',
+  () => (
+    <QuestionsPage
+      currentStep="personalInformation"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+      })}
+    />
+  )
+);
+
+storiesOf('Birth/QuestionsFlow/4. Parental information', module)
+  .add('blank', () => (
+    <QuestionsPage
+      currentStep="parentalInformation"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: false,
+        firstName: 'Stacy',
+      })}
+    />
+  ))
+  .add('may be restricted (self)', () => (
+    <QuestionsPage
+      currentStep="parentalInformation"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+        firstName: 'Stacy',
+        parentsMarried: 'no',
+      })}
+    />
+  ))
+  .add('may be restricted (other)', () => (
+    <QuestionsPage
+      currentStep="parentalInformation"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: false,
+        firstName: 'Stacy',
+        parentsMarried: 'unknown',
+      })}
+    />
+  ));
+
+storiesOf('Birth/QuestionsFlow/5. Identity verification', module).add(
+  'blank',
+  () => (
+    <QuestionsPage
+      currentStep="verifyIdentification"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+        parentsMarried: 'no',
+      })}
+    />
+  )
+);

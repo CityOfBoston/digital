@@ -1,5 +1,7 @@
 import React from 'react';
 
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+
 import VerifyIdentificationComponent from '../VerifyIdentificationComponent';
 import QuestionComponent from './QuestionComponent';
 import RadioItemComponent from '../RadioItemComponent';
@@ -13,8 +15,8 @@ import {
 } from '../styling';
 
 interface Props {
-  handleStepCompletion: (isStepComplete: boolean) => void;
-  handleProceed: (answers: State) => void;
+  birthCertificateRequest: BirthCertificateRequest;
+  handleProceed: () => void;
   handleStepBack: () => void;
 }
 
@@ -26,31 +28,14 @@ export default class VerifyIdentification extends React.Component<
   Props,
   State
 > {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      hasId: '',
-    };
-  }
-
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState(
-      {
-        hasId: event.target.value,
-      } as any,
-      () => {
-        this.props.handleStepCompletion(this.state.hasId === 'yes');
-      }
-    );
+  state: State = {
+    hasId: '',
   };
 
-  private handleStepBack = (): void => {
-    if (this.state.hasId === 'no') {
-      this.setState({ hasId: '' });
-    } else {
-      this.props.handleStepBack();
-    }
+  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    this.setState({
+      hasId: event.target.value as any,
+    });
   };
 
   private requestHelp = (): void => {
@@ -63,9 +48,9 @@ export default class VerifyIdentification extends React.Component<
     return (
       <QuestionComponent
         handleProceed={
-          noId ? this.requestHelp : () => this.props.handleProceed(this.state)
+          noId ? this.requestHelp : () => this.props.handleProceed()
         }
-        handleStepBack={this.handleStepBack}
+        handleStepBack={this.props.handleStepBack}
         allowProceed={this.state.hasId.length > 0}
         nextButtonText={noId ? 'Request help' : 'Review request'}
       >
