@@ -10,7 +10,7 @@
     "build:server": "tsc -p tsconfig.server.json",
     "build:next": "next build src",
     "dev": "npm run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"npm run start\"",
-    "storybook": "start-storybook -p 9001",
+    "storybook": "start-storybook -p 9001 -s static",
     "watch-dependencies": "lerna run --parallel --scope access-boston --include-filtered-dependencies watch",
     "prepare": "npm run build",
     "start": "node build/server/start",

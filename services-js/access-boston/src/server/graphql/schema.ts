@@ -16,7 +16,7 @@ import Boom from 'boom';
 
 import { Resolvers } from '@cityofboston/graphql-typescript';
 
-import AppsRegistry from '../services/AppsRegistry';
+import AppsRegistry from '../../lib/AppsRegistry';
 import Session from '../Session';
 import IdentityIq from '../services/IdentityIq';
 import PingId, { VerificationType } from '../services/PingId';

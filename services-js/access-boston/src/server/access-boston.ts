@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { promisify } from 'util';
 
 import { Server as HapiServer } from 'hapi';
 import Inert from 'inert';
@@ -43,13 +44,15 @@ import graphqlSchema, { Context } from './graphql/schema';
 
 import IdentityIq from './services/IdentityIq';
 import IdentityIqFake from './services/IdentityIqFake';
-import AppsRegistry, { makeAppsRegistry } from './services/AppsRegistry';
+import AppsRegistry, { makeAppsRegistry } from '../lib/AppsRegistry';
 
 import { addLoginAuth } from './login-auth';
 import { addForgotPasswordAuth } from './forgot-password-auth';
 import Session from './Session';
 import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
+
+const readFile = promisify(fs.readFile);
 
 const PATH_PREFIX = '';
 const FORGOT_PASSWORD_PATH = '/forgot';
@@ -100,9 +103,12 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   const appsRegistry = await (process.env.NODE_ENV === 'production' ||
   (dev && fs.existsSync('./apps.yaml'))
-    ? makeAppsRegistry('./apps.yaml')
+    ? makeAppsRegistry(await readFile('./apps.yaml', 'utf-8'))
     : makeAppsRegistry(
-        path.resolve(__dirname, '../../fixtures/apps.yaml'),
+        await readFile(
+          path.resolve(__dirname, '../../fixtures/apps.yaml'),
+          'utf-8'
+        ),
         process.env.NODE_ENV !== 'test'
       ));
 

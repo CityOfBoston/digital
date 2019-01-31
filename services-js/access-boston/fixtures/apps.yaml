@@ -3,20 +3,6 @@ categories:
     show_request_access_link: true
     icons: true
     apps:
-      - title: The Hub
-        url: https://hub.boston.gov/
-      - title: Employee Self-Service
-        url: https://ess.boston.gov/
-        groups:
-          - SG_AB_ESS
-      - title: Employee Connect
-        url: https://employeeconnect-boston.icims.com/
-        groups:
-          - SG_AB_ICIMS
-      - title: My Learning Plan
-        url: https://login.frontlineeducation.com/
-        groups:
-          - SG_AB_MLP
       - title: BAIS FN
         url: https://baisfn.cityhall.boston.cob/
         groups:
@@ -25,49 +11,83 @@ categories:
         url: https://hcm.cityhall.boston.cob/
         groups:
           - SG_AB_PSHCM
-      - title: Hyperion
-        url: https://login.us2.oraclecloud.com/
-        icon: /static/apps/hyperion.png
-        groups:
-          - SG_AB_HYPERION
       - title: Boston Maps
         url: https://boston.maps.arcgis.com/
-        icon: /static/apps/boston-maps.png
+        icon: /assets/apps/boston-maps.png
+      - title: Employee Connect
+        url: https://employeeconnect-boston.icims.com/
+        groups:
+          - SG_AB_ICIMS
+      - title: Employee Self-Service
+        url: https://ess.boston.gov/
+        groups:
+          - SG_AB_ESS
+      - title: The Hub
+        url: https://edit-dev-hub.boston.gov/user
+      - title: Hyperion
+        url: https://login.us2.oraclecloud.com/
+        icon: /assets/apps/hyperion.png
+        groups:
+          - SG_AB_HYPERION
+      - title: IIQ
+        url: https://identity.boston.gov/identityiq/
+        icon: /assets/apps/identityiq.jpg
+        groups:
+          - SG_AB_IAM_TEAM
+      - title: My Learning Plan
+        url: https://login.frontlineeducation.com/
+        groups:
+          - SG_AB_MLP
+      - title: BPS TalentEd
+        url: https://bostonpublicschools.tedk12.com/hire/index.aspx
+        icon: /assets/apps/talented.png
+        groups:
+          - TODO_MAKE_THIS_GROUP
 
-  - title: Forms
+  - title: Forms / Links
     apps:
-      - title: Building Maintenance
-        url: https://eamtst.cityhall.boston.cob:5443/WebMaint/
+      - title: Create Sponsored Account
+        url: https://identity.boston.gov/identityiq/createSponsor.jsf
       - title: FleetHub
         url: http://boston.getlocalmotion.com/
       - title: International Travel
         url: https://goo.gl/forms/Xobh9aZeGXSnKH2m2
       - title: Unblock Website Request
         url: https://boston.seamlessdocs.com/f/geol18cumhw
-
-  - title: Account Tools
-    apps:
-      - title: Change Password
-        url: /change-password
-      - title: Change MFA Device or Email Address
-        url: https://identity.boston.gov/identityiq/changePassword.jsf
-        new_window: true
-      - title: Create Sponsored Account
-        url: https://identity.boston.gov/identityiq/createSponsor.jsf
-        groups:
-          - SG_AB_SPONSOR
-      - title: Manage Sponsored Account
-        url: https://identity.boston.gov/identityiq/extendSponsor.jsf
-        groups:
-          - SG_AB_SPONSOR
-      - title: Identity Verification
-        url: https://identity.boston.gov/identityiq/identityVerification.jsf
-        groups:
-          - SG_AB_SERVICEDESK_USERS
+      - title: Building Maintenance
+        url: https://eamtst.cityhall.boston.cob:5443/WebMaint/
       - title: Request FN Access
         url: https://identity.boston.gov/identityiq/requestPsfn.jsf
         groups:
           - SG_AB_FIN_LIASONS_USERS
+
+  - title: Account Tools
+    apps:
+      - title: Change My Password
+        url: /change-password
+      - title: Manage My Device(s)
+        url: https://desktop.pingone.com/boston-dev/Selection?cmd=devices
+        new_window: true
+      - title: Request Access
+        url: https://identity.boston.gov/identityiq/accessRequest/accessRequest.
+
+  - title: Support Tools
+    apps:
+      - title: Identity Verification
+        url: https://identity.boston.gov/identityiq/identityVerification.jsf
+        groups:
+          - SG_AB_SERVICEDESK_USERS
+      - title: View User Information
+        url: https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly
+        groups:
+          - SG_AB_SERVICEDESK_USERS
+      - title: Edit Group
+        url: "#"
+        groups:
+          - SG_AB_HCMSECURITY
+
+  - title: Manager Tools
+    apps:
       - title: Set a Delegate
         url: https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf
         groups:
@@ -80,7 +100,7 @@ categories:
           - SG_AB_MANAGER
           - SG_AB_TRAINING_TEAM
           - SG_AB_FIN_LIASONS_USERS
-      - title: Edit Group
-        url: "#"
+      - title: Manage Sponsored Account
+        url: https://identity.boston.gov/identityiq/extendSponsor.jsf
         groups:
-          - SG_AB_HCMSECURITY
+          - SG_AB_SPONSOR

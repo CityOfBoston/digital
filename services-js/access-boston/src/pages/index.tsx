@@ -6,6 +6,7 @@ import {
   SectionHeader,
   PUBLIC_CSS_URL,
   CHARLES_BLUE,
+  MEDIA_LARGE_MAX,
 } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
@@ -36,6 +37,13 @@ interface Props {
 const APP_ROW_STYLE = css({
   display: 'inline-block',
   verticalAlign: 'middle',
+});
+
+const APP_IMAGE_STYLE = css({
+  objectFit: 'contain',
+  [MEDIA_LARGE_MAX]: {
+    maxHeight: 84,
+  },
 });
 
 export default class IndexPage extends React.Component<Props> {
@@ -159,13 +167,13 @@ export default class IndexPage extends React.Component<Props> {
               className="lwi m-t200 g--3 g--3--sl"
               target={newWindow ? '_blank' : '_self'}
             >
-              <span className="lwi-ic" style={{ width: 'auto' }}>
+              <span className="lwi-ic">
                 <img
                   src={
                     iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'
                   }
                   alt=""
-                  className="lwi-i"
+                  className={`lwi-i ${APP_IMAGE_STYLE}`}
                 />
               </span>
               <span className="lwi-t">{title}</span>
