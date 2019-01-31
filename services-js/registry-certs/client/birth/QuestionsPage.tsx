@@ -6,6 +6,12 @@ import { observer } from 'mobx-react';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 
+import { Step } from '../types';
+
+import BirthCertificateRequest, {
+  QUESTION_STEPS,
+} from '../store/BirthCertificateRequest';
+
 import PageWrapper from './PageWrapper';
 
 import ForWhom from './questions/ForWhom';
@@ -13,9 +19,7 @@ import BornInBoston from './questions/BornInBoston';
 import PersonalInformation from './questions/PersonalInformation';
 import ParentalInformation from './questions/ParentalInformation';
 import VerifyIdentification from './questions/VerifyIdentification';
-
-import { BirthCertificateRequestInformation, Step } from '../types';
-import { DEFAULT_STEPS } from '../store/BirthCertificateRequest';
+import ClientInstructions from './questions/ClientInstructions';
 
 interface InitialProps {
   currentStep: Step;
@@ -25,6 +29,19 @@ interface Props
   extends InitialProps,
     Pick<PageDependencies, 'birthCertificateRequest'> {}
 
+interface State {
+  /**
+   * This is a clone of the request that we can modify locally. Lets us use its
+   * @calculated helpers to drive the UI while making sure we only modify the
+   * actual request when the user clicks "Next".
+   */
+  localBirthCertificateRequest: BirthCertificateRequest;
+  /**
+   * Saved here so that getDerivedStateFromProps knows when we switch pages. (It
+   * doesn’t receive prevProps.)
+   */
+  currentStep: Step;
+}
 /**
  * Guides the user through a number of questions, step by step, in order to
  * provide the Registry with the information they will need to locate the
@@ -33,38 +50,57 @@ interface Props
  * User will progress to /review upon completion of this workflow.
  */
 @observer
-export default class QuestionsPage extends React.Component<Props> {
+export default class QuestionsPage extends React.Component<Props, State> {
   static getInitialProps: GetInitialProps<InitialProps, 'query' | 'res'> = ({
     res,
     query,
   }) => {
-    // The lookup into DEFAULT_STEPS ensures that we get an actual step.
-    const currentStepIndex = DEFAULT_STEPS.indexOf(
-      (query['step'] as any) || DEFAULT_STEPS[0]
-    );
-
     // We only allow the first step for server-side rendering. This means
     // that we don’t have to accommodate someone manually changing the
     // URL to a step ahead of what they’ve filled out.
-    if (res && currentStepIndex !== 0) {
+    if (res && query['step']) {
       res.writeHead(302, { Location: '/birth' });
       res.end();
 
       // Need to return something for type safety, but Next.js will halt
       // rendering once it sees that the response has been written.
       return {
-        currentStep: DEFAULT_STEPS[0],
+        currentStep: QUESTION_STEPS[0],
       };
     }
-
-    if (currentStepIndex === -1) {
-      throw new Error(`Unknown step ${query['step']}`);
-    }
-
     return {
-      currentStep: DEFAULT_STEPS[currentStepIndex],
+      // if the "step" parameter isn't a valid Step we just render a blank page,
+      // which isn’t a big deal.
+      currentStep: (query['step'] as Step) || QUESTION_STEPS[0],
     };
   };
+
+  // We cast this lifecycle event to any because the @observer type
+  // signature is not compatible with using Props / State type annotations
+  static getDerivedStateFromProps: any = (
+    props: Readonly<Props>,
+    state: Readonly<State>
+  ): Partial<State> | null => {
+    // When the step changes we create a new clone of the request for us to play
+    // with. We'll update the original, global request when the user submits.
+    if (props.currentStep !== state.currentStep) {
+      return {
+        currentStep: props.currentStep,
+        localBirthCertificateRequest: props.birthCertificateRequest.clone(),
+      };
+    } else {
+      return null;
+    }
+  };
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      localBirthCertificateRequest: props.birthCertificateRequest.clone(),
+      currentStep: props.currentStep,
+    };
+  }
 
   componentDidMount() {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -76,36 +112,27 @@ export default class QuestionsPage extends React.Component<Props> {
     }
   }
 
-  private answerQuestion = (
-    question: Step,
-    answers: Partial<BirthCertificateRequestInformation>
-  ): void => {
-    const { answerQuestion, steps } = this.props.birthCertificateRequest;
-    const currentIndex = steps.indexOf(question);
+  private advanceQuestion = () => {
+    const { currentStep, birthCertificateRequest } = this.props;
+    const { localBirthCertificateRequest } = this.state;
 
-    // We need to convert this value to a boolean for the request state object.
-    if (question === 'forWhom') {
-      answerQuestion({
-        ...answers,
-        forSelf: answers.forSelf === ('true' as any),
-      });
-    } else {
-      answerQuestion(answers);
+    birthCertificateRequest.updateFrom(localBirthCertificateRequest);
+
+    // Have to do this after updateFrom because the answers to questions can
+    // affect the steps.
+    const newSteps = birthCertificateRequest.steps;
+    const currentIndex = newSteps.indexOf(currentStep);
+
+    if (currentIndex < 0) {
+      throw new Error(`Step ${currentStep} not found in new steps`);
     }
 
-    // If ID verification is not known to be necessary, advance to the
-    // review page.
-    // Otherwise, continue to verifyIdentification step. When completed,
-    // then advance to the review page.
-    if (
-      question === 'parentalInformation' &&
-      !steps.includes('verifyIdentification')
-    ) {
-      Router.push('/birth/review');
-    } else if (question === 'verifyIdentification') {
+    const nextStep = newSteps[currentIndex + 1];
+
+    if (nextStep === 'reviewRequest') {
       Router.push('/birth/review');
     } else {
-      Router.push(`/birth?step=${steps[currentIndex + 1]}`);
+      Router.push(`/birth?step=${nextStep}`);
     }
   };
 
@@ -127,78 +154,95 @@ export default class QuestionsPage extends React.Component<Props> {
   };
 
   public render() {
-    const {
-      birthCertificateRequest: {
-        requestInformation: answers,
-        steps,
-        currentStepCompleted,
-        setCurrentStepCompleted,
-      },
-      currentStep,
-    } = this.props;
+    const { currentStep } = this.props;
+    const { localBirthCertificateRequest } = this.state;
+
+    let isStepComplete: boolean = false;
+    let questionsEl: React.ReactNode = null;
+
+    switch (currentStep) {
+      case 'forWhom':
+        isStepComplete = ForWhom.isComplete(localBirthCertificateRequest);
+        questionsEl = (
+          <ForWhom
+            birthCertificateRequest={localBirthCertificateRequest}
+            handleProceed={this.advanceQuestion}
+          />
+        );
+        break;
+
+      case 'clientInstructions':
+        isStepComplete = true;
+        questionsEl = (
+          <ClientInstructions handleStepBack={this.stepBackOneQuestion} />
+        );
+        break;
+
+      case 'bornInBoston':
+        isStepComplete = BornInBoston.isComplete(localBirthCertificateRequest);
+        questionsEl = (
+          <BornInBoston
+            birthCertificateRequest={localBirthCertificateRequest}
+            handleProceed={this.advanceQuestion}
+            handleStepBack={this.stepBackOneQuestion}
+            handleUserReset={this.handleUserReset}
+          />
+        );
+        break;
+
+      case 'personalInformation':
+        isStepComplete = PersonalInformation.isComplete(
+          localBirthCertificateRequest
+        );
+        questionsEl = (
+          <PersonalInformation
+            birthCertificateRequest={localBirthCertificateRequest}
+            handleProceed={this.advanceQuestion}
+            handleStepBack={this.stepBackOneQuestion}
+          />
+        );
+        break;
+
+      case 'parentalInformation':
+        isStepComplete = ParentalInformation.isComplete(
+          localBirthCertificateRequest
+        );
+        questionsEl = (
+          <ParentalInformation
+            birthCertificateRequest={localBirthCertificateRequest}
+            handleProceed={this.advanceQuestion}
+            handleStepBack={this.stepBackOneQuestion}
+          />
+        );
+        break;
+
+      case 'verifyIdentification':
+        isStepComplete = false;
+        questionsEl = (
+          <VerifyIdentification
+            birthCertificateRequest={localBirthCertificateRequest}
+            handleProceed={this.advanceQuestion}
+            handleStepBack={this.stepBackOneQuestion}
+          />
+        );
+        break;
+    }
+
+    const { steps } = localBirthCertificateRequest;
 
     return (
       <PageWrapper
         progress={{
           totalSteps: steps.length,
           currentStep: steps.indexOf(currentStep) + 1,
-          currentStepCompleted: currentStepCompleted,
+          currentStepCompleted: isStepComplete,
         }}
       >
         <Head>
           <title>Boston.gov — Request a Birth Certificate</title>
         </Head>
 
-        {currentStep === 'forWhom' && (
-          <ForWhom
-            forSelf={answers.forSelf}
-            howRelated={answers.howRelated}
-            handleStepCompletion={setCurrentStepCompleted}
-            handleProceed={a => this.answerQuestion('forWhom', a as any)}
-          />
-        )}
-
-        {currentStep === 'bornInBoston' && (
-          <BornInBoston
-            {...answers}
-            handleStepCompletion={setCurrentStepCompleted}
-            handleProceed={a => this.answerQuestion('bornInBoston', a)}
-            handleStepBack={this.stepBackOneQuestion}
-            handleUserReset={this.handleUserReset}
-          />
-        )}
-
-        {currentStep === 'personalInformation' && (
-          <PersonalInformation
-            {...answers}
-            handleStepCompletion={setCurrentStepCompleted}
-            handleProceed={a => this.answerQuestion('personalInformation', a)}
-            handleStepBack={this.stepBackOneQuestion}
-          />
-        )}
-
-        {currentStep === 'parentalInformation' && (
-          <ParentalInformation
-            {...answers}
-            handleStepCompletion={setCurrentStepCompleted}
-            handleProceed={a => this.answerQuestion('parentalInformation', a)}
-            handleStepBack={this.stepBackOneQuestion}
-            verificationStepRequired={
-              this.props.birthCertificateRequest.verificationStepRequired
-            }
-          />
-        )}
-
-        {currentStep === 'verifyIdentification' && (
-          <VerifyIdentification
-            handleStepCompletion={setCurrentStepCompleted}
-            handleProceed={a =>
-              // todo: remove “as any” once file upload details are sorted.
-              this.answerQuestion('verifyIdentification', a as any)
-            }
-            handleStepBack={this.stepBackOneQuestion}
-          />
-        )}
+        {questionsEl}
       </PageWrapper>
     );
   }

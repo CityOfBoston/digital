@@ -39,6 +39,7 @@ export type Question =
 
 export type Step =
   | 'forWhom'
+  | 'clientInstructions'
   | 'bornInBoston'
   | 'personalInformation'
   | 'parentalInformation'

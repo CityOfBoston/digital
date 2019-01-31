@@ -1,6 +1,9 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 
 import { TextInput } from '@cityofboston/react-fleet';
+
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
@@ -12,75 +15,43 @@ import {
 } from '../styling';
 
 interface Props {
-  firstName?: string;
-  lastName?: string;
-  altSpelling?: string;
-  birthDate?: string;
-  forSelf: boolean | null;
+  birthCertificateRequest: BirthCertificateRequest;
 
-  handleStepCompletion: (isStepComplete: boolean) => void;
-  handleProceed: (answers: State) => void;
+  handleProceed: () => void;
   handleStepBack: () => void;
 }
 
-interface State {
-  firstName: string;
-  lastName: string;
-  altSpelling: string;
-  birthDate: string;
-}
+@observer
+export default class PersonalInformation extends React.Component<Props> {
+  public static isComplete({
+    requestInformation,
+  }: BirthCertificateRequest): boolean {
+    const { firstName, lastName, birthDate } = requestInformation;
 
-export default class PersonalInformation extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      firstName: props.firstName || '',
-      lastName: props.lastName || '',
-      altSpelling: props.altSpelling || '',
-      birthDate: props.birthDate || '',
-    };
-
-    this.props.handleStepCompletion(
-      !!(
-        props.firstName &&
-        props.firstName.length &&
-        props.lastName &&
-        props.lastName.length &&
-        props.birthDate &&
-        props.birthDate.length
-      )
-    );
+    return !!(firstName && lastName && birthDate);
   }
 
   private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-      } as any,
-      () => {
-        this.props.handleStepCompletion(this.allowProceed());
-      }
-    );
+    this.props.birthCertificateRequest.answerQuestion({
+      [event.target.name]: event.target.value,
+    });
   };
 
-  // Activates the “next” button, and shows progress for this step.
-  private allowProceed(): boolean {
-    return !!(
-      this.state.firstName.length &&
-      this.state.lastName.length &&
-      this.state.birthDate.length
-    );
-  }
-
   public render() {
-    const { forSelf } = this.props;
+    const { birthCertificateRequest } = this.props;
+    const {
+      forSelf,
+      firstName,
+      lastName,
+      altSpelling,
+      birthDate,
+    } = birthCertificateRequest.requestInformation;
 
     return (
       <QuestionComponent
-        handleProceed={() => this.props.handleProceed(this.state)}
+        handleProceed={this.props.handleProceed}
         handleStepBack={this.props.handleStepBack}
-        allowProceed={this.allowProceed()}
+        allowProceed={PersonalInformation.isComplete(birthCertificateRequest)}
       >
         <FieldsetComponent
           legendText={
@@ -100,14 +71,14 @@ export default class PersonalInformation extends React.Component<Props, State> {
             <TextInput
               label="First Name"
               name="firstName"
-              defaultValue={this.state.firstName}
+              value={firstName}
               onChange={this.handleChange}
             />
 
             <TextInput
               label="Last Name"
               name="lastName"
-              defaultValue={this.state.lastName}
+              value={lastName}
               onChange={this.handleChange}
             />
           </div>
@@ -121,7 +92,7 @@ export default class PersonalInformation extends React.Component<Props, State> {
               // hideLabel={true}
               label="Alternative spelling"
               name="altSpelling"
-              defaultValue={this.state.lastName}
+              value={altSpelling}
               onChange={this.handleChange}
             />
           </div>
@@ -139,7 +110,7 @@ export default class PersonalInformation extends React.Component<Props, State> {
             label="Date of Birth"
             name="birthDate"
             onChange={this.handleChange}
-            value={this.state.birthDate}
+            value={birthDate}
           />
         </FieldsetComponent>
       </QuestionComponent>

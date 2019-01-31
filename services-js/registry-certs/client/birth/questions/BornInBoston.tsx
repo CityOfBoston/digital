@@ -1,26 +1,20 @@
 import React from 'react';
+import { observer } from 'mobx-react';
+
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
-import { YesNoUnknownAnswer } from '../../types';
-import { SECTION_HEADING_STYLING } from '../styling';
+import { SECTION_HEADING_STYLING, NOTE_BOX_CLASSNAME } from '../styling';
 
 interface Props {
-  forSelf: boolean | null;
-  bornInBoston?: YesNoUnknownAnswer;
-  parentsLivedInBoston?: YesNoUnknownAnswer;
+  birthCertificateRequest: BirthCertificateRequest;
 
-  handleStepCompletion: (isStepComplete: boolean) => void;
-  handleProceed: (answers: State) => void;
+  handleProceed: () => void;
   handleStepBack: () => void;
   handleUserReset: () => void;
-}
-
-interface State {
-  bornInBoston: YesNoUnknownAnswer;
-  parentsLivedInBoston: YesNoUnknownAnswer;
 }
 
 /**
@@ -34,130 +28,114 @@ interface State {
  * If UNKNOWN is selected for either of the two questions, the user will
  * progress to the next question.
  */
-export default class BornInBoston extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+@observer
+export default class BornInBoston extends React.Component<Props> {
+  public static isComplete(
+    birthCertificateRequest: BirthCertificateRequest
+  ): boolean {
+    const {
+      mightNotHaveRecord,
+      requestInformation: { bornInBoston, parentsLivedInBoston },
+    } = birthCertificateRequest;
 
-    this.state = {
-      bornInBoston: props.bornInBoston || '',
-      parentsLivedInBoston: props.parentsLivedInBoston || '',
-    };
-
-    props.handleStepCompletion(
-      props.bornInBoston === 'yes' ||
-        props.parentsLivedInBoston === 'yes' ||
-        props.parentsLivedInBoston === 'unknown'
-    );
-  }
-
-  // Activates the “next” button, and shows progress for this step.
-  private allowProceed(): boolean {
-    if (this.state.bornInBoston === 'yes') {
-      return true;
-    } else {
-      return (
-        this.state.parentsLivedInBoston === 'yes' ||
-        this.state.parentsLivedInBoston === 'unknown'
-      );
-    }
-  }
-
-  // If true, the user has come to a dead end in the question flow.
-  private userCannotProceed(): boolean {
     return (
-      this.state.bornInBoston === 'no' &&
-      this.state.parentsLivedInBoston === 'no'
+      bornInBoston === 'yes' ||
+      parentsLivedInBoston === 'yes' ||
+      mightNotHaveRecord
     );
   }
 
   private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState(
-      {
-        [event.target.name]: event.target.value,
-      } as any,
-      () => {
-        this.props.handleStepCompletion(this.allowProceed());
-      }
-    );
+    const { birthCertificateRequest } = this.props;
+    birthCertificateRequest.answerQuestion({
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
   };
 
-  // Returns a function to provide appropriate behavior for “back” button.
-  private handleStepBack(): () => void {
-    if (this.userCannotProceed()) {
-      return () =>
-        this.setState({ bornInBoston: '', parentsLivedInBoston: '' });
-    } else {
-      return this.props.handleStepBack;
-    }
-  }
-
   public render() {
-    const { forSelf } = this.props;
-    const notBornInBoston =
-      this.state.bornInBoston && this.state.bornInBoston !== 'yes';
-    const cannotProceed = this.userCannotProceed();
+    const { birthCertificateRequest } = this.props;
+    const {
+      requestInformation: { forSelf, bornInBoston, parentsLivedInBoston },
+      mightNotHaveRecord,
+      definitelyDontHaveRecord,
+    } = birthCertificateRequest;
+
+    const askForParents = bornInBoston && bornInBoston !== 'yes';
 
     return (
       <QuestionComponent
-        handleProceed={() => this.props.handleProceed(this.state)}
-        handleStepBack={this.handleStepBack()}
+        handleProceed={this.props.handleProceed}
+        handleStepBack={this.props.handleStepBack}
         handleReset={this.props.handleUserReset}
-        allowProceed={this.allowProceed()}
-        startOver={cannotProceed}
+        allowProceed={BornInBoston.isComplete(birthCertificateRequest)}
+        startOver={definitelyDontHaveRecord}
       >
-        {cannotProceed ? (
-          <div className="m-t500">
-            <h2 className="sh-title">
-              Sorry, we don’t have {forSelf ? 'your' : 'their'} record
-            </h2>
-            <p>
-              We only have records for people born in the City of Boston, or
-              people whose parents were married and living in Boston at the time
-              of the birth.
-            </p>
+        <>
+          <FieldsetComponent
+            legendText={
+              <h2 id="bornInBoston" className={SECTION_HEADING_STYLING}>
+                Were {forSelf ? 'you' : 'they'} born in Boston?
+              </h2>
+            }
+          >
+            <YesNoUnsureComponent
+              questionName="bornInBoston"
+              questionValue={bornInBoston}
+              handleChange={this.handleChange}
+            />
+          </FieldsetComponent>
 
-            <p>
-              Please contact the town, city, state, or country where{' '}
-              {forSelf ? 'you' : 'they'} were born to find the record.
-            </p>
-          </div>
-        ) : (
-          <>
+          {askForParents && (
             <FieldsetComponent
               legendText={
-                <h2 id="bornInBoston" className={SECTION_HEADING_STYLING}>
-                  Were {forSelf ? 'you' : 'they'} born in Boston?
-                </h2>
+                <h3
+                  id="parentsLivedInBoston"
+                  className={SECTION_HEADING_STYLING}
+                >
+                  Did {forSelf ? 'your' : 'their'} parents live in Boston at the
+                  time of {forSelf ? 'your' : 'their'} birth?
+                </h3>
               }
             >
               <YesNoUnsureComponent
-                questionName="bornInBoston"
-                questionValue={this.state.bornInBoston}
+                questionName="parentsLivedInBoston"
+                questionValue={parentsLivedInBoston || ''}
                 handleChange={this.handleChange}
               />
             </FieldsetComponent>
+          )}
 
-            {notBornInBoston && (
-              <FieldsetComponent
-                legendText={
-                  <h3
-                    id="parentsLivedInBoston"
-                    className={SECTION_HEADING_STYLING}
-                  >
-                    Did {forSelf ? 'your' : 'their'} parents live in Boston at
-                    the time of {forSelf ? 'your' : 'their'} birth?
-                  </h3>
-                }
-              >
-                <YesNoUnsureComponent
-                  questionName="parentsLivedInBoston"
-                  questionValue={this.state.parentsLivedInBoston}
-                  handleChange={this.handleChange}
-                />
-              </FieldsetComponent>
-            )}
-          </>
-        )}
+          {(definitelyDontHaveRecord || mightNotHaveRecord) && (
+            <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+              <h2 className="h3 tt-u">
+                {definitelyDontHaveRecord &&
+                  `Sorry, we don’t have ${forSelf ? 'your' : 'their'} record`}
+                {mightNotHaveRecord &&
+                  `We might not have ${forSelf ? 'your' : 'their'} record`}
+              </h2>
+
+              <p>
+                We only have records for people born in the City of Boston, or
+                people whose parents were married and living in Boston at the
+                time of the birth.
+              </p>
+
+              {definitelyDontHaveRecord && (
+                <p>
+                  Please contact the town, city, state, or country where{' '}
+                  {forSelf ? 'you' : 'they'} were born to find the record.
+                </p>
+              )}
+
+              {mightNotHaveRecord && (
+                <p>
+                  You can still place this order, and we’ll do our best to help
+                  you out.
+                </p>
+              )}
+            </div>
+          )}
+        </>
       </QuestionComponent>
     );
   }

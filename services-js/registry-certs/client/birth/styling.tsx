@@ -263,3 +263,5 @@ export const NAME_FIELDS_CONTAINER_STYLING = css({
     },
   },
 });
+
+export const NOTE_BOX_CLASSNAME = 'm-v500 p-a300 br br-a200 br--r lh--300';
