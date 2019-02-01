@@ -1341,13 +1341,13 @@ exports[`Storyshots Form Elements/Memorable date input default 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="month"
+        htmlFor="default-month"
       >
         Month
       </label>
       <input
         className="txt-f"
-        id="month"
+        id="default-month"
         max="12"
         min="1"
         name="month"
@@ -1362,13 +1362,13 @@ exports[`Storyshots Form Elements/Memorable date input default 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="day"
+        htmlFor="default-day"
       >
         Day
       </label>
       <input
         className="txt-f"
-        id="day"
+        id="default-day"
         max="31"
         min="1"
         name="day"
@@ -1383,13 +1383,13 @@ exports[`Storyshots Form Elements/Memorable date input default 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="year"
+        htmlFor="default-year"
       >
         Year
       </label>
       <input
         className="txt-f"
-        id="year"
+        id="default-year"
         max="9999"
         min="1000"
         name="year"
@@ -1420,13 +1420,13 @@ exports[`Storyshots Form Elements/Memorable date input earliestDate: 9/7/1630 1`
     <div>
       <label
         className="txt-l"
-        htmlFor="month"
+        htmlFor="earliest-month"
       >
         Month
       </label>
       <input
         className="txt-f"
-        id="month"
+        id="earliest-month"
         max="12"
         min="1"
         name="month"
@@ -1441,13 +1441,13 @@ exports[`Storyshots Form Elements/Memorable date input earliestDate: 9/7/1630 1`
     <div>
       <label
         className="txt-l"
-        htmlFor="day"
+        htmlFor="earliest-day"
       >
         Day
       </label>
       <input
         className="txt-f"
-        id="day"
+        id="earliest-day"
         max="31"
         min="1"
         name="day"
@@ -1462,13 +1462,13 @@ exports[`Storyshots Form Elements/Memorable date input earliestDate: 9/7/1630 1`
     <div>
       <label
         className="txt-l"
-        htmlFor="year"
+        htmlFor="earliest-year"
       >
         Year
       </label>
       <input
         className="txt-f"
-        id="year"
+        id="earliest-year"
         max="9999"
         min={1630}
         name="year"
@@ -1499,13 +1499,13 @@ exports[`Storyshots Form Elements/Memorable date input latestDate: 12/31/2025 1`
     <div>
       <label
         className="txt-l"
-        htmlFor="month"
+        htmlFor="latest-month"
       >
         Month
       </label>
       <input
         className="txt-f"
-        id="month"
+        id="latest-month"
         max="12"
         min="1"
         name="month"
@@ -1520,13 +1520,13 @@ exports[`Storyshots Form Elements/Memorable date input latestDate: 12/31/2025 1`
     <div>
       <label
         className="txt-l"
-        htmlFor="day"
+        htmlFor="latest-day"
       >
         Day
       </label>
       <input
         className="txt-f"
-        id="day"
+        id="latest-day"
         max="31"
         min="1"
         name="day"
@@ -1541,13 +1541,13 @@ exports[`Storyshots Form Elements/Memorable date input latestDate: 12/31/2025 1`
     <div>
       <label
         className="txt-l"
-        htmlFor="year"
+        htmlFor="latest-year"
       >
         Year
       </label>
       <input
         className="txt-f"
-        id="year"
+        id="latest-year"
         max={2025}
         min="1000"
         name="year"
@@ -1578,13 +1578,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="month"
+        htmlFor="future-month"
       >
         Month
       </label>
       <input
         className="txt-f"
-        id="month"
+        id="future-month"
         max="12"
         min="1"
         name="month"
@@ -1599,13 +1599,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="day"
+        htmlFor="future-day"
       >
         Day
       </label>
       <input
         className="txt-f"
-        id="day"
+        id="future-day"
         max="31"
         min="1"
         name="day"
@@ -1620,13 +1620,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="year"
+        htmlFor="future-year"
       >
         Year
       </label>
       <input
         className="txt-f"
-        id="year"
+        id="future-year"
         max="9999"
         min={2019}
         name="year"
@@ -1657,13 +1657,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture and lates
     <div>
       <label
         className="txt-l"
-        htmlFor="month"
+        htmlFor="story-month"
       >
         Month
       </label>
       <input
         className="txt-f"
-        id="month"
+        id="story-month"
         max="12"
         min="1"
         name="month"
@@ -1678,13 +1678,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture and lates
     <div>
       <label
         className="txt-l"
-        htmlFor="day"
+        htmlFor="story-day"
       >
         Day
       </label>
       <input
         className="txt-f"
-        id="day"
+        id="story-day"
         max="31"
         min="1"
         name="day"
@@ -1699,13 +1699,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture and lates
     <div>
       <label
         className="txt-l"
-        htmlFor="year"
+        htmlFor="story-year"
       >
         Year
       </label>
       <input
         className="txt-f"
-        id="year"
+        id="story-year"
         max={2040}
         min={2019}
         name="year"
@@ -1736,13 +1736,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowPast 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="month"
+        htmlFor="past-month"
       >
         Month
       </label>
       <input
         className="txt-f"
-        id="month"
+        id="past-month"
         max="12"
         min="1"
         name="month"
@@ -1757,13 +1757,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowPast 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="day"
+        htmlFor="past-day"
       >
         Day
       </label>
       <input
         className="txt-f"
-        id="day"
+        id="past-day"
         max="31"
         min="1"
         name="day"
@@ -1778,13 +1778,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowPast 1`] = `
     <div>
       <label
         className="txt-l"
-        htmlFor="year"
+        htmlFor="past-year"
       >
         Year
       </label>
       <input
         className="txt-f"
-        id="year"
+        id="past-year"
         max={2019}
         min="1000"
         name="year"
@@ -1815,13 +1815,13 @@ exports[`Storyshots Form Elements/Memorable date input with an initialDate 1`] =
     <div>
       <label
         className="txt-l"
-        htmlFor="month"
+        htmlFor="initial-month"
       >
         Month
       </label>
       <input
         className="txt-f"
-        id="month"
+        id="initial-month"
         max="12"
         min="1"
         name="month"
@@ -1830,19 +1830,19 @@ exports[`Storyshots Form Elements/Memorable date input with an initialDate 1`] =
         onFocus={[Function]}
         placeholder="MM"
         type="number"
-        value={11}
+        value="12"
       />
     </div>
     <div>
       <label
         className="txt-l"
-        htmlFor="day"
+        htmlFor="initial-day"
       >
         Day
       </label>
       <input
         className="txt-f"
-        id="day"
+        id="initial-day"
         max="31"
         min="1"
         name="day"
@@ -1851,19 +1851,19 @@ exports[`Storyshots Form Elements/Memorable date input with an initialDate 1`] =
         onFocus={[Function]}
         placeholder="DD"
         type="number"
-        value={31}
+        value="31"
       />
     </div>
     <div>
       <label
         className="txt-l"
-        htmlFor="year"
+        htmlFor="initial-year"
       >
         Year
       </label>
       <input
         className="txt-f"
-        id="year"
+        id="initial-year"
         max={2019}
         min="1000"
         name="year"
@@ -1872,7 +1872,7 @@ exports[`Storyshots Form Elements/Memorable date input with an initialDate 1`] =
         onFocus={[Function]}
         placeholder="YYYY"
         type="number"
-        value={1999}
+        value="1999"
       />
     </div>
   </div>

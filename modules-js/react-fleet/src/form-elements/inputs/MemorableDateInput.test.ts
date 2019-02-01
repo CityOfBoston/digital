@@ -1,188 +1,252 @@
-import { isDateValid, setDateLimit } from './MemorableDateInput';
+import MockDate from 'mockdate';
 
-const today = new Date(new Date().setHours(0, 0, 0, 0));
+import {
+  isDateValid,
+  isInputComplete,
+  returnLimitAsDate,
+} from './MemorableDateInput';
 
-describe('set lower limit', () => {
-  const earliestDate = '1/1/2020';
+const TODAY = new Date(new Date('2/1/2019').setHours(0, 0, 0, 0));
 
-  test('earliestDate provided', () => {
-    expect(setDateLimit(earliestDate)).toEqual(new Date(earliestDate));
-  });
-
-  test('onlyAllowFuture', () => {
-    expect(setDateLimit('', true)).toEqual(today);
-  });
+beforeEach(() => {
+  MockDate.set(TODAY);
 });
 
-describe('set upper limit', () => {
-  const latestDate = '12/12/2020';
+afterEach(() => {
+  MockDate.reset();
+});
 
-  test('latestDate provided', () => {
-    expect(setDateLimit(latestDate)).toEqual(new Date(latestDate));
+describe('set lower or upper limit', () => {
+  const exampleDate = new Date(2020, 0, 1);
+  const exampleString = '1/1/2020';
+
+  it('will accept a string', () => {
+    expect(returnLimitAsDate(exampleString, false)).toBeInstanceOf(Date);
   });
 
-  test('onlyAllowPast', () => {
-    expect(setDateLimit('', true)).toEqual(today);
+  it('will accept a Date', () => {
+    expect(returnLimitAsDate(exampleDate, false)).toBeInstanceOf(Date);
+  });
+
+  it('returns today’s date if onlyAllowFuture or onlyAllowPast is specified', () => {
+    expect(returnLimitAsDate('', true)).toEqual(TODAY);
   });
 });
 
 describe('isDateValid', () => {
-  const pastDate = '12/12/2010';
-  const middleDate = '6/16/2016';
-  const upcomingDate = '9/7/2020';
-  const futureDate = '1/1/2030';
+  const oldestDate = new Date(2010, 11, 12);
+  const pastDate = new Date(2016, 5, 16);
+  const upcomingDate = new Date(2023, 8, 7);
+  const furthestFutureDate = new Date(2030, 0, 1);
 
-  test(`onlyAllowPast | user entered: ${pastDate}`, () => {
+  const dateFromPast = 'The date must be from the past';
+  const dateFromFuture = 'The date must be in the future';
+
+  it(`passes if user entered ${formattedDate(
+    oldestDate
+  )} and onlyAllowPast is true`, () => {
+    expect(isDateValid(oldestDate, null, null, true, false)).toEqual('');
+  });
+
+  it(`returns the error “${dateFromPast}” if the user entered ${formattedDate(
+    furthestFutureDate
+  )} and onlyAllowPast is true`, () => {
     expect(
-      isDateValid(new Date(pastDate), null, today, true, undefined)
+      isDateValid(new Date(furthestFutureDate), null, null, true, false)
+    ).toEqual(dateFromPast);
+  });
+
+  it(`passes if user entered ${formattedDate(
+    furthestFutureDate
+  )} and onlyAllowFuture is true`, () => {
+    expect(
+      isDateValid(new Date(furthestFutureDate), null, null, false, true)
     ).toEqual('');
   });
 
-  test(`onlyAllowPast | user entered: ${futureDate}`, () => {
-    expect(
-      isDateValid(new Date(futureDate), null, today, true, undefined)
-    ).not.toEqual('');
+  it(`returns the error “${dateFromFuture}” if the user entered ${formattedDate(
+    oldestDate
+  )} and onlyAllowFuture is true`, () => {
+    expect(isDateValid(new Date(oldestDate), null, null, false, true)).toEqual(
+      dateFromFuture
+    );
   });
 
-  test(`onlyAllowFuture | user entered: ${futureDate}`, () => {
+  it(`passes if the user entered ${formattedDate(
+    pastDate
+  )}, the earliestDate is ${formattedDate(
+    oldestDate
+  )}, and onlyAllowPast is true`, () => {
     expect(
-      isDateValid(new Date(futureDate), today, null, undefined, true)
+      isDateValid(new Date(pastDate), new Date(oldestDate), null, true, false)
     ).toEqual('');
   });
 
-  test(`onlyAllowFuture | user entered: ${pastDate}`, () => {
-    expect(
-      isDateValid(new Date(pastDate), today, null, undefined, true)
-    ).not.toEqual('');
-  });
-
-  test(`onlyAllowPast && earliest: ${pastDate} | user entered: ${middleDate}`, () => {
+  it(`fails if the user entered ${formattedDate(
+    furthestFutureDate
+  )}, the earliestDate is ${formattedDate(
+    pastDate
+  )}, and onlyAllowPast is true`, () => {
     expect(
       isDateValid(
-        new Date(middleDate),
+        new Date(furthestFutureDate),
         new Date(pastDate),
-        today,
+        null,
         true,
-        undefined
-      )
-    ).toEqual('');
-  });
-
-  test(`onlyAllowPast && earliest: ${middleDate} | user entered: ${pastDate}`, () => {
-    expect(
-      isDateValid(
-        new Date(pastDate),
-        new Date(middleDate),
-        today,
-        true,
-        undefined
+        false
       )
     ).not.toEqual('');
   });
 
-  test(`onlyAllowFuture && latest: ${futureDate} | user entered: ${upcomingDate}`, () => {
+  it(`passes if user entered ${formattedDate(
+    upcomingDate
+  )}, the latestDate is ${formattedDate(
+    furthestFutureDate
+  )}, and onlyAllowFuture is true`, () => {
     expect(
       isDateValid(
         new Date(upcomingDate),
-        today,
-        new Date(futureDate),
-        undefined,
+        null,
+        new Date(furthestFutureDate),
+        false,
         true
       )
     ).toEqual('');
   });
 
-  test(`onlyAllowFuture && latest: ${upcomingDate} | user entered: ${futureDate}`, () => {
+  it(`fails if user entered ${formattedDate(
+    furthestFutureDate
+  )}, latestDate is ${formattedDate(
+    upcomingDate
+  )}, and onlyAllowFuture is true`, () => {
     expect(
       isDateValid(
-        new Date(futureDate),
-        today,
+        new Date(furthestFutureDate),
+        null,
         new Date(upcomingDate),
-        undefined,
+        false,
         true
       )
     ).not.toEqual('');
   });
 
-  test(`earliest: ${pastDate} | user entered: ${upcomingDate}`, () => {
+  it(`passes if user entered ${formattedDate(
+    upcomingDate
+  )} and earliestDate is ${formattedDate(oldestDate)}`, () => {
     expect(
       isDateValid(
         new Date(upcomingDate),
-        new Date(pastDate),
+        new Date(oldestDate),
         null,
-        undefined,
-        undefined
+        false,
+        false
       )
     ).toEqual('');
   });
 
-  test(`earliest: ${futureDate} | user entered: ${upcomingDate}`, () => {
+  it(`fails if user entered ${formattedDate(
+    upcomingDate
+  )} and earliestDate is ${formattedDate(furthestFutureDate)}`, () => {
     expect(
       isDateValid(
         new Date(upcomingDate),
-        new Date(futureDate),
+        new Date(furthestFutureDate),
         null,
-        undefined,
-        undefined
+        false,
+        false
       )
     ).not.toEqual('');
   });
 
-  test(`latest: ${futureDate} | user entered: ${upcomingDate}`, () => {
+  it(`passes if user entered ${formattedDate(
+    upcomingDate
+  )} and latestDate is ${formattedDate(furthestFutureDate)}`, () => {
     expect(
       isDateValid(
         new Date(upcomingDate),
         null,
-        new Date(futureDate),
-        undefined,
-        undefined
+        new Date(furthestFutureDate),
+        false,
+        false
       )
     ).toEqual('');
   });
 
-  test(`latest: ${upcomingDate} | user entered: ${futureDate}`, () => {
+  it(`fails if user entered ${formattedDate(
+    furthestFutureDate
+  )} and latestDate is ${formattedDate(upcomingDate)}`, () => {
     expect(
       isDateValid(
-        new Date(futureDate),
+        new Date(furthestFutureDate),
         null,
         new Date(upcomingDate),
-        undefined,
-        undefined
+        false,
+        false
       )
     ).not.toEqual('');
   });
 
-  test(`between ${pastDate} and ${upcomingDate} | user entered: ${middleDate}`, () => {
+  it(`passes if ${formattedDate(pastDate)} is between ${formattedDate(
+    oldestDate
+  )} and ${formattedDate(upcomingDate)}`, () => {
     expect(
       isDateValid(
-        new Date(middleDate),
         new Date(pastDate),
+        new Date(oldestDate),
         new Date(upcomingDate),
-        undefined,
-        undefined
+        false,
+        false
       )
     ).toEqual('');
   });
 
-  test(`between ${pastDate} and ${middleDate} | user entered: ${upcomingDate}`, () => {
+  it(`fails if ${formattedDate(upcomingDate)} is not between ${formattedDate(
+    oldestDate
+  )} and ${formattedDate(pastDate)}`, () => {
     expect(
       isDateValid(
         new Date(upcomingDate),
+        new Date(oldestDate),
         new Date(pastDate),
-        new Date(middleDate),
-        undefined,
-        undefined
+        false,
+        false
       )
     ).not.toEqual('');
   });
 
-  test(`no limits specified | user entered: ${upcomingDate} then ${pastDate}`, () => {
+  it(`should pass if no limits have been specified`, () => {
     expect(
-      isDateValid(new Date(upcomingDate), null, null, undefined, undefined)
+      isDateValid(new Date(upcomingDate), null, null, false, false)
     ).toEqual('');
 
-    expect(
-      isDateValid(new Date(pastDate), null, null, undefined, undefined)
-    ).toEqual('');
+    expect(isDateValid(new Date(oldestDate), null, null, false, false)).toEqual(
+      ''
+    );
+  });
+
+  describe('isInputComplete', () => {
+    const missingDayYear = 'Date must include the day and year';
+    const missingMonth = 'Date must include the month';
+    const completeFields = {
+      month: 12,
+      day: 31,
+      year: 1999,
+    };
+
+    it('returns an empty string if user has completed all fields', () => {
+      expect(isInputComplete(completeFields)).toBe('');
+    });
+
+    it(`returns the error “${missingMonth}” if user has only entered values for day and year`, () => {
+      expect(isInputComplete({ day: 5, year: 1984 })).toBe(missingMonth);
+    });
+
+    it(`returns the error “${missingDayYear}” if user has only entered a value for the month`, () => {
+      expect(isInputComplete({ month: 6 })).toBe(missingDayYear);
+    });
   });
 });
+
+function formattedDate(date: Date): string {
+  return Intl.DateTimeFormat('en-US').format(date);
+}

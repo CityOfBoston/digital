@@ -2,10 +2,17 @@ import React from 'react';
 
 import { css } from 'emotion';
 
+type Fields = {
+  year: string;
+  month: string;
+  day: string;
+};
+
 interface Props {
-  initialDate?: string;
-  earliestDate?: string;
-  latestDate?: string;
+  componentId?: string;
+  initialDate?: string | Date;
+  earliestDate?: string | Date;
+  latestDate?: string | Date;
   onlyAllowPast?: boolean;
   onlyAllowFuture?: boolean;
   legend: React.ReactChild;
@@ -15,12 +22,7 @@ interface Props {
 interface State {
   hasFocus: boolean;
   error: string;
-  date: Date | null;
-  fields: {
-    month: number;
-    day: number;
-    year: number;
-  };
+  fields: Fields;
 }
 
 /**
@@ -28,11 +30,13 @@ interface State {
  *
  * An element must be passed in as the legend, commonly a header <h1-h6>.
  *
- * Default behavior is to accept any date. A text string representing a date
- * can be passed into earliestDate and/or latestDate to limit acceptable input.
- * Format: MM-DD-YYYY, MM/DD/YYYY, etc. (https://tools.ietf.org/html/rfc2822#section-3.3)
+ * Default behavior is to accept any date. Passing a Date into initialDate
+ * and/or latestDate will limit acceptable input, or a text string representing
+ * a date can be passed in instead. String format: MM-DD-YYYY, MM/DD/YYYY, etc.
+ * (https://tools.ietf.org/html/rfc2822#section-3.3)
  *
- * An initial date can be passed in via the initialDate property.
+ * Similarly, an initial Date (or string) can be passed in via the initialDate
+ * property.
  *
  * onlyAllowPast: If true, will only accept yesterday or earlier for a date.
  * onlyAllowFuture: If true, will only accept tomorrow or later for a date.
@@ -47,37 +51,47 @@ export default class MemorableDateInput extends React.Component<Props, State> {
   readonly earliest: Date | null;
   readonly latest: Date | null;
   readonly initial: Date | null;
+  // Used to ensure unique ids if multiple inputs are in use at once.
+  readonly componentId: string;
 
   private timeout: any;
 
   constructor(props: Props) {
     super(props);
 
-    this.initial = props.initialDate ? new Date(props.initialDate) : null;
+    this.componentId = props.componentId
+      ? props.componentId
+      : new Date().getTime().toString();
+
+    this.initial = props.initialDate
+      ? new Date(new Date(props.initialDate).setHours(0, 0, 0, 0))
+      : null;
 
     checkIfPropsValid(props);
 
-    this.earliest = setDateLimit(
+    this.earliest = returnLimitAsDate(
       props.earliestDate || '',
       !!props.onlyAllowFuture
     );
-    this.latest = setDateLimit(props.latestDate || '', !!props.onlyAllowPast);
+    this.latest = returnLimitAsDate(
+      props.latestDate || '',
+      !!props.onlyAllowPast
+    );
 
     this.state = {
       hasFocus: false,
       error: '',
-      date: this.initial,
       fields: this.initial
         ? {
-            month: this.initial.getMonth(),
-            day: this.initial.getDate(),
-            year: this.initial.getFullYear(),
+            year: this.initial.getFullYear().toString(),
+            month: (this.initial.getMonth() + 1).toString(),
+            day: this.initial.getDate().toString(),
           }
-        : ({
+        : {
+            year: '',
             month: '',
             day: '',
-            year: '',
-          } as any),
+          },
     };
   }
 
@@ -99,25 +113,23 @@ export default class MemorableDateInput extends React.Component<Props, State> {
 
   // If date is within range, update value. Otherwise, clear the value.
   private updateDate(): void {
-    let date: Date | null = new Date(
-      `${this.state.fields.month}/${this.state.fields.day}/${
-        this.state.fields.year
-      }`
-    );
+    const { year, month, day } = this.state.fields;
+
+    // When Date is called with more than one arg, result is set to midnight.
+    let date: Date | null = new Date(+year, +month - 1, +day);
 
     // If supplied date is out of range, clear the date value.
     if (!this.checkIfDateInRange(date)) {
       date = null;
     }
 
-    // Update state and call parent component’s method with the new date value.
-    this.setState({ date }, () => {
-      this.props.handleDate(date);
-    });
+    // Call parent component’s method with the new date value.
+    this.props.handleDate(date);
   }
 
-  // Focus and blur handlers are used to determine whether a user is focused
-  // on any of the fields for this component.
+  // For the purposes of gracefully showing/hiding error text, we want to track
+  // focus/blur across all three fields in order to treat this component itself
+  // as having a focus and a blur state.
   private handleFocus = (): void => {
     clearTimeout(this.timeout);
 
@@ -175,12 +187,12 @@ export default class MemorableDateInput extends React.Component<Props, State> {
 
         <div className={FIELDS_CONTAINER_STYLING}>
           <div>
-            <label htmlFor="month" className="txt-l">
+            <label htmlFor={`${this.componentId}-month`} className="txt-l">
               Month
             </label>
             <input
               {...inputAttributes}
-              id="month"
+              id={`${this.componentId}-month`}
               name="month"
               min="1"
               max="12"
@@ -190,12 +202,12 @@ export default class MemorableDateInput extends React.Component<Props, State> {
           </div>
 
           <div>
-            <label htmlFor="day" className="txt-l">
+            <label htmlFor={`${this.componentId}-day`} className="txt-l">
               Day
             </label>
             <input
               {...inputAttributes}
-              id="day"
+              id={`${this.componentId}-day`}
               name="day"
               min="1"
               max="31"
@@ -205,13 +217,13 @@ export default class MemorableDateInput extends React.Component<Props, State> {
           </div>
 
           <div>
-            <label htmlFor="year" className="txt-l">
+            <label htmlFor={`${this.componentId}-year`} className="txt-l">
               Year
             </label>
 
             <input
               {...inputAttributes}
-              id="year"
+              id={`${this.componentId}-year`}
               name="year"
               min={this.earliest ? this.earliest.getFullYear() : '1000'}
               max={this.latest ? this.latest.getFullYear() : '9999'}
@@ -220,6 +232,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
             />
           </div>
         </div>
+
         {this.state.error.length > 0 && (
           <div className="t--err">{this.state.error}</div>
         )}
@@ -312,19 +325,20 @@ function checkIfPropsValid(props: Props): void {
 }
 
 // Determine upper or lower limit date, if applicable.
-export function setDateLimit(
-  suppliedDate: string,
+export function returnLimitAsDate(
+  suppliedDate: string | Date,
   hasRelativeLimitation: boolean = false
 ): Date | null {
-  const supplied = suppliedDate.length > 0 ? new Date(suppliedDate) : null;
-  const today = new Date(new Date().setHours(0, 0, 0, 0));
-
   let date: Date | null = null;
 
-  if (supplied) {
-    date = supplied;
+  if (suppliedDate || suppliedDate.length > 0) {
+    date = new Date(suppliedDate);
   } else if (hasRelativeLimitation) {
-    date = today;
+    date = new Date();
+  }
+
+  if (date) {
+    new Date(date.setHours(0, 0, 0, 0));
   }
 
   return date;
@@ -347,7 +361,7 @@ export function isInputComplete(fields): string {
     missingFields.push('day');
   }
 
-  if ((year.toString().length === 4) === false) {
+  if (!year || (year && year.toString().length !== 4)) {
     missingFields.push('year');
   }
 
@@ -374,50 +388,54 @@ export function isDateValid(
   date: Date,
   earliest: Date | null,
   latest: Date | null,
-  onlyAllowPast: boolean | undefined,
-  onlyAllowFuture: boolean | undefined
+  onlyAllowPast: boolean = false,
+  onlyAllowFuture: boolean = false
 ): string {
   const dateTime = date.getTime();
   const todayTime = new Date(new Date().setHours(0, 0, 0, 0)).getTime();
 
+  // success conditions for each limiting attribute:
+  const passes = {
+    onlyAllowPast: dateTime < todayTime,
+    onlyAllowFuture: dateTime > todayTime,
+    earliest: earliest && dateTime > earliest.getTime(),
+    latest: latest && dateTime < latest.getTime(),
+  };
+
   let errorString = '';
 
   if (onlyAllowPast) {
-    if (dateTime > todayTime) {
+    if (!passes.onlyAllowPast) {
       errorString = 'The date must be from the past';
-    } else if (earliest && dateTime < earliest.getTime()) {
-      errorString = `The date must be between ${Intl.DateTimeFormat(
-        'en-US'
-      ).format(earliest)} and today`;
+    } else if (earliest && !passes.earliest) {
+      errorString = `The date must be between ${formattedDate(
+        earliest
+      )} and today`;
     }
   } else if (onlyAllowFuture) {
-    if (dateTime < todayTime) {
+    if (!passes.onlyAllowFuture) {
       errorString = 'The date must be in the future';
-    } else if (latest && dateTime > latest.getTime()) {
-      errorString = `The date must be between today and ${Intl.DateTimeFormat(
-        'en-US'
-      ).format(latest)}`;
+    } else if (latest && !passes.latest) {
+      errorString = `The date must be between today and ${formattedDate(
+        latest
+      )}`;
     }
-    // if earlier and later are specified, date must fall within these limits.
-  } else if (
-    earliest &&
-    latest &&
-    (dateTime < earliest.getTime() && dateTime > latest.getTime())
-  ) {
-    errorString = `The date must fall between ${Intl.DateTimeFormat(
-      'en-US'
-    ).format(earliest)} and ${Intl.DateTimeFormat('en-US').format(latest)}`;
-  } else if (earliest && dateTime < earliest.getTime()) {
-    errorString = `The date must be later than ${Intl.DateTimeFormat(
-      'en-US'
-    ).format(earliest)}`;
-  } else if (latest && dateTime > latest.getTime()) {
-    errorString = `The date must be earlier than ${Intl.DateTimeFormat(
-      'en-US'
-    ).format(latest)}`;
+    // if earlier and later are both specified, date must fall between the two.
+  } else if (earliest && latest && !(passes.earliest && passes.latest)) {
+    errorString = `The date must fall between ${formattedDate(
+      earliest
+    )} and ${formattedDate(latest)}`;
+  } else if (earliest && !passes.earliest) {
+    errorString = `The date must be later than ${formattedDate(earliest)}`;
+  } else if (latest && !passes.latest) {
+    errorString = `The date must be earlier than ${formattedDate(latest)}`;
   }
 
   return errorString;
+
+  function formattedDate(date: Date): string {
+    return Intl.DateTimeFormat('en-US').format(date);
+  }
 }
 
 const FIELDSET_STYLING = css({
