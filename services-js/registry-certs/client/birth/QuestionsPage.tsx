@@ -20,6 +20,7 @@ import PersonalInformation from './questions/PersonalInformation';
 import ParentalInformation from './questions/ParentalInformation';
 import VerifyIdentification from './questions/VerifyIdentification';
 import ClientInstructions from './questions/ClientInstructions';
+import { ContactForm } from '@cityofboston/react-fleet';
 
 interface InitialProps {
   currentStep: Step;
@@ -241,8 +242,19 @@ export default class QuestionsPage extends React.Component<Props, State> {
         <Head>
           <title>Boston.gov — Request a Birth Certificate</title>
         </Head>
-
         {questionsEl}
+
+        <div className="m-v700 ta-c">
+          Questions? Email the Registry Department at{' '}
+          <a
+            href="mailto:birth@boston.gov"
+            onClick={ContactForm.makeMailtoClickHandler(
+              'birth-cert-feedback-form'
+            )}
+          >
+            birth@boston.gov
+          </a>.
+        </div>
       </PageWrapper>
     );
   }

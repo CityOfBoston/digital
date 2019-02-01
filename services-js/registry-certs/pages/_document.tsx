@@ -140,7 +140,15 @@ export default class extends Document {
           <NextScript />
 
           <ContactForm
-            defaultSubject="Death Certificates Feedback"
+            defaultSubject="Registry Certificates Feedback"
+            token={process.env.CONTACT_FORM_TOKEN}
+            action={process.env.CONTACT_FORM_ACTION}
+          />
+
+          <ContactForm
+            id="birth-cert-feedback-form"
+            to="birth@boston.gov"
+            defaultSubject="Birth Certificates Question"
             token={process.env.CONTACT_FORM_TOKEN}
             action={process.env.CONTACT_FORM_ACTION}
           />

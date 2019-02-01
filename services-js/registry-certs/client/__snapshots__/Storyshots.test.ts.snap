@@ -3371,6 +3371,19 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                 className="g--6 m-b500"
               />
             </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
+            </div>
           </section>
         </div>
       </main>
@@ -4155,6 +4168,19 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                 className="g--6 m-b500"
               />
             </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
+            </div>
           </section>
         </div>
       </main>
@@ -4523,6 +4549,19 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
                   Back
                 </button>
               </div>
+            </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
             </div>
           </section>
         </div>
@@ -4985,6 +5024,19 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                   Back
                 </button>
               </div>
+            </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
             </div>
           </section>
         </div>
@@ -5603,6 +5655,19 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 </button>
               </div>
             </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
+            </div>
           </section>
         </div>
       </main>
@@ -6218,6 +6283,19 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 </button>
               </div>
             </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
+            </div>
           </section>
         </div>
       </main>
@@ -6723,6 +6801,19 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                   Back
                 </button>
               </div>
+            </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
             </div>
           </section>
         </div>
@@ -7368,6 +7459,19 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                   Back
                 </button>
               </div>
+            </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
             </div>
           </section>
         </div>
@@ -8038,6 +8142,19 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </button>
               </div>
             </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
+            </div>
           </section>
         </div>
       </main>
@@ -8705,6 +8822,19 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </button>
               </div>
             </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
+            </div>
           </section>
         </div>
       </main>
@@ -9196,6 +9326,19 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                   Back
                 </button>
               </div>
+            </div>
+            <div
+              className="m-v700 ta-c"
+            >
+              Questions? Email the Registry Department at
+               
+              <a
+                href="mailto:birth@boston.gov"
+                onClick={[Function]}
+              >
+                birth@boston.gov
+              </a>
+              .
             </div>
           </section>
         </div>
