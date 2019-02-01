@@ -13,7 +13,7 @@ module.exports = (baseConfig, env, config) => {
   });
 
   config.module.rules.push({
-    test: /\.html$/,
+    test: /\.html|\.yaml$/,
     use: 'raw-loader',
   });
 

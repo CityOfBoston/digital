@@ -1,4 +1,3 @@
-import fs from 'fs';
 import yaml from 'js-yaml';
 
 export interface AppsCategory {
@@ -11,7 +10,7 @@ export interface AppsCategory {
 export interface App {
   title: string;
   url: string;
-  iconUrl?: string;
+  iconUrl: string | null;
   description: string;
   // null groups means "everyone can see this"
   groups: string[] | null;
@@ -59,7 +58,7 @@ export default class AppsRegistry {
         return {
           title,
           url,
-          iconUrl: icon,
+          iconUrl: icon || null,
           description: description || '',
           groups: groups || null,
           newWindow: new_window || false,
@@ -93,17 +92,10 @@ export default class AppsRegistry {
   }
 }
 
-export async function makeAppsRegistry(yamlPath: string, showAll = false) {
-  const yamlString = await new Promise<string>((resolve, reject) => {
-    fs.readFile(yamlPath, 'utf-8', (err, contents: string) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(contents);
-      }
-    });
-  });
-
-  const appsYaml = yaml.safeLoad(yamlString, { filename: yamlPath });
+export function makeAppsRegistry(
+  yamlString: string,
+  showAll = false
+): AppsRegistry {
+  const appsYaml = yaml.safeLoad(yamlString);
   return new AppsRegistry(appsYaml, showAll);
 }
