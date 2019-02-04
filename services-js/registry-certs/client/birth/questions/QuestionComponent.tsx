@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { QUESTION_CONTAINER_STYLING } from '../styling';
+import { BACK_BUTTON_STYLING, QUESTION_CONTAINER_STYLING } from '../styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -24,12 +24,12 @@ export default function QuestionComponent(props: Props): JSX.Element {
       <div className={QUESTION_CONTAINER_STYLING}>{props.children}</div>
 
       <div className="g g--r m-t700">
-        <div className="g--6 ta-r m-b500">
+        <div className="g--6 ta-r m-v500">
           {props.handleProceed &&
             !props.startOver && (
               <button
                 type="button"
-                className="btn btn--br btn--b-sm"
+                className="btn btn--b-sm"
                 onClick={props.handleProceed}
                 disabled={!props.allowProceed}
               >
@@ -50,15 +50,17 @@ export default function QuestionComponent(props: Props): JSX.Element {
             )}
         </div>
 
-        <div className="g--6 m-b500">
+        <div className="t--info g--6 m-v500">
           {props.handleStepBack && (
-            <button
-              type="button"
-              className="btn btn--b-sm btn--br btn--w"
-              onClick={props.handleStepBack}
-            >
-              Back
-            </button>
+            <div className="t--info">
+              <button
+                type="button"
+                className={`btn--b-sm ${BACK_BUTTON_STYLING}`}
+                onClick={props.handleStepBack}
+              >
+                <span aria-hidden="true">←</span> Back
+              </button>
+            </div>
           )}
         </div>
       </div>

@@ -20,6 +20,18 @@ const FOCUS_STYLE = {
   outlineOffset: 1,
 };
 
+export const BACK_BUTTON_STYLING = css({
+  border: 'none',
+  backgroundColor: 'rgba(0, 0, 0, 0)',
+  cursor: 'pointer',
+  padding: '1.25rem',
+  textDecoration: 'none',
+  fontFamily: SERIF,
+  fontStyle: 'italic',
+  fontSize: 'initial',
+  color: OPTIMISTIC_BLUE,
+});
+
 export const SECTION_HEADING_STYLING = css({
   paddingBottom: '0.25rem',
   marginBottom: '0',
@@ -46,9 +58,14 @@ export const SUPPORTING_TEXT_STYLING = css({
 
 export const RADIOITEM_SHARED_STYLING = css({
   display: 'flex',
-  flexDirection: 'column',
   alignItems: 'center',
+
   cursor: 'pointer',
+
+  [MEDIA_SMALL]: {
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
 
   transition: 'opacity 0.2s',
 
@@ -58,18 +75,29 @@ export const RADIOITEM_SHARED_STYLING = css({
     ...FOCUS_STYLE,
   },
 
+  svg: {
+    flexBasis: '20%',
+
+    [MEDIA_SMALL]: {
+      flexBasis: 'auto',
+    },
+  },
+
   span: {
     marginTop: '1.75rem',
     marginBottom: '2rem',
+    marginLeft: '1rem',
     padding: '0.8rem 1.5rem',
     fontFamily: SANS,
     fontWeight: 700,
     textTransform: 'uppercase',
     border: BORDER_STYLE,
-    whiteSpace: 'nowrap',
 
     [MEDIA_SMALL]: {
       marginBottom: 0,
+      marginLeft: 0,
+      flexGrow: 0,
+      whiteSpace: 'nowrap',
     },
   },
 
@@ -124,8 +152,11 @@ export const RADIOITEM_STYLING = css({
 
 export const ANSWER_ITEM_STYLING = css({
   color: CHARLES_BLUE,
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
+
+  [MEDIA_SMALL]: {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
 });
 
 export const ANSWER_ICON_STYLING = css({
@@ -167,6 +198,7 @@ export const FIELDSET_STYLING = css({
 
   legend: {
     paddingLeft: 0,
+    paddingRight: 0,
     width: '100%',
   },
 
@@ -186,10 +218,10 @@ export const RADIOGROUP_STYLING = css({
     justifyContent: 'center',
     alignItems: 'baseline',
     marginBottom: 0,
-  },
 
-  '> *': {
-    margin: '1rem',
+    '> *': {
+      margin: '1rem',
+    },
   },
 });
 
@@ -203,6 +235,7 @@ export const HOW_RELATED_CONTAINER_STYLING = css({
   marginTop: '2rem',
   label: {
     marginBottom: '2rem',
+    alignItems: 'end',
   },
 
   [MEDIA_SMALL]: {
@@ -212,6 +245,7 @@ export const HOW_RELATED_CONTAINER_STYLING = css({
     label: {
       flex: '0 1 50%',
       marginBottom: '3rem',
+      alignItems: 'center',
     },
   },
 
