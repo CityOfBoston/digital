@@ -11,24 +11,23 @@ import { resolvers as deathResolvers } from './death-certificates';
 
 import RegistryDb from '../services/RegistryDb';
 import Emails from '../services/Emails';
+import { PACKAGE_SRC_ROOT } from '../util';
 
 // This file is built by the "generate-graphql-schema" script from
 // the above interfaces.
 const schemaGraphql = fs.readFileSync(
-  path.resolve(
-    // Normalize between dev and compiled file locations
-    __dirname.replace('/registry-certs/build/', '/registry-certs/'),
-    '../../graphql',
-    'schema.graphql'
-  ),
+  path.resolve(PACKAGE_SRC_ROOT, 'graphql', 'schema.graphql'),
   'utf-8'
 );
+
+export type Source = 'web' | 'fulfillment' | 'unknown';
 
 export interface Context {
   rollbar: Rollbar;
   registryDb: RegistryDb;
   stripe: Stripe;
   emails: Emails;
+  source: Source;
 }
 
 /** @graphql schema */

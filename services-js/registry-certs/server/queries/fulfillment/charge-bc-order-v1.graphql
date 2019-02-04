@@ -1,0 +1,12 @@
+mutation ChargeBcOrderV1($orderId: String!, $transactionId: String!) {
+  chargeOrder(
+      type: BC,
+      orderId: $orderId,
+      transactionId: $transactionId) {
+    success
+    error {
+      code
+      message
+    }
+  }
+}

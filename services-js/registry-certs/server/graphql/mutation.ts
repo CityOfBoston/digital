@@ -2,6 +2,7 @@
 
 import { Context } from '.';
 import moment from 'moment';
+import Boom from 'boom';
 
 import {
   Resolvers,
@@ -65,6 +66,23 @@ interface SubmittedOrder {
   contactEmail: string;
 }
 
+enum ChargeOrderErrorCause {
+  CHARGE_EXPIRED = 'CHARGE_EXPIRED',
+  CHARGE_NOT_FOUND = 'CHARGE_NOT_FOUND',
+  ORDER_NOT_FOUND = 'ORDER_NOT_FOUND',
+  UNKNOWN = 'UNKNOWN',
+}
+
+interface ChargeOrderError {
+  code: ChargeOrderErrorCause;
+  message: string;
+}
+
+interface ChargeOrderResult {
+  success: boolean;
+  error: ChargeOrderError | null;
+}
+
 enum OrderErrorCause {
   /** Problem is a card error that the user should be able to correct. */
   USER_PAYMENT = 'USER_PAYMENT',
@@ -126,6 +144,12 @@ export interface Mutation extends ResolvableWith<{}> {
 
     idempotencyKey: string;
   }): OrderResult;
+
+  chargeOrder(args: {
+    type: OrderType;
+    orderId: string;
+    transactionId: string;
+  }): ChargeOrderResult;
 }
 
 const mutationResolvers: Resolvers<Mutation, Context> = {
@@ -373,6 +397,57 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     }
 
     return { order: { id: orderId, contactEmail }, error: null };
+  },
+
+  chargeOrder: async (
+    _root,
+    { transactionId },
+    { rollbar, stripe, source }
+  ): Promise<ChargeOrderResult> => {
+    if (process.env.NODE_ENV === 'production' && source !== 'fulfillment') {
+      throw Boom.forbidden(`Source ${source} may not call chargeOrder`);
+    }
+
+    try {
+      await stripe.charges.capture(transactionId);
+
+      return {
+        success: true,
+        error: null,
+      };
+    } catch (e) {
+      rollbar.error(e);
+
+      switch (e.code) {
+        case 'charge_expired_for_capture':
+          return {
+            success: false,
+            error: {
+              code: ChargeOrderErrorCause.CHARGE_EXPIRED,
+              message:
+                'This charge has expired because 7 days have passed since it was created.',
+            },
+          };
+
+        case 'resource_missing':
+          return {
+            success: false,
+            error: {
+              code: ChargeOrderErrorCause.CHARGE_NOT_FOUND,
+              message: 'Stripe does not have a record of that transaction ID',
+            },
+          };
+
+        default:
+          return {
+            success: false,
+            error: {
+              code: ChargeOrderErrorCause.UNKNOWN,
+              message: e.message || e.toString(),
+            },
+          };
+      }
+    }
   },
 };
 

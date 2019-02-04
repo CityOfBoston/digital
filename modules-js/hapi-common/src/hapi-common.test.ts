@@ -10,33 +10,34 @@ const AUTH_HEADER = 'X-API-KEY';
 const ALLOWED_KEYS = ['key-1', 'key-2'];
 
 describe('headerKeys', () => {
-  let server;
-
-  beforeEach(() => {
-    server = new Server();
+  const makeServer = (keys): Server => {
+    const server = new Server();
 
     server.auth.scheme('headerKeys', headerKeys);
     server.auth.strategy('testHeaderKeys', 'headerKeys', {
       header: AUTH_HEADER,
-      keys: ALLOWED_KEYS,
+      keys,
     } as HeaderKeysOptions);
 
     server.route({
       method: 'GET',
       path: '/test',
-      handler: () => 'ok',
+      handler: ({ auth }) => auth.credentials,
       options: {
         auth: 'testHeaderKeys',
       },
     });
-  });
 
+    return server;
+  };
   it('fails authentication if there’s no header', async () => {
+    const server = makeServer(ALLOWED_KEYS);
     const resp = await server.inject({ url: '/test' });
     expect(resp.statusCode).toEqual(401);
   });
 
   it('fails authentication if the key isn’t in the list', async () => {
+    const server = makeServer(ALLOWED_KEYS);
     const resp = await server.inject({
       url: '/test',
       headers: { [AUTH_HEADER]: 'key-3' },
@@ -45,11 +46,30 @@ describe('headerKeys', () => {
   });
 
   it('succeeds when the key is in the list', async () => {
+    const server = makeServer(ALLOWED_KEYS);
     const resp = await server.inject({
       url: '/test',
       headers: { [AUTH_HEADER]: 'key-1' },
     });
     expect(resp.statusCode).toEqual(200);
+    expect(JSON.parse(resp.payload)).toMatchObject({ key: 'key-1' });
+  });
+
+  it('succeeds when the keys are a map of credentials', async () => {
+    const server = makeServer({
+      'key-1': { source: 'fulfillment' },
+    });
+
+    const resp = await server.inject({
+      url: '/test',
+      headers: { [AUTH_HEADER]: 'key-1' },
+    });
+
+    expect(resp.statusCode).toEqual(200);
+    expect(JSON.parse(resp.payload)).toMatchObject({
+      key: 'key-1',
+      source: 'fulfillment',
+    });
   });
 });
 
