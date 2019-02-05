@@ -11,6 +11,11 @@ type Dependencies = {
   stripe: Stripe;
 };
 
+/**
+ * Called when a charge is created or finally captured to update iNovah with the
+ * transaction information, and then update the charge with the iNovah reference
+ * info.
+ */
 async function processChargeSucceeded(
   { rollbar, stripe, inovah }: Dependencies,
   charge: charges.ICharge
@@ -20,7 +25,7 @@ async function processChargeSucceeded(
   // about the money until it’s captured, so we exit out here without sending
   // it to iNovah.
   if (!charge.captured) {
-    console.log(`Charge ${charge.id} is not yet captured`);
+    console.log(`Skipping charge ${charge.id}: not yet captured`);
     return;
   }
 
@@ -54,6 +59,9 @@ async function processChargeSucceeded(
     throw new Error(`Unexpected source type: ${source.object}`);
   }
 
+  // Stripe works in cents, iNovah in floating-point dollars.
+  const amountInDollars = balanceTransaction.net / 100;
+
   const {
     transactionId,
     transactionNum,
@@ -65,8 +73,7 @@ async function processChargeSucceeded(
     balanceTransaction.id,
     orderType,
     {
-      // Stripe works in cents, iNovah in floating-point dollars.
-      amountInDollars: balanceTransaction.net / 100,
+      amountInDollars,
       quantity: parseInt(charge.metadata['order.quantity'] || '0', 10),
       unitPriceInDollars:
         parseInt(charge.metadata['order.unitPrice'] || '0', 10) / 100,
@@ -80,6 +87,12 @@ async function processChargeSucceeded(
       billingZip: source.address_zip,
     }
   );
+
+  console.log(`Added charge ${charge.id} to iNovah:`, {
+    transactionId,
+    batchId,
+    amountInDollars,
+  });
 
   try {
     await stripe.charges.update(charge.id, {
@@ -115,6 +128,9 @@ export async function processStripeEvent(
 
   switch (event.type) {
     case 'charge.succeeded':
+      await processChargeSucceeded(deps, event.data.object as charges.ICharge);
+      break;
+    case 'charge.captured':
       await processChargeSucceeded(deps, event.data.object as charges.ICharge);
       break;
     default:
