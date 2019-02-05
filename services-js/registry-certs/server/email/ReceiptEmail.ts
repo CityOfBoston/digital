@@ -1,28 +1,21 @@
 import path from 'path';
 import fs from 'fs';
 
+import Handlebars from 'handlebars';
+import mjml2html from 'mjml';
+import { PACKAGE_SRC_ROOT } from '../util';
+
+require('./handlebars-helpers');
+
 const RECEIPT_MJML_TEMPLATE = fs.readFileSync(
-  path.resolve(
-    // This needs to work for both dev and compiled locations of this file.
-    __dirname.replace('/registry-certs/build/', '/registry-certs/'),
-    '../../server/email/receipt.mjml.hbs'
-  ),
+  path.resolve(PACKAGE_SRC_ROOT, './server/email/receipt.mjml.hbs'),
   'utf-8'
 );
 
 const RECEIPT_TEXT_TEMPLATE = fs.readFileSync(
-  path.resolve(
-    // This needs to work for both dev and compiled locations of this file.
-    __dirname.replace('/registry-certs/build/', '/registry-certs/'),
-    '../../server/email/receipt.txt.hbs'
-  ),
+  path.resolve(PACKAGE_SRC_ROOT, './server/email/receipt.txt.hbs'),
   'utf-8'
 );
-
-import Handlebars from 'handlebars';
-import mjml2html from 'mjml';
-
-require('./handlebars-helpers');
 
 export interface TemplateData {
   // already-formatted date

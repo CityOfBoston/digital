@@ -69,6 +69,9 @@ GraphQLSchema {
     "BirthCertificateOrderItemInput": "BirthCertificateOrderItemInput",
     "Boolean": "Boolean",
     "CertificateOrderItem": "CertificateOrderItem",
+    "ChargeOrderError": "ChargeOrderError",
+    "ChargeOrderErrorCause": "ChargeOrderErrorCause",
+    "ChargeOrderResult": "ChargeOrderResult",
     "Date": "Date",
     "DeathCertificate": "DeathCertificate",
     "DeathCertificateOrder": "DeathCertificateOrder",
@@ -81,6 +84,7 @@ GraphQLSchema {
     "OrderError": "OrderError",
     "OrderErrorCause": "OrderErrorCause",
     "OrderResult": "OrderResult",
+    "OrderType": "OrderType",
     "Query": "Query",
     "String": "String",
     "SubmittedOrder": "SubmittedOrder",
@@ -97,28 +101,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 3132,
-      "start": 3086,
+      "end": 3503,
+      "start": 3457,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3115,
-          "start": 3097,
+          "end": 3486,
+          "start": 3468,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3115,
-            "start": 3107,
+            "end": 3486,
+            "start": 3478,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3115,
-              "start": 3107,
+              "end": 3486,
+              "start": 3478,
             },
             "value": "Mutation",
           },
@@ -127,21 +131,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3130,
-          "start": 3118,
+          "end": 3501,
+          "start": 3489,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3130,
-            "start": 3125,
+            "end": 3501,
+            "start": 3496,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3130,
-              "start": 3125,
+              "end": 3501,
+              "start": 3496,
             },
             "value": "Query",
           },

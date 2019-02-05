@@ -4,6 +4,7 @@ import next from 'next';
 import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
+import Path from 'path';
 import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 import Stripe from 'stripe';
@@ -18,6 +19,7 @@ import {
   HeaderKeysOptions,
   rollbarPlugin,
   graphqlOptionsWithRollbar,
+  persistentQueryPlugin,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
@@ -29,6 +31,7 @@ import {
 } from '@cityofboston/next-client-common';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
+import { DatabaseConnectionOptions } from '@cityofboston/mssql-common';
 
 import {
   makeRegistryDbFactory,
@@ -40,12 +43,22 @@ import Emails from './services/Emails';
 
 import { processStripeEvent } from './stripe-events';
 
-import schema, { Context } from './graphql';
-import { DatabaseConnectionOptions } from '@cityofboston/mssql-common';
+import schema, { Context, Source } from './graphql';
+import { PACKAGE_SRC_ROOT } from './util';
 
 type ServerArgs = {
   rollbar: Rollbar;
 };
+
+type Credentials = {
+  source: Source;
+};
+
+declare module 'hapi' {
+  interface AuthCredentials extends Credentials {
+    key: string;
+  }
+}
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -133,10 +146,30 @@ export async function makeServer({ rollbar }: ServerArgs) {
     };
   };
 
+  const apiKeys: { [key: string]: Credentials } = {};
+
+  if (process.env.API_KEYS) {
+    process.env.API_KEYS.split(',').forEach(k => {
+      apiKeys[k] = { source: 'unknown' };
+    });
+  }
+
+  if (process.env.WEB_API_KEY) {
+    apiKeys[process.env.WEB_API_KEY] = {
+      source: 'web',
+    };
+  }
+
+  if (process.env.FULFILLMENT_API_KEY) {
+    apiKeys[process.env.FULFILLMENT_API_KEY] = {
+      source: 'fulfillment',
+    };
+  }
+
   server.auth.scheme('headerKeys', headerKeys);
   server.auth.strategy('apiHeaderKeys', 'headerKeys', {
     header: 'X-API-KEY',
-    keys: process.env.API_KEYS ? process.env.API_KEYS.split(',') : [],
+    keys: apiKeys,
   } as HeaderKeysOptions);
 
   await server.register({
@@ -156,19 +189,41 @@ export async function makeServer({ rollbar }: ServerArgs) {
       path: '/graphql',
       // We use a function here so that all of our services are request-scoped
       // and can cache within the same query but not leak to others.
-      graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
-        schema,
-        context: {
+      graphqlOptions: graphqlOptionsWithRollbar(rollbar, ({ auth }) => {
+        const source = auth.credentials ? auth.credentials.source : 'unknown';
+
+        const context: Context = {
           registryDb: registryDbFactory.registryDb(),
           stripe,
           emails,
           rollbar,
-        } as Context,
-      })),
+          source,
+        };
+
+        return {
+          schema,
+          context,
+        };
+      }),
       route: {
         cors: true,
-        auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
+        auth:
+          Object.keys(apiKeys).length || process.env.NODE_ENV == 'staging'
+            ? 'apiHeaderKeys'
+            : false,
       },
+    },
+  });
+
+  await server.register({
+    plugin: persistentQueryPlugin,
+    options: {
+      queriesDirPath: Path.resolve(
+        PACKAGE_SRC_ROOT,
+        'server',
+        'queries',
+        'fulfillment'
+      ),
     },
   });
 

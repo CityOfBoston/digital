@@ -33,6 +33,7 @@ describe('DeathCertificates resolvers', () => {
           stripe: {} as any,
           rollbar: {} as any,
           emails: {} as any,
+          source: 'web',
         }
       );
       expect(search.page).toEqual(1);
@@ -50,6 +51,7 @@ describe('DeathCertificates resolvers', () => {
           stripe: {} as any,
           rollbar: {} as any,
           emails: {} as any,
+          source: 'web',
         }
       );
       expect(search.page).toEqual(1);
@@ -69,6 +71,7 @@ describe('DeathCertificates resolvers', () => {
             stripe: {} as any,
             rollbar: {} as any,
             emails: {} as any,
+            source: 'web',
           }
         )
       ).toBeTruthy();
@@ -84,6 +87,7 @@ describe('DeathCertificates resolvers', () => {
             stripe: {} as any,
             rollbar: {} as any,
             emails: {} as any,
+            source: 'web',
           }
         )
       ).not.toBeTruthy();
@@ -106,6 +110,7 @@ describe('DeathCertificates resolvers', () => {
           stripe: {} as any,
           rollbar: {} as any,
           emails: {} as any,
+          source: 'web',
         }
       );
       expect(certificates[0]).toBeTruthy();
