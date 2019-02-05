@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AnswerIcon from '../icons/AnswerIcon';
-import RadioItemComponent from '../RadioItemComponent';
+import RadioItemComponent from './RadioItemComponent';
 
 import { Question, YesNoUnknownAnswer } from '../../types';
 

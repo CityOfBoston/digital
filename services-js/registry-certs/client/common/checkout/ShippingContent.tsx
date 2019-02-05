@@ -14,7 +14,9 @@ import { makeStateSelectOptions } from '../form-elements';
 import { runInitialValidation } from './formik-util';
 import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
 import CheckoutPageLayout from './CheckoutPageLayout';
+
 import { Progress } from '../../birth/PageWrapper';
+import { BackButtonContent } from '../../birth/components/BackButton';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
@@ -470,11 +472,7 @@ export default class ShippingContent extends React.Component<Props> {
 
         <div className="g g--r g--vc">
           <div className="g--5 ta-r m-b500">
-            <button
-              className="btn btn--b-sm btn--br"
-              type="submit"
-              disabled={!isValid}
-            >
+            <button className="btn" type="submit" disabled={!isValid}>
               Next: Payment
             </button>
           </div>
@@ -491,7 +489,9 @@ export default class ShippingContent extends React.Component<Props> {
 
             {this.props.certificateType === 'birth' && (
               <Link href="/birth/review">
-                <a className="btn btn--w btn--b-sm btn--br">Back</a>
+                <a style={{ fontStyle: 'italic' }}>
+                  <BackButtonContent />
+                </a>
               </Link>
             )}
           </div>

@@ -3,9 +3,9 @@ import { observer } from 'mobx-react';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import QuestionComponent from './QuestionComponent';
-import FieldsetComponent from './FieldsetComponent';
-import YesNoUnsureComponent from './YesNoUnsureComponent';
+import QuestionComponent from '../components/QuestionComponent';
+import FieldsetComponent from '../components/FieldsetComponent';
+import YesNoUnsureComponent from '../components/YesNoUnsureComponent';
 
 import { SECTION_HEADING_STYLING, NOTE_BOX_CLASSNAME } from '../styling';
 

@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { BACK_BUTTON_STYLING, QUESTION_CONTAINER_STYLING } from '../styling';
+import BackButton from '../components/BackButton';
+
+import { QUESTION_CONTAINER_STYLING } from '../styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -42,7 +44,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
             props.startOver && (
               <button
                 type="button"
-                className="btn btn--b-sm btn--br btn--w"
+                className="btn btn--b-sm"
                 onClick={props.handleReset}
               >
                 Start over
@@ -52,15 +54,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
 
         <div className="t--info g--6 m-v500">
           {props.handleStepBack && (
-            <div className="t--info">
-              <button
-                type="button"
-                className={`btn--b-sm ${BACK_BUTTON_STYLING}`}
-                onClick={props.handleStepBack}
-              >
-                <span aria-hidden="true">←</span> Back
-              </button>
-            </div>
+            <BackButton handleClick={props.handleStepBack} />
           )}
         </div>
       </div>

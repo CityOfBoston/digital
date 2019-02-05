@@ -37,7 +37,7 @@ export default class ConfirmationContent extends React.Component<Props> {
 
           <div className="ta-c m-v300">
             <a
-              className="btn btn--br"
+              className="btn"
               href={`/death/receipt?id=${orderId}&contactEmail=${encodeURIComponent(
                 contactEmail
               )}`}

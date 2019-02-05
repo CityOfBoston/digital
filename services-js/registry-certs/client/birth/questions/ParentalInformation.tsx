@@ -5,15 +5,16 @@ import { TextInput } from '@cityofboston/react-fleet';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import QuestionComponent from './QuestionComponent';
-import FieldsetComponent from './FieldsetComponent';
-import YesNoUnsureComponent from './YesNoUnsureComponent';
+import QuestionComponent from '../components/QuestionComponent';
+import FieldsetComponent, {
+  FIELDSET_STYLING,
+} from '../components/FieldsetComponent';
+import YesNoUnsureComponent from '../components/YesNoUnsureComponent';
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
   SUPPORTING_TEXT_STYLING,
   SECTION_HEADING_STYLING,
-  FIELDSET_STYLING,
   NOTE_BOX_CLASSNAME,
 } from '../styling';
 
