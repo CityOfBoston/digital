@@ -8,6 +8,8 @@ storiesOf('RegisterPage', module)
     <RegisterPage
       account={{
         employeeId: 'CON01234',
+        firstName: 'Jyn',
+        lastName: 'Doe',
         registered: false,
         needsMfaDevice: true,
         needsNewPassword: true,
@@ -19,6 +21,8 @@ storiesOf('RegisterPage', module)
     <RegisterPage
       account={{
         employeeId: 'CON01234',
+        firstName: 'Jyn',
+        lastName: 'Doe',
         registered: false,
         needsMfaDevice: true,
         needsNewPassword: false,

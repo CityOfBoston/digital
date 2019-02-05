@@ -53,6 +53,8 @@ export interface ChangePasswordVariables {
 
 export interface FetchAccountAndApps_account {
   employeeId: string;
+  firstName: string | null;
+  lastName: string | null;
   registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;
@@ -92,6 +94,8 @@ export interface FetchAccountAndApps {
 
 export interface FetchAccount_account {
   employeeId: string;
+  firstName: string | null;
+  lastName: string | null;
   registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;

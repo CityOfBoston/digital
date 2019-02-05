@@ -54,7 +54,9 @@ export default class AccessBostonHeader extends React.Component<Props> {
         </h1>
         {account && (
           <div className={`${HEADER_RIGHT_STYLE}`}>
-            <span style={{ marginRight: '1em' }}>{account.employeeId}</span>
+            <span style={{ marginRight: '1em' }}>
+              {getEmployeeName(account)}
+            </span>
 
             {!noLinks && (
               <RedirectForm path="/logout">
@@ -65,5 +67,13 @@ export default class AccessBostonHeader extends React.Component<Props> {
         )}
       </div>
     );
+  }
+}
+
+function getEmployeeName({ firstName, lastName, employeeId }: Account): string {
+  if (firstName || lastName) {
+    return `${firstName || ''} ${lastName || ''}`.trim();
+  } else {
+    return employeeId;
   }
 }

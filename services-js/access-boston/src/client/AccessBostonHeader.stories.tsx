@@ -6,6 +6,8 @@ import { Account } from './graphql/fetch-account';
 
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
+  firstName: 'Jyn',
+  lastName: 'Doe',
   registered: true,
   needsMfaDevice: false,
   needsNewPassword: false,

@@ -29,7 +29,7 @@ exports[`Storyshots AccessBostonHeader default 1`] = `
         }
       }
     >
-      CON01234
+      Jyn Doe
     </span>
     <form
       action="/logout"
@@ -80,7 +80,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -420,7 +420,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -764,7 +764,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -1113,7 +1113,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -1508,7 +1508,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -2446,7 +2446,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -2984,34 +2984,6 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
-              <a
-                className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/accessRequest/accessRequest."
-                onClick={[Function]}
-                target="_self"
-              >
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Request Access
-                </div>
-                <div
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </div>
-              </a>
-            </li>
           </ul>
         </section>
         <section
@@ -3256,7 +3228,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -3773,34 +3745,6 @@ Array [
                   }
                 >
                   Manage My Device(s)
-                </div>
-                <div
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </div>
-              </a>
-            </li>
-            <li>
-              <a
-                className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/accessRequest/accessRequest."
-                onClick={[Function]}
-                target="_self"
-              >
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Request Access
                 </div>
                 <div
                   style={
@@ -4422,7 +4366,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -4661,7 +4605,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -4848,7 +4792,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -6284,7 +6228,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"
@@ -6440,7 +6384,7 @@ Array [
           }
         }
       >
-        CON01234
+        Jyn Doe
       </span>
       <form
         action="/logout"

@@ -78,6 +78,8 @@ export interface Mutation {
 
 export interface Account {
   employeeId: string;
+  firstName?: string;
+  lastName?: string;
   registered: boolean;
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
@@ -129,10 +131,17 @@ const queryRootResolvers: QueryRootResolvers = {
   ) => {
     if (loginAuth) {
       const { userId } = loginAuth;
-      const { needsMfaDevice, needsNewPassword } = loginSession!;
+      const {
+        needsMfaDevice,
+        needsNewPassword,
+        firstName,
+        lastName,
+      } = loginSession!;
 
       return {
         employeeId: userId,
+        firstName,
+        lastName,
         // We set this explicitly rather than have all places that need it have
         // to derive it from the other two booleans.
         registered: !needsMfaDevice && !needsNewPassword,
