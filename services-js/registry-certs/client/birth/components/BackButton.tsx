@@ -22,13 +22,14 @@ export default function BackButton(props: Props): JSX.Element {
 
 export function BackButtonContent(): JSX.Element {
   return (
-    <>
+    <span style={{ whiteSpace: 'nowrap' }}>
       <span aria-hidden="true">←</span> Back
-    </>
+    </span>
   );
 }
 
 const BACK_BUTTON_CONTAINER_STYLING = css({
+  fontStyle: 'italic',
   button: {
     padding: '1.25rem',
   },

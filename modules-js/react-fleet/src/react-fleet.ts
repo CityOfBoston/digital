@@ -14,6 +14,9 @@ export { default as ContactForm } from './components/ContactForm';
 export { default as FileInput } from './form-elements/inputs/FileInput';
 export { default as Footer } from './components/Footer';
 export { default as Header } from './components/Header';
+export {
+  default as MemorableDateInput,
+} from './form-elements/inputs/MemorableDateInput';
 export { default as Menu } from './components/Menu';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as Radio, RadioGroup } from './form-elements/inputs/Radio';

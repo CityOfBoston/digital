@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import { TextInput } from '@cityofboston/react-fleet';
+import { TextInput, MemorableDateInput } from '@cityofboston/react-fleet';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
@@ -34,6 +34,12 @@ export default class PersonalInformation extends React.Component<Props> {
   private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     this.props.birthCertificateRequest.answerQuestion({
       [event.target.name]: event.target.value,
+    });
+  };
+
+  private handleDateChange = (newDate: Date | null): void => {
+    this.props.birthCertificateRequest.answerQuestion({
+      birthDate: newDate,
     });
   };
 
@@ -84,12 +90,7 @@ export default class PersonalInformation extends React.Component<Props> {
           </div>
 
           <div className="m-t700">
-            {/*<h3 className={`${QUESTION_TEXT_STYLING} secondary`}>*/}
-            {/*Is there an alternative spelling?*/}
-            {/*</h3>*/}
-
             <TextInput
-              // hideLabel={true}
               label="Alternative spelling"
               name="altSpelling"
               value={altSpelling}
@@ -98,21 +99,20 @@ export default class PersonalInformation extends React.Component<Props> {
           </div>
         </FieldsetComponent>
 
-        <FieldsetComponent
-          legendText={
-            <h2 className={SECTION_HEADING_STYLING}>
+        <MemorableDateInput
+          legend={
+            <h2
+              className={SECTION_HEADING_STYLING}
+              style={{ marginBottom: '1.5rem' }}
+            >
               When were {forSelf ? 'you' : 'they'} born?
             </h2>
           }
-        >
-          {/* todo */}
-          <TextInput
-            label="Date of Birth"
-            name="birthDate"
-            onChange={this.handleChange}
-            value={birthDate}
-          />
-        </FieldsetComponent>
+          initialDate={birthDate}
+          componentId="dob"
+          onlyAllowPast={true}
+          handleDate={this.handleDateChange}
+        />
       </QuestionComponent>
     );
   }

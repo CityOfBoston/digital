@@ -48,7 +48,7 @@ function makeBirthCertificateRequest(): BirthCertificateRequest {
   request.answerQuestion({
     firstName: 'Carol',
     lastName: 'Danvers',
-    birthDate: '3/5/1968',
+    birthDate: new Date(1968, 2, 5),
   });
 
   return request;

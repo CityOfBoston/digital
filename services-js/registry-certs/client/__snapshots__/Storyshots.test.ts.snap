@@ -1014,11 +1014,19 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                     }
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </a>
                 </div>
               </div>
@@ -2959,11 +2967,19 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                     }
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </a>
                 </div>
               </div>
@@ -4560,7 +4576,7 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -4568,11 +4584,19 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -5044,7 +5068,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -5052,11 +5076,19 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -5683,7 +5715,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -5691,11 +5723,19 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -6320,7 +6360,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -6328,11 +6368,19 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -6785,46 +6833,93 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                 </div>
               </fieldset>
               <fieldset
-                className="css-s52bq "
+                className="css-svo1gv"
               >
-                <legend>
+                <legend
+                  style={
+                    Object {
+                      "width": "100%",
+                    }
+                  }
+                >
                   <h2
                     className="css-vmrobw"
+                    style={
+                      Object {
+                        "marginBottom": "1.5rem",
+                      }
+                    }
                   >
                     When were 
                     you
                      born?
                   </h2>
                 </legend>
-                <div>
-                  <label
-                    className="txt-l "
-                    htmlFor="input-4004051805"
-                  >
-                    <span
-                      style={
-                        Object {
-                          "marginRight": "0.5em",
-                          "whiteSpace": "nowrap",
-                        }
-                      }
+                <div
+                  className="css-k2dcag"
+                >
+                  <div>
+                    <label
+                      className="txt-l"
+                      htmlFor="dob-month"
                     >
-                      Date of Birth
-                    </span>
-                  </label>
-                  <input
-                    aria-label=""
-                    className="txt-f  "
-                    id="input-4004051805"
-                    name="birthDate"
-                    onChange={[Function]}
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    className="t--subinfo t--err m-b100"
-                  >
-                     
+                      Month
+                    </label>
+                    <input
+                      className="txt-f"
+                      id="dob-month"
+                      max="12"
+                      min="1"
+                      name="month"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="MM"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="txt-l"
+                      htmlFor="dob-day"
+                    >
+                      Day
+                    </label>
+                    <input
+                      className="txt-f"
+                      id="dob-day"
+                      max="31"
+                      min="1"
+                      name="day"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="DD"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                  <div>
+                    <label
+                      className="txt-l"
+                      htmlFor="dob-year"
+                    >
+                      Year
+                    </label>
+                    <input
+                      className="txt-f"
+                      id="dob-year"
+                      max={2019}
+                      min="1000"
+                      name="year"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="YYYY"
+                      type="number"
+                      value=""
+                    />
                   </div>
                 </div>
               </fieldset>
@@ -6848,7 +6943,7 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -6856,11 +6951,19 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -7515,7 +7618,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -7523,11 +7626,19 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -8206,7 +8317,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -8214,11 +8325,19 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -8895,7 +9014,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -8903,11 +9022,19 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -9409,7 +9536,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                 className="t--info g--6 m-v500"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -9417,11 +9544,19 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
               </div>
@@ -9984,57 +10119,116 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
             <p>
               You can only order copies of one person’s birth certificate at a time. If you want to buy copies of a certificate for another person, you need to do a separate transaction.
             </p>
-            <div>
+            <div
+              className="css-14pnwub"
+            >
               <div
-                className="css-fgvso"
+                className="m-r200 css-1s6b24p"
               >
                 <input
-                  aria-label="Certificate quantity"
-                  className="br br-a150 css-19yekma"
+                  aria-label="Quantity"
+                  className="txt-f txt-f--auto ta-r css-jflt97"
                   min="1"
+                  name="quantity"
                   onChange={[Function]}
-                  title="Certificate Quantity"
+                  size={3}
                   type="number"
                   value={1}
                 />
                 <div
-                  className="t--sans css-1rr4qq7"
+                  aria-hidden="true"
+                  className="sel-c sel-c--sq css-1nn3krg"
                 >
-                  <div
-                    className="css-g6e7b4"
+                  <select
+                    className="sel-f sel-f--sq"
+                    name="quantityMenu"
+                    onChange={[Function]}
+                    value={1}
                   >
-                    Martin
-                     
-                    Walsh
-                  </div>
-                  <div
-                    className="css-1xce2b7"
-                  >
-                    <span
-                      style={
-                        Object {
-                          "marginRight": "2em",
-                        }
-                      }
+                    <option
+                      value="1"
                     >
-                      Birth Certificate (Paper Copy)
-                    </span>
-                    <br />
-                    <span>
-                      Born: 
-                      1967-04-10
-                    </span>
-                  </div>
+                      1
+                    </option>
+                    <option
+                      value="2"
+                    >
+                      2
+                    </option>
+                    <option
+                      value="3"
+                    >
+                      3
+                    </option>
+                    <option
+                      value="4"
+                    >
+                      4
+                    </option>
+                    <option
+                      value="5"
+                    >
+                      5
+                    </option>
+                    <option
+                      value="6"
+                    >
+                      6
+                    </option>
+                    <option
+                      value="7"
+                    >
+                      7
+                    </option>
+                    <option
+                      value="8"
+                    >
+                      8
+                    </option>
+                    <option
+                      value="9"
+                    >
+                      9
+                    </option>
+                    <option
+                      value="10"
+                    >
+                      10
+                    </option>
+                    <option
+                      disabled={true}
+                    >
+                      ---------------
+                    </option>
+                    <option
+                      value="other"
+                    >
+                      Other…
+                    </option>
+                  </select>
                 </div>
-                <button
-                  aria-label="Remove and start over"
-                  className="css-1cwmx0h"
-                  onClick={[Function]}
-                  title="Remove and start over"
-                  type="button"
+              </div>
+              <div
+                className="t--sans css-1rr4qq7"
+              >
+                <div
+                  className="css-g6e7b4"
                 >
-                  ×
-                </button>
+                  Martin
+                   
+                  Walsh
+                </div>
+                <div
+                  className="css-1fjpwfv"
+                >
+                  <span>
+                    Birth Certificate (Paper Copy)
+                  </span>
+                  <span>
+                    Born: 
+                    4/9/1967
+                  </span>
+                </div>
               </div>
             </div>
             <div
@@ -10166,24 +10360,13 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               </table>
             </div>
             <div
-              className="m-t700 g g--r"
+              className="m-t700 css-16flrts"
             >
               <div
-                className="g--6 ta-r m-b500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Continue
-                </button>
-              </div>
-              <div
-                className="g--6 m-b500"
+                className="css-13jxkz5"
               >
                 <div
-                  className="css-j8homk"
+                  className="css-1hndia5"
                 >
                   <button
                     className="lnk"
@@ -10191,14 +10374,41 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                     type="button"
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </button>
                 </div>
+                <button
+                  className="lnk cancel"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    ←
+                  </span>
+                   Cancel and start over
+                </button>
               </div>
+              <button
+                className="btn"
+                onClick={[Function]}
+                type="button"
+              >
+                Continue
+              </button>
             </div>
           </section>
         </div>
@@ -14199,11 +14409,19 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
                     }
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </a>
                 </div>
               </div>
@@ -22791,11 +23009,19 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
                     }
                   >
                     <span
-                      aria-hidden="true"
+                      style={
+                        Object {
+                          "whiteSpace": "nowrap",
+                        }
+                      }
                     >
-                      ←
+                      <span
+                        aria-hidden="true"
+                      >
+                        ←
+                      </span>
+                       Back
                     </span>
-                     Back
                   </a>
                 </div>
               </div>

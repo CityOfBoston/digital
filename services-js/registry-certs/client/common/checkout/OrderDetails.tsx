@@ -42,7 +42,7 @@ type OrderDetailsProps =
     };
 
 /**
- * Displays a list of all death certificates in an order’s cart.
+ * Displays a list of all certificates in an order’s cart.
  * Use as child of OrderDetailsDropdown component, or it can be used alone.
  */
 export const OrderDetails = observer(function OrderDetails(

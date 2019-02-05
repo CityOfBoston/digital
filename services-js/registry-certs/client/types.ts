@@ -68,7 +68,7 @@ export interface BirthCertificateRequestInformation {
   firstName: string;
   lastName: string;
   altSpelling?: string;
-  birthDate: string;
+  birthDate: Date | null;
   parentsMarried: YesNoUnknownAnswer;
   parent1FirstName: string;
   parent1LastName?: string;

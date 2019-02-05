@@ -15,7 +15,7 @@ export const birthCertRequest: BirthCertificateRequestInformation = {
   firstName: 'Martin',
   lastName: 'Walsh',
   altSpelling: '',
-  birthDate: '1967-04-10',
+  birthDate: new Date(1967, 3, 10),
   parentsMarried: '',
   parent1FirstName: 'Martin',
   parent1LastName: '',
