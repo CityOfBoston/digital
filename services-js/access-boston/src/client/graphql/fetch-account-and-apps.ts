@@ -12,6 +12,8 @@ const QUERY = gql`
   query FetchAccountAndApps {
     account {
       employeeId
+      firstName
+      lastName
       registered
       needsMfaDevice
       needsNewPassword

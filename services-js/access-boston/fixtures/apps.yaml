@@ -68,8 +68,6 @@ categories:
       - title: Manage My Device(s)
         url: https://desktop.pingone.com/boston-dev/Selection?cmd=devices
         new_window: true
-      - title: Request Access
-        url: https://identity.boston.gov/identityiq/accessRequest/accessRequest.
 
   - title: Support Tools
     apps:
