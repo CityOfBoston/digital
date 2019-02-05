@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 
-import { Context } from '.';
+import { Context, Source } from '.';
 import moment from 'moment';
 import Boom from 'boom';
 
@@ -66,7 +66,7 @@ interface SubmittedOrder {
   contactEmail: string;
 }
 
-enum ChargeOrderErrorCause {
+enum ChargeOrderErrorCode {
   CHARGE_EXPIRED = 'CHARGE_EXPIRED',
   CHARGE_NOT_FOUND = 'CHARGE_NOT_FOUND',
   ORDER_NOT_FOUND = 'ORDER_NOT_FOUND',
@@ -74,13 +74,30 @@ enum ChargeOrderErrorCause {
 }
 
 interface ChargeOrderError {
-  code: ChargeOrderErrorCause;
+  code: ChargeOrderErrorCode;
   message: string;
 }
 
 interface ChargeOrderResult {
   success: boolean;
   error: ChargeOrderError | null;
+}
+
+enum RequestDocumentationCode {
+  ORDER_NOT_FOUND = 'ORDER_NOT_FOUND',
+  ORDER_ALREADY_COMPLETE = 'ORDER_ALREADY_COMPLETE',
+  EMAIL_SEND_FAILURE = 'EMAIL_SEND_FAILURE',
+  UNKNOWN = 'UNKNOWN',
+}
+
+interface RequestDocumentationError {
+  code: RequestDocumentationCode;
+  message: string;
+}
+
+interface RequestDocumentationResult {
+  success: boolean;
+  error: RequestDocumentationError | null;
 }
 
 enum OrderErrorCause {
@@ -150,6 +167,12 @@ export interface Mutation extends ResolvableWith<{}> {
     orderId: string;
     transactionId: string;
   }): ChargeOrderResult;
+
+  requestDocumentation(args: {
+    type: OrderType;
+    orderId: string;
+    message?: string;
+  }): RequestDocumentationResult;
 }
 
 const mutationResolvers: Resolvers<Mutation, Context> = {
@@ -404,9 +427,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     { transactionId },
     { rollbar, stripe, source }
   ): Promise<ChargeOrderResult> => {
-    if (process.env.NODE_ENV === 'production' && source !== 'fulfillment') {
-      throw Boom.forbidden(`Source ${source} may not call chargeOrder`);
-    }
+    requireFulfillmentUser(source);
 
     try {
       await stripe.charges.capture(transactionId);
@@ -423,7 +444,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
           return {
             success: false,
             error: {
-              code: ChargeOrderErrorCause.CHARGE_EXPIRED,
+              code: ChargeOrderErrorCode.CHARGE_EXPIRED,
               message:
                 'This charge has expired because 7 days have passed since it was created.',
             },
@@ -433,7 +454,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
           return {
             success: false,
             error: {
-              code: ChargeOrderErrorCause.CHARGE_NOT_FOUND,
+              code: ChargeOrderErrorCode.CHARGE_NOT_FOUND,
               message: 'Stripe does not have a record of that transaction ID',
             },
           };
@@ -442,11 +463,35 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
           return {
             success: false,
             error: {
-              code: ChargeOrderErrorCause.UNKNOWN,
+              code: ChargeOrderErrorCode.UNKNOWN,
               message: e.message || e.toString(),
             },
           };
       }
+    }
+  },
+  async requestDocumentation(
+    _root,
+    { orderId },
+    { registryDb, source }
+  ): Promise<RequestDocumentationResult> {
+    requireFulfillmentUser(source);
+
+    const order = await registryDb.findOrder(orderId);
+
+    // TODO(fiona): send out an email with the message, generate a link to the
+    // standalone documentation upload page.
+
+    if (order) {
+      return { success: true, error: null };
+    } else {
+      return {
+        success: false,
+        error: {
+          code: RequestDocumentationCode.ORDER_NOT_FOUND,
+          message: `Order ${orderId} was not found in the database`,
+        },
+      };
     }
   },
 };
@@ -663,6 +708,12 @@ async function makeStripeCharge(
     }
 
     throw e;
+  }
+}
+
+function requireFulfillmentUser(source: Source) {
+  if (process.env.NODE_ENV === 'production' && source !== 'fulfillment') {
+    throw Boom.forbidden(`Source ${source} may not call this mutation`);
   }
 }
 

@@ -1,0 +1,12 @@
+mutation RequestBcDocumentationV1($orderId: String!, $message: String) {
+  requestDocumentation(
+      type: BC,
+      orderId: $orderId,
+      message: $message) {
+    success
+    error {
+      code
+      message
+    }
+  }
+}

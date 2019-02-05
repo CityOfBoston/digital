@@ -144,6 +144,8 @@ export async function processStripeEvent(
   }
 
   switch (event.type) {
+    // TODO(fiona): Handle 'charge.captured' here for birth certificates and
+    // send out an email
     case 'charge.succeeded':
       await processChargeSucceeded(deps, event.data.object as charges.ICharge);
       break;
