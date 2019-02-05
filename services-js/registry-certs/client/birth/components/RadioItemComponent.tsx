@@ -1,6 +1,15 @@
 import React from 'react';
 
-import { RADIOITEM_SHARED_STYLING } from './styling';
+import { css } from 'emotion';
+
+import {
+  GRAY_100,
+  MEDIA_SMALL,
+  SANS,
+  VISUALLYHIDDEN,
+} from '@cityofboston/react-fleet';
+
+import { BORDER_STYLE, FOCUS_STYLE } from '../styling';
 
 interface Props {
   questionName: string;
@@ -38,7 +47,7 @@ export default function RadioItemComponent(props: Props): JSX.Element {
 
   return (
     <label
-      className={`${RADIOITEM_SHARED_STYLING} ${props.className} ${
+      className={`${RADIOITEM_STYLING} ${props.className} ${
         hasAnswered && itemValue === questionValue ? 'selected' : ''
       } ${hasAnswered && itemValue !== questionValue ? 'inactive' : ''}`}
     >
@@ -56,3 +65,60 @@ export default function RadioItemComponent(props: Props): JSX.Element {
     </label>
   );
 }
+
+const RADIOITEM_STYLING = css({
+  display: 'flex',
+  alignItems: 'center',
+
+  cursor: 'pointer',
+
+  marginBottom: '2rem',
+
+  [MEDIA_SMALL]: {
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+  },
+
+  transition: 'opacity 0.2s',
+
+  input: VISUALLYHIDDEN,
+
+  'input:focus + span': {
+    ...FOCUS_STYLE,
+  },
+
+  svg: {
+    flexBasis: '20%',
+    height: '100%',
+
+    [MEDIA_SMALL]: {
+      flexBasis: 'auto',
+    },
+  },
+
+  span: {
+    marginLeft: '1rem',
+    padding: '0.8rem 1.5rem',
+    fontFamily: SANS,
+    fontWeight: 700,
+    textTransform: 'uppercase',
+    border: BORDER_STYLE,
+
+    [MEDIA_SMALL]: {
+      marginTop: '1.75rem',
+      marginLeft: 0,
+      flexGrow: 0,
+      whiteSpace: 'nowrap',
+    },
+  },
+
+  '&.selected': {
+    span: {
+      backgroundColor: GRAY_100,
+    },
+  },
+
+  '&.inactive': {
+    opacity: 0.25,
+  },
+});

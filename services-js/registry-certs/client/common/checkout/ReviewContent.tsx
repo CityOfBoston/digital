@@ -330,7 +330,7 @@ export default class ReviewContent extends React.Component<Props, State> {
 
                 <div className="m-v500 ta-c">
                   <Link href={`${checkoutPath}?page=payment`}>
-                    <a className="btn btn--br">Update Payment Information</a>
+                    <a className="btn">Update Payment Information</a>
                   </Link>
                 </div>
               </StatusModal>
@@ -338,7 +338,7 @@ export default class ReviewContent extends React.Component<Props, State> {
 
           <div className="m-v300">
             <button
-              className="btn btn--br"
+              className="btn"
               style={{ display: 'block', width: '100%' }}
               type="submit"
               disabled={

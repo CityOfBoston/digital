@@ -2,20 +2,17 @@ import { css } from 'emotion';
 
 import {
   CHARLES_BLUE,
-  GRAY_100,
   GREEN,
   MEDIA_MEDIUM,
   MEDIA_SMALL,
   OPTIMISTIC_BLUE,
-  SANS,
   SERIF,
-  VISUALLYHIDDEN,
 } from '@cityofboston/react-fleet';
 
 const WHITE = '#fff';
-const BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
+export const BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
 
-const FOCUS_STYLE = {
+export const FOCUS_STYLE = {
   outline: `4px solid ${OPTIMISTIC_BLUE}`,
   outlineOffset: 1,
 };
@@ -44,43 +41,18 @@ export const SUPPORTING_TEXT_STYLING = css({
   margin: '1.5rem 0 2.5rem',
 });
 
-export const RADIOITEM_SHARED_STYLING = css({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  cursor: 'pointer',
+export const RADIOGROUP_STYLING = css({
+  margin: '2rem 0 3rem',
 
-  transition: 'opacity 0.2s',
+  [MEDIA_SMALL]: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'baseline',
+    marginBottom: 0,
 
-  input: VISUALLYHIDDEN,
-
-  'input:focus + span': {
-    ...FOCUS_STYLE,
-  },
-
-  span: {
-    marginTop: '1.75rem',
-    marginBottom: '2rem',
-    padding: '0.8rem 1.5rem',
-    fontFamily: SANS,
-    fontWeight: 700,
-    textTransform: 'uppercase',
-    border: BORDER_STYLE,
-    whiteSpace: 'nowrap',
-
-    [MEDIA_SMALL]: {
-      marginBottom: 0,
+    '> *': {
+      margin: '1rem',
     },
-  },
-
-  '&.selected': {
-    span: {
-      backgroundColor: GRAY_100,
-    },
-  },
-
-  '&.inactive': {
-    opacity: 0.25,
   },
 });
 
@@ -89,7 +61,6 @@ export const RADIOITEM_STYLING = css({
 
   svg: {
     width: 100,
-    height: 100,
     fill: WHITE,
     stroke: 'currentColor',
     strokeMiterlimit: 10,
@@ -109,6 +80,10 @@ export const RADIOITEM_STYLING = css({
       line: {
         strokeLinecap: 'round',
       },
+
+      [MEDIA_SMALL]: {
+        height: 90,
+      },
     },
 
     '&.child': {
@@ -124,8 +99,11 @@ export const RADIOITEM_STYLING = css({
 
 export const ANSWER_ITEM_STYLING = css({
   color: CHARLES_BLUE,
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
+
+  [MEDIA_SMALL]: {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
 });
 
 export const ANSWER_ICON_STYLING = css({
@@ -160,39 +138,6 @@ export const ANSWER_ICON_STYLING = css({
   },
 });
 
-export const FIELDSET_STYLING = css({
-  margin: 0,
-  padding: 0,
-  border: 'none',
-
-  legend: {
-    paddingLeft: 0,
-    width: '100%',
-  },
-
-  h2: {
-    marginBottom: 0,
-    fontFamily: SANS,
-    fontWeight: 700,
-    color: CHARLES_BLUE,
-  },
-});
-
-export const RADIOGROUP_STYLING = css({
-  margin: '2rem 0 3rem',
-
-  [MEDIA_SMALL]: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    marginBottom: 0,
-  },
-
-  '> *': {
-    margin: '1rem',
-  },
-});
-
 export const QUESTION_CONTAINER_STYLING = css({
   'fieldset + fieldset': {
     marginTop: '4rem',
@@ -203,6 +148,7 @@ export const HOW_RELATED_CONTAINER_STYLING = css({
   marginTop: '2rem',
   label: {
     marginBottom: '2rem',
+    alignItems: 'flex-end',
   },
 
   [MEDIA_SMALL]: {
@@ -212,6 +158,7 @@ export const HOW_RELATED_CONTAINER_STYLING = css({
     label: {
       flex: '0 1 50%',
       marginBottom: '3rem',
+      alignItems: 'center',
     },
   },
 
@@ -227,6 +174,7 @@ export const HOW_RELATED_CONTAINER_STYLING = css({
   // an error: https://github.com/emotion-js/emotion/issues/604
   '@supports (display: grid)': {
     display: 'grid',
+    gridRowGap: '2rem',
 
     label: {
       marginBottom: 0,

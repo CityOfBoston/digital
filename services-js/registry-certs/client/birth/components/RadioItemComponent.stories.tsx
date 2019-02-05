@@ -46,7 +46,13 @@ class SampleQuestion extends React.Component<Props, State> {
     return (
       <ul
         role="radiogroup"
-        style={{ listStyle: 'none', margin: 0, color: '#000', display: 'flex' }}
+        style={{
+          listStyle: 'none',
+          margin: 0,
+          color: '#000',
+          display: 'flex',
+          flexWrap: 'wrap',
+        }}
       >
         <li style={itemStyle}>
           <RadioItemComponent

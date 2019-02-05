@@ -364,7 +364,7 @@ class CertificatePage extends React.Component<Props, State> {
         </div>
         <button
           type="submit"
-          className="btn btn--br btn--row"
+          className="btn btn--row"
           disabled={quantity === cartQuantity || quantity === null}
         >
           {cartQuantity ? 'Update Cart' : 'Add to Cart'}

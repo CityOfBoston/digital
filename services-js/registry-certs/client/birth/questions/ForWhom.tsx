@@ -1,9 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-import RadioItemComponent from '../RadioItemComponent';
-import QuestionComponent from './QuestionComponent';
-import FieldsetComponent from './FieldsetComponent';
+import RadioItemComponent from '../components/RadioItemComponent';
+import QuestionComponent from '../components/QuestionComponent';
+import FieldsetComponent from '../components/FieldsetComponent';
 import RelatedIcon from '../icons/RelatedIcon';
 
 import { Relation } from '../../types';

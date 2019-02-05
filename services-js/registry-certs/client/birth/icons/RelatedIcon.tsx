@@ -23,7 +23,7 @@ export default function RelatedIcon(props: Props): JSX.Element {
 
 const icons = {
   myself: (
-    <svg {...commonAttributes} viewBox="-25 -4 100 100" className="heavier">
+    <svg {...commonAttributes} viewBox="-26 -2 100 100" className="heavier">
       <path
         d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
         transform="translate(-88.072 -34)"
@@ -69,7 +69,7 @@ const icons = {
     </svg>
   ),
   spouse: (
-    <svg {...commonAttributes} viewBox="-1.5 -14 96 98" className="spouse">
+    <svg {...commonAttributes} viewBox="-1.5 -2 96 86" className="spouse">
       <ellipse
         cx="27.216"
         cy="27.216"
@@ -107,7 +107,7 @@ const icons = {
     </svg>
   ),
   child: (
-    <svg {...commonAttributes} viewBox="-24 -3 89 89" className="child">
+    <svg {...commonAttributes} viewBox="-26 -3 89 89" className="child">
       <path
         d="M32.963,24.006a12.082,12.082,0,1,1-16.4-11.253V5.862A4.374,4.374,0,0,1,20.925,1.5a4.283,4.283,0,0,1,3.053,1.308,4.283,4.283,0,0,1,1.308,3.053v6.891A12.018,12.018,0,0,1,32.963,24.006Z"
         transform="translate(-2.432 -1.5)"

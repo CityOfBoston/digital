@@ -468,7 +468,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 className="ta-c m-v700"
               >
                 <a
-                  className="btn btn--br btn--w"
+                  className="btn"
                   href="/birth"
                   onClick={[Function]}
                 >
@@ -994,7 +994,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                   className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b-sm btn--br"
+                    className="btn"
                     disabled={true}
                     type="submit"
                   >
@@ -1005,11 +1005,20 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                   className="g--7 m-b500"
                 >
                   <a
-                    className="btn btn--w btn--br btn--b-sm"
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                      }
+                    }
                   >
-                    Back
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
                   </a>
                 </div>
               </div>
@@ -1629,7 +1638,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
               >
                 <button
                   aria-describedby="charge-message"
-                  className="btn btn--br"
+                  className="btn"
                   disabled={true}
                   style={
                     Object {
@@ -2930,7 +2939,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                   className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b-sm btn--br"
+                    className="btn"
                     disabled={true}
                     type="submit"
                   >
@@ -2941,11 +2950,20 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                   className="g--7 m-b500"
                 >
                   <a
-                    className="btn btn--w btn--b-sm btn--br"
                     href="/birth/review"
                     onClick={[Function]}
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                      }
+                    }
                   >
-                    Back
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
                   </a>
                 </div>
               </div>
@@ -3252,7 +3270,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -3264,17 +3282,17 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                 </legend>
                 <div
                   aria-labelledby="forSelf"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
                       className="heavier"
                       focusable="false"
-                      viewBox="-25 -4 100 100"
+                      viewBox="-26 -2 100 100"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -3298,7 +3316,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3356,10 +3374,10 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -3368,7 +3386,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               />
             </div>
             <div
@@ -3686,7 +3704,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -3698,17 +3716,17 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                 </legend>
                 <div
                   aria-labelledby="forSelf"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1gtq3px  inactive"
+                    className="css-1tnlzt1 css-ykfeq4  inactive"
                   >
                     <svg
                       aria-hidden="true"
                       className="heavier"
                       focusable="false"
-                      viewBox="-25 -4 100 100"
+                      viewBox="-26 -2 100 100"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -3732,7 +3750,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1gtq3px selected "
+                    className="css-1tnlzt1 css-ykfeq4 selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -3786,7 +3804,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                 </div>
               </fieldset>
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h3
@@ -3798,17 +3816,17 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                 </legend>
                 <div
                   aria-labelledby="howRelated"
-                  className="css-1gs7rbs"
+                  className="css-1yx3rnd"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
                       className="spouse"
                       focusable="false"
-                      viewBox="-1.5 -14 96 98"
+                      viewBox="-1.5 -2 96 86"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <ellipse
@@ -3864,13 +3882,13 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
                       className="child"
                       focusable="false"
-                      viewBox="-24 -3 89 89"
+                      viewBox="-26 -3 89 89"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -3945,7 +3963,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3989,7 +4007,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4065,7 +4083,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4103,7 +4121,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1gtq3px  "
+                    className="css-1tnlzt1 css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4153,10 +4171,10 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -4165,7 +4183,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               />
             </div>
             <div
@@ -4536,18 +4554,27 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               />
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -4865,7 +4892,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -4879,11 +4906,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                 </legend>
                 <div
                   aria-labelledby="bornInBoston"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  "
+                    className="css-1tnlzt1 css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4915,7 +4942,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  "
+                    className="css-1tnlzt1 css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4955,7 +4982,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  "
+                    className="css-1tnlzt1 css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -5002,10 +5029,10 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -5014,15 +5041,24 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -5340,7 +5376,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -5354,11 +5390,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="bornInBoston"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5390,7 +5426,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5430,7 +5466,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6 selected "
+                    className="css-1tnlzt1 css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -5472,7 +5508,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 </div>
               </fieldset>
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h3
@@ -5488,11 +5524,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsLivedInBoston"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5524,7 +5560,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5564,7 +5600,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6 selected "
+                    className="css-1tnlzt1 css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -5633,10 +5669,10 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--b-sm btn--br btn--w"
+                  className="btn btn--b-sm"
                   onClick={[Function]}
                   type="button"
                 >
@@ -5644,15 +5680,24 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -5970,7 +6015,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -5984,11 +6029,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="bornInBoston"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6020,7 +6065,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6 selected "
+                    className="css-1tnlzt1 css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -6060,7 +6105,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6102,7 +6147,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 </div>
               </fieldset>
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h3
@@ -6118,11 +6163,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsLivedInBoston"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6154,7 +6199,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6 selected "
+                    className="css-1tnlzt1 css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -6194,7 +6239,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6260,10 +6305,10 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={false}
                   onClick={[Function]}
                   type="button"
@@ -6272,15 +6317,24 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -6598,7 +6652,7 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -6731,7 +6785,7 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                 </div>
               </fieldset>
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -6779,10 +6833,10 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -6791,15 +6845,24 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -7117,7 +7180,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -7142,7 +7205,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                    record, you only need to include that name.
                 </p>
                 <fieldset
-                  className="css-f6e8g4"
+                  className="css-s52bq"
                 >
                   <legend>
                     <h3
@@ -7222,7 +7285,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                   </div>
                 </fieldset>
                 <fieldset
-                  className="css-f6e8g4"
+                  className="css-s52bq"
                 >
                   <legend>
                     <h3
@@ -7300,7 +7363,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                 </fieldset>
               </fieldset>
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -7315,11 +7378,11 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  "
+                    className="css-1tnlzt1 css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -7351,7 +7414,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  "
+                    className="css-1tnlzt1 css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -7391,7 +7454,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  "
+                    className="css-1tnlzt1 css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -7437,10 +7500,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -7449,15 +7512,24 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -7775,7 +7847,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -7800,7 +7872,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                    record, you only need to include that name.
                 </p>
                 <fieldset
-                  className="css-f6e8g4"
+                  className="css-s52bq"
                 >
                   <legend>
                     <h3
@@ -7880,7 +7952,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                   </div>
                 </fieldset>
                 <fieldset
-                  className="css-f6e8g4"
+                  className="css-s52bq"
                 >
                   <legend>
                     <h3
@@ -7958,7 +8030,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </fieldset>
               </fieldset>
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -7973,11 +8045,11 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8009,7 +8081,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6 selected "
+                    className="css-1tnlzt1 css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -8049,7 +8121,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8119,10 +8191,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -8131,15 +8203,24 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -8457,7 +8538,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
               className="css-mrpxfe"
             >
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -8482,7 +8563,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                    record, you only need to include that name.
                 </p>
                 <fieldset
-                  className="css-f6e8g4"
+                  className="css-s52bq"
                 >
                   <legend>
                     <h3
@@ -8562,7 +8643,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                   </div>
                 </fieldset>
                 <fieldset
-                  className="css-f6e8g4"
+                  className="css-s52bq"
                 >
                   <legend>
                     <h3
@@ -8640,7 +8721,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </fieldset>
               </fieldset>
               <fieldset
-                className="css-f6e8g4 "
+                className="css-s52bq "
               >
                 <legend>
                   <h2
@@ -8655,11 +8736,11 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="css-b9y115"
+                  className="css-1e6he4a"
                   role="radiogroup"
                 >
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8691,7 +8772,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6  inactive"
+                    className="css-1tnlzt1 css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8731,7 +8812,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-13pp1ml css-1qy40j6 selected "
+                    className="css-1tnlzt1 css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -8799,10 +8880,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -8811,15 +8892,24 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -9173,11 +9263,11 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                 </li>
               </ul>
               <div
-                className="css-b9y115"
+                className="css-1e6he4a"
                 role="radiogroup"
               >
                 <label
-                  className="css-13pp1ml css-1qy40j6  "
+                  className="css-1tnlzt1 css-1awv4sk  "
                 >
                   <svg
                     aria-hidden="true"
@@ -9259,7 +9349,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                   </span>
                 </label>
                 <label
-                  className="css-13pp1ml css-1qy40j6  "
+                  className="css-1tnlzt1 css-1awv4sk  "
                 >
                   <svg
                     aria-hidden="true"
@@ -9304,10 +9394,10 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
               className="g g--r m-t700"
             >
               <div
-                className="g--6 ta-r m-b500"
+                className="g--6 ta-r m-v500"
               >
                 <button
-                  className="btn btn--br btn--b-sm"
+                  className="btn btn--b-sm"
                   disabled={true}
                   onClick={[Function]}
                   type="button"
@@ -9316,15 +9406,24 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                 </button>
               </div>
               <div
-                className="g--6 m-b500"
+                className="t--info g--6 m-v500"
               >
-                <button
-                  className="btn btn--b-sm btn--br btn--w"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
             <div
@@ -9382,6 +9481,7 @@ exports[`Storyshots Birth/RadioItemComponent multiple answers 1`] = `
       Object {
         "color": "#000",
         "display": "flex",
+        "flexWrap": "wrap",
         "listStyle": "none",
         "margin": 0,
       }
@@ -9395,7 +9495,7 @@ exports[`Storyshots Birth/RadioItemComponent multiple answers 1`] = `
       }
     >
       <label
-        className="css-13pp1ml undefined  "
+        className="css-1tnlzt1 undefined  "
       >
         <svg
           style={
@@ -9449,7 +9549,7 @@ exports[`Storyshots Birth/RadioItemComponent multiple answers 1`] = `
       }
     >
       <label
-        className="css-13pp1ml undefined  "
+        className="css-1tnlzt1 undefined  "
       >
         <svg
           style={
@@ -9503,7 +9603,7 @@ exports[`Storyshots Birth/RadioItemComponent multiple answers 1`] = `
       }
     >
       <label
-        className="css-13pp1ml undefined  "
+        className="css-1tnlzt1 undefined  "
       >
         <svg
           style={
@@ -9563,7 +9663,7 @@ exports[`Storyshots Birth/RadioItemComponent single item 1`] = `
     }
   >
     <label
-      className="css-13pp1ml undefined selected "
+      className="css-1tnlzt1 undefined selected "
     >
       <svg
         style={
@@ -10072,7 +10172,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 className="g--6 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn btn--b-sm"
                   onClick={[Function]}
                   type="button"
                 >
@@ -10082,13 +10182,22 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               <div
                 className="g--6 m-b500"
               >
-                <button
-                  className="btn btn--b-sm btn--w btn--br"
-                  onClick={[Function]}
-                  type="button"
+                <div
+                  className="css-j8homk"
                 >
-                  Back
-                </button>
+                  <button
+                    className="lnk"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
+                  </button>
+                </div>
               </div>
             </div>
           </section>
@@ -10986,7 +11095,7 @@ exports[`Storyshots Checkout/ConfirmationContent default 1`] = `
             className="ta-c m-v300"
           >
             <a
-              className="btn btn--br"
+              className="btn"
               href="/death/receipt?id=123-4444-5&contactEmail=ttoe%40squirrelzone.net"
               target="_blank"
             >
@@ -12054,7 +12163,7 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={true}
                   type="submit"
                 >
@@ -13050,7 +13159,7 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={true}
                   type="submit"
                 >
@@ -14070,7 +14179,7 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
                   className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b-sm btn--br"
+                    className="btn"
                     disabled={false}
                     type="submit"
                   >
@@ -14081,11 +14190,20 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
                   className="g--7 m-b500"
                 >
                   <a
-                    className="btn btn--w btn--br btn--b-sm"
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                      }
+                    }
                   >
-                    Back
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
                   </a>
                 </div>
               </div>
@@ -14588,7 +14706,7 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={true}
                   type="submit"
                 >
@@ -15105,7 +15223,7 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={true}
                   type="submit"
                 >
@@ -16101,7 +16219,7 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={false}
                   type="submit"
                 >
@@ -16739,7 +16857,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
               >
                 <button
                   aria-describedby="charge-message"
-                  className="btn btn--br"
+                  className="btn"
                   disabled={true}
                   style={
                     Object {
@@ -17499,7 +17617,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
             >
               <button
                 aria-describedby="charge-message"
-                className="btn btn--br"
+                className="btn"
                 disabled={true}
                 style={
                   Object {
@@ -18186,7 +18304,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
             >
               <button
                 aria-describedby="charge-message"
-                className="btn btn--br"
+                className="btn"
                 disabled={true}
                 style={
                   Object {
@@ -18806,7 +18924,7 @@ exports[`Storyshots Checkout/ReviewContent empty cart 1`] = `
             >
               <button
                 aria-describedby="charge-message"
-                className="btn btn--br"
+                className="btn"
                 disabled={true}
                 style={
                   Object {
@@ -19464,7 +19582,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
             >
               <button
                 aria-describedby="charge-message"
-                className="btn btn--br"
+                className="btn"
                 disabled={true}
                 style={
                   Object {
@@ -20169,7 +20287,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                     className="m-v500 ta-c"
                   >
                     <a
-                      className="btn btn--br"
+                      className="btn"
                       href="/death/checkout?page=payment"
                       onClick={[Function]}
                     >
@@ -20184,7 +20302,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
             >
               <button
                 aria-describedby="charge-message"
-                className="btn btn--br"
+                className="btn"
                 disabled={true}
                 style={
                   Object {
@@ -20912,7 +21030,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
             >
               <button
                 aria-describedby="charge-message"
-                className="btn btn--br"
+                className="btn"
                 disabled={true}
                 style={
                   Object {
@@ -21621,7 +21739,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
             >
               <button
                 aria-describedby="charge-message"
-                className="btn btn--br"
+                className="btn"
                 disabled={true}
                 style={
                   Object {
@@ -22653,7 +22771,7 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
                   className="g--5 ta-r m-b500"
                 >
                   <button
-                    className="btn btn--b-sm btn--br"
+                    className="btn"
                     disabled={false}
                     type="submit"
                   >
@@ -22664,11 +22782,20 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
                   className="g--7 m-b500"
                 >
                   <a
-                    className="btn btn--w btn--b-sm btn--br"
                     href="/birth/review"
                     onClick={[Function]}
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                      }
+                    }
                   >
-                    Back
+                    <span
+                      aria-hidden="true"
+                    >
+                      ←
+                    </span>
+                     Back
                   </a>
                 </div>
               </div>
@@ -23636,7 +23763,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={true}
                   type="submit"
                 >
@@ -24622,7 +24749,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={true}
                   type="submit"
                 >
@@ -25608,7 +25735,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
                 className="g--5 ta-r m-b500"
               >
                 <button
-                  className="btn btn--b-sm btn--br"
+                  className="btn"
                   disabled={false}
                   type="submit"
                 >
@@ -28117,7 +28244,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                   className="ta-r g--4 m-v500"
                 >
                   <a
-                    className="btn btn--br btn--b-sm"
+                    className="btn"
                     href="/death/checkout"
                     onClick={[Function]}
                   >
@@ -28750,7 +28877,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   className="ta-r g--4 m-v500"
                 >
                   <a
-                    className="btn btn--br btn--b-sm"
+                    className="btn"
                     href="/death/checkout"
                     onClick={[Function]}
                   >
@@ -29273,7 +29400,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
                     </div>
                   </div>
                   <button
-                    className="btn btn--br btn--row"
+                    className="btn btn--row"
                     disabled={true}
                     type="submit"
                   >
@@ -30162,7 +30289,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
                     </div>
                   </div>
                   <button
-                    className="btn btn--br btn--row"
+                    className="btn btn--row"
                     disabled={false}
                     type="submit"
                   >
@@ -30691,7 +30818,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
                     </div>
                   </div>
                   <button
-                    className="btn btn--br btn--row"
+                    className="btn btn--row"
                     disabled={false}
                     type="submit"
                   >
@@ -31215,7 +31342,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
                     </div>
                   </div>
                   <button
-                    className="btn btn--br btn--row"
+                    className="btn btn--row"
                     disabled={false}
                     type="submit"
                   >

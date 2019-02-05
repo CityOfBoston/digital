@@ -22,7 +22,9 @@ import { makeStateSelectOptions } from '../form-elements';
 import { runInitialValidation } from './formik-util';
 import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
 import CheckoutPageLayout from './CheckoutPageLayout';
+
 import { Progress } from '../../birth/PageWrapper';
+import { BackButtonContent } from '../../birth/components/BackButton';
 
 type Props = {
   submit: (
@@ -634,7 +636,7 @@ export default class PaymentContent extends React.Component<Props, State> {
         <div className="g g--r g--vc">
           <div className="g--5 ta-r m-b500">
             <button
-              className="btn btn--b-sm btn--br"
+              className="btn"
               type="submit"
               disabled={
                 !isValid ||
@@ -654,7 +656,9 @@ export default class PaymentContent extends React.Component<Props, State> {
                   ← Back to shipping information
                 </a>
               ) : (
-                <a className="btn btn--w btn--br btn--b-sm">Back</a>
+                <a style={{ fontStyle: 'italic' }}>
+                  <BackButtonContent />
+                </a>
               )}
             </Link>
           </div>

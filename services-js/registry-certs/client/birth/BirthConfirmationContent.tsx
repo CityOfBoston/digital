@@ -68,7 +68,7 @@ export default function BirthConfirmationContent({
 
           <div className="ta-c m-v700">
             <Link href="/birth">
-              <a className="btn btn--br btn--w">Back to start</a>
+              <a className="btn">Back to start</a>
             </Link>
           </div>
         </div>

@@ -2,9 +2,9 @@ import React from 'react';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import VerifyIdentificationComponent from '../VerifyIdentificationComponent';
-import QuestionComponent from './QuestionComponent';
-import RadioItemComponent from '../RadioItemComponent';
+import VerifyIdentificationComponent from '../components/VerifyIdentificationComponent';
+import QuestionComponent from '../components/QuestionComponent';
+import RadioItemComponent from '../components/RadioItemComponent';
 import AnswerIcon from '../icons/AnswerIcon';
 import CertificateIcon from '../icons/CertificateIcon';
 

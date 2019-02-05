@@ -19,6 +19,8 @@ import { PageDependencies } from '../../pages/_app';
 import PageWrapper from './PageWrapper';
 import CostSummary from '../common/CostSummary';
 
+import BackButton from './components/BackButton';
+
 import { SECTION_HEADING_STYLING } from './styling';
 
 interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
@@ -140,7 +142,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
         <div className="m-t700 g g--r">
           <div className="g--6 ta-r m-b500">
             <button
-              className="btn btn--b-sm btn--br"
+              className="btn btn--b-sm"
               type="button"
               onClick={this.goToCheckout}
             >
@@ -149,13 +151,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
           </div>
 
           <div className="g--6 m-b500">
-            <button
-              className="btn btn--b-sm btn--w btn--br"
-              type="button"
-              onClick={this.returnToQuestions}
-            >
-              Back
-            </button>
+            <BackButton handleClick={this.returnToQuestions} />
           </div>
         </div>
       </PageWrapper>

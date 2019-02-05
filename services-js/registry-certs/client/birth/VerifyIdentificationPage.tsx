@@ -7,7 +7,7 @@ import { PageDependencies } from '../../pages/_app';
 
 import PageWrapper from './PageWrapper';
 
-import VerifyIdentificationComponent from './VerifyIdentificationComponent';
+import VerifyIdentificationComponent from './components/VerifyIdentificationComponent';
 
 import { SECTION_HEADING_STYLING } from './styling';
 

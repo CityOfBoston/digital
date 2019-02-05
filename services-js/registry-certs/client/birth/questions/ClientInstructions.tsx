@@ -1,6 +1,6 @@
 import React from 'react';
 
-import QuestionComponent from './QuestionComponent';
+import QuestionComponent from '../components/QuestionComponent';
 
 import { SECTION_HEADING_STYLING } from '../styling';
 

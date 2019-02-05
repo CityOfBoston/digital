@@ -5,8 +5,8 @@ import { TextInput } from '@cityofboston/react-fleet';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import QuestionComponent from './QuestionComponent';
-import FieldsetComponent from './FieldsetComponent';
+import QuestionComponent from '../components/QuestionComponent';
+import FieldsetComponent from '../components/FieldsetComponent';
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
