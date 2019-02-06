@@ -2,11 +2,12 @@ import React from 'react';
 import { css } from 'emotion';
 import getConfig from 'next/config';
 
+import { MEDIA_LARGE, CHARLES_BLUE } from '@cityofboston/react-fleet';
+
 import { Request } from '../../data/types';
 
 import SectionHeader from '../common/SectionHeader';
 import waypoints, { WAYPOINT_STYLE } from '../map/WaypointMarkers';
-import { MEDIA_LARGE, CHARLES_BLUE } from '../style-constants';
 
 // Case types where we show the scheduled date.
 const SCHEDULED_CASE_TYPES = ['SCHDBLKITM'];

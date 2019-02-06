@@ -1,11 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
 import { css } from 'emotion';
-import { GRAY_300, GREEN, YELLOW } from '../style-constants';
+
+import {
+  GRAY_300,
+  GREEN,
+  YELLOW,
+  SERIF,
+  WHITE,
+} from '@cityofboston/react-fleet';
+
 import { SearchCase } from '../../data/types';
 
 const CONTAINER_STYLE = css({
-  background: 'white',
+  background: WHITE,
   display: 'flex',
   alignItems: 'stretch',
   boxSizing: 'content-box',
@@ -36,12 +44,12 @@ const SERVICE_NAME_STYLE = css({
 
 const ADDRESS_STYLE = css({
   color: GRAY_300,
-  fontFamily: 'Lora, Georgia, serif',
+  fontFamily: SERIF,
   flex: 1,
 });
 
 const STATUS_COMMON_STYLE = css({
-  color: 'white',
+  color: WHITE,
   padding: '0.1111rem 0.555555rem',
   marginRight: '0.6666666rem',
   fontSize: 12,

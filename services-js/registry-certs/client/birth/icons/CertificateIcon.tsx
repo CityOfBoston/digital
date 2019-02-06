@@ -2,7 +2,7 @@ import React from 'react';
 
 import { css } from 'emotion';
 
-import { CHARLES_BLUE } from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, WHITE } from '@cityofboston/react-fleet';
 
 interface Props {
   name: 'birth' | 'id';
@@ -33,7 +33,7 @@ export default function CertificateIcon(props: Props) {
 }
 
 const ICON_STYLING = css({
-  fill: '#fff',
+  fill: WHITE,
   color: CHARLES_BLUE,
   stroke: 'currentColor',
   strokeWidth: 3,

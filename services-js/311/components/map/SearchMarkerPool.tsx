@@ -4,9 +4,11 @@ import { action, computed, autorun } from 'mobx';
 import { IComputedValue } from 'mobx';
 import { css } from 'emotion';
 import * as MapboxL from 'mapbox.js';
+
+import { WHITE, YELLOW } from '@cityofboston/react-fleet';
+
 import RequestSearch from '../../data/store/RequestSearch';
 import { SearchCase } from '../../data/types';
-import { YELLOW } from '../style-constants';
 import waypointMarkers, { WAYPOINT_BASE_OPTIONS } from './WaypointMarkers';
 import RequestPopup from './RequestPopup';
 
@@ -42,7 +44,7 @@ const POPUP_STYLE = css({
       display: 'block',
       borderLeft: '8px solid transparent',
       borderRight: '8px solid transparent',
-      borderTop: '8px solid white',
+      borderTop: `8px solid ${WHITE}`,
     },
   },
 });

@@ -3,7 +3,10 @@ import React, { ReactNode, ReactNodeArray } from 'react';
 import { css } from 'emotion';
 import hash from 'string-hash';
 
-import { OPTIMISTIC_BLUE } from '../utilities/constants';
+import {
+  FOCUS_INDICATOR_COLOR,
+  OPTIMISTIC_BLUE_DARK,
+} from '../utilities/constants';
 
 /**
  * Accessible collapsing content section component.
@@ -54,7 +57,7 @@ const BUTTON_CLEAR_DEFAULT_STYLING = css`
   cursor: pointer;
   &:focus {
     outline: auto;
-    outline-color: ${OPTIMISTIC_BLUE};
+    outline-color: ${FOCUS_INDICATOR_COLOR};
 
     &:not(:focus-visible) {
       outline: none;
@@ -85,7 +88,7 @@ const BUTTON_STYLING = css`
     width: 0.9em;
     height: 0.9em;
 
-    stroke: ${OPTIMISTIC_BLUE};
+    stroke: ${OPTIMISTIC_BLUE_DARK};
 
     transition: transform 0.4s;
   }

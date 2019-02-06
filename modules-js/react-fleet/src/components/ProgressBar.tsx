@@ -2,7 +2,7 @@ import React from 'react';
 
 import { css } from 'emotion';
 
-import { CHARLES_BLUE, OPTIMISTIC_BLUE } from '../utilities/constants';
+import { CHARLES_BLUE, OPTIMISTIC_BLUE_LIGHT } from '../utilities/constants';
 
 interface Props {
   totalSteps: number;
@@ -67,15 +67,15 @@ const PROGRESS_BAR_STYLE = css({
     '::-webkit-progress-value': {
       transition: 'width 0.5s',
 
-      backgroundColor: OPTIMISTIC_BLUE,
+      backgroundColor: OPTIMISTIC_BLUE_LIGHT,
     },
 
     '::-moz-progress-bar': {
-      backgroundColor: OPTIMISTIC_BLUE,
+      backgroundColor: OPTIMISTIC_BLUE_LIGHT,
     },
 
     '::-ms-fill': {
-      backgroundColor: OPTIMISTIC_BLUE,
+      backgroundColor: OPTIMISTIC_BLUE_LIGHT,
     },
   },
 

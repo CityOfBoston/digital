@@ -397,7 +397,7 @@ Array [
       role="banner"
       style={
         Object {
-          "backgroundColor": "#288be4",
+          "backgroundColor": "#1979cc",
         }
       }
     />
@@ -763,7 +763,7 @@ exports[`Storyshots Form Elements/Buttons close 1`] = `
     <circle
       cx="12"
       cy="12"
-      fill="#fb4d42"
+      fill="#d22d23"
       r="12"
       stroke="none"
     />
@@ -2829,7 +2829,7 @@ Array [
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="#"
             >
               Registry
@@ -3091,7 +3091,7 @@ Array [
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="#"
             >
               Registry
@@ -3236,7 +3236,7 @@ exports[`Storyshots Navigation/Breadcrumb several levels deep 1`] = `
     >
       <a
         aria-current="page"
-        className="css-xtnqqy"
+        className="css-udegvj"
         href="/death"
       >
         Death Certificates
@@ -3281,7 +3281,7 @@ exports[`Storyshots Navigation/Breadcrumb single level 1`] = `
     >
       <a
         aria-current="page"
-        className="css-xtnqqy"
+        className="css-udegvj"
         href="/death"
       >
         Death Certificates
@@ -3729,7 +3729,7 @@ exports[`Storyshots Sectioning Elements/Collapsible Section default (open) 1`] =
     >
       <button
         aria-expanded={true}
-        className="css-wvz0md"
+        className="css-1f85cvx"
         onClick={[Function]}
         type="button"
       >
@@ -3839,7 +3839,7 @@ exports[`Storyshots Sectioning Elements/Collapsible Section initially collapsed 
     >
       <button
         aria-expanded={false}
-        className="css-wvz0md"
+        className="css-1f85cvx"
         onClick={[Function]}
         type="button"
       >
@@ -3890,7 +3890,7 @@ exports[`Storyshots Sectioning Elements/Collapsible Section subheader variant 1`
     >
       <button
         aria-expanded={true}
-        className="css-wvz0md"
+        className="css-1f85cvx"
         onClick={[Function]}
         type="button"
       >

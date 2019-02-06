@@ -2,7 +2,7 @@
 
 exports[`Storyshots AccessBostonHeader default 1`] = `
 <div
-  className="css-1gni7w7 p-a200"
+  className="css-1yqn408 p-a200"
 >
   <h1
     className="css-e3scnp"
@@ -53,7 +53,7 @@ exports[`Storyshots AccessBostonHeader default 1`] = `
 exports[`Storyshots ChangePasswordPage default 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -393,7 +393,7 @@ Array [
 exports[`Storyshots ChangePasswordPage first time registration 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -737,7 +737,7 @@ Array [
 exports[`Storyshots ChangePasswordPage first time registration w/ temp password 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -1086,7 +1086,7 @@ Array [
 exports[`Storyshots ChangePasswordPage network error 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -1481,7 +1481,7 @@ Array [
 exports[`Storyshots ChangePasswordPage submitting 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -1843,7 +1843,7 @@ Array [
 exports[`Storyshots ForgotPasswordPage default 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -2080,7 +2080,7 @@ Array [
 exports[`Storyshots ForgotPasswordPage network error 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -2372,7 +2372,7 @@ Array [
 exports[`Storyshots ForgotPasswordPage success 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -2419,7 +2419,7 @@ Array [
 exports[`Storyshots IndexPage change password success 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -3201,7 +3201,7 @@ Array [
 exports[`Storyshots IndexPage default 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -4138,12 +4138,12 @@ Array [
     }
   >
     <li
-      className="css-1ckn7fc"
+      className="css-pzycro"
     >
       Be at least 10 characters long
     </li>
     <li
-      className="css-1ckn7fc"
+      className="css-pzycro"
     >
       Use at least 3 of these:
       <ul
@@ -4318,7 +4318,7 @@ Array [
       </ul>
     </li>
     <li
-      className="css-1ckn7fc"
+      className="css-pzycro"
     >
       Not have spaces
     </li>
@@ -4339,7 +4339,7 @@ Array [
 exports[`Storyshots RegisterMfaPage default 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -4578,7 +4578,7 @@ Array [
 exports[`Storyshots RegisterMfaPage email 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -4765,7 +4765,7 @@ Array [
 exports[`Storyshots RegisterMfaPage modal open 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -6201,7 +6201,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
 exports[`Storyshots RegisterPage default 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"
@@ -6357,7 +6357,7 @@ Array [
 exports[`Storyshots RegisterPage password already ok 1`] = `
 Array [
   <div
-    className="css-1gni7w7 p-a200"
+    className="css-1yqn408 p-a200"
   >
     <h1
       className="css-e3scnp"

@@ -6,14 +6,12 @@ import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
 
+import { MEDIA_LARGE } from '@cityofboston/react-fleet';
+
 import { LanguagePreference } from '../../../data/store/BrowserLanguage';
 
 import FormDialog from '../../common/FormDialog';
-import {
-  MEDIA_LARGE,
-  CENTERED_DIALOG_STYLE,
-  assetUrl,
-} from '../../style-constants';
+import { assetUrl, CENTERED_DIALOG_STYLE } from '../../style-constants';
 
 const SPRITE_URL = assetUrl('img/svg/faq-icons.svg');
 

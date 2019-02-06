@@ -5,19 +5,20 @@ import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
+import {
+  GRAY_100,
+  GREEN,
+  MEDIA_LARGE,
+  HEADER_HEIGHT,
+  WHITE,
+  YELLOW,
+} from '@cityofboston/react-fleet';
+
 import RequestSearch from '../../data/store/RequestSearch';
 import Ui from '../../data/store/Ui';
 import { SearchCase } from '../../data/types';
 
-import {
-  HEADER_HEIGHT,
-  MEDIA_LARGE,
-  GREEN,
-  YELLOW,
-  GRAY_100,
-  CLEAR_FIX,
-  assetUrl,
-} from '../style-constants';
+import { CLEAR_FIX, assetUrl } from '../style-constants';
 
 const REQUEST_STYLE = css(
   {
@@ -64,7 +65,7 @@ const REQUEST_SERVICE_NAME_STYLE = css({
 });
 
 const STATUS_COMMON_STYLE = css({
-  color: 'white',
+  color: WHITE,
   padding: '0.1111rem 0.33333rem',
   marginRight: '0.6666666rem',
 });

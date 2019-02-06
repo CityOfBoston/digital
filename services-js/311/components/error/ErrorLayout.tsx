@@ -6,8 +6,8 @@ import Head from 'next/head';
 import { css } from 'emotion';
 
 import { NextContext } from '@cityofboston/next-client-common';
-
-import { HEADER_HEIGHT, assetUrl } from '../style-constants';
+import { HEADER_HEIGHT, WHITE } from '@cityofboston/react-fleet';
+import { assetUrl } from '../style-constants';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
@@ -24,9 +24,9 @@ const CONTAINER_STYLE = css({
 });
 
 const SECTION_HEADER_OVERRIDE_STYLE = css({
-  borderColor: 'white',
+  borderColor: WHITE,
   ' .sh-title': {
-    color: 'white',
+    color: WHITE,
   },
 });
 

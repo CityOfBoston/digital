@@ -3,7 +3,7 @@ import { css } from 'emotion';
 
 import { VISUALLYHIDDEN } from '../../utilities/css';
 
-import { MEDIA_SMALL, OPTIMISTIC_BLUE } from '../../utilities/constants';
+import { MEDIA_SMALL, FOCUS_INDICATOR_COLOR } from '../../utilities/constants';
 
 import CloseButton from '../buttons/CloseButton';
 
@@ -53,7 +53,7 @@ const INPUT_CONTAINER_STYLE = css(`
 `);
 
 const LABEL_FOCUSED_STYLE = css({
-  outline: `3px solid ${OPTIMISTIC_BLUE}`,
+  outline: `3px solid ${FOCUS_INDICATOR_COLOR}`,
   outlineOffset: '1px',
 });
 

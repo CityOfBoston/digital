@@ -4,13 +4,17 @@ import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+import {
+  OPTIMISTIC_BLUE_DARK,
+  FREEDOM_RED_DARK,
+  WHITE,
+} from '@cityofboston/react-fleet';
 
 import DeathCertificateCart, {
   DeathCertificateCartEntry,
 } from '../../store/DeathCertificateCart';
 
 import CertificateRow from '../../common/CertificateRow';
-import { OPTIMISTIC_BLUE, FREEDOM_RED } from '@cityofboston/react-fleet';
 
 export interface Props {
   cart: DeathCertificateCart;
@@ -30,8 +34,8 @@ const QUANTITY_BOX_STYLE = css({
   fontFamily: 'inherit',
   fontStyle: 'italic',
   fontSize: '1rem',
-  background: OPTIMISTIC_BLUE,
-  color: 'white',
+  background: OPTIMISTIC_BLUE_DARK,
+  color: WHITE,
   textAlign: 'right',
   padding: '0.5rem',
 });
@@ -39,7 +43,7 @@ const QUANTITY_BOX_STYLE = css({
 const REMOVE_BUTTON_STYLE = css({
   border: 'none',
   background: 'transparent',
-  color: FREEDOM_RED,
+  color: FREEDOM_RED_DARK,
   fontSize: '2.5rem',
   verticalAlign: 'middle',
   cursor: 'pointer',

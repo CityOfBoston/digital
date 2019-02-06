@@ -1,6 +1,8 @@
 import React, { FormEvent, FocusEvent } from 'react';
 import { css } from 'emotion';
 
+import { SERIF } from '@cityofboston/react-fleet';
+
 import { assetUrl } from '../style-constants';
 
 type Props = {
@@ -29,7 +31,7 @@ const TEXTAREA_STYLE = css({
   resize: 'none',
   width: '100%',
   height: '100%',
-  fontFamily: '"Lora", Georgia, serif',
+  fontFamily: SERIF,
   fontSize: 28,
   fontStyle: 'italic',
   border: 'none',

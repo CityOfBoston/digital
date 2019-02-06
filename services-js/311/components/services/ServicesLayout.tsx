@@ -7,6 +7,7 @@ import { css } from 'emotion';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 import getConfig from 'next/config';
 import { makeFetchGraphql } from '@cityofboston/next-client-common';
+import { CHARLES_BLUE } from '@cityofboston/react-fleet';
 
 import { ServiceSummary } from '../../data/types';
 import { Group } from '../../data/store/AllServices';
@@ -16,7 +17,6 @@ import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
-import { CHARLES_BLUE } from '../style-constants';
 import { PageDependencies } from '../../pages/_app';
 
 type InitialProps = {

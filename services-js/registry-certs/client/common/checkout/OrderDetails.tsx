@@ -6,7 +6,7 @@ import { css } from 'emotion';
 import {
   GRAY_000,
   CHARLES_BLUE,
-  OPTIMISTIC_BLUE,
+  OPTIMISTIC_BLUE_DARK,
 } from '@cityofboston/react-fleet';
 
 import {
@@ -257,6 +257,6 @@ const OPEN_DRAWER_STYLE = css({
 
   [` .${DRAWER_ICON_STYLE}`]: {
     // This is forced only on “open” so that it can go to white on hover.
-    fill: `${OPTIMISTIC_BLUE} !important`,
+    fill: `${OPTIMISTIC_BLUE_DARK} !important`,
   },
 });
