@@ -45,6 +45,7 @@ interface BirthCertificateOrderItemInput {
   parent2FirstName: string;
   parent2LastName: string;
   relationship: string;
+  uploadSessionId: string;
   quantity: Int;
 }
 
@@ -98,6 +99,11 @@ interface RequestDocumentationError {
 interface RequestDocumentationResult {
   success: boolean;
   error: RequestDocumentationError | null;
+}
+
+interface DeleteUploadResult {
+  success: boolean;
+  message: string | null;
 }
 
 enum OrderErrorCause {
@@ -173,6 +179,12 @@ export interface Mutation extends ResolvableWith<{}> {
     orderId: string;
     message?: string;
   }): RequestDocumentationResult;
+
+  deleteUpload(args: {
+    type: OrderType;
+    uploadSessionID: string;
+    attachmentKey: string;
+  }): DeleteUploadResult;
 }
 
 const mutationResolvers: Resolvers<Mutation, Context> = {
@@ -491,6 +503,32 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
           code: RequestDocumentationCode.ORDER_NOT_FOUND,
           message: `Order ${orderId} was not found in the database`,
         },
+      };
+    }
+  },
+  async deleteUpload(
+    _root,
+    { type, uploadSessionID, attachmentKey },
+    { registryDb }
+  ): Promise<DeleteUploadResult> {
+    if (type !== OrderType.BirthCertificate) {
+      throw new Error('Can only delete birth certificate attachments');
+    }
+
+    const error = await registryDb.deleteBirthAttachment(
+      uploadSessionID,
+      attachmentKey
+    );
+
+    if (error) {
+      return {
+        success: false,
+        message: error,
+      };
+    } else {
+      return {
+        success: true,
+        message: null,
       };
     }
   },

@@ -1,5 +1,9 @@
 import { resolvers } from './mutation';
 import RegistryDb from '../services/RegistryDb';
+import {
+  BirthCertificateOrderItemInput,
+  DeathCertificateOrderItemInput,
+} from '../../client/queries/graphql-types';
 
 jest.mock('../services/RegistryDb');
 
@@ -29,7 +33,7 @@ const DEFAULT_ORDER = {
   idempotencyKey: '1234abcd',
 };
 
-const DEFAULT_DEATH_ITEMS = [
+const DEFAULT_DEATH_ITEMS: Array<DeathCertificateOrderItemInput> = [
   {
     id: '12345',
     name: '',
@@ -37,7 +41,7 @@ const DEFAULT_DEATH_ITEMS = [
   },
 ];
 
-const DEFAULT_BIRTH_ITEM = {
+const DEFAULT_BIRTH_ITEM: BirthCertificateOrderItemInput = {
   firstName: 'Danielle',
   lastName: 'Cage',
   relationship: 'parent',
@@ -48,6 +52,7 @@ const DEFAULT_BIRTH_ITEM = {
   parent2FirstName: 'Luke',
   parent2LastName: 'Cage',
   quantity: 10,
+  uploadSessionId: '',
 };
 
 describe('Mutation resolvers', () => {
@@ -194,6 +199,7 @@ describe('Mutation resolvers', () => {
             parent2LastName: 'Green',
             quantity: 10,
             relationship: 'sidekick',
+            uploadSessionId: '',
           },
         },
 

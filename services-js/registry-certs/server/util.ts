@@ -9,3 +9,13 @@ export const PACKAGE_SRC_ROOT: string = path.resolve(
   __dirname.replace('/registry-certs/build/', '/registry-certs/'),
   '../'
 );
+
+/**
+ * The representation of a file upload when Hapi’s multipart handling is set to
+ * "annotated"
+ */
+export interface AnnotatedFilePart {
+  filename: string;
+  headers: Object;
+  payload: Buffer;
+}
