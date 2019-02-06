@@ -1,14 +1,17 @@
-import { ConnectionPool, IResult } from 'mssql';
+import fs from 'fs';
+import { promisify } from 'util';
+import DataLoader from 'dataloader';
+import Rollbar from 'rollbar';
+import { ConnectionPool, IResult, IProcedureResult } from 'mssql';
+import mime from 'mime-types';
+
 import {
   DatabaseConnectionOptions,
   createConnectionPool,
 } from '@cityofboston/mssql-common';
 
-import fs from 'fs';
-import { promisify } from 'util';
-import DataLoader from 'dataloader';
-import Rollbar from 'rollbar';
 import RegistryDbFake from './RegistryDbFake';
+import { AnnotatedFilePart } from '../util';
 
 const readFile = promisify(fs.readFile);
 
@@ -410,6 +413,75 @@ export default class RegistryDb {
       .input('orderKey', orderKey)
       .input('reason', reason)
       .execute('Commerce.sp_CancelOrder');
+  }
+
+  async uploadBirthAttachments(
+    uploadSessionId: string,
+    label: string | null,
+    files: AnnotatedFilePart[]
+  ): Promise<string[]> {
+    return Promise.all(
+      files.map(async ({ filename, headers, payload }) => {
+        const out: IProcedureResult<{
+          AttachmentKey: number;
+          ErrorMessage: string;
+        }> = await this.pool
+          .request()
+          .input('sessionUID', uploadSessionId)
+          .input(
+            'contentType',
+            headers['content-type'] ||
+              mime.lookup(filename) ||
+              'application/octet-stream'
+          )
+          .input('fileName', filename)
+          .input('label', label)
+          .input('attachmentData', payload)
+          .execute('Commerce.sp_AddBirthRequestAttachment');
+
+        const result = out.recordset[0];
+
+        if (!result || out.returnValue !== 0) {
+          throw new Error(
+            `Did not get a successful result from SqlServer: ${out.returnValue}`
+          );
+        }
+
+        if (result.ErrorMessage) {
+          throw new Error(result.ErrorMessage);
+        }
+
+        return result.AttachmentKey.toString();
+      })
+    );
+  }
+
+  /**
+   * Returns string on DB error, null on success.
+   */
+  async deleteBirthAttachment(
+    uploadSessionId: string,
+    attachmentKey: string
+  ): Promise<string | null> {
+    const out: IProcedureResult<{ ErrorMessage: string }> = await this.pool
+      .request()
+      .input('sessionUID', uploadSessionId)
+      .input('attachmentKey', parseInt(attachmentKey, 10))
+      .execute('Commerce.sp_DeleteBirthRequestAttachment');
+
+    const result = out.recordset[0];
+
+    if (!result || out.returnValue !== 0) {
+      throw new Error(
+        `Did not get a successful result from SqlServer: ${out.returnValue}`
+      );
+    }
+
+    if (result.ErrorMessage) {
+      return result.ErrorMessage;
+    } else {
+      return null;
+    }
   }
 }
 

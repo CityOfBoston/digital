@@ -44,7 +44,7 @@ import Emails from './services/Emails';
 import { processStripeEvent } from './stripe-events';
 
 import schema, { Context, Source } from './graphql';
-import { PACKAGE_SRC_ROOT } from './util';
+import { PACKAGE_SRC_ROOT, AnnotatedFilePart } from './util';
 
 type ServerArgs = {
   rollbar: Rollbar;
@@ -59,6 +59,13 @@ declare module 'hapi' {
     key: string;
   }
 }
+
+type UploadPayload = {
+  type: string;
+  uploadSessionId: string;
+  label?: string;
+  file: AnnotatedFilePart | Array<AnnotatedFilePart>;
+};
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -289,6 +296,56 @@ export async function makeServer({ rollbar }: ServerArgs) {
         rollbar.error(e, request.raw.req);
         throw e;
       }
+    },
+  });
+
+  server.route({
+    method: 'POST',
+    path: '/upload',
+    options: {
+      payload: {
+        parse: true,
+        allow: 'multipart/form-data',
+        maxBytes: 10 * 1024 * 1024,
+        multipart: {
+          output: 'annotated',
+        },
+      },
+    },
+    handler: async req => {
+      const {
+        type,
+        file,
+        label,
+        uploadSessionId,
+      }: UploadPayload = req.payload as any;
+
+      if (type !== 'BC') {
+        throw Boom.badData(
+          'Can only upload attachments for birth certificates'
+        );
+      }
+
+      const fileParts = ([] as AnnotatedFilePart[]).concat(file);
+
+      if (!uploadSessionId) {
+        throw Boom.badData('No uploadSessionId provided');
+      }
+
+      const db = registryDbFactory.registryDb();
+
+      const attachmentKeys = await db.uploadBirthAttachments(
+        uploadSessionId,
+        label || null,
+        fileParts
+      );
+
+      return {
+        files: fileParts.map(({ filename }, i) => ({
+          filename,
+          attachmentKey: attachmentKeys[i],
+        })),
+      };
     },
   });
 

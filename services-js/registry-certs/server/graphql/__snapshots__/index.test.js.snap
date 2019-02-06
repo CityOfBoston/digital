@@ -78,6 +78,7 @@ GraphQLSchema {
     "DeathCertificateOrderItemInput": "DeathCertificateOrderItemInput",
     "DeathCertificateSearch": "DeathCertificateSearch",
     "DeathCertificates": "DeathCertificates",
+    "DeleteUploadResult": "DeleteUploadResult",
     "Float": "Float",
     "Int": "Int",
     "Mutation": "Mutation",
@@ -104,28 +105,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 3896,
-      "start": 3850,
+      "end": 4094,
+      "start": 4048,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3879,
-          "start": 3861,
+          "end": 4077,
+          "start": 4059,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3879,
-            "start": 3871,
+            "end": 4077,
+            "start": 4069,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3879,
-              "start": 3871,
+              "end": 4077,
+              "start": 4069,
             },
             "value": "Mutation",
           },
@@ -134,21 +135,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3894,
-          "start": 3882,
+          "end": 4092,
+          "start": 4080,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3894,
-            "start": 3889,
+            "end": 4092,
+            "start": 4087,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3894,
-              "start": 3889,
+              "end": 4092,
+              "start": 4087,
             },
             "value": "Query",
           },
