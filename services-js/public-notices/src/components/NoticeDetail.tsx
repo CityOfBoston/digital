@@ -1,11 +1,19 @@
 import React from 'react';
 import { css } from 'emotion';
+import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 
-import { FREEDOM_RED } from '@cityofboston/react-fleet';
+import {
+  CHARLES_BLUE,
+  FREEDOM_RED_DARK,
+  FREEDOM_RED_LIGHT,
+  GRAY_000,
+  SANS,
+  SERIF,
+  WHITE,
+} from '@cityofboston/react-fleet';
 
 import NoticeColumn from '../model/NoticeColumn';
-import { observable, action } from 'mobx';
 
 type Props = {
   noticeColumn: NoticeColumn;
@@ -16,7 +24,7 @@ const NOTICE_STYLE = css`
   & {
     flex: 0.33;
     min-width: 25%;
-    background: #ffffff;
+    background: ${WHITE};
     padding: 1.5em;
     display: flex;
     flex-direction: column;
@@ -28,19 +36,19 @@ const NOTICE_STYLE = css`
 
   .notice-canceled {
     text-transform: uppercase;
-    color: #fb4d42;
+    color: ${FREEDOM_RED_DARK};
   }
 
   .notice-testimony {
-    color: #fb4d42;
+    color: ${FREEDOM_RED_DARK};
     padding: 0.875rem;
-    background-color: #f3f3f3;
+    background-color: ${GRAY_000};
     font-size: 0.875rem;
     margin-bottom: 0.875rem;
   }
 
   .notice-title-container {
-    border-bottom: 4px solid #091f2f;
+    border-bottom: 4px solid ${CHARLES_BLUE};
     padding-bottom: 0.75rem;
     margin-bottom: 0.75rem;
   }
@@ -49,20 +57,20 @@ const NOTICE_STYLE = css`
     float: left;
     height: 33px;
     width: 33px;
-    border: 2px solid ${FREEDOM_RED};
-    color: ${FREEDOM_RED};
+    border: 2px solid ${FREEDOM_RED_LIGHT};
+    color: ${FREEDOM_RED_DARK};
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    font-family: Montserrat;
+    font-family: ${SANS};
     font-weight: bold;
   }
 
   .notice-title {
     font-size: 1.5625rem;
     line-height: 1.1;
-    font-family: Lora;
+    font-family: ${SERIF};
     font-style: italic;
     overflow: visible;
     word-wrap: normal;
@@ -98,7 +106,7 @@ const NOTICE_STYLE = css`
   }
 
   .notice-detail-content {
-    font-family: Montserrat;
+    font-family: ${SANS};
     text-transform: uppercase;
     line-height: 1.4;
   }

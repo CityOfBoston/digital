@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
+import { CHARLES_BLUE, SERIF, WHITE } from '@cityofboston/react-fleet';
 import DeathCertificateCart from '../store/DeathCertificateCart';
-import { CHARLES_BLUE, SERIF } from '@cityofboston/react-fleet';
 
 interface Props {
   cart: DeathCertificateCart;
@@ -28,7 +28,7 @@ const VIEW_CART_LINK_STYLE = css({
 const CART_STYLE = css({
   display: 'inline-block',
   position: 'relative',
-  background: 'white',
+  background: WHITE,
   color: CHARLES_BLUE,
   padding: '0.5em 0',
   marginRight: '1.25rem',
@@ -42,7 +42,7 @@ const CART_STYLE = css({
   '&:before': {
     content: "''",
     display: 'block',
-    borderColor: 'transparent white transparent transparent',
+    borderColor: `transparent ${WHITE} transparent transparent`,
     borderWidth: '5px 10px',
     borderStyle: 'solid',
     position: 'absolute',

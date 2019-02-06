@@ -108,7 +108,7 @@ export default class PersonalInformation extends React.Component<Props> {
               When were {forSelf ? 'you' : 'they'} born?
             </h2>
           }
-          initialDate={birthDate}
+          initialDate={birthDate || ''}
           componentId="dob"
           onlyAllowPast={true}
           handleDate={this.handleDateChange}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import { YELLOW, MEDIA_LARGE } from '../style-constants';
+import { MEDIA_LARGE, YELLOW } from '@cityofboston/react-fleet';
 
 const BANNER_STYLE = css({
   backgroundColor: YELLOW,

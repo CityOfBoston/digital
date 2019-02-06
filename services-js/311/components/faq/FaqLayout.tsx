@@ -3,12 +3,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { css } from 'emotion';
 
+import { MEDIA_MEDIUM } from '@cityofboston/react-fleet';
+
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import SectionHeader from '../common/SectionHeader';
 
-import { MEDIA_MEDIUM, assetUrl } from '../style-constants';
+import { assetUrl } from '../style-constants';
 
 const SPRITE_URL = assetUrl('img/svg/faq-icons.svg');
 

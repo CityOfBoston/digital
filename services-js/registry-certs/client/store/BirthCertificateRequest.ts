@@ -15,7 +15,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   firstName: '',
   lastName: '',
   altSpelling: '',
-  birthDate: '' as any,
+  birthDate: null,
   parentsMarried: '',
   parent1FirstName: '',
   parent1LastName: '',
@@ -107,14 +107,12 @@ export default class BirthCertificateRequest {
 
   @computed
   public get birthDateString(): string {
-    const date = this.requestInformation.birthDate;
+    const date = this.requestInformation.birthDate || null;
 
-    if (typeof date === 'string') {
-      return '';
+    if (date) {
+      return Intl.DateTimeFormat('en-US').format(date);
     } else {
-      return Intl.DateTimeFormat('en-US').format(
-        this.requestInformation.birthDate
-      );
+      return '';
     }
   }
 

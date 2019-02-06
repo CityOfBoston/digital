@@ -2,10 +2,10 @@ import { css } from 'emotion';
 
 import {
   CHARLES_BLUE,
+  FOCUS_INDICATOR_COLOR,
   GREEN,
   MEDIA_MEDIUM,
   MEDIA_SMALL,
-  OPTIMISTIC_BLUE,
   SERIF,
 } from '@cityofboston/react-fleet';
 
@@ -13,7 +13,7 @@ const WHITE = '#fff';
 export const BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
 
 export const FOCUS_STYLE = {
-  outline: `4px solid ${OPTIMISTIC_BLUE}`,
+  outline: `4px solid ${FOCUS_INDICATOR_COLOR}`,
   outlineOffset: 1,
 };
 

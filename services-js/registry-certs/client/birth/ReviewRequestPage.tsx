@@ -8,7 +8,7 @@ import { css } from 'emotion';
 
 import {
   CHARLES_BLUE,
-  FREEDOM_RED,
+  FREEDOM_RED_DARK,
   GRAY_100,
   MEDIA_SMALL,
   SERIF,
@@ -216,7 +216,7 @@ const BACK_CANCEL_BUTTONS_STYLING = css({
     color: 'inherit',
 
     '&:hover': {
-      color: FREEDOM_RED,
+      color: FREEDOM_RED_DARK,
     },
   },
 });

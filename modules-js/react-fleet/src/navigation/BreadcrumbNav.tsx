@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import { FREEDOM_RED } from '../utilities/constants';
+import { FREEDOM_RED_DARK } from '../utilities/constants';
 
 export interface Link {
   url: string;
@@ -21,7 +21,7 @@ const ADJUST_NAV_STYLE = css({
 });
 
 const LAST_BREADCRUMB_STYLE = css({
-  color: FREEDOM_RED,
+  color: FREEDOM_RED_DARK,
 });
 
 /**

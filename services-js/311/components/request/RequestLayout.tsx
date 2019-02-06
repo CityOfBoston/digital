@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { observer } from 'mobx-react';
 
 import { NextContext } from '@cityofboston/next-client-common';
+import { HEADER_HEIGHT } from '@cityofboston/react-fleet';
 
 import FeedbackBanner from '../common/FeedbackBanner';
 import Footer from '../common/Footer';
@@ -16,7 +17,6 @@ import RequestDialog from './request/RequestDialog';
 import { InitialProps as RequestDialogInitialProps } from './request/RequestDialog';
 import TranslateDialog from './translate/TranslateDialog';
 
-import { HEADER_HEIGHT } from '../style-constants';
 import {
   PageDependencies,
   GetInitialPropsDependencies,

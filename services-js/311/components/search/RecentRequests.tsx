@@ -3,16 +3,17 @@ import { action, autorun, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
+import {
+  MEDIA_LARGE,
+  GRAY_100,
+  HEADER_HEIGHT,
+  WHITE,
+} from '@cityofboston/react-fleet';
+
 import RequestSearch from '../../data/store/RequestSearch';
 import Ui from '../../data/store/Ui';
 
-import {
-  HEADER_HEIGHT,
-  MEDIA_LARGE,
-  GRAY_100,
-  GRAY_200,
-  CLEAR_FIX,
-} from '../style-constants';
+import { GRAY_200, CLEAR_FIX } from '../style-constants';
 
 import LoadingIcons from '../common/LoadingIcons';
 import RecentRequestRow from './RecentRequestRow';
@@ -25,7 +26,7 @@ if (typeof window !== 'undefined') {
 
 const CONTAINER_STYLE = css(
   {
-    background: 'white',
+    background: WHITE,
     position: 'relative',
 
     [MEDIA_LARGE]: {

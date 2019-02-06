@@ -8,7 +8,8 @@ import {
   CHARLES_BLUE,
   GRAY_300,
   LORA_SRC,
-  FREEDOM_RED,
+  FREEDOM_RED_DARK,
+  SERIF,
   StatusModal,
 } from '@cityofboston/react-fleet';
 
@@ -127,7 +128,7 @@ export default class PaymentContent extends React.Component<Props, State> {
         style: {
           base: {
             lineHeight: '3.5rem',
-            fontFamily: 'Lora, Georgia, serif',
+            fontFamily: SERIF,
             fontSize: '16px',
             color: CHARLES_BLUE,
           },
@@ -135,7 +136,7 @@ export default class PaymentContent extends React.Component<Props, State> {
             color: GRAY_300,
           },
           invalid: {
-            color: FREEDOM_RED,
+            color: FREEDOM_RED_DARK,
           },
         },
       });

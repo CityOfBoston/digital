@@ -144,6 +144,7 @@ export default async function submitBirthCertificateOrder(
       birthDate,
       firstName,
       lastName,
+      uploadSessionId: '',
       alternateSpellings: altSpelling || '',
       parent1FirstName,
       parent1LastName: parent1LastName || '',

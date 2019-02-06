@@ -1,7 +1,12 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import { FREEDOM_RED, CHARLES_BLUE } from '@cityofboston/react-fleet';
+import {
+  CHARLES_BLUE,
+  FREEDOM_RED_DARK,
+  GRAY_300,
+  SANS,
+} from '@cityofboston/react-fleet';
 
 import Notice from '../model/Notice';
 import NoticeColumn from '../model/NoticeColumn';
@@ -32,8 +37,8 @@ const NOTICES_LIST_STYLE = css`
 
   .notice-canceled {
     text-transform: uppercase;
-    color: ${FREEDOM_RED};
-    font-family: Montserrat;
+    color: ${FREEDOM_RED_DARK};
+    font-family: ${SANS};
     font-style: normal;
   }
 
@@ -45,13 +50,13 @@ const NOTICES_LIST_STYLE = css`
     position: absolute;
     height: 33px;
     width: 33px;
-    border: 2px solid ${FREEDOM_RED};
-    color: ${FREEDOM_RED};
+    border: 2px solid ${FREEDOM_RED_DARK};
+    color: ${FREEDOM_RED_DARK};
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    font-family: Montserrat;
+    font-family: ${SANS};
     font-weight: bold;
   }
 
@@ -86,7 +91,7 @@ const NOTICES_LIST_STYLE = css`
   .notice-location {
     font-size: 14px;
     font-style: italic;
-    color: #828282;
+    color: ${GRAY_300};
   }
 
   .notice-date {
@@ -94,7 +99,7 @@ const NOTICES_LIST_STYLE = css`
   }
 
   .notice-title {
-    font-family: Montserrat;
+    font-family: ${SANS};
     margin-bottom: 0.25rem;
     font-size: 16px;
   }

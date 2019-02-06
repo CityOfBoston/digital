@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
-import { FREEDOM_RED, DEFAULT_TEXT } from '@cityofboston/react-fleet';
+import { FREEDOM_RED_DARK, DEFAULT_TEXT } from '@cityofboston/react-fleet';
 
 import { analyzePassword } from '../lib/validation';
 
@@ -25,7 +25,7 @@ const OK_PASSWORD_ROW = css({
 });
 
 const ERROR_PASSWORD_ROW = css({
-  color: FREEDOM_RED,
+  color: FREEDOM_RED_DARK,
   [OVERRIDE_LI_BEFORE_SELECTOR]: {
     // borderColor: `transparent ${FREEDOM_RED}`,
     border: 'none',

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { CHARLES_BLUE, SANS } from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, SANS, WHITE } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
 import { Account } from './graphql/fetch-account';
@@ -15,7 +15,7 @@ const HEADER_STYLE = css({
   flexDirection: 'row',
   alignItems: 'center',
   backgroundColor: CHARLES_BLUE,
-  color: 'white',
+  color: WHITE,
   zIndex: 2,
 });
 

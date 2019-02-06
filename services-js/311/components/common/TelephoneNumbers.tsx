@@ -1,7 +1,9 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import { assetUrl, MEDIA_LARGE } from '../style-constants';
+import { MEDIA_LARGE } from '@cityofboston/react-fleet';
+
+import { assetUrl } from '../style-constants';
 
 const SPRITE_URL = assetUrl('img/svg/faq-icons.svg');
 

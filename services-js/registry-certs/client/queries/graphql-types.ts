@@ -241,6 +241,7 @@ export interface BirthCertificateOrderItemInput {
   parent2LastName: string;
   quantity: number;
   relationship: string;
+  uploadSessionId: string;
 }
 
 // undefined

@@ -8,10 +8,12 @@ import Link from 'next/link';
 import Router from 'next/router';
 import inPercy from '@percy-io/in-percy';
 
+import { MEDIA_LARGE } from '@cityofboston/react-fleet';
+
 import { ServiceSummary } from '../../../data/types';
 import RequestSearch from '../../../data/store/RequestSearch';
 
-import { MEDIA_LARGE, CLEAR_FIX } from '../../style-constants';
+import { CLEAR_FIX } from '../../style-constants';
 import SectionHeader from '../../common/SectionHeader';
 import DescriptionBox from '../../common/DescriptionBox';
 import Ui from '../../../data/store/Ui';

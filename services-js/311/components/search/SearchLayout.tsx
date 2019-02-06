@@ -7,6 +7,13 @@ import { action, reaction, observable, computed } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
 
+import {
+  MEDIA_LARGE,
+  HEADER_HEIGHT,
+  IPHONE_FOOTER_HEIGHT,
+  WHITE,
+} from '@cityofboston/react-fleet';
+
 import RequestSearch from '../../data/store/RequestSearch';
 
 import FeedbackBanner from '../common/FeedbackBanner';
@@ -14,11 +21,6 @@ import Footer from '../common/Footer';
 import Nav from '../common/Nav';
 import { LocationMapWithLibrary } from '../map/LocationMap';
 import LocationMap from '../map/LocationMap';
-import {
-  HEADER_HEIGHT,
-  MEDIA_LARGE,
-  IPHONE_FOOTER_HEIGHT,
-} from '../style-constants';
 
 import RecentRequests from './RecentRequests';
 import RecentRequestsSearchForm from './RecentRequestsSearchForm';
@@ -74,7 +76,7 @@ const SEARCH_CONTAINER_STYLE = css({
   position: 'fixed',
   top: HEADER_HEIGHT,
   zIndex: 2,
-  background: 'white',
+  background: WHITE,
 
   [MEDIA_LARGE]: {
     display: 'none',
@@ -106,7 +108,7 @@ const FULL_MAP_CONTAINER_STYLE = css(MAP_CONTAINER_STYLE, {
 });
 
 const MAP_VIEW_BUTTON_CONTAINER_STYLE = css({
-  background: 'white',
+  background: WHITE,
 });
 
 const STICKY_VIEW_BUTTON_STYLE = css({
