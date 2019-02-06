@@ -21,7 +21,8 @@
     "preset": "@cityofboston/config-jest-babel"
   },
   "peerDependencies": {
-    "@babel/runtime": "7.0.0"
+    "@babel/runtime": "7.0.0",
+    "next": "7.0.2"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
@@ -37,11 +38,16 @@
     "@types/shot": "^3.4.0",
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
+    "core-js": "^2.5.7",
     "jest": "23.6.0",
     "rimraf": "^2.6.2",
     "typescript": "^3.1.0"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "7.0.0",
+    "@babel/plugin-proposal-decorators": "7.0.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "nprogress": "^0.2.0"
   }
 }

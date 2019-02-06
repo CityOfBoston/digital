@@ -1,5 +1,4 @@
 import { action, observable, computed } from 'mobx';
-import 'core-js/fn/object/assign';
 
 import { BirthCertificateRequestInformation, Step } from '../types';
 
