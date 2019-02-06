@@ -1,7 +1,9 @@
 import React, { CSSProperties } from 'react';
 import { css } from 'emotion';
 
-import { MEDIA_LARGE, HEADER_HEIGHT, CLEAR_FIX } from '../style-constants';
+import { MEDIA_LARGE, HEADER_HEIGHT, WHITE } from '@cityofboston/react-fleet';
+
+import { CLEAR_FIX } from '../style-constants';
 
 export const MAX_WIDTH = 1300;
 
@@ -11,7 +13,7 @@ const DIALOG_STYLE = css(
     flexDirection: 'column',
     maxWidth: MAX_WIDTH,
     width: '100%',
-    background: 'white',
+    background: WHITE,
     position: 'relative',
     transition: 'max-width 250ms',
     minHeight: `calc(100vh - ${HEADER_HEIGHT}px)`,

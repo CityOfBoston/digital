@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { DEFAULT_TEXT, SERIF } from '@cityofboston/react-fleet';
+
 import stylesheetHrefs from '../templates/stylesheets.json';
 import { assetUrl } from '../components/style-constants';
 
@@ -51,8 +53,8 @@ export default function makeCss(opts: CssOpts = {}) {
 
     <style type="text/css" key="default">{`
       body {
-        color: #58585B;
-        font-family: Lora, serif;
+        color: ${DEFAULT_TEXT};
+        font-family: ${SERIF};
         /* leave space for the fixed banner */
         padding-bottom: 30px;
       }

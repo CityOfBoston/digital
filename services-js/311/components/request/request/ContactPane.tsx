@@ -4,10 +4,11 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import InputMask from 'react-input-mask';
 
+import { MEDIA_LARGE } from '@cityofboston/react-fleet';
+
 import LocalStorageContactInfo from '../../../data/external/LocalStorageContactInfo';
 
 import SectionHeader from '../../common/SectionHeader';
-import { MEDIA_LARGE } from '../../style-constants';
 import RequestForm from '../../../data/store/RequestForm';
 
 const BOTTOM_ROW_STYLE = css({

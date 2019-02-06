@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import { DeathCertificateOrder } from '../../types';
 import { GetInitialProps } from '../../../pages/_app';
 
-import { GRAY_200, MEDIA_PRINT } from '@cityofboston/react-fleet';
+import { BLACK, GRAY_200, MEDIA_PRINT, WHITE } from '@cityofboston/react-fleet';
 
 interface Props {
   order: DeathCertificateOrder | null;
@@ -14,7 +14,7 @@ interface Props {
 const PAGE_STYLE = css({
   [MEDIA_PRINT]: {
     ' *': {
-      color: '#000 !important',
+      color: `${BLACK} !important`,
     },
   },
 });
@@ -35,7 +35,7 @@ const PRINT_BUTTON_STYLE = css({
 
 const RECEIPT_CONTENT_STYLE = css({
   [MEDIA_PRINT]: {
-    backgroundColor: 'white !important',
+    backgroundColor: `${WHITE} !important`,
   },
 });
 

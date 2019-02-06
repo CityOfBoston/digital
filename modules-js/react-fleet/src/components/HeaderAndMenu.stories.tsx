@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import Header from './Header';
 import Menu from './Menu';
 
-import { OPTIMISTIC_BLUE } from '../react-fleet';
+import { OPTIMISTIC_BLUE_DARK } from '../react-fleet';
 
 const render = (headerProps, menuProps) => (
   <>
@@ -20,7 +20,10 @@ storiesOf('Components/Header and Menu', module)
   .add('menu open', () => render({}, { open: true }))
   .add('header custom elements', () =>
     render(
-      { className: 'br br-a300', style: { backgroundColor: OPTIMISTIC_BLUE } },
+      {
+        className: 'br br-a300',
+        style: { backgroundColor: OPTIMISTIC_BLUE_DARK },
+      },
       {}
     )
   );

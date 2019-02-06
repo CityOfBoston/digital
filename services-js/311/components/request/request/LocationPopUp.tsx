@@ -5,6 +5,13 @@ import { observer } from 'mobx-react';
 
 import { ScreenReaderSupport } from '@cityofboston/next-client-common';
 
+import {
+  MEDIA_LARGE,
+  HEADER_HEIGHT,
+  GRAY_000,
+  CHARLES_BLUE,
+} from '@cityofboston/react-fleet';
+
 import Ui from '../../../data/store/Ui';
 import BrowserLocation from '../../../data/store/BrowserLocation';
 import RequestSearch from '../../../data/store/RequestSearch';
@@ -14,13 +21,7 @@ import RequestForm from '../../../data/store/RequestForm';
 
 import LoadingIcons from '../../common/LoadingIcons';
 import { LocationMapWithLibrary } from '../../map/LocationMap';
-import {
-  MEDIA_LARGE,
-  HEADER_HEIGHT,
-  GRAY_000,
-  GRAY_200,
-  CHARLES_BLUE,
-} from '../../style-constants';
+import { GRAY_200 } from '../../style-constants';
 
 import waypointMarkers, {
   WAYPOINT_NUMBER_STYLE,

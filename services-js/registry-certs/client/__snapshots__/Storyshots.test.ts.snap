@@ -218,7 +218,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -728,7 +728,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -1275,7 +1275,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -1926,7 +1926,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -2204,7 +2204,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -3220,7 +3220,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -3654,7 +3654,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -4451,7 +4451,7 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -4842,7 +4842,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -5326,7 +5326,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -5965,7 +5965,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -6602,7 +6602,7 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -7130,7 +7130,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -7797,7 +7797,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -8488,7 +8488,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -9177,7 +9177,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -9930,7 +9930,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -9990,7 +9990,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               >
                 <input
                   aria-label="Certificate quantity"
-                  className="br br-a150 css-19yekma"
+                  className="br br-a150 css-1obdapn"
                   min="1"
                   onChange={[Function]}
                   title="Certificate Quantity"
@@ -10028,7 +10028,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 </div>
                 <button
                   aria-label="Remove and start over"
-                  className="css-1cwmx0h"
+                  className="css-1qmvjld"
                   onClick={[Function]}
                   title="Remove and start over"
                   type="button"
@@ -10467,7 +10467,7 @@ exports[`Storyshots Birth/VerifyIdentificationPage default 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -10764,7 +10764,7 @@ exports[`Storyshots Checkout/CheckoutPage server-side render 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -10968,7 +10968,7 @@ exports[`Storyshots Checkout/ConfirmationContent default 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -11053,7 +11053,7 @@ exports[`Storyshots Checkout/ConfirmationContent default 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -11401,7 +11401,7 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -12438,7 +12438,7 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -13434,7 +13434,7 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -14460,7 +14460,7 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -14981,7 +14981,7 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -15498,7 +15498,7 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -16494,7 +16494,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -17145,7 +17145,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -17914,7 +17914,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -18601,7 +18601,7 @@ exports[`Storyshots Checkout/ReviewContent empty cart 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -19221,7 +19221,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -19879,7 +19879,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -20599,7 +20599,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -21327,7 +21327,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -22036,7 +22036,7 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/birth"
             >
               Birth certificates
@@ -23052,7 +23052,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -24038,7 +24038,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -25024,7 +25024,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -26482,7 +26482,7 @@ exports[`Storyshots Common Components/Nav default 1`] = `
       >
         View Cart 
         <span
-          className="css-3x05v8"
+          className="css-lxj7qb"
         >
           0
         </span>
@@ -26669,7 +26669,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth open 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 dr--open css-1kkut6n"
+    className="dr css-4dwfk3 dr--open css-yvsa4v"
   >
     <button
       aria-expanded={true}
@@ -26905,7 +26905,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: loadin
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 dr--open css-1kkut6n"
+    className="dr css-4dwfk3 dr--open css-yvsa4v"
   >
     <button
       aria-expanded={true}
@@ -27327,7 +27327,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
     >
       <input
         aria-label="Quantity for MONKEY JOE"
-        className="br br-a150 css-1jolswv"
+        className="br br-a150 css-1ysr0vo"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -27351,7 +27351,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
       </div>
       <button
         aria-label="Remove MONKEY JOE"
-        className="css-1cwmx0h"
+        className="css-1qmvjld"
         onClick={[Function]}
         type="button"
       >
@@ -27370,7 +27370,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
     >
       <input
         aria-label="Quantity for JAMES HOWLETT (LOGAN)"
-        className="br br-a150 css-1jolswv"
+        className="br br-a150 css-1ysr0vo"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -27414,7 +27414,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
       </div>
       <button
         aria-label="Remove JAMES HOWLETT (LOGAN)"
-        className="css-1cwmx0h"
+        className="css-1qmvjld"
         onClick={[Function]}
         type="button"
       >
@@ -27433,7 +27433,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
     >
       <input
         aria-label="Quantity for BRUCE BANNER"
-        className="br br-a150 css-1jolswv"
+        className="br br-a150 css-1ysr0vo"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -27457,7 +27457,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
       </div>
       <button
         aria-label="Remove BRUCE BANNER"
-        className="css-1cwmx0h"
+        className="css-1qmvjld"
         onClick={[Function]}
         type="button"
       >
@@ -27622,7 +27622,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -27707,7 +27707,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -27960,7 +27960,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               8
             </span>
@@ -28045,7 +28045,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -28464,7 +28464,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               5
             </span>
@@ -28549,7 +28549,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -28606,7 +28606,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   >
                     <input
                       aria-label="Quantity for BRUCE BANNER"
-                      className="br br-a150 css-1jolswv"
+                      className="br br-a150 css-1ysr0vo"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}
@@ -28630,7 +28630,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                     </div>
                     <button
                       aria-label="Remove BRUCE BANNER"
-                      className="css-1cwmx0h"
+                      className="css-1qmvjld"
                       onClick={[Function]}
                       type="button"
                     >
@@ -28644,7 +28644,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   >
                     <input
                       aria-label="Quantity for JAMES HOWLETT (LOGAN)"
-                      className="br br-a150 css-1jolswv"
+                      className="br br-a150 css-1ysr0vo"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}
@@ -28688,7 +28688,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                     </div>
                     <button
                       aria-label="Remove JAMES HOWLETT (LOGAN)"
-                      className="css-1cwmx0h"
+                      className="css-1qmvjld"
                       onClick={[Function]}
                       type="button"
                     >
@@ -28702,7 +28702,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   >
                     <input
                       aria-label="Quantity for MONKEY JOE"
-                      className="br br-a150 css-1jolswv"
+                      className="br br-a150 css-1ysr0vo"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}
@@ -28726,7 +28726,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                     </div>
                     <button
                       aria-label="Remove MONKEY JOE"
-                      className="css-1cwmx0h"
+                      className="css-1qmvjld"
                       onClick={[Function]}
                       type="button"
                     >
@@ -29097,7 +29097,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               5
             </span>
@@ -29182,7 +29182,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -29636,7 +29636,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -29721,7 +29721,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -29996,7 +29996,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -30081,7 +30081,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -30525,7 +30525,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -30610,7 +30610,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -31054,7 +31054,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -31139,7 +31139,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -32232,7 +32232,7 @@ exports[`Storyshots Death/ReceiptPage default 1`] = `
         </a>
       </div>
       <div
-        className="b--g br br-a200 css-1ra1ql3"
+        className="b--g br br-a200 css-wy5dc1"
       >
         <div
           className="p-a300"
@@ -32660,7 +32660,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -32745,7 +32745,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -33055,7 +33055,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -33140,7 +33140,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates
@@ -33439,7 +33439,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
           >
             View Cart 
             <span
-              className="css-3x05v8"
+              className="css-lxj7qb"
             >
               0
             </span>
@@ -33524,7 +33524,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
           >
             <a
               aria-current="page"
-              className="css-xtnqqy"
+              className="css-udegvj"
               href="/death"
             >
               Death certificates

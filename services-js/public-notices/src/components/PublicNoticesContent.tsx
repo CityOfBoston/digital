@@ -2,7 +2,13 @@ import React from 'react';
 import { css, injectGlobal } from 'emotion';
 import Head from 'next/head';
 
-import { CHARLES_BLUE, OPTIMISTIC_BLUE } from '@cityofboston/react-fleet';
+import {
+  CHARLES_BLUE,
+  OPTIMISTIC_BLUE_DARK,
+  SANS,
+  SERIF,
+  WHITE,
+} from '@cityofboston/react-fleet';
 
 import Notice from '../model/Notice';
 import NoticeColumn from '../model/NoticeColumn';
@@ -40,8 +46,8 @@ const APP_STYLE = css`
 
   h1 {
     margin: 0;
-    color: #ffffff;
-    font-family: Montserrat;
+    color: ${WHITE};
+    font-family: ${SANS};
     text-transform: uppercase;
   }
 
@@ -66,7 +72,7 @@ const APP_STYLE = css`
 
   .sidebar {
     width: 30%;
-    background-color: #ffffff;
+    background-color: ${WHITE};
     padding: 0;
     overflow: hidden;
   }
@@ -85,12 +91,12 @@ injectGlobal(`
   }
 
   body {
-    font-family: Lora, serif;
+    font-family: ${SERIF};
     color: ${CHARLES_BLUE};
   }
 
   a {
-    color: ${OPTIMISTIC_BLUE};
+    color: ${OPTIMISTIC_BLUE_DARK};
   }
 `);
 

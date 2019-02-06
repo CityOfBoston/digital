@@ -2,7 +2,9 @@ import React from 'react';
 import Head from 'next/head';
 import { css } from 'emotion';
 
-import { HEADER_HEIGHT, NAV_HEIGHT } from '../style-constants';
+import { HEADER_HEIGHT, WHITE } from '@cityofboston/react-fleet';
+
+import { NAV_HEIGHT } from '../style-constants';
 
 import Footer from '../common/Footer';
 import SectionHeader from '../common/SectionHeader';
@@ -19,9 +21,9 @@ const CONTAINER_STYLE = css({
 });
 
 const SECTION_HEADER_OVERRIDE_STYLE = css({
-  borderColor: 'white',
+  borderColor: WHITE,
   ' .sh-title': {
-    color: 'white',
+    color: WHITE,
   },
 });
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { YELLOW } from '../style-constants';
+import { YELLOW } from '@cityofboston/react-fleet';
+
 import { SearchCase } from '../../data/types';
 
 import RequestPopup from './RequestPopup';

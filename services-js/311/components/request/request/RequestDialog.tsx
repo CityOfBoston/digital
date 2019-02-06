@@ -11,6 +11,8 @@ import {
   ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
 
+import { MEDIA_LARGE, HEADER_HEIGHT } from '@cityofboston/react-fleet';
+
 import { SubmittedRequest, Service } from '../../../data/types';
 import Ui from '../../../data/store/Ui';
 import AddressSearch from '../../../data/store/AddressSearch';
@@ -24,11 +26,7 @@ import LoadingBuildings from '../../common/LoadingBuildings';
 import FormDialog from '../../common/FormDialog';
 import SectionHeader from '../../common/SectionHeader';
 
-import {
-  MEDIA_LARGE,
-  CENTERED_DIALOG_STYLE,
-  HEADER_HEIGHT,
-} from '../../style-constants';
+import { CENTERED_DIALOG_STYLE } from '../../style-constants';
 
 import QuestionsPane from './QuestionsPane';
 import LocationPopUp from './LocationPopUp';

@@ -5,8 +5,10 @@ import { action, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone';
 
+import { MEDIA_LARGE, WHITE } from '@cityofboston/react-fleet';
+
 import SectionHeader from '../../common/SectionHeader';
-import { MEDIA_LARGE, assetUrl } from '../../style-constants';
+import { assetUrl } from '../../style-constants';
 import AttributeField from './AttributeField';
 
 import CloudinaryImageUpload from '../../../data/external/CloudinaryImageUpload';
@@ -29,7 +31,7 @@ const DROPZONE_STYLE = css({
 
 const DRAG_RING_STYLE = css({
   borderStyle: 'dashed',
-  borderColor: 'white',
+  borderColor: WHITE,
   position: 'absolute',
   top: '1rem',
   left: '1rem',

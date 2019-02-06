@@ -1,7 +1,7 @@
 import { observable, action, computed, reaction } from 'mobx';
 import throttle from 'lodash/throttle';
 
-import { HEADER_HEIGHT } from '../../components/style-constants';
+import { HEADER_HEIGHT } from '@cityofboston/react-fleet';
 
 // Store to track window and scroll information.
 export default class Ui {
