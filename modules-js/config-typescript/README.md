@@ -25,7 +25,7 @@ To get started with TypeScript, add the following to your `package.json`:
     "@cityofboston/config-typescript": "^0.0.0",
     "rimraf": "^2.6.2",
     "tsc-watch": "^1.0.26",
-    "typescript": "^2.8.1"
+    "typescript": "^3.3.1"
   }
 }
 ```
