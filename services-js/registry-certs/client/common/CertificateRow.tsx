@@ -1,9 +1,10 @@
 import React from 'react';
-
-import { DeathCertificate, BirthCertificateRequestInformation } from '../types';
 import { css } from 'emotion';
+
 import { CHARLES_BLUE, GRAY_100 } from '@cityofboston/react-fleet';
+
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import { DeathCertificate } from '../types';
 
 export type Props = {
   borderTop: boolean;
@@ -62,9 +63,8 @@ const makeDeathSubinfo = ({
 }: DeathCertificate): string =>
   `Died: ${deathDate || deathYear} ${age && ` — Age: ${age}`}`;
 
-const makeBirthSubinfo = ({
-  birthDate,
-}: BirthCertificateRequestInformation): string => `Born: ${birthDate}`;
+const makeBirthSubinfo = ({ birthDateString }): string =>
+  `Born: ${birthDateString}`;
 
 const renderCertificate = (
   { firstName, lastName, pending, subinfo }: CertificateProps,
@@ -125,9 +125,7 @@ export default function CertificateRow(props: Props) {
           firstName: props.birthCertificateRequest.requestInformation.firstName,
           lastName: props.birthCertificateRequest.requestInformation.lastName,
           pending: false,
-          subinfo: makeBirthSubinfo(
-            props.birthCertificateRequest.requestInformation
-          ),
+          subinfo: makeBirthSubinfo(props.birthCertificateRequest),
         };
 
   return (

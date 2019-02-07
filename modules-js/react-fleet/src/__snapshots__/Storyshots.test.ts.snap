@@ -1330,7 +1330,13 @@ exports[`Storyshots Form Elements/Memorable date input default 1`] = `
 <fieldset
   className="css-svo1gv"
 >
-  <legend>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <h2>
       Date
     </h2>
@@ -1409,7 +1415,13 @@ exports[`Storyshots Form Elements/Memorable date input earliestDate: 9/7/1630 1`
 <fieldset
   className="css-svo1gv"
 >
-  <legend>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <h2>
       Date
     </h2>
@@ -1488,7 +1500,13 @@ exports[`Storyshots Form Elements/Memorable date input latestDate: 12/31/2025 1`
 <fieldset
   className="css-svo1gv"
 >
-  <legend>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <h2>
       Date
     </h2>
@@ -1567,7 +1585,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture 1`] = `
 <fieldset
   className="css-svo1gv"
 >
-  <legend>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <h2>
       Date
     </h2>
@@ -1646,7 +1670,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowFuture and lates
 <fieldset
   className="css-svo1gv"
 >
-  <legend>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <h2>
       Date
     </h2>
@@ -1725,7 +1755,13 @@ exports[`Storyshots Form Elements/Memorable date input onlyAllowPast 1`] = `
 <fieldset
   className="css-svo1gv"
 >
-  <legend>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <h2>
       Date
     </h2>
@@ -1804,7 +1840,13 @@ exports[`Storyshots Form Elements/Memorable date input with an initialDate 1`] =
 <fieldset
   className="css-svo1gv"
 >
-  <legend>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
     <h2>
       Date
     </h2>

@@ -183,7 +183,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
 
     return (
       <fieldset className={FIELDSET_STYLING}>
-        <legend>{this.props.legend}</legend>
+        <legend style={{ width: '100%' }}>{this.props.legend}</legend>
 
         <div className={FIELDS_CONTAINER_STYLING}>
           <div>

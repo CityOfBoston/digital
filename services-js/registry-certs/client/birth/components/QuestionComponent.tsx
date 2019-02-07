@@ -2,7 +2,10 @@ import React from 'react';
 
 import BackButton from '../components/BackButton';
 
-import { QUESTION_CONTAINER_STYLING } from '../styling';
+import {
+  QUESTION_BUTTON_CONTAINER_STYLING,
+  QUESTION_CONTAINER_STYLING,
+} from '../styling';
 
 interface Props {
   handleProceed?: () => void;
@@ -25,8 +28,14 @@ export default function QuestionComponent(props: Props): JSX.Element {
     <>
       <div className={QUESTION_CONTAINER_STYLING}>{props.children}</div>
 
-      <div className="g g--r m-t700">
-        <div className="g--6 ta-r m-v500">
+      <div className={`g g--mr ${QUESTION_BUTTON_CONTAINER_STYLING}`}>
+        <div className="t--info g--6 m-b500">
+          {props.handleStepBack && (
+            <BackButton handleClick={props.handleStepBack} />
+          )}
+        </div>
+
+        <div className="g--6 ta-r m-b500">
           {props.handleProceed &&
             !props.startOver && (
               <button
@@ -50,12 +59,6 @@ export default function QuestionComponent(props: Props): JSX.Element {
                 Start over
               </button>
             )}
-        </div>
-
-        <div className="t--info g--6 m-v500">
-          {props.handleStepBack && (
-            <BackButton handleClick={props.handleStepBack} />
-          )}
         </div>
       </div>
     </>

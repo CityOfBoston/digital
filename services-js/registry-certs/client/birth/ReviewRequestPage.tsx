@@ -10,9 +10,7 @@ import {
   CHARLES_BLUE,
   FREEDOM_RED_DARK,
   GRAY_100,
-  OPTIMISTIC_BLUE_DARK,
   SERIF,
-  WHITE,
 } from '@cityofboston/react-fleet';
 
 import { PageDependencies } from '../../pages/_app';
@@ -20,6 +18,7 @@ import { PageDependencies } from '../../pages/_app';
 import PageWrapper from './PageWrapper';
 import CostSummary from '../common/CostSummary';
 
+import QuantityDropdown from './components/QuantityDropdown';
 import BackButton from './components/BackButton';
 
 import { SECTION_HEADING_STYLING } from './styling';
@@ -40,13 +39,12 @@ export default class ReviewRequestPage extends React.Component<Props> {
   }
 
   private handleQuantityChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     // Update quantity; if user erases value in field, quantity will return to 1
     this.props.birthCertificateRequest.setQuantity(+event.target.value || 1);
   };
 
-  // todo: warn user before resetting information (i.e. “are you sure? y/n” dialog)
   private userResetStartOver = () => {
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
 
@@ -71,9 +69,12 @@ export default class ReviewRequestPage extends React.Component<Props> {
     const {
       firstName,
       lastName,
-      birthDate,
     } = this.props.birthCertificateRequest.requestInformation;
-    const { quantity, steps } = this.props.birthCertificateRequest;
+    const {
+      quantity,
+      steps,
+      birthDateString,
+    } = this.props.birthCertificateRequest;
     const pageTitle = 'Review your record request';
 
     return (
@@ -96,40 +97,20 @@ export default class ReviewRequestPage extends React.Component<Props> {
           need to do a separate transaction.
         </p>
 
-        <div>
-          <div className={CERTIFICATE_ROW_STYLE}>
-            <input
-              type="number"
-              min="1"
-              aria-label="Certificate quantity"
-              className={`br br-a150 ${QUANTITY_BOX_STYLE}`}
-              value={quantity}
-              onChange={this.handleQuantityChange}
-              title="Certificate Quantity"
-            />
+        <div className={CERTIFICATE_ROW_STYLE}>
+          <QuantityDropdown
+            quantity={quantity}
+            handleQuantityChange={this.handleQuantityChange}
+          />
 
-            <div className={`t--sans ${CERTIFICATE_INFO_BOX_STYLE}`}>
-              <div className={CERTIFICATE_NAME_STYLE}>
-                {firstName} {lastName}
-              </div>
-              <div className={CERTIFICATE_SUBINFO_STYLE}>
-                <span style={{ marginRight: '2em' }}>
-                  Birth Certificate (Paper Copy)
-                </span>
-                <br />
-                <span>Born: {birthDate}</span>
-              </div>
+          <div className={`t--sans ${CERTIFICATE_INFO_BOX_STYLE}`}>
+            <div className={CERTIFICATE_NAME_STYLE}>
+              {firstName} {lastName}
             </div>
-
-            <button
-              className={REMOVE_BUTTON_STYLE}
-              type="button"
-              onClick={this.userResetStartOver}
-              aria-label="Remove and start over"
-              title="Remove and start over"
-            >
-              ×
-            </button>
+            <div className={CERTIFICATE_SUBINFO_STYLE}>
+              <span>Birth Certificate (Paper Copy)</span>
+              <span>Born: {birthDateString}</span>
+            </div>
           </div>
         </div>
 
@@ -140,42 +121,31 @@ export default class ReviewRequestPage extends React.Component<Props> {
           serviceFeeType="CREDIT"
         />
 
-        <div className="m-t700 g g--r">
-          <div className="g--6 ta-r m-b500">
+        <div className="g g--mr m-t700">
+          <div className={`g--9 ${BACK_CANCEL_BUTTONS_STYLING}`}>
+            <BackButton handleClick={this.returnToQuestions} />
+
             <button
-              className="btn btn--b-sm"
+              className="lnk cancel"
               type="button"
-              onClick={this.goToCheckout}
+              onClick={this.userResetStartOver}
             >
-              Continue
+              <span aria-hidden="true">←</span> Cancel and start over
             </button>
           </div>
 
-          <div className="g--6 m-b500">
-            <BackButton handleClick={this.returnToQuestions} />
-          </div>
+          <button
+            className="btn g--3"
+            type="button"
+            onClick={this.goToCheckout}
+          >
+            Continue
+          </button>
         </div>
       </PageWrapper>
     );
   }
 }
-
-const QUANTITY_BOX_STYLE = css({
-  width: '2.5rem',
-  height: '2.5rem',
-  marginRight: '1rem',
-  fontFamily: 'inherit',
-  fontStyle: 'italic',
-  fontSize: '1rem',
-  background: OPTIMISTIC_BLUE_DARK,
-  color: WHITE,
-  textAlign: 'right',
-  padding: '0.5rem',
-  '-moz-appearance': 'textfield',
-  '&::-webkit-inner-spin-button': {
-    '-webkit-appearance': 'none',
-  },
-});
 
 const CERTIFICATE_NAME_STYLE = css({
   fontStyle: 'normal',
@@ -189,6 +159,10 @@ const CERTIFICATE_SUBINFO_STYLE = css({
   color: CHARLES_BLUE,
   fontFamily: SERIF,
   fontStyle: 'italic',
+
+  '> span': {
+    display: 'block',
+  },
 });
 
 const CERTIFICATE_ROW_STYLE = css({
@@ -202,14 +176,26 @@ const CERTIFICATE_ROW_STYLE = css({
 
   display: 'flex',
   alignItems: 'center',
+
+  '> div:first-of-type': {
+    flexBasis: '25%',
+  },
 });
 
-const REMOVE_BUTTON_STYLE = css({
-  border: 'none',
-  background: 'transparent',
-  color: FREEDOM_RED_DARK,
-  fontSize: '2.5rem',
-  verticalAlign: 'middle',
-  cursor: 'pointer',
-  padding: '0 0 0.2em',
+const BACK_CANCEL_BUTTONS_STYLING = css({
+  display: 'flex',
+  justifyContent: 'space-between',
+
+  '> *:first-of-type button': {
+    paddingLeft: 0,
+  },
+
+  '.cancel': {
+    fontStyle: 'italic',
+    color: 'inherit',
+
+    '&:hover': {
+      color: FREEDOM_RED_DARK,
+    },
+  },
 });

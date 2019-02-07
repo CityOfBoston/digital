@@ -4,7 +4,7 @@ import { css } from 'emotion';
 
 import {
   GRAY_100,
-  MEDIA_SMALL,
+  MEDIA_MEDIUM,
   SANS,
   VISUALLYHIDDEN,
 } from '@cityofboston/react-fleet';
@@ -74,7 +74,7 @@ const RADIOITEM_STYLING = css({
 
   marginBottom: '2rem',
 
-  [MEDIA_SMALL]: {
+  [MEDIA_MEDIUM]: {
     flexDirection: 'column',
     justifyContent: 'flex-end',
   },
@@ -91,7 +91,7 @@ const RADIOITEM_STYLING = css({
     flexBasis: '20%',
     height: '100%',
 
-    [MEDIA_SMALL]: {
+    [MEDIA_MEDIUM]: {
       flexBasis: 'auto',
     },
   },
@@ -104,7 +104,7 @@ const RADIOITEM_STYLING = css({
     textTransform: 'uppercase',
     border: BORDER_STYLE,
 
-    [MEDIA_SMALL]: {
+    [MEDIA_MEDIUM]: {
       marginTop: '1.75rem',
       marginLeft: 0,
       flexGrow: 0,

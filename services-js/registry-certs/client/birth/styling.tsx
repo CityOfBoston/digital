@@ -4,6 +4,7 @@ import {
   CHARLES_BLUE,
   FOCUS_INDICATOR_COLOR,
   GREEN,
+  MEDIA_LARGE,
   MEDIA_MEDIUM,
   MEDIA_SMALL,
   SERIF,
@@ -44,11 +45,14 @@ export const SUPPORTING_TEXT_STYLING = css({
 export const RADIOGROUP_STYLING = css({
   margin: '2rem 0 3rem',
 
-  [MEDIA_SMALL]: {
+  [MEDIA_MEDIUM]: {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'baseline',
     marginBottom: 0,
+  },
+  [MEDIA_LARGE]: {
+    justifyContent: 'center',
 
     '> *': {
       margin: '1rem',
@@ -140,7 +144,36 @@ export const ANSWER_ICON_STYLING = css({
 
 export const QUESTION_CONTAINER_STYLING = css({
   'fieldset + fieldset': {
-    marginTop: '4rem',
+    marginTop: '2rem',
+
+    [MEDIA_SMALL]: {
+      marginTop: '4rem',
+
+      '.lnk': {
+        paddingLeft: 0,
+      },
+    },
+  },
+});
+
+export const QUESTION_BUTTON_CONTAINER_STYLING = css({
+  textAlign: 'center',
+
+  [MEDIA_SMALL]: {
+    marginTop: '2.5rem',
+    textAlign: 'left',
+
+    '> div': {
+      display: 'flex',
+
+      '&.ta-r > button': {
+        marginLeft: 'auto',
+      },
+    },
+
+    '.lnk': {
+      paddingLeft: 0,
+    },
   },
 });
 
