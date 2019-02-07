@@ -46,6 +46,6 @@
     "rimraf": "^2.6.2",
     "ts-jest": "23.10.0",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.1.0"
+    "typescript": "^3.3.1"
   }
 }
