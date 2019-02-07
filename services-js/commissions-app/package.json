@@ -90,7 +90,6 @@
     "@zeit/next-typescript": "1.1.1",
     "apollo-codegen": "0.20.2",
     "babel-core": "^7.0.0-0",
-    "babel-plugin-require-context-hook": "^1.0.0",
     "concurrently": "^3.5.1",
     "eslint-plugin-graphql": "^2.1.1",
     "faker": "^4.1.0",

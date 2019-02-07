@@ -1,9 +1,3 @@
-// polyfill Array methods for IE
-//
-// TODO(finh): Can we do the auto-import for these?
-import 'core-js/fn/array/includes';
-import 'core-js/fn/array/find';
-
 import React, { ChangeEvent } from 'react';
 import { css } from 'emotion';
 

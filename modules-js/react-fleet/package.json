@@ -27,6 +27,7 @@
   },
   "peerDependencies": {
     "@babel/runtime": "7.0.0",
+    "core-js": "^2.5.7",
     "detect-browser": "^3.0.1",
     "emotion": "9.2.10",
     "prop-types": "^15.6.0",

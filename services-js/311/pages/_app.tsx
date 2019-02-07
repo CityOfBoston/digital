@@ -1,5 +1,3 @@
-import 'core-js/shim';
-
 import svg4everybody from 'svg4everybody';
 import React from 'react';
 import App, { Container } from 'next/app';

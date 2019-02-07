@@ -1,4 +1,4 @@
-module.exports = function react(_, { esm }) {
+module.exports = function browser(_, { esm }) {
   return {
     plugins: [
       [
@@ -16,7 +16,10 @@ module.exports = function react(_, { esm }) {
       ],
     ],
     presets: [
-      [require('@babel/preset-env'), { modules: esm ? false : undefined }],
+      [
+        require('@babel/preset-env'),
+        { useBuiltIns: 'usage', modules: esm ? false : undefined },
+      ],
       require('@babel/preset-react'),
     ],
   };

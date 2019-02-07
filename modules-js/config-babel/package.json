@@ -14,5 +14,8 @@
     "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "7.0.0",
     "babel-plugin-inline-import": "^2.0.6"
+  },
+  "peerDependencies": {
+    "core-js": "^2.5.7"
   }
 }
