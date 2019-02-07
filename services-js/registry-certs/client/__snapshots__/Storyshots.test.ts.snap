@@ -3283,7 +3283,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -3298,11 +3298,11 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                 </legend>
                 <div
                   aria-labelledby="forSelf"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3332,7 +3332,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3387,10 +3387,13 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
               </fieldset>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
+                className="t--info g--6 m-b500"
+              />
+              <div
+                className="g--6 ta-r m-b500"
               >
                 <button
                   className="btn btn--b-sm"
@@ -3401,9 +3404,6 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                   Next question
                 </button>
               </div>
-              <div
-                className="t--info g--6 m-v500"
-              />
             </div>
             <div
               className="m-v700 ta-c"
@@ -3717,7 +3717,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -3732,11 +3732,11 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                 </legend>
                 <div
                   aria-labelledby="forSelf"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  inactive"
+                    className="css-ksygmh css-ykfeq4  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -3766,7 +3766,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-ykfeq4 selected "
+                    className="css-ksygmh css-ykfeq4 selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -3836,7 +3836,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3898,7 +3898,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3979,7 +3979,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4023,7 +4023,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4099,7 +4099,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4137,7 +4137,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-ykfeq4  "
+                    className="css-ksygmh css-ykfeq4  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4184,10 +4184,13 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
               </fieldset>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
+                className="t--info g--6 m-b500"
+              />
+              <div
+                className="g--6 ta-r m-b500"
               >
                 <button
                   className="btn btn--b-sm"
@@ -4198,9 +4201,6 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                   Next question
                 </button>
               </div>
-              <div
-                className="t--info g--6 m-v500"
-              />
             </div>
             <div
               className="m-v700 ta-c"
@@ -4514,7 +4514,7 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <div
                 className="m-t500"
@@ -4567,13 +4567,10 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
               </div>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              />
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -4600,6 +4597,9 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
                   </button>
                 </div>
               </div>
+              <div
+                className="g--6 ta-r m-b500"
+              />
             </div>
             <div
               className="m-v700 ta-c"
@@ -4913,7 +4913,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -4930,11 +4930,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                 </legend>
                 <div
                   aria-labelledby="bornInBoston"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  "
+                    className="css-ksygmh css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4966,7 +4966,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  "
+                    className="css-ksygmh css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -5006,7 +5006,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  "
+                    className="css-ksygmh css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -5050,22 +5050,10 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
               
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Next question
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -5091,6 +5079,18 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Next question
+                </button>
               </div>
             </div>
             <div
@@ -5405,7 +5405,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -5422,11 +5422,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="bornInBoston"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5458,7 +5458,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5498,7 +5498,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk selected "
+                    className="css-ksygmh css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -5556,11 +5556,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsLivedInBoston"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5592,7 +5592,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -5632,7 +5632,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk selected "
+                    className="css-ksygmh css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -5698,21 +5698,10 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
               </div>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Start over
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -5738,6 +5727,17 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Start over
+                </button>
               </div>
             </div>
             <div
@@ -6052,7 +6052,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -6069,11 +6069,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="bornInBoston"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6105,7 +6105,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk selected "
+                    className="css-ksygmh css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -6145,7 +6145,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6203,11 +6203,11 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsLivedInBoston"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6239,7 +6239,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk selected "
+                    className="css-ksygmh css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -6279,7 +6279,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -6342,22 +6342,10 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
               </div>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  disabled={false}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Next question
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -6383,6 +6371,18 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Next question
+                </button>
               </div>
             </div>
             <div
@@ -6697,7 +6697,7 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -6925,22 +6925,10 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
               </fieldset>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Next question
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -6966,6 +6954,18 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Next question
+                </button>
               </div>
             </div>
             <div
@@ -7280,7 +7280,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -7481,11 +7481,11 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  "
+                    className="css-ksygmh css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -7517,7 +7517,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  "
+                    className="css-ksygmh css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -7557,7 +7557,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  "
+                    className="css-ksygmh css-1awv4sk  "
                   >
                     <svg
                       aria-hidden="true"
@@ -7600,22 +7600,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
               </fieldset>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Review request
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -7641,6 +7629,18 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Review request
+                </button>
               </div>
             </div>
             <div
@@ -7955,7 +7955,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -8156,11 +8156,11 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8192,7 +8192,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk selected "
+                    className="css-ksygmh css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -8232,7 +8232,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8299,22 +8299,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
               </div>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Next
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -8340,6 +8328,18 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <div
@@ -8654,7 +8654,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <fieldset
                 className="css-s52bq "
@@ -8855,11 +8855,11 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="css-1e6he4a"
+                  className="css-1jbmnkf"
                   role="radiogroup"
                 >
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8891,7 +8891,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk  inactive"
+                    className="css-ksygmh css-1awv4sk  inactive"
                   >
                     <svg
                       aria-hidden="true"
@@ -8931,7 +8931,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </label>
                   <label
-                    className="css-1tnlzt1 css-1awv4sk selected "
+                    className="css-ksygmh css-1awv4sk selected "
                   >
                     <svg
                       aria-hidden="true"
@@ -8996,22 +8996,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
               </div>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Next
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -9037,6 +9025,18 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Next
+                </button>
               </div>
             </div>
             <div
@@ -9351,7 +9351,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
             className="m-t500"
           >
             <div
-              className="css-mrpxfe"
+              className="css-1hd83di"
             >
               <h2
                 className="css-vmrobw"
@@ -9390,11 +9390,11 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                 </li>
               </ul>
               <div
-                className="css-1e6he4a"
+                className="css-1jbmnkf"
                 role="radiogroup"
               >
                 <label
-                  className="css-1tnlzt1 css-1awv4sk  "
+                  className="css-ksygmh css-1awv4sk  "
                 >
                   <svg
                     aria-hidden="true"
@@ -9476,7 +9476,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                   </span>
                 </label>
                 <label
-                  className="css-1tnlzt1 css-1awv4sk  "
+                  className="css-ksygmh css-1awv4sk  "
                 >
                   <svg
                     aria-hidden="true"
@@ -9518,22 +9518,10 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
               </div>
             </div>
             <div
-              className="g g--r m-t700"
+              className="g g--mr css-5a3l2g"
             >
               <div
-                className="g--6 ta-r m-v500"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  disabled={true}
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Review request
-                </button>
-              </div>
-              <div
-                className="t--info g--6 m-v500"
+                className="t--info g--6 m-b500"
               >
                 <div
                   className="css-1hndia5"
@@ -9559,6 +9547,18 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                     </span>
                   </button>
                 </div>
+              </div>
+              <div
+                className="g--6 ta-r m-b500"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Review request
+                </button>
               </div>
             </div>
             <div
@@ -9630,7 +9630,7 @@ exports[`Storyshots Birth/RadioItemComponent multiple answers 1`] = `
       }
     >
       <label
-        className="css-1tnlzt1 undefined  "
+        className="css-ksygmh undefined  "
       >
         <svg
           style={
@@ -9684,7 +9684,7 @@ exports[`Storyshots Birth/RadioItemComponent multiple answers 1`] = `
       }
     >
       <label
-        className="css-1tnlzt1 undefined  "
+        className="css-ksygmh undefined  "
       >
         <svg
           style={
@@ -9738,7 +9738,7 @@ exports[`Storyshots Birth/RadioItemComponent multiple answers 1`] = `
       }
     >
       <label
-        className="css-1tnlzt1 undefined  "
+        className="css-ksygmh undefined  "
       >
         <svg
           style={
@@ -9798,7 +9798,7 @@ exports[`Storyshots Birth/RadioItemComponent single item 1`] = `
     }
   >
     <label
-      className="css-1tnlzt1 undefined selected "
+      className="css-ksygmh undefined selected "
     >
       <svg
         style={
@@ -10360,10 +10360,10 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               </table>
             </div>
             <div
-              className="m-t700 css-16flrts"
+              className="g g--mr m-t700"
             >
               <div
-                className="css-1nvk2mp"
+                className="g--9 css-1nvk2mp"
               >
                 <div
                   className="css-1hndia5"
@@ -10403,7 +10403,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 </button>
               </div>
               <button
-                className="btn"
+                className="btn g--3"
                 onClick={[Function]}
                 type="button"
               >

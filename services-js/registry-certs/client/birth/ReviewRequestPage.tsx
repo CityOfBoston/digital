@@ -10,7 +10,6 @@ import {
   CHARLES_BLUE,
   FREEDOM_RED_DARK,
   GRAY_100,
-  MEDIA_SMALL,
   SERIF,
 } from '@cityofboston/react-fleet';
 
@@ -122,8 +121,8 @@ export default class ReviewRequestPage extends React.Component<Props> {
           serviceFeeType="CREDIT"
         />
 
-        <div className={`m-t700 ${BUTTONS_CONTAINER_STYLING}`}>
-          <div className={BACK_CANCEL_BUTTONS_STYLING}>
+        <div className="g g--mr m-t700">
+          <div className={`g--9 ${BACK_CANCEL_BUTTONS_STYLING}`}>
             <BackButton handleClick={this.returnToQuestions} />
 
             <button
@@ -135,7 +134,11 @@ export default class ReviewRequestPage extends React.Component<Props> {
             </button>
           </div>
 
-          <button className="btn" type="button" onClick={this.goToCheckout}>
+          <button
+            className="btn g--3"
+            type="button"
+            onClick={this.goToCheckout}
+          >
             Continue
           </button>
         </div>
@@ -156,6 +159,7 @@ const CERTIFICATE_SUBINFO_STYLE = css({
   color: CHARLES_BLUE,
   fontFamily: SERIF,
   fontStyle: 'italic',
+
   '> span': {
     display: 'block',
   },
@@ -175,31 +179,6 @@ const CERTIFICATE_ROW_STYLE = css({
 
   '> div:first-of-type': {
     flexBasis: '25%',
-  },
-});
-
-const BUTTONS_CONTAINER_STYLING = css({
-  display: 'flex',
-  flexDirection: 'column',
-
-  // Ensures “next” button comes before “back/cancel” on mobile, while
-  // maintaining the visually-apparent tab order on larger screens.
-  '> button': {
-    order: -1,
-
-    [MEDIA_SMALL]: {
-      order: 0,
-    },
-  },
-
-  [MEDIA_SMALL]: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-
-    '> div': {
-      flexGrow: 1,
-      marginRight: '2rem',
-    },
   },
 });
 
