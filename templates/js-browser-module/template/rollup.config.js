@@ -12,5 +12,8 @@ export default {
     format: 'cjs',
   },
   // Regexp form so we can wildcard
-  external: id => /^@babel\/runtime\//.test(id) || EXTERNALS.includes(id),
+  external: id =>
+    /^@babel\/runtime\//.test(id) ||
+    /^core-js\//.test(id) ||
+    EXTERNALS.includes(id),
 };
