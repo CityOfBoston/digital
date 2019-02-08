@@ -7,7 +7,7 @@ import { storiesOf } from '@storybook/react';
 // This snapshot parsing is taken from the jest-snapshots utils code. We need to
 // use require rather than fs.readFile so that the snapshot gets webpack-bundled
 // and we can run this client-side.
-const SNAPSHOT_CONTENTS = require('./__snapshots__/ReceiptEmail.test.ts.snap');
+const SNAPSHOT_CONTENTS = require('./__snapshots__/EmailTemplates.test.ts.snap');
 const SNAPSHOTS = {};
 new Function('exports', SNAPSHOT_CONTENTS)(SNAPSHOTS);
 
@@ -15,12 +15,12 @@ function snapToString(name: string) {
   return JSON.parse(SNAPSHOTS[name].trim().replace(/\n/g, '\\n'));
 }
 
-storiesOf('Death/ReceiptEmail', module)
+storiesOf('Email/DeathReceiptEmail', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
-        __html: snapToString('it renders an HTML body 1'),
+        __html: snapToString('DeathReceipt 2'),
       }}
     />
   ))
-  .add('text', () => <pre>{snapToString('it renders a text body 1')}</pre>);
+  .add('text', () => <pre>{snapToString('DeathReceipt 3')}</pre>);

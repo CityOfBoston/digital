@@ -1,39 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`it renders a text body 1`] = `
-"City of Boston
-
-Thank you for your order!
-
-Date: 1/8/2018 2:05PM
-Order ID: RG-DC201801-100001
-
-Your shipping information:
-Nancy Whitehead
-123 Fake St.
-Boston, MA 02141
-
-Your order:
-  4 x Death certificate for Monkey Joe $56.00
-  6 x Death certificate for Bruce Banner $84.00
-  Subtotal  $140.00
-  Card processing fee*  $1.32
-  Total  $141.32
-
-Your order will be shipped within 1–2 business days via the U.S. Postal Service.
-
-* You are charged an extra service fee of not more than 
-$0.25 plus 2.15%. This fee goes directly to a third party to 
-pay for the cost of card processing. Learn more about card 
-service fees at the City of Boston. 
-[https://www.cityofboston.gov/payments/faqs.asp]
-
-Have any questions? Contact the Registry on weekdays from 9 
-a.m. – 4 p.m. at 617-635-4175, or email registry@boston.gov.
-"
-`;
-
-exports[`it renders an HTML body 1`] = `
+exports[`DeathReceipt 2`] = `
 "
     <!doctype html>
     <html xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\">
@@ -765,4 +732,36 @@ exports[`it renders an HTML body 1`] = `
       </body>
     </html>
   "
+`;
+
+exports[`DeathReceipt 3`] = `
+"City of Boston
+
+Thank you for your order!
+
+Date: 1/8/2018 2:05PM
+Order ID: RG-DC201801-100001
+
+Your shipping information:
+Nancy Whitehead
+123 Fake St.
+Boston, MA 02141
+
+Your order:
+  4 x Death certificate for Monkey Joe $56.00
+  6 x Death certificate for Bruce Banner $84.00
+  Subtotal  $140.00
+  Card processing fee*  $1.32
+  Total  $141.32
+
+Your order will be shipped within 1–2 business days via the U.S. Postal Service.
+
+* You are charged an extra service fee of not more than 
+$0.25 plus 2.15%. This fee goes directly to a third party to 
+pay for the cost of card processing. Learn more about card 
+service fees at the City of Boston. 
+[https://www.cityofboston.gov/payments/faqs.asp]
+
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. – 4 p.m. at 617-635-4175, or email registry@boston.gov."
 `;
