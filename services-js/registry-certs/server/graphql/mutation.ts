@@ -69,6 +69,7 @@ interface SubmittedOrder {
 
 enum ChargeOrderErrorCode {
   CHARGE_EXPIRED = 'CHARGE_EXPIRED',
+  CHARGE_CAPTURED = 'CHARGE_CAPTURED',
   CHARGE_NOT_FOUND = 'CHARGE_NOT_FOUND',
   ORDER_NOT_FOUND = 'ORDER_NOT_FOUND',
   UNKNOWN = 'UNKNOWN',
@@ -169,6 +170,12 @@ export interface Mutation extends ResolvableWith<{}> {
   }): OrderResult;
 
   chargeOrder(args: {
+    type: OrderType;
+    orderId: string;
+    transactionId: string;
+  }): ChargeOrderResult;
+
+  cancelOrder(args: {
     type: OrderType;
     orderId: string;
     transactionId: string;
@@ -462,6 +469,62 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
             },
           };
 
+        case 'resource_missing':
+          return {
+            success: false,
+            error: {
+              code: ChargeOrderErrorCode.CHARGE_NOT_FOUND,
+              message: 'Stripe does not have a record of that transaction ID',
+            },
+          };
+
+        default:
+          return {
+            success: false,
+            error: {
+              code: ChargeOrderErrorCode.UNKNOWN,
+              message: e.message || e.toString(),
+            },
+          };
+      }
+    }
+  },
+  async cancelOrder(
+    _root,
+    { transactionId },
+    { rollbar, stripe, source }
+  ): Promise<ChargeOrderResult> {
+    requireFulfillmentUser(source);
+
+    try {
+      const charge = await stripe.charges.retrieve(transactionId);
+
+      if (charge.captured) {
+        return {
+          success: false,
+          error: {
+            code: ChargeOrderErrorCode.CHARGE_CAPTURED,
+            message: 'This charge was already captured. Cannot cancel it.',
+          },
+        };
+      } else if (charge.refunded) {
+        // no-op if the charge was already refunded
+        return {
+          success: true,
+          error: null,
+        };
+      }
+
+      await stripe.charges.refund(transactionId);
+
+      return {
+        success: true,
+        error: null,
+      };
+    } catch (e) {
+      rollbar.error(e);
+
+      switch (e.code) {
         case 'resource_missing':
           return {
             success: false,
