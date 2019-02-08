@@ -78,8 +78,8 @@ export interface Mutation {
 
 export interface Account {
   employeeId: string;
-  firstName?: string;
-  lastName?: string;
+  firstName: string | null;
+  lastName: string | null;
   registered: boolean;
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
@@ -140,8 +140,8 @@ const queryRootResolvers: QueryRootResolvers = {
 
       return {
         employeeId: userId,
-        firstName,
-        lastName,
+        firstName: firstName || null,
+        lastName: lastName || null,
         // We set this explicitly rather than have all places that need it have
         // to derive it from the other two booleans.
         registered: !needsMfaDevice && !needsNewPassword,
@@ -152,6 +152,8 @@ const queryRootResolvers: QueryRootResolvers = {
     } else if (forgotPasswordAuth) {
       return {
         employeeId: forgotPasswordAuth.userId,
+        firstName: null,
+        lastName: null,
         // These aren't used in forgot password states, so it doesn’t matter
         // what we return here.
         registered: false,
