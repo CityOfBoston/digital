@@ -1,0 +1,12 @@
+mutation CancelBcOrderV1($orderId: String!, $transactionId: String!) {
+  cancelOrder(
+      type: BC,
+      orderId: $orderId,
+      transactionId: $transactionId) {
+    success
+    error {
+      code
+      message
+    }
+  }
+}
