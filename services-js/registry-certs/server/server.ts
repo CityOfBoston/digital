@@ -45,6 +45,7 @@ import { processStripeEvent } from './stripe-events';
 
 import schema, { Context, Source } from './graphql';
 import { PACKAGE_SRC_ROOT, AnnotatedFilePart } from './util';
+import { makeEmailTemplates } from './email/EmailTemplates';
 
 type ServerArgs = {
   rollbar: Rollbar;
@@ -129,7 +130,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
   const emails = new Emails(
     process.env.POSTMARK_FROM_ADDRESS || 'no-reply@boston.gov',
     postmarkClient,
-    rollbar
+    rollbar,
+    await makeEmailTemplates()
   );
 
   let registryDbFactory: RegistryDbFactory;

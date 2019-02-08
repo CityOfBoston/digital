@@ -85,7 +85,7 @@ export async function processChargeSucceeded(
 
   // Sending the email is not idempotent, so we put it last and in the vast
   // majority of cases it will run once.
-  await emails.sendReceiptEmail(order.contactName, order.contactEmail, {
+  await emails.sendDeathReceiptEmail(order.contactName, order.contactEmail, {
     orderId: order.id,
     orderDate: order.date,
     shippingName: order.shippingName,

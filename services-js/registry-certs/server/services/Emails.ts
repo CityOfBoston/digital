@@ -2,43 +2,44 @@ import { Client as PostmarkClient } from 'postmark';
 import Rollbar from 'rollbar';
 import { Address } from 'address-rfc2822';
 
-import ReceiptEmail, {
-  TemplateData as ReceiptTemplateData,
-} from '../email/ReceiptEmail';
+import { EmailTemplates, DeathReceiptData } from '../email/EmailTemplates';
 
 export default class Emails {
-  from: string;
-  postmarkClient: PostmarkClient;
-  rollbar: Rollbar;
+  private from: string;
+  private postmarkClient: PostmarkClient;
+  private rollbar: Rollbar;
 
-  receiptEmail: ReceiptEmail;
+  private templates: EmailTemplates;
 
-  constructor(from: string, postmarkClient: PostmarkClient, rollbar: Rollbar) {
+  constructor(
+    from: string,
+    postmarkClient: PostmarkClient,
+    rollbar: Rollbar,
+    templates: EmailTemplates
+  ) {
     this.from = from;
     this.postmarkClient = postmarkClient;
     this.rollbar = rollbar;
 
-    this.receiptEmail = new ReceiptEmail();
+    this.templates = templates;
   }
 
-  formatTo(toName: string, toEmail: string): string {
-    return new Address(toName, toEmail).format();
-  }
-
-  async sendReceiptEmail(
+  async sendDeathReceiptEmail(
     toName: string,
     toEmail: string,
-    data: ReceiptTemplateData
+    data: DeathReceiptData
   ): Promise<void> {
     try {
+      const { subject, html, text } = this.templates.deathReceipt(data);
+
       await new Promise((resolve, reject) =>
         this.postmarkClient.sendEmail(
           {
-            To: this.formatTo(toName, toEmail),
+            To: formatTo(toName, toEmail),
             From: this.from,
-            Subject: `City of Boston Death Certificates Order #${data.orderId}`,
-            HtmlBody: this.receiptEmail.renderHtmlBody(data),
-            TextBody: this.receiptEmail.renderTextBody(data),
+            Subject: subject,
+            HtmlBody: html,
+            TextBody: text,
           },
           (err, result) => (err ? reject(err) : resolve(result))
         )
@@ -48,4 +49,8 @@ export default class Emails {
       this.rollbar.error(e);
     }
   }
+}
+
+export function formatTo(toName: string, toEmail: string): string {
+  return new Address(toName, toEmail).format();
 }

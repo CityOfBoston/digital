@@ -7,16 +7,17 @@ import CHARGE_UNCAPTURED from '../fixtures/stripe/charge-uncaptured.json';
 import ORDER from '../fixtures/registry-orders/order.json';
 import CERTIFICATES from '../fixtures/registry-data/smith.json';
 import RegistryDbFake from './services/RegistryDbFake';
+import Emails from './services/Emails';
 
 describe('charge.created', () => {
-  let emails;
+  let emails: Required<Emails>;
   let stripe;
   let registryDb: RegistryDbFake;
 
   beforeEach(() => {
     emails = {
-      sendReceiptEmail: jest.fn(),
-    } as any;
+      sendDeathReceiptEmail: jest.fn(),
+    };
     stripe = {} as any;
 
     registryDb = new RegistryDbFake(
@@ -33,7 +34,7 @@ describe('charge.created', () => {
   it('ignores uncaptured charges', async () => {
     await processStripeEvent(
       {
-        emails,
+        emails: emails as any,
         stripe,
         registryDb: registryDb as any,
       },
@@ -43,13 +44,13 @@ describe('charge.created', () => {
     );
 
     expect(registryDb.addPayment).not.toHaveBeenCalled();
-    expect(emails.sendReceiptEmail).not.toHaveBeenCalled();
+    expect(emails.sendDeathReceiptEmail).not.toHaveBeenCalled();
   });
 
   it('marks the order as paid', async () => {
     await processStripeEvent(
       {
-        emails,
+        emails: emails as any,
         stripe,
         registryDb: registryDb as any,
       },
@@ -69,7 +70,7 @@ describe('charge.created', () => {
   it('sends email', async () => {
     await processStripeEvent(
       {
-        emails,
+        emails: emails as any,
         stripe,
         registryDb: registryDb as any,
       },
@@ -78,7 +79,7 @@ describe('charge.created', () => {
       JSON.stringify(CHARGE_SUCCEEDED)
     );
 
-    expect(emails.sendReceiptEmail).toHaveBeenCalledWith(
+    expect(emails.sendDeathReceiptEmail).toHaveBeenCalledWith(
       'Nancy Whitehead',
       'nancy@mew.org',
       // we're letting the type checking ensure that all this data is complete.

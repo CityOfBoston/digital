@@ -1,4 +1,4 @@
-import ReceiptEmail from './ReceiptEmail';
+import { EmailTemplates, makeEmailTemplates } from './EmailTemplates';
 import { SERVICE_FEE_URI } from '../../lib/costs';
 
 const TEST_ORDER = {
@@ -33,12 +33,17 @@ const TEST_ORDER = {
   serviceFeeUri: SERVICE_FEE_URI,
 };
 
-test('it renders an HTML body', () => {
-  const receiptEmail = new ReceiptEmail();
-  expect(receiptEmail.renderHtmlBody(TEST_ORDER)).toMatchSnapshot();
+let templates: EmailTemplates;
+
+beforeAll(async () => {
+  templates = await makeEmailTemplates();
 });
 
-test('it renders a text body', () => {
-  const receiptEmail = new ReceiptEmail();
-  expect(receiptEmail.renderTextBody(TEST_ORDER)).toMatchSnapshot();
+test('DeathReceipt', () => {
+  const { html, subject, text } = templates.deathReceipt(TEST_ORDER);
+  expect(subject).toMatchInlineSnapshot(
+    `"City of Boston Death Certificates Order #RG-DC201801-100001"`
+  );
+  expect(html).toMatchSnapshot();
+  expect(text).toMatchSnapshot();
 });
