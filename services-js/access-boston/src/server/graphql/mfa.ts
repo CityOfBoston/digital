@@ -135,6 +135,9 @@ export const verifyMfaDeviceMutation: MutationResolvers['verifyMfaDevice'] = asy
     phoneNumber: loginSession.mfaPhoneNumber || undefined,
   });
 
+  loginSession.needsMfaDevice = false;
+  session.save();
+
   return {
     success: true,
     error: null,
