@@ -6712,7 +6712,7 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                   </h2>
                 </legend>
                 <p
-                  className="css-1eyaip0"
+                  className="css-toqptl"
                 >
                   If 
                   you
@@ -7298,7 +7298,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                   </h2>
                 </legend>
                 <p
-                  className="css-1eyaip0"
+                  className="css-toqptl"
                 >
                   Please use the names 
                   their
@@ -7973,7 +7973,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                   </h2>
                 </legend>
                 <p
-                  className="css-1eyaip0"
+                  className="css-toqptl"
                 >
                   Please use the names 
                   their
@@ -8672,7 +8672,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                   </h2>
                 </legend>
                 <p
-                  className="css-1eyaip0"
+                  className="css-toqptl"
                 >
                   Please use the names 
                   your
@@ -9353,168 +9353,387 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
             <div
               className="css-1hd83di"
             >
-              <h2
-                className="css-vmrobw"
-              >
-                Verify your identity
-              </h2>
-              <p>
-                Since the record you’re ordering may have an access restriction, you must upload a valid form of identification (i.e. driver’s license, state ID, military ID, or passport) before we can process your request.
-              </p>
-              <p>
-                <em>
-                  Please note
-                </em>
-                : You must be a person or parent listed on the record in order to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. Your request will be canceled and your card will not be charged. Contact 
-                <strong>
-                  registry@boston.gov
-                </strong>
-                 
-                with questions.
-              </p>
-              <h3>
-                We accept the following forms of ID:
-              </h3>
-              <ul>
-                <li>
-                  Driver’s License
-                </li>
-                <li>
-                  State ID
-                </li>
-                <li>
-                  Passport
-                </li>
-                <li>
-                  Military ID
-                </li>
-              </ul>
-              <div
-                className="css-1jbmnkf"
-                role="radiogroup"
-              >
-                <label
-                  className="css-ksygmh css-1awv4sk  "
+              <div>
+                <h2
+                  className="css-vmrobw"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="css-1g1p5e"
-                    focusable="false"
-                    viewBox="0 0 147 97"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      className="frame"
-                      height="93"
-                      width="143"
-                      x="2"
-                      y="2"
-                    />
-                    <g
-                      className="lines"
-                    >
-                      <line
-                        x1="77"
-                        x2="132"
-                        y1="16.3"
-                        y2="16.3"
-                      />
-                      <line
-                        x1="77"
-                        x2="132"
-                        y1="31.8"
-                        y2="31.8"
-                      />
-                      <line
-                        x1="77"
-                        x2="132"
-                        y1="47.2"
-                        y2="47.2"
-                      />
-                      <line
-                        x1="77"
-                        x2="132"
-                        y1="62.6"
-                        y2="62.6"
-                      />
-                      <line
-                        x1="77"
-                        x2="132"
-                        y1="78"
-                        y2="78"
-                      />
-                    </g>
-                    <g
-                      transform="translate(-372 -956)"
-                    >
-                      <rect
-                        height="61.84"
-                        transform="translate(387.132 972.347)"
-                        width="44.77"
-                      />
-                      <path
-                        d="M54.251,75.36H42.437L34.05,81.983v22.79H62.587V82.239Z"
-                        transform="translate(361.199 929.414)"
-                      />
-                      <circle
-                        cx="7.575"
-                        cy="7.575"
-                        r="7.575"
-                        transform="translate(401.691 984.277)"
-                      />
-                    </g>
-                  </svg>
-                  <input
-                    checked={false}
-                    name="hasId"
-                    onChange={[Function]}
-                    type="radio"
-                    value="yes"
-                  />
-                  <span>
-                    Upload ID
-                  </span>
-                </label>
-                <label
-                  className="css-ksygmh css-1awv4sk  "
+                  Verify your identity
+                </h2>
+                <p
+                  className="css-toqptl"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="css-1uw4si0 xSymbol"
-                    focusable="false"
-                    viewBox="-2.5 -2.5 66 66"
-                    xmlns="http://www.w3.org/2000/svg"
+                  Since the record you’re ordering may have an access restriction, you must upload a valid form of identification (i.e. driver’s license, state ID, military ID, or passport) before we can process your request.
+                </p>
+                <p>
+                  <em>
+                    Please note
+                  </em>
+                  : You must be a person or parent listed on the record in order to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. Your request will be canceled and your card will not be charged. Contact
+                   
+                  <strong>
+                    registry@boston.gov
+                  </strong>
+                   with questions.
+                </p>
+                <h3>
+                  We accept the following forms of ID:
+                </h3>
+                <ul>
+                  <li>
+                    Driver’s License
+                  </li>
+                  <li>
+                    State ID
+                  </li>
+                  <li>
+                    Passport
+                  </li>
+                  <li>
+                    Military ID
+                  </li>
+                </ul>
+                <h3
+                  className="css-vmrobw secondary m-t700"
+                  style={
+                    Object {
+                      "borderBottom": 0,
+                    }
+                  }
+                >
+                  Upload ID images
+                </h3>
+                <div
+                  className="g"
+                >
+                  <div
+                    className="g--6 m-v500"
                   >
-                    <ellipse
-                      cx="30.377"
-                      cy="30.377"
-                      rx="30.377"
-                      ry="30.377"
-                    />
-                    <g
-                      transform="translate(19.107 19.107)"
+                    <div
+                      className="br br-a200"
                     >
-                      <line
-                        x2="22.629"
-                        y2="22.629"
-                      />
-                      <line
-                        x2="22.629"
-                        y1="22.629"
-                      />
-                    </g>
-                  </svg>
-                  <input
-                    checked={false}
-                    name="hasId"
-                    onChange={[Function]}
-                    type="radio"
-                    value="no"
-                  />
-                  <span>
-                    No ID?
-                  </span>
-                </label>
+                      <div
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onDragEnter={[Function]}
+                        onDragLeave={[Function]}
+                        onDragOver={[Function]}
+                        onDragStart={[Function]}
+                        onDrop={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        style={
+                          Object {
+                            "height": 0,
+                          }
+                        }
+                        tabIndex={0}
+                      >
+                        <input
+                          accept="image/*"
+                          autoComplete="off"
+                          multiple={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          style={
+                            Object {
+                              "display": "none",
+                            }
+                          }
+                          tabIndex={-1}
+                          type="file"
+                        />
+                        <div
+                          className="css-18dy1p4 "
+                        >
+                          <div
+                            className="css-1v08ydl"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              viewBox="0 0 181 134"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M2 2h176v130H2z"
+                                fill="#fff"
+                              />
+                              <g
+                                fill="currentColor"
+                              >
+                                <path
+                                  d="M181 134H0V0h181zM4 130h172V4H4z"
+                                />
+                                <path
+                                  d="M95 30h63v4H95z"
+                                />
+                                <path
+                                  d="M95 48h63v4H95z"
+                                />
+                                <path
+                                  d="M95 66h63v4H95z"
+                                />
+                                <path
+                                  d="M95 83h63v4H95z"
+                                />
+                                <path
+                                  d="M95 101h63v4H95z"
+                                />
+                              </g>
+                              <g
+                                fill="#fff"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                              >
+                                <path
+                                  d="M25 32h51v71H25z"
+                                />
+                                <path
+                                  d="M57 70H44l-10 7v25h33V77z"
+                                />
+                                <ellipse
+                                  cx="9"
+                                  cy="9"
+                                  rx="9"
+                                  ry="9"
+                                  transform="translate(41 46)"
+                                />
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="br br-t200"
+                        style={
+                          Object {
+                            "position": "relative",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn--w btn--b "
+                          onClick={[Function]}
+                          style={
+                            Object {
+                              "width": "100%",
+                            }
+                          }
+                          type="button"
+                        >
+                          Upload front of ID
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="g--6 m-v500"
+                  >
+                    <div
+                      className="br br-a200"
+                    >
+                      <div
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onDragEnter={[Function]}
+                        onDragLeave={[Function]}
+                        onDragOver={[Function]}
+                        onDragStart={[Function]}
+                        onDrop={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        style={
+                          Object {
+                            "height": 0,
+                          }
+                        }
+                        tabIndex={0}
+                      >
+                        <input
+                          accept="image/*"
+                          autoComplete="off"
+                          multiple={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          style={
+                            Object {
+                              "display": "none",
+                            }
+                          }
+                          tabIndex={-1}
+                          type="file"
+                        />
+                        <div
+                          className="css-18dy1p4 "
+                        >
+                          <div
+                            className="css-1v08ydl"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              focusable="false"
+                              viewBox="0 0 181 134"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M2 2h176v130H2z"
+                                fill="#fff"
+                              />
+                              <g
+                                fill="currentColor"
+                              >
+                                <path
+                                  d="M181 134H0V0h181zM4 130h172V4H4z"
+                                />
+                                <path
+                                  d="M2 21h176v25H2z"
+                                />
+                                <path
+                                  d="M16 69h5v41h-5z"
+                                />
+                                <path
+                                  d="M51 69h5v41h-5z"
+                                />
+                                <path
+                                  d="M70 69h5v41h-5z"
+                                />
+                                <path
+                                  d="M38 69h5v41h-5z"
+                                />
+                                <path
+                                  d="M23 69h2v41h-2z"
+                                />
+                                <path
+                                  d="M28 69h2v41h-2z"
+                                />
+                                <path
+                                  d="M45 69h2v41h-2z"
+                                />
+                                <path
+                                  d="M65 69h2v41h-2z"
+                                />
+                                <path
+                                  d="M58 69h2v41h-2z"
+                                />
+                                <path
+                                  d="M36 69h2v41h-2z"
+                                />
+                              </g>
+                              <g
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                              >
+                                <path
+                                  d="M93 71h70"
+                                />
+                                <path
+                                  d="M93 83h70"
+                                />
+                                <path
+                                  d="M93 94h70"
+                                />
+                                <path
+                                  d="M93 105h70"
+                                />
+                              </g>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="br br-t200"
+                        style={
+                          Object {
+                            "position": "relative",
+                          }
+                        }
+                      >
+                        <button
+                          className="btn btn--w btn--b "
+                          onClick={[Function]}
+                          style={
+                            Object {
+                              "width": "100%",
+                            }
+                          }
+                          type="button"
+                        >
+                          Upload back of ID
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <fieldset
+                  className="css-s52bq "
+                >
+                  <legend>
+                    <h3
+                      className="css-vmrobw secondary m-t700"
+                      style={
+                        Object {
+                          "borderBottom": 0,
+                        }
+                      }
+                    >
+                      Have you had a legal name change or do you have court guardianship?
+                    </h3>
+                  </legend>
+                  <label
+                    className="ra "
+                  >
+                    <input
+                      checked={true}
+                      className="ra-f"
+                      name="no"
+                      onChange={[Function]}
+                      type="radio"
+                      value="no"
+                    />
+                    <span
+                      className="ra-l"
+                    >
+                      No
+                    </span>
+                  </label>
+                  <label
+                    className="ra "
+                  >
+                    <input
+                      checked={false}
+                      className="ra-f"
+                      name="yes"
+                      onChange={[Function]}
+                      type="radio"
+                      value="yes"
+                    />
+                    <span
+                      className="ra-l"
+                    >
+                      Yes
+                    </span>
+                  </label>
+                </fieldset>
+                <h2
+                  className="css-vmrobw secondary m-t700"
+                >
+                  No ID?
+                </h2>
+                <p
+                  className="css-toqptl m-b700"
+                >
+                  We can help explain your options.
+                   
+                  <a>
+                    Request help 
+                    <span
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
+                  </a>
+                </p>
               </div>
             </div>
             <div
@@ -10446,15 +10665,387 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
 
 exports[`Storyshots Birth/VerifyIdentificationComponent default 1`] = `
 <div>
-  <div
-    style={
-      Object {
-        "backgroundColor": "#eee",
-        "border": "1px dashed #000",
+  <div>
+    <h2
+      className="css-vmrobw"
+    >
+      Verify your identity
+    </h2>
+    <p
+      className="css-toqptl"
+    >
+      Since the record you’re ordering may have an access restriction, you must upload a valid form of identification (i.e. driver’s license, state ID, military ID, or passport) before we can process your request.
+    </p>
+    <p>
+      <em>
+        Please note
+      </em>
+      : You must be a person or parent listed on the record in order to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. Your request will be canceled and your card will not be charged. Contact
+       
+      <strong>
+        registry@boston.gov
+      </strong>
+       with questions.
+    </p>
+    <h3>
+      We accept the following forms of ID:
+    </h3>
+    <ul>
+      <li>
+        Driver’s License
+      </li>
+      <li>
+        State ID
+      </li>
+      <li>
+        Passport
+      </li>
+      <li>
+        Military ID
+      </li>
+    </ul>
+    <h3
+      className="css-vmrobw secondary m-t700"
+      style={
+        Object {
+          "borderBottom": 0,
+        }
       }
-    }
-  >
-    VerifyIdentificationComponent
+    >
+      Upload ID images
+    </h3>
+    <div
+      className="g"
+    >
+      <div
+        className="g--6 m-v500"
+      >
+        <div
+          className="br br-a200"
+        >
+          <div
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "height": 0,
+              }
+            }
+            tabIndex={0}
+          >
+            <input
+              accept="image/*"
+              autoComplete="off"
+              multiple={false}
+              onChange={[Function]}
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              tabIndex={-1}
+              type="file"
+            />
+            <div
+              className="css-18dy1p4 "
+            >
+              <div
+                className="css-1v08ydl"
+              >
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  viewBox="0 0 181 134"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 2h176v130H2z"
+                    fill="#fff"
+                  />
+                  <g
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M181 134H0V0h181zM4 130h172V4H4z"
+                    />
+                    <path
+                      d="M95 30h63v4H95z"
+                    />
+                    <path
+                      d="M95 48h63v4H95z"
+                    />
+                    <path
+                      d="M95 66h63v4H95z"
+                    />
+                    <path
+                      d="M95 83h63v4H95z"
+                    />
+                    <path
+                      d="M95 101h63v4H95z"
+                    />
+                  </g>
+                  <g
+                    fill="#fff"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                  >
+                    <path
+                      d="M25 32h51v71H25z"
+                    />
+                    <path
+                      d="M57 70H44l-10 7v25h33V77z"
+                    />
+                    <ellipse
+                      cx="9"
+                      cy="9"
+                      rx="9"
+                      ry="9"
+                      transform="translate(41 46)"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            className="br br-t200"
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <button
+              className="btn btn--w btn--b "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              Upload front of ID
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="g--6 m-v500"
+      >
+        <div
+          className="br br-a200"
+        >
+          <div
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            style={
+              Object {
+                "height": 0,
+              }
+            }
+            tabIndex={0}
+          >
+            <input
+              accept="image/*"
+              autoComplete="off"
+              multiple={false}
+              onChange={[Function]}
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              tabIndex={-1}
+              type="file"
+            />
+            <div
+              className="css-18dy1p4 "
+            >
+              <div
+                className="css-1v08ydl"
+              >
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  viewBox="0 0 181 134"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 2h176v130H2z"
+                    fill="#fff"
+                  />
+                  <g
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M181 134H0V0h181zM4 130h172V4H4z"
+                    />
+                    <path
+                      d="M2 21h176v25H2z"
+                    />
+                    <path
+                      d="M16 69h5v41h-5z"
+                    />
+                    <path
+                      d="M51 69h5v41h-5z"
+                    />
+                    <path
+                      d="M70 69h5v41h-5z"
+                    />
+                    <path
+                      d="M38 69h5v41h-5z"
+                    />
+                    <path
+                      d="M23 69h2v41h-2z"
+                    />
+                    <path
+                      d="M28 69h2v41h-2z"
+                    />
+                    <path
+                      d="M45 69h2v41h-2z"
+                    />
+                    <path
+                      d="M65 69h2v41h-2z"
+                    />
+                    <path
+                      d="M58 69h2v41h-2z"
+                    />
+                    <path
+                      d="M36 69h2v41h-2z"
+                    />
+                  </g>
+                  <g
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                  >
+                    <path
+                      d="M93 71h70"
+                    />
+                    <path
+                      d="M93 83h70"
+                    />
+                    <path
+                      d="M93 94h70"
+                    />
+                    <path
+                      d="M93 105h70"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div
+            className="br br-t200"
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <button
+              className="btn btn--w btn--b "
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+              type="button"
+            >
+              Upload back of ID
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <fieldset
+      className="css-s52bq "
+    >
+      <legend>
+        <h3
+          className="css-vmrobw secondary m-t700"
+          style={
+            Object {
+              "borderBottom": 0,
+            }
+          }
+        >
+          Have you had a legal name change or do you have court guardianship?
+        </h3>
+      </legend>
+      <label
+        className="ra "
+      >
+        <input
+          checked={true}
+          className="ra-f"
+          name="no"
+          onChange={[Function]}
+          type="radio"
+          value="no"
+        />
+        <span
+          className="ra-l"
+        >
+          No
+        </span>
+      </label>
+      <label
+        className="ra "
+      >
+        <input
+          checked={false}
+          className="ra-f"
+          name="yes"
+          onChange={[Function]}
+          type="radio"
+          value="yes"
+        />
+        <span
+          className="ra-l"
+        >
+          Yes
+        </span>
+      </label>
+    </fieldset>
+    <h2
+      className="css-vmrobw secondary m-t700"
+    >
+      No ID?
+    </h2>
+    <p
+      className="css-toqptl m-b700"
+    >
+      We can help explain your options.
+       
+      <a>
+        Request help 
+        <span
+          aria-hidden="true"
+        >
+          →
+        </span>
+      </a>
+    </p>
   </div>
 </div>
 `;
@@ -10712,15 +11303,387 @@ exports[`Storyshots Birth/VerifyIdentificationPage default 1`] = `
             <p>
               [[ order name & # ]]
             </p>
-            <div
-              style={
-                Object {
-                  "backgroundColor": "#eee",
-                  "border": "1px dashed #000",
+            <div>
+              <h2
+                className="css-vmrobw"
+              >
+                Verify your identity
+              </h2>
+              <p
+                className="css-toqptl"
+              >
+                Since the record you’re ordering may have an access restriction, you must upload a valid form of identification (i.e. driver’s license, state ID, military ID, or passport) before we can process your request.
+              </p>
+              <p>
+                <em>
+                  Please note
+                </em>
+                : You must be a person or parent listed on the record in order to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. Your request will be canceled and your card will not be charged. Contact
+                 
+                <strong>
+                  registry@boston.gov
+                </strong>
+                 with questions.
+              </p>
+              <h3>
+                We accept the following forms of ID:
+              </h3>
+              <ul>
+                <li>
+                  Driver’s License
+                </li>
+                <li>
+                  State ID
+                </li>
+                <li>
+                  Passport
+                </li>
+                <li>
+                  Military ID
+                </li>
+              </ul>
+              <h3
+                className="css-vmrobw secondary m-t700"
+                style={
+                  Object {
+                    "borderBottom": 0,
+                  }
                 }
-              }
-            >
-              VerifyIdentificationComponent
+              >
+                Upload ID images
+              </h3>
+              <div
+                className="g"
+              >
+                <div
+                  className="g--6 m-v500"
+                >
+                  <div
+                    className="br br-a200"
+                  >
+                    <div
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onDragEnter={[Function]}
+                      onDragLeave={[Function]}
+                      onDragOver={[Function]}
+                      onDragStart={[Function]}
+                      onDrop={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      style={
+                        Object {
+                          "height": 0,
+                        }
+                      }
+                      tabIndex={0}
+                    >
+                      <input
+                        accept="image/*"
+                        autoComplete="off"
+                        multiple={false}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "display": "none",
+                          }
+                        }
+                        tabIndex={-1}
+                        type="file"
+                      />
+                      <div
+                        className="css-18dy1p4 "
+                      >
+                        <div
+                          className="css-1v08ydl"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            viewBox="0 0 181 134"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M2 2h176v130H2z"
+                              fill="#fff"
+                            />
+                            <g
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M181 134H0V0h181zM4 130h172V4H4z"
+                              />
+                              <path
+                                d="M95 30h63v4H95z"
+                              />
+                              <path
+                                d="M95 48h63v4H95z"
+                              />
+                              <path
+                                d="M95 66h63v4H95z"
+                              />
+                              <path
+                                d="M95 83h63v4H95z"
+                              />
+                              <path
+                                d="M95 101h63v4H95z"
+                              />
+                            </g>
+                            <g
+                              fill="#fff"
+                              stroke="currentColor"
+                              strokeWidth="3"
+                            >
+                              <path
+                                d="M25 32h51v71H25z"
+                              />
+                              <path
+                                d="M57 70H44l-10 7v25h33V77z"
+                              />
+                              <ellipse
+                                cx="9"
+                                cy="9"
+                                rx="9"
+                                ry="9"
+                                transform="translate(41 46)"
+                              />
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="br br-t200"
+                      style={
+                        Object {
+                          "position": "relative",
+                        }
+                      }
+                    >
+                      <button
+                        className="btn btn--w btn--b "
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "width": "100%",
+                          }
+                        }
+                        type="button"
+                      >
+                        Upload front of ID
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="g--6 m-v500"
+                >
+                  <div
+                    className="br br-a200"
+                  >
+                    <div
+                      onBlur={[Function]}
+                      onClick={[Function]}
+                      onDragEnter={[Function]}
+                      onDragLeave={[Function]}
+                      onDragOver={[Function]}
+                      onDragStart={[Function]}
+                      onDrop={[Function]}
+                      onFocus={[Function]}
+                      onKeyDown={[Function]}
+                      style={
+                        Object {
+                          "height": 0,
+                        }
+                      }
+                      tabIndex={0}
+                    >
+                      <input
+                        accept="image/*"
+                        autoComplete="off"
+                        multiple={false}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "display": "none",
+                          }
+                        }
+                        tabIndex={-1}
+                        type="file"
+                      />
+                      <div
+                        className="css-18dy1p4 "
+                      >
+                        <div
+                          className="css-1v08ydl"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            viewBox="0 0 181 134"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M2 2h176v130H2z"
+                              fill="#fff"
+                            />
+                            <g
+                              fill="currentColor"
+                            >
+                              <path
+                                d="M181 134H0V0h181zM4 130h172V4H4z"
+                              />
+                              <path
+                                d="M2 21h176v25H2z"
+                              />
+                              <path
+                                d="M16 69h5v41h-5z"
+                              />
+                              <path
+                                d="M51 69h5v41h-5z"
+                              />
+                              <path
+                                d="M70 69h5v41h-5z"
+                              />
+                              <path
+                                d="M38 69h5v41h-5z"
+                              />
+                              <path
+                                d="M23 69h2v41h-2z"
+                              />
+                              <path
+                                d="M28 69h2v41h-2z"
+                              />
+                              <path
+                                d="M45 69h2v41h-2z"
+                              />
+                              <path
+                                d="M65 69h2v41h-2z"
+                              />
+                              <path
+                                d="M58 69h2v41h-2z"
+                              />
+                              <path
+                                d="M36 69h2v41h-2z"
+                              />
+                            </g>
+                            <g
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="3"
+                            >
+                              <path
+                                d="M93 71h70"
+                              />
+                              <path
+                                d="M93 83h70"
+                              />
+                              <path
+                                d="M93 94h70"
+                              />
+                              <path
+                                d="M93 105h70"
+                              />
+                            </g>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className="br br-t200"
+                      style={
+                        Object {
+                          "position": "relative",
+                        }
+                      }
+                    >
+                      <button
+                        className="btn btn--w btn--b "
+                        onClick={[Function]}
+                        style={
+                          Object {
+                            "width": "100%",
+                          }
+                        }
+                        type="button"
+                      >
+                        Upload back of ID
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <fieldset
+                className="css-s52bq "
+              >
+                <legend>
+                  <h3
+                    className="css-vmrobw secondary m-t700"
+                    style={
+                      Object {
+                        "borderBottom": 0,
+                      }
+                    }
+                  >
+                    Have you had a legal name change or do you have court guardianship?
+                  </h3>
+                </legend>
+                <label
+                  className="ra "
+                >
+                  <input
+                    checked={true}
+                    className="ra-f"
+                    name="no"
+                    onChange={[Function]}
+                    type="radio"
+                    value="no"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    No
+                  </span>
+                </label>
+                <label
+                  className="ra "
+                >
+                  <input
+                    checked={false}
+                    className="ra-f"
+                    name="yes"
+                    onChange={[Function]}
+                    type="radio"
+                    value="yes"
+                  />
+                  <span
+                    className="ra-l"
+                  >
+                    Yes
+                  </span>
+                </label>
+              </fieldset>
+              <h2
+                className="css-vmrobw secondary m-t700"
+              >
+                No ID?
+              </h2>
+              <p
+                className="css-toqptl m-b700"
+              >
+                We can help explain your options.
+                 
+                <a>
+                  Request help 
+                  <span
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </a>
+              </p>
             </div>
           </section>
         </div>

@@ -24,6 +24,8 @@
     "preset": "@cityofboston/config-jest-babel"
   },
   "dependencies": {
+    "react-dropzone": "^8.1.0",
+    "@cityofboston/next-client-common": "^0.0.0"
   },
   "peerDependencies": {
     "@babel/runtime": "7.0.0",

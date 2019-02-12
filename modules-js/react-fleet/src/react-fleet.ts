@@ -4,6 +4,7 @@ export * from './utilities/css';
 export { default as AppLayout } from './layouts/AppLayout';
 export { default as BreadcrumbNav } from './navigation/BreadcrumbNav';
 export { default as Checkbox } from './form-elements/inputs/Checkbox';
+export { default as CloseButton } from './form-elements/buttons/CloseButton';
 export {
   default as CollapsibleSection,
 } from './sectioning-elements/CollapsibleSection';
@@ -25,3 +26,4 @@ export { default as StatusModal } from './components/StatusModal';
 export { default as Textarea } from './form-elements/inputs/Textarea';
 export { default as TextInput } from './form-elements/inputs/TextInput';
 export { default as ErrorPage } from './pages/ErrorPage';
+export { default as UploadPhoto } from './form-elements/UploadPhoto';

@@ -35,7 +35,7 @@ interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
 @observer
 export default class ReviewRequestPage extends React.Component<Props> {
   componentDidMount() {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scroll(0, 0);
   }
 
   private handleQuantityChange = (

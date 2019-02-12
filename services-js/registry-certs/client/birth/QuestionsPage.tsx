@@ -104,12 +104,12 @@ export default class QuestionsPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scroll(0, 0);
   }
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.currentStep !== this.props.currentStep) {
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      window.scroll(0, 0);
     }
   }
 
