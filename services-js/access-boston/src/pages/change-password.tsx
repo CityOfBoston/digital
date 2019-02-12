@@ -26,6 +26,7 @@ import {
 } from './_app';
 import RedirectForm from '../client/RedirectForm';
 import HelpContactInfo from '../client/HelpContactInfo';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 interface InitialProps {
   account: Account;
@@ -191,6 +192,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
         {showSubmittingModal && this.renderSubmitting()}
 
         <RedirectForm path="done" ref={this.doneRedirectRef} />
+
+        <AccessBostonFooter />
       </>
     );
   }

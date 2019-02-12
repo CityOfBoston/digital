@@ -30,6 +30,7 @@ import { MfaError, VerificationType } from '../client/graphql/queries';
 import RedirectForm from '../client/RedirectForm';
 import { registerDeviceSchema } from '../lib/validation';
 import { RedirectError } from '../client/auth-helpers';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 interface InitialProps {
   account: Account;
@@ -244,6 +245,8 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
 
         {/* TODO(fiona): This needs to go through a single-sign out flow */}
         <RedirectForm ref={this.doneRedirectRef} path="/done" />
+
+        <AccessBostonFooter />
       </>
     );
   }
