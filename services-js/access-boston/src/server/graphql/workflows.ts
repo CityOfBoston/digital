@@ -25,8 +25,10 @@ export enum PasswordError {
 export const changePasswordMutation: MutationResolvers['changePassword'] = async (
   _root,
   { currentPassword, newPassword, confirmPassword },
-  { identityIq, session: { loginAuth } }
+  { identityIq, session }
 ) => {
+  const { loginAuth, loginSession } = session;
+
   if (!loginAuth) {
     throw Boom.forbidden();
   }
@@ -46,7 +48,14 @@ export const changePasswordMutation: MutationResolvers['changePassword'] = async
     newPassword
   );
 
-  return launchedWorkflowResponseToWorkflow(workflowResponse);
+  const out = launchedWorkflowResponseToWorkflow(workflowResponse);
+
+  if (out.status === WorkflowStatus.SUCCESS) {
+    loginSession!.needsNewPassword = false;
+    session.save();
+  }
+
+  return out;
 };
 
 export const resetPasswordMutation: MutationResolvers['resetPassword'] = async (
