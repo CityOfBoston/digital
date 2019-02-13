@@ -114,7 +114,7 @@ export default class VerifyIdentificationComponent extends React.Component<
           record in order to get a copy of the record. If you are not listed on
           the record, you will not be able to get a copy. Your request will be
           canceled and your card will not be charged. Contact{' '}
-          <strong>registry@boston.gov</strong> with questions.
+          <a href="mailto:birth@boston.gov">birth@boston.gov</a> with questions.
         </p>
 
         <h3>We accept the following forms of ID:</h3>
