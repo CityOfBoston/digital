@@ -19,8 +19,8 @@
   "dependencies": {
     "compression": "^1.6.2",
     "next": "7.0.2",
-    "react": "16.7.0",
-    "react-dom": "16.7.0"
+    "react": "16.8.1",
+    "react-dom": "16.8.1"
   },
   "devDependencies": {
     "@cityofboston/config-jest-typescript": "^0.0.0",
