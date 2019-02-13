@@ -5,7 +5,7 @@ import VerifyIdentificationComponent from './VerifyIdentificationComponent';
 
 storiesOf('Birth/VerifyIdentificationComponent', module).add('default', () => (
   <VerifyIdentificationComponent
-    supportingDocuments={() => {}}
-    idImages={() => {}}
+    updateSupportingDocuments={() => {}}
+    updateIdImages={() => {}}
   />
 ));

@@ -6,6 +6,7 @@
 const EXTERNALS = [
   'react',
   'react-dom',
+  'react-dropzone',
   'emotion',
   'string-hash',
   'detect-browser',

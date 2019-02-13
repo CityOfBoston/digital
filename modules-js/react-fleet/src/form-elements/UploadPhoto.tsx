@@ -20,7 +20,7 @@ interface Props {
   buttonTitleRemove?: string;
   buttonTitleCancel?: string;
 
-  handleDrop: (files: File) => void;
+  handleDrop: (file: DropzoneFile) => void;
   handleRemove: () => void;
   handleCancel?: () => void;
 
@@ -94,7 +94,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
     const isUploading =
       this.props.uploadProgress && this.props.uploadProgress < 100;
 
-    if (!this.dropzoneRef) {
+    if (!this.dropzoneRef.current) {
       return;
     }
 
@@ -117,6 +117,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
   }
 
   componentWillUnmount() {
+    // see https://react-dropzone.netlify.com/#!/Previews
     // Make sure to revoke the data uris to avoid memory leaks
     if (this.state.file) {
       URL.revokeObjectURL(this.state.file.preview);

@@ -17,8 +17,8 @@ import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_STYLING } from '../styling';
 
 // todo: props to pass addt’l info in if Registry has initiated this
 interface Props {
-  supportingDocuments: (documents: File[]) => void;
-  idImages: (side: string, image: any) => void;
+  updateSupportingDocuments: (documents: File[]) => void;
+  updateIdImages: (side: string, image: any) => void;
   isComplete?: (status: boolean) => void;
 }
 
@@ -68,10 +68,10 @@ export default class VerifyIdentificationComponent extends React.Component<
     }
   }
 
-  handleFilesChange = (documents: File[]): void => {
+  handleSupportingDocumentsChange = (documents: File[]): void => {
     this.setState({ hasDocuments: !!documents.length });
 
-    this.props.supportingDocuments(documents);
+    this.props.updateSupportingDocuments(documents);
   };
 
   handleIdImageChange = (side: string, image: File | null): void => {
@@ -81,7 +81,7 @@ export default class VerifyIdentificationComponent extends React.Component<
       this.setState({ hasIdBack: !!image });
     }
 
-    this.props.idImages(side, image);
+    this.props.updateIdImages(side, image);
   };
 
   handleBooleanChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -93,7 +93,7 @@ export default class VerifyIdentificationComponent extends React.Component<
   // Inform the parent whether or not all required information has been added
   // by the user, if necessary.
   componentDidUpdate(_prevProps: Readonly<Props>, prevState: Readonly<State>) {
-    if (this.props.isComplete && prevState !== this.state) {
+    if (prevState !== this.state) {
       this.checkIsComplete();
     }
   }
@@ -188,7 +188,7 @@ export default class VerifyIdentificationComponent extends React.Component<
               title="Upload supporting documents"
               fileTypes={['application/pdf']}
               sizeLimit={{ amount: 10, unit: 'MB' }}
-              handleChange={this.handleFilesChange}
+              handleChange={this.handleSupportingDocumentsChange}
             />
           )}
         </FieldsetComponent>

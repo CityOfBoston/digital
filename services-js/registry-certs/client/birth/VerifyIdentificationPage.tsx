@@ -36,8 +36,8 @@ export default class VerifyIdentificationPage extends React.Component<Props> {
         <p>[[ order name & # ]]</p>
 
         <VerifyIdentificationComponent
-          supportingDocuments={() => {}}
-          idImages={() => {}}
+          updateSupportingDocuments={() => {}}
+          updateIdImages={() => {}}
         />
       </PageWrapper>
     );

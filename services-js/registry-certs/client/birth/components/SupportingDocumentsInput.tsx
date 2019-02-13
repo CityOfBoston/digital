@@ -64,6 +64,7 @@ export default class SupportingDocumentsInput extends React.Component<
 
     if (file.size > sizeLimit) {
       // todo: consider handling via callback: https://github.com/CityOfBoston/digital/pull/41#discussion_r218545231
+      // todo: adapt and update FileInput component in react-fleet
 
       alert(
         `There’s a ${this.props.sizeLimit.amount}${
@@ -92,7 +93,10 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
     for (let i = 0; i < files.length; i++) {
       // Do not allow duplicate filenames, or files that are too large.
-      if (isUnique(files[i]) && this.checkFileSize(files[i])) {
+      if (
+        !selectedFiles.find(file => file.name === files[i].name) &&
+        this.checkFileSize(files[i])
+      ) {
         fileArray.push(files[i]);
       }
     }
@@ -108,20 +112,13 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
         }
       }
     );
-
-    // Check to see if a file is already in this.state.selectedFiles.
-    function isUnique(newFile: File): boolean {
-      const result = selectedFiles.filter(file => file.name === newFile.name);
-
-      return result.length === 0;
-    }
   };
 
   // Clear a file from the list.
   private clearFile(fileToClear: File): void {
-    const filteredList = this.state.selectedFiles.filter(file => {
-      return file.name !== fileToClear.name;
-    });
+    const filteredList = this.state.selectedFiles.filter(
+      file => file !== fileToClear
+    );
 
     this.setState({ selectedFiles: filteredList }, () => {
       this.props.handleChange(this.state.selectedFiles);
@@ -176,16 +173,17 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
         <ul className={FILE_LIST_STYLING}>
           {this.state.selectedFiles.map(file => (
             <li key={file.name}>
-              <span className="txt">
-                {file.name}
+              {/* this instead of list-style to avoid ie11 formatting issue */}
+              <span aria-hidden="true">•</span>
 
-                <CloseButton
-                  handleClick={() => this.clearFile(file)}
-                  className={DELETE_BUTTON_STYLING}
-                  size="1.7em"
-                  title={`Remove file: ${file.name}`}
-                />
-              </span>
+              <span>{file.name}</span>
+
+              <CloseButton
+                handleClick={() => this.clearFile(file)}
+                className={DELETE_BUTTON_STYLING}
+                size="1.7em"
+                title={`Remove file: ${file.name}`}
+              />
             </li>
           ))}
         </ul>
@@ -252,14 +250,22 @@ const LABEL_FOCUSED_STYLING = css({
   outlineOffset: '1px',
 });
 
+// originally, ie11 was rendering the list-style disc vertically misaligned
+// with its list item, so we simulate the appearance by using an addt’l <span>
 const FILE_LIST_STYLING = css({
-  'li > span': {
+  paddingLeft: 0,
+  li: {
     display: 'flex',
     alignItems: 'center',
     marginBottom: '1rem',
 
     button: {
       marginLeft: '1rem',
+    },
+
+    'span:first-of-type': {
+      margin: '0 1rem',
+      fontSize: '1.2em',
     },
   },
 });
