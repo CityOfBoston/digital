@@ -15,13 +15,18 @@ Your shipping information:
 
 Your order:
 {{#each items}}
-  {{quantity}} x Death certificate for {{name}} {{formatCents cost}}
+  {{quantity}} x {{#if ../isBirth}}Birth{{/if}}{{#if ../isDeath}}Death{{/if}} certificate for {{name}}{{#if date}} ({{formatDate date}}){{/if}} {{formatCents cost}}
 {{/each}}
   Subtotal  {{formatCents subtotal}}
   Card processing fee*  {{formatCents serviceFee}}
   Total  {{formatCents total}}
 
-Your order will be shipped within 1–2 business days via the U.S. Postal Service.
+{{#if isDeath}}Your order will be shipped within 1–2 business days via the U.S. Postal Service.{{/if}}
+{{#if isBirth}}{{#wrap}}We have received your order. You will be charged when your certificates ship.{{/wrap}}
+
+{{#wrap}}We will contact you if we need more information to fulfill 
+the order. If we contact you but do not hear back within 2 
+business days we will cancel the order without charge.{{/wrap}}{{/if}}
 
 {{#wrap}}* You are charged an extra service fee of not more than {{formatCents fixedFee}} plus {{formatPercentage percentageFee}}. This fee goes directly to a third party to pay for the cost of card processing. Learn more about card service fees at the City of Boston. [{{serviceFeeUri}}]
 

@@ -410,6 +410,8 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       BIRTH_CERTIFICATE_COST / 100
     );
 
+    await registryDb.lookupBirthCertificateOrderDetails(orderId);
+
     try {
       await makeStripeCharge(
         OrderType.BirthCertificate,

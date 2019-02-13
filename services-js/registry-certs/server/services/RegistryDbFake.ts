@@ -2,6 +2,7 @@ import RegistryDb, {
   DeathCertificateSearchResult,
   DeathCertificate,
   FindOrderResult,
+  FindBirthCertificateRequestResult,
 } from './RegistryDb';
 
 export default class RegistryDbFake implements Required<RegistryDb> {
@@ -23,6 +24,10 @@ export default class RegistryDbFake implements Required<RegistryDb> {
     return this.deathCertificates.find(
       res => res.CertificateID.toString() === id
     )!;
+  }
+
+  async lookupBirthCertificateOrderDetails(): Promise<FindBirthCertificateRequestResult | null> {
+    return null;
   }
 
   async addOrder(): Promise<number> {

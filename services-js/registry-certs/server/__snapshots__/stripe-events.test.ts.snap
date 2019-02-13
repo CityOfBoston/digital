@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`charge.created sends birth email 1`] = `[MockFunction]`;
+
+exports[`charge.created sends death email 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "Nancy Whitehead",
+      "nancy@mew.org",
+      Object {
+        "fixedFee": 25,
+        "isBirth": false,
+        "isDeath": true,
+        "items": Array [
+          Object {
+            "cost": 9800,
+            "date": null,
+            "name": "MAUDIE MERTZ",
+            "quantity": 7,
+          },
+          Object {
+            "cost": 1400,
+            "date": null,
+            "name": "MAUDIE MERTZ",
+            "quantity": 1,
+          },
+        ],
+        "orderDate": "1/11/2018 1:40PM",
+        "orderId": "DC-20171215-yg4lk",
+        "percentageFee": 0.021,
+        "serviceFee": 266,
+        "serviceFeeUri": "https://www.cityofboston.gov/payments/faqs.asp",
+        "shippingAddress1": "Avengers Tower",
+        "shippingAddress2": "",
+        "shippingCity": "New York",
+        "shippingCompanyName": "US Avengers",
+        "shippingName": "Squirrel Girl",
+        "shippingState": "NY",
+        "shippingZip": "10001",
+        "subtotal": 11200,
+        "total": 11466,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
+`;

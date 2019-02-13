@@ -6,7 +6,7 @@ import moment from 'moment';
 import wrap from 'word-wrap';
 
 Handlebars.registerHelper('formatDate', (date: Date) =>
-  moment(date).format('l h:mmA')
+  moment(date).format('l')
 );
 
 Handlebars.registerHelper(
