@@ -61,9 +61,8 @@ export default function BirthConfirmationContent({
           </p>
 
           <p className="t--info" style={{ fontStyle: 'normal' }}>
-            Have any questions? Contact the Registry on weekdays from 9 a.m. – 4
-            p.m. at <a href="tel:617-635-4175">617-635-4175</a>, or email{' '}
-            <a href="mailto:registry@boston.gov">registry@boston.gov</a>.
+            Have any questions? Email the Registry Department at{' '}
+            <a href="mailto:birth@boston.gov">birth@boston.gov</a>.
           </p>
 
           <div className="ta-c m-v700">

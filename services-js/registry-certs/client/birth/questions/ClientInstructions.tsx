@@ -24,7 +24,7 @@ export default class ClientInstructions extends React.Component<Props> {
     return (
       <div className="m-t500">
         <h2 className={SECTION_HEADING_STYLING}>
-          Making a request for a client
+          You must complete this process in person or by mail
         </h2>
 
         <div className="lh--300">

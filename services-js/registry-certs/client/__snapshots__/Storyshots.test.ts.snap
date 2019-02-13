@@ -449,18 +449,12 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                   }
                 }
               >
-                Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at 
-                <a
-                  href="tel:617-635-4175"
-                >
-                  617-635-4175
-                </a>
-                , or email
+                Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:registry@boston.gov"
+                  href="mailto:birth@boston.gov"
                 >
-                  registry@boston.gov
+                  birth@boston.gov
                 </a>
                 .
               </p>
@@ -4522,7 +4516,7 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
                 <h2
                   className="css-vmrobw"
                 >
-                  Making a request for a client
+                  You must complete this process in person or by mail
                 </h2>
                 <div
                   className="lh--300"
@@ -7289,11 +7283,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                   <h2
                     className="css-vmrobw"
                   >
-                    What were the names of 
-                    Stacy’s
-                     
-                    parents at the time of 
+                    What were 
                     their
+                     parents’ names at the time of 
+                    the
                      birth?
                   </h2>
                 </legend>
@@ -7302,8 +7295,9 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                 >
                   Please use the names 
                   their
-                   parents were given at the time of their birth. If only one parent is listed on
-                   
+                   parents used at the time of 
+                  the
+                   birth. If only one parent is listed on 
                   the
                    record, you only need to include that name.
                 </p>
@@ -7316,7 +7310,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     >
                       Parent 1 
                       <em>
-                        (for example: Mother)
+                        (Example: Mother)
                       </em>
                     </h3>
                   </legend>
@@ -7964,11 +7958,10 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                   <h2
                     className="css-vmrobw"
                   >
-                    What were the names of 
-                    Stacy’s
-                     
-                    parents at the time of 
+                    What were 
                     their
+                     parents’ names at the time of 
+                    the
                      birth?
                   </h2>
                 </legend>
@@ -7977,8 +7970,9 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 >
                   Please use the names 
                   their
-                   parents were given at the time of their birth. If only one parent is listed on
-                   
+                   parents used at the time of 
+                  the
+                   birth. If only one parent is listed on 
                   the
                    record, you only need to include that name.
                 </p>
@@ -7991,7 +7985,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     >
                       Parent 1 
                       <em>
-                        (for example: Mother)
+                        (Example: Mother)
                       </em>
                     </h3>
                   </legend>
@@ -8663,10 +8657,9 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                   <h2
                     className="css-vmrobw"
                   >
-                    What were the names of 
+                    What were 
                     your
-                     
-                    parents at the time of 
+                     parents’ names at the time of 
                     your
                      birth?
                   </h2>
@@ -8676,8 +8669,9 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                 >
                   Please use the names 
                   your
-                   parents were given at the time of their birth. If only one parent is listed on
-                   
+                   parents used at the time of 
+                  your
+                   birth. If only one parent is listed on 
                   your
                    record, you only need to include that name.
                 </p>
@@ -8690,7 +8684,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     >
                       Parent 1 
                       <em>
-                        (for example: Mother)
+                        (Example: Mother)
                       </em>
                     </h3>
                   </legend>
@@ -9370,9 +9364,11 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                   </em>
                   : You must be a person or parent listed on the record in order to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. Your request will be canceled and your card will not be charged. Contact
                    
-                  <strong>
-                    registry@boston.gov
-                  </strong>
+                  <a
+                    href="mailto:birth@boston.gov"
+                  >
+                    birth@boston.gov
+                  </a>
                    with questions.
                 </p>
                 <h3>
@@ -10682,9 +10678,11 @@ exports[`Storyshots Birth/VerifyIdentificationComponent default 1`] = `
       </em>
       : You must be a person or parent listed on the record in order to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. Your request will be canceled and your card will not be charged. Contact
        
-      <strong>
-        registry@boston.gov
-      </strong>
+      <a
+        href="mailto:birth@boston.gov"
+      >
+        birth@boston.gov
+      </a>
        with questions.
     </p>
     <h3>
@@ -11320,9 +11318,11 @@ exports[`Storyshots Birth/VerifyIdentificationPage default 1`] = `
                 </em>
                 : You must be a person or parent listed on the record in order to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. Your request will be canceled and your card will not be charged. Contact
                  
-                <strong>
-                  registry@boston.gov
-                </strong>
+                <a
+                  href="mailto:birth@boston.gov"
+                >
+                  birth@boston.gov
+                </a>
                  with questions.
               </p>
               <h3>

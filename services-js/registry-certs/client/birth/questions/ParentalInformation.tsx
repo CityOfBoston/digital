@@ -95,22 +95,22 @@ export default class ParentalInformation extends React.Component<Props> {
         <FieldsetComponent
           legendText={
             <h2 className={SECTION_HEADING_STYLING}>
-              What were the names of {forSelf ? 'your' : `${firstName}’s`}{' '}
-              parents at the time of {forSelf ? 'your' : 'their'} birth?
+              What were {forSelf ? 'your' : 'their'} parents’ names at the time
+              of {forSelf ? 'your' : 'the'} birth?
             </h2>
           }
         >
           <p className={SUPPORTING_TEXT_STYLING}>
-            Please use the names {forSelf ? 'your' : 'their'} parents were given
-            at the time of their birth. If only one parent is listed on{' '}
-            {forSelf ? 'your' : 'the'} record, you only need to include that
-            name.
+            Please use the names {forSelf ? 'your' : 'their'} parents used at
+            the time of {forSelf ? 'your' : 'the'} birth. If only one parent is
+            listed on {forSelf ? 'your' : 'the'} record, you only need to
+            include that name.
           </p>
 
           <fieldset className={FIELDSET_STYLING}>
             <legend>
               <h3 className={`${SECTION_HEADING_STYLING} secondary`}>
-                Parent 1 <em>(for example: Mother)</em>
+                Parent 1 <em>(Example: Mother)</em>
               </h3>
             </legend>
 
