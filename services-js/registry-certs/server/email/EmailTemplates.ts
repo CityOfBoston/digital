@@ -12,7 +12,11 @@ const readFile = promisify(fs.readFile);
 
 const TEMPLATES_DIR = path.resolve(PACKAGE_SRC_ROOT, `./server/email`);
 
-export interface DeathReceiptData {
+export type ReceiptData = {
+  // Booleans in order to support how Handlebars {#if}s work. Only one of these
+  // should be true.
+  isDeath: boolean;
+  isBirth: boolean;
   // already-formatted date
   orderDate: string;
   orderId: string;
@@ -30,13 +34,13 @@ export interface DeathReceiptData {
   items: Array<{
     name: string;
     quantity: number;
-    id: string;
     cost: number;
+    date: Date | null;
   }>;
   fixedFee: number;
   percentageFee: number;
   serviceFeeUri: string;
-}
+};
 
 export type RenderedEmail = {
   text: string;
@@ -45,12 +49,12 @@ export type RenderedEmail = {
 };
 
 export interface EmailTemplates {
-  deathReceipt(d: DeathReceiptData): RenderedEmail;
+  receipt(d: ReceiptData): RenderedEmail;
 }
 
 export async function makeEmailTemplates(): Promise<EmailTemplates> {
   return {
-    deathReceipt: await makeEmailRenderer('death-receipt', 'order'),
+    receipt: await makeEmailRenderer('receipt', 'order'),
   };
 }
 

@@ -55,7 +55,10 @@
             <mj-table padding="0">
               {{#each items}}
               <tr>
-                <td style="padding: 0 25px"><i>{{quantity}} × Death certificate for {{name}}</i></td>
+                <td style="padding: 0 25px">
+                  <i>{{quantity}} ×
+                    {{#if ../isBirth}}Birth{{/if}}{{#if ../isDeath}}Death{{/if}} 
+                    certificate for {{name}}{{#if date}} ({{formatDate date}}){{/if}}</i></td>
                 <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents cost}}</b></td>
               </tr>
               {{/each}}
@@ -74,9 +77,25 @@
               </tr>
             </mj-table>
 
-            <mj-text padding="25px 25px 0" line-height="1.5">
-              Your order will be shipped within 1–2 business days via the U.S. Postal Service.
-            </mj-text>
+            {{#if isDeath}}
+              <mj-text padding="25px 25px 0" line-height="1.5">
+                Your order will be shipped within 1–2 business days via the U.S.
+                Postal Service.
+              </mj-text>
+            {{/if}}
+
+            {{#if isBirth}}
+              <mj-text padding="25px 25px 0" line-height="1.5">
+                We have received your order. You will be charged when your
+                certificates ship.
+              </mj-text>
+
+              <mj-text padding="25px 25px 0" line-height="1.5">
+                We will contact you if we need more information to fulfill the
+                order. If we contact you but do not hear back within 2 business
+                days we will cancel the order without charge.
+              </mj-text>
+            {{/if}}
 
             <mj-text padding="25px 25px 0" font-size="13px" line-height="1.5">
               <i>* You are charged an extra service fee of not more than

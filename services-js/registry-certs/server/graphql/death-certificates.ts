@@ -11,6 +11,7 @@ import { Context } from './index';
 import RegistryDb, {
   DeathCertificateSearchResult,
   DeathCertificate as DbDeathCertificate,
+  FindOrderResult,
 } from '../services/RegistryDb';
 
 const DEFAULT_PAGE_SIZE = 20;
@@ -153,12 +154,39 @@ function searchResultToDeathCertificate(
 // We export this function so that other places can take advantage of how it
 // parses out ids and amounts. That's a little wonky, since this is still fairly
 // GraphQL-specific in its return values.
-export async function loadOrder(registryDb: RegistryDb, id: string) {
-  const order = await registryDb.findOrder(id);
-  if (!order) {
-    return null;
-  }
+export function orderToReceiptInfo(id: string, order: FindOrderResult) {
+  return {
+    id,
+    date: moment(order.OrderDate)
+      .tz('America/New_York')
+      .format('l h:mmA'),
+    contactName: order.ContactName,
+    contactEmail: order.ContactEmail,
+    contactPhone: order.ContactPhone,
+    shippingName: order.ShippingName,
+    shippingCompanyName: order.ShippingCompany,
+    shippingAddress1: order.ShippingAddr1,
+    shippingAddress2: order.ShippingAddr2,
+    shippingCity: order.ShippingCity,
+    shippingState: order.ShippingState,
+    shippingZip: order.ShippingZIP,
+    cardholderName: order.BillingName,
+    billingAddress1: order.BillingAddr1,
+    billingAddress2: order.BillingAddr2,
+    billingCity: order.BillingCity,
+    billingState: order.BillingState,
+    billingZip: order.BillingZIP,
 
+    subtotal: Math.floor(order.CertificateCost * 100),
+    serviceFee: Math.floor(order.ServiceFee * 100),
+    total: Math.floor(order.TotalCost * 100),
+  };
+}
+
+export const loadDeathCertificateItems = (
+  registryDb: RegistryDb,
+  order: FindOrderResult
+) => {
   const certificateIds = order.CertificateIDs.split(',');
   const certificateQuantities = order.CertificateQuantities.split(',').map(q =>
     parseInt(q, 10)
@@ -186,35 +214,10 @@ export async function loadOrder(registryDb: RegistryDb, id: string) {
   });
 
   return {
-    id,
-    date: moment(order.OrderDate)
-      .tz('America/New_York')
-      .format('l h:mmA'),
-    contactName: order.ContactName,
-    contactEmail: order.ContactEmail,
-    contactPhone: order.ContactPhone,
-    shippingName: order.ShippingName,
-    shippingCompanyName: order.ShippingCompany,
-    shippingAddress1: order.ShippingAddr1,
-    shippingAddress2: order.ShippingAddr2,
-    shippingCity: order.ShippingCity,
-    shippingState: order.ShippingState,
-    shippingZip: order.ShippingZIP,
-    cardholderName: order.BillingName,
-    billingAddress1: order.BillingAddr1,
-    billingAddress2: order.BillingAddr2,
-    billingCity: order.BillingCity,
-    billingState: order.BillingState,
-    billingZip: order.BillingZIP,
-
     items,
-
     certificateCost,
-    subtotal: Math.floor(order.CertificateCost * 100),
-    serviceFee: Math.floor(order.ServiceFee * 100),
-    total: Math.floor(order.TotalCost * 100),
   };
-}
+};
 
 const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
   search: async (
@@ -270,10 +273,15 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
       })
     ),
   order: async (_root, { id, contactEmail }, { registryDb }) => {
-    const order = await loadOrder(registryDb, id);
-    if (!order) {
+    const dbOrder = await registryDb.findOrder(id);
+    if (!dbOrder) {
       return null;
     }
+
+    const order = {
+      ...orderToReceiptInfo(id, dbOrder),
+      ...loadDeathCertificateItems(registryDb, dbOrder),
+    };
 
     // Safety check so that you can't easily iterate through all the receipt
     // IDs to get sensitive information.

@@ -2,7 +2,11 @@ import { Client as PostmarkClient } from 'postmark';
 import Rollbar from 'rollbar';
 import { Address } from 'address-rfc2822';
 
-import { EmailTemplates, DeathReceiptData } from '../email/EmailTemplates';
+import {
+  EmailTemplates,
+  ReceiptData,
+  RenderedEmail,
+} from '../email/EmailTemplates';
 
 export default class Emails {
   private from: string;
@@ -24,13 +28,13 @@ export default class Emails {
     this.templates = templates;
   }
 
-  async sendDeathReceiptEmail(
+  private async sendEmail(
     toName: string,
     toEmail: string,
-    data: DeathReceiptData
+    email: RenderedEmail
   ): Promise<void> {
     try {
-      const { subject, html, text } = this.templates.deathReceipt(data);
+      const { subject, html, text } = email;
 
       await new Promise((resolve, reject) =>
         this.postmarkClient.sendEmail(
@@ -48,6 +52,14 @@ export default class Emails {
       // If we can’t send the email we don’t error out the request.
       this.rollbar.error(e);
     }
+  }
+
+  async sendReceiptEmail(
+    toName: string,
+    toEmail: string,
+    data: ReceiptData
+  ): Promise<void> {
+    await this.sendEmail(toName, toEmail, this.templates.receipt(data));
   }
 }
 

@@ -15,12 +15,22 @@ function snapToString(name: string) {
   return JSON.parse(SNAPSHOTS[name].trim().replace(/\n/g, '\\n'));
 }
 
-storiesOf('Email/DeathReceiptEmail', module)
+storiesOf('Email/Death Receipt', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
-        __html: snapToString('DeathReceipt 2'),
+        __html: snapToString('receipt Death certificates 2'),
       }}
     />
   ))
-  .add('text', () => <pre>{snapToString('DeathReceipt 3')}</pre>);
+  .add('text', () => <pre>{snapToString('receipt Death certificates 3')}</pre>);
+
+storiesOf('Email/Birth Receipt', module)
+  .add('HTML', () => (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: snapToString('receipt Birth certificate 2'),
+      }}
+    />
+  ))
+  .add('text', () => <pre>{snapToString('receipt Birth certificate 3')}</pre>);

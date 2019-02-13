@@ -107,6 +107,14 @@ export interface FindOrderResult {
   TotalCost: number;
 }
 
+export interface FindBirthCertificateRequestResult {
+  CertificateFirstName: string;
+  CertificateLastName: string;
+  DateOfBirth: Date;
+  Quantity: number;
+  TotalCost: number;
+}
+
 export interface BirthCertificateRequestArgs {
   certificateLastName: string;
   certificateFirstName: string;
@@ -397,6 +405,23 @@ export default class RegistryDb {
       .request()
       .input('orderID', orderId)
       .execute('Commerce.sp_FindOrder');
+
+    const { recordset } = resp;
+
+    if (!recordset || recordset.length === 0) {
+      return null;
+    }
+
+    return recordset[0];
+  }
+
+  async lookupBirthCertificateOrderDetails(
+    orderId: string
+  ): Promise<FindBirthCertificateRequestResult | null> {
+    const resp: IResult<FindBirthCertificateRequestResult> = await this.pool
+      .request()
+      .input('orderID', orderId)
+      .execute('Commerce.sp_FindBirthCertificateRequest');
 
     const { recordset } = resp;
 

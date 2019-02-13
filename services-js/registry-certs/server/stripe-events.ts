@@ -1,15 +1,20 @@
 /* eslint no-console: 0 */
-import RegistryDb from './services/RegistryDb';
-import Emails from './services/Emails';
 import Stripe, { charges, webhooks } from 'stripe';
 
-import { loadOrder } from './graphql/death-certificates';
+import RegistryDb from './services/RegistryDb';
+import Emails from './services/Emails';
+
+import {
+  loadDeathCertificateItems,
+  orderToReceiptInfo,
+} from './graphql/death-certificates';
 
 import {
   FIXED_CC_SERVICE_FEE,
   PERCENTAGE_CC_SERVICE_FEE,
   SERVICE_FEE_URI,
 } from '../lib/costs';
+import { ReceiptData } from './email/EmailTemplates';
 
 interface Dependencies {
   emails: Emails;
@@ -44,6 +49,7 @@ export async function processChargeSucceeded(
       'webapp.nodeEnv': webappNodeEnv,
       'order.orderKey': orderKey,
       'order.orderId': orderId,
+      'order.orderType': orderType,
     },
   } = charge;
 
@@ -57,35 +63,73 @@ export async function processChargeSucceeded(
     return;
   }
 
-  // This happens when birth certs creates holds on the card, waiting for
-  // fulfillment.
-  if (!charge.captured) {
-    return;
-  }
-
   // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
   // side of things. This could be more principled.
-  const order = await loadOrder(registryDb, orderId);
+  const dbOrder = await registryDb.findOrder(orderId);
 
-  if (!order) {
+  if (!dbOrder) {
     throw new Error(`Order ${orderId} not found in the database`);
   }
 
-  // By marking the payment as successful we can tell Registry they can proceed
-  // with fulfillment. This method is idempotent.
-  await registryDb.addPayment(
-    parseInt(orderKey, 10),
-    // Unix epoch seconds -> milliseconds
-    new Date(charge.created * 1000),
-    charge.id,
-    // Per Rich, this should be the total amount charged by Stripe, including
-    // their fee, not just the subtotal we receive.
-    charge.amount / 100
-  );
+  // Birth certs won't be captured the first time around.
+  if (charge.captured) {
+    // By marking the payment as successful we can tell Registry they can proceed
+    // with fulfillment. This method is idempotent.
+    await registryDb.addPayment(
+      parseInt(orderKey, 10),
+      // Unix epoch seconds -> milliseconds
+      new Date(charge.created * 1000),
+      charge.id,
+      // Per Rich, this should be the total amount charged by Stripe, including
+      // their fee, not just the subtotal we receive.
+      charge.amount / 100
+    );
+  }
+
+  const order = orderToReceiptInfo(orderId, dbOrder);
+
+  let items: ReceiptData['items'] = [];
+
+  if (orderType === 'DC') {
+    // loadDeathCertificateItems comes from the GraphQL side of things first and
+    // foremost, so it returns an async function for the certificate so that the
+    // extra DB lookup (needed for certificate name) doesn’t have to happen if
+    // it’s not requested by the query. Since we do need the name for the
+    // receipt, we have to trigger and then resolve the promises.
+    items = await Promise.all(
+      loadDeathCertificateItems(registryDb, dbOrder).items.map(
+        async ({ quantity, cost, certificate }) => ({
+          quantity,
+          cost,
+          name: nameFromCertificate(await certificate()),
+          date: null,
+        })
+      )
+    );
+  } else if (orderType === 'BC') {
+    const details = await registryDb.lookupBirthCertificateOrderDetails(
+      orderId
+    );
+
+    if (!details) {
+      throw new Error(`Birth certificate order ${orderId} not found`);
+    }
+
+    items = [
+      {
+        quantity: details.Quantity,
+        cost: details.TotalCost / details.Quantity,
+        name: `${details.CertificateFirstName} ${details.CertificateLastName}}`,
+        date: details.DateOfBirth,
+      },
+    ];
+  }
 
   // Sending the email is not idempotent, so we put it last and in the vast
   // majority of cases it will run once.
-  await emails.sendDeathReceiptEmail(order.contactName, order.contactEmail, {
+  await emails.sendReceiptEmail(order.contactName, order.contactEmail, {
+    isBirth: orderType === 'BC',
+    isDeath: orderType === 'DC',
     orderId: order.id,
     orderDate: order.date,
     shippingName: order.shippingName,
@@ -101,19 +145,7 @@ export async function processChargeSucceeded(
     fixedFee: FIXED_CC_SERVICE_FEE,
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
     serviceFeeUri: SERVICE_FEE_URI,
-    // loadOrder comes from the GraphQL side of things first and foremost, so it
-    // returns an async function for the certificate so that the extra DB lookup
-    // (needed for certificate name) doesn’t have to happen if it’s not
-    // requested by the query. Since we do need the name for the receipt, we
-    // have to trigger and then resolve the promises.
-    items: await Promise.all(
-      order.items.map(async ({ id, quantity, cost, certificate }) => ({
-        id,
-        quantity,
-        cost,
-        name: nameFromCertificate(await certificate()),
-      }))
-    ),
+    items,
   });
 }
 

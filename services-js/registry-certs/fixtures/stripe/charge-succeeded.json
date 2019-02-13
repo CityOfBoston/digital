@@ -35,7 +35,8 @@
         "order.orderId": "DC-20171215-yg4lk",
         "order.orderKey": "19",
         "order.quantity": "1",
-        "order.unitPrice": "1400"
+        "order.unitPrice": "1400",
+        "order.orderType": "DC"
       },
       "on_behalf_of": null,
       "order": null,
