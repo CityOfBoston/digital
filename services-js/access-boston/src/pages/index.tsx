@@ -19,6 +19,7 @@ import fetchAccountAndApps, {
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
 import { MAIN_CLASS } from '../client/styles';
 import { requireRegistration } from '../client/auth-helpers';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 export enum FlashMessage {
   CHANGE_PASSWORD_SUCCESS = 'password',
@@ -132,6 +133,8 @@ export default class IndexPage extends React.Component<Props> {
             </div>
           </div>
         </div>
+
+        <AccessBostonFooter />
       </>
     );
   }

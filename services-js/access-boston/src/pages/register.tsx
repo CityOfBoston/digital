@@ -11,6 +11,7 @@ import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import { MAIN_CLASS } from '../client/styles';
 import { RedirectError } from '../client/auth-helpers';
 import HelpContactInfo from '../client/HelpContactInfo';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 interface Props {
   account: Account;
@@ -111,6 +112,8 @@ export default class RegisterPage extends React.Component<Props> {
             <img src={logoutImgSrc} alt="" width="1" height="1" />
           </div>
         </div>
+
+        <AccessBostonFooter />
       </>
     );
   }
