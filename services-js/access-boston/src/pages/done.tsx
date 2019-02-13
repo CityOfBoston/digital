@@ -5,6 +5,7 @@ import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
 import AccessBostonHeader from '../client/AccessBostonHeader';
 import { MAIN_CLASS } from '../client/styles';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 export default class DonePage extends React.Component {
   render() {
@@ -33,6 +34,8 @@ export default class DonePage extends React.Component {
             </div>
           </div>
         </div>
+
+        <AccessBostonFooter />
       </>
     );
   }

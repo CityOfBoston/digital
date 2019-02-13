@@ -22,6 +22,7 @@ import StatusModal from '../client/StatusModal';
 
 import resetPassword from '../client/graphql/reset-password';
 import HelpContactInfo from '../client/HelpContactInfo';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 interface InitialProps {
   account: Account;
@@ -139,6 +140,8 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
             )}
           </div>
         </div>
+
+        <AccessBostonFooter />
 
         {showSubmittingModal && this.renderSubmitting()}
       </>
