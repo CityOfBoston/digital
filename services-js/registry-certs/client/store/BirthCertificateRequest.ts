@@ -20,6 +20,9 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   parent1LastName: '',
   parent2FirstName: '',
   parent2LastName: '',
+  idImageFront: null,
+  idImageBack: null,
+  supportingDocuments: null,
 };
 
 export const QUESTION_STEPS: Step[] = [

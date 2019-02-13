@@ -23,8 +23,6 @@
   "jest": {
     "preset": "@cityofboston/config-jest-babel"
   },
-  "dependencies": {
-  },
   "peerDependencies": {
     "@babel/runtime": "7.0.0",
     "core-js": "^2.5.7",
@@ -33,6 +31,7 @@
     "prop-types": "^15.6.0",
     "react": "16.8.1",
     "react-dom": "16.8.1",
+    "react-dropzone": "^8.1.0",
     "string-hash": "^1.1.3"
   },
   "devDependencies": {
@@ -72,6 +71,7 @@
     "raw-loader": "^0.5.1",
     "react": "16.8.1",
     "react-dom": "16.8.1",
+    "react-dropzone": "^8.1.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",
     "string-hash": "^1.1.3",
