@@ -9,17 +9,18 @@ import {
   OPTIMISTIC_BLUE_LIGHT,
 } from '@cityofboston/react-fleet';
 
-import FieldsetComponent from './FieldsetComponent';
+import FieldsetComponent from '../components/FieldsetComponent';
 import SupportingDocumentsInput from './SupportingDocumentsInput';
 import IdIcon from '../icons/IdIcon';
 
 import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_STYLING } from '../styling';
 
-// todo: props to pass addt’l info in if Registry has initiated this
 interface Props {
+  sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
   updateSupportingDocuments: (documents: File[]) => void;
   updateIdImages: (side: string, image: any) => void;
   isComplete?: (status: boolean) => void;
+  registryMessage?: string;
 }
 
 interface State {
@@ -55,7 +56,9 @@ export default class VerifyIdentificationComponent extends React.Component<
       return;
     }
 
-    if (
+    if (this.props.sectionsToDisplay === 'supportingDocumentsOnly') {
+      this.props.isComplete(this.state.hasDocuments);
+    } else if (
       idComplete &&
       this.state.requireSupportingDocuments &&
       this.state.hasDocuments
@@ -99,16 +102,31 @@ export default class VerifyIdentificationComponent extends React.Component<
   }
 
   render() {
+    if (this.props.sectionsToDisplay === 'supportingDocumentsOnly') {
+      return this.renderSupportingDocumentsOnly();
+    } else {
+      return this.renderAll();
+    }
+  }
+
+  renderAll() {
     return (
-      <div>
+      <>
         <h2 className={SECTION_HEADING_STYLING}>Verify your identity</h2>
 
-        <p className={SUPPORTING_TEXT_STYLING}>
-          Since the record you’re ordering may have an access restriction, you
-          must upload a valid form of identification (i.e. driver’s license,
-          state ID, military ID, or passport) before we can process your
-          request.
-        </p>
+        {this.props.registryMessage ? (
+          <p className={SUPPORTING_TEXT_STYLING}>
+            {this.props.registryMessage}
+          </p>
+        ) : (
+          <p className={SUPPORTING_TEXT_STYLING}>
+            Since the record you’re ordering may have an access restriction, you
+            must upload a valid form of identification (i.e. driver’s license,
+            state ID, military ID, or passport) before we can process your
+            request.
+          </p>
+        )}
+
         <p>
           <em>Please note</em>: You must be a person or parent listed on the
           record in order to get a copy of the record. If you are not listed on
@@ -182,15 +200,8 @@ export default class VerifyIdentificationComponent extends React.Component<
             onChange={this.handleBooleanChange}
           />
 
-          {this.state.requireSupportingDocuments && (
-            <SupportingDocumentsInput
-              name="supporting"
-              title="Upload supporting documents"
-              fileTypes={['application/pdf']}
-              sizeLimit={{ amount: 10, unit: 'MB' }}
-              handleChange={this.handleSupportingDocumentsChange}
-            />
-          )}
+          {this.state.requireSupportingDocuments &&
+            this.renderSupportingDocumentsInput()}
         </FieldsetComponent>
 
         <h2 className={`${SECTION_HEADING_STYLING} secondary m-t700`}>
@@ -203,6 +214,39 @@ export default class VerifyIdentificationComponent extends React.Component<
             Request help <span aria-hidden="true">→</span>
           </a>
         </p>
+      </>
+    );
+  }
+
+  renderSupportingDocumentsOnly() {
+    return (
+      <>
+        <h2 className={SECTION_HEADING_STYLING}>Upload supporting documents</h2>
+
+        <p>
+          We need more information. If you have questions, contact{' '}
+          <a href="mailto:birth@boston.gov">birth@boston.gov</a>.
+        </p>
+
+        {this.props.registryMessage && <p>{this.props.registryMessage}</p>}
+
+        {this.renderSupportingDocumentsInput()}
+      </>
+    );
+  }
+
+  renderSupportingDocumentsInput() {
+    return (
+      <div className="m-t700">
+        <p>Files should be PDF format, and under 10MB each.</p>
+
+        <SupportingDocumentsInput
+          name="supporting"
+          title="Upload supporting documents"
+          fileTypes={['application/pdf']}
+          sizeLimit={{ amount: 10, unit: 'MB' }}
+          handleChange={this.handleSupportingDocumentsChange}
+        />
       </div>
     );
   }
