@@ -56,6 +56,7 @@ export default class VerifyIdentification extends React.Component<
         nextButtonText="Review request"
       >
         <VerifyIdentificationComponent
+          sectionsToDisplay="all"
           updateSupportingDocuments={this.updateSupportingDocuments}
           updateIdImages={this.updateIdImage}
           isComplete={this.isComplete}

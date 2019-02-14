@@ -9,9 +9,9 @@ import PageWrapper from './PageWrapper';
 
 import VerifyIdentificationComponent from './components/VerifyIdentificationComponent';
 
-import { SECTION_HEADING_STYLING } from './styling';
-
-interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
+interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {
+  sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
+}
 
 /**
  * ID verification page. User is directed here by a Registry employee.
@@ -31,11 +31,10 @@ export default class VerifyIdentificationPage extends React.Component<Props> {
           <title>Boston.gov — {pageTitle}</title>
         </Head>
 
-        <h2 className={SECTION_HEADING_STYLING}>{pageTitle}</h2>
-
         <p>[[ order name & # ]]</p>
 
         <VerifyIdentificationComponent
+          sectionsToDisplay={this.props.sectionsToDisplay}
           updateSupportingDocuments={() => {}}
           updateIdImages={() => {}}
         />

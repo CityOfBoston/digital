@@ -7,6 +7,16 @@ import VerifyIdentificationPage from './VerifyIdentificationPage';
 
 const birthCertificateRequest = new BirthCertificateRequest();
 
-storiesOf('Birth/VerifyIdentificationPage', module).add('default', () => (
-  <VerifyIdentificationPage birthCertificateRequest={birthCertificateRequest} />
-));
+storiesOf('Birth/VerifyIdentificationPage', module)
+  .add('default', () => (
+    <VerifyIdentificationPage
+      birthCertificateRequest={birthCertificateRequest}
+      sectionsToDisplay="all"
+    />
+  ))
+  .add('supporting documents only', () => (
+    <VerifyIdentificationPage
+      birthCertificateRequest={birthCertificateRequest}
+      sectionsToDisplay="supportingDocumentsOnly"
+    />
+  ));

@@ -148,7 +148,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
   render() {
     return (
-      <div className={`m-b300 m-t700 ${INPUT_CONTAINER_STYLING}`}>
+      <div className={`m-b300 ${INPUT_CONTAINER_STYLING}`}>
         <input
           className={VISUALLYHIDDEN}
           ref={this.inputRef}
