@@ -63,10 +63,12 @@
               </tr>
               {{/each}}
 
+              {{#if isDeath}}
               <tr>
                 <td style="padding: 0 25px"><i>Subtotal</i></td>
                 <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents subtotal}}</b></td>
               </tr>
+              {{/if}}
               <tr>
                 <td style="padding: 0 25px"><i>Card service fee*</i></td>
                 <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents serviceFee}}</b></td>

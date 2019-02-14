@@ -35,7 +35,7 @@ describe('charge.created', () => {
     jest.spyOn(registryDb, 'addPayment');
   });
 
-  it('ignores uncaptured charges', async () => {
+  it('doesn’t add uncaptured payments', async () => {
     await processStripeEvent(
       {
         emails: emails as any,
@@ -48,7 +48,6 @@ describe('charge.created', () => {
     );
 
     expect(registryDb.addPayment).not.toHaveBeenCalled();
-    expect(emails.sendReceiptEmail).not.toHaveBeenCalled();
   });
 
   it('marks the order as paid', async () => {
@@ -83,10 +82,21 @@ describe('charge.created', () => {
       JSON.stringify(CHARGE_SUCCEEDED)
     );
 
+    expect(emails.sendReceiptEmail).toHaveBeenCalled();
     expect(emails.sendReceiptEmail).toMatchSnapshot();
   });
 
   it('sends birth email', async () => {
+    (registryDb.findOrder as jest.Mock).mockReturnValue(
+      Promise.resolve({
+        ...ORDER,
+        OrderType: 'BC',
+        // These are null for birth certs
+        CertificateCost: null,
+        TotalCost: null,
+      })
+    );
+
     await processStripeEvent(
       {
         emails: emails as any,
@@ -97,6 +107,8 @@ describe('charge.created', () => {
       '',
       JSON.stringify(CHARGE_UNCAPTURED)
     );
+
+    expect(emails.sendReceiptEmail).toHaveBeenCalled();
     expect(emails.sendReceiptEmail).toMatchSnapshot();
   });
 });

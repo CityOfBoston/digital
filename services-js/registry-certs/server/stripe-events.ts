@@ -63,8 +63,6 @@ export async function processChargeSucceeded(
     return;
   }
 
-  // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
-  // side of things. This could be more principled.
   const dbOrder = await registryDb.findOrder(orderId);
 
   if (!dbOrder) {
@@ -86,7 +84,11 @@ export async function processChargeSucceeded(
     );
   }
 
+  // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
+  // side of things. This could be more principled.
   const order = orderToReceiptInfo(orderId, dbOrder);
+  let subtotal = order.subtotal;
+  let total = order.total;
 
   let items: ReceiptData['items'] = [];
 
@@ -115,11 +117,16 @@ export async function processChargeSucceeded(
       throw new Error(`Birth certificate order ${orderId} not found`);
     }
 
+    // We can't get these from Order in birth certificates, they come in as
+    // null.
+    subtotal = details.TotalCost * 100;
+    total = subtotal + order.serviceFee;
+
     items = [
       {
         quantity: details.Quantity,
-        cost: details.TotalCost / details.Quantity,
-        name: `${details.CertificateFirstName} ${details.CertificateLastName}}`,
+        cost: details.TotalCost * 100,
+        name: `${details.CertificateFirstName} ${details.CertificateLastName}`,
         date: details.DateOfBirth,
       },
     ];
@@ -139,9 +146,9 @@ export async function processChargeSucceeded(
     shippingCity: order.shippingCity,
     shippingState: order.shippingState,
     shippingZip: order.shippingZip,
-    subtotal: order.subtotal,
+    subtotal,
     serviceFee: order.serviceFee,
-    total: order.total,
+    total,
     fixedFee: FIXED_CC_SERVICE_FEE,
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
     serviceFeeUri: SERVICE_FEE_URI,

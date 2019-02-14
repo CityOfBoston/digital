@@ -494,10 +494,6 @@ exports[`receipt Birth certificate 2`] = `
               </tr>
 
               <tr>
-                <td style=\\"padding: 0 25px\\"><i>Subtotal</i></td>
-                <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$140.00</b></td>
-              </tr>
-              <tr>
                 <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
                 <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$1.32</b></td>
               </tr>
@@ -765,7 +761,6 @@ Boston, MA 02141
 
 Your order:
   4 x Birth certificate for Carol Danvers (10/6/1976) $56.00
-  Subtotal  $140.00
   Card processing fee*  $1.32
   Total  $141.32
 
