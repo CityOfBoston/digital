@@ -34,3 +34,15 @@ storiesOf('Email/Birth Receipt', module)
     />
   ))
   .add('text', () => <pre>{snapToString('receipt Birth certificate 3')}</pre>);
+
+storiesOf('Email/Birth Shipped', module)
+  .add('HTML', () => (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: snapToString('receipt Birth certificate shipped 2'),
+      }}
+    />
+  ))
+  .add('text', () => (
+    <pre>{snapToString('receipt Birth certificate shipped 3')}</pre>
+  ));

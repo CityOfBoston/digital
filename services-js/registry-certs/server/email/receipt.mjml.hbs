@@ -20,11 +20,21 @@
       <mj-wrapper border="2px solid #091f2f" background-color="#f2f2f2" padding="10px 0">
         <mj-section padding="0">
           <mj-column>
-            <mj-text font-size="20px" font-weight="bold" font-family="Montserrat, sans-serif" text-transform="uppercase" padding="0 25px">Thank you for your order</mj-text>
+            <mj-text font-size="20px" font-weight="bold" font-family="Montserrat, sans-serif" text-transform="uppercase" padding="0 25px">{{heading}}</mj-text>
 
             <mj-divider padding="0 25px"></mj-divider>
           </mj-column>
         </mj-section>
+
+        {{#if aboveOrderText}}
+          <mj-section padding="0">
+            <mj-column>
+              {{#each aboveOrderText}}
+                <mj-text padding="25px 25px 0" line-height="1.5">{{.}}</mj-text>
+              {{/each}}
+            </mj-column>
+          </mj-section>
+        {{/if}}
 
         <mj-section padding="10px 0">
           <mj-column vertical-align="top">
@@ -56,14 +66,12 @@
               {{#each items}}
               <tr>
                 <td style="padding: 0 25px">
-                  <i>{{quantity}} ×
-                    {{#if ../isBirth}}Birth{{/if}}{{#if ../isDeath}}Death{{/if}} 
-                    certificate for {{name}}{{#if date}} ({{formatDate date}}){{/if}}</i></td>
+                  <i>{{quantity}} × {{description}}</i></td>
                 <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents cost}}</b></td>
               </tr>
               {{/each}}
 
-              {{#if isDeath}}
+              {{#if subtotal}}
               <tr>
                 <td style="padding: 0 25px"><i>Subtotal</i></td>
                 <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents subtotal}}</b></td>
@@ -79,25 +87,9 @@
               </tr>
             </mj-table>
 
-            {{#if isDeath}}
-              <mj-text padding="25px 25px 0" line-height="1.5">
-                Your order will be shipped within 1–2 business days via the U.S.
-                Postal Service.
-              </mj-text>
-            {{/if}}
-
-            {{#if isBirth}}
-              <mj-text padding="25px 25px 0" line-height="1.5">
-                We have received your order. You will be charged when your
-                certificates ship.
-              </mj-text>
-
-              <mj-text padding="25px 25px 0" line-height="1.5">
-                We will contact you if we need more information to fulfill the
-                order. If we contact you but do not hear back within 2 business
-                days we will cancel the order without charge.
-              </mj-text>
-            {{/if}}
+            {{#each belowOrderText}}
+              <mj-text padding="25px 25px 0" line-height="1.5">{{.}}</mj-text>
+            {{/each}}
 
             <mj-text padding="25px 25px 0" font-size="13px" line-height="1.5">
               <i>* You are charged an extra service fee of not more than
@@ -122,7 +114,7 @@
           <mj-text padding="0 0 0 10px" line-height="1.5">
             Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a
             href="tel:618-635-4175">617-635-4175</a>, or email <b><i><a
-            href="mailto:registry@boston.gov">registry@boston.gov</a></i></b>.
+            href="mailto:{{registryEmail}}">{{registryEmail}}</a></i></b>.
           </mj-text>
         </mj-column>
       </mj-group>

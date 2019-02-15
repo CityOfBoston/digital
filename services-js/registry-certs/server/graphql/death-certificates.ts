@@ -157,9 +157,7 @@ function searchResultToDeathCertificate(
 export function orderToReceiptInfo(id: string, order: FindOrderResult) {
   return {
     id,
-    date: moment(order.OrderDate)
-      .tz('America/New_York')
-      .format('l h:mmA'),
+    date: order.OrderDate,
     contactName: order.ContactName,
     contactEmail: order.ContactEmail,
     contactPhone: order.ContactPhone,
@@ -278,8 +276,13 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
       return null;
     }
 
+    const receiptInfo = orderToReceiptInfo(id, dbOrder);
+
     const order = {
-      ...orderToReceiptInfo(id, dbOrder),
+      ...receiptInfo,
+      date: moment(receiptInfo)
+        .tz('America/New_York')
+        .format('l h:mmA'),
       ...loadDeathCertificateItems(registryDb, dbOrder),
     };
 

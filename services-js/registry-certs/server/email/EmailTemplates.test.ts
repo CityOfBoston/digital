@@ -2,7 +2,8 @@ import { EmailTemplates, makeEmailTemplates } from './EmailTemplates';
 import { SERVICE_FEE_URI } from '../../lib/costs';
 
 const TEST_ORDER = {
-  orderDate: '1/8/2018 2:05PM',
+  // 1/8/2018 2:05PM
+  orderDate: new Date(1515438300000),
   orderId: 'RG-DC201801-100001',
   shippingName: 'Nancy Whitehead',
   shippingCompanyName: '',
@@ -41,11 +42,7 @@ beforeAll(async () => {
 
 describe('receipt', () => {
   test('Death certificates', () => {
-    const { html, subject, text } = templates.receipt({
-      isDeath: true,
-      isBirth: false,
-      ...TEST_ORDER,
-    });
+    const { html, subject, text } = templates.deathReceipt(TEST_ORDER);
     expect(subject).toMatchInlineSnapshot(
       `"City of Boston Death Certificates Order #RG-DC201801-100001"`
     );
@@ -54,9 +51,27 @@ describe('receipt', () => {
   });
 
   test('Birth certificate', () => {
-    const { html, subject, text } = templates.receipt({
-      isDeath: false,
-      isBirth: true,
+    const { html, subject, text } = templates.birthReceipt({
+      ...TEST_ORDER,
+      items: [
+        {
+          cost: TEST_ORDER.items[0].cost,
+          quantity: TEST_ORDER.items[0].quantity,
+          name: 'Carol Danvers',
+          date: new Date('10/06/1976'),
+        },
+      ],
+    });
+
+    expect(subject).toMatchInlineSnapshot(
+      `"City of Boston Birth Certificate Order #RG-DC201801-100001"`
+    );
+    expect(html).toMatchSnapshot();
+    expect(text).toMatchSnapshot();
+  });
+
+  test('Birth certificate shipped', () => {
+    const { html, subject, text } = templates.birthShipped({
       ...TEST_ORDER,
       items: [
         {
