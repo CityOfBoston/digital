@@ -4,6 +4,7 @@ import { DeathCertificateSearchResult } from './services/RegistryDb';
 
 import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded.json';
 import CHARGE_UNCAPTURED from '../fixtures/stripe/charge-uncaptured.json';
+import CHARGE_CAPTURED from '../fixtures/stripe/charge-captured.json';
 import ORDER from '../fixtures/registry-orders/order.json';
 import BIRTH_CERTIFICATE_ORDER_DETAILS from '../fixtures/registry-orders/birth-certificate-request-details.json';
 import CERTIFICATES from '../fixtures/registry-data/smith.json';
@@ -110,5 +111,35 @@ describe('charge.created', () => {
 
     expect(emails.sendReceiptEmail).toHaveBeenCalled();
     expect(emails.sendReceiptEmail).toMatchSnapshot();
+  });
+});
+
+describe('charge.captured', () => {
+  let stripe;
+  let registryDb: RegistryDbFake;
+
+  beforeEach(() => {
+    stripe = {} as any;
+
+    registryDb = new RegistryDbFake(
+      CERTIFICATES as DeathCertificateSearchResult[]
+    );
+
+    jest.spyOn(registryDb, 'addPayment');
+  });
+
+  it('marks the order as paid', async () => {
+    await processStripeEvent(
+      {
+        emails: {} as any,
+        stripe,
+        registryDb: registryDb as any,
+      },
+      '',
+      '',
+      JSON.stringify(CHARGE_CAPTURED)
+    );
+
+    expect(registryDb.addPayment).toMatchSnapshot();
   });
 });

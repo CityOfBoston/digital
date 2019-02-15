@@ -35,7 +35,7 @@ export interface DeathCertificates extends ResolvableWith<{}> {
   }): DeathCertificateOrder | null;
 }
 
-interface DeathCertificate {
+export interface DeathCertificate {
   id: string;
   firstName: string;
   lastName: string;
