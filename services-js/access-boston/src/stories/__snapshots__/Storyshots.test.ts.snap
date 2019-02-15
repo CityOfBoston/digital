@@ -12,17 +12,29 @@ exports[`Storyshots AccessBostonFooter default 1`] = `
       }
     }
   >
-    <a
-      className="css-j6ldvx"
-      href="https://www.boston.gov/access-boston-portal-help"
-      target="_blank"
-    >
-      Help
-    </a>
     <div
-      className="css-bgqypd"
+      className="g g--vc p-v200"
     >
-      The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+      <div
+        className="g--8"
+      >
+        <div
+          className="css-hikchn"
+        >
+          The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        </div>
+      </div>
+      <div
+        className="g--4 ta-r"
+      >
+        <a
+          className="css-j6ldvx"
+          href="https://www.boston.gov/access-boston-portal-help"
+          target="_blank"
+        >
+          Need Help?
+        </a>
+      </div>
     </div>
   </div>
 </footer>
@@ -426,17 +438,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -795,17 +819,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -1169,17 +1205,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -1589,17 +1637,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -1976,17 +2036,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -2238,17 +2310,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -2500,17 +2584,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -2627,17 +2723,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -3434,17 +3542,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -4232,17 +4352,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -4861,17 +4993,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -5073,17 +5217,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -5440,17 +5596,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -6715,17 +6883,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
@@ -6897,17 +7077,29 @@ Array [
         }
       }
     >
-      <a
-        className="css-j6ldvx"
-        href="https://www.boston.gov/access-boston-portal-help"
-        target="_blank"
-      >
-        Help
-      </a>
       <div
-        className="css-bgqypd"
+        className="g g--vc p-v200"
       >
-        The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unautorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
       </div>
     </div>
   </footer>,
