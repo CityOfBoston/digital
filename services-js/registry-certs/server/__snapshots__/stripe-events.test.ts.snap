@@ -19,7 +19,7 @@ exports[`charge.captured marks the order as paid 1`] = `
 }
 `;
 
-exports[`charge.created sends birth email 1`] = `
+exports[`charge.captured sends a shipped email 1`] = `
 [MockFunction] {
   "calls": Array [
     Array [
@@ -27,8 +27,6 @@ exports[`charge.created sends birth email 1`] = `
       "nancy@mew.org",
       Object {
         "fixedFee": 25,
-        "isBirth": true,
-        "isDeath": false,
         "items": Array [
           Object {
             "cost": 8400,
@@ -37,7 +35,49 @@ exports[`charge.created sends birth email 1`] = `
             "quantity": 6,
           },
         ],
-        "orderDate": "1/11/2018 1:40PM",
+        "orderDate": "2018-01-11T18:40:27.707Z",
+        "orderId": "RG-BC201902-150464",
+        "percentageFee": 0.021,
+        "serviceFee": 266,
+        "serviceFeeUri": "https://www.cityofboston.gov/payments/faqs.asp",
+        "shippingAddress1": "Avengers Tower",
+        "shippingAddress2": "",
+        "shippingCity": "New York",
+        "shippingCompanyName": "US Avengers",
+        "shippingName": "Squirrel Girl",
+        "shippingState": "NY",
+        "shippingZip": "10001",
+        "subtotal": 8400,
+        "total": 8666,
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`charge.created sends birth email 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "Nancy Whitehead",
+      "nancy@mew.org",
+      Object {
+        "fixedFee": 25,
+        "items": Array [
+          Object {
+            "cost": 8400,
+            "date": "1976-10-06T04:00:00.000Z",
+            "name": "Carol Danvers",
+            "quantity": 6,
+          },
+        ],
+        "orderDate": "2018-01-11T18:40:27.707Z",
         "orderId": "RG-BC201901-414211",
         "percentageFee": 0.021,
         "serviceFee": 266,
@@ -71,8 +111,6 @@ exports[`charge.created sends death email 1`] = `
       "nancy@mew.org",
       Object {
         "fixedFee": 25,
-        "isBirth": false,
-        "isDeath": true,
         "items": Array [
           Object {
             "cost": 9800,
@@ -87,7 +125,7 @@ exports[`charge.created sends death email 1`] = `
             "quantity": 1,
           },
         ],
-        "orderDate": "1/11/2018 1:40PM",
+        "orderDate": "2018-01-11T18:40:27.707Z",
         "orderId": "DC-20171215-yg4lk",
         "percentageFee": 0.021,
         "serviceFee": 266,

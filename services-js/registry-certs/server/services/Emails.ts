@@ -8,20 +8,20 @@ import {
   RenderedEmail,
 } from '../email/EmailTemplates';
 
+const REGISTRY_EMAIL = 'registry@boston.gov';
+const BIRTH_EMAIL = 'birth@boston.gov';
+
 export default class Emails {
-  private from: string;
   private postmarkClient: PostmarkClient;
   private rollbar: Rollbar;
 
   private templates: EmailTemplates;
 
   constructor(
-    from: string,
     postmarkClient: PostmarkClient,
     rollbar: Rollbar,
     templates: EmailTemplates
   ) {
-    this.from = from;
     this.postmarkClient = postmarkClient;
     this.rollbar = rollbar;
 
@@ -31,6 +31,7 @@ export default class Emails {
   private async sendEmail(
     toName: string,
     toEmail: string,
+    fromEmail: string,
     email: RenderedEmail
   ): Promise<void> {
     try {
@@ -40,7 +41,7 @@ export default class Emails {
         this.postmarkClient.sendEmail(
           {
             To: formatTo(toName, toEmail),
-            From: this.from,
+            From: fromEmail,
             Subject: subject,
             HtmlBody: html,
             TextBody: text,
@@ -54,12 +55,43 @@ export default class Emails {
     }
   }
 
-  async sendReceiptEmail(
+  async sendDeathReceiptEmail(
     toName: string,
     toEmail: string,
     data: ReceiptData
   ): Promise<void> {
-    await this.sendEmail(toName, toEmail, this.templates.receipt(data));
+    await this.sendEmail(
+      toName,
+      toEmail,
+      REGISTRY_EMAIL,
+      this.templates.deathReceipt(data)
+    );
+  }
+
+  async sendBirthReceiptEmail(
+    toName: string,
+    toEmail: string,
+    data: ReceiptData
+  ): Promise<void> {
+    await this.sendEmail(
+      toName,
+      toEmail,
+      BIRTH_EMAIL,
+      this.templates.birthReceipt(data)
+    );
+  }
+
+  async sendBirthShippedEmail(
+    toName: string,
+    toEmail: string,
+    data: ReceiptData
+  ): Promise<void> {
+    await this.sendEmail(
+      toName,
+      toEmail,
+      BIRTH_EMAIL,
+      this.templates.birthShipped(data)
+    );
   }
 }
 

@@ -15,7 +15,6 @@ import {
   PERCENTAGE_CC_SERVICE_FEE,
   SERVICE_FEE_URI,
 } from '../lib/costs';
-import { ReceiptData } from './email/EmailTemplates';
 
 interface Dependencies {
   emails: Emails;
@@ -65,83 +64,131 @@ export async function processChargeSucceeded(
     await addPaymentToDb(registryDb, orderKey, charge);
   }
 
-  await sendReceiptEmail(orderId, orderType, dbOrder, registryDb, emails);
+  // Sending the email is not idempotent, so we put it last and in the vast
+  // majority of cases it will run once.
+  if (orderType === 'DC') {
+    await emails.sendDeathReceiptEmail(
+      dbOrder.ContactName,
+      dbOrder.ContactEmail,
+      await makeDeathReceiptInfo(registryDb, orderId, dbOrder)
+    );
+  } else if (orderType === 'BC') {
+    await emails.sendBirthReceiptEmail(
+      dbOrder.ContactName,
+      dbOrder.ContactEmail,
+      await makeBirthReceiptInfo(registryDb, orderId, dbOrder)
+    );
+  }
 }
 
 /**
  * Called when we capture a birth certificate charge as part of fulfillment.
  */
 export async function processChargeCaptured(
-  { registryDb }: Dependencies,
+  { registryDb, emails }: Dependencies,
   charge: charges.ICharge
 ) {
   const {
-    metadata: { 'order.orderKey': orderKey },
+    metadata: {
+      'order.orderKey': orderKey,
+      'order.orderId': orderId,
+      'order.orderType': orderType,
+    },
   } = charge;
+
+  const dbOrder = await registryDb.findOrder(orderId);
+
+  if (!dbOrder) {
+    throw new Error(`Order ${orderId} not found in the database`);
+  }
 
   await addPaymentToDb(registryDb, orderKey, charge);
 
-  // TODO(finh): Send email about the certificate being fulfilled
+  if (orderType === 'BC') {
+    // Sending the email is not idempotent, so we put it last and in the vast
+    // majority of cases it will run once.
+    await emails.sendBirthShippedEmail(
+      dbOrder.ContactName,
+      dbOrder.ContactEmail,
+      await makeBirthReceiptInfo(registryDb, orderId, dbOrder)
+    );
+  }
 }
 
-async function sendReceiptEmail(
-  orderId: string,
-  orderType: string,
-  dbOrder: FindOrderResult,
+async function makeDeathReceiptInfo(
   registryDb: RegistryDb,
-  emails: Emails
+  orderId: string,
+  dbOrder: FindOrderResult
 ) {
   // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
   // side of things. This could be more principled.
   const order = orderToReceiptInfo(orderId, dbOrder);
 
-  let subtotal = order.subtotal;
-  let total = order.total;
-  let items: ReceiptData['items'] = [];
+  // loadDeathCertificateItems comes from the GraphQL side of things first and
+  // foremost, so it returns an async function for the certificate so that the
+  // extra DB lookup (needed for certificate name) doesn’t have to happen if
+  // it’s not requested by the query. Since we do need the name for the
+  // receipt, we have to trigger and then resolve the promises.
+  const items = await Promise.all(
+    loadDeathCertificateItems(registryDb, dbOrder).items.map(
+      async ({ quantity, cost, certificate }) => ({
+        quantity,
+        cost,
+        name: nameFromCertificate(await certificate()),
+        date: null,
+      })
+    )
+  );
 
-  if (orderType === 'DC') {
-    // loadDeathCertificateItems comes from the GraphQL side of things first and
-    // foremost, so it returns an async function for the certificate so that the
-    // extra DB lookup (needed for certificate name) doesn’t have to happen if
-    // it’s not requested by the query. Since we do need the name for the
-    // receipt, we have to trigger and then resolve the promises.
-    items = await Promise.all(
-      loadDeathCertificateItems(registryDb, dbOrder).items.map(
-        async ({ quantity, cost, certificate }) => ({
-          quantity,
-          cost,
-          name: nameFromCertificate(await certificate()),
-          date: null,
-        })
-      )
-    );
-  } else if (orderType === 'BC') {
-    const details = await registryDb.lookupBirthCertificateOrderDetails(
-      orderId
-    );
-    if (!details) {
-      throw new Error(`Birth certificate order ${orderId} not found`);
-    }
-    // For birth certificates, these are null in the database, so we have to
-    // calculate them in another way.
-    subtotal = details.TotalCost * 100;
-    total = subtotal + order.serviceFee;
+  return {
+    orderId: order.id,
+    orderDate: order.date,
+    shippingName: order.shippingName,
+    shippingCompanyName: order.shippingCompanyName,
+    shippingAddress1: order.shippingAddress1,
+    shippingAddress2: order.shippingAddress2,
+    shippingCity: order.shippingCity,
+    shippingState: order.shippingState,
+    shippingZip: order.shippingZip,
+    subtotal: order.subtotal,
+    serviceFee: order.serviceFee,
+    total: order.total,
+    fixedFee: FIXED_CC_SERVICE_FEE,
+    percentageFee: PERCENTAGE_CC_SERVICE_FEE,
+    serviceFeeUri: SERVICE_FEE_URI,
+    items,
+  };
+}
 
-    items = [
-      {
-        quantity: details.Quantity,
-        cost: details.TotalCost * 100,
-        name: `${details.CertificateFirstName} ${details.CertificateLastName}`,
-        date: details.DateOfBirth,
-      },
-    ];
+async function makeBirthReceiptInfo(
+  registryDb: RegistryDb,
+  orderId: string,
+  dbOrder: FindOrderResult
+) {
+  // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
+  // side of things. This could be more principled.
+  const order = orderToReceiptInfo(orderId, dbOrder);
+
+  const details = await registryDb.lookupBirthCertificateOrderDetails(orderId);
+
+  if (!details) {
+    throw new Error(`Birth certificate order ${orderId} not found`);
   }
 
-  // Sending the email is not idempotent, so we put it last and in the vast
-  // majority of cases it will run once.
-  await emails.sendReceiptEmail(order.contactName, order.contactEmail, {
-    isBirth: orderType === 'BC',
-    isDeath: orderType === 'DC',
+  // For birth certificates, these are null in the database, so we have to
+  // calculate them in another way.
+  const subtotal = details.TotalCost * 100;
+  const total = subtotal + order.serviceFee;
+  const items = [
+    {
+      quantity: details.Quantity,
+      cost: details.TotalCost * 100,
+      name: `${details.CertificateFirstName} ${details.CertificateLastName}`,
+      date: details.DateOfBirth,
+    },
+  ];
+
+  return {
     orderId: order.id,
     orderDate: order.date,
     shippingName: order.shippingName,
@@ -158,7 +205,7 @@ async function sendReceiptEmail(
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
     serviceFeeUri: SERVICE_FEE_URI,
     items,
-  });
+  };
 }
 
 async function addPaymentToDb(

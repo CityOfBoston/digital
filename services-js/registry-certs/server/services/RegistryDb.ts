@@ -81,7 +81,7 @@ export interface AddOrderResult {
 export interface FindOrderResult {
   OrderKey: number;
   OrderType: string;
-  OrderDate: string;
+  OrderDate: Date;
   OrderStatus: string;
   ProcessDtTm: string | null;
   ContactName: string;

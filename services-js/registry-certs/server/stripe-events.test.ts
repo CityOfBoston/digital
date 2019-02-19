@@ -18,7 +18,9 @@ describe('charge.created', () => {
 
   beforeEach(() => {
     emails = {
-      sendReceiptEmail: jest.fn(),
+      sendDeathReceiptEmail: jest.fn(),
+      sendBirthReceiptEmail: jest.fn(),
+      sendBirthShippedEmail: jest.fn(),
     };
     stripe = {} as any;
 
@@ -83,8 +85,8 @@ describe('charge.created', () => {
       JSON.stringify(CHARGE_SUCCEEDED)
     );
 
-    expect(emails.sendReceiptEmail).toHaveBeenCalled();
-    expect(emails.sendReceiptEmail).toMatchSnapshot();
+    expect(emails.sendDeathReceiptEmail).toHaveBeenCalled();
+    expect(emails.sendDeathReceiptEmail).toMatchSnapshot();
   });
 
   it('sends birth email', async () => {
@@ -109,29 +111,40 @@ describe('charge.created', () => {
       JSON.stringify(CHARGE_UNCAPTURED)
     );
 
-    expect(emails.sendReceiptEmail).toHaveBeenCalled();
-    expect(emails.sendReceiptEmail).toMatchSnapshot();
+    expect(emails.sendBirthReceiptEmail).toHaveBeenCalled();
+    expect(emails.sendBirthReceiptEmail).toMatchSnapshot();
   });
 });
 
 describe('charge.captured', () => {
+  let emails: Required<Emails>;
   let stripe;
   let registryDb: RegistryDbFake;
 
   beforeEach(() => {
+    emails = {
+      sendDeathReceiptEmail: jest.fn(),
+      sendBirthReceiptEmail: jest.fn(),
+      sendBirthShippedEmail: jest.fn(),
+    };
+
     stripe = {} as any;
 
     registryDb = new RegistryDbFake(
       CERTIFICATES as DeathCertificateSearchResult[]
     );
 
-    jest.spyOn(registryDb, 'addPayment');
+    jest.spyOn(registryDb, 'findOrder').mockReturnValue(Promise.resolve(ORDER));
+    jest
+      .spyOn(registryDb, 'lookupBirthCertificateOrderDetails')
+      .mockReturnValue(Promise.resolve(BIRTH_CERTIFICATE_ORDER_DETAILS));
+    jest.spyOn(registryDb, 'addPayment').mockReturnValue(Promise.resolve());
   });
 
   it('marks the order as paid', async () => {
     await processStripeEvent(
       {
-        emails: {} as any,
+        emails: emails as any,
         stripe,
         registryDb: registryDb as any,
       },
@@ -140,6 +153,23 @@ describe('charge.captured', () => {
       JSON.stringify(CHARGE_CAPTURED)
     );
 
+    expect(registryDb.addPayment).toHaveBeenCalled();
     expect(registryDb.addPayment).toMatchSnapshot();
+  });
+
+  it('sends a shipped email', async () => {
+    await processStripeEvent(
+      {
+        emails: emails as any,
+        stripe,
+        registryDb: registryDb as any,
+      },
+      '',
+      '',
+      JSON.stringify(CHARGE_CAPTURED)
+    );
+
+    expect(emails.sendBirthShippedEmail).toHaveBeenCalled();
+    expect(emails.sendBirthShippedEmail).toMatchSnapshot();
   });
 });
