@@ -150,3 +150,22 @@ exports[`charge.created sends death email 1`] = `
   ],
 }
 `;
+
+exports[`charge.expired sends an expired email 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "Nancy Whitehead",
+      "nancy@mew.org",
+      "RG-BC201902-150464",
+      2019-02-07T18:45:12.000Z,
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
+`;

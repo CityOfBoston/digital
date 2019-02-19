@@ -77,6 +77,12 @@ type ReceiptTemplateData = {
   belowOrderText?: string[];
 };
 
+type ExpiredTemplateData = {
+  orderDate: string;
+  orderId: string;
+  registryEmail: string;
+};
+
 export type RenderedEmail = {
   text: string;
   html: string;
@@ -85,6 +91,7 @@ export type RenderedEmail = {
 
 type EmailRenderer<D> = (d: D, subject: string) => RenderedEmail;
 type ReceiptEmailRenderer = EmailRenderer<ReceiptTemplateData>;
+type ExpiredEmailRenderer = EmailRenderer<ExpiredTemplateData>;
 
 const formatOrderDate = (d: Date) =>
   moment(d)
@@ -93,8 +100,14 @@ const formatOrderDate = (d: Date) =>
 
 export class EmailTemplates {
   private readonly receiptEmailRenderer: ReceiptEmailRenderer;
-  constructor(receiptEmailRenderer: ReceiptEmailRenderer) {
+  private readonly expiredEmailRenderer: ExpiredEmailRenderer;
+
+  constructor(
+    receiptEmailRenderer: ReceiptEmailRenderer,
+    expiredEmailRenderer: ExpiredEmailRenderer
+  ) {
     this.receiptEmailRenderer = receiptEmailRenderer;
+    this.expiredEmailRenderer = expiredEmailRenderer;
   }
 
   deathReceipt(receipt: ReceiptData): RenderedEmail {
@@ -172,10 +185,24 @@ export class EmailTemplates {
       `City of Boston Birth Certificate Order #${receipt.orderId}`
     );
   }
+
+  birthExpired(orderId: string, orderDate: Date) {
+    return this.expiredEmailRenderer(
+      {
+        orderDate: formatOrderDate(orderDate),
+        orderId: orderId,
+        registryEmail: 'birth@boston.gov',
+      },
+      `City of Boston Birth Certificate Order #${orderId}`
+    );
+  }
 }
 
 export async function makeEmailTemplates(): Promise<EmailTemplates> {
-  return new EmailTemplates(await makeEmailRenderer('receipt', 'order'));
+  return new EmailTemplates(
+    await makeEmailRenderer('receipt', 'order'),
+    await makeEmailRenderer('expired', 'order')
+  );
 }
 
 async function makeEmailRenderer<D>(

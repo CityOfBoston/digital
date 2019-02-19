@@ -21,6 +21,7 @@ describe('charge.created', () => {
       sendDeathReceiptEmail: jest.fn(),
       sendBirthReceiptEmail: jest.fn(),
       sendBirthShippedEmail: jest.fn(),
+      sendBirthExpiredEmail: jest.fn(),
     };
     stripe = {} as any;
 
@@ -126,6 +127,7 @@ describe('charge.captured', () => {
       sendDeathReceiptEmail: jest.fn(),
       sendBirthReceiptEmail: jest.fn(),
       sendBirthShippedEmail: jest.fn(),
+      sendBirthExpiredEmail: jest.fn(),
     };
 
     stripe = {} as any;
@@ -171,5 +173,47 @@ describe('charge.captured', () => {
 
     expect(emails.sendBirthShippedEmail).toHaveBeenCalled();
     expect(emails.sendBirthShippedEmail).toMatchSnapshot();
+  });
+});
+
+describe('charge.expired', () => {
+  let emails: Required<Emails>;
+  let stripe;
+  let registryDb: RegistryDbFake;
+
+  beforeEach(() => {
+    emails = {
+      sendDeathReceiptEmail: jest.fn(),
+      sendBirthReceiptEmail: jest.fn(),
+      sendBirthShippedEmail: jest.fn(),
+      sendBirthExpiredEmail: jest.fn(),
+    };
+
+    stripe = {} as any;
+
+    registryDb = new RegistryDbFake(
+      CERTIFICATES as DeathCertificateSearchResult[]
+    );
+
+    jest.spyOn(registryDb, 'findOrder').mockReturnValue(Promise.resolve(ORDER));
+  });
+
+  it('sends an expired email', async () => {
+    await processStripeEvent(
+      {
+        emails: emails as any,
+        stripe,
+        registryDb: registryDb as any,
+      },
+      '',
+      '',
+      JSON.stringify({
+        ...CHARGE_CAPTURED,
+        type: 'charge.expired',
+      })
+    );
+
+    expect(emails.sendBirthExpiredEmail).toHaveBeenCalled();
+    expect(emails.sendBirthExpiredEmail).toMatchSnapshot();
   });
 });

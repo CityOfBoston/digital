@@ -46,3 +46,15 @@ storiesOf('Email/Birth Shipped', module)
   .add('text', () => (
     <pre>{snapToString('receipt Birth certificate shipped 3')}</pre>
   ));
+
+storiesOf('Email/Birth Expired', module)
+  .add('HTML', () => (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: snapToString('expired Birth certificate expired 2'),
+      }}
+    />
+  ))
+  .add('text', () => (
+    <pre>{snapToString('expired Birth certificate expired 3')}</pre>
+  ));
