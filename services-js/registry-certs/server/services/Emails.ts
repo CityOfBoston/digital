@@ -93,6 +93,20 @@ export default class Emails {
       this.templates.birthShipped(data)
     );
   }
+
+  async sendBirthExpiredEmail(
+    toName: string,
+    toEmail: string,
+    orderId: string,
+    orderDate: Date
+  ): Promise<void> {
+    await this.sendEmail(
+      toName,
+      toEmail,
+      BIRTH_EMAIL,
+      this.templates.birthExpired(orderId, orderDate)
+    );
+  }
 }
 
 export function formatTo(toName: string, toEmail: string): string {

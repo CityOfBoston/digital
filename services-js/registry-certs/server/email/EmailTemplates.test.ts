@@ -90,3 +90,18 @@ describe('receipt', () => {
     expect(text).toMatchSnapshot();
   });
 });
+
+describe('expired', () => {
+  test('Birth certificate expired', () => {
+    const { html, subject, text } = templates.birthExpired(
+      TEST_ORDER.orderId,
+      TEST_ORDER.orderDate
+    );
+
+    expect(subject).toMatchInlineSnapshot(
+      `"City of Boston Birth Certificate Order #RG-DC201801-100001"`
+    );
+    expect(html).toMatchSnapshot();
+    expect(text).toMatchSnapshot();
+  });
+});

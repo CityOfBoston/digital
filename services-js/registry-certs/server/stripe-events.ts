@@ -39,6 +39,8 @@ interface Dependencies {
 // same charge, meaning we will send 2 emails to the customer about the order.
 // That’s a better choice than not sending an email at all or causing delays in
 // fulfillment, so we can live with it.
+//
+// This is exported so that it can be called in dev from the mutation.
 export async function processChargeSucceeded(
   { emails, registryDb }: Dependencies,
   charge: charges.ICharge
@@ -84,7 +86,7 @@ export async function processChargeSucceeded(
 /**
  * Called when we capture a birth certificate charge as part of fulfillment.
  */
-export async function processChargeCaptured(
+async function processChargeCaptured(
   { registryDb, emails }: Dependencies,
   charge: charges.ICharge
 ) {
@@ -111,6 +113,31 @@ export async function processChargeCaptured(
       dbOrder.ContactName,
       dbOrder.ContactEmail,
       await makeBirthReceiptInfo(registryDb, orderId, dbOrder)
+    );
+  }
+}
+
+async function processChargeExpired(
+  { registryDb, emails }: Dependencies,
+  charge: charges.ICharge
+) {
+  const {
+    created,
+    metadata: { 'order.orderId': orderId, 'order.orderType': orderType },
+  } = charge;
+
+  const dbOrder = await registryDb.findOrder(orderId);
+
+  if (!dbOrder) {
+    throw new Error(`Order ${orderId} not found in the database`);
+  }
+
+  if (orderType === 'BC') {
+    await emails.sendBirthExpiredEmail(
+      dbOrder.ContactName,
+      dbOrder.ContactEmail,
+      orderId,
+      new Date(created * 1000)
     );
   }
 }
@@ -280,6 +307,9 @@ export async function processStripeEvent(
         break;
       case 'captured':
         await processChargeCaptured(deps, charge);
+        break;
+      case 'expired':
+        await processChargeExpired(deps, charge);
         break;
     }
   }
