@@ -17,11 +17,6 @@ module.exports = (baseConfig, env, config) => {
     use: 'raw-loader',
   });
 
-  config.module.rules.push({
-    test: /\.snap$/,
-    use: 'raw-loader',
-  });
-
   config.resolve.extensions.push('.ts', '.tsx');
 
   return config;

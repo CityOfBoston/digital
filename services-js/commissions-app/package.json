@@ -25,7 +25,11 @@
     "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-babel"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/scripts/"
+    ]
   },
   "resolutions": {
     "graphql": "0.13.2"
@@ -69,7 +73,6 @@
     "@babel/cli": "7.0.0",
     "@babel/core": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/graphql-typescript": "^0.0.0",
     "@cityofboston/mssql-typescript": "^0.0.0",
@@ -93,7 +96,7 @@
     "concurrently": "^3.5.1",
     "eslint-plugin-graphql": "^2.1.1",
     "faker": "^4.1.0",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "prettier": "^1.12.0",
     "raw-loader": "^0.5.1",
     "react-test-renderer": "16.8.1",

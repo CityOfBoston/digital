@@ -16,8 +16,11 @@
   },
   "license": "CC0-1.0",
   "jest": {
-    "preset": "@cityofboston/config-jest-typescript",
-    "collectCoverage": false
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/scripts/"
+    ]
   },
   "dependencies": {
     "@babel/runtime": "7.0.0",
@@ -25,6 +28,7 @@
     "aws-sdk": "^2.100.0",
     "cometd": "^3.1.5",
     "cometd-nodejs-client": "^1.0.1",
+    "core-js": "^2.5.7",
     "dotenv": "^5.0.0",
     "elasticsearch": "^14.0.0",
     "form-data": "^2.2.0",
@@ -43,7 +47,6 @@
     "@babel/core": "7.0.0",
     "@babel/node": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/cometd": "^4.0.1",
     "@types/elasticsearch": "^5.0.28",
@@ -55,7 +58,7 @@
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-prettier": "^2.1.2",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.3",
     "typescript": "^3.3.1"

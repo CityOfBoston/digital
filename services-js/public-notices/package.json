@@ -17,10 +17,15 @@
     "codebuild-deploy": "s3-apps-deploy export"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-babel"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/scripts/"
+    ]
   },
   "dependencies": {
     "@cityofboston/react-fleet": "^0.0.0",
+    "core-js": "^2.5.7",
     "date-fns": "^1.29.0",
     "dotenv": "^5.0.0",
     "emotion": "9.2.10",
@@ -35,10 +40,7 @@
   "devDependencies": {
     "@babel/cli": "7.0.0",
     "@babel/core": "7.0.0",
-    "@babel/plugin-proposal-class-properties": "7.0.0",
-    "@babel/plugin-proposal-decorators": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@percy-io/percy-storybook": "^1.4.1",
     "@storybook/addon-actions": "4.0.4",
@@ -52,7 +54,7 @@
     "@types/storybook__react": "^3.0.7",
     "@zeit/next-typescript": "1.1.1",
     "babel-core": "^7.0.0-0",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.5",
     "tsc-watch": "^1.0.26",

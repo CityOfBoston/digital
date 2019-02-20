@@ -19,7 +19,10 @@
     "report-updated-services": "bin/report-updated-services.js"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-typescript"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ]
   },
   "dependencies": {
     "@slack/client": "^4.3.1",
@@ -34,17 +37,15 @@
     "tar": "^4.4.3"
   },
   "devDependencies": {
-    "@cityofboston/config-jest-typescript": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/aws-sdk": "^2.7.0",
-    "@types/jest": "23.x.x",
+    "@types/jest": "24.x.x",
     "@types/minimist": "^1.2.0",
     "@types/node": "^8.0.0",
     "@types/node-fetch": "^2.1.2",
     "@types/shelljs": "^0.8.0",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "rimraf": "^2.6.2",
-    "ts-jest": "23.10.0",
     "tsc-watch": "^1.0.26",
     "typescript": "^3.3.1"
   }

@@ -14,10 +14,14 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-typescript"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ]
   },
   "dependencies": {
     "boom": "^7.2.0",
+    "core-js": "^2.5.7",
     "good": "^8.1.1",
     "good-console": "^7.1.0",
     "good-squeeze": "^5.0.2",
@@ -27,15 +31,15 @@
     "inert": "5.x.x"
   },
   "devDependencies": {
-    "@cityofboston/config-jest-typescript": "^0.0.0",
+    "@babel/core": "7.0.0",
+    "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/hoek": "^4.1.3",
-    "@types/jest": "23.x.x",
+    "@types/jest": "24.x.x",
     "hapi": "^17.4.0",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "rimraf": "^2.6.2",
     "rollbar": "^2.5.1",
-    "ts-jest": "23.10.0",
     "tsc-watch": "^1.0.26",
     "typescript": "^3.3.1"
   }

@@ -2,17 +2,5 @@
   "presets": [
     "@cityofboston/config-babel/browser",
     "@cityofboston/config-babel/typescript"
-  ],
-  "env": {
-    "esm": {
-      "presets": [
-        [
-          "@cityofboston/config-babel/browser",
-          {
-            "esm": true
-          }
-        ]
-      ]
-    }
-  }
+  ]
 }
