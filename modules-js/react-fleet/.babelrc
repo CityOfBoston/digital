@@ -1,22 +1,17 @@
 {
   "presets": [
-    "@babel/preset-react",
     "@cityofboston/config-babel/browser",
-    "@cityofboston/config-babel/typescript"
+    "@cityofboston/config-babel/typescript",
+    "@cityofboston/config-babel/storybook"
   ],
-  "env": {
-    "test": {
-      "plugins": ["babel-plugin-require-context-hook"]
-    },
-    "esm": {
-      "presets": [
-        [
-          "@cityofboston/config-babel/browser",
-          {
-            "esm": true
-          }
+  "plugins": [
+    [
+      "inline-import",
+      {
+        "extensions": [
+          ".html"
         ]
-      ]
-    }
-  }
+      }
+    ]
+  ],
 }

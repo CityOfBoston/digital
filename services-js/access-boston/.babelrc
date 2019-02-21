@@ -1,6 +1,17 @@
 {
   "presets": [
-    "@cityofboston/next-client-common/babel",
-    "@cityofboston/config-babel/typescript"
+    "@cityofboston/config-babel/next",
+    "@cityofboston/config-babel/typescript",
+    "@cityofboston/config-babel/storybook"
+  ],
+  "plugins": [
+    [
+      "inline-import",
+      {
+        "extensions": [
+          ".yaml",
+        ]
+      }
+    ]
   ]
 }

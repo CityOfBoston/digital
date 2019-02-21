@@ -36,7 +36,7 @@ exports[`methods submitRequest graphql failure 1`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],
@@ -115,7 +115,7 @@ exports[`methods submitRequest graphql failure 1`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],
@@ -289,7 +289,7 @@ exports[`methods submitRequest success 1`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],
@@ -368,7 +368,7 @@ exports[`methods submitRequest success 1`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],
@@ -551,7 +551,7 @@ exports[`methods submitRequest success 2`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],
@@ -630,7 +630,7 @@ exports[`methods submitRequest success 2`] = `
       ],
       "results": Array [
         Object {
-          "isThrow": false,
+          "type": "return",
           "value": undefined,
         },
       ],

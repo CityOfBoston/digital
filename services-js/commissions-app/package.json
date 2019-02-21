@@ -5,17 +5,17 @@
   "private": true,
   "license": "CC0-1.0",
   "scripts": {
-    "prebuild": "rimraf build && npm run generate-graphql-schema && npm run generate-graphql-types",
-    "build": "concurrently \"npm run build:server\" \"npm run build:next\"",
+    "prebuild": "rimraf build && yarn run generate-graphql-schema && yarn run generate-graphql-types",
+    "build": "concurrently \"yarn run build:server\" \"yarn run build:next\"",
     "build:server": "tsc -p tsconfig.server.json",
     "build:next": "next build src",
-    "dev": "npm run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"npm run start\"",
+    "dev": "yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
     "storybook": "start-storybook -p 9001 -s static",
     "watch-dependencies": "lerna run --parallel --scope commissions-app --include-filtered-dependencies watch",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "prepare-deploy": "build-storybook -s static",
     "start": "node build/server/start",
-    "pretest": "npm run prebuild && tsc --noEmit",
+    "pretest": "yarn run prebuild && tsc --noEmit",
     "test": "scripts/test.js",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate src/client/**/*.ts --project-name commissions-app --target typescript --output src/client/graphql/queries.d.ts && prettier --write src/client/graphql/queries.d.ts",
@@ -25,7 +25,11 @@
     "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-babel"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/scripts/"
+    ]
   },
   "resolutions": {
     "graphql": "0.13.2"
@@ -69,7 +73,6 @@
     "@babel/cli": "7.0.0",
     "@babel/core": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/graphql-typescript": "^0.0.0",
     "@cityofboston/mssql-typescript": "^0.0.0",
@@ -93,7 +96,7 @@
     "concurrently": "^3.5.1",
     "eslint-plugin-graphql": "^2.1.1",
     "faker": "^4.1.0",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "prettier": "^1.12.0",
     "raw-loader": "^0.5.1",
     "react-test-renderer": "16.8.1",

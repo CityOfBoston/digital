@@ -7,7 +7,10 @@ jest.mock('next/router');
 jest.mock('../../data/queries/load-case');
 
 import loadCase from '../../data/queries/load-case';
-const loadCaseMock: jest.Mock<typeof loadCase> = loadCase as any;
+const loadCaseMock: jest.MockInstance<
+  ReturnType<typeof loadCase>,
+  Parameters<typeof loadCase>
+> = loadCase as any;
 
 const MOCK_REQUEST: Request = {
   id: '17-000000001',

@@ -5,6 +5,9 @@ const path = require('path');
  * entries. This file contains the polyfills that are necessary for our common
  * libraries (like React, Emotion, and Formik/Yup) to work across browsers.
  *
+ * For polyfills that our own code needs, we use preset-env’s "usage" behavior,
+ * which is set in @cityofboston/config-babel/next.
+ *
  * While we only officially support IE11+ and latest versions of evergreen
  * browsers, if we can support someone’s older phone by dropping in the right
  * polyfill that seems worth it to do.

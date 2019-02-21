@@ -7,15 +7,15 @@
   },
   "license": "CC0-1.0",
   "scripts": {
-    "prebuild": "rimraf build && npm run generate-graphql-schema && npm run generate-graphql-types",
-    "dev": "npm run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"npm run start\"",
-    "pretest": "npm run prebuild && tsc --noEmit",
+    "prebuild": "rimraf build && yarn run generate-graphql-schema && yarn run generate-graphql-types",
+    "dev": "yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
+    "pretest": "yarn run prebuild && tsc --noEmit",
     "test": "scripts/test.js",
     "watch-dependencies": "lerna run --parallel --scope registry-certs --include-filtered-dependencies watch",
-    "build": "concurrently \"npm run build:server\" \"npm run build:next\"",
+    "build": "concurrently \"yarn run build:server\" \"yarn run build:next\"",
     "build:server": "tsc -p tsconfig.server.json",
     "build:next": "next build .",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static",
     "travis-deploy": "travis-service-deploy Dockerfile",
@@ -27,11 +27,14 @@
     "generate-fixtures": "ts-node ./scripts/generate-fixtures"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-babel",
-    "collectCoverage": false,
     "setupFiles": [
       "<rootDir>/lib/test/jest-polyfills.js",
       "<rootDir>/lib/test/setup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/scripts/"
     ]
   },
   "dependencies": {
@@ -94,7 +97,6 @@
     "@babel/core": "7.0.0",
     "@babel/node": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/graphql-typescript": "^0.0.0",
     "@cityofboston/mssql-typescript": "^0.0.0",
@@ -114,7 +116,6 @@
     "apollo-codegen": "0.20.2",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "9.0.0",
-    "babel-jest": "23.6.0",
     "babel-loader": "8.0.2",
     "cheerio": "^0.22.0",
     "codecov": "^2.3.1",
@@ -125,7 +126,7 @@
     "eslint-plugin-graphql": "^2.1.1",
     "faker": "^4.1.0",
     "fetch-mock": "^5.12.2",
-    "jest": "^23.6.0",
+    "jest": "^24.1.0",
     "json-loader": "^0.5.4",
     "lint-staged": "^4.0.0",
     "mockdate": "^2.0.2",

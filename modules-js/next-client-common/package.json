@@ -4,50 +4,53 @@
   "description": "Utilities for NextJS client apps",
   "private": true,
   "license": "CC0-1.0",
-  "main": "build/next-client-common.js",
+  "main": "build/next-client-common.es5.js",
+  "module": "build/next-client-common.js",
   "types": "build/next-client-common.d.ts",
   "sideEffects": false,
   "scripts": {
-    "watch": "concurrently \"npm run build:babel -- --watch\" \"npm run build:typescript -- --watch --preserveWatchOutput\"",
+    "watch": "concurrently \"yarn run build:babel -- --watch\" \"yarn run build:typescript -- --watch --preserveWatchOutput\" \"rollup -c -w\"",
     "prebuild": "rimraf build",
-    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel\"",
+    "build": "concurrently \"yarn run build:typescript\" \"yarn run build:babel && rollup -c\"",
     "build:typescript": "tsc --emitDeclarationOnly",
-    "build:babel": "babel src --out-dir build --source-maps inline --extensions \".ts,.tsx\"",
-    "prepare": "npm run build",
+    "build:babel": "cross-env BABEL_ENV=esm babel src --source-maps inline --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
+    "prepare": "yarn run build",
     "pretest": "tsc --noEmit",
     "test": "jest"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-babel"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "core-js": "^2.5.7",
+    "isomorphic-fetch": "^2.2.1"
   },
   "peerDependencies": {
     "@babel/runtime": "7.0.0",
-    "next": "7.0.2"
+    "next": "7.0.2",
+    "nprogress": "^0.2.0"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
     "@babel/core": "7.0.0",
     "@babel/runtime": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/google.analytics": "^0.0.39",
     "@types/hapi": "^17.0.19",
     "@types/isomorphic-fetch": "^0.0.34",
-    "@types/jest": "23.x.x",
+    "@types/jest": "24.x.x",
     "@types/shot": "^3.4.0",
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
-    "core-js": "^2.5.7",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
+    "next": "7.0.2",
+    "nprogress": "^0.2.0",
     "rimraf": "^2.6.2",
+    "rollup": "^0.60.1",
     "typescript": "^3.3.1"
-  },
-  "dependencies": {
-    "@babel/plugin-proposal-class-properties": "7.0.0",
-    "@babel/plugin-proposal-decorators": "7.0.0",
-    "babel-plugin-require-context-hook": "^1.0.0",
-    "isomorphic-fetch": "^2.2.1",
-    "nprogress": "^0.2.0"
   }
 }

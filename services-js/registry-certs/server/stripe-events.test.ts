@@ -1,15 +1,28 @@
-import { processStripeEvent } from './stripe-events';
-
-import { DeathCertificateSearchResult } from './services/RegistryDb';
-
+import CERTIFICATES from '../fixtures/registry-data/smith.json';
+import BIRTH_CERTIFICATE_ORDER_DETAILS from '../fixtures/registry-orders/birth-certificate-request-details.json';
+import ORDER from '../fixtures/registry-orders/order.json';
+import CHARGE_CAPTURED from '../fixtures/stripe/charge-captured.json';
 import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded.json';
 import CHARGE_UNCAPTURED from '../fixtures/stripe/charge-uncaptured.json';
-import CHARGE_CAPTURED from '../fixtures/stripe/charge-captured.json';
-import ORDER from '../fixtures/registry-orders/order.json';
-import BIRTH_CERTIFICATE_ORDER_DETAILS from '../fixtures/registry-orders/birth-certificate-request-details.json';
-import CERTIFICATES from '../fixtures/registry-data/smith.json';
-import RegistryDbFake from './services/RegistryDbFake';
 import Emails from './services/Emails';
+import {
+  DeathCertificate,
+  DeathCertificateSearchResult,
+  FindBirthCertificateRequestResult,
+  FindOrderResult,
+} from './services/RegistryDb';
+import RegistryDbFake from './services/RegistryDbFake';
+import { processStripeEvent } from './stripe-events';
+
+const DB_ORDER: FindOrderResult = {
+  ...ORDER,
+  OrderDate: new Date(ORDER.OrderDate),
+};
+
+const DB_BIRTH_CERTIFICATE_ORDER_DETAILS = {
+  ...BIRTH_CERTIFICATE_ORDER_DETAILS,
+  DateOfBirth: new Date(BIRTH_CERTIFICATE_ORDER_DETAILS.DateOfBirth),
+};
 
 describe('charge.created', () => {
   let emails: Required<Emails>;
@@ -31,11 +44,17 @@ describe('charge.created', () => {
 
     jest
       .spyOn(registryDb, 'lookupDeathCertificate')
-      .mockReturnValue(Promise.resolve(CERTIFICATES[0]));
-    jest.spyOn(registryDb, 'findOrder').mockReturnValue(Promise.resolve(ORDER));
+      .mockReturnValue(Promise.resolve<DeathCertificate>(CERTIFICATES[0]));
+    jest
+      .spyOn(registryDb, 'findOrder')
+      .mockReturnValue(Promise.resolve(DB_ORDER));
     jest
       .spyOn(registryDb, 'lookupBirthCertificateOrderDetails')
-      .mockReturnValue(Promise.resolve(BIRTH_CERTIFICATE_ORDER_DETAILS));
+      .mockReturnValue(
+        Promise.resolve<FindBirthCertificateRequestResult>(
+          DB_BIRTH_CERTIFICATE_ORDER_DETAILS
+        )
+      );
     jest.spyOn(registryDb, 'addPayment');
   });
 
@@ -136,10 +155,12 @@ describe('charge.captured', () => {
       CERTIFICATES as DeathCertificateSearchResult[]
     );
 
-    jest.spyOn(registryDb, 'findOrder').mockReturnValue(Promise.resolve(ORDER));
+    jest
+      .spyOn(registryDb, 'findOrder')
+      .mockReturnValue(Promise.resolve(DB_ORDER));
     jest
       .spyOn(registryDb, 'lookupBirthCertificateOrderDetails')
-      .mockReturnValue(Promise.resolve(BIRTH_CERTIFICATE_ORDER_DETAILS));
+      .mockReturnValue(Promise.resolve(DB_BIRTH_CERTIFICATE_ORDER_DETAILS));
     jest.spyOn(registryDb, 'addPayment').mockReturnValue(Promise.resolve());
   });
 
@@ -195,7 +216,9 @@ describe('charge.expired', () => {
       CERTIFICATES as DeathCertificateSearchResult[]
     );
 
-    jest.spyOn(registryDb, 'findOrder').mockReturnValue(Promise.resolve(ORDER));
+    jest
+      .spyOn(registryDb, 'findOrder')
+      .mockReturnValue(Promise.resolve(DB_ORDER));
   });
 
   it('sends an expired email', async () => {

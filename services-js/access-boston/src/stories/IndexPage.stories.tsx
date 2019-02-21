@@ -5,6 +5,9 @@ import IndexPage, { FlashMessage } from '../pages/index';
 import { Account, Apps } from '../client/graphql/fetch-account-and-apps';
 import { makeAppsRegistry } from '../lib/AppsRegistry';
 
+// @ts-ignore
+import APPS_YAML from '../../fixtures/apps.yaml';
+
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
   firstName: 'Jyn',
@@ -15,10 +18,7 @@ const ACCOUNT: Account = {
   resetPasswordToken: '',
 };
 
-const appsRegistry = makeAppsRegistry(
-  require('../../fixtures/apps.yaml'),
-  true
-);
+const appsRegistry = makeAppsRegistry(APPS_YAML, true);
 
 const APPS: Apps = {
   categories: appsRegistry.appsForGroups([]).map(cat => ({

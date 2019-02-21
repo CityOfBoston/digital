@@ -12,7 +12,7 @@ exports[`charge.captured marks the order as paid 1`] = `
   ],
   "results": Array [
     Object {
-      "isThrow": false,
+      "type": "return",
       "value": Promise {},
     },
   ],
@@ -30,12 +30,12 @@ exports[`charge.captured sends a shipped email 1`] = `
         "items": Array [
           Object {
             "cost": 8400,
-            "date": "1976-10-06T04:00:00.000Z",
+            "date": 1976-10-06T04:00:00.000Z,
             "name": "Carol Danvers",
             "quantity": 6,
           },
         ],
-        "orderDate": "2018-01-11T18:40:27.707Z",
+        "orderDate": 2018-01-11T18:40:27.707Z,
         "orderId": "RG-BC201902-150464",
         "percentageFee": 0.021,
         "serviceFee": 266,
@@ -54,7 +54,7 @@ exports[`charge.captured sends a shipped email 1`] = `
   ],
   "results": Array [
     Object {
-      "isThrow": false,
+      "type": "return",
       "value": undefined,
     },
   ],
@@ -72,7 +72,7 @@ exports[`charge.created sends birth email 1`] = `
         "items": Array [
           Object {
             "cost": 8400,
-            "date": "1976-10-06T04:00:00.000Z",
+            "date": 1976-10-06T04:00:00.000Z,
             "name": "Carol Danvers",
             "quantity": 6,
           },
@@ -96,7 +96,7 @@ exports[`charge.created sends birth email 1`] = `
   ],
   "results": Array [
     Object {
-      "isThrow": false,
+      "type": "return",
       "value": undefined,
     },
   ],
@@ -125,7 +125,7 @@ exports[`charge.created sends death email 1`] = `
             "quantity": 1,
           },
         ],
-        "orderDate": "2018-01-11T18:40:27.707Z",
+        "orderDate": 2018-01-11T18:40:27.707Z,
         "orderId": "DC-20171215-yg4lk",
         "percentageFee": 0.021,
         "serviceFee": 266,
@@ -144,7 +144,7 @@ exports[`charge.created sends death email 1`] = `
   ],
   "results": Array [
     Object {
-      "isThrow": false,
+      "type": "return",
       "value": undefined,
     },
   ],
@@ -163,7 +163,7 @@ exports[`charge.expired sends an expired email 1`] = `
   ],
   "results": Array [
     Object {
-      "isThrow": false,
+      "type": "return",
       "value": undefined,
     },
   ],
