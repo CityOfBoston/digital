@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Service to update iNovah based on webhook calls from a payment provider",
   "scripts": {
-    "dev": "npm run prebuild && tsc-watch --onSuccess \"npm run start\"",
+    "dev": "yarn run prebuild && tsc-watch --onSuccess \"yarn run start\"",
     "pretest": "tsc --noEmit",
     "test": "jest",
     "test-latest-charge": "babel-node ./scripts/test-latest-charge",
@@ -11,7 +11,7 @@
     "prebuild": "rimraf build",
     "build": "tsc",
     "start": "node build/server",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "travis-deploy": "travis-service-deploy Dockerfile",
     "codebuild-deploy": "codebuild-service-deploy Dockerfile"
   },

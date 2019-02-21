@@ -9,13 +9,13 @@
   "types": "build/react-fleet.d.ts",
   "sideEffects": false,
   "scripts": {
-    "watch": "concurrently \"npm run build:babel -- --watch\"  \"tsc-watch --emitDeclarationOnly\" \"rollup -c -w\"",
+    "watch": "concurrently \"yarn run build:babel -- --watch\"  \"tsc-watch --emitDeclarationOnly\" \"rollup -c -w\"",
     "storybook": "start-storybook -p 9001",
     "prebuild": "rimraf build",
-    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel && rollup -c\"",
+    "build": "concurrently \"yarn run build:typescript\" \"yarn run build:babel && rollup -c\"",
     "build:typescript": "tsc --emitDeclarationOnly",
     "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "pretest": "tsc --noEmit",
     "test": "scripts/test.js",
     "fetch-templates": "ts-node ./scripts/fetch-templates.ts"

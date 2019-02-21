@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "travis-deploy": "s3-apps-deploy build",
     "codebuild-deploy": "s3-apps-deploy build",
-    "prepare": "npm run build"
+    "prepare": "yarn run build"
   },
   "devDependencies": {
     "@cityofboston/deploy-tools": "0.0.0",

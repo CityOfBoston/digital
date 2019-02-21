@@ -10,7 +10,7 @@
     "watch": "tsc-watch --preserveWatchOutput",
     "prebuild": "rimraf build",
     "build": "tsc",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "pretest": "tsc --noEmit",
     "test": "jest"
   },
