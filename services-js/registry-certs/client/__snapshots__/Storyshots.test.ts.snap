@@ -35327,8 +35327,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a
-              href=\\"tel:618-635-4175\\">617-635-4175</a>, or email <b><i><a
+        Have any questions? Contact the Registry at <b><i><a
               href=\\"mailto:birth@boston.gov\\">birth@boston.gov</a></i></b>.
       </div>
     
@@ -35396,8 +35395,8 @@ the hold from your card. Your card will not be charged.
 If you would like to place a new order, visit 
 https://registry.boston.gov/birth
 
-Have any questions? Contact the Registry on weekdays from 9 
-a.m. – 4 p.m. at 617-635-4175, or email birth@boston.gov.
+Have any questions? Contact the Registry at 
+birth@boston.gov.
   </pre>
 </div>
 `;
@@ -36098,8 +36097,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a
-              href=\\"tel:618-635-4175\\">617-635-4175</a>, or email <b><i><a
+        Have any questions? Contact the Registry at <b><i><a
               href=\\"mailto:birth@boston.gov\\">birth@boston.gov</a></i></b>.
       </div>
     
@@ -36184,8 +36182,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.cityofboston.gov/payments/faqs.asp]
 
-Have any questions? Contact the Registry on weekdays from 9 
-a.m. – 4 p.m. at 617-635-4175, or email birth@boston.gov.
+Have any questions? Contact the Registry at 
+birth@boston.gov.
   </pre>
 </div>
 `;
@@ -36940,8 +36938,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a
-              href=\\"tel:618-635-4175\\">617-635-4175</a>, or email <b><i><a
+        Have any questions? Contact the Registry at <b><i><a
               href=\\"mailto:birth@boston.gov\\">birth@boston.gov</a></i></b>.
       </div>
     
@@ -37019,8 +37016,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.cityofboston.gov/payments/faqs.asp]
 
-Have any questions? Contact the Registry on weekdays from 9 
-a.m. – 4 p.m. at 617-635-4175, or email birth@boston.gov.
+Have any questions? Contact the Registry at 
+birth@boston.gov.
   </pre>
 </div>
 `;
@@ -37716,8 +37713,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at <a
-              href=\\"tel:618-635-4175\\">617-635-4175</a>, or email <b><i><a
+        Have any questions? Contact the Registry at <b><i><a
               href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
       </div>
     
@@ -37800,8 +37796,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.cityofboston.gov/payments/faqs.asp]
 
-Have any questions? Contact the Registry on weekdays from 9 
-a.m. – 4 p.m. at 617-635-4175, or email registry@boston.gov.
+Have any questions? Contact the Registry at 
+registry@boston.gov.
   </pre>
 </div>
 `;
