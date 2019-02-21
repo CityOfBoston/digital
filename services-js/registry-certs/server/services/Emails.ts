@@ -8,8 +8,8 @@ import {
   RenderedEmail,
 } from '../email/EmailTemplates';
 
-const REGISTRY_EMAIL = 'registry@boston.gov';
-const BIRTH_EMAIL = 'birth@boston.gov';
+const REGISTRY_EMAIL = '"City of Boston Registry" <registry@boston.gov>';
+const BIRTH_EMAIL = '"City of Boston Registry" <birth@boston.gov>';
 
 export default class Emails {
   private postmarkClient: PostmarkClient;
