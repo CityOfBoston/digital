@@ -6,12 +6,7 @@ import { observer } from 'mobx-react';
 
 import { css } from 'emotion';
 
-import {
-  CHARLES_BLUE,
-  FREEDOM_RED_DARK,
-  GRAY_100,
-  SERIF,
-} from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, GRAY_100, SERIF } from '@cityofboston/react-fleet';
 
 import { PageDependencies } from '../../pages/_app';
 
@@ -47,8 +42,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
 
   private userResetStartOver = () => {
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
-
-    this.returnToQuestions();
+    Router.push('/birth');
   };
 
   private returnToQuestions = () => {
@@ -122,16 +116,8 @@ export default class ReviewRequestPage extends React.Component<Props> {
         />
 
         <div className="g g--mr m-t700">
-          <div className={`g--9 ${BACK_CANCEL_BUTTONS_STYLING}`}>
+          <div className="g--9 t--info">
             <BackButton handleClick={this.returnToQuestions} />
-
-            <button
-              className="lnk cancel"
-              type="button"
-              onClick={this.userResetStartOver}
-            >
-              <span aria-hidden="true">←</span> Cancel and start over
-            </button>
           </div>
 
           <button
@@ -140,6 +126,16 @@ export default class ReviewRequestPage extends React.Component<Props> {
             onClick={this.goToCheckout}
           >
             Continue
+          </button>
+        </div>
+
+        <div className="ta-c m-t700 p-a300 t--sans">
+          <button
+            className="lnk cancel tt-u"
+            type="button"
+            onClick={this.userResetStartOver}
+          >
+            Cancel and start over
           </button>
         </div>
       </PageWrapper>
@@ -179,23 +175,5 @@ const CERTIFICATE_ROW_STYLE = css({
 
   '> div:first-of-type': {
     flexBasis: '25%',
-  },
-});
-
-const BACK_CANCEL_BUTTONS_STYLING = css({
-  display: 'flex',
-  justifyContent: 'space-between',
-
-  '> *:first-of-type button': {
-    paddingLeft: 0,
-  },
-
-  '.cancel': {
-    fontStyle: 'italic',
-    color: 'inherit',
-
-    '&:hover': {
-      color: FREEDOM_RED_DARK,
-    },
   },
 });
