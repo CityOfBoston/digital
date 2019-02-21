@@ -103,7 +103,7 @@ export default class BirthCertificateRequest {
 
   @action
   public clearBirthCertificateRequest(): void {
-    this.quantity = 0;
+    this.quantity = 1;
     this.requestInformation = INITIAL_REQUEST_INFORMATION;
   }
 
