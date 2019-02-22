@@ -22,7 +22,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   parent2LastName: '',
   idImageFront: null,
   idImageBack: null,
-  supportingDocuments: null,
+  supportingDocuments: [],
 };
 
 export const QUESTION_STEPS: Step[] = [

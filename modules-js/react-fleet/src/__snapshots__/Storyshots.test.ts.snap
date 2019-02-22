@@ -2418,6 +2418,143 @@ exports[`Storyshots Form Elements/Upload photo default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Form Elements/Upload photo displaying image File from data store 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "width": 400,
+      }
+    }
+  >
+    <div
+      className="br br-a200"
+    >
+      <div
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragEnter={[Function]}
+        onDragLeave={[Function]}
+        onDragOver={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+        tabIndex={0}
+      >
+        <input
+          accept="image/*"
+          autoComplete="off"
+          multiple={false}
+          onChange={[Function]}
+          onClick={[Function]}
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          tabIndex={-1}
+          type="file"
+        />
+        <div
+          className="css-18dy1p4 "
+        >
+          <div
+            className="css-aipimn"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 22 144 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                points="93.58 51.5 87.75 41.5 59.55 41.5 54.35 51.5 27.18 51.5 27.18 102.5 116.82 102.5 116.82 51.5 93.58 51.5"
+              />
+              <rect
+                height="7.01"
+                width="15.23"
+                x="31.48"
+                y="44.49"
+              />
+              <circle
+                cx="74"
+                cy="74.38"
+                r="22.88"
+              />
+              <circle
+                cx="74"
+                cy="74.38"
+                r="17.47"
+              />
+              <circle
+                cx="38.63"
+                cy="60.15"
+                r="3.24"
+              />
+              <line
+                x1="96.12"
+                x2="116.82"
+                y1="67.86"
+                y2="67.86"
+              />
+              <line
+                x1="27.18"
+                x2="51.88"
+                y1="67.86"
+                y2="67.86"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        className="br br-t200"
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <button
+          className="btn btn--w btn--b "
+          onClick={[Function]}
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+          type="button"
+        >
+          Upload photo
+        </button>
+      </div>
+    </div>
+    <div
+      className="t--info p-a300 css-udegvj"
+    >
+      Error: 
+      server error
+    </div>
+  </div>,
+  <img
+    alt=""
+    id="samplePhoto"
+    src="https://placebear.com/400/300"
+    style={
+      Object {
+        "visibility": "hidden",
+      }
+    }
+  />,
+]
+`;
+
 exports[`Storyshots Form Elements/Upload photo upload error 1`] = `
 <div
   style={

@@ -1,22 +1,31 @@
 import React from 'react';
 import { css } from 'emotion';
 
+// todo: prevent next/back while uploads pending
+
 import {
   CloseButton,
+  CHARLES_BLUE,
+  ERROR_TEXT_COLOR,
   FOCUS_INDICATOR_COLOR,
+  OPTIMISTIC_BLUE_LIGHT,
   VISUALLYHIDDEN,
+  MEDIA_SMALL,
+  SERIF,
 } from '@cityofboston/react-fleet';
 
+import AnswerIcon from '../icons/AnswerIcon';
+
+import UploadableFile from '../../models/UploadableFile';
+import { observer } from 'mobx-react';
+
 interface Props {
-  name: string;
-  title: string;
-  fileTypes?: string[] | string;
-  sizeLimit: FileSize;
-  handleChange(documents: File[]): void;
+  uploadSessionId: string;
+  selectedFiles?: UploadableFile[];
+  handleInputChange(files: UploadableFile[]): void;
 }
 
 interface State {
-  selectedFiles: File[];
   isFocused: boolean;
 }
 
@@ -32,16 +41,10 @@ interface FileSize {
  * added to the group of already-selected files. Duplicate files are identified
  * by filename, and will be discarded.
  *
- * Defaults to accept any file type or size. To restrict the types of files to
- * accept, assign a string or array of strings to “fileTypes” that contains the
- * allowed MIME type(s).
- *
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#Limiting_accepted_file_types
- *
- * To disallow large files, pass an object to “sizeLimit” to define the limit:
- *
- * { amount: 20, unit: 'MB' }
+ * todo: update
  */
+
+@observer
 export default class SupportingDocumentsInput extends React.Component<
   Props,
   State
@@ -50,7 +53,6 @@ export default class SupportingDocumentsInput extends React.Component<
     super(props);
 
     this.state = {
-      selectedFiles: [],
       isFocused: false,
     };
   }
@@ -59,17 +61,12 @@ export default class SupportingDocumentsInput extends React.Component<
 
   // Check to see if a file does not exceed the file size limit, if defined.
   private checkFileSize = (file: File): boolean | void => {
-    const sizeLimit = handleBytes.convert(this.props.sizeLimit);
+    const sizeLimit = handleBytes.convert({ amount: 10, unit: 'MB' });
     const fileSize = handleBytes.format(file.size);
 
     if (file.size > sizeLimit) {
-      // todo: consider handling via callback: https://github.com/CityOfBoston/digital/pull/41#discussion_r218545231
-      // todo: adapt and update FileInput component in react-fleet
-
       alert(
-        `There’s a ${this.props.sizeLimit.amount}${
-          this.props.sizeLimit.unit
-        } size limit for documents, but
+        `There’s a 10MB size limit for documents, but
 ${file.name} is ${fileSize.amount.toFixed(2) +
           fileSize.unit}. Try a different file.`
       );
@@ -85,65 +82,79 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
     this.setState({ isFocused });
   };
 
-  private updateFiles = (files: FileList): void => {
-    const { selectedFiles } = this.state;
+  private addFilesFromInput = (files: FileList): void => {
+    const { selectedFiles } = this.props;
 
     // Create an array from the FileList.
-    const fileArray: File[] = [];
+    const fileArray: UploadableFile[] = [];
 
     for (let i = 0; i < files.length; i++) {
       // Do not allow duplicate filenames, or files that are too large.
       if (
-        !selectedFiles.find(file => file.name === files[i].name) &&
+        selectedFiles &&
+        !selectedFiles.find(
+          uploadableFile => uploadableFile.file.name === files[i].name
+        ) &&
         this.checkFileSize(files[i])
       ) {
-        fileArray.push(files[i]);
+        const uploadableFile = new UploadableFile(
+          files[i],
+          this.props.uploadSessionId
+        );
+
+        uploadableFile.upload();
+
+        fileArray.push(uploadableFile);
       }
     }
 
-    this.setState(
-      { selectedFiles: [...this.state.selectedFiles, ...fileArray] },
-      () => {
-        this.props.handleChange(this.state.selectedFiles);
-
-        // Clear actual input after each change.
-        if (this.inputRef.current) {
-          this.inputRef.current.value = null as any;
-        }
-      }
+    this.props.handleInputChange(
+      selectedFiles ? [...selectedFiles, ...fileArray] : fileArray
     );
+
+    // Clear native input after each change.
+    if (this.inputRef.current) {
+      this.inputRef.current.value = null as any;
+    }
   };
 
-  // Clear a file from the list.
-  private clearFile(fileToClear: File): void {
-    const filteredList = this.state.selectedFiles.filter(
-      file => file !== fileToClear
-    );
+  // Clear a file from the list, and delete from server.
+  private deleteFile = (fileToClear: File, didCancel?: boolean): void => {
+    const { selectedFiles } = this.props;
 
-    this.setState({ selectedFiles: filteredList }, () => {
-      this.props.handleChange(this.state.selectedFiles);
-    });
-  }
+    if (selectedFiles) {
+      const file = selectedFiles.find(
+        fileObject => fileObject.file === fileToClear
+      );
+
+      if (file) {
+        file.delete(didCancel).then(() => {
+          this.props.handleInputChange(
+            selectedFiles.filter(fileObject => fileObject !== file)
+          );
+        });
+      }
+    }
+  };
 
   private handleFileChange = (): void => {
     if (this.inputRef.current && this.inputRef.current.files) {
-      this.updateFiles(this.inputRef.current.files);
+      this.addFilesFromInput(this.inputRef.current.files);
     }
   };
 
-  // Default to “fileType: any” if file types have not been specified.
-  private fileTypesString = (
-    fileTypes: string[] | string | undefined
-  ): string => {
-    let resultString = '*';
+  // Remove any/all failed uploads from the selectedFiles list.
+  private clearFailures = (): void => {
+    const { selectedFiles } = this.props;
 
-    if (typeof fileTypes === 'string') {
-      resultString = fileTypes;
-    } else if (Array.isArray(fileTypes)) {
-      resultString = fileTypes.join(', ');
+    if (selectedFiles) {
+      this.props.handleInputChange(
+        selectedFiles.filter(
+          file =>
+            file.status !== 'uploadError' && file.status !== 'deletionError'
+        )
+      );
     }
-
-    return resultString;
   };
 
   render() {
@@ -153,42 +164,113 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
           className={VISUALLYHIDDEN}
           ref={this.inputRef}
           type="file"
-          accept={this.fileTypesString(this.props.fileTypes)}
+          accept="application/pdf"
           multiple
-          id={`FileInput-${this.props.name}`}
-          name={this.props.name}
+          id="uploadSupportingDocuments"
           onChange={this.handleFileChange}
           onBlur={() => this.setFocus(false)}
           onFocus={() => this.setFocus(true)}
         />
 
         <label
-          htmlFor={`FileInput-${this.props.name}`}
+          htmlFor="uploadSupportingDocuments"
           className={`btn ${this.state.isFocused && LABEL_FOCUSED_STYLING}`}
           style={{ whiteSpace: 'nowrap', fontWeight: 'bold' }}
+          onClick={this.clearFailures}
         >
-          {this.props.title}
+          Upload Supporting Documents
         </label>
 
         <ul className={FILE_LIST_STYLING}>
-          {this.state.selectedFiles.map(file => (
-            <li key={file.name}>
-              {/* this instead of list-style to avoid ie11 formatting issue */}
-              <span aria-hidden="true">•</span>
+          {this.props.selectedFiles &&
+            this.props.selectedFiles.map(uploadedFile => (
+              <li key={uploadedFile.file.name}>
+                {/* this instead of list-style to avoid ie11 formatting issue */}
+                <span className="name">
+                  <span aria-hidden="true">•</span>
 
-              <span>{file.name}</span>
+                  <span>{uploadedFile.file.name}</span>
+                </span>
 
-              <CloseButton
-                handleClick={() => this.clearFile(file)}
-                className={DELETE_BUTTON_STYLING}
-                size="1.7em"
-                title={`Remove file: ${file.name}`}
-              />
-            </li>
-          ))}
+                {uploadedFile.status === 'canceling' ||
+                uploadedFile.status === 'deleting' ? (
+                  <span className={STATUS_TEXT_STYLING}>
+                    {uploadedFile.status}…
+                  </span>
+                ) : (
+                  <FileButton
+                    uploadableFile={uploadedFile}
+                    deleteFile={this.deleteFile}
+                  />
+                )}
+              </li>
+            ))}
         </ul>
       </div>
     );
+  }
+}
+
+interface FileButtonProps {
+  uploadableFile: UploadableFile;
+  deleteFile: (file: File, didCancel?: boolean) => void;
+}
+
+function FileButton(props: FileButtonProps): JSX.Element {
+  const { file, status } = props.uploadableFile;
+
+  if (status === 'success') {
+    return (
+      <CloseButton
+        handleClick={() => props.deleteFile(file)}
+        className={DELETE_BUTTON_STYLING}
+        size="1.7em"
+        title={`Remove file: ${file.name}`}
+      />
+    );
+  } else if (status === 'uploading') {
+    return (
+      <div className={UPLOADING_CONTAINER_STYLING}>
+        <progress
+          max="100"
+          aria-hidden="true"
+          value={props.uploadableFile.progress}
+          className={UPLOADING_PROGRESS_STYLING}
+          title={`${props.uploadableFile.progress.toFixed(0)}% uploaded`}
+        />
+
+        <CloseButton
+          handleClick={() => props.deleteFile(file, true)}
+          className={DELETE_BUTTON_STYLING}
+          size="1.7em"
+          title={`Cancel upload: ${file.name}`}
+        />
+      </div>
+    );
+  } else if (status === 'uploadError') {
+    return (
+      <button
+        type="button"
+        onClick={() => props.uploadableFile.upload()}
+        className={ERROR_CONTAINER_STYLING}
+      >
+        <AnswerIcon iconName={'excl'} />
+        <span>Upload failed. Retry?</span>
+      </button>
+    );
+  } else if (status === 'deletionError') {
+    return (
+      <button
+        type="button"
+        onClick={() => props.uploadableFile.upload()}
+        className={ERROR_CONTAINER_STYLING}
+      >
+        <AnswerIcon iconName={'excl'} />
+        <span>Failed to delete. Retry?</span>
+      </button>
+    );
+  } else {
+    return <></>;
   }
 }
 
@@ -256,27 +338,86 @@ const FILE_LIST_STYLING = css({
   paddingLeft: 0,
   li: {
     display: 'flex',
+    flexWrap: 'wrap',
     alignItems: 'center',
     marginBottom: '1rem',
+    marginLeft: '0.5rem',
 
-    button: {
+    [MEDIA_SMALL]: {
       marginLeft: '1rem',
     },
 
-    'span:first-of-type': {
-      margin: '0 1rem',
-      fontSize: '1.2em',
+    '.name > span:last-of-type': {
+      margin: '0 0.5rem',
+
+      [MEDIA_SMALL]: {
+        margin: '0 1rem',
+      },
     },
   },
 });
 
-const DELETE_BUTTON_STYLING = css(`
-  margin-left: 0.2em;
-  
-  opacity: 0.6;
-  transition: opacity 0.15s;
-  
-  &:hover {
-    opacity: 1;
-  }
-`);
+const STATUS_TEXT_STYLING = css({
+  textTransform: 'capitalize',
+  fontStyle: 'italic',
+  color: ERROR_TEXT_COLOR,
+});
+
+const UPLOADING_CONTAINER_STYLING = css({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+const UPLOADING_PROGRESS_STYLING = css({
+  marginRight: '0.5rem',
+  height: '0.5rem',
+  border: `1px solid ${CHARLES_BLUE}`,
+  backgroundColor: '#fff',
+
+  '::-webkit-progress-bar': {
+    backgroundColor: '#fff',
+  },
+
+  '::-webkit-progress-value': {
+    transition: 'width 0.5s',
+
+    backgroundColor: OPTIMISTIC_BLUE_LIGHT,
+  },
+
+  '::-moz-progress-bar': {
+    backgroundColor: OPTIMISTIC_BLUE_LIGHT,
+  },
+
+  '::-ms-fill': {
+    backgroundColor: OPTIMISTIC_BLUE_LIGHT,
+  },
+});
+
+const ERROR_CONTAINER_STYLING = css({
+  padding: 0,
+  backgroundColor: 'rgba(0,0,0,0)',
+  border: 'none',
+  fontSize: 'inherit',
+  cursor: 'pointer',
+
+  display: 'flex',
+  alignItems: 'center',
+  fontFamily: SERIF,
+  fontStyle: 'italic',
+  color: ERROR_TEXT_COLOR,
+
+  svg: {
+    height: '1.2em',
+    width: '1.2em',
+    marginRight: '0.5rem',
+  },
+});
+
+const DELETE_BUTTON_STYLING = css({
+  opacity: 0.6,
+  transition: 'opacity 0.15s',
+
+  '&:hover': {
+    opacity: 1,
+  },
+});

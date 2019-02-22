@@ -1,4 +1,5 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 
 import { css } from 'emotion';
 
@@ -13,11 +14,17 @@ import FieldsetComponent from '../components/FieldsetComponent';
 import SupportingDocumentsInput from './SupportingDocumentsInput';
 import IdIcon from '../icons/IdIcon';
 
+import UploadableFile from '../../models/UploadableFile';
+import { BirthCertificateRequestInformation } from '../../types';
+
 import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_STYLING } from '../styling';
 
 interface Props {
+  requestInformation: BirthCertificateRequestInformation;
   sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
-  updateSupportingDocuments: (documents: File[]) => void;
+  uploadSessionId: string;
+  supportingDocuments?: UploadableFile[];
+  updateSupportingDocuments: (documents: UploadableFile[]) => void;
   updateIdImages: (side: string, image: any) => void;
   isComplete?: (status: boolean) => void;
   registryMessage?: string;
@@ -35,22 +42,28 @@ interface State {
  * identification verification. User will also have the ability to take photos
  * with their current device, if possible.
  */
+
+@observer
 export default class VerifyIdentificationComponent extends React.Component<
   Props,
   State
 > {
   state: State = {
-    requireSupportingDocuments: false,
+    // If user has already submitted documents, show them when component mounts.
+    requireSupportingDocuments: !!(
+      this.props.supportingDocuments &&
+      this.props.supportingDocuments.length > 0
+    ),
     hasIdFront: false,
     hasIdBack: false,
     hasDocuments: false,
   };
 
-  // User cannot proceed before submitting a front and back scan of their ID.
+  // User cannot proceed before submitting a front scan of their ID.
   // They must also submit supporting documents before proceeding, if those
   // are required.
   private checkIsComplete() {
-    const idComplete = this.state.hasIdFront && this.state.hasIdBack;
+    // const idComplete = this.state.hasIdFront && this.state.hasIdBack;
 
     if (!this.props.isComplete) {
       return;
@@ -59,19 +72,22 @@ export default class VerifyIdentificationComponent extends React.Component<
     if (this.props.sectionsToDisplay === 'supportingDocumentsOnly') {
       this.props.isComplete(this.state.hasDocuments);
     } else if (
-      idComplete &&
+      this.state.hasIdFront &&
       this.state.requireSupportingDocuments &&
       this.state.hasDocuments
     ) {
       this.props.isComplete(true);
-    } else if (idComplete && !this.state.requireSupportingDocuments) {
+    } else if (
+      this.state.hasIdFront &&
+      !this.state.requireSupportingDocuments
+    ) {
       this.props.isComplete(true);
     } else {
       this.props.isComplete(false);
     }
   }
 
-  handleSupportingDocumentsChange = (documents: File[]): void => {
+  handleSupportingDocumentsChange = (documents: UploadableFile[]): void => {
     this.setState({ hasDocuments: !!documents.length });
 
     this.props.updateSupportingDocuments(documents);
@@ -110,6 +126,8 @@ export default class VerifyIdentificationComponent extends React.Component<
   }
 
   renderAll() {
+    const { idImageBack, idImageFront } = this.props.requestInformation;
+
     return (
       <>
         <h2 className={SECTION_HEADING_STYLING}>Verify your identity</h2>
@@ -120,18 +138,17 @@ export default class VerifyIdentificationComponent extends React.Component<
           </p>
         ) : (
           <p className={SUPPORTING_TEXT_STYLING}>
-            Since the record you’re ordering may have an access restriction, you
-            must upload a valid form of identification (i.e. driver’s license,
-            state ID, military ID, or passport) before we can process your
-            request.
+            Under state law, the record you’re ordering may have an access
+            restriction. You must upload a valid form of identification before
+            we can process your request.
           </p>
         )}
 
         <p>
           <em>Please note</em>: You must be a person or parent listed on the
-          record in order to get a copy of the record. If you are not listed on
-          the record, you will not be able to get a copy. Your request will be
-          canceled and your card will not be charged. Contact{' '}
+          record to get a copy of the record. If you are not listed on the
+          record, you will not be able to get a copy. We will cancel your
+          request and will not charge your card. Contact{' '}
           <a href="mailto:birth@boston.gov">birth@boston.gov</a> with questions.
         </p>
 
@@ -153,8 +170,10 @@ export default class VerifyIdentificationComponent extends React.Component<
         <div className="g">
           <div className="g--6 m-v500">
             <UploadPhoto
-              uploadProgress={null}
-              errorMessage={null}
+              initialFile={idImageFront ? idImageFront.file : null}
+              previewHeight={205}
+              uploadProgress={idImageFront && idImageFront.progress}
+              errorMessage={idImageFront && idImageFront.errorMessage}
               handleDrop={file => this.handleIdImageChange('front', file)}
               handleRemove={() => this.handleIdImageChange('front', null)}
               backgroundElement={<IdImage name="front" />}
@@ -164,8 +183,10 @@ export default class VerifyIdentificationComponent extends React.Component<
 
           <div className="g--6 m-v500">
             <UploadPhoto
-              uploadProgress={null}
-              errorMessage={null}
+              initialFile={idImageBack ? idImageBack.file : null}
+              previewHeight={205}
+              uploadProgress={idImageBack && idImageBack.progress}
+              errorMessage={idImageBack && idImageBack.errorMessage}
               handleDrop={file => this.handleIdImageChange('back', file)}
               handleRemove={() => this.handleIdImageChange('back', null)}
               backgroundElement={<IdImage name="back" />}
@@ -241,11 +262,9 @@ export default class VerifyIdentificationComponent extends React.Component<
         <p>Files should be PDF format, and under 10MB each.</p>
 
         <SupportingDocumentsInput
-          name="supporting"
-          title="Upload supporting documents"
-          fileTypes={['application/pdf']}
-          sizeLimit={{ amount: 10, unit: 'MB' }}
-          handleChange={this.handleSupportingDocumentsChange}
+          uploadSessionId={this.props.uploadSessionId}
+          selectedFiles={this.props.supportingDocuments}
+          handleInputChange={this.handleSupportingDocumentsChange}
         />
       </div>
     );
@@ -254,15 +273,17 @@ export default class VerifyIdentificationComponent extends React.Component<
 
 function IdImage(props: { name: string }): JSX.Element {
   return (
-    <div className={ID_IMAGE_STYLING}>
+    <div className={`${PREVIEW_IMAGE_STYLING} id`}>
       <IdIcon side={props.name} />
     </div>
   );
 }
 
-const ID_IMAGE_STYLING = css({
+const PREVIEW_IMAGE_STYLING = css({
   backgroundColor: OPTIMISTIC_BLUE_LIGHT,
   color: BLACK,
 
-  padding: '2rem 4rem',
+  '&.id': {
+    padding: '2rem 4rem',
+  },
 });

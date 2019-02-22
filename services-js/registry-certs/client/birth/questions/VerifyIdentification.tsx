@@ -5,6 +5,7 @@ import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 import QuestionComponent from '../components/QuestionComponent';
 import VerifyIdentificationComponent from '../components/VerifyIdentificationComponent';
+import UploadableFile from '../../models/UploadableFile';
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
@@ -15,6 +16,8 @@ interface Props {
 interface State {
   canProceed: boolean;
 }
+
+// todo: remove placeholderUploadSessionId s
 
 @observer
 export default class VerifyIdentification extends React.Component<
@@ -29,25 +32,34 @@ export default class VerifyIdentification extends React.Component<
     this.setState({ canProceed });
   };
 
-  updateSupportingDocuments = (documents: File[]): void => {
+  updateSupportingDocuments = (documents: UploadableFile[]): void => {
     this.props.birthCertificateRequest.answerQuestion({
       supportingDocuments: documents,
     });
   };
 
-  updateIdImage = (side: string, file: any): void => {
+  updateIdImage = (side: string, file: File): void => {
+    const uploadableFile = new UploadableFile(
+      file,
+      'placeholderUploadSessionId'
+    );
+
     if (side === 'front') {
       this.props.birthCertificateRequest.answerQuestion({
-        idImageFront: file,
+        idImageFront: uploadableFile,
       });
     } else if (side === 'back') {
       this.props.birthCertificateRequest.answerQuestion({
-        idImageBack: file,
+        idImageBack: uploadableFile,
       });
     }
   };
 
   render() {
+    const {
+      supportingDocuments,
+    } = this.props.birthCertificateRequest.requestInformation;
+
     return (
       <QuestionComponent
         allowProceed={this.state.canProceed}
@@ -56,7 +68,12 @@ export default class VerifyIdentification extends React.Component<
         nextButtonText="Review request"
       >
         <VerifyIdentificationComponent
+          requestInformation={
+            this.props.birthCertificateRequest.requestInformation
+          }
           sectionsToDisplay="all"
+          uploadSessionId="placeholderUploadSessionId"
+          supportingDocuments={supportingDocuments}
           updateSupportingDocuments={this.updateSupportingDocuments}
           updateIdImages={this.updateIdImage}
           isComplete={this.isComplete}
