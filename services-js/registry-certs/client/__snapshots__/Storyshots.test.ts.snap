@@ -425,7 +425,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                   Please allow 2–3 business days for us to process your order.
                 </strong>
                  
-                Your order will be shipped via USPS to the shipping address you provided.
+                Your order will be shipped via U.S. Postal Service to the shipping address you provided.
               </p>
               <p
                 className="t--info"
@@ -34972,7 +34972,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
       <div
          style=\\"font-family:Montserrat, sans-serif;font-size:20px;font-weight:bold;line-height:1.8;text-align:left;text-transform:uppercase;color:#000000;\\"
       >
-        Your order has been cancelled
+        Your order has been canceled
       </div>
     
               </td>
@@ -35179,7 +35179,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         If you would like to place a new order, visit
-                <a href=\\"https://registry.boston.gov/birth\\">registry.boston.gov/birth</a>.
+                <a href=\\"https://www.boston.gov/birth\\">boston.gov/birth</a>.
       </div>
     
               </td>
@@ -35384,7 +35384,7 @@ exports[`Storyshots Email/Birth Expired text 1`] = `
   <pre>
     City of Boston
 
-Your order has been cancelled
+Your order has been canceled
 
 Date: 1/8/2018 2:05PM
 Order ID: RG-DC201801-100001
@@ -35393,7 +35393,7 @@ We have canceled your birth certificate request and removed
 the hold from your card. Your card will not be charged.
 
 If you would like to place a new order, visit 
-https://registry.boston.gov/birth
+https://www.boston.gov/birth
 
 Have any questions? Contact the Registry at 
 birth@boston.gov.
@@ -35931,7 +35931,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 2 business days we will cancel the order without charge.
+        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days we will cancel the order without charge.
       </div>
     
               </td>
@@ -36173,7 +36173,7 @@ We have received your order. You will be charged when your
 certificates ship.
 
 We will contact you if we need more information to fulfill 
-the order. If we contact you but do not hear back within 2 
+the order. If we contact you but do not hear back within 3 
 business days we will cancel the order without charge.
 
 * You are charged an extra service fee of not more than 
@@ -36541,7 +36541,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        We’ve processed your order and charged your card. Your order is being shipped via USPS to the shipping address you provided.
+        We’ve processed your order and charged your card. Your order is being shipped via U.S. Postal Service to the shipping address you provided.
       </div>
     
               </td>

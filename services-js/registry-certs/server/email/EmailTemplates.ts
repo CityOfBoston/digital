@@ -153,7 +153,7 @@ export class EmailTemplates {
 
         belowOrderText: [
           'We have received your order. You will be charged when your certificates ship.',
-          'We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 2 business days we will cancel the order without charge.',
+          'We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days we will cancel the order without charge.',
         ],
       },
       `City of Boston Birth Certificate Order #${receipt.orderId}`
@@ -179,7 +179,7 @@ export class EmailTemplates {
         })),
 
         aboveOrderText: [
-          'We’ve processed your order and charged your card. Your order is being shipped via USPS to the shipping address you provided.',
+          'We’ve processed your order and charged your card. Your order is being shipped via U.S. Postal Service to the shipping address you provided.',
         ],
       },
       `City of Boston Birth Certificate Order #${receipt.orderId}`
