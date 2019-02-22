@@ -10576,7 +10576,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               className="g g--mr m-t700"
             >
               <div
-                className="g--9 css-1nvk2mp"
+                className="g--9 t--info"
               >
                 <div
                   className="css-1hndia5"
@@ -10602,18 +10602,6 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                     </span>
                   </button>
                 </div>
-                <button
-                  className="lnk cancel"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  <span
-                    aria-hidden="true"
-                  >
-                    ←
-                  </span>
-                   Cancel and start over
-                </button>
               </div>
               <button
                 className="btn g--3"
@@ -10621,6 +10609,17 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 type="button"
               >
                 Continue
+              </button>
+            </div>
+            <div
+              className="ta-c m-t700 p-a300 t--sans"
+            >
+              <button
+                className="lnk cancel tt-u"
+                onClick={[Function]}
+                type="button"
+              >
+                Cancel and start over
               </button>
             </div>
           </section>
