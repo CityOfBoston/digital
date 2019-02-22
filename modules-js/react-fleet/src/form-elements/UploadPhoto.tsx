@@ -207,11 +207,14 @@ export default class UploadPhoto extends React.Component<Props, State> {
               {buttonTitle}
             </button>
 
-            {isUploading && (
+            {/* empty element is necessary to prevent anything other than the <div> from ever being displayed */}
+            {isUploading ? (
               <div
                 className={PROGRESS_STYLING}
                 style={{ width: `${uploadProgress}%` }}
               />
+            ) : (
+              <></>
             )}
           </div>
         </div>

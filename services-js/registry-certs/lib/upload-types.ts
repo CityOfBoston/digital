@@ -9,3 +9,10 @@ export type UploadResponse = {
   attachmentKey: string;
   filename: string;
 };
+
+export type UploadErrorResponse = {
+  error: {
+    code: number;
+    message: string;
+  };
+};

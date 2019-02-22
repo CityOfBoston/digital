@@ -21,7 +21,7 @@ import { observer } from 'mobx-react';
 
 interface Props {
   uploadSessionId: string;
-  selectedFiles?: UploadableFile[];
+  selectedFiles: UploadableFile[];
   handleInputChange(files: UploadableFile[]): void;
 }
 
@@ -91,7 +91,6 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
     for (let i = 0; i < files.length; i++) {
       // Do not allow duplicate filenames, or files that are too large.
       if (
-        selectedFiles &&
         !selectedFiles.find(
           uploadableFile => uploadableFile.file.name === files[i].name
         ) &&
@@ -119,21 +118,22 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
   };
 
   // Clear a file from the list, and delete from server.
-  private deleteFile = (fileToClear: File, didCancel?: boolean): void => {
+  private deleteFile = async (
+    fileToClear: File,
+    didCancel?: boolean
+  ): Promise<void> => {
     const { selectedFiles } = this.props;
 
-    if (selectedFiles) {
-      const file = selectedFiles.find(
-        fileObject => fileObject.file === fileToClear
-      );
+    const file = selectedFiles.find(
+      fileObject => fileObject.file === fileToClear
+    );
 
-      if (file) {
-        file.delete(didCancel).then(() => {
-          this.props.handleInputChange(
-            selectedFiles.filter(fileObject => fileObject !== file)
-          );
-        });
-      }
+    if (file) {
+      await file.delete(didCancel);
+
+      this.props.handleInputChange(
+        selectedFiles.filter(fileObject => fileObject !== file)
+      );
     }
   };
 
@@ -143,18 +143,13 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
     }
   };
 
-  // Remove any/all failed uploads from the selectedFiles list.
+  // Remove any and all failed uploads from the selectedFiles list.
   private clearFailures = (): void => {
-    const { selectedFiles } = this.props;
-
-    if (selectedFiles) {
-      this.props.handleInputChange(
-        selectedFiles.filter(
-          file =>
-            file.status !== 'uploadError' && file.status !== 'deletionError'
-        )
-      );
-    }
+    this.props.handleInputChange(
+      this.props.selectedFiles.filter(
+        file => file.status !== 'uploadError' && file.status !== 'deletionError'
+      )
+    );
   };
 
   render() {

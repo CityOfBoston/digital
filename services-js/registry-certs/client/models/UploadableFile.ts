@@ -1,4 +1,3 @@
-import 'isomorphic-fetch';
 import { observable, computed, action, runInAction } from 'mobx';
 
 import getConfig from 'next/config';

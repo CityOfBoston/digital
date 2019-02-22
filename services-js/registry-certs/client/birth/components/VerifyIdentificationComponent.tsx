@@ -263,7 +263,7 @@ export default class VerifyIdentificationComponent extends React.Component<
 
         <SupportingDocumentsInput
           uploadSessionId={this.props.uploadSessionId}
-          selectedFiles={this.props.supportingDocuments}
+          selectedFiles={this.props.supportingDocuments || []}
           handleInputChange={this.handleSupportingDocumentsChange}
         />
       </div>

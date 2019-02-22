@@ -2535,12 +2535,6 @@ Array [
         </button>
       </div>
     </div>
-    <div
-      className="t--info p-a300 css-udegvj"
-    >
-      Error: 
-      server error
-    </div>
   </div>,
   <img
     alt=""

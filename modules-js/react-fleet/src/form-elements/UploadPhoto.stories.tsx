@@ -44,11 +44,7 @@ storiesOf('Form Elements/Upload photo', module)
   .add('displaying image File from data store', () => (
     <>
       <div style={{ width: 400 }}>
-        <UploadPhoto
-          errorMessage="server error"
-          handleDrop={() => {}}
-          handleRemove={() => {}}
-        />
+        <UploadPhoto handleDrop={() => {}} handleRemove={() => {}} />
       </div>
       <img
         src="https://placebear.com/400/300"

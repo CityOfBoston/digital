@@ -3,17 +3,24 @@ import { autorun } from 'mobx';
 
 import UploadableFile, { Status } from './UploadableFile';
 
+import deleteBirthCertificateUploadedFile from '../queries/delete-birth-certificate-uploaded-file';
+import { UploadErrorResponse, UploadResponse } from '../../lib/upload-types';
+
 jest.mock('../queries/delete-birth-certificate-uploaded-file');
 
-import deleteBirthCertificateUploadedFile from '../queries/delete-birth-certificate-uploaded-file';
 const deleteBirthCertificateUploadedFileMock: jest.MockInstance<
   ReturnType<typeof deleteBirthCertificateUploadedFile>,
   Parameters<typeof deleteBirthCertificateUploadedFile>
 > = deleteBirthCertificateUploadedFile as any;
 
-const serverSuccessResponse = '{"filename":"sample.pdf","attachmentKey":"17"}';
-const serverErrorResponse =
-  '{"error":{"code":500,"message":"Internal Server Error"}}';
+const serverSuccessResponse: UploadResponse = {
+  filename: 'sample.pdf',
+  attachmentKey: '17',
+};
+
+const serverErrorResponse: UploadErrorResponse = {
+  error: { code: 500, message: 'Internal Server Error' },
+};
 
 describe('UploadableFile', () => {
   afterEach(() => nock.cleanAll());

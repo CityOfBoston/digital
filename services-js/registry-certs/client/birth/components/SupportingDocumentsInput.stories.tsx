@@ -16,6 +16,7 @@ function sampleFile(status: Status, progress?: number) {
 storiesOf('Birth/SupportingDocumentsInput', module)
   .add('empty', () => (
     <SupportingDocumentsInput
+      selectedFiles={[]}
       uploadSessionId="id"
       handleInputChange={() => {}}
     />
