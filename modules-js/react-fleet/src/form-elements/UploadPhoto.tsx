@@ -15,6 +15,8 @@ interface DropzoneFile extends File {
 }
 
 interface Props {
+  initialFile?: File;
+  previewHeight?: number;
   backgroundElement?: JSX.Element;
   buttonTitleUpload?: string;
   buttonTitleRemove?: string;
@@ -39,7 +41,8 @@ interface State {
  *
  * Default appearance can be customized by passing an element into the
  * backgroundElement property; when an image has been selected, its’ preview
- * will be the same height as that initial element.
+ * will be the same height as that initial element. You may also pass in a
+ * static value for the previewHeight.
  *
  * adapted from /services-js/311/components/request/request/QuestionsPane.tsx
  */
@@ -54,13 +57,22 @@ export default class UploadPhoto extends React.Component<Props, State> {
   };
 
   state: State = {
-    file: null,
-    previewHeight: 0,
+    file: this.props.initialFile
+      ? this.returnDropzoneFile(this.props.initialFile)
+      : null,
+    previewHeight: this.props.previewHeight || 0,
   };
+
+  private returnDropzoneFile(file: File): DropzoneFile {
+    return Object.assign(file, {
+      preview: URL.createObjectURL(file),
+    });
+  }
 
   // In order to maintain the height of the component, we measure the initial
   // appearance element when the component mounts. If the browser window is
-  // resized, the height is remeasured and updated.
+  // resized, the height is remeasured and updated. If initialHeight has been
+  // passed in as a prop, the listeners that call this method are not added.
   private getPreviewElementInformation = () => {
     const domRect =
       this.previewRef.current &&
@@ -74,9 +86,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
   private onDrop = (files: File[]): void => {
     this.setState(
       {
-        file: Object.assign(files[0], {
-          preview: URL.createObjectURL(files[0]),
-        }),
+        file: this.returnDropzoneFile(files[0]),
       },
       () => {
         this.state.file && this.props.handleDrop(this.state.file);
@@ -111,9 +121,11 @@ export default class UploadPhoto extends React.Component<Props, State> {
   };
 
   componentDidMount() {
-    this.getPreviewElementInformation();
+    if (!this.props.previewHeight) {
+      this.getPreviewElementInformation();
 
-    window.addEventListener('resize', this.getPreviewElementInformation);
+      window.addEventListener('resize', this.getPreviewElementInformation);
+    }
   }
 
   componentWillUnmount() {
@@ -123,7 +135,9 @@ export default class UploadPhoto extends React.Component<Props, State> {
       URL.revokeObjectURL(this.state.file.preview);
     }
 
-    window.removeEventListener('resize', this.getPreviewElementInformation);
+    if (!this.props.previewHeight) {
+      window.removeEventListener('resize', this.getPreviewElementInformation);
+    }
   }
 
   render() {
@@ -193,11 +207,14 @@ export default class UploadPhoto extends React.Component<Props, State> {
               {buttonTitle}
             </button>
 
-            {isUploading && (
+            {/* empty element is necessary to prevent anything other than the <div> from ever being displayed */}
+            {isUploading ? (
               <div
                 className={PROGRESS_STYLING}
                 style={{ width: `${uploadProgress}%` }}
               />
+            ) : (
+              <></>
             )}
           </div>
         </div>

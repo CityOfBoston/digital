@@ -40,6 +40,19 @@ storiesOf('Form Elements/Upload photo', module)
         handleRemove={() => {}}
       />
     </div>
+  ))
+  .add('displaying image File from data store', () => (
+    <>
+      <div style={{ width: 400 }}>
+        <UploadPhoto handleDrop={() => {}} handleRemove={() => {}} />
+      </div>
+      <img
+        src="https://placebear.com/400/300"
+        id="samplePhoto"
+        alt=""
+        style={{ visibility: 'hidden' }}
+      />
+    </>
   ));
 
 function IdImage(): JSX.Element {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ANSWER_ICON_STYLING } from '../styling';
 
-type IconName = 'checkMark' | 'questionMark' | 'xSymbol';
+type IconName = 'checkMark' | 'questionMark' | 'xSymbol' | 'excl';
 
 interface Props {
   iconName: IconName;
@@ -52,5 +52,12 @@ const iconElements = {
         transform="translate(-27.437 -21.605)"
       />
     </g>
+  ),
+  excl: (
+    <path
+      d="M97.42,102.13a2.8,2.8,0,0,1,5.58,0,2.79,2.79,0,0,1-5.58,0Zm.09-17.93h5.41L102,97.48h-3.6Z"
+      fill="currentColor"
+      transform="translate(-110 -101) scale(1.4)"
+    />
   ),
 };

@@ -44,8 +44,9 @@ import Emails from './services/Emails';
 import { processStripeEvent } from './stripe-events';
 
 import schema, { Context, Source } from './graphql';
-import { PACKAGE_SRC_ROOT, AnnotatedFilePart } from './util';
+import { AnnotatedFilePart, PACKAGE_SRC_ROOT } from './util';
 import { makeEmailTemplates } from './email/EmailTemplates';
+import { UploadPayload, UploadResponse } from '../lib/upload-types';
 
 type ServerArgs = {
   rollbar: Rollbar;
@@ -60,13 +61,6 @@ declare module 'hapi' {
     key: string;
   }
 }
-
-type UploadPayload = {
-  type: string;
-  uploadSessionId: string;
-  label?: string;
-  file: AnnotatedFilePart | Array<AnnotatedFilePart>;
-};
 
 const port = parseInt(process.env.PORT || '3000', 10);
 
@@ -313,13 +307,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
         },
       },
     },
-    handler: async req => {
+    handler: async (req): Promise<UploadResponse> => {
       const {
         type,
         file,
         label,
         uploadSessionId,
-      }: UploadPayload = req.payload as any;
+      }: UploadPayload<AnnotatedFilePart> = req.payload as any;
 
       if (type !== 'BC') {
         throw Boom.badData(
@@ -327,25 +321,21 @@ export async function makeServer({ rollbar }: ServerArgs) {
         );
       }
 
-      const fileParts = ([] as AnnotatedFilePart[]).concat(file);
-
       if (!uploadSessionId) {
         throw Boom.badData('No uploadSessionId provided');
       }
 
       const db = registryDbFactory.registryDb();
 
-      const attachmentKeys = await db.uploadBirthAttachments(
+      const attachmentKey = await db.uploadBirthAttachment(
         uploadSessionId,
         label || null,
-        fileParts
+        file
       );
 
       return {
-        files: fileParts.map(({ filename }, i) => ({
-          filename,
-          attachmentKey: attachmentKeys[i],
-        })),
+        attachmentKey,
+        filename: file.filename,
       };
     },
   });
