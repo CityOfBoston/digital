@@ -1,51 +1,66 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import headerHtml from '../../templates/header.html';
 
+/**
+ * Common header element for City of Boston React applications.
+ *
+ * When the City Seal is visible in the header, it will slide up halfway out of
+ * view when a user scrolls past ~310px. When the user has scrolled back to the
+ * top of the document, the seal will slide back to its original position.
+ */
 export default function Header(
   props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
 ) {
+  const [scrollPosition, setScrollPosition] = useState(0);
   let className = 'h';
-  let isScrolling;
 
   if (props.className) {
     className = `${className} ${props.className}`;
   }
 
-  // When the City seal is visible in the header, it should slide halfway out
-  // of view when a user scrolls past ~310px. When scrolling back towards the
-  // top, the seal should slide back to its original position.
-  function handleScroll(): void {
-    window.clearTimeout(isScrolling);
+  useEffect(() => {
+    let lastPos: number = 0;
+    let isScrolling: boolean = false;
 
-    isScrolling = window.setTimeout(() => handleScrollStop(), 1000);
-  }
+    const handleScroll = (): void => {
+      lastPos = window.scrollY;
+
+      if (!isScrolling) {
+        window.requestAnimationFrame(() => {
+          setScrollPosition(lastPos);
+
+          handleScrollStop();
+
+          isScrolling = false;
+        });
+
+        isScrolling = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
 
   function handleScrollStop(): void {
     const sealElement = document.getElementById('seal');
 
-    if (sealElement && isSealVisible()) {
-      if (window.pageYOffset > 310) {
+    if (!isSealVisible()) {
+      return;
+    }
+
+    if (sealElement) {
+      if (scrollPosition > 310) {
         sealElement.classList.add('s--u');
       } else {
         sealElement.classList.remove('s--u');
       }
-    } else {
-      // The listener is unnecessary if the seal is not visible, so remove it.
-      window.removeEventListener('scroll', handleScroll);
     }
   }
-
-  window.addEventListener('scroll', handleScroll);
-
-  // Ensure that seal show/hide behavior is present, even in cases where the
-  // seal was not visible on initial page load, and the user resizes their
-  // browser window large enough that the seal will be visible.
-  window.addEventListener('resize', () => {
-    if (isSealVisible()) {
-      window.addEventListener('scroll', handleScroll);
-    }
-  });
 
   return (
     <>
@@ -60,6 +75,10 @@ export default function Header(
   );
 }
 
+/**
+ * The City Seal is only visible at the widest breakpoints, but always exists
+ * in the DOM.
+ */
 function isSealVisible(): boolean {
   const sealElement = document.getElementById('seal');
   const sealElementDisplay = sealElement
