@@ -79,7 +79,7 @@ export async function addLoginAuth(
         assertUrl,
       },
       process.env.PING_HOST
-        ? `https://${process.env.PING_HOST}/idp/startSLO.ping`
+        ? `https://${process.env.PING_HOST}/idp/SLO.saml2`
         : ''
     );
   } else {
