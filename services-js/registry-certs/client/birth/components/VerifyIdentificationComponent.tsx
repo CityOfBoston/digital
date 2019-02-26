@@ -4,10 +4,10 @@ import { observer } from 'mobx-react';
 import { css } from 'emotion';
 
 import {
-  Radio,
   UploadPhoto,
   BLACK,
   OPTIMISTIC_BLUE_LIGHT,
+  ContactForm,
 } from '@cityofboston/react-fleet';
 
 import FieldsetComponent from '../components/FieldsetComponent';
@@ -15,26 +15,19 @@ import SupportingDocumentsInput from './SupportingDocumentsInput';
 import IdIcon from '../icons/IdIcon';
 
 import UploadableFile from '../../models/UploadableFile';
-import { BirthCertificateRequestInformation } from '../../types';
 
 import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_STYLING } from '../styling';
 
 interface Props {
-  requestInformation: BirthCertificateRequestInformation;
   sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
   uploadSessionId: string;
-  supportingDocuments?: UploadableFile[];
-  updateSupportingDocuments: (documents: UploadableFile[]) => void;
-  updateIdImages: (side: string, image: any) => void;
-  isComplete?: (status: boolean) => void;
-  registryMessage?: string;
-}
 
-interface State {
-  requireSupportingDocuments: boolean;
-  hasIdFront: boolean;
-  hasIdBack: boolean;
-  hasDocuments: boolean;
+  supportingDocuments: UploadableFile[];
+  updateSupportingDocuments: (documents: UploadableFile[]) => void;
+
+  idImageBack?: UploadableFile | null;
+  idImageFront?: UploadableFile | null;
+  updateIdImages: (side: string, image: any) => void;
 }
 
 /**
@@ -45,77 +38,17 @@ interface State {
 
 @observer
 export default class VerifyIdentificationComponent extends React.Component<
-  Props,
-  State
+  Props
 > {
-  state: State = {
-    // If user has already submitted documents, show them when component mounts.
-    requireSupportingDocuments: !!(
-      this.props.supportingDocuments &&
-      this.props.supportingDocuments.length > 0
-    ),
-    hasIdFront: false,
-    hasIdBack: false,
-    hasDocuments: false,
-  };
-
-  // User cannot proceed before submitting a front scan of their ID.
-  // They must also submit supporting documents before proceeding, if those
-  // are required.
-  private checkIsComplete() {
-    // const idComplete = this.state.hasIdFront && this.state.hasIdBack;
-
-    if (!this.props.isComplete) {
-      return;
-    }
-
-    if (this.props.sectionsToDisplay === 'supportingDocumentsOnly') {
-      this.props.isComplete(this.state.hasDocuments);
-    } else if (
-      this.state.hasIdFront &&
-      this.state.requireSupportingDocuments &&
-      this.state.hasDocuments
-    ) {
-      this.props.isComplete(true);
-    } else if (
-      this.state.hasIdFront &&
-      !this.state.requireSupportingDocuments
-    ) {
-      this.props.isComplete(true);
-    } else {
-      this.props.isComplete(false);
-    }
-  }
-
-  handleSupportingDocumentsChange = (documents: UploadableFile[]): void => {
-    this.setState({ hasDocuments: !!documents.length });
-
+  private handleSupportingDocumentsChange = (
+    documents: UploadableFile[]
+  ): void => {
     this.props.updateSupportingDocuments(documents);
   };
 
-  handleIdImageChange = (side: string, image: File | null): void => {
-    if (side === 'front') {
-      this.setState({ hasIdFront: !!image });
-    } else if (side === 'back') {
-      this.setState({ hasIdBack: !!image });
-    }
-
+  private handleIdImageChange = (side: string, image: File | null): void => {
     this.props.updateIdImages(side, image);
   };
-
-  handleBooleanChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({
-      requireSupportingDocuments: event.target.value === 'yes',
-    });
-  };
-
-  // Inform the parent whether or not all required information has been added
-  // by the user, if necessary.
-  componentDidUpdate(_prevProps: Readonly<Props>, prevState: Readonly<State>) {
-    if (prevState !== this.state) {
-      this.checkIsComplete();
-    }
-  }
 
   render() {
     if (this.props.sectionsToDisplay === 'supportingDocumentsOnly') {
@@ -125,40 +58,34 @@ export default class VerifyIdentificationComponent extends React.Component<
     }
   }
 
-  renderAll() {
-    const { idImageBack, idImageFront } = this.props.requestInformation;
+  private renderAll() {
+    const { idImageBack, idImageFront } = this.props;
 
     return (
       <>
         <h2 className={SECTION_HEADING_STYLING}>Verify your identity</h2>
 
-        {this.props.registryMessage ? (
-          <p className={SUPPORTING_TEXT_STYLING}>
-            {this.props.registryMessage}
-          </p>
-        ) : (
-          <p className={SUPPORTING_TEXT_STYLING}>
-            Under state law, the record you’re ordering may have an access
-            restriction. You must upload a valid form of identification before
-            we can process your request.
-          </p>
-        )}
+        <p className={SUPPORTING_TEXT_STYLING}>
+          Under state law, the record you’re ordering may have an access
+          restriction. You must upload a valid form of identification before we
+          can process your request.
+        </p>
 
-        <p>
+        <p className={SUPPORTING_TEXT_STYLING}>
           <em>Please note</em>: You must be a person or parent listed on the
           record to get a copy of the record. If you are not listed on the
           record, you will not be able to get a copy. We will cancel your
           request and will not charge your card. Contact{' '}
-          <a href="mailto:birth@boston.gov">birth@boston.gov</a> with questions.
+          <a
+            href="mailto:birth@boston.gov"
+            onClick={ContactForm.makeMailtoClickHandler(
+              'birth-cert-feedback-form'
+            )}
+          >
+            birth@boston.gov
+          </a>{' '}
+          with questions.
         </p>
-
-        <h3>We accept the following forms of ID:</h3>
-        <ul>
-          <li>Driver’s License</li>
-          <li>State ID</li>
-          <li>Passport</li>
-          <li>Military ID</li>
-        </ul>
 
         <h3
           className={`${SECTION_HEADING_STYLING} secondary m-t700`}
@@ -167,11 +94,18 @@ export default class VerifyIdentificationComponent extends React.Component<
           Upload ID images
         </h3>
 
+        <h3>We accept the following forms of ID:</h3>
+        <ul className="lh--300">
+          <li>Driver’s License</li>
+          <li>State ID</li>
+          <li>Passport</li>
+          <li>Military ID</li>
+        </ul>
+
         <div className="g">
           <div className="g--6 m-v500">
             <UploadPhoto
               initialFile={idImageFront ? idImageFront.file : null}
-              previewHeight={205}
               uploadProgress={idImageFront && idImageFront.progress}
               errorMessage={idImageFront && idImageFront.errorMessage}
               handleDrop={file => this.handleIdImageChange('front', file)}
@@ -184,7 +118,6 @@ export default class VerifyIdentificationComponent extends React.Component<
           <div className="g--6 m-v500">
             <UploadPhoto
               initialFile={idImageBack ? idImageBack.file : null}
-              previewHeight={205}
               uploadProgress={idImageBack && idImageBack.progress}
               errorMessage={idImageBack && idImageBack.errorMessage}
               handleDrop={file => this.handleIdImageChange('back', file)}
@@ -206,23 +139,7 @@ export default class VerifyIdentificationComponent extends React.Component<
             </h3>
           }
         >
-          <Radio
-            name="no"
-            value="no"
-            label="No"
-            checked={!this.state.requireSupportingDocuments}
-            onChange={this.handleBooleanChange}
-          />
-          <Radio
-            name="yes"
-            value="yes"
-            label="Yes"
-            checked={this.state.requireSupportingDocuments}
-            onChange={this.handleBooleanChange}
-          />
-
-          {this.state.requireSupportingDocuments &&
-            this.renderSupportingDocumentsInput()}
+          {this.renderSupportingDocumentsInput()}
         </FieldsetComponent>
 
         <h2 className={`${SECTION_HEADING_STYLING} secondary m-t700`}>
@@ -231,7 +148,14 @@ export default class VerifyIdentificationComponent extends React.Component<
 
         <p className={`${SUPPORTING_TEXT_STYLING} m-b700`}>
           We can help explain your options.{' '}
-          <a>
+          <a
+            href={`mailto:birth@boston.gov?subject=${encodeURIComponent(
+              'Birth Certificate Support Request: No ID'
+            )}`}
+            onClick={ContactForm.makeMailtoClickHandler(
+              'birth-cert-no-id-form'
+            )}
+          >
             Request help <span aria-hidden="true">→</span>
           </a>
         </p>
@@ -239,7 +163,7 @@ export default class VerifyIdentificationComponent extends React.Component<
     );
   }
 
-  renderSupportingDocumentsOnly() {
+  private renderSupportingDocumentsOnly() {
     return (
       <>
         <h2 className={SECTION_HEADING_STYLING}>Upload supporting documents</h2>
@@ -249,24 +173,18 @@ export default class VerifyIdentificationComponent extends React.Component<
           <a href="mailto:birth@boston.gov">birth@boston.gov</a>.
         </p>
 
-        {this.props.registryMessage && <p>{this.props.registryMessage}</p>}
-
         {this.renderSupportingDocumentsInput()}
       </>
     );
   }
 
-  renderSupportingDocumentsInput() {
+  private renderSupportingDocumentsInput() {
     return (
-      <div className="m-t700">
-        <p>Files should be PDF format, and under 10MB each.</p>
-
-        <SupportingDocumentsInput
-          uploadSessionId={this.props.uploadSessionId}
-          selectedFiles={this.props.supportingDocuments || []}
-          handleInputChange={this.handleSupportingDocumentsChange}
-        />
-      </div>
+      <SupportingDocumentsInput
+        uploadSessionId={this.props.uploadSessionId}
+        selectedFiles={this.props.supportingDocuments}
+        handleInputChange={this.handleSupportingDocumentsChange}
+      />
     );
   }
 }

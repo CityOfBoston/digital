@@ -33,6 +33,7 @@ export default class UploadableFile {
   private readonly fetchGraphql: FetchGraphql;
   readonly file: File;
   private readonly uploadSessionId: string;
+  private readonly label: string | undefined;
 
   @observable status: Status;
   @observable progress: number; // 0 - 100
@@ -41,18 +42,14 @@ export default class UploadableFile {
   @observable.ref uploadResponse: UploadResponse | null = null;
   @observable errorMessage: string | null = null;
 
-  constructor(
-    file: File,
-    uploadSessionId: string,
-    status?: Status,
-    progress?: number
-  ) {
+  constructor(file: File, uploadSessionId: string, label?: string) {
     this.fetchGraphql = fetchGraphql();
 
     this.file = file;
+    this.label = label;
     this.uploadSessionId = uploadSessionId;
-    this.status = status || 'idle';
-    this.progress = progress || 0;
+    this.status = 'idle';
+    this.progress = 0;
   }
 
   @action
@@ -62,6 +59,9 @@ export default class UploadableFile {
 
     formData.append('file', this.file);
     formData.append('type', 'BC');
+    if (this.label) {
+      formData.append('label', this.label);
+    }
     formData.append('uploadSessionId', this.uploadSessionId);
 
     uploadRequest.onload = this.handleLoad;
@@ -117,7 +117,7 @@ export default class UploadableFile {
   @action.bound
   handleLoad(ev: ProgressEvent) {
     const xhr = ev.target;
-    let json: any = null;
+    let json: UploadResponse | null = null;
 
     if (!(xhr instanceof XMLHttpRequest)) {
       return;
@@ -128,6 +128,7 @@ export default class UploadableFile {
     } catch (e) {
       this.status = 'uploadError';
       this.errorMessage = xhr.statusText;
+      return;
     }
 
     if (xhr.status >= 200 && xhr.status <= 299) {
@@ -135,12 +136,7 @@ export default class UploadableFile {
       this.uploadResponse = json;
     } else {
       this.status = 'uploadError';
-
-      if (json) {
-        this.errorMessage = json.error.message;
-      } else {
-        this.errorMessage = xhr.statusText;
-      }
+      this.errorMessage = xhr.statusText;
     }
   }
 

@@ -76,7 +76,7 @@ describe('UploadableFile', () => {
     expect(file.status).toBe('deleted');
     expect(deleteBirthCertificateUploadedFileMock).toHaveBeenCalledWith(
       expect.anything(),
-      'sampleId',
+      'test-upload-session-id',
       '17'
     );
   });
@@ -84,12 +84,17 @@ describe('UploadableFile', () => {
   xit('will have the status “deletionError” if file is not deleted from the server', () => {});
 });
 
-function sampleFile(status?: Status, progress?: number) {
-  return new UploadableFile(
-    new File([], 'sample.pdf', { type: 'application/pdf' }),
-    'sampleId',
-    status,
-    progress
+function sampleFile(status: Status = 'idle', progress: number = 0) {
+  return Object.assign(
+    new UploadableFile(
+      new File([], 'sample.pdf', { type: 'application/pdf' }),
+      'test-upload-session-id',
+      'label'
+    ),
+    {
+      status,
+      progress,
+    }
   );
 }
 

@@ -38,17 +38,7 @@ export const SECTION_HEADING_STYLING = css({
   },
 });
 
-export const SUPPORTING_TEXT_STYLING = css({
-  margin: '1.5rem 0 2.5rem',
-
-  a: {
-    fontStyle: 'italic',
-
-    [MEDIA_SMALL]: {
-      marginLeft: '0.5rem',
-    },
-  },
-});
+export const SUPPORTING_TEXT_STYLING = 'lh--400 t--s400 m-b500';
 
 export const RADIOGROUP_STYLING = css({
   margin: '2rem 0 3rem',

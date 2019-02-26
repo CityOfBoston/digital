@@ -69,8 +69,8 @@ export default class PersonalInformation extends React.Component<Props> {
           <p className={SUPPORTING_TEXT_STYLING}>
             If {forSelf ? 'you' : 'they'} changed {forSelf ? 'your' : 'their'}{' '}
             name at some point, please use the name {forSelf ? 'you' : 'they'}{' '}
-            were given at birth.<br />If {forSelf ? 'you' : 'they'} were
-            adopted, use {forSelf ? 'your' : 'their'} post-adoption name.
+            were given at birth. If {forSelf ? 'you' : 'they'} were adopted, use{' '}
+            {forSelf ? 'your' : 'their'} post-adoption name.
           </p>
 
           <div className={NAME_FIELDS_CONTAINER_STYLING}>

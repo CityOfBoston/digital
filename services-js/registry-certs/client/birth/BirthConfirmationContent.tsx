@@ -32,7 +32,6 @@ export default function BirthConfirmationContent({
             <CertificateIcon name="birth" />
           </div>
         </div>
-
         <div className="g--8">
           <h2 className="h3 tt-u">Thank you</h2>
 

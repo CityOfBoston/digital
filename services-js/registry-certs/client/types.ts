@@ -78,7 +78,7 @@ export interface BirthCertificateRequestInformation {
   parent2LastName?: string;
 
   // only required if parentsMarried !== true:
-  idImageFront?: any;
-  idImageBack?: any;
-  supportingDocuments?: UploadableFile[];
+  idImageFront?: UploadableFile | null;
+  idImageBack?: UploadableFile | null;
+  supportingDocuments: UploadableFile[];
 }
