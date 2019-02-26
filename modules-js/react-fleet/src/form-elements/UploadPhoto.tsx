@@ -10,19 +10,14 @@ import {
   WHITE,
 } from '../utilities/constants';
 
-interface DropzoneFile extends File {
-  preview: string;
-}
-
 interface Props {
-  initialFile?: File;
-  previewHeight?: number;
+  initialFile?: File | null;
   backgroundElement?: JSX.Element;
   buttonTitleUpload?: string;
   buttonTitleRemove?: string;
   buttonTitleCancel?: string;
 
-  handleDrop: (file: DropzoneFile) => void;
+  handleDrop: (file: File) => void;
   handleRemove: () => void;
   handleCancel?: () => void;
 
@@ -31,8 +26,8 @@ interface Props {
 }
 
 interface State {
-  file: DropzoneFile | null;
-  previewHeight: number;
+  file: File | null;
+  previewUrl: string | null;
 }
 
 /**
@@ -57,36 +52,19 @@ export default class UploadPhoto extends React.Component<Props, State> {
   };
 
   state: State = {
-    file: this.props.initialFile
-      ? this.returnDropzoneFile(this.props.initialFile)
-      : null,
-    previewHeight: this.props.previewHeight || 0,
-  };
-
-  private returnDropzoneFile(file: File): DropzoneFile {
-    return Object.assign(file, {
-      preview: URL.createObjectURL(file),
-    });
-  }
-
-  // In order to maintain the height of the component, we measure the initial
-  // appearance element when the component mounts. If the browser window is
-  // resized, the height is remeasured and updated. If initialHeight has been
-  // passed in as a prop, the listeners that call this method are not added.
-  private getPreviewElementInformation = () => {
-    const domRect =
-      this.previewRef.current &&
-      this.previewRef.current.getBoundingClientRect();
-
-    if (domRect) {
-      this.setState({ previewHeight: domRect.height });
-    }
+    file: this.props.initialFile || null,
+    // jsdom doesn’t have a createObjectURL implementation
+    previewUrl:
+      this.props.initialFile && typeof URL.createObjectURL !== 'undefined'
+        ? URL.createObjectURL(this.props.initialFile)
+        : null,
   };
 
   private onDrop = (files: File[]): void => {
     this.setState(
       {
-        file: this.returnDropzoneFile(files[0]),
+        file: files[0],
+        previewUrl: URL.createObjectURL(files[0]),
       },
       () => {
         this.state.file && this.props.handleDrop(this.state.file);
@@ -120,29 +98,17 @@ export default class UploadPhoto extends React.Component<Props, State> {
     }
   };
 
-  componentDidMount() {
-    if (!this.props.previewHeight) {
-      this.getPreviewElementInformation();
-
-      window.addEventListener('resize', this.getPreviewElementInformation);
-    }
-  }
-
   componentWillUnmount() {
     // see https://react-dropzone.netlify.com/#!/Previews
     // Make sure to revoke the data uris to avoid memory leaks
-    if (this.state.file) {
-      URL.revokeObjectURL(this.state.file.preview);
-    }
-
-    if (!this.props.previewHeight) {
-      window.removeEventListener('resize', this.getPreviewElementInformation);
+    if (this.state.previewUrl) {
+      URL.revokeObjectURL(this.state.previewUrl);
     }
   }
 
   render() {
     const { errorMessage, uploadProgress } = this.props;
-    const { file } = this.state;
+    const { file, previewUrl } = this.state;
 
     const isUploading = uploadProgress && uploadProgress < 100;
     const hasError = errorMessage;
@@ -151,7 +117,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
 
     if (isUploading) {
       buttonTitle = this.props.buttonTitleCancel || 'Cancel upload';
-    } else if (this.state.file) {
+    } else if (file) {
       buttonTitle = this.props.buttonTitleRemove || 'Remove photo';
     } else {
       buttonTitle = this.props.buttonTitleUpload || 'Upload photo';
@@ -167,10 +133,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
             onDrop={this.onDrop}
           >
             {({ getRootProps, getInputProps, isDragActive }) => (
-              <div
-                {...getRootProps()}
-                style={{ height: this.state.previewHeight }}
-              >
+              <div {...getRootProps()}>
                 <input {...getInputProps()} />
 
                 <div
@@ -179,18 +142,20 @@ export default class UploadPhoto extends React.Component<Props, State> {
                     isDragActive ? DRAG_RING_STYLING : ''
                   }`}
                 >
-                  {file ? (
-                    <img
-                      src={file.preview}
-                      alt=""
+                  {/* We keep the background element in the flow to preserve height / width*/}
+                  <div
+                    style={{ visibility: previewUrl ? 'hidden' : 'visible' }}
+                  >
+                    {this.props.backgroundElement || defaultInitialAppearance()}
+                  </div>
+
+                  {previewUrl && (
+                    <div
                       className={PREVIEW_IMAGE_STYLING}
-                      style={{ maxHeight: this.state.previewHeight }}
+                      style={{
+                        backgroundImage: `url(${previewUrl})`,
+                      }}
                     />
-                  ) : (
-                    <>
-                      {this.props.backgroundElement ||
-                        defaultInitialAppearance()}
-                    </>
                   )}
                 </div>
               </div>
@@ -207,14 +172,11 @@ export default class UploadPhoto extends React.Component<Props, State> {
               {buttonTitle}
             </button>
 
-            {/* empty element is necessary to prevent anything other than the <div> from ever being displayed */}
-            {isUploading ? (
+            {!!isUploading && (
               <div
                 className={PROGRESS_STYLING}
                 style={{ width: `${uploadProgress}%` }}
               />
-            ) : (
-              <></>
             )}
           </div>
         </div>
@@ -272,8 +234,14 @@ const PREVIEW_CONTAINER_STYLING = css({
 });
 
 const PREVIEW_IMAGE_STYLING = css({
-  display: 'block',
-  margin: '0 auto',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center center',
 });
 
 const DRAG_RING_STYLING = css({

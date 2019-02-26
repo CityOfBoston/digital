@@ -13,25 +13,8 @@ interface Props {
   handleStepBack: () => void;
 }
 
-interface State {
-  canProceed: boolean;
-}
-
-// todo: remove placeholderUploadSessionId s
-
 @observer
-export default class VerifyIdentification extends React.Component<
-  Props,
-  State
-> {
-  state: State = {
-    canProceed: false,
-  };
-
-  isComplete = (canProceed: boolean): void => {
-    this.setState({ canProceed });
-  };
-
+export default class VerifyIdentification extends React.Component<Props> {
   updateSupportingDocuments = (documents: UploadableFile[]): void => {
     this.props.birthCertificateRequest.answerQuestion({
       supportingDocuments: documents,
@@ -39,17 +22,35 @@ export default class VerifyIdentification extends React.Component<
   };
 
   updateIdImage = (side: string, file: File): void => {
-    const uploadableFile = new UploadableFile(
-      file,
-      'placeholderUploadSessionId'
-    );
+    const { birthCertificateRequest } = this.props;
+
+    const existingFile =
+      side === 'front'
+        ? birthCertificateRequest.requestInformation.idImageFront
+        : birthCertificateRequest.requestInformation.idImageBack;
+
+    if (existingFile) {
+      existingFile.delete();
+    }
+
+    let uploadableFile: UploadableFile | null = null;
+
+    if (file) {
+      uploadableFile = new UploadableFile(
+        file,
+        birthCertificateRequest.uploadSessionId,
+        side === 'front' ? 'id front' : 'id back'
+      );
+
+      uploadableFile.upload();
+    }
 
     if (side === 'front') {
-      this.props.birthCertificateRequest.answerQuestion({
+      birthCertificateRequest.answerQuestion({
         idImageFront: uploadableFile,
       });
     } else if (side === 'back') {
-      this.props.birthCertificateRequest.answerQuestion({
+      birthCertificateRequest.answerQuestion({
         idImageBack: uploadableFile,
       });
     }
@@ -58,25 +59,27 @@ export default class VerifyIdentification extends React.Component<
   render() {
     const {
       supportingDocuments,
+      idImageFront,
+      idImageBack,
     } = this.props.birthCertificateRequest.requestInformation;
+
+    const canProceed = !!idImageFront;
 
     return (
       <QuestionComponent
-        allowProceed={this.state.canProceed}
+        allowProceed={canProceed}
         handleProceed={this.props.handleProceed}
         handleStepBack={this.props.handleStepBack}
         nextButtonText="Review request"
       >
         <VerifyIdentificationComponent
-          requestInformation={
-            this.props.birthCertificateRequest.requestInformation
-          }
           sectionsToDisplay="all"
-          uploadSessionId="placeholderUploadSessionId"
+          uploadSessionId={this.props.birthCertificateRequest.uploadSessionId}
           supportingDocuments={supportingDocuments}
           updateSupportingDocuments={this.updateSupportingDocuments}
           updateIdImages={this.updateIdImage}
-          isComplete={this.isComplete}
+          idImageBack={idImageBack}
+          idImageFront={idImageFront}
         />
       </QuestionComponent>
     );

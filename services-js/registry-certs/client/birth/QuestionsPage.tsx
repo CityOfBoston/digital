@@ -113,11 +113,15 @@ export default class QuestionsPage extends React.Component<Props, State> {
     }
   }
 
-  private advanceQuestion = () => {
+  private advanceQuestion = (modifiedRequest?: BirthCertificateRequest) => {
     const { currentStep, birthCertificateRequest } = this.props;
-    const { localBirthCertificateRequest } = this.state;
 
-    birthCertificateRequest.updateFrom(localBirthCertificateRequest);
+    modifiedRequest =
+      modifiedRequest || this.state.localBirthCertificateRequest;
+
+    if (birthCertificateRequest !== modifiedRequest) {
+      birthCertificateRequest.updateFrom(modifiedRequest);
+    }
 
     // Have to do this after updateFrom because the answers to questions can
     // affect the steps.
@@ -155,7 +159,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
   };
 
   public render() {
-    const { currentStep } = this.props;
+    const { currentStep, birthCertificateRequest } = this.props;
     const { localBirthCertificateRequest } = this.state;
 
     let isStepComplete: boolean = false;
@@ -218,11 +222,21 @@ export default class QuestionsPage extends React.Component<Props, State> {
         break;
 
       case 'verifyIdentification':
+        // We just don't dynamically update the progress bar for uploads right nowœ
         isStepComplete = false;
+
+        // This is given the actual birth certificate request, rather than the local
+        // clone, because we’re uploading photos directly to the server. Therefore
+        // we don't want to require "submit" to store a record of the uploads. If you
+        // upload and then press back, when you get back to this page the uploads
+        // need to still be there.
         questionsEl = (
           <VerifyIdentification
-            birthCertificateRequest={localBirthCertificateRequest}
-            handleProceed={this.advanceQuestion}
+            birthCertificateRequest={birthCertificateRequest}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              birthCertificateRequest
+            )}
             handleStepBack={this.stepBackOneQuestion}
           />
         );

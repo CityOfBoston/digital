@@ -4,12 +4,16 @@ import { storiesOf } from '@storybook/react';
 import SupportingDocumentsInput from './SupportingDocumentsInput';
 import UploadableFile, { Status } from '../../models/UploadableFile';
 
-function sampleFile(status: Status, progress?: number) {
-  return new UploadableFile(
-    new File([], 'sample.pdf', { type: 'application/pdf' }),
-    'sampleId',
-    status,
-    progress
+function sampleFile(status: Status, progress: number = 0) {
+  return Object.assign(
+    new UploadableFile(
+      new File([], 'sample.pdf', { type: 'application/pdf' }),
+      'sampleId'
+    ),
+    {
+      status,
+      progress,
+    }
   );
 }
 

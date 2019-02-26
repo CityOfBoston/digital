@@ -2,7 +2,7 @@ import fs from 'fs';
 import { promisify } from 'util';
 import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
-import { ConnectionPool, IResult, IProcedureResult } from 'mssql';
+import { ConnectionPool, IProcedureResult } from 'mssql';
 import mime from 'mime-types';
 
 import {
@@ -178,7 +178,9 @@ export default class RegistryDb {
     startYear: string | null | undefined,
     endYear: string | null | undefined
   ): Promise<Array<DeathCertificateSearchResult>> {
-    const resp: IResult<DeathCertificateSearchResult> = (await this.pool
+    const resp: IProcedureResult<
+      DeathCertificateSearchResult
+    > = (await this.pool
       .request()
       .input('searchFor', name)
       .input('pageNumber', page)
@@ -216,7 +218,7 @@ export default class RegistryDb {
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
       keyStrings.map(async keyString => {
         try {
-          const resp: IResult<DeathCertificate> = (await this.pool
+          const resp: IProcedureResult<DeathCertificate> = (await this.pool
             .request()
             .input('idList', keyString)
             .execute('Registry.Death.sp_GetCertificatesWeb')) as any;
@@ -264,7 +266,7 @@ export default class RegistryDb {
       idempotencyKey,
     }: AddOrderOptions
   ): Promise<number> {
-    const resp: IResult<AddOrderResult> = await this.pool
+    const resp: IProcedureResult<AddOrderResult> = await this.pool
       .request()
       .input('orderID', orderID)
       .input('orderType', orderType)
@@ -312,7 +314,7 @@ export default class RegistryDb {
     quantity: number,
     certificateCost: number
   ): Promise<void> {
-    const resp: IResult<Object> = await this.pool
+    const resp: IProcedureResult<Object> = await this.pool
       .request()
       .input('orderKey', orderKey)
       .input('orderType', OrderType.DeathCertificate)
@@ -346,7 +348,7 @@ export default class RegistryDb {
     quantity: number,
     certificateCost: number
   ): Promise<number> {
-    const resp: IResult<{
+    const resp: IProcedureResult<{
       RequestItemKey: number;
       ErrorMessage: string;
     }> = await this.pool
@@ -384,7 +386,7 @@ export default class RegistryDb {
     transactionId: string,
     totalInDollars: number
   ): Promise<void> {
-    const resp: IResult<Object> = await this.pool
+    const resp: IProcedureResult<Object> = await this.pool
       .request()
       .input('orderKey', orderKey)
       .input('paymentDate', paymentDate)
@@ -400,8 +402,20 @@ export default class RegistryDb {
     }
   }
 
+  async addNote(orderKey: number, note: string): Promise<void> {
+    const resp: IProcedureResult<Object> = await this.pool
+      .request()
+      .input('orderKey', orderKey)
+      .input('noteText', note)
+      .execute('Commerce.sp_AddOrderNote');
+
+    if (resp.returnValue !== 0) {
+      throw new Error('AddOrderNote failed');
+    }
+  }
+
   async findOrder(orderId: string): Promise<FindOrderResult | null> {
-    const resp: IResult<FindOrderResult> = await this.pool
+    const resp: IProcedureResult<FindOrderResult> = await this.pool
       .request()
       .input('orderID', orderId)
       .execute('Commerce.sp_FindOrder');
@@ -418,7 +432,9 @@ export default class RegistryDb {
   async lookupBirthCertificateOrderDetails(
     orderId: string
   ): Promise<FindBirthCertificateRequestResult | null> {
-    const resp: IResult<FindBirthCertificateRequestResult> = await this.pool
+    const resp: IProcedureResult<
+      FindBirthCertificateRequestResult
+    > = await this.pool
       .request()
       .input('orderID', orderId)
       .execute('Commerce.sp_FindBirthCertificateRequest');
@@ -504,6 +520,31 @@ export default class RegistryDb {
       return result.ErrorMessage;
     } else {
       return null;
+    }
+  }
+
+  async addUploadsToBirthCertificateOrder(
+    requestItemKey: number,
+    uploadSessionId: string
+  ): Promise<void> {
+    const out: IProcedureResult<any> = await this.pool
+      .request()
+      .input('requestItemKey', requestItemKey)
+      .input('sessionUID', uploadSessionId)
+      .execute('Commerce.sp_AssociateBirthAttachments');
+
+    const result = out.recordset[0];
+    // eslint-disable-next-line no-console
+    console.log(JSON.stringify(result, null, 2));
+
+    if (!result || out.returnValue !== 0) {
+      throw new Error(
+        `Did not get a successful result from SqlServer: ${out.returnValue}`
+      );
+    }
+
+    if (result.ErrorMessage) {
+      throw new Error(result.ErrorMessage);
     }
   }
 }

@@ -39,14 +39,14 @@ interface BirthCertificateOrderItemInput {
   firstName: string;
   lastName: string;
   alternateSpellings: string;
-  birthDate: Date;
+  birthDate: string;
   parent1FirstName: string;
   parent1LastName: string;
   parent2FirstName: string;
   parent2LastName: string;
-  relationship: string;
   uploadSessionId: string;
   quantity: Int;
+  notes: string;
 }
 
 /**
@@ -394,13 +394,13 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       idempotencyKey,
     });
 
-    await registryDb.addBirthCertificateRequest(
+    const requestItemKey = await registryDb.addBirthCertificateRequest(
       orderKey,
       {
         certificateFirstName: item.firstName,
         certificateLastName: item.lastName,
         alternativeSpellings: item.alternateSpellings,
-        dateOfBirth: item.birthDate,
+        dateOfBirth: new Date(item.birthDate),
         parent1FirstName: item.parent1FirstName,
         parent1LastName: item.parent1LastName,
         parent2FirstName: item.parent2FirstName,
@@ -410,7 +410,13 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       BIRTH_CERTIFICATE_COST / 100
     );
 
-    await registryDb.lookupBirthCertificateOrderDetails(orderId);
+    await Promise.all([
+      registryDb.addUploadsToBirthCertificateOrder(
+        requestItemKey,
+        item.uploadSessionId
+      ),
+      registryDb.addNote(orderKey, item.notes),
+    ]);
 
     try {
       await makeStripeCharge(

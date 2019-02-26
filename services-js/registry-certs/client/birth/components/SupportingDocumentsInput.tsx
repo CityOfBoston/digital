@@ -154,7 +154,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
   render() {
     return (
-      <div className={`m-b300 ${INPUT_CONTAINER_STYLING}`}>
+      <div className="m-b300">
         <input
           className={VISUALLYHIDDEN}
           ref={this.inputRef}
@@ -169,14 +169,19 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
         <label
           htmlFor="uploadSupportingDocuments"
-          className={`btn ${this.state.isFocused && LABEL_FOCUSED_STYLING}`}
+          className={`btn btn--sm btn--200 ${this.state.isFocused &&
+            LABEL_FOCUSED_STYLING}`}
           style={{ whiteSpace: 'nowrap', fontWeight: 'bold' }}
           onClick={this.clearFailures}
         >
           Upload Supporting Documents
         </label>
 
-        <ul className={FILE_LIST_STYLING}>
+        <div className="t--subinfo m-v200">
+          Files should be PDF format, and under 10MB each.
+        </div>
+
+        <ul className={`${FILE_LIST_STYLING} t--s400`}>
           {this.props.selectedFiles &&
             this.props.selectedFiles.map(uploadedFile => (
               <li key={uploadedFile.file.name}>
@@ -316,12 +321,6 @@ export const handleBytes = {
   },
 };
 
-const INPUT_CONTAINER_STYLING = css({
-  label: {
-    marginBottom: '0.5em',
-  },
-});
-
 const LABEL_FOCUSED_STYLING = css({
   outline: `3px solid ${FOCUS_INDICATOR_COLOR}`,
   outlineOffset: '1px',
@@ -331,6 +330,7 @@ const LABEL_FOCUSED_STYLING = css({
 // with its list item, so we simulate the appearance by using an addt’l <span>
 const FILE_LIST_STYLING = css({
   paddingLeft: 0,
+  color: CHARLES_BLUE,
   li: {
     display: 'flex',
     flexWrap: 'wrap',

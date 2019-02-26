@@ -17,6 +17,7 @@ import QuantityDropdown from './components/QuantityDropdown';
 import BackButton from './components/BackButton';
 
 import { SECTION_HEADING_STYLING } from './styling';
+import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
 interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
 
@@ -78,19 +79,17 @@ export default class ReviewRequestPage extends React.Component<Props> {
           currentStep: steps.indexOf('reviewRequest') + 1,
           currentStepCompleted: true,
         }}
+        footer={<ServiceFeeDisclosure />}
       >
         <Head>
           <title>Boston.gov — {pageTitle}</title>
         </Head>
-
         <h2 className={SECTION_HEADING_STYLING}>{pageTitle}</h2>
-
         <p>
           You can only order copies of one person’s birth certificate at a time.
           If you want to buy copies of a certificate for another person, you
           need to do a separate transaction.
         </p>
-
         <div className={CERTIFICATE_ROW_STYLE}>
           <QuantityDropdown
             quantity={quantity}
@@ -107,14 +106,12 @@ export default class ReviewRequestPage extends React.Component<Props> {
             </div>
           </div>
         </div>
-
         <CostSummary
           certificateType="birth"
           certificateQuantity={quantity}
           allowServiceFeeTypeChoice
           serviceFeeType="CREDIT"
         />
-
         <div className="g g--mr m-t700">
           <div className="g--9 t--info">
             <BackButton handleClick={this.returnToQuestions} />
@@ -128,7 +125,6 @@ export default class ReviewRequestPage extends React.Component<Props> {
             Continue
           </button>
         </div>
-
         <div className="ta-c m-t700 p-a300 t--sans">
           <button
             className="lnk cancel tt-u"
