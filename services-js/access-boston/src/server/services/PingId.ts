@@ -1,5 +1,6 @@
 import { of as loadProperties } from 'java-properties';
 import jws from 'jws';
+import fetch from 'node-fetch';
 
 const PINGID_VERSION = '4.9';
 const PINGID_LOCALE = 'en';
