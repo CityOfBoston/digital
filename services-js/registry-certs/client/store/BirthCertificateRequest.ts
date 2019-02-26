@@ -26,7 +26,6 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
 };
 
 export const QUESTION_STEPS: Step[] = [
-  // 'verifyIdentification',
   'forWhom',
   'bornInBoston',
   'personalInformation',

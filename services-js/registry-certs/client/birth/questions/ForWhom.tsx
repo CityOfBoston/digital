@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
 import RadioItemComponent from '../components/RadioItemComponent';
@@ -18,7 +18,7 @@ import {
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
-  handleProceed: () => void;
+  handleProceed: (ev: MouseEvent) => void;
 }
 
 /**
