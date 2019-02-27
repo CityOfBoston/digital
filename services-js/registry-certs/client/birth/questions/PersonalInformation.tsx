@@ -14,6 +14,8 @@ import {
   SECTION_HEADING_STYLING,
 } from '../styling';
 
+const EARLIEST_DATE = '1/1/1870';
+
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
 
@@ -111,6 +113,7 @@ export default class PersonalInformation extends React.Component<Props> {
           initialDate={birthDate || ''}
           componentId="dob"
           onlyAllowPast={true}
+          earliestDate={EARLIEST_DATE}
           handleDate={this.handleDateChange}
         />
       </QuestionComponent>

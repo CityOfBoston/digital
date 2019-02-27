@@ -37,6 +37,15 @@ storiesOf('Form Elements/Memorable date input', module)
       legend={<h2>Date</h2>}
     />
   ))
+  .add('invalid initialDate', () => (
+    <MemorableDateInput
+      componentId="initial"
+      initialDate="1/1/2000"
+      latestDate="12/31/1999"
+      handleDate={() => {}}
+      legend={<h2>Date</h2>}
+    />
+  ))
   .add('onlyAllowPast', () => (
     <MemorableDateInput
       componentId="past"

@@ -1,8 +1,8 @@
 import MockDate from 'mockdate';
 
 import {
-  isDateValid,
-  isInputComplete,
+  dateValidError,
+  inputCompleteError,
   returnLimitAsDate,
 } from './MemorableDateInput';
 
@@ -33,7 +33,7 @@ describe('set lower or upper limit', () => {
   });
 });
 
-describe('isDateValid', () => {
+describe('dateValidError', () => {
   const oldestDate = new Date(2010, 11, 12);
   const pastDate = new Date(2016, 5, 16);
   const upcomingDate = new Date(2023, 8, 7);
@@ -45,14 +45,14 @@ describe('isDateValid', () => {
   it(`passes if user entered ${formattedDate(
     oldestDate
   )} and onlyAllowPast is true`, () => {
-    expect(isDateValid(oldestDate, null, null, true, false)).toEqual('');
+    expect(dateValidError(oldestDate, null, null, true, false)).toEqual('');
   });
 
   it(`returns the error “${dateFromPast}” if the user entered ${formattedDate(
     furthestFutureDate
   )} and onlyAllowPast is true`, () => {
     expect(
-      isDateValid(new Date(furthestFutureDate), null, null, true, false)
+      dateValidError(new Date(furthestFutureDate), null, null, true, false)
     ).toEqual(dateFromPast);
   });
 
@@ -60,16 +60,16 @@ describe('isDateValid', () => {
     furthestFutureDate
   )} and onlyAllowFuture is true`, () => {
     expect(
-      isDateValid(new Date(furthestFutureDate), null, null, false, true)
+      dateValidError(new Date(furthestFutureDate), null, null, false, true)
     ).toEqual('');
   });
 
   it(`returns the error “${dateFromFuture}” if the user entered ${formattedDate(
     oldestDate
   )} and onlyAllowFuture is true`, () => {
-    expect(isDateValid(new Date(oldestDate), null, null, false, true)).toEqual(
-      dateFromFuture
-    );
+    expect(
+      dateValidError(new Date(oldestDate), null, null, false, true)
+    ).toEqual(dateFromFuture);
   });
 
   it(`passes if the user entered ${formattedDate(
@@ -78,7 +78,13 @@ describe('isDateValid', () => {
     oldestDate
   )}, and onlyAllowPast is true`, () => {
     expect(
-      isDateValid(new Date(pastDate), new Date(oldestDate), null, true, false)
+      dateValidError(
+        new Date(pastDate),
+        new Date(oldestDate),
+        null,
+        true,
+        false
+      )
     ).toEqual('');
   });
 
@@ -88,7 +94,7 @@ describe('isDateValid', () => {
     pastDate
   )}, and onlyAllowPast is true`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(furthestFutureDate),
         new Date(pastDate),
         null,
@@ -104,7 +110,7 @@ describe('isDateValid', () => {
     furthestFutureDate
   )}, and onlyAllowFuture is true`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(upcomingDate),
         null,
         new Date(furthestFutureDate),
@@ -120,7 +126,7 @@ describe('isDateValid', () => {
     upcomingDate
   )}, and onlyAllowFuture is true`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(furthestFutureDate),
         null,
         new Date(upcomingDate),
@@ -134,7 +140,7 @@ describe('isDateValid', () => {
     upcomingDate
   )} and earliestDate is ${formattedDate(oldestDate)}`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(upcomingDate),
         new Date(oldestDate),
         null,
@@ -148,7 +154,7 @@ describe('isDateValid', () => {
     upcomingDate
   )} and earliestDate is ${formattedDate(furthestFutureDate)}`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(upcomingDate),
         new Date(furthestFutureDate),
         null,
@@ -162,7 +168,7 @@ describe('isDateValid', () => {
     upcomingDate
   )} and latestDate is ${formattedDate(furthestFutureDate)}`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(upcomingDate),
         null,
         new Date(furthestFutureDate),
@@ -176,7 +182,7 @@ describe('isDateValid', () => {
     furthestFutureDate
   )} and latestDate is ${formattedDate(upcomingDate)}`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(furthestFutureDate),
         null,
         new Date(upcomingDate),
@@ -190,7 +196,7 @@ describe('isDateValid', () => {
     oldestDate
   )} and ${formattedDate(upcomingDate)}`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(pastDate),
         new Date(oldestDate),
         new Date(upcomingDate),
@@ -204,7 +210,7 @@ describe('isDateValid', () => {
     oldestDate
   )} and ${formattedDate(pastDate)}`, () => {
     expect(
-      isDateValid(
+      dateValidError(
         new Date(upcomingDate),
         new Date(oldestDate),
         new Date(pastDate),
@@ -216,33 +222,37 @@ describe('isDateValid', () => {
 
   it(`should pass if no limits have been specified`, () => {
     expect(
-      isDateValid(new Date(upcomingDate), null, null, false, false)
+      dateValidError(new Date(upcomingDate), null, null, false, false)
     ).toEqual('');
 
-    expect(isDateValid(new Date(oldestDate), null, null, false, false)).toEqual(
-      ''
-    );
+    expect(
+      dateValidError(new Date(oldestDate), null, null, false, false)
+    ).toEqual('');
   });
 
-  describe('isInputComplete', () => {
+  describe('inputCompleteError', () => {
     const missingDayYear = 'Date must include the day and year';
     const missingMonth = 'Date must include the month';
     const completeFields = {
-      month: 12,
-      day: 31,
-      year: 1999,
+      month: '12',
+      day: '31',
+      year: '1999',
     };
 
     it('returns an empty string if user has completed all fields', () => {
-      expect(isInputComplete(completeFields)).toBe('');
+      expect(inputCompleteError(completeFields)).toBe(null);
     });
 
     it(`returns the error “${missingMonth}” if user has only entered values for day and year`, () => {
-      expect(isInputComplete({ day: 5, year: 1984 })).toBe(missingMonth);
+      expect(inputCompleteError({ day: '5', year: '1984', month: '' })).toBe(
+        missingMonth
+      );
     });
 
     it(`returns the error “${missingDayYear}” if user has only entered a value for the month`, () => {
-      expect(isInputComplete({ month: 6 })).toBe(missingDayYear);
+      expect(inputCompleteError({ day: '', month: '6', year: '' })).toBe(
+        missingDayYear
+      );
     });
   });
 });

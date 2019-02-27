@@ -1496,6 +1496,96 @@ exports[`Storyshots Form Elements/Memorable date input earliestDate: 9/7/1630 1`
 </fieldset>
 `;
 
+exports[`Storyshots Form Elements/Memorable date input invalid initialDate 1`] = `
+<fieldset
+  className="css-svo1gv"
+>
+  <legend
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <h2>
+      Date
+    </h2>
+  </legend>
+  <div
+    className="css-k2dcag"
+  >
+    <div>
+      <label
+        className="txt-l"
+        htmlFor="initial-month"
+      >
+        Month
+      </label>
+      <input
+        className="txt-f"
+        id="initial-month"
+        max="12"
+        min="1"
+        name="month"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="MM"
+        type="number"
+        value="1"
+      />
+    </div>
+    <div>
+      <label
+        className="txt-l"
+        htmlFor="initial-day"
+      >
+        Day
+      </label>
+      <input
+        className="txt-f"
+        id="initial-day"
+        max="31"
+        min="1"
+        name="day"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="DD"
+        type="number"
+        value="1"
+      />
+    </div>
+    <div>
+      <label
+        className="txt-l"
+        htmlFor="initial-year"
+      >
+        Year
+      </label>
+      <input
+        className="txt-f"
+        id="initial-year"
+        max={1999}
+        min="1000"
+        name="year"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="YYYY"
+        type="number"
+        value="2000"
+      />
+    </div>
+  </div>
+  <div
+    className="t--err m-t200"
+  >
+    The date must be earlier than 12/31/1999
+  </div>
+</fieldset>
+`;
+
 exports[`Storyshots Form Elements/Memorable date input latestDate: 12/31/2025 1`] = `
 <fieldset
   className="css-svo1gv"
@@ -1918,6 +2008,7 @@ exports[`Storyshots Form Elements/Memorable date input with an initialDate 1`] =
       />
     </div>
   </div>
+  
 </fieldset>
 `;
 
