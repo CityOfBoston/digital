@@ -23,6 +23,7 @@ interface Props {
   uploadSessionId: string;
   selectedFiles: UploadableFile[];
   handleInputChange(files: UploadableFile[]): void;
+  acceptTypes: string;
 }
 
 interface State {
@@ -170,7 +171,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
           className={VISUALLYHIDDEN}
           ref={this.inputRef}
           type="file"
-          accept="application/pdf"
+          accept={this.props.acceptTypes}
           multiple
           id="uploadSupportingDocuments"
           onChange={this.handleFileChange}

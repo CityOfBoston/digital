@@ -23,6 +23,8 @@ interface Props {
 
   uploadProgress?: number | null; // 0 - 100
   errorMessage?: string | null;
+
+  acceptTypes: string;
 }
 
 interface State {
@@ -49,6 +51,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
     buttonTitleUpload: 'Upload photo',
     buttonTitleRemove: 'Remove photo',
     buttonTitleCancel: 'Cancel upload',
+    acceptTypes: 'image/*',
   };
 
   state: State = {
@@ -111,7 +114,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
   }
 
   render() {
-    const { errorMessage, uploadProgress } = this.props;
+    const { errorMessage, uploadProgress, acceptTypes } = this.props;
     const { file, previewUrl } = this.state;
 
     const isUploading = uploadProgress && uploadProgress < 100;
@@ -132,7 +135,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
         <div className="br br-a200">
           <Dropzone
             ref={this.dropzoneRef}
-            accept="image/*"
+            accept={acceptTypes}
             multiple={false}
             onDrop={this.onDrop}
           >

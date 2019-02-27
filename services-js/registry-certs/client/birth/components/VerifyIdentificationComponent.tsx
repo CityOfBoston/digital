@@ -18,6 +18,10 @@ import UploadableFile from '../../models/UploadableFile';
 
 import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_STYLING } from '../styling';
 
+/** Images that are likely output from scanners or phone cameras */
+const SUPPORTED_MIME_TYPES =
+  'image/jpeg,image/png,image/tiff,image/bmp,application/pdf';
+
 interface Props {
   sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
   uploadSessionId: string;
@@ -112,6 +116,7 @@ export default class VerifyIdentificationComponent extends React.Component<
               handleRemove={() => this.handleIdImageChange('front', null)}
               backgroundElement={<IdImage name="front" />}
               buttonTitleUpload="Upload front of ID"
+              acceptTypes={SUPPORTED_MIME_TYPES}
             />
           </div>
 
@@ -124,6 +129,7 @@ export default class VerifyIdentificationComponent extends React.Component<
               handleRemove={() => this.handleIdImageChange('back', null)}
               backgroundElement={<IdImage name="back" />}
               buttonTitleUpload="Upload back of ID"
+              acceptTypes={SUPPORTED_MIME_TYPES}
             />
           </div>
         </div>
@@ -184,6 +190,7 @@ export default class VerifyIdentificationComponent extends React.Component<
         uploadSessionId={this.props.uploadSessionId}
         selectedFiles={this.props.supportingDocuments}
         handleInputChange={this.handleSupportingDocumentsChange}
+        acceptTypes={SUPPORTED_MIME_TYPES}
       />
     );
   }

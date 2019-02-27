@@ -23,14 +23,18 @@ export default function RelatedIcon(props: Props): JSX.Element {
 
 const icons = {
   myself: (
-    <svg {...commonAttributes} viewBox="-26 -2 100 100" className="heavier">
+    <svg
+      {...commonAttributes}
+      viewBox="-46 -4 140 100"
+      className="forWhom heavier"
+    >
       <path
-        d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
-        transform="translate(-88.072 -34)"
+        d="M60.832,79.224v41.865H12.04V78.748l14.238-12.2H46.684Z"
+        transform="translate(-11.995 -29.65)"
       />
       <path
-        d="M138.1,79.224v41.865H89.31V78.748l14.238-12.2h20.405Z"
-        transform="translate(-89.31 -29.65)"
+        d="M49.1,47.9A13.9,13.9,0,1,1,35.2,34,13.9,13.9,0,0,1,49.1,47.9Z"
+        transform="translate(-10.757 -34)"
       />
     </svg>
   ),
@@ -38,7 +42,7 @@ const icons = {
     <svg
       {...commonAttributes}
       viewBox="-2 -4 140 100"
-      className="someoneElse heavier"
+      className="forWhom heavier"
     >
       <path
         d="M60.832,79.224v41.865H12.04V78.748l14.238-12.2H46.684Z"

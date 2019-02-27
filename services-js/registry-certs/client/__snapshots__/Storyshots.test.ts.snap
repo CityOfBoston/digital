@@ -238,7 +238,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
           className="b-c b-c--hsm b-c--nbp"
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -742,7 +742,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -1297,7 +1297,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
           className="b-c b-c--hsm b-c--nbp"
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -1948,7 +1948,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -2226,7 +2226,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -3250,7 +3250,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -3296,22 +3296,22 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                   role="radiogroup"
                 >
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
-                      className="heavier"
+                      className="forWhom heavier"
                       focusable="false"
-                      viewBox="-26 -2 100 100"
+                      viewBox="-46 -4 140 100"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
-                        transform="translate(-88.072 -34)"
+                        d="M60.832,79.224v41.865H12.04V78.748l14.238-12.2H46.684Z"
+                        transform="translate(-11.995 -29.65)"
                       />
                       <path
-                        d="M138.1,79.224v41.865H89.31V78.748l14.238-12.2h20.405Z"
-                        transform="translate(-89.31 -29.65)"
+                        d="M49.1,47.9A13.9,13.9,0,1,1,35.2,34,13.9,13.9,0,0,1,49.1,47.9Z"
+                        transform="translate(-10.757 -34)"
                       />
                     </svg>
                     <input
@@ -3326,11 +3326,11 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
-                      className="someoneElse heavier"
+                      className="forWhom heavier"
                       focusable="false"
                       viewBox="-2 -4 140 100"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3684,7 +3684,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -3730,22 +3730,22 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                   role="radiogroup"
                 >
                   <label
-                    className="css-ksygmh css-ykfeq4  inactive"
+                    className="css-ksygmh css-1lvrjdi  inactive"
                   >
                     <svg
                       aria-hidden="true"
-                      className="heavier"
+                      className="forWhom heavier"
                       focusable="false"
-                      viewBox="-26 -2 100 100"
+                      viewBox="-46 -4 140 100"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M126.367,47.9a13.9,13.9,0,1,1-13.9-13.9,13.9,13.9,0,0,1,13.9,13.9Z"
-                        transform="translate(-88.072 -34)"
+                        d="M60.832,79.224v41.865H12.04V78.748l14.238-12.2H46.684Z"
+                        transform="translate(-11.995 -29.65)"
                       />
                       <path
-                        d="M138.1,79.224v41.865H89.31V78.748l14.238-12.2h20.405Z"
-                        transform="translate(-89.31 -29.65)"
+                        d="M49.1,47.9A13.9,13.9,0,1,1,35.2,34,13.9,13.9,0,0,1,49.1,47.9Z"
+                        transform="translate(-10.757 -34)"
                       />
                     </svg>
                     <input
@@ -3760,11 +3760,11 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-ykfeq4 selected "
+                    className="css-ksygmh css-1lvrjdi selected "
                   >
                     <svg
                       aria-hidden="true"
-                      className="someoneElse heavier"
+                      className="forWhom heavier"
                       focusable="false"
                       viewBox="-2 -4 140 100"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3830,7 +3830,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                   role="radiogroup"
                 >
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3892,7 +3892,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
@@ -3973,7 +3973,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4017,7 +4017,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4093,7 +4093,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4131,7 +4131,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-ykfeq4  "
+                    className="css-ksygmh css-1lvrjdi  "
                   >
                     <svg
                       aria-hidden="true"
@@ -4481,7 +4481,7 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -4880,7 +4880,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -5372,7 +5372,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -6019,7 +6019,7 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -6664,7 +6664,7 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -6825,97 +6825,101 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
                   </div>
                 </div>
               </fieldset>
-              <fieldset
-                className="css-svo1gv"
+              <div
+                className="m-v700"
               >
-                <legend
-                  style={
-                    Object {
-                      "width": "100%",
-                    }
-                  }
+                <fieldset
+                  className="css-svo1gv"
                 >
-                  <h2
-                    className="css-vmrobw"
+                  <legend
                     style={
                       Object {
-                        "marginBottom": "1.5rem",
+                        "width": "100%",
                       }
                     }
                   >
-                    When were 
-                    you
-                     born?
-                  </h2>
-                </legend>
-                <div
-                  className="css-k2dcag"
-                >
-                  <div>
-                    <label
-                      className="txt-l"
-                      htmlFor="dob-month"
+                    <h2
+                      className="css-vmrobw"
+                      style={
+                        Object {
+                          "marginBottom": "1.5rem",
+                        }
+                      }
                     >
-                      Month
-                    </label>
-                    <input
-                      className="txt-f"
-                      id="dob-month"
-                      max="12"
-                      min="1"
-                      name="month"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="MM"
-                      type="number"
-                      value=""
-                    />
+                      When were 
+                      you
+                       born?
+                    </h2>
+                  </legend>
+                  <div
+                    className="css-k2dcag"
+                  >
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-month"
+                      >
+                        Month
+                      </label>
+                      <input
+                        className="txt-f"
+                        id="dob-month"
+                        max="12"
+                        min="1"
+                        name="month"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="MM"
+                        type="number"
+                        value=""
+                      />
+                    </div>
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-day"
+                      >
+                        Day
+                      </label>
+                      <input
+                        className="txt-f"
+                        id="dob-day"
+                        max="31"
+                        min="1"
+                        name="day"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="DD"
+                        type="number"
+                        value=""
+                      />
+                    </div>
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-year"
+                      >
+                        Year
+                      </label>
+                      <input
+                        className="txt-f"
+                        id="dob-year"
+                        max={2019}
+                        min={1870}
+                        name="year"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="YYYY"
+                        type="number"
+                        value=""
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <label
-                      className="txt-l"
-                      htmlFor="dob-day"
-                    >
-                      Day
-                    </label>
-                    <input
-                      className="txt-f"
-                      id="dob-day"
-                      max="31"
-                      min="1"
-                      name="day"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="DD"
-                      type="number"
-                      value=""
-                    />
-                  </div>
-                  <div>
-                    <label
-                      className="txt-l"
-                      htmlFor="dob-year"
-                    >
-                      Year
-                    </label>
-                    <input
-                      className="txt-f"
-                      id="dob-year"
-                      max={2019}
-                      min={1870}
-                      name="year"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="YYYY"
-                      type="number"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </fieldset>
+                </fieldset>
+              </div>
             </div>
             <div
               className="g g--mr css-5a3l2g"
@@ -7246,7 +7250,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -7921,7 +7925,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -8624,7 +8628,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -9325,7 +9329,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -9432,7 +9436,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                       tabIndex={0}
                     >
                       <input
-                        accept="image/*"
+                        accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
                         autoComplete="off"
                         multiple={false}
                         onChange={[Function]}
@@ -9556,7 +9560,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                       tabIndex={0}
                     >
                       <input
-                        accept="image/*"
+                        accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
                         autoComplete="off"
                         multiple={false}
                         onChange={[Function]}
@@ -9698,7 +9702,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                   className="m-b300"
                 >
                   <input
-                    accept="application/pdf"
+                    accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
                     className="css-1dv1kvn"
                     id="uploadSupportingDocuments"
                     multiple={true}
@@ -10082,7 +10086,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -10189,7 +10193,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                       tabIndex={0}
                     >
                       <input
-                        accept="image/*"
+                        accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
                         autoComplete="off"
                         multiple={false}
                         onChange={[Function]}
@@ -10313,7 +10317,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                       tabIndex={0}
                     >
                       <input
-                        accept="image/*"
+                        accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
                         autoComplete="off"
                         multiple={false}
                         onChange={[Function]}
@@ -10455,7 +10459,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                   className="m-b300"
                 >
                   <input
-                    accept="application/pdf"
+                    accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
                     className="css-1dv1kvn"
                     id="uploadSupportingDocuments"
                     multiple={true}
@@ -11213,7 +11217,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
           className="b-c b-c--hsm b-c--nbp"
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -15285,7 +15289,7 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -18353,7 +18357,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
           className="b-c b-c--hsm b-c--nbp"
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>
@@ -23895,7 +23899,7 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
           className="b-c b-c--hsm "
         >
           <h1
-            className="sh-title"
+            className="sh-title css-rgzzj4"
           >
             Request a birth certificate
           </h1>

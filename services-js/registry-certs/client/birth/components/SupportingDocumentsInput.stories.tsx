@@ -23,6 +23,7 @@ storiesOf('Birth/SupportingDocumentsInput', module)
       selectedFiles={[]}
       uploadSessionId="id"
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ))
   .add('documents uploading', () => (
@@ -30,6 +31,7 @@ storiesOf('Birth/SupportingDocumentsInput', module)
       uploadSessionId="id"
       selectedFiles={[sampleFile('uploading', 23)]}
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ))
   .add('documents successfully uploaded', () => (
@@ -37,6 +39,7 @@ storiesOf('Birth/SupportingDocumentsInput', module)
       uploadSessionId="id"
       selectedFiles={[sampleFile('success')]}
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ))
   .add('error uploading one document', () => (
@@ -44,6 +47,7 @@ storiesOf('Birth/SupportingDocumentsInput', module)
       uploadSessionId="id"
       selectedFiles={[sampleFile('uploadError')]}
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ))
   .add('error deleting document', () => (
@@ -51,6 +55,7 @@ storiesOf('Birth/SupportingDocumentsInput', module)
       uploadSessionId="id"
       selectedFiles={[sampleFile('deletionError')]}
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ))
   .add('cancel in progress', () => (
@@ -58,6 +63,7 @@ storiesOf('Birth/SupportingDocumentsInput', module)
       uploadSessionId="id"
       selectedFiles={[sampleFile('canceling')]}
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ))
   .add('delete in progress', () => (
@@ -65,6 +71,7 @@ storiesOf('Birth/SupportingDocumentsInput', module)
       uploadSessionId="id"
       selectedFiles={[sampleFile('deleting')]}
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ))
   .add('all three statuses', () => (
@@ -76,5 +83,6 @@ storiesOf('Birth/SupportingDocumentsInput', module)
         sampleFile('uploadError'),
       ]}
       handleInputChange={() => {}}
+      acceptTypes="application/pdf"
     />
   ));

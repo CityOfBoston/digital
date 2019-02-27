@@ -1,6 +1,7 @@
 import React from 'react';
+import { css } from 'emotion';
 
-import { ProgressBar } from '@cityofboston/react-fleet';
+import { ProgressBar, MEDIA_X_LARGE } from '@cityofboston/react-fleet';
 
 import PageLayout from '../PageLayout';
 
@@ -34,7 +35,9 @@ export default class PageWrapper extends React.Component<Props> {
           className={`b-c b-c--hsm ${footer ? 'b-c--nbp' : ''}`}
           aria-live="polite"
         >
-          <h1 className="sh-title">Request a birth certificate</h1>
+          <h1 className={`sh-title ${TITLE_STYLE}`}>
+            Request a birth certificate
+          </h1>
 
           {progress && <ProgressBar {...progress} />}
 
@@ -46,3 +49,12 @@ export default class PageWrapper extends React.Component<Props> {
     );
   }
 }
+
+const TITLE_STYLE = css({
+  [MEDIA_X_LARGE]: {
+    // We put a hard top limit on the size, since with the responsive sizes on
+    // sh-title the phrase "Request a birth certificate" gets too big and wraps
+    // past 1245px wide.
+    fontSize: 38,
+  },
+});
