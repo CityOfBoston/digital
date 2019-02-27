@@ -101,21 +101,23 @@ export default class PersonalInformation extends React.Component<Props> {
           </div>
         </FieldsetComponent>
 
-        <MemorableDateInput
-          legend={
-            <h2
-              className={SECTION_HEADING_STYLING}
-              style={{ marginBottom: '1.5rem' }}
-            >
-              When were {forSelf ? 'you' : 'they'} born?
-            </h2>
-          }
-          initialDate={birthDate || ''}
-          componentId="dob"
-          onlyAllowPast={true}
-          earliestDate={EARLIEST_DATE}
-          handleDate={this.handleDateChange}
-        />
+        <div className="m-v700">
+          <MemorableDateInput
+            legend={
+              <h2
+                className={SECTION_HEADING_STYLING}
+                style={{ marginBottom: '1.5rem' }}
+              >
+                When were {forSelf ? 'you' : 'they'} born?
+              </h2>
+            }
+            initialDate={birthDate || ''}
+            componentId="dob"
+            onlyAllowPast={true}
+            earliestDate={EARLIEST_DATE}
+            handleDate={this.handleDateChange}
+          />
+        </div>
       </QuestionComponent>
     );
   }

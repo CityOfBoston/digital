@@ -68,7 +68,7 @@ export const RADIOITEM_STYLING = css({
     strokeMiterlimit: 10,
     strokeWidth: 3,
 
-    '&.someoneElse': {
+    '&.forWhom': {
       width: 140,
     },
 
