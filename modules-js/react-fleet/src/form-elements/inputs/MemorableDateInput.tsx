@@ -21,7 +21,14 @@ interface Props {
 
 interface State {
   hasFocus: boolean;
-  error: string;
+  dirty: boolean;
+  /**
+   * A validity error message, if it exists, from the last valid date entered.
+   * Stored in state because we want to keep it around while the user edits the
+   * fields (at which point it can no longer be derived from the current state
+   * of the fields).
+   */
+  lastValidityError: string | null;
   fields: Fields;
 }
 
@@ -80,51 +87,61 @@ export default class MemorableDateInput extends React.Component<Props, State> {
 
     this.state = {
       hasFocus: false,
-      error: '',
+      dirty: !!this.initial,
+      lastValidityError: this.initial && this.isDateValid(this.initial),
       fields: this.initial
-        ? {
-            year: this.initial.getFullYear().toString(),
-            month: (this.initial.getMonth() + 1).toString(),
-            day: this.initial.getDate().toString(),
-          }
-        : {
-            year: '',
-            month: '',
-            day: '',
-          },
+        ? dateToFields(this.initial)
+        : { year: '', month: '', day: '' },
     };
   }
 
-  // Determine if date range limits have been declared, and whether a given
-  // date is within that range. If not, this.state.error is set to reflect this.
-  private checkIfDateInRange(date: Date): boolean {
-    const errorString = isDateValid(
+  /**
+   * Helper to call isDateValid with all of our constraint props filled in.
+   */
+  private isDateValid(date: Date): string | null {
+    return dateValidError(
       date,
       this.earliest,
       this.latest,
       this.props.onlyAllowPast,
       this.props.onlyAllowFuture
     );
-
-    this.setState({ error: errorString });
-
-    return errorString.length === 0;
   }
 
-  // If date is within range, update value. Otherwise, clear the value.
-  private updateDate(): void {
-    const { year, month, day } = this.state.fields;
+  /**
+   * Called when the fields change to update state. Calls the handleDate prop
+   * with either a valid date or null.
+   *
+   * Also updates the lastValidityError state so we can keep error messages
+   * around while the user edits.
+   */
+  private updateFields(fields: Fields) {
+    let date: Date | null;
+    let lastValidityError: string | null;
 
-    // When Date is called with more than one arg, result is set to midnight.
-    let date: Date | null = new Date(+year, +month - 1, +day);
-
-    // If supplied date is out of range, clear the date value.
-    if (!this.checkIfDateInRange(date)) {
+    if (inputCompleteError(fields)) {
       date = null;
+      // We don't reset the validity error if the user hasn’t typed in a new
+      // date. This lets us show the date constraints while they’re editing.
+      lastValidityError = this.state.lastValidityError;
+    } else {
+      date = fieldsToDate(fields);
+      lastValidityError = this.isDateValid(date);
+
+      if (lastValidityError) {
+        date = null;
+      }
     }
 
-    // Call parent component’s method with the new date value.
-    this.props.handleDate(date);
+    this.setState(
+      {
+        fields,
+        lastValidityError,
+      },
+      () => {
+        this.props.handleDate(date);
+      }
+    );
   }
 
   // For the purposes of gracefully showing/hiding error text, we want to track
@@ -132,43 +149,63 @@ export default class MemorableDateInput extends React.Component<Props, State> {
   // as having a focus and a blur state.
   private handleFocus = (): void => {
     clearTimeout(this.timeout);
-
     this.setState({ hasFocus: true });
   };
 
   private handleBlur = (): void => {
-    this.timeout = setTimeout(() => this.setState({ hasFocus: false }), 0);
+    this.timeout = setTimeout(() => {
+      let { fields } = this.state;
+
+      // This has the effect of normalizing dates. So, for example, February
+      // 31st will get changed to March 3rd. We do this only onBlur so that we
+      // don’t disturb inputs if people temporarily make invalid dates while
+      // editing.
+      if (!inputCompleteError(fields)) {
+        const date = fieldsToDate(fields);
+        fields = dateToFields(date);
+      }
+
+      this.setState({
+        fields,
+        hasFocus: false,
+        dirty: true,
+      });
+    }, 0);
   };
 
   // Handler for the user-controlled input fields.
   private handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      fields: {
-        ...this.state.fields,
-        [event.target.name]: event.target.value,
-      },
+    this.updateFields({
+      ...this.state.fields,
+      [event.target.name]: event.target.value,
     });
   };
 
-  public componentDidUpdate(
-    _prevProps: Readonly<Props>,
-    prevState: Readonly<State>
-  ): void {
-    const { fields } = this.state;
-    const errorString = isInputComplete(fields);
+  /**
+   * Returns the current error message to show.
+   *
+   * Here’s the algorithm:
+   *  - Show "missing input" errors only if we’ve focused in the past (dirty)
+   *    and are not currently focusing (hasFocus)
+   *  - If we’re focused, show errors relating to the validity of the
+   *    currently-entered date
+   *  - If we’re focused (the user is editing), the validity error should be
+   *    sticky if there are missing inputs
+   */
+  private currentError(): string | null {
+    const { fields, dirty, hasFocus, lastValidityError } = this.state;
 
-    // Only calculate a Date from the user-supplied values when a complete date
-    // has been entered by the user.
-    if (prevState.fields !== fields && errorString.length === 0) {
-      this.updateDate();
-    }
-
-    // Always clear errors when user focuses on a field.
-    if (!prevState.hasFocus && this.state.hasFocus) {
-      this.setState({ error: '' });
-      // If user leaves the component but hasn’t entered a valid date, show error.
-    } else if (prevState.hasFocus && !this.state.hasFocus) {
-      this.setState({ error: errorString });
+    const missingInputError = inputCompleteError(fields);
+    if (missingInputError) {
+      if (!hasFocus && dirty) {
+        return missingInputError;
+      } else if (hasFocus) {
+        return lastValidityError;
+      } else {
+        return null;
+      }
+    } else {
+      return lastValidityError;
     }
   }
 
@@ -180,6 +217,8 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       onBlur: this.handleBlur,
       onFocus: this.handleFocus,
     };
+
+    const error = this.currentError();
 
     return (
       <fieldset className={FIELDSET_STYLING}>
@@ -233,9 +272,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
           </div>
         </div>
 
-        {this.state.error.length > 0 && (
-          <div className="t--err">{this.state.error}</div>
-        )}
+        {error && <div className="t--err m-t200">{error}</div>}
       </fieldset>
     );
   }
@@ -255,16 +292,6 @@ function checkIfPropsValid(props: Props): void {
   const latestDateTime = props.latestDate
     ? new Date(props.latestDate).getTime()
     : null;
-
-  const isNotValid =
-    props.initialDate &&
-    isDateValid(
-      new Date(props.initialDate),
-      props.earliestDate ? new Date(props.earliestDate) : null,
-      props.latestDate ? new Date(props.latestDate) : null,
-      props.onlyAllowPast,
-      props.onlyAllowFuture
-    );
 
   // yesterdayTime and tomorrowTime are both true
   if (props.onlyAllowPast && props.onlyAllowFuture) {
@@ -315,13 +342,6 @@ function checkIfPropsValid(props: Props): void {
       );
     }
   }
-
-  if (isNotValid && isNotValid.length > 0) {
-    throw new Error(
-      `Initial date is not valid: ${isNotValid}
-    Received: initialDate: ${props.initialDate}`
-    );
-  }
 }
 
 // Determine upper or lower limit date, if applicable.
@@ -345,23 +365,30 @@ export function returnLimitAsDate(
 }
 
 /**
- * Returns an error string if user input is incomplete.
+ * Returns an error string if user input is incomplete, or if the
+ * values are definitely out-of-bounds.
+ *
+ * isDateValid tests them against the validity constraints.
  */
-export function isInputComplete(fields): string {
+export function inputCompleteError(fields: Fields): string | null {
   const { month, day, year } = fields;
   const missingFields: string[] = [];
 
-  let errorString = '';
+  const monthInt = parseInt(month, 10);
+  const dayInt = parseInt(day, 10);
+  const yearInt = parseInt(year, 10);
 
-  if ((month > 0 && month <= 12) === false) {
+  let errorString: string | null = null;
+
+  if (isNaN(monthInt) || monthInt <= 0 || monthInt > 12) {
     missingFields.push('month');
   }
 
-  if ((day > 0 && day <= 31) === false) {
+  if (isNaN(dayInt) || dayInt <= 0 || dayInt > 31) {
     missingFields.push('day');
   }
 
-  if (!year || (year && year.toString().length !== 4)) {
+  if (isNaN(yearInt) || year.length !== 4) {
     missingFields.push('year');
   }
 
@@ -384,7 +411,7 @@ export function isInputComplete(fields): string {
 /**
  * Returns useful error string if a given date is not valid.
  */
-export function isDateValid(
+export function dateValidError(
   date: Date,
   earliest: Date | null,
   latest: Date | null,
@@ -436,6 +463,19 @@ export function isDateValid(
   function formattedDate(date: Date): string {
     return Intl.DateTimeFormat('en-US').format(date);
   }
+}
+
+function fieldsToDate({ year, month, day }: Fields): Date {
+  // When Date is called with more than one arg, result is set to midnight.
+  return new Date(+year, +month - 1, +day);
+}
+
+function dateToFields(date: Date): Fields {
+  return {
+    year: date.getFullYear().toString(),
+    month: (date.getMonth() + 1).toString(),
+    day: date.getDate().toString(),
+  };
 }
 
 const FIELDSET_STYLING = css({
