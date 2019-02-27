@@ -73,7 +73,11 @@ export default class UploadPhoto extends React.Component<Props, State> {
   };
 
   private onRemove = (): void => {
-    this.setState({ file: null }, () => {
+    if (this.state.previewUrl) {
+      URL.revokeObjectURL(this.state.previewUrl);
+    }
+
+    this.setState({ file: null, previewUrl: null }, () => {
       this.props.handleRemove();
     });
   };
