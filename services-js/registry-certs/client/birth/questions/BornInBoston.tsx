@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
@@ -12,9 +12,9 @@ import { SECTION_HEADING_STYLING, NOTE_BOX_CLASSNAME } from '../styling';
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
 
-  handleProceed: () => void;
-  handleStepBack: () => void;
-  handleUserReset: () => void;
+  handleProceed: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent) => void;
+  handleUserReset: (ev: MouseEvent) => void;
 }
 
 /**

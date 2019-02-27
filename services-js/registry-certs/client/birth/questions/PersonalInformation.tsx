@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
 import { TextInput, MemorableDateInput } from '@cityofboston/react-fleet';
@@ -17,8 +17,8 @@ import {
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
 
-  handleProceed: () => void;
-  handleStepBack: () => void;
+  handleProceed: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent) => void;
 }
 
 @observer

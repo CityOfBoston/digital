@@ -82,7 +82,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
     this.setState({ isFocused });
   };
 
-  private addFilesFromInput = (files: FileList): void => {
+  private addFilesFromInput = (files: FileList) => {
     const { selectedFiles } = this.props;
 
     // Create an array from the FileList.
@@ -107,14 +107,20 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
       }
     }
 
-    this.props.handleInputChange(
-      selectedFiles ? [...selectedFiles, ...fileArray] : fileArray
-    );
-
-    // Clear native input after each change.
+    // Clear native input after each change. This will cause handleFileChange
+    // to be called immediately.
     if (this.inputRef.current) {
       this.inputRef.current.value = null as any;
     }
+
+    // We put this at the end to emphasize that its effect on
+    // this.props.selectedFiles won’t be seen immediately, but rather after it
+    // has a chance to propagate back down.
+    //
+    // Because we call handleInputChange based on the current value of
+    // selectedFiles, this method is *not* re-entrant. If it’s called
+    // recursively, the first added files will be thrown away.
+    this.props.handleInputChange([...selectedFiles, ...fileArray]);
   };
 
   // Clear a file from the list, and delete from server.
@@ -138,8 +144,13 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
   };
 
   private handleFileChange = (): void => {
-    if (this.inputRef.current && this.inputRef.current.files) {
-      this.addFilesFromInput(this.inputRef.current.files);
+    const input = this.inputRef.current;
+
+    // The 0 file check is for IE. Because this will get triggered from within
+    // addFilesFromInput when it clears the input, we want to be extra-sure that
+    // we don't cause a recursive call to addFilesFromInput.
+    if (input && input.files && input.files.length) {
+      this.addFilesFromInput(input.files);
     }
   };
 
@@ -182,29 +193,28 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
         </div>
 
         <ul className={`${FILE_LIST_STYLING} t--s400`}>
-          {this.props.selectedFiles &&
-            this.props.selectedFiles.map(uploadedFile => (
-              <li key={uploadedFile.file.name}>
-                {/* this instead of list-style to avoid ie11 formatting issue */}
-                <span className="name">
-                  <span aria-hidden="true">•</span>
+          {this.props.selectedFiles.map(uploadedFile => (
+            <li key={uploadedFile.file.name}>
+              {/* this instead of list-style to avoid ie11 formatting issue */}
+              <span className="name">
+                <span aria-hidden="true">•</span>
 
-                  <span>{uploadedFile.file.name}</span>
+                <span>{uploadedFile.file.name}</span>
+              </span>
+
+              {uploadedFile.status === 'canceling' ||
+              uploadedFile.status === 'deleting' ? (
+                <span className={STATUS_TEXT_STYLING}>
+                  {uploadedFile.status}…
                 </span>
-
-                {uploadedFile.status === 'canceling' ||
-                uploadedFile.status === 'deleting' ? (
-                  <span className={STATUS_TEXT_STYLING}>
-                    {uploadedFile.status}…
-                  </span>
-                ) : (
-                  <FileButton
-                    uploadableFile={uploadedFile}
-                    deleteFile={this.deleteFile}
-                  />
-                )}
-              </li>
-            ))}
+              ) : (
+                <FileButton
+                  uploadableFile={uploadedFile}
+                  deleteFile={this.deleteFile}
+                />
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     );

@@ -113,11 +113,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
     }
   }
 
-  private advanceQuestion = (modifiedRequest?: BirthCertificateRequest) => {
+  private advanceQuestion = (modifiedRequest: BirthCertificateRequest) => {
     const { currentStep, birthCertificateRequest } = this.props;
-
-    modifiedRequest =
-      modifiedRequest || this.state.localBirthCertificateRequest;
 
     if (birthCertificateRequest !== modifiedRequest) {
       birthCertificateRequest.updateFrom(modifiedRequest);
@@ -171,7 +168,10 @@ export default class QuestionsPage extends React.Component<Props, State> {
         questionsEl = (
           <ForWhom
             birthCertificateRequest={localBirthCertificateRequest}
-            handleProceed={this.advanceQuestion}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localBirthCertificateRequest
+            )}
           />
         );
         break;
@@ -188,7 +188,10 @@ export default class QuestionsPage extends React.Component<Props, State> {
         questionsEl = (
           <BornInBoston
             birthCertificateRequest={localBirthCertificateRequest}
-            handleProceed={this.advanceQuestion}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localBirthCertificateRequest
+            )}
             handleStepBack={this.stepBackOneQuestion}
             handleUserReset={this.handleUserReset}
           />
@@ -202,7 +205,10 @@ export default class QuestionsPage extends React.Component<Props, State> {
         questionsEl = (
           <PersonalInformation
             birthCertificateRequest={localBirthCertificateRequest}
-            handleProceed={this.advanceQuestion}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localBirthCertificateRequest
+            )}
             handleStepBack={this.stepBackOneQuestion}
           />
         );
@@ -215,7 +221,10 @@ export default class QuestionsPage extends React.Component<Props, State> {
         questionsEl = (
           <ParentalInformation
             birthCertificateRequest={localBirthCertificateRequest}
-            handleProceed={this.advanceQuestion}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localBirthCertificateRequest
+            )}
             handleStepBack={this.stepBackOneQuestion}
           />
         );

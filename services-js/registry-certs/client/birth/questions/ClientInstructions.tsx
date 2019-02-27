@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import QuestionComponent from '../components/QuestionComponent';
 
 import { SECTION_HEADING_STYLING } from '../styling';
 
 interface Props {
-  handleStepBack: () => void;
+  handleStepBack: (ev: MouseEvent) => void;
 }
 
 export default class ClientInstructions extends React.Component<Props> {

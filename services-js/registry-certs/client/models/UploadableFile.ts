@@ -57,7 +57,9 @@ export default class UploadableFile {
     const uploadRequest = new XMLHttpRequest();
     const formData = new FormData();
 
-    formData.append('file', this.file);
+    // Explicitly setting the filename keeps IE from sending the whole file’s
+    // path as the file name.
+    formData.append('file', this.file, this.file.name);
     formData.append('type', 'BC');
     if (this.label) {
       formData.append('label', this.label);
