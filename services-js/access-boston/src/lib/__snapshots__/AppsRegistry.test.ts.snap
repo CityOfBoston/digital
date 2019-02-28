@@ -7,7 +7,7 @@ Array [
       Object {
         "description": "",
         "groups": null,
-        "iconUrl": "/assets/apps/boston-maps.png",
+        "iconUrl": "/assets/apps/boston-maps.svg",
         "newWindow": false,
         "title": "Boston Maps",
         "url": "https://boston.maps.arcgis.com/",
@@ -15,7 +15,7 @@ Array [
       Object {
         "description": "",
         "groups": null,
-        "iconUrl": null,
+        "iconUrl": "/assets/apps/hub.svg",
         "newWindow": false,
         "title": "The Hub",
         "url": "https://edit-dev-hub.boston.gov/user",
@@ -25,7 +25,7 @@ Array [
         "groups": Array [
           "SG_AB_IAM_TEAM",
         ],
-        "iconUrl": "/assets/apps/identityiq.jpg",
+        "iconUrl": "/assets/apps/identityiq.svg",
         "newWindow": false,
         "title": "IIQ",
         "url": "https://identity.boston.gov/identityiq/",
@@ -115,7 +115,7 @@ Array [
       Object {
         "description": "",
         "groups": null,
-        "iconUrl": "/assets/apps/boston-maps.png",
+        "iconUrl": "/assets/apps/boston-maps.svg",
         "newWindow": false,
         "title": "Boston Maps",
         "url": "https://boston.maps.arcgis.com/",
@@ -123,7 +123,7 @@ Array [
       Object {
         "description": "",
         "groups": null,
-        "iconUrl": null,
+        "iconUrl": "/assets/apps/hub.svg",
         "newWindow": false,
         "title": "The Hub",
         "url": "https://edit-dev-hub.boston.gov/user",

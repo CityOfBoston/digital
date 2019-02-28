@@ -5,42 +5,48 @@ categories:
     apps:
       - title: BAIS FN
         url: https://baisfn.cityhall.boston.cob/
+        icon: /assets/apps/bais-fn.svg
         groups:
           - SG_AB_PSFIN
       - title: BAIS HCM
         url: https://hcm.cityhall.boston.cob/
+        icon: /assets/apps/bais-hcm.svg
         groups:
           - SG_AB_PSHCM
       - title: Boston Maps
         url: https://boston.maps.arcgis.com/
-        icon: /assets/apps/boston-maps.png
-      - title: Employee Connect
+        icon: /assets/apps/boston-maps.svg
+      - title: Career Center
         url: https://employeeconnect-boston.icims.com/
+        icon: /assets/apps/career-center.svg
         groups:
           - SG_AB_ICIMS
       - title: Employee Self-Service
         url: https://ess.boston.gov/
+        icon: /assets/apps/ess.svg
         groups:
           - SG_AB_ESS
       - title: The Hub
         url: https://edit-dev-hub.boston.gov/user
+        icon: /assets/apps/hub.svg
       - title: Hyperion
         url: https://login.us2.oraclecloud.com/
-        icon: /assets/apps/hyperion.png
+        icon: /assets/apps/hyperion.svg
         groups:
           - SG_AB_HYPERION
       - title: IIQ
         url: https://identity.boston.gov/identityiq/
-        icon: /assets/apps/identityiq.jpg
+        icon: /assets/apps/identityiq.svg
         groups:
           - SG_AB_IAM_TEAM
-      - title: My Learning Plan
+      - title: Employee Training
         url: https://login.frontlineeducation.com/
+        icon: /assets/apps/employee-training.svg
         groups:
           - SG_AB_MLP
       - title: BPS TalentEd
         url: https://bostonpublicschools.tedk12.com/hire/index.aspx
-        icon: /assets/apps/talented.png
+        icon: /assets/apps/talented.svg
         groups:
           - TODO_MAKE_THIS_GROUP
 

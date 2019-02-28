@@ -2857,7 +2857,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/bais-fn.svg"
               />
             </span>
             <span
@@ -2878,7 +2878,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/bais-hcm.svg"
               />
             </span>
             <span
@@ -2899,7 +2899,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/boston-maps.png"
+                src="/assets/apps/boston-maps.svg"
               />
             </span>
             <span
@@ -2920,13 +2920,13 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/career-center.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Employee Connect
+              Career Center
             </span>
           </a>
           <a
@@ -2941,7 +2941,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/ess.svg"
               />
             </span>
             <span
@@ -2962,7 +2962,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/hub.svg"
               />
             </span>
             <span
@@ -2983,7 +2983,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/hyperion.png"
+                src="/assets/apps/hyperion.svg"
               />
             </span>
             <span
@@ -3004,7 +3004,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/identityiq.jpg"
+                src="/assets/apps/identityiq.svg"
               />
             </span>
             <span
@@ -3025,13 +3025,13 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/employee-training.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              My Learning Plan
+              Employee Training
             </span>
           </a>
           <a
@@ -3046,7 +3046,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/talented.png"
+                src="/assets/apps/talented.svg"
               />
             </span>
             <span
@@ -3667,7 +3667,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/bais-fn.svg"
               />
             </span>
             <span
@@ -3688,7 +3688,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/bais-hcm.svg"
               />
             </span>
             <span
@@ -3709,7 +3709,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/boston-maps.png"
+                src="/assets/apps/boston-maps.svg"
               />
             </span>
             <span
@@ -3730,13 +3730,13 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/career-center.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Employee Connect
+              Career Center
             </span>
           </a>
           <a
@@ -3751,7 +3751,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/ess.svg"
               />
             </span>
             <span
@@ -3772,7 +3772,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/hub.svg"
               />
             </span>
             <span
@@ -3793,7 +3793,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/hyperion.png"
+                src="/assets/apps/hyperion.svg"
               />
             </span>
             <span
@@ -3814,7 +3814,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/identityiq.jpg"
+                src="/assets/apps/identityiq.svg"
               />
             </span>
             <span
@@ -3835,13 +3835,13 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="https://patterns.boston.gov/images/b-dark.svg"
+                src="/assets/apps/employee-training.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              My Learning Plan
+              Employee Training
             </span>
           </a>
           <a
@@ -3856,7 +3856,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/talented.png"
+                src="/assets/apps/talented.svg"
               />
             </span>
             <span
