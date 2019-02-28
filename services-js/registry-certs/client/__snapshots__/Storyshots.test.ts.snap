@@ -140,92 +140,96 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -644,92 +648,96 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -1199,92 +1207,96 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -1850,92 +1862,96 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -2128,92 +2144,96 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -3152,92 +3172,96 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -3586,92 +3610,96 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -4383,92 +4411,96 @@ exports[`Storyshots Birth/QuestionsFlow/1a. Client instructions default 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -4782,92 +4814,96 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? blank 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -5274,92 +5310,96 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? hard no 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -5921,92 +5961,96 @@ exports[`Storyshots Birth/QuestionsFlow/2. Born in Boston? maybe no 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -6566,92 +6610,96 @@ exports[`Storyshots Birth/QuestionsFlow/3. Personal information blank 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -7152,92 +7200,96 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -7827,92 +7879,96 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -8530,92 +8586,96 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -9231,92 +9291,96 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -9988,92 +10052,96 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -11119,92 +11187,96 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -12521,92 +12593,96 @@ exports[`Storyshots Checkout/CheckoutPage server-side render 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -13158,92 +13234,96 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -14195,92 +14275,96 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -15191,92 +15275,96 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -16225,92 +16313,96 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -16746,92 +16838,96 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -17263,92 +17359,96 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -18259,92 +18359,96 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -18910,92 +19014,96 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -19679,92 +19787,96 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -20366,92 +20478,96 @@ exports[`Storyshots Checkout/ReviewContent empty cart 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -20986,92 +21102,96 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -21644,92 +21764,96 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -22364,92 +22488,96 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -23092,92 +23220,96 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -23801,92 +23933,96 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/birth"
-            >
-              Birth certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/birth"
+              >
+                Birth certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -24825,92 +24961,96 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -25811,92 +25951,96 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -26797,92 +26941,96 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
         }
         role="banner"
       />
-      <nav
-        aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+      <div
+        className="p-t300"
       >
-        <ul
-          className="brc-l"
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc css-1bakzg2 p-a300"
         >
-          <li
-            className="brc-l-i"
+          <ul
+            className="brc-l"
           >
-            <a
-              href="https://www.boston.gov/"
+            <li
+              className="brc-l-i"
             >
-              Home
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments"
-            >
-              Departments
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              href="https://www.boston.gov/departments/registry"
-            >
-              Registry: Birth, death, and marriage
-            </a>
-            <span
-              aria-hidden="true"
-              className="brc-s"
-              style={
-                Object {
-                  "cursor": "default",
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
                 }
-              }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
             >
-               
-              ›
-               
-            </span>
-          </li>
-          <li
-            className="brc-l-i"
-          >
-            <a
-              aria-current="page"
-              className="css-udegvj"
-              href="/death"
-            >
-              Death certificates
-            </a>
-          </li>
-        </ul>
-      </nav>
+              <a
+                aria-current="page"
+                className="css-udegvj"
+                href="/death"
+              >
+                Death certificates
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"

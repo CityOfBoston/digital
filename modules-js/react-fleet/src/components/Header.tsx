@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import headerHtml from '../../templates/header.html';
 
@@ -12,7 +12,6 @@ import headerHtml from '../../templates/header.html';
 export default function Header(
   props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
 ) {
-  const [scrollPosition, setScrollPosition] = useState(0);
   let className = 'h';
 
   if (props.className) {
@@ -20,23 +19,15 @@ export default function Header(
   }
 
   useEffect(() => {
-    let lastPos: number = 0;
-    let isScrolling: boolean = false;
+    let timer;
 
     const handleScroll = (): void => {
-      lastPos = window.scrollY;
-
-      if (!isScrolling) {
-        window.requestAnimationFrame(() => {
-          setScrollPosition(lastPos);
-
-          handleScrollStop();
-
-          isScrolling = false;
-        });
-
-        isScrolling = true;
+      if (timer) {
+        window.clearTimeout(timer);
       }
+
+      // Add or remove the CSS class once the user has stopped scrolling
+      timer = window.setTimeout(() => handleScrollStop(), 750);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -54,7 +45,7 @@ export default function Header(
     }
 
     if (sealElement) {
-      if (scrollPosition > 310) {
+      if (window.scrollY > 310) {
         sealElement.classList.add('s--u');
       } else {
         sealElement.classList.remove('s--u');
