@@ -1,24 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`charge.captured marks the order as paid 1`] = `
-[MockFunction] {
-  "calls": Array [
-    Array [
-      6925,
-      2019-02-07T18:45:12.000Z,
-      "ch_1E1Hs4HEIqCf0NlguuGDYPjL",
-      43.16,
-    ],
-  ],
-  "results": Array [
-    Object {
-      "type": "return",
-      "value": Promise {},
-    },
-  ],
-}
-`;
-
 exports[`charge.captured sends a shipped email 1`] = `
 [MockFunction] {
   "calls": Array [
