@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import BackButton from '../components/BackButton';
 
@@ -8,10 +8,10 @@ import {
 } from '../styling';
 
 interface Props {
-  handleProceed?: () => void;
+  handleProceed?: (ev: MouseEvent) => void;
   allowProceed?: boolean;
-  handleStepBack?: () => void;
-  handleReset?: () => void;
+  handleStepBack?: (ev: MouseEvent) => void;
+  handleReset?: (ev: MouseEvent) => void;
   startOver?: boolean;
   nextButtonText?: string;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
 import { TextInput } from '@cityofboston/react-fleet';
@@ -21,8 +21,8 @@ import {
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
 
-  handleProceed: () => void;
-  handleStepBack: () => void;
+  handleProceed: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent) => void;
 }
 
 /**
@@ -192,7 +192,9 @@ export default class ParentalInformation extends React.Component<Props> {
             </p>
             <p>
               <strong>
-                You will need to provide a valid form of identification (i.e.
+                You will need to provide a valid form of identification (<i>
+                  e.g.
+                </i>
                 driver’s license, state ID, military ID, or passport) later in
                 this process.
               </strong>
@@ -208,8 +210,8 @@ export default class ParentalInformation extends React.Component<Props> {
             <p>
               <strong>
                 If you are listed on the record, you will need to provide a
-                valid form of identification (i.e. driver’s license, state ID,
-                military ID, or passport) to get a copy.
+                valid form of identification (<i>e.g.</i> driver’s license,
+                state ID, military ID, or passport) to get a copy.
               </strong>{' '}
               If you are not listed on the record, you will not be able to get a
               copy. Your request will be canceled and your card will not be

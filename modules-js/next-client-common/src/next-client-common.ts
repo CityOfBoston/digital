@@ -1,11 +1,10 @@
-import fetch from 'isomorphic-fetch';
 import getConfig from 'next/config';
 import { IncomingMessage, ServerResponse } from 'http';
 import { ServerInjectResponse } from 'hapi';
 
 export { default as RouterListener } from './RouterListener';
 export * from './RouterListener';
-export { default as SiteAnalytics } from './SiteAnalytics';
+export { SiteAnalytics } from './SiteAnalytics';
 export { default as GtagSiteAnalytics } from './GtagSiteAnalytics';
 export { default as GaSiteAnalytics } from './GaSiteAnalytics';
 export { default as ScreenReaderSupport } from './ScreenReaderSupport';

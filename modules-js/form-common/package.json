@@ -9,21 +9,26 @@
   "types": "build/form-common.d.ts",
   "sideEffects": false,
   "scripts": {
-    "watch": "concurrently \"npm run build:babel -- --watch\" \"rollup -c -w\"",
+    "watch": "concurrently \"yarn run build:babel -- --watch\" \"rollup -c -w\"",
     "prebuild": "rimraf build",
-    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel && rollup -c\"",
+    "build": "concurrently \"yarn run build:typescript\" \"yarn run build:babel && rollup -c\"",
     "build:typescript": "tsc --emitDeclarationOnly",
     "build:babel": "cross-env BABEL_ENV=esm babel src --out-dir build --extensions \".ts,.tsx\"",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "pretest": "tsc --noEmit",
     "test": "jest"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-babel"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "core-js": "^2.5.7"
   },
   "peerDependencies": {
     "@babel/runtime": "7.0.0",
-    "core-js": "^2.5.7",
     "emotion": "9.2.10",
     "react": "16.8.1"
   },
@@ -32,14 +37,13 @@
     "@babel/core": "7.0.0",
     "@babel/runtime": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
-    "@types/jest": "23.x.x",
+    "@types/jest": "24.x.x",
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.5",
     "emotion": "9.2.10",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "react": "16.8.1",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",

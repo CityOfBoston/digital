@@ -8,38 +8,42 @@ import UploadPhoto from './UploadPhoto';
 import { BLACK, OPTIMISTIC_BLUE_LIGHT, WHITE } from '../react-fleet';
 
 storiesOf('Form Elements/Upload photo', module)
-  .add('default', () => (
-    <div style={{ width: 400 }}>
-      <UploadPhoto handleDrop={() => {}} handleRemove={() => {}} />
+  .addDecorator(s => (
+    <div className="g">
+      <div className="g--4">{s()}</div>
     </div>
+  ))
+  .add('default', () => (
+    <UploadPhoto handleDrop={() => {}} handleRemove={() => {}} />
   ))
   .add('custom background element', () => (
-    <div style={{ width: 400 }}>
-      <UploadPhoto
-        backgroundElement={<IdImage />}
-        buttonTitleUpload="Upload front of ID"
-        handleDrop={() => {}}
-        handleRemove={() => {}}
-      />
-    </div>
+    <UploadPhoto
+      backgroundElement={<IdImage />}
+      buttonTitleUpload="Upload front of ID"
+      handleDrop={() => {}}
+      handleRemove={() => {}}
+    />
   ))
   .add('uploading: 60% complete', () => (
-    <div style={{ width: 400 }}>
-      <UploadPhoto
-        uploadProgress={60}
-        handleDrop={() => {}}
-        handleRemove={() => {}}
-      />
-    </div>
+    <UploadPhoto
+      uploadProgress={60}
+      handleDrop={() => {}}
+      handleRemove={() => {}}
+    />
   ))
   .add('upload error', () => (
-    <div style={{ width: 400 }}>
-      <UploadPhoto
-        errorMessage="server error"
-        handleDrop={() => {}}
-        handleRemove={() => {}}
-      />
-    </div>
+    <UploadPhoto
+      errorMessage="server error"
+      handleDrop={() => {}}
+      handleRemove={() => {}}
+    />
+  ))
+  .add('existing photo', () => (
+    <UploadPhoto
+      initialFile={new File(SVG_BITS, 'img.svg', { type: 'image/svg+xml' })}
+      handleDrop={() => {}}
+      handleRemove={() => {}}
+    />
   ));
 
 function IdImage(): JSX.Element {
@@ -78,3 +82,13 @@ const ID_IMAGE_STYLING = css({
 
   padding: '2rem 4rem',
 });
+
+const SVG_BITS = [
+  `<?xml version="1.0" encoding="UTF-8"?>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+    <path fill="#5BCEFA" d="M0 0h800v480H0z"/>
+    <path fill="#F5A9B8" d="M0 96h800v288H0z"/>
+    <path fill="#FFF" d="M0 192h800v96H0z"/>
+  </svg>
+  `,
+];

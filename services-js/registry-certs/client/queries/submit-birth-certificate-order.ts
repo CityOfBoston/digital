@@ -95,8 +95,13 @@ export default async function submitBirthCertificateOrder(
 
   const {
     quantity,
+    uploadSessionId,
     requestInformation: {
+      forSelf,
       howRelated,
+      bornInBoston,
+      parentsLivedInBoston,
+      parentsMarried,
       birthDate,
       firstName,
       lastName,
@@ -120,6 +125,19 @@ export default async function submitBirthCertificateOrder(
     );
   }
 
+  const notes = `
+Birth Certificate Request Questions:
+
+Relationship: ${forSelf ? 'self' : howRelated || 'unknown'}
+Born in Boston: ${bornInBoston}${
+    bornInBoston !== 'yes'
+      ? `
+Parents lived in Boston: ${parentsLivedInBoston}`
+      : ''
+  }
+Parents married: ${parentsMarried}
+  `.trim();
+
   const queryVariables: SubmitBirthCertificateOrderVariables = {
     contactName,
     contactEmail,
@@ -140,17 +158,17 @@ export default async function submitBirthCertificateOrder(
     billingCity,
     billingZip,
     item: {
-      relationship: howRelated || 'unknown',
-      birthDate,
+      birthDate: birthDate!.toISOString(),
       firstName,
       lastName,
-      uploadSessionId: '',
+      uploadSessionId,
       alternateSpellings: altSpelling || '',
       parent1FirstName,
       parent1LastName: parent1LastName || '',
       parent2FirstName: parent2FirstName || '',
       parent2LastName: parent2LastName || '',
       quantity,
+      notes,
     },
     idempotencyKey,
   };

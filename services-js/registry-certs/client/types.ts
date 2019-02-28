@@ -6,6 +6,8 @@ import {
   SubmitBirthCertificateOrder_submitBirthCertificateOrder,
 } from './queries/graphql-types';
 
+import UploadableFile from './models/UploadableFile';
+
 export type CertificateType = 'death' | 'birth';
 
 // Death-specific
@@ -76,7 +78,7 @@ export interface BirthCertificateRequestInformation {
   parent2LastName?: string;
 
   // only required if parentsMarried !== true:
-  idImageFront?: any | null;
-  idImageBack?: any | null;
-  supportingDocuments?: File[] | null;
+  idImageFront?: UploadableFile | null;
+  idImageBack?: UploadableFile | null;
+  supportingDocuments: UploadableFile[];
 }

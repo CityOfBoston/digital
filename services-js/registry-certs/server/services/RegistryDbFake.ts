@@ -46,13 +46,15 @@ export default class RegistryDbFake implements Required<RegistryDb> {
   }
 
   async cancelOrder(): Promise<void> {}
+  async addNote(): Promise<void> {}
 
-  async uploadBirthAttachments(_session, _label, files): Promise<string[]> {
-    let n = 0;
-    return files.map(() => `file-${++n}`);
+  async uploadBirthAttachment(): Promise<string> {
+    return '17';
   }
 
   async deleteBirthAttachment() {
     return null;
   }
+
+  async addUploadsToBirthCertificateOrder() {}
 }

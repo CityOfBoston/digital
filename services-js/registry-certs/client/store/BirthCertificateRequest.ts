@@ -1,5 +1,5 @@
 import { action, observable, computed } from 'mobx';
-
+import uuidv4 from 'uuid/v4';
 import { BirthCertificateRequestInformation, Step } from '../types';
 
 // This is used for initial state during the questions flow, and to
@@ -22,7 +22,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   parent2LastName: '',
   idImageFront: null,
   idImageBack: null,
-  supportingDocuments: null,
+  supportingDocuments: [],
 };
 
 export const QUESTION_STEPS: Step[] = [
@@ -64,6 +64,12 @@ export default class BirthCertificateRequest {
     BirthCertificateRequestInformation
   > = INITIAL_REQUEST_INFORMATION;
 
+  public uploadSessionId: string;
+
+  constructor() {
+    this.uploadSessionId = uuidv4();
+  }
+
   @computed
   public get steps(): Step[] {
     const { forSelf, howRelated } = this.requestInformation;
@@ -103,8 +109,9 @@ export default class BirthCertificateRequest {
 
   @action
   public clearBirthCertificateRequest(): void {
-    this.quantity = 0;
+    this.quantity = 1;
     this.requestInformation = INITIAL_REQUEST_INFORMATION;
+    this.uploadSessionId = uuidv4();
   }
 
   @computed

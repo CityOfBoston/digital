@@ -11,7 +11,7 @@ import ReviewContent from './ReviewContent';
 describe('submitting', () => {
   let order;
   let cart;
-  let submit: jest.Mock<void>;
+  let submit: jest.Mock<Promise<void>>;
   let wrapper;
 
   beforeEach(() => {

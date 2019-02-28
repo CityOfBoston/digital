@@ -7,7 +7,7 @@ import ReviewRequestPage from './ReviewRequestPage';
 
 import { BirthCertificateRequestInformation } from '../types';
 
-export const birthCertRequest: BirthCertificateRequestInformation = {
+const birthCertRequest: BirthCertificateRequestInformation = {
   forSelf: true,
   howRelated: '',
   bornInBoston: 'yes',
@@ -21,6 +21,9 @@ export const birthCertRequest: BirthCertificateRequestInformation = {
   parent1LastName: '',
   parent2FirstName: '',
   parent2LastName: '',
+  idImageBack: null,
+  idImageFront: null,
+  supportingDocuments: [],
 };
 
 const birthCertificateRequest = new BirthCertificateRequest();

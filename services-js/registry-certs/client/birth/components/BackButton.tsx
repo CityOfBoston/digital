@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import { css } from 'emotion';
 
 interface Props {
-  handleClick: () => void;
+  handleClick: (ev: MouseEvent) => void;
 }
 
 /**

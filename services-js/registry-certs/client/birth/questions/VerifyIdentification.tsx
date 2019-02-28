@@ -1,65 +1,85 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 import QuestionComponent from '../components/QuestionComponent';
 import VerifyIdentificationComponent from '../components/VerifyIdentificationComponent';
+import UploadableFile from '../../models/UploadableFile';
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
-  handleProceed: () => void;
-  handleStepBack: () => void;
-}
-
-interface State {
-  canProceed: boolean;
+  handleProceed: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent) => void;
 }
 
 @observer
-export default class VerifyIdentification extends React.Component<
-  Props,
-  State
-> {
-  state: State = {
-    canProceed: false,
-  };
-
-  isComplete = (canProceed: boolean): void => {
-    this.setState({ canProceed });
-  };
-
-  updateSupportingDocuments = (documents: File[]): void => {
+export default class VerifyIdentification extends React.Component<Props> {
+  updateSupportingDocuments = (documents: UploadableFile[]): void => {
     this.props.birthCertificateRequest.answerQuestion({
       supportingDocuments: documents,
     });
   };
 
-  updateIdImage = (side: string, file: any): void => {
+  updateIdImage = (side: string, file: File): void => {
+    const { birthCertificateRequest } = this.props;
+
+    const existingFile =
+      side === 'front'
+        ? birthCertificateRequest.requestInformation.idImageFront
+        : birthCertificateRequest.requestInformation.idImageBack;
+
+    if (existingFile) {
+      existingFile.delete();
+    }
+
+    let uploadableFile: UploadableFile | null = null;
+
+    if (file) {
+      uploadableFile = new UploadableFile(
+        file,
+        birthCertificateRequest.uploadSessionId,
+        side === 'front' ? 'id front' : 'id back'
+      );
+
+      uploadableFile.upload();
+    }
+
     if (side === 'front') {
-      this.props.birthCertificateRequest.answerQuestion({
-        idImageFront: file,
+      birthCertificateRequest.answerQuestion({
+        idImageFront: uploadableFile,
       });
     } else if (side === 'back') {
-      this.props.birthCertificateRequest.answerQuestion({
-        idImageBack: file,
+      birthCertificateRequest.answerQuestion({
+        idImageBack: uploadableFile,
       });
     }
   };
 
   render() {
+    const {
+      supportingDocuments,
+      idImageFront,
+      idImageBack,
+    } = this.props.birthCertificateRequest.requestInformation;
+
+    const canProceed = !!idImageFront;
+
     return (
       <QuestionComponent
-        allowProceed={this.state.canProceed}
+        allowProceed={canProceed}
         handleProceed={this.props.handleProceed}
         handleStepBack={this.props.handleStepBack}
         nextButtonText="Review request"
       >
         <VerifyIdentificationComponent
           sectionsToDisplay="all"
+          uploadSessionId={this.props.birthCertificateRequest.uploadSessionId}
+          supportingDocuments={supportingDocuments}
           updateSupportingDocuments={this.updateSupportingDocuments}
           updateIdImages={this.updateIdImage}
-          isComplete={this.isComplete}
+          idImageBack={idImageBack}
+          idImageFront={idImageFront}
         />
       </QuestionComponent>
     );

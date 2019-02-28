@@ -44,15 +44,15 @@ const DEFAULT_DEATH_ITEMS: Array<DeathCertificateOrderItemInput> = [
 const DEFAULT_BIRTH_ITEM: BirthCertificateOrderItemInput = {
   firstName: 'Danielle',
   lastName: 'Cage',
-  relationship: 'parent',
   alternateSpellings: '',
-  birthDate: new Date('01 March 2006 00:00:00 GMT'),
+  birthDate: new Date('01 March 2006 00:00:00 GMT').toISOString(),
   parent1FirstName: 'Jessica',
   parent1LastName: 'Jones',
   parent2FirstName: 'Luke',
   parent2LastName: 'Cage',
   quantity: 10,
   uploadSessionId: '',
+  notes: 'parent',
 };
 
 describe('Mutation resolvers', () => {
@@ -192,13 +192,13 @@ describe('Mutation resolvers', () => {
             firstName: 'Doreen',
             lastName: 'Green',
             alternateSpellings: 'Squirrel Girl',
-            birthDate: new Date('1997-07-01T00:00:00Z'),
+            birthDate: new Date('1997-07-01T00:00:00Z').toISOString(),
             parent1FirstName: 'Maureen',
             parent1LastName: 'Green',
             parent2FirstName: 'Dor',
             parent2LastName: 'Green',
             quantity: 10,
-            relationship: 'sidekick',
+            notes: 'sidekick',
             uploadSessionId: '',
           },
         },

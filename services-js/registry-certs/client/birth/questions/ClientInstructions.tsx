@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 import QuestionComponent from '../components/QuestionComponent';
 
 import { SECTION_HEADING_STYLING } from '../styling';
 
 interface Props {
-  handleStepBack: () => void;
+  handleStepBack: (ev: MouseEvent) => void;
 }
 
 export default class ClientInstructions extends React.Component<Props> {
@@ -27,7 +27,7 @@ export default class ClientInstructions extends React.Component<Props> {
           You must complete this process in person or by mail
         </h2>
 
-        <div className="lh--300">
+        <div className="lh--400">
           <p>
             If you are a legal representative making a request for a client, you
             need these items to get a record:

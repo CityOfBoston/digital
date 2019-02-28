@@ -6,12 +6,7 @@ import { observer } from 'mobx-react';
 
 import { css } from 'emotion';
 
-import {
-  CHARLES_BLUE,
-  FREEDOM_RED_DARK,
-  GRAY_100,
-  SERIF,
-} from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, GRAY_100, SERIF } from '@cityofboston/react-fleet';
 
 import { PageDependencies } from '../../pages/_app';
 
@@ -22,6 +17,7 @@ import QuantityDropdown from './components/QuantityDropdown';
 import BackButton from './components/BackButton';
 
 import { SECTION_HEADING_STYLING } from './styling';
+import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
 interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
 
@@ -47,8 +43,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
 
   private userResetStartOver = () => {
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
-
-    this.returnToQuestions();
+    Router.push('/birth');
   };
 
   private returnToQuestions = () => {
@@ -84,19 +79,17 @@ export default class ReviewRequestPage extends React.Component<Props> {
           currentStep: steps.indexOf('reviewRequest') + 1,
           currentStepCompleted: true,
         }}
+        footer={<ServiceFeeDisclosure />}
       >
         <Head>
           <title>Boston.gov — {pageTitle}</title>
         </Head>
-
         <h2 className={SECTION_HEADING_STYLING}>{pageTitle}</h2>
-
         <p>
           You can only order copies of one person’s birth certificate at a time.
           If you want to buy copies of a certificate for another person, you
           need to do a separate transaction.
         </p>
-
         <div className={CERTIFICATE_ROW_STYLE}>
           <QuantityDropdown
             quantity={quantity}
@@ -113,25 +106,15 @@ export default class ReviewRequestPage extends React.Component<Props> {
             </div>
           </div>
         </div>
-
         <CostSummary
           certificateType="birth"
           certificateQuantity={quantity}
           allowServiceFeeTypeChoice
           serviceFeeType="CREDIT"
         />
-
         <div className="g g--mr m-t700">
-          <div className={`g--9 ${BACK_CANCEL_BUTTONS_STYLING}`}>
+          <div className="g--9 t--info">
             <BackButton handleClick={this.returnToQuestions} />
-
-            <button
-              className="lnk cancel"
-              type="button"
-              onClick={this.userResetStartOver}
-            >
-              <span aria-hidden="true">←</span> Cancel and start over
-            </button>
           </div>
 
           <button
@@ -140,6 +123,15 @@ export default class ReviewRequestPage extends React.Component<Props> {
             onClick={this.goToCheckout}
           >
             Continue
+          </button>
+        </div>
+        <div className="ta-c m-t700 p-a300 t--sans">
+          <button
+            className="lnk cancel tt-u"
+            type="button"
+            onClick={this.userResetStartOver}
+          >
+            Cancel and start over
           </button>
         </div>
       </PageWrapper>
@@ -179,23 +171,5 @@ const CERTIFICATE_ROW_STYLE = css({
 
   '> div:first-of-type': {
     flexBasis: '25%',
-  },
-});
-
-const BACK_CANCEL_BUTTONS_STYLING = css({
-  display: 'flex',
-  justifyContent: 'space-between',
-
-  '> *:first-of-type button': {
-    paddingLeft: 0,
-  },
-
-  '.cancel': {
-    fontStyle: 'italic',
-    color: 'inherit',
-
-    '&:hover': {
-      color: FREEDOM_RED_DARK,
-    },
   },
 });

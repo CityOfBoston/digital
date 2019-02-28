@@ -152,6 +152,14 @@ export default class extends Document {
             token={process.env.CONTACT_FORM_TOKEN}
             action={process.env.CONTACT_FORM_ACTION}
           />
+
+          <ContactForm
+            id="birth-cert-no-id-form"
+            to="birth@boston.gov"
+            defaultSubject="Birth Certificate Support Request: No ID"
+            token={process.env.CONTACT_FORM_TOKEN}
+            action={process.env.CONTACT_FORM_ACTION}
+          />
         </body>
       </html>
     );

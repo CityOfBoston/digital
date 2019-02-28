@@ -2,6 +2,27 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: DeleteBirthCertificateUploadedFile
+// ====================================================
+
+export interface DeleteBirthCertificateUploadedFile_deleteUpload {
+  message: string | null;
+  success: boolean;
+}
+
+export interface DeleteBirthCertificateUploadedFile {
+  deleteUpload: DeleteBirthCertificateUploadedFile_deleteUpload;
+}
+
+export interface DeleteBirthCertificateUploadedFileVariables {
+  attachmentKey: string;
+  uploadSessionId: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: FetchDeathCertificates
 // ====================================================
 
@@ -232,15 +253,15 @@ export enum OrderErrorCause {
 // undefined
 export interface BirthCertificateOrderItemInput {
   alternateSpellings: string;
-  birthDate: any;
+  birthDate: string;
   firstName: string;
   lastName: string;
+  notes: string;
   parent1FirstName: string;
   parent1LastName: string;
   parent2FirstName: string;
   parent2LastName: string;
   quantity: number;
-  relationship: string;
   uploadSessionId: string;
 }
 

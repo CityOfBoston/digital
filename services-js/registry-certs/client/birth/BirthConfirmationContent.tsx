@@ -32,7 +32,6 @@ export default function BirthConfirmationContent({
             <CertificateIcon name="birth" />
           </div>
         </div>
-
         <div className="g--8">
           <h2 className="h3 tt-u">Thank you</h2>
 
@@ -49,8 +48,8 @@ export default function BirthConfirmationContent({
             <strong>
               Please allow 2–3 business days for us to process your order.
             </strong>{' '}
-            Your order will be shipped via USPS to the shipping address you
-            provided.
+            Your order will be shipped via U.S. Postal Service to the shipping
+            address you provided.
           </p>
 
           <p className="t--info" style={{ fontStyle: 'normal' }}>

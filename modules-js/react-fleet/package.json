@@ -9,23 +9,29 @@
   "types": "build/react-fleet.d.ts",
   "sideEffects": false,
   "scripts": {
-    "watch": "concurrently \"npm run build:babel -- --watch\"  \"tsc-watch --emitDeclarationOnly\" \"rollup -c -w\"",
+    "watch": "concurrently \"yarn run build:babel -- --watch\"  \"tsc-watch --emitDeclarationOnly\" \"rollup -c -w\"",
     "storybook": "start-storybook -p 9001",
     "prebuild": "rimraf build",
-    "build": "concurrently \"npm run build:typescript\" \"npm run build:babel && rollup -c\"",
+    "build": "concurrently \"yarn run build:typescript\" \"yarn run build:babel && rollup -c\"",
     "build:typescript": "tsc --emitDeclarationOnly",
     "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
-    "prepare": "npm run build",
+    "prepare": "yarn run build",
     "pretest": "tsc --noEmit",
     "test": "scripts/test.js",
     "fetch-templates": "ts-node ./scripts/fetch-templates.ts"
   },
   "jest": {
-    "preset": "@cityofboston/config-jest-babel"
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/scripts/"
+    ]
+  },
+  "dependencies": {
+    "core-js": "^2.5.7"
   },
   "peerDependencies": {
     "@babel/runtime": "7.0.0",
-    "core-js": "^2.5.7",
     "detect-browser": "^3.0.1",
     "emotion": "9.2.10",
     "prop-types": "^15.6.0",
@@ -40,7 +46,6 @@
     "@babel/preset-react": "7.0.0",
     "@babel/runtime": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
-    "@cityofboston/config-jest-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/percy-common": "^0.0.0",
     "@percy-io/percy-storybook": "^1.4.1",
@@ -50,7 +55,7 @@
     "@storybook/react": "4.0.4",
     "@types/cheerio": "^0.22.7",
     "@types/fs-extra": "^5.0.0",
-    "@types/jest": "23.x.x",
+    "@types/jest": "24.x.x",
     "@types/node-fetch": "^1.6.9",
     "@types/react": "^16.7.6",
     "@types/react-dom": "^16.0.9",
@@ -58,6 +63,7 @@
     "@types/storybook__addon-storyshots": "^3.4.1",
     "@types/storybook__react": "^3.0.7",
     "babel-core": "^7.0.0-0",
+    "babel-plugin-inline-import": "^2.0.6",
     "babel-plugin-require-context-hook": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
     "concurrently": "^3.5.1",
@@ -65,7 +71,7 @@
     "detect-browser": "^3.0.1",
     "emotion": "9.2.10",
     "fs-extra": "^5.0.0",
-    "jest": "23.6.0",
+    "jest": "24.1.0",
     "node-fetch": "^1.6.9",
     "prop-types": "^15.6.0",
     "raw-loader": "^0.5.1",

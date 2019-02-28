@@ -5,6 +5,7 @@ import { BirthCertificateRequestInformation } from '../types';
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
 
 import QuestionsPage from './QuestionsPage';
+import UploadableFile from '../models/UploadableFile';
 
 function makeBirthCertificateRequest(
   answers: Partial<BirthCertificateRequestInformation> = {}
@@ -114,9 +115,8 @@ storiesOf('Birth/QuestionsFlow/4. Parental information', module)
     />
   ));
 
-storiesOf('Birth/QuestionsFlow/5. Identity verification', module).add(
-  'blank',
-  () => (
+storiesOf('Birth/QuestionsFlow/5. Identity verification', module)
+  .add('blank', () => (
     <QuestionsPage
       currentStep="verifyIdentification"
       birthCertificateRequest={makeBirthCertificateRequest({
@@ -124,5 +124,43 @@ storiesOf('Birth/QuestionsFlow/5. Identity verification', module).add(
         parentsMarried: 'no',
       })}
     />
-  )
-);
+  ))
+  .add('existing images and files', () => (
+    <QuestionsPage
+      currentStep="verifyIdentification"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+        parentsMarried: 'no',
+        idImageFront: new UploadableFile(SAMPLE_FILE, ''),
+        supportingDocuments: [
+          Object.assign(
+            new UploadableFile(
+              new File([], 'Deadname to Finnegan change.pdf'),
+              ''
+            ),
+            { status: 'success' }
+          ),
+          Object.assign(
+            new UploadableFile(
+              new File([], 'Finnegan to Fiona name change.pdf'),
+              ''
+            ),
+            { status: 'success' }
+          ),
+        ],
+      })}
+    />
+  ));
+
+const SVG_IMAGE = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <g fill-rule="evenodd">
+    <rect width="800" height="192" fill="#d60270"/>
+    <rect width="800" height="96" y="192" fill="#9b4f96"/>
+    <rect width="800" height="192" y="288" fill="#0038a8"/>
+  </g>
+</svg>`;
+
+const SAMPLE_FILE = new File([SVG_IMAGE], 'id.svg', {
+  type: 'image/svg+xml',
+});

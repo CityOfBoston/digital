@@ -1,0 +1,39 @@
+{{#with order}}
+  {{#>layout registryEmail=registryEmail}}
+    <mj-wrapper border="2px solid #091f2f" background-color="#f2f2f2" padding="10px 0">
+
+      <mj-section padding="0">
+        <mj-column>
+          <mj-text font-size="20px" font-weight="bold" font-family="Montserrat, sans-serif" text-transform="uppercase" padding="0 25px">
+            Your order has been canceled
+          </mj-text>
+
+          <mj-divider padding="0 25px"></mj-divider>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="10px 0">
+        <mj-column vertical-align="top">
+          <mj-text>
+            <b>Date:</b> <i>{{orderDate}}</i><br/>
+            <b>Order #:</b> <i>{{orderId}}</i>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="10px 0">
+        <mj-column>
+          <mj-text padding="0 25px 0" line-height="1.5">
+            We have canceled your birth certificate request and removed the hold
+            from your card. Your card will not be charged.
+          </mj-text>
+
+          <mj-text padding="10px 25px 0" line-height="1.5">
+            If you would like to place a new order, visit
+            <a href="https://www.boston.gov/birth">boston.gov/birth</a>.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+  {{/layout}}
+{{/with}}

@@ -1,0 +1,38 @@
+{{!-- Pass a parameter called "registryEmail" to fill in the footer. --}}
+<mjml>
+  <mj-head>
+    <mj-font name="Lora" href="https://fonts.googleapis.com/css?family=Lora:400,700,400i" />
+    <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:400,700" />
+
+    <mj-attributes>
+      <mj-all font-family="Lora, serif" font-size="16px" line-height="1.8" />
+    </mj-attributes>
+  </mj-head>
+
+  <mj-body>
+    <mj-section padding="25px 0 10px">
+      <mj-column>
+        <mj-image width="200px" padding="0" align="left" alt="City of Boston" src="https://patterns.boston.gov/images/public/logo.png"></mj-image>
+      </mj-column>
+    </mj-section>
+
+    {{> @partial-block}}
+
+    <mj-section padding="20px 0 10px">
+      <mj-group>
+        <mj-column width="12%" vertical-align="middle">
+          <mj-image align="left" padding="0" alt="" src="https://patterns.boston.gov/images/public/seal.png"></mj-image>
+        </mj-column>
+
+        <mj-column width="88%" vertical-align="middle">
+          {{#if registryEmail}}
+            <mj-text padding="0 0 0 10px" line-height="1.5">
+              Have any questions? Contact the Registry at <b><i><a
+              href="mailto:{{registryEmail}}">{{registryEmail}}</a></i></b>.
+            </mj-text>
+          {{/if}}
+        </mj-column>
+      </mj-group>
+    </mj-section>
+  </mj-body>
+</mjml>

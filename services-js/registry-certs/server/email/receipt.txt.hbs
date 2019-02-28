@@ -1,8 +1,8 @@
 City of Boston
 
-Thank you for your order!
-
 {{#with order}}
+{{heading}}
+
 Date: {{orderDate}}
 Order ID: {{orderId}}
 
@@ -15,20 +15,17 @@ Your shipping information:
 
 Your order:
 {{#each items}}
-  {{quantity}} x {{#if ../isBirth}}Birth{{/if}}{{#if ../isDeath}}Death{{/if}} certificate for {{name}}{{#if date}} ({{formatDate date}}){{/if}} {{formatCents cost}}
+  {{quantity}} x {{description}} {{formatCents cost}}
 {{/each}}
-  Subtotal  {{formatCents subtotal}}
-  Card processing fee*  {{formatCents serviceFee}}
+{{#if subtotal}}  Subtotal  {{formatCents subtotal}}
+{{/if}}  Card processing fee*  {{formatCents serviceFee}}
   Total  {{formatCents total}}
 
-{{#if isDeath}}Your order will be shipped within 1–2 business days via the U.S. Postal Service.{{/if}}
-{{#if isBirth}}{{#wrap}}We have received your order. You will be charged when your certificates ship.{{/wrap}}
+{{#each belowOrderText}}
+{{#wrap}}{{.}}{{/wrap}}
 
-{{#wrap}}We will contact you if we need more information to fulfill 
-the order. If we contact you but do not hear back within 2 
-business days we will cancel the order without charge.{{/wrap}}{{/if}}
-
+{{/each}}
 {{#wrap}}* You are charged an extra service fee of not more than {{formatCents fixedFee}} plus {{formatPercentage percentageFee}}. This fee goes directly to a third party to pay for the cost of card processing. Learn more about card service fees at the City of Boston. [{{serviceFeeUri}}]
 
-Have any questions? Contact the Registry on weekdays from 9 a.m. – 4 p.m. at 617-635-4175, or email registry@boston.gov.{{/wrap}}
+Have any questions? Contact the Registry at {{registryEmail}}.{{/wrap}}
 {{/with}}
