@@ -45,7 +45,11 @@ export default function AppLayout({
 
           {secondaryNav}
 
-          {breadcrumbNav}
+          {secondaryNav ? (
+            <>{breadcrumbNav}</>
+          ) : (
+            <div className="p-t300">{breadcrumbNav}</div>
+          )}
 
           <div id="content-start" className="a11y--content-start" />
 
