@@ -26,6 +26,9 @@ interface Dependencies {
 //   - Mark the order as "paid" in the backend so that fulfillment can complete
 //   - Send a receipt email
 //
+// This gets called whenever charges are successfully created, even for the
+// birth certs case where they haven’t been captured yet.
+//
 // We do this from Stripe’s webhook to take advantage of their reliability
 // features. If the charge succeeded, THE ORDER MUST BE PLACED for the customer.
 // If we tried to do this inline in the mutation after the charge API call,
@@ -59,12 +62,12 @@ export async function processChargeSucceeded(
     throw new Error(`Order ${orderId} not found in the database`);
   }
 
-  // Birth certs won't be captured the first time around.
-  if (charge.captured) {
-    // By marking the payment as successful we can tell Registry they can proceed
-    // with fulfillment. This method is idempotent.
-    await addPaymentToDb(registryDb, orderKey, charge);
-  }
+  // We send the payment infomation to the DB even before the charge is
+  // captured, so that there’s a record of the Stripe charge id.
+  //
+  // By marking the payment as successful we can tell Registry they can proceed
+  // with fulfillment. This method is idempotent.
+  await addPaymentToDb(registryDb, orderKey, charge);
 
   // Sending the email is not idempotent, so we put it last and in the vast
   // majority of cases it will run once.
@@ -84,18 +87,16 @@ export async function processChargeSucceeded(
 }
 
 /**
- * Called when we capture a birth certificate charge as part of fulfillment.
+ * Called when we capture a birth certificate charge as part of fulfillment. We
+ * don't update the database, but do send out the email that the order is on its
+ * way.
  */
 async function processChargeCaptured(
   { registryDb, emails }: Dependencies,
   charge: charges.ICharge
 ) {
   const {
-    metadata: {
-      'order.orderKey': orderKey,
-      'order.orderId': orderId,
-      'order.orderType': orderType,
-    },
+    metadata: { 'order.orderId': orderId, 'order.orderType': orderType },
   } = charge;
 
   const dbOrder = await registryDb.findOrder(orderId);
@@ -103,8 +104,6 @@ async function processChargeCaptured(
   if (!dbOrder) {
     throw new Error(`Order ${orderId} not found in the database`);
   }
-
-  await addPaymentToDb(registryDb, orderKey, charge);
 
   if (orderType === 'BC') {
     // Sending the email is not idempotent, so we put it last and in the vast
