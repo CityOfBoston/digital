@@ -162,6 +162,8 @@ export async function addLoginAuth(
           groups,
           needsMfaDevice,
           needsNewPassword,
+          hasMfaDevice,
+          userMfaRegistrationDate,
         } = assertResult;
 
         // This will be read by the validate method above when doing authentication.
@@ -181,9 +183,13 @@ export async function addLoginAuth(
           groups,
           needsNewPassword,
           needsMfaDevice,
+          hasMfaDevice,
           mfaSessionId: null,
           mfaEmail: null,
           mfaPhoneNumber: null,
+          mfaRequiredDate: userMfaRegistrationDate
+            ? new Date(userMfaRegistrationDate)
+            : null,
         };
 
         request.yar.set(LOGIN_SESSION_KEY, session);

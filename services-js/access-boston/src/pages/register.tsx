@@ -24,7 +24,12 @@ export default class RegisterPage extends React.Component<Props> {
   ): Promise<Props> => {
     const account = await fetchAccount(fetchGraphql);
 
-    if (account.registered) {
+    const canRegister =
+      account.needsNewPassword ||
+      account.needsMfaDevice ||
+      !account.hasMfaDevice;
+
+    if (!canRegister) {
       throw new RedirectError('/');
     }
 

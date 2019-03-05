@@ -48,6 +48,7 @@
     "catbox-redis": "^4.2.2",
     "core-js": "^2.5.7",
     "crumb": "^7.1.0",
+    "date-fns": "^1.29.0",
     "dotenv": "^5.0.1",
     "emotion": "^9.2.10",
     "emotion-server": "^9.2.10",

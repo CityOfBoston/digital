@@ -21,7 +21,7 @@ export class RedirectError extends Error {
  * Expected to be called from getInitialProps in page components.
  */
 export function requireRegistration(account: Account) {
-  if (!account.registered) {
+  if (account.needsMfaDevice || account.needsNewPassword) {
     throw new RedirectError('/register');
   }
 }

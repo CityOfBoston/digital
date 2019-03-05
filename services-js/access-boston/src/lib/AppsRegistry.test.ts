@@ -19,11 +19,18 @@ describe('appsForUserTypeAndGroups', () => {
   });
 
   it('returns just the "everyone" category for no groups', () => {
-    expect(appsRegistry.appsForGroups([])).toMatchSnapshot();
+    expect(appsRegistry.appsForGroups([], false)).toMatchSnapshot();
   });
 
   it('returns apps for a group', () => {
     // This checks that categories with no apps are not returned
-    expect(appsRegistry.appsForGroups(['SG_AB_IAM_TEAM'])).toMatchSnapshot();
+    expect(
+      appsRegistry.appsForGroups(['SG_AB_IAM_TEAM'], false)
+    ).toMatchSnapshot();
+  });
+
+  it('returns apps that require an MFA device', () => {
+    // This checks that categories with no apps are not returned
+    expect(appsRegistry.appsForGroups([], true)).toMatchSnapshot();
   });
 });

@@ -2065,6 +2065,100 @@ Array [
 ]
 `;
 
+exports[`Storyshots DonePage default 1`] = `
+Array [
+  <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-2018125994"
+        >
+          You’re all set!
+        </h2>
+      </div>
+      <div
+        className="t--intro m-v500"
+      >
+        You’re now set up with your Access Boston account. Log in now to continue.
+      </div>
+      <div
+        className="ta-r"
+      >
+        <a
+          className="btn"
+          href="/"
+        >
+          Log In
+        </a>
+      </div>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>,
+]
+`;
+
 exports[`Storyshots ForgotPasswordPage default 1`] = `
 Array [
   <div
@@ -2808,7 +2902,7 @@ Array [
       className="b--g"
     >
       <div
-        className="t--intro p-a300 m-b300"
+        className="t--intro p-a500 m-b300"
       >
         Your password has been changed!
       </div>
@@ -2833,7 +2927,7 @@ Array [
         <div
           className="t--subinfo p-a200 m-v300"
         >
-          Is there an app that you need access to that’s not shown here? Fill out the
+          Looking for an app that’s not shown here? Fill out the
            
           <a
             href="#"
@@ -3643,7 +3737,856 @@ Array [
         <div
           className="t--subinfo p-a200 m-v300"
         >
-          Is there an app that you need access to that’s not shown here? Fill out the
+          Looking for an app that’s not shown here? Fill out the
+           
+          <a
+            href="#"
+          >
+            request access form
+          </a>
+          .
+        </div>
+        <div
+          className="g"
+        >
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://baisfn.cityhall.boston.cob/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-fn.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS FN
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://hcm.cityhall.boston.cob/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-hcm.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS HCM
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://boston.maps.arcgis.com/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/boston-maps.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Boston Maps
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://employeeconnect-boston.icims.com/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/career-center.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Career Center
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://ess.boston.gov/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/ess.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Employee Self-Service
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://edit-dev-hub.boston.gov/user"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/hub.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              The Hub
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://login.us2.oraclecloud.com/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/hyperion.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Hyperion
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://identity.boston.gov/identityiq/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/identityiq.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              IIQ
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://login.frontlineeducation.com/"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/employee-training.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Employee Training
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
+            onClick={[Function]}
+            target="_self"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/talented.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BPS TalentEd
+            </span>
+          </a>
+        </div>
+      </section>
+      <div
+        className="g"
+      >
+        <section
+          aria-labelledby="sh-361796124"
+          className="m-b500 g--6"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-361796124"
+            >
+              Forms / Links
+            </h2>
+          </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://identity.boston.gov/identityiq/createSponsor.jsf"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Create Sponsored Account
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="http://boston.getlocalmotion.com/"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  FleetHub
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  International Travel
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://boston.seamlessdocs.com/f/geol18cumhw"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Unblock Website Request
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Building Maintenance
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Request FN Access
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section
+          aria-labelledby="sh-1450655087"
+          className="m-b500 g--6"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-1450655087"
+            >
+              Account Tools
+            </h2>
+          </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="/change-password"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Change My Password
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
+                onClick={[Function]}
+                target="_blank"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage My Device(s)
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section
+          aria-labelledby="sh-997653249"
+          className="m-b500 g--6"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-997653249"
+            >
+              Support Tools
+            </h2>
+          </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://identity.boston.gov/identityiq/identityVerification.jsf"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Identity Verification
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  View User Information
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="#"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Edit Group
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section
+          aria-labelledby="sh-3535738525"
+          className="m-b500 g--6"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-3535738525"
+            >
+              Manager Tools
+            </h2>
+          </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Set a Delegate
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  My Approvals
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage Sponsored Account
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>,
+]
+`;
+
+exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
+Array [
+  <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b--g g g--vc"
+    >
+      <div
+        className="g--9 p-a500"
+      >
+        <div
+          className="h3 tt-u"
+        >
+          Account notice
+        </div>
+        <div
+          className="t--intro"
+        >
+          You have 
+          <strong>
+            28
+             days
+          </strong>
+           to complete your registration.
+        </div>
+      </div>
+      <div
+        className="g--3 ta-r p-a300"
+      >
+        <a
+          className="btn"
+          href="/mfa"
+          onClick={[Function]}
+          style={
+            Object {
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Complete it now
+        </a>
+      </div>
+    </div>
+    <div
+      className="b b-c"
+    >
+      <section
+        aria-labelledby="sh-1322116428"
+        className="m-b500"
+      >
+        <div
+          className="sh m-b300 "
+        >
+          <h2
+            className="sh-title"
+            id="sh-1322116428"
+          >
+            Applications
+          </h2>
+        </div>
+        <div
+          className="t--subinfo p-a200 m-v300"
+        >
+          Looking for an app that’s not shown here? Fill out the
            
           <a
             href="#"
