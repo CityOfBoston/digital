@@ -15,8 +15,13 @@ export interface App {
   // null groups means "everyone can see this"
   groups: string[] | null;
   newWindow: boolean;
+  mfaDeviceRequired: boolean;
 }
 
+/**
+ * This class is in lib rather than server just so we can use it in Storybook
+ * stories. It doesn’t actually get used by the client app.
+ */
 export default class AppsRegistry {
   showAll: boolean;
   allCategories: AppsCategory[];
@@ -41,7 +46,15 @@ export default class AppsRegistry {
       }
 
       const apps: App[] = yamlApps.map(a => {
-        const { title, url, groups, description, icon, new_window } = a;
+        const {
+          title,
+          url,
+          groups,
+          description,
+          icon,
+          new_window,
+          mfa_device_required,
+        } = a;
 
         if (!title || typeof title !== 'string') {
           throw new Error('App missing a title: ' + JSON.stringify(a));
@@ -62,6 +75,7 @@ export default class AppsRegistry {
           description: description || '',
           groups: groups || null,
           newWindow: new_window || false,
+          mfaDeviceRequired: mfa_device_required || false,
         };
       });
 
@@ -74,17 +88,19 @@ export default class AppsRegistry {
     });
   }
 
-  appsForGroups(userGroups: string[]): AppsCategory[] {
+  appsForGroups(userGroups: string[], hasMfaDevice: boolean): AppsCategory[] {
     return (
       this.allCategories
         .map(c => ({
           ...c,
-          apps: c.apps.filter(
-            ({ groups }) =>
-              this.showAll ||
-              !groups ||
-              !!groups.find(g => userGroups.includes(g))
-          ),
+          apps: c.apps.filter(({ groups, mfaDeviceRequired }) => {
+            const groupsRequirementMet =
+              !groups || groups.find(g => userGroups.includes(g));
+
+            const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
+
+            return this.showAll || (groupsRequirementMet && mfaRequirementMet);
+          }),
         }))
         // Filter out apps with no categories
         .filter(c => c.apps.length > 0)

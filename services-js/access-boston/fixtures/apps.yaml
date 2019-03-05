@@ -74,6 +74,7 @@ categories:
       - title: Manage My Device(s)
         url: https://desktop.pingone.com/boston-dev/Selection?cmd=devices
         new_window: true
+        mfa_device_required: true
 
   - title: Support Tools
     apps:

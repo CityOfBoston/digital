@@ -9,10 +9,11 @@ const QUERY = gql`
       employeeId
       firstName
       lastName
-      registered
       needsMfaDevice
       needsNewPassword
+      hasMfaDevice
       resetPasswordToken
+      mfaRequiredDate
     }
   }
 `;

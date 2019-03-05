@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
+import { differenceInCalendarDays } from 'date-fns';
+
 import {
   SectionHeader,
   PUBLIC_CSS_URL,
@@ -33,6 +35,8 @@ interface Props {
   account: Account;
   apps: Apps;
   flashMessage?: FlashMessage;
+  /** Used for calculating relative dates so that snapshots don’t change with Date.now() */
+  relativeDateForTest?: Date;
 }
 
 const APP_ROW_STYLE = css({
@@ -68,10 +72,19 @@ export default class IndexPage extends React.Component<Props> {
       account,
       flashMessage,
       apps: { categories },
+      relativeDateForTest,
     } = this.props;
 
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
+
+    const daysUntilMfa =
+      !account.hasMfaDevice && account.mfaRequiredDate
+        ? differenceInCalendarDays(
+            account.mfaRequiredDate,
+            relativeDateForTest || new Date()
+          )
+        : null;
 
     return (
       <>
@@ -85,8 +98,28 @@ export default class IndexPage extends React.Component<Props> {
         <div className={MAIN_CLASS}>
           {flashMessage && (
             <div className="b--g">
-              <div className="t--intro p-a300 m-b300">
+              <div className="t--intro p-a500 m-b300">
                 {FLASH_MESSAGE_STRINGS[flashMessage]}
+              </div>
+            </div>
+          )}
+
+          {daysUntilMfa && (
+            <div className="b--g g g--vc">
+              <div className="g--9 p-a500">
+                <div className="h3 tt-u">Account notice</div>
+                <div className="t--intro">
+                  You have <strong>{daysUntilMfa} days</strong> to complete your
+                  registration.
+                </div>
+              </div>
+
+              <div className="g--3 ta-r p-a300">
+                <Link href="/mfa">
+                  <a className="btn" style={{ whiteSpace: 'nowrap' }}>
+                    Complete it now
+                  </a>
+                </Link>
               </div>
             </div>
           )}
@@ -102,8 +135,7 @@ export default class IndexPage extends React.Component<Props> {
 
                 {requestAccessUrl && (
                   <div className="t--subinfo p-a200 m-v300">
-                    Is there an app that you need access to that’s not shown
-                    here? Fill out the{' '}
+                    Looking for an app that’s not shown here? Fill out the{' '}
                     <a href={requestAccessUrl}>request access form</a>.
                   </div>
                 )}

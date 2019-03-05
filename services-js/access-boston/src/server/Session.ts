@@ -36,6 +36,8 @@ export interface LoginSession {
   groups: string[];
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
+  mfaRequiredDate: Date | null;
+  hasMfaDevice: boolean;
 
   // We want these in the session because we need to update IIQ with the email
   // or phone number that was used, once device verification succeeds.

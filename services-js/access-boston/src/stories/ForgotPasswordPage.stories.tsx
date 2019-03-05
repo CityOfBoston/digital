@@ -8,10 +8,11 @@ const ACCOUNT: Account = {
   employeeId: 'CON01234',
   firstName: 'Jyn',
   lastName: 'Doe',
-  registered: true,
   needsMfaDevice: false,
   needsNewPassword: false,
+  hasMfaDevice: true,
   resetPasswordToken: 'jfqWE7DExC4nUa7pvkABezkM4oNT',
+  mfaRequiredDate: null,
 };
 
 storiesOf('ForgotPasswordPage', module)

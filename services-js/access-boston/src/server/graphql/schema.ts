@@ -80,10 +80,12 @@ export interface Account {
   employeeId: string;
   firstName: string | null;
   lastName: string | null;
-  registered: boolean;
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
+  hasMfaDevice: boolean;
   resetPasswordToken: string;
+  /** ISO 8601 */
+  mfaRequiredDate: string | null;
 }
 
 export interface Apps {
@@ -134,6 +136,7 @@ const queryRootResolvers: QueryRootResolvers = {
       const {
         needsMfaDevice,
         needsNewPassword,
+        hasMfaDevice,
         firstName,
         lastName,
       } = loginSession!;
@@ -142,12 +145,13 @@ const queryRootResolvers: QueryRootResolvers = {
         employeeId: userId,
         firstName: firstName || null,
         lastName: lastName || null,
-        // We set this explicitly rather than have all places that need it have
-        // to derive it from the other two booleans.
-        registered: !needsMfaDevice && !needsNewPassword,
         needsMfaDevice,
         needsNewPassword,
+        hasMfaDevice,
         resetPasswordToken: '',
+        mfaRequiredDate: loginSession!.mfaRequiredDate
+          ? loginSession!.mfaRequiredDate.toISOString()
+          : null,
       };
     } else if (forgotPasswordAuth) {
       return {
@@ -156,10 +160,11 @@ const queryRootResolvers: QueryRootResolvers = {
         lastName: null,
         // These aren't used in forgot password states, so it doesn’t matter
         // what we return here.
-        registered: false,
         needsMfaDevice: false,
         needsNewPassword: false,
+        hasMfaDevice: false,
         resetPasswordToken: forgotPasswordAuth.resetPasswordToken,
+        mfaRequiredDate: null,
       };
     } else {
       throw Boom.forbidden();
@@ -173,7 +178,7 @@ const queryRootResolvers: QueryRootResolvers = {
 
     return {
       categories: appsRegistry
-        .appsForGroups(loginSession.groups)
+        .appsForGroups(loginSession.groups, loginSession.hasMfaDevice)
         .map(({ apps, icons, showRequestAccessLink, title }) => ({
           title,
           showIcons: icons,

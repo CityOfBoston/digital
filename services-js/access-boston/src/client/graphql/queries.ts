@@ -55,10 +55,11 @@ export interface FetchAccountAndApps_account {
   employeeId: string;
   firstName: string | null;
   lastName: string | null;
-  registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;
+  hasMfaDevice: boolean;
   resetPasswordToken: string;
+  mfaRequiredDate: string | null;
 }
 
 export interface FetchAccountAndApps_apps_categories_apps {
@@ -96,10 +97,11 @@ export interface FetchAccount_account {
   employeeId: string;
   firstName: string | null;
   lastName: string | null;
-  registered: boolean;
   needsMfaDevice: boolean;
   needsNewPassword: boolean;
+  hasMfaDevice: boolean;
   resetPasswordToken: string;
+  mfaRequiredDate: string | null;
 }
 
 export interface FetchAccount {

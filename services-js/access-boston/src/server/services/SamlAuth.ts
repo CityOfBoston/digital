@@ -30,6 +30,8 @@ interface SamlAuthAssertion {
       changePasswordRequired?: string[];
       mfaRegistrationRequired?: string[];
       userAccessToken?: string[];
+      userMFARegistrationDate?: string[];
+      isUserRegistered?: string[];
     };
   };
 }
@@ -68,7 +70,10 @@ export interface SamlLoginResult {
   groups: string[];
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
+  hasMfaDevice: boolean;
   userAccessToken: string;
+  /** Format is MM/DD/YYYY */
+  userMfaRegistrationDate: string | null;
 }
 
 export interface SamlLogoutRequestResult {
@@ -291,8 +296,13 @@ export default class SamlAuth {
           groups: attributes.groups || [],
           needsNewPassword: attributeIsTrue(attributes.changePasswordRequired),
           needsMfaDevice: attributeIsTrue(attributes.mfaRegistrationRequired),
+          hasMfaDevice: attributeIsTrue(attributes.isUserRegistered),
           userAccessToken:
             (attributes.userAccessToken && attributes.userAccessToken[0]) || '',
+          userMfaRegistrationDate:
+            (attributes.userMFARegistrationDate &&
+              attributes.userMFARegistrationDate[0]) ||
+            null,
         };
       }
       case 'logout_request':

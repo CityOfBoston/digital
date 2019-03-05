@@ -36,10 +36,10 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
     firstName,
     lastName,
     email: registeredEmail,
-    needsMfaDevice,
+    hasMfaDevice,
   } = loginSession;
 
-  if (!needsMfaDevice) {
+  if (hasMfaDevice) {
     return {
       sessionId: null,
       error: MfaError.ALREADY_REGISTERED,

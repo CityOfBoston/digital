@@ -10,10 +10,11 @@ storiesOf('RegisterPage', module)
         employeeId: 'CON01234',
         firstName: 'Jyn',
         lastName: 'Doe',
-        registered: false,
         needsMfaDevice: true,
         needsNewPassword: true,
+        hasMfaDevice: false,
         resetPasswordToken: '',
+        mfaRequiredDate: null,
       }}
     />
   ))
@@ -23,10 +24,11 @@ storiesOf('RegisterPage', module)
         employeeId: 'CON01234',
         firstName: 'Jyn',
         lastName: 'Doe',
-        registered: false,
         needsMfaDevice: true,
         needsNewPassword: false,
+        hasMfaDevice: false,
         resetPasswordToken: '',
+        mfaRequiredDate: null,
       }}
     />
   ));
