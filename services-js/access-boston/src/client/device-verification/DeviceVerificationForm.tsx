@@ -64,8 +64,8 @@ export default function DeviceVerificationForm(props: Props) {
 
           <p className="lh--400 t--s400">
             Access Boston will send you a security code when you log in on a new
-            computer. You’ll also need a code to reset your password if you
-            forget it.
+            computer, tablet, or phone. You’ll also need a code to reset your
+            password if you forget it.
           </p>
 
           <p className="lh--400 t--s400">
@@ -74,9 +74,9 @@ export default function DeviceVerificationForm(props: Props) {
           </p>
 
           <p className="lh--400 t--s400">
-            Use your cell phone number if you have one. You can choose between
-            getting codes via text message or phone call. If you don’t have a
-            cell phone you can use a personal email address instead.
+            Use your cell phone number if you have one. This is the most secure
+            option. If you don’t have a phone, you can use a personal email
+            address instead.
           </p>
 
           <hr className="hr hr--sq" aria-hidden />

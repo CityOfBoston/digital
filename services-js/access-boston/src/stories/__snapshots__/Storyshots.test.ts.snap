@@ -5757,7 +5757,7 @@ Array [
       <p
         className="lh--400 t--s400"
       >
-        Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
       </p>
       <p
         className="lh--400 t--s400"
@@ -5767,7 +5767,7 @@ Array [
       <p
         className="lh--400 t--s400"
       >
-        Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
       </p>
       <hr
         aria-hidden={true}
@@ -6033,7 +6033,7 @@ Array [
       <p
         className="lh--400 t--s400"
       >
-        Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
       </p>
       <p
         className="lh--400 t--s400"
@@ -6043,7 +6043,7 @@ Array [
       <p
         className="lh--400 t--s400"
       >
-        Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
       </p>
       <hr
         aria-hidden={true}
@@ -6257,7 +6257,7 @@ Array [
       <p
         className="lh--400 t--s400"
       >
-        Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
       </p>
       <p
         className="lh--400 t--s400"
@@ -6267,7 +6267,7 @@ Array [
       <p
         className="lh--400 t--s400"
       >
-        Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
       </p>
       <hr
         aria-hidden={true}
@@ -6450,14 +6450,14 @@ Array [
             >
               <label
                 className="txt-l"
-                htmlFor="input-3718645000"
+                htmlFor="input-3102479774"
                 style={
                   Object {
                     "marginTop": 0,
                   }
                 }
               >
-                Authentication code
+                Security code
               </label>
               <div
                 className="css-70qvj9"
@@ -6465,7 +6465,7 @@ Array [
                 <input
                   autoFocus={true}
                   className="css-15p77ot txt-f "
-                  id="input-3718645000"
+                  id="input-3102479774"
                   maxLength={6}
                   name="code"
                   onChange={[Function]}
@@ -6588,7 +6588,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
     <p
       className="lh--400 t--s400"
     >
-      Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
     </p>
     <p
       className="lh--400 t--s400"
@@ -6598,7 +6598,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
     <p
       className="lh--400 t--s400"
     >
-      Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+      Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
     </p>
     <hr
       aria-hidden={true}
@@ -6773,7 +6773,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
     <p
       className="lh--400 t--s400"
     >
-      Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
     </p>
     <p
       className="lh--400 t--s400"
@@ -6783,7 +6783,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
     <p
       className="lh--400 t--s400"
     >
-      Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+      Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
     </p>
     <hr
       aria-hidden={true}
@@ -6901,7 +6901,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
     <p
       className="lh--400 t--s400"
     >
-      Access Boston will send you a security code when you log in on a new computer. You’ll also need a code to reset your password if you forget it.
+      Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
     </p>
     <p
       className="lh--400 t--s400"
@@ -6911,7 +6911,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
     <p
       className="lh--400 t--s400"
     >
-      Use your cell phone number if you have one. You can choose between getting codes via text message or phone call. If you don’t have a cell phone you can use a personal email address instead.
+      Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
     </p>
     <hr
       aria-hidden={true}
@@ -7097,14 +7097,14 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal checking the code 1`
           >
             <label
               className="txt-l"
-              htmlFor="input-3718645000"
+              htmlFor="input-3102479774"
               style={
                 Object {
                   "marginTop": 0,
                 }
               }
             >
-              Authentication code
+              Security code
             </label>
             <div
               className="css-70qvj9"
@@ -7112,7 +7112,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal checking the code 1`
               <input
                 autoFocus={true}
                 className="css-15p77ot txt-f "
-                id="input-3718645000"
+                id="input-3102479774"
                 maxLength={6}
                 name="code"
                 onChange={[Function]}
@@ -7202,14 +7202,14 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal incorrect code 1`] =
           >
             <label
               className="txt-l"
-              htmlFor="input-3718645000"
+              htmlFor="input-3102479774"
               style={
                 Object {
                   "marginTop": 0,
                 }
               }
             >
-              Authentication code
+              Security code
             </label>
             <div
               className="css-70qvj9"
@@ -7217,7 +7217,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal incorrect code 1`] =
               <input
                 autoFocus={true}
                 className="css-15p77ot txt-f "
-                id="input-3718645000"
+                id="input-3102479774"
                 maxLength={6}
                 name="code"
                 onChange={[Function]}
@@ -7338,7 +7338,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal sending 1`] = `
       <div
         className="t--intro"
       >
-        We’re sending you an authentication code…
+        We’re sending you a security code…
       </div>
     </div>
   </div>
@@ -7381,14 +7381,14 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for SMS code
           >
             <label
               className="txt-l"
-              htmlFor="input-3718645000"
+              htmlFor="input-3102479774"
               style={
                 Object {
                   "marginTop": 0,
                 }
               }
             >
-              Authentication code
+              Security code
             </label>
             <div
               className="css-70qvj9"
@@ -7396,7 +7396,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for SMS code
               <input
                 autoFocus={true}
                 className="css-15p77ot txt-f "
-                id="input-3718645000"
+                id="input-3102479774"
                 maxLength={6}
                 name="code"
                 onChange={[Function]}
@@ -7486,14 +7486,14 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for email co
           >
             <label
               className="txt-l"
-              htmlFor="input-3718645000"
+              htmlFor="input-3102479774"
               style={
                 Object {
                   "marginTop": 0,
                 }
               }
             >
-              Authentication code
+              Security code
             </label>
             <div
               className="css-70qvj9"
@@ -7501,7 +7501,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for email co
               <input
                 autoFocus={true}
                 className="css-15p77ot txt-f "
-                id="input-3718645000"
+                id="input-3102479774"
                 maxLength={6}
                 name="code"
                 onChange={[Function]}
@@ -7592,14 +7592,14 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
           >
             <label
               className="txt-l"
-              htmlFor="input-3718645000"
+              htmlFor="input-3102479774"
               style={
                 Object {
                   "marginTop": 0,
                 }
               }
             >
-              Authentication code
+              Security code
             </label>
             <div
               className="css-70qvj9"
@@ -7607,7 +7607,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
               <input
                 autoFocus={true}
                 className="css-15p77ot txt-f "
-                id="input-3718645000"
+                id="input-3102479774"
                 maxLength={6}
                 name="code"
                 onChange={[Function]}

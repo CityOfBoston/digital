@@ -52,9 +52,7 @@ export default class DeviceVerificationModal extends React.Component<Props> {
       <StatusModal>
         {status !== VerificationStatus.SENDING && this.renderEnterCode()}
         {status === VerificationStatus.SENDING && (
-          <div className="t--intro">
-            We’re sending you an authentication code…
-          </div>
+          <div className="t--intro">We’re sending you a security code…</div>
         )}
       </StatusModal>
     );
@@ -173,7 +171,7 @@ export default class DeviceVerificationModal extends React.Component<Props> {
       <form onSubmit={handleSubmit}>
         <div className="m-v500">
           <TextInput
-            label="Authentication code"
+            label="Security code"
             name="code"
             value={code}
             maxLength={6}
