@@ -405,18 +405,16 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         parent1LastName: item.parent1LastName,
         parent2FirstName: item.parent2FirstName,
         parent2LastName: item.parent2LastName,
+        requestDetails: item.notes,
       },
       item.quantity,
       BIRTH_CERTIFICATE_COST / 100
     );
 
-    await Promise.all([
-      registryDb.addUploadsToBirthCertificateOrder(
-        requestItemKey,
-        item.uploadSessionId
-      ),
-      registryDb.addNote(orderKey, item.notes),
-    ]);
+    await registryDb.addUploadsToBirthCertificateOrder(
+      requestItemKey,
+      item.uploadSessionId
+    );
 
     try {
       await makeStripeCharge(

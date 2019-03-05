@@ -46,7 +46,6 @@ export default class RegistryDbFake implements Required<RegistryDb> {
   }
 
   async cancelOrder(): Promise<void> {}
-  async addNote(): Promise<void> {}
 
   async uploadBirthAttachment(): Promise<string> {
     return '17';

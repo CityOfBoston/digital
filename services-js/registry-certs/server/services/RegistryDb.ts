@@ -124,6 +124,7 @@ export interface BirthCertificateRequestArgs {
   parent1FirstName: string;
   parent2LastName: string;
   parent2FirstName: string;
+  requestDetails: string;
 }
 
 const MAX_ID_LOOKUP_LENGTH = 1000;
@@ -344,6 +345,7 @@ export default class RegistryDb {
       parent1LastName,
       parent2FirstName,
       parent2LastName,
+      requestDetails,
     }: BirthCertificateRequestArgs,
     quantity: number,
     certificateCost: number
@@ -363,6 +365,7 @@ export default class RegistryDb {
       .input('parent1FirstName', parent1FirstName)
       .input('parent2LastName', parent2LastName)
       .input('parent2FirstName', parent2FirstName)
+      .input('requestDetails', requestDetails)
       .input('quantity', quantity)
       .input('unitCost', `$${certificateCost.toFixed(2)}`)
       .execute('Commerce.sp_AddBirthRequest');
@@ -399,18 +402,6 @@ export default class RegistryDb {
 
     if (!recordset || recordset.length === 0) {
       throw new Error('Recordset for adding payment came back empty');
-    }
-  }
-
-  async addNote(orderKey: number, note: string): Promise<void> {
-    const resp: IProcedureResult<Object> = await this.pool
-      .request()
-      .input('orderKey', orderKey)
-      .input('noteText', note)
-      .execute('Commerce.sp_AddOrderNote');
-
-    if (resp.returnValue !== 0) {
-      throw new Error('AddOrderNote failed');
     }
   }
 
