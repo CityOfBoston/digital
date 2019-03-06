@@ -19,6 +19,7 @@
 
 /node_modules
 /yarn-error.log
+/vendor/bundle
 
 .byebug_history
 .env

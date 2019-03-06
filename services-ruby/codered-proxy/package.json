@@ -2,6 +2,8 @@
   "name": "codered-proxy",
   "private": true,
   "scripts": {
+    "prepare": "bundle install --path vendor/bundle",
+    "test": "bundle exec rake test",
     "codebuild-deploy": "codebuild-service-deploy --isolated-docker Dockerfile"
   },
   "dependencies": {},
