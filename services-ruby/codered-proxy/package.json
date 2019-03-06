@@ -1,5 +1,11 @@
 {
-  "name": "cob-oemalerts",
+  "name": "codered-proxy",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "codebuild-deploy": "codebuild-service-deploy --isolated-docker Dockerfile"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cityofboston/deploy-tools": "^0.0.0"
+  }
 }
