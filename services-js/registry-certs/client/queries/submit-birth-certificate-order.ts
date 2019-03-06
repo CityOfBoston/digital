@@ -125,17 +125,16 @@ export default async function submitBirthCertificateOrder(
     );
   }
 
+  // Birth Certificate Request Questions:
   const notes = `
-Birth Certificate Request Questions:
-
-Relationship: ${forSelf ? 'self' : howRelated || 'unknown'}
-Born in Boston: ${bornInBoston}${
+Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
+| Born in BOS: ${bornInBoston}${
     bornInBoston !== 'yes'
       ? `
-Parents lived in Boston: ${parentsLivedInBoston}`
+| Parents lived in BOS: ${parentsLivedInBoston}`
       : ''
   }
-Parents married: ${parentsMarried}
+| Parents married: ${parentsMarried}
   `.trim();
 
   const queryVariables: SubmitBirthCertificateOrderVariables = {
