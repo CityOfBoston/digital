@@ -24,6 +24,7 @@
 .env
 
 /public/assets
+/vendor/bundle
 
 server.key
 server.crt
