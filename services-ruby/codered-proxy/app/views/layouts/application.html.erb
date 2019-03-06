@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boston Emergency Alerts</title>
+    <%= csrf_meta_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i|Montserrat:400,700" rel="stylesheet">
+    <!--[if !IE]><!-->
+    <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
+    <!--<![endif]-->
+    <!--[if lt IE 10]>
+      <link media="all" rel="stylesheet" href="<%= patterns_path %>/css/ie.css">
+    <![endif]-->
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cob-header.herokuapp.com/header.js" async></script>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

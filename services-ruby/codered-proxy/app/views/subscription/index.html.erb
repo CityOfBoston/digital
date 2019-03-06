@@ -1,0 +1,94 @@
+<div class="b b--fw">
+  <div class="b-c">
+  	<div class="sh">
+      <div class="sh-title">Sign up for emergency alerts</div>
+	    <div class="sh-contact">Contact: <a href="https://www.boston.gov/departments/emergency-management">Emergency Management</a></div>
+    </div>
+    <div class="g m-t500">
+      <div class="g--7">
+        <div class="p-r500">
+          <div id="alert_content" class="m-b500">
+            <div class="t--intro m-b300">Here is some intro text...</div>
+            <div>Here is some body copy.</div>
+          </div>
+          <div id="alert_success" class="m-b500 p-t400">
+            <div class="di di--c di--c--l fl--l m-r400">
+              <div class="di-a">
+                <%= image_tag("oem_logo.svg", role: "presentation") %>
+              </div>
+            </div>
+            <div class="t--intro m-t300" style="display: none">You have been subscribed to the City of Boston's emergency alerts</div>
+          </div>
+        </div>
+      </div>
+      <div class="g--5">
+        <form id="bosAlertForm" action="https://emergencyalerts.digital-staging.boston.gov/api/subscriptions" method="post">
+          <div class="fs">
+            <div class="fs-c m-b300">
+              <div class="txt">
+                <label for="email" class="txt-l txt-l--mt000">Your email address</label>
+                <input id="email" name="email" type="text" value="" placeholder="email@address.com" class="txt-f">
+              </div>
+              <div class="txt">
+                <label for="phone_number" class="txt-l txt-l--w txt-l--mt000">Your phone number</label>
+                <input id="phone_number" name="phone_number" type="text" value="" placeholder="Phone number" class="txt-f">
+              </div>
+            </div>
+            <div class="fs-c fs-c--i">
+              <label class="cb">
+                <input id="checkbox-text" name="text" type="checkbox" value="1" class="cb-f">
+                <span class="cb-l cb-l--sans">Text me</span>
+              </label>
+              <label class="cb">
+                <input id="checkbox-call" name="call" type="checkbox" value="1" class="cb-f">
+                <span class="cb-l cb-l--sans">Call me</span>
+              </label>
+            </div>
+            <div class="t--subinfo<?php if ($component_theme === 'b'): ?> t--w<?php endif; ?> m-t100">Message &amp; data rates may apply</div>
+            <div>
+              <div id="text_or_call" class="txt-l"></div>
+            </div>
+            <hr class="hr hr--sq" />
+            <div class="fs-c m-b300">
+              <div class="txt">
+                <label for="first_name" class="txt-l txt-l--mt000">First name</label>
+                <input id="first_name" name="first_name" type="text" value="" placeholder="First name" class="txt-f">
+              </div>
+            </div>
+            <div class="fs-c m-b300">
+              <div class="txt">
+                <label for="last_name" class="txt-l txt-l--mt000">Last name</label>
+                <input id="last_name" name="last_name" type="text" value="" placeholder="Last name" class="txt-f">
+              </div>
+            </div>
+            <div class="fs-c m-b300">
+              <div class="txt">
+                <label for="zip_code" class="txt-l txt-l--w txt-l--mt000">Zip code</label>
+                <input id="zip_code" name="zip" type="text" value="" placeholder="Zip code" class="txt-f" size="10">
+              </div>
+            </div>
+            <div class="fs-c m-b300">
+              <div class="sel">
+                <label for="language" class="txt-l txt-l--w txt-l--mt000">Language</label>
+                <div class="sel-c sel-c--fw">
+                  <select class="sel-f sel-f--fw" name="language" id="language">
+                    <option value="en" selected>English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="zh_TW">繁體中文</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="message" class="m-b300" style="display: none"></div>
+            <div id="button" class="fs-c fs-c--i fs-c--c">
+              <div class="m-lAAA m-t400 m-t300--mo">
+                <button id="alert_submit" type="submit" class="btn btn--700">Sign Up</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
