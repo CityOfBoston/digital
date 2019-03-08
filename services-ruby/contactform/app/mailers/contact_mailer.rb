@@ -6,8 +6,7 @@ class ContactMailer < ApplicationMailer
       to: @email.to_address,
       from: get_from(@email),
       reply_to: get_reply_to(@email),
-      subject: @email.subject,
-      message: @email.message
+      subject: @email.subject
     )
   end
 
