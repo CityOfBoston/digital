@@ -13,7 +13,8 @@
     }
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "react-hooks"
   ],
   "extends": [
     "eslint:recommended",
@@ -21,7 +22,9 @@
     "prettier/react"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "overrides": [
     {
