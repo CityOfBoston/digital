@@ -187,8 +187,10 @@ export async function addLoginAuth(
           mfaSessionId: null,
           mfaEmail: null,
           mfaPhoneNumber: null,
+          // We normalize to an ISO formatted string but need to keep this a
+          // string because we’re serializing in Redis.
           mfaRequiredDate: userMfaRegistrationDate
-            ? new Date(userMfaRegistrationDate)
+            ? new Date(userMfaRegistrationDate).toISOString()
             : null,
         };
 

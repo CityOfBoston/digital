@@ -26,6 +26,9 @@ declare module 'hapi' {
   }
 }
 
+/**
+ * Everything in this interface needs to serialize to JSON.
+ */
 export interface LoginSession {
   type: 'login';
 
@@ -36,7 +39,8 @@ export interface LoginSession {
   groups: string[];
   needsNewPassword: boolean;
   needsMfaDevice: boolean;
-  mfaRequiredDate: Date | null;
+  // ISO 8601 date
+  mfaRequiredDate: string | null;
   hasMfaDevice: boolean;
 
   // We want these in the session because we need to update IIQ with the email

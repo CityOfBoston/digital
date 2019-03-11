@@ -139,6 +139,7 @@ const queryRootResolvers: QueryRootResolvers = {
         hasMfaDevice,
         firstName,
         lastName,
+        mfaRequiredDate,
       } = loginSession!;
 
       return {
@@ -149,9 +150,7 @@ const queryRootResolvers: QueryRootResolvers = {
         needsNewPassword,
         hasMfaDevice,
         resetPasswordToken: '',
-        mfaRequiredDate: loginSession!.mfaRequiredDate
-          ? loginSession!.mfaRequiredDate.toISOString()
-          : null,
+        mfaRequiredDate: mfaRequiredDate ? mfaRequiredDate : null,
       };
     } else if (forgotPasswordAuth) {
       return {
