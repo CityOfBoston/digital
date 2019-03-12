@@ -28,16 +28,18 @@ interface InitialProps {
   account: Account;
 }
 
+type ModalError = 'NETWORK' | 'SESSION';
+
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
   testSuccessMessage?: boolean;
-  testNetworkError?: boolean;
+  testModalError?: ModalError;
 }
 
 interface State {
   showSubmittingModal: boolean;
   showSuccessMessage: boolean;
-  showNetworkError: boolean;
+  showModalError: ModalError | null;
 }
 
 interface FormValues {
@@ -63,7 +65,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
       showSuccessMessage: !!props.testSuccessMessage,
-      showNetworkError: !!props.testNetworkError,
+      showModalError: props.testModalError || null,
     };
   }
 
@@ -71,7 +73,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     { newPassword, confirmPassword, token }: FormValues,
     { setSubmitting, setErrors }: FormikActions<FormValues>
   ) => {
-    this.setState({ showSubmittingModal: true, showNetworkError: false });
+    this.setState({ showSubmittingModal: true, showModalError: null });
 
     try {
       const { status, error } = await resetPassword(
@@ -83,20 +85,27 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
 
       switch (status) {
         case 'ERROR':
-          // TODO(finh): Maybe show server errors in the modal?
-          setErrors(passwordErrorToFormErrors(error));
-          scrollTo(0, 0);
+          if (error === 'NO_SESSION') {
+            this.setState({ showModalError: 'SESSION' });
+          } else {
+            setErrors(passwordErrorToFormErrors(error));
+            scrollTo(0, 0);
+
+            this.setState({ showSubmittingModal: false });
+          }
           break;
 
         case 'SUCCESS':
           // If things succeeded, heads up that the user's session is no longer
           // valid.
-          this.setState({ showSuccessMessage: true });
+          this.setState({
+            showSuccessMessage: true,
+            showSubmittingModal: false,
+          });
           break;
       }
-      this.setState({ showSubmittingModal: false });
     } catch {
-      this.setState({ showNetworkError: true });
+      this.setState({ showModalError: 'NETWORK' });
     } finally {
       setSubmitting(false);
     }
@@ -235,11 +244,11 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
   };
 
   private renderSubmitting() {
-    const { showNetworkError } = this.state;
+    const { showModalError } = this.state;
 
     return (
       <StatusModal>
-        {!showNetworkError && (
+        {!showModalError && (
           <>
             <div className="t--intro">Saving your new password…</div>
             <div className="t--info m-t300">
@@ -248,7 +257,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
             </div>
           </>
         )}
-        {showNetworkError && (
+        {showModalError === 'NETWORK' && (
           <>
             <div className="t--intro t--err">There was a network problem</div>
             <div className="t--info m-v300">
@@ -265,11 +274,30 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
                 onClick={() =>
                   this.setState({
                     showSubmittingModal: false,
-                    showNetworkError: false,
+                    showModalError: null,
                   })
                 }
               >
                 Try Again
+              </button>
+            </div>
+          </>
+        )}
+        {showModalError === 'SESSION' && (
+          <>
+            <div className="t--intro t--err">Your session has expired</div>
+            <div className="t--info m-v300">
+              Your password was not changed. You will need to log in again to
+              reset your password.
+            </div>
+
+            <div className="ta-r">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => (window.location.href = '/forgot')}
+              >
+                Log In
               </button>
             </div>
           </>

@@ -26,12 +26,19 @@ storiesOf('ForgotPasswordPage', module)
       testSuccessMessage
     />
   ))
-
   .add('network error', () => (
     <ForgotPasswordPage
       account={ACCOUNT}
       fetchGraphql={null as any}
       testSubmittingModal
-      testNetworkError
+      testModalError="NETWORK"
+    />
+  ))
+  .add('session error', () => (
+    <ForgotPasswordPage
+      account={ACCOUNT}
+      fetchGraphql={null as any}
+      testSubmittingModal
+      testModalError="SESSION"
     />
   ));

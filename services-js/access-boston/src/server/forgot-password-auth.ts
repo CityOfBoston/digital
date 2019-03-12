@@ -14,6 +14,11 @@ interface Paths {
 }
 
 /**
+ * Ten minutes in milliseconds. This corresponds to the MFA session lifetime.
+ */
+const FORGOT_PASSWORD_SESSION_LENGTH_MS = 10 * 60 * 1000;
+
+/**
  * Adds routes and handling for the separate "forgot password" SAML app.
  *
  * Forgot password is treated differently from normal login because you only
@@ -34,7 +39,13 @@ export async function addForgotPasswordAuth(
     validate: request => {
       const auth = getSessionAuth(request);
 
-      if (auth && auth.type === 'forgotPassword') {
+      if (
+        auth &&
+        auth.type === 'forgotPassword' &&
+        // We hand-expire because Yar doesn’t give us a way to set the forgot
+        // password sessions at a different duration from the others.
+        Date.now() < (auth.createdTime || 0) + FORGOT_PASSWORD_SESSION_LENGTH_MS
+      ) {
         return { credentials: { forgotPasswordAuth: auth } };
       } else {
         return null;
@@ -128,6 +139,7 @@ export async function addForgotPasswordAuth(
         type: 'forgotPassword',
         userId: assertResult.nameId,
         resetPasswordToken: assertResult.userAccessToken,
+        createdTime: Date.now(),
       });
 
       return h.redirect(forgotPath);

@@ -1,5 +1,3 @@
-import Boom from 'boom';
-
 import { LaunchedWorkflowResponse } from '../services/IdentityIq';
 
 import { MutationResolvers, QueryRootResolvers } from './schema';
@@ -18,6 +16,7 @@ export interface Workflow {
 }
 
 export enum PasswordError {
+  NO_SESSION = 'NO_SESSION',
   NEW_PASSWORDS_DONT_MATCH = 'NEW_PASSWORDS_DONT_MATCH',
   UNKNOWN_ERROR = 'UNKNOWN_ERROR',
 }
@@ -30,7 +29,12 @@ export const changePasswordMutation: MutationResolvers['changePassword'] = async
   const { loginAuth, loginSession } = session;
 
   if (!loginAuth) {
-    throw Boom.forbidden();
+    return {
+      caseId: null,
+      error: PasswordError.NO_SESSION,
+      messages: [],
+      status: WorkflowStatus.ERROR,
+    };
   }
 
   if (newPassword !== confirmPassword) {
@@ -66,7 +70,12 @@ export const resetPasswordMutation: MutationResolvers['resetPassword'] = async (
   const { forgotPasswordAuth } = session;
 
   if (!forgotPasswordAuth) {
-    throw Boom.forbidden();
+    return {
+      caseId: null,
+      error: PasswordError.NO_SESSION,
+      messages: [],
+      status: WorkflowStatus.ERROR,
+    };
   }
 
   if (newPassword !== confirmPassword) {

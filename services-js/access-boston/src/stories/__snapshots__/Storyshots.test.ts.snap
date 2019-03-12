@@ -1666,6 +1666,416 @@ Array [
 ]
 `;
 
+exports[`Storyshots ChangePasswordPage session error 1`] = `
+Array [
+  <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-2745903612"
+        >
+          Change Password
+        </h2>
+      </div>
+      <form
+        action=""
+        className="m-v500"
+        method="POST"
+        onSubmit={[Function]}
+      >
+        <input
+          autoComplete="username"
+          name="username"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
+          value="CON01234"
+        />
+        <div
+          className="g g--r m-v200"
+        >
+          <div
+            className="g--6 m-b500"
+          >
+            <div
+              className="txt-l m-b200"
+              style={
+                Object {
+                  "marginTop": 1,
+                }
+              }
+            >
+              New passwords must:
+            </div>
+            <ul
+              className="ul"
+              style={
+                Object {
+                  "lineHeight": 1.6,
+                }
+              }
+            >
+              <li
+                className=""
+              >
+                Be at least 10 characters long
+              </li>
+              <li
+                className=""
+              >
+                Use at least 3 of these:
+                <ul
+                  className="ul"
+                >
+                  <li
+                    className=""
+                  >
+                    A lowercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    An uppercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A number
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A special character
+                  </li>
+                </ul>
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not have spaces
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not be longer than 32 characters
+              </li>
+            </ul>
+            <div
+              className="t--subinfo m-v300 m-b200"
+            >
+              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+            </div>
+          </div>
+          <div
+            className="g--6"
+          >
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-2099349523"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Current Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="current-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-2099349523"
+                name="password"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-529028998"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                New Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-529028998"
+                name="newPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-2475388040"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Confirm Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-2475388040"
+                name="confirmPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div>
+              <button
+                className="btn btn--b"
+                disabled={true}
+                type="submit"
+              >
+                Change Password
+              </button>
+            </div>
+            <div
+              className="ta-c t--subinfo m-v700"
+            >
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                Cancel and go back to Access Boston
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+  <div
+    className="md"
+  >
+    <div
+      className="md-c br br-t400 css-1y2scv5"
+    >
+      <div
+        className="md-b p-a300"
+      >
+        <div
+          className="t--intro t--err"
+        >
+          Your session has expired
+        </div>
+        <div
+          className="t--info m-v300"
+        >
+          Your password was not changed. You will need to log in again to change your password.
+        </div>
+        <div
+          className="ta-r"
+        >
+          <button
+            className="btn"
+            onClick={[Function]}
+            type="button"
+          >
+            Log In
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <form
+    action="done"
+    method="POST"
+  >
+    <input
+      name="crumb"
+      type="hidden"
+      value=""
+    />
+  </form>,
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>,
+]
+`;
+
 exports[`Storyshots ChangePasswordPage submitting 1`] = `
 Array [
   <div
@@ -2754,6 +3164,313 @@ Array [
             type="button"
           >
             Try Again
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Storyshots ForgotPasswordPage session error 1`] = `
+Array [
+  <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      Access Boston
+    </h1>
+  </div>,
+  <div
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="b b-c b-c--hsm"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-2144913693"
+        >
+          Forgot Password
+        </h2>
+      </div>
+      <form
+        action=""
+        className="m-v500"
+        method="POST"
+        onSubmit={[Function]}
+      >
+        <input
+          autoComplete="username"
+          name="username"
+          readOnly={true}
+          style={
+            Object {
+              "position": "absolute",
+              "visibility": "hidden",
+            }
+          }
+          type="text"
+          value="CON01234"
+        />
+        <div
+          className="g g--r m-v200"
+        >
+          <div
+            className="g--6 m-b500"
+          >
+            <div
+              className="txt-l m-b200"
+              style={
+                Object {
+                  "marginTop": 1,
+                }
+              }
+            >
+              New passwords must:
+            </div>
+            <ul
+              className="ul"
+              style={
+                Object {
+                  "lineHeight": 1.6,
+                }
+              }
+            >
+              <li
+                className=""
+              >
+                Be at least 10 characters long
+              </li>
+              <li
+                className=""
+              >
+                Use at least 3 of these:
+                <ul
+                  className="ul"
+                >
+                  <li
+                    className=""
+                  >
+                    A lowercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    An uppercase letter
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A number
+                  </li>
+                  <li
+                    className=""
+                  >
+                    A special character
+                  </li>
+                </ul>
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not have spaces
+              </li>
+              <li
+                className="css-5qhwje"
+              >
+                Not be longer than 32 characters
+              </li>
+            </ul>
+            <div
+              className="t--subinfo m-v300 m-b200"
+            >
+              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+            </div>
+          </div>
+          <div
+            className="g--6"
+          >
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-529028998"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                New Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-529028998"
+                name="newPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="txt"
+              style={
+                Object {
+                  "marginBottom": "0.5rem",
+                }
+              }
+            >
+              <label
+                className="txt-l"
+                htmlFor="input-2475388040"
+                style={
+                  Object {
+                    "marginTop": 0,
+                  }
+                }
+              >
+                Confirm Password
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                >
+                   
+                  Required
+                </span>
+              </label>
+              <input
+                autoCapitalize="off"
+                autoComplete="new-password"
+                autoCorrect="off"
+                autoFocus={false}
+                className=" txt-f "
+                id="input-2475388040"
+                name="confirmPassword"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                spellCheck={false}
+                type="password"
+                value=""
+              />
+              <div
+                className="t--info t--err m-v100"
+              >
+                 
+              </div>
+            </div>
+            <div
+              className="ta-r"
+            >
+              <button
+                className="btn"
+                disabled={true}
+                type="submit"
+              >
+                Reset Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>,
+  <div
+    className="md"
+  >
+    <div
+      className="md-c br br-t400 css-1y2scv5"
+    >
+      <div
+        className="md-b p-a300"
+      >
+        <div
+          className="t--intro t--err"
+        >
+          Your session has expired
+        </div>
+        <div
+          className="t--info m-v300"
+        >
+          Your password was not changed. You will need to log in again to reset your password.
+        </div>
+        <div
+          className="ta-r"
+        >
+          <button
+            className="btn"
+            onClick={[Function]}
+            type="button"
+          >
+            Log In
           </button>
         </div>
       </div>
