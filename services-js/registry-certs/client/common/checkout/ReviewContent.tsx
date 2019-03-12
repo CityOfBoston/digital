@@ -322,15 +322,15 @@ export default class ReviewContent extends React.Component<Props, State> {
 
           {submissionError &&
             submissionErrorIsForPayment && (
-              <StatusModal message={submissionError} error>
+              <StatusModal message="This charge failed." error>
                 <div className="t--info m-t300">
-                  You can update your payment information and try to submit this
-                  order again.
+                  {submissionError} Update your payment information to submit
+                  your order.
                 </div>
 
                 <div className="m-v500 ta-c">
                   <Link href={`${checkoutPath}?page=payment`}>
-                    <a className="btn">Update Payment Information</a>
+                    <a className="btn">Re-try</a>
                   </Link>
                 </div>
               </StatusModal>

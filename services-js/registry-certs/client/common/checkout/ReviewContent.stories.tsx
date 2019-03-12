@@ -145,7 +145,7 @@ storiesOf('Checkout/ReviewContent', module)
       submit={action('submit') as any}
       testSubmissionError={
         new SubmissionError(
-          "Your card's security code is incorrect",
+          "Your card's security code is incorrect.",
           OrderErrorCause.USER_PAYMENT
         )
       }
