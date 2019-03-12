@@ -70,7 +70,7 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
     // POST it torches the session.
     const account = await fetchAccount(fetchGraphql);
 
-    if (!account.needsMfaDevice) {
+    if (account.hasMfaDevice) {
       throw new RedirectError('/');
     }
 
