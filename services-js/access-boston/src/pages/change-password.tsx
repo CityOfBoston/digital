@@ -32,15 +32,17 @@ interface InitialProps {
   account: Account;
 }
 
+type ModalError = 'NETWORK' | 'SESSION';
+
 interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   testSubmittingModal?: boolean;
-  testNetworkError?: boolean;
+  testModalError?: ModalError;
   hasTemporaryPassword?: boolean;
 }
 
 interface State {
   showSubmittingModal: boolean;
-  showNetworkError: boolean;
+  showModalError: ModalError | null;
 }
 
 interface FormValues {
@@ -73,7 +75,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
-      showNetworkError: !!props.testNetworkError,
+      showModalError: props.testModalError || null,
     };
   }
 
@@ -83,7 +85,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   ) => {
     const { account } = this.props;
 
-    this.setState({ showSubmittingModal: true, showNetworkError: false });
+    this.setState({ showSubmittingModal: true, showModalError: null });
 
     try {
       const { status, error } = await changePassword(
@@ -95,9 +97,13 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
       switch (status) {
         case 'ERROR':
-          // TODO(finh): Maybe show server errors in the modal?
-          setErrors(changePasswordErrorToFormErrors(error));
-          scrollTo(0, 0);
+          if (error === 'NO_SESSION') {
+            this.setState({ showModalError: 'SESSION' });
+          } else {
+            setErrors(changePasswordErrorToFormErrors(error));
+            scrollTo(0, 0);
+            this.setState({ showSubmittingModal: false });
+          }
           break;
 
         case 'SUCCESS':
@@ -114,10 +120,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           }
           break;
       }
-
-      this.setState({ showSubmittingModal: false });
     } catch {
-      this.setState({ showNetworkError: true });
+      this.setState({ showModalError: 'NETWORK' });
     } finally {
       setSubmitting(false);
     }
@@ -308,11 +312,11 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   };
 
   private renderSubmitting() {
-    const { showNetworkError } = this.state;
+    const { showModalError } = this.state;
 
     return (
       <StatusModal>
-        {!showNetworkError && (
+        {!showModalError && (
           <>
             <div className="t--intro">Saving your new password…</div>
             <div className="t--info m-t300">
@@ -321,7 +325,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
             </div>
           </>
         )}
-        {showNetworkError && (
+        {showModalError === 'NETWORK' && (
           <>
             <div className="t--intro t--err">There was a network problem</div>
             <div className="t--info m-v300">
@@ -338,11 +342,30 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
                 onClick={() =>
                   this.setState({
                     showSubmittingModal: false,
-                    showNetworkError: false,
+                    showModalError: null,
                   })
                 }
               >
                 Try Again
+              </button>
+            </div>
+          </>
+        )}
+        {showModalError === 'SESSION' && (
+          <>
+            <div className="t--intro t--err">Your session has expired</div>
+            <div className="t--info m-v300">
+              Your password was not changed. You will need to log in again to
+              change your password.
+            </div>
+
+            <div className="ta-r">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => (window.location.href = '/change-password')}
+              >
+                Log In
               </button>
             </div>
           </>

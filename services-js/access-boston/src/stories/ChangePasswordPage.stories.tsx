@@ -45,6 +45,14 @@ storiesOf('ChangePasswordPage', module)
       account={ACCOUNT}
       fetchGraphql={null as any}
       testSubmittingModal
-      testNetworkError
+      testModalError="NETWORK"
+    />
+  ))
+  .add('session error', () => (
+    <ChangePasswordPage
+      account={ACCOUNT}
+      fetchGraphql={null as any}
+      testSubmittingModal
+      testModalError="SESSION"
     />
   ));
