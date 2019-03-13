@@ -27,5 +27,14 @@ export function makeFormData(values: Object): FormData {
   return data;
 }
 
-// https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
-export const PHONE_REGEXP = /^(?:\+?1[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+/**
+ * Matches 10-digit phone numbers with a variety of separators. Allows for a
+ * country code, so long as that code is "1".
+ *
+ * Parens pull out the country code, the area code, the first 3 digits, and the
+ * last 4 digits.
+ *
+ * Source:
+ * https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s02.html
+ */
+export const PHONE_REGEXP = /^(?:\+?(1)[-. ]?)?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
