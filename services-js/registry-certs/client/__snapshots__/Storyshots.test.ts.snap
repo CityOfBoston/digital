@@ -9483,6 +9483,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
               >
                 <div
                   className="g--6 m-v500"
+                  onClick={[Function]}
                 >
                   <div
                     className="br br-a200"
@@ -9763,39 +9764,43 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                   </h3>
                 </legend>
                 <div
-                  className="m-b300"
+                  onClick={[Function]}
                 >
-                  <input
-                    accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-                    className="css-1dv1kvn"
-                    id="uploadSupportingDocuments"
-                    multiple={true}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    type="file"
-                  />
-                  <label
-                    className="btn btn--sm btn--200 false"
-                    htmlFor="uploadSupportingDocuments"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                        "whiteSpace": "nowrap",
-                      }
-                    }
-                  >
-                    Upload Supporting Documents
-                  </label>
                   <div
-                    className="t--subinfo m-v200"
+                    className="m-b300"
                   >
-                    Files should be PDF format, and under 10MB each.
+                    <input
+                      accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
+                      className="css-1dv1kvn"
+                      id="uploadSupportingDocuments"
+                      multiple={true}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="file"
+                    />
+                    <label
+                      className="btn btn--sm btn--200 false"
+                      htmlFor="uploadSupportingDocuments"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                          "whiteSpace": "nowrap",
+                        }
+                      }
+                    >
+                      Upload Supporting Documents
+                    </label>
+                    <div
+                      className="t--subinfo m-v200"
+                    >
+                      Files should be PDF format, and under 10MB each.
+                    </div>
+                    <ul
+                      className="css-2yuxpq t--s400"
+                    />
                   </div>
-                  <ul
-                    className="css-2yuxpq t--s400"
-                  />
                 </div>
               </fieldset>
               <h2
@@ -9811,6 +9816,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                 <a
                   href="mailto:birth@boston.gov?subject=Birth%20Certificate%20Support%20Request%3A%20No%20ID"
                   onClick={[Function]}
+                  onMouseUp={[Function]}
                 >
                   Request help 
                   <span
@@ -10244,6 +10250,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
               >
                 <div
                   className="g--6 m-v500"
+                  onClick={[Function]}
                 >
                   <div
                     className="br br-a200"
@@ -10524,174 +10531,178 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                   </h3>
                 </legend>
                 <div
-                  className="m-b300"
+                  onClick={[Function]}
                 >
-                  <input
-                    accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-                    className="css-1dv1kvn"
-                    id="uploadSupportingDocuments"
-                    multiple={true}
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    type="file"
-                  />
-                  <label
-                    className="btn btn--sm btn--200 false"
-                    htmlFor="uploadSupportingDocuments"
-                    onClick={[Function]}
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                        "whiteSpace": "nowrap",
-                      }
-                    }
-                  >
-                    Upload Supporting Documents
-                  </label>
                   <div
-                    className="t--subinfo m-v200"
+                    className="m-b300"
                   >
-                    Files should be PDF format, and under 10MB each.
+                    <input
+                      accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
+                      className="css-1dv1kvn"
+                      id="uploadSupportingDocuments"
+                      multiple={true}
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="file"
+                    />
+                    <label
+                      className="btn btn--sm btn--200 false"
+                      htmlFor="uploadSupportingDocuments"
+                      onClick={[Function]}
+                      style={
+                        Object {
+                          "fontWeight": "bold",
+                          "whiteSpace": "nowrap",
+                        }
+                      }
+                    >
+                      Upload Supporting Documents
+                    </label>
+                    <div
+                      className="t--subinfo m-v200"
+                    >
+                      Files should be PDF format, and under 10MB each.
+                    </div>
+                    <ul
+                      className="css-2yuxpq t--s400"
+                    >
+                      <li>
+                        <span
+                          className="name"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            •
+                          </span>
+                          <span>
+                            Deadname to Finnegan change.pdf
+                          </span>
+                        </span>
+                        <button
+                          className="css-14581tj css-1jem7y3"
+                          onClick={[Function]}
+                          style={
+                            Object {
+                              "height": "1.7em",
+                              "overflow": "visible",
+                              "width": "1.7em",
+                            }
+                          }
+                          title="Remove file: Deadname to Finnegan change.pdf"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            height="1.7em"
+                            overflow="visible"
+                            viewBox="0 0 24 24"
+                            width="1.7em"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              fill="#d22d23"
+                              r="12"
+                              stroke="none"
+                            />
+                            <g
+                              transform="rotate(45, 12, 12)"
+                            >
+                              <line
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeWidth="3"
+                                x1="12"
+                                x2="12"
+                                y1="4"
+                                y2="20"
+                              />
+                              <line
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeWidth="3"
+                                x1="4"
+                                x2="20"
+                                y1="12"
+                                y2="12"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <span
+                          className="name"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            •
+                          </span>
+                          <span>
+                            Finnegan to Fiona name change.pdf
+                          </span>
+                        </span>
+                        <button
+                          className="css-14581tj css-1jem7y3"
+                          onClick={[Function]}
+                          style={
+                            Object {
+                              "height": "1.7em",
+                              "overflow": "visible",
+                              "width": "1.7em",
+                            }
+                          }
+                          title="Remove file: Finnegan to Fiona name change.pdf"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            height="1.7em"
+                            overflow="visible"
+                            viewBox="0 0 24 24"
+                            width="1.7em"
+                          >
+                            <circle
+                              cx="12"
+                              cy="12"
+                              fill="#d22d23"
+                              r="12"
+                              stroke="none"
+                            />
+                            <g
+                              transform="rotate(45, 12, 12)"
+                            >
+                              <line
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeWidth="3"
+                                x1="12"
+                                x2="12"
+                                y1="4"
+                                y2="20"
+                              />
+                              <line
+                                fill="none"
+                                stroke="#fff"
+                                strokeLinecap="round"
+                                strokeWidth="3"
+                                x1="4"
+                                x2="20"
+                                y1="12"
+                                y2="12"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
                   </div>
-                  <ul
-                    className="css-2yuxpq t--s400"
-                  >
-                    <li>
-                      <span
-                        className="name"
-                      >
-                        <span
-                          aria-hidden="true"
-                        >
-                          •
-                        </span>
-                        <span>
-                          Deadname to Finnegan change.pdf
-                        </span>
-                      </span>
-                      <button
-                        className="css-14581tj css-1jem7y3"
-                        onClick={[Function]}
-                        style={
-                          Object {
-                            "height": "1.7em",
-                            "overflow": "visible",
-                            "width": "1.7em",
-                          }
-                        }
-                        title="Remove file: Deadname to Finnegan change.pdf"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          height="1.7em"
-                          overflow="visible"
-                          viewBox="0 0 24 24"
-                          width="1.7em"
-                        >
-                          <circle
-                            cx="12"
-                            cy="12"
-                            fill="#d22d23"
-                            r="12"
-                            stroke="none"
-                          />
-                          <g
-                            transform="rotate(45, 12, 12)"
-                          >
-                            <line
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeWidth="3"
-                              x1="12"
-                              x2="12"
-                              y1="4"
-                              y2="20"
-                            />
-                            <line
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeWidth="3"
-                              x1="4"
-                              x2="20"
-                              y1="12"
-                              y2="12"
-                            />
-                          </g>
-                        </svg>
-                      </button>
-                    </li>
-                    <li>
-                      <span
-                        className="name"
-                      >
-                        <span
-                          aria-hidden="true"
-                        >
-                          •
-                        </span>
-                        <span>
-                          Finnegan to Fiona name change.pdf
-                        </span>
-                      </span>
-                      <button
-                        className="css-14581tj css-1jem7y3"
-                        onClick={[Function]}
-                        style={
-                          Object {
-                            "height": "1.7em",
-                            "overflow": "visible",
-                            "width": "1.7em",
-                          }
-                        }
-                        title="Remove file: Finnegan to Fiona name change.pdf"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          height="1.7em"
-                          overflow="visible"
-                          viewBox="0 0 24 24"
-                          width="1.7em"
-                        >
-                          <circle
-                            cx="12"
-                            cy="12"
-                            fill="#d22d23"
-                            r="12"
-                            stroke="none"
-                          />
-                          <g
-                            transform="rotate(45, 12, 12)"
-                          >
-                            <line
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeWidth="3"
-                              x1="12"
-                              x2="12"
-                              y1="4"
-                              y2="20"
-                            />
-                            <line
-                              fill="none"
-                              stroke="#fff"
-                              strokeLinecap="round"
-                              strokeWidth="3"
-                              x1="4"
-                              x2="20"
-                              y1="12"
-                              y2="12"
-                            />
-                          </g>
-                        </svg>
-                      </button>
-                    </li>
-                  </ul>
                 </div>
               </fieldset>
               <h2
@@ -10707,6 +10718,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                 <a
                   href="mailto:birth@boston.gov?subject=Birth%20Certificate%20Support%20Request%3A%20No%20ID"
                   onClick={[Function]}
+                  onMouseUp={[Function]}
                 >
                   Request help 
                   <span

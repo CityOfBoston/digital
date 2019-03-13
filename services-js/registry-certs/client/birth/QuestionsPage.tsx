@@ -28,7 +28,7 @@ interface InitialProps {
 
 interface Props
   extends InitialProps,
-    Pick<PageDependencies, 'birthCertificateRequest'> {}
+    Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
 
 interface State {
   /**
@@ -87,7 +87,9 @@ export default class QuestionsPage extends React.Component<Props, State> {
     if (props.currentStep !== state.currentStep) {
       return {
         currentStep: props.currentStep,
-        localBirthCertificateRequest: props.birthCertificateRequest.clone(),
+        localBirthCertificateRequest: props.birthCertificateRequest.clone(
+          props.siteAnalytics
+        ),
       };
     } else {
       return null;
@@ -98,7 +100,9 @@ export default class QuestionsPage extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      localBirthCertificateRequest: props.birthCertificateRequest.clone(),
+      localBirthCertificateRequest: props.birthCertificateRequest.clone(
+        props.siteAnalytics
+      ),
       currentStep: props.currentStep,
     };
   }
@@ -134,6 +138,16 @@ export default class QuestionsPage extends React.Component<Props, State> {
     if (nextStep === 'reviewRequest') {
       Router.push('/birth/review');
     } else {
+      if (currentStep === 'personalInformation') {
+        const { birthDate } = birthCertificateRequest.requestInformation;
+
+        this.props.siteAnalytics.sendEvent('input', {
+          category: 'Birth',
+          label: `birth year: ${birthDate ? birthDate.getFullYear() : 0}`,
+        });
+      } else {
+        this.gaSendEvent(this.gaEventOptionsLabel());
+      }
       Router.push(`/birth?step=${nextStep}`);
     }
   };
@@ -147,7 +161,52 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     // Ensure we cannot go back any further than the first question.
     const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+
     Router.push(`/birth?step=${steps[newIndex]}`);
+  };
+
+  private gaEventOptionsLabel = (): string => {
+    const { currentStep } = this.props;
+    const { requestInformation } = this.props.birthCertificateRequest;
+
+    if (currentStep === 'forWhom') {
+      return `ordering for ${orderingFor(requestInformation)}`;
+    } else if (currentStep === 'bornInBoston') {
+      return inBoston(requestInformation);
+    } else if (currentStep === 'parentalInformation') {
+      return `parents married: ${requestInformation.parentsMarried}`;
+    } else {
+      return '';
+    }
+
+    function orderingFor(requestInformation): string {
+      const { forSelf, howRelated } = requestInformation;
+
+      if (forSelf) {
+        return 'self';
+      } else {
+        return howRelated as string;
+      }
+    }
+
+    function inBoston(requestInformation): string {
+      const { bornInBoston, parentsLivedInBoston } = requestInformation;
+
+      let result = `born in Boston: ${bornInBoston}`;
+
+      if (bornInBoston !== 'yes') {
+        result += `; parents lived in Boston: ${parentsLivedInBoston}`;
+      }
+
+      return result;
+    }
+  };
+
+  gaSendEvent = (label: string): void => {
+    this.props.siteAnalytics.sendEvent('click', {
+      category: 'Birth',
+      label,
+    });
   };
 
   // Clear all data and return to initial question.
@@ -155,7 +214,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
   };
 
-  public render() {
+  render() {
     const { currentStep, birthCertificateRequest } = this.props;
     const { localBirthCertificateRequest } = this.state;
 
@@ -231,7 +290,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         break;
 
       case 'verifyIdentification':
-        // We just don't dynamically update the progress bar for uploads right nowœ
+        // We just don't dynamically update the progress bar for uploads right now
         isStepComplete = false;
 
         // This is given the actual birth certificate request, rather than the local
@@ -241,6 +300,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         // need to still be there.
         questionsEl = (
           <VerifyIdentification
+            gaSendEvent={this.gaSendEvent}
             birthCertificateRequest={birthCertificateRequest}
             handleProceed={this.advanceQuestion.bind(
               this,

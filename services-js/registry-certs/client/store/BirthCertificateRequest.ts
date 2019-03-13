@@ -1,6 +1,10 @@
 import { action, observable, computed } from 'mobx';
 import uuidv4 from 'uuid/v4';
+
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import { BirthCertificateRequestInformation, Step } from '../types';
+import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
 
 // This is used for initial state during the questions flow, and to
 // reset all fields if user selects “start over”
@@ -65,9 +69,20 @@ export default class BirthCertificateRequest {
   > = INITIAL_REQUEST_INFORMATION;
 
   public uploadSessionId: string;
+  public siteAnalytics: GaSiteAnalytics | null = null;
 
   constructor() {
     this.uploadSessionId = uuidv4();
+  }
+
+  @action
+  attach(siteAnalytics: GaSiteAnalytics) {
+    this.siteAnalytics = siteAnalytics;
+  }
+
+  @action
+  detach() {
+    this.siteAnalytics = null;
   }
 
   @computed
@@ -88,11 +103,29 @@ export default class BirthCertificateRequest {
   @computed
   public get needsIdentityVerification(): boolean {
     const { parentsMarried } = this.requestInformation;
+
     return !!(parentsMarried && parentsMarried !== 'yes');
   }
 
   @action
   public setQuantity(newQuantity: number): void {
+    const { siteAnalytics } = this;
+    const quantityChange = newQuantity - this.quantity;
+
+    if (siteAnalytics) {
+      siteAnalytics.addProduct(
+        '0',
+        'Birth certificate',
+        'Birth certificate',
+        Math.abs(quantityChange),
+        BIRTH_CERTIFICATE_COST / 100
+      );
+
+      siteAnalytics.setProductAction(
+        newQuantity > this.quantity ? 'add' : 'remove'
+      );
+    }
+
     this.quantity = newQuantity;
   }
 
@@ -129,8 +162,12 @@ export default class BirthCertificateRequest {
    * Use this to make a copy that you can modify without changing the global
    * BirthCertificateRequest.
    */
-  public clone(): BirthCertificateRequest {
-    return Object.assign(new BirthCertificateRequest(), this);
+  public clone(siteAnalytics: GaSiteAnalytics): BirthCertificateRequest {
+    const birthCertificateRequest = new BirthCertificateRequest();
+
+    birthCertificateRequest.attach(siteAnalytics);
+
+    return Object.assign(birthCertificateRequest, this);
   }
 
   /**

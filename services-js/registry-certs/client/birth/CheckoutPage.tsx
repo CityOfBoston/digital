@@ -211,7 +211,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     });
 
     siteAnalytics.sendEvent('click', {
-      category: 'UX',
+      category: 'Birth',
       label: 'submit order',
     });
 

@@ -18,12 +18,14 @@ function makeBirthCertificateRequest(
 storiesOf('Birth/QuestionsFlow/1. Who is this for?', module)
   .add('blank', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="forWhom"
       birthCertificateRequest={makeBirthCertificateRequest()}
     />
   ))
   .add('for someone else', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="forWhom"
       birthCertificateRequest={makeBirthCertificateRequest({ forSelf: false })}
     />
@@ -33,6 +35,7 @@ storiesOf('Birth/QuestionsFlow/1a. Client instructions', module).add(
   'default',
   () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="clientInstructions"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: false,
@@ -45,6 +48,7 @@ storiesOf('Birth/QuestionsFlow/1a. Client instructions', module).add(
 storiesOf('Birth/QuestionsFlow/2. Born in Boston?', module)
   .add('blank', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="bornInBoston"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
@@ -53,6 +57,7 @@ storiesOf('Birth/QuestionsFlow/2. Born in Boston?', module)
   ))
   .add('maybe no', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="bornInBoston"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
@@ -63,6 +68,7 @@ storiesOf('Birth/QuestionsFlow/2. Born in Boston?', module)
   ))
   .add('hard no', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="bornInBoston"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
@@ -76,6 +82,7 @@ storiesOf('Birth/QuestionsFlow/3. Personal information', module).add(
   'blank',
   () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="personalInformation"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
@@ -87,6 +94,7 @@ storiesOf('Birth/QuestionsFlow/3. Personal information', module).add(
 storiesOf('Birth/QuestionsFlow/4. Parental information', module)
   .add('blank', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="parentalInformation"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: false,
@@ -96,6 +104,7 @@ storiesOf('Birth/QuestionsFlow/4. Parental information', module)
   ))
   .add('may be restricted (self)', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="parentalInformation"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
@@ -106,6 +115,7 @@ storiesOf('Birth/QuestionsFlow/4. Parental information', module)
   ))
   .add('may be restricted (other)', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="parentalInformation"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: false,
@@ -118,6 +128,7 @@ storiesOf('Birth/QuestionsFlow/4. Parental information', module)
 storiesOf('Birth/QuestionsFlow/5. Identity verification', module)
   .add('blank', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="verifyIdentification"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
@@ -127,6 +138,7 @@ storiesOf('Birth/QuestionsFlow/5. Identity verification', module)
   ))
   .add('existing images and files', () => (
     <QuestionsPage
+      siteAnalytics={{} as any}
       currentStep="verifyIdentification"
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
