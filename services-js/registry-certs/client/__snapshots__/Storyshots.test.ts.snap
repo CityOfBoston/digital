@@ -22243,12 +22243,13 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                   <div
                     className="t--intro t--err"
                   >
-                    Your card's security code is incorrect
+                    This charge failed.
                   </div>
                   <div
                     className="t--info m-t300"
                   >
-                    You can update your payment information and try to submit this order again.
+                    Your card's security code is incorrect.
+                     Update your payment information to submit your order.
                   </div>
                   <div
                     className="m-v500 ta-c"
@@ -22258,7 +22259,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                       href="/death/checkout?page=payment"
                       onClick={[Function]}
                     >
-                      Update Payment Information
+                      Re-try
                     </a>
                   </div>
                 </div>
