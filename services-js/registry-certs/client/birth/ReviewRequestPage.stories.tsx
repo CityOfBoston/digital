@@ -31,5 +31,8 @@ const birthCertificateRequest = new BirthCertificateRequest();
 birthCertificateRequest.answerQuestion(birthCertRequest);
 
 storiesOf('Birth/ReviewRequestPage', module).add('default page', () => (
-  <ReviewRequestPage birthCertificateRequest={birthCertificateRequest} />
+  <ReviewRequestPage
+    birthCertificateRequest={birthCertificateRequest}
+    siteAnalytics={{ addProduct: () => {}, setProductAction: () => {} } as any}
+  />
 ));

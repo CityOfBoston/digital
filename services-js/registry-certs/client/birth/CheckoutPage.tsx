@@ -211,8 +211,24 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     });
 
     siteAnalytics.sendEvent('click', {
-      category: 'UX',
+      category: 'Birth',
       label: 'submit order',
+    });
+
+    siteAnalytics.sendEvent('ship to city', {
+      category: 'Birth',
+      label: `${order.info.shippingCity}, ${order.info.shippingState}`,
+    });
+
+    siteAnalytics.sendEvent('ship to state', {
+      category: 'Birth',
+      label: order.info.shippingState,
+    });
+
+    siteAnalytics.sendEvent('quantity ordered', {
+      category: 'Birth',
+      label: birthCertificateRequest.quantity.toString(),
+      value: birthCertificateRequest.quantity,
     });
 
     const stepCount = birthCertificateRequest.steps.length;

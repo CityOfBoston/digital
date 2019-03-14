@@ -25,6 +25,7 @@ const SUPPORTED_MIME_TYPES =
 interface Props {
   sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
   uploadSessionId: string;
+  gaSendEvent: (label: string) => void;
 
   supportingDocuments: UploadableFile[];
   updateSupportingDocuments: (documents: UploadableFile[]) => void;
@@ -53,6 +54,10 @@ export default class VerifyIdentificationComponent extends React.Component<
   private handleIdImageChange = (side: string, image: File | null): void => {
     this.props.updateIdImages(side, image);
   };
+
+  private handleSendEventClick(label: string): void {
+    this.props.gaSendEvent(label);
+  }
 
   render() {
     if (this.props.sectionsToDisplay === 'supportingDocumentsOnly') {
@@ -107,7 +112,10 @@ export default class VerifyIdentificationComponent extends React.Component<
         </ul>
 
         <div className="g">
-          <div className="g--6 m-v500">
+          <div
+            className="g--6 m-v500"
+            onClick={() => this.handleSendEventClick('upload front of ID')}
+          >
             <UploadPhoto
               initialFile={idImageFront ? idImageFront.file : null}
               uploadProgress={idImageFront && idImageFront.progress}
@@ -145,7 +153,13 @@ export default class VerifyIdentificationComponent extends React.Component<
             </h3>
           }
         >
-          {this.renderSupportingDocumentsInput()}
+          <div
+            onClick={() =>
+              this.handleSendEventClick('upload supporting documents')
+            }
+          >
+            {this.renderSupportingDocumentsInput()}
+          </div>
         </FieldsetComponent>
 
         <h2 className={`${SECTION_HEADING_STYLING} secondary m-t700`}>
@@ -161,6 +175,7 @@ export default class VerifyIdentificationComponent extends React.Component<
             onClick={ContactForm.makeMailtoClickHandler(
               'birth-cert-no-id-form'
             )}
+            onMouseUp={() => this.handleSendEventClick('no id; requested help')}
           >
             Request help <span aria-hidden="true">→</span>
           </a>

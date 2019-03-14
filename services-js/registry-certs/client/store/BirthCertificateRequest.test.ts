@@ -1,3 +1,5 @@
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import BirthCertificateRequest from './BirthCertificateRequest';
 
 describe('steps', () => {
@@ -31,8 +33,13 @@ describe('steps', () => {
 });
 
 describe('clone', () => {
+  const siteAnalytics = new GaSiteAnalytics();
+
   it('makes a new request that changes independently', () => {
     const original = new BirthCertificateRequest();
+
+    original.setSiteAnalytics(siteAnalytics);
+
     original.answerQuestion({
       firstName: 'Ken',
       lastName: 'Shiga',

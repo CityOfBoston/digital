@@ -18,8 +18,10 @@ import BackButton from './components/BackButton';
 
 import { SECTION_HEADING_STYLING } from './styling';
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
+import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
 
-interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
+interface Props
+  extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
 
 /**
  * Component which allows a user to review their request, and update the
@@ -31,7 +33,21 @@ interface Props extends Pick<PageDependencies, 'birthCertificateRequest'> {}
 @observer
 export default class ReviewRequestPage extends React.Component<Props> {
   componentDidMount() {
+    const { siteAnalytics } = this.props;
+
     window.scroll(0, 0);
+
+    // Since user has provided all needed information by this point, we
+    // will count this birth certificate as a trackable product.
+    siteAnalytics.addProduct(
+      '0',
+      'Birth certificate',
+      'Birth certificate',
+      this.props.birthCertificateRequest.quantity,
+      BIRTH_CERTIFICATE_COST / 100
+    );
+
+    siteAnalytics.setProductAction('add');
   }
 
   private handleQuantityChange = (
@@ -47,11 +63,22 @@ export default class ReviewRequestPage extends React.Component<Props> {
   };
 
   private returnToQuestions = () => {
+    const { siteAnalytics } = this.props;
     const {
       birthCertificateRequest: { steps },
     } = this.props;
 
     const currentStepIndex = steps.indexOf('reviewRequest');
+
+    siteAnalytics.addProduct(
+      '0',
+      'Birth certificate',
+      'Birth certificate',
+      this.props.birthCertificateRequest.quantity,
+      BIRTH_CERTIFICATE_COST / 100
+    );
+
+    siteAnalytics.setProductAction('remove');
 
     Router.push(`/birth?step=${steps[currentStepIndex - 1]}`);
   };

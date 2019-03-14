@@ -28,7 +28,7 @@ interface InitialProps {
 
 interface Props
   extends InitialProps,
-    Pick<PageDependencies, 'birthCertificateRequest'> {}
+    Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
 
 interface State {
   /**
@@ -134,6 +134,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
     if (nextStep === 'reviewRequest') {
       Router.push('/birth/review');
     } else {
+      this.gaEventActionAndLabel();
+
       Router.push(`/birth?step=${nextStep}`);
     }
   };
@@ -147,7 +149,57 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     // Ensure we cannot go back any further than the first question.
     const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+
     Router.push(`/birth?step=${steps[newIndex]}`);
+  };
+
+  private gaEventActionAndLabel = (): void => {
+    const { currentStep } = this.props;
+    const { requestInformation } = this.props.birthCertificateRequest;
+    const {
+      bornInBoston,
+      parentsLivedInBoston,
+      parentsMarried,
+      birthDate,
+    } = requestInformation;
+
+    if (currentStep === 'forWhom') {
+      this.gaAnswerQuestion('ordering for', orderingFor(requestInformation));
+    } else if (currentStep === 'bornInBoston') {
+      this.gaAnswerQuestion('born in Boston', bornInBoston);
+
+      if (parentsLivedInBoston && parentsLivedInBoston.length > 0) {
+        this.gaAnswerQuestion('parents lived in Boston', parentsLivedInBoston);
+      }
+    } else if (currentStep === 'personalInformation' && birthDate) {
+      this.gaAnswerQuestion('birth year', birthDate.getFullYear().toString());
+    } else if (currentStep === 'parentalInformation') {
+      this.gaAnswerQuestion('parents married', parentsMarried);
+    }
+
+    function orderingFor(requestInformation): string {
+      const { forSelf, howRelated } = requestInformation;
+
+      if (forSelf) {
+        return 'self';
+      } else {
+        return howRelated as string;
+      }
+    }
+  };
+
+  gaAnswerQuestion = (action: string, label: string): void => {
+    this.props.siteAnalytics.sendEvent(action, {
+      category: 'Birth',
+      label,
+    });
+  };
+
+  gaSendClickEvent = (label: string): void => {
+    this.props.siteAnalytics.sendEvent('click', {
+      category: 'Birth',
+      label,
+    });
   };
 
   // Clear all data and return to initial question.
@@ -155,7 +207,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
   };
 
-  public render() {
+  render() {
     const { currentStep, birthCertificateRequest } = this.props;
     const { localBirthCertificateRequest } = this.state;
 
@@ -231,7 +283,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         break;
 
       case 'verifyIdentification':
-        // We just don't dynamically update the progress bar for uploads right nowœ
+        // We just don't dynamically update the progress bar for uploads right now
         isStepComplete = false;
 
         // This is given the actual birth certificate request, rather than the local
@@ -241,6 +293,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         // need to still be there.
         questionsEl = (
           <VerifyIdentification
+            gaSendEvent={this.gaSendClickEvent}
             birthCertificateRequest={birthCertificateRequest}
             handleProceed={this.advanceQuestion.bind(
               this,

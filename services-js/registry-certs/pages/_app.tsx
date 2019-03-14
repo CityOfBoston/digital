@@ -192,6 +192,8 @@ export default class RegistryCertsApp extends App {
 
     const fetchGraphql = makeFetchGraphql(config);
 
+    birthCertificateRequest.setSiteAnalytics(siteAnalytics);
+
     this.pageDependencies = {
       ...initialPageDependencies,
       stripe,
