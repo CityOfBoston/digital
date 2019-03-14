@@ -162,6 +162,45 @@ storiesOf('Birth/QuestionsFlow/5. Identity verification', module)
         ],
       })}
     />
+  ))
+  .add('upload error', () => (
+    <QuestionsPage
+      currentStep="verifyIdentification"
+      siteAnalytics={{} as any}
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+        parentsMarried: 'no',
+        idImageFront: Object.assign(new UploadableFile(SAMPLE_FILE, ''), {
+          status: 'uploadError',
+          errorMessage: 'Upload failed: Request Timeout',
+        }),
+        supportingDocuments: [
+          Object.assign(
+            new UploadableFile(
+              new File([], 'Deadname to Finnegan change.pdf'),
+              ''
+            ),
+            { status: 'canceling' }
+          ),
+          Object.assign(
+            new UploadableFile(
+              new File([], 'Finnegan to Fiona name change.pdf'),
+              ''
+            ),
+            {
+              status: 'uploadError',
+              errorMessage: 'Network error during upload',
+            }
+          ),
+          Object.assign(
+            new UploadableFile(new File([], 'cats on cats on cats.jpg'), ''),
+            {
+              status: 'deletionError',
+            }
+          ),
+        ],
+      })}
+    />
   ));
 
 const SVG_IMAGE = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
