@@ -41,6 +41,8 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
           <link
             rel="shortcut icon"
             href="/assets/favicon.ico"
