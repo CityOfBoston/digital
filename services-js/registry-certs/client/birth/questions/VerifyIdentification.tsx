@@ -64,7 +64,7 @@ export default class VerifyIdentification extends React.Component<Props> {
       idImageBack,
     } = this.props.birthCertificateRequest.requestInformation;
 
-    const canProceed = !!idImageFront;
+    const canProceed = !!idImageFront && idImageFront.status === 'success';
 
     return (
       <QuestionComponent

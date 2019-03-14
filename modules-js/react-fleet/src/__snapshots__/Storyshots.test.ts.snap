@@ -2376,7 +2376,7 @@ exports[`Storyshots Form Elements/Upload photo custom background element 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b "
+          className="btn btn--w btn--b  "
           onClick={[Function]}
           style={
             Object {
@@ -2498,7 +2498,7 @@ exports[`Storyshots Form Elements/Upload photo default 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b "
+          className="btn btn--w btn--b  "
           onClick={[Function]}
           style={
             Object {
@@ -2620,7 +2620,7 @@ exports[`Storyshots Form Elements/Upload photo existing photo 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b "
+          className="btn btn--w btn--b  "
           onClick={[Function]}
           style={
             Object {
@@ -2742,7 +2742,7 @@ exports[`Storyshots Form Elements/Upload photo upload error 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b "
+          className="btn btn--w btn--b  css-udegvj"
           onClick={[Function]}
           style={
             Object {
@@ -2751,15 +2751,9 @@ exports[`Storyshots Form Elements/Upload photo upload error 1`] = `
           }
           type="button"
         >
-          Upload photo
+          server error
         </button>
       </div>
-    </div>
-    <div
-      className="t--info p-a300 css-udegvj"
-    >
-      Error: 
-      server error
     </div>
   </div>
 </div>
@@ -2870,7 +2864,7 @@ exports[`Storyshots Form Elements/Upload photo uploading: 60% complete 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b btn--r-hov"
+          className="btn btn--w btn--b btn--r-hov "
           onClick={[Function]}
           style={
             Object {

@@ -129,7 +129,7 @@ export default class UploadableFile {
       json = JSON.parse(xhr.responseText);
     } catch (e) {
       this.status = 'uploadError';
-      this.errorMessage = xhr.statusText;
+      this.errorMessage = `Upload failed: ${xhr.statusText}`;
       return;
     }
 
@@ -138,7 +138,7 @@ export default class UploadableFile {
       this.uploadResponse = json;
     } else {
       this.status = 'uploadError';
-      this.errorMessage = xhr.statusText;
+      this.errorMessage = `Upload failed: ${xhr.statusText}`;
     }
   }
 
@@ -158,7 +158,7 @@ export default class UploadableFile {
     }
 
     if (this.uploadRequest.status !== XMLHttpRequest.UNSENT) {
-      this.errorMessage = 'Network error during upload';
+      this.errorMessage = 'Network error';
     }
   }
 

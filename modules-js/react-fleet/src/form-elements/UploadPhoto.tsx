@@ -93,7 +93,10 @@ export default class UploadPhoto extends React.Component<Props, State> {
       return;
     }
 
-    if (this.state.file) {
+    if (this.props.errorMessage) {
+      this.onRemove();
+      this.dropzoneRef.current.open();
+    } else if (this.state.file) {
       // User may cancel an upload while it is in progress.
       if (isUploading && this.props.handleCancel) {
         this.props.handleCancel();
@@ -101,7 +104,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
 
       this.onRemove();
     } else {
-      this.dropzoneRef.current && this.dropzoneRef.current.open();
+      this.dropzoneRef.current.open();
     }
   };
 
@@ -118,12 +121,14 @@ export default class UploadPhoto extends React.Component<Props, State> {
     const { file, previewUrl } = this.state;
 
     const isUploading = uploadProgress && uploadProgress < 100;
-    const hasError = errorMessage;
+    const hasError = !!errorMessage;
 
     let buttonTitle: string;
 
     if (isUploading) {
       buttonTitle = this.props.buttonTitleCancel || 'Cancel upload';
+    } else if (errorMessage) {
+      buttonTitle = errorMessage;
     } else if (file) {
       buttonTitle = this.props.buttonTitleRemove || 'Remove photo';
     } else {
@@ -171,7 +176,9 @@ export default class UploadPhoto extends React.Component<Props, State> {
 
           <div className="br br-t200" style={{ position: 'relative' }}>
             <button
-              className={`btn btn--w btn--b ${isUploading ? 'btn--r-hov' : ''}`}
+              className={`btn btn--w btn--b ${
+                isUploading ? 'btn--r-hov' : ''
+              } ${hasError ? ERROR_MESSAGE_STYLING : ''}`}
               style={{ width: '100%' }}
               type="button"
               onClick={this.handleButtonClick}
@@ -187,12 +194,6 @@ export default class UploadPhoto extends React.Component<Props, State> {
             )}
           </div>
         </div>
-
-        {hasError && (
-          <div className={`t--info p-a300 ${ERROR_MESSAGE_STYLING}`}>
-            Error: {errorMessage}
-          </div>
-        )}
       </>
     );
   }
