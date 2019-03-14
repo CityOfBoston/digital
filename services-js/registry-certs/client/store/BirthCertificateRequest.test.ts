@@ -38,14 +38,14 @@ describe('clone', () => {
   it('makes a new request that changes independently', () => {
     const original = new BirthCertificateRequest();
 
-    original.attach(siteAnalytics);
+    original.setSiteAnalytics(siteAnalytics);
 
     original.answerQuestion({
       firstName: 'Ken',
       lastName: 'Shiga',
     });
 
-    const copy = original.clone(siteAnalytics);
+    const copy = original.clone();
     expect(copy.requestInformation).toMatchObject({
       firstName: 'Ken',
       lastName: 'Shiga',

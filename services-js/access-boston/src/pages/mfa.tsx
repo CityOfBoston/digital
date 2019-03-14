@@ -31,6 +31,7 @@ import RedirectForm from '../client/RedirectForm';
 import { registerDeviceSchema } from '../lib/validation';
 import { RedirectError } from '../client/auth-helpers';
 import AccessBostonFooter from '../client/AccessBostonFooter';
+import { PHONE_REGEXP } from '@cityofboston/form-common';
 
 interface InitialProps {
   account: Account;
@@ -95,10 +96,22 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
 
     if (phoneOrEmail === 'email') {
       type = VerificationType.EMAIL;
-    } else if (smsOrVoice === 'sms') {
-      type = VerificationType.SMS;
     } else {
-      type = VerificationType.VOICE;
+      if (smsOrVoice === 'sms') {
+        type = VerificationType.SMS;
+      } else {
+        type = VerificationType.VOICE;
+      }
+
+      // We normalize all phone numbers to include a country code to get around
+      // a problem where Ping thinks that the 857 area code, common to Boston
+      // cell phones, is a country code.
+      const phoneNumberMatches = phoneNumber.match(PHONE_REGEXP);
+      if (phoneNumberMatches) {
+        phoneNumber = `+${phoneNumberMatches[1] || '1'} (${
+          phoneNumberMatches[2]
+        }) ${phoneNumberMatches[3]}-${phoneNumberMatches[4]}})`;
+      }
     }
 
     return { email, phoneNumber, type };

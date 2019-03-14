@@ -87,9 +87,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     if (props.currentStep !== state.currentStep) {
       return {
         currentStep: props.currentStep,
-        localBirthCertificateRequest: props.birthCertificateRequest.clone(
-          props.siteAnalytics
-        ),
+        localBirthCertificateRequest: props.birthCertificateRequest.clone(),
       };
     } else {
       return null;
@@ -100,9 +98,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      localBirthCertificateRequest: props.birthCertificateRequest.clone(
-        props.siteAnalytics
-      ),
+      localBirthCertificateRequest: props.birthCertificateRequest.clone(),
       currentStep: props.currentStep,
     };
   }
@@ -138,16 +134,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
     if (nextStep === 'reviewRequest') {
       Router.push('/birth/review');
     } else {
-      if (currentStep === 'personalInformation') {
-        const { birthDate } = birthCertificateRequest.requestInformation;
+      this.gaEventActionAndLabel();
 
-        this.props.siteAnalytics.sendEvent('input', {
-          category: 'Birth',
-          label: `birth year: ${birthDate ? birthDate.getFullYear() : 0}`,
-        });
-      } else {
-        this.gaSendEvent(this.gaEventOptionsLabel());
-      }
       Router.push(`/birth?step=${nextStep}`);
     }
   };
@@ -165,18 +153,28 @@ export default class QuestionsPage extends React.Component<Props, State> {
     Router.push(`/birth?step=${steps[newIndex]}`);
   };
 
-  private gaEventOptionsLabel = (): string => {
+  private gaEventActionAndLabel = (): void => {
     const { currentStep } = this.props;
     const { requestInformation } = this.props.birthCertificateRequest;
+    const {
+      bornInBoston,
+      parentsLivedInBoston,
+      parentsMarried,
+      birthDate,
+    } = requestInformation;
 
     if (currentStep === 'forWhom') {
-      return `ordering for ${orderingFor(requestInformation)}`;
+      this.gaAnswerQuestion('ordering for', orderingFor(requestInformation));
     } else if (currentStep === 'bornInBoston') {
-      return inBoston(requestInformation);
+      this.gaAnswerQuestion('born in Boston', bornInBoston);
+
+      if (parentsLivedInBoston && parentsLivedInBoston.length > 0) {
+        this.gaAnswerQuestion('parents lived in Boston', parentsLivedInBoston);
+      }
+    } else if (currentStep === 'personalInformation' && birthDate) {
+      this.gaAnswerQuestion('birth year', birthDate.getFullYear().toString());
     } else if (currentStep === 'parentalInformation') {
-      return `parents married: ${requestInformation.parentsMarried}`;
-    } else {
-      return '';
+      this.gaAnswerQuestion('parents married', parentsMarried);
     }
 
     function orderingFor(requestInformation): string {
@@ -188,21 +186,16 @@ export default class QuestionsPage extends React.Component<Props, State> {
         return howRelated as string;
       }
     }
-
-    function inBoston(requestInformation): string {
-      const { bornInBoston, parentsLivedInBoston } = requestInformation;
-
-      let result = `born in Boston: ${bornInBoston}`;
-
-      if (bornInBoston !== 'yes') {
-        result += `; parents lived in Boston: ${parentsLivedInBoston}`;
-      }
-
-      return result;
-    }
   };
 
-  gaSendEvent = (label: string): void => {
+  gaAnswerQuestion = (action: string, label: string): void => {
+    this.props.siteAnalytics.sendEvent(action, {
+      category: 'Birth',
+      label,
+    });
+  };
+
+  gaSendClickEvent = (label: string): void => {
     this.props.siteAnalytics.sendEvent('click', {
       category: 'Birth',
       label,
@@ -300,7 +293,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         // need to still be there.
         questionsEl = (
           <VerifyIdentification
-            gaSendEvent={this.gaSendEvent}
+            gaSendEvent={this.gaSendClickEvent}
             birthCertificateRequest={birthCertificateRequest}
             handleProceed={this.advanceQuestion.bind(
               this,

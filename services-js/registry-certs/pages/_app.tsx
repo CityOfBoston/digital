@@ -192,6 +192,8 @@ export default class RegistryCertsApp extends App {
 
     const fetchGraphql = makeFetchGraphql(config);
 
+    birthCertificateRequest.setSiteAnalytics(siteAnalytics);
+
     this.pageDependencies = {
       ...initialPageDependencies,
       stripe,
@@ -210,7 +212,6 @@ export default class RegistryCertsApp extends App {
       routerListener,
       screenReaderSupport,
       siteAnalytics,
-      birthCertificateRequest,
       deathCertificateCart,
       orderProvider,
       deathCertificatesDao,
@@ -239,8 +240,6 @@ export default class RegistryCertsApp extends App {
     } catch {
       //  possible security error; ignore.
     }
-
-    birthCertificateRequest.attach(siteAnalytics);
 
     deathCertificateCart.attach(
       localStorage,

@@ -76,13 +76,8 @@ export default class BirthCertificateRequest {
   }
 
   @action
-  attach(siteAnalytics: GaSiteAnalytics) {
+  setSiteAnalytics(siteAnalytics: GaSiteAnalytics) {
     this.siteAnalytics = siteAnalytics;
-  }
-
-  @action
-  detach() {
-    this.siteAnalytics = null;
   }
 
   @computed
@@ -162,10 +157,9 @@ export default class BirthCertificateRequest {
    * Use this to make a copy that you can modify without changing the global
    * BirthCertificateRequest.
    */
-  public clone(siteAnalytics: GaSiteAnalytics): BirthCertificateRequest {
+  @action
+  public clone(): BirthCertificateRequest {
     const birthCertificateRequest = new BirthCertificateRequest();
-
-    birthCertificateRequest.attach(siteAnalytics);
 
     return Object.assign(birthCertificateRequest, this);
   }
