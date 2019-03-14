@@ -146,9 +146,9 @@ export class EmailTemplates {
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Birth certificate for ${name} (${moment(date)
-            .tz('America/New_York')
-            .format('l')})`,
+          description: `Birth certificate for ${name} (${moment(date).format(
+            'l'
+          )})`,
         })),
 
         belowOrderText: [
@@ -173,9 +173,9 @@ export class EmailTemplates {
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Birth certificate for ${name} (${moment(date)
-            .tz('America/New_York')
-            .format('l')})`,
+          description: `Birth certificate for ${name} (${moment(date).format(
+            'l'
+          )})`,
         })),
 
         aboveOrderText: [
