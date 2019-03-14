@@ -39,6 +39,7 @@ interface BirthCertificateOrderItemInput {
   firstName: string;
   lastName: string;
   alternateSpellings: string;
+  /** ISO8601 format. Should be midnight UTC on the date. */
   birthDate: string;
   parent1FirstName: string;
   parent1LastName: string;
@@ -801,7 +802,7 @@ async function makeStripeCharge(
     // (because Stripe will retry webhooks if they fail).
 
     // We can only get the Stripe callback when in production, so we fake it for dev.
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) {
       await processChargeSucceeded({ stripe, emails, registryDb }, charge);
     }
   } catch (e) {
