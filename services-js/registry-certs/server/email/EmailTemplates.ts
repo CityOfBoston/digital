@@ -147,7 +147,10 @@ export class EmailTemplates {
           quantity,
           cost,
           description: `Birth certificate for ${name} (${moment(date)
-            .tz('America/New_York')
+            // Database times are midnight UTC. We need to specify UTC or else
+            // we'll print the day before, because midnight UTC is the day
+            // before in Boston.
+            .tz('UTC')
             .format('l')})`,
         })),
 
@@ -174,7 +177,10 @@ export class EmailTemplates {
           quantity,
           cost,
           description: `Birth certificate for ${name} (${moment(date)
-            .tz('America/New_York')
+            // Database times are midnight UTC. We need to specify UTC or else
+            // we'll print the day before, because midnight UTC is the day
+            // before in Boston.
+            .tz('UTC')
             .format('l')})`,
         })),
 
