@@ -139,6 +139,8 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     }
 
     if (checkoutStep) {
+      this.birthCertificateProduct();
+
       siteAnalytics.setProductAction('checkout', { step: checkoutStep });
     }
   }
@@ -205,6 +207,8 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       order
     );
 
+    this.birthCertificateProduct();
+
     siteAnalytics.setProductAction('purchase', {
       id: orderId,
       revenue: birthCertificateRequest.quantity * BIRTH_CERTIFICATE_COST / 100,
@@ -225,9 +229,9 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       label: order.info.shippingState,
     });
 
-    siteAnalytics.sendEvent('quantity ordered', {
+    siteAnalytics.sendEvent('place order', {
       category: 'Birth',
-      label: birthCertificateRequest.quantity.toString(),
+      label: 'certificate quantity',
       value: birthCertificateRequest.quantity,
     });
 
@@ -251,6 +255,16 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
 
     window.scroll(0, 0);
   };
+
+  birthCertificateProduct() {
+    this.props.siteAnalytics.addProduct(
+      '0',
+      'Birth certificate',
+      'Birth certificate',
+      this.props.birthCertificateRequest.quantity,
+      BIRTH_CERTIFICATE_COST / 100
+    );
+  }
 
   render() {
     const { info, birthCertificateRequest, stripe } = this.props;

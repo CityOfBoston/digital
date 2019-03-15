@@ -47,18 +47,38 @@ export default class ReviewRequestPage extends React.Component<Props> {
       BIRTH_CERTIFICATE_COST / 100
     );
 
-    siteAnalytics.setProductAction('add');
+    siteAnalytics.setProductAction('detail');
   }
 
   private handleQuantityChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
+    const { siteAnalytics } = this.props;
+    const oldValue = this.props.birthCertificateRequest.quantity;
+    // Quantity can never be less than 1
+    const newValue = +event.target.value || 1;
+    const difference = Math.abs(oldValue - newValue);
+
     // Update quantity; if user erases value in field, quantity will return to 1
-    this.props.birthCertificateRequest.setQuantity(+event.target.value || 1);
+    this.props.birthCertificateRequest.setQuantity(newValue);
+
+    siteAnalytics.sendEvent('change certificate quantity', {
+      category: 'Birth',
+      label: oldValue > newValue ? 'decrease' : 'increase',
+      value: oldValue > newValue ? -difference : difference,
+    });
   };
 
   private userResetStartOver = () => {
+    const { siteAnalytics } = this.props;
+
     this.props.birthCertificateRequest.clearBirthCertificateRequest();
+
+    siteAnalytics.sendEvent('user reset', {
+      category: 'Birth',
+      label: 'start over',
+    });
+
     Router.push('/birth');
   };
 
