@@ -137,14 +137,6 @@ Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
 | Parents married: ${parentsMarried}
   `.trim();
 
-  const birthDateUtc = new Date(
-    Date.UTC(
-      birthDate!.getFullYear(),
-      birthDate!.getMonth(),
-      birthDate!.getDate()
-    )
-  );
-
   const queryVariables: SubmitBirthCertificateOrderVariables = {
     contactName,
     contactEmail,
@@ -165,7 +157,7 @@ Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
     billingCity,
     billingZip,
     item: {
-      birthDate: birthDateUtc.toISOString(),
+      birthDate: birthDate!.toISOString(),
       firstName,
       lastName,
       uploadSessionId,

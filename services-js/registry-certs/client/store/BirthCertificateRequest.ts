@@ -2,6 +2,7 @@ import { action, observable, computed } from 'mobx';
 import uuidv4 from 'uuid/v4';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+import { MemorableDateInput } from '@cityofboston/react-fleet';
 
 import { BirthCertificateRequestInformation, Step } from '../types';
 import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
@@ -147,7 +148,7 @@ export default class BirthCertificateRequest {
     const date = this.requestInformation.birthDate || null;
 
     if (date) {
-      return Intl.DateTimeFormat('en-US').format(date);
+      return MemorableDateInput.formattedDateUtc(date);
     } else {
       return '';
     }

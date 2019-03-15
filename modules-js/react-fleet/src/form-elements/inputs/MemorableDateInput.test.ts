@@ -5,8 +5,9 @@ import {
   inputCompleteError,
   returnLimitAsDate,
 } from './MemorableDateInput';
+import { MemorableDateInput } from '../../react-fleet';
 
-const TODAY = new Date(new Date('2/1/2019').setHours(0, 0, 0, 0));
+const TODAY = new Date(new Date('2/1/2019').setUTCHours(0, 0, 0, 0));
 
 beforeEach(() => {
   MockDate.set(TODAY);
@@ -18,18 +19,13 @@ afterEach(() => {
 
 describe('set lower or upper limit', () => {
   const exampleDate = new Date(2020, 0, 1);
-  const exampleString = '1/1/2020';
-
-  it('will accept a string', () => {
-    expect(returnLimitAsDate(exampleString, false)).toBeInstanceOf(Date);
-  });
 
   it('will accept a Date', () => {
     expect(returnLimitAsDate(exampleDate, false)).toBeInstanceOf(Date);
   });
 
   it('returns today’s date if onlyAllowFuture or onlyAllowPast is specified', () => {
-    expect(returnLimitAsDate('', true)).toEqual(TODAY);
+    expect(returnLimitAsDate(null, true)).toEqual(TODAY);
   });
 });
 
@@ -258,5 +254,5 @@ describe('dateValidError', () => {
 });
 
 function formattedDate(date: Date): string {
-  return Intl.DateTimeFormat('en-US').format(date);
+  return MemorableDateInput.formattedDateUtc(date);
 }
