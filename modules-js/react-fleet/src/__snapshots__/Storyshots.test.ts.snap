@@ -2273,6 +2273,7 @@ exports[`Storyshots Form Elements/Upload photo custom background element 1`] = `
       className="br br-a200"
     >
       <div
+        className="css-b3ja71"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2376,7 +2377,7 @@ exports[`Storyshots Form Elements/Upload photo custom background element 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b  "
+          className="btn btn--w btn--b css-cavyyu  "
           onClick={[Function]}
           style={
             Object {
@@ -2404,6 +2405,7 @@ exports[`Storyshots Form Elements/Upload photo default 1`] = `
       className="br br-a200"
     >
       <div
+        className="css-b3ja71"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2498,7 +2500,7 @@ exports[`Storyshots Form Elements/Upload photo default 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b  "
+          className="btn btn--w btn--b css-cavyyu  "
           onClick={[Function]}
           style={
             Object {
@@ -2526,6 +2528,7 @@ exports[`Storyshots Form Elements/Upload photo existing photo 1`] = `
       className="br br-a200"
     >
       <div
+        className="css-b3ja71"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2620,7 +2623,7 @@ exports[`Storyshots Form Elements/Upload photo existing photo 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b  "
+          className="btn btn--w btn--b css-cavyyu  "
           onClick={[Function]}
           style={
             Object {
@@ -2648,6 +2651,7 @@ exports[`Storyshots Form Elements/Upload photo upload error 1`] = `
       className="br br-a200"
     >
       <div
+        className="css-b3ja71"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2742,7 +2746,7 @@ exports[`Storyshots Form Elements/Upload photo upload error 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b  css-udegvj"
+          className="btn btn--w btn--b css-cavyyu  css-udegvj"
           onClick={[Function]}
           style={
             Object {
@@ -2770,6 +2774,7 @@ exports[`Storyshots Form Elements/Upload photo uploading: 60% complete 1`] = `
       className="br br-a200"
     >
       <div
+        className="css-b3ja71"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2864,7 +2869,7 @@ exports[`Storyshots Form Elements/Upload photo uploading: 60% complete 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b btn--r-hov "
+          className="btn btn--w btn--b css-cavyyu btn--r-hov "
           onClick={[Function]}
           style={
             Object {

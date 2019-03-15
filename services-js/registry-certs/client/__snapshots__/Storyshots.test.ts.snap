@@ -9483,12 +9483,12 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
               >
                 <div
                   className="g--6 m-v500"
-                  onClick={[Function]}
                 >
                   <div
                     className="br br-a200"
                   >
                     <div
+                      className="css-b3ja71"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -9592,7 +9592,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  "
+                        className="btn btn--w btn--b css-cavyyu  "
                         onClick={[Function]}
                         style={
                           Object {
@@ -9613,6 +9613,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                     className="br br-a200"
                   >
                     <div
+                      className="css-b3ja71"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -9733,7 +9734,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification blank 1`] = `
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  "
+                        className="btn btn--w btn--b css-cavyyu  "
                         onClick={[Function]}
                         style={
                           Object {
@@ -10250,12 +10251,12 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
               >
                 <div
                   className="g--6 m-v500"
-                  onClick={[Function]}
                 >
                   <div
                     className="br br-a200"
                   >
                     <div
+                      className="css-b3ja71"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -10359,7 +10360,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  "
+                        className="btn btn--w btn--b css-cavyyu  "
                         onClick={[Function]}
                         style={
                           Object {
@@ -10380,6 +10381,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                     className="br br-a200"
                   >
                     <div
+                      className="css-b3ja71"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -10500,7 +10502,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification existing images
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  "
+                        className="btn btn--w btn--b css-cavyyu  "
                         onClick={[Function]}
                         style={
                           Object {
@@ -11152,12 +11154,12 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification upload error 1`
               >
                 <div
                   className="g--6 m-v500"
-                  onClick={[Function]}
                 >
                   <div
                     className="br br-a200"
                   >
                     <div
+                      className="css-b3ja71"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -11261,7 +11263,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification upload error 1`
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  css-udegvj"
+                        className="btn btn--w btn--b css-cavyyu  css-udegvj"
                         onClick={[Function]}
                         style={
                           Object {
@@ -11282,6 +11284,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification upload error 1`
                     className="br br-a200"
                   >
                     <div
+                      className="css-b3ja71"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -11402,7 +11405,7 @@ exports[`Storyshots Birth/QuestionsFlow/5. Identity verification upload error 1`
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  "
+                        className="btn btn--w btn--b css-cavyyu  "
                         onClick={[Function]}
                         style={
                           Object {

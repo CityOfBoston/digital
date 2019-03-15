@@ -8,7 +8,7 @@ import VerifyIdentificationComponent from '../components/VerifyIdentificationCom
 import UploadableFile from '../../models/UploadableFile';
 
 interface Props {
-  gaSendEvent: (label: string) => void;
+  siteAnalytics;
   birthCertificateRequest: BirthCertificateRequest;
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
@@ -74,9 +74,9 @@ export default class VerifyIdentification extends React.Component<Props> {
         nextButtonText="Review request"
       >
         <VerifyIdentificationComponent
+          siteAnalytics={this.props.siteAnalytics}
           sectionsToDisplay="all"
           uploadSessionId={this.props.birthCertificateRequest.uploadSessionId}
-          gaSendEvent={this.props.gaSendEvent}
           supportingDocuments={supportingDocuments}
           updateSupportingDocuments={this.updateSupportingDocuments}
           updateIdImages={this.updateIdImage}
