@@ -18,21 +18,23 @@ import UploadableFile from '../../models/UploadableFile';
 
 import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_STYLING } from '../styling';
 
-/** Images that are likely output from scanners or phone cameras */
+// Images that are likely output from scanners or phone cameras
 const SUPPORTED_MIME_TYPES =
   'image/jpeg,image/png,image/tiff,image/bmp,application/pdf';
 
+type Side = 'front' | 'back';
+
 interface Props {
+  siteAnalytics;
   sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
   uploadSessionId: string;
-  gaSendEvent: (label: string) => void;
 
   supportingDocuments: UploadableFile[];
   updateSupportingDocuments: (documents: UploadableFile[]) => void;
 
   idImageBack?: UploadableFile | null;
   idImageFront?: UploadableFile | null;
-  updateIdImages: (side: string, image: any) => void;
+  updateIdImages: (side: Side, image: any) => void;
 }
 
 /**
@@ -40,7 +42,6 @@ interface Props {
  * identification verification. User will also have the ability to take photos
  * with their current device, if possible.
  */
-
 @observer
 export default class VerifyIdentificationComponent extends React.Component<
   Props
@@ -51,13 +52,48 @@ export default class VerifyIdentificationComponent extends React.Component<
     this.props.updateSupportingDocuments(documents);
   };
 
-  private handleIdImageChange = (side: string, image: File | null): void => {
+  private handleIdImageChange = (side: Side, image: File | null): void => {
     this.props.updateIdImages(side, image);
   };
 
-  private handleSendEventClick(label: string): void {
-    this.props.gaSendEvent(label);
-  }
+  private handlePhotoButtonClick = (side: Side): void => {
+    let labelText = 'click to ';
+
+    if (side === 'front') {
+      if (this.props.idImageFront) {
+        labelText += 'remove';
+      } else {
+        labelText += 'add';
+      }
+    } else {
+      if (this.props.idImageBack) {
+        labelText += 'remove';
+      } else {
+        labelText += 'add';
+      }
+    }
+
+    this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
+      category: 'Birth',
+      label: labelText,
+    });
+  };
+
+  private handlePhotoDrop = (side: Side, image: File | null): void => {
+    this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
+      category: 'Birth',
+      label: 'drop to add',
+    });
+
+    this.handleIdImageChange(side, image);
+  };
+
+  private handleSendEventClick = (label: string): void => {
+    this.props.siteAnalytics.sendEvent('click', {
+      category: 'Birth',
+      label,
+    });
+  };
 
   render() {
     if (this.props.sectionsToDisplay === 'supportingDocumentsOnly') {
@@ -112,15 +148,13 @@ export default class VerifyIdentificationComponent extends React.Component<
         </ul>
 
         <div className="g">
-          <div
-            className="g--6 m-v500"
-            onClick={() => this.handleSendEventClick('upload front of ID')}
-          >
+          <div className="g--6 m-v500">
             <UploadPhoto
               initialFile={idImageFront ? idImageFront.file : null}
               uploadProgress={idImageFront && idImageFront.progress}
               errorMessage={idImageFront && idImageFront.errorMessage}
-              handleDrop={file => this.handleIdImageChange('front', file)}
+              handleButtonClick={() => this.handlePhotoButtonClick('front')}
+              handleDrop={file => this.handlePhotoDrop('front', file)}
               handleRemove={() => this.handleIdImageChange('front', null)}
               backgroundElement={<IdImage name="front" />}
               buttonTitleUpload="Upload front of ID"
@@ -133,7 +167,8 @@ export default class VerifyIdentificationComponent extends React.Component<
               initialFile={idImageBack ? idImageBack.file : null}
               uploadProgress={idImageBack && idImageBack.progress}
               errorMessage={idImageBack && idImageBack.errorMessage}
-              handleDrop={file => this.handleIdImageChange('back', file)}
+              handleButtonClick={() => this.handlePhotoButtonClick('back')}
+              handleDrop={file => this.handlePhotoDrop('back', file)}
               handleRemove={() => this.handleIdImageChange('back', null)}
               backgroundElement={<IdImage name="back" />}
               buttonTitleUpload="Upload back of ID"

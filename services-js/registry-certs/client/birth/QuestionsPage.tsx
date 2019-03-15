@@ -153,6 +153,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
     Router.push(`/birth?step=${steps[newIndex]}`);
   };
 
+  // Determine correct GA Action and Label for the events to be sent during
+  // each step in the questions flow.
   private gaEventActionAndLabel = (): void => {
     const { currentStep } = this.props;
     const { requestInformation } = this.props.birthCertificateRequest;
@@ -190,13 +192,6 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
   gaAnswerQuestion = (action: string, label: string): void => {
     this.props.siteAnalytics.sendEvent(action, {
-      category: 'Birth',
-      label,
-    });
-  };
-
-  gaSendClickEvent = (label: string): void => {
-    this.props.siteAnalytics.sendEvent('click', {
       category: 'Birth',
       label,
     });
@@ -293,7 +288,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         // need to still be there.
         questionsEl = (
           <VerifyIdentification
-            gaSendEvent={this.gaSendClickEvent}
+            siteAnalytics={this.props.siteAnalytics}
             birthCertificateRequest={birthCertificateRequest}
             handleProceed={this.advanceQuestion.bind(
               this,

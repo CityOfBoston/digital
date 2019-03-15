@@ -17,6 +17,7 @@ interface Props {
   buttonTitleRemove?: string;
   buttonTitleCancel?: string;
 
+  handleButtonClick: () => void;
   handleDrop: (file: File) => void;
   handleRemove: () => void;
   handleCancel?: () => void;
@@ -106,6 +107,8 @@ export default class UploadPhoto extends React.Component<Props, State> {
     } else {
       this.dropzoneRef.current.open();
     }
+
+    this.props.handleButtonClick();
   };
 
   componentWillUnmount() {
@@ -136,65 +139,61 @@ export default class UploadPhoto extends React.Component<Props, State> {
     }
 
     return (
-      <>
-        <div className="br br-a200">
-          <Dropzone
-            ref={this.dropzoneRef}
-            accept={acceptTypes}
-            multiple={false}
-            onDrop={this.onDrop}
-          >
-            {({ getRootProps, getInputProps, isDragActive }) => (
-              <div {...getRootProps()}>
-                <input {...getInputProps()} />
+      <div className="br br-a200">
+        <Dropzone
+          ref={this.dropzoneRef}
+          accept={acceptTypes}
+          multiple={false}
+          onDrop={this.onDrop}
+        >
+          {({ getRootProps, getInputProps, isDragActive }) => (
+            <div {...getRootProps()} className={INPUT_CONTAINER_FOCUS_STYLING}>
+              <input {...getInputProps()} />
 
-                <div
-                  ref={this.previewRef}
-                  className={`${PREVIEW_CONTAINER_STYLING} ${
-                    isDragActive ? DRAG_RING_STYLING : ''
-                  }`}
-                >
-                  {/* We keep the background element in the flow to preserve height / width*/}
-                  <div
-                    style={{ visibility: previewUrl ? 'hidden' : 'visible' }}
-                  >
-                    {this.props.backgroundElement || defaultInitialAppearance()}
-                  </div>
-
-                  {previewUrl && (
-                    <div
-                      className={PREVIEW_IMAGE_STYLING}
-                      style={{
-                        backgroundImage: `url(${previewUrl})`,
-                      }}
-                    />
-                  )}
-                </div>
-              </div>
-            )}
-          </Dropzone>
-
-          <div className="br br-t200" style={{ position: 'relative' }}>
-            <button
-              className={`btn btn--w btn--b ${
-                isUploading ? 'btn--r-hov' : ''
-              } ${hasError ? ERROR_MESSAGE_STYLING : ''}`}
-              style={{ width: '100%' }}
-              type="button"
-              onClick={this.handleButtonClick}
-            >
-              {buttonTitle}
-            </button>
-
-            {!!isUploading && (
               <div
-                className={PROGRESS_STYLING}
-                style={{ width: `${uploadProgress}%` }}
-              />
-            )}
-          </div>
+                ref={this.previewRef}
+                className={`${PREVIEW_CONTAINER_STYLING} ${
+                  isDragActive ? DRAG_RING_STYLING : ''
+                }`}
+              >
+                {/* We keep the background element in the flow to preserve height / width */}
+                <div style={{ visibility: previewUrl ? 'hidden' : 'visible' }}>
+                  {this.props.backgroundElement || defaultInitialAppearance()}
+                </div>
+
+                {previewUrl && (
+                  <div
+                    className={PREVIEW_IMAGE_STYLING}
+                    style={{
+                      backgroundImage: `url(${previewUrl})`,
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+          )}
+        </Dropzone>
+
+        <div className="br br-t200" style={{ position: 'relative' }}>
+          <button
+            className={`btn btn--w btn--b ${BUTTON_FOCUS_STYLING} ${
+              isUploading ? 'btn--r-hov' : ''
+            } ${hasError ? ERROR_MESSAGE_STYLING : ''}`}
+            style={{ width: '100%' }}
+            type="button"
+            onClick={this.handleButtonClick}
+          >
+            {buttonTitle}
+          </button>
+
+          {!!isUploading && (
+            <div
+              className={PROGRESS_STYLING}
+              style={{ width: `${uploadProgress}%` }}
+            />
+          )}
         </div>
-      </>
+      </div>
     );
   }
 }
@@ -231,6 +230,20 @@ const DEFAULT_IMAGE_STYLING = css({
     strokeLinecap: 'round',
     fill: 'none',
     stroke: 'currentColor',
+  },
+});
+
+const INPUT_CONTAINER_FOCUS_STYLING = css({
+  '&:focus > div': {
+    outline: `4px solid #000`,
+    outlineOffset: '-5px',
+  },
+});
+
+const BUTTON_FOCUS_STYLING = css({
+  '&:focus': {
+    outline: `3px solid #000`,
+    outlineOffset: '-4px',
   },
 });
 
