@@ -14,7 +14,7 @@ import {
   SECTION_HEADING_STYLING,
 } from '../styling';
 
-const EARLIEST_DATE = '1/1/1870';
+const EARLIEST_DATE = new Date(Date.UTC(1870, 0, 1));
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
@@ -111,7 +111,7 @@ export default class PersonalInformation extends React.Component<Props> {
                 When were {forSelf ? 'you' : 'they'} born?
               </h2>
             }
-            initialDate={birthDate || ''}
+            initialDate={birthDate || undefined}
             componentId="dob"
             onlyAllowPast={true}
             earliestDate={EARLIEST_DATE}

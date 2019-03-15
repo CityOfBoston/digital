@@ -10,9 +10,9 @@ type Fields = {
 
 interface Props {
   componentId?: string;
-  initialDate?: string | Date;
-  earliestDate?: string | Date;
-  latestDate?: string | Date;
+  initialDate?: Date;
+  earliestDate?: Date;
+  latestDate?: Date;
   onlyAllowPast?: boolean;
   onlyAllowFuture?: boolean;
   legend: React.ReactChild;
@@ -38,19 +38,21 @@ interface State {
  * An element must be passed in as the legend, commonly a header <h1-h6>.
  *
  * Default behavior is to accept any date. Passing a Date into initialDate
- * and/or latestDate will limit acceptable input, or a text string representing
- * a date can be passed in instead. String format: MM-DD-YYYY, MM/DD/YYYY, etc.
- * (https://tools.ietf.org/html/rfc2822#section-3.3)
+ * and/or latestDate will limit acceptable input.
  *
- * Similarly, an initial Date (or string) can be passed in via the initialDate
- * property.
+ * Similarly, an initial Date can be passed in via the initialDate property.
+ *
+ * All Dates should have a time representing midnight UTC.
  *
  * onlyAllowPast: If true, will only accept yesterday or earlier for a date.
  * onlyAllowFuture: If true, will only accept tomorrow or later for a date.
  *
  * Whenever the date is updated, this.props.handleDate is called.
  *
- * *Please note that all dates are relative to the user’s computer.
+ * This component works exclusively in UTC due to bugs / inconsistencies in how
+ * browsers handle daylight savings time in the past. E.g., Safari creates
+ * midnight 4/10/57 should be as 4am UTC but (correctly) displays it assuming a
+ * -500 offset.
  *
  * Inspired by https://design-system.service.gov.uk/components/date-input/
  */
@@ -70,20 +72,15 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       ? props.componentId
       : new Date().getTime().toString();
 
-    this.initial = props.initialDate
-      ? new Date(new Date(props.initialDate).setHours(0, 0, 0, 0))
-      : null;
+    this.initial = props.initialDate || null;
 
     checkIfPropsValid(props);
 
     this.earliest = returnLimitAsDate(
-      props.earliestDate || '',
+      props.earliestDate,
       !!props.onlyAllowFuture
     );
-    this.latest = returnLimitAsDate(
-      props.latestDate || '',
-      !!props.onlyAllowPast
-    );
+    this.latest = returnLimitAsDate(props.latestDate, !!props.onlyAllowPast);
 
     this.state = {
       hasFocus: false,
@@ -93,6 +90,14 @@ export default class MemorableDateInput extends React.Component<Props, State> {
         ? dateToFields(this.initial)
         : { year: '', month: '', day: '' },
     };
+  }
+
+  /**
+   * Uses the UTC values of a Date to format in en-US locale.
+   */
+  public static formattedDateUtc(date: Date): string {
+    return `${date.getUTCMonth() +
+      1}/${date.getUTCDate()}/${date.getUTCFullYear()}`;
   }
 
   /**
@@ -264,8 +269,8 @@ export default class MemorableDateInput extends React.Component<Props, State> {
               {...inputAttributes}
               id={`${this.componentId}-year`}
               name="year"
-              min={this.earliest ? this.earliest.getFullYear() : '1000'}
-              max={this.latest ? this.latest.getFullYear() : '9999'}
+              min={this.earliest ? this.earliest.getUTCFullYear() : '1000'}
+              max={this.latest ? this.latest.getUTCFullYear() : '9999'}
               placeholder="YYYY"
               value={this.state.fields.year}
             />
@@ -346,19 +351,17 @@ function checkIfPropsValid(props: Props): void {
 
 // Determine upper or lower limit date, if applicable.
 export function returnLimitAsDate(
-  suppliedDate: string | Date,
+  suppliedDate: Date | null | undefined,
   hasRelativeLimitation: boolean = false
 ): Date | null {
-  let date: Date | null = null;
-
-  if (suppliedDate || suppliedDate.length > 0) {
-    date = new Date(suppliedDate);
-  } else if (hasRelativeLimitation) {
-    date = new Date();
-  }
+  const date =
+    // We clone so that we can mutate it below
+    (suppliedDate && new Date(suppliedDate)) ||
+    (hasRelativeLimitation && new Date()) ||
+    null;
 
   if (date) {
-    new Date(date.setHours(0, 0, 0, 0));
+    date.setUTCHours(0, 0, 0, 0);
   }
 
   return date;
@@ -419,7 +422,16 @@ export function dateValidError(
   onlyAllowFuture: boolean = false
 ): string {
   const dateTime = date.getTime();
-  const todayTime = new Date(new Date().setHours(0, 0, 0, 0)).getTime();
+
+  // We grab this to get the browser’s assumption of the current date.
+  const todayLocal = new Date();
+
+  // Convert to the UTC equivalent of today’s date.
+  const todayTime = Date.UTC(
+    todayLocal.getFullYear(),
+    todayLocal.getMonth(),
+    todayLocal.getDate()
+  );
 
   // success conditions for each limiting attribute:
   const passes = {
@@ -435,7 +447,7 @@ export function dateValidError(
     if (!passes.onlyAllowPast) {
       errorString = 'The date must be from the past';
     } else if (earliest && !passes.earliest) {
-      errorString = `The date must be between ${formattedDate(
+      errorString = `The date must be between ${MemorableDateInput.formattedDateUtc(
         earliest
       )} and today`;
     }
@@ -443,38 +455,37 @@ export function dateValidError(
     if (!passes.onlyAllowFuture) {
       errorString = 'The date must be in the future';
     } else if (latest && !passes.latest) {
-      errorString = `The date must be between today and ${formattedDate(
+      errorString = `The date must be between today and ${MemorableDateInput.formattedDateUtc(
         latest
       )}`;
     }
     // if earlier and later are both specified, date must fall between the two.
   } else if (earliest && latest && !(passes.earliest && passes.latest)) {
-    errorString = `The date must fall between ${formattedDate(
+    errorString = `The date must fall between ${MemorableDateInput.formattedDateUtc(
       earliest
-    )} and ${formattedDate(latest)}`;
+    )} and ${MemorableDateInput.formattedDateUtc(latest)}`;
   } else if (earliest && !passes.earliest) {
-    errorString = `The date must be later than ${formattedDate(earliest)}`;
+    errorString = `The date must be later than ${MemorableDateInput.formattedDateUtc(
+      earliest
+    )}`;
   } else if (latest && !passes.latest) {
-    errorString = `The date must be earlier than ${formattedDate(latest)}`;
+    errorString = `The date must be earlier than ${MemorableDateInput.formattedDateUtc(
+      latest
+    )}`;
   }
 
   return errorString;
-
-  function formattedDate(date: Date): string {
-    return Intl.DateTimeFormat('en-US').format(date);
-  }
 }
 
 function fieldsToDate({ year, month, day }: Fields): Date {
-  // When Date is called with more than one arg, result is set to midnight.
-  return new Date(+year, +month - 1, +day);
+  return new Date(Date.UTC(+year, +month - 1, +day));
 }
 
 function dateToFields(date: Date): Fields {
   return {
-    year: date.getFullYear().toString(),
-    month: (date.getMonth() + 1).toString(),
-    day: date.getDate().toString(),
+    year: date.getUTCFullYear().toString(),
+    month: (date.getUTCMonth() + 1).toString(),
+    day: date.getUTCDate().toString(),
   };
 }
 

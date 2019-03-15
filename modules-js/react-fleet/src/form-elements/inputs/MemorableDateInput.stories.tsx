@@ -15,7 +15,7 @@ storiesOf('Form Elements/Memorable date input', module)
   .add('earliestDate: 9/7/1630', () => (
     <MemorableDateInput
       componentId="earliest"
-      earliestDate="9/7/1630"
+      earliestDate={new Date('9/7/1630')}
       handleDate={() => {}}
       legend={<h2>Date</h2>}
     />
@@ -23,7 +23,7 @@ storiesOf('Form Elements/Memorable date input', module)
   .add('latestDate: 12/31/2025', () => (
     <MemorableDateInput
       componentId="latest"
-      latestDate="12/31/2025"
+      latestDate={new Date('12/31/2025')}
       handleDate={() => {}}
       legend={<h2>Date</h2>}
     />
@@ -31,7 +31,7 @@ storiesOf('Form Elements/Memorable date input', module)
   .add('with an initialDate', () => (
     <MemorableDateInput
       componentId="initial"
-      initialDate="12/31/1999"
+      initialDate={new Date('12/31/1999')}
       onlyAllowPast={true}
       handleDate={() => {}}
       legend={<h2>Date</h2>}
@@ -40,8 +40,8 @@ storiesOf('Form Elements/Memorable date input', module)
   .add('invalid initialDate', () => (
     <MemorableDateInput
       componentId="initial"
-      initialDate="1/1/2000"
-      latestDate="12/31/1999"
+      initialDate={new Date('1/1/2000')}
+      latestDate={new Date('12/31/1999')}
       handleDate={() => {}}
       legend={<h2>Date</h2>}
     />
@@ -65,7 +65,7 @@ storiesOf('Form Elements/Memorable date input', module)
   .add('onlyAllowFuture and latestDate: 1/1/2040', () => (
     <MemorableDateInput
       componentId="story"
-      latestDate="1/1/2040"
+      latestDate={new Date('1/1/2040')}
       onlyAllowFuture={true}
       handleDate={() => {}}
       legend={<h2>Date</h2>}
