@@ -244,7 +244,16 @@ export const rollbarPlugin = {
       // other 4xx errors, but for now we’ll keep them because they’re more
       // likely our fault than someone messing with requests.
       if (error.output.statusCode !== 404) {
-        rollbar.error(error, request, cb);
+        rollbar.error(
+          error,
+          request,
+          {
+            custom: {
+              data: error.data,
+            },
+          },
+          cb
+        );
       }
 
       return h.continue;
