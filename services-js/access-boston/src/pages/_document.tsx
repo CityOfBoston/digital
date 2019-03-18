@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
           <link
             rel="shortcut icon"

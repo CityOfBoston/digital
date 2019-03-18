@@ -60,7 +60,9 @@ export default class AccessBostonHeader extends React.Component<Props> {
 
             {!noLinks && (
               <RedirectForm path="/logout">
-                <button className="btn btn--sm btn--100">Logout</button>
+                <button type="submit" className="btn btn--sm btn--100">
+                  Logout
+                </button>
               </RedirectForm>
             )}
           </div>

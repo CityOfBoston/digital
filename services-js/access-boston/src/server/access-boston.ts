@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
 
-import { Server as HapiServer } from 'hapi';
+import { Server as HapiServer, ResponseObject, Lifecycle } from 'hapi';
 import Inert from 'inert';
 import Crumb from 'crumb';
 import yar from 'yar';
@@ -383,12 +383,24 @@ async function addNext(server: HapiServer) {
   // We have to manually add the CSRF token because the Next helpers
   // only work on raw http objects and don't write out Hapi’s "state"
   // cookies.
-  const addCrumbCookie = (request, h) => {
+  const addCrumbCookie: Lifecycle.Method = (request, h) => {
     if (!request.state['crumb']) {
       const crumb = (server.plugins as any).crumb.generate(request, h);
       request.raw.res.setHeader('Set-Cookie', `crumb=${crumb};HttpOnly`);
     }
 
+    return h.continue;
+  };
+
+  // Hapi’s default caching handling doesn’t support things like "no-store,"
+  // which we want to ensure so that Firefox’s back/forward cache doesn’t
+  // keep the page around after logout. (So you can’t "back" in to a logged-
+  // in looking portal page after the session has expired.)
+  const noCaching: Lifecycle.Method = (request, h) => {
+    const response: ResponseObject | null = request.response as any;
+    if (response && response.header) {
+      response.header('cache-control', 'no-cache,no-store,max-age=0');
+    }
     return h.continue;
   };
 
@@ -402,6 +414,9 @@ async function addNext(server: HapiServer) {
       ext: {
         onPostAuth: {
           method: addCrumbCookie,
+        },
+        onPreResponse: {
+          method: noCaching,
         },
       },
     },
@@ -422,6 +437,9 @@ async function addNext(server: HapiServer) {
         onPostAuth: {
           method: addCrumbCookie,
         },
+        onPreResponse: {
+          method: noCaching,
+        },
       },
     },
     handler: (nextHandler => (request, h) => {
@@ -439,6 +457,9 @@ async function addNext(server: HapiServer) {
         ext: {
           onPostAuth: {
             method: addCrumbCookie,
+          },
+          onPreResponse: {
+            method: noCaching,
           },
         },
       },
