@@ -7,17 +7,26 @@
  * "usage" should cause Babel to automatically include necessary polyfills.
  */
 
-// Issues arise in IE11: Stencil’s polyfill and core-js’ polyfill compete with each other in a neverending loop.
+// Issues arise in IE11: Stencil’s polyfill and core-js’ polyfill compete with
+// each other in a neverending loop because core-js tries to extend the
+// existing polyfill, which breaks a "constructor" check.
+//
+// If we detect that Map or Set has been polyfilled, we delete that polyfill
+// and let core-js install its own.
+//
+// 'toString' used to keep babel-preset-env from thinking that we're using
+// Set and Map and prefixing this file with the core-js polyfill before we
+// can clean things up for it.
 if (
   typeof window !== 'undefined' &&
-  !('' + window['Map'.toString()]).includes('native code')
+  ('' + window['Map'.toString()]).indexOf('native code') === -1
 ) {
   delete window['Map'.toString()];
 }
 
 if (
   typeof window !== 'undefined' &&
-  !('' + window['Set'.toString()]).includes('native code')
+  ('' + window['Set'.toString()]).indexOf('native code') === -1
 ) {
   delete window['Set'.toString()];
 }
