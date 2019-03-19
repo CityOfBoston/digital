@@ -65,15 +65,17 @@ export default class UploadPhoto extends React.Component<Props, State> {
   };
 
   private onDrop = (files: File[]): void => {
-    this.setState(
-      {
-        file: files[0],
-        previewUrl: URL.createObjectURL(files[0]),
-      },
-      () => {
-        this.state.file && this.props.handleDrop(this.state.file);
-      }
-    );
+    if (files.length) {
+      this.setState(
+        {
+          file: files[0],
+          previewUrl: URL.createObjectURL(files[0]),
+        },
+        () => {
+          this.state.file && this.props.handleDrop(this.state.file);
+        }
+      );
+    }
   };
 
   private onRemove = (): void => {
