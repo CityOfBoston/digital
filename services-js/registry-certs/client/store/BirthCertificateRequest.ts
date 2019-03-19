@@ -65,9 +65,7 @@ export default class BirthCertificateRequest {
   @observable quantity: number = 1;
 
   @observable
-  requestInformation: Readonly<
-    BirthCertificateRequestInformation
-  > = INITIAL_REQUEST_INFORMATION;
+  requestInformation: BirthCertificateRequestInformation = INITIAL_REQUEST_INFORMATION;
 
   public uploadSessionId: string;
   public siteAnalytics: GaSiteAnalytics | null = null;
@@ -79,6 +77,13 @@ export default class BirthCertificateRequest {
   @action
   setSiteAnalytics(siteAnalytics: GaSiteAnalytics) {
     this.siteAnalytics = siteAnalytics;
+  }
+
+  @action
+  setRequestInformation(
+    requestInformation: BirthCertificateRequestInformation
+  ): void {
+    this.requestInformation = requestInformation;
   }
 
   @computed
@@ -134,6 +139,66 @@ export default class BirthCertificateRequest {
       ...this.requestInformation,
       ...answers,
     };
+  }
+
+  // Returns an object that expresses whether or not each question step
+  // is complete.
+  @computed
+  public get completedQuestionSteps() {
+    const steps = {
+      forWhom: false,
+      personalInformation: false,
+      parentalInformation: false,
+      verifyIdentification: true,
+    };
+
+    const {
+      forSelf,
+      howRelated,
+      firstName,
+      lastName,
+      bornInBoston,
+      parentsLivedInBoston,
+      parent1FirstName,
+      parentsMarried,
+      idImageFront,
+    } = this.requestInformation;
+
+    // forWhom
+    if (forSelf || howRelated) {
+      steps.forWhom = true;
+    }
+
+    // personalInformation
+    if (firstName && lastName) {
+      if (
+        bornInBoston === 'yes' ||
+        (parentsLivedInBoston === 'yes' || parentsLivedInBoston === 'unknown')
+      ) {
+        steps.personalInformation = true;
+      }
+    }
+
+    // parentalInformation
+    if (parent1FirstName && parentsMarried.length > 0) {
+      steps.parentalInformation = true;
+    }
+
+    // verifyIdentification
+    if (this.needsIdentityVerification) {
+      steps.verifyIdentification = !!idImageFront;
+    }
+
+    return steps;
+  }
+
+  // Returns true if all question steps have been completed.
+  @computed
+  public get questionStepsComplete(): boolean {
+    const steps = this.completedQuestionSteps;
+
+    // Return false if any step is not complete.
+    return !Object.keys(steps).find(key => !steps[key]);
   }
 
   @action
