@@ -7,6 +7,7 @@ import CheckoutDao from '../dao/CheckoutDao';
 import OrderProvider from '../store/OrderProvider';
 import Order, { OrderInfo } from '../models/Order';
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import { BirthCertificateRequestInformation } from '../types';
 
 const makeStripe = () =>
   typeof Stripe !== 'undefined' ? Stripe('fake-secret-key') : null;
@@ -74,6 +75,31 @@ function makeBillingCompleteOrder(overrides = {}) {
     ...overrides,
   });
 }
+
+const birthCertificateRequestInformation: BirthCertificateRequestInformation = {
+  forSelf: true,
+  howRelated: '',
+  bornInBoston: 'yes',
+  parentsLivedInBoston: '',
+  firstName: 'Martin',
+  lastName: 'Walsh',
+  altSpelling: '',
+  birthDate: new Date(Date.UTC(1967, 3, 10)),
+  parentsMarried: 'yes',
+  parent1FirstName: 'Martin',
+  parent1LastName: '',
+  parent2FirstName: '',
+  parent2LastName: '',
+  idImageBack: null,
+  idImageFront: null,
+  supportingDocuments: [],
+};
+
+const birthCertificateRequest = new BirthCertificateRequest();
+
+birthCertificateRequest.setRequestInformation(
+  birthCertificateRequestInformation
+);
 
 storiesOf('Birth/CheckoutPage', module)
   .add('server-side render', () => (

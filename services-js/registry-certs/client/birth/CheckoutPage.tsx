@@ -106,7 +106,22 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
   async componentDidMount() {
     this.reportCheckoutStep(this.props);
 
-    const { orderProvider } = this.props;
+    const { orderProvider, siteAnalytics } = this.props;
+
+    // If any of the question steps are not complete (i.e. user backed up,
+    // changed an answer, and used the browser “forward” button), return to the
+    // beginning of the questions flow.
+    if (this.props.birthCertificateRequest.questionStepsComplete === false) {
+      // todo: improve this experience
+      // todo: behavior is duplicated in ReviewRequestPage.tsx
+
+      siteAnalytics.sendEvent('question results lost', {
+        category: 'Birth',
+        label: `checkout: ${this.props.info.page}`,
+      });
+
+      return Router.push('/birth');
+    }
 
     if (this.state.order) {
       return;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { GaSiteAnalytics } from '@cityofboston/next-client-common';
+
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
 
 import ReviewRequestPage from './ReviewRequestPage';
@@ -16,7 +18,7 @@ const birthCertRequest: BirthCertificateRequestInformation = {
   lastName: 'Walsh',
   altSpelling: '',
   birthDate: new Date(Date.UTC(1967, 3, 10)),
-  parentsMarried: '',
+  parentsMarried: 'yes',
   parent1FirstName: 'Martin',
   parent1LastName: '',
   parent2FirstName: '',
@@ -28,11 +30,11 @@ const birthCertRequest: BirthCertificateRequestInformation = {
 
 const birthCertificateRequest = new BirthCertificateRequest();
 
-birthCertificateRequest.answerQuestion(birthCertRequest);
+birthCertificateRequest.setRequestInformation(birthCertRequest);
 
 storiesOf('Birth/ReviewRequestPage', module).add('default page', () => (
   <ReviewRequestPage
     birthCertificateRequest={birthCertificateRequest}
-    siteAnalytics={{ addProduct: () => {}, setProductAction: () => {} } as any}
+    siteAnalytics={new GaSiteAnalytics()}
   />
 ));
