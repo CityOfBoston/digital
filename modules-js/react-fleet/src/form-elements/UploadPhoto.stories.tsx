@@ -7,42 +7,37 @@ import UploadPhoto from './UploadPhoto';
 
 import { BLACK, OPTIMISTIC_BLUE_LIGHT, WHITE } from '../react-fleet';
 
+const mockHandlerFunctions = {
+  handleDrop: () => {},
+  handleRemove: () => {},
+  handleButtonClick: () => {},
+  handleCancel: () => {},
+};
+
 storiesOf('Form Elements/Upload photo', module)
   .addDecorator(s => (
     <div className="g">
       <div className="g--4">{s()}</div>
     </div>
   ))
-  .add('default', () => (
-    <UploadPhoto handleDrop={() => {}} handleRemove={() => {}} />
-  ))
+  .add('default', () => <UploadPhoto {...mockHandlerFunctions} />)
   .add('custom background element', () => (
     <UploadPhoto
       backgroundElement={<IdImage />}
       buttonTitleUpload="Upload front of ID"
-      handleDrop={() => {}}
-      handleRemove={() => {}}
+      {...mockHandlerFunctions}
     />
   ))
   .add('uploading: 60% complete', () => (
-    <UploadPhoto
-      uploadProgress={60}
-      handleDrop={() => {}}
-      handleRemove={() => {}}
-    />
+    <UploadPhoto uploadProgress={60} {...mockHandlerFunctions} />
   ))
   .add('upload error', () => (
-    <UploadPhoto
-      errorMessage="server error"
-      handleDrop={() => {}}
-      handleRemove={() => {}}
-    />
+    <UploadPhoto errorMessage="server error" {...mockHandlerFunctions} />
   ))
   .add('existing photo', () => (
     <UploadPhoto
       initialFile={new File(SVG_BITS, 'img.svg', { type: 'image/svg+xml' })}
-      handleDrop={() => {}}
-      handleRemove={() => {}}
+      {...mockHandlerFunctions}
     />
   ));
 
