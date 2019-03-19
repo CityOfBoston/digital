@@ -240,20 +240,23 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     birthCertificateRequest.clearBirthCertificateRequest();
     orderProvider.clear();
 
-    this.setState({
-      order: await orderProvider.get(),
-    });
+    this.setState(
+      {
+        order: await orderProvider.get(),
+      },
+      async () => {
+        await Router.push(
+          `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
+            orderId
+          )}&contactEmail=${encodeURIComponent(
+            order.info.contactEmail
+          )}&stepCount=${stepCount}`,
+          '/birth/checkout?page=confirmation'
+        );
 
-    await Router.push(
-      `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
-        orderId
-      )}&contactEmail=${encodeURIComponent(
-        order.info.contactEmail
-      )}&stepCount=${stepCount}`,
-      '/birth/checkout?page=confirmation'
+        window.scroll(0, 0);
+      }
     );
-
-    window.scroll(0, 0);
   };
 
   birthCertificateProduct() {
