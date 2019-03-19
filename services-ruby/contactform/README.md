@@ -51,11 +51,11 @@ environment variable (in .env), which is a comma-separated list of domains.
 To see the metadata associated with an email, you can look up all emails from a
 given address in production.
 
-Run `bundle exec rake emails:search["foo@example.com"]`. The matching email
+Run `bundle exec rake emails:search[foo@example.com]`. The matching email
 records will be written to STDERR as JSON objects. This should be done by
 running a custom task in ECS, with the overwritten command:
 
-`bundle,exec,rake,emails:search["foo@example.com"]`
+`bundle,exec,rake,emails:search[foo@example.com]`
 
 #### Restoring the DB
 
