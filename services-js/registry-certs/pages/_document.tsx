@@ -89,7 +89,6 @@ export default class extends Document {
                       javascript: {
                         source_map_enabled: true,
                         code_version: "${buildId}",
-                        guess_uncaught_frames: true
                       }
                     }
                 }
