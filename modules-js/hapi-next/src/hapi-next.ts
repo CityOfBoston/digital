@@ -1,6 +1,12 @@
 import querystring from 'querystring';
+import fetch from 'node-fetch';
+import FormData from 'form-data';
 import next from 'next';
+import path from 'path';
+import fs from 'fs';
 import compression from 'compression';
+import readdir from 'recursive-readdir';
+
 import {
   Server as HapiServer,
   ServerRoute,
@@ -12,6 +18,8 @@ import {
 } from 'hapi';
 import { IncomingMessage } from 'http';
 import { promisify } from 'util';
+
+const readFile = promisify(fs.readFile);
 
 export interface ExtendedIncomingMessage extends IncomingMessage {
   payload: any;
@@ -168,4 +176,39 @@ export function makeNextHandler(
       return h.response(html).code(res.statusCode);
     }
   };
+}
+
+/**
+ * @see https://docs.rollbar.com/docs/source-maps#section-providing-source-maps-to-rollbar
+ */
+export async function uploadNextSourceMapsToRollbar(opts: {
+  rollbarAccessToken: string;
+  nextDir: string;
+  nextUrl: string;
+}): Promise<void> {
+  const staticDirPath = path.join(opts.nextDir, 'static');
+
+  const buildId = await readFile(path.join(opts.nextDir, 'BUILD_ID'), 'utf-8');
+
+  await Promise.all(
+    (await readdir(staticDirPath, ['*.map'])).map(async (p: string) => {
+      const relativePath = path.relative(opts.nextDir, p);
+      const relativePathBits = relativePath.split(path.sep);
+      const minifiedUrl = `${opts.nextUrl}/${relativePathBits.join('/')}`;
+
+      const mapPath = `${p}.map`;
+      if (fs.existsSync(mapPath)) {
+        const data = new FormData();
+        data.append('access_token', opts.rollbarAccessToken);
+        data.append('version', buildId);
+        data.append('minified_url', minifiedUrl);
+        data.append('source_map', fs.createReadStream(mapPath));
+
+        await fetch('https://api.rollbar.com/api/1/sourcemap', {
+          method: 'POST',
+          body: data,
+        });
+      }
+    })
+  );
 }

@@ -22,7 +22,11 @@ import {
   persistentQueryPlugin,
 } from '@cityofboston/hapi-common';
 
-import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
+import {
+  makeRoutesForNextApp,
+  makeNextHandler,
+  uploadNextSourceMapsToRollbar,
+} from '@cityofboston/hapi-next';
 
 import {
   GRAPHQL_PATH_KEY,
@@ -96,11 +100,25 @@ export async function makeServer({ rollbar }: ServerArgs) {
     [HAPI_INJECT_CONFIG_KEY]: server.inject.bind(server),
   };
 
+  const nextDev =
+    process.env.NODE_ENV !== 'production' && !process.env.USE_BUILD;
+
   const app = next({
-    dev: process.env.NODE_ENV !== 'production' && !process.env.USE_BUILD,
+    dev: nextDev,
     quiet: process.env.NODE_ENV === 'test',
     config,
   });
+
+  if (!nextDev && process.env.ROLLBAR_ACCESS_TOKEN && process.env.PUBLIC_HOST) {
+    uploadNextSourceMapsToRollbar({
+      rollbarAccessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+      nextDir: Path.resolve('build/.next'),
+      nextUrl: `https://${process.env.PUBLIC_HOST}/_next`,
+    }).catch(e => {
+      console.log('Uploading source maps failed', e);
+      rollbar.error(e);
+    });
+  }
 
   // These env variables are named "DATA" for historical reasons.
   const registryDbFactoryOpts: DatabaseConnectionOptions = {
