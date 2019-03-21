@@ -22,11 +22,7 @@ import {
   persistentQueryPlugin,
 } from '@cityofboston/hapi-common';
 
-import {
-  makeRoutesForNextApp,
-  makeNextHandler,
-  uploadNextSourceMapsToRollbar,
-} from '@cityofboston/hapi-next';
+import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
 
 import {
   GRAPHQL_PATH_KEY,
@@ -109,16 +105,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
     config,
   });
 
-  if (!nextDev && process.env.ROLLBAR_ACCESS_TOKEN && process.env.PUBLIC_HOST) {
-    uploadNextSourceMapsToRollbar({
-      rollbarAccessToken: process.env.ROLLBAR_ACCESS_TOKEN,
-      nextDir: Path.resolve('build/.next'),
-      nextUrl: `https://${process.env.PUBLIC_HOST}/_next`,
-    }).catch(e => {
-      console.log('Uploading source maps failed', e);
-      rollbar.error(e);
-    });
-  }
+  const externalAssetUrl = process.env.ASSET_HOST
+    ? `https://${process.env.ASSET_HOST}/registry-certs`
+    : undefined;
 
   // These env variables are named "DATA" for historical reasons.
   const registryDbFactoryOpts: DatabaseConnectionOptions = {
@@ -361,7 +350,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     },
   });
 
-  server.route(makeRoutesForNextApp(app));
+  server.route(makeRoutesForNextApp(app, '/', {}, {}, externalAssetUrl));
   server.route({
     method: 'GET',
     path: '/death/certificate/{id}',

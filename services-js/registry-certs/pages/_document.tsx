@@ -14,6 +14,7 @@ type Props = {
   cacheParam: string;
   rollbarAccessToken: string | undefined;
   rollbarEnvironment: string;
+  rollbarVersion: string | undefined;
   // From Emotion’s hydration
   ids?: string[];
   css: string;
@@ -40,6 +41,7 @@ export default class extends Document {
       rollbarAccessToken: process.env.ROLLBAR_BROWSER_ACCESS_TOKEN,
       rollbarEnvironment:
         process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
+      rollbarVersion: process.env.GIT_REVISION,
     };
   }
 
@@ -60,6 +62,7 @@ export default class extends Document {
       cacheParam,
       rollbarAccessToken,
       rollbarEnvironment,
+      rollbarVersion,
       css,
       __NEXT_DATA__: { buildId },
     } = this.props;
@@ -88,7 +91,7 @@ export default class extends Document {
                     client: {
                       javascript: {
                         source_map_enabled: true,
-                        code_version: "${buildId}",
+                        code_version: "${rollbarVersion || buildId}",
                       }
                     }
                 }

@@ -4,6 +4,7 @@
   "description": "Scripts for building and deployment of our services",
   "private": true,
   "license": "CC0-1.0",
+  "main": "build/helpers.js",
   "scripts": {
     "watch": "tsc-watch --preserveWatchOutput",
     "prebuild": "rimraf build",
@@ -14,7 +15,6 @@
   },
   "bin": {
     "codebuild-service-deploy": "bin/codebuild-service-deploy.js",
-    "travis-service-deploy": "bin/travis-service-deploy.js",
     "s3-apps-deploy": "bin/s3-apps-deploy.js",
     "report-updated-services": "bin/report-updated-services.js"
   },
@@ -28,11 +28,14 @@
     "@slack/client": "^4.3.1",
     "aws-sdk": "^2.245.1",
     "date-fns": "^1.29.0",
+    "form-data": "^2.2.0",
+    "https-proxy-agent": "^2.0.0",
     "ignore": "^5.0.4",
     "lerna": "3.4.0",
     "mime-types": "^2.1.20",
     "minimist": "^1.2.0",
     "node-fetch": "^2.0.0",
+    "recursive-readdir": "^2.2.2",
     "shelljs": "^0.8.2",
     "tar": "^4.4.3"
   },
