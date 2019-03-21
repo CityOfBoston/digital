@@ -131,11 +131,11 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     const nextStep = newSteps[currentIndex + 1];
 
+    this.gaEventActionAndLabel();
+
     if (nextStep === 'reviewRequest') {
       Router.push('/birth/review');
     } else {
-      this.gaEventActionAndLabel();
-
       Router.push(`/birth?step=${nextStep}`);
     }
   };
