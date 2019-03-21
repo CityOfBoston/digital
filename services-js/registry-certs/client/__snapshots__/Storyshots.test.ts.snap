@@ -3311,7 +3311,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                     className="css-vmrobw"
                     id="forSelf"
                   >
-                    Who are you ordering a birth certificate for?
+                    Whose birth certificate are you ordering?
                   </h2>
                 </legend>
                 <div
@@ -3346,7 +3346,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                       value="true"
                     />
                     <span>
-                      Myself
+                      Mine
                     </span>
                   </label>
                   <label
@@ -3398,7 +3398,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? blank 1`] = `
                       value="false"
                     />
                     <span>
-                      Someone else
+                      Someone else’s
                     </span>
                   </label>
                 </div>
@@ -3749,7 +3749,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     className="css-vmrobw"
                     id="forSelf"
                   >
-                    Who are you ordering a birth certificate for?
+                    Whose birth certificate are you ordering?
                   </h2>
                 </legend>
                 <div
@@ -3784,7 +3784,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                       value="true"
                     />
                     <span>
-                      Myself
+                      Mine
                     </span>
                   </label>
                   <label
@@ -3836,7 +3836,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                       value="false"
                     />
                     <span>
-                      Someone else
+                      Someone else’s
                     </span>
                   </label>
                 </div>
@@ -3849,7 +3849,7 @@ exports[`Storyshots Birth/QuestionsFlow/1. Who is this for? for someone else 1`]
                     className="css-vmrobw"
                     id="howRelated"
                   >
-                    Is it for your…
+                    I’m ordering the birth certificate of my…
                   </h3>
                 </legend>
                 <div

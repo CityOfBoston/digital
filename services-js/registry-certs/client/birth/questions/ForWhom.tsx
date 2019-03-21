@@ -84,7 +84,7 @@ export default class ForWhom extends React.Component<Props> {
         <FieldsetComponent
           legendText={
             <h2 id="forSelf" className={SECTION_HEADING_STYLING}>
-              Who are you ordering a birth certificate for?
+              Whose birth certificate are you ordering?
             </h2>
           }
         >
@@ -97,7 +97,7 @@ export default class ForWhom extends React.Component<Props> {
               questionName="forSelf"
               questionValue={forSelfValue}
               itemValue="true"
-              labelText="Myself"
+              labelText="Mine"
               className={RADIOITEM_STYLING}
               handleChange={this.handleBooleanChange}
             >
@@ -108,7 +108,7 @@ export default class ForWhom extends React.Component<Props> {
               questionName="forSelf"
               questionValue={forSelfValue}
               itemValue="false"
-              labelText="Someone else"
+              labelText="Someone else’s"
               className={RADIOITEM_STYLING}
               handleChange={this.handleBooleanChange}
             >
@@ -121,7 +121,7 @@ export default class ForWhom extends React.Component<Props> {
           <FieldsetComponent
             legendText={
               <h3 id="howRelated" className={SECTION_HEADING_STYLING}>
-                Is it for your…
+                I’m ordering the birth certificate of my…
               </h3>
             }
           >
