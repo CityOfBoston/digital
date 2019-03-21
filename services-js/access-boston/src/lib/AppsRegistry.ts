@@ -14,7 +14,6 @@ export interface App {
   description: string;
   // null groups means "everyone can see this"
   groups: string[] | null;
-  newWindow: boolean;
   mfaDeviceRequired: boolean;
 }
 
@@ -52,7 +51,6 @@ export default class AppsRegistry {
           groups,
           description,
           icon,
-          new_window,
           mfa_device_required,
         } = a;
 
@@ -74,7 +72,6 @@ export default class AppsRegistry {
           iconUrl: icon || null,
           description: description || '',
           groups: groups || null,
-          newWindow: new_window || false,
           mfaDeviceRequired: mfa_device_required || false,
         };
       });
