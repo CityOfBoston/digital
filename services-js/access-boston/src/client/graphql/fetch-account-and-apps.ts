@@ -31,7 +31,6 @@ const QUERY = gql`
           url
           iconUrl
           description
-          newWindow
         }
       }
     }

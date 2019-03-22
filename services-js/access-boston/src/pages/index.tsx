@@ -174,12 +174,12 @@ export default class IndexPage extends React.Component<Props> {
   private renderAppList(apps: CategoryApps) {
     return (
       <ul className="ul m-v500">
-        {apps.map(({ title, url, description, newWindow }) => (
+        {apps.map(({ title, url, description }) => (
           <li key={title}>
             <Link href={url}>
               <a
                 className={`p-a300 ${APP_ROW_STYLE}`}
-                target={newWindow ? '_blank' : '_self'}
+                target={url.startsWith('/') ? '_self' : '_blank'}
               >
                 <div className="t--info" style={{ color: 'inherit' }}>
                   {title}
@@ -196,11 +196,11 @@ export default class IndexPage extends React.Component<Props> {
   private renderAppIcons(apps: CategoryApps) {
     return (
       <div className="g">
-        {apps.map(({ title, url, iconUrl, newWindow }) => (
+        {apps.map(({ title, url, iconUrl }) => (
           <Link href={url} key={title}>
             <a
               className="lwi m-t200 g--3 g--3--sl"
-              target={newWindow ? '_blank' : '_self'}
+              target={url.startsWith('/') ? '_self' : '_blank'}
             >
               <span className="lwi-ic">
                 <img

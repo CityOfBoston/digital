@@ -3668,7 +3668,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://baisfn.cityhall.boston.cob/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3689,7 +3689,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://hcm.cityhall.boston.cob/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3710,7 +3710,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.maps.arcgis.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3731,7 +3731,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://employeeconnect-boston.icims.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3752,7 +3752,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://ess.boston.gov/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3773,7 +3773,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://edit-dev-hub.boston.gov/user"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3794,7 +3794,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.us2.oraclecloud.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3815,7 +3815,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3836,7 +3836,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.frontlineeducation.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3857,7 +3857,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -3901,7 +3901,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -3929,7 +3929,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -3957,7 +3957,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -3985,7 +3985,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4013,7 +4013,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4041,7 +4041,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4163,7 +4163,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4191,7 +4191,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4219,7 +4219,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4266,7 +4266,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4294,7 +4294,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4322,7 +4322,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4479,7 +4479,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://baisfn.cityhall.boston.cob/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4500,7 +4500,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://hcm.cityhall.boston.cob/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4521,7 +4521,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.maps.arcgis.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4542,7 +4542,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://employeeconnect-boston.icims.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4563,7 +4563,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://ess.boston.gov/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4584,7 +4584,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://edit-dev-hub.boston.gov/user"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4605,7 +4605,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.us2.oraclecloud.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4626,7 +4626,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4647,7 +4647,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.frontlineeducation.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4668,7 +4668,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -4712,7 +4712,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4740,7 +4740,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4768,7 +4768,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4796,7 +4796,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4824,7 +4824,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4852,7 +4852,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -4974,7 +4974,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5002,7 +5002,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5030,7 +5030,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5077,7 +5077,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5105,7 +5105,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5133,7 +5133,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5329,7 +5329,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://baisfn.cityhall.boston.cob/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5350,7 +5350,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://hcm.cityhall.boston.cob/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5371,7 +5371,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.maps.arcgis.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5392,7 +5392,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://employeeconnect-boston.icims.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5413,7 +5413,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://ess.boston.gov/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5434,7 +5434,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://edit-dev-hub.boston.gov/user"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5455,7 +5455,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.us2.oraclecloud.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5476,7 +5476,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5497,7 +5497,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.frontlineeducation.com/"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5518,7 +5518,7 @@ Array [
             className="lwi m-t200 g--3 g--3--sl"
             href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
             onClick={[Function]}
-            target="_self"
+            target="_blank"
           >
             <span
               className="lwi-ic"
@@ -5562,7 +5562,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5590,7 +5590,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5618,7 +5618,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5646,7 +5646,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5674,7 +5674,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5702,7 +5702,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5824,7 +5824,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5852,7 +5852,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5880,7 +5880,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="#"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5927,7 +5927,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5955,7 +5955,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
@@ -5983,7 +5983,7 @@ Array [
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
-                target="_self"
+                target="_blank"
               >
                 <div
                   className="t--info"
