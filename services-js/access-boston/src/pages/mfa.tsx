@@ -107,10 +107,11 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
       // a problem where Ping thinks that the 857 area code, common to Boston
       // cell phones, is a country code.
       const phoneNumberMatches = phoneNumber.match(PHONE_REGEXP);
+
       if (phoneNumberMatches) {
         phoneNumber = `+${phoneNumberMatches[1] || '1'} (${
           phoneNumberMatches[2]
-        }) ${phoneNumberMatches[3]}-${phoneNumberMatches[4]}})`;
+        }) ${phoneNumberMatches[3]}-${phoneNumberMatches[4]}`;
       }
     }
 

@@ -67,7 +67,9 @@ test.only('Device registration', async t => {
     .click(mfaPage.voiceRadioButton)
     .click(mfaPage.submitButton)
     .expect(mfaPage.modal.innerText)
-    .contains('Please pick up!', 'Can switch to voice code');
+    .contains('Please pick up!', 'Can switch to voice code')
+    .expect(mfaPage.modal.innerText)
+    .contains('(xxx) xxx-xx12');
 
   await mfaPage
     .submitVerificationCode(t, '999999')
