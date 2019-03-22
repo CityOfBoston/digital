@@ -87,6 +87,9 @@ export default class ReviewContent extends React.Component<Props, State> {
     try {
       await submit();
     } catch (err) {
+      // Any errors at this point have been sent to Rollbar by CheckoutPage or
+      // CheckoutDao, so it’s safe to just show a nice message to the user.
+
       // If there's an error we need to regenerate the key to allow another
       // submission to occur.
       order.regenerateIdempotencyKey();
