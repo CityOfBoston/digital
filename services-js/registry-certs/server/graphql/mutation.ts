@@ -726,8 +726,8 @@ function makeOrderId(type: OrderType): string {
 
   const datePart = moment().format('YYYYMM');
 
-  // gives us a 6-digit number that doesn't start with 0
-  const randomPart = 100000 + Math.floor(Math.abs(Math.random()) * 899999);
+  // gives us a 7-digit number that doesn't start with 0
+  const randomPart = 1000000 + Math.floor(Math.abs(Math.random()) * 8999999);
 
   return `RG-${prefix}${datePart}-${randomPart}`;
 }

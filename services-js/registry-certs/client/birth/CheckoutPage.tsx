@@ -154,7 +154,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     }
 
     if (checkoutStep) {
-      this.birthCertificateProduct();
+      this.sendBirthCertificateProduct();
 
       siteAnalytics.setProductAction('checkout', { step: checkoutStep });
     }
@@ -201,7 +201,9 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
   /**
    * Submits the order.
    *
-   * Will throw exceptions if things didn’t go well.
+   * Will throw exceptions if things didn’t go well before the submission
+   * happens. Those exceptions will all be reported to Rollbar, so it’s safe to
+   * catch them to show a friendly message to users.
    */
   submitOrder = async () => {
     const {
@@ -217,64 +219,83 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       return;
     }
 
+    const stepCount = birthCertificateRequest.steps.length;
+
     const orderId = await checkoutDao.submitBirthCertificateRequest(
       birthCertificateRequest,
       order
     );
 
-    this.birthCertificateProduct();
+    const confirmationUrl = `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
+      orderId
+    )}&contactEmail=${encodeURIComponent(
+      order.info.contactEmail
+    )}&stepCount=${stepCount}`;
+    '/birth/checkout?page=confirmation';
 
-    siteAnalytics.setProductAction('purchase', {
-      id: orderId,
-      revenue: birthCertificateRequest.quantity * BIRTH_CERTIFICATE_COST / 100,
-    });
+    // If we get this far without throwing, the order has definitely succeeded,
+    // so we need to catch any further errors and hide them from the user.
+    try {
+      this.sendBirthCertificateProduct();
 
-    siteAnalytics.sendEvent('click', {
-      category: 'Birth',
-      label: 'submit order',
-    });
+      siteAnalytics.setProductAction('purchase', {
+        id: orderId,
+        revenue:
+          birthCertificateRequest.quantity * BIRTH_CERTIFICATE_COST / 100,
+      });
 
-    siteAnalytics.sendEvent('ship to city', {
-      category: 'Birth',
-      label: `${order.info.shippingCity}, ${order.info.shippingState}`,
-    });
+      siteAnalytics.sendEvent('click', {
+        category: 'Birth',
+        label: 'submit order',
+      });
 
-    siteAnalytics.sendEvent('ship to state', {
-      category: 'Birth',
-      label: order.info.shippingState,
-    });
+      siteAnalytics.sendEvent('ship to city', {
+        category: 'Birth',
+        label: `${order.info.shippingCity}, ${order.info.shippingState}`,
+      });
 
-    siteAnalytics.sendEvent('place order', {
-      category: 'Birth',
-      label: 'certificate quantity',
-      value: birthCertificateRequest.quantity,
-    });
+      siteAnalytics.sendEvent('ship to state', {
+        category: 'Birth',
+        label: order.info.shippingState,
+      });
 
-    const stepCount = birthCertificateRequest.steps.length;
+      siteAnalytics.sendEvent('place order', {
+        category: 'Birth',
+        label: 'certificate quantity',
+        value: birthCertificateRequest.quantity,
+      });
 
-    birthCertificateRequest.clearBirthCertificateRequest();
-    orderProvider.clear();
+      birthCertificateRequest.clearBirthCertificateRequest();
+      orderProvider.clear();
 
-    this.setState(
-      {
-        order: await orderProvider.get(),
-      },
-      async () => {
-        await Router.push(
-          `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
-            orderId
-          )}&contactEmail=${encodeURIComponent(
-            order.info.contactEmail
-          )}&stepCount=${stepCount}`,
-          '/birth/checkout?page=confirmation'
-        );
+      // Updating the order in the state is important in case someone clicks
+      // "back" off of confirmation. We don't want to be showing the old,
+      // submitted order at that point.
+      this.setState(
+        {
+          order: await orderProvider.get(),
+        },
+        async () => {
+          await Router.push(confirmationUrl);
 
-        window.scroll(0, 0);
+          window.scroll(0, 0);
+        }
+      );
+    } catch (e) {
+      if ((window as any).Rollbar) {
+        (window as any).Rollbar.error(e);
       }
-    );
+
+      // eslint-disable-next-line no-console
+      console.error(e);
+
+      await Router.push(confirmationUrl);
+
+      window.scroll(0, 0);
+    }
   };
 
-  birthCertificateProduct() {
+  sendBirthCertificateProduct() {
     this.props.siteAnalytics.addProduct(
       '0',
       'Birth certificate',
