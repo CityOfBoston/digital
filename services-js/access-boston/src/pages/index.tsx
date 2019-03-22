@@ -98,28 +98,34 @@ export default class IndexPage extends React.Component<Props> {
         <div className={MAIN_CLASS}>
           {flashMessage && (
             <div className="b--g">
-              <div className="t--intro p-a500 m-b300">
-                {FLASH_MESSAGE_STRINGS[flashMessage]}
+              <div className="b-c" style={{ padding: 0 }}>
+                <div className="t--intro p-v500">
+                  {FLASH_MESSAGE_STRINGS[flashMessage]}
+                </div>
               </div>
             </div>
           )}
 
           {daysUntilMfa && (
-            <div className="b--g g g--vc">
-              <div className="g--9 p-a500">
-                <div className="h3 tt-u">Account notice</div>
-                <div className="t--intro">
-                  You have <strong>{daysUntilMfa} days</strong> to complete your
-                  registration.
-                </div>
-              </div>
+            <div className="b--g">
+              <div className="b-c" style={{ padding: 0 }}>
+                <div className="g g--vc p-v500">
+                  <div className="g--9">
+                    <div className="h3 tt-u">Account notice</div>
+                    <div className="t--intro">
+                      You have <strong>{daysUntilMfa} days</strong> to complete
+                      your registration.
+                    </div>
+                  </div>
 
-              <div className="g--3 ta-r p-a300">
-                <Link href="/mfa">
-                  <a className="btn" style={{ whiteSpace: 'nowrap' }}>
-                    Complete it now
-                  </a>
-                </Link>
+                  <div className="g--3 ta-r">
+                    <Link href="/mfa">
+                      <a className="btn" style={{ whiteSpace: 'nowrap' }}>
+                        Complete it now
+                      </a>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           )}

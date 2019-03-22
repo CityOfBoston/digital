@@ -3627,9 +3627,18 @@ Array [
       className="b--g"
     >
       <div
-        className="t--intro p-a500 m-b300"
+        className="b-c"
+        style={
+          Object {
+            "padding": 0,
+          }
+        }
       >
-        Your password has been changed!
+        <div
+          className="t--intro p-v500"
+        >
+          Your password has been changed!
+        </div>
       </div>
     </div>
     <div
@@ -5255,42 +5264,55 @@ Array [
     className="mn css-1jubgvi"
   >
     <div
-      className="b--g g g--vc"
+      className="b--g"
     >
       <div
-        className="g--9 p-a500"
-      >
-        <div
-          className="h3 tt-u"
-        >
-          Account notice
-        </div>
-        <div
-          className="t--intro"
-        >
-          You have 
-          <strong>
-            28
-             days
-          </strong>
-           to complete your registration.
-        </div>
-      </div>
-      <div
-        className="g--3 ta-r p-a300"
-      >
-        <a
-          className="btn"
-          href="/mfa"
-          onClick={[Function]}
-          style={
-            Object {
-              "whiteSpace": "nowrap",
-            }
+        className="b-c"
+        style={
+          Object {
+            "padding": 0,
           }
+        }
+      >
+        <div
+          className="g g--vc p-v500"
         >
-          Complete it now
-        </a>
+          <div
+            className="g--9"
+          >
+            <div
+              className="h3 tt-u"
+            >
+              Account notice
+            </div>
+            <div
+              className="t--intro"
+            >
+              You have 
+              <strong>
+                28
+                 days
+              </strong>
+               to complete your registration.
+            </div>
+          </div>
+          <div
+            className="g--3 ta-r"
+          >
+            <a
+              className="btn"
+              href="/mfa"
+              onClick={[Function]}
+              style={
+                Object {
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Complete it now
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div
