@@ -9,8 +9,12 @@ import shell, { ExecOutputReturnValue } from 'shelljs';
 import tar from 'tar';
 import { IncomingWebhook } from '@slack/client';
 import ignore from 'ignore';
+import recursiveReaddir from 'recursive-readdir';
 
 import mime from 'mime-types';
+import HttpsProxyAgent from 'https-proxy-agent';
+import fetch from 'node-fetch';
+import FormData from 'form-data';
 
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
@@ -187,7 +191,8 @@ export async function updateStagingService(serviceName: string) {
 export async function updateEcsService(
   environment: string,
   ecsServiceName: string,
-  image: string
+  image: string,
+  gitRevision: string
 ) {
   const ecs = new AWS.ECS();
   const ecsCluster = environment === 'staging' ? STAGING_CLUSTER : PROD_CLUSTER;
@@ -206,6 +211,9 @@ export async function updateEcsService(
     // that share the same repository. This is tolerant of task definitions that
     // reference e.g. "mysql" containers.
     image: c.image!.startsWith(image.split(':')[0]) ? image : c.image,
+    environment: (c.environment || [])
+      .filter(({ name }) => name !== 'GIT_REVISION')
+      .concat([{ name: 'GIT_REVISION', value: gitRevision }]),
   }));
 
   const newTaskDefinition = (await ecs
@@ -542,10 +550,45 @@ async function getFiles(dir: string): Promise<Array<string>> {
   return files.reduce((a: string[], f) => a.concat(f), []);
 }
 
+/**
+ * Runs the given container with the given command. Includes environment
+ * variables for AWS authentication, the GIT_REVISION, and, to support the
+ * default entrypoint.sh, AWS_S3_CONFIG_URL and DEPLOY_VARIANT.
+ */
+export async function runCommandInContainer(
+  containerTag: string,
+  command: string
+) {
+  const { environment, serviceName, variant } = parseBranch(
+    process.env.DEPLOY_BRANCH!
+  );
+
+  const bucketEnvironment = environment === 'production' ? 'prod' : 'staging';
+  const configBucket = `cob-digital-apps-${bucketEnvironment}-config`;
+
+  // -e flags pass the CodeBuild credentials in to the container
+  const flags = [
+    '-e DEPLOY_BRANCH',
+    `-e GIT_REVISION=${process.env.CODEBUILD_RESOLVED_SOURCE_VERSION}`,
+    `-e DEPLOY_VARIANT=${variant || 'default'}`,
+    '-e AWS_DEFAULT_REGION',
+    '-e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI',
+    `-e AWS_S3_CONFIG_URL=s3://${configBucket}/${serviceName}`,
+    '--rm',
+  ];
+  const dockerComand = `docker run ${flags.join(
+    ' '
+  )} ${containerTag} ${command}`;
+  if ((shell.exec(dockerComand) as ExecOutputReturnValue).code !== 0) {
+    throw new Error(`Unable to run command "${command}" in ${containerTag}`);
+  }
+}
+
 export async function uploadToS3(
   buildDir: string,
   bucket: string,
-  keyPrefix: string
+  keyPrefix: string,
+  maxAgeSeconds: number = 60 * 60
 ) {
   const s3 = new AWS.S3();
   const files = await getFiles(buildDir);
@@ -589,7 +632,7 @@ export async function uploadToS3(
           })
           .promise();
       } else {
-        const maxAge = noCache.ignores(relativeFilePath) ? 0 : 60 * 60;
+        const maxAge = noCache.ignores(relativeFilePath) ? 0 : maxAgeSeconds;
 
         await s3
           .upload(
@@ -598,7 +641,8 @@ export async function uploadToS3(
               Key: key,
               Body: await readFile(f),
               ContentType: mime.lookup(f) || 'application/octet-stream',
-              ContentEncoding: mime.charset(f) || 'identity',
+              // Note: we do not include ContentEncoding because it prevents
+              // CloudFront from automatically gzipping the content.
               CacheControl: `public, max-age=${maxAge}`,
               ACL: 'public-read',
             },
@@ -645,4 +689,84 @@ export async function downloadFromS3(bucket: string, keyPrefix: string) {
       }
     })
   );
+}
+
+/**
+ * Sends source maps for all JS files under "dir" to Rollbar.
+ *
+ * Needs to know the "baseUrl" that the JS files will be served from since
+ * that's how it identifies JS files to Rollbar.
+ *
+ * @see
+ * https://docs.rollbar.com/docs/source-maps#section-providing-source-maps-to-rollbar
+ */
+export async function uploadSourceMapsToRollbar(opts: {
+  rollbarAccessToken: string;
+  dir: string;
+  baseUrl: string;
+  version: string;
+}): Promise<void> {
+  const agent = process.env.http_proxy
+    ? (this.agent = new HttpsProxyAgent(process.env.http_proxy))
+    : null;
+
+  await Promise.all(
+    (await recursiveReaddir(opts.dir, ['*.map'])).map(async (p: string) => {
+      const relativePath = path.relative(opts.dir, p);
+      const relativePathBits = relativePath.split(path.sep);
+      const minifiedUrl = `${opts.baseUrl}/${relativePathBits.join('/')}`;
+
+      const data = new FormData();
+      data.append('access_token', opts.rollbarAccessToken);
+      data.append('version', opts.version);
+      data.append('minified_url', minifiedUrl);
+
+      const mapPath = `${p}.map`;
+      if (fs.existsSync(mapPath)) {
+        // Using a stream for this caused problems with Rollbar. It would
+        // reply with "request too large" errors. Switching to loading the
+        // file in to a Buffer fixed that, perhaps by allowing an accurate
+        // content-length header.
+        data.append('source_map', await readFile(mapPath), {
+          filepath: mapPath,
+        });
+
+        const resp = await fetch('https://api.rollbar.com/api/1/sourcemap', {
+          method: 'POST',
+          body: data,
+          agent,
+        });
+
+        if (resp.status !== 200) {
+          throw new Error(await resp.text());
+        }
+      }
+    })
+  );
+}
+
+/**
+ * Sends a deploy event to Rollbar.
+ */
+export async function reportRollbarDeploy(
+  rollbarAccessToken: string,
+  revision: string
+) {
+  const data = new FormData();
+  data.append('access_token', rollbarAccessToken);
+  data.append(
+    'environment',
+    process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV
+  );
+  data.append('revision', revision);
+  data.append('local_username', 'Shippy-Toe');
+
+  const resp = await fetch('https://api.rollbar.com/api/1/deploy/', {
+    method: 'POST',
+    body: data,
+  });
+
+  if (!resp.ok) {
+    throw new Error(await resp.text());
+  }
 }

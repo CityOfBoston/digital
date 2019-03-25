@@ -20,6 +20,7 @@ import {
   parseBranch,
   runNpmScript,
   runScopedLernaScript,
+  runCommandInContainer,
 } from './helpers';
 
 const args = parseArgs(process.argv, { boolean: true });
@@ -105,6 +106,13 @@ const cacheTag = 'latest';
     return;
   }
 
+  if (packageJson.scripts && packageJson.scripts.postdeploy) {
+    console.error('');
+
+    console.error('🏹 Running postdeploy script in the container…');
+    await runCommandInContainer(versionedTag, 'npm run postdeploy');
+  }
+
   console.error('');
 
   console.error('🏹 Pushing image to repository…');
@@ -122,7 +130,8 @@ const cacheTag = 'latest';
   const updateServiceResult = await updateEcsService(
     environment,
     ecsServiceName,
-    versionedTag
+    versionedTag,
+    process.env.CODEBUILD_RESOLVED_SOURCE_VERSION || ''
   );
   console.error();
 

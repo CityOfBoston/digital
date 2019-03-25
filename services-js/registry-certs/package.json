@@ -18,9 +18,9 @@
     "prepare": "yarn run build",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static",
-    "travis-deploy": "travis-service-deploy Dockerfile",
     "codebuild-deploy": "codebuild-service-deploy Dockerfile",
     "prepare-deploy": "build-storybook -s static",
+    "postdeploy": "ts-node ./scripts/post-deploy",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql server/graphql/index.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate client/queries/*.ts --project-name registry-certs --target typescript --output client/queries/graphql-types.ts && prettier --write client/queries/graphql-types.ts",
@@ -97,6 +97,7 @@
   "devDependencies": {
     "@babel/cli": "7.0.0",
     "@babel/core": "7.0.0",
+    "@cityofboston/deploy-tools": "^0.0.0",
     "@babel/node": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
@@ -137,6 +138,7 @@
     "prop-types": "^15.5.10",
     "react-test-renderer": "16.8.1",
     "rimraf": "^2.6.2",
+    "ts-node": "^6.0.5",
     "tsc-watch": "^1.0.26",
     "typescript": "^3.3.1"
   }
