@@ -55,7 +55,7 @@ describe('sort and format findAddressCandidates', () => {
     expect(
       await Promise.all(
         sortAddressCandidates(FIND_ADDRESS_CANDIDATES.candidates).map(
-          candidateToSearchResult
+          candidateToSearchResult.bind(null, null as any)
         )
       )
     ).toMatchSnapshot();

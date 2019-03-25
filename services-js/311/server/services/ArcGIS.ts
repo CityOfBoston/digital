@@ -482,7 +482,7 @@ export default class ArcGIS {
     return _.compact(
       await Promise.all(
         sortAddressCandidates(findAddressResponse.candidates).map(
-          candidateToSearchResult
+          candidateToSearchResult.bind(null, this)
         )
       )
     );
@@ -526,6 +526,7 @@ function isArcGISErrorResult(x: any): x is ArcGISErrorResult {
 }
 
 export async function candidateToSearchResult(
+  arcgis: ArcGIS,
   candidate: FindAddressCandidate
 ): Promise<SearchResult | null> {
   const { x: lng, y: lat } = candidate.location;
@@ -539,7 +540,7 @@ export async function candidateToSearchResult(
   if (candidate.attributes.Addr_type === 'StreetAddress') {
     // Recur. Safe because reverseGeocode won't find 'StreetAddress'
     // candidates.
-    const geocoded = await this.reverseGeocode(
+    const geocoded = await arcgis.reverseGeocode(
       candidate.location.y,
       candidate.location.x
     );
