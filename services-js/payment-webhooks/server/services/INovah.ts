@@ -447,7 +447,7 @@ export default class INovah {
       case 'Failure':
         // TODO(finh): In the case of ForeignKey being duplicated, look up by it
         // and return that information.
-        throw Boom.badData(result.LongErrorMessage);
+        throw Boom.badData(result.LongErrorMessage, result);
 
       case 'Success':
         return {
@@ -475,7 +475,7 @@ export default class INovah {
 
     switch (result.ReturnCode) {
       case 'Failure':
-        throw Boom.badData(result.LongErrorMessage);
+        throw Boom.badData(result.LongErrorMessage, result);
 
       case 'Success':
         return true;
