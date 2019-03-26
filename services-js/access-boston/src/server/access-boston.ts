@@ -362,6 +362,10 @@ async function addNext(server: HapiServer) {
   // from here.
   const config = require('../../next.config.js');
 
+  const externalAssetUrl = process.env.ASSET_HOST
+    ? `https://${process.env.ASSET_HOST}/access-boston`
+    : undefined;
+
   config.publicRuntimeConfig = {
     ...config.publicRuntimeConfig,
     [GRAPHQL_PATH_KEY]: '/graphql',
@@ -466,7 +470,8 @@ async function addNext(server: HapiServer) {
       {
         // Keeps us from doing session stuff on the static routes.
         plugins: { yar: { skip: true } },
-      }
+      },
+      externalAssetUrl
     )
   );
 
