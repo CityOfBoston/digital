@@ -50,7 +50,7 @@ export default function updateClassifier(
           ),
         {
           error: (err, c) => {
-            rollbar.error(err);
+            rollbar.error(err, { extra: (err as any).extra });
             logMessage('update-classifier', 'Permanent failure', {
               case: c,
             });

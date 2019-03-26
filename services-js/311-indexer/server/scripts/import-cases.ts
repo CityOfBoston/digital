@@ -54,6 +54,7 @@ let caseCount = 0;
   }
 
   const salesforce = new Salesforce(
+    rollbar,
     process.env.SALESFORCE_COMETD_URL,
     process.env.SALESFORCE_PUSH_TOPIC,
     process.env.SALESFORCE_CONSUMER_KEY,

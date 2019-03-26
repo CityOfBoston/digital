@@ -2702,10 +2702,10 @@
   version "0.22.7"
   resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.7.tgz#4a92eafedfb2b9f4437d3a4410006d81114c66ce"
 
-"@types/cometd@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@types/cometd/-/cometd-4.0.1.tgz#de221cc5d5e7af538a9289b049a843a6d43e35b2"
-  integrity sha512-bUCUwyQZti1D5wbYAcSSfkAi8CtkKEYmFVvCG5wfkUf16a+oJ1LleLk+WJRe9AdzkOhJb35FRPR+5vShZeZDcQ==
+"@types/cometd@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/cometd/-/cometd-4.0.4.tgz#e025c95a385ebe8eee4be5ad051cf404d632f929"
+  integrity sha512-4+unPksvL2nRaOGXhIli7TJR9IneX4wh3gaQHBj+LSyBfDfh+vve9ifxCew3IgyJ3epxDAU9co6dEtnsoRxWFg==
 
 "@types/delay@^2.0.1":
   version "2.0.1"
@@ -6739,14 +6739,15 @@ combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-cometd-nodejs-client@^1.0.1:
+cometd-nodejs-client@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/cometd-nodejs-client/-/cometd-nodejs-client-1.0.2.tgz#eb04cfa953a508257487f4800a725a5cd735fe27"
+  integrity sha512-V49AZtxrEhbHRSSTYdTB0i8SGa5ip3iwbTfboVEku5/H9fMAw4GkFnzzKSBU96jCNkTq46vIuN1V5UhUIeCjMA==
 
-cometd@^3.1.5:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/cometd/-/cometd-3.1.5.tgz#104d5a39932375704df37d83dbd6eb2b2f34defa"
-  integrity sha512-PCx8hWFOO0tw+lDm/yKQ+RiqLNCw9QWnmO+Ji3VPVKk1zMUIHbnIo4MaiDYobKR1Z/kvgOkxi7q4x8rngjoCoQ==
+cometd@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/cometd/-/cometd-4.0.3.tgz#6e7e58d0547ecc23f9f13c7b07a85132f60afcfb"
+  integrity sha512-6oq+ay++yZNVKq4q/FXSVE9KLPGsCJqJ/nwUknsAZyPitsqvQvD1ASS/dE7A0DOu6orItjJtDIs02iRhlJhXMA==
 
 commander@2.11.x:
   version "2.11.0"

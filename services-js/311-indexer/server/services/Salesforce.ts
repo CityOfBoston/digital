@@ -4,6 +4,7 @@ import cometd from 'cometd';
 import fetch from 'node-fetch';
 import FormData from 'form-data';
 import HttpsProxyAgent from 'https-proxy-agent';
+import Rollbar from 'rollbar';
 
 export interface MetaMessage {
   ext?: { [key: string]: string };
@@ -41,6 +42,7 @@ declare module 'cometd' {
 }
 
 export default class Salesforce extends EventEmitter {
+  private readonly rollbar: Rollbar;
   private readonly agent: http.Agent | null = null;
   private readonly url: string;
   private readonly pushTopic: string;
@@ -48,15 +50,17 @@ export default class Salesforce extends EventEmitter {
   private readonly consumerSecret: string;
   private lastReplayId: number | null = null;
   private cometd: cometd.CometD | null = null;
-  private failOnMetaUnsuccessful: boolean = false;
 
   constructor(
+    rollbar: Rollbar,
     url: string | undefined,
     pushTopic: string | undefined,
     consumerKey: string | undefined,
     consumerSecret: string | undefined
   ) {
     super();
+
+    this.rollbar = rollbar;
 
     if (!url) {
       throw new Error('Missing Salesforce event URL');
@@ -142,24 +146,33 @@ export default class Salesforce extends EventEmitter {
     this.cometd.configure({
       url: this.url,
       appendMessageTypeToURL: false,
+      logLevel: 'debug',
       requestHeaders: {
-        Authorization: `Bearer ${sessionId}`,
+        Authorization: `OAuth ${sessionId}`,
       },
     });
 
     this.cometd.addListener('/meta/*', msg => {
       this.emit('meta', msg);
-
-      // We don't fail meta messages until the subscription has started, because
-      // we special-case subscription errors around replay ID.
-      if (this.failOnMetaUnsuccessful && msg.successful === false) {
-        this.emit('error', new Error(msg.error || 'Unsuccessful meta message'));
-      }
     });
 
-    // handshake and subscribe will emit errors as necessary
-    this.failOnMetaUnsuccessful = false;
-    this.cometd.handshake(this.handleHandshake);
+    this.cometd.addListener('/meta/unsuccessful', msg => {
+      this.rollbar.debug(
+        new Error(
+          `${msg.channel}: ${msg.error || 'Unsuccessful meta message'}`
+        ),
+        { cometd: { msg } }
+      );
+    });
+
+    this.cometd.addListener('/meta/disconnect', () => {
+      this.emit('disconnected');
+    });
+
+    // Any time we handshake we need to subscribe to channels, including any
+    // later re-handshakes that come from reestablishing a connection.
+    this.cometd.addListener('/meta/handshake', this.subscribeToChannels);
+    this.cometd.handshake(() => {});
 
     return sessionId;
   }
@@ -189,11 +202,14 @@ export default class Salesforce extends EventEmitter {
     });
   }
 
-  private readonly handleHandshake = (handshakeMsg: cometd.Message) => {
+  private readonly subscribeToChannels = (handshakeMsg: cometd.Message) => {
     const { cometd } = this;
     if (!cometd) {
       return;
     }
+
+    // eslint-disable-next-line no-console
+    console.log('HANDSHAKE', handshakeMsg);
 
     if (handshakeMsg.successful) {
       const channel = `/topic/${this.pushTopic}`;
@@ -210,7 +226,6 @@ export default class Salesforce extends EventEmitter {
         (subscribeMsg: cometd.Message) => {
           if (subscribeMsg.successful) {
             this.emit('subscribed');
-            this.failOnMetaUnsuccessful = true;
           } else if (
             subscribeMsg.error &&
             subscribeMsg.error.includes('replayId') &&
@@ -225,19 +240,27 @@ export default class Salesforce extends EventEmitter {
             // most recent replay ID in separate stable storage and clear it in
             // this case.
             this.lastReplayId = null;
-            this.handleHandshake(handshakeMsg);
+            this.subscribeToChannels(handshakeMsg);
           } else {
-            this.emit('error', new Error(subscribeMsg.error));
+            this.emit(
+              'error',
+              Object.assign(new Error(subscribeMsg.error), {
+                cometd: { msg: handshakeMsg },
+              })
+            );
           }
         }
       );
     } else {
       this.emit(
         'error',
-        new Error(
-          handshakeMsg.error ||
-            (handshakeMsg.failure && handshakeMsg.failure.reason) ||
-            'Unknown handshake error'
+        Object.assign(
+          new Error(
+            handshakeMsg.error ||
+              (handshakeMsg.failure && handshakeMsg.failure.reason) ||
+              'Unknown handshake error'
+          ),
+          { cometd: { msg: handshakeMsg } }
         )
       );
     }

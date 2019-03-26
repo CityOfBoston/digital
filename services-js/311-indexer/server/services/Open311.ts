@@ -116,7 +116,7 @@ async function processResponse(res: Response): Promise<any> {
     }
 
     throw Object.assign(new Error(message), {
-      metadata: {
+      extra: {
         status: res.status,
         url: res.url,
       },

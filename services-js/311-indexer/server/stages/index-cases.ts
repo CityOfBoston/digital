@@ -40,7 +40,7 @@ export default ({ elasticsearch, rollbar }: Deps) => (
       {
         length: length => logQueueLength('index-cases', length),
         error: (err, batch: HydratedCaseRecord[]) => {
-          rollbar.error(err);
+          rollbar.error(err, { extra: (err as any).extra });
           logMessage('index-cases', 'Permanent failure indexing cases', {
             ids: batch.map(v => v.id),
           });
