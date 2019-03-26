@@ -24,6 +24,7 @@ import {
   API_KEY_CONFIG_KEY,
   GRAPHQL_PATH_KEY,
   HAPI_INJECT_CONFIG_KEY,
+  GOOGLE_TRACKING_ID_KEY,
 } from '@cityofboston/next-client-common';
 
 import {
@@ -366,6 +367,7 @@ async function addNext(server: HapiServer) {
     ...config.publicRuntimeConfig,
     [GRAPHQL_PATH_KEY]: '/graphql',
     [API_KEY_CONFIG_KEY]: process.env.WEB_API_KEY,
+    [GOOGLE_TRACKING_ID_KEY]: process.env.GOOGLE_TRACKING_ID,
     PING_HOST: process.env.PING_HOST,
   };
 

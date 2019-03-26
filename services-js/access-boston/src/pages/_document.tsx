@@ -4,6 +4,7 @@ import { extractCritical } from 'emotion-server';
 import {
   makeNProgressStyle,
   ScreenReaderSupport,
+  GtagSiteAnalytics,
 } from '@cityofboston/next-client-common';
 import { CompatibilityWarning, StatusModal } from '@cityofboston/react-fleet';
 
@@ -55,6 +56,8 @@ export default class MyDocument extends Document {
               __html: makeNProgressStyle(HEADER_HEIGHT),
             }}
           />
+
+          {GtagSiteAnalytics.makeTrackingCode()}
 
           {rollbarAccessToken && (
             <script

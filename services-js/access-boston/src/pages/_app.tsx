@@ -10,7 +10,7 @@ import {
   makeFetchGraphql,
   RouterListener,
   NextContext,
-  GaSiteAnalytics,
+  GtagSiteAnalytics,
   ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
 
@@ -180,7 +180,7 @@ export default class AccessBostonApp extends App {
 
     routerListener.attach({
       router: Router,
-      siteAnalytics: new GaSiteAnalytics(),
+      siteAnalytics: new GtagSiteAnalytics(),
       screenReaderSupport,
     });
     // Used by testcafe-helpers as a signal that React is running and has
