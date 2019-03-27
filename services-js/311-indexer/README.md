@@ -17,12 +17,12 @@ Copy `.env.default` to `.env` and modify any necessary values.
 
 ### Scripts
 
- * **Development Server**: `npm run-script dev`
+ * **Development Server**: `yarn dev`
 
 ### Elasticsearch
 
  1. Install [Docker](https://www.docker.io/)
- 1. Run `npm run-script elasticsearch-start`
+ 1. Run `yarn elasticsearch-start`
  1. Run `npx ts-node server/scripts/elasticsearch-init.ts`
 
 ### Debugging

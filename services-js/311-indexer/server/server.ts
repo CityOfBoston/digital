@@ -107,6 +107,7 @@ export default async function startServer({ rollbar }: ServerArgs) {
   const prediction = new Prediction(process.env.PREDICTION_ENDPOINT);
 
   salesforce = new Salesforce(
+    rollbar,
     process.env.SALESFORCE_COMETD_URL,
     process.env.SALESFORCE_PUSH_TOPIC,
     process.env.SALESFORCE_CONSUMER_KEY,
@@ -132,16 +133,27 @@ export default async function startServer({ rollbar }: ServerArgs) {
   ).pipe(
     tap(err => {
       console.log('----- SALESFORCE CONNECTION ERROR -----');
-      rollbar.error(err);
+      rollbar.error(err, { cometd: (err as any).cometd });
       console.error(err);
+    })
+  );
+
+  const salesforceDisconnected$ = Rx.fromEvent<Error>(
+    // The Node EventEmitter interface and rxjs’s NodeStyleEventEmitter interface
+    // are mismatched for the type of the handler functions.
+    salesforce as any,
+    'disconnected'
+  ).pipe(
+    tap(() => {
+      console.log('----- SALESFORCE CONNECTION CLOSED -----');
     })
   );
 
   const loadedBatch$ = salesforceEvent$.pipe(
     // This causes the first Salesforce error to complete the stream. The rest
     // of the pipeline will finish processing, then the complete handler below
-    // will exit.
-    takeUntil(salesforceError$),
+    // will exit. Also handles general disconnecting.
+    takeUntil(Rx.merge(salesforceError$, salesforceDisconnected$)),
     convertSalesforceEvents(),
     loadCases(SIMULTANEOUS_CASE_LOADS, { rollbar, open311 }),
     // multicast the same loaded cases to each of the later pipeline stages.
@@ -164,7 +176,7 @@ export default async function startServer({ rollbar }: ServerArgs) {
     .subscribe({
       error: err => {
         console.log('----- PROCESSING PIPELINE VERY FATAL ERROR -----');
-        rollbar.error(err);
+        rollbar.error(err, { extra: (err as any).extra });
         process.kill(process.pid, 'SIGHUP');
       },
       complete: () => {
