@@ -23,7 +23,7 @@
     ]
   },
   "dependencies": {
-    "@babel/runtime": "7.0.0",
+    "@babel/runtime": "7.1.2",
     "@cityofboston/srv-decrypt-env": "^0.0.0",
     "aws-sdk": "^2.100.0",
     "cometd": "^3.1.5",
@@ -43,8 +43,8 @@
     "url-search-params": "^0.10.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
+    "@babel/cli": "7.1.5",
+    "@babel/core": "7.1.2",
     "@babel/node": "7.0.0",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",

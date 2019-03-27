@@ -139,9 +139,12 @@ exports[`methods submitRequest graphql failure 1`] = `
   <div
     className="css-15m5iw4"
   >
-    <SideEffect(Head)>
-      <Head />
-    </SideEffect(Head)>
+    <Head>
+      <SideEffect
+        handleStateChange={null}
+        reduceComponentsToState={[Function]}
+      />
+    </Head>
     <FormDialog
       narrow={false}
       noPadding={false}
@@ -392,9 +395,12 @@ exports[`methods submitRequest success 1`] = `
   <div
     className="css-15m5iw4"
   >
-    <SideEffect(Head)>
-      <Head />
-    </SideEffect(Head)>
+    <Head>
+      <SideEffect
+        handleStateChange={null}
+        reduceComponentsToState={[Function]}
+      />
+    </Head>
     <FormDialog
       narrow={false}
       noPadding={false}
@@ -654,9 +660,12 @@ exports[`methods submitRequest success 2`] = `
   <div
     className="css-15m5iw4"
   >
-    <SideEffect(Head)>
-      <Head />
-    </SideEffect(Head)>
+    <Head>
+      <SideEffect
+        handleStateChange={null}
+        reduceComponentsToState={[Function]}
+      />
+    </Head>
     <FormDialog
       narrow={false}
       noPadding={false}

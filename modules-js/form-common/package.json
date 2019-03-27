@@ -28,14 +28,14 @@
     "core-js": "^2.5.7"
   },
   "peerDependencies": {
-    "@babel/runtime": "7.0.0",
+    "@babel/runtime": "7.1.2",
     "emotion": "9.2.10",
-    "react": "16.8.1"
+    "react": "16.8.5"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
-    "@babel/runtime": "7.0.0",
+    "@babel/cli": "7.1.5",
+    "@babel/core": "7.1.2",
+    "@babel/runtime": "7.1.2",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "24.x.x",
@@ -44,7 +44,7 @@
     "cross-env": "^5.1.5",
     "emotion": "9.2.10",
     "jest": "24.1.0",
-    "react": "16.8.1",
+    "react": "16.8.5",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",
     "typescript": "^3.3.1"
