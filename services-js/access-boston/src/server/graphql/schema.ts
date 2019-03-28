@@ -130,7 +130,7 @@ const queryRootResolvers: QueryRootResolvers = {
     _args,
     { session: { loginAuth, forgotPasswordAuth, loginSession } }
   ) => {
-    if (loginAuth) {
+    if (loginAuth && loginSession) {
       const { userId } = loginAuth;
       const {
         needsMfaDevice,
@@ -139,7 +139,7 @@ const queryRootResolvers: QueryRootResolvers = {
         firstName,
         lastName,
         mfaRequiredDate,
-      } = loginSession!;
+      } = loginSession;
 
       return {
         employeeId: userId,
