@@ -33,13 +33,13 @@
     "mobx": "^4.3.0",
     "mobx-react": "^5.2.0",
     "mobx-utils": "^4.0.0",
-    "next": "7.0.2",
-    "react": "16.8.1",
-    "react-dom": "16.8.1"
+    "next": "8.0.3",
+    "react": "16.8.5",
+    "react-dom": "16.8.5"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
+    "@babel/cli": "7.1.5",
+    "@babel/core": "7.1.2",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@percy-io/percy-storybook": "^1.4.1",
