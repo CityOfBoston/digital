@@ -5,6 +5,8 @@ import {
   Request as HapiRequest,
 } from 'hapi';
 
+import Rollbar from 'rollbar';
+
 import SamlAuth, {
   makeSamlAuth,
   SamlLogoutRequestResult,
@@ -40,6 +42,7 @@ interface Paths {
  */
 export async function addLoginAuth(
   server: HapiServer,
+  rollbar: Rollbar,
   { loginPath, logoutPath, afterLoginUrl }: Paths
 ) {
   const authStrategyOptions: BrowserAuthOptions = {
@@ -175,6 +178,21 @@ export async function addLoginAuth(
 
         setSessionAuth(request, loginAuth);
 
+        let mfaRequiredDate: string | null = null;
+
+        if (userMfaRegistrationDate) {
+          // We’ve seen some values for this not parsing. We catch the error so
+          // that it doesn’t fail the entire login process, but we send it to
+          // Rollbar so we can tell the IAM team they should correct it.
+          try {
+            mfaRequiredDate = new Date(userMfaRegistrationDate).toISOString();
+          } catch (e) {
+            rollbar.error(e, {
+              extra: { userId: nameId, userMfaRegistrationDate },
+            });
+          }
+        }
+
         const session: LoginSession = {
           type: 'login',
           firstName,
@@ -189,9 +207,7 @@ export async function addLoginAuth(
           mfaPhoneNumber: null,
           // We normalize to an ISO formatted string but need to keep this a
           // string because we’re serializing in Redis.
-          mfaRequiredDate: userMfaRegistrationDate
-            ? new Date(userMfaRegistrationDate).toISOString()
-            : null,
+          mfaRequiredDate,
         };
 
         request.yar.set(LOGIN_SESSION_KEY, session);

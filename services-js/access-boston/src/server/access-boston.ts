@@ -171,7 +171,7 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   await server.register(browserAuthPlugin);
 
-  await addLoginAuth(server, {
+  await addLoginAuth(server, rollbar, {
     loginPath: '/login',
     logoutPath: '/logout',
     afterLoginUrl: '/',
