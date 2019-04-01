@@ -1148,7 +1148,7 @@ exports[`receipt Birth certificate 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>4 × Birth certificate for Carol Danvers (10/6/1976)</i></td>
+                    <i>4 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
                 </tr>
     
@@ -1173,7 +1173,7 @@ exports[`receipt Birth certificate 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        We have received your order. You will be charged when your certificates ship.
+        We have received your order. You will be charged when the certificates ship.
       </div>
     
               </td>
@@ -1187,7 +1187,7 @@ exports[`receipt Birth certificate 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days we will cancel the order without charge.
+        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
       </div>
     
               </td>
@@ -1415,16 +1415,16 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  4 x Birth certificate for Carol Danvers (10/6/1976) $56.00
+  4 x Certified birth certificate for Carol Danvers (10/6/1976) $56.00
   Card processing fee*  $1.32
   Total  $141.32
 
-We have received your order. You will be charged when your 
+We have received your order. You will be charged when the 
 certificates ship.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
-business days we will cancel the order without charge.
+business days, we will cancel the order without charge.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -2005,7 +2005,7 @@ exports[`receipt Birth certificate shipped 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>4 × Birth certificate for Carol Danvers (10/6/1976)</i></td>
+                    <i>4 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
                 </tr>
     
@@ -2244,7 +2244,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  4 x Birth certificate for Carol Danvers (10/6/1976) $56.00
+  4 x Certified birth certificate for Carol Danvers (10/6/1976) $56.00
   Card processing fee*  $1.32
   Total  $141.32
 

@@ -123,7 +123,7 @@ export default class ParentalInformation extends React.Component<Props> {
               />
 
               <TextInput
-                label="Last Name"
+                label="Last / Maiden Name (if applicable)"
                 name="parent1LastName"
                 value={parent1LastName}
                 onChange={this.handleChange}
@@ -147,7 +147,7 @@ export default class ParentalInformation extends React.Component<Props> {
               />
 
               <TextInput
-                label="Last Name"
+                label="Last / Maiden Name (if applicable)"
                 name="parent2LastName"
                 value={parent2LastName}
                 onChange={this.handleChange}

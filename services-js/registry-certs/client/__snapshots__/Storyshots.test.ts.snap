@@ -1394,6 +1394,8 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                         Carol
                          
                         Danvers
+                         
+                        (Certified paper copy)
                       </div>
                       <div
                         className="css-19r4q7b"
@@ -7406,7 +7408,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-1103291528"
+                        htmlFor="input-3833120910"
                       >
                         <span
                           style={
@@ -7416,13 +7418,13 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                             }
                           }
                         >
-                          Last Name
+                          Last / Maiden Name (if applicable)
                         </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f  "
-                        id="input-1103291528"
+                        id="input-3833120910"
                         name="parent1LastName"
                         onChange={[Function]}
                         type="text"
@@ -7483,7 +7485,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-1103291528"
+                        htmlFor="input-3833120910"
                       >
                         <span
                           style={
@@ -7493,13 +7495,13 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information blank 1`] = `
                             }
                           }
                         >
-                          Last Name
+                          Last / Maiden Name (if applicable)
                         </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f  "
-                        id="input-1103291528"
+                        id="input-3833120910"
                         name="parent2LastName"
                         onChange={[Function]}
                         type="text"
@@ -8085,7 +8087,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-1103291528"
+                        htmlFor="input-3833120910"
                       >
                         <span
                           style={
@@ -8095,13 +8097,13 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                             }
                           }
                         >
-                          Last Name
+                          Last / Maiden Name (if applicable)
                         </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f  "
-                        id="input-1103291528"
+                        id="input-3833120910"
                         name="parent1LastName"
                         onChange={[Function]}
                         type="text"
@@ -8162,7 +8164,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-1103291528"
+                        htmlFor="input-3833120910"
                       >
                         <span
                           style={
@@ -8172,13 +8174,13 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                             }
                           }
                         >
-                          Last Name
+                          Last / Maiden Name (if applicable)
                         </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f  "
-                        id="input-1103291528"
+                        id="input-3833120910"
                         name="parent2LastName"
                         onChange={[Function]}
                         type="text"
@@ -8792,7 +8794,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-1103291528"
+                        htmlFor="input-3833120910"
                       >
                         <span
                           style={
@@ -8802,13 +8804,13 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                             }
                           }
                         >
-                          Last Name
+                          Last / Maiden Name (if applicable)
                         </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f  "
-                        id="input-1103291528"
+                        id="input-3833120910"
                         name="parent1LastName"
                         onChange={[Function]}
                         type="text"
@@ -8869,7 +8871,7 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-1103291528"
+                        htmlFor="input-3833120910"
                       >
                         <span
                           style={
@@ -8879,13 +8881,13 @@ exports[`Storyshots Birth/QuestionsFlow/4. Parental information may be restricte
                             }
                           }
                         >
-                          Last Name
+                          Last / Maiden Name (if applicable)
                         </span>
                       </label>
                       <input
                         aria-label=""
                         className="txt-f  "
-                        id="input-1103291528"
+                        id="input-3833120910"
                         name="parent2LastName"
                         onChange={[Function]}
                         type="text"
@@ -12313,7 +12315,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                   className="css-1fjpwfv"
                 >
                   <span>
-                    Birth Certificate (Paper Copy)
+                    Birth Certificate (Certified paper copy)
                   </span>
                   <span>
                     Born: 
@@ -19433,6 +19435,8 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
                         Carol
                          
                         Danvers
+                         
+                        (Certified paper copy)
                       </div>
                       <div
                         className="css-19r4q7b"
@@ -20080,6 +20084,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                       BRUCE
                        
                       BANNER
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -20115,6 +20120,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                       MONKEY
                        
                       JOE
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -20150,6 +20156,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                       JAMES
                        
                       HOWLETT (LOGAN)
+                       
                       <span
                         style={
                           Object {
@@ -20853,6 +20860,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                       BRUCE
                        
                       BANNER
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -20888,6 +20896,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                       MONKEY
                        
                       JOE
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -22168,6 +22177,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
                       BRUCE
                        
                       BANNER
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -22203,6 +22213,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
                       MONKEY
                        
                       JOE
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -22830,6 +22841,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                       BRUCE
                        
                       BANNER
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -22865,6 +22877,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                       MONKEY
                        
                       JOE
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -23555,6 +23568,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                       BRUCE
                        
                       BANNER
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -23590,6 +23604,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                       MONKEY
                        
                       JOE
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -24287,6 +24302,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
                       BRUCE
                        
                       BANNER
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -24322,6 +24338,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
                       MONKEY
                        
                       JOE
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -29409,6 +29426,8 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
           Carol
            
           Danvers
+           
+          (Certified paper copy)
         </div>
         <div
           className="css-19r4q7b"
@@ -29451,6 +29470,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
           BRUCE
            
           BANNER
+           
         </div>
         <div
           className="css-19r4q7b"
@@ -29486,6 +29506,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
           JAMES
            
           HOWLETT (LOGAN)
+           
           <span
             style={
               Object {
@@ -29541,6 +29562,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
           MONKEY
            
           JOE
+           
         </div>
         <div
           className="css-19r4q7b"
@@ -29639,6 +29661,8 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                 Carol
                  
                 Danvers
+                 
+                (Certified paper copy)
               </div>
               <div
                 className="css-19r4q7b"
@@ -29875,6 +29899,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
                 BRUCE
                  
                 BANNER
+                 
               </div>
               <div
                 className="css-19r4q7b"
@@ -29910,6 +29935,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
                 JAMES
                  
                 HOWLETT (LOGAN)
+                 
                 <span
                   style={
                     Object {
@@ -29965,6 +29991,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
                 MONKEY
                  
                 JOE
+                 
               </div>
               <div
                 className="css-19r4q7b"
@@ -30229,6 +30256,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
           MONKEY
            
           JOE
+           
         </div>
         <div
           className="css-19r4q7b"
@@ -30272,6 +30300,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
           JAMES
            
           HOWLETT (LOGAN)
+           
           <span
             style={
               Object {
@@ -30335,6 +30364,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
           BRUCE
            
           BANNER
+           
         </div>
         <div
           className="css-19r4q7b"
@@ -31508,6 +31538,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                         BRUCE
                          
                         BANNER
+                         
                       </div>
                       <div
                         className="css-19r4q7b"
@@ -31546,6 +31577,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                         JAMES
                          
                         HOWLETT (LOGAN)
+                         
                         <span
                           style={
                             Object {
@@ -31604,6 +31636,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                         MONKEY
                          
                         JOE
+                         
                       </div>
                       <div
                         className="css-19r4q7b"
@@ -35756,6 +35789,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       BRUCE
                        
                       BANNER
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -35781,6 +35815,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       JAMES
                        
                       HOWLETT (LOGAN)
+                       
                       <span
                         style={
                           Object {
@@ -35826,6 +35861,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       MONKEY
                        
                       JOE
+                       
                     </div>
                     <div
                       className="css-19r4q7b"
@@ -36004,6 +36040,7 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
           MONKEY
            
           JOE
+           
         </div>
         <div
           className="css-19r4q7b"
@@ -36034,6 +36071,7 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
           BRUCE
            
           BANNER
+           
         </div>
         <div
           className="css-19r4q7b"
@@ -37210,7 +37248,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>4 × Birth certificate for Carol Danvers (10/6/1976)</i></td>
+                    <i>4 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
                 </tr>
     
@@ -37235,7 +37273,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        We have received your order. You will be charged when your certificates ship.
+        We have received your order. You will be charged when the certificates ship.
       </div>
     
               </td>
@@ -37249,7 +37287,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days we will cancel the order without charge.
+        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
       </div>
     
               </td>
@@ -37483,16 +37521,16 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  4 x Birth certificate for Carol Danvers (10/6/1976) $56.00
+  4 x Certified birth certificate for Carol Danvers (10/6/1976) $56.00
   Card processing fee*  $1.32
   Total  $141.32
 
-We have received your order. You will be charged when your 
+We have received your order. You will be charged when the 
 certificates ship.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
-business days we will cancel the order without charge.
+business days, we will cancel the order without charge.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -38079,7 +38117,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>4 × Birth certificate for Carol Danvers (10/6/1976)</i></td>
+                    <i>4 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
                 </tr>
     
@@ -38324,7 +38362,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  4 x Birth certificate for Carol Danvers (10/6/1976) $56.00
+  4 x Certified birth certificate for Carol Danvers (10/6/1976) $56.00
   Card processing fee*  $1.32
   Total  $141.32
 
