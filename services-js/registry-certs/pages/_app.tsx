@@ -215,6 +215,7 @@ export default class RegistryCertsApp extends App {
       deathCertificateCart,
       orderProvider,
       deathCertificatesDao,
+      birthCertificateRequest,
     } = this.pageDependencies;
 
     screenReaderSupport.attach();
@@ -224,9 +225,9 @@ export default class RegistryCertsApp extends App {
       screenReaderSupport,
     });
 
-    // We attach to localStorage in the constructor, rather than
-    // componentDidMount, so that the information is available on first
-    // render.
+    // We do Storage attachment on componentDidMount to ensure that the initial
+    // render matches the server, which does not have Storage available. The
+    // small flash from no data -> data is typically not a problem.
 
     // We need to ensure localStorage is available in the browser,
     // otherwise an error could be thrown:
@@ -239,6 +240,25 @@ export default class RegistryCertsApp extends App {
       sessionStorage = window.sessionStorage;
     } catch {
       //  possible security error; ignore.
+    }
+
+    if (sessionStorage) {
+      // QuestionsPage is set up to clone its birthCertificateRequest object so
+      // that it can manipulate it and only save the value back when the user
+      // presses the "Next" button.
+      //
+      // Because that cloning happens on initial load, any changes to the
+      // birthCertificateRequest here in componentDidMount would not be picked
+      // up. That’s why we clone and create a brand new object, which
+      // QuestionsPage can detect and update itself with.
+      const newBirthCertificateRequest = birthCertificateRequest.clone();
+      newBirthCertificateRequest.attach(sessionStorage);
+
+      // We need to re-render our children because the birthCertificateRequest
+      // changed. Since there's just one instance of this we don't bother
+      // changing everything to use state or MobX and just force the update.
+      this.pageDependencies.birthCertificateRequest = newBirthCertificateRequest;
+      (this as App).forceUpdate();
     }
 
     deathCertificateCart.attach(
@@ -255,11 +275,13 @@ export default class RegistryCertsApp extends App {
       routerListener,
       screenReaderSupport,
       orderProvider,
+      birthCertificateRequest,
     } = this.pageDependencies;
 
     routerListener.detach();
     screenReaderSupport.detach();
     orderProvider.detach();
+    birthCertificateRequest.detach();
   }
 
   render() {

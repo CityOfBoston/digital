@@ -8,6 +8,20 @@ import {
 
 import UploadableFile from './models/UploadableFile';
 
+export type JSONValue =
+  | string
+  | number
+  | boolean
+  | JSONObject
+  | JSONArray
+  | null;
+
+export type JSONObject = {
+  [x: string]: JSONValue;
+};
+
+export interface JSONArray extends Array<JSONValue> {}
+
 export type CertificateType = 'death' | 'birth';
 
 // Death-specific
@@ -62,23 +76,23 @@ export type Relation =
 
 export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
 
-export interface BirthCertificateRequestInformation {
+export type BirthCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
   bornInBoston: YesNoUnknownAnswer;
   parentsLivedInBoston?: YesNoUnknownAnswer;
   firstName: string;
   lastName: string;
-  altSpelling?: string;
+  altSpelling: string;
   birthDate?: Date | null;
   parentsMarried: YesNoUnknownAnswer;
   parent1FirstName: string;
-  parent1LastName?: string;
-  parent2FirstName?: string;
-  parent2LastName?: string;
+  parent1LastName: string;
+  parent2FirstName: string;
+  parent2LastName: string;
 
   // only required if parentsMarried !== true:
   idImageFront?: UploadableFile | null;
   idImageBack?: UploadableFile | null;
   supportingDocuments: UploadableFile[];
-}
+};

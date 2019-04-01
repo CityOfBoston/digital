@@ -39,8 +39,10 @@ storiesOf('Form Elements/Upload photo', module)
       initialFile={new File(SVG_BITS, 'img.svg', { type: 'image/svg+xml' })}
       {...mockHandlerFunctions}
     />
+  ))
+  .add('existing photo (reloaded)', () => (
+    <UploadPhoto initialFile={true} {...mockHandlerFunctions} />
   ));
-
 function IdImage(): JSX.Element {
   return (
     <div className={ID_IMAGE_STYLING}>

@@ -93,7 +93,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
       // Do not allow duplicate filenames, or files that are too large.
       if (
         !selectedFiles.find(
-          uploadableFile => uploadableFile.file.name === files[i].name
+          uploadableFile => uploadableFile.name === files[i].name
         ) &&
         this.checkFileSize(files[i])
       ) {
@@ -126,22 +126,16 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
   // Clear a file from the list, and delete from server.
   private deleteFile = async (
-    fileToClear: File,
+    file: UploadableFile,
     didCancel?: boolean
   ): Promise<void> => {
     const { selectedFiles } = this.props;
 
-    const file = selectedFiles.find(
-      fileObject => fileObject.file === fileToClear
+    await file.delete(didCancel);
+
+    this.props.handleInputChange(
+      selectedFiles.filter(fileObject => fileObject !== file)
     );
-
-    if (file) {
-      await file.delete(didCancel);
-
-      this.props.handleInputChange(
-        selectedFiles.filter(fileObject => fileObject !== file)
-      );
-    }
   };
 
   private handleFileChange = (): void => {
@@ -195,12 +189,12 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
         <ul className={`${FILE_LIST_STYLING} t--s400`}>
           {this.props.selectedFiles.map(uploadedFile => (
-            <li key={uploadedFile.file.name}>
+            <li key={uploadedFile.name}>
               {/* this instead of list-style to avoid ie11 formatting issue */}
               <span className="name">
                 <span aria-hidden="true">•</span>
 
-                <span>{uploadedFile.file.name}</span>
+                <span>{uploadedFile.name}</span>
               </span>
 
               {uploadedFile.status === 'canceling' ||
@@ -224,19 +218,19 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
 interface FileButtonProps {
   uploadableFile: UploadableFile;
-  deleteFile: (file: File, didCancel?: boolean) => void;
+  deleteFile: (file: UploadableFile, didCancel?: boolean) => void;
 }
 
 function FileButton(props: FileButtonProps): JSX.Element {
-  const { file, status } = props.uploadableFile;
+  const { name, status } = props.uploadableFile;
 
   if (status === 'success') {
     return (
       <CloseButton
-        handleClick={() => props.deleteFile(file)}
+        handleClick={() => props.deleteFile(props.uploadableFile)}
         className={DELETE_BUTTON_STYLING}
         size="1.7em"
-        title={`Remove file: ${file.name}`}
+        title={`Remove file: ${name}`}
       />
     );
   } else if (status === 'uploading') {
@@ -251,10 +245,10 @@ function FileButton(props: FileButtonProps): JSX.Element {
         />
 
         <CloseButton
-          handleClick={() => props.deleteFile(file, true)}
+          handleClick={() => props.deleteFile(props.uploadableFile, true)}
           className={DELETE_BUTTON_STYLING}
           size="1.7em"
-          title={`Cancel upload: ${file.name}`}
+          title={`Cancel upload: ${name}`}
         />
       </div>
     );
