@@ -113,4 +113,14 @@ export default class Session {
   save() {
     this.request.yar.set(LOGIN_SESSION_KEY, { ...this.loginSession });
   }
+
+  sessionDebugInfo() {
+    return {
+      isAuthenticated: this.request.auth.isAuthenticated,
+      hasLoginAuth: !!this.loginAuth,
+      hasLoginSession: !!this.loginSession,
+      hasForgotPasswordAuth: !!this.forgotPasswordAuth,
+      sessionCookie: this.request.state['session'],
+    };
+  }
 }

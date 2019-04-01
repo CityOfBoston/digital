@@ -165,6 +165,9 @@ export async function makeServer(port, rollbar: Rollbar) {
           'test-fake-key-iWIMwE69HJj9GQcHfCiu2TVyZoVxvYoU',
         isSecure: process.env.NODE_ENV === 'production',
         isHttpOnly: true,
+        // If we happen to get POSTed to from the SAML provider we still want to
+        // have our session available.
+        isSameSite: false,
       },
     },
   });

@@ -125,11 +125,9 @@ export type QueryRootResolvers = Resolvers<Query, Context>;
 export type MutationResolvers = Resolvers<Mutation, Context>;
 
 const queryRootResolvers: QueryRootResolvers = {
-  account: (
-    _root,
-    _args,
-    { session: { loginAuth, forgotPasswordAuth, loginSession } }
-  ) => {
+  account: (_root, _args, { session }) => {
+    const { loginAuth, forgotPasswordAuth, loginSession } = session;
+
     if (loginAuth && loginSession) {
       const { userId } = loginAuth;
       const {
@@ -165,13 +163,19 @@ const queryRootResolvers: QueryRootResolvers = {
         mfaRequiredDate: null,
       };
     } else {
-      throw Boom.forbidden();
+      // This must have the message "Forbidden" because it’s matched explicitly
+      // in _app.tsx.
+      throw Boom.forbidden('Forbidden', session.sessionDebugInfo());
     }
   },
 
-  apps: (_root, _args, { appsRegistry, session: { loginSession } }) => {
+  apps: (_root, _args, { appsRegistry, session }) => {
+    const { loginSession } = session;
+
     if (!loginSession) {
-      throw Boom.forbidden();
+      // This must have the message "Forbidden" because it’s matched explicitly
+      // in _app.tsx.
+      throw Boom.forbidden('Forbidden', session.sessionDebugInfo());
     }
 
     return {
