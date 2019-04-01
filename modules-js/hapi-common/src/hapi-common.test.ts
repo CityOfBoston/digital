@@ -1,4 +1,5 @@
 import { Server } from 'hapi';
+import Boom from 'boom';
 
 import {
   headerKeys,
@@ -117,6 +118,34 @@ describe('graphqlOptionsWithRollbar', () => {
         hapiRequest.raw.req,
         expect.anything()
       );
+    });
+
+    it('includes Boom data in GQL exceptions', async () => {
+      const hapiRequest: any = {
+        raw: {
+          req: {},
+          res: {},
+        },
+      };
+
+      const opts = await graphqlOptionsWithRollbar(rollbar, () => ({
+        formatError: e => e,
+      }))(hapiRequest);
+
+      const err = Boom.forbidden('Forbidden', { extraInfo: 'it blew up' });
+      const graphQlError: any = new Error();
+      graphQlError.originalError = err;
+
+      const out = opts.formatError(graphQlError);
+
+      expect(out).toBe(graphQlError);
+      expect(rollbar.error).toHaveBeenCalledWith(err, hapiRequest.raw.req, {
+        custom: {
+          data: {
+            extraInfo: 'it blew up',
+          },
+        },
+      });
     });
   });
 });
