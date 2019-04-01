@@ -16,7 +16,7 @@ export default class LoginFormModel extends PageModel {
         .click(this.submitButton)
         // Make sure the app is going after we’ve submitted
         .expect(isReactRunning())
-        .ok()
+        .ok({ timeout: 30000 })
     );
   }
 }
