@@ -127,6 +127,11 @@ export async function addLoginAuth(
   server.route({
     path: logoutPath,
     method: 'POST',
+    options: {
+      plugins: {
+        crumb: false,
+      },
+    },
     handler: (request, h) => {
       // We clear our cookie and stored session when you hit this button, since
       // it's better for us to be logged out on AccessBoston but logged in on
