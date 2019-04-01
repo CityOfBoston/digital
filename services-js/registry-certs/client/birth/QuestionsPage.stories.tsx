@@ -78,9 +78,8 @@ storiesOf('Birth/QuestionsFlow/2. Born in Boston?', module)
     />
   ));
 
-storiesOf('Birth/QuestionsFlow/3. Personal information', module).add(
-  'blank',
-  () => (
+storiesOf('Birth/QuestionsFlow/3. Personal information', module)
+  .add('blank', () => (
     <QuestionsPage
       siteAnalytics={{} as any}
       currentStep="personalInformation"
@@ -88,8 +87,19 @@ storiesOf('Birth/QuestionsFlow/3. Personal information', module).add(
         forSelf: true,
       })}
     />
-  )
-);
+  ))
+  .add('birth too recent', () => (
+    <QuestionsPage
+      siteAnalytics={{} as any}
+      currentStep="personalInformation"
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: false,
+        firstName: 'Robin',
+        lastName: 'Smith',
+        birthDate: new Date(Date.now() - 9 * 8.64e7),
+      })}
+    />
+  ));
 
 storiesOf('Birth/QuestionsFlow/4. Parental information', module)
   .add('blank', () => (
