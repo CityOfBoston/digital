@@ -28,10 +28,7 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
   const { loginAuth, loginSession } = session;
 
   if (!loginAuth || !loginSession) {
-    throw Boom.forbidden('Missing auth/session data for addMfaDevice', {
-      hasAuth: !!loginAuth,
-      hasSession: !!loginSession,
-    });
+    throw Boom.forbidden('No login session found', session.sessionDebugInfo());
   }
 
   const { userId } = loginAuth;
@@ -110,10 +107,7 @@ export const verifyMfaDeviceMutation: MutationResolvers['verifyMfaDevice'] = asy
   const { loginAuth, loginSession } = session;
 
   if (!loginAuth || !loginSession) {
-    throw Boom.forbidden('Missing auth/session data for verifyMfaDevice', {
-      hasAuth: !!loginAuth,
-      hasSession: !!loginSession,
-    });
+    throw Boom.forbidden('No login session found', session.sessionDebugInfo());
   }
 
   // Small safety check to ensure that the email address or phone number in the

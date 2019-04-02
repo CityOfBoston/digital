@@ -17,7 +17,7 @@ function sampleFile(status: Status, progress: number = 0) {
   );
 }
 
-storiesOf('Birth/SupportingDocumentsInput', module)
+storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
   .add('empty', () => (
     <SupportingDocumentsInput
       selectedFiles={[]}

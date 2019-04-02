@@ -124,6 +124,9 @@ export default class AccessBostonApp extends App {
       } else if (e.message === 'Forbidden') {
         // TODO(finh): Be more pedantic about detecting these, possibly by
         // checking the status code when doing GraphQL fetches.
+        if ((window as any).Rollbar) {
+          (window as any).Rollbar.warn('Forbidden response in getInitialProps');
+        }
         redirectUrl = '/login';
       } else {
         redirectUrl = null;

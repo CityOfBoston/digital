@@ -278,10 +278,6 @@ export const graphqlOptionsWithRollbar = (
     const oldFormatError = opts.formatError;
     opts.formatError = (e: any) => {
       const request = req.raw && req.raw.req;
-      const extra = {
-        graphql: req.payload,
-      };
-
       // GraphQL wraps the original exception, so we pull it back out from
       // originalError since it has the right type and stacktrace and
       // everything.
@@ -291,6 +287,12 @@ export const graphqlOptionsWithRollbar = (
       } else {
         err = e;
       }
+
+      const data = (err as any).data;
+      const extra = {
+        graphql: req.payload,
+        custom: data ? { data } : {},
+      };
 
       if (!err.silent) {
         rollbar.error(err, request, extra);
