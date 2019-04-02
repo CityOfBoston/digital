@@ -74,6 +74,9 @@ export async function makeServer(port, rollbar: Rollbar) {
     host: '0.0.0.0',
     port,
     tls: undefined as any,
+    state: {
+      ignoreErrors: true,
+    },
     cache: process.env.HAPI_REDIS_CACHE_HOST
       ? {
           engine: require('catbox-redis'),
