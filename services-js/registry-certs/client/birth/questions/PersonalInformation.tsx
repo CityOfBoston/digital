@@ -19,6 +19,7 @@ const EARLIEST_DATE = new Date(Date.UTC(1870, 0, 1));
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
+  showRecentBirthWarning?: boolean;
 
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
@@ -120,8 +121,8 @@ export default class PersonalInformation extends React.Component<Props> {
           />
         </div>
 
-        {birthDate &&
-          isDateWithinPastThreeWeeks(birthDate) &&
+        {(this.props.showRecentBirthWarning ||
+          (birthDate && isDateWithinPastThreeWeeks(birthDate))) &&
           this.renderRecentBirthWarningText()}
       </QuestionComponent>
     );
