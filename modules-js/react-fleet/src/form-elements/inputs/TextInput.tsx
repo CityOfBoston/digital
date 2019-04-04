@@ -6,8 +6,8 @@ import hash from 'string-hash';
  * “tel”, “password”, &c.)
  *
  * If necessary, an element can be passed in as the “label” property instead
- * of text. Its children should only contain plain text. The most common case
- * would be several sibling <span>s:
+ * of text. Its child elements should only contain plain text. The most common
+ * case would be several sibling <span>s:
  *
  * label={
  *  <>
@@ -23,14 +23,12 @@ import hash from 'string-hash';
  * also add the “txt-f” class to the element, and the “txt-f--err” class if
  * there’s an error.
  *
- * If “hideLabel” is specified, the label text will be added as an aria-label
- * attribute on the <input> element.
+ * If “hideLabel” is specified, the label text must be a string; it will be
+ * added as an aria-label attribute on the <input> element.
  */
-interface Props {
-  label: string | React.ReactNode;
+type Props = {
   type?: string;
   small?: boolean;
-  hideLabel?: boolean;
 
   id?: string;
   className?: string;
@@ -52,7 +50,15 @@ interface Props {
   onChange?(e: any): void;
   onFocus?(e: any): void;
   onKeyDown?(e: any): void;
-}
+} & (
+  | {
+      hideLabel: true;
+      label: string;
+    }
+  | {
+      hideLabel?: false | undefined;
+      label: string | React.ReactChild;
+    });
 
 export default function TextInput(props: Props): JSX.Element {
   const id = props.id || `input-${hash(props.label)}`;
@@ -76,26 +82,6 @@ export default function TextInput(props: Props): JSX.Element {
     }
   };
 
-  // If a React node is passed in for the input’s label, but “hideLabel” is
-  // true, the inner text is extracted from each child node so we have plain
-  // text for the “aria-label” attribute. Self-closing tags (e.g <wbr /> or
-  // <br />) are ignored. Child nodes may only contain plain text.
-  const extractAriaLabelText = (label): string => {
-    if (typeof label === 'string') {
-      return label;
-    } else {
-      return label.props.children
-        .reduce((acc, node) => {
-          if (node.props.children) {
-            return acc + node.props.children + ' ';
-          } else {
-            return acc;
-          }
-        }, '')
-        .trim();
-    }
-  };
-
   return (
     <div className={props.className} style={props.style}>
       <label htmlFor={id} className={classNames.label}>
@@ -113,7 +99,7 @@ export default function TextInput(props: Props): JSX.Element {
       <input
         className={classNames.input}
         id={id}
-        aria-label={props.hideLabel ? extractAriaLabelText(props.label) : ''}
+        aria-label={props.hideLabel ? props.label : ''}
         type={props.type || 'text'}
         name={props.name}
         placeholder={props.placeholder}

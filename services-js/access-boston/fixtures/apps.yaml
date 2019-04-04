@@ -16,9 +16,9 @@ categories:
       - title: Boston Maps
         url: https://boston.maps.arcgis.com/
         icon: /assets/apps/boston-maps.svg
-      - title: Career Center
+      - title: Current Job Openings
         url: https://employeeconnect-boston.icims.com/
-        icon: /assets/apps/career-center.svg
+        icon: /assets/apps/job-openings.svg
         groups:
           - SG_AB_ICIMS
       - title: Employee Self-Service
@@ -34,11 +34,21 @@ categories:
         icon: /assets/apps/hyperion.svg
         groups:
           - SG_AB_HYPERION
+      - title: Civis
+        url: https://platform.civisanalytics.com/
+        icon: /assets/apps/civis.svg
+        groups:
+          - SG_AB_CIVIS
       - title: IIQ
         url: https://identity.boston.gov/identityiq/
         icon: /assets/apps/identityiq.svg
         groups:
           - SG_AB_IAM_TEAM
+      - title: E-builder
+        url: https://https://sso.e-builder.net/
+        icon: /assets/apps/e-builder.svg
+        groups:
+          - SG_AB_CIVIS
       - title: Employee Training
         url: https://login.frontlineeducation.com/
         icon: /assets/apps/employee-training.svg

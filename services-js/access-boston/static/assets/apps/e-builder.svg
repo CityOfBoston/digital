@@ -1,0 +1,25 @@
+<svg id="Layer_1" data-name="Layer 1" 
+  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144">
+  <defs>
+    <style>.cls-1,.cls-4{fill:#fff;}.cls-1,.cls-2{stroke:#0f1f2d;}.cls-1,.cls-2,.cls-4,.cls-5{stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}.cls-2,.cls-5{fill:#fff;}.cls-3{fill:#0f1f2d;}.cls-4,.cls-5{stroke:#111f2d;}</style>
+  </defs>
+  <title>Construnction managment</title>
+  <polygon class="cls-1" points="98.28 112.08 34.29 112.08 34.29 28.43 98.28 28.43 98.28 47.53 98.28 112.08"/>
+  <rect class="cls-2" x="26.39" y="22.17" width="79.07" height="96.2"/>
+  <path class="cls-1" d="M73.41,18.2a7.22,7.22,0,0,0-6.8-6.13,7.22,7.22,0,0,0-6.8,6.13H51.52v10h30v-10Z"/>
+  <circle class="cls-3" cx="66.61" cy="18.7" r="2"/>
+  <polygon class="cls-4" points="121.6 88.19 103.53 88.19 95.03 96.93 95.03 100.32 73.2 100.32 73.2 117.67 121.58 117.67 121.6 88.19"/>
+  <rect class="cls-4" x="66.07" y="112.7" width="7.14" height="4.83"/>
+  <polygon class="cls-4" points="99.48 98.97 105.4 93.04 116.71 93.04 116.71 108.07 99.47 108.07 99.48 98.97"/>
+  <polygon class="cls-4" points="68.97 124.39 50.13 124.39 59.53 114.57 61.12 104.78 68.97 104.78 68.97 124.39"/>
+  <rect class="cls-4" x="73.01" y="112.43" width="50.32" height="12.08" rx="6.04"/>
+  <circle class="cls-4" cx="78.57" cy="118.48" r="6.04"/>
+  <circle class="cls-4" cx="98.33" cy="118.48" r="6.04"/>
+  <circle class="cls-4" cx="117.38" cy="118.48" r="6.04"/>
+  <line class="cls-5" x1="55.77" y1="43.47" x2="88.77" y2="43.47"/>
+  <rect class="cls-5" x="41.53" y="39.91" width="7.13" height="7.13"/>
+  <line class="cls-5" x1="55.77" y1="64.81" x2="88.77" y2="64.81"/>
+  <rect class="cls-5" x="41.53" y="61.25" width="7.13" height="7.13"/>
+  <line class="cls-5" x1="55.77" y1="86.14" x2="88.77" y2="86.14"/>
+  <rect class="cls-5" x="41.53" y="82.58" width="7.13" height="7.13"/>
+</svg>

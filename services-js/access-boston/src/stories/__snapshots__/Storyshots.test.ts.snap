@@ -3748,13 +3748,13 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/career-center.svg"
+                src="/assets/apps/job-openings.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Career Center
+              Current Job Openings
             </span>
           </a>
           <a
@@ -3822,6 +3822,27 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
+            href="https://platform.civisanalytics.com/"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/civis.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Civis
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
             onClick={[Function]}
             target="_blank"
@@ -3839,6 +3860,27 @@ Array [
               className="lwi-t"
             >
               IIQ
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://https://sso.e-builder.net/"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/e-builder.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              E-builder
             </span>
           </a>
           <a
@@ -4559,13 +4601,13 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/career-center.svg"
+                src="/assets/apps/job-openings.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Career Center
+              Current Job Openings
             </span>
           </a>
           <a
@@ -4633,6 +4675,27 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
+            href="https://platform.civisanalytics.com/"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/civis.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Civis
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
             onClick={[Function]}
             target="_blank"
@@ -4650,6 +4713,27 @@ Array [
               className="lwi-t"
             >
               IIQ
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://https://sso.e-builder.net/"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/e-builder.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              E-builder
             </span>
           </a>
           <a
@@ -5422,13 +5506,13 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/career-center.svg"
+                src="/assets/apps/job-openings.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Career Center
+              Current Job Openings
             </span>
           </a>
           <a
@@ -5496,6 +5580,27 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
+            href="https://platform.civisanalytics.com/"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/civis.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Civis
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
             onClick={[Function]}
             target="_blank"
@@ -5513,6 +5618,27 @@ Array [
               className="lwi-t"
             >
               IIQ
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://https://sso.e-builder.net/"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/e-builder.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              E-builder
             </span>
           </a>
           <a
