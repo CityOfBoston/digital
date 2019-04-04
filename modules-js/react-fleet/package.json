@@ -16,7 +16,6 @@
     "build:typescript": "tsc --emitDeclarationOnly",
     "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
     "prepare": "yarn run build",
-    "pretest": "tsc --noEmit",
     "test": "scripts/test.js",
     "fetch-templates": "ts-node ./scripts/fetch-templates.ts"
   },

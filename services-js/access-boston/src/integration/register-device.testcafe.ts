@@ -26,7 +26,7 @@ fixture('Device Registration')
     await t
       .navigateTo('/mfa')
       .expect(isReactRunning())
-      .ok();
+      .ok({ timeout: 30000 });
   });
 
 test.only('Device registration', async t => {

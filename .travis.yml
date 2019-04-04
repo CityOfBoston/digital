@@ -8,7 +8,6 @@ env:
 - TZ=America/New_York
 git:
   depth: false
-cache: yarn
 branches:
   only:
   - develop
@@ -23,7 +22,8 @@ jobs:
     if: type IN (push)
     install:
     - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
-    - yarn install --frozen-lockfile
+    - yarn install --frozen-lockfile --ignore-scripts
+    - yarn run prepare
     script:
     - yarn run test
     - yarn run test:templates
@@ -40,7 +40,7 @@ jobs:
     install:
     - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
     - yarn install --frozen-lockfile --ignore-scripts
-    - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies
+    - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies 
       prepare
     script:
     - yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
