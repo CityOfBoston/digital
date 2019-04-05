@@ -150,7 +150,7 @@ export default class VerifyIdentificationComponent extends React.Component<
         <div className="g">
           <div className="g--6 m-v500">
             <UploadPhoto
-              initialFile={idImageFront ? idImageFront.file : null}
+              initialFile={idImageFront ? idImageFront.file || true : null}
               uploadProgress={idImageFront && idImageFront.progress}
               errorMessage={idImageFront && idImageFront.errorMessage}
               handleButtonClick={() => this.handlePhotoButtonClick('front')}
@@ -164,7 +164,7 @@ export default class VerifyIdentificationComponent extends React.Component<
 
           <div className="g--6 m-v500">
             <UploadPhoto
-              initialFile={idImageBack ? idImageBack.file : null}
+              initialFile={idImageBack ? idImageBack.file || true : null}
               uploadProgress={idImageBack && idImageBack.progress}
               errorMessage={idImageBack && idImageBack.errorMessage}
               handleButtonClick={() => this.handlePhotoButtonClick('back')}

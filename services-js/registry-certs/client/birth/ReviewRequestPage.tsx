@@ -37,21 +37,6 @@ export default class ReviewRequestPage extends React.Component<Props> {
 
     window.scroll(0, 0);
 
-    // If any of the question steps are not complete (i.e. user backed up,
-    // changed an answer, and used the browser “forward” button), return to the
-    // beginning of the questions flow.
-    if (this.props.birthCertificateRequest.questionStepsComplete === false) {
-      // todo: improve this experience
-      // todo: behavior is duplicated in CheckoutPage.tsx
-
-      siteAnalytics.sendEvent('question results lost', {
-        category: 'Birth',
-        label: 'review request',
-      });
-
-      return Router.push('/birth');
-    }
-
     // Since user has provided all needed information by this point, we
     // will count this birth certificate as a trackable product.
     siteAnalytics.addProduct(
@@ -183,6 +168,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
             className="btn g--3"
             type="button"
             onClick={this.goToCheckout}
+            disabled={!this.props.birthCertificateRequest.questionStepsComplete}
           >
             Continue
           </button>

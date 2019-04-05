@@ -1,11 +1,17 @@
-import { action, observable, computed } from 'mobx';
+import { action, observable, computed, autorun } from 'mobx';
 import uuidv4 from 'uuid/v4';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import { MemorableDateInput } from '@cityofboston/react-fleet';
 
-import { BirthCertificateRequestInformation, Step } from '../types';
+import {
+  BirthCertificateRequestInformation,
+  Step,
+  JSONObject,
+  JSONValue,
+} from '../types';
 import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
+import UploadableFile, { UploadableFileRecord } from '../models/UploadableFile';
 
 // This is used for initial state during the questions flow, and to
 // reset all fields if user selects “start over”
@@ -47,6 +53,16 @@ export const CHECKOUT_STEPS: Step[] = [
 ];
 
 /**
+ * Type that has all the same keys as BirthCertificateRequestInformation but its
+ * values are all JSON-serializable.
+ */
+type BirthCertificateRequestInformationJson = {
+  [k in NonNullable<keyof BirthCertificateRequestInformation>]: JSONValue
+};
+
+const SESSION_STORAGE_KEY = 'birthCertificateRequest';
+
+/**
  * State object for a birth certificate request.
  *
  * quantity: Number of certificates requested
@@ -70,6 +86,8 @@ export default class BirthCertificateRequest {
   public uploadSessionId: string;
   public siteAnalytics: GaSiteAnalytics | null = null;
 
+  private sessionStorageDisposer: Function | null = null;
+
   constructor() {
     this.uploadSessionId = uuidv4();
   }
@@ -84,6 +102,128 @@ export default class BirthCertificateRequest {
     requestInformation: BirthCertificateRequestInformation
   ): void {
     this.requestInformation = requestInformation;
+  }
+
+  /**
+   * Converts the important parts of the request to JSON for sessionstorage
+   * serialization.
+   *
+   * We explicitly don’t call this "toJSON" because we don’t want Jest’s
+   * snapshot serializer to use it.
+   */
+  serializeToJSON(): JSONObject {
+    const serializedRequestInformation: BirthCertificateRequestInformationJson = {
+      altSpelling: this.requestInformation.altSpelling,
+      birthDate: this.requestInformation.birthDate
+        ? this.requestInformation.birthDate.toISOString()
+        : null,
+      bornInBoston: this.requestInformation.bornInBoston,
+      firstName: this.requestInformation.firstName,
+      forSelf: this.requestInformation.forSelf,
+      howRelated: this.requestInformation.howRelated || null,
+      lastName: this.requestInformation.lastName,
+      parent1FirstName: this.requestInformation.parent1FirstName,
+      parent1LastName: this.requestInformation.parent1LastName,
+      parent2FirstName: this.requestInformation.parent2FirstName,
+      parent2LastName: this.requestInformation.parent2LastName,
+      parentsLivedInBoston:
+        this.requestInformation.parentsLivedInBoston || null,
+      parentsMarried: this.requestInformation.parentsMarried,
+      idImageBack: this.requestInformation.idImageBack
+        ? this.requestInformation.idImageBack.record
+        : null,
+      idImageFront: this.requestInformation.idImageFront
+        ? this.requestInformation.idImageFront.record
+        : null,
+      supportingDocuments: this.requestInformation.supportingDocuments.map(
+        f => f.record
+      ),
+    };
+
+    return {
+      quantity: this.quantity,
+      uploadSessionId: this.uploadSessionId,
+      requestInformation: serializedRequestInformation,
+    };
+  }
+
+  /**
+   * Inverse of #toJSON.
+   */
+  @action
+  replaceWithJson(obj: any) {
+    this.quantity = obj.quantity;
+    this.uploadSessionId = obj.uploadSessionId;
+    this.requestInformation = {
+      altSpelling: obj.requestInformation.altSpelling,
+      birthDate: obj.requestInformation.birthDate
+        ? new Date(obj.requestInformation.birthDate)
+        : null,
+      bornInBoston: obj.requestInformation.bornInBoston,
+      firstName: obj.requestInformation.firstName,
+      forSelf: obj.requestInformation.forSelf,
+      howRelated: obj.requestInformation.howRelated,
+      idImageBack: obj.requestInformation.idImageBack
+        ? UploadableFile.fromRecord(
+            obj.requestInformation.idImageBack,
+            this.uploadSessionId,
+            'id back'
+          )
+        : null,
+      idImageFront: obj.requestInformation.idImageFront
+        ? UploadableFile.fromRecord(
+            obj.requestInformation.idImageFront,
+            this.uploadSessionId,
+            'id front'
+          )
+        : null,
+      lastName: obj.requestInformation.lastName,
+      parent1FirstName: obj.requestInformation.parent1FirstName,
+      parent1LastName: obj.requestInformation.parent1LastName,
+      parent2FirstName: obj.requestInformation.parent2FirstName,
+      parent2LastName: obj.requestInformation.parent2LastName,
+      parentsLivedInBoston: obj.requestInformation.parentsLivedInBoston,
+      parentsMarried: obj.requestInformation.parentsMarried,
+      supportingDocuments: (
+        obj.requestInformation.supportingDocuments || []
+      ).map((r: UploadableFileRecord) =>
+        UploadableFile.fromRecord(r, this.uploadSessionId)
+      ),
+    };
+  }
+
+  @action
+  attach(sessionStorage: Storage | null) {
+    if (sessionStorage) {
+      const savedJson = sessionStorage.getItem(SESSION_STORAGE_KEY);
+
+      if (savedJson) {
+        try {
+          const savedObj = JSON.parse(savedJson);
+          this.replaceWithJson(savedObj);
+        } catch (e) {
+          // if there's a problem with the saved data then we want to wipe it out
+          sessionStorage.removeItem(SESSION_STORAGE_KEY);
+          if ((window as any).rollbar) {
+            (window as any).rollbar.error(e);
+          }
+        }
+      }
+
+      this.sessionStorageDisposer = autorun(() => {
+        sessionStorage.setItem(
+          SESSION_STORAGE_KEY,
+          JSON.stringify(this.serializeToJSON())
+        );
+      });
+    }
+  }
+
+  detach() {
+    if (this.sessionStorageDisposer) {
+      this.sessionStorageDisposer();
+      this.sessionStorageDisposer = null;
+    }
   }
 
   @computed

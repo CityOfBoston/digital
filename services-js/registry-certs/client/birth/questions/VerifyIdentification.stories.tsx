@@ -58,6 +58,29 @@ storiesOf('Birth/Question Components/VerifyIdentification', module)
       />
     </div>
   ))
+  .add('reloaded images', () => (
+    <VerifyIdentification
+      {...commonAttributes}
+      birthCertificateRequest={makeBirthCertificateRequest({
+        forSelf: true,
+        parentsMarried: 'no',
+        idImageFront: UploadableFile.fromRecord(
+          { attachmentKey: '4', name: 'id.jpg' },
+          'test'
+        ),
+        supportingDocuments: [
+          UploadableFile.fromRecord(
+            { attachmentKey: '5', name: 'Deadname to Finnegan change.pdf' },
+            'test'
+          ),
+          UploadableFile.fromRecord(
+            { attachmentKey: '6', name: 'Finnegan to Fiona name change.pdf' },
+            'test'
+          ),
+        ],
+      })}
+    />
+  ))
   .add('upload error', () => (
     <div className="b-c b-c--hsm">
       <VerifyIdentification

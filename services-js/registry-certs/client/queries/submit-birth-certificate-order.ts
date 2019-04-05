@@ -125,6 +125,10 @@ export default async function submitBirthCertificateOrder(
     );
   }
 
+  if (!birthDate) {
+    throw new Error('birthDate was not set');
+  }
+
   // Birth Certificate Request Questions:
   const notes = `
 Relation: ${forSelf ? 'self' : howRelated || 'unknown'}

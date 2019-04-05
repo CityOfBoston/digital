@@ -3,6 +3,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
+import Link from 'next/link';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
@@ -106,22 +107,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
   async componentDidMount() {
     this.reportCheckoutStep(this.props);
 
-    const { orderProvider, siteAnalytics } = this.props;
-
-    // If any of the question steps are not complete (i.e. user backed up,
-    // changed an answer, and used the browser “forward” button), return to the
-    // beginning of the questions flow.
-    if (this.props.birthCertificateRequest.questionStepsComplete === false) {
-      // todo: improve this experience
-      // todo: behavior is duplicated in ReviewRequestPage.tsx
-
-      siteAnalytics.sendEvent('question results lost', {
-        category: 'Birth',
-        label: `checkout: ${this.props.info.page}`,
-      });
-
-      return Router.push('/birth');
-    }
+    const { orderProvider } = this.props;
 
     if (this.state.order) {
       return;
@@ -309,11 +295,39 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     const { info, birthCertificateRequest, stripe } = this.props;
     const { order } = this.state;
 
+    // We short-circuit here because the confirmation page doesn’t need an order
+    // or a complete birth certificate request.
+    if (info.page === 'confirmation') {
+      return (
+        <BirthConfirmationContent
+          contactEmail={info.contactEmail}
+          orderId={info.orderId}
+          stepCount={info.stepCount}
+        />
+      );
+    }
+
     const progressSteps = birthCertificateRequest.steps.length;
 
     // This happens during server side rendering
-    if (!order) {
-      return <CheckoutPageLayout certificateType="birth" />;
+    if (!order || !birthCertificateRequest.questionStepsComplete) {
+      return (
+        <CheckoutPageLayout certificateType="birth">
+          {order &&
+            !birthCertificateRequest.questionStepsComplete && (
+              <>
+                <div className="t--info">
+                  Your birth certificate request is incomplete.
+                </div>
+                <div className="m-v500 ta-c">
+                  <Link href="/birth">
+                    <a className="btn">Back to Start</a>
+                  </Link>
+                </div>
+              </>
+            )}
+        </CheckoutPageLayout>
+      );
     }
 
     switch (info.page) {
@@ -364,15 +378,6 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
-          />
-        );
-
-      case 'confirmation':
-        return (
-          <BirthConfirmationContent
-            contactEmail={info.contactEmail}
-            orderId={info.orderId}
-            stepCount={info.stepCount}
           />
         );
     }
