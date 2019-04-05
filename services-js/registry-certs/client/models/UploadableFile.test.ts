@@ -42,7 +42,7 @@ describe('UploadableFile', () => {
 
     await sampleFileUploadComplete(file);
 
-    expect(file.uploadResponse && file.uploadResponse.attachmentKey).toBe('17');
+    expect(file.attachmentKey).toBe('17');
     expect(file.status).toBe('success');
   });
 

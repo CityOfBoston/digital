@@ -38,6 +38,11 @@ interface State {
    */
   localBirthCertificateRequest: BirthCertificateRequest;
   /**
+   * Stored reference to the Prop birthCertificateRequest, used to detect props
+   * changes.
+   */
+  globalBirthCertificateRequest: BirthCertificateRequest;
+  /**
    * Saved here so that getDerivedStateFromProps knows when we switch pages. (It
    * doesn’t receive prevProps.)
    */
@@ -84,10 +89,17 @@ export default class QuestionsPage extends React.Component<Props, State> {
   ): Partial<State> | null => {
     // When the step changes we create a new clone of the request for us to play
     // with. We'll update the original, global request when the user submits.
-    if (props.currentStep !== state.currentStep) {
+    //
+    // We also are sensitive to the prop birth certificate request changing,
+    // which can happen when it’s restored from session storage.
+    if (
+      props.currentStep !== state.currentStep ||
+      props.birthCertificateRequest !== state.globalBirthCertificateRequest
+    ) {
       return {
         currentStep: props.currentStep,
         localBirthCertificateRequest: props.birthCertificateRequest.clone(),
+        globalBirthCertificateRequest: props.birthCertificateRequest,
       };
     } else {
       return null;
@@ -99,6 +111,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     this.state = {
       localBirthCertificateRequest: props.birthCertificateRequest.clone(),
+      globalBirthCertificateRequest: props.birthCertificateRequest,
       currentStep: props.currentStep,
     };
   }
@@ -174,7 +187,10 @@ export default class QuestionsPage extends React.Component<Props, State> {
         this.gaAnswerQuestion('parents lived in Boston', parentsLivedInBoston);
       }
     } else if (currentStep === 'personalInformation' && birthDate) {
-      this.gaAnswerQuestion('birth year', birthDate.getFullYear().toString());
+      this.gaAnswerQuestion(
+        'birth year',
+        birthDate.getUTCFullYear().toString()
+      );
     } else if (currentStep === 'parentalInformation') {
       this.gaAnswerQuestion('parents married', parentsMarried);
     }

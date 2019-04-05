@@ -11,7 +11,9 @@ import {
 } from '../utilities/constants';
 
 interface Props {
-  initialFile?: File | null;
+  /** Pass "true" if we should act like there’s a file but we don’t have a File
+   * / preview for it */
+  initialFile?: File | true | null;
   backgroundElement?: JSX.Element;
   buttonTitleUpload?: string;
   buttonTitleRemove?: string;
@@ -26,10 +28,12 @@ interface Props {
   errorMessage?: string | null;
 
   acceptTypes: string;
+
+  defaultPreviewUrl: string;
 }
 
 interface State {
-  file: File | null;
+  file: File | true | null;
   previewUrl: string | null;
 }
 
@@ -38,7 +42,7 @@ interface State {
  * by choosing a file from their computer.
  *
  * Default appearance can be customized by passing an element into the
- * backgroundElement property; when an image has been selected, its’ preview
+ * backgroundElement property; when an image has been selected, its preview
  * will be the same height as that initial element. You may also pass in a
  * static value for the previewHeight.
  *
@@ -53,26 +57,31 @@ export default class UploadPhoto extends React.Component<Props, State> {
     buttonTitleRemove: 'Remove photo',
     buttonTitleCancel: 'Cancel upload',
     acceptTypes: 'image/*',
+    defaultPreviewUrl:
+      'https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg',
   };
 
   state: State = {
     file: this.props.initialFile || null,
     // jsdom doesn’t have a createObjectURL implementation
     previewUrl:
-      this.props.initialFile && typeof URL.createObjectURL !== 'undefined'
+      this.props.initialFile &&
+      this.props.initialFile !== true &&
+      typeof URL.createObjectURL !== 'undefined'
         ? URL.createObjectURL(this.props.initialFile)
         : null,
   };
 
   private onDrop = (files: File[]): void => {
     if (files.length) {
+      const file = files[0];
       this.setState(
         {
-          file: files[0],
-          previewUrl: URL.createObjectURL(files[0]),
+          file,
+          previewUrl: URL.createObjectURL(file),
         },
         () => {
-          this.state.file && this.props.handleDrop(this.state.file);
+          this.props.handleDrop(file);
         }
       );
     }
@@ -123,7 +132,11 @@ export default class UploadPhoto extends React.Component<Props, State> {
 
   render() {
     const { errorMessage, uploadProgress, acceptTypes } = this.props;
-    const { file, previewUrl } = this.state;
+    const { file } = this.state;
+
+    const previewUrl = file
+      ? this.state.previewUrl || this.props.defaultPreviewUrl
+      : null;
 
     const isUploading = uploadProgress && uploadProgress < 100;
     const hasError = !!errorMessage;

@@ -2557,7 +2557,7 @@ exports[`Storyshots Form Elements/Upload photo default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form Elements/Upload photo existing photo 1`] = `
+exports[`Storyshots Form Elements/Upload photo existing photo (reloaded) 1`] = `
 <div
   className="g"
 >
@@ -2600,7 +2600,7 @@ exports[`Storyshots Form Elements/Upload photo existing photo 1`] = `
           <div
             style={
               Object {
-                "visibility": "visible",
+                "visibility": "hidden",
               }
             }
           >
@@ -2652,6 +2652,145 @@ exports[`Storyshots Form Elements/Upload photo existing photo 1`] = `
               </svg>
             </div>
           </div>
+          <div
+            className="css-5xh0sb"
+            style={
+              Object {
+                "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="br br-t200"
+        style={
+          Object {
+            "position": "relative",
+          }
+        }
+      >
+        <button
+          className="btn btn--w btn--b css-cavyyu  "
+          onClick={[Function]}
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+          type="button"
+        >
+          Remove photo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements/Upload photo existing photo 1`] = `
+<div
+  className="g"
+>
+  <div
+    className="g--4"
+  >
+    <div
+      className="br br-a200"
+    >
+      <div
+        className="css-b3ja71"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragEnter={[Function]}
+        onDragLeave={[Function]}
+        onDragOver={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        tabIndex={0}
+      >
+        <input
+          accept="image/*"
+          autoComplete="off"
+          multiple={false}
+          onChange={[Function]}
+          onClick={[Function]}
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          tabIndex={-1}
+          type="file"
+        />
+        <div
+          className="css-18dy1p4 "
+        >
+          <div
+            style={
+              Object {
+                "visibility": "hidden",
+              }
+            }
+          >
+            <div
+              className="css-aipimn"
+            >
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 22 144 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polygon
+                  points="93.58 51.5 87.75 41.5 59.55 41.5 54.35 51.5 27.18 51.5 27.18 102.5 116.82 102.5 116.82 51.5 93.58 51.5"
+                />
+                <rect
+                  height="7.01"
+                  width="15.23"
+                  x="31.48"
+                  y="44.49"
+                />
+                <circle
+                  cx="74"
+                  cy="74.38"
+                  r="22.88"
+                />
+                <circle
+                  cx="74"
+                  cy="74.38"
+                  r="17.47"
+                />
+                <circle
+                  cx="38.63"
+                  cy="60.15"
+                  r="3.24"
+                />
+                <line
+                  x1="96.12"
+                  x2="116.82"
+                  y1="67.86"
+                  y2="67.86"
+                />
+                <line
+                  x1="27.18"
+                  x2="51.88"
+                  y1="67.86"
+                  y2="67.86"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            className="css-5xh0sb"
+            style={
+              Object {
+                "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
+              }
+            }
+          />
         </div>
       </div>
       <div

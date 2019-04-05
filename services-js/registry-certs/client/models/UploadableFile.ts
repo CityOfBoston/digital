@@ -1,4 +1,4 @@
-import { observable, computed, action, runInAction } from 'mobx';
+import { observable, action, runInAction, computed } from 'mobx';
 
 import getConfig from 'next/config';
 
@@ -23,6 +23,11 @@ export type Status =
 
 // todo: ie11 not displaying files in supporting docs list
 
+export type UploadableFileRecord = {
+  readonly attachmentKey: string | null;
+  readonly name: string | null;
+};
+
 /**
  * Binary files provided by the user are immediately uploaded to (or deleted
  * from) the db server. Because an input may accept multiple files at once,
@@ -31,29 +36,75 @@ export type Status =
  */
 export default class UploadableFile {
   private readonly fetchGraphql: FetchGraphql;
-  readonly file: File;
+  readonly file: File | null;
+  readonly name: string;
+
   private readonly uploadSessionId: string;
   private readonly label: string | undefined;
 
   @observable status: Status;
   @observable progress: number; // 0 - 100
+  @observable attachmentKey: string | null;
 
   @observable.ref uploadRequest: XMLHttpRequest | null = null;
-  @observable.ref uploadResponse: UploadResponse | null = null;
   @observable errorMessage: string | null = null;
 
-  constructor(file: File, uploadSessionId: string, label?: string) {
+  public static fromRecord(
+    rec: UploadableFileRecord,
+    uploadSessionId: string,
+    label?: string
+  ): UploadableFile {
+    const uploadableFile = new UploadableFile(
+      rec.name || 'unknown file name',
+      uploadSessionId,
+      label
+    );
+
+    uploadableFile.status = 'success';
+    uploadableFile.attachmentKey = rec.attachmentKey;
+
+    return uploadableFile;
+  }
+
+  constructor(file: File | string, uploadSessionId: string, label?: string) {
     this.fetchGraphql = fetchGraphql();
 
-    this.file = file;
+    if (file instanceof File) {
+      this.file = file;
+      this.name = file.name;
+    } else {
+      this.file = null;
+      this.name = file;
+    }
+
     this.label = label;
     this.uploadSessionId = uploadSessionId;
     this.status = 'idle';
     this.progress = 0;
+    this.attachmentKey = null;
+  }
+
+  @computed
+  get record(): UploadableFileRecord | null {
+    // We only want to save files that have uploaded.
+    if (this.status === 'success') {
+      return {
+        attachmentKey: this.attachmentKey || null,
+        name: this.file ? this.file.name : null,
+      };
+    } else {
+      return null;
+    }
   }
 
   @action
   upload() {
+    if (!this.file) {
+      throw new Error(
+        'upload called on UploadableFile that came from an UploadableFileRecord'
+      );
+    }
+
     const uploadRequest = new XMLHttpRequest();
     const formData = new FormData();
 
@@ -133,9 +184,9 @@ export default class UploadableFile {
       return;
     }
 
-    if (xhr.status >= 200 && xhr.status <= 299) {
+    if (xhr.status >= 200 && xhr.status <= 299 && json) {
       this.status = 'success';
-      this.uploadResponse = json;
+      this.attachmentKey = json.attachmentKey;
     } else {
       this.status = 'uploadError';
       this.errorMessage = `Upload failed: ${xhr.statusText}`;
@@ -170,13 +221,6 @@ export default class UploadableFile {
 
     this.uploadRequest = null;
     this.progress = 0;
-  }
-
-  // Unique value returned from the server on upload success. Used to identify
-  // files on the server when deleting.
-  @computed
-  get attachmentKey(): string | null {
-    return this.uploadResponse ? this.uploadResponse.attachmentKey : null;
   }
 }
 

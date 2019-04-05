@@ -7,7 +7,6 @@ import CheckoutDao from '../dao/CheckoutDao';
 import OrderProvider from '../store/OrderProvider';
 import Order, { OrderInfo } from '../models/Order';
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
-import { BirthCertificateRequestInformation } from '../types';
 
 const makeStripe = () =>
   typeof Stripe !== 'undefined' ? Stripe('fake-secret-key') : null;
@@ -17,9 +16,19 @@ function makeBirthCertificateRequest() {
 
   request.quantity = 4;
   request.answerQuestion({
+    altSpelling: 'Car-Ell, Vers',
+    birthDate: new Date(1968, 2, 1),
+    bornInBoston: 'yes',
     firstName: 'Carol',
     lastName: 'Danvers',
-    birthDate: new Date(1968, 2, 5),
+    forSelf: true,
+    parent1FirstName: 'Mari-Ell',
+    parent2FirstName: 'Joe',
+    parent2LastName: 'Danvers',
+    parentsMarried: 'yes',
+    idImageFront: null,
+    idImageBack: null,
+    supportingDocuments: [],
   });
 
   return request;
@@ -76,31 +85,6 @@ function makeBillingCompleteOrder(overrides = {}) {
   });
 }
 
-const birthCertificateRequestInformation: BirthCertificateRequestInformation = {
-  forSelf: true,
-  howRelated: '',
-  bornInBoston: 'yes',
-  parentsLivedInBoston: '',
-  firstName: 'Martin',
-  lastName: 'Walsh',
-  altSpelling: '',
-  birthDate: new Date(Date.UTC(1967, 3, 10)),
-  parentsMarried: 'yes',
-  parent1FirstName: 'Martin',
-  parent1LastName: '',
-  parent2FirstName: '',
-  parent2LastName: '',
-  idImageBack: null,
-  idImageFront: null,
-  supportingDocuments: [],
-};
-
-const birthCertificateRequest = new BirthCertificateRequest();
-
-birthCertificateRequest.setRequestInformation(
-  birthCertificateRequestInformation
-);
-
 storiesOf('Birth/CheckoutPage', module)
   .add('server-side render', () => (
     <CheckoutPage
@@ -111,6 +95,18 @@ storiesOf('Birth/CheckoutPage', module)
       stripe={makeStripe()}
       // This never resolves, so we just get the initial render.
       orderProvider={{ get: () => new Promise(() => {}) } as any}
+    />
+  ))
+  .add('no birth certificate request', () => (
+    <CheckoutPage
+      birthCertificateRequest={new BirthCertificateRequest()}
+      info={{ page: 'shipping' }}
+      siteAnalytics={new GaSiteAnalytics()}
+      checkoutDao={new CheckoutDao(null as any, null)}
+      stripe={makeStripe()}
+      // This never resolves, so we just get the initial render.
+      orderProvider={new OrderProvider()}
+      orderForTest={new Order()}
     />
   ))
   .add('shipping', () => (
