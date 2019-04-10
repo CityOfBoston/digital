@@ -478,6 +478,16 @@ export default class Open311 {
           );
 
           break;
+
+        case 'phone':
+          {
+            const phone = args.phone;
+            if (phone) {
+              params.append('phone', normalizePhoneNumber(phone));
+            }
+          }
+
+          break;
         default:
           if (args[key]) {
             params.append(key, args[key]);
@@ -501,4 +511,13 @@ export default class Open311 {
 
     return (await processResponse(response))[0];
   }
+}
+
+/**
+ * We assume this is coming in as "+1 (617) 555-1234" because that's what the
+ * form field validator and mask generate. But the backend wants just a +1 and
+ * then the 10 digits, so we need to strip the hyphens and parens and spaces.
+ */
+export function normalizePhoneNumber(num: string) {
+  return '+' + num.replace(/\W/g, '');
 }
