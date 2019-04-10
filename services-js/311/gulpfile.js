@@ -98,45 +98,4 @@ gulp.task('templates:fetch', cb => {
   );
 });
 
-const GRAPHQL_QUERIES = path.join('data', 'dao', 'graphql', '*.graphql');
-const GRAPHQL_SCHEMA = path.join('graphql', 'schema.json');
-
-gulp.task('graphql:schema', cb => {
-  exec(
-    `${path.join('node_modules', '.bin', 'babel-node')} ${path.join(
-      '.',
-      'scripts',
-      'generate-schema'
-    )}`,
-    (err, stdout, stderr) => {
-      if (stdout) console.log(stdout);
-      if (stderr) console.log(stderr);
-      cb(err);
-    }
-  );
-});
-
-gulp.task('graphql:types', ['graphql:schema'], cb => {
-  exec(
-    `${path.join(
-      'node_modules',
-      '.bin',
-      'apollo-codegen'
-    )} generate ${GRAPHQL_QUERIES} --schema ${GRAPHQL_SCHEMA} --target flow --output data/queries/graphql/types.js --no-add-typename`,
-    (err, stdout, stderr) => {
-      if (stdout) console.log(stdout);
-      if (stderr) console.log(stderr);
-      cb(err);
-    }
-  );
-});
-
-gulp.task('watch:graphql', () => [
-  gulp.watch('server/graphql/*.js', ['graphql:schema']),
-  gulp.watch(
-    [GRAPHQL_QUERIES.replace(/\\/g, '/'), GRAPHQL_SCHEMA.replace(/\\/g, '/')],
-    ['graphql:types']
-  ),
-]);
-
-gulp.task('watch', ['watch:graphql', 'watch:sprite']);
+gulp.task('watch', ['watch:sprite']);

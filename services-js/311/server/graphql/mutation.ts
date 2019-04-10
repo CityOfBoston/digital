@@ -1,97 +1,77 @@
-import { Context } from '.';
+import { Resolvers } from '@cityofboston/graphql-typescript';
+
 import { CreateServiceRequestArgs } from '../services/Open311';
-import { Root as Case } from './case';
 
-export const Schema = `
-input CreateCaseAttribute {
-  code: String!
-  value: String!
-}
+import { Context } from '.';
+import { LatLngIn } from './query';
+import { Case, CaseRoot } from './case';
 
-type Mutation {
-  createCase (
-    code: String!
-    description: String!
-    descriptionForClassifier: String!
-    firstName: String
-    lastName: String
-    email: String
-    phone: String
-    address: String
-    addressId: String
-    mediaUrl: String
-    location: LatLngIn
-    attributes: [CreateCaseAttribute!]!
-  ): Case!
-}
-`;
-
-interface CreateCaseArgs {
+/** @graphql input */
+interface CreateCaseAttribute {
   code: string;
-  description: string;
-  descriptionForClassifier: string;
-  firstName: string | undefined;
-  lastName: string | undefined;
-  email: string | undefined;
-  phone: string | undefined;
-  address: string | undefined;
-  addressId: string | undefined;
-  location:
-    | {
-        lat: number;
-        lng: number;
-      }
-    | undefined;
-
-  mediaUrl: string | undefined;
-  attributes: { code: string; value: string }[];
+  value: string;
 }
+
+export interface Mutation {
+  createCase(args: {
+    code: string;
+    description: string;
+    descriptionForClassifier: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
+    address?: string;
+    addressId?: string;
+    mediaUrl?: string;
+    location?: LatLngIn;
+    attributes: CreateCaseAttribute[];
+  }): Case;
+}
+
+const mutationResolvers: Resolvers<Mutation, Context> = {
+  async createCase(
+    _,
+    args,
+    { open311, prediction, rollbar }
+  ): Promise<CaseRoot> {
+    const createArgs: CreateServiceRequestArgs = {
+      service_code: args.code,
+      description: args.description,
+      first_name: args.firstName,
+      last_name: args.lastName,
+      email: args.email,
+      phone: args.phone,
+      media_url: args.mediaUrl,
+      attributes: args.attributes,
+    };
+
+    if (args.address) {
+      createArgs.address_string = args.address;
+    }
+
+    if (args.location) {
+      createArgs.lat = args.location.lat;
+      createArgs.long = args.location.lng;
+    }
+
+    const request = await open311.createRequest(createArgs);
+
+    // We send this asynchronously because its success or failure shouldn't
+    // affect whether we return the new case to the client.
+    if (args.descriptionForClassifier) {
+      prediction
+        .caseCreated(request, args.descriptionForClassifier)
+        .catch(err => rollbar.error(err));
+    }
+
+    return {
+      source: 'Open311',
+      request,
+    };
+  },
+};
 
 export const resolvers = {
-  Mutation: {
-    async createCase(
-      _: {},
-      args: CreateCaseArgs,
-      { open311, prediction, rollbar }: Context
-    ): Promise<Case> {
-      const createArgs: CreateServiceRequestArgs = {
-        service_code: args.code,
-        description: args.description,
-        first_name: args.firstName,
-        last_name: args.lastName,
-        email: args.email,
-        phone: args.phone,
-        media_url: args.mediaUrl,
-        attributes: args.attributes,
-      };
-
-      if (args.address) {
-        createArgs.address_string = args.address;
-      }
-
-      // TODO(finh): Re-enable when
-      // https://github.com/CityOfBoston/311/issues/599 is fixed
-      //
-      // if (args.addressId) {
-      //   createArgs.address_id = args.addressId;
-      // }
-
-      if (args.location) {
-        createArgs.lat = args.location.lat;
-        createArgs.long = args.location.lng;
-      }
-
-      const c = await open311.createRequest(createArgs);
-
-      // We send this asynchronously because its success or failure shouldn't
-      // affect whether we return the new case to the client.
-      if (args.descriptionForClassifier) {
-        prediction
-          .caseCreated(c, args.descriptionForClassifier)
-          .catch(err => rollbar.error(err));
-      }
-
-      return c;
-    },
-  },
+  Mutation: mutationResolvers,
 };

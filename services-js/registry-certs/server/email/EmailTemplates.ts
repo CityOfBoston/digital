@@ -179,12 +179,16 @@ export class EmailTemplates {
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Certified birth certificate for ${name} (${moment(date)
-            // Database times are midnight UTC. We need to specify UTC or else
-            // we’ll print the day before, because midnight UTC is the day
-            // before in Boston.
-            .tz('UTC')
-            .format('l')})`,
+          description: `Certified birth certificate for ${name} (${
+            date
+              ? moment(date)
+                  // Database times are midnight UTC. We need to specify UTC or else
+                  // we'll print the day before, because midnight UTC is the day
+                  // before in Boston.
+                  .tz('UTC')
+                  .format('l')
+              : ''
+          })`,
         })),
 
         ...orderText,
