@@ -123,7 +123,7 @@ export default class ParentalInformation extends React.Component<Props> {
               />
 
               <TextInput
-                label="Last Name"
+                label={lastNameLabel()}
                 name="parent1LastName"
                 value={parent1LastName}
                 onChange={this.handleChange}
@@ -147,7 +147,7 @@ export default class ParentalInformation extends React.Component<Props> {
               />
 
               <TextInput
-                label="Last Name"
+                label={lastNameLabel()}
                 name="parent2LastName"
                 value={parent2LastName}
                 onChange={this.handleChange}
@@ -183,13 +183,13 @@ export default class ParentalInformation extends React.Component<Props> {
       <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
         <h2 className="h3 tt-u">Record may have an access restriction</h2>
 
-        {/* todo: link to mass. law to explain? */}
         {forSelf ? (
           <>
             <p>
               If your parents weren’t married at the time of your birth, your
               record may have an access restriction.
             </p>
+
             <p>
               <strong>
                 You will need to provide a valid form of identification (<i>
@@ -207,6 +207,7 @@ export default class ParentalInformation extends React.Component<Props> {
               record is restricted and can only be requested by the people
               listed on the record.
             </p>
+
             <p>
               <strong>
                 If you are listed on the record, you will need to provide a
@@ -222,4 +223,18 @@ export default class ParentalInformation extends React.Component<Props> {
       </div>
     );
   }
+}
+
+function lastNameLabel(): React.ReactChild {
+  return (
+    <>
+      <span style={{ whiteSpace: 'nowrap', marginRight: '0.5em' }}>
+        Last / Maiden Name
+      </span>
+
+      <wbr />
+
+      <span style={{ whiteSpace: 'nowrap' }}>(if applicable)</span>
+    </>
+  );
 }

@@ -148,7 +148,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
               {firstName} {lastName}
             </div>
             <div className={CERTIFICATE_SUBINFO_STYLE}>
-              <span>Birth Certificate (Paper Copy)</span>
+              <span>Birth Certificate (Certified paper copy)</span>
               <span>Born: {birthDateString}</span>
             </div>
           </div>

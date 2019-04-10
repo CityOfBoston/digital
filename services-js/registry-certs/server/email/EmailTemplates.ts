@@ -134,41 +134,44 @@ export class EmailTemplates {
   }
 
   birthReceipt(receipt: ReceiptData): RenderedEmail {
-    return this.receiptEmailRenderer(
+    return this.birthReceiptShippedCommon(
+      receipt,
+      'Thank you for your order!',
       {
-        ...receipt,
-
-        heading: 'Thank you for your order!',
-        orderDate: formatOrderDate(receipt.orderDate),
-        registryEmail: 'birth@boston.gov',
-        subtotal: null,
-
-        items: receipt.items.map(({ cost, quantity, name, date }) => ({
-          quantity,
-          cost,
-          description: `Birth certificate for ${name} (${moment(date)
-            // Database times are midnight UTC. We need to specify UTC or else
-            // we'll print the day before, because midnight UTC is the day
-            // before in Boston.
-            .tz('UTC')
-            .format('l')})`,
-        })),
-
         belowOrderText: [
-          'We have received your order. You will be charged when your certificates ship.',
-          'We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days we will cancel the order without charge.',
+          `We have received your order. You will be charged when the ${
+            receipt.items[0].quantity > 1
+              ? 'certificates ship'
+              : 'certificate ships'
+          }.`,
+          'We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.',
         ],
-      },
-      `City of Boston Birth Certificate Order #${receipt.orderId}`
+      }
     );
   }
 
   birthShipped(receipt: ReceiptData): RenderedEmail {
+    return this.birthReceiptShippedCommon(
+      receipt,
+      'Your birth certificate order is on its way!',
+      {
+        aboveOrderText: [
+          'We’ve processed your order and charged your card. Your order is being shipped via U.S. Postal Service to the shipping address you provided.',
+        ],
+      }
+    );
+  }
+
+  birthReceiptShippedCommon(
+    receipt: ReceiptData,
+    heading: string,
+    orderText: object
+  ): RenderedEmail {
     return this.receiptEmailRenderer(
       {
         ...receipt,
 
-        heading: 'Your birth certificate order is on its way!',
+        heading,
         orderDate: formatOrderDate(receipt.orderDate),
         registryEmail: 'birth@boston.gov',
         subtotal: null,
@@ -176,17 +179,15 @@ export class EmailTemplates {
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Birth certificate for ${name} (${moment(date)
+          description: `Certified birth certificate for ${name} (${moment(date)
             // Database times are midnight UTC. We need to specify UTC or else
-            // we'll print the day before, because midnight UTC is the day
+            // we’ll print the day before, because midnight UTC is the day
             // before in Boston.
             .tz('UTC')
             .format('l')})`,
         })),
 
-        aboveOrderText: [
-          'We’ve processed your order and charged your card. Your order is being shipped via U.S. Postal Service to the shipping address you provided.',
-        ],
+        ...orderText,
       },
       `City of Boston Birth Certificate Order #${receipt.orderId}`
     );

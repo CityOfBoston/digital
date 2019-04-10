@@ -23,37 +23,12 @@ export type Props = {
       birthCertificateRequest: BirthCertificateRequest;
     });
 
-const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
-
-const CERTIFICATE_NAME_STYLE = css({
-  fontStyle: 'normal',
-  fontWeight: 'bold',
-  letterSpacing: '1.4px',
-});
-
-const THIN_CERTIFICATE_NAME_STYLE = css({
-  fontStyle: 'normal',
-});
-
-const CERTIFICATE_SUBINFO_STYLE = css({
-  color: CHARLES_BLUE,
-  fontStyle: 'italic',
-});
-
-const CERTIFICATE_ROW_STYLE = css({
-  borderColor: GRAY_100,
-  borderLeftWidth: 0,
-  borderRightWidth: 0,
-
-  display: 'flex',
-  alignItems: 'center',
-});
-
 type CertificateProps = {
   firstName: string;
   lastName: string;
   subinfo: string;
   pending: boolean;
+  type: 'death' | 'birth';
 };
 
 const makeDeathSubinfo = ({
@@ -67,7 +42,7 @@ const makeBirthSubinfo = ({ birthDateString }): string =>
   `Born: ${birthDateString}`;
 
 const renderCertificate = (
-  { firstName, lastName, pending, subinfo }: CertificateProps,
+  { firstName, lastName, subinfo, pending, type }: CertificateProps,
   thin: boolean
 ) => (
   <div key="certificate" className={CERTIFICATE_INFO_BOX_STYLE}>
@@ -76,7 +51,7 @@ const renderCertificate = (
         thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE
       }`}
     >
-      {firstName} {lastName}
+      {firstName} {lastName} {type === 'birth' && '(Certified paper copy)'}
       {pending && (
         <span style={{ color: CHARLES_BLUE }}>
           {' — '}
@@ -118,14 +93,16 @@ export default function CertificateRow(props: Props) {
       ? {
           firstName: props.certificate.firstName,
           lastName: props.certificate.lastName,
-          pending: props.certificate.pending,
           subinfo: makeDeathSubinfo(props.certificate),
+          pending: props.certificate.pending,
+          type: 'death',
         }
       : {
           firstName: props.birthCertificateRequest.requestInformation.firstName,
           lastName: props.birthCertificateRequest.requestInformation.lastName,
-          pending: false,
           subinfo: makeBirthSubinfo(props.birthCertificateRequest),
+          pending: false,
+          type: 'birth',
         };
 
   return (
@@ -140,3 +117,29 @@ export default function CertificateRow(props: Props) {
     </div>
   );
 }
+
+const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
+
+const CERTIFICATE_NAME_STYLE = css({
+  fontStyle: 'normal',
+  fontWeight: 'bold',
+  letterSpacing: '1.4px',
+});
+
+const THIN_CERTIFICATE_NAME_STYLE = css({
+  fontStyle: 'normal',
+});
+
+const CERTIFICATE_SUBINFO_STYLE = css({
+  color: CHARLES_BLUE,
+  fontStyle: 'italic',
+});
+
+const CERTIFICATE_ROW_STYLE = css({
+  borderColor: GRAY_100,
+  borderLeftWidth: 0,
+  borderRightWidth: 0,
+
+  display: 'flex',
+  alignItems: 'center',
+});

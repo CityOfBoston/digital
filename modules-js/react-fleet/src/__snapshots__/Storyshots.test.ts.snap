@@ -887,6 +887,7 @@ Array [
         Required Input
       </span>
       <span
+        aria-hidden="true"
         className="t--req"
       >
         Required
@@ -983,6 +984,45 @@ Array [
       aria-label=""
       className="txt-f  txt-f--err"
       id="input-3077581017"
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100"
+    >
+       
+    </div>
+  </div>,
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-5381"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        React node passed in as “label”
+      </span>
+      <wbr />
+      <span
+        style={
+          Object {
+            "fontSize": "80%",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        instead of a string
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  "
+      id="input-5381"
       type="text"
     />
     <div
