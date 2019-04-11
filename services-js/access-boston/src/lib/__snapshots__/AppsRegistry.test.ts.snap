@@ -1,10 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`appsForUserTypeAndGroups returns apps for a group 1`] = `
+exports[`appsForUserTypeAndGroups doesn’t return agency apps if none is specified 1`] = `
 Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
@@ -13,6 +14,7 @@ Array [
         "url": "https://boston.maps.arcgis.com/",
       },
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
@@ -21,6 +23,7 @@ Array [
         "url": "https://edit-dev-hub.boston.gov/user",
       },
       Object {
+        "agencies": null,
         "description": "",
         "groups": Array [
           "SG_AB_IAM_TEAM",
@@ -38,6 +41,69 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Tools",
+  },
+]
+`;
+
+exports[`appsForUserTypeAndGroups returns apps for a group 1`] = `
+Array [
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/boston-maps.svg",
+        "mfaDeviceRequired": false,
+        "title": "Boston Maps",
+        "url": "https://boston.maps.arcgis.com/",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/hub.svg",
+        "mfaDeviceRequired": false,
+        "title": "The Hub",
+        "url": "https://edit-dev-hub.boston.gov/user",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": Array [
+          "SG_AB_IAM_TEAM",
+        ],
+        "iconUrl": "/assets/apps/identityiq.svg",
+        "mfaDeviceRequired": false,
+        "title": "IIQ",
+        "url": "https://identity.boston.gov/identityiq/",
+      },
+    ],
+    "icons": true,
+    "showRequestAccessLink": true,
+    "title": "Applications",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": Array [
+          "BPL",
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -46,6 +112,9 @@ Array [
         "url": "https://identity.boston.gov/identityiq/createSponsor.jsf",
       },
       Object {
+        "agencies": Array [
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -54,6 +123,11 @@ Array [
         "url": "http://boston.getlocalmotion.com/",
       },
       Object {
+        "agencies": Array [
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -62,6 +136,11 @@ Array [
         "url": "https://goo.gl/forms/Xobh9aZeGXSnKH2m2",
       },
       Object {
+        "agencies": Array [
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -70,6 +149,9 @@ Array [
         "url": "https://boston.seamlessdocs.com/f/geol18cumhw",
       },
       Object {
+        "agencies": Array [
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -85,6 +167,64 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Tools",
+  },
+]
+`;
+
+exports[`appsForUserTypeAndGroups returns apps for an agency 1`] = `
+Array [
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/boston-maps.svg",
+        "mfaDeviceRequired": false,
+        "title": "Boston Maps",
+        "url": "https://boston.maps.arcgis.com/",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/hub.svg",
+        "mfaDeviceRequired": false,
+        "title": "The Hub",
+        "url": "https://edit-dev-hub.boston.gov/user",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": Array [
+          "SG_AB_IAM_TEAM",
+        ],
+        "iconUrl": "/assets/apps/identityiq.svg",
+        "mfaDeviceRequired": false,
+        "title": "IIQ",
+        "url": "https://identity.boston.gov/identityiq/",
+      },
+    ],
+    "icons": true,
+    "showRequestAccessLink": true,
+    "title": "Applications",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -105,6 +245,7 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
@@ -113,6 +254,7 @@ Array [
         "url": "https://boston.maps.arcgis.com/",
       },
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
@@ -128,6 +270,12 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": Array [
+          "BPL",
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -136,6 +284,9 @@ Array [
         "url": "https://identity.boston.gov/identityiq/createSponsor.jsf",
       },
       Object {
+        "agencies": Array [
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -144,6 +295,11 @@ Array [
         "url": "http://boston.getlocalmotion.com/",
       },
       Object {
+        "agencies": Array [
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -152,6 +308,11 @@ Array [
         "url": "https://goo.gl/forms/Xobh9aZeGXSnKH2m2",
       },
       Object {
+        "agencies": Array [
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -160,6 +321,9 @@ Array [
         "url": "https://boston.seamlessdocs.com/f/geol18cumhw",
       },
       Object {
+        "agencies": Array [
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -175,6 +339,7 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -183,6 +348,7 @@ Array [
         "url": "/change-password",
       },
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -203,6 +369,7 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
@@ -211,6 +378,7 @@ Array [
         "url": "https://boston.maps.arcgis.com/",
       },
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
@@ -226,6 +394,12 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": Array [
+          "BPL",
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -234,6 +408,9 @@ Array [
         "url": "https://identity.boston.gov/identityiq/createSponsor.jsf",
       },
       Object {
+        "agencies": Array [
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -242,6 +419,11 @@ Array [
         "url": "http://boston.getlocalmotion.com/",
       },
       Object {
+        "agencies": Array [
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -250,6 +432,11 @@ Array [
         "url": "https://goo.gl/forms/Xobh9aZeGXSnKH2m2",
       },
       Object {
+        "agencies": Array [
+          "BPD",
+          "BFD",
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -258,6 +445,9 @@ Array [
         "url": "https://boston.seamlessdocs.com/f/geol18cumhw",
       },
       Object {
+        "agencies": Array [
+          "CH",
+        ],
         "description": "",
         "groups": null,
         "iconUrl": null,
@@ -273,6 +463,7 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
         "description": "",
         "groups": null,
         "iconUrl": null,

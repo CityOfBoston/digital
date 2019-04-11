@@ -22,7 +22,7 @@ const ACCOUNT: Account = {
 const appsRegistry = makeAppsRegistry(APPS_YAML, true);
 
 const APPS: Apps = {
-  categories: appsRegistry.appsForGroups([], true).map(cat => ({
+  categories: appsRegistry.appsForGroups([], true, 'CH').map(cat => ({
     title: cat.title,
     showIcons: cat.icons,
     requestAccessUrl: cat.showRequestAccessLink ? '#' : null,

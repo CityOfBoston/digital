@@ -7,14 +7,20 @@ const SESSION_AUTH_KEY = 'auth';
 export const LOGIN_SESSION_KEY = 'loginSession';
 export const FORGOT_PASSWORD_SESSION_KEY = 'loginSession';
 
+// Increase this to invalidate existing logins. Necessary when we need sessions
+// to get new data from the SAML login assertion.
+export const CURRENT_SESSION_VERSION = 2;
+
 export interface LoginAuth {
   type: 'login';
+  sessionVersion: number | undefined;
   userId: string;
   sessionIndex: string;
 }
 
 export interface ForgotPasswordAuth {
   type: 'forgotPassword';
+  sessionVersion: number | undefined;
   userId: string;
   resetPasswordToken: string;
   createdTime: number;
@@ -29,6 +35,9 @@ declare module 'hapi' {
 
 /**
  * Everything in this interface needs to serialize to JSON.
+ *
+ * When making backwards-incompatible changes to this, update
+ * LOGIN_SESSION_VERSION.
  */
 export interface LoginSession {
   type: 'login';
@@ -49,6 +58,8 @@ export interface LoginSession {
   mfaSessionId: string | null;
   mfaEmail: string | null;
   mfaPhoneNumber: string | null;
+
+  cobAgency: string | null;
 }
 
 export type SessionAuth = LoginAuth | ForgotPasswordAuth;
@@ -77,7 +88,25 @@ export function getSessionAuth(
     request.yar.touch();
   }
 
-  return request.yar.get(SESSION_AUTH_KEY);
+  const sessionAuth: SessionAuth | undefined = request.yar.get(
+    SESSION_AUTH_KEY
+  );
+
+  if (
+    sessionAuth &&
+    (sessionAuth.sessionVersion || 0) < CURRENT_SESSION_VERSION
+  ) {
+    // Old session, so let’s delete it and return undefined so that the user has
+    // to go through the SAML login process again.
+    //
+    // We assume that in most cases this should mean that they just get bounced
+    // through Ping without needing to re-authenticate, since their SAML session
+    // should still be active.
+    request.yar.clear(SESSION_AUTH_KEY);
+    return undefined;
+  }
+
+  return sessionAuth;
 }
 
 export default class Session {

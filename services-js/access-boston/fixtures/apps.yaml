@@ -64,14 +64,31 @@ categories:
     apps:
       - title: Create Sponsored Account
         url: https://identity.boston.gov/identityiq/createSponsor.jsf
+        agencies:
+          - BPL
+          - BPD
+          - BFD
+          - CH
       - title: FleetHub
         url: http://boston.getlocalmotion.com/
+        agencies:
+          - CH
       - title: International Travel
         url: https://goo.gl/forms/Xobh9aZeGXSnKH2m2
+        agencies:
+          - BPD
+          - BFD
+          - CH
       - title: Unblock Website Request
         url: https://boston.seamlessdocs.com/f/geol18cumhw
+        agencies:
+          - BPD
+          - BFD
+          - CH
       - title: Building Maintenance
         url: https://eamtst.cityhall.boston.cob:5443/WebMaint/
+        agencies:
+          - CH
       - title: Request FN Access
         url: https://identity.boston.gov/identityiq/requestPsfn.jsf
         groups:

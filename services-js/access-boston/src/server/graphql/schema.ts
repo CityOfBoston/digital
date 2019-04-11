@@ -180,7 +180,11 @@ const queryRootResolvers: QueryRootResolvers = {
 
     return {
       categories: appsRegistry
-        .appsForGroups(loginSession.groups, loginSession.hasMfaDevice)
+        .appsForGroups(
+          loginSession.groups,
+          loginSession.hasMfaDevice,
+          loginSession.cobAgency || null
+        )
         .map(({ apps, icons, showRequestAccessLink, title }) => ({
           title,
           showIcons: icons,
