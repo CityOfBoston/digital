@@ -13,10 +13,8 @@ framework for server-side rendering.
 
  * **Development Server**: `npm run dev` <http://localhost:3000/>
  * **React Storybook**: `npm run storybook` <http://localhost:9001/>
- * **Gulp**: `npx gulp watch`
  * **Tests**: `npm test` or `npm test -- --watch`
  * **Lint**: `npm run lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
- * **Typecheck**: `npx flow`
 
 ### Getting started
 
@@ -27,9 +25,8 @@ equivalent so you automatically pick up our `.nvmrc` file. Also, `npm` >= 5.3
  1. Get the Open311 api_key and URL from a friend
  1. Copy `.env.sample` to `.env` and fill in the endpoint and keys
  1. Get other API keys: Mapbox, Searchly, &c. and put them in .env
- 1. `npm install`
- 1. `npx gulp watch`
- 1. `npm run dev`
+ 1. `yarn install`
+ 1. `yarn dev`
  1. Visit <http://localhost:3000/> in your browser
 
 ### JavaScript
@@ -65,10 +62,6 @@ facilitate communication with the client code.
 
 Server-only code, including the GraphQL schema and resolvers, is in the
 `/server` directory.
-
-The Gulp `graphql:schema` and `graphql:types` tasks are automatically run by
-`gulp watch` to update the schema and type files when code in `server/graphql`
-changes.
 
 **Backend debugging with Charles:**
 `env NODE_TLS_REJECT_UNAUTHORIZED=0 http_proxy=http://localhost:8888/ npm run dev`

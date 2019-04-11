@@ -98,7 +98,7 @@ export interface LoadService_service_attributes_values {
 }
 
 export interface LoadService_service_attributes_validations_dependentOn_conditions_value {
-  type: ServiceAttributeConditionValueType | null;
+  type: ServiceAttributeConditionValueType;
   string: string | null;
   array: string[] | null;
   number: number | null;
@@ -122,7 +122,7 @@ export interface LoadService_service_attributes_validations {
 }
 
 export interface LoadService_service_attributes_conditionalValues_dependentOn_conditions_value {
-  type: ServiceAttributeConditionValueType | null;
+  type: ServiceAttributeConditionValueType;
   string: string | null;
   array: string[] | null;
   number: number | null;
@@ -150,7 +150,7 @@ export interface LoadService_service_attributes_conditionalValues {
 }
 
 export interface LoadService_service_attributes_dependencies_conditions_value {
-  type: ServiceAttributeConditionValueType | null;
+  type: ServiceAttributeConditionValueType;
   string: string | null;
   array: string[] | null;
   number: number | null;

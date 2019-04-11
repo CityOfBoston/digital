@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import fetch, { Response, RequestInit } from 'node-fetch';
 import URLSearchParams from 'url-search-params';
 import url from 'url';
 import HttpsProxyAgent from 'https-proxy-agent';
@@ -133,35 +133,20 @@ export interface ServiceMetadata {
   };
 }
 
-// Returned by the bulk endpoint and posting the submission.
-export interface ServiceRequest {
-  service_request_id: string;
-  status: string;
-  status_notes: string | undefined;
-  service_name: string | undefined;
-  service_code: string;
-  description: string | undefined;
-  agency_responsible: string | undefined;
-  service_notice: string | undefined;
-
-  requested_datetime: string | undefined;
-  updated_datetime: string | undefined;
-  expected_datetime: string | undefined;
-  address: string | undefined;
-  address_id: string | undefined;
-  zipcode: string | undefined;
-  lat: number | undefined;
-  long: number | undefined;
-  media_url: string | undefined;
-}
-
-// Returned by the single-request endpoint and posting the submission.
+/**
+ * This matches the return value of the single request endpoint and the result
+ * of submitting a case. The bulk endpoint (not used in the web portal) has a
+ * reduced number of fields.
+ */
 export interface DetailedServiceRequest {
+  /** Internal Salesforce ID */
   id: string;
+
+  /** Externally-shown ID, e.g. "19-00019877" */
   service_request_id: string;
+
   status: string;
-  long: number | null;
-  lat: number | null;
+  description: string | null;
 
   media_url:
     | Array<{
@@ -174,14 +159,19 @@ export interface DetailedServiceRequest {
 
   service_name: string | null;
   service_code: string;
-  description: string | null;
 
   requested_datetime: string | null;
   expected_datetime: string | null;
   updated_datetime: string | null;
+
+  long: number | null;
+  lat: number | null;
+
   address: string | null;
+  address_id: string | null;
   address_details: string | null;
   zipcode: string | null;
+
   reported_location: {
     address: string | null;
     address_id: string | null;
@@ -189,17 +179,20 @@ export interface DetailedServiceRequest {
     long: number | null;
   } | null;
 
-  address_id: string | null;
-  agency_responsible: string | null;
   service_notice: string | null;
   status_notes: string | null;
+
   duplicate_parent_service_request_id: string | null;
   parent_service_request_id: string | null;
+
   origin: string | null;
   source: string | null;
   priority: string;
-  service_level_agreement: any;
-  owner: any;
+
+  agency_responsible: string | null;
+  service_level_agreement: unknown;
+  owner: unknown;
+
   contact: {
     first_name: string | null;
     last_name: string | null;
@@ -213,8 +206,10 @@ export interface DetailedServiceRequest {
   };
 
   activities: ServiceRequestActivity[];
-  attributes: any[];
-  events: any[];
+  attributes: unknown[];
+
+  /** events does not currently appear when creating a request */
+  events?: unknown[];
 }
 
 export interface ServiceRequestActivity {
@@ -246,11 +241,11 @@ export interface CreateServiceRequestArgs {
   attributes: { code: string; value: string }[];
 }
 
-async function processResponse(res): Promise<any> {
+async function processResponse<T>(res: Response): Promise<T | null> {
   if (res.status === 404) {
     return null;
   } else if (!res.ok) {
-    let message;
+    let message: string;
 
     if (
       (res.headers.get('content-type') || '').startsWith('application/json')
@@ -283,10 +278,13 @@ export default class Open311 {
   private readonly apiKey: string | undefined;
 
   private readonly serviceLoader: DataLoader<string, Service | null>;
-  private readonly serviceMetadataLoader: DataLoader<string, ServiceMetadata>;
+  private readonly serviceMetadataLoader: DataLoader<
+    string,
+    ServiceMetadata | null
+  >;
   private readonly requestLoader: DataLoader<
     string,
-    ServiceRequest | DetailedServiceRequest | null
+    DetailedServiceRequest | null
   >;
 
   constructor(
@@ -343,7 +341,7 @@ export default class Open311 {
               }
             );
 
-            return await processResponse(response);
+            return await processResponse<ServiceMetadata>(response);
           } catch (e) {
             return new Error(
               `Error loading metadata for ${code}: ${e.toString()}`
@@ -356,62 +354,41 @@ export default class Open311 {
     });
 
     this.requestLoader = new DataLoader(async (ids): Promise<
-      Array<ServiceRequest | DetailedServiceRequest | null>
+      Array<DetailedServiceRequest | null>
     > => {
       const params = new URLSearchParams();
       if (this.apiKey) {
         params.append('api_key', this.apiKey);
       }
 
-      if (ids.length === 1) {
-        // The <case_id>.json endpoint is currently significantly faster than
-        // the bulk endpoint, even for a single case, so we optimize by using
-        // it when there's only one thing to look up.
-        const response = await this.fetch(
-          this.url(`request/${ids[0]}.json?${params.toString()}`),
-          {
-            agent: this.agent,
-          }
-        );
+      return Promise.all(
+        ids.map(async id => {
+          // We don't bother with the bulk endpoint in the webapp because the
+          // only time we show more than one case is when we show search
+          // results, and that data comes 100% from the Elasticsearch index.
+          //
+          // We still use a DataLoader, however, on the off chance that the same
+          // request will cause a double-lookup to a case.
+          const response = await this.fetch(
+            this.url(`request/${id}.json?${params.toString()}`),
+            {
+              agent: this.agent,
+            }
+          );
 
-        // For whatever reason, looking up a single request ID still returns
-        // an array.
-        const requestArr: Array<
-          DetailedServiceRequest | undefined
-        > = await processResponse(response);
+          // For whatever reason, looking up a single request ID still returns
+          // an array.
+          const requestArr = await processResponse<DetailedServiceRequest[]>(
+            response
+          );
 
-        // processResponse turns 404s into nulls
-        if (requestArr) {
-          return [requestArr[0] || null];
-        } else {
-          return [null];
-        }
-      } else {
-        params.append('service_request_id', ids.join(','));
-
-        const response = await this.fetch(
-          this.url(`requests.json?${params.toString()}`),
-          {
-            agent: this.agent,
-          }
-        );
-
-        const requestArr: ServiceRequest[] = await processResponse(response);
-
-        // We need to guarantee that we're returning an array with results in
-        // the same order as the IDs that came in, which we don't want to rely
-        // on Open311 to ensure.
-        const requestMap: { [id: string]: ServiceRequest } = {};
-        requestArr.forEach(r => {
-          requestMap[r.service_request_id] = r;
-        });
-
-        return ids.map(id => requestMap[id]);
-      }
+          return (requestArr && requestArr[0]) || null;
+        })
+      );
     });
   }
 
-  private fetch(url: string, opts?: any) {
+  private fetch(url: string, opts?: RequestInit) {
     if (this.salesforce) {
       return this.salesforce.authenticatedFetch(url, opts);
     } else {
@@ -443,13 +420,11 @@ export default class Open311 {
     return this.serviceLoader.load(code);
   }
 
-  public serviceMetadata(code: string): Promise<ServiceMetadata> {
+  public serviceMetadata(code: string): Promise<ServiceMetadata | null> {
     return this.serviceMetadataLoader.load(code);
   }
 
-  public request(
-    id: string
-  ): Promise<ServiceRequest | DetailedServiceRequest | null> {
+  public request(id: string): Promise<DetailedServiceRequest | null> {
     return this.requestLoader.load(id);
   }
 
@@ -509,7 +484,7 @@ export default class Open311 {
       body,
     });
 
-    return (await processResponse(response))[0];
+    return (await processResponse<DetailedServiceRequest[]>(response))![0];
   }
 }
 

@@ -116,7 +116,7 @@ export function parseAgeOrDateOfBirth(
     ? moment(deathDateMatch[1], 'MM/DD/YYYY')
     : null;
 
-  let age = (str || '')
+  let age: string | number = (str || '')
     .replace(/^0+/, '')
     .replace(DATE_REGEXP, '')
     .trim();
@@ -280,7 +280,7 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
 
     const order = {
       ...receiptInfo,
-      date: moment(receiptInfo)
+      date: moment(receiptInfo.date)
         .tz('America/New_York')
         .format('l h:mmA'),
       ...loadDeathCertificateItems(registryDb, dbOrder),

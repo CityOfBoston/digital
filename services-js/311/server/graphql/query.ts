@@ -1,66 +1,64 @@
-/* eslint camelcase: 0 */
+import {
+  Int,
+  Resolvers,
+  ResolvableWith,
+} from '@cityofboston/graphql-typescript';
+
 import { Context } from '.';
-import { Service } from '../services/Open311';
-import { IndexedCase } from '../services/Elasticsearch';
-import { Root as CaseRoot } from './case';
+import { Case, CaseRoot } from './case';
+import { Geocoder } from './geocoder';
+import { Service, ServiceRoot } from './service';
 
-export const Schema = `
-type LatLng {
-  lat: Float!
-  lng: Float!
+export interface Query {
+  services: Service[];
+
+  topServices(args: { first: Int }): Service[];
+
+  servicesForDescription(args: {
+    text: string;
+    max?: Int;
+    threshold?: number;
+  }): Service[];
+
+  service(args: { code: string }): Service | null;
+
+  case(args: { id: string }): Case | null;
+
+  searchCases(args: {
+    query?: string;
+    topLeft?: LatLngIn;
+    bottomRight?: LatLngIn;
+  }): CaseSearchResults;
+
+  geocoder: Geocoder;
 }
 
-input LatLngIn {
-  lat: Float!
-  lng: Float!
+/** @graphql input */
+export interface LatLngIn {
+  lat: number;
+  lng: number;
 }
 
-type CaseSearchResults {
-  cases: [Case!]!
-  query: String!
+export interface LatLng {
+  lat: number;
+  lng: number;
 }
 
-type Query {
-  services: [Service!]!
-  topServices(first: Int): [Service!]!
-  servicesForDescription(text: String!, max: Int, threshold: Float): [Service!]!
-  service(code: String!): Service
-  case(id: String!): Case
-  searchCases(query: String, topLeft: LatLngIn, bottomRight: LatLngIn): CaseSearchResults!
-  geocoder: Geocoder!
-}
-`;
-
-interface SuggestionsArgs {
-  text: string;
-  max: number | undefined;
-  threshold: number | undefined;
+interface CaseSearchResults extends ResolvableWith<CaseSearchResultsRoot> {
+  cases: Case[];
+  query: string;
 }
 
-interface SearchCasesArgs {
-  query: string | undefined;
-  topLeft:
-    | {
-        lat: number;
-        lng: number;
-      }
-    | undefined;
-
-  bottomRight:
-    | {
-        lat: number;
-        lng: number;
-      }
-    | undefined;
-}
-
-interface CaseSearchResults {
-  cases: IndexedCase[];
+// Slight hack because the "ResolvableWith" handling doesn’t reach inside of
+// objects, so we can't return { cases: IndexedCase[], … } for CaseSearchResults
+// and have the types know that IndexedCase matches Case’s ResolvableWith.
+interface CaseSearchResultsRoot {
+  cases: CaseRoot[];
   query: string;
 }
 
 // HACK(finh): We need a way to invalidate this cache.
-let cachedTopServices: Promise<Service[]> | null = null;
+let cachedTopServices: Promise<ServiceRoot[]> | null = null;
 
 // Top 10 non-seasonal requests as of 9/18/17
 const TOP_SERVICE_CODES = [
@@ -78,14 +76,15 @@ const TOP_SERVICE_CODES = [
 
 async function serviceSuggestions(
   { open311, prediction }: Context,
-  { text, max }: SuggestionsArgs
-): Promise<Service[]> {
+  text: string,
+  max: number = 5
+): Promise<ServiceRoot[]> {
   const [suggestions, services] = await Promise.all([
     prediction.caseTypes(text),
     open311.services(),
   ]);
 
-  const matchedServices: Service[] = [];
+  const matchedServices: ServiceRoot[] = [];
   suggestions.forEach(type => {
     const matchedService = services.find(
       ({ service_code }) => service_code === type
@@ -96,71 +95,60 @@ async function serviceSuggestions(
     }
   });
 
-  return matchedServices.slice(0, max || 5);
+  return matchedServices.slice(0, max);
 }
 
-export const resolvers = {
-  Query: {
-    services: (
-      _root: {},
-      _args: {},
-      { open311 }: Context
-    ): Promise<Service[]> => open311.services(),
+const queryResolvers: Resolvers<Query, Context> = {
+  services: (_root, _args, { open311 }) => open311.services(),
 
-    topServices: async (
-      _root: {},
-      { first }: { first: number | undefined },
-      { open311 }: Context
-    ): Promise<Service[]> => {
-      if (!cachedTopServices) {
-        cachedTopServices = open311.services().catch(err => {
-          cachedTopServices = null;
-          throw err;
-        });
-      }
-      return cachedTopServices.then(services =>
-        services
-          .filter(
-            ({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1
-          )
-          .slice(0, first || TOP_SERVICE_CODES.length)
-      );
-    },
+  topServices: async (_root, { first }, { open311 }) => {
+    if (!cachedTopServices) {
+      cachedTopServices = open311.services().catch(err => {
+        cachedTopServices = null;
+        throw err;
+      });
+    }
 
-    servicesForDescription: (
-      _root: {},
-      args: SuggestionsArgs,
-      context: Context
-    ): Promise<Service[]> => serviceSuggestions(context, args),
-
-    service: (
-      _root: {},
-      { code }: { code: string },
-      { open311 }: Context
-    ): Promise<Service | null> => open311.service(code),
-
-    case: (
-      _root: {},
-      { id }: { id: string },
-      { open311 }: Context
-    ): Promise<CaseRoot | null> => open311.request(id),
-
-    searchCases: async (
-      _root: {},
-      { query, topLeft, bottomRight }: SearchCasesArgs,
-      { elasticsearch }: Context
-    ): Promise<CaseSearchResults> => {
-      const cases = await elasticsearch.searchCases(
-        query,
-        topLeft,
-        bottomRight
-      );
-
-      return {
-        cases,
-        query: query || '',
-      };
-    },
-    geocoder: () => ({}),
+    return (await cachedTopServices)
+      .filter(
+        ({ service_code }) => TOP_SERVICE_CODES.indexOf(service_code) !== -1
+      )
+      .slice(0, first || TOP_SERVICE_CODES.length);
   },
+
+  servicesForDescription: (_root, { text, max }, context) =>
+    serviceSuggestions(context, text, max),
+
+  service: (_root, { code }, { open311 }) => open311.service(code),
+
+  // We put an explicit type on the return value here so that "source" stays as
+  // the union of type literals, rather than being interpreted as just a string
+  // type.
+  case: async (_root, { id }, { open311 }): Promise<CaseRoot | null> => {
+    const request = await open311.request(id);
+    return request && { source: 'Open311', request };
+  },
+
+  searchCases: async (
+    _root,
+    { query, topLeft, bottomRight },
+    { elasticsearch }
+  ) => {
+    const cases = (await elasticsearch.searchCases(
+      query,
+      topLeft,
+      bottomRight
+    )).map((request): CaseRoot => ({ source: 'Elasticsearch', request }));
+
+    return {
+      cases,
+      query: query || '',
+    };
+  },
+
+  geocoder: () => ({}),
+};
+
+export const resolvers = {
+  Query: queryResolvers,
 };
