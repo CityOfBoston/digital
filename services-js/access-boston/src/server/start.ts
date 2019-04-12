@@ -15,6 +15,7 @@ const rollbar = new Rollbar({
   accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
   captureUncaught: true,
   captureUnhandledRejections: true,
+  scrubFields: ['currentPassword', 'newPassword', 'confirmPassword'],
   payload: {
     environment: process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
   },
