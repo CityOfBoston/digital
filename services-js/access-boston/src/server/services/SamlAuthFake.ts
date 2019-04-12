@@ -54,6 +54,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       hasMfaDevice: !isNewUser,
       userAccessToken: 'jfqWE7DExC4nUa7pvkABezkM4oNT',
       userMfaRegistrationDate: null,
+      cobAgency: 'CH',
     };
 
     return Promise.resolve(result);

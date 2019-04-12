@@ -21,6 +21,7 @@ import {
   setSessionAuth,
   getSessionAuth,
   LOGIN_SESSION_KEY,
+  CURRENT_SESSION_VERSION,
 } from './Session';
 
 import { BrowserAuthOptions } from '@cityofboston/hapi-common';
@@ -172,11 +173,13 @@ export async function addLoginAuth(
           needsNewPassword,
           hasMfaDevice,
           userMfaRegistrationDate,
+          cobAgency,
         } = assertResult;
 
         // This will be read by the validate method above when doing authentication.
         const loginAuth: LoginAuth = {
           type: 'login',
+          sessionVersion: CURRENT_SESSION_VERSION,
           userId: nameId,
           sessionIndex,
         };
@@ -213,6 +216,7 @@ export async function addLoginAuth(
           // We normalize to an ISO formatted string but need to keep this a
           // string because we’re serializing in Redis.
           mfaRequiredDate,
+          cobAgency,
         };
 
         request.yar.set(LOGIN_SESSION_KEY, session);

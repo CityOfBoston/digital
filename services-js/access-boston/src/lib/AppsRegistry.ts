@@ -15,6 +15,8 @@ export interface App {
   // null groups means "everyone can see this"
   groups: string[] | null;
   mfaDeviceRequired: boolean;
+  // null agencies means "all agencies"
+  agencies: string[] | null;
 }
 
 /**
@@ -52,6 +54,7 @@ export default class AppsRegistry {
           description,
           icon,
           mfa_device_required,
+          agencies,
         } = a;
 
         if (!title || typeof title !== 'string') {
@@ -66,6 +69,10 @@ export default class AppsRegistry {
           throw new Error('groups is not an array: ' + JSON.stringify(a));
         }
 
+        if (agencies && !Array.isArray(agencies)) {
+          throw new Error('agencies is not an array: ' + JSON.stringify(a));
+        }
+
         return {
           title,
           url,
@@ -73,6 +80,7 @@ export default class AppsRegistry {
           description: description || '',
           groups: groups || null,
           mfaDeviceRequired: mfa_device_required || false,
+          agencies: agencies || null,
         };
       });
 
@@ -85,18 +93,30 @@ export default class AppsRegistry {
     });
   }
 
-  appsForGroups(userGroups: string[], hasMfaDevice: boolean): AppsCategory[] {
+  appsForGroups(
+    userGroups: string[],
+    hasMfaDevice: boolean,
+    cobAgency: string | null
+  ): AppsCategory[] {
     return (
       this.allCategories
         .map(c => ({
           ...c,
-          apps: c.apps.filter(({ groups, mfaDeviceRequired }) => {
+          apps: c.apps.filter(({ groups, mfaDeviceRequired, agencies }) => {
             const groupsRequirementMet =
               !groups || groups.find(g => userGroups.includes(g));
 
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
 
-            return this.showAll || (groupsRequirementMet && mfaRequirementMet);
+            const agencyRequirementMet =
+              !agencies || (cobAgency && agencies.includes(cobAgency));
+
+            return (
+              this.showAll ||
+              (groupsRequirementMet &&
+                mfaRequirementMet &&
+                agencyRequirementMet)
+            );
           }),
         }))
         // Filter out apps with no categories

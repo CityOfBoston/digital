@@ -2,7 +2,11 @@ import { Server as HapiServer } from 'hapi';
 import SamlAuth, { makeSamlAuth } from './services/SamlAuth';
 import SamlAuthFake, { makeFakeLoginHandler } from './services/SamlAuthFake';
 import { BrowserAuthOptions } from '@cityofboston/hapi-common';
-import { getSessionAuth, setSessionAuth } from './Session';
+import {
+  getSessionAuth,
+  setSessionAuth,
+  CURRENT_SESSION_VERSION,
+} from './Session';
 
 const FORGOT_METADATA_PATH = '/metadata-forgot.xml';
 const FORGOT_ASSERT_PATH = '/assert-forgot';
@@ -137,6 +141,7 @@ export async function addForgotPasswordAuth(
 
       setSessionAuth(request, {
         type: 'forgotPassword',
+        sessionVersion: CURRENT_SESSION_VERSION,
         userId: assertResult.nameId,
         resetPasswordToken: assertResult.userAccessToken,
         createdTime: Date.now(),
