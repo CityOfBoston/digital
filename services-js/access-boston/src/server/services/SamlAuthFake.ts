@@ -53,7 +53,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       needsMfaDevice: isNewUser && userId !== 'NEW88888',
       hasMfaDevice: !isNewUser,
       userAccessToken: 'jfqWE7DExC4nUa7pvkABezkM4oNT',
-      userMfaRegistrationDate: null,
+      userMfaRegistrationDate: '04/17/2019',
       cobAgency: 'CH',
     };
 

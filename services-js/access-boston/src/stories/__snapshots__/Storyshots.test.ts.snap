@@ -5372,12 +5372,13 @@ Array [
             <div
               className="t--intro"
             >
-              You have 
+              You have
+               
               <strong>
-                28
-                 days
+                28 days
               </strong>
-               to complete your registration.
+               
+              to complete your registration.
             </div>
           </div>
           <div

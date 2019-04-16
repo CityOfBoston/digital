@@ -31,12 +31,15 @@ const APPS: Apps = {
 };
 
 storiesOf('IndexPage', module)
-  .add('default', () => <IndexPage account={ACCOUNT} apps={APPS} />)
+  .add('default', () => (
+    <IndexPage account={ACCOUNT} apps={APPS} daysUntilMfa={null} />
+  ))
   .add('change password success', () => (
     <IndexPage
       account={ACCOUNT}
       apps={APPS}
       flashMessage={FlashMessage.CHANGE_PASSWORD_SUCCESS}
+      daysUntilMfa={null}
     />
   ))
   .add('hasn’t registered MFA', () => (
@@ -46,6 +49,6 @@ storiesOf('IndexPage', module)
         hasMfaDevice: false,
       }}
       apps={APPS}
-      relativeDateForTest={new Date('2019-02-19T15:49:37.758Z')}
+      daysUntilMfa={28}
     />
   ));
