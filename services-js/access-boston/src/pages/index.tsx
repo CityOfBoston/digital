@@ -35,8 +35,7 @@ interface Props {
   account: Account;
   apps: Apps;
   flashMessage?: FlashMessage;
-  /** Used for calculating relative dates so that snapshots don’t change with Date.now() */
-  relativeDateForTest?: Date;
+  daysUntilMfa: number | null;
 }
 
 const APP_ROW_STYLE = css({
@@ -60,8 +59,14 @@ export default class IndexPage extends React.Component<Props> {
 
     requireRegistration(account);
 
+    const daysUntilMfa =
+      !account.hasMfaDevice && account.mfaRequiredDate
+        ? differenceInCalendarDays(account.mfaRequiredDate, new Date())
+        : null;
+
     return {
       flashMessage: query.message as FlashMessage | undefined,
+      daysUntilMfa,
       account,
       apps,
     };
@@ -72,19 +77,11 @@ export default class IndexPage extends React.Component<Props> {
       account,
       flashMessage,
       apps: { categories },
-      relativeDateForTest,
+      daysUntilMfa,
     } = this.props;
 
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
-
-    const daysUntilMfa =
-      !account.hasMfaDevice && account.mfaRequiredDate
-        ? differenceInCalendarDays(
-            account.mfaRequiredDate,
-            relativeDateForTest || new Date()
-          )
-        : null;
 
     return (
       <>
@@ -106,7 +103,7 @@ export default class IndexPage extends React.Component<Props> {
             </div>
           )}
 
-          {daysUntilMfa &&
+          {daysUntilMfa !== null &&
             daysUntilMfa > 0 && (
               <div className="b--g">
                 <div className="b-c" style={{ padding: 0 }}>
@@ -114,8 +111,13 @@ export default class IndexPage extends React.Component<Props> {
                     <div className="g--9">
                       <div className="h3 tt-u">Account notice</div>
                       <div className="t--intro">
-                        You have <strong>{daysUntilMfa} days</strong> to
-                        complete your registration.
+                        You have{' '}
+                        <strong>
+                          {daysUntilMfa === 1
+                            ? '1 day'
+                            : `${daysUntilMfa} days`}
+                        </strong>{' '}
+                        to complete your registration.
                       </div>
                     </div>
 

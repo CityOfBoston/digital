@@ -5,6 +5,8 @@ import {
   Request as HapiRequest,
 } from 'hapi';
 
+import moment from 'moment-timezone';
+
 import Rollbar from 'rollbar';
 
 import SamlAuth, {
@@ -192,8 +194,13 @@ export async function addLoginAuth(
           // We’ve seen some values for this not parsing. We catch the error so
           // that it doesn’t fail the entire login process, but we send it to
           // Rollbar so we can tell the IAM team they should correct it.
+          //
+          // We explicitly use New York as the timezone to avoid the "midnight
+          // GMT is the day before in Eastern time" problem.
           try {
-            mfaRequiredDate = new Date(userMfaRegistrationDate).toISOString();
+            mfaRequiredDate = moment
+              .tz(new Date(userMfaRegistrationDate), 'America/New_York')
+              .toISOString();
           } catch (e) {
             rollbar.error(e, {
               extra: { userId: nameId, userMfaRegistrationDate },
