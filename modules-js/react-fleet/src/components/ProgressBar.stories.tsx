@@ -20,6 +20,8 @@ interface State {
   completed: boolean;
 }
 
+// todo: replace button with Knobs addon
+
 class InteractiveStep extends React.Component<Props, State> {
   constructor(props) {
     super(props);
@@ -48,14 +50,14 @@ class InteractiveStep extends React.Component<Props, State> {
           }}
           onClick={() => this.setState({ completed: true })}
         >
-          Storybook demonstration: complete the task
+          Storybook demonstration: click to complete the task
         </button>
       </>
     );
   }
 }
 
-storiesOf('Components/Progress Bar', module)
+storiesOf('ProgressBar', module)
   .add('default', () => (
     <ProgressBar totalSteps={taskList.length} currentStep={4} />
   ))

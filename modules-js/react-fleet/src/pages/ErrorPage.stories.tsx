@@ -3,6 +3,6 @@ import { storiesOf } from '@storybook/react';
 
 import ErrorPage from './ErrorPage';
 
-storiesOf('Pages/Error Page', module)
+storiesOf('UI|Pages/ErrorPage', module)
   .add('404', () => <ErrorPage statusCode={404} />)
   .add('500', () => <ErrorPage statusCode={500} />);

@@ -4,23 +4,15 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { setConfig } from 'next/config';
 import { createRouter } from 'next/router';
-import createPercyAddon from '@percy-io/percy-storybook';
 
 import HeadManager from 'next/dist/client/head-manager';
-import {
-  configure,
-  addDecorator,
-  getStorybook,
-  setAddon,
-} from '@storybook/react';
-import { withOptions } from '@storybook/addon-options';
+import { addParameters, configure, addDecorator } from '@storybook/react';
+
+import { loadStories, storybookOptions } from '@cityofboston/storybook-common';
 
 import styleTags from '../client/common/style-tags';
 
 import './addons';
-
-const { percyAddon, serializeStories } = createPercyAddon();
-setAddon(percyAddon);
 
 const headManager = new HeadManager();
 
@@ -68,20 +60,7 @@ const serverStoriesContext = require.context(
   /.stories\.(jsx?|tsx?)$/
 );
 
-function loadStories() {
-  clientStoriesContext
-    .keys()
-    .forEach(filename => clientStoriesContext(filename));
-  serverStoriesContext
-    .keys()
-    .forEach(filename => serverStoriesContext(filename));
-}
-
-addDecorator(
-  withOptions({
-    name: 'registry-certs',
-  })
-);
+addParameters(storybookOptions('registry-certs'));
 
 addDecorator(story => {
   setConfig({
@@ -100,6 +79,7 @@ addDecorator(story => {
   return <Wrapper headManager={headManager}>{story()}</Wrapper>;
 });
 
-configure(loadStories, module);
-
-serializeStories(getStorybook);
+configure(
+  () => loadStories(clientStoriesContext, serverStoriesContext),
+  module
+);

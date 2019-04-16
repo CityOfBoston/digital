@@ -1,0 +1,7 @@
+{
+  "presets": [
+    "@cityofboston/config-babel/node",
+    "@cityofboston/config-babel/typescript",
+    "@babel/preset-react"
+  ]
+}

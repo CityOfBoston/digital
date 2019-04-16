@@ -16,7 +16,7 @@ const sampleContent = (
   </React.Fragment>
 );
 
-storiesOf('Sectioning Elements/Collapsible Section', module)
+storiesOf('Content Sections|CollapsibleSection', module)
   .add('default (open)', () => (
     <CollapsibleSection title="Boards and Commissions">
       {sampleContent}

@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import MemorableDateInput from './MemorableDateInput';
 
-storiesOf('Form Elements/Memorable date input', module)
+storiesOf('Form Elements|Inputs/MemorableDateInput', module)
   .add('default', () => (
     <MemorableDateInput
       componentId="default"

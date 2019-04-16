@@ -33,7 +33,7 @@ const breadcrumbNav = (
   />
 );
 
-storiesOf('Layouts/App Layout', module)
+storiesOf('UI|Layouts/AppLayout', module)
   .add('default', () => (
     <AppLayout>
       <div className="b b-c">

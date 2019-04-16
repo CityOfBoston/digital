@@ -30725,7 +30725,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth open 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 dr--open css-yvsa4v"
+    className="dr css-4dwfk3 dr--open css-1kvohhx"
   >
     <button
       aria-expanded={true}
@@ -30963,7 +30963,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: loadin
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 dr--open css-yvsa4v"
+    className="dr css-4dwfk3 dr--open css-1kvohhx"
   >
     <button
       aria-expanded={true}
@@ -31388,7 +31388,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
     >
       <input
         aria-label="Quantity for MONKEY JOE"
-        className="br br-a150 css-1ysr0vo"
+        className="br br-a150 css-1nwhypr"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -31432,7 +31432,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
     >
       <input
         aria-label="Quantity for JAMES HOWLETT (LOGAN)"
-        className="br br-a150 css-1ysr0vo"
+        className="br br-a150 css-1nwhypr"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -31496,7 +31496,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
     >
       <input
         aria-label="Quantity for BRUCE BANNER"
-        className="br br-a150 css-1ysr0vo"
+        className="br br-a150 css-1nwhypr"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -32670,7 +32670,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   >
                     <input
                       aria-label="Quantity for BRUCE BANNER"
-                      className="br br-a150 css-1ysr0vo"
+                      className="br br-a150 css-1nwhypr"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}
@@ -32709,7 +32709,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   >
                     <input
                       aria-label="Quantity for JAMES HOWLETT (LOGAN)"
-                      className="br br-a150 css-1ysr0vo"
+                      className="br br-a150 css-1nwhypr"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}
@@ -32768,7 +32768,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                   >
                     <input
                       aria-label="Quantity for MONKEY JOE"
-                      className="br br-a150 css-1ysr0vo"
+                      className="br br-a150 css-1nwhypr"
                       onBlur={[Function]}
                       onChange={[Function]}
                       onFocus={[Function]}

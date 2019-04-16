@@ -38,6 +38,7 @@
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "24.x.x",
+    "@types/react": "^16.8.5",
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.5",

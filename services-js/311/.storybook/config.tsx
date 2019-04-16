@@ -2,22 +2,17 @@ import React, { ReactNode } from 'react';
 import PropTypes from 'prop-types';
 import { setConfig } from 'next/config';
 import Router from 'next/router';
-import {
-  configure,
-  addDecorator,
-  setAddon,
-  getStorybook,
-} from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import inPercy from '@percy-io/in-percy';
-import createPercyAddon from '@percy-io/percy-storybook';
 import svg4everybody from 'svg4everybody';
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
 import { makeNextConfig } from '../lib/config';
 import parseDotEnv from '../lib/test/parse-dot-env';
 
-const { percyAddon, serializeStories } = createPercyAddon();
-setAddon(percyAddon);
+import { loadStories, storybookOptions } from '@cityofboston/storybook-common';
+
+import './addons';
 
 let env;
 
@@ -73,16 +68,12 @@ const storiesContext = require.context(
   /.stories.[jt]sx?$/
 );
 
-function loadStories() {
-  storiesContext.keys().forEach(filename => storiesContext(filename));
-}
-
 addDecorator((story: () => ReactNode) => {
   svg4everybody();
 
   return <Wrapper>{story()}</Wrapper>;
 });
 
-configure(loadStories, module);
+addParameters(storybookOptions('311'));
 
-serializeStories(getStorybook);
+configure(() => loadStories(storiesContext), module);

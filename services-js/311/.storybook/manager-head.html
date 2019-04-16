@@ -1,0 +1,10 @@
+<!--
+    Fleet’s css prevents the preview grid overlay from showing; since the grid
+    component is a child of the Manager component, we override the styling here.
+-->
+<style>
+    div#storybook-preview-background > div:empty {
+        z-index: 1000;
+        opacity: 0.8;
+    }
+</style>
