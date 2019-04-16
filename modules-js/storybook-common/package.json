@@ -11,15 +11,7 @@
     "prebuild": "rimraf build",
     "build": "tsc",
     "prepare": "yarn run build",
-    "test": "jest",
     "storybook": "start-storybook -p 9001 -s static"
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "<rootDir>/build/",
-      "<rootDir>/node_modules/",
-      "<rootDir>/scripts/"
-    ]
   },
   "dependencies": {
     "core-js": "^2.5.7"

@@ -1,1 +1,1 @@
-require('@cityofboston/storybook-common/addons.js');
+require('@cityofboston/storybook-common/addons');
