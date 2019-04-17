@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import StatusModal from './StatusModal';
 import { action } from '@storybook/addon-actions';
 
-storiesOf('Components/StatusModal', module)
+import StatusModal from './StatusModal';
+
+storiesOf('Notifications|Modals/StatusModal', module)
   .add('default', () => (
     <StatusModal message="Please wait a second…">
       <p className="t--s400">

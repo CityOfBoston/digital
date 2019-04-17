@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import FileInput from './FileInput';
 
-storiesOf('Form Elements/Inputs/File Input', module)
+storiesOf('Form Elements|Inputs/FileInput', module)
   .add('default', () => (
     <FileInput
       name="pdf"

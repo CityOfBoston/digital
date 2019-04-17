@@ -6,6 +6,6 @@ import './addons';
 
 const req = require.context('../src', true, /\.stories\.(jsx?|tsx?)$/);
 
-addParameters(storybookOptions('react-fleet'));
+addParameters(storybookOptions('storybook-common-example'));
 
-configure(() => loadStories(req), module);
+configure(loadStories(req), module);

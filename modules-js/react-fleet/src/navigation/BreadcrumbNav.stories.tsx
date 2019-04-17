@@ -19,7 +19,7 @@ const currentPage = {
   text: 'Death Certificates',
 };
 
-storiesOf('Navigation/Breadcrumb', module)
+storiesOf('UI|Navigation/BreadcrumbNav', module)
   .add('single level', () => (
     <BreadcrumbNav parentLinks={[]} currentPage={currentPage} />
   ))

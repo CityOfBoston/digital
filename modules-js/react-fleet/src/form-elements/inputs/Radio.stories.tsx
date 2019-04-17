@@ -33,7 +33,7 @@ const radioGroupAltLabels = [
   },
 ];
 
-storiesOf('Form Elements/Inputs/Radio', module)
+storiesOf('Form Elements|Inputs/Radio', module)
   .add('Input Element', () => (
     <Radio name="single" value="single" label="Single Option" />
   ))

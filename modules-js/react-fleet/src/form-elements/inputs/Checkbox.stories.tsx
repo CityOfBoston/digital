@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from './Checkbox';
 
-storiesOf('Form Elements/Inputs', module).add('Checkbox', () => (
+storiesOf('Form Elements|Inputs/Checkbox', module).add('Checkbox', () => (
   <>
     <Checkbox name="checkbox" value="checkbox" checked={true}>
       Community Preservation Committee

@@ -2,10 +2,13 @@ dist: trusty
 services:
 - docker
 addons:
-- chrome: beta
+  chrome: stable
 language: node_js
 env:
-- TZ=America/New_York
+  global:
+  - TZ=America/New_York
+  - npm_config_loglevel=info
+  - PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
 git:
   depth: false
 branches:

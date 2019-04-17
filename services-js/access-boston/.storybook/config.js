@@ -1,22 +1,11 @@
-import {
-  configure,
-  getStorybook,
-  setAddon,
-  addDecorator,
-} from '@storybook/react';
-import createPercyAddon from '@percy-io/percy-storybook';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { setConfig } from 'next/config';
+
+import { loadStories, storybookOptions } from '@cityofboston/storybook-common';
 
 import './addons';
 
-const { percyAddon, serializeStories } = createPercyAddon();
-setAddon(percyAddon);
-
 const req = require.context('../src', true, /\.stories\.(jsx?|tsx?)$/);
-
-function loadStories() {
-  req.keys().forEach(filename => req(filename));
-}
 
 addDecorator(story => {
   setConfig({
@@ -27,6 +16,6 @@ addDecorator(story => {
   return story();
 });
 
-configure(loadStories, module);
+addParameters(storybookOptions('access-boston'));
 
-serializeStories(getStorybook);
+configure(() => loadStories(req), module);

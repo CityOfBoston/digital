@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { OPTIMISTIC_BLUE_DARK } from '../react-fleet';
+
 import Header from './Header';
 import Menu from './Menu';
-
-import { OPTIMISTIC_BLUE_DARK } from '../react-fleet';
 
 const render = (headerProps, menuProps) => (
   <>
@@ -15,7 +15,9 @@ const render = (headerProps, menuProps) => (
   </>
 );
 
-storiesOf('Components/Header and Menu', module)
+storiesOf('UI|Site Header/Components', module).add('Header', () => <Header />);
+
+storiesOf('UI|Site Header', module)
   .add('default', () => render({}, {}))
   .add('menu open', () => render({}, { open: true }))
   .add('header custom elements', () =>

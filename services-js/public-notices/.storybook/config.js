@@ -1,17 +1,11 @@
-import { configure, getStorybook, setAddon } from '@storybook/react';
-import createPercyAddon from '@percy-io/percy-storybook';
+import { addParameters, configure } from '@storybook/react';
+
+import { loadStories, storybookOptions } from '@cityofboston/storybook-common';
 
 import './addons';
 
-const { percyAddon, serializeStories } = createPercyAddon();
-setAddon(percyAddon);
-
 const req = require.context('../src', true, /\.stories\.(jsx?|tsx?)$/);
 
-function loadStories() {
-  req.keys().forEach(filename => req(filename));
-}
+addParameters(storybookOptions('public-notices'));
 
-configure(loadStories, module);
-
-serializeStories(getStorybook);
+configure(() => loadStories(req), module);

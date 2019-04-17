@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 
 import { css } from 'emotion';
 
-import UploadPhoto from './UploadPhoto';
+import { BLACK, OPTIMISTIC_BLUE_LIGHT, WHITE } from '../utilities/constants';
 
-import { BLACK, OPTIMISTIC_BLUE_LIGHT, WHITE } from '../react-fleet';
+import UploadPhoto from './UploadPhoto';
 
 const mockHandlerFunctions = {
   handleDrop: () => {},
@@ -14,7 +14,7 @@ const mockHandlerFunctions = {
   handleCancel: () => {},
 };
 
-storiesOf('Form Elements/Upload photo', module)
+storiesOf('Form Elements|UploadPhoto', module)
   .addDecorator(s => (
     <div className="g">
       <div className="g--4">{s()}</div>
@@ -23,7 +23,7 @@ storiesOf('Form Elements/Upload photo', module)
   .add('default', () => <UploadPhoto {...mockHandlerFunctions} />)
   .add('custom background element', () => (
     <UploadPhoto
-      backgroundElement={<IdImage />}
+      backgroundElement={ID_IMAGE}
       buttonTitleUpload="Upload front of ID"
       {...mockHandlerFunctions}
     />
@@ -43,35 +43,6 @@ storiesOf('Form Elements/Upload photo', module)
   .add('existing photo (reloaded)', () => (
     <UploadPhoto initialFile={true} {...mockHandlerFunctions} />
   ));
-function IdImage(): JSX.Element {
-  return (
-    <div className={ID_IMAGE_STYLING}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 181 134"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path fill={WHITE} d="M2 2h176v130H2z" />
-
-        <g fill="currentColor">
-          <path d="M181 134H0V0h181zM4 130h172V4H4z" />
-          <path d="M95 30h63v4H95z" />
-          <path d="M95 48h63v4H95z" />
-          <path d="M95 66h63v4H95z" />
-          <path d="M95 83h63v4H95z" />
-          <path d="M95 101h63v4H95z" />
-        </g>
-
-        <g fill={WHITE} stroke="currentColor" strokeWidth="3">
-          <path d="M25 32h51v71H25z" />
-          <path d="M57 70H44l-10 7v25h33V77z" />
-          <ellipse cx="9" cy="9" rx="9" ry="9" transform="translate(41 46)" />
-        </g>
-      </svg>
-    </div>
-  );
-}
 
 const ID_IMAGE_STYLING = css({
   backgroundColor: OPTIMISTIC_BLUE_LIGHT,
@@ -89,3 +60,31 @@ const SVG_BITS = [
   </svg>
   `,
 ];
+
+const ID_IMAGE: JSX.Element = (
+  <header className={ID_IMAGE_STYLING}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 181 134"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path fill={WHITE} d="M2 2h176v130H2z" />
+
+      <g fill="currentColor">
+        <path d="M181 134H0V0h181zM4 130h172V4H4z" />
+        <path d="M95 30h63v4H95z" />
+        <path d="M95 48h63v4H95z" />
+        <path d="M95 66h63v4H95z" />
+        <path d="M95 83h63v4H95z" />
+        <path d="M95 101h63v4H95z" />
+      </g>
+
+      <g fill={WHITE} stroke="currentColor" strokeWidth="3">
+        <path d="M25 32h51v71H25z" />
+        <path d="M57 70H44l-10 7v25h33V77z" />
+        <ellipse cx="9" cy="9" rx="9" ry="9" transform="translate(41 46)" />
+      </g>
+    </svg>
+  </header>
+);

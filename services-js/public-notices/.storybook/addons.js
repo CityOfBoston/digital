@@ -1,1 +1,1 @@
-require('@storybook/addon-actions/register');
+require('@cityofboston/storybook-common/addons');

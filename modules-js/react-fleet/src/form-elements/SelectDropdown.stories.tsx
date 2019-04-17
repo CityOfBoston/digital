@@ -3,26 +3,18 @@ import { storiesOf } from '@storybook/react';
 
 import SelectDropdown from './SelectDropdown';
 
-storiesOf('Form Elements/Select', module)
-  .add('Default Dropdown', () => (
+storiesOf('Form Elements|SelectDropdown', module)
+  .add('default', () => (
     <>
       <SelectDropdown
         label="Default Dropdown"
-        options={[
-          'Apples',
-          'Oranges',
-          'Pears'
-        ]}
+        options={['Apples', 'Oranges', 'Pears']}
       />
 
       <SelectDropdown
         label="Required Dropdown"
         required
-        options={[
-          'Finch',
-          'Nuthatch',
-          'Sparrow'
-        ]}
+        options={['Finch', 'Nuthatch', 'Sparrow']}
       />
 
       <SelectDropdown
@@ -30,23 +22,15 @@ storiesOf('Form Elements/Select', module)
         required
         error={true}
         defaultValue="Pac-Man"
-        options={[
-          'Pac-Man',
-          'Q-Bert',
-          'Tetris'
-        ]}
+        options={['Pac-Man', 'Q-Bert', 'Tetris']}
       />
     </>
   ))
-  .add('Small Dropdown', () => (
+  .add('small', () => (
     <SelectDropdown
       small
       hideBlankOption
       label="Small Dropdown"
-      options={[
-        'Ash',
-        'Maple',
-        'Willow'
-      ]}
+      options={['Ash', 'Maple', 'Willow']}
     />
   ));

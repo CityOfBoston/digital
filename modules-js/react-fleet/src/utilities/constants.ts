@@ -20,7 +20,7 @@ export const CHARLES_BLUE = '#091f2f';
 //
 // DARK should always be used for text on white or GRAY_000.
 export const OPTIMISTIC_BLUE_LIGHT = '#288be4';
-export const OPTIMISTIC_BLUE_DARK = '#1979cc';
+export const OPTIMISTIC_BLUE_DARK = '#1871bd';
 
 export const FREEDOM_RED_LIGHT = '#fb4d42';
 export const FREEDOM_RED_DARK = '#d22d23';

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import TextInput from './TextInput';
 
-storiesOf('Form Elements/Inputs', module).add('Text Input', () => (
+storiesOf('Form Elements|Inputs/TextInput', module).add('Text Input', () => (
   <>
     <TextInput label="Normal Input" />
 
