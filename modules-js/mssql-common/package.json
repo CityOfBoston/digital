@@ -7,10 +7,10 @@
   "main": "build/mssql-common.js",
   "types": "build/mssql-common.d.ts",
   "scripts": {
-    "watch": "tsc-watch --preserveWatchOutput",
-    "prebuild": "rimraf build",
-    "build": "tsc",
-    "prepare": "yarn run build",
+    "watch": "tsc -b --watch",
+    "clean": "rimraf build *.tsbuildinfo",
+    "build": "tsc -b -v",
+    "prepare": "yarn build",
     "test": "jest"
   },
   "jest": {
@@ -32,7 +32,6 @@
     "@types/node": "^8.0.0",
     "jest": "24.1.0",
     "rimraf": "^2.6.2",
-    "tsc-watch": "^1.0.26",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }

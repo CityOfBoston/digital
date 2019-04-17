@@ -4,7 +4,8 @@
     "rootDir": "src",
     "outDir": "build",
     "allowJs": true,
-    "declaration": false
+    "declaration": false,
+    "declarationMap": false
   },
   "include": [
     "src/**/*"

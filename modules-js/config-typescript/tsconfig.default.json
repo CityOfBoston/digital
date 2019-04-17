@@ -5,6 +5,8 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
     "strict": true,
     "jsx": "preserve",
     "noUnusedLocals": true,

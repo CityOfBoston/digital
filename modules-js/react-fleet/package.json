@@ -11,12 +11,13 @@
   "scripts": {
     "watch": "concurrently \"yarn run build:babel -- --watch\"  \"tsc-watch --emitDeclarationOnly\" \"rollup -c -w\"",
     "storybook": "start-storybook -p 9001",
-    "prebuild": "rimraf build",
-    "build": "concurrently \"yarn run build:typescript\" \"yarn run build:babel && rollup -c\"",
-    "build:typescript": "tsc --emitDeclarationOnly",
-    "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
+    "clean": "rimraf build *.tsbuildinfo",
+    "build": "yarn run build:babel && yarn run build:typescript",
+    "build:typescript": "tsc -b -v",
+    "build:babel": "cross-env BABEL_ENV=esm babel src --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\" && rollup -c",
     "prepare": "yarn run build",
-    "test": "scripts/test.js",
+    "test": "jest",
+    "test:ci": "scripts/percy-snapshot.js",
     "fetch-templates": "ts-node ./scripts/fetch-templates.ts"
   },
   "jest": {
@@ -65,7 +66,7 @@
     "babel-plugin-inline-import": "^2.0.6",
     "babel-plugin-require-context-hook": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
-    "concurrently": "^3.5.1",
+    "concurrently": "^4.1.0",
     "cross-env": "^5.1.5",
     "detect-browser": "^3.0.1",
     "emotion": "9.2.10",
@@ -81,6 +82,6 @@
     "rollup": "^0.60.1",
     "string-hash": "^1.1.3",
     "ts-node": "^6.0.3",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }

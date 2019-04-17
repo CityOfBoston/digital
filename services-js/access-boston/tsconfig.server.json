@@ -4,7 +4,8 @@
     "rootDir": "src",
     "outDir": "build",
     "sourceMap": true,
-    "declaration": false
+    "declaration": false,
+    "declarationMap": false
   },
   "include": [
     "src/**/*"

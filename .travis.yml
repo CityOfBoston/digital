@@ -1,6 +1,6 @@
 dist: trusty
-services:
-- docker
+cache:
+- yarn
 addons:
 - chrome: beta
 language: node_js
@@ -11,6 +11,7 @@ git:
 branches:
   only:
   - develop
+  - typescript-package-references
 before_install:
 - npm install -g yarn@`jq -r .engines.yarn package.json`
 stages:
@@ -23,10 +24,16 @@ jobs:
     install:
     - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
     - yarn install --frozen-lockfile --ignore-scripts
-    - yarn run prepare
+    # We split these out instead of calling yarn:prepare so we can get separate timings
+    # in the Travis UI for each of them.
+    - yarn build:typescript:modules
+    - yarn prepare:modules
+    - lerna run --no-sort --concurrency 2 --ignore services-ruby.* pretest
     script:
-    - yarn run test
-    - yarn run test:templates
+    # Running jest on its own is faster because it can test across all our packages at once
+    - jest
+    - yarn test:ci
+    - yarn test:templates
     after_failure:
     - artifacts upload --target-paths travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID services-js/*/screenshots
     deploy:

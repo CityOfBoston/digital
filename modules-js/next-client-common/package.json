@@ -10,10 +10,10 @@
   "sideEffects": false,
   "scripts": {
     "watch": "concurrently \"yarn run build:babel -- --watch\" \"yarn run build:typescript -- --watch --preserveWatchOutput\" \"rollup -c -w\"",
-    "prebuild": "rimraf build",
-    "build": "concurrently \"yarn run build:typescript\" \"yarn run build:babel && rollup -c\"",
-    "build:typescript": "tsc --emitDeclarationOnly",
-    "build:babel": "cross-env BABEL_ENV=esm babel src --source-maps inline --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\"",
+    "clean": "rimraf build *.tsbuildinfo",
+    "build": "yarn run build:babel && yarn run build:typescript",
+    "build:typescript": "tsc -b -v",
+    "build:babel": "cross-env BABEL_ENV=esm babel src --source-maps inline --ignore '**/*.stories.*','**/*.test.*' --out-dir build --extensions \".ts,.tsx\" && rollup -c",
     "prepare": "yarn run build",
     "test": "jest"
   },
@@ -44,12 +44,12 @@
     "@types/jest": "24.x.x",
     "@types/shot": "^3.4.0",
     "babel-core": "^7.0.0-0",
-    "concurrently": "^3.5.1",
+    "concurrently": "^4.1.0",
     "jest": "24.1.0",
     "next": "8.0.3",
     "nprogress": "^0.2.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }

@@ -4,15 +4,17 @@
   "private": true,
   "license": "CC0-1.0",
   "scripts": {
-    "prebuild": "rimraf build",
-    "build": "next build src",
+    "clean": "rimraf build *.tsbuildinfo",
+    "build": "concurrently npm:build:*",
+    "build:next": "next build src",
+    "build:typecheck": "tsc -b -v",
     "dev": "next dev src",
     "storybook": "start-storybook -p 9001 -s src/static",
     "watch-dependencies": "lerna run --parallel --scope public-notices --include-filtered-dependencies watch",
     "prepare": "yarn run build",
     "start": "next start",
-    "pretest": "yarn run prebuild && tsc --noEmit",
-    "test": "scripts/test.js",
+    "test": "jest",
+    "test:ci": "scripts/test.js",
     "predeploy": "rimraf export && yarn build && next export src -o export && cp -r build/.next/BUILD_ID export",
     "codebuild-deploy": "s3-apps-deploy export"
   },
@@ -54,10 +56,11 @@
     "@types/storybook__react": "^3.0.7",
     "@zeit/next-typescript": "1.1.1",
     "babel-core": "^7.0.0-0",
+    "concurrently": "^4.1.0",
     "jest": "24.1.0",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.5",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }

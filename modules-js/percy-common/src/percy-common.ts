@@ -34,7 +34,11 @@ export function travisSnapshot({
   const token =
     process.env[`PERCY_TOKEN_${packageName.toUpperCase().replace(/-/g, '_')}`];
 
-  if ((pullRequest && pullRequest !== 'false') || branch === referenceBranch) {
+  if (
+    (pullRequest && pullRequest !== 'false') ||
+    branch === referenceBranch ||
+    branch !== referenceBranch
+  ) {
     execSync(
       `build-storybook${
         buildStorybookOptions ? ` ${buildStorybookOptions}` : ''

@@ -1,5 +1,5 @@
 {
-  "name": "official-header",
+  "name": "services-ruby.official-header",
   "version": "0.0.0",
   "description": "The official headers that are used by the City of Boston to demark official sites",
   "main": "header.js",

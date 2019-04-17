@@ -4,17 +4,19 @@
   "repository": "https://github.com/CityOfBoston/311.git",
   "license": "CC0-1.0",
   "scripts": {
-    "prebuild": "rimraf build && yarn run generate-graphql-schema && yarn run generate-graphql-types",
-    "dev": "yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
-    "pretest": "tsc --noEmit",
-    "test": "yarn run testcafe:local && scripts/test.js",
-    "testcafe:dev": "testcafe-live remote integration/*.testcafe.*",
-    "testcafe:local": "yarn run build && cross-env TEST_SERVER_URL=http://localhost:3033 PORT=3033 NODE_ENV=testcafe testcafe -a 'node build/server' --app-init-delay 3000 -S -s screenshots -c 2 chrome:headless integration/*.testcafe.*",
-    "build": "concurrently \"yarn run build:server\" \"yarn run build:next\" \"gulp vendor\"",
-    "build:server": "tsc -p tsconfig.server.json",
+    "clean": "rimraf build *.tsbuildinfo",
+    "prebuild": "yarn run generate-graphql-schema && yarn run generate-graphql-types",
+    "build": "concurrently npm:build:*",
+    "build:server": "tsc -b -v tsconfig.server.json",
+    "build:typecheck": "tsc -b -v",
     "build:next": "next build .",
+    "dev": "yarn run clean && yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
+    "pretest": "yarn build",
+    "test": "yarn run testcafe:local && jest",
+    "test:ci": "yarn run testcafe:local && scripts/percy-snapshot.js",
+    "testcafe:dev": "testcafe-live remote integration/*.testcafe.*",
+    "testcafe:local": "cross-env TEST_SERVER_URL=http://localhost:3033 PORT=3033 NODE_ENV=testcafe testcafe -a 'node build/server' --app-init-delay 3000 -S -s screenshots -c 2 chrome:headless integration/*.testcafe.*",
     "start": "node build/server",
-    "prepare": "yarn run build",
     "storybook": "gulp storybook:head && start-storybook -p 9001 -s static",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql server/graphql/index.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate data/queries/*.ts --project-name 311 --target typescript --output data/queries/types.ts && prettier --write data/queries/types.ts",
@@ -148,6 +150,6 @@
     "testcafe": "^0.23.2",
     "testcafe-live": "^0.1.4",
     "ts2gql": "CityOfBoston/ts2gql#4f10fcce",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }

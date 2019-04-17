@@ -1,5 +1,6 @@
 {
-  "name": "codered-proxy",
+  "name": "services-ruby.codered-proxy",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "prepare": "bundle install --path vendor/bundle",

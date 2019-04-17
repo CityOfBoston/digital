@@ -1,10 +1,17 @@
 {
   "extends": "./node_modules/@cityofboston/config-typescript/tsconfig.default.json",
   "compilerOptions": {
+    "composite": true,
+    "emitDeclarationOnly": true,
     "rootDir": "src",
     "outDir": "build"
   },
   "include": [
     "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../percy-common"
+    }
   ]
 }

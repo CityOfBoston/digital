@@ -39,13 +39,13 @@ const configBucket = `cob-digital-apps-${bucketEnvironment}-config`;
     // .travis.yml or buildspec.yml. We still do run the "prepare" script though
     // in case "predeploy" requires packages to be compiled.
     console.error('🌬 Running predeploy script…');
-    await runScopedLernaScript(serviceName, 'prepare');
+    await runScopedLernaScript(packageJson.name, 'prepare');
     await runNpmScript('predeploy');
     console.error();
   } else {
     // "prepare" will cause the app to be built
     console.error('🌬 Running prepare script…');
-    await runScopedLernaScript(serviceName, 'prepare');
+    await runScopedLernaScript(packageJson.name, 'prepare');
     console.error();
   }
 

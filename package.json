@@ -28,12 +28,17 @@
   "scripts": {
     "lint": "eslint .",
     "prepublish": "lerna run --stream --scope @cityofboston/* prepublish",
-    "prepare": "lerna run --stream --scope @cityofboston/* prepare",
+    "clean": "lerna run --no-sort clean",
+    "build:typescript:modules": "npx tsc -b -v modules-js/*/tsconfig.json",
+    "prepare:modules": "lerna run --scope @cityofboston/* prepare",
+    "prepare": "yarn clean && yarn build:typescript:modules && yarn prepare:modules",
+    "pretest": "lerna run --no-sort --ignore services-ruby.* build",
     "precommit": "lint-staged",
     "prepush": "jest --clearCache && lerna run --no-sort --stream --since origin/develop --ignore js-*-module test",
     "watch": "lerna run --parallel --scope @cityofboston/* watch",
-    "test": "lerna run --no-sort --concurrency 6 --ignore js-*-module test --",
-    "test:since": "lerna run test --no-sort --concurrency 6 --ignore js-*-module --since",
+    "test": "lerna run --no-sort --ignore js-*-module test --",
+    "test:ci": "lerna run --no-sort --ignore js-*-module --ignore services-ruby.* test:ci",
+    "test:ci:since": "lerna run --no-sort --concurrency 2 --ignore js-*-module --ignore services-ruby.* test:ci --since",
     "test:templates": "lerna run --no-sort --concurrency 1 --stream --scope js-*-module test --",
     "test:templates:since": "lerna run test --no-sort --concurrency 1 --stream --scope js-*-module --since"
   },
@@ -41,6 +46,7 @@
     "*.{js,jsx,ts,tsx}": "eslint --quiet"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^1.6.0",
     "@yarnpkg/lockfile": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^2.9.0",
@@ -54,7 +60,6 @@
     "lerna": "3.13.1",
     "lint-staged": "^7.0.4",
     "prettier": "^1.12.0",
-    "typescript": "^3.3.1",
-    "typescript-eslint-parser": "^20.0.0"
+    "typescript": "^3.4.0"
   }
 }

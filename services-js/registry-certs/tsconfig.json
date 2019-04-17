@@ -5,7 +5,9 @@
     "outDir": "build",
     "allowJs": true,
     "sourceMap": true,
-    "declaration": false
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false
   },
   "include": [
     "client/**/*",

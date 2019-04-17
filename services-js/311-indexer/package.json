@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prebuild": "rimraf build",
+    "clean": "rimraf build *.tsbuildinfo",
     "dev": "yarn run prebuild && tsc-watch -p tsconfig.json --onSuccess \"yarn run start\"",
-    "pretest": "tsc --noEmit",
+    "pretest": "yarn build",
     "test": "jest",
-    "build": "tsc",
+    "build": "tsc -b -v",
     "start": "node build/server",
     "prepare": "yarn run build",
     "codebuild-deploy": "codebuild-service-deploy Dockerfile",
@@ -61,6 +61,6 @@
     "jest": "24.1.0",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.3",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }

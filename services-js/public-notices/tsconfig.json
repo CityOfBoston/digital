@@ -3,8 +3,9 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "build",
-    "sourceMap": true,
-    "declaration": false
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false
   },
   "include": [
     "src/**/*"

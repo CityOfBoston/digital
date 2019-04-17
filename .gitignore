@@ -28,3 +28,4 @@ package-json.tar
 .idea
 
 .cache
+*.tsbuildinfo

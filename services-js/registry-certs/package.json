@@ -7,13 +7,16 @@
   },
   "license": "CC0-1.0",
   "scripts": {
-    "prebuild": "rimraf build && yarn run generate-graphql-schema && yarn run generate-graphql-types",
-    "dev": "yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
-    "pretest": "yarn run prebuild && tsc --noEmit",
-    "test": "scripts/test.js",
+    "clean": "rimraf build *.tsbuildinfo",
+    "prebuild": "yarn run generate-graphql-schema && yarn run generate-graphql-types",
+    "dev": "yarn run clean && yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
+    "pretest": "yarn build",
+    "test": "jest",
+    "test:ci": "scripts/test.js",
     "watch-dependencies": "lerna run --parallel --scope registry-certs --include-filtered-dependencies watch",
-    "build": "concurrently \"yarn run build:server\" \"yarn run build:next\"",
-    "build:server": "tsc -p tsconfig.server.json",
+    "build": "concurrently npm:build:*",
+    "build:server": "tsc -b -v tsconfig.server.json",
+    "build:typecheck": "tsc -b -v",
     "build:next": "next build .",
     "prepare": "yarn run build",
     "start": "node build/server",
@@ -124,7 +127,7 @@
     "babel-loader": "8.0.2",
     "cheerio": "^0.22.0",
     "codecov": "^2.3.1",
-    "concurrently": "^3.5.1",
+    "concurrently": "^4.1.0",
     "del": "^3.0.0",
     "enzyme": "3.6.0",
     "enzyme-adapter-react-16": "1.5.0",
@@ -141,6 +144,6 @@
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.5",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }

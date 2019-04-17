@@ -7,9 +7,9 @@
   "main": "build/mssql-typescript.js",
   "types": "build/mssql-typescript.d.ts",
   "scripts": {
-    "watch": "tsc-watch --preserveWatchOutput",
-    "prebuild": "rimraf build",
-    "build": "tsc",
+    "watch": "tsc -b --watch",
+    "clean": "rimraf build *.tsbuildinfo",
+    "build": "tsc -b -v",
     "prepare": "yarn run build"
   },
   "dependencies": {
@@ -21,7 +21,6 @@
     "@types/knex": "^0.14.24",
     "@types/node": "^8.0.0",
     "rimraf": "^2.6.2",
-    "tsc-watch": "^1.0.26",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.0"
   }
 }
