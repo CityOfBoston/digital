@@ -19,7 +19,7 @@ interface Deps {
 
 declare global {
   interface Error {
-    fatal?: boolean;
+    fatal?: boolean | null;
     missing?: boolean;
   }
 }
