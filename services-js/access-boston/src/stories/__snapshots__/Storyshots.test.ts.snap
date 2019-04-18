@@ -3759,6 +3759,27 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
+            href="https://boston.icims.com/platform"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/career-center.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Career Center
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
             href="https://ess.boston.gov/"
             onClick={[Function]}
             target="_blank"
@@ -4608,6 +4629,27 @@ Array [
               className="lwi-t"
             >
               Current Job Openings
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://boston.icims.com/platform"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/career-center.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Career Center
             </span>
           </a>
           <a
@@ -5514,6 +5556,27 @@ Array [
               className="lwi-t"
             >
               Current Job Openings
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://boston.icims.com/platform"
+            onClick={[Function]}
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/career-center.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Career Center
             </span>
           </a>
           <a

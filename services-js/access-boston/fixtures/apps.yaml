@@ -21,6 +21,11 @@ categories:
         icon: /assets/apps/job-openings.svg
         groups:
           - SG_AB_ICIMS
+      - title: Career Center
+        url: https://boston.icims.com/platform
+        icon: /assets/apps/career-center.svg
+        groups:
+          - SG_AB_CAREERCTR
       - title: Employee Self-Service
         url: https://ess.boston.gov/
         icon: /assets/apps/ess.svg
