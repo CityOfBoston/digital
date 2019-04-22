@@ -1,5 +1,6 @@
 {
-  "name": "311",
+  "name": "services-js.311",
+  "private": true,
   "version": "0.0.0",
   "repository": "https://github.com/CityOfBoston/311.git",
   "license": "CC0-1.0",
@@ -9,7 +10,8 @@
     "dev":
       "yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
     "pretest": "tsc --noEmit",
-    "test": "yarn run testcafe:local && scripts/test.js",
+    "test": "yarn run testcafe:local && jest",
+    "percy": "scripts/percy.js",
     "testcafe:dev": "testcafe-live remote integration/*.testcafe.*",
     "testcafe:local":
       "yarn run build && cross-env TEST_SERVER_URL=http://localhost:3033 PORT=3033 NODE_ENV=testcafe testcafe -a 'node build/server' --app-init-delay 3000 -S -s screenshots -c 2 chrome:headless integration/*.testcafe.*",
@@ -24,7 +26,7 @@
       "mkdir -p graphql && ts2gql server/graphql/index.ts > graphql/schema.graphql",
     "generate-graphql-types":
       "apollo-codegen generate data/queries/*.ts --project-name 311 --target typescript --output data/queries/types.ts && prettier --write data/queries/types.ts",
-    "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy deploy/Dockerfile"
   },
   "jest": {
     "resetMocks": true,

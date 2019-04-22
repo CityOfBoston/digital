@@ -1,55 +1,107 @@
 dist: trusty
+language: node_js
+
+git:
+  # We can't limit git depth because we need to do --since checks
+  depth: false
+
+branches:
+  only:
+  - develop
+
 services:
 - docker
+
 addons:
   chrome: stable
-language: node_js
+
+cache:
+- yarn
+
 env:
   global:
   - TZ=America/New_York
   - npm_config_loglevel=info
   - PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
-git:
-  depth: false
-branches:
-  only:
-  - develop
+  - LERNA_SINCE=$(if [ -n "$TRAVIS_PULL_REQUEST_SHA" ]; then echo "$TRAVIS_PULL_REQUEST_SHA^1"; else echo ""; fi)
+  - HAS_JS_CHANGES=$(if npx lerna la --since=$LERNA_SINCE --scope="@cityofboston/*" --scope="services-js.*" &>/dev/null; then echo 1; fi)
+  - HAS_TEMPLATE_CHANGES=$(if npx lerna la --since=$LERNA_SINCE --scope="templates.*" &>/dev/null; then echo 1; fi)
+  - HAS_RUBY_CHANGES=$(if npx lerna la --since=$LERNA_SINCE --scope="services-ruby.*" &>/dev/null; then echo 1; fi)
+
 before_install:
-- npm install -g yarn@`jq -r .engines.yarn package.json`
-stages:
-- name: test
-  if: branch !~ /^staging\//
+  # Travis has a very old version of Yarn installed, so we need to upgrade.
+  - npm install -g yarn@`jq -r .engines.yarn package.json`
+
+# Keeps the "node_js" language setting from automatically doing a default "yarn
+# install" in cases where we leave it off.
+install: skip
+
 jobs:
   include:
-  - stage: test
-    if: type IN (push)
+  - name: JavaScript Tests
     install:
-    - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
-    - yarn install --frozen-lockfile --ignore-scripts
-    - yarn run prepare
-    script:
-    - yarn run test
-    - yarn run test:templates
+      - if [ -z "$HAS_JS_CHANGES" ]; then travis_terminate 0; fi
+      - yarn install --frozen-lockfile --ignore-scripts
+    before_script: yarn prepare
+    script: >-
+      npx lerna run
+      --since=$LERNA_SINCE
+      --scope "@cityofboston/*"
+      --scope "services-js.*"
+      --no-sort
+      test
     after_failure:
+    - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
     - artifacts upload --target-paths travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID services-js/*/screenshots
+
+  - name: Percy Snapshots
+    install:
+      - if [ -z "$HAS_JS_CHANGES" ]; then travis_terminate 0; fi
+      - yarn install --frozen-lockfile --ignore-scripts
+    before_script: yarn prepare
+    script: >-
+      npx lerna run
+      --since=$LERNA_SINCE
+      --scope=@cityofboston/*
+      --scope=services-js.*
+      --no-sort
+      percy
+
+  - name: JavaScript Template Tests
+    install:
+      - if [ -z "$HAS_TEMPLATE_CHANGES" ]; then travis_terminate 0; fi
+      - yarn install --frozen-lockfile --ignore-scripts
+    before_script: npx lerna run --since=$LERNA_SINCE --scope=templates.* --include-filtered-dependencies prepare
+    script: >-
+      npx lerna run
+      --since=$LERNA_SINCE
+      --concurrency 1
+      --stream
+      --scope=templates.*
+      test
+  
+  - name: Ruby Tests
+    install:
+      - if [ -z "$HAS_RUBY_CHANGES" ]; then travis_terminate 0; fi
+    script: >-
+      npx lerna run
+      --since=$LERNA_SINCE
+      --stream
+      --scope=services-ruby.*
+      test
+
+  - stage: deploy
+    name: Notify Shippy-Toe
+    if: type IN (push) 
+    install: skip
+    script: skip
     deploy:
       provider: script
-      skip_cleanup: true
       script:
-      - lerna exec --stream --scope @cityofboston/deploy-tools report-updated-services
+      - npx -p deploy-tools.tgz report-updated-services
       on:
         branch: develop
-  - if: type IN (pull_request)
-    install:
-    - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
-    - yarn install --frozen-lockfile --ignore-scripts
-    - lerna run --stream --since $TRAVIS_PULL_REQUEST_SHA^1 --include-filtered-dependencies 
-      prepare
-    script:
-    - yarn run test:since $TRAVIS_PULL_REQUEST_SHA^1
-    - yarn run test:templates:since $TRAVIS_PULL_REQUEST_SHA^1
-    after_failure:
-    - artifacts upload --target-paths travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID services-js/*/screenshots
+
 notifications:
   slack:
     on_success: always

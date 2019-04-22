@@ -1,16 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - env
-      - npm config set scripts-prepend-node-path true
-      - npm install -g yarn
-      - yarn install --frozen-lockfile --ignore-scripts
-  pre_build:
-    commands:
-      # We only need to build deploy-tools to support deployment
-      - npx lerna run --stream --scope @cityofboston/deploy-tools --include-filtered-dependencies prepare
   # TODO(finh): It would be neat to do container building as the build step and
   # service update as post_build.
   build:

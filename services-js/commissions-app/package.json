@@ -1,5 +1,5 @@
 {
-  "name": "commissions-app",
+  "name": "services-js.commissions-app",
   "version": "0.0.0",
   "description": "Boards and Commissions GraphQL server and webapp",
   "private": true,
@@ -16,12 +16,13 @@
     "prepare-deploy": "build-storybook -s static",
     "start": "node build/server/start",
     "pretest": "yarn run prebuild && tsc --noEmit",
-    "test": "scripts/test.js",
+    "test": "jest",
+    "percy": "scripts/percy.js",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate src/client/**/*.ts --project-name commissions-app --target typescript --output src/client/graphql/queries.d.ts && prettier --write src/client/graphql/queries.d.ts",
     "generate-fixtures": "ts-node ./scripts/generate-fixtures.ts",
     "generate-db-types": "ts-node ./scripts/generate-db-types.ts",
-    "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy deploy/Dockerfile"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -35,7 +36,6 @@
   },
   "dependencies": {
     "@babel/runtime": "7.1.2",
-    "@cityofboston/deploy-tools": "^0.0.0",
     "@cityofboston/form-common": "^0.0.0",
     "@cityofboston/hapi-common": "^0.0.0",
     "@cityofboston/hapi-next": "^0.0.0",

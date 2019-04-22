@@ -1,6 +1,7 @@
 {
-  "name": "registry-certs",
+  "name": "services-js.registry-certs",
   "version": "0.0.0",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CityOfBoston/registry-certs.git"
@@ -10,7 +11,8 @@
     "prebuild": "rimraf build && yarn run generate-graphql-schema && yarn run generate-graphql-types",
     "dev": "yarn run prebuild && tsc-watch -p tsconfig.server.json --onSuccess \"yarn run start\"",
     "pretest": "yarn run prebuild && tsc --noEmit",
-    "test": "scripts/test.js",
+    "test": "jest",
+    "percy": "scripts/percy.js",
     "watch-dependencies": "lerna run --parallel --scope registry-certs --include-filtered-dependencies watch",
     "build": "concurrently \"yarn run build:server\" \"yarn run build:next\"",
     "build:server": "tsc -p tsconfig.server.json",
@@ -18,7 +20,7 @@
     "prepare": "yarn run build",
     "start": "node build/server",
     "storybook": "start-storybook -p 9001 -s static",
-    "codebuild-deploy": "codebuild-service-deploy Dockerfile",
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile",
     "prepare-deploy": "build-storybook -s static",
     "postdeploy": "ts-node ./scripts/post-deploy",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
