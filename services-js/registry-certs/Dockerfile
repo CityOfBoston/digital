@@ -30,8 +30,8 @@ RUN yarn install --frozen-lockfile --ignore-scripts
 
 ADD . /app/
 
-RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare 
-RUN npx lerna run --stream --include-filtered-dependencies --scope $WORKSPACE prepare-deploy 
+RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare 
+RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare-deploy 
 
 
 EXPOSE 3000

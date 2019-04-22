@@ -5,12 +5,18 @@
   "private": true,
   "license": "CC0-1.0",
   "main": "build/helpers.js",
+  "files": [
+    "/README.md",
+    "/bin",
+    "/build"
+  ],
   "scripts": {
     "watch": "tsc-watch --preserveWatchOutput",
     "prebuild": "rimraf build",
     "build": "tsc",
     "prepare": "yarn run build",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "precommit": "./scripts/npm-package.js"
   },
   "bin": {
     "codebuild-service-deploy": "bin/codebuild-service-deploy.js",
@@ -24,13 +30,16 @@
     ]
   },
   "dependencies": {
+    "@lerna/filter-options": "^3.13.0",
+    "@lerna/package-graph": "^3.13.0",
+    "@lerna/project": "^3.13.0",
     "@slack/client": "^4.3.1",
     "aws-sdk": "^2.245.1",
     "date-fns": "^1.29.0",
+    "dotenv": "^5.0.0",
     "form-data": "^2.2.0",
     "https-proxy-agent": "^2.0.0",
     "ignore": "^5.0.4",
-    "lerna": "3.4.0",
     "mime-types": "^2.1.20",
     "minimist": "^1.2.0",
     "node-fetch": "^2.0.0",

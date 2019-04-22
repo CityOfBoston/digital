@@ -1,6 +1,7 @@
 {
-  "name": "payment-webhooks",
+  "name": "services-js.payment-webhooks",
   "version": "0.1.0",
+  "private": true,
   "description": "Service to update iNovah based on webhook calls from a payment provider",
   "scripts": {
     "dev": "yarn run prebuild && tsc-watch --onSuccess \"yarn run start\"",
@@ -12,7 +13,7 @@
     "build": "tsc",
     "start": "node build/server",
     "prepare": "yarn run build",
-    "codebuild-deploy": "codebuild-service-deploy Dockerfile"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile"
   },
   "license": "CC0-1.0",
   "jest": {
@@ -42,7 +43,6 @@
     "@babel/core": "7.1.2",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
-    "@cityofboston/deploy-tools": "^0.0.0",
     "@types/boom": "^7.2.0",
     "@types/hapi": "^17.0.19",
     "@types/node": "^8.0.0",

@@ -1,5 +1,5 @@
 {
-  "name": "public-notices",
+  "name": "services-js.public-notices",
   "version": "0.0.0",
   "private": true,
   "license": "CC0-1.0",
@@ -12,9 +12,10 @@
     "prepare": "yarn run build",
     "start": "next start",
     "pretest": "yarn run prebuild && tsc --noEmit",
-    "test": "scripts/test.js",
+    "test": "jest",
+    "percy": "scripts/percy.js",
     "predeploy": "rimraf export && yarn build && next export src -o export && cp -r build/.next/BUILD_ID export",
-    "codebuild-deploy": "s3-apps-deploy export"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz s3-apps-deploy export"
   },
   "jest": {
     "testPathIgnorePatterns": [

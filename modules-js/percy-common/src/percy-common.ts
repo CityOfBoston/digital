@@ -1,5 +1,7 @@
 import { execSync } from 'child_process';
 
+// TODO(finh): move this into storybook-common as a binary
+
 export interface TravisSnapshotOptions {
   referenceBranch: string;
   project: string;

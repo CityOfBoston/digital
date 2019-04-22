@@ -1,5 +1,5 @@
 {
-  "name": "access-boston",
+  "name": "services-js.access-boston",
   "version": "0.0.0",
   "description": "Frontend for SSO-enabled apps list",
   "private": true,
@@ -15,13 +15,14 @@
     "prepare": "yarn run build",
     "start": "node build/server/start",
     "pretest": "yarn run prebuild && tsc --noEmit",
-    "test": "yarn run testcafe:local && scripts/test.js",
+    "test": "yarn run testcafe:local && jest",
     "testcafe:dev": "testcafe-live remote src/**/*.testcafe.*",
     "testcafe:local": "yarn run build && cross-env TEST_SERVER_URL=http://localhost:3032 PORT=3032 NODE_ENV=testcafe testcafe -a 'node build/server/start' --app-init-delay 3000 -S -s screenshots -c 2 chrome:headless src/**/*.testcafe.*",
+    "percy": "scripts/percy.js",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "apollo-codegen generate src/client/**/*.ts --project-name access-boston --target typescript --output src/client/graphql/queries.ts && prettier --write src/client/graphql/queries.ts",
     "prepare-deploy": "build-storybook -s static",
-    "codebuild-deploy": "codebuild-service-deploy deploy/Dockerfile",
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy deploy/Dockerfile",
     "postdeploy": "ts-node ./scripts/post-deploy"
   },
   "jest": {

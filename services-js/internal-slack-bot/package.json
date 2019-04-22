@@ -1,5 +1,5 @@
 {
-  "name": "internal-slack-bot",
+  "name": "services-js.internal-slack-bot",
   "version": "0.0.1",
   "description": "Internal Slack utility bot",
   "private": true,
@@ -11,7 +11,7 @@
     "build": "tsc",
     "start": "node build/server",
     "prepare": "yarn run build",
-    "codebuild-deploy": "codebuild-service-deploy Dockerfile",
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile",
     "tunnel": "npx ngrok http 8000",
     "test-deploy": "ts-node ./scripts/test-deploy.ts"
   },
@@ -47,7 +47,6 @@
     "@babel/core": "7.1.2",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
-    "@cityofboston/deploy-tools": "^0.0.0",
     "@types/aws-sdk": "^2.7.0",
     "@types/boom": "^7.2.0",
     "@types/hapi": "^17.0.19",
