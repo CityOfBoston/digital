@@ -20,7 +20,7 @@
     ]
   },
   "dependencies": {
-    "core-js": "^2.5.7"
+    "core-js": "^2.6.4"
   },
   "devDependencies": {
     "@babel/cli": "7.1.5",
@@ -35,6 +35,6 @@
     "typescript": "^3.3.1"
   },
   "peerDependencies": {
-    "core-js": "^2.5.7"
+    "core-js": "^2.6.4"
   }
 }

@@ -10,6 +10,7 @@ import {
   parseBranch,
   runNpmScript,
   runScopedLernaScript,
+  yarnInstall,
 } from './helpers';
 
 const args = parseArgs(process.argv, { boolean: true });
@@ -33,19 +34,26 @@ const configBucket = `cob-digital-apps-${bucketEnvironment}-config`;
   await downloadFromS3(configBucket, serviceName);
   console.error();
 
+  // We don't install packages by default because they’re not needed in the
+  // container-building case. But we do need them for s3 building, so we do that
+  // now.
+  console.error('🧶 yarn install…');
+  await yarnInstall();
+  console.error();
+
   const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
   if (packageJson.scripts && packageJson.scripts.predeploy) {
     // We do run a yarn install for the whole repo during deploy. See
     // .travis.yml or buildspec.yml. We still do run the "prepare" script though
     // in case "predeploy" requires packages to be compiled.
     console.error('🌬 Running predeploy script…');
-    await runScopedLernaScript(serviceName, 'prepare');
+    await runScopedLernaScript(packageJson.name, 'prepare');
     await runNpmScript('predeploy');
     console.error();
   } else {
     // "prepare" will cause the app to be built
     console.error('🌬 Running prepare script…');
-    await runScopedLernaScript(serviceName, 'prepare');
+    await runScopedLernaScript(packageJson.name, 'prepare');
     console.error();
   }
 

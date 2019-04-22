@@ -37311,6 +37311,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
   
         </style>
         
+        
       </head>
       <body>
         
@@ -37363,7 +37364,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>
@@ -37432,14 +37433,14 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -37455,7 +37456,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -37493,7 +37494,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
       
       <!--[if mso | IE]>
         <table
-           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:550px;\\" role=\\"presentation\\" width=\\"550px\\"
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:546px;\\" role=\\"presentation\\" width=\\"546px\\"
         >
           <tr>
             <td style=\\"height:0;line-height:0;\\">
@@ -37540,14 +37541,14 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -37563,7 +37564,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -37623,14 +37624,14 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -37646,7 +37647,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -37784,7 +37785,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>
@@ -37985,6 +37986,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
   
         </style>
         
+        
       </head>
       <body>
         
@@ -38037,7 +38039,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>
@@ -38106,14 +38108,14 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -38129,7 +38131,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -38167,7 +38169,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       
       <!--[if mso | IE]>
         <table
-           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:550px;\\" role=\\"presentation\\" width=\\"550px\\"
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:546px;\\" role=\\"presentation\\" width=\\"546px\\"
         >
           <tr>
             <td style=\\"height:0;line-height:0;\\">
@@ -38214,14 +38216,14 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -38237,7 +38239,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:300px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
             >
           <![endif]-->
             
@@ -38272,7 +38274,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
             </td>
           
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:300px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
             >
           <![endif]-->
             
@@ -38336,14 +38338,14 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -38359,7 +38361,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -38554,7 +38556,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>
@@ -38772,6 +38774,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
   
         </style>
         
+        
       </head>
       <body>
         
@@ -38824,7 +38827,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>
@@ -38893,14 +38896,14 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -38916,7 +38919,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -38954,7 +38957,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
       
       <!--[if mso | IE]>
         <table
-           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:550px;\\" role=\\"presentation\\" width=\\"550px\\"
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:546px;\\" role=\\"presentation\\" width=\\"546px\\"
         >
           <tr>
             <td style=\\"height:0;line-height:0;\\">
@@ -39001,14 +39004,14 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -39024,7 +39027,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -39083,14 +39086,14 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -39106,7 +39109,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:300px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
             >
           <![endif]-->
             
@@ -39141,7 +39144,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
             </td>
           
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:300px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
             >
           <![endif]-->
             
@@ -39205,14 +39208,14 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -39228,7 +39231,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -39395,7 +39398,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>
@@ -39606,6 +39609,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
   
         </style>
         
+        
       </head>
       <body>
         
@@ -39658,7 +39662,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>
@@ -39727,14 +39731,14 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -39750,7 +39754,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -39788,7 +39792,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
       
       <!--[if mso | IE]>
         <table
-           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:550px;\\" role=\\"presentation\\" width=\\"550px\\"
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:546px;\\" role=\\"presentation\\" width=\\"546px\\"
         >
           <tr>
             <td style=\\"height:0;line-height:0;\\">
@@ -39835,14 +39839,14 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -39858,7 +39862,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:300px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
             >
           <![endif]-->
             
@@ -39893,7 +39897,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
             </td>
           
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:300px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
             >
           <![endif]-->
             
@@ -39957,14 +39961,14 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
               >
           
       <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
       >
         <tr>
           <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
       <![endif]-->
     
       
-      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
         
         <table
            align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
@@ -39980,7 +39984,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
         <tr>
       
             <td
-               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
             >
           <![endif]-->
             
@@ -40170,7 +40174,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
               >
                 
       <table
-         align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
       >
         <tbody>
           <tr>

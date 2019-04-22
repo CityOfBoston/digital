@@ -24,7 +24,7 @@
     ]
   },
   "dependencies": {
-    "core-js": "^2.5.7"
+    "core-js": "^2.6.4"
   },
   "peerDependencies": {
     "@babel/runtime": "7.1.2",
@@ -41,7 +41,7 @@
     "@types/react": "^16.8.5",
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
-    "cross-env": "^5.1.5",
+    "cross-env": "^5.2.0",
     "emotion": "9.2.10",
     "jest": "24.1.0",
     "react": "16.8.5",

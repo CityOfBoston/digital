@@ -37,7 +37,7 @@
     "aws-sdk": "^2.245.1",
     "date-fns": "^1.29.0",
     "dotenv": "^5.0.0",
-    "form-data": "^2.2.0",
+    "form-data": "^2.3.3",
     "https-proxy-agent": "^2.0.0",
     "ignore": "^5.0.4",
     "mime-types": "^2.1.20",

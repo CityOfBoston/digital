@@ -584,6 +584,15 @@ export async function runCommandInContainer(
   }
 }
 
+export async function yarnInstall() {
+  if (
+    (shell.exec('yarn install --ignore-scripts') as ExecOutputReturnValue)
+      .code !== 0
+  ) {
+    throw new Error('Unable to run yarn install');
+  }
+}
+
 export async function uploadToS3(
   buildDir: string,
   bucket: string,

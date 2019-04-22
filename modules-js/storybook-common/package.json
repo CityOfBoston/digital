@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 9001 -s static"
   },
   "dependencies": {
-    "core-js": "^2.5.7"
+    "core-js": "^2.6.4"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",

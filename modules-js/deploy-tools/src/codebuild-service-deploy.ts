@@ -68,7 +68,7 @@ const cacheTag = 'latest';
     // buildspec.yml. We still do run the "prepare" script though in case
     // "predeploy" requires packages to be compiled.
     console.error('🌬 Running predeploy script…');
-    await runScopedLernaScript(serviceName, 'prepare');
+    await runScopedLernaScript(packageJson.name, 'prepare');
     await runNpmScript('predeploy');
     console.error();
   }

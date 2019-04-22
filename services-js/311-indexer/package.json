@@ -1,5 +1,5 @@
 {
-  "name": "311-indexer",
+  "name": "services-js.311-indexer",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -28,10 +28,10 @@
     "aws-sdk": "^2.100.0",
     "cometd": "^4.0.3",
     "cometd-nodejs-client": "^1.0.2",
-    "core-js": "^2.5.7",
+    "core-js": "^2.6.4",
     "dotenv": "^5.0.0",
     "elasticsearch": "^14.0.0",
-    "form-data": "^2.2.0",
+    "form-data": "^2.3.3",
     "http-aws-es": "^4.0.0",
     "https-proxy-agent": "^2.1.0",
     "lodash": "^4.17.4",

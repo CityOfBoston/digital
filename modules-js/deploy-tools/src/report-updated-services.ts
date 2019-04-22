@@ -41,7 +41,7 @@ async function getChangedProductionServices(): Promise<string[]> {
 
   const updatedServiceNames = [] as string[];
 
-  const project = new Project(__dirname);
+  const project = new Project('./');
   const packages: Package[] = await project.getPackages();
   const graph = new PackageGraph(packages);
 
@@ -51,9 +51,12 @@ async function getChangedProductionServices(): Promise<string[]> {
 
   await Promise.all(
     servicePackages.map(async servicePackage => {
+      // This name is "<dir>.<service>"
       const { name } = servicePackage;
 
-      const lastProductionCommit = serviceNameToProductionCommit[name];
+      const lastProductionCommit =
+        serviceNameToProductionCommit[name.split('.')[1]];
+
       if (!lastProductionCommit) {
         return;
       }
@@ -74,7 +77,7 @@ async function getChangedProductionServices(): Promise<string[]> {
       );
 
       if (packagesChangedSince.includes(servicePackage)) {
-        updatedServiceNames.push(servicePackage.name);
+        updatedServiceNames.push(servicePackage.name.split('.')[1]);
       }
     })
   );
