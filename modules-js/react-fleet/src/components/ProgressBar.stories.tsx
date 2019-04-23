@@ -1,6 +1,9 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
+import { withKnobs, button } from '@storybook/addon-knobs';
+
+import { NarrowWrapper } from '@cityofboston/storybook-common';
 
 import ProgressBar from './ProgressBar';
 
@@ -20,8 +23,6 @@ interface State {
   completed: boolean;
 }
 
-// todo: replace button with Knobs addon
-
 class InteractiveStep extends React.Component<Props, State> {
   constructor(props) {
     super(props);
@@ -32,32 +33,24 @@ class InteractiveStep extends React.Component<Props, State> {
   }
 
   render() {
-    return (
-      <>
-        <ProgressBar
-          totalSteps={taskList.length}
-          currentStep={this.props.currentStep}
-          currentStepCompleted={this.state.completed}
-        />
+    const label = 'Complete current task';
+    const handler = () => this.setState({ completed: true });
 
-        {/* styled to (hopefully) make clear that this is not part of the actual component */}
-        <button
-          type="button"
-          style={{
-            fontFamily: 'monospace',
-            display: 'block',
-            margin: '1rem auto',
-          }}
-          onClick={() => this.setState({ completed: true })}
-        >
-          Storybook demonstration: click to complete the task
-        </button>
-      </>
+    button(label, handler);
+
+    return (
+      <ProgressBar
+        totalSteps={taskList.length}
+        currentStep={this.props.currentStep}
+        currentStepCompleted={this.state.completed}
+      />
     );
   }
 }
 
 storiesOf('ProgressBar', module)
+  .addDecorator(story => <NarrowWrapper>{story()}</NarrowWrapper>)
+  .addDecorator(withKnobs)
   .add('default', () => (
     <ProgressBar totalSteps={taskList.length} currentStep={4} />
   ))

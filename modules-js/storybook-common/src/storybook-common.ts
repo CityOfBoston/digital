@@ -1,3 +1,5 @@
+export { CenterWrapper, NarrowWrapper } from './wrappers';
+
 export function storybookOptions(projectName) {
   return {
     options: {
@@ -9,12 +11,15 @@ export function storybookOptions(projectName) {
   };
 }
 
-type Config = any;
+type WebpackConfig = any;
 
 // 'PRODUCTION' is used when building the static version of storybook.
 type Mode = 'DEVELOPMENT' | 'PRODUCTION';
 
-export function webpackConfig(config: Config, _mode?: Mode): Config {
+export function webpackConfig(
+  config: WebpackConfig,
+  _mode?: Mode
+): WebpackConfig {
   // Finds the rule that matches a JS file and makes it match TypeScript as
   // well. This lets us automatically use whatever Babel config Storybook has
   // set up.

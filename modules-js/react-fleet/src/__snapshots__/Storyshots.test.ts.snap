@@ -1342,12 +1342,19 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels as Markup 1`]
 </div>
 `;
 
-exports[`Storyshots Form Elements|Inputs/TextInput Text Input 1`] = `
-Array [
+exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
   <div>
     <label
       className="txt-l "
-      htmlFor="input-240483872"
+      htmlFor="input-362326901"
     >
       <span
         style={
@@ -1357,13 +1364,16 @@ Array [
           }
         }
       >
-        Normal Input
+        Standard text input
       </span>
     </label>
     <input
       aria-label=""
       className="txt-f  "
-      id="input-240483872"
+      disabled={false}
+      id="input-362326901"
+      placeholder=""
+      required={false}
       type="text"
     />
     <div
@@ -1371,7 +1381,87 @@ Array [
     >
        
     </div>
-  </div>,
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-2348632648"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        String error
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  txt-f--err"
+      id="input-2348632648"
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100"
+    >
+      Value is not correct
+    </div>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-3077581017"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Boolean error
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  txt-f--err"
+      id="input-3077581017"
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
   <div>
     <label
       className="txt-l "
@@ -1406,11 +1496,11 @@ Array [
     >
        
     </div>
-  </div>,
+  </div>
   <div>
     <label
       className="txt-l "
-      htmlFor="input-423803610"
+      htmlFor="input-3174958747"
     >
       <span
         style={
@@ -1420,71 +1510,14 @@ Array [
           }
         }
       >
-        Password
+        Placeholder text
       </span>
     </label>
     <input
       aria-label=""
       className="txt-f  "
-      id="input-423803610"
-      onChange={[Function]}
-      type="password"
-      value="password"
-    />
-    <div
-      className="t--subinfo t--err m-b100"
-    >
-       
-    </div>
-  </div>,
-  <div>
-    <label
-      className="txt-l "
-      htmlFor="input-2348632648"
-    >
-      <span
-        style={
-          Object {
-            "marginRight": "0.5em",
-            "whiteSpace": "nowrap",
-          }
-        }
-      >
-        String error
-      </span>
-    </label>
-    <input
-      aria-label=""
-      className="txt-f  txt-f--err"
-      id="input-2348632648"
-      type="text"
-    />
-    <div
-      className="t--subinfo t--err m-b100"
-    >
-      Value is not correct
-    </div>
-  </div>,
-  <div>
-    <label
-      className="txt-l "
-      htmlFor="input-3077581017"
-    >
-      <span
-        style={
-          Object {
-            "marginRight": "0.5em",
-            "whiteSpace": "nowrap",
-          }
-        }
-      >
-        Boolean error
-      </span>
-    </label>
-    <input
-      aria-label=""
-      className="txt-f  txt-f--err"
-      id="input-3077581017"
+      id="input-3174958747"
+      placeholder="Placeholder Text"
       type="text"
     />
     <div
@@ -1492,7 +1525,39 @@ Array [
     >
        
     </div>
-  </div>,
+  </div>
+  <form>
+    <div>
+      <label
+        className="txt-l "
+        htmlFor="input-423803610"
+      >
+        <span
+          style={
+            Object {
+              "marginRight": "0.5em",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          Password
+        </span>
+      </label>
+      <input
+        aria-label=""
+        className="txt-f  "
+        id="input-423803610"
+        onChange={[Function]}
+        type="password"
+        value="password"
+      />
+      <div
+        className="t--subinfo t--err m-b100"
+      >
+         
+      </div>
+    </div>
+  </form>
   <div>
     <label
       className="txt-l "
@@ -1531,7 +1596,7 @@ Array [
     >
        
     </div>
-  </div>,
+  </div>
   <div>
     <label
       className="txt-l txt-l--sm"
@@ -1560,12 +1625,19 @@ Array [
     >
        
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
-Array [
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
   <div>
     <label
       className="txt-l "
@@ -1588,7 +1660,10 @@ Array [
       <select
         aria-label=""
         className="sel-f  "
+        disabled={false}
         id="select-572458229"
+        onChange={[Function]}
+        required={false}
       >
         <option />
         <option>
@@ -1602,7 +1677,19 @@ Array [
         </option>
       </select>
     </div>
-  </div>,
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
   <div>
     <label
       className="txt-l "
@@ -1645,7 +1732,7 @@ Array [
         </option>
       </select>
     </div>
-  </div>,
+  </div>
   <div>
     <label
       className="txt-l "
@@ -1689,45 +1776,43 @@ Array [
         </option>
       </select>
     </div>
-  </div>,
-]
-`;
-
-exports[`Storyshots Form Elements|SelectDropdown small 1`] = `
-<div>
-  <label
-    className="txt-l txt-l--sm"
-    htmlFor="select-4045240769"
-  >
-    <span
-      style={
-        Object {
-          "marginRight": "0.5em",
-          "whiteSpace": "nowrap",
+  </div>
+  <br />
+  <div>
+    <label
+      className="txt-l txt-l--sm"
+      htmlFor="select-4045240769"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
         }
-      }
+      >
+        Small Dropdown
+      </span>
+    </label>
+    <div
+      className="sel-c sel-c--thin "
     >
-      Small Dropdown
-    </span>
-  </label>
-  <div
-    className="sel-c sel-c--thin "
-  >
-    <select
-      aria-label=""
-      className="sel-f sel-f--thin "
-      id="select-4045240769"
-    >
-      <option>
-        Ash
-      </option>
-      <option>
-        Maple
-      </option>
-      <option>
-        Willow
-      </option>
-    </select>
+      <select
+        aria-label=""
+        className="sel-f sel-f--thin "
+        id="select-4045240769"
+      >
+        <option>
+          Ash
+        </option>
+        <option>
+          Maple
+        </option>
+        <option>
+          Willow
+        </option>
+      </select>
+    </div>
   </div>
 </div>
 `;
@@ -2742,28 +2827,44 @@ exports[`Storyshots Notifications|Modals/StatusModal error with close 1`] = `
 
 exports[`Storyshots ProgressBar default 1`] = `
 <div
-  className="css-v8ihoq"
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
 >
-  <progress
-    aria-valuemax={5}
-    aria-valuemin={1}
-    aria-valuenow={4}
-    aria-valuetext="Step 4 of 5"
-    max={5}
-    value={3}
+  <div
+    className="css-v8ihoq"
   >
-    Step 4 of 5
-  </progress>
-  <span
-    aria-hidden="true"
-  >
-    Step 4 of 5
-  </span>
+    <progress
+      aria-valuemax={5}
+      aria-valuemin={1}
+      aria-valuenow={4}
+      aria-valuetext="Step 4 of 5"
+      max={5}
+      value={3}
+    >
+      Step 4 of 5
+    </progress>
+    <span
+      aria-hidden="true"
+    >
+      Step 4 of 5
+    </span>
+  </div>
 </div>
 `;
 
 exports[`Storyshots ProgressBar first step (interactive demo) 1`] = `
-Array [
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
   <div
     className="css-v8ihoq"
   >
@@ -2782,25 +2883,19 @@ Array [
     >
       Step 1 of 5
     </span>
-  </div>,
-  <button
-    onClick={[Function]}
-    style={
-      Object {
-        "display": "block",
-        "fontFamily": "monospace",
-        "margin": "1rem auto",
-      }
-    }
-    type="button"
-  >
-    Storybook demonstration: click to complete the task
-  </button>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots ProgressBar last step (interactive demo) 1`] = `
-Array [
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
   <div
     className="css-v8ihoq"
   >
@@ -2819,42 +2914,38 @@ Array [
     >
       Step 5 of 5
     </span>
-  </div>,
-  <button
-    onClick={[Function]}
-    style={
-      Object {
-        "display": "block",
-        "fontFamily": "monospace",
-        "margin": "1rem auto",
-      }
-    }
-    type="button"
-  >
-    Storybook demonstration: click to complete the task
-  </button>,
-]
+  </div>
+</div>
 `;
 
 exports[`Storyshots ProgressBar with task name 1`] = `
 <div
-  className="css-v8ihoq"
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
 >
-  <progress
-    aria-valuemax={5}
-    aria-valuemin={1}
-    aria-valuenow={3}
-    aria-valuetext="Step 3 of 5: Shipping information"
-    max={5}
-    value={2}
+  <div
+    className="css-v8ihoq"
   >
-    Step 3 of 5: Shipping information
-  </progress>
-  <span
-    aria-hidden="true"
-  >
-    Step 3 of 5: Shipping information
-  </span>
+    <progress
+      aria-valuemax={5}
+      aria-valuemin={1}
+      aria-valuenow={3}
+      aria-valuetext="Step 3 of 5: Shipping information"
+      max={5}
+      value={2}
+    >
+      Step 3 of 5: Shipping information
+    </progress>
+    <span
+      aria-hidden="true"
+    >
+      Step 3 of 5: Shipping information
+    </span>
+  </div>
 </div>
 `;
 
