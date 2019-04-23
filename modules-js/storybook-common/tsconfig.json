@@ -3,7 +3,8 @@
     "./node_modules/@cityofboston/config-typescript/tsconfig.default.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "build"
+    "outDir": "build",
+    "jsx": "react"
   },
   "include": ["src/**/*"]
 }

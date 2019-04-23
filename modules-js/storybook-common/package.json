@@ -21,7 +21,7 @@
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@emotion/core": "^10.0.10",
-    "@storybook/react": "5.0.8",
+    "@storybook/react": "^5.0.10",
     "@types/jest": "24.x.x",
     "@types/node": "^8.0.0",
     "@types/react": "^16.8.5",

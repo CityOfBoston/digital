@@ -52,7 +52,7 @@ type Props = {
   onKeyDown?(e: any): void;
 } & (
   | {
-      hideLabel: true;
+      hideLabel?: true;
       label: string;
     }
   | {
