@@ -3,8 +3,6 @@
 # 311-indexer
 
 [![Build Status](https://travis-ci.org/CityOfBoston/311-indexer.svg?branch=develop)](https://travis-ci.org/CityOfBoston/311-indexer)
-[![codecov](https://codecov.io/gh/CityOfBoston/311-indexer/branch/develop/graph/badge.svg)](https://codecov.io/gh/CityOfBoston/311-indexer)
-[![Greenkeeper badge](https://badges.greenkeeper.io/CityOfBoston/311-indexer.svg)](https://greenkeeper.io/)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 Pulls 311 updates from Salesforce and indexes them in Elasticsearch

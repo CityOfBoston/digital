@@ -20,7 +20,7 @@
     ]
   },
   "dependencies": {
-    "core-js": "^2.5.7",
+    "core-js": "^2.6.4",
     "mssql": "^4.2.1"
   },
   "devDependencies": {

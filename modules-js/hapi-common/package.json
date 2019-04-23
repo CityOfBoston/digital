@@ -21,10 +21,10 @@
   },
   "dependencies": {
     "boom": "^7.2.0",
-    "core-js": "^2.5.7",
+    "core-js": "^2.6.4",
     "good": "^8.1.1",
     "good-console": "^7.1.0",
-    "good-squeeze": "^5.0.2",
+    "good-squeeze": "^5.1.0",
     "hoek": "5.x.x"
   },
   "peerDependencies": {
@@ -36,7 +36,7 @@
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/hoek": "^4.1.3",
     "@types/jest": "24.x.x",
-    "hapi": "^17.4.0",
+    "hapi": "^17.5.2",
     "jest": "24.1.0",
     "rimraf": "^2.6.2",
     "rollbar": "^2.5.1",

@@ -28,7 +28,7 @@
     ]
   },
   "dependencies": {
-    "core-js": "^2.5.7"
+    "core-js": "^2.6.4"
   },
   "peerDependencies": {
     "@babel/runtime": "7.1.2",
@@ -69,7 +69,7 @@
     "babel-plugin-require-context-hook": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
     "concurrently": "^3.5.1",
-    "cross-env": "^5.1.5",
+    "cross-env": "^5.2.0",
     "detect-browser": "^3.0.1",
     "emotion": "9.2.10",
     "fs-extra": "^5.0.0",

@@ -3,8 +3,6 @@
 The source code for ordering registry certificates online.
 
 [![Build Status](https://travis-ci.org/CityOfBoston/registry-certs.svg?branch=develop)](https://travis-ci.org/CityOfBoston/registry-certs)
-[![codecov](https://codecov.io/gh/CityOfBoston/registry-certs/branch/develop/graph/badge.svg)](https://codecov.io/gh/CityOfBoston/registry-certs)
-[![Greenkeeper badge](https://badges.greenkeeper.io/CityOfBoston/registry-certs.svg)](https://greenkeeper.io/)
 
 ## Developers
 
