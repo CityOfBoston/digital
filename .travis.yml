@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 language: node_js
 
 git:
@@ -17,20 +17,21 @@ addons:
 
 cache:
 - yarn
+- directories:
+  - $HOME/.npm
 
 env:
   global:
   - TZ=America/New_York
-  - npm_config_loglevel=info
   - PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
   - LERNA_SINCE=$(if [ -n "$TRAVIS_PULL_REQUEST_SHA" ]; then echo "$TRAVIS_PULL_REQUEST_SHA^1"; else echo ""; fi)
-  - HAS_JS_CHANGES=$(if npx lerna la --since=$LERNA_SINCE --scope="@cityofboston/*" --scope="services-js.*" &>/dev/null; then echo 1; fi)
-  - HAS_TEMPLATE_CHANGES=$(if npx lerna la --since=$LERNA_SINCE --scope="templates.*" &>/dev/null; then echo 1; fi)
-  - HAS_RUBY_CHANGES=$(if npx lerna la --since=$LERNA_SINCE --scope="services-ruby.*" &>/dev/null; then echo 1; fi)
 
 before_install:
   # Travis has a very old version of Yarn installed, so we need to upgrade.
   - npm install -g yarn@`jq -r .engines.yarn package.json`
+  # npm install -g instead of npx so we don't need to re-unpack every time.
+  - npm install -g lerna@`jq -r .devDependencies.lerna package.json`
+  - source scripts/check-for-changes.sh
 
 # Keeps the "node_js" language setting from automatically doing a default "yarn
 # install" in cases where we leave it off.
