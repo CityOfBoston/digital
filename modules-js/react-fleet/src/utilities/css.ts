@@ -9,5 +9,19 @@ export const VISUALLYHIDDEN = css({
   overflow: 'hidden',
   padding: 0,
   position: 'absolute',
-  width: '1px'
+  width: '1px',
 });
+
+export const CLEAR_DEFAULT_STYLING = {
+  BUTTON: css({
+    backgroundColor: 'transparent',
+    color: 'inherit',
+    border: 'none',
+    margin: 0,
+    padding: 0,
+    overflow: 'visible',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
+    textAlign: 'inherit',
+  }),
+};

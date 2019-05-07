@@ -14141,6 +14141,49 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
             <p>
               You can only order copies of one person’s birth certificate at a time. If you want to buy copies of a certificate for another person, you need to do a separate transaction.
             </p>
+            <aside
+              className="css-1qhj8nj"
+            >
+              <button
+                aria-controls="detailsContent"
+                aria-expanded={false}
+                className="css-1ujbbbr"
+                onClick={[Function]}
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="css-67mzkk"
+                  focusable="false"
+                  overflow="visible"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M 2,5 10,20 18,5 Z"
+                  />
+                </svg>
+                Are you requesting a certificate for international use that requires an Apostille from the Massachusetts Secretary of State?
+              </button>
+              <div
+                className="details-content"
+                id="detailsContent"
+              >
+                <p>
+                  You need to have a hand signature from the Registry. After you finish your order, please email birth@boston.gov with:
+                </p>
+                <ul>
+                  <li>
+                    the name of the person on the record
+                  </li>
+                  <li>
+                    their date of birth, and
+                  </li>
+                  <li>
+                    let us know that you need the signature for an Apostille.
+                  </li>
+                </ul>
+              </div>
+            </aside>
             <div
               className="css-14pnwub"
             >
