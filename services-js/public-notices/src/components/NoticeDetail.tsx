@@ -30,7 +30,7 @@ const NOTICE_STYLE = css`
     flex-direction: column;
   }
 
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-left: 1em;
   }
 
@@ -159,7 +159,7 @@ const NOTICE_STYLE = css`
     margin-bottom: 0.875rem;
   }
 
-  .notice-body li > strong:first-child {
+  .notice-body li > strong:first-of-type {
     display: block;
     margin-bottom: 0.25rem;
   }

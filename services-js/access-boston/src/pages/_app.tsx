@@ -3,7 +3,8 @@ import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
 import cookies from 'next-cookies';
-import { hydrate } from 'emotion';
+import { hydrate, cache as emotionCache } from 'emotion';
+import { CacheProvider } from '@emotion/core';
 
 import {
   FetchGraphql,
@@ -18,6 +19,12 @@ import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
 
 import CrumbContext from '../client/CrumbContext';
 import { RedirectError } from '../client/auth-helpers';
+``;
+// Adds server generated styles to emotion cache.
+// '__NEXT_DATA__.ids' is set in '_document.js'
+if (typeof window !== 'undefined') {
+  hydrate((window as any).__NEXT_DATA__.ids);
+}
 
 /**
  * Our App’s getInitialProps automatically calls the page’s getInitialProps with
@@ -159,12 +166,6 @@ export default class AccessBostonApp extends App {
     // super call above actually does this.
     this.props = props;
 
-    // Adds server generated styles to emotion cache.
-    // '__NEXT_DATA__.ids' is set in '_document.js'
-    if (typeof window !== 'undefined') {
-      hydrate((window as any).__NEXT_DATA__.ids);
-    }
-
     this.state = {
       crumb: this.props.serverCrumb,
     };
@@ -204,9 +205,11 @@ export default class AccessBostonApp extends App {
 
     return (
       <CrumbContext.Provider value={crumb}>
-        <Container>
-          <Component {...this.pageDependencies} {...pageProps} />
-        </Container>
+        <CacheProvider value={emotionCache}>
+          <Container>
+            <Component {...this.pageDependencies} {...pageProps} />
+          </Container>
+        </CacheProvider>
       </CrumbContext.Provider>
     );
   }

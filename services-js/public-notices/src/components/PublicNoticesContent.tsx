@@ -68,6 +68,7 @@ const APP_STYLE = css`
     display: flex;
     flex-direction: row;
     flex: 1;
+    overflow: hidden;
   }
 
   .sidebar {
@@ -77,7 +78,7 @@ const APP_STYLE = css`
     overflow: hidden;
   }
 
-  .column:not(:first-child).sidebar {
+  .column:not(:first-of-type).sidebar {
     margin-left: 0;
   }
 `;

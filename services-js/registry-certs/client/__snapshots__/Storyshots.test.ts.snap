@@ -1076,7 +1076,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
             >
               Payment
             </h2>
@@ -1635,7 +1635,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
             >
               Review Order
             </h2>
@@ -1886,7 +1886,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                       </tr>
                       <tr>
                         <td
-                          className="sh-title css-1ujpul8"
+                          className="sh-title css-1wbwn6n"
                         >
                           <span
                             className="css-1tg3jta"
@@ -2574,7 +2574,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
             >
               Shipping
             </h2>
@@ -3346,7 +3346,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="bornInBoston"
           >
             Were 
@@ -3536,7 +3536,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="bornInBoston"
           >
             Were 
@@ -3668,7 +3668,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
       >
         <legend>
           <h3
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="parentsLivedInBoston"
           >
             Did 
@@ -3879,7 +3879,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="bornInBoston"
           >
             Were 
@@ -4011,7 +4011,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
       >
         <legend>
           <h3
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="parentsLivedInBoston"
           >
             Did 
@@ -4202,7 +4202,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="bornInBoston"
           >
             Were 
@@ -4334,7 +4334,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
       >
         <legend>
           <h3
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="parentsLivedInBoston"
           >
             Did 
@@ -4546,7 +4546,7 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
         className="m-t500"
       >
         <h2
-          className="css-vmrobw"
+          className="css-1b8j3qn"
         >
           You must complete this process in person or by mail
         </h2>
@@ -4644,7 +4644,7 @@ exports[`Storyshots Birth/Question Components/ForWhom default 1`] = `
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="forSelf"
           >
             Whose birth certificate are you ordering?
@@ -4776,7 +4776,7 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="forSelf"
           >
             Whose birth certificate are you ordering?
@@ -4876,7 +4876,7 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
       >
         <legend>
           <h3
-            className="css-vmrobw"
+            className="css-1b8j3qn"
             id="howRelated"
           >
             I’m ordering the birth certificate of my…
@@ -5271,7 +5271,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             What were 
             your
@@ -5296,7 +5296,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         >
           <legend>
             <h3
-              className="css-vmrobw secondary"
+              className="css-1b8j3qn secondary"
             >
               Parent 1 
               <em>
@@ -5386,7 +5386,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         >
           <legend>
             <h3
-              className="css-vmrobw secondary"
+              className="css-1b8j3qn secondary"
             >
               Parent 2
             </h3>
@@ -5474,7 +5474,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             Were 
             your
@@ -5664,7 +5664,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             What were 
             their
@@ -5689,7 +5689,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-vmrobw secondary"
+              className="css-1b8j3qn secondary"
             >
               Parent 1 
               <em>
@@ -5779,7 +5779,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-vmrobw secondary"
+              className="css-1b8j3qn secondary"
             >
               Parent 2
             </h3>
@@ -5867,7 +5867,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             Were 
             Stacy’s
@@ -6085,7 +6085,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             What were 
             your
@@ -6110,7 +6110,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-vmrobw secondary"
+              className="css-1b8j3qn secondary"
             >
               Parent 1 
               <em>
@@ -6200,7 +6200,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-vmrobw secondary"
+              className="css-1b8j3qn secondary"
             >
               Parent 2
             </h3>
@@ -6288,7 +6288,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             Were 
             your
@@ -6504,7 +6504,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             What was 
             their
@@ -6645,7 +6645,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             }
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
               style={
                 Object {
                   "marginBottom": "1.5rem",
@@ -6812,7 +6812,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
       >
         <legend>
           <h2
-            className="css-vmrobw"
+            className="css-1b8j3qn"
           >
             What was 
             their
@@ -6953,7 +6953,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             }
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
               style={
                 Object {
                   "marginBottom": "1.5rem",
@@ -8114,7 +8114,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
       className="css-1hd83di"
     >
       <h2
-        className="css-vmrobw"
+        className="css-1b8j3qn"
       >
         Verify your identity
       </h2>
@@ -8141,7 +8141,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         with questions.
       </p>
       <h3
-        className="css-vmrobw secondary m-t700"
+        className="css-1b8j3qn secondary m-t700"
         style={
           Object {
             "borderBottom": 0,
@@ -8445,7 +8445,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
       >
         <legend>
           <h3
-            className="css-vmrobw secondary m-t700"
+            className="css-1b8j3qn secondary m-t700"
             style={
               Object {
                 "borderBottom": 0,
@@ -8496,7 +8496,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         </div>
       </fieldset>
       <h2
-        className="css-vmrobw secondary m-t700"
+        className="css-1b8j3qn secondary m-t700"
       >
         No ID?
       </h2>
@@ -8576,7 +8576,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
       className="css-1hd83di"
     >
       <h2
-        className="css-vmrobw"
+        className="css-1b8j3qn"
       >
         Verify your identity
       </h2>
@@ -8603,7 +8603,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
         with questions.
       </p>
       <h3
-        className="css-vmrobw secondary m-t700"
+        className="css-1b8j3qn secondary m-t700"
         style={
           Object {
             "borderBottom": 0,
@@ -8915,7 +8915,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
       >
         <legend>
           <h3
-            className="css-vmrobw secondary m-t700"
+            className="css-1b8j3qn secondary m-t700"
             style={
               Object {
                 "borderBottom": 0,
@@ -9101,7 +9101,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
         </div>
       </fieldset>
       <h2
-        className="css-vmrobw secondary m-t700"
+        className="css-1b8j3qn secondary m-t700"
       >
         No ID?
       </h2>
@@ -9178,7 +9178,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
     className="css-1hd83di"
   >
     <h2
-      className="css-vmrobw"
+      className="css-1b8j3qn"
     >
       Verify your identity
     </h2>
@@ -9205,7 +9205,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       with questions.
     </p>
     <h3
-      className="css-vmrobw secondary m-t700"
+      className="css-1b8j3qn secondary m-t700"
       style={
         Object {
           "borderBottom": 0,
@@ -9517,7 +9517,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
     >
       <legend>
         <h3
-          className="css-vmrobw secondary m-t700"
+          className="css-1b8j3qn secondary m-t700"
           style={
             Object {
               "borderBottom": 0,
@@ -9703,7 +9703,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       </div>
     </fieldset>
     <h2
-      className="css-vmrobw secondary m-t700"
+      className="css-1b8j3qn secondary m-t700"
     >
       No ID?
     </h2>
@@ -9782,7 +9782,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
       className="css-1hd83di"
     >
       <h2
-        className="css-vmrobw"
+        className="css-1b8j3qn"
       >
         Verify your identity
       </h2>
@@ -9809,7 +9809,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         with questions.
       </p>
       <h3
-        className="css-vmrobw secondary m-t700"
+        className="css-1b8j3qn secondary m-t700"
         style={
           Object {
             "borderBottom": 0,
@@ -10121,7 +10121,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
       >
         <legend>
           <h3
-            className="css-vmrobw secondary m-t700"
+            className="css-1b8j3qn secondary m-t700"
             style={
               Object {
                 "borderBottom": 0,
@@ -10277,7 +10277,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         </div>
       </fieldset>
       <h2
-        className="css-vmrobw secondary m-t700"
+        className="css-1b8j3qn secondary m-t700"
       >
         No ID?
       </h2>
@@ -10747,7 +10747,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
               >
                 <legend>
                   <h2
-                    className="css-vmrobw"
+                    className="css-1b8j3qn"
                     id="forSelf"
                   >
                     Whose birth certificate are you ordering?
@@ -11184,7 +11184,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
                 className="m-t500"
               >
                 <h2
-                  className="css-vmrobw"
+                  className="css-1b8j3qn"
                 >
                   You must complete this process in person or by mail
                 </h2>
@@ -11588,7 +11588,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
               >
                 <legend>
                   <h2
-                    className="css-vmrobw"
+                    className="css-1b8j3qn"
                     id="bornInBoston"
                   >
                     Were 
@@ -12084,7 +12084,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
               >
                 <legend>
                   <h2
-                    className="css-vmrobw"
+                    className="css-1b8j3qn"
                   >
                     What was 
                     your
@@ -12225,7 +12225,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                     }
                   >
                     <h2
-                      className="css-vmrobw"
+                      className="css-1b8j3qn"
                       style={
                         Object {
                           "marginBottom": "1.5rem",
@@ -12674,7 +12674,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
               >
                 <legend>
                   <h2
-                    className="css-vmrobw"
+                    className="css-1b8j3qn"
                   >
                     What were 
                     their
@@ -12699,7 +12699,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 >
                   <legend>
                     <h3
-                      className="css-vmrobw secondary"
+                      className="css-1b8j3qn secondary"
                     >
                       Parent 1 
                       <em>
@@ -12789,7 +12789,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 >
                   <legend>
                     <h3
-                      className="css-vmrobw secondary"
+                      className="css-1b8j3qn secondary"
                     >
                       Parent 2
                     </h3>
@@ -12877,7 +12877,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
               >
                 <legend>
                   <h2
-                    className="css-vmrobw"
+                    className="css-1b8j3qn"
                   >
                     Were 
                     Stacy’s
@@ -13369,7 +13369,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
               className="css-1hd83di"
             >
               <h2
-                className="css-vmrobw"
+                className="css-1b8j3qn"
               >
                 Verify your identity
               </h2>
@@ -13396,7 +13396,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 with questions.
               </p>
               <h3
-                className="css-vmrobw secondary m-t700"
+                className="css-1b8j3qn secondary m-t700"
                 style={
                   Object {
                     "borderBottom": 0,
@@ -13700,7 +13700,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
               >
                 <legend>
                   <h3
-                    className="css-vmrobw secondary m-t700"
+                    className="css-1b8j3qn secondary m-t700"
                     style={
                       Object {
                         "borderBottom": 0,
@@ -13751,7 +13751,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 </div>
               </fieldset>
               <h2
-                className="css-vmrobw secondary m-t700"
+                className="css-1b8j3qn secondary m-t700"
               >
                 No ID?
               </h2>
@@ -14134,7 +14134,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
             >
               Review your record request
             </h2>
@@ -14406,7 +14406,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                   </tr>
                   <tr>
                     <td
-                      className="sh-title css-1ujpul8"
+                      className="sh-title css-1wbwn6n"
                     >
                       <span
                         className="css-1tg3jta"
@@ -17483,7 +17483,7 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
             >
               Payment
             </h2>
@@ -20567,7 +20567,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
             >
               Review Order
             </h2>
@@ -20818,7 +20818,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
                       </tr>
                       <tr>
                         <td
-                          className="sh-title css-1ujpul8"
+                          className="sh-title css-1wbwn6n"
                         >
                           <span
                             className="css-1tg3jta"
@@ -21558,7 +21558,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -22278,7 +22278,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -22902,7 +22902,7 @@ exports[`Storyshots Checkout/ReviewContent empty cart 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -23566,7 +23566,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -24259,7 +24259,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -24986,7 +24986,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -25720,7 +25720,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -26157,7 +26157,7 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-vmrobw"
+              className="css-1b8j3qn"
             >
               Shipping
             </h2>
@@ -29998,7 +29998,7 @@ exports[`Storyshots Common Components/CostSummary default credit card 1`] = `
         </tr>
         <tr>
           <td
-            className="sh-title css-1ujpul8"
+            className="sh-title css-1wbwn6n"
           >
             <span
               className="css-1tg3jta"
@@ -30131,7 +30131,7 @@ exports[`Storyshots Common Components/CostSummary default debit card 1`] = `
         </tr>
         <tr>
           <td
-            className="sh-title css-1ujpul8"
+            className="sh-title css-1wbwn6n"
           >
             <span
               className="css-1tg3jta"
@@ -30235,7 +30235,7 @@ exports[`Storyshots Common Components/CostSummary only credit card 1`] = `
         </tr>
         <tr>
           <td
-            className="sh-title css-1ujpul8"
+            className="sh-title css-1wbwn6n"
           >
             <span
               className="css-1tg3jta"
@@ -30339,7 +30339,7 @@ exports[`Storyshots Common Components/CostSummary only debit card 1`] = `
         </tr>
         <tr>
           <td
-            className="sh-title css-1ujpul8"
+            className="sh-title css-1wbwn6n"
           >
             <span
               className="css-1tg3jta"
@@ -30483,7 +30483,7 @@ exports[`Storyshots Common Components/CostSummary with research fee 1`] = `
         </tr>
         <tr>
           <td
-            className="sh-title css-1ujpul8"
+            className="sh-title css-1wbwn6n"
           >
             <span
               className="css-1tg3jta"
@@ -32323,7 +32323,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"
@@ -32959,7 +32959,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                     </tr>
                     <tr>
                       <td
-                        className="sh-title css-1ujpul8"
+                        className="sh-title css-1wbwn6n"
                       >
                         <span
                           className="css-1tg3jta"

@@ -4,7 +4,8 @@ import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
 import { configure as mobxConfigure } from 'mobx';
-import { hydrate } from 'emotion';
+import { hydrate, cache as emotionCache } from 'emotion';
+import { CacheProvider } from '@emotion/core';
 
 import {
   makeFetchGraphql,
@@ -28,6 +29,12 @@ import parseLanguagePreferences, {
   LanguagePreference,
 } from '../data/store/BrowserLanguage';
 import { NextConfig } from '../lib/config';
+
+// Adds server generated styles to emotion cache.
+// '__NEXT_DATA__.ids' is set in '_document.js'
+if (typeof window !== 'undefined') {
+  hydrate((window as any).__NEXT_DATA__.ids);
+}
 
 /**
  * Our App’s getInitialProps automatically calls the page’s getInitialProps with
@@ -190,12 +197,6 @@ export default class Three11App extends App {
       svg4everybody();
     }
 
-    // Adds server generated styles to emotion cache.
-    // '__NEXT_DATA__.ids' is set in '_document.js'
-    if (typeof window !== 'undefined') {
-      hydrate((window as any).__NEXT_DATA__.ids);
-    }
-
     const config: NextConfig = getConfig();
 
     // In the browser, this is called before it's ever called in a
@@ -279,9 +280,11 @@ export default class Three11App extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Component {...this.pageDependencies} {...pageProps} />
-      </Container>
+      <CacheProvider value={emotionCache}>
+        <Container>
+          <Component {...this.pageDependencies} {...pageProps} />
+        </Container>
+      </CacheProvider>
     );
   }
 }

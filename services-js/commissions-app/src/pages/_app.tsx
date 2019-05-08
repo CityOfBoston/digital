@@ -1,13 +1,20 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import Router from 'next/router';
-import { hydrate } from 'emotion';
+import { hydrate, cache as emotionCache } from 'emotion';
+import { CacheProvider } from '@emotion/core';
 import { SiteAnalytics } from '@cityofboston/next-client-common/build/SiteAnalytics';
 import {
   RouterListener,
   GtagSiteAnalytics,
   ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
+
+// Adds server generated styles to emotion cache.
+// '__NEXT_DATA__.ids' is set in '_document.js'
+if (typeof window !== 'undefined') {
+  hydrate((window as any).__NEXT_DATA__.ids);
+}
 
 interface Props {
   pageProps: any;
@@ -38,12 +45,6 @@ export default class CommissionsApp extends App {
     // super call above actually does this.
     this.props = props;
 
-    // Adds server generated styles to emotion cache.
-    // '__NEXT_DATA__.ids' is set in '_document.js'
-    if (typeof window !== 'undefined') {
-      hydrate((window as any).__NEXT_DATA__.ids);
-    }
-
     this.routerListener = new RouterListener();
     this.siteAnalytics = new GtagSiteAnalytics();
     this.screenReaderSupport = new ScreenReaderSupport();
@@ -67,9 +68,11 @@ export default class CommissionsApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Component {...pageProps} />
-      </Container>
+      <CacheProvider value={emotionCache}>
+        <Container>
+          <Component {...pageProps} />
+        </Container>
+      </CacheProvider>
     );
   }
 }

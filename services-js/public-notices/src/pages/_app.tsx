@@ -2,7 +2,9 @@ import React from 'react';
 import App, { Container } from 'next/app';
 
 import { configure as mobxConfigure } from 'mobx';
-import { hydrate } from 'emotion';
+
+import { cache as emotionCache, hydrate } from 'emotion';
+import { CacheProvider } from '@emotion/core';
 
 interface AppInitialProps {
   ctx: any;
@@ -15,6 +17,14 @@ interface InitialProps {
 
 interface Props extends InitialProps {
   Component: any;
+}
+
+if (typeof window !== 'undefined') {
+  const nextData = (window as any).__NEXT_DATA__;
+
+  // Adds server generated styles to emotion cache.
+  // '__NEXT_DATA__.ids' is set in '_document.js'
+  hydrate(nextData.ids);
 }
 
 /**
@@ -49,10 +59,6 @@ export default class PublicNoticesApp extends App {
     if (typeof window !== 'undefined') {
       const nextData = (window as any).__NEXT_DATA__;
 
-      // Adds server generated styles to emotion cache.
-      // '__NEXT_DATA__.ids' is set in '_document.js'
-      hydrate(nextData.ids);
-
       // This is a long-running app. We ping every few minutes to see if a new
       // build has gone up and, if so, we do a window.reload to get it.
       this.versionInterval = window.setInterval(async () => {
@@ -79,9 +85,11 @@ export default class PublicNoticesApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
-        <Component {...pageProps} />
-      </Container>
+      <CacheProvider value={emotionCache}>
+        <Container>
+          <Component {...pageProps} />
+        </Container>
+      </CacheProvider>
     );
   }
 }

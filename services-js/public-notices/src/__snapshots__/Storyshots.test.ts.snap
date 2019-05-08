@@ -70,7 +70,7 @@ exports[`Storyshots NoticeDetail 2nd page 1`] = `
   }
 >
   <div
-    className="css-unyt4c"
+    className="css-1jyyhvx"
   >
     <div
       className="notice-header"
@@ -259,7 +259,7 @@ exports[`Storyshots NoticeDetail canceled 1`] = `
   }
 >
   <div
-    className="css-unyt4c"
+    className="css-1jyyhvx"
   >
     <div
       className="notice-header"
@@ -426,7 +426,7 @@ exports[`Storyshots NoticeDetail default 1`] = `
   }
 >
   <div
-    className="css-unyt4c"
+    className="css-1jyyhvx"
   >
     <div
       className="notice-header"
@@ -615,7 +615,7 @@ exports[`Storyshots NoticeDetail loading 1`] = `
   }
 >
   <div
-    className="css-unyt4c"
+    className="css-1jyyhvx"
   >
     <div
       className="notice-header"
@@ -699,7 +699,7 @@ exports[`Storyshots NoticeDetail public testimony 1`] = `
   }
 >
   <div
-    className="css-unyt4c"
+    className="css-1jyyhvx"
   >
     <div
       className="notice-header"
@@ -1623,7 +1623,7 @@ exports[`Storyshots NoticeList default 1`] = `
 
 exports[`Storyshots PublicNoticesContent default 1`] = `
 <div
-  className="css-1ofk99i"
+  className="css-1hsxaxp"
 >
   <div
     className="container"
@@ -1648,7 +1648,7 @@ exports[`Storyshots PublicNoticesContent default 1`] = `
         className="columns"
       >
         <div
-          className="css-unyt4c"
+          className="css-1jyyhvx"
         >
           <div
             className="notice-header"
@@ -1825,7 +1825,7 @@ exports[`Storyshots PublicNoticesContent default 1`] = `
           </div>
         </div>
         <div
-          className="css-unyt4c"
+          className="css-1jyyhvx"
         >
           <div
             className="notice-header"
@@ -1966,7 +1966,7 @@ exports[`Storyshots PublicNoticesContent default 1`] = `
           </div>
         </div>
         <div
-          className="css-unyt4c"
+          className="css-1jyyhvx"
         >
           <div
             className="notice-header"
