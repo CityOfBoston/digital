@@ -16,8 +16,8 @@ interface Props {
 
 const ADJUST_NAV_STYLE = css({
   // boston.gov drupal side of things is calling a legacy stylesheet with font smoothing applied
-  '-webkit-font-smoothing': 'antialiased',
-  '-moz-osx-font-smoothing': 'grayscale',
+  WebkitFontSmoothing: 'antialiased',
+  MozOsxFontSmoothing: 'grayscale',
 });
 
 const LAST_BREADCRUMB_STYLE = css({

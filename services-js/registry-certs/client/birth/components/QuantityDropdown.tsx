@@ -73,9 +73,9 @@ const ADD_TO_CART_FORM_STYLE = css({
 });
 
 const QUANTITY_FIELD_STYING = css({
-  '-moz-appearance': 'textfield',
+  MozAppearance: 'textfield',
   '&::-webkit-inner-spin-button': {
-    '-webkit-appearance': 'none',
+    WebkitAppearance: 'none',
   },
 
   [MEDIA_SMALL]: {

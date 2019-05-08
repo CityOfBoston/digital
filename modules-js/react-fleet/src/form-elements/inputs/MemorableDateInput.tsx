@@ -511,10 +511,10 @@ const FIELDS_CONTAINER_STYLING = css({
     },
   },
   input: {
-    '-moz-appearance': 'textfield',
+    MozAppearance: 'textfield',
 
     '&::-webkit-inner-spin-button': {
-      '-webkit-appearance': 'none',
+      WebkitAppearance: 'none',
     },
 
     '&::-ms-clear': {

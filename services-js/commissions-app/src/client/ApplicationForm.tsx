@@ -48,7 +48,7 @@ export interface FieldProps {
 // todo: https://github.com/CityOfBoston/digital/pull/97/files#r224776915
 
 const FORM_STYLING = css({
-  '-webkit-text-size-adjust':
+  WebkitTextSizeAdjust:
     '100%' /* Prevent font scaling in OSX landscape while allowing user zoom */,
   'input, textarea': {
     borderRadius: 0,
