@@ -7,7 +7,8 @@ const EXTERNALS = [
   'react',
   'react-dom',
   'react-dropzone',
-  'emotion',
+  '@emotion/core',
+  '@emotion/css',
   'string-hash',
   'detect-browser',
 ];

@@ -1,20 +1,21 @@
-import React from 'react';
-import { css } from 'emotion';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
 
 import { FREEDOM_RED_DARK } from '../../utilities/constants';
 
-const STYLES = css(`
+const STYLES = css`
   border: none;
   background-color: transparent;
   cursor: pointer;
   padding: 0;
   opacity: 0.8;
   transition: opacity 0.15s;
-  
+
   &:hover {
     opacity: 1;
   }
-`);
+`;
 
 const DEFAULT_SIZE = '48px';
 
@@ -33,7 +34,8 @@ export default function CloseButton(props: Props): JSX.Element {
       type="button"
       title={props.title || 'Close'}
       onClick={props.handleClick}
-      className={`${STYLES} ${props.className}`}
+      className={props.className}
+      css={STYLES}
       style={{
         width: size,
         height: size,

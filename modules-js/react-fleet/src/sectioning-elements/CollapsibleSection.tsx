@@ -1,6 +1,8 @@
+/** @jsx jsx */
+
 import React, { ReactNode, ReactNodeArray } from 'react';
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 import hash from 'string-hash';
 
 import {
@@ -132,7 +134,7 @@ export default class CollapsibleSection extends React.Component<Props, State> {
       return (
         <button
           type="button"
-          className={BUTTON_STYLING}
+          css={BUTTON_STYLING}
           aria-expanded={this.state.expanded}
           onClick={this.toggleExpanded}
         >
@@ -167,7 +169,8 @@ export default class CollapsibleSection extends React.Component<Props, State> {
     const id = `collapsiblesection-${hash(this.props.title)}`;
 
     const headerAttributes = {
-      className: `sh-title ${HEADER_STYLING}`,
+      className: 'sh-title',
+      css: HEADER_STYLING,
     };
 
     // We use aria-label for the region so that we can give the <button> a label

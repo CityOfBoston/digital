@@ -1,7 +1,8 @@
+/** @jsx jsx */
 import React from 'react';
 import Dropzone from 'react-dropzone';
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import {
   FREEDOM_RED_DARK,
@@ -162,14 +163,15 @@ export default class UploadPhoto extends React.Component<Props, State> {
           onDrop={this.onDrop}
         >
           {({ getRootProps, getInputProps, isDragActive }) => (
-            <div {...getRootProps()} className={INPUT_CONTAINER_FOCUS_STYLING}>
+            <div {...getRootProps()} css={INPUT_CONTAINER_FOCUS_STYLING}>
               <input {...getInputProps()} />
 
               <div
                 ref={this.previewRef}
-                className={`${PREVIEW_CONTAINER_STYLING} ${
-                  isDragActive ? DRAG_RING_STYLING : ''
-                }`}
+                css={[
+                  PREVIEW_CONTAINER_STYLING,
+                  isDragActive && DRAG_RING_STYLING,
+                ]}
               >
                 {/* We keep the background element in the flow to preserve height / width */}
                 <div style={{ visibility: previewUrl ? 'hidden' : 'visible' }}>
@@ -178,7 +180,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
 
                 {previewUrl && (
                   <div
-                    className={PREVIEW_IMAGE_STYLING}
+                    css={PREVIEW_IMAGE_STYLING}
                     style={{
                       backgroundImage: `url(${previewUrl})`,
                     }}
@@ -191,9 +193,8 @@ export default class UploadPhoto extends React.Component<Props, State> {
 
         <div className="br br-t200" style={{ position: 'relative' }}>
           <button
-            className={`btn btn--w btn--b ${BUTTON_FOCUS_STYLING} ${
-              isUploading ? 'btn--r-hov' : ''
-            } ${hasError ? ERROR_MESSAGE_STYLING : ''}`}
+            className={`btn btn--w btn--b ${isUploading ? 'btn--r-hov' : ''}`}
+            css={[BUTTON_FOCUS_STYLING, hasError && ERROR_MESSAGE_STYLING]}
             style={{ width: '100%' }}
             type="button"
             onClick={this.handleButtonClick}
@@ -203,7 +204,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
 
           {!!isUploading && (
             <div
-              className={PROGRESS_STYLING}
+              css={PROGRESS_STYLING}
               style={{ width: `${uploadProgress}%` }}
             />
           )}
@@ -218,7 +219,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
  */
 function defaultInitialAppearance(): JSX.Element {
   return (
-    <div className={DEFAULT_IMAGE_STYLING}>
+    <div css={DEFAULT_IMAGE_STYLING}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 22 144 100"

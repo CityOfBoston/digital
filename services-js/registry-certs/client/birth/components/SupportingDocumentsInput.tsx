@@ -1,4 +1,6 @@
+/** @jsx jsx */
 import React from 'react';
+import { jsx } from '@emotion/core';
 import { css } from 'emotion';
 
 // todo: prevent next/back while uploads pending
@@ -9,7 +11,7 @@ import {
   ERROR_TEXT_COLOR,
   FOCUS_INDICATOR_COLOR,
   OPTIMISTIC_BLUE_LIGHT,
-  VISUALLYHIDDEN,
+  VISUALLY_HIDDEN,
   MEDIA_SMALL,
   SERIF,
 } from '@cityofboston/react-fleet';
@@ -162,7 +164,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
     return (
       <div className="m-b300">
         <input
-          className={VISUALLYHIDDEN}
+          css={VISUALLY_HIDDEN}
           ref={this.inputRef}
           type="file"
           accept={this.props.acceptTypes}

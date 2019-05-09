@@ -1,7 +1,9 @@
+/** @jsx jsx */
+
 import React, { ReactNode, ReactNodeArray, MouseEvent } from 'react';
 import ReactDOM from 'react-dom';
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 // todo: look at Fin’s latest status modal work in access-boston
 // todo: add an error state (i.e. red text, “error” label)
@@ -61,8 +63,8 @@ export default class StatusModal extends React.Component<Props> {
     const alertHolder = document.getElementById(StatusModal.ALERT_CONTAINER_ID);
 
     const alertContent = (
-      <div className={`md ${waiting ? WAITING_MODAL_STYLE : ''}`}>
-        <div className={`md-c br br-t400 ${MODAL_STYLE}`}>
+      <div className="md" css={waiting && WAITING_MODAL_STYLE}>
+        <div className="md-c br br-t400" css={MODAL_STYLE}>
           <div className="md-b p-a300">
             <div className={`t--intro ${error ? 't--err' : ''}`}>{message}</div>
 

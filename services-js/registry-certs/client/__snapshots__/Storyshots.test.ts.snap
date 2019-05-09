@@ -145,7 +145,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -653,7 +653,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -952,7 +952,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -1511,7 +1511,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -2168,7 +2168,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -2450,7 +2450,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -7105,7 +7105,7 @@ exports[`Storyshots Birth/Question Components/RadioItemComponent multiple answer
       }
     >
       <label
-        className="css-ksygmh undefined  "
+        className="css-ksygmh   "
       >
         <svg
           style={
@@ -7159,7 +7159,7 @@ exports[`Storyshots Birth/Question Components/RadioItemComponent multiple answer
       }
     >
       <label
-        className="css-ksygmh undefined  "
+        className="css-ksygmh   "
       >
         <svg
           style={
@@ -7213,7 +7213,7 @@ exports[`Storyshots Birth/Question Components/RadioItemComponent multiple answer
       }
     >
       <label
-        className="css-ksygmh undefined  "
+        className="css-ksygmh   "
       >
         <svg
           style={
@@ -7273,7 +7273,7 @@ exports[`Storyshots Birth/Question Components/RadioItemComponent single item 1`]
     }
   >
     <label
-      className="css-ksygmh undefined selected "
+      className="css-ksygmh  selected "
     >
       <svg
         style={
@@ -7382,7 +7382,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
             value={70}
           />
           <button
-            className="css-14581tj css-1jem7y3"
+            className="css-1jem7y3 css-itjkxp"
             onClick={[Function]}
             style={
               Object {
@@ -7450,7 +7450,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
           </span>
         </span>
         <button
-          className="css-14581tj css-1jem7y3"
+          className="css-1jem7y3 css-itjkxp"
           onClick={[Function]}
           style={
             Object {
@@ -7722,7 +7722,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
           </span>
         </span>
         <button
-          className="css-14581tj css-1jem7y3"
+          className="css-1jem7y3 css-itjkxp"
           onClick={[Function]}
           style={
             Object {
@@ -7840,7 +7840,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
             value={23}
           />
           <button
-            className="css-14581tj css-1jem7y3"
+            className="css-1jem7y3 css-itjkxp"
             onClick={[Function]}
             style={
               Object {
@@ -8206,7 +8206,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                 type="file"
               />
               <div
-                className="css-18dy1p4 "
+                className="css-18dy1p4"
               >
                 <div
                   style={
@@ -8283,7 +8283,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               }
             >
               <button
-                className="btn btn--w btn--b css-cavyyu  "
+                className="btn btn--w btn--b  css-cavyyu"
                 onClick={[Function]}
                 style={
                   Object {
@@ -8331,7 +8331,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                 type="file"
               />
               <div
-                className="css-18dy1p4 "
+                className="css-18dy1p4"
               >
                 <div
                   style={
@@ -8425,7 +8425,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               }
             >
               <button
-                className="btn btn--w btn--b css-cavyyu  "
+                className="btn btn--w btn--b  css-cavyyu"
                 onClick={[Function]}
                 style={
                   Object {
@@ -8668,7 +8668,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                 type="file"
               />
               <div
-                className="css-18dy1p4 "
+                className="css-18dy1p4"
               >
                 <div
                   style={
@@ -8753,7 +8753,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
               }
             >
               <button
-                className="btn btn--w btn--b css-cavyyu  "
+                className="btn btn--w btn--b  css-cavyyu"
                 onClick={[Function]}
                 style={
                   Object {
@@ -8801,7 +8801,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                 type="file"
               />
               <div
-                className="css-18dy1p4 "
+                className="css-18dy1p4"
               >
                 <div
                   style={
@@ -8895,7 +8895,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
               }
             >
               <button
-                className="btn btn--w btn--b css-cavyyu  "
+                className="btn btn--w btn--b  css-cavyyu"
                 onClick={[Function]}
                 style={
                   Object {
@@ -8976,7 +8976,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                   </span>
                 </span>
                 <button
-                  className="css-14581tj css-1jem7y3"
+                  className="css-1jem7y3 css-itjkxp"
                   onClick={[Function]}
                   style={
                     Object {
@@ -9043,7 +9043,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                   </span>
                 </span>
                 <button
-                  className="css-14581tj css-1jem7y3"
+                  className="css-1jem7y3 css-itjkxp"
                   onClick={[Function]}
                   style={
                     Object {
@@ -9270,7 +9270,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
               type="file"
             />
             <div
-              className="css-18dy1p4 "
+              className="css-18dy1p4"
             >
               <div
                 style={
@@ -9355,7 +9355,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             }
           >
             <button
-              className="btn btn--w btn--b css-cavyyu  "
+              className="btn btn--w btn--b  css-cavyyu"
               onClick={[Function]}
               style={
                 Object {
@@ -9403,7 +9403,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
               type="file"
             />
             <div
-              className="css-18dy1p4 "
+              className="css-18dy1p4"
             >
               <div
                 style={
@@ -9497,7 +9497,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             }
           >
             <button
-              className="btn btn--w btn--b css-cavyyu  "
+              className="btn btn--w btn--b  css-cavyyu"
               onClick={[Function]}
               style={
                 Object {
@@ -9578,7 +9578,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 </span>
               </span>
               <button
-                className="css-14581tj css-1jem7y3"
+                className="css-1jem7y3 css-itjkxp"
                 onClick={[Function]}
                 style={
                   Object {
@@ -9645,7 +9645,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 </span>
               </span>
               <button
-                className="css-14581tj css-1jem7y3"
+                className="css-1jem7y3 css-itjkxp"
                 onClick={[Function]}
                 style={
                   Object {
@@ -9874,7 +9874,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                 type="file"
               />
               <div
-                className="css-18dy1p4 "
+                className="css-18dy1p4"
               >
                 <div
                   style={
@@ -9959,7 +9959,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               }
             >
               <button
-                className="btn btn--w btn--b css-cavyyu  css-udegvj"
+                className="btn btn--w btn--b  css-jqpn3w"
                 onClick={[Function]}
                 style={
                   Object {
@@ -10007,7 +10007,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                 type="file"
               />
               <div
-                className="css-18dy1p4 "
+                className="css-18dy1p4"
               >
                 <div
                   style={
@@ -10101,7 +10101,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               }
             >
               <button
-                className="btn btn--w btn--b css-cavyyu  "
+                className="btn btn--w btn--b  css-cavyyu"
                 onClick={[Function]}
                 style={
                   Object {
@@ -10616,7 +10616,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -11054,7 +11054,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -11457,7 +11457,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -11953,7 +11953,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -12543,7 +12543,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -13242,7 +13242,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -13461,7 +13461,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                         type="file"
                       />
                       <div
-                        className="css-18dy1p4 "
+                        className="css-18dy1p4"
                       >
                         <div
                           style={
@@ -13538,7 +13538,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       }
                     >
                       <button
-                        className="btn btn--w btn--b css-cavyyu  "
+                        className="btn btn--w btn--b  css-cavyyu"
                         onClick={[Function]}
                         style={
                           Object {
@@ -13586,7 +13586,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                         type="file"
                       />
                       <div
-                        className="css-18dy1p4 "
+                        className="css-18dy1p4"
                       >
                         <div
                           style={
@@ -13680,7 +13680,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       }
                     >
                       <button
-                        className="btn btn--w btn--b css-cavyyu  "
+                        className="btn btn--w btn--b  css-cavyyu"
                         onClick={[Function]}
                         style={
                           Object {
@@ -14010,7 +14010,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -14147,7 +14147,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               <button
                 aria-controls="detailsContent"
                 aria-expanded={false}
-                className="css-1ujbbbr"
+                className="css-1mv5oyt-ApostilleRequestInstructions"
                 onClick={[Function]}
                 type="button"
               >
@@ -14677,7 +14677,7 @@ exports[`Storyshots Checkout/CheckoutPage server-side render 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -14967,7 +14967,7 @@ exports[`Storyshots Checkout/ConfirmationContent default 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -15318,7 +15318,7 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -16110,7 +16110,7 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
               </div>
             </fieldset>
             <div
-              className="md "
+              className="md"
             >
               <div
                 className="md-c br br-t400 css-1y2scv5"
@@ -16359,7 +16359,7 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -17359,7 +17359,7 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -18397,7 +18397,7 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -18922,7 +18922,7 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -19443,7 +19443,7 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -20443,7 +20443,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -21100,7 +21100,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -21876,7 +21876,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -22569,7 +22569,7 @@ exports[`Storyshots Checkout/ReviewContent empty cart 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -23193,7 +23193,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -23857,7 +23857,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -24322,7 +24322,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
               Pressing the “Submit Order” button will charge the total amount to your card and place an order with the Registry.
             </div>
             <div
-              className="md "
+              className="md"
             >
               <div
                 className="md-c br br-t400 css-1y2scv5"
@@ -24584,7 +24584,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -25049,7 +25049,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
               Pressing the “Submit Order” button will charge the total amount to your card and place an order with the Registry.
             </div>
             <div
-              className="md "
+              className="md"
             >
               <div
                 className="md-c br br-t400 css-1y2scv5"
@@ -25318,7 +25318,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -25783,7 +25783,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
               Pressing the “Submit Order” button will charge the total amount to your card and place an order with the Registry.
             </div>
             <div
-              className="md "
+              className="md"
             >
               <div
                 className="md-c br br-t400 css-1y2scv5"
@@ -26033,7 +26033,7 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -27061,7 +27061,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -28051,7 +28051,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -29041,7 +29041,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 css-1bakzg2"
         >
           <ul
             className="brc-l"
@@ -31738,7 +31738,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -32076,7 +32076,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -32580,7 +32580,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -33216,7 +33216,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -33755,7 +33755,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -34115,7 +34115,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -34644,7 +34644,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -35173,7 +35173,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -36000,7 +36000,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -36395,7 +36395,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"
@@ -36779,7 +36779,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 css-1bakzg2"
       >
         <ul
           className="brc-l"

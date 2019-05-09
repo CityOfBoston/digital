@@ -1,6 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Content Sections|CollapsibleSection default (open) 1`] = `
+.emotion-1 {
+  width: 100%;
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+.emotion-0 {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  text-transform: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0:focus {
+  outline: auto;
+  outline-color: #288be4;
+}
+
+.emotion-0:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-0 span {
+  margin-right: auto;
+}
+
+.emotion-0 svg {
+  width: 0.9em;
+  height: 0.9em;
+  stroke: #1871bd;
+  -webkit-transition: -webkit-transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.emotion-0[aria-expanded='true'] > svg {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
 <section
   aria-labelledby="collapsiblesection-1469836601"
 >
@@ -8,11 +70,11 @@ exports[`Storyshots Content Sections|CollapsibleSection default (open) 1`] = `
     className="sh "
   >
     <h2
-      className="sh-title css-14x07yu"
+      className="sh-title emotion-1"
     >
       <button
         aria-expanded={true}
-        className="css-306jx9"
+        className="emotion-0"
         onClick={[Function]}
         type="button"
       >
@@ -53,14 +115,20 @@ exports[`Storyshots Content Sections|CollapsibleSection default (open) 1`] = `
 
 exports[`Storyshots Content Sections|CollapsibleSection disabled 1`] = `
 Array [
-  <section
+  .emotion-0 {
+  width: 100%;
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+<section
     aria-labelledby="collapsiblesection-2725997550"
   >
     <div
       className="sh "
     >
       <h2
-        className="sh-title css-14x07yu"
+        className="sh-title emotion-0"
       >
         <span
           id="collapsiblesection-2725997550"
@@ -80,14 +148,20 @@ Array [
       </p>
     </div>
   </section>,
-  <section
+  .emotion-0 {
+  width: 100%;
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+<section
     aria-labelledby="collapsiblesection-206548808"
   >
     <div
       className="sh "
     >
       <h2
-        className="sh-title css-14x07yu"
+        className="sh-title emotion-0"
       >
         <span
           id="collapsiblesection-206548808"
@@ -111,6 +185,68 @@ Array [
 `;
 
 exports[`Storyshots Content Sections|CollapsibleSection initially collapsed 1`] = `
+.emotion-1 {
+  width: 100%;
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+.emotion-0 {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  text-transform: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0:focus {
+  outline: auto;
+  outline-color: #288be4;
+}
+
+.emotion-0:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-0 span {
+  margin-right: auto;
+}
+
+.emotion-0 svg {
+  width: 0.9em;
+  height: 0.9em;
+  stroke: #1871bd;
+  -webkit-transition: -webkit-transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.emotion-0[aria-expanded='true'] > svg {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
 <section
   aria-labelledby="collapsiblesection-3435950689"
 >
@@ -118,11 +254,11 @@ exports[`Storyshots Content Sections|CollapsibleSection initially collapsed 1`] 
     className="sh "
   >
     <h2
-      className="sh-title css-14x07yu"
+      className="sh-title emotion-1"
     >
       <button
         aria-expanded={false}
-        className="css-306jx9"
+        className="emotion-0"
         onClick={[Function]}
         type="button"
       >
@@ -162,6 +298,68 @@ exports[`Storyshots Content Sections|CollapsibleSection initially collapsed 1`] 
 `;
 
 exports[`Storyshots Content Sections|CollapsibleSection subheader variant 1`] = `
+.emotion-1 {
+  width: 100%;
+  margin-bottom: 0;
+  padding-right: 0;
+}
+
+.emotion-0 {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  text-transform: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0:focus {
+  outline: auto;
+  outline-color: #288be4;
+}
+
+.emotion-0:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.emotion-0 span {
+  margin-right: auto;
+}
+
+.emotion-0 svg {
+  width: 0.9em;
+  height: 0.9em;
+  stroke: #1871bd;
+  -webkit-transition: -webkit-transform 0.4s;
+  -webkit-transition: transform 0.4s;
+  transition: transform 0.4s;
+}
+
+.emotion-0[aria-expanded='true'] > svg {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
 <section
   aria-labelledby="collapsiblesection-1469836601"
 >
@@ -169,11 +367,11 @@ exports[`Storyshots Content Sections|CollapsibleSection subheader variant 1`] = 
     className="sh sh--sm"
   >
     <h3
-      className="sh-title css-14x07yu"
+      className="sh-title emotion-1"
     >
       <button
         aria-expanded={true}
-        className="css-306jx9"
+        className="emotion-0"
         onClick={[Function]}
         type="button"
       >
@@ -252,8 +450,22 @@ exports[`Storyshots Content Sections|SectionHeader yellow 1`] = `
 `;
 
 exports[`Storyshots Form Elements|Buttons/CloseButton close 1`] = `
+.emotion-0 {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.15s;
+  transition: opacity 0.15s;
+}
+
+.emotion-0:hover {
+  opacity: 1;
+}
+
 <button
-  className="css-14581tj undefined"
+  className="emotion-0"
   onClick={[Function]}
   style={
     Object {
@@ -354,12 +566,79 @@ Array [
 `;
 
 exports[`Storyshots Form Elements|Inputs/FileInput Multiple file types 1`] = `
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+}
+
+.emotion-3 label {
+  margin-bottom: 0.5em;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-3 div {
+  -webkit-flex-basis: 80%;
+  -ms-flex-preferred-size: 80%;
+  flex-basis: 80%;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 div {
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    padding-left: 1em;
+  }
+}
+
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-2 {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
 <div
-  className="txt m-b300 css-1mxs0p5"
+  className="txt m-b300 emotion-3"
 >
   <input
     accept="image/jpeg, image/png"
-    className="css-1dv1kvn"
+    className="emotion-0"
     id="FileInput-multi"
     name="multi"
     onBlur={[Function]}
@@ -368,7 +647,7 @@ exports[`Storyshots Form Elements|Inputs/FileInput Multiple file types 1`] = `
     type="file"
   />
   <label
-    className="btn btn--sm btn--100 false"
+    className="btn btn--sm btn--100 emotion-1"
     htmlFor="FileInput-multi"
     style={
       Object {
@@ -382,7 +661,7 @@ exports[`Storyshots Form Elements|Inputs/FileInput Multiple file types 1`] = `
      file
   </label>
   <div
-    className="css-y0g14a"
+    className="emotion-2"
   >
     <span>
       No file selected
@@ -392,12 +671,79 @@ exports[`Storyshots Form Elements|Inputs/FileInput Multiple file types 1`] = `
 `;
 
 exports[`Storyshots Form Elements|Inputs/FileInput Small size limit; unspecified file type 1`] = `
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+}
+
+.emotion-3 label {
+  margin-bottom: 0.5em;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-3 div {
+  -webkit-flex-basis: 80%;
+  -ms-flex-preferred-size: 80%;
+  flex-basis: 80%;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 div {
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    padding-left: 1em;
+  }
+}
+
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-2 {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
 <div
-  className="txt m-b300 css-1mxs0p5"
+  className="txt m-b300 emotion-3"
 >
   <input
     accept="*"
-    className="css-1dv1kvn"
+    className="emotion-0"
     id="FileInput-coverLetter"
     name="coverLetter"
     onBlur={[Function]}
@@ -406,7 +752,7 @@ exports[`Storyshots Form Elements|Inputs/FileInput Small size limit; unspecified
     type="file"
   />
   <label
-    className="btn btn--sm btn--100 false"
+    className="btn btn--sm btn--100 emotion-1"
     htmlFor="FileInput-coverLetter"
     style={
       Object {
@@ -420,7 +766,7 @@ exports[`Storyshots Form Elements|Inputs/FileInput Small size limit; unspecified
      file
   </label>
   <div
-    className="css-y0g14a"
+    className="emotion-2"
   >
     <span>
       No file selected
@@ -430,12 +776,79 @@ exports[`Storyshots Form Elements|Inputs/FileInput Small size limit; unspecified
 `;
 
 exports[`Storyshots Form Elements|Inputs/FileInput default 1`] = `
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+}
+
+.emotion-3 label {
+  margin-bottom: 0.5em;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 label {
+    margin-bottom: 0;
+  }
+}
+
+.emotion-3 div {
+  -webkit-flex-basis: 80%;
+  -ms-flex-preferred-size: 80%;
+  flex-basis: 80%;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-3 div {
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    padding-left: 1em;
+  }
+}
+
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-2 {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
 <div
-  className="txt m-b300 css-1mxs0p5"
+  className="txt m-b300 emotion-3"
 >
   <input
     accept="application/pdf"
-    className="css-1dv1kvn"
+    className="emotion-0"
     id="FileInput-pdf"
     name="pdf"
     onBlur={[Function]}
@@ -444,7 +857,7 @@ exports[`Storyshots Form Elements|Inputs/FileInput default 1`] = `
     type="file"
   />
   <label
-    className="btn btn--sm btn--100 false"
+    className="btn btn--sm btn--100 emotion-1"
     htmlFor="FileInput-pdf"
     style={
       Object {
@@ -458,7 +871,7 @@ exports[`Storyshots Form Elements|Inputs/FileInput default 1`] = `
      file
   </label>
   <div
-    className="css-y0g14a"
+    className="emotion-2"
   >
     <span>
       No file selected
@@ -468,8 +881,58 @@ exports[`Storyshots Form Elements|Inputs/FileInput default 1`] = `
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -483,7 +946,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -553,8 +1016,58 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/1630 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -568,7 +1081,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -638,8 +1151,58 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -653,7 +1216,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -728,8 +1291,58 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/2025 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -743,7 +1356,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -813,8 +1426,58 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -828,7 +1491,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -898,8 +1561,58 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and latestDate: 1/1/2040 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -913,7 +1626,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -983,8 +1696,58 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -998,7 +1761,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -1068,8 +1831,58 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
 `;
 
 exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 1`] = `
+.emotion-1 {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 legend {
+  padding-left: 0;
+  font-size: 120%;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-0 > div {
+  -webkit-flex: 0 0 24%;
+  -ms-flex: 0 0 24%;
+  flex: 0 0 24%;
+}
+
+.emotion-0 > div:last-of-type {
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+}
+
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
+.emotion-0 label {
+  margin-top: 0.5rem;
+}
+
 <fieldset
-  className="css-svo1gv"
+  className="emotion-1"
 >
   <legend
     style={
@@ -1083,7 +1896,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
     </h2>
   </legend>
   <div
-    className="css-k2dcag"
+    className="emotion-0"
   >
     <div>
       <label
@@ -1900,6 +2713,29 @@ Array [
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
+.emotion-2:focus > div {
+  outline: 4px solid #000;
+  outline-offset: -5px;
+}
+
+.emotion-1 {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: currentColor;
+}
+
+.emotion-3:focus {
+  outline: 3px solid #000;
+  outline-offset: -4px;
+}
+
+.emotion-0 {
+  background-color: #288be4;
+  color: #000;
+  padding: 2rem 4rem;
+}
+
 <div
   className="g"
 >
@@ -1910,7 +2746,7 @@ exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
       className="br br-a200"
     >
       <div
-        className="css-b3ja71"
+        className="emotion-2"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -1937,7 +2773,7 @@ exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
           type="file"
         />
         <div
-          className="css-18dy1p4 "
+          className="emotion-1"
         >
           <div
             style={
@@ -1947,7 +2783,7 @@ exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
             }
           >
             <header
-              className="css-1v08ydl"
+              className="emotion-0"
             >
               <svg
                 aria-hidden="true"
@@ -2014,7 +2850,7 @@ exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b css-cavyyu  "
+          className="btn btn--w btn--b  emotion-3"
           onClick={[Function]}
           style={
             Object {
@@ -2032,6 +2868,35 @@ exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
+.emotion-2:focus > div {
+  outline: 4px solid #000;
+  outline-offset: -5px;
+}
+
+.emotion-1 {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: currentColor;
+}
+
+.emotion-0 {
+  background-color: #828282;
+  color: #fff;
+}
+
+.emotion-0 svg {
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+.emotion-3:focus {
+  outline: 3px solid #000;
+  outline-offset: -4px;
+}
+
 <div
   className="g"
 >
@@ -2042,7 +2907,7 @@ exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
       className="br br-a200"
     >
       <div
-        className="css-b3ja71"
+        className="emotion-2"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2069,7 +2934,7 @@ exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
           type="file"
         />
         <div
-          className="css-18dy1p4 "
+          className="emotion-1"
         >
           <div
             style={
@@ -2079,7 +2944,7 @@ exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
             }
           >
             <div
-              className="css-aipimn"
+              className="emotion-0"
             >
               <svg
                 aria-hidden="true"
@@ -2137,7 +3002,7 @@ exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b css-cavyyu  "
+          className="btn btn--w btn--b  emotion-3"
           onClick={[Function]}
           style={
             Object {
@@ -2155,6 +3020,46 @@ exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
+.emotion-3:focus > div {
+  outline: 4px solid #000;
+  outline-offset: -5px;
+}
+
+.emotion-2 {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: currentColor;
+}
+
+.emotion-0 {
+  background-color: #828282;
+  color: #fff;
+}
+
+.emotion-0 svg {
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+.emotion-4:focus {
+  outline: 3px solid #000;
+  outline-offset: -4px;
+}
+
+.emotion-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 <div
   className="g"
 >
@@ -2165,7 +3070,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
       className="br br-a200"
     >
       <div
-        className="css-b3ja71"
+        className="emotion-3"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2192,7 +3097,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
           type="file"
         />
         <div
-          className="css-18dy1p4 "
+          className="emotion-2"
         >
           <div
             style={
@@ -2202,7 +3107,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
             }
           >
             <div
-              className="css-aipimn"
+              className="emotion-0"
             >
               <svg
                 aria-hidden="true"
@@ -2250,7 +3155,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
             </div>
           </div>
           <div
-            className="css-5xh0sb"
+            className="emotion-1"
             style={
               Object {
                 "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
@@ -2268,7 +3173,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b css-cavyyu  "
+          className="btn btn--w btn--b  emotion-4"
           onClick={[Function]}
           style={
             Object {
@@ -2286,6 +3191,46 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
+.emotion-3:focus > div {
+  outline: 4px solid #000;
+  outline-offset: -5px;
+}
+
+.emotion-2 {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: currentColor;
+}
+
+.emotion-0 {
+  background-color: #828282;
+  color: #fff;
+}
+
+.emotion-0 svg {
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+.emotion-4:focus {
+  outline: 3px solid #000;
+  outline-offset: -4px;
+}
+
+.emotion-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 <div
   className="g"
 >
@@ -2296,7 +3241,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
       className="br br-a200"
     >
       <div
-        className="css-b3ja71"
+        className="emotion-3"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2323,7 +3268,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
           type="file"
         />
         <div
-          className="css-18dy1p4 "
+          className="emotion-2"
         >
           <div
             style={
@@ -2333,7 +3278,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
             }
           >
             <div
-              className="css-aipimn"
+              className="emotion-0"
             >
               <svg
                 aria-hidden="true"
@@ -2381,7 +3326,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
             </div>
           </div>
           <div
-            className="css-5xh0sb"
+            className="emotion-1"
             style={
               Object {
                 "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
@@ -2399,7 +3344,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b css-cavyyu  "
+          className="btn btn--w btn--b  emotion-4"
           onClick={[Function]}
           style={
             Object {
@@ -2417,6 +3362,39 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
+.emotion-2:focus > div {
+  outline: 4px solid #000;
+  outline-offset: -5px;
+}
+
+.emotion-1 {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: currentColor;
+}
+
+.emotion-0 {
+  background-color: #828282;
+  color: #fff;
+}
+
+.emotion-0 svg {
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+.emotion-3 {
+  color: #d22d23;
+}
+
+.emotion-3:focus {
+  outline: 3px solid #000;
+  outline-offset: -4px;
+}
+
 <div
   className="g"
 >
@@ -2427,7 +3405,7 @@ exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
       className="br br-a200"
     >
       <div
-        className="css-b3ja71"
+        className="emotion-2"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2454,7 +3432,7 @@ exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
           type="file"
         />
         <div
-          className="css-18dy1p4 "
+          className="emotion-1"
         >
           <div
             style={
@@ -2464,7 +3442,7 @@ exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
             }
           >
             <div
-              className="css-aipimn"
+              className="emotion-0"
             >
               <svg
                 aria-hidden="true"
@@ -2522,7 +3500,7 @@ exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b css-cavyyu  css-udegvj"
+          className="btn btn--w btn--b  emotion-3"
           onClick={[Function]}
           style={
             Object {
@@ -2540,6 +3518,43 @@ exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
+.emotion-2:focus > div {
+  outline: 4px solid #000;
+  outline-offset: -5px;
+}
+
+.emotion-1 {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: currentColor;
+}
+
+.emotion-0 {
+  background-color: #828282;
+  color: #fff;
+}
+
+.emotion-0 svg {
+  stroke-width: 3;
+  stroke-linecap: round;
+  fill: none;
+  stroke: currentColor;
+}
+
+.emotion-3:focus {
+  outline: 3px solid #000;
+  outline-offset: -4px;
+}
+
+.emotion-4 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 6px;
+  background-color: #288be4;
+}
+
 <div
   className="g"
 >
@@ -2550,7 +3565,7 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
       className="br br-a200"
     >
       <div
-        className="css-b3ja71"
+        className="emotion-2"
         onBlur={[Function]}
         onClick={[Function]}
         onDragEnter={[Function]}
@@ -2577,7 +3592,7 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
           type="file"
         />
         <div
-          className="css-18dy1p4 "
+          className="emotion-1"
         >
           <div
             style={
@@ -2587,7 +3602,7 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
             }
           >
             <div
-              className="css-aipimn"
+              className="emotion-0"
             >
               <svg
                 aria-hidden="true"
@@ -2645,7 +3660,7 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b css-cavyyu btn--r-hov "
+          className="btn btn--w btn--b btn--r-hov emotion-3"
           onClick={[Function]}
           style={
             Object {
@@ -2657,7 +3672,7 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
           Cancel upload
         </button>
         <div
-          className="css-1tjt8qb"
+          className="emotion-4"
           style={
             Object {
               "width": "60%",
@@ -2764,11 +3779,19 @@ Array [
 `;
 
 exports[`Storyshots Notifications|Modals/StatusModal default 1`] = `
+.emotion-0 {
+  padding-top: 0;
+  max-width: 500px;
+  top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 <div
-  className="md "
+  className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 emotion-0"
   >
     <div
       className="md-b p-a300"
@@ -2789,11 +3812,19 @@ exports[`Storyshots Notifications|Modals/StatusModal default 1`] = `
 `;
 
 exports[`Storyshots Notifications|Modals/StatusModal error with close 1`] = `
+.emotion-0 {
+  padding-top: 0;
+  max-width: 500px;
+  top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 <div
-  className="md "
+  className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 emotion-0"
   >
     <div
       className="md-b p-a300"
@@ -2826,6 +3857,36 @@ exports[`Storyshots Notifications|Modals/StatusModal error with close 1`] = `
 `;
 
 exports[`Storyshots ProgressBar default 1`] = `
+.emotion-0 progress {
+  margin: 1rem 0 0.25rem;
+  width: 100%;
+  height: 1rem;
+  border: 2px solid #091f2f;
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-bar {
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-value {
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-moz-progress-bar {
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-ms-fill {
+  background-color: #288be4;
+}
+
+.emotion-0 span {
+  font-style: italic;
+}
+
 <div
   style={
     Object {
@@ -2835,7 +3896,7 @@ exports[`Storyshots ProgressBar default 1`] = `
   }
 >
   <div
-    className="css-v8ihoq"
+    className="emotion-0"
   >
     <progress
       aria-valuemax={5}
@@ -2857,6 +3918,36 @@ exports[`Storyshots ProgressBar default 1`] = `
 `;
 
 exports[`Storyshots ProgressBar first step (interactive demo) 1`] = `
+.emotion-0 progress {
+  margin: 1rem 0 0.25rem;
+  width: 100%;
+  height: 1rem;
+  border: 2px solid #091f2f;
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-bar {
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-value {
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-moz-progress-bar {
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-ms-fill {
+  background-color: #288be4;
+}
+
+.emotion-0 span {
+  font-style: italic;
+}
+
 <div
   style={
     Object {
@@ -2866,7 +3957,7 @@ exports[`Storyshots ProgressBar first step (interactive demo) 1`] = `
   }
 >
   <div
-    className="css-v8ihoq"
+    className="emotion-0"
   >
     <progress
       aria-valuemax={5}
@@ -2888,6 +3979,36 @@ exports[`Storyshots ProgressBar first step (interactive demo) 1`] = `
 `;
 
 exports[`Storyshots ProgressBar last step (interactive demo) 1`] = `
+.emotion-0 progress {
+  margin: 1rem 0 0.25rem;
+  width: 100%;
+  height: 1rem;
+  border: 2px solid #091f2f;
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-bar {
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-value {
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-moz-progress-bar {
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-ms-fill {
+  background-color: #288be4;
+}
+
+.emotion-0 span {
+  font-style: italic;
+}
+
 <div
   style={
     Object {
@@ -2897,7 +4018,7 @@ exports[`Storyshots ProgressBar last step (interactive demo) 1`] = `
   }
 >
   <div
-    className="css-v8ihoq"
+    className="emotion-0"
   >
     <progress
       aria-valuemax={5}
@@ -2919,6 +4040,36 @@ exports[`Storyshots ProgressBar last step (interactive demo) 1`] = `
 `;
 
 exports[`Storyshots ProgressBar with task name 1`] = `
+.emotion-0 progress {
+  margin: 1rem 0 0.25rem;
+  width: 100%;
+  height: 1rem;
+  border: 2px solid #091f2f;
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-bar {
+  background-color: #fff;
+}
+
+.emotion-0 progress::-webkit-progress-value {
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-moz-progress-bar {
+  background-color: #288be4;
+}
+
+.emotion-0 progress::-ms-fill {
+  background-color: #288be4;
+}
+
+.emotion-0 span {
+  font-style: italic;
+}
+
 <div
   style={
     Object {
@@ -2928,7 +4079,7 @@ exports[`Storyshots ProgressBar with task name 1`] = `
   }
 >
   <div
-    className="css-v8ihoq"
+    className="emotion-0"
   >
     <progress
       aria-valuemax={5}
@@ -3520,7 +4671,16 @@ Array [
       }
     }
   />,
-  <div
+  .emotion-1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-0 {
+  color: #d22d23;
+}
+
+<div
     className="mn--full-ie"
   >
     <div
@@ -3649,7 +4809,7 @@ Array [
       </nav>
       <nav
         aria-label="Breadcrumbs"
-        className="brc css-1bakzg2 p-a300"
+        className="brc p-a300 emotion-1"
       >
         <ul
           className="brc-l"
@@ -3703,7 +4863,7 @@ Array [
           >
             <a
               aria-current="page"
-              className="css-udegvj"
+              className="emotion-0"
               href="#"
             >
               Registry
@@ -3836,7 +4996,16 @@ Array [
       }
     }
   />,
-  <div
+  .emotion-1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-0 {
+  color: #d22d23;
+}
+
+<div
     className="mn--full-ie"
   >
     <div
@@ -3914,7 +5083,7 @@ Array [
       >
         <nav
           aria-label="Breadcrumbs"
-          className="brc css-1bakzg2 p-a300"
+          className="brc p-a300 emotion-1"
         >
           <ul
             className="brc-l"
@@ -3968,7 +5137,7 @@ Array [
             >
               <a
                 aria-current="page"
-                className="css-udegvj"
+                className="emotion-0"
                 href="#"
               >
                 Registry
@@ -4036,9 +5205,18 @@ Array [
 `;
 
 exports[`Storyshots UI|Navigation/BreadcrumbNav several levels deep 1`] = `
+.emotion-1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-0 {
+  color: #d22d23;
+}
+
 <nav
   aria-label="Breadcrumbs"
-  className="brc css-1bakzg2 undefined"
+  className="brc undefined emotion-1"
 >
   <ul
     className="brc-l"
@@ -4114,7 +5292,7 @@ exports[`Storyshots UI|Navigation/BreadcrumbNav several levels deep 1`] = `
     >
       <a
         aria-current="page"
-        className="css-udegvj"
+        className="emotion-0"
         href="/death"
       >
         Death Certificates
@@ -4125,9 +5303,18 @@ exports[`Storyshots UI|Navigation/BreadcrumbNav several levels deep 1`] = `
 `;
 
 exports[`Storyshots UI|Navigation/BreadcrumbNav single level 1`] = `
+.emotion-1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-0 {
+  color: #d22d23;
+}
+
 <nav
   aria-label="Breadcrumbs"
-  className="brc css-1bakzg2 undefined"
+  className="brc undefined emotion-1"
 >
   <ul
     className="brc-l"
@@ -4159,7 +5346,7 @@ exports[`Storyshots UI|Navigation/BreadcrumbNav single level 1`] = `
     >
       <a
         aria-current="page"
-        className="css-udegvj"
+        className="emotion-0"
         href="/death"
       >
         Death Certificates

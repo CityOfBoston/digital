@@ -1,7 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
 import { storiesOf } from '@storybook/react';
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import { BLACK, OPTIMISTIC_BLUE_LIGHT, WHITE } from '../utilities/constants';
 
@@ -62,7 +63,7 @@ const SVG_BITS = [
 ];
 
 const ID_IMAGE: JSX.Element = (
-  <header className={ID_IMAGE_STYLING}>
+  <header css={ID_IMAGE_STYLING}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 181 134"
