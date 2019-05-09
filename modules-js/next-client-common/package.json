@@ -46,7 +46,7 @@
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.2.0",
-    "jest": "24.1.0",
+    "jest": "^24.8.0",
     "next": "8.0.3",
     "nprogress": "^0.2.0",
     "rimraf": "^2.6.2",

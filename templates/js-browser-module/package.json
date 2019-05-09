@@ -22,7 +22,7 @@
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "24.x.x",
     "@types/node": "^8.0.0",
-    "jest": "24.1.0",
+    "jest": "^24.8.0",
     "khaos": "^0.9.3",
     "rimraf": "^2.6.2",
     "shelljs": "^0.8.1",
