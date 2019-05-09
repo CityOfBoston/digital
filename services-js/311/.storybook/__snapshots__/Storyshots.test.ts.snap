@@ -3172,8 +3172,6 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
                     "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                   }
                 }
-                in={true}
-                onExited={[Function]}
                 role="img"
               />
             </div>
@@ -3191,8 +3189,6 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
                     "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                   }
                 }
-                in={true}
-                onExited={[Function]}
                 role="img"
               />
             </div>
@@ -3210,8 +3206,6 @@ exports[`Storyshots ChooseServicePane Loading matches 1`] = `
                     "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                   }
                 }
-                in={true}
-                onExited={[Function]}
                 role="img"
               />
             </div>
@@ -5605,8 +5599,6 @@ exports[`Storyshots LoadingBuildings loading 1`] = `
             "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
           }
         }
-        in={true}
-        onExited={[Function]}
         role="img"
       />
     </div>
@@ -5636,8 +5628,6 @@ exports[`Storyshots LoadingBuildings reduced motion 1`] = `
             "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
           }
         }
-        in={true}
-        onExited={[Function]}
         role="img"
       />
     </div>
@@ -5676,8 +5666,6 @@ exports[`Storyshots LoadingIcons 3 up 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -5700,8 +5688,6 @@ exports[`Storyshots LoadingIcons 3 up 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -5724,8 +5710,6 @@ exports[`Storyshots LoadingIcons 3 up 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -5756,8 +5740,6 @@ exports[`Storyshots LoadingIcons loading 1`] = `
             "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
           }
         }
-        in={true}
-        onExited={[Function]}
         role="img"
       />
     </div>
@@ -5787,8 +5769,6 @@ exports[`Storyshots LoadingIcons reduceMotion 1`] = `
             "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
           }
         }
-        in={true}
-        onExited={[Function]}
         role="img"
       />
     </div>
@@ -5827,8 +5807,6 @@ exports[`Storyshots LoadingIcons reduced Motion 3 up 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -5851,8 +5829,6 @@ exports[`Storyshots LoadingIcons reduced Motion 3 up 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -5875,8 +5851,6 @@ exports[`Storyshots LoadingIcons reduced Motion 3 up 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -6444,8 +6418,6 @@ exports[`Storyshots LocationPopUp searching 1`] = `
                     "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                   }
                 }
-                in={true}
-                onExited={[Function]}
                 role="img"
               />
             </div>
@@ -8364,8 +8336,6 @@ exports[`Storyshots RecentRequests loading without results 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -8923,8 +8893,6 @@ exports[`Storyshots RecentRequests results loaded and loading more 1`] = `
               "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
             }
           }
-          in={true}
-          onExited={[Function]}
           role="img"
         />
       </div>
@@ -12262,8 +12230,6 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                 >
                   <div
                     className="dr-c"
-                    in={true}
-                    onExited={[Function]}
                     style={
                       Object {
                         "display": "block",
@@ -12774,8 +12740,6 @@ exports[`Storyshots SubmitPane Submitting 1`] = `
                 "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
               }
             }
-            in={true}
-            onExited={[Function]}
             role="img"
           />
         </div>

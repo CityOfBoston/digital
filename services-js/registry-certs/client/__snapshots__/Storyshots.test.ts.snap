@@ -7368,7 +7368,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
             •
           </span>
           <span>
-            sample.pdf
+            sample-uploading.pdf
           </span>
         </span>
         <div
@@ -7391,7 +7391,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
                 "width": "1.7em",
               }
             }
-            title="Cancel upload: sample.pdf"
+            title="Cancel upload: sample-uploading.pdf"
             type="button"
           >
             <svg
@@ -7446,7 +7446,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
             •
           </span>
           <span>
-            sample.pdf
+            sample-success.pdf
           </span>
         </span>
         <button
@@ -7459,7 +7459,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
               "width": "1.7em",
             }
           }
-          title="Remove file: sample.pdf"
+          title="Remove file: sample-success.pdf"
           type="button"
         >
           <svg
@@ -7513,7 +7513,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
             •
           </span>
           <span>
-            sample.pdf
+            sample-uploadError.pdf
           </span>
         </span>
         <button
@@ -7596,7 +7596,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput cancel in
             •
           </span>
           <span>
-            sample.pdf
+            sample-canceling.pdf
           </span>
         </span>
         <span
@@ -7657,7 +7657,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput delete in
             •
           </span>
           <span>
-            sample.pdf
+            sample-deleting.pdf
           </span>
         </span>
         <span
@@ -7718,7 +7718,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
             •
           </span>
           <span>
-            sample.pdf
+            sample-success.pdf
           </span>
         </span>
         <button
@@ -7731,7 +7731,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
               "width": "1.7em",
             }
           }
-          title="Remove file: sample.pdf"
+          title="Remove file: sample-success.pdf"
           type="button"
         >
           <svg
@@ -7826,7 +7826,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
             •
           </span>
           <span>
-            sample.pdf
+            sample-uploading.pdf
           </span>
         </span>
         <div
@@ -7849,7 +7849,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
                 "width": "1.7em",
               }
             }
-            title="Cancel upload: sample.pdf"
+            title="Cancel upload: sample-uploading.pdf"
             type="button"
           >
             <svg
@@ -7985,7 +7985,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error del
             •
           </span>
           <span>
-            sample.pdf
+            sample-deletionError.pdf
           </span>
         </span>
         <button
@@ -8068,7 +8068,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error upl
             •
           </span>
           <span>
-            sample.pdf
+            sample-uploadError.pdf
           </span>
         </span>
         <button
@@ -30820,8 +30820,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
     >
       <div
         className="dr-c css-1mti76v"
-        in={true}
-        onExited={[Function]}
       >
         <div>
           <div
@@ -31058,8 +31056,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
     >
       <div
         className="dr-c css-1mti76v"
-        in={true}
-        onExited={[Function]}
       >
         <div>
           <div

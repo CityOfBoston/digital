@@ -63,8 +63,6 @@ exports[`choose page rendering 1`] = `
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
-                  in={true}
-                  onExited={[Function]}
                   role="img"
                 />
               </div>
@@ -82,8 +80,6 @@ exports[`choose page rendering 1`] = `
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
-                  in={true}
-                  onExited={[Function]}
                   role="img"
                 />
               </div>
@@ -101,8 +97,6 @@ exports[`choose page rendering 1`] = `
                       "__html": "<use xlink:href=\\"/assets/img/svg/loading-icons.svg#311_icons_general_lighting_request\\" height=\\"100%\\"></use>",
                     }
                   }
-                  in={true}
-                  onExited={[Function]}
                   role="img"
                 />
               </div>

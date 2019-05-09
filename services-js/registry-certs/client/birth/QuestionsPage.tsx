@@ -28,7 +28,9 @@ interface InitialProps {
 
 interface Props
   extends InitialProps,
-    Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
+    Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {
+  testDontScroll?: boolean;
+}
 
 interface State {
   /**
@@ -117,12 +119,16 @@ export default class QuestionsPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    window.scroll(0, 0);
+    if (!this.props.testDontScroll) {
+      window.scroll(0, 0);
+    }
   }
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.currentStep !== this.props.currentStep) {
-      window.scroll(0, 0);
+      if (!this.props.testDontScroll) {
+        window.scroll(0, 0);
+      }
     }
   }
 

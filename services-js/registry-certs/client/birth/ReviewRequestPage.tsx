@@ -22,7 +22,9 @@ import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
 
 interface Props
-  extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
+  extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {
+  testDontScroll?: boolean;
+}
 
 /**
  * Component which allows a user to review their request, and update the
@@ -34,9 +36,11 @@ interface Props
 @observer
 export default class ReviewRequestPage extends React.Component<Props> {
   componentDidMount() {
-    const { siteAnalytics } = this.props;
+    const { siteAnalytics, testDontScroll } = this.props;
 
-    window.scroll(0, 0);
+    if (!testDontScroll) {
+      window.scroll(0, 0);
+    }
 
     // Since user has provided all needed information by this point, we
     // will count this birth certificate as a trackable product.

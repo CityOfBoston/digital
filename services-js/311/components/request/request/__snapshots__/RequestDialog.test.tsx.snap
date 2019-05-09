@@ -496,18 +496,33 @@ exports[`methods submitRequest success 1`] = `
                     <div
                       className="css-6ezlc4"
                     >
-                      <svg
-                        className="css-1rr4qq7"
-                        dangerouslySetInnerHTML={
-                          Object {
-                            "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
-                          }
-                        }
+                      <Transition
+                        appear={false}
+                        enter={true}
+                        exit={true}
                         in={true}
-                        key=".$allston"
+                        key=".$.$allston"
+                        mountOnEnter={false}
+                        onEnter={[Function]}
+                        onEntered={[Function]}
+                        onEntering={[Function]}
+                        onExit={[Function]}
                         onExited={[Function]}
-                        role="img"
-                      />
+                        onExiting={[Function]}
+                        timeout={0}
+                        unmountOnExit={false}
+                      >
+                        <svg
+                          className="css-1rr4qq7"
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<use xlink:href=\\"/assets/img/svg/loading-buildings.svg#allston\\" height=\\"100%\\"></use>",
+                            }
+                          }
+                          key="allston"
+                          role="img"
+                        />
+                      </Transition>
                     </div>
                   </TransitionGroup>
                 </VelocityTransitionGroup>
