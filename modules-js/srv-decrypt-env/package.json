@@ -28,7 +28,7 @@
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "24.x.x",
     "@types/node": "^8.0.0",
-    "jest": "24.1.0",
+    "jest": "^24.8.0",
     "rimraf": "^2.6.2",
     "tsc-watch": "^1.0.26",
     "typescript": "^3.3.1"

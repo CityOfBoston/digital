@@ -50,6 +50,7 @@
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/cometd": "^4.0.4",
     "@types/elasticsearch": "^5.0.28",
+    "@types/jest": "24.x.x",
     "@types/node": "^8.0.0",
     "@types/node-fetch": "^2.1.2",
     "babel-core": "^7.0.0-0",
@@ -58,7 +59,7 @@
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-prettier": "^2.1.2",
-    "jest": "24.1.0",
+    "jest": "^24.8.0",
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.3",
     "typescript": "^3.3.1"

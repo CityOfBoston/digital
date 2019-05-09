@@ -76,7 +76,7 @@
     "cross-env": "^5.2.0",
     "detect-browser": "^3.0.1",
     "fs-extra": "^5.0.0",
-    "jest": "24.1.0",
+    "jest": "^24.8.0",
     "jest-emotion": "^10.0.10",
     "node-fetch": "^1.6.9",
     "prop-types": "^15.6.0",
