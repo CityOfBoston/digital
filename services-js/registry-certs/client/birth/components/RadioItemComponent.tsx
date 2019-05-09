@@ -6,7 +6,7 @@ import {
   GRAY_100,
   MEDIA_MEDIUM,
   SANS,
-  VISUALLYHIDDEN,
+  VISUALLY_HIDDEN,
 } from '@cityofboston/react-fleet';
 
 import { BORDER_STYLE, FOCUS_STYLE } from '../styling';
@@ -47,7 +47,7 @@ export default function RadioItemComponent(props: Props): JSX.Element {
 
   return (
     <label
-      className={`${RADIOITEM_STYLING} ${props.className} ${
+      className={`${RADIOITEM_STYLING} ${props.className || ''} ${
         hasAnswered && itemValue === questionValue ? 'selected' : ''
       } ${hasAnswered && itemValue !== questionValue ? 'inactive' : ''}`}
     >
@@ -81,7 +81,7 @@ const RADIOITEM_STYLING = css({
 
   transition: 'opacity 0.2s',
 
-  input: VISUALLYHIDDEN,
+  input: VISUALLY_HIDDEN,
 
   'input:focus + span': {
     ...FOCUS_STYLE,

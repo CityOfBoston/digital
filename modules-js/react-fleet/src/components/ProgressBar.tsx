@@ -1,6 +1,5 @@
-import React from 'react';
-
-import { css } from 'emotion';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
 
 import { CHARLES_BLUE, OPTIMISTIC_BLUE_LIGHT } from '../utilities/constants';
 
@@ -34,7 +33,7 @@ export default function ProgressBar(props: Props): JSX.Element {
   }
 
   return (
-    <div className={PROGRESS_BAR_STYLE}>
+    <div css={PROGRESS_BAR_STYLE}>
       <progress
         max={totalSteps}
         aria-valuemin={1}

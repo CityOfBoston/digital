@@ -913,7 +913,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         Files must be PDFs and under 5MB each in size.
       </p>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -926,7 +926,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-coverLetter"
           style={
             Object {
@@ -948,7 +948,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         </div>
       </div>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -961,7 +961,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-resume"
           style={
             Object {
@@ -1916,7 +1916,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         Files must be PDFs and under 5MB each in size.
       </p>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -1929,7 +1929,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-coverLetter"
           style={
             Object {
@@ -1951,7 +1951,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         </div>
       </div>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -1964,7 +1964,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-resume"
           style={
             Object {
@@ -2954,7 +2954,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         Files must be PDFs and under 5MB each in size.
       </p>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -2967,7 +2967,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-coverLetter"
           style={
             Object {
@@ -2989,7 +2989,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         </div>
       </div>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -3002,7 +3002,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-resume"
           style={
             Object {
@@ -3957,7 +3957,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         Files must be PDFs and under 5MB each in size.
       </p>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -3970,7 +3970,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-coverLetter"
           style={
             Object {
@@ -3992,7 +3992,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         </div>
       </div>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -4005,7 +4005,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-resume"
           style={
             Object {
@@ -4044,7 +4044,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
       Submit Application
     </button>
     <div
-      className="md "
+      className="md"
     >
       <div
         className="md-c br br-t400 css-1y2scv5"
@@ -5001,7 +5001,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         Files must be PDFs and under 5MB each in size.
       </p>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -5014,7 +5014,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-coverLetter"
           style={
             Object {
@@ -5036,7 +5036,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         </div>
       </div>
       <div
-        className="txt m-b300 css-1mxs0p5"
+        className="txt m-b300 css-60uf05"
       >
         <input
           accept="application/pdf"
@@ -5049,7 +5049,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           type="file"
         />
         <label
-          className="btn btn--sm btn--100 false"
+          className="btn btn--sm btn--100 css-0"
           htmlFor="FileInput-resume"
           style={
             Object {
@@ -6203,7 +6203,7 @@ Array [
                   Files must be PDFs and under 5MB each in size.
                 </p>
                 <div
-                  className="txt m-b300 css-1mxs0p5"
+                  className="txt m-b300 css-60uf05"
                 >
                   <input
                     accept="application/pdf"
@@ -6216,7 +6216,7 @@ Array [
                     type="file"
                   />
                   <label
-                    className="btn btn--sm btn--100 false"
+                    className="btn btn--sm btn--100 css-0"
                     htmlFor="FileInput-coverLetter"
                     style={
                       Object {
@@ -6238,7 +6238,7 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="txt m-b300 css-1mxs0p5"
+                  className="txt m-b300 css-60uf05"
                 >
                   <input
                     accept="application/pdf"
@@ -6251,7 +6251,7 @@ Array [
                     type="file"
                   />
                   <label
-                    className="btn btn--sm btn--100 false"
+                    className="btn btn--sm btn--100 css-0"
                     htmlFor="FileInput-resume"
                     style={
                       Object {

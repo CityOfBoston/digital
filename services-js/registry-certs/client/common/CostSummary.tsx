@@ -1,7 +1,10 @@
+/** @jsx jsx */
+
 import React from 'react';
 import { css } from 'emotion';
+import { jsx } from '@emotion/core';
 
-import { VISUALLYHIDDEN } from '@cityofboston/react-fleet';
+import { VISUALLY_HIDDEN } from '@cityofboston/react-fleet';
 
 import {
   calculateCreditCardCost,
@@ -80,8 +83,8 @@ export default class CostSummary extends React.Component<Props, State> {
     return (
       <div className={CLEARFIX_STYLE}>
         <table className="t--info ta-r" style={{ float: 'right' }}>
-          <caption className={VISUALLYHIDDEN}>Cost Summary</caption>
-          <thead className={VISUALLYHIDDEN}>
+          <caption css={VISUALLY_HIDDEN}>Cost Summary</caption>
+          <thead css={VISUALLY_HIDDEN}>
             <tr>
               <th scope="col">Item</th>
               <th scope="col">Amount</th>

@@ -13,6 +13,7 @@
     }
   },
   "plugins": [
+    "emotion",
     "prettier",
     "react-hooks"
   ],
@@ -22,6 +23,7 @@
     "prettier/react"
   ],
   "rules": {
+    "emotion/jsx-import": "error",
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error"
   },

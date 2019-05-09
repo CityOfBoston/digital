@@ -1,6 +1,9 @@
+/** @jsx jsx */
+
 import React, { useEffect, useState } from 'react';
 
 import { css } from 'emotion';
+import { jsx } from '@emotion/core';
 
 import {
   CLEAR_DEFAULT_STYLING,
@@ -43,7 +46,7 @@ export default function ApostilleRequestInstructions(): JSX.Element {
       <aside className={FALLBACK_STYLING}>
         <button
           type="button"
-          className={CLEAR_DEFAULT_STYLING.BUTTON}
+          css={CLEAR_DEFAULT_STYLING.BUTTON}
           aria-expanded={isOpen}
           aria-controls="detailsContent"
           onClick={toggleIsOpen}

@@ -1,7 +1,7 @@
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 // https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements
-export const VISUALLYHIDDEN = css({
+export const VISUALLY_HIDDEN = css({
   border: 0,
   clip: 'rect(0 0 0 0)',
   height: '1px',

@@ -1,5 +1,5 @@
-import React from 'react';
-import { css } from 'emotion';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
 
 import { FREEDOM_RED_DARK } from '../utilities/constants';
 
@@ -42,7 +42,8 @@ export default function BreadcrumbNav(props: Props): JSX.Element {
 
   return (
     <nav
-      className={`brc ${ADJUST_NAV_STYLE} ${props.className}`}
+      className={`brc ${props.className}`}
+      css={ADJUST_NAV_STYLE}
       aria-label="Breadcrumbs"
     >
       <ul className="brc-l">
@@ -63,7 +64,7 @@ export default function BreadcrumbNav(props: Props): JSX.Element {
         <li className="brc-l-i">
           <a
             href={props.currentPage.url}
-            className={LAST_BREADCRUMB_STYLE}
+            css={LAST_BREADCRUMB_STYLE}
             aria-current="page"
           >
             {props.currentPage.text}

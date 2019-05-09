@@ -1,7 +1,9 @@
-import React from 'react';
-import { css } from 'emotion';
+/** @jsx jsx */
 
-import { VISUALLYHIDDEN } from '../../utilities/css';
+import React from 'react';
+import { css, jsx, ClassNames } from '@emotion/core';
+
+import { VISUALLY_HIDDEN } from '../../utilities/css';
 
 import { MEDIA_SMALL, FOCUS_INDICATOR_COLOR } from '../../utilities/constants';
 
@@ -25,7 +27,7 @@ interface FileSize {
   unit: 'B' | 'KB' | 'MB' | 'GB';
 }
 
-const INPUT_CONTAINER_STYLE = css(`
+const INPUT_CONTAINER_STYLE = css`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -33,7 +35,7 @@ const INPUT_CONTAINER_STYLE = css(`
   ${MEDIA_SMALL} {
     flex-wrap: nowrap;
   }
-  
+
   label {
     margin-bottom: 0.5em;
 
@@ -41,16 +43,16 @@ const INPUT_CONTAINER_STYLE = css(`
       margin-bottom: 0;
     }
   }
-  
+
   div {
     flex-basis: 80%;
-        
+
     ${MEDIA_SMALL} {
       flex-basis: auto;
       padding-left: 1em;
     }
   }
-`);
+`;
 
 const LABEL_FOCUSED_STYLE = css({
   outline: `3px solid ${FOCUS_INDICATOR_COLOR}`,
@@ -171,10 +173,12 @@ Your file is ${fileSize.amount.toFixed(2) + fileSize.unit}. Please select a diff
   };
 
   render() {
+    const { selectedFile, isFocused } = this.state;
+
     return (
-      <div className={`txt m-b300 ${INPUT_CONTAINER_STYLE}`}>
+      <div className="txt m-b300" css={INPUT_CONTAINER_STYLE}>
         <input
-          className={VISUALLYHIDDEN}
+          css={VISUALLY_HIDDEN}
           ref={this.inputRef}
           type="file"
           accept={this.fileTypesString(this.props.fileTypes)}
@@ -187,28 +191,30 @@ Your file is ${fileSize.amount.toFixed(2) + fileSize.unit}. Please select a diff
 
         <label
           htmlFor={`FileInput-${this.props.name}`}
-          className={`btn btn--sm btn--100 ${this.state.isFocused &&
-            LABEL_FOCUSED_STYLE}`}
+          className="btn btn--sm btn--100"
+          css={isFocused && LABEL_FOCUSED_STYLE}
           style={{ whiteSpace: 'nowrap', fontWeight: 'bold' }}
         >
           Choose {this.props.title} file
         </label>
 
-        <div className={FILE_PREVIEW_STYLE}>
-          <span title={this.state.selectedFile ? 'Selected file: ' : undefined}>
-            {this.state.selectedFile
-              ? this.state.selectedFile.name
-              : DEFAULT_PREVIEW_TEXT}
+        <div css={FILE_PREVIEW_STYLE}>
+          <span title={selectedFile ? 'Selected file: ' : undefined}>
+            {selectedFile ? selectedFile.name : DEFAULT_PREVIEW_TEXT}
           </span>
         </div>
 
-        {this.state.selectedFile && (
-          <CloseButton
-            className={DELETE_BUTTON_STYLE}
-            size="1.8em"
-            title={`Remove file: ${this.state.selectedFile.name}`}
-            handleClick={this.clearFile}
-          />
+        {selectedFile && (
+          <ClassNames>
+            {({ css }) => (
+              <CloseButton
+                className={css(DELETE_BUTTON_STYLE)}
+                size="1.8em"
+                title={`Remove file: ${selectedFile.name}`}
+                handleClick={this.clearFile}
+              />
+            )}
+          </ClassNames>
         )}
       </div>
     );

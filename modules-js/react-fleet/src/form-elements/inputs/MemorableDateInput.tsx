@@ -1,6 +1,7 @@
-import React from 'react';
+/** @jsx jsx */
 
-import { css } from 'emotion';
+import React from 'react';
+import { css, jsx } from '@emotion/core';
 
 type Fields = {
   year: string;
@@ -226,10 +227,10 @@ export default class MemorableDateInput extends React.Component<Props, State> {
     const error = this.currentError();
 
     return (
-      <fieldset className={FIELDSET_STYLING}>
+      <fieldset css={FIELDSET_STYLING}>
         <legend style={{ width: '100%' }}>{this.props.legend}</legend>
 
-        <div className={FIELDS_CONTAINER_STYLING}>
+        <div css={FIELDS_CONTAINER_STYLING}>
           <div>
             <label htmlFor={`${this.componentId}-month`} className="txt-l">
               Month
