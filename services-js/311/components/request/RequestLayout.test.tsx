@@ -256,13 +256,20 @@ describe('missing service page', () => {
 });
 
 describe('routeToServiceForm', () => {
-  let requestLayout;
+  let requestLayout: RequestLayout;
+  let scrollToSpy: jest.Mock;
 
   beforeEach(() => {
+    scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation(() => {});
+
     const props: any = {
       data: {},
     };
     requestLayout = new RequestLayout(props);
+  });
+
+  afterEach(() => {
+    scrollToSpy.mockRestore();
   });
 
   it('defaults to questions', () => {

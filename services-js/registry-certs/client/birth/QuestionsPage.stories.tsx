@@ -19,6 +19,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add('1. Who is this for?', () => (
     siteAnalytics={{} as any}
     currentStep="forWhom"
     birthCertificateRequest={makeBirthCertificateRequest()}
+    testDontScroll
   />
 ));
 
@@ -32,6 +33,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add(
         forSelf: false,
         howRelated: 'client',
       })}
+      testDontScroll
     />
   )
 );
@@ -43,6 +45,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add('2. Born in Boston?', () => (
     birthCertificateRequest={makeBirthCertificateRequest({
       forSelf: true,
     })}
+    testDontScroll
   />
 ));
 
@@ -55,6 +58,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add(
       birthCertificateRequest={makeBirthCertificateRequest({
         forSelf: true,
       })}
+      testDontScroll
     />
   )
 );
@@ -69,6 +73,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add(
         forSelf: false,
         firstName: 'Stacy',
       })}
+      testDontScroll
     />
   )
 );
@@ -83,6 +88,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add(
         forSelf: true,
         parentsMarried: 'no',
       })}
+      testDontScroll
     />
   )
 );

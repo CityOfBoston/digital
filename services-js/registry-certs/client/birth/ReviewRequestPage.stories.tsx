@@ -36,5 +36,6 @@ storiesOf('Birth/ReviewRequestPage', module).add('default page', () => (
   <ReviewRequestPage
     birthCertificateRequest={birthCertificateRequest}
     siteAnalytics={new GaSiteAnalytics()}
+    testDontScroll
   />
 ));

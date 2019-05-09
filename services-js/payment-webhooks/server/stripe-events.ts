@@ -88,11 +88,13 @@ async function processChargeSucceeded(
     }
   );
 
-  console.log(`Added charge ${charge.id} to iNovah:`, {
-    transactionId,
-    batchId,
-    amountInDollars,
-  });
+  if (process.env.NODE_ENV !== 'test') {
+    console.log(`Added charge ${charge.id} to iNovah:`, {
+      transactionId,
+      batchId,
+      amountInDollars,
+    });
+  }
 
   try {
     await stripe.charges.update(charge.id, {
