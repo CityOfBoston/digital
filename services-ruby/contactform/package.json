@@ -6,7 +6,7 @@
     "prepare": "bundle install --path vendor/bundle",
     "pretest": "yarn prepare",
     "test": "bundle exec rake test",
-    "codebuild-deploy": "codebuild-service-deploy --isolated-docker Dockerfile"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy --isolated-docker Dockerfile"
   },
   "dependencies": {},
   "devDependencies": {
