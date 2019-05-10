@@ -198,7 +198,7 @@ export default class CheckoutPageController extends React.Component<
 
     siteAnalytics.setProductAction('purchase', {
       id: orderId,
-      revenue: deathCertificateCart.size * DEATH_CERTIFICATE_COST / 100,
+      revenue: (deathCertificateCart.size * DEATH_CERTIFICATE_COST) / 100,
     });
 
     siteAnalytics.sendEvent('click', {

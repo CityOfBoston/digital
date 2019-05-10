@@ -149,7 +149,8 @@ export default class DeviceVerificationModal extends React.Component<Props> {
           or{' '}
           <button type="button" className="lnk" onClick={resetVerification}>
             use a different number or email
-          </button>.
+          </button>
+          .
         </div>
 
         <div className="t--s400 lh--300">
@@ -210,7 +211,8 @@ export default class DeviceVerificationModal extends React.Component<Props> {
           or{' '}
           <button type="button" className="lnk" onClick={resetVerification}>
             try a different number or email
-          </button>.
+          </button>
+          .
         </div>
       </form>
     );

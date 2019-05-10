@@ -418,23 +418,22 @@ export default class SearchLayout extends React.Component<Props> {
             </div>
           )}
 
-          {!mapView &&
-            mapScrolledOff && (
-              <div
-                className={`g p-a300 ${MAP_VIEW_BUTTON_CONTAINER_STYLE.toString()} ${
-                  stickyMapViewButton ? STICKY_VIEW_BUTTON_STYLE.toString() : ''
-                }`}
-                ref={this.setMapViewButtonContainer}
+          {!mapView && mapScrolledOff && (
+            <div
+              className={`g p-a300 ${MAP_VIEW_BUTTON_CONTAINER_STYLE.toString()} ${
+                stickyMapViewButton ? STICKY_VIEW_BUTTON_STYLE.toString() : ''
+              }`}
+              ref={this.setMapViewButtonContainer}
+            >
+              <button
+                type="button"
+                className="btn g--12"
+                onClick={this.switchToMapView}
               >
-                <button
-                  type="button"
-                  className="btn g--12"
-                  onClick={this.switchToMapView}
-                >
-                  Map View
-                </button>
-              </div>
-            )}
+                Map View
+              </button>
+            </div>
+          )}
         </div>
 
         <Footer />

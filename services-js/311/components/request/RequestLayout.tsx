@@ -202,17 +202,16 @@ export default class RequestLayout extends React.Component<Props, State> {
             DIV, React 16's reconcilliation of the server and client (which are
             different because we're conditional on mediaLarge) will apply the
             runtime attributes to the server content. And things will be broken.*/}
-            {(mediaLarge || !process.browser) &&
-              !noMap && (
-                <LocationMapWithLibrary
-                  addressSearch={addressSearch}
-                  browserLocation={browserLocation}
-                  requestSearch={requestSearch}
-                  ui={ui}
-                  mode={mapMode}
-                  mobile={false}
-                />
-              )}
+            {(mediaLarge || !process.browser) && !noMap && (
+              <LocationMapWithLibrary
+                addressSearch={addressSearch}
+                browserLocation={browserLocation}
+                requestSearch={requestSearch}
+                ui={ui}
+                mode={mapMode}
+                mobile={false}
+              />
+            )}
           </div>
 
           {/* We can't put any wrappers around the dialogs below because in the

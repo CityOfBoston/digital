@@ -83,12 +83,11 @@ function renderServiceNotice({
         What happens next?
       </div>
 
-      {SCHEDULED_CASE_TYPES.indexOf(code) !== -1 &&
-        expectedAtString && (
-          <div className="t--intro m-v200">
-            Your scheduled date is <strong>{expectedAtString}</strong>.
-          </div>
-        )}
+      {SCHEDULED_CASE_TYPES.indexOf(code) !== -1 && expectedAtString && (
+        <div className="t--intro m-v200">
+          Your scheduled date is <strong>{expectedAtString}</strong>.
+        </div>
+      )}
 
       {serviceNotice && (
         <div className="t--info" style={{ fontStyle: 'normal' }}>
@@ -234,40 +233,36 @@ export default function CaseView({ request, submitted, noMap }: Props) {
         </div>
       )}
 
-      {request.location &&
-        !noMap &&
-        longMap && (
-          <div className={LONG_MAP_WRAPPER_STYLE}>
-            <img
-              className={`${MAP_IMG_STYLE.toString()} br br-a150`}
-              src={makeMapboxUrl(publicRuntimeConfig, request, 1000, 220)}
-              alt={`Map of ${request.address || ''}`}
-            />
-            <div
-              className={`${WAYPOINT_STYLE.toString()}`}
-              dangerouslySetInnerHTML={{ __html: waypointIcon.html || '' }}
-            />
-          </div>
-        )}
+      {request.location && !noMap && longMap && (
+        <div className={LONG_MAP_WRAPPER_STYLE}>
+          <img
+            className={`${MAP_IMG_STYLE.toString()} br br-a150`}
+            src={makeMapboxUrl(publicRuntimeConfig, request, 1000, 220)}
+            alt={`Map of ${request.address || ''}`}
+          />
+          <div
+            className={`${WAYPOINT_STYLE.toString()}`}
+            dangerouslySetInnerHTML={{ __html: waypointIcon.html || '' }}
+          />
+        </div>
+      )}
 
       <div className="g m-v400">
-        {request.location &&
-          !noMap &&
-          !longMap && (
-            <div className="g--6">
-              <div className={`${SQUARE_MAP_WRAPPER_STYLE.toString()} m-b500`}>
-                <img
-                  className={`${IMG_STYLE.toString()} ${MAP_IMG_STYLE.toString()} br br-a150`}
-                  src={makeMapboxUrl(publicRuntimeConfig, request, 440, 440)}
-                  alt={`Map of ${request.address || ''}`}
-                />
-                <div
-                  className={`${WAYPOINT_STYLE.toString()}`}
-                  dangerouslySetInnerHTML={{ __html: waypointIcon.html || '' }}
-                />
-              </div>
+        {request.location && !noMap && !longMap && (
+          <div className="g--6">
+            <div className={`${SQUARE_MAP_WRAPPER_STYLE.toString()} m-b500`}>
+              <img
+                className={`${IMG_STYLE.toString()} ${MAP_IMG_STYLE.toString()} br br-a150`}
+                src={makeMapboxUrl(publicRuntimeConfig, request, 440, 440)}
+                alt={`Map of ${request.address || ''}`}
+              />
+              <div
+                className={`${WAYPOINT_STYLE.toString()}`}
+                dangerouslySetInnerHTML={{ __html: waypointIcon.html || '' }}
+              />
             </div>
-          )}
+          </div>
+        )}
 
         {request.images.length > 0 &&
           request.images.map(img => (

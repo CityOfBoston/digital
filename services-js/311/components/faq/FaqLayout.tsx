@@ -173,7 +173,8 @@ export default class FaqLayout extends React.Component<Props, State> {
                     monitor your request. You can track your service request{' '}
                     <Link href="/search">
                       <a>here</a>
-                    </Link>.
+                    </Link>
+                    .
                   </Question>
 
                   <Question title="Why can’t I get through when I dial 311?">
@@ -191,14 +192,16 @@ export default class FaqLayout extends React.Component<Props, State> {
                     other than calling 311. Residents are encouraged to{' '}
                     <a href="https://www.boston.gov/departments/innovation-and-technology/apps#bos-311">
                       download the BOS:311 mobile app
-                    </a>, Tweet <a href="https://twitter.com/bos311">@BOS311</a>,
-                    or visit{' '}
+                    </a>
+                    , Tweet <a href="https://twitter.com/bos311">@BOS311</a>, or
+                    visit{' '}
                     <a href="https://www.boston.gov/departments/city-hall-go">
                       City Hall To Go
-                    </a>, Boston’s mobile city services truck. To speak with
-                    someone from the Mayor’s Office of Constituent Service in
-                    person, please come to the Mayor’s Office on the 5th Floor
-                    of City Hall weekdays between 9 a.m. and 5 p.m.
+                    </a>
+                    , Boston’s mobile city services truck. To speak with someone
+                    from the Mayor’s Office of Constituent Service in person,
+                    please come to the Mayor’s Office on the 5th Floor of City
+                    Hall weekdays between 9 a.m. and 5 p.m.
                   </Question>
 
                   <Question title="Can you call 311 from a VOIP phone?">

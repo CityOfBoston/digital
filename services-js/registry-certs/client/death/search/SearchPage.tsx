@@ -127,7 +127,8 @@ class SearchPage extends React.Component<Props, State> {
             <Head>
               {originalQuery ? (
                 <title>
-                  Boston.gov — Death Certificates — Results for “{originalQuery}”
+                  Boston.gov — Death Certificates — Results for “{originalQuery}
+                  ”
                 </title>
               ) : (
                 <title>Boston.gov — Death Certificates</title>
@@ -210,7 +211,8 @@ class SearchPage extends React.Component<Props, State> {
           or{' '}
           <a href="https://www.boston.gov/departments/registry/how-get-death-certificate#in-person">
             in person
-          </a>.
+          </a>
+          .
         </p>
       </div>
     );
@@ -280,7 +282,8 @@ class SearchPage extends React.Component<Props, State> {
           then. You can{' '}
           <a href="https://www.boston.gov/departments/registry/how-get-death-certificate">
             request a death certificate from before 1956
-          </a>.
+          </a>
+          .
         </li>
 
         <li>

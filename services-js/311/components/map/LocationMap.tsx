@@ -763,12 +763,11 @@ export default class LocationMap extends React.Component<Props> {
 
     return (
       <div className={MAP_STYLE} style={{ opacity }} ref={this.setMapEl}>
-        {mobile &&
-          mode === 'picker' && (
-            <div className={MOBILE_MARKER_STYLE}>
-              <div />
-            </div>
-          )}
+        {mobile && mode === 'picker' && (
+          <div className={MOBILE_MARKER_STYLE}>
+            <div />
+          </div>
+        )}
       </div>
     );
   }

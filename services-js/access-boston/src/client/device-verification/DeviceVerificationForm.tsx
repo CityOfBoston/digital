@@ -96,7 +96,8 @@ export default function DeviceVerificationForm(props: Props) {
                   required
                   info={
                     <>
-                      You should use your cell phone number if you have one.<br />
+                      You should use your cell phone number if you have one.
+                      <br />
                       Note: normal cell phone charges will apply.
                     </>
                   }
@@ -170,7 +171,8 @@ export default function DeviceVerificationForm(props: Props) {
 
             {phoneOrEmail === 'phone' && (
               <div className="t--subinfo m-v500">
-                Don’t have access to a phone?<br />
+                Don’t have access to a phone?
+                <br />
                 <Link href="/mfa?email=1">
                   <a>Get codes via personal email</a>
                 </Link>

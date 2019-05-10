@@ -15,7 +15,8 @@ export default function ApplicationSubmitted(): JSX.Element {
         Boston. If you have any questions about your application, contact{' '}
         <a href="mailto:boardsandcommissions@boston.gov">
           boardsandcommissions@boston.gov
-        </a>.
+        </a>
+        .
       </p>
     </section>
   );

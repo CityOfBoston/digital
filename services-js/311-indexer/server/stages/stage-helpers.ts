@@ -61,7 +61,7 @@ interface ErrorStreamSummary {
 export function retryWithBackoff<T>(
   maxRetries: number,
   retryDelay: number,
-  callbacks: { error?: ((error: Error) => unknown) } = {}
+  callbacks: { error?: (error: Error) => unknown } = {}
 ): Rx.MonoTypeOperatorFunction<T> {
   return retryable$ =>
     retryable$.pipe(
@@ -120,10 +120,10 @@ export function retryWithBackoff<T>(
  * due to concurrent processing.
  */
 export function queue<T, U>(
-  project: ((val: T) => Rx.Observable<U> | Promise<U>),
+  project: (val: T) => Rx.Observable<U> | Promise<U>,
   callbacks: {
-    length?: ((len: number) => unknown);
-    error?: ((err: Error, inVal: T) => unknown);
+    length?: (len: number) => unknown;
+    error?: (err: Error, inVal: T) => unknown;
   } = {},
   concurrent: number = 1
 ): Rx.OperatorFunction<T, U> {

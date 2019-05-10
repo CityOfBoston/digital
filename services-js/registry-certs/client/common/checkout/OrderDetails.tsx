@@ -181,7 +181,8 @@ export class OrderDetailsDropdown extends React.Component<
 
             <div className="t--info">
               {quantity} {quantity === 1 ? 'item' : 'items'} ×{' '}
-              {certificateCostString} = ${(
+              {certificateCostString} = $
+              {(
                 calculateCreditCardCost(certificateCost, quantity).subtotal /
                 100
               ).toFixed(2)}{' '}

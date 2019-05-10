@@ -346,7 +346,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
             )}
           >
             birth@boston.gov
-          </a>.
+          </a>
+          .
         </div>
       </PageWrapper>
     );

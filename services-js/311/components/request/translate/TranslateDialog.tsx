@@ -67,7 +67,8 @@ const MESSAGES = {
       please call BOS:311 at 311 or{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
   es: (
@@ -76,7 +77,8 @@ const MESSAGES = {
       Boston, por favor llame a BOS:311 al 3-1-1 o al{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
   'zh-TW': (
@@ -84,7 +86,8 @@ const MESSAGES = {
       向波士頓市府舉報非緊急事項, 請致電 BOS:311辦公室,撥 3-1-1或{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
   'zh-CN': (
@@ -92,7 +95,8 @@ const MESSAGES = {
       向波士顿市府举报非紧急事项,请致电BOS:311办公室, 拨 3-1-1 或{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
   ht: (
@@ -101,7 +105,8 @@ const MESSAGES = {
       rele BOS:311 nan 3-1-1 oswa{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
   vi: (
@@ -110,7 +115,8 @@ const MESSAGES = {
       BOS:311 tại 3-1-1 hoạc{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
   kea: (
@@ -119,7 +125,8 @@ const MESSAGES = {
       Boston, pur favor telifona pa BOS:311 pa númeru 3-1-1 ô pa{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
   pt: (
@@ -128,7 +135,8 @@ const MESSAGES = {
       de Boston, por favor telefone para BOS:311, para o número 3-1-1 ou para{' '}
       <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
         617-635-4500
-      </a>.
+      </a>
+      .
     </span>
   ),
 };

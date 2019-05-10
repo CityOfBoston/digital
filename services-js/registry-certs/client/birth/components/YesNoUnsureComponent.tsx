@@ -27,8 +27,8 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
       itemValue === 'yes'
         ? 'checkMark'
         : itemValue === 'no'
-          ? 'xSymbol'
-          : 'questionMark';
+        ? 'xSymbol'
+        : 'questionMark';
 
     return (
       <RadioItemComponent

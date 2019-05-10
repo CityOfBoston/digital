@@ -27,16 +27,16 @@ export type CertificateType = 'death' | 'birth';
 // Death-specific
 export interface DeathCertificate
   extends NonNullable<
-      FetchDeathCertificates['deathCertificates']['certificates'][0]
-    > {}
+    FetchDeathCertificates['deathCertificates']['certificates'][0]
+  > {}
 
 export interface DeathCertificateSearchResults
   extends NonNullable<SearchDeathCertificates['deathCertificates']['search']> {}
 
 export interface DeathCertificateOrder
   extends NonNullable<
-      LookupDeathCertificateOrder['deathCertificates']['order']
-    > {}
+    LookupDeathCertificateOrder['deathCertificates']['order']
+  > {}
 
 export type DeathCertificateOrderResult = SubmitDeathCertificateOrder_submitDeathCertificateOrder;
 export type BirthCertificateOrderResult = SubmitBirthCertificateOrder_submitBirthCertificateOrder;

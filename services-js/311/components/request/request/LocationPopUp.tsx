@@ -525,7 +525,8 @@ export default class LocationPopUp extends React.Component<Props, State> {
               </div>
               {selectedOutsideOfBoston && (
                 <div className="p-v300 t--info">
-                  {selectedOutsideOfBoston.city} {selectedOutsideOfBoston.label}:{' '}
+                  {selectedOutsideOfBoston.city} {selectedOutsideOfBoston.label}
+                  :{' '}
                   <a href={`tel:${selectedOutsideOfBoston.tel}`}>
                     {selectedOutsideOfBoston.tel}
                   </a>
@@ -548,14 +549,13 @@ export default class LocationPopUp extends React.Component<Props, State> {
 
     return (
       <div className="" key="places">
-        {!!lastQuery &&
-          places.length !== 1 && (
-            <div
-              className={`t--sans t--upper t--g300 p-a300 t--ellipsis ${SEARCH_RESULTS_HEADER_STYLE.toString()}`}
-            >
-              {places.length} results for {lastQuery}
-            </div>
-          )}
+        {!!lastQuery && places.length !== 1 && (
+          <div
+            className={`t--sans t--upper t--g300 p-a300 t--ellipsis ${SEARCH_RESULTS_HEADER_STYLE.toString()}`}
+          >
+            {places.length} results for {lastQuery}
+          </div>
+        )}
 
         <div className={`${ADDRESS_LIST_STYLE.toString()}`}>
           {places.map((place, idx) => (
@@ -665,8 +665,8 @@ class AddressRow extends React.Component<AddressRowProps> {
             {(current
               ? address
               : place.units && place.units.length
-                ? place.units[0].address
-                : place.address
+              ? place.units[0].address
+              : place.address
             ).trim()}
           </div>
 
