@@ -6,7 +6,7 @@
   "main": "header.js",
   "scripts": {
     "predeploy": "gulp build",
-    "codebuild-deploy": "codebuild-service-deploy --isolated-docker deploy/Dockerfile"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy --isolated-docker deploy/Dockerfile"
   },
   "author": "City of Boston DoIT",
   "license": "CC0-1.0",
