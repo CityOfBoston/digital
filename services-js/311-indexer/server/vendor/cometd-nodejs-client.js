@@ -79,8 +79,8 @@ module.exports = {
         _config.agent = makeAgent
           ? makeAgent(_secure(_config))
           : _secure(_config)
-            ? _agents
-            : _agentc;
+          ? _agents
+          : _agentc;
         _config.headers = {};
         this.readyState = window.XMLHttpRequest.OPENED;
       };

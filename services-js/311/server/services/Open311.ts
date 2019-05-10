@@ -353,39 +353,39 @@ export default class Open311 {
       return out;
     });
 
-    this.requestLoader = new DataLoader(async (ids): Promise<
-      Array<DetailedServiceRequest | null>
-    > => {
-      const params = new URLSearchParams();
-      if (this.apiKey) {
-        params.append('api_key', this.apiKey);
+    this.requestLoader = new DataLoader(
+      async (ids): Promise<Array<DetailedServiceRequest | null>> => {
+        const params = new URLSearchParams();
+        if (this.apiKey) {
+          params.append('api_key', this.apiKey);
+        }
+
+        return Promise.all(
+          ids.map(async id => {
+            // We don't bother with the bulk endpoint in the webapp because the
+            // only time we show more than one case is when we show search
+            // results, and that data comes 100% from the Elasticsearch index.
+            //
+            // We still use a DataLoader, however, on the off chance that the same
+            // request will cause a double-lookup to a case.
+            const response = await this.fetch(
+              this.url(`request/${id}.json?${params.toString()}`),
+              {
+                agent: this.agent,
+              }
+            );
+
+            // For whatever reason, looking up a single request ID still returns
+            // an array.
+            const requestArr = await processResponse<DetailedServiceRequest[]>(
+              response
+            );
+
+            return (requestArr && requestArr[0]) || null;
+          })
+        );
       }
-
-      return Promise.all(
-        ids.map(async id => {
-          // We don't bother with the bulk endpoint in the webapp because the
-          // only time we show more than one case is when we show search
-          // results, and that data comes 100% from the Elasticsearch index.
-          //
-          // We still use a DataLoader, however, on the off chance that the same
-          // request will cause a double-lookup to a case.
-          const response = await this.fetch(
-            this.url(`request/${id}.json?${params.toString()}`),
-            {
-              agent: this.agent,
-            }
-          );
-
-          // For whatever reason, looking up a single request ID still returns
-          // an array.
-          const requestArr = await processResponse<DetailedServiceRequest[]>(
-            response
-          );
-
-          return (requestArr && requestArr[0]) || null;
-        })
-      );
-    });
+    );
   }
 
   private fetch(url: string, opts?: RequestInit) {

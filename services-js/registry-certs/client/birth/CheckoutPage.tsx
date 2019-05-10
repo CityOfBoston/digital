@@ -227,7 +227,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       siteAnalytics.setProductAction('purchase', {
         id: orderId,
         revenue:
-          birthCertificateRequest.quantity * BIRTH_CERTIFICATE_COST / 100,
+          (birthCertificateRequest.quantity * BIRTH_CERTIFICATE_COST) / 100,
       });
 
       siteAnalytics.sendEvent('click', {
@@ -313,19 +313,18 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     if (!order || !birthCertificateRequest.questionStepsComplete) {
       return (
         <CheckoutPageLayout certificateType="birth">
-          {order &&
-            !birthCertificateRequest.questionStepsComplete && (
-              <>
-                <div className="t--info">
-                  Your birth certificate request is incomplete.
-                </div>
-                <div className="m-v500 ta-c">
-                  <Link href="/birth">
-                    <a className="btn">Back to Start</a>
-                  </Link>
-                </div>
-              </>
-            )}
+          {order && !birthCertificateRequest.questionStepsComplete && (
+            <>
+              <div className="t--info">
+                Your birth certificate request is incomplete.
+              </div>
+              <div className="m-v500 ta-c">
+                <Link href="/birth">
+                  <a className="btn">Back to Start</a>
+                </Link>
+              </div>
+            </>
+          )}
         </CheckoutPageLayout>
       );
     }

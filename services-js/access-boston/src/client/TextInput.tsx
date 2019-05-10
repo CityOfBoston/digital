@@ -18,9 +18,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
    * If you chose to render the error from this function you should set the
    * hideErrorMessage prop, otherwise the component will render it as well.
    */
-  renderInputFunc?: (
-    arg: { inputEl: ReactNode; errorEl: ReactNode }
-  ) => ReactNode;
+  renderInputFunc?: (arg: {
+    inputEl: ReactNode;
+    errorEl: ReactNode;
+  }) => ReactNode;
   hideErrorMessage?: boolean;
 
   id?: string;

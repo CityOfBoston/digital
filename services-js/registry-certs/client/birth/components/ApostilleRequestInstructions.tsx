@@ -20,18 +20,13 @@ export default function ApostilleRequestInstructions(): JSX.Element {
     setIsOpen(isOpen => !isOpen);
   };
 
-  useEffect(
-    () => {
-      // ie11 does not support the <details> element, but we can test for support
-      // by checking if the “open” attribute is present.
-      const testElement = document.createElement('details');
+  useEffect(() => {
+    // ie11 does not support the <details> element, but we can test for support
+    // by checking if the “open” attribute is present.
+    const testElement = document.createElement('details');
 
-      setDetailsElementIsSupported('open' in testElement);
-    },
-    // Because we only need to test for support once, ensure the effect does
-    // not fire again.
-    [detailsElementIsSupported]
-  );
+    setDetailsElementIsSupported('open' in testElement);
+  }, [detailsElementIsSupported]); // not fire again. // Because we only need to test for support once, ensure the effect does
 
   if (detailsElementIsSupported) {
     return (

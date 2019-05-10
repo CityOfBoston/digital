@@ -36,29 +36,27 @@ export default function QuestionComponent(props: Props): JSX.Element {
         </div>
 
         <div className="g--6 ta-r m-b500">
-          {props.handleProceed &&
-            !props.startOver && (
-              <button
-                type="button"
-                className="btn btn--b-sm"
-                onClick={props.handleProceed}
-                disabled={!props.allowProceed}
-              >
-                {props.nextButtonText || 'Next question'}
-              </button>
-            )}
+          {props.handleProceed && !props.startOver && (
+            <button
+              type="button"
+              className="btn btn--b-sm"
+              onClick={props.handleProceed}
+              disabled={!props.allowProceed}
+            >
+              {props.nextButtonText || 'Next question'}
+            </button>
+          )}
 
           {/* Button only appears if handler was passed in AND props.startOver is true. */}
-          {props.handleReset &&
-            props.startOver && (
-              <button
-                type="button"
-                className="btn btn--b-sm"
-                onClick={props.handleReset}
-              >
-                Start over
-              </button>
-            )}
+          {props.handleReset && props.startOver && (
+            <button
+              type="button"
+              className="btn btn--b-sm"
+              onClick={props.handleReset}
+            >
+              Start over
+            </button>
+          )}
         </div>
       </div>
     </>

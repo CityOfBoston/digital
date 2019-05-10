@@ -19,7 +19,8 @@ export default class Email {
   emailContent: EmailContent;
 
   applicantSubject: string = 'We’ve received your application';
-  policyOfficeSubject: string = 'New City Clerk Boards and Commissions Application';
+  policyOfficeSubject: string =
+    'New City Clerk Boards and Commissions Application';
 
   constructor(
     from: string,

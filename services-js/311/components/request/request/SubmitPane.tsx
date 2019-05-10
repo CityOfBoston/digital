@@ -58,7 +58,9 @@ export default function SubmitPane(props: Props) {
           </div>
 
           <div className="m-v500 t--info">
-            {messages.map((msg, i) => <div key={i}>{msg}</div>)}
+            {messages.map((msg, i) => (
+              <div key={i}>{msg}</div>
+            ))}
           </div>
 
           <p className="m-v500 t--s500 lh--400">

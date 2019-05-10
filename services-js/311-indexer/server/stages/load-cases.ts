@@ -2,7 +2,7 @@ import * as Rx from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import Rollbar from 'rollbar';
 
-import Open311, { DetailedServiceRequest } from '../services/Open311';
+import Open311 from '../services/Open311';
 import { UpdatedCaseNotificationRecord, HydratedCaseRecord } from './types';
 import {
   queue,
@@ -96,14 +96,14 @@ export default function loadCases(
                 });
               }
             }),
-            catchError<DetailedServiceRequest | null, null>(
-              handleRetriedLoadError.bind(null, id, rollbar)
-            ),
-            map((c): HydratedCaseRecord => ({
-              id,
-              case: c,
-              replayId,
-            }))
+            catchError(handleRetriedLoadError.bind(null, id, rollbar)),
+            map(
+              (c): HydratedCaseRecord => ({
+                id,
+                case: c,
+                replayId,
+              })
+            )
           ),
 
         {

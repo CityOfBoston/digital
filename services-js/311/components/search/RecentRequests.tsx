@@ -208,34 +208,31 @@ export default class RecentRequests extends React.Component<Props> {
           </div>
         )}
 
-        {results.length === 0 &&
-          !loading &&
-          !resultsError && (
-            <div className="p-a300">
-              <div className="t--intro">No results found</div>
+        {results.length === 0 && !loading && !resultsError && (
+          <div className="p-a300">
+            <div className="t--intro">No results found</div>
 
-              {resultsQuery ? (
-                [
-                  <div className="t--info m-v300" key="p1">
-                    Your search didn’t return any results. Please first make
-                    sure you spelled everything correctly. You can also use
-                    different words, more general words, or fewer words.
-                  </div>,
-                  <div className="t--info m-v300" key="p2">
-                    If you still can’t find what you’re looking for, try moving
-                    the map or zooming it out. You’ll see cases in the area the
-                    map is showing.
-                  </div>,
-                ]
-              ) : (
-                <div className="t--info m-v300">
-                  There are no recent requests in this area. Try moving the map
-                  or zooming it out. You’ll see cases in the area the map is
-                  showing.
-                </div>
-              )}
-            </div>
-          )}
+            {resultsQuery ? (
+              [
+                <div className="t--info m-v300" key="p1">
+                  Your search didn’t return any results. Please first make sure
+                  you spelled everything correctly. You can also use different
+                  words, more general words, or fewer words.
+                </div>,
+                <div className="t--info m-v300" key="p2">
+                  If you still can’t find what you’re looking for, try moving
+                  the map or zooming it out. You’ll see cases in the area the
+                  map is showing.
+                </div>,
+              ]
+            ) : (
+              <div className="t--info m-v300">
+                There are no recent requests in this area. Try moving the map or
+                zooming it out. You’ll see cases in the area the map is showing.
+              </div>
+            )}
+          </div>
+        )}
 
         <div
           className={`${REQUEST_LIST_STYLE.toString()} ${

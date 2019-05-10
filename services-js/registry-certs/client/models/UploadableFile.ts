@@ -196,7 +196,7 @@ export default class UploadableFile {
   @action.bound
   handleProgress(ev: ProgressEvent) {
     if (ev.lengthComputable) {
-      this.progress = ev.loaded / ev.total * 100;
+      this.progress = (ev.loaded / ev.total) * 100;
     }
   }
 

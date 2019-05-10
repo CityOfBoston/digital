@@ -192,9 +192,8 @@ export default class ParentalInformation extends React.Component<Props> {
 
             <p>
               <strong>
-                You will need to provide a valid form of identification (<i>
-                  e.g.
-                </i>
+                You will need to provide a valid form of identification (
+                <i>e.g.</i>
                 driver’s license, state ID, military ID, or passport) later in
                 this process.
               </strong>

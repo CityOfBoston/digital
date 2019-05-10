@@ -139,9 +139,7 @@ interface ServiceAttribute extends ResolvableWith<ServiceMetadataAttribute> {
  * The Open311 serviceMetadata method uses a DataLoader loader, so multiple
  * calls to this in the same tick will result in just one network request.
  */
-function makeMetadataResolver<T>(
-  cb: ((metadata: ServiceMetadata | null) => T)
-) {
+function makeMetadataResolver<T>(cb: (metadata: ServiceMetadata | null) => T) {
   return async (
     { service_code }: ServiceRoot,
     _args: unknown,
@@ -192,8 +190,8 @@ const serviceResolvers: Resolvers<Service, Context> = {
   group: async (r, _, { open311 }) =>
     (isServiceStub(r) ? (await open311.service(r.service_code))! : r).group,
 
-  attributes: makeMetadataResolver(
-    metadata => (metadata ? metadata.attributes : [])
+  attributes: makeMetadataResolver(metadata =>
+    metadata ? metadata.attributes : []
   ),
 
   locationRequired: makeMetadataResolver(

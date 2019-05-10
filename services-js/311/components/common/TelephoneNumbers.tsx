@@ -47,7 +47,8 @@ export default function TelephoneNumbers(): JSX.Element {
         311 or{' '}
         <a href="tel:+16176354500" className={TELEPHONE_LINK_STYLE}>
           617-635-4500
-        </a>.
+        </a>
+        .
       </div>
     </div>
   );

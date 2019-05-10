@@ -15,8 +15,8 @@ export default function styleTags(opts: CssOpts = {}) {
 
   const cacheBustedCssHrefs = noStylesheets
     ? []
-    : stylesheetHrefs.map(
-        href => (cacheParam ? `${href}?k=${cacheParam}` : href)
+    : stylesheetHrefs.map(href =>
+        cacheParam ? `${href}?k=${cacheParam}` : href
       );
 
   return [

@@ -297,11 +297,10 @@ export default class Elasticsearch {
                 (item.delete ? item.delete.error : null)
             )
             .compact()
-            .map(
-              error =>
-                typeof error === 'string'
-                  ? error
-                  : `${error.type}: ${error.reason}`
+            .map(error =>
+              typeof error === 'string'
+                ? error
+                : `${error.type}: ${error.reason}`
             )
             .uniq()
             .join('\n')

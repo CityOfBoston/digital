@@ -193,7 +193,7 @@ export const loadDeathCertificateItems = (
   const certificateCount = certificateQuantities.reduce((sum, q) => q + sum, 0);
 
   const certificateCost = Math.floor(
-    order.CertificateCost * 100 / certificateCount
+    (order.CertificateCost * 100) / certificateCount
   );
 
   const items = certificateIds.map((id, idx) => {
@@ -261,14 +261,16 @@ const deathCertificatesResolvers: Resolvers<DeathCertificates, Context> = {
   },
   certificates: (_root, { ids }, { registryDb }) =>
     Promise.all(
-      ids.map(async (id): Promise<DeathCertificate | null> => {
-        const res = await registryDb.lookupDeathCertificate(id);
-        if (res) {
-          return searchResultToDeathCertificate(res);
-        } else {
-          return null;
+      ids.map(
+        async (id): Promise<DeathCertificate | null> => {
+          const res = await registryDb.lookupDeathCertificate(id);
+          if (res) {
+            return searchResultToDeathCertificate(res);
+          } else {
+            return null;
+          }
         }
-      })
+      )
     ),
   order: async (_root, { id, contactEmail }, { registryDb }) => {
     const dbOrder = await registryDb.findOrder(id);

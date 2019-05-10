@@ -103,35 +103,32 @@ export default class IndexPage extends React.Component<Props> {
             </div>
           )}
 
-          {daysUntilMfa !== null &&
-            daysUntilMfa > 0 && (
-              <div className="b--g">
-                <div className="b-c" style={{ padding: 0 }}>
-                  <div className="g g--vc p-v500">
-                    <div className="g--9">
-                      <div className="h3 tt-u">Account notice</div>
-                      <div className="t--intro">
-                        You have{' '}
-                        <strong>
-                          {daysUntilMfa === 1
-                            ? '1 day'
-                            : `${daysUntilMfa} days`}
-                        </strong>{' '}
-                        to complete your registration.
-                      </div>
+          {daysUntilMfa !== null && daysUntilMfa > 0 && (
+            <div className="b--g">
+              <div className="b-c" style={{ padding: 0 }}>
+                <div className="g g--vc p-v500">
+                  <div className="g--9">
+                    <div className="h3 tt-u">Account notice</div>
+                    <div className="t--intro">
+                      You have{' '}
+                      <strong>
+                        {daysUntilMfa === 1 ? '1 day' : `${daysUntilMfa} days`}
+                      </strong>{' '}
+                      to complete your registration.
                     </div>
+                  </div>
 
-                    <div className="g--3 ta-r">
-                      <Link href="/mfa">
-                        <a className="btn" style={{ whiteSpace: 'nowrap' }}>
-                          Complete it now
-                        </a>
-                      </Link>
-                    </div>
+                  <div className="g--3 ta-r">
+                    <Link href="/mfa">
+                      <a className="btn" style={{ whiteSpace: 'nowrap' }}>
+                        Complete it now
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
           <div className="b b-c">
             {iconCategories.map(({ title, apps, requestAccessUrl }) => (

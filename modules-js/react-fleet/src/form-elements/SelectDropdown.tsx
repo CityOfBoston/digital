@@ -1,7 +1,6 @@
 import React from 'react';
 import hash from 'string-hash';
 
-
 interface Props {
   label: string;
   small?: boolean;
@@ -41,26 +40,25 @@ export default function SelectDropdown(props: Props): JSX.Element {
   const id = props.id || `select-${hash(props.label)}`;
 
   const classNames = {
-    label: `txt-l ${ props.small ? 'txt-l--sm' : ''}`,
-    container: `sel-c ${ props.small ? 'sel-c--thin' : ''} ${props.error ? 'sel-c--err' : ''}`,
-    select: `sel-f ${ props.small ? 'sel-f--thin' : ''} ${props.error ? 'sel-f--err' : ''}`
+    label: `txt-l ${props.small ? 'txt-l--sm' : ''}`,
+    container: `sel-c ${props.small ? 'sel-c--thin' : ''} ${
+      props.error ? 'sel-c--err' : ''
+    }`,
+    select: `sel-f ${props.small ? 'sel-f--thin' : ''} ${
+      props.error ? 'sel-f--err' : ''
+    }`,
   };
 
   return (
     <div className={props.className} style={props.style}>
-      <label
-        htmlFor={id}
-        className={classNames.label}
-      >
-        {props.hideLabel ?
+      <label htmlFor={id} className={classNames.label}>
+        {props.hideLabel ? (
           <>&nbsp;</>
-
-          :
-
+        ) : (
           <span style={{ marginRight: '0.5em', whiteSpace: 'nowrap' }}>
             {props.label}
           </span>
-        }
+        )}
 
         {props.required && <span className="t--req">Required</span>}
       </label>
@@ -71,12 +69,10 @@ export default function SelectDropdown(props: Props): JSX.Element {
           className={classNames.select}
           aria-label={props.hideLabel ? props.label : ''}
           name={props.name}
-
           value={props.value}
           defaultValue={props.defaultValue}
           disabled={props.disabled}
           required={props.required}
-
           onBlur={props.onBlur}
           onChange={props.onChange}
           onFocus={props.onFocus}

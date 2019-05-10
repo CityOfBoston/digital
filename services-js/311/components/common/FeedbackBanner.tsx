@@ -60,7 +60,8 @@ export default class FeedbackBanner extends React.Component<Props> {
               className="lnk t--w"
             >
               feedback
-            </button>.
+            </button>
+            .
           </span>
         </div>
       </div>

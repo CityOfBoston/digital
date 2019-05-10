@@ -109,7 +109,8 @@ export default function ApplicationForm(props: Props): JSX.Element {
         legislation. If you have any questions, email{' '}
         <a href="mailto:boardsandcommissions@boston.gov">
           boardsandcommissions@boston.gov
-        </a>.
+        </a>
+        .
       </p>
 
       <ApplicantInformationSection makeField={makeField} />
@@ -210,7 +211,8 @@ export default function ApplicationForm(props: Props): JSX.Element {
             You can try again. If this keeps happening, please contact{' '}
             <a href="mailto:boardsandcommissions@boston.gov">
               boardsandcommissions@boston.gov
-            </a>.
+            </a>
+            .
           </div>
         </StatusModal>
       )}

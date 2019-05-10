@@ -39,35 +39,37 @@ export default class DeathCertificateCart {
           localStorage.getItem('cart') || '[]'
         );
 
-        this.entries = savedCart.filter(({ quantity }) => quantity > 0).map(
-          action(
-            'hydrate entry from local storage start',
-            ({ id, quantity }: LocalStorageEntry) => {
-              const entry = new DeathCertificateCartEntry();
-              entry.id = id;
-              entry.cert = null;
-              entry.quantity = quantity;
+        this.entries = savedCart
+          .filter(({ quantity }) => quantity > 0)
+          .map(
+            action(
+              'hydrate entry from local storage start',
+              ({ id, quantity }: LocalStorageEntry) => {
+                const entry = new DeathCertificateCartEntry();
+                entry.id = id;
+                entry.cert = null;
+                entry.quantity = quantity;
 
-              this.pendingFetches += 1;
+                this.pendingFetches += 1;
 
-              deathCertificatesDao.get(id).then(
-                action(
-                  'hydrate item from local storage complete',
-                  (cert: DeathCertificate | null) => {
-                    if (cert) {
-                      entry.cert = cert;
-                    } else {
-                      this.remove(id);
+                deathCertificatesDao.get(id).then(
+                  action(
+                    'hydrate item from local storage complete',
+                    (cert: DeathCertificate | null) => {
+                      if (cert) {
+                        entry.cert = cert;
+                      } else {
+                        this.remove(id);
+                      }
+                      this.pendingFetches -= 1;
                     }
-                    this.pendingFetches -= 1;
-                  }
-                )
-              );
+                  )
+                );
 
-              return entry;
-            }
-          )
-        );
+                return entry;
+              }
+            )
+          );
       } catch (e) {
         localStorage.removeItem('cart');
       }
@@ -77,10 +79,12 @@ export default class DeathCertificateCart {
           localStorage.setItem(
             'cart',
             JSON.stringify(
-              this.entries.map(({ id, quantity }): LocalStorageEntry => ({
-                id,
-                quantity,
-              }))
+              this.entries.map(
+                ({ id, quantity }): LocalStorageEntry => ({
+                  id,
+                  quantity,
+                })
+              )
             )
           );
         },

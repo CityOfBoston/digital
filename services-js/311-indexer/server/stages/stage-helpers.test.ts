@@ -131,7 +131,7 @@ describe('queue', () => {
   });
 
   it('doesn’t stop the parent on error', done => {
-    const nextFn: (() => {}) = jest.fn();
+    const nextFn: () => {} = jest.fn();
 
     Rx.of('first', 'second')
       .pipe(queue(val => (val === 'first' ? Rx.throwError('err') : Rx.of(val))))

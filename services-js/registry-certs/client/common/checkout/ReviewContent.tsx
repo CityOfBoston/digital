@@ -305,39 +305,37 @@ export default class ReviewContent extends React.Component<Props, State> {
             </StatusModal>
           )}
 
-          {submissionError &&
-            !submissionErrorIsForPayment && (
-              <StatusModal
-                message={`There’s a problem: ${submissionError}`}
-                error
-                onClose={() => {
-                  this.setState({
-                    submissionError: null,
-                  });
-                }}
-              >
-                <div className="t--info m-t300">
-                  You can try again. If this keeps happening, please email{' '}
-                  <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
-                </div>
-              </StatusModal>
-            )}
+          {submissionError && !submissionErrorIsForPayment && (
+            <StatusModal
+              message={`There’s a problem: ${submissionError}`}
+              error
+              onClose={() => {
+                this.setState({
+                  submissionError: null,
+                });
+              }}
+            >
+              <div className="t--info m-t300">
+                You can try again. If this keeps happening, please email{' '}
+                <a href="mailto:digital@boston.gov">digital@boston.gov</a>.
+              </div>
+            </StatusModal>
+          )}
 
-          {submissionError &&
-            submissionErrorIsForPayment && (
-              <StatusModal message="This charge failed." error>
-                <div className="t--info m-t300">
-                  {submissionError} Update your payment information to submit
-                  your order.
-                </div>
+          {submissionError && submissionErrorIsForPayment && (
+            <StatusModal message="This charge failed." error>
+              <div className="t--info m-t300">
+                {submissionError} Update your payment information to submit your
+                order.
+              </div>
 
-                <div className="m-v500 ta-c">
-                  <Link href={`${checkoutPath}?page=payment`}>
-                    <a className="btn">Re-try</a>
-                  </Link>
-                </div>
-              </StatusModal>
-            )}
+              <div className="m-v500 ta-c">
+                <Link href={`${checkoutPath}?page=payment`}>
+                  <a className="btn">Re-try</a>
+                </Link>
+              </div>
+            </StatusModal>
+          )}
 
           <div className="m-v300">
             <button

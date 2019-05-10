@@ -42,11 +42,11 @@ export async function toTypeScript(
 ${sqlts.fromObject(database, makeConfig(connection))}
 
 ${database.tables
-    .map(
-      // Make "All" versions of the tables that have their properties all
-      // required.
-      ({ name }) => `export type ${name}EntityAll = Required<${name}Entity>;`
-    )
-    .join('\n')}
+  .map(
+    // Make "All" versions of the tables that have their properties all
+    // required.
+    ({ name }) => `export type ${name}EntityAll = Required<${name}Entity>;`
+  )
+  .join('\n')}
 `;
 }
