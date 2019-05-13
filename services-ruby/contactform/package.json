@@ -8,8 +8,5 @@
     "test": "bundle exec rake test",
     "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy --isolated-docker Dockerfile"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@cityofboston/deploy-tools": "^0.0.0"
-  }
+  "dependencies": {}
 }

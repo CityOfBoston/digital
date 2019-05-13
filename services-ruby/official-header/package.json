@@ -24,8 +24,5 @@
     "gulp-uglify": "^1.5.3",
     "gulp-watch": "^4.3.5",
     "require-dir": "^0.3.0"
-  },
-  "devDependencies": {
-    "@cityofboston/deploy-tools": "^0.0.0"
   }
 }
