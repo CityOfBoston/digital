@@ -12,7 +12,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from 'apollo-server-hapi';
 import Rollbar from 'rollbar';
 
 import { resolvers as queryResolvers, Query } from './query';
@@ -30,7 +30,9 @@ export interface Context {
   open311: Open311;
   arcgis: ArcGIS;
   prediction: Prediction;
-  elasticsearch: Elasticsearch;
+  // "Required" Allows ElasticsearchFake to typecheck here even though its
+  // private members don’t match.
+  elasticsearch: Required<Elasticsearch>;
   rollbar: Rollbar;
 }
 

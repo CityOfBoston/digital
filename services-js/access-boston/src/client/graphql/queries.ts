@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -21,6 +22,7 @@ export interface AddMfaDeviceVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -45,6 +47,7 @@ export interface ChangePasswordVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -86,6 +89,7 @@ export interface FetchAccountAndApps {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -108,6 +112,7 @@ export interface FetchAccount {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -132,6 +137,7 @@ export interface ResetPasswordVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -153,30 +159,31 @@ export interface VerifyMfaDeviceVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
 
-export enum VerificationType {
-  EMAIL = 'EMAIL',
-  SMS = 'SMS',
-  VOICE = 'VOICE',
+export enum MfaError {
+  ALREADY_REGISTERED = "ALREADY_REGISTERED",
+  INVALID_EMAIL = "INVALID_EMAIL",
+  INVALID_PHONE_NUMBER = "INVALID_PHONE_NUMBER",
+  WRONG_CODE = "WRONG_CODE",
+  WRONG_PASSWORD = "WRONG_PASSWORD",
 }
 
-export enum MfaError {
-  ALREADY_REGISTERED = 'ALREADY_REGISTERED',
-  INVALID_EMAIL = 'INVALID_EMAIL',
-  INVALID_PHONE_NUMBER = 'INVALID_PHONE_NUMBER',
-  WRONG_CODE = 'WRONG_CODE',
-  WRONG_PASSWORD = 'WRONG_PASSWORD',
+export enum VerificationType {
+  EMAIL = "EMAIL",
+  SMS = "SMS",
+  VOICE = "VOICE",
 }
 
 export enum WorkflowStatus {
-  ERROR = 'ERROR',
-  SUCCESS = 'SUCCESS',
-  UNKNOWN = 'UNKNOWN',
+  ERROR = "ERROR",
+  SUCCESS = "SUCCESS",
+  UNKNOWN = "UNKNOWN",
 }
 
 //==============================================================

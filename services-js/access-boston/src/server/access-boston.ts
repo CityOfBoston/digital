@@ -12,12 +12,11 @@ import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import hapiDevErrors from 'hapi-dev-errors';
 import next from 'next';
+import { ApolloServer } from 'apollo-server-hapi';
 
 import { parse, Compile } from 'velocityjs';
 import { default as pingData } from './ping-templates/mockData';
 
-// https://github.com/apollographql/apollo-server/issues/927
-const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
 import Rollbar from 'rollbar';
 
 import {
@@ -34,7 +33,8 @@ import {
   headerKeysPlugin,
   browserAuthPlugin,
   rollbarPlugin,
-  graphqlOptionsWithRollbar,
+  HapiGraphqlContextFunction,
+  rollbarErrorExtension,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
@@ -241,54 +241,37 @@ async function addGraphQl(
     },
   });
 
-  await server.register({
-    plugin: graphqlHapi,
-    options: {
-      path: `${PATH_PREFIX}/graphql`,
-      route: {
-        auth: {
-          // It’s the resolvers’ responsibility to throw Forbidden exceptions if
-          // they’re trying to do something that needs authorization but it’s
-          // not there.
-          //
-          // Since this is an API, it’s fine to send a Forbidden response,
-          // there’s no need to 300 to a login page.
-          mode: 'optional',
-          strategies: ['login', 'forgot-password'],
-        },
-        plugins: {
-          // We auth with a header, which can't be set via CSRF, so it's safe to
-          // avoid checking the crumb cookie.
-          crumb: false,
-          headerKeys: !!process.env.API_KEYS,
-        },
-      },
-      graphqlOptions: graphqlOptionsWithRollbar(rollbar, request => {
-        const context: Context = {
-          session: new Session(request),
-          appsRegistry,
-          identityIq,
-          pingId,
-        };
-
-        return {
-          schema: graphqlSchema,
-          context,
-        };
-      }),
-    },
+  const context: HapiGraphqlContextFunction<Context> = ({ request }) => ({
+    session: new Session(request),
+    appsRegistry,
+    identityIq,
+    pingId,
   });
 
-  await server.register({
-    plugin: graphiqlHapi,
-    options: {
-      path: `${PATH_PREFIX}/graphiql`,
-      route: {
-        auth: false,
+  const apolloServer = new ApolloServer({
+    schema: graphqlSchema,
+    context,
+    extensions: [rollbarErrorExtension(rollbar)],
+  });
+
+  await apolloServer.applyMiddleware({
+    app: server,
+    route: {
+      auth: {
+        // It’s the resolvers’ responsibility to throw Forbidden exceptions if
+        // they’re trying to do something that needs authorization but it’s
+        // not there.
+        //
+        // Since this is an API, it’s fine to send a Forbidden response,
+        // there’s no need to 300 to a login page.
+        mode: 'optional',
+        strategies: ['login', 'forgot-password'],
       },
-      graphiqlOptions: {
-        endpointURL: `${PATH_PREFIX}/graphql`,
-        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
+      plugins: {
+        // We auth with a header, which can't be set via CSRF, so it's safe to
+        // avoid checking the crumb cookie.
+        crumb: false,
+        headerKeys: !!process.env.API_KEYS,
       },
     },
   });

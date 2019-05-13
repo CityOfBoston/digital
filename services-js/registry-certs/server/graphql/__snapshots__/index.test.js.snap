@@ -2,67 +2,16 @@
 
 exports[`schema is generated 1`] = `
 GraphQLSchema {
-  "__allowedLegacyNames": undefined,
+  "__allowedLegacyNames": Array [],
+  "__validationErrors": undefined,
   "_directives": Array [
-    GraphQLDirective {
-      "args": Array [
-        Object {
-          "astNode": undefined,
-          "defaultValue": undefined,
-          "description": "Skipped when true.",
-          "name": "if",
-          "type": "Boolean!",
-        },
-      ],
-      "astNode": undefined,
-      "description": "Directs the executor to skip this field or fragment when the \`if\` argument is true.",
-      "locations": Array [
-        "FIELD",
-        "FRAGMENT_SPREAD",
-        "INLINE_FRAGMENT",
-      ],
-      "name": "skip",
-    },
-    GraphQLDirective {
-      "args": Array [
-        Object {
-          "astNode": undefined,
-          "defaultValue": undefined,
-          "description": "Included when true.",
-          "name": "if",
-          "type": "Boolean!",
-        },
-      ],
-      "astNode": undefined,
-      "description": "Directs the executor to include this field or fragment only when the \`if\` argument is true.",
-      "locations": Array [
-        "FIELD",
-        "FRAGMENT_SPREAD",
-        "INLINE_FRAGMENT",
-      ],
-      "name": "include",
-    },
-    GraphQLDirective {
-      "args": Array [
-        Object {
-          "astNode": undefined,
-          "defaultValue": "No longer supported",
-          "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
-          "name": "reason",
-          "type": "String",
-        },
-      ],
-      "astNode": undefined,
-      "description": "Marks an element of a GraphQL schema as no longer supported.",
-      "locations": Array [
-        "FIELD_DEFINITION",
-        "ENUM_VALUE",
-      ],
-      "name": "deprecated",
-    },
+    "@skip",
+    "@include",
+    "@deprecated",
   ],
   "_implementations": Object {},
   "_mutationType": "Mutation",
+  "_possibleTypeMap": Object {},
   "_queryType": "Query",
   "_subscriptionType": null,
   "_typeMap": Object {
@@ -87,9 +36,6 @@ GraphQLSchema {
     "OrderResult": "OrderResult",
     "OrderType": "OrderType",
     "Query": "Query",
-    "RequestDocumentationCode": "RequestDocumentationCode",
-    "RequestDocumentationError": "RequestDocumentationError",
-    "RequestDocumentationResult": "RequestDocumentationResult",
     "String": "String",
     "SubmittedOrder": "SubmittedOrder",
     "__Directive": "__Directive",
@@ -105,28 +51,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 4201,
-      "start": 4155,
+      "end": 3806,
+      "start": 3760,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 4184,
-          "start": 4166,
+          "end": 3789,
+          "start": 3771,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 4184,
-            "start": 4176,
+            "end": 3789,
+            "start": 3781,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 4184,
-              "start": 4176,
+              "end": 3789,
+              "start": 3781,
             },
             "value": "Mutation",
           },
@@ -135,21 +81,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 4199,
-          "start": 4187,
+          "end": 3804,
+          "start": 3792,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 4199,
-            "start": 4194,
+            "end": 3804,
+            "start": 3799,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 4199,
-              "start": 4194,
+              "end": 3804,
+              "start": 3799,
             },
             "value": "Query",
           },
@@ -157,5 +103,6 @@ GraphQLSchema {
       },
     ],
   },
+  "extensionASTNodes": undefined,
 }
 `;

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { GraphQLScalarType, Kind } from 'graphql';
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from 'apollo-server-hapi';
 import Stripe from 'stripe';
 import Rollbar from 'rollbar';
 

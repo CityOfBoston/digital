@@ -10,9 +10,7 @@ import acceptLanguagePlugin from 'hapi-accept-language2';
 import next from 'next';
 import Rollbar from 'rollbar';
 import { Client as PostmarkClient } from 'postmark';
-
-// https://github.com/apollographql/apollo-server/issues/927
-const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
+import { ApolloServer } from 'apollo-server-hapi';
 
 import {
   API_KEY_CONFIG_KEY,
@@ -27,8 +25,9 @@ import {
   headerKeys,
   HeaderKeysOptions,
   rollbarPlugin,
-  graphqlOptionsWithRollbar,
   makeStaticAssetRoutes,
+  HapiGraphqlContextFunction,
+  rollbarErrorExtension,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp } from '@cityofboston/hapi-next';
@@ -223,43 +222,31 @@ export async function makeServer(port, rollbar: Rollbar) {
     server.route(makeRoutesForNextApp(nextApp, '/commissions/'));
   }
 
-  await server.register({
-    plugin: graphqlHapi,
-    options: {
-      path: `${PATH_PREFIX}/graphql`,
-      route: {
-        auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
-        cors: {
-          origin: [
-            'http://localhost:*',
-            'https://localhost:*',
-            'https://*.boston.gov',
-            ...(process.env.CORS_ORIGINS
-              ? process.env.CORS_ORIGINS.split(',')
-              : []),
-          ],
-          additionalHeaders: ['X-API-KEY'],
-        },
-      },
-      graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
-        schema: graphqlSchema,
-        context: {
-          commissionsDao: makeCommissionsDao(),
-        } as Context,
-      })),
-    },
+  const context: HapiGraphqlContextFunction<Context> = () => ({
+    commissionsDao: makeCommissionsDao(),
   });
 
-  await server.register({
-    plugin: graphiqlHapi,
-    options: {
-      path: `${PATH_PREFIX}/graphiql`,
-      route: {
-        auth: false,
-      },
-      graphiqlOptions: {
-        endpointURL: `${PATH_PREFIX}/graphql`,
-        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
+  const apolloServer = new ApolloServer({
+    context,
+    schema: graphqlSchema,
+    extensions: [rollbarErrorExtension(rollbar)],
+  });
+
+  await apolloServer.applyMiddleware({
+    app: server,
+    path: PATH_PREFIX + '/graphql',
+    route: {
+      auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
+      cors: {
+        origin: [
+          'http://localhost:*',
+          'https://localhost:*',
+          'https://*.boston.gov',
+          ...(process.env.CORS_ORIGINS
+            ? process.env.CORS_ORIGINS.split(',')
+            : []),
+        ],
+        additionalHeaders: ['X-API-KEY'],
       },
     },
   });

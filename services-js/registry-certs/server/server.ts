@@ -5,7 +5,7 @@ import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
 import Path from 'path';
-import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
+import { ApolloServer } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 import Stripe from 'stripe';
 import { Client as PostmarkClient } from 'postmark';
@@ -18,8 +18,9 @@ import {
   headerKeys,
   HeaderKeysOptions,
   rollbarPlugin,
-  graphqlOptionsWithRollbar,
   persistentQueryPlugin,
+  rollbarErrorExtension,
+  HapiGraphqlContextFunction,
 } from '@cityofboston/hapi-common';
 
 import { makeRoutesForNextApp, makeNextHandler } from '@cityofboston/hapi-next';
@@ -81,7 +82,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
   // We load the config ourselves so that we can modify the runtime configs
   // from here.
-  const config = require('../../next.config.js');
+  const config =
+    process.env.NODE_ENV !== 'test' ? require('../../next.config.js') : {};
 
   config.publicRuntimeConfig = {
     ...config.publicRuntimeConfig,
@@ -141,7 +143,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
       registryDbFactoryOpts.server
         ? makeRegistryDbFactory(rollbar, registryDbFactoryOpts)
         : makeFixtureRegistryDbFactory('fixtures/registry-data/smith.json'),
-      app.prepare(),
+      // We don’t run next for the server test
+      process.env.NODE_ENV !== 'test' ? app.prepare() : Promise.resolve(),
     ]);
 
     registryDbFactory = services[0] as any;
@@ -192,35 +195,36 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
   await server.register(Inert);
 
-  await server.register({
-    plugin: graphqlHapi,
-    options: {
-      path: '/graphql',
-      // We use a function here so that all of our services are request-scoped
-      // and can cache within the same query but not leak to others.
-      graphqlOptions: graphqlOptionsWithRollbar(rollbar, ({ auth }) => {
-        const source = auth.credentials ? auth.credentials.source : 'unknown';
+  const contextFunction: HapiGraphqlContextFunction<Context> = ({
+    request,
+  }) => {
+    const source = request.auth.credentials
+      ? request.auth.credentials.source
+      : 'unknown';
 
-        const context: Context = {
-          registryDb: registryDbFactory.registryDb(),
-          stripe,
-          emails,
-          rollbar,
-          source,
-        };
+    return {
+      registryDb: registryDbFactory.registryDb(),
+      stripe,
+      emails,
+      rollbar,
+      source,
+    };
+  };
 
-        return {
-          schema,
-          context,
-        };
-      }),
-      route: {
-        cors: true,
-        auth:
-          Object.keys(apiKeys).length || process.env.NODE_ENV == 'staging'
-            ? 'apiHeaderKeys'
-            : false,
-      },
+  const apolloServer = new ApolloServer({
+    schema,
+    context: contextFunction,
+    extensions: [rollbarErrorExtension(rollbar)],
+  });
+
+  await apolloServer.applyMiddleware({
+    app: server,
+    route: {
+      cors: true,
+      auth:
+        Object.keys(apiKeys).length || process.env.NODE_ENV == 'staging'
+          ? 'apiHeaderKeys'
+          : false,
     },
   });
 
@@ -233,17 +237,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
         'queries',
         'fulfillment'
       ),
-    },
-  });
-
-  server.register({
-    plugin: graphiqlHapi,
-    options: {
-      path: '/graphiql',
-      graphiqlOptions: {
-        endpointURL: '/graphql',
-        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
-      },
     },
   });
 

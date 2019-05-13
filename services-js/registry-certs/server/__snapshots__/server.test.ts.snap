@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`running server graphql handles request 1`] = `
+Object {
+  "data": Object {
+    "__schema": Object {
+      "types": Array [
+        Object {
+          "name": "Query",
+        },
+        Object {
+          "name": "DeathCertificates",
+        },
+        Object {
+          "name": "String",
+        },
+        Object {
+          "name": "DeathCertificate",
+        },
+        Object {
+          "name": "Boolean",
+        },
+        Object {
+          "name": "DeathCertificateOrder",
+        },
+        Object {
+          "name": "Float",
+        },
+        Object {
+          "name": "CertificateOrderItem",
+        },
+        Object {
+          "name": "Int",
+        },
+        Object {
+          "name": "DeathCertificateSearch",
+        },
+        Object {
+          "name": "Mutation",
+        },
+        Object {
+          "name": "OrderType",
+        },
+        Object {
+          "name": "ChargeOrderResult",
+        },
+        Object {
+          "name": "ChargeOrderError",
+        },
+        Object {
+          "name": "ChargeOrderErrorCode",
+        },
+        Object {
+          "name": "DeleteUploadResult",
+        },
+        Object {
+          "name": "BirthCertificateOrderItemInput",
+        },
+        Object {
+          "name": "OrderResult",
+        },
+        Object {
+          "name": "OrderError",
+        },
+        Object {
+          "name": "OrderErrorCause",
+        },
+        Object {
+          "name": "SubmittedOrder",
+        },
+        Object {
+          "name": "DeathCertificateOrderItemInput",
+        },
+        Object {
+          "name": "__Schema",
+        },
+        Object {
+          "name": "__Type",
+        },
+        Object {
+          "name": "__TypeKind",
+        },
+        Object {
+          "name": "__Field",
+        },
+        Object {
+          "name": "__InputValue",
+        },
+        Object {
+          "name": "__EnumValue",
+        },
+        Object {
+          "name": "__Directive",
+        },
+        Object {
+          "name": "__DirectiveLocation",
+        },
+        Object {
+          "name": "Date",
+        },
+      ],
+    },
+  },
+}
+`;

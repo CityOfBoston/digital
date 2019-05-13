@@ -31,6 +31,8 @@ before_install:
   - npm install -g yarn@`jq -r .engines.yarn package.json`
   # npm install -g instead of npx so we don't need to re-unpack every time.
   - npm install -g lerna@`jq -r .devDependencies.lerna package.json`
+  # npm install -g instead of npx so we don't need to re-unpack every time.
+  - npm install -g apollo
   - source scripts/check-for-changes.sh
 
 # Keeps the "node_js" language setting from automatically doing a default "yarn

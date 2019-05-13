@@ -1,5 +1,6 @@
 /* eslint no-console: 0 */
 import { makeServer } from './commissions-app';
+import { Server } from 'hapi';
 
 // eslint-disable-next-line no-undef
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000;
@@ -25,7 +26,7 @@ describe('server creation', () => {
 });
 
 describe('server', () => {
-  let server;
+  let server: Server;
   let shutdown;
 
   beforeAll(async () => {
@@ -66,5 +67,6 @@ describe('server', () => {
     });
 
     expect(resp.statusCode).toEqual(200);
+    expect(JSON.parse(resp.payload)).toMatchSnapshot();
   });
 });
