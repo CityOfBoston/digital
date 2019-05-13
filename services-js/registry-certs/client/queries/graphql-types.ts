@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -20,6 +21,7 @@ export interface DeleteBirthCertificateUploadedFileVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -50,6 +52,7 @@ export interface FetchDeathCertificatesVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -102,6 +105,7 @@ export interface LookupDeathCertificateOrderVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -143,6 +147,7 @@ export interface SearchDeathCertificatesVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -191,6 +196,7 @@ export interface SubmitBirthCertificateOrderVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -239,6 +245,7 @@ export interface SubmitDeathCertificateOrderVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 //==============================================================
@@ -246,11 +253,10 @@ export interface SubmitDeathCertificateOrderVariables {
 //==============================================================
 
 export enum OrderErrorCause {
-  INTERNAL = 'INTERNAL',
-  USER_PAYMENT = 'USER_PAYMENT',
+  INTERNAL = "INTERNAL",
+  USER_PAYMENT = "USER_PAYMENT",
 }
 
-// undefined
 export interface BirthCertificateOrderItemInput {
   alternateSpellings: string;
   birthDate: string;
@@ -265,7 +271,6 @@ export interface BirthCertificateOrderItemInput {
   uploadSessionId: string;
 }
 
-// undefined
 export interface DeathCertificateOrderItemInput {
   id: string;
   name: string;

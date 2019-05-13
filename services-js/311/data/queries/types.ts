@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -46,6 +47,7 @@ export interface LoadCaseVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -68,6 +70,7 @@ export interface LoadServiceSuggestionsVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -86,6 +89,7 @@ export interface LoadServiceSummaries {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -196,6 +200,7 @@ export interface LoadServiceVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -218,6 +223,7 @@ export interface LoadTopServiceSummariesVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -258,6 +264,7 @@ export interface ReverseGeocodeVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -298,6 +305,7 @@ export interface SearchAddressVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -345,6 +353,7 @@ export interface SearchCasesVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -403,6 +412,7 @@ export interface SubmitCaseVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 //==============================================================
@@ -410,54 +420,52 @@ export interface SubmitCaseVariables {
 //==============================================================
 
 export enum MetadataRequirement {
-  HIDDEN = 'HIDDEN',
-  REQUIRED = 'REQUIRED',
-  VISIBLE = 'VISIBLE',
-}
-
-export enum ServiceAttributeDatatype {
-  BOOLEAN_CHECKBOX = 'BOOLEAN_CHECKBOX',
-  DATE = 'DATE',
-  DATETIME = 'DATETIME',
-  INFORMATIONAL = 'INFORMATIONAL',
-  MULTIVALUELIST = 'MULTIVALUELIST',
-  NUMBER = 'NUMBER',
-  SINGLEVALUELIST = 'SINGLEVALUELIST',
-  STRING = 'STRING',
-  TEXT = 'TEXT',
-}
-
-export enum ServiceAttributeConditionalClause {
-  AND = 'AND',
-  OR = 'OR',
-}
-
-export enum ServiceAttributeConditionalOp {
-  eq = 'eq',
-  gt = 'gt',
-  gte = 'gte',
-  in = 'in',
-  lt = 'lt',
-  lte = 'lte',
-  neq = 'neq',
+  HIDDEN = "HIDDEN",
+  REQUIRED = "REQUIRED",
+  VISIBLE = "VISIBLE",
 }
 
 export enum ServiceAttributeConditionValueType {
-  NUMBER = 'NUMBER',
-  STRING = 'STRING',
-  STRING_ARRAY = 'STRING_ARRAY',
+  NUMBER = "NUMBER",
+  STRING = "STRING",
+  STRING_ARRAY = "STRING_ARRAY",
 }
 
-// undefined
-export interface LatLngIn {
-  lat: number;
-  lng: number;
+export enum ServiceAttributeConditionalClause {
+  AND = "AND",
+  OR = "OR",
 }
 
-// undefined
+export enum ServiceAttributeConditionalOp {
+  eq = "eq",
+  gt = "gt",
+  gte = "gte",
+  in = "in",
+  lt = "lt",
+  lte = "lte",
+  neq = "neq",
+}
+
+export enum ServiceAttributeDatatype {
+  BOOLEAN_CHECKBOX = "BOOLEAN_CHECKBOX",
+  DATE = "DATE",
+  DATETIME = "DATETIME",
+  INFORMATIONAL = "INFORMATIONAL",
+  MULTIVALUELIST = "MULTIVALUELIST",
+  NUMBER = "NUMBER",
+  SINGLEVALUELIST = "SINGLEVALUELIST",
+  STRING = "STRING",
+  TEXT = "TEXT",
+}
+
 export interface CreateCaseAttribute {
   code: string;
   value: string;
+}
+
+export interface LatLngIn {
+  lat: number;
+  lng: number;
 }
 
 //==============================================================

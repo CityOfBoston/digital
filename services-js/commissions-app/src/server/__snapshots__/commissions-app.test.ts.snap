@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server handles GraphQL query 1`] = `
+Object {
+  "data": Object {
+    "__schema": Object {
+      "types": Array [
+        Object {
+          "name": "Query",
+        },
+        Object {
+          "name": "Float",
+        },
+        Object {
+          "name": "Commission",
+        },
+        Object {
+          "name": "String",
+        },
+        Object {
+          "name": "Department",
+        },
+        Object {
+          "name": "Member",
+        },
+        Object {
+          "name": "Date",
+        },
+        Object {
+          "name": "Boolean",
+        },
+        Object {
+          "name": "PolicyType",
+        },
+        Object {
+          "name": "__Schema",
+        },
+        Object {
+          "name": "__Type",
+        },
+        Object {
+          "name": "__TypeKind",
+        },
+        Object {
+          "name": "__Field",
+        },
+        Object {
+          "name": "__InputValue",
+        },
+        Object {
+          "name": "__EnumValue",
+        },
+        Object {
+          "name": "__Directive",
+        },
+        Object {
+          "name": "__DirectiveLocation",
+        },
+      ],
+    },
+  },
+}
+`;

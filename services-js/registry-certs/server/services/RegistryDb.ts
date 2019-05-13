@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 import { promisify } from 'util';
 import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
@@ -11,7 +12,7 @@ import {
 } from '@cityofboston/mssql-common';
 
 import RegistryDbFake from './RegistryDbFake';
-import { AnnotatedFilePart } from '../util';
+import { AnnotatedFilePart, PACKAGE_SRC_ROOT } from '../util';
 
 const readFile = promisify(fs.readFile);
 
@@ -569,7 +570,9 @@ export async function makeRegistryDbFactory(
 export async function makeFixtureRegistryDbFactory(
   fixtureName: string
 ): Promise<Required<RegistryDbFactory>> {
-  const fixtureData = await readFile(fixtureName);
+  const fixtureData = await readFile(
+    path.resolve(PACKAGE_SRC_ROOT, fixtureName)
+  );
   const json = JSON.parse(fixtureData.toString('utf-8'));
 
   return {

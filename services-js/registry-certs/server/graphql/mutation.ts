@@ -86,23 +86,6 @@ interface ChargeOrderResult {
   error: ChargeOrderError | null;
 }
 
-enum RequestDocumentationCode {
-  ORDER_NOT_FOUND = 'ORDER_NOT_FOUND',
-  ORDER_ALREADY_COMPLETE = 'ORDER_ALREADY_COMPLETE',
-  EMAIL_SEND_FAILURE = 'EMAIL_SEND_FAILURE',
-  UNKNOWN = 'UNKNOWN',
-}
-
-interface RequestDocumentationError {
-  code: RequestDocumentationCode;
-  message: string;
-}
-
-interface RequestDocumentationResult {
-  success: boolean;
-  error: RequestDocumentationError | null;
-}
-
 interface DeleteUploadResult {
   success: boolean;
   message: string | null;
@@ -181,12 +164,6 @@ export interface Mutation extends ResolvableWith<{}> {
     orderId: string;
     transactionId: string;
   }): ChargeOrderResult;
-
-  requestDocumentation(args: {
-    type: OrderType;
-    orderId: string;
-    message?: string;
-  }): RequestDocumentationResult;
 
   deleteUpload(args: {
     type: OrderType;
@@ -550,30 +527,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
             },
           };
       }
-    }
-  },
-  async requestDocumentation(
-    _root,
-    { orderId },
-    { registryDb, source }
-  ): Promise<RequestDocumentationResult> {
-    requireFulfillmentUser(source);
-
-    const order = await registryDb.findOrder(orderId);
-
-    // TODO(fiona): send out an email with the message, generate a link to the
-    // standalone documentation upload page.
-
-    if (order) {
-      return { success: true, error: null };
-    } else {
-      return {
-        success: false,
-        error: {
-          code: RequestDocumentationCode.ORDER_NOT_FOUND,
-          message: `Order ${orderId} was not found in the database`,
-        },
-      };
     }
   },
   async deleteUpload(

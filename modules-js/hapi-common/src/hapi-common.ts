@@ -5,12 +5,14 @@ import Good from 'good';
 import Boom from 'boom';
 import { Squeeze } from 'good-squeeze';
 import Console from 'good-console';
+import { GraphQLExtension } from 'graphql-extensions';
 import {
   ServerAuthScheme,
   ServerRoute,
   Plugin,
   Request as HapiRequest,
   Server,
+  ResponseToolkit,
 } from 'hapi';
 import Rollbar from 'rollbar';
 
@@ -265,50 +267,84 @@ export const rollbarPlugin = {
 };
 
 /**
- * Function to wrap a GraphQL options function such that errors in GraphQL
- * responses are sent to Rollbar.
+ * Object that includes some subset of IncomingMessage and Apollo’s Request
+ * object, which Rollbar will interpret as an HTTP request object.
+ *
+ * @see https://docs.rollbar.com/docs/nodejs#section-server-usage
  */
-export const graphqlOptionsWithRollbar = (
+type RollbarRequest = {
+  headers: Object;
+  url?: string;
+  method?: string;
+};
+
+const reportGraphqlError = (
   rollbar: Rollbar,
-  optsFn: ((req: HapiRequest) => any) | Object
-) => async (req: HapiRequest) => {
-  try {
-    const opts = await (optsFn instanceof Function ? optsFn(req) : optsFn);
-
-    const oldFormatError = opts.formatError;
-    opts.formatError = (e: any) => {
-      const request = req.raw && req.raw.req;
-      // GraphQL wraps the original exception, so we pull it back out from
-      // originalError since it has the right type and stacktrace and
-      // everything.
-      let err;
-      if (e.originalError instanceof Error) {
-        err = e.originalError;
-      } else {
-        err = e;
-      }
-
-      const data = (err as any).data;
-      const extra = {
-        graphql: req.payload,
-        custom: data ? { data } : {},
-      };
-
-      if (!err.silent) {
-        rollbar.error(err, request, extra);
-      }
-
-      return oldFormatError ? oldFormatError(e) : e;
-    };
-
-    return opts;
-  } catch (e2) {
-    // This mostly catches exceptions that come from calling the optsFn. We want
-    // to report them here because they lose stack trace and other info when
-    // they’re handled by the Hapi GraphQL plugin.
-    rollbar.error(e2);
-    throw e2;
+  e: any,
+  request: RollbarRequest,
+  query: any,
+  variables: any
+) => {
+  // GraphQL wraps the original exception, so we pull it back out from
+  // originalError since it has the right type and stacktrace and
+  // everything.
+  let err;
+  if (e.originalError instanceof Error) {
+    err = e.originalError;
+  } else {
+    err = e;
   }
+
+  const data = (err as any).data;
+  const extra = {
+    graphql: {
+      query,
+      variables,
+    },
+    custom: data ? { data } : {},
+  };
+
+  if (!err.silent) {
+    rollbar.error(err, request, extra);
+  }
+};
+
+/**
+ * Extension for ApolloServer that sends GraphQL errors to Rollbar. We implement
+ * this as an extension rather than a formatError method because the latter
+ * doesn’t give us access to the HTTP request or query information, which is
+ * valuable to report.
+ */
+export const rollbarErrorExtension = (
+  rollbar: Rollbar
+): (() => GraphQLExtension) => () => {
+  let request: RollbarRequest;
+  let queryString: string | undefined;
+  let variables: Object | undefined;
+
+  return {
+    requestDidStart(opts) {
+      // We need to manually pull these off because they come through accessors.
+      // Just passing opts.request as the RollbarRequest does not cause
+      // headers/url/method to get sent to Rollbar.
+      request = {
+        headers: opts.request.headers,
+        url: opts.request.url,
+        method: opts.request.method,
+      };
+      queryString = opts.queryString;
+      variables = opts.variables;
+    },
+    didEncounterErrors(errors) {
+      try {
+        errors.forEach(e => {
+          reportGraphqlError(rollbar, e, request, queryString, variables);
+        });
+      } catch (e) {
+        rollbar.error(e);
+      }
+    },
+  };
 };
 
 type PersistentQueryOptions = {
@@ -325,6 +361,9 @@ type PersistentQueryOptions = {
  * Plugin to support "persistent queries" on a GraphQL endpoint. This allows an
  * app to define queries by IDs. The caller then posts a JSON request with an
  * "id" property rather than a "query" property.
+ *
+ * This was written before we ported to Apollo Server 2, which has built-in
+ * persisted query support.
  */
 export const persistentQueryPlugin: Plugin<PersistentQueryOptions> = {
   name: 'persistentQueryPlugin',
@@ -375,3 +414,17 @@ export const persistentQueryPlugin: Plugin<PersistentQueryOptions> = {
     });
   },
 };
+
+/**
+ * Type to help typecheck the `context` function passed to `ApolloServer`.
+ *
+ * Use this to ensure that the function you have to generate the context is
+ * returning the same type that your resolvers are expecting.
+ */
+export type HapiGraphqlContextFunction<Context> = ({
+  request,
+  h,
+}: {
+  request: HapiRequest;
+  h: ResponseToolkit;
+}) => Context;

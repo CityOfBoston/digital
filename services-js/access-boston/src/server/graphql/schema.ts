@@ -11,7 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from 'apollo-server-hapi';
 import Boom from 'boom';
 
 import { Resolvers } from '@cityofboston/graphql-typescript';

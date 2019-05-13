@@ -5,7 +5,7 @@ import next from 'next';
 import Boom from 'boom';
 import fs from 'fs';
 import Path from 'path';
-import { graphqlHapi, graphiqlHapi } from 'apollo-server-hapi';
+import { ApolloServer } from 'apollo-server-hapi';
 import Rollbar from 'rollbar';
 
 import decryptEnv from '@cityofboston/srv-decrypt-env';
@@ -14,7 +14,8 @@ import {
   HeaderKeysOptions,
   loggingPlugin,
   rollbarPlugin,
-  graphqlOptionsWithRollbar,
+  HapiGraphqlContextFunction,
+  rollbarErrorExtension,
 } from '@cityofboston/hapi-common';
 
 import {
@@ -172,41 +173,28 @@ export default async function startServer({ rollbar }: { rollbar: Rollbar }) {
 
   await server.register(Inert);
 
-  await server.register({
-    plugin: graphqlHapi,
-    options: {
-      path: '/graphql',
-      // We use a function here so that all of our services are request-scoped
-      // and can cache within the same query but not leak to others.
-      graphqlOptions: graphqlOptionsWithRollbar(rollbar, () => ({
-        schema,
-        context: {
-          open311: makeOpen311(),
-          arcgis: makeArcGIS(),
-          prediction: makePrediction(),
+  const context: HapiGraphqlContextFunction<Context> = () => ({
+    open311: makeOpen311(),
+    arcgis: makeArcGIS(),
+    prediction: makePrediction(),
 
-          // Elasticsearch maintains a persistent connection, so we re-use it
-          // across requests.
-          elasticsearch,
-          rollbar,
-        } as Context,
-      })),
-
-      route: {
-        cors: true,
-        auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
-      },
-    },
+    // Elasticsearch maintains a persistent connection, so we re-use it
+    // across requests.
+    elasticsearch,
+    rollbar,
   });
 
-  await server.register({
-    plugin: graphiqlHapi,
-    options: {
-      path: '/graphiql',
-      graphiqlOptions: {
-        endpointURL: '/graphql',
-        passHeader: `'X-API-KEY': '${process.env.WEB_API_KEY || ''}'`,
-      },
+  const apolloServer = new ApolloServer({
+    schema,
+    context,
+    extensions: [rollbarErrorExtension(rollbar)],
+  });
+
+  await apolloServer.applyMiddleware({
+    app: server,
+    route: {
+      cors: true,
+      auth: process.env.API_KEYS ? 'apiHeaderKeys' : false,
     },
   });
 

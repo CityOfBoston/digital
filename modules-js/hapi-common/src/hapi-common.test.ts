@@ -1,10 +1,11 @@
 import { Server } from 'hapi';
 import Boom from 'boom';
+import { GraphQLExtension } from 'graphql-extensions';
 
 import {
   headerKeys,
   HeaderKeysOptions,
-  graphqlOptionsWithRollbar,
+  rollbarErrorExtension,
 } from './hapi-common';
 
 const AUTH_HEADER = 'X-API-KEY';
@@ -74,78 +75,74 @@ describe('headerKeys', () => {
   });
 });
 
-describe('graphqlOptionsWithRollbar', () => {
+describe('rollbarErrorExtension', () => {
   let rollbar: any;
+  let extension: GraphQLExtension;
 
   beforeEach(() => {
     rollbar = {
       error: jest.fn(),
     };
+
+    extension = rollbarErrorExtension(rollbar)();
   });
 
-  describe('rollbarWrapGraphqlOptions', () => {
-    it('sends context creation errors to rollbar', () => {
-      const err = new Error();
-      const fn = graphqlOptionsWithRollbar(rollbar, () => {
-        throw err;
-      });
+  it('sends exceptions to Rollbar', async () => {
+    const hapiRequest: any = {
+      raw: {
+        req: {},
+        res: {},
+      },
+    };
 
-      expect(fn({} as any)).rejects.toBe(err);
-      expect(rollbar.error).toHaveBeenCalledWith(err);
+    extension.requestDidStart!({
+      request: {},
+      queryString: 'test query',
+      variables: { id: 5 },
+    } as any);
+
+    const err = new Error();
+    const graphQlError: any = new Error();
+    graphQlError.originalError = err;
+
+    extension.didEncounterErrors!([graphQlError]);
+
+    expect(rollbar.error).toHaveBeenCalledWith(err, hapiRequest.raw.req, {
+      custom: {},
+      graphql: {
+        query: 'test query',
+        variables: { id: 5 },
+      },
     });
+  });
 
-    it('sends format error exceptions to rollbar', async () => {
-      const hapiRequest: any = {
-        raw: {
-          req: {},
-          res: {},
-        },
-      };
+  it('includes Boom data in GQL exceptions', async () => {
+    extension.requestDidStart!({
+      request: { url: '/graphql' },
+      queryString: 'test query',
+      variables: { id: 5 },
+    } as any);
 
-      const opts = await graphqlOptionsWithRollbar(rollbar, () => ({
-        formatError: e => e,
-      }))(hapiRequest);
+    const err = Boom.forbidden('Forbidden', { extraInfo: 'it blew up' });
+    const graphQlError: any = new Error();
+    graphQlError.originalError = err;
 
-      const err = new Error();
-      const graphQlError: any = new Error();
-      graphQlError.originalError = err;
+    extension.didEncounterErrors!([graphQlError]);
 
-      const out = opts.formatError(graphQlError);
-
-      expect(out).toBe(graphQlError);
-      expect(rollbar.error).toHaveBeenCalledWith(
-        err,
-        hapiRequest.raw.req,
-        expect.anything()
-      );
-    });
-
-    it('includes Boom data in GQL exceptions', async () => {
-      const hapiRequest: any = {
-        raw: {
-          req: {},
-          res: {},
-        },
-      };
-
-      const opts = await graphqlOptionsWithRollbar(rollbar, () => ({
-        formatError: e => e,
-      }))(hapiRequest);
-
-      const err = Boom.forbidden('Forbidden', { extraInfo: 'it blew up' });
-      const graphQlError: any = new Error();
-      graphQlError.originalError = err;
-
-      const out = opts.formatError(graphQlError);
-
-      expect(out).toBe(graphQlError);
-      expect(rollbar.error).toHaveBeenCalledWith(err, hapiRequest.raw.req, {
+    expect(rollbar.error).toHaveBeenCalledWith(
+      err,
+      { url: '/graphql' },
+      {
         custom: {
           data: {
             extraInfo: 'it blew up',
           },
         },
-      });
-    });
+        graphql: {
+          query: 'test query',
+          variables: { id: 5 },
+        },
+      }
+    );
   });
 });
