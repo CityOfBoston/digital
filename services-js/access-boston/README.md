@@ -6,6 +6,14 @@ setup.
 
 ## Development
 
+### Adding a new application to the portal
+[./fixtures/apps.yaml](./fixtures/apps.yaml) provides documentation of the portal configuration, and should be updated to mirror what is in ECS.
+
+1. update `dev` and `test` on AppsStaging ([guide](https://app.gitbook.com/@boston/s/digital/guides/amazon-web-services/service-configuration/editing-a-projects-.env-using-cyberduck))
+2. restart the service ([guide](https://app.gitbook.com/@boston/s/digital/guides/amazon-web-services/service-configuration/restarting-an-ecs-service))
+3. once the restart is complete and the `service access-boston has reached a steady state.` event occurs, go ahead and update the config on AppsProd.
+
+
 ### Test authentication
 
 By default, the dev server does not attempt to use real SAML for authentication.
