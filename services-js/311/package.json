@@ -152,6 +152,6 @@
     "testcafe": "^0.23.2",
     "testcafe-live": "^0.1.4",
     "ts2gql": "CityOfBoston/ts2gql#4f10fcce",
-    "typescript": "^3.3.1"
+    "typescript": "^3.4.5"
   }
 }
