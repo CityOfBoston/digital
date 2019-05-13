@@ -142,6 +142,7 @@ exports[`methods submitRequest graphql failure 1`] = `
     <Head>
       <SideEffect
         handleStateChange={null}
+        isAmp={false}
         reduceComponentsToState={[Function]}
       />
     </Head>
@@ -398,6 +399,7 @@ exports[`methods submitRequest success 1`] = `
     <Head>
       <SideEffect
         handleStateChange={null}
+        isAmp={false}
         reduceComponentsToState={[Function]}
       />
     </Head>
@@ -678,6 +680,7 @@ exports[`methods submitRequest success 2`] = `
     <Head>
       <SideEffect
         handleStateChange={null}
+        isAmp={false}
         reduceComponentsToState={[Function]}
       />
     </Head>

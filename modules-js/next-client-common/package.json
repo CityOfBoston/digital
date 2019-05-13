@@ -29,7 +29,7 @@
   },
   "peerDependencies": {
     "@babel/runtime": "7.1.2",
-    "next": "8.0.3",
+    "next": "^8.1.0",
     "nprogress": "^0.2.0"
   },
   "devDependencies": {
@@ -47,7 +47,7 @@
     "concurrently": "^3.5.1",
     "cross-env": "^5.2.0",
     "jest": "^24.8.0",
-    "next": "8.0.3",
+    "next": "^8.1.0",
     "nprogress": "^0.2.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",
