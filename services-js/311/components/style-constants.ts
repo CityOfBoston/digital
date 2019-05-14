@@ -28,7 +28,10 @@ export const CLEAR_FIX = css({
 
 export function assetUrl(path: string): string {
   const config = getConfig();
-  const assetPrefix = config ? config.publicRuntimeConfig.assetPrefix : '';
+  const assetPrefix =
+    config && config.publicRuntimeConfig
+      ? config.publicRuntimeConfig.assetPrefix
+      : '';
 
   return `${assetPrefix}/assets/${path}`;
 }

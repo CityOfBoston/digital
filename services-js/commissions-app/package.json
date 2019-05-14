@@ -60,7 +60,7 @@
     "isomorphic-fetch": "^2.2.1",
     "mjml": "^4.3.1",
     "mssql": "^4.2.1",
-    "next": "8.0.3",
+    "next": "^8.1.0",
     "node-cleanup": "^2.1.2",
     "postmark": "^1.6.1",
     "react": "16.8.5",
