@@ -19,7 +19,6 @@ import {
   updateServiceTaskDefinition,
   parseBranch,
   runNpmScript,
-  runScopedLernaScript,
   runCommandInContainer,
 } from './helpers';
 
@@ -39,8 +38,6 @@ const workspaceDir = isolatedDocker ? '.' : path.resolve('../..');
 const cacheTag = 'latest';
 
 (async function() {
-  // await postTravisToSlack(__filename, 'start');
-
   const repository = await getRepository(environment, serviceName);
 
   const commit = (
@@ -64,11 +61,12 @@ const cacheTag = 'latest';
 
   const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
   if (packageJson.scripts && packageJson.scripts.predeploy) {
-    // We do run a yarn install for the whole repo during deploy. See
-    // buildspec.yml. We still do run the "prepare" script though in case
-    // "predeploy" requires packages to be compiled.
+    // Note that we’re not doing a global yarn install when deploying to save
+    // time (since for the most part its unnecessary given that what matters is
+    // the yarn install that happens inside of the container). So, the predeploy
+    // script may need to do its own `yarn install --ignore-scripts` and
+    // shouldn’t rely on other packages in this repo being built.
     console.error('🌬 Running predeploy script…');
-    await runScopedLernaScript(packageJson.name, 'prepare');
     await runNpmScript('predeploy');
     console.error();
   }

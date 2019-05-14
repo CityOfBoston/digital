@@ -5,7 +5,7 @@
   "description": "The official headers that are used by the City of Boston to demark official sites",
   "main": "header.js",
   "scripts": {
-    "predeploy": "gulp build",
+    "predeploy": "yarn install --ignore-scripts && gulp build",
     "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy --isolated-docker deploy/Dockerfile"
   },
   "author": "City of Boston DoIT",
