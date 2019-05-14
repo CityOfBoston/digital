@@ -72,6 +72,15 @@ export default class IndexPage extends React.Component<Props> {
     };
   };
 
+  sendEvent2GA = labelVal => {
+    window.dataLayer.push({
+      event: 'access_boston',
+      eventCategory: 'Access Boston',
+      eventAction: 'Landing Page App Clicks',
+      eventLabel: labelVal,
+    });
+  };
+
   render() {
     const {
       account,
@@ -184,6 +193,7 @@ export default class IndexPage extends React.Component<Props> {
           <li key={title}>
             <Link href={url}>
               <a
+                onClick={() => this.sendEvent2GA(title)}
                 className={`p-a300 ${APP_ROW_STYLE}`}
                 target={url.startsWith('/') ? '_self' : '_blank'}
               >
