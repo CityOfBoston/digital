@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import QuestionComponent from '../components/QuestionComponent';
+import QuestionComponent from '../../common/question-components/QuestionComponent';
 import VerifyIdentificationComponent from '../components/VerifyIdentificationComponent';
 import UploadableFile from '../../models/UploadableFile';
 

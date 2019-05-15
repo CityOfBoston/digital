@@ -7,13 +7,15 @@ import Router from 'next/router';
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import Order, { OrderInfo } from '../../models/Order';
 
-import { DEATH_CERTIFICATE_COST } from '../../../lib/costs';
+import { CERTIFICATE_COST } from '../../../lib/costs';
 
 import ShippingContent from '../../common/checkout/ShippingContent';
 import PaymentContent from '../../common/checkout/PaymentContent';
 import ReviewContent from '../../common/checkout/ReviewContent';
 import ConfirmationContent from './ConfirmationContent';
 import CheckoutPageLayout from '../../common/checkout/CheckoutPageLayout';
+
+const DEATH_CERTIFICATE_COST = CERTIFICATE_COST.DEATH;
 
 type PageInfo =
   | {

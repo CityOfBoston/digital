@@ -244,7 +244,9 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -276,14 +278,14 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
             className="g"
           >
             <div
-              className="g--4 m-b500 css-emmeh9"
+              className="g--4 m-b500 css-ii0sph-BirthConfirmationContent"
             >
               <div
                 className="m-h100"
               >
                 <svg
                   aria-hidden="true"
-                  className="css-1g1p5e"
+                  className="css-1k1l8dj-CertificateIcon"
                   focusable="false"
                   viewBox="0 0 147 97"
                   xmlns="http://www.w3.org/2000/svg"
@@ -752,7 +754,9 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <section
             className="m-t500"
@@ -1051,7 +1055,9 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -1076,7 +1082,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-1b8j3qn"
+              className="css-1wyjavy-CheckoutPageLayout"
             >
               Payment
             </h2>
@@ -1084,7 +1090,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
               className="m-v300"
             >
               <div
-                className="dr css-4dwfk3 "
+                className="dr  css-4dwfk3"
               >
                 <button
                   aria-expanded={false}
@@ -1317,16 +1323,23 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                     <span
                       style={
                         Object {
+                          "fontStyle": "italic",
                           "whiteSpace": "nowrap",
                         }
                       }
                     >
                       <span
                         aria-hidden="true"
+                        style={
+                          Object {
+                            "fontStyle": "normal",
+                          }
+                        }
                       >
                         ←
                       </span>
-                       Back
+                       
+                      Back
                     </span>
                   </a>
                 </div>
@@ -1610,7 +1623,9 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -1635,7 +1650,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-1b8j3qn"
+              className="css-1wyjavy-CheckoutPageLayout"
             >
               Review Order
             </h2>
@@ -1667,7 +1682,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                 </div>
                 <div>
                   <div
-                    className="p-v200 br b--w css-p2blui "
+                    className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                   >
                     <div
                       className="t--sans p-a300"
@@ -2267,7 +2282,9 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <section
             className="m-t500"
@@ -2549,7 +2566,9 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -2574,7 +2593,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-1b8j3qn"
+              className="css-1wyjavy-CheckoutPageLayout"
             >
               Shipping
             </h2>
@@ -2582,7 +2601,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
               className="m-v300"
             >
               <div
-                className="dr css-4dwfk3 "
+                className="dr  css-4dwfk3"
               >
                 <button
                   aria-expanded={false}
@@ -3284,16 +3303,23 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                     <span
                       style={
                         Object {
+                          "fontStyle": "italic",
                           "whiteSpace": "nowrap",
                         }
                       }
                     >
                       <span
                         aria-hidden="true"
+                        style={
+                          Object {
+                            "fontStyle": "normal",
+                          }
+                        }
                       >
                         ←
                       </span>
-                       Back
+                       
+                      Back
                     </span>
                   </a>
                 </div>
@@ -3339,10 +3365,10 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -3356,15 +3382,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
         </legend>
         <div
           aria-labelledby="bornInBoston"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3392,11 +3418,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3432,11 +3458,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3476,35 +3502,38 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
       
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -3529,10 +3558,10 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -3546,15 +3575,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
         </legend>
         <div
           aria-labelledby="bornInBoston"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3582,11 +3611,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3622,11 +3651,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3664,7 +3693,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
         </div>
       </fieldset>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h3
@@ -3680,15 +3709,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
         </legend>
         <div
           aria-labelledby="parentsLivedInBoston"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3716,11 +3745,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3756,11 +3785,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3798,7 +3827,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
         </div>
       </fieldset>
       <div
-        className="m-v500 p-a300 br br-a200 br--r lh--300"
+        className="css-2tvpo1"
         style={
           Object {
             "paddingBottom": 0,
@@ -3819,35 +3848,38 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
       </div>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -3872,10 +3904,10 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -3889,15 +3921,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
         </legend>
         <div
           aria-labelledby="bornInBoston"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3925,11 +3957,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -3965,11 +3997,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4007,7 +4039,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
         </div>
       </fieldset>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h3
@@ -4023,15 +4055,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
         </legend>
         <div
           aria-labelledby="parentsLivedInBoston"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4059,11 +4091,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4099,11 +4131,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4142,35 +4174,38 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
       </fieldset>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -4195,10 +4230,10 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -4212,15 +4247,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
         </legend>
         <div
           aria-labelledby="bornInBoston"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4248,11 +4283,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4288,11 +4323,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4330,7 +4365,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
         </div>
       </fieldset>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h3
@@ -4346,15 +4381,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
         </legend>
         <div
           aria-labelledby="parentsLivedInBoston"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4382,11 +4417,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4422,11 +4457,11 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -4464,7 +4499,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
         </div>
       </fieldset>
       <div
-        className="m-v500 p-a300 br br-a200 br--r lh--300"
+        className="css-2tvpo1"
         style={
           Object {
             "paddingBottom": 0,
@@ -4488,35 +4523,38 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
       </div>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -4540,7 +4578,7 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <div
         className="m-t500"
@@ -4593,35 +4631,38 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
       </div>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -4637,10 +4678,10 @@ exports[`Storyshots Birth/Question Components/ForWhom default 1`] = `
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -4656,11 +4697,11 @@ exports[`Storyshots Birth/Question Components/ForWhom default 1`] = `
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="forWhom heavier"
+              className="forWhom heavier css-1yhhs0u"
               focusable="false"
               viewBox="-46 -4 140 100"
               xmlns="http://www.w3.org/2000/svg"
@@ -4686,11 +4727,11 @@ exports[`Storyshots Birth/Question Components/ForWhom default 1`] = `
             </span>
           </label>
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="forWhom heavier"
+              className="forWhom heavier css-1yhhs0u"
               focusable="false"
               viewBox="-2 -4 140 100"
               xmlns="http://www.w3.org/2000/svg"
@@ -4741,7 +4782,7 @@ exports[`Storyshots Birth/Question Components/ForWhom default 1`] = `
       </fieldset>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
@@ -4769,10 +4810,10 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -4788,11 +4829,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1lvrjdi  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="forWhom heavier"
+              className="forWhom heavier css-1yhhs0u"
               focusable="false"
               viewBox="-46 -4 140 100"
               xmlns="http://www.w3.org/2000/svg"
@@ -4818,11 +4859,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
             </span>
           </label>
           <label
-            className="css-ksygmh css-1lvrjdi selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="forWhom heavier"
+              className="forWhom heavier css-1yhhs0u"
               focusable="false"
               viewBox="-2 -4 140 100"
               xmlns="http://www.w3.org/2000/svg"
@@ -4872,7 +4913,7 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
         </div>
       </fieldset>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h3
@@ -4888,11 +4929,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="spouse"
+              className="spouse css-1yhhs0u"
               focusable="false"
               viewBox="-1.5 -2 96 86"
               xmlns="http://www.w3.org/2000/svg"
@@ -4950,11 +4991,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
             </span>
           </label>
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="child"
+              className="child css-1yhhs0u"
               focusable="false"
               viewBox="-26 -3 89 89"
               xmlns="http://www.w3.org/2000/svg"
@@ -5031,11 +5072,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
             </span>
           </label>
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="heavier"
+              className="heavier css-1yhhs0u"
               focusable="false"
               viewBox="-8 -6 100 100"
               xmlns="http://www.w3.org/2000/svg"
@@ -5075,11 +5116,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
             </span>
           </label>
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="heavier"
+              className="heavier css-1yhhs0u"
               focusable="false"
               viewBox="-3 -2 102 102"
               xmlns="http://www.w3.org/2000/svg"
@@ -5151,11 +5192,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
             </span>
           </label>
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="heavier"
+              className="heavier css-1yhhs0u"
               focusable="false"
               viewBox="-7 -7 100 100"
               xmlns="http://www.w3.org/2000/svg"
@@ -5189,10 +5230,11 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
             </span>
           </label>
           <label
-            className="css-ksygmh css-1lvrjdi  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
+              className="css-1yhhs0u"
               focusable="false"
               viewBox="-2 -12 93 93"
               xmlns="http://www.w3.org/2000/svg"
@@ -5236,7 +5278,7 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
       </fieldset>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
@@ -5264,10 +5306,10 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -5281,7 +5323,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
           </h2>
         </legend>
         <p
-          className="lh--400 t--s400 m-b500"
+          className="css-fhcue7"
         >
           Please use the names 
           your
@@ -5296,7 +5338,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         >
           <legend>
             <h3
-              className="css-1b8j3qn secondary"
+              className="secondary css-1b8j3qn"
             >
               Parent 1 
               <em>
@@ -5386,7 +5428,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         >
           <legend>
             <h3
-              className="css-1b8j3qn secondary"
+              className="secondary css-1b8j3qn"
             >
               Parent 2
             </h3>
@@ -5470,7 +5512,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         </fieldset>
       </fieldset>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -5485,15 +5527,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         </legend>
         <div
           aria-labelledby="parentsMarried"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -5521,11 +5563,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -5561,11 +5603,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  "
+            className="  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -5604,35 +5646,38 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
       </fieldset>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -5657,10 +5702,10 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -5674,7 +5719,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           </h2>
         </legend>
         <p
-          className="lh--400 t--s400 m-b500"
+          className="css-fhcue7"
         >
           Please use the names 
           their
@@ -5689,7 +5734,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-1b8j3qn secondary"
+              className="secondary css-1b8j3qn"
             >
               Parent 1 
               <em>
@@ -5779,7 +5824,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-1b8j3qn secondary"
+              className="secondary css-1b8j3qn"
             >
               Parent 2
             </h3>
@@ -5863,7 +5908,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </fieldset>
       </fieldset>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -5878,15 +5923,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </legend>
         <div
           aria-labelledby="parentsMarried"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -5914,11 +5959,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -5954,11 +5999,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -5996,7 +6041,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </div>
       </fieldset>
       <div
-        className="m-v500 p-a300 br br-a200 br--r lh--300"
+        className="css-2tvpo1"
         style={
           Object {
             "paddingBottom": 0,
@@ -6025,35 +6070,38 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       </div>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -6078,10 +6126,10 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -6095,7 +6143,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           </h2>
         </legend>
         <p
-          className="lh--400 t--s400 m-b500"
+          className="css-fhcue7"
         >
           Please use the names 
           your
@@ -6110,7 +6158,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-1b8j3qn secondary"
+              className="secondary css-1b8j3qn"
             >
               Parent 1 
               <em>
@@ -6200,7 +6248,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           <legend>
             <h3
-              className="css-1b8j3qn secondary"
+              className="secondary css-1b8j3qn"
             >
               Parent 2
             </h3>
@@ -6284,7 +6332,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </fieldset>
       </fieldset>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -6299,15 +6347,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </legend>
         <div
           aria-labelledby="parentsMarried"
-          className="css-1jbmnkf"
+          className="css-1cdq1k7-YesNoUnsureComponent"
           role="radiogroup"
         >
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 checkMark"
+              className="checkMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -6335,11 +6383,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk  inactive"
+            className=" inactive css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 questionMark"
+              className="questionMark css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -6375,11 +6423,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className="css-ksygmh css-1awv4sk selected "
+            className="selected  css-10ubx7k-RadioItemComponent"
           >
             <svg
               aria-hidden="true"
-              className="css-1uw4si0 xSymbol"
+              className="xSymbol css-pngyg8-AnswerIcon"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -6417,7 +6465,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </div>
       </fieldset>
       <div
-        className="m-v500 p-a300 br br-a200 br--r lh--300"
+        className="css-2tvpo1"
         style={
           Object {
             "paddingBottom": 0,
@@ -6444,35 +6492,38 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       </div>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -6497,10 +6548,10 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -6512,7 +6563,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
           </h2>
         </legend>
         <p
-          className="lh--400 t--s400 m-b500"
+          className="css-fhcue7"
         >
           If 
           they
@@ -6727,7 +6778,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
         </fieldset>
       </div>
       <div
-        className="m-v500 p-a300 br br-a200 br--r lh--300"
+        className="css-2tvpo1"
         style={
           Object {
             "paddingBottom": 0,
@@ -6752,35 +6803,38 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
       </div>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -6805,10 +6859,10 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h2
@@ -6820,7 +6874,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
           </h2>
         </legend>
         <p
-          className="lh--400 t--s400 m-b500"
+          className="css-fhcue7"
         >
           If 
           they
@@ -7036,35 +7090,38 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
       </div>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -7079,245 +7136,6 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
         </button>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Birth/Question Components/RadioItemComponent multiple answers 1`] = `
-<div>
-  <ul
-    role="radiogroup"
-    style={
-      Object {
-        "color": "#000",
-        "display": "flex",
-        "flexWrap": "wrap",
-        "listStyle": "none",
-        "margin": 0,
-      }
-    }
-  >
-    <li
-      style={
-        Object {
-          "margin": "1rem",
-        }
-      }
-    >
-      <label
-        className="css-ksygmh   "
-      >
-        <svg
-          style={
-            Object {
-              "fill": "none",
-              "stroke": "currentColor",
-              "strokeWidth": "0.5",
-              "width": 170,
-            }
-          }
-          viewBox="0 0 15 15"
-        >
-          <circle
-            cx="5"
-            cy="5"
-            r="4.5"
-          />
-          <circle
-            cx="10"
-            cy="5"
-            r="4.5"
-          />
-          <circle
-            cx="5"
-            cy="10"
-            r="4.5"
-          />
-          <circle
-            cx="10"
-            cy="10"
-            r="4.5"
-          />
-        </svg>
-        <input
-          checked={false}
-          name="answer"
-          onChange={[Function]}
-          type="radio"
-          value="answer1"
-        />
-        <span>
-          Answer 1
-        </span>
-      </label>
-    </li>
-    <li
-      style={
-        Object {
-          "margin": "1rem",
-        }
-      }
-    >
-      <label
-        className="css-ksygmh   "
-      >
-        <svg
-          style={
-            Object {
-              "fill": "none",
-              "stroke": "currentColor",
-              "strokeWidth": "0.5",
-              "width": 170,
-            }
-          }
-          viewBox="0 0 15 15"
-        >
-          <circle
-            cx="5"
-            cy="5"
-            r="4.5"
-          />
-          <circle
-            cx="10"
-            cy="5"
-            r="4.5"
-          />
-          <circle
-            cx="5"
-            cy="10"
-            r="4.5"
-          />
-          <circle
-            cx="10"
-            cy="10"
-            r="4.5"
-          />
-        </svg>
-        <input
-          checked={false}
-          name="answer"
-          onChange={[Function]}
-          type="radio"
-          value="answer2"
-        />
-        <span>
-          Answer 2
-        </span>
-      </label>
-    </li>
-    <li
-      style={
-        Object {
-          "margin": "1rem",
-        }
-      }
-    >
-      <label
-        className="css-ksygmh   "
-      >
-        <svg
-          style={
-            Object {
-              "fill": "none",
-              "stroke": "currentColor",
-              "strokeWidth": "0.5",
-              "width": 170,
-            }
-          }
-          viewBox="0 0 15 15"
-        >
-          <circle
-            cx="5"
-            cy="5"
-            r="4.5"
-          />
-          <circle
-            cx="10"
-            cy="5"
-            r="4.5"
-          />
-          <circle
-            cx="5"
-            cy="10"
-            r="4.5"
-          />
-          <circle
-            cx="10"
-            cy="10"
-            r="4.5"
-          />
-        </svg>
-        <input
-          checked={false}
-          name="answer"
-          onChange={[Function]}
-          type="radio"
-          value="answer3"
-        />
-        <span>
-          Answer 3
-        </span>
-      </label>
-    </li>
-  </ul>
-</div>
-`;
-
-exports[`Storyshots Birth/Question Components/RadioItemComponent single item 1`] = `
-<div>
-  <div
-    style={
-      Object {
-        "color": "#000",
-      }
-    }
-  >
-    <label
-      className="css-ksygmh  selected "
-    >
-      <svg
-        style={
-          Object {
-            "fill": "none",
-            "stroke": "currentColor",
-            "strokeWidth": "0.5",
-            "width": 170,
-          }
-        }
-        viewBox="0 0 15 15"
-      >
-        <circle
-          cx="5"
-          cy="5"
-          r="4.5"
-        />
-        <circle
-          cx="10"
-          cy="5"
-          r="4.5"
-        />
-        <circle
-          cx="5"
-          cy="10"
-          r="4.5"
-        />
-        <circle
-          cx="10"
-          cy="10"
-          r="4.5"
-        />
-      </svg>
-      <input
-        checked={true}
-        name="question"
-        onChange={[Function]}
-        type="radio"
-        value="question"
-      />
-      <span>
-        Question
-      </span>
-    </label>
   </div>
 </div>
 `;
@@ -7338,7 +7156,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -7356,7 +7174,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     >
       <li>
         <span
@@ -7372,17 +7190,17 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
           </span>
         </span>
         <div
-          className="css-70qvj9"
+          className="css-hxei3d-FileButton"
         >
           <progress
             aria-hidden="true"
-            className="css-uy7mhf"
+            className="css-1iqoh7i-FileButton"
             max="100"
             title="70% uploaded"
             value={70}
           />
           <button
-            className="css-1jem7y3 css-itjkxp"
+            className="css-12lsoc4-FileButton"
             onClick={[Function]}
             style={
               Object {
@@ -7450,7 +7268,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
           </span>
         </span>
         <button
-          className="css-1jem7y3 css-itjkxp"
+          className="css-12lsoc4-FileButton"
           onClick={[Function]}
           style={
             Object {
@@ -7517,13 +7335,13 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput all three
           </span>
         </span>
         <button
-          className="css-lij5k3"
+          className="css-11mhec-FileButton"
           onClick={[Function]}
           type="button"
         >
           <svg
             aria-hidden="true"
-            className="css-1uw4si0 excl"
+            className="excl css-pngyg8-AnswerIcon"
             focusable="false"
             viewBox="-2.5 -2.5 66 66"
             xmlns="http://www.w3.org/2000/svg"
@@ -7566,7 +7384,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput cancel in
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -7584,7 +7402,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput cancel in
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     >
       <li>
         <span
@@ -7627,7 +7445,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput delete in
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -7645,7 +7463,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput delete in
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     >
       <li>
         <span
@@ -7688,7 +7506,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -7706,7 +7524,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     >
       <li>
         <span
@@ -7722,7 +7540,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
           </span>
         </span>
         <button
-          className="css-1jem7y3 css-itjkxp"
+          className="css-12lsoc4-FileButton"
           onClick={[Function]}
           style={
             Object {
@@ -7796,7 +7614,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -7814,7 +7632,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     >
       <li>
         <span
@@ -7830,17 +7648,17 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput documents
           </span>
         </span>
         <div
-          className="css-70qvj9"
+          className="css-hxei3d-FileButton"
         >
           <progress
             aria-hidden="true"
-            className="css-uy7mhf"
+            className="css-1iqoh7i-FileButton"
             max="100"
             title="23% uploaded"
             value={23}
           />
           <button
-            className="css-1jem7y3 css-itjkxp"
+            className="css-12lsoc4-FileButton"
             onClick={[Function]}
             style={
               Object {
@@ -7915,7 +7733,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput empty 1`]
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -7933,7 +7751,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput empty 1`]
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     />
   </div>
 </div>
@@ -7955,7 +7773,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error del
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -7973,7 +7791,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error del
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     >
       <li>
         <span
@@ -7989,13 +7807,13 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error del
           </span>
         </span>
         <button
-          className="css-lij5k3"
+          className="css-11mhec-FileButton"
           onClick={[Function]}
           type="button"
         >
           <svg
             aria-hidden="true"
-            className="css-1uw4si0 excl"
+            className="excl css-pngyg8-AnswerIcon"
             focusable="false"
             viewBox="-2.5 -2.5 66 66"
             xmlns="http://www.w3.org/2000/svg"
@@ -8038,7 +7856,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error upl
       type="file"
     />
     <label
-      className="btn btn--sm btn--200 false"
+      className="btn btn--sm btn--200 css-0"
       htmlFor="uploadSupportingDocuments"
       onClick={[Function]}
       style={
@@ -8056,7 +7874,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error upl
       Files should be PDF format, and under 10MB each.
     </div>
     <ul
-      className="css-2yuxpq t--s400"
+      className="t--s400 css-2yuxpq"
     >
       <li>
         <span
@@ -8072,13 +7890,13 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error upl
           </span>
         </span>
         <button
-          className="css-lij5k3"
+          className="css-11mhec-FileButton"
           onClick={[Function]}
           type="button"
         >
           <svg
             aria-hidden="true"
-            className="css-1uw4si0 excl"
+            className="excl css-pngyg8-AnswerIcon"
             focusable="false"
             viewBox="-2.5 -2.5 66 66"
             xmlns="http://www.w3.org/2000/svg"
@@ -8111,7 +7929,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <h2
         className="css-1b8j3qn"
@@ -8119,12 +7937,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         Verify your identity
       </h2>
       <p
-        className="lh--400 t--s400 m-b500"
+        className="css-fhcue7"
       >
         Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
       </p>
       <p
-        className="lh--400 t--s400 m-b500"
+        className="css-fhcue7"
       >
         <em>
           Please note
@@ -8141,7 +7959,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         with questions.
       </p>
       <h3
-        className="css-1b8j3qn secondary m-t700"
+        className="secondary m-t700 css-1b8j3qn"
         style={
           Object {
             "borderBottom": 0,
@@ -8216,7 +8034,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                   }
                 >
                   <div
-                    className="css-103qf56 id"
+                    className="id css-ujcib8-IdImage"
                   >
                     <svg
                       aria-hidden="true"
@@ -8341,7 +8159,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                   }
                 >
                   <div
-                    className="css-103qf56 id"
+                    className="id css-ujcib8-IdImage"
                   >
                     <svg
                       aria-hidden="true"
@@ -8441,11 +8259,11 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         </div>
       </div>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h3
-            className="css-1b8j3qn secondary m-t700"
+            className="secondary m-t700 css-1b8j3qn"
             style={
               Object {
                 "borderBottom": 0,
@@ -8472,7 +8290,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               type="file"
             />
             <label
-              className="btn btn--sm btn--200 false"
+              className="btn btn--sm btn--200 css-0"
               htmlFor="uploadSupportingDocuments"
               onClick={[Function]}
               style={
@@ -8490,18 +8308,18 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               Files should be PDF format, and under 10MB each.
             </div>
             <ul
-              className="css-2yuxpq t--s400"
+              className="t--s400 css-2yuxpq"
             />
           </div>
         </div>
       </fieldset>
       <h2
-        className="css-1b8j3qn secondary m-t700"
+        className="secondary m-t700 css-1b8j3qn"
       >
         No ID?
       </h2>
       <p
-        className="lh--400 t--s400 m-b500 m-b700"
+        className="m-b700 css-fhcue7"
       >
         We can help explain your options.
          
@@ -8520,35 +8338,38 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
       </p>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -8573,7 +8394,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <h2
         className="css-1b8j3qn"
@@ -8581,12 +8402,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
         Verify your identity
       </h2>
       <p
-        className="lh--400 t--s400 m-b500"
+        className="css-fhcue7"
       >
         Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
       </p>
       <p
-        className="lh--400 t--s400 m-b500"
+        className="css-fhcue7"
       >
         <em>
           Please note
@@ -8603,7 +8424,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
         with questions.
       </p>
       <h3
-        className="css-1b8j3qn secondary m-t700"
+        className="secondary m-t700 css-1b8j3qn"
         style={
           Object {
             "borderBottom": 0,
@@ -8678,7 +8499,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                   }
                 >
                   <div
-                    className="css-103qf56 id"
+                    className="id css-ujcib8-IdImage"
                   >
                     <svg
                       aria-hidden="true"
@@ -8811,7 +8632,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                   }
                 >
                   <div
-                    className="css-103qf56 id"
+                    className="id css-ujcib8-IdImage"
                   >
                     <svg
                       aria-hidden="true"
@@ -8911,11 +8732,11 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
         </div>
       </div>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h3
-            className="css-1b8j3qn secondary m-t700"
+            className="secondary m-t700 css-1b8j3qn"
             style={
               Object {
                 "borderBottom": 0,
@@ -8942,7 +8763,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
               type="file"
             />
             <label
-              className="btn btn--sm btn--200 false"
+              className="btn btn--sm btn--200 css-0"
               htmlFor="uploadSupportingDocuments"
               onClick={[Function]}
               style={
@@ -8960,7 +8781,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
               Files should be PDF format, and under 10MB each.
             </div>
             <ul
-              className="css-2yuxpq t--s400"
+              className="t--s400 css-2yuxpq"
             >
               <li>
                 <span
@@ -8976,7 +8797,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                   </span>
                 </span>
                 <button
-                  className="css-1jem7y3 css-itjkxp"
+                  className="css-12lsoc4-FileButton"
                   onClick={[Function]}
                   style={
                     Object {
@@ -9043,7 +8864,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
                   </span>
                 </span>
                 <button
-                  className="css-1jem7y3 css-itjkxp"
+                  className="css-12lsoc4-FileButton"
                   onClick={[Function]}
                   style={
                     Object {
@@ -9101,12 +8922,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
         </div>
       </fieldset>
       <h2
-        className="css-1b8j3qn secondary m-t700"
+        className="secondary m-t700 css-1b8j3qn"
       >
         No ID?
       </h2>
       <p
-        className="lh--400 t--s400 m-b500 m-b700"
+        className="m-b700 css-fhcue7"
       >
         We can help explain your options.
          
@@ -9125,35 +8946,38 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
       </p>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -9175,7 +8999,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification existing imag
 exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded images 1`] = `
 <div>
   <div
-    className="css-1hd83di"
+    className="css-1kdixb6-QuestionComponent"
   >
     <h2
       className="css-1b8j3qn"
@@ -9183,12 +9007,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       Verify your identity
     </h2>
     <p
-      className="lh--400 t--s400 m-b500"
+      className="css-fhcue7"
     >
       Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
     </p>
     <p
-      className="lh--400 t--s400 m-b500"
+      className="css-fhcue7"
     >
       <em>
         Please note
@@ -9205,7 +9029,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       with questions.
     </p>
     <h3
-      className="css-1b8j3qn secondary m-t700"
+      className="secondary m-t700 css-1b8j3qn"
       style={
         Object {
           "borderBottom": 0,
@@ -9280,7 +9104,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 }
               >
                 <div
-                  className="css-103qf56 id"
+                  className="id css-ujcib8-IdImage"
                 >
                   <svg
                     aria-hidden="true"
@@ -9413,7 +9237,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 }
               >
                 <div
-                  className="css-103qf56 id"
+                  className="id css-ujcib8-IdImage"
                 >
                   <svg
                     aria-hidden="true"
@@ -9513,11 +9337,11 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       </div>
     </div>
     <fieldset
-      className="css-s52bq "
+      className=" css-ywjy0o-FieldsetComponent"
     >
       <legend>
         <h3
-          className="css-1b8j3qn secondary m-t700"
+          className="secondary m-t700 css-1b8j3qn"
           style={
             Object {
               "borderBottom": 0,
@@ -9544,7 +9368,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             type="file"
           />
           <label
-            className="btn btn--sm btn--200 false"
+            className="btn btn--sm btn--200 css-0"
             htmlFor="uploadSupportingDocuments"
             onClick={[Function]}
             style={
@@ -9562,7 +9386,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             Files should be PDF format, and under 10MB each.
           </div>
           <ul
-            className="css-2yuxpq t--s400"
+            className="t--s400 css-2yuxpq"
           >
             <li>
               <span
@@ -9578,7 +9402,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 </span>
               </span>
               <button
-                className="css-1jem7y3 css-itjkxp"
+                className="css-12lsoc4-FileButton"
                 onClick={[Function]}
                 style={
                   Object {
@@ -9645,7 +9469,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 </span>
               </span>
               <button
-                className="css-1jem7y3 css-itjkxp"
+                className="css-12lsoc4-FileButton"
                 onClick={[Function]}
                 style={
                   Object {
@@ -9703,12 +9527,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       </div>
     </fieldset>
     <h2
-      className="css-1b8j3qn secondary m-t700"
+      className="secondary m-t700 css-1b8j3qn"
     >
       No ID?
     </h2>
     <p
-      className="lh--400 t--s400 m-b500 m-b700"
+      className="m-b700 css-fhcue7"
     >
       We can help explain your options.
        
@@ -9727,35 +9551,38 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
     </p>
   </div>
   <div
-    className="g g--mr css-5a3l2g"
+    className="g g--mr css-16ppada-QuestionComponent"
   >
     <div
       className="t--info g--6 m-b500"
     >
-      <div
-        className="css-1hndia5"
+      <button
+        className="lnk css-pigxe4-BackButton"
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="lnk"
-          onClick={[Function]}
-          type="button"
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
         >
           <span
+            aria-hidden="true"
             style={
               Object {
-                "whiteSpace": "nowrap",
+                "fontStyle": "normal",
               }
             }
           >
-            <span
-              aria-hidden="true"
-            >
-              ←
-            </span>
-             Back
+            ←
           </span>
-        </button>
-      </div>
+           
+          Back
+        </span>
+      </button>
     </div>
     <div
       className="g--6 ta-r m-b500"
@@ -9779,7 +9606,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
     className="b-c b-c--hsm"
   >
     <div
-      className="css-1hd83di"
+      className="css-1kdixb6-QuestionComponent"
     >
       <h2
         className="css-1b8j3qn"
@@ -9787,12 +9614,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         Verify your identity
       </h2>
       <p
-        className="lh--400 t--s400 m-b500"
+        className="css-fhcue7"
       >
         Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
       </p>
       <p
-        className="lh--400 t--s400 m-b500"
+        className="css-fhcue7"
       >
         <em>
           Please note
@@ -9809,7 +9636,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         with questions.
       </p>
       <h3
-        className="css-1b8j3qn secondary m-t700"
+        className="secondary m-t700 css-1b8j3qn"
         style={
           Object {
             "borderBottom": 0,
@@ -9884,7 +9711,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   }
                 >
                   <div
-                    className="css-103qf56 id"
+                    className="id css-ujcib8-IdImage"
                   >
                     <svg
                       aria-hidden="true"
@@ -10017,7 +9844,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   }
                 >
                   <div
-                    className="css-103qf56 id"
+                    className="id css-ujcib8-IdImage"
                   >
                     <svg
                       aria-hidden="true"
@@ -10117,11 +9944,11 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         </div>
       </div>
       <fieldset
-        className="css-s52bq "
+        className=" css-ywjy0o-FieldsetComponent"
       >
         <legend>
           <h3
-            className="css-1b8j3qn secondary m-t700"
+            className="secondary m-t700 css-1b8j3qn"
             style={
               Object {
                 "borderBottom": 0,
@@ -10148,7 +9975,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               type="file"
             />
             <label
-              className="btn btn--sm btn--200 false"
+              className="btn btn--sm btn--200 css-0"
               htmlFor="uploadSupportingDocuments"
               onClick={[Function]}
               style={
@@ -10166,7 +9993,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               Files should be PDF format, and under 10MB each.
             </div>
             <ul
-              className="css-2yuxpq t--s400"
+              className="t--s400 css-2yuxpq"
             >
               <li>
                 <span
@@ -10202,13 +10029,13 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   </span>
                 </span>
                 <button
-                  className="css-lij5k3"
+                  className="css-11mhec-FileButton"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    className="css-1uw4si0 excl"
+                    className="excl css-pngyg8-AnswerIcon"
                     focusable="false"
                     viewBox="-2.5 -2.5 66 66"
                     xmlns="http://www.w3.org/2000/svg"
@@ -10244,13 +10071,13 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   </span>
                 </span>
                 <button
-                  className="css-lij5k3"
+                  className="css-11mhec-FileButton"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    className="css-1uw4si0 excl"
+                    className="excl css-pngyg8-AnswerIcon"
                     focusable="false"
                     viewBox="-2.5 -2.5 66 66"
                     xmlns="http://www.w3.org/2000/svg"
@@ -10277,12 +10104,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         </div>
       </fieldset>
       <h2
-        className="css-1b8j3qn secondary m-t700"
+        className="secondary m-t700 css-1b8j3qn"
       >
         No ID?
       </h2>
       <p
-        className="lh--400 t--s400 m-b500 m-b700"
+        className="m-b700 css-fhcue7"
       >
         We can help explain your options.
          
@@ -10301,35 +10128,38 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
       </p>
     </div>
     <div
-      className="g g--mr css-5a3l2g"
+      className="g g--mr css-16ppada-QuestionComponent"
     >
       <div
         className="t--info g--6 m-b500"
       >
-        <div
-          className="css-1hndia5"
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
         >
-          <button
-            className="lnk"
-            onClick={[Function]}
-            type="button"
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
           >
             <span
+              aria-hidden="true"
               style={
                 Object {
-                  "whiteSpace": "nowrap",
+                  "fontStyle": "normal",
                 }
               }
             >
-              <span
-                aria-hidden="true"
-              >
-                ←
-              </span>
-               Back
+              ←
             </span>
-          </button>
-        </div>
+             
+            Back
+          </span>
+        </button>
       </div>
       <div
         className="g--6 ta-r m-b500"
@@ -10344,129 +10174,6 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         </button>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Birth/Question Components/YesNoUnsureComponent default 1`] = `
-<div>
-  <div
-    aria-labelledby="bornInBoston"
-    className="css-1jbmnkf"
-    role="radiogroup"
-  >
-    <label
-      className="css-ksygmh css-1awv4sk selected "
-    >
-      <svg
-        aria-hidden="true"
-        className="css-1uw4si0 checkMark"
-        focusable="false"
-        viewBox="-2.5 -2.5 66 66"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <ellipse
-          cx="30.377"
-          cy="30.377"
-          rx="30.377"
-          ry="30.377"
-        />
-        <path
-          d="M50.937,26.2,30.069,47.068,21,38.791"
-          transform="translate(-5.591 -6.213)"
-        />
-      </svg>
-      <input
-        checked={true}
-        name="bornInBoston"
-        onChange={[Function]}
-        type="radio"
-        value="yes"
-      />
-      <span>
-        Yes
-      </span>
-    </label>
-    <label
-      className="css-ksygmh css-1awv4sk  inactive"
-    >
-      <svg
-        aria-hidden="true"
-        className="css-1uw4si0 questionMark"
-        focusable="false"
-        viewBox="-2.5 -2.5 66 66"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <ellipse
-          cx="30.377"
-          cy="30.377"
-          rx="30.377"
-          ry="30.377"
-        />
-        <g
-          transform="translate(20.339 12.679)"
-        >
-          <path
-            d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
-            transform="translate(-26.6 -17.9)"
-          />
-          <path
-            d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
-            transform="translate(-27.437 -21.605)"
-          />
-        </g>
-      </svg>
-      <input
-        checked={false}
-        name="bornInBoston"
-        onChange={[Function]}
-        type="radio"
-        value="unknown"
-      />
-      <span>
-        I don’t know
-      </span>
-    </label>
-    <label
-      className="css-ksygmh css-1awv4sk  inactive"
-    >
-      <svg
-        aria-hidden="true"
-        className="css-1uw4si0 xSymbol"
-        focusable="false"
-        viewBox="-2.5 -2.5 66 66"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <ellipse
-          cx="30.377"
-          cy="30.377"
-          rx="30.377"
-          ry="30.377"
-        />
-        <g
-          transform="translate(19.107 19.107)"
-        >
-          <line
-            x2="22.629"
-            y2="22.629"
-          />
-          <line
-            x2="22.629"
-            y1="22.629"
-          />
-        </g>
-      </svg>
-      <input
-        checked={false}
-        name="bornInBoston"
-        onChange={[Function]}
-        type="radio"
-        value="no"
-      />
-      <span>
-        No
-      </span>
-    </label>
   </div>
 </div>
 `;
@@ -10715,7 +10422,9 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -10740,10 +10449,10 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
             className="m-t500"
           >
             <div
-              className="css-1hd83di"
+              className="css-1kdixb6-QuestionComponent"
             >
               <fieldset
-                className="css-s52bq "
+                className=" css-ywjy0o-FieldsetComponent"
               >
                 <legend>
                   <h2
@@ -10759,11 +10468,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
                   role="radiogroup"
                 >
                   <label
-                    className="css-ksygmh css-1lvrjdi  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="forWhom heavier"
+                      className="forWhom heavier css-1yhhs0u"
                       focusable="false"
                       viewBox="-46 -4 140 100"
                       xmlns="http://www.w3.org/2000/svg"
@@ -10789,11 +10498,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-1lvrjdi  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="forWhom heavier"
+                      className="forWhom heavier css-1yhhs0u"
                       focusable="false"
                       viewBox="-2 -4 140 100"
                       xmlns="http://www.w3.org/2000/svg"
@@ -10844,7 +10553,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
               </fieldset>
             </div>
             <div
-              className="g g--mr css-5a3l2g"
+              className="g g--mr css-16ppada-QuestionComponent"
             >
               <div
                 className="t--info g--6 m-b500"
@@ -11153,7 +10862,9 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -11178,7 +10889,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
             className="m-t500"
           >
             <div
-              className="css-1hd83di"
+              className="css-1kdixb6-QuestionComponent"
             >
               <div
                 className="m-t500"
@@ -11231,35 +10942,38 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
               </div>
             </div>
             <div
-              className="g g--mr css-5a3l2g"
+              className="g g--mr css-16ppada-QuestionComponent"
             >
               <div
                 className="t--info g--6 m-b500"
               >
-                <div
-                  className="css-1hndia5"
+                <button
+                  className="lnk css-pigxe4-BackButton"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <button
-                    className="lnk"
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
                   >
                     <span
+                      aria-hidden="true"
                       style={
                         Object {
-                          "whiteSpace": "nowrap",
+                          "fontStyle": "normal",
                         }
                       }
                     >
-                      <span
-                        aria-hidden="true"
-                      >
-                        ←
-                      </span>
-                       Back
+                      ←
                     </span>
-                  </button>
-                </div>
+                     
+                    Back
+                  </span>
+                </button>
               </div>
               <div
                 className="g--6 ta-r m-b500"
@@ -11556,7 +11270,9 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -11581,10 +11297,10 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
             className="m-t500"
           >
             <div
-              className="css-1hd83di"
+              className="css-1kdixb6-QuestionComponent"
             >
               <fieldset
-                className="css-s52bq "
+                className=" css-ywjy0o-FieldsetComponent"
               >
                 <legend>
                   <h2
@@ -11598,15 +11314,15 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
                 </legend>
                 <div
                   aria-labelledby="bornInBoston"
-                  className="css-1jbmnkf"
+                  className="css-1cdq1k7-YesNoUnsureComponent"
                   role="radiogroup"
                 >
                   <label
-                    className="css-ksygmh css-1awv4sk  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="css-1uw4si0 checkMark"
+                      className="checkMark css-pngyg8-AnswerIcon"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -11634,11 +11350,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-1awv4sk  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="css-1uw4si0 questionMark"
+                      className="questionMark css-pngyg8-AnswerIcon"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -11674,11 +11390,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-1awv4sk  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="css-1uw4si0 xSymbol"
+                      className="xSymbol css-pngyg8-AnswerIcon"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -11718,35 +11434,38 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
               
             </div>
             <div
-              className="g g--mr css-5a3l2g"
+              className="g g--mr css-16ppada-QuestionComponent"
             >
               <div
                 className="t--info g--6 m-b500"
               >
-                <div
-                  className="css-1hndia5"
+                <button
+                  className="lnk css-pigxe4-BackButton"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <button
-                    className="lnk"
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
                   >
                     <span
+                      aria-hidden="true"
                       style={
                         Object {
-                          "whiteSpace": "nowrap",
+                          "fontStyle": "normal",
                         }
                       }
                     >
-                      <span
-                        aria-hidden="true"
-                      >
-                        ←
-                      </span>
-                       Back
+                      ←
                     </span>
-                  </button>
-                </div>
+                     
+                    Back
+                  </span>
+                </button>
               </div>
               <div
                 className="g--6 ta-r m-b500"
@@ -12052,7 +11771,9 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -12077,10 +11798,10 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
             className="m-t500"
           >
             <div
-              className="css-1hd83di"
+              className="css-1kdixb6-QuestionComponent"
             >
               <fieldset
-                className="css-s52bq "
+                className=" css-ywjy0o-FieldsetComponent"
               >
                 <legend>
                   <h2
@@ -12092,7 +11813,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                   </h2>
                 </legend>
                 <p
-                  className="lh--400 t--s400 m-b500"
+                  className="css-fhcue7"
                 >
                   If 
                   you
@@ -12308,35 +12029,38 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
               </div>
             </div>
             <div
-              className="g g--mr css-5a3l2g"
+              className="g g--mr css-16ppada-QuestionComponent"
             >
               <div
                 className="t--info g--6 m-b500"
               >
-                <div
-                  className="css-1hndia5"
+                <button
+                  className="lnk css-pigxe4-BackButton"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <button
-                    className="lnk"
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
                   >
                     <span
+                      aria-hidden="true"
                       style={
                         Object {
-                          "whiteSpace": "nowrap",
+                          "fontStyle": "normal",
                         }
                       }
                     >
-                      <span
-                        aria-hidden="true"
-                      >
-                        ←
-                      </span>
-                       Back
+                      ←
                     </span>
-                  </button>
-                </div>
+                     
+                    Back
+                  </span>
+                </button>
               </div>
               <div
                 className="g--6 ta-r m-b500"
@@ -12642,7 +12366,9 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -12667,10 +12393,10 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
             className="m-t500"
           >
             <div
-              className="css-1hd83di"
+              className="css-1kdixb6-QuestionComponent"
             >
               <fieldset
-                className="css-s52bq "
+                className=" css-ywjy0o-FieldsetComponent"
               >
                 <legend>
                   <h2
@@ -12684,7 +12410,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                   </h2>
                 </legend>
                 <p
-                  className="lh--400 t--s400 m-b500"
+                  className="css-fhcue7"
                 >
                   Please use the names 
                   their
@@ -12699,7 +12425,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 >
                   <legend>
                     <h3
-                      className="css-1b8j3qn secondary"
+                      className="secondary css-1b8j3qn"
                     >
                       Parent 1 
                       <em>
@@ -12789,7 +12515,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 >
                   <legend>
                     <h3
-                      className="css-1b8j3qn secondary"
+                      className="secondary css-1b8j3qn"
                     >
                       Parent 2
                     </h3>
@@ -12873,7 +12599,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 </fieldset>
               </fieldset>
               <fieldset
-                className="css-s52bq "
+                className=" css-ywjy0o-FieldsetComponent"
               >
                 <legend>
                   <h2
@@ -12888,15 +12614,15 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="css-1jbmnkf"
+                  className="css-1cdq1k7-YesNoUnsureComponent"
                   role="radiogroup"
                 >
                   <label
-                    className="css-ksygmh css-1awv4sk  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="css-1uw4si0 checkMark"
+                      className="checkMark css-pngyg8-AnswerIcon"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -12924,11 +12650,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-1awv4sk  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="css-1uw4si0 questionMark"
+                      className="questionMark css-pngyg8-AnswerIcon"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -12964,11 +12690,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                     </span>
                   </label>
                   <label
-                    className="css-ksygmh css-1awv4sk  "
+                    className="  css-10ubx7k-RadioItemComponent"
                   >
                     <svg
                       aria-hidden="true"
-                      className="css-1uw4si0 xSymbol"
+                      className="xSymbol css-pngyg8-AnswerIcon"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -13007,35 +12733,38 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
               </fieldset>
             </div>
             <div
-              className="g g--mr css-5a3l2g"
+              className="g g--mr css-16ppada-QuestionComponent"
             >
               <div
                 className="t--info g--6 m-b500"
               >
-                <div
-                  className="css-1hndia5"
+                <button
+                  className="lnk css-pigxe4-BackButton"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <button
-                    className="lnk"
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
                   >
                     <span
+                      aria-hidden="true"
                       style={
                         Object {
-                          "whiteSpace": "nowrap",
+                          "fontStyle": "normal",
                         }
                       }
                     >
-                      <span
-                        aria-hidden="true"
-                      >
-                        ←
-                      </span>
-                       Back
+                      ←
                     </span>
-                  </button>
-                </div>
+                     
+                    Back
+                  </span>
+                </button>
               </div>
               <div
                 className="g--6 ta-r m-b500"
@@ -13341,7 +13070,9 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -13366,7 +13097,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
             className="m-t500"
           >
             <div
-              className="css-1hd83di"
+              className="css-1kdixb6-QuestionComponent"
             >
               <h2
                 className="css-1b8j3qn"
@@ -13374,12 +13105,12 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 Verify your identity
               </h2>
               <p
-                className="lh--400 t--s400 m-b500"
+                className="css-fhcue7"
               >
                 Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
               </p>
               <p
-                className="lh--400 t--s400 m-b500"
+                className="css-fhcue7"
               >
                 <em>
                   Please note
@@ -13396,7 +13127,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 with questions.
               </p>
               <h3
-                className="css-1b8j3qn secondary m-t700"
+                className="secondary m-t700 css-1b8j3qn"
                 style={
                   Object {
                     "borderBottom": 0,
@@ -13471,7 +13202,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                           }
                         >
                           <div
-                            className="css-103qf56 id"
+                            className="id css-ujcib8-IdImage"
                           >
                             <svg
                               aria-hidden="true"
@@ -13596,7 +13327,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                           }
                         >
                           <div
-                            className="css-103qf56 id"
+                            className="id css-ujcib8-IdImage"
                           >
                             <svg
                               aria-hidden="true"
@@ -13696,11 +13427,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 </div>
               </div>
               <fieldset
-                className="css-s52bq "
+                className=" css-ywjy0o-FieldsetComponent"
               >
                 <legend>
                   <h3
-                    className="css-1b8j3qn secondary m-t700"
+                    className="secondary m-t700 css-1b8j3qn"
                     style={
                       Object {
                         "borderBottom": 0,
@@ -13727,7 +13458,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       type="file"
                     />
                     <label
-                      className="btn btn--sm btn--200 false"
+                      className="btn btn--sm btn--200 css-0"
                       htmlFor="uploadSupportingDocuments"
                       onClick={[Function]}
                       style={
@@ -13745,18 +13476,18 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       Files should be PDF format, and under 10MB each.
                     </div>
                     <ul
-                      className="css-2yuxpq t--s400"
+                      className="t--s400 css-2yuxpq"
                     />
                   </div>
                 </div>
               </fieldset>
               <h2
-                className="css-1b8j3qn secondary m-t700"
+                className="secondary m-t700 css-1b8j3qn"
               >
                 No ID?
               </h2>
               <p
-                className="lh--400 t--s400 m-b500 m-b700"
+                className="m-b700 css-fhcue7"
               >
                 We can help explain your options.
                  
@@ -13775,35 +13506,38 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
               </p>
             </div>
             <div
-              className="g g--mr css-5a3l2g"
+              className="g g--mr css-16ppada-QuestionComponent"
             >
               <div
                 className="t--info g--6 m-b500"
               >
-                <div
-                  className="css-1hndia5"
+                <button
+                  className="lnk css-pigxe4-BackButton"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <button
-                    className="lnk"
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
                   >
                     <span
+                      aria-hidden="true"
                       style={
                         Object {
-                          "whiteSpace": "nowrap",
+                          "fontStyle": "normal",
                         }
                       }
                     >
-                      <span
-                        aria-hidden="true"
-                      >
-                        ←
-                      </span>
-                       Back
+                      ←
                     </span>
-                  </button>
-                </div>
+                     
+                    Back
+                  </span>
+                </button>
               </div>
               <div
                 className="g--6 ta-r m-b500"
@@ -14109,7 +13843,9 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -14142,7 +13878,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               You can only order copies of one person’s birth certificate at a time. If you want to buy copies of a certificate for another person, you need to do a separate transaction.
             </p>
             <aside
-              className="css-1qhj8nj"
+              className="css-mt0zks-ApostilleRequestInstructions"
             >
               <button
                 aria-controls="detailsContent"
@@ -14188,11 +13924,11 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               className="css-14pnwub"
             >
               <div
-                className="m-r200 css-1s6b24p"
+                className="m-r200 css-653lhx-QuantityDropdown"
               >
                 <input
                   aria-label="Quantity"
-                  className="txt-f txt-f--auto ta-r css-jflt97"
+                  className="txt-f txt-f--auto ta-r css-ywmvs7-QuantityDropdown"
                   min="1"
                   name="quantity"
                   onChange={[Function]}
@@ -14202,7 +13938,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 />
                 <div
                   aria-hidden="true"
-                  className="sel-c sel-c--sq css-1nn3krg"
+                  className="sel-c sel-c--sq css-1b64682-QuantityDropdown"
                 >
                   <select
                     className="sel-f sel-f--sq"
@@ -14352,7 +14088,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                           className="sel sel--thin css-15550l6"
                         >
                           <div
-                            className="sel-c css-sa8vax"
+                            className="sel-c  css-sa8vax"
                           >
                             <select
                               aria-label="Payment type"
@@ -14430,30 +14166,33 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               <div
                 className="g--9 t--info"
               >
-                <div
-                  className="css-1hndia5"
+                <button
+                  className="lnk css-pigxe4-BackButton"
+                  onClick={[Function]}
+                  type="button"
                 >
-                  <button
-                    className="lnk"
-                    onClick={[Function]}
-                    type="button"
+                  <span
+                    style={
+                      Object {
+                        "fontStyle": "italic",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
                   >
                     <span
+                      aria-hidden="true"
                       style={
                         Object {
-                          "whiteSpace": "nowrap",
+                          "fontStyle": "normal",
                         }
                       }
                     >
-                      <span
-                        aria-hidden="true"
-                      >
-                        ←
-                      </span>
-                       Back
+                      ←
                     </span>
-                  </button>
-                </div>
+                     
+                    Back
+                  </span>
+                </button>
               </div>
               <button
                 className="btn g--3"
@@ -14953,7 +14692,6 @@ exports[`Storyshots Checkout/ConfirmationContent default 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -15426,7 +15164,7 @@ exports[`Storyshots Checkout/PaymentContent Stripe error 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -16467,7 +16205,7 @@ exports[`Storyshots Checkout/PaymentContent ZIP code error 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -17458,7 +17196,9 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -17483,7 +17223,7 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-1b8j3qn"
+              className="css-1wyjavy-CheckoutPageLayout"
             >
               Payment
             </h2>
@@ -17491,7 +17231,7 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
               className="m-v300"
             >
               <div
-                className="dr css-4dwfk3 "
+                className="dr  css-4dwfk3"
               >
                 <button
                   aria-expanded={false}
@@ -18203,16 +17943,23 @@ exports[`Storyshots Checkout/PaymentContent birth certificates 1`] = `
                     <span
                       style={
                         Object {
+                          "fontStyle": "italic",
                           "whiteSpace": "nowrap",
                         }
                       }
                     >
                       <span
                         aria-hidden="true"
+                        style={
+                          Object {
+                            "fontStyle": "normal",
+                          }
+                        }
                       >
                         ←
                       </span>
-                       Back
+                       
+                      Back
                     </span>
                   </a>
                 </div>
@@ -18505,7 +18252,7 @@ exports[`Storyshots Checkout/PaymentContent credit card error 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -19030,7 +18777,7 @@ exports[`Storyshots Checkout/PaymentContent default 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -19551,7 +19298,7 @@ exports[`Storyshots Checkout/PaymentContent existing billing 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -20542,7 +20289,9 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -20567,7 +20316,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-1b8j3qn"
+              className="css-1wyjavy-CheckoutPageLayout"
             >
               Review Order
             </h2>
@@ -20599,7 +20348,7 @@ exports[`Storyshots Checkout/ReviewContent birth certificate 1`] = `
                 </div>
                 <div>
                   <div
-                    className="p-v200 br b--w css-p2blui "
+                    className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                   >
                     <div
                       className="t--sans p-a300"
@@ -21248,7 +20997,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
               </div>
               <div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -21284,7 +21033,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                   </div>
                 </div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -21320,7 +21069,7 @@ exports[`Storyshots Checkout/ReviewContent cart has pending certs 1`] = `
                   </div>
                 </div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -22024,7 +21773,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
               </div>
               <div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -22060,7 +21809,7 @@ exports[`Storyshots Checkout/ReviewContent default 1`] = `
                   </div>
                 </div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -23341,7 +23090,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
               </div>
               <div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -23377,7 +23126,7 @@ exports[`Storyshots Checkout/ReviewContent invalid order 1`] = `
                   </div>
                 </div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -24005,7 +23754,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
               </div>
               <div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -24041,7 +23790,7 @@ exports[`Storyshots Checkout/ReviewContent payment error 1`] = `
                   </div>
                 </div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -24732,7 +24481,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
               </div>
               <div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -24768,7 +24517,7 @@ exports[`Storyshots Checkout/ReviewContent submission error 1`] = `
                   </div>
                 </div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -25466,7 +25215,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
               </div>
               <div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -25502,7 +25251,7 @@ exports[`Storyshots Checkout/ReviewContent submitting 1`] = `
                   </div>
                 </div>
                 <div
-                  className="p-v200 br b--w css-p2blui "
+                  className="p-v200 br b--w  css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="t--sans p-a300"
@@ -26132,7 +25881,9 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
           <h1
             className="sh-title css-rgzzj4"
           >
-            Request a birth certificate
+            Request a 
+            birth
+             certificate
           </h1>
           <div
             className="css-v8ihoq"
@@ -26157,7 +25908,7 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
             className="m-t500"
           >
             <h2
-              className="css-1b8j3qn"
+              className="css-1wyjavy-CheckoutPageLayout"
             >
               Shipping
             </h2>
@@ -26165,7 +25916,7 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
               className="m-v300"
             >
               <div
-                className="dr css-4dwfk3 "
+                className="dr  css-4dwfk3"
               >
                 <button
                   aria-expanded={false}
@@ -26867,16 +26618,23 @@ exports[`Storyshots Checkout/ShippingContent birth certificate 1`] = `
                     <span
                       style={
                         Object {
+                          "fontStyle": "italic",
                           "whiteSpace": "nowrap",
                         }
                       }
                     >
                       <span
                         aria-hidden="true"
+                        style={
+                          Object {
+                            "fontStyle": "normal",
+                          }
+                        }
                       >
                         ←
                       </span>
-                       Back
+                       
+                      Back
                     </span>
                   </a>
                 </div>
@@ -27169,7 +26927,7 @@ exports[`Storyshots Checkout/ShippingContent default 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -28159,7 +27917,7 @@ exports[`Storyshots Checkout/ShippingContent email error 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -29149,7 +28907,7 @@ exports[`Storyshots Checkout/ShippingContent existing address 1`] = `
             className="m-v300"
           >
             <div
-              className="dr css-4dwfk3 "
+              className="dr  css-4dwfk3"
             >
               <button
                 aria-expanded={false}
@@ -29944,7 +29702,7 @@ exports[`Storyshots Common Components/CostSummary default credit card 1`] = `
                 className="sel sel--thin css-15550l6"
               >
                 <div
-                  className="sel-c css-sa8vax"
+                  className="sel-c  css-sa8vax"
                 >
                   <select
                     aria-label="Payment type"
@@ -30077,7 +29835,7 @@ exports[`Storyshots Common Components/CostSummary default debit card 1`] = `
                 className="sel sel--thin css-15550l6"
               >
                 <div
-                  className="sel-c css-sa8vax"
+                  className="sel-c  css-sa8vax"
                 >
                   <select
                     aria-label="Payment type"
@@ -30429,7 +30187,7 @@ exports[`Storyshots Common Components/CostSummary with research fee 1`] = `
                 className="sel sel--thin css-15550l6"
               >
                 <div
-                  className="sel-c css-sa8vax"
+                  className="sel-c  css-sa8vax"
                 >
                   <select
                     aria-label="Payment type"
@@ -30571,7 +30329,6 @@ exports[`Storyshots Common Components/Nav default 1`] = `
     >
       <a
         className="nv-s-l-b css-1ww36lx"
-        href="/death/cart"
         onClick={[Function]}
       >
         View Cart 
@@ -30590,7 +30347,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
 <div>
   <div>
     <div
-      className="p-v300 br b--w css-p2blui br-b100"
+      className="p-v300 br b--w br-b100 css-1jvds3y-CertificateRow"
     >
       <div
         className="t--sans p-a300"
@@ -30634,7 +30391,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
 <div>
   <div>
     <div
-      className="p-v300 br b--w css-p2blui "
+      className="p-v300 br b--w  css-1jvds3y-CertificateRow"
     >
       <div
         className="t--sans p-a300"
@@ -30670,7 +30427,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
       </div>
     </div>
     <div
-      className="p-v300 br b--w css-p2blui br-t100"
+      className="p-v300 br b--w br-t100 css-1jvds3y-CertificateRow"
     >
       <div
         className="t--sans p-a300"
@@ -30726,7 +30483,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
       </div>
     </div>
     <div
-      className="p-v300 br b--w css-p2blui br-a100"
+      className="p-v300 br b--w br-a100 css-1jvds3y-CertificateRow"
     >
       <div
         className="t--sans p-a300"
@@ -30768,7 +30525,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth open 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 dr--open css-1kvohhx"
+    className="dr dr--open css-kwggjm"
   >
     <button
       aria-expanded={true}
@@ -30823,7 +30580,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
       >
         <div>
           <div
-            className="p-v300 br b--w css-p2blui br-b100"
+            className="p-v300 br b--w br-b100 css-1jvds3y-CertificateRow"
           >
             <div
               className="t--sans p-a300"
@@ -30890,7 +30647,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: closed 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 "
+    className="dr  css-4dwfk3"
   >
     <button
       aria-expanded={false}
@@ -30947,7 +30704,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: closed
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: loading 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 "
+    className="dr  css-4dwfk3"
   >
     <button
       aria-expanded={false}
@@ -31004,7 +30761,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: loadin
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1`] = `
 <div>
   <div
-    className="dr css-4dwfk3 dr--open css-1kvohhx"
+    className="dr dr--open css-kwggjm"
   >
     <button
       aria-expanded={true}
@@ -31059,7 +30816,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
       >
         <div>
           <div
-            className="p-v300 br b--w css-p2blui "
+            className="p-v300 br b--w  css-1jvds3y-CertificateRow"
           >
             <div
               className="t--sans p-a300"
@@ -31095,7 +30852,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
             </div>
           </div>
           <div
-            className="p-v300 br b--w css-p2blui br-t100"
+            className="p-v300 br b--w br-t100 css-1jvds3y-CertificateRow"
           >
             <div
               className="t--sans p-a300"
@@ -31151,7 +30908,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
             </div>
           </div>
           <div
-            className="p-v300 br b--w css-p2blui br-a100"
+            className="p-v300 br b--w br-a100 css-1jvds3y-CertificateRow"
           >
             <div
               className="t--sans p-a300"
@@ -31419,11 +31176,1268 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
 </div>
 `;
 
+exports[`Storyshots Common Components/QuantityDropdown default 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "margin": "2rem auto",
+        }
+      }
+    >
+      <div
+        className="m-r200 css-653lhx-QuantityDropdown"
+      >
+        <input
+          aria-label="Quantity"
+          className="txt-f txt-f--auto ta-r css-ywmvs7-QuantityDropdown"
+          min="1"
+          name="quantity"
+          onChange={[Function]}
+          size={3}
+          type="number"
+          value={0}
+        />
+        <div
+          aria-hidden="true"
+          className="sel-c sel-c--sq css-1b64682-QuantityDropdown"
+        >
+          <select
+            className="sel-f sel-f--sq"
+            name="quantityMenu"
+            onChange={[Function]}
+            value={0}
+          >
+            <option
+              value="1"
+            >
+              1
+            </option>
+            <option
+              value="2"
+            >
+              2
+            </option>
+            <option
+              value="3"
+            >
+              3
+            </option>
+            <option
+              value="4"
+            >
+              4
+            </option>
+            <option
+              value="5"
+            >
+              5
+            </option>
+            <option
+              value="6"
+            >
+              6
+            </option>
+            <option
+              value="7"
+            >
+              7
+            </option>
+            <option
+              value="8"
+            >
+              8
+            </option>
+            <option
+              value="9"
+            >
+              9
+            </option>
+            <option
+              value="10"
+            >
+              10
+            </option>
+            <option
+              disabled={true}
+            >
+              ---------------
+            </option>
+            <option
+              value="other"
+            >
+              Other…
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/AnswerIcon check mark 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "margin": "2rem auto",
+        }
+      }
+    >
+      <svg
+        aria-hidden="true"
+        className="checkMark css-pngyg8-AnswerIcon"
+        focusable="false"
+        viewBox="-2.5 -2.5 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="30.377"
+          cy="30.377"
+          rx="30.377"
+          ry="30.377"
+        />
+        <path
+          d="M50.937,26.2,30.069,47.068,21,38.791"
+          transform="translate(-5.591 -6.213)"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/AnswerIcon exclamation point 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "margin": "2rem auto",
+        }
+      }
+    >
+      <svg
+        aria-hidden="true"
+        className="excl css-pngyg8-AnswerIcon"
+        focusable="false"
+        viewBox="-2.5 -2.5 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="30.377"
+          cy="30.377"
+          rx="30.377"
+          ry="30.377"
+        />
+        <path
+          d="M97.42,102.13a2.8,2.8,0,0,1,5.58,0,2.79,2.79,0,0,1-5.58,0Zm.09-17.93h5.41L102,97.48h-3.6Z"
+          fill="currentColor"
+          transform="translate(-110 -101) scale(1.4)"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/AnswerIcon question mark 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "margin": "2rem auto",
+        }
+      }
+    >
+      <svg
+        aria-hidden="true"
+        className="questionMark css-pngyg8-AnswerIcon"
+        focusable="false"
+        viewBox="-2.5 -2.5 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="30.377"
+          cy="30.377"
+          rx="30.377"
+          ry="30.377"
+        />
+        <g
+          transform="translate(20.339 12.679)"
+        >
+          <path
+            d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
+            transform="translate(-26.6 -17.9)"
+          />
+          <path
+            d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
+            transform="translate(-27.437 -21.605)"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/AnswerIcon x symbol 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "margin": "2rem auto",
+        }
+      }
+    >
+      <svg
+        aria-hidden="true"
+        className="xSymbol css-pngyg8-AnswerIcon"
+        focusable="false"
+        viewBox="-2.5 -2.5 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="30.377"
+          cy="30.377"
+          rx="30.377"
+          ry="30.377"
+        />
+        <g
+          transform="translate(19.107 19.107)"
+        >
+          <line
+            x2="22.629"
+            y2="22.629"
+          />
+          <line
+            x2="22.629"
+            y1="22.629"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/BackButton default 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+        "display": "flex",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "margin": "2rem auto",
+        }
+      }
+    >
+      <button
+        className="lnk css-pigxe4-BackButton"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <span
+            aria-hidden="true"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            ←
+          </span>
+           
+          Back
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/QuestionComponent default 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "margin": "2rem auto",
+        "maxWidth": "600px",
+      }
+    }
+  >
+    <div
+      className="css-1kdixb6-QuestionComponent"
+    >
+      <fieldset
+        className=" css-ywjy0o-FieldsetComponent"
+      >
+        <legend>
+          <h2
+            className="css-1b8j3qn"
+            id="questionText"
+          >
+            Question text?
+          </h2>
+        </legend>
+        <div
+          aria-labelledby="bornInBoston"
+          className="css-1cdq1k7-YesNoUnsureComponent"
+          role="radiogroup"
+        >
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="checkMark css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <path
+                d="M50.937,26.2,30.069,47.068,21,38.791"
+                transform="translate(-5.591 -6.213)"
+              />
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="yes"
+            />
+            <span>
+              Yes
+            </span>
+          </label>
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="questionMark css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(20.339 12.679)"
+              >
+                <path
+                  d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
+                  transform="translate(-26.6 -17.9)"
+                />
+                <path
+                  d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
+                  transform="translate(-27.437 -21.605)"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="unknown"
+            />
+            <span>
+              I don’t know
+            </span>
+          </label>
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="xSymbol css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(19.107 19.107)"
+              >
+                <line
+                  x2="22.629"
+                  y2="22.629"
+                />
+                <line
+                  x2="22.629"
+                  y1="22.629"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="no"
+            />
+            <span>
+              No
+            </span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+    <div
+      className="g g--mr css-16ppada-QuestionComponent"
+    >
+      <div
+        className="t--info g--6 m-b500"
+      />
+      <div
+        className="g--6 ta-r m-b500"
+      >
+        <button
+          className="btn btn--b-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Next question
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/QuestionComponent with back button 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "margin": "2rem auto",
+        "maxWidth": "600px",
+      }
+    }
+  >
+    <div
+      className="css-1kdixb6-QuestionComponent"
+    >
+      <fieldset
+        className=" css-ywjy0o-FieldsetComponent"
+      >
+        <legend>
+          <h2
+            className="css-1b8j3qn"
+            id="questionText"
+          >
+            Question text?
+          </h2>
+        </legend>
+        <div
+          aria-labelledby="bornInBoston"
+          className="css-1cdq1k7-YesNoUnsureComponent"
+          role="radiogroup"
+        >
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="checkMark css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <path
+                d="M50.937,26.2,30.069,47.068,21,38.791"
+                transform="translate(-5.591 -6.213)"
+              />
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="yes"
+            />
+            <span>
+              Yes
+            </span>
+          </label>
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="questionMark css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(20.339 12.679)"
+              >
+                <path
+                  d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
+                  transform="translate(-26.6 -17.9)"
+                />
+                <path
+                  d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
+                  transform="translate(-27.437 -21.605)"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="unknown"
+            />
+            <span>
+              I don’t know
+            </span>
+          </label>
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="xSymbol css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(19.107 19.107)"
+              >
+                <line
+                  x2="22.629"
+                  y2="22.629"
+                />
+                <line
+                  x2="22.629"
+                  y1="22.629"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="no"
+            />
+            <span>
+              No
+            </span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+    <div
+      className="g g--mr css-16ppada-QuestionComponent"
+    >
+      <div
+        className="t--info g--6 m-b500"
+      >
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            <span
+              aria-hidden="true"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              ←
+            </span>
+             
+            Back
+          </span>
+        </button>
+      </div>
+      <div
+        className="g--6 ta-r m-b500"
+      >
+        <button
+          className="btn btn--b-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Next question
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/QuestionComponent with reset button 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "margin": "2rem auto",
+        "maxWidth": "600px",
+      }
+    }
+  >
+    <div
+      className="css-1kdixb6-QuestionComponent"
+    >
+      <fieldset
+        className=" css-ywjy0o-FieldsetComponent"
+      >
+        <legend>
+          <h2
+            className="css-1b8j3qn"
+            id="questionText"
+          >
+            Question text?
+          </h2>
+        </legend>
+        <div
+          aria-labelledby="bornInBoston"
+          className="css-1cdq1k7-YesNoUnsureComponent"
+          role="radiogroup"
+        >
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="checkMark css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <path
+                d="M50.937,26.2,30.069,47.068,21,38.791"
+                transform="translate(-5.591 -6.213)"
+              />
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="yes"
+            />
+            <span>
+              Yes
+            </span>
+          </label>
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="questionMark css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(20.339 12.679)"
+              >
+                <path
+                  d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
+                  transform="translate(-26.6 -17.9)"
+                />
+                <path
+                  d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
+                  transform="translate(-27.437 -21.605)"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="unknown"
+            />
+            <span>
+              I don’t know
+            </span>
+          </label>
+          <label
+            className="  css-10ubx7k-RadioItemComponent"
+          >
+            <svg
+              aria-hidden="true"
+              className="xSymbol css-pngyg8-AnswerIcon"
+              focusable="false"
+              viewBox="-2.5 -2.5 66 66"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <ellipse
+                cx="30.377"
+                cy="30.377"
+                rx="30.377"
+                ry="30.377"
+              />
+              <g
+                transform="translate(19.107 19.107)"
+              >
+                <line
+                  x2="22.629"
+                  y2="22.629"
+                />
+                <line
+                  x2="22.629"
+                  y1="22.629"
+                />
+              </g>
+            </svg>
+            <input
+              checked={false}
+              name="bornInBoston"
+              onChange={[Function]}
+              type="radio"
+              value="no"
+            />
+            <span>
+              No
+            </span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+    <div
+      className="g g--mr css-16ppada-QuestionComponent"
+    >
+      <div
+        className="t--info g--6 m-b500"
+      >
+        <button
+          className="lnk css-pigxe4-BackButton"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            <span
+              aria-hidden="true"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              ←
+            </span>
+             
+            Back
+          </span>
+        </button>
+      </div>
+      <div
+        className="g--6 ta-r m-b500"
+      >
+        <button
+          className="btn btn--b-sm"
+          onClick={[Function]}
+          type="button"
+        >
+          Start over
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/RadioItemComponent multiple answers 1`] = `
+<div>
+  <ul
+    role="radiogroup"
+    style={
+      Object {
+        "color": "#000",
+        "display": "flex",
+        "flexWrap": "wrap",
+        "listStyle": "none",
+        "margin": 0,
+      }
+    }
+  >
+    <li
+      style={
+        Object {
+          "margin": "1rem",
+        }
+      }
+    >
+      <label
+        className="  css-10ubx7k-RadioItemComponent"
+      >
+        <svg
+          style={
+            Object {
+              "fill": "none",
+              "stroke": "currentColor",
+              "strokeWidth": "0.5",
+              "width": 170,
+            }
+          }
+          viewBox="0 0 15 15"
+        >
+          <circle
+            cx="5"
+            cy="5"
+            r="4.5"
+          />
+          <circle
+            cx="10"
+            cy="5"
+            r="4.5"
+          />
+          <circle
+            cx="5"
+            cy="10"
+            r="4.5"
+          />
+          <circle
+            cx="10"
+            cy="10"
+            r="4.5"
+          />
+        </svg>
+        <input
+          checked={false}
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer1"
+        />
+        <span>
+          Answer 1
+        </span>
+      </label>
+    </li>
+    <li
+      style={
+        Object {
+          "margin": "1rem",
+        }
+      }
+    >
+      <label
+        className="  css-10ubx7k-RadioItemComponent"
+      >
+        <svg
+          style={
+            Object {
+              "fill": "none",
+              "stroke": "currentColor",
+              "strokeWidth": "0.5",
+              "width": 170,
+            }
+          }
+          viewBox="0 0 15 15"
+        >
+          <circle
+            cx="5"
+            cy="5"
+            r="4.5"
+          />
+          <circle
+            cx="10"
+            cy="5"
+            r="4.5"
+          />
+          <circle
+            cx="5"
+            cy="10"
+            r="4.5"
+          />
+          <circle
+            cx="10"
+            cy="10"
+            r="4.5"
+          />
+        </svg>
+        <input
+          checked={false}
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer2"
+        />
+        <span>
+          Answer 2
+        </span>
+      </label>
+    </li>
+    <li
+      style={
+        Object {
+          "margin": "1rem",
+        }
+      }
+    >
+      <label
+        className="  css-10ubx7k-RadioItemComponent"
+      >
+        <svg
+          style={
+            Object {
+              "fill": "none",
+              "stroke": "currentColor",
+              "strokeWidth": "0.5",
+              "width": 170,
+            }
+          }
+          viewBox="0 0 15 15"
+        >
+          <circle
+            cx="5"
+            cy="5"
+            r="4.5"
+          />
+          <circle
+            cx="10"
+            cy="5"
+            r="4.5"
+          />
+          <circle
+            cx="5"
+            cy="10"
+            r="4.5"
+          />
+          <circle
+            cx="10"
+            cy="10"
+            r="4.5"
+          />
+        </svg>
+        <input
+          checked={false}
+          name="answer"
+          onChange={[Function]}
+          type="radio"
+          value="answer3"
+        />
+        <span>
+          Answer 3
+        </span>
+      </label>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/RadioItemComponent single item 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "color": "#000",
+      }
+    }
+  >
+    <label
+      className="selected  css-10ubx7k-RadioItemComponent"
+    >
+      <svg
+        style={
+          Object {
+            "fill": "none",
+            "stroke": "currentColor",
+            "strokeWidth": "0.5",
+            "width": 170,
+          }
+        }
+        viewBox="0 0 15 15"
+      >
+        <circle
+          cx="5"
+          cy="5"
+          r="4.5"
+        />
+        <circle
+          cx="10"
+          cy="5"
+          r="4.5"
+        />
+        <circle
+          cx="5"
+          cy="10"
+          r="4.5"
+        />
+        <circle
+          cx="10"
+          cy="10"
+          r="4.5"
+        />
+      </svg>
+      <input
+        checked={true}
+        name="question"
+        onChange={[Function]}
+        type="radio"
+        value="question"
+      />
+      <span>
+        Question
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common Components/Question Components/YesNoUnsureComponent default 1`] = `
+<div>
+  <div
+    aria-labelledby="bornInBoston"
+    className="css-1cdq1k7-YesNoUnsureComponent"
+    role="radiogroup"
+  >
+    <label
+      className="  css-10ubx7k-RadioItemComponent"
+    >
+      <svg
+        aria-hidden="true"
+        className="checkMark css-pngyg8-AnswerIcon"
+        focusable="false"
+        viewBox="-2.5 -2.5 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="30.377"
+          cy="30.377"
+          rx="30.377"
+          ry="30.377"
+        />
+        <path
+          d="M50.937,26.2,30.069,47.068,21,38.791"
+          transform="translate(-5.591 -6.213)"
+        />
+      </svg>
+      <input
+        checked={false}
+        name="bornInBoston"
+        onChange={[Function]}
+        type="radio"
+        value="yes"
+      />
+      <span>
+        Yes
+      </span>
+    </label>
+    <label
+      className="  css-10ubx7k-RadioItemComponent"
+    >
+      <svg
+        aria-hidden="true"
+        className="questionMark css-pngyg8-AnswerIcon"
+        focusable="false"
+        viewBox="-2.5 -2.5 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="30.377"
+          cy="30.377"
+          rx="30.377"
+          ry="30.377"
+        />
+        <g
+          transform="translate(20.339 12.679)"
+        >
+          <path
+            d="M40.16,41.233H33.116V37.8a5.929,5.929,0,0,1,.528-2.818,12.363,12.363,0,0,1,2.025-2.553l3.17-3.258a3.213,3.213,0,0,0,.7-2.113,3.651,3.651,0,0,0-.7-2.2,2.377,2.377,0,0,0-1.937-.88,2.467,2.467,0,0,0-2.025,1.057,5.057,5.057,0,0,0-.969,2.73H26.6a11.361,11.361,0,0,1,3.346-7.22A10.214,10.214,0,0,1,37.078,17.9a9.953,9.953,0,0,1,6.956,2.377,8.3,8.3,0,0,1,2.73,6.516,7,7,0,0,1-.44,2.73c-.264.616-.528,1.057-.616,1.321a5.625,5.625,0,0,1-.88,1.145,5.222,5.222,0,0,1-.88.969L41.832,35.07a6.192,6.192,0,0,0-1.321,1.585A4.913,4.913,0,0,0,40.16,38.5Z"
+            transform="translate(-26.6 -17.9)"
+          />
+          <path
+            d="M34.745,55.856A4.26,4.26,0,1,1,37.65,57,3.606,3.606,0,0,1,34.745,55.856Z"
+            transform="translate(-27.437 -21.605)"
+          />
+        </g>
+      </svg>
+      <input
+        checked={false}
+        name="bornInBoston"
+        onChange={[Function]}
+        type="radio"
+        value="unknown"
+      />
+      <span>
+        I don’t know
+      </span>
+    </label>
+    <label
+      className="  css-10ubx7k-RadioItemComponent"
+    >
+      <svg
+        aria-hidden="true"
+        className="xSymbol css-pngyg8-AnswerIcon"
+        focusable="false"
+        viewBox="-2.5 -2.5 66 66"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <ellipse
+          cx="30.377"
+          cy="30.377"
+          rx="30.377"
+          ry="30.377"
+        />
+        <g
+          transform="translate(19.107 19.107)"
+        >
+          <line
+            x2="22.629"
+            y2="22.629"
+          />
+          <line
+            x2="22.629"
+            y1="22.629"
+          />
+        </g>
+      </svg>
+      <input
+        checked={false}
+        name="bornInBoston"
+        onChange={[Function]}
+        type="radio"
+        value="no"
+      />
+      <span>
+        No
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Death/CartItem certificate without death date 1`] = `
 <div>
   <div>
     <div
-      className="p-v300 br b--w css-p2blui br-a100"
+      className="p-v300 br b--w br-a100 css-1jvds3y-CertificateRow"
     >
       <input
         aria-label="Quantity for MONKEY JOE"
@@ -31467,7 +32481,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
 <div>
   <div>
     <div
-      className="p-v300 br b--w css-p2blui br-a100"
+      className="p-v300 br b--w br-a100 css-1jvds3y-CertificateRow"
     >
       <input
         aria-label="Quantity for JAMES HOWLETT (LOGAN)"
@@ -31531,7 +32545,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
 <div>
   <div>
     <div
-      className="p-v300 br b--w css-p2blui br-a100"
+      className="p-v300 br b--w br-a100 css-1jvds3y-CertificateRow"
     >
       <input
         aria-label="Quantity for BRUCE BANNER"
@@ -31720,7 +32734,6 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -32058,7 +33071,6 @@ exports[`Storyshots Death/CartPage loading 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -32265,7 +33277,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                             className="sel sel--thin css-15550l6"
                           >
                             <div
-                              className="sel-c css-sa8vax"
+                              className="sel-c  css-sa8vax"
                             >
                               <select
                                 aria-label="Payment type"
@@ -32562,7 +33574,6 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -32705,7 +33716,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
               <div>
                 <div>
                   <div
-                    className="p-v300 br b--w css-p2blui br-t100"
+                    className="p-v300 br b--w br-t100 css-1jvds3y-CertificateRow"
                   >
                     <input
                       aria-label="Quantity for BRUCE BANNER"
@@ -32744,7 +33755,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                 </div>
                 <div>
                   <div
-                    className="p-v300 br b--w css-p2blui br-t100"
+                    className="p-v300 br b--w br-t100 css-1jvds3y-CertificateRow"
                   >
                     <input
                       aria-label="Quantity for JAMES HOWLETT (LOGAN)"
@@ -32803,7 +33814,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                 </div>
                 <div>
                   <div
-                    className="p-v300 br b--w css-p2blui br-a100"
+                    className="p-v300 br b--w br-a100 css-1jvds3y-CertificateRow"
                   >
                     <input
                       aria-label="Quantity for MONKEY JOE"
@@ -32901,7 +33912,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                             className="sel sel--thin css-15550l6"
                           >
                             <div
-                              className="sel-c css-sa8vax"
+                              className="sel-c  css-sa8vax"
                             >
                               <select
                                 aria-label="Payment type"
@@ -33198,7 +34209,6 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -33737,7 +34747,6 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -34097,7 +35106,6 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -34626,7 +35634,6 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -35155,7 +36162,6 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -35982,7 +36988,6 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -36377,7 +37382,6 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -36761,7 +37765,6 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
         >
           <a
             className="nv-s-l-b css-1ww36lx"
-            href="/death/cart"
             onClick={[Function]}
           >
             View Cart 
@@ -36964,7 +37967,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                 onClick={[Function]}
               >
                 <div
-                  className="p-v300 br b--w css-p2blui br-b100"
+                  className="p-v300 br b--w br-b100 css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="css-1rr4qq7"
@@ -36990,7 +37993,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                 onClick={[Function]}
               >
                 <div
-                  className="p-v300 br b--w css-p2blui br-b100"
+                  className="p-v300 br b--w br-b100 css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="css-1rr4qq7"
@@ -37036,7 +38039,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                 onClick={[Function]}
               >
                 <div
-                  className="p-v300 br b--w css-p2blui br-b100"
+                  className="p-v300 br b--w br-b100 css-1jvds3y-CertificateRow"
                 >
                   <div
                     className="css-1rr4qq7"
@@ -37215,7 +38218,7 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
     onClick={[Function]}
   >
     <div
-      className="p-v300 br b--w css-p2blui br-b100"
+      className="p-v300 br b--w br-b100 css-1jvds3y-CertificateRow"
     >
       <div
         className="css-1rr4qq7"
@@ -37246,7 +38249,7 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
     onClick={[Function]}
   >
     <div
-      className="p-v300 br b--w css-p2blui br-b100"
+      className="p-v300 br b--w br-b100 css-1jvds3y-CertificateRow"
     >
       <div
         className="css-1rr4qq7"

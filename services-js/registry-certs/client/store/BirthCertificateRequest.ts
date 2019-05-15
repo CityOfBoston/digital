@@ -10,8 +10,10 @@ import {
   JSONObject,
   JSONValue,
 } from '../types';
-import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
+import { CERTIFICATE_COST } from '../../lib/costs';
 import UploadableFile, { UploadableFileRecord } from '../models/UploadableFile';
+
+const BIRTH_CERTIFICATE_COST = CERTIFICATE_COST.BIRTH;
 
 // This is used for initial state during the questions flow, and to
 // reset all fields if user selects “start over”

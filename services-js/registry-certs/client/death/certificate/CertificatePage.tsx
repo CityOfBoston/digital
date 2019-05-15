@@ -1,19 +1,22 @@
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
 import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
-import { css } from 'emotion';
 
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import { DeathCertificate } from '../../types';
 
-import { DEATH_CERTIFICATE_COST_STRING } from '../../../lib/costs';
+import { CERTIFICATE_COST_STRING } from '../../../lib/costs';
 
 import PageLayout from '../../PageLayout';
 
-import { DeathBreadcrumbNavLinks } from '../breadcrumbs';
+import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
 import { serviceFeeDisclosureText } from '../../common/FeeDisclosures';
 
@@ -30,40 +33,6 @@ interface Props
 interface State {
   quantity: number | null;
 }
-
-const CERTIFICATE_STYLE = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flexGrow: 1,
-  justifyContent: 'space-between',
-});
-
-const LIST_ITEM_STYLE = css({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-});
-
-const LIST_ITEM_ELEMENT_STYLE = css({
-  lineHeight: '1rem',
-  verticalAlign: 'center',
-});
-
-const LIST_ITEM_TITLE_STYLE = css(LIST_ITEM_ELEMENT_STYLE, {
-  paddingRight: '1em',
-  width: '30%',
-});
-
-const ADD_TO_CART_FORM_STYLE = css({
-  display: 'flex',
-  alignItems: 'center',
-});
-
-const QUANTITY_DROPDOWN_STYLE = css({
-  '&:after': {
-    content: "'Qty,'",
-  },
-});
 
 @observer
 class CertificatePage extends React.Component<Props, State> {
@@ -185,7 +154,7 @@ class CertificatePage extends React.Component<Props, State> {
       <PageLayout
         showNav
         cart={deathCertificateCart}
-        breadcrumbNav={DeathBreadcrumbNavLinks}
+        breadcrumbNav={BREADCRUMB_NAV_LINKS.death}
       >
         <div className="b-ff">
           <Head>
@@ -241,7 +210,7 @@ class CertificatePage extends React.Component<Props, State> {
 
           <div className="b--g m-t700">
             <div className="b-c b-c--smv t--subinfo">
-              Death certificates cost {DEATH_CERTIFICATE_COST_STRING} each. That
+              Death certificates cost {CERTIFICATE_COST_STRING.DEATH} each. That
               price includes shipping. {serviceFeeDisclosureText()}
             </div>
           </div>
@@ -259,42 +228,50 @@ class CertificatePage extends React.Component<Props, State> {
     birthDate,
   }: DeathCertificate) {
     return (
-      <div className={CERTIFICATE_STYLE}>
+      <div css={CERTIFICATE_STYLE}>
         <ul className="dl">
-          <li className={`dl-i ${LIST_ITEM_STYLE}`}>
-            <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>First name</span>
-            <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+          <li className="dl-i" css={LIST_ITEM_STYLE}>
+            <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
+              First name
+            </span>
+            <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
               {firstName}
             </span>
           </li>
-          <li className={`dl-i ${LIST_ITEM_STYLE}`}>
-            <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>Last name</span>
-            <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+          <li className="dl-i" css={LIST_ITEM_STYLE}>
+            <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
+              Last name
+            </span>
+            <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
               {lastName}
             </span>
           </li>
           {birthDate && (
-            <li className={`dl-i ${LIST_ITEM_STYLE}`}>
-              <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>
+            <li className="dl-i" css={LIST_ITEM_STYLE}>
+              <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
                 Date of birth
               </span>
-              <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+              <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
                 {birthDate}
               </span>
             </li>
           )}
-          <li className={`dl-i ${LIST_ITEM_STYLE}`}>
-            <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>
+          <li className="dl-i" css={LIST_ITEM_STYLE}>
+            <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
               Date of death
             </span>
-            <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>
+            <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
               {deathDate || deathYear}
             </span>
           </li>
           {age && (
-            <li className={`dl-i ${LIST_ITEM_STYLE}`}>
-              <span className={`dl-t ${LIST_ITEM_TITLE_STYLE}`}>Age</span>
-              <span className={`dl-d ${LIST_ITEM_ELEMENT_STYLE}`}>{age}</span>
+            <li className="dl-i" css={LIST_ITEM_STYLE}>
+              <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
+                Age
+              </span>
+              <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
+                {age}
+              </span>
             </li>
           )}
         </ul>
@@ -309,7 +286,7 @@ class CertificatePage extends React.Component<Props, State> {
     const cartQuantity = deathCertificateCart.getQuantity(id);
 
     return (
-      <form onSubmit={this.handleAddToCart} className={ADD_TO_CART_FORM_STYLE}>
+      <form onSubmit={this.handleAddToCart} css={ADD_TO_CART_FORM_STYLE}>
         <div className="m-r100">
           <input
             ref={this.setQuantityField}
@@ -323,7 +300,7 @@ class CertificatePage extends React.Component<Props, State> {
             }
             onChange={this.handleQuantityChange}
           />
-          <div className={`sel-c sel-c--sq ${QUANTITY_DROPDOWN_STYLE}`}>
+          <div className="sel-c sel-c--sq" css={QUANTITY_DROPDOWN_STYLE}>
             <select
               name="quantityMenu"
               aria-label="Quantity menu"
@@ -375,3 +352,37 @@ class CertificatePage extends React.Component<Props, State> {
 export default (CertificatePage as any) as React.ComponentClass<Props> & {
   getInitialProps: (typeof CertificatePage)['getInitialProps'];
 };
+
+const CERTIFICATE_STYLE = css({
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+  justifyContent: 'space-between',
+});
+
+const LIST_ITEM_STYLE = css({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+});
+
+const LIST_ITEM_ELEMENT_STYLE = css({
+  lineHeight: '1rem',
+  verticalAlign: 'center',
+});
+
+const LIST_ITEM_TITLE_STYLE = css(LIST_ITEM_ELEMENT_STYLE, {
+  paddingRight: '1em',
+  width: '30%',
+});
+
+const ADD_TO_CART_FORM_STYLE = css({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+const QUANTITY_DROPDOWN_STYLE = css({
+  '&:after': {
+    content: "'Qty,'",
+  },
+});

@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import React from 'react';
-import { jsx } from '@emotion/core';
-import { css } from 'emotion';
+
+import { css, jsx } from '@emotion/core';
+
+import { createRef, Component } from 'react';
 
 // todo: prevent next/back while uploads pending
 
@@ -14,9 +15,10 @@ import {
   VISUALLY_HIDDEN,
   MEDIA_SMALL,
   SERIF,
+  WHITE,
 } from '@cityofboston/react-fleet';
 
-import AnswerIcon from '../icons/AnswerIcon';
+import AnswerIcon from '../../common/question-components/AnswerIcon';
 
 import UploadableFile from '../../models/UploadableFile';
 import { observer } from 'mobx-react';
@@ -48,10 +50,7 @@ interface FileSize {
  */
 
 @observer
-export default class SupportingDocumentsInput extends React.Component<
-  Props,
-  State
-> {
+export default class SupportingDocumentsInput extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
@@ -60,7 +59,7 @@ export default class SupportingDocumentsInput extends React.Component<
     };
   }
 
-  private readonly inputRef = React.createRef<HTMLInputElement>();
+  private readonly inputRef = createRef<HTMLInputElement>();
 
   // Check to see if a file does not exceed the file size limit, if defined.
   private checkFileSize = (file: File): boolean | void => {
@@ -177,8 +176,8 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
         <label
           htmlFor="uploadSupportingDocuments"
-          className={`btn btn--sm btn--200 ${this.state.isFocused &&
-            LABEL_FOCUSED_STYLING}`}
+          className="btn btn--sm btn--200"
+          css={this.state.isFocused && LABEL_FOCUSED_STYLING}
           style={{ whiteSpace: 'nowrap', fontWeight: 'bold' }}
           onClick={this.clearFailures}
         >
@@ -189,7 +188,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
           Files should be PDF format, and under 10MB each.
         </div>
 
-        <ul className={`${FILE_LIST_STYLING} t--s400`}>
+        <ul className="t--s400" css={FILE_LIST_STYLING}>
           {this.props.selectedFiles.map(uploadedFile => (
             <li key={uploadedFile.name}>
               {/* this instead of list-style to avoid ie11 formatting issue */}
@@ -201,9 +200,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
 
               {uploadedFile.status === 'canceling' ||
               uploadedFile.status === 'deleting' ? (
-                <span className={STATUS_TEXT_STYLING}>
-                  {uploadedFile.status}…
-                </span>
+                <span css={STATUS_TEXT_STYLING}>{uploadedFile.status}…</span>
               ) : (
                 <FileButton
                   uploadableFile={uploadedFile}
@@ -230,25 +227,25 @@ function FileButton(props: FileButtonProps): JSX.Element {
     return (
       <CloseButton
         handleClick={() => props.deleteFile(props.uploadableFile)}
-        className={DELETE_BUTTON_STYLING}
+        css={DELETE_BUTTON_STYLING}
         size="1.7em"
         title={`Remove file: ${name}`}
       />
     );
   } else if (status === 'uploading') {
     return (
-      <div className={UPLOADING_CONTAINER_STYLING}>
+      <div css={UPLOADING_CONTAINER_STYLING}>
         <progress
           max="100"
           aria-hidden="true"
           value={props.uploadableFile.progress}
-          className={UPLOADING_PROGRESS_STYLING}
+          css={UPLOADING_PROGRESS_STYLING}
           title={`${props.uploadableFile.progress.toFixed(0)}% uploaded`}
         />
 
         <CloseButton
           handleClick={() => props.deleteFile(props.uploadableFile, true)}
-          className={DELETE_BUTTON_STYLING}
+          css={DELETE_BUTTON_STYLING}
           size="1.7em"
           title={`Cancel upload: ${name}`}
         />
@@ -259,9 +256,9 @@ function FileButton(props: FileButtonProps): JSX.Element {
       <button
         type="button"
         onClick={() => props.uploadableFile.upload()}
-        className={ERROR_CONTAINER_STYLING}
+        css={ERROR_CONTAINER_STYLING}
       >
-        <AnswerIcon iconName={'excl'} />
+        <AnswerIcon iconName="excl" />
         <span>Upload failed. Retry?</span>
       </button>
     );
@@ -270,9 +267,9 @@ function FileButton(props: FileButtonProps): JSX.Element {
       <button
         type="button"
         onClick={() => props.uploadableFile.upload()}
-        className={ERROR_CONTAINER_STYLING}
+        css={ERROR_CONTAINER_STYLING}
       >
-        <AnswerIcon iconName={'excl'} />
+        <AnswerIcon iconName="excl" />
         <span>Failed to delete. Retry?</span>
       </button>
     );
@@ -374,10 +371,10 @@ const UPLOADING_PROGRESS_STYLING = css({
   marginRight: '0.5rem',
   height: '0.5rem',
   border: `1px solid ${CHARLES_BLUE}`,
-  backgroundColor: '#fff',
+  backgroundColor: WHITE,
 
   '::-webkit-progress-bar': {
-    backgroundColor: '#fff',
+    backgroundColor: WHITE,
   },
 
   '::-webkit-progress-value': {
@@ -397,7 +394,7 @@ const UPLOADING_PROGRESS_STYLING = css({
 
 const ERROR_CONTAINER_STYLING = css({
   padding: 0,
-  backgroundColor: 'rgba(0,0,0,0)',
+  backgroundColor: 'transparent',
   border: 'none',
   fontSize: 'inherit',
   cursor: 'pointer',

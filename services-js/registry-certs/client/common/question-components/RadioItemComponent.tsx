@@ -1,26 +1,28 @@
-import React from 'react';
+/** @jsx jsx */
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
+
+import { ChangeEvent, ReactChild } from 'react';
 
 import {
+  CHARLES_BLUE,
   GRAY_100,
   MEDIA_MEDIUM,
   SANS,
   VISUALLY_HIDDEN,
 } from '@cityofboston/react-fleet';
 
-import { BORDER_STYLE, FOCUS_STYLE } from '../styling';
+import { FOCUS_STYLE, THICK_BORDER_STYLE } from './styling';
 
 interface Props {
   questionName: string;
   questionValue: string | undefined;
   itemValue: string;
   labelText: string;
-  className?: string;
 
-  children: React.ReactChild;
+  children: ReactChild;
 
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -47,9 +49,10 @@ export default function RadioItemComponent(props: Props): JSX.Element {
 
   return (
     <label
-      className={`${RADIOITEM_STYLING} ${props.className || ''} ${
+      className={`${
         hasAnswered && itemValue === questionValue ? 'selected' : ''
       } ${hasAnswered && itemValue !== questionValue ? 'inactive' : ''}`}
+      css={RADIOITEM_STYLING}
     >
       {props.children}
 
@@ -73,6 +76,8 @@ const RADIOITEM_STYLING = css({
   cursor: 'pointer',
 
   marginBottom: '2rem',
+
+  color: CHARLES_BLUE,
 
   [MEDIA_MEDIUM]: {
     flexDirection: 'column',
@@ -102,7 +107,7 @@ const RADIOITEM_STYLING = css({
     fontFamily: SANS,
     fontWeight: 700,
     textTransform: 'uppercase',
-    border: BORDER_STYLE,
+    border: THICK_BORDER_STYLE,
 
     [MEDIA_MEDIUM]: {
       marginTop: '1.75rem',

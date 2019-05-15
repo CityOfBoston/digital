@@ -1,25 +1,34 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
+import { ChangeEvent, Component } from 'react';
+
 import Head from 'next/head';
 import Router from 'next/router';
 
 import { observer } from 'mobx-react';
 
-import { css } from 'emotion';
-
-import { CHARLES_BLUE, GRAY_100, SERIF } from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, SERIF } from '@cityofboston/react-fleet';
 
 import { PageDependencies } from '../../pages/_app';
 
-import PageWrapper from './PageWrapper';
+import PageWrapper from '../PageWrapper';
 import CostSummary from '../common/CostSummary';
 
-import QuantityDropdown from './components/QuantityDropdown';
-import BackButton from './components/BackButton';
+import QuantityDropdown from '../common/QuantityDropdown';
+import BackButton from '../common/question-components/BackButton';
 import ApostilleRequestInstructions from './components/ApostilleRequestInstructions';
 
-import { SECTION_HEADING_STYLING } from './styling';
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
-import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
+import { CERTIFICATE_COST } from '../../lib/costs';
+
+import {
+  SECTION_HEADING_STYLING,
+  THIN_BORDER_STYLE,
+} from '../common/question-components/styling';
+
+const BIRTH_CERTIFICATE_COST = CERTIFICATE_COST.BIRTH;
 
 interface Props
   extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {
@@ -34,7 +43,7 @@ interface Props
  * clear all information and start over.
  */
 @observer
-export default class ReviewRequestPage extends React.Component<Props> {
+export default class ReviewRequestPage extends Component<Props> {
   componentDidMount() {
     const { siteAnalytics, testDontScroll } = this.props;
 
@@ -56,7 +65,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
   }
 
   private handleQuantityChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { siteAnalytics } = this.props;
     const oldValue = this.props.birthCertificateRequest.quantity;
@@ -126,6 +135,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
 
     return (
       <PageWrapper
+        certificateType="birth"
         progress={{
           totalSteps: steps.length,
           currentStep: steps.indexOf('reviewRequest') + 1,
@@ -137,7 +147,7 @@ export default class ReviewRequestPage extends React.Component<Props> {
           <title>Boston.gov — {pageTitle}</title>
         </Head>
 
-        <h2 className={SECTION_HEADING_STYLING}>{pageTitle}</h2>
+        <h2 css={SECTION_HEADING_STYLING}>{pageTitle}</h2>
 
         <p>
           You can only order copies of one person’s birth certificate at a time.
@@ -147,17 +157,17 @@ export default class ReviewRequestPage extends React.Component<Props> {
 
         <ApostilleRequestInstructions />
 
-        <div className={CERTIFICATE_ROW_STYLE}>
+        <div css={CERTIFICATE_ROW_STYLE}>
           <QuantityDropdown
             quantity={quantity}
             handleQuantityChange={this.handleQuantityChange}
           />
 
-          <div className={`t--sans ${CERTIFICATE_INFO_BOX_STYLE}`}>
-            <div className={CERTIFICATE_NAME_STYLE}>
+          <div className="t--sans" css={CERTIFICATE_INFO_BOX_STYLE}>
+            <div css={CERTIFICATE_NAME_STYLE}>
               {firstName} {lastName}
             </div>
-            <div className={CERTIFICATE_SUBINFO_STYLE}>
+            <div css={CERTIFICATE_SUBINFO_STYLE}>
               <span>Birth Certificate (Certified paper copy)</span>
               <span>Born: {birthDateString}</span>
             </div>
@@ -219,8 +229,8 @@ const CERTIFICATE_SUBINFO_STYLE = css({
 });
 
 const CERTIFICATE_ROW_STYLE = css({
-  borderBottom: `1px solid ${GRAY_100}`,
-  borderTop: `1px solid ${GRAY_100}`,
+  borderBottom: THIN_BORDER_STYLE,
+  borderTop: THIN_BORDER_STYLE,
 
   paddingBottom: '0.5em',
   paddingTop: '0.5em',

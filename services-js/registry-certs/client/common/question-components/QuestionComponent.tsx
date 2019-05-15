@@ -1,11 +1,12 @@
-import React, { MouseEvent } from 'react';
+/** @jsx jsx */
 
-import BackButton from '../components/BackButton';
+import { css, jsx } from '@emotion/core';
 
-import {
-  QUESTION_BUTTON_CONTAINER_STYLING,
-  QUESTION_CONTAINER_STYLING,
-} from '../styling';
+import { MouseEvent, ReactNode } from 'react';
+
+import { MEDIA_SMALL } from '@cityofboston/react-fleet';
+
+import BackButton from './BackButton';
 
 interface Props {
   handleProceed?: (ev: MouseEvent) => void;
@@ -15,7 +16,7 @@ interface Props {
   startOver?: boolean;
   nextButtonText?: string;
 
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**
@@ -26,9 +27,9 @@ interface Props {
 export default function QuestionComponent(props: Props): JSX.Element {
   return (
     <>
-      <div className={QUESTION_CONTAINER_STYLING}>{props.children}</div>
+      <div css={CONTAINER_STYLING}>{props.children}</div>
 
-      <div className={`g g--mr ${QUESTION_BUTTON_CONTAINER_STYLING}`}>
+      <div className="g g--mr" css={BUTTON_CONTAINER_STYLING}>
         <div className="t--info g--6 m-b500">
           {props.handleStepBack && (
             <BackButton handleClick={props.handleStepBack} />
@@ -62,3 +63,38 @@ export default function QuestionComponent(props: Props): JSX.Element {
     </>
   );
 }
+
+const CONTAINER_STYLING = css({
+  'fieldset + fieldset': {
+    marginTop: '2rem',
+
+    [MEDIA_SMALL]: {
+      marginTop: '4rem',
+
+      '.lnk': {
+        paddingLeft: 0,
+      },
+    },
+  },
+});
+
+const BUTTON_CONTAINER_STYLING = css({
+  textAlign: 'center',
+
+  [MEDIA_SMALL]: {
+    marginTop: '2.5rem',
+    textAlign: 'left',
+
+    '> div': {
+      display: 'flex',
+
+      '&.ta-r > button': {
+        marginLeft: 'auto',
+      },
+    },
+
+    '.lnk': {
+      paddingLeft: 0,
+    },
+  },
+});

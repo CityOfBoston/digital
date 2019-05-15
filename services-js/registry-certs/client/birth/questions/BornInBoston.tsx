@@ -1,13 +1,20 @@
-import React, { MouseEvent } from 'react';
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+
+import { ChangeEvent, Component, MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import QuestionComponent from '../components/QuestionComponent';
-import FieldsetComponent from '../components/FieldsetComponent';
-import YesNoUnsureComponent from '../components/YesNoUnsureComponent';
+import QuestionComponent from '../../common/question-components/QuestionComponent';
+import FieldsetComponent from '../../common/question-components/FieldsetComponent';
+import YesNoUnsureComponent from '../../common/question-components/YesNoUnsureComponent';
 
-import { SECTION_HEADING_STYLING, NOTE_BOX_CLASSNAME } from '../styling';
+import {
+  SECTION_HEADING_STYLING,
+  NOTE_BOX_CLASSNAME,
+} from '../../common/question-components/styling';
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
@@ -29,7 +36,7 @@ interface Props {
  * progress to the next question.
  */
 @observer
-export default class BornInBoston extends React.Component<Props> {
+export default class BornInBoston extends Component<Props> {
   public static isComplete(
     birthCertificateRequest: BirthCertificateRequest
   ): boolean {
@@ -45,7 +52,7 @@ export default class BornInBoston extends React.Component<Props> {
     );
   }
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { birthCertificateRequest } = this.props;
     birthCertificateRequest.answerQuestion({
       [event.currentTarget.name]: event.currentTarget.value,
@@ -73,7 +80,7 @@ export default class BornInBoston extends React.Component<Props> {
         <>
           <FieldsetComponent
             legendText={
-              <h2 id="bornInBoston" className={SECTION_HEADING_STYLING}>
+              <h2 id="bornInBoston" css={SECTION_HEADING_STYLING}>
                 Were {forSelf ? 'you' : 'they'} born in Boston?
               </h2>
             }
@@ -88,10 +95,7 @@ export default class BornInBoston extends React.Component<Props> {
           {askForParents && (
             <FieldsetComponent
               legendText={
-                <h3
-                  id="parentsLivedInBoston"
-                  className={SECTION_HEADING_STYLING}
-                >
+                <h3 id="parentsLivedInBoston" css={SECTION_HEADING_STYLING}>
                   Did {forSelf ? 'your' : 'their'} parents live in Boston at the
                   time of {forSelf ? 'your' : 'their'} birth?
                 </h3>
@@ -106,7 +110,7 @@ export default class BornInBoston extends React.Component<Props> {
           )}
 
           {(definitelyDontHaveRecord || mightNotHaveRecord) && (
-            <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+            <div css={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
               <h2 className="h3 tt-u">
                 {definitelyDontHaveRecord &&
                   `Sorry, we don’t have ${forSelf ? 'your' : 'their'} record`}

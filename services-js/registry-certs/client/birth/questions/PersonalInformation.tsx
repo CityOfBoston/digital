@@ -1,19 +1,23 @@
-import React, { MouseEvent } from 'react';
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+
+import { ChangeEvent, Component, MouseEvent, ReactChild } from 'react';
 import { observer } from 'mobx-react';
 
 import { TextInput, MemorableDateInput } from '@cityofboston/react-fleet';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import QuestionComponent from '../components/QuestionComponent';
-import FieldsetComponent from '../components/FieldsetComponent';
+import QuestionComponent from '../../common/question-components/QuestionComponent';
+import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
   SUPPORTING_TEXT_STYLING,
   SECTION_HEADING_STYLING,
   NOTE_BOX_CLASSNAME,
-} from '../styling';
+} from '../../common/question-components/styling';
 
 const EARLIEST_DATE = new Date(Date.UTC(1870, 0, 1));
 
@@ -26,7 +30,7 @@ interface Props {
 }
 
 @observer
-export default class PersonalInformation extends React.Component<Props> {
+export default class PersonalInformation extends Component<Props> {
   public static isComplete({
     requestInformation,
   }: BirthCertificateRequest): boolean {
@@ -35,7 +39,7 @@ export default class PersonalInformation extends React.Component<Props> {
     return !!(firstName && lastName && birthDate);
   }
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     this.props.birthCertificateRequest.answerQuestion({
       [event.target.name]: event.target.value,
     });
@@ -65,19 +69,19 @@ export default class PersonalInformation extends React.Component<Props> {
       >
         <FieldsetComponent
           legendText={
-            <h2 className={SECTION_HEADING_STYLING}>
+            <h2 css={SECTION_HEADING_STYLING}>
               What was {forSelf ? 'your' : 'their'} name at birth?
             </h2>
           }
         >
-          <p className={SUPPORTING_TEXT_STYLING}>
+          <p css={SUPPORTING_TEXT_STYLING}>
             If {forSelf ? 'you' : 'they'} changed {forSelf ? 'your' : 'their'}{' '}
             name at some point, please use the name {forSelf ? 'you' : 'they'}{' '}
             were given at birth. If {forSelf ? 'you' : 'they'} were adopted, use{' '}
             {forSelf ? 'your' : 'their'} post-adoption name.
           </p>
 
-          <div className={NAME_FIELDS_CONTAINER_STYLING}>
+          <div css={NAME_FIELDS_CONTAINER_STYLING}>
             <TextInput
               label="First Name"
               name="firstName"
@@ -107,7 +111,7 @@ export default class PersonalInformation extends React.Component<Props> {
           <MemorableDateInput
             legend={
               <h2
-                className={SECTION_HEADING_STYLING}
+                css={SECTION_HEADING_STYLING}
                 style={{ marginBottom: '1.5rem' }}
               >
                 When were {forSelf ? 'you' : 'they'} born?
@@ -128,9 +132,9 @@ export default class PersonalInformation extends React.Component<Props> {
     );
   }
 
-  private renderRecentBirthWarningText(): React.ReactChild {
+  private renderRecentBirthWarningText(): ReactChild {
     return (
-      <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+      <div css={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
         <h2 className="h3 tt-u">We might not have the birth certificate yet</h2>
 
         <p>

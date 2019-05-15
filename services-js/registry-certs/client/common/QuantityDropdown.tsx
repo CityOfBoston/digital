@@ -1,12 +1,15 @@
-import React from 'react';
+/** @jsx jsx */
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
+
+import { ChangeEvent } from 'react';
+
 import { MEDIA_SMALL } from '@cityofboston/react-fleet';
 
 interface Props {
   quantity: number;
   handleQuantityChange: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void;
 }
 
@@ -23,26 +26,27 @@ export default function QuantityDropdown(props: Props) {
   const { quantity } = props;
 
   return (
-    <div className={`m-r200 ${ADD_TO_CART_FORM_STYLE}`}>
+    <div className="m-r200" css={ADD_TO_CART_FORM_STYLE}>
       <input
         type="number"
         min="1"
         name="quantity"
         aria-label="Quantity"
-        className={`txt-f txt-f--auto ta-r ${QUANTITY_FIELD_STYING}`}
+        className="txt-f txt-f--auto ta-r"
+        css={QUANTITY_FIELD_STYING}
         size={3}
         value={quantity}
         onChange={props.handleQuantityChange}
       />
+
       <div
-        className={`sel-c sel-c--sq ${QUANTITY_DROPDOWN_STYLE}`}
+        className="sel-c sel-c--sq"
+        css={QUANTITY_DROPDOWN_STYLE}
         aria-hidden="true"
       >
         <select
           name="quantityMenu"
-          value={
-            typeof quantity === 'number' && quantity <= 10 ? quantity : 'other'
-          }
+          value={quantity <= 10 ? quantity : 'other'}
           className="sel-f sel-f--sq"
           onChange={props.handleQuantityChange}
         >

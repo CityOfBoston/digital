@@ -7,7 +7,7 @@ import { extractCritical } from 'emotion-server';
 import { StatusModal, ContactForm } from '@cityofboston/react-fleet';
 import { ScreenReaderSupport } from '@cityofboston/next-client-common';
 
-import styleTags from '../client/common/style-tags';
+import styleTags from '../client/common/utility/style-tags';
 
 type Props = {
   __NEXT_DATA__: any;

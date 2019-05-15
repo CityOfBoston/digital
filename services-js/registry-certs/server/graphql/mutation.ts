@@ -13,10 +13,9 @@ import {
 import { processChargeSucceeded } from '../stripe-events';
 
 import {
-  DEATH_CERTIFICATE_COST,
+  CERTIFICATE_COST,
   calculateCreditCardCost,
   calculateDebitCardCost,
-  BIRTH_CERTIFICATE_COST,
 } from '../../lib/costs';
 
 import makePaymentValidator from '../../lib/validators/PaymentValidator';
@@ -223,7 +222,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     // These are all in cents, to match Stripe
     const { total, serviceFee } = await calculateCostForToken(
       stripe,
-      DEATH_CERTIFICATE_COST,
+      CERTIFICATE_COST.DEATH,
       cardToken,
       totalQuantity
     );
@@ -262,7 +261,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
           parseInt(id, 10),
           name,
           quantity,
-          DEATH_CERTIFICATE_COST / 100
+          CERTIFICATE_COST.DEATH / 100
         )
       )
     );
@@ -340,7 +339,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     // These are all in cents, to match Stripe
     const { total, serviceFee } = await calculateCostForToken(
       stripe,
-      BIRTH_CERTIFICATE_COST,
+      CERTIFICATE_COST.BIRTH,
       cardToken,
       item.quantity
     );
@@ -386,7 +385,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         requestDetails: item.notes,
       },
       item.quantity,
-      BIRTH_CERTIFICATE_COST / 100
+      CERTIFICATE_COST.BIRTH / 100
     );
 
     await registryDb.addUploadsToBirthCertificateOrder(
@@ -714,12 +713,12 @@ async function makeStripeCharge(
   switch (type) {
     case OrderType.DeathCertificate:
       description = 'Death certificates (Registry)';
-      unitPrice = DEATH_CERTIFICATE_COST;
+      unitPrice = CERTIFICATE_COST.DEATH;
       capture = true;
       break;
     case OrderType.BirthCertificate:
       description = 'Birth certificates (Registry)';
-      unitPrice = BIRTH_CERTIFICATE_COST;
+      unitPrice = CERTIFICATE_COST.BIRTH;
       capture = false;
       break;
     default:

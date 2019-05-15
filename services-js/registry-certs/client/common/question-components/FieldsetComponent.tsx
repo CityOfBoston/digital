@@ -1,12 +1,14 @@
-import React from 'react';
+/** @jsx jsx */
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
+
+import { ReactNode } from 'react';
 
 import { CHARLES_BLUE, SANS } from '@cityofboston/react-fleet';
 
 interface Props {
-  legendText: React.ReactNode;
-  children: React.ReactNode;
+  legendText: ReactNode;
+  children: ReactNode;
   className?: string;
 }
 
@@ -16,7 +18,7 @@ interface Props {
  */
 export default function FieldsetComponent(props: Props): JSX.Element {
   return (
-    <fieldset className={`${FIELDSET_STYLING} ${props.className || ''}`}>
+    <fieldset className={props.className || ''} css={FIELDSET_STYLING}>
       <legend>{props.legendText}</legend>
 
       {props.children}

@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import stylesheetHrefs from '../../templates/stylesheets.json';
+import stylesheetHrefs from '../../../templates/stylesheets.json';
 
 interface CssOpts {
   cacheParam?: string;

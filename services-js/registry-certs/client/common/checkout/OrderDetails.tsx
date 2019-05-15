@@ -1,7 +1,14 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
+import { Component } from 'react';
+
+import { observer } from 'mobx-react';
+
 import Link from 'next/link';
+
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
-import { css } from 'emotion';
 
 import {
   GRAY_000,
@@ -11,10 +18,8 @@ import {
 
 import {
   calculateCreditCardCost,
-  DEATH_CERTIFICATE_COST,
-  DEATH_CERTIFICATE_COST_STRING,
-  BIRTH_CERTIFICATE_COST,
-  BIRTH_CERTIFICATE_COST_STRING,
+  CERTIFICATE_COST,
+  CERTIFICATE_COST_STRING,
 } from '../../../lib/costs';
 
 import { CertificateType } from '../../types';
@@ -26,7 +31,6 @@ import {
 } from '../FeeDisclosures';
 
 import CertificateRow from '../../common/CertificateRow';
-import { observer } from 'mobx-react';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 type OrderDetailsProps =
@@ -118,7 +122,7 @@ interface DropdownState {
  *   <DeathOrderDetails cart={cart} />
  * </OrderDetailsDropdown>
  */
-export class OrderDetailsDropdown extends React.Component<
+export class OrderDetailsDropdown extends Component<
   DropdownProps,
   DropdownState
 > {
@@ -144,21 +148,18 @@ export class OrderDetailsDropdown extends React.Component<
     const { orderType, children } = this.props;
     const quantity = +this.props.certificateQuantity;
 
-    const certificateCost =
-      orderType === 'death' ? DEATH_CERTIFICATE_COST : BIRTH_CERTIFICATE_COST;
+    const certificateCost = CERTIFICATE_COST[orderType.toUpperCase()];
     const certificateCostString =
-      orderType === 'death'
-        ? DEATH_CERTIFICATE_COST_STRING
-        : BIRTH_CERTIFICATE_COST_STRING;
+      CERTIFICATE_COST_STRING[orderType.toUpperCase()];
 
     return (
       <div
-        className={`dr ${DRAWER_STYLE} ${
-          open ? `dr--open ${OPEN_DRAWER_STYLE}` : ''
-        }`}
+        className={`dr ${open ? 'dr--open' : ''}`}
+        css={[DRAWER_STYLE, open ? OPEN_DRAWER_STYLE : '']}
       >
         <button
-          className={`dr-h ${DRAWER_HEADER_STYLE}`}
+          className="dr-h"
+          css={DRAWER_HEADER_STYLE}
           type="button"
           onClick={this.toggleOpen}
           aria-expanded={open}
@@ -171,7 +172,8 @@ export class OrderDetailsDropdown extends React.Component<
                 focusable="false"
               >
                 <path
-                  className={`dr-i ${DRAWER_ICON_STYLE}`}
+                  className="dr-i"
+                  css={DRAWER_ICON_STYLE}
                   d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
                 />
               </svg>
@@ -204,7 +206,7 @@ export class OrderDetailsDropdown extends React.Component<
           role="region"
         >
           {open && (
-            <div className={`dr-c ${DRAWER_CONTENT_STYLE}`}>
+            <div className="dr-c" css={DRAWER_CONTENT_STYLE}>
               {children}
 
               <div className="t--subinfo p-a300">

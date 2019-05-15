@@ -19,7 +19,7 @@ import { OrderDetails } from './OrderDetails';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import { SubmissionError } from '../../dao/CheckoutDao';
 import CheckoutPageLayout from './CheckoutPageLayout';
-import { Progress } from '../../birth/PageWrapper';
+import { Progress } from '../../PageWrapper';
 
 export type Props = {
   submit: (cardElement?: stripe.elements.Element) => Promise<void>;

@@ -1,10 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
 
-const commonAttributes = {
-  xmlns: 'http://www.w3.org/2000/svg',
-  'aria-hidden': 'true',
-  focusable: 'false',
-};
+import { css, jsx } from '@emotion/core';
+
+import { MEDIA_SMALL, WHITE } from '@cityofboston/react-fleet';
 
 interface Props {
   name: string;
@@ -20,6 +18,50 @@ export default function RelatedIcon(props: Props): JSX.Element {
 
   return <>{icons[iconName]}</>;
 }
+
+const RELATION_ITEM_STYLING = css({
+  width: 100,
+  fill: WHITE,
+  stroke: 'currentColor',
+  strokeMiterlimit: 10,
+  strokeWidth: 3,
+
+  '&.forWhom': {
+    width: 140,
+  },
+
+  '&.spouse': {
+    ellipse: {
+      fill: 'none',
+      stroke: WHITE,
+      strokeWidth: 8,
+    },
+
+    line: {
+      strokeLinecap: 'round',
+    },
+
+    [MEDIA_SMALL]: {
+      height: 90,
+    },
+  },
+
+  '&.child': {
+    strokeLinejoin: 'round',
+    strokeLinecap: 'round',
+  },
+
+  '&.heavier': {
+    strokeWidth: 3.5,
+  },
+});
+
+const commonAttributes = {
+  xmlns: 'http://www.w3.org/2000/svg',
+  'aria-hidden': 'true',
+  focusable: 'false',
+  css: RELATION_ITEM_STYLING,
+};
 
 const icons = {
   myself: (

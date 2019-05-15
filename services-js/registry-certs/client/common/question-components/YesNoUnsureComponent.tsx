@@ -1,17 +1,23 @@
-import React from 'react';
+/** @jsx jsx */
 
-import AnswerIcon from '../icons/AnswerIcon';
+import { css, jsx } from '@emotion/core';
+
+import { ChangeEvent, ReactChild } from 'react';
+
+import { MEDIA_SMALL } from '@cityofboston/react-fleet';
+
 import RadioItemComponent from './RadioItemComponent';
+import AnswerIcon from './AnswerIcon';
 
 import { Question, YesNoUnknownAnswer } from '../../types';
 
-import { ANSWER_ITEM_STYLING, RADIOGROUP_STYLING } from '../styling';
+import { RADIOGROUP_STYLING } from './styling';
 
 interface Props {
   questionName: Question;
   questionValue: YesNoUnknownAnswer;
 
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -21,7 +27,7 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
   function radioItem(
     itemValue: YesNoUnknownAnswer,
     itemText: string
-  ): React.ReactChild {
+  ): ReactChild {
     // map values to the icons to use
     const iconName =
       itemValue === 'yes'
@@ -37,7 +43,7 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
         itemValue={itemValue}
         labelText={itemText}
         handleChange={props.handleChange}
-        className={ANSWER_ITEM_STYLING}
+        css={ITEM_STYLING}
       >
         <AnswerIcon iconName={iconName} />
       </RadioItemComponent>
@@ -48,7 +54,7 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
     <div
       role="radiogroup"
       aria-labelledby={props.questionName}
-      className={RADIOGROUP_STYLING}
+      css={RADIOGROUP_STYLING}
     >
       {radioItem('yes', 'Yes')}
 
@@ -58,3 +64,10 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
     </div>
   );
 }
+
+const ITEM_STYLING = css({
+  [MEDIA_SMALL]: {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
+});

@@ -1,22 +1,26 @@
-import React, { MouseEvent } from 'react';
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+
+import { ChangeEvent, Component, MouseEvent, ReactChild } from 'react';
 import { observer } from 'mobx-react';
 
 import { TextInput } from '@cityofboston/react-fleet';
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
-import QuestionComponent from '../components/QuestionComponent';
+import QuestionComponent from '../../common/question-components/QuestionComponent';
 import FieldsetComponent, {
   FIELDSET_STYLING,
-} from '../components/FieldsetComponent';
-import YesNoUnsureComponent from '../components/YesNoUnsureComponent';
+} from '../../common/question-components/FieldsetComponent';
+import YesNoUnsureComponent from '../../common/question-components/YesNoUnsureComponent';
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
   SUPPORTING_TEXT_STYLING,
   SECTION_HEADING_STYLING,
   NOTE_BOX_CLASSNAME,
-} from '../styling';
+} from '../../common/question-components/styling';
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
@@ -34,7 +38,7 @@ interface Props {
  * https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter46/Section2A
  */
 @observer
-export default class ParentalInformation extends React.Component<Props> {
+export default class ParentalInformation extends Component<Props> {
   public static isComplete(
     birthCertificateRequest: BirthCertificateRequest
   ): boolean {
@@ -46,7 +50,7 @@ export default class ParentalInformation extends React.Component<Props> {
     return !!(parent1FirstName && parentsMarried);
   }
 
-  private handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
 
     this.props.birthCertificateRequest.answerQuestion({
@@ -75,7 +79,7 @@ export default class ParentalInformation extends React.Component<Props> {
     );
   }
 
-  private renderQuestions(): React.ReactChild {
+  private renderQuestions(): ReactChild {
     const { birthCertificateRequest } = this.props;
 
     // We assume that firstName has been filled in at this point, since
@@ -94,27 +98,27 @@ export default class ParentalInformation extends React.Component<Props> {
       <>
         <FieldsetComponent
           legendText={
-            <h2 className={SECTION_HEADING_STYLING}>
+            <h2 css={SECTION_HEADING_STYLING}>
               What were {forSelf ? 'your' : 'their'} parents’ names at the time
               of {forSelf ? 'your' : 'the'} birth?
             </h2>
           }
         >
-          <p className={SUPPORTING_TEXT_STYLING}>
+          <p css={SUPPORTING_TEXT_STYLING}>
             Please use the names {forSelf ? 'your' : 'their'} parents used at
             the time of {forSelf ? 'your' : 'the'} birth. If only one parent is
             listed on {forSelf ? 'your' : 'the'} record, you only need to
             include that name.
           </p>
 
-          <fieldset className={FIELDSET_STYLING}>
+          <fieldset css={FIELDSET_STYLING}>
             <legend>
-              <h3 className={`${SECTION_HEADING_STYLING} secondary`}>
+              <h3 className="secondary" css={SECTION_HEADING_STYLING}>
                 Parent 1 <em>(Example: Mother)</em>
               </h3>
             </legend>
 
-            <div className={NAME_FIELDS_CONTAINER_STYLING}>
+            <div css={NAME_FIELDS_CONTAINER_STYLING}>
               <TextInput
                 label="First Name"
                 name="parent1FirstName"
@@ -131,14 +135,14 @@ export default class ParentalInformation extends React.Component<Props> {
             </div>
           </fieldset>
 
-          <fieldset className={FIELDSET_STYLING}>
+          <fieldset css={FIELDSET_STYLING}>
             <legend>
-              <h3 className={`${SECTION_HEADING_STYLING} secondary`}>
+              <h3 className="secondary" css={SECTION_HEADING_STYLING}>
                 Parent 2
               </h3>
             </legend>
 
-            <div className={NAME_FIELDS_CONTAINER_STYLING}>
+            <div css={NAME_FIELDS_CONTAINER_STYLING}>
               <TextInput
                 label="First Name"
                 name="parent2FirstName"
@@ -158,7 +162,7 @@ export default class ParentalInformation extends React.Component<Props> {
 
         <FieldsetComponent
           legendText={
-            <h2 className={SECTION_HEADING_STYLING}>
+            <h2 css={SECTION_HEADING_STYLING}>
               Were {forSelf ? 'your' : `${firstName}’s`} parents married at the
               time of {forSelf ? 'your' : 'their'} birth?
             </h2>
@@ -176,11 +180,11 @@ export default class ParentalInformation extends React.Component<Props> {
     );
   }
 
-  private renderRestrictedText(): React.ReactChild {
+  private renderRestrictedText(): ReactChild {
     const { forSelf } = this.props.birthCertificateRequest.requestInformation;
 
     return (
-      <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+      <div css={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
         <h2 className="h3 tt-u">Record may have an access restriction</h2>
 
         {forSelf ? (
@@ -224,7 +228,7 @@ export default class ParentalInformation extends React.Component<Props> {
   }
 }
 
-function lastNameLabel(): React.ReactChild {
+function lastNameLabel(): ReactChild {
   return (
     <>
       <span style={{ whiteSpace: 'nowrap', marginRight: '0.5em' }}>

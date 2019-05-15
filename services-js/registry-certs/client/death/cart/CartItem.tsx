@@ -1,7 +1,10 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
+import { ChangeEvent, Component } from 'react';
 import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
-import { css } from 'emotion';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import {
@@ -27,31 +30,8 @@ interface State {
   quantityHasFocus: boolean;
 }
 
-const QUANTITY_BOX_STYLE = css({
-  width: '2.5rem',
-  height: '2.5rem',
-  marginRight: '1rem',
-  fontFamily: 'inherit',
-  fontStyle: 'italic',
-  fontSize: '1rem',
-  background: OPTIMISTIC_BLUE_DARK,
-  color: WHITE,
-  textAlign: 'right',
-  padding: '0.5rem',
-});
-
-const REMOVE_BUTTON_STYLE = css({
-  border: 'none',
-  background: 'transparent',
-  color: FREEDOM_RED_DARK,
-  fontSize: '2.5rem',
-  verticalAlign: 'middle',
-  cursor: 'pointer',
-  padding: '0 0 0.2em',
-});
-
 @observer
-export default class CartItem extends React.Component<Props, State> {
+export default class CartItem extends Component<Props, State> {
   state: State = {
     quantityHasFocus: false,
   };
@@ -80,7 +60,7 @@ export default class CartItem extends React.Component<Props, State> {
 
   handleQuantityChange = action(
     'CartItem > handleQuantityChange',
-    (ev: React.ChangeEvent<HTMLInputElement>) => {
+    (ev: ChangeEvent<HTMLInputElement>) => {
       const {
         cart,
         siteAnalytics,
@@ -147,14 +127,15 @@ export default class CartItem extends React.Component<Props, State> {
               onChange={this.handleQuantityChange}
               onFocus={this.handleQuantityFocus}
               onBlur={this.handleQuantityBlur}
-              className={`br br-a150 ${QUANTITY_BOX_STYLE}`}
+              className="br br-a150"
+              css={QUANTITY_BOX_STYLE}
             />,
 
             certificateDiv,
 
             <button
               key="removeButton"
-              className={REMOVE_BUTTON_STYLE}
+              css={REMOVE_BUTTON_STYLE}
               type="button"
               onClick={this.handleRemove}
               aria-label={`Remove ${cert.firstName} ${cert.lastName}`}
@@ -167,3 +148,26 @@ export default class CartItem extends React.Component<Props, State> {
     );
   }
 }
+
+const QUANTITY_BOX_STYLE = css({
+  width: '2.5rem',
+  height: '2.5rem',
+  marginRight: '1rem',
+  fontFamily: 'inherit',
+  fontStyle: 'italic',
+  fontSize: '1rem',
+  background: OPTIMISTIC_BLUE_DARK,
+  color: WHITE,
+  textAlign: 'right',
+  padding: '0.5rem',
+});
+
+const REMOVE_BUTTON_STYLE = css({
+  border: 'none',
+  background: 'transparent',
+  color: FREEDOM_RED_DARK,
+  fontSize: '2.5rem',
+  verticalAlign: 'middle',
+  cursor: 'pointer',
+  padding: '0 0 0.2em',
+});

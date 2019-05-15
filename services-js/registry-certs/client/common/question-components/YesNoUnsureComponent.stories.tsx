@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { storiesOf } from '@storybook/react';
 
 import { YesNoUnknownAnswer } from '../../types';
@@ -16,7 +17,7 @@ class YesNoUnsureComponentStories extends React.Component<Props, State> {
     super(props);
 
     this.state = {
-      answer: 'yes',
+      answer: '',
     };
   }
 
@@ -27,7 +28,7 @@ class YesNoUnsureComponentStories extends React.Component<Props, State> {
   render() {
     return (
       <YesNoUnsureComponent
-        questionName={'bornInBoston'}
+        questionName="bornInBoston"
         questionValue={this.state.answer}
         handleChange={this.handleChange}
       />
@@ -35,7 +36,7 @@ class YesNoUnsureComponentStories extends React.Component<Props, State> {
   }
 }
 
-storiesOf('Birth/Question Components/YesNoUnsureComponent', module).add(
-  'default',
-  () => <YesNoUnsureComponentStories />
-);
+storiesOf(
+  'Common Components/Question Components/YesNoUnsureComponent',
+  module
+).add('default', () => <YesNoUnsureComponentStories />);

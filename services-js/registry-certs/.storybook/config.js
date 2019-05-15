@@ -10,7 +10,7 @@ import { addParameters, configure, addDecorator } from '@storybook/react';
 
 import { loadStories, storybookOptions } from '@cityofboston/storybook-common';
 
-import styleTags from '../client/common/style-tags';
+import styleTags from '../client/common/utility/style-tags';
 
 import './addons';
 

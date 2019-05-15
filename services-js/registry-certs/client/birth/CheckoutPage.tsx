@@ -7,13 +7,15 @@ import Link from 'next/link';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
-import { BIRTH_CERTIFICATE_COST } from '../../lib/costs';
+import { CERTIFICATE_COST } from '../../lib/costs';
 
 import ShippingContent from '../common/checkout/ShippingContent';
 import PaymentContent from '../common/checkout/PaymentContent';
 import ReviewContent from '../common/checkout/ReviewContent';
 import CheckoutPageLayout from '../common/checkout/CheckoutPageLayout';
 import BirthConfirmationContent from './BirthConfirmationContent';
+
+const BIRTH_CERTIFICATE_COST = CERTIFICATE_COST.BIRTH;
 
 type PageInfo =
   | {

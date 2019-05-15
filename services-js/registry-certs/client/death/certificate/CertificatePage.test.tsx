@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
@@ -64,7 +64,7 @@ describe('getInitialProps', () => {
         cart = new DeathCertificateCart();
         siteAnalytics = new GaSiteAnalytics();
 
-        component = shallow(
+        component = mount(
           <CertificatePage
             deathCertificateCart={cart}
             siteAnalytics={siteAnalytics}
@@ -98,7 +98,7 @@ describe('interface', () => {
   beforeEach(() => {
     siteAnalytics = new GaSiteAnalytics();
 
-    wrapper = shallow(
+    wrapper = mount(
       <CertificatePage
         siteAnalytics={siteAnalytics}
         deathCertificateCart={new DeathCertificateCart()}

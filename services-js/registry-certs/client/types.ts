@@ -22,7 +22,7 @@ export type JSONObject = {
 
 export interface JSONArray extends Array<JSONValue> {}
 
-export type CertificateType = 'death' | 'birth';
+export type CertificateType = 'death' | 'birth' | 'marriage';
 
 // Death-specific
 export interface DeathCertificate
