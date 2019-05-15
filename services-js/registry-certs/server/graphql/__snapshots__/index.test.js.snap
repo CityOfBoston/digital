@@ -51,28 +51,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 3998,
-      "start": 3952,
+      "end": 3806,
+      "start": 3760,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3981,
-          "start": 3963,
+          "end": 3789,
+          "start": 3771,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3981,
-            "start": 3973,
+            "end": 3789,
+            "start": 3781,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3981,
-              "start": 3973,
+              "end": 3789,
+              "start": 3781,
             },
             "value": "Mutation",
           },
@@ -81,21 +81,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3996,
-          "start": 3984,
+          "end": 3804,
+          "start": 3792,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3996,
-            "start": 3991,
+            "end": 3804,
+            "start": 3799,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3996,
-              "start": 3991,
+              "end": 3804,
+              "start": 3799,
             },
             "value": "Query",
           },

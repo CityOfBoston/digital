@@ -125,4 +125,4 @@ export const NAME_FIELDS_CONTAINER_STYLING = css({
 });
 
 export const NOTE_BOX_CLASSNAME = 'm-v500 p-a300 br br-a200 br--r lh--300';
-export const SUPPORTING_TEXT_STYLING = 'lh--400 t--s400 m-b500';
+export const SUPPORTING_TEXT_CLASSNAME = 'lh--400 t--s400 m-b500';

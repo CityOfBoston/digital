@@ -2,7 +2,6 @@
 import React from 'react';
 import { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
-import { extractCritical } from 'emotion-server';
 
 import { StatusModal, ContactForm } from '@cityofboston/react-fleet';
 import { ScreenReaderSupport } from '@cityofboston/next-client-common';
@@ -15,9 +14,6 @@ type Props = {
   rollbarAccessToken: string | undefined;
   rollbarEnvironment: string;
   rollbarVersion: string | undefined;
-  // From Emotion’s hydration
-  ids?: string[];
-  css: string;
 };
 
 export default class extends Document {
@@ -25,7 +21,6 @@ export default class extends Document {
 
   static getInitialProps({ renderPage }: DocumentContext): Props {
     const page = renderPage();
-    const styles = extractCritical(page.html);
 
     // This is set by our standard deployment process.
     const cacheParam =
@@ -36,7 +31,6 @@ export default class extends Document {
 
     return {
       ...page,
-      ...styles,
       cacheParam,
       rollbarAccessToken: process.env.ROLLBAR_BROWSER_ACCESS_TOKEN,
       rollbarEnvironment:
@@ -47,14 +41,8 @@ export default class extends Document {
 
   constructor(props: Props) {
     super(props);
+
     this.props = props;
-
-    const { __NEXT_DATA__, ids } = props;
-
-    // These are the ids for Emotion classes already on the page.
-    if (ids) {
-      __NEXT_DATA__.ids = ids;
-    }
   }
 
   render() {
@@ -63,7 +51,6 @@ export default class extends Document {
       rollbarAccessToken,
       rollbarEnvironment,
       rollbarVersion,
-      css,
       __NEXT_DATA__: { buildId },
     } = this.props;
 
@@ -104,7 +91,7 @@ export default class extends Document {
             />
           )}
 
-          {styleTags({ cacheParam, additionalCss: css })}
+          {styleTags({ cacheParam })}
 
           {process.env.GOOGLE_TRACKING_ID && (
             <script

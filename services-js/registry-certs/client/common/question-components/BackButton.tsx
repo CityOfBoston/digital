@@ -37,5 +37,6 @@ export function BackButtonContent(): JSX.Element {
 }
 
 const BACK_BUTTON_STYLING = css({
-  paddingRight: '1.25rem !important',
+  padding: '1.25rem !important',
+  paddingLeft: '0 !important',
 });

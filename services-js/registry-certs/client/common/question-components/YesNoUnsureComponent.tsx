@@ -4,14 +4,13 @@ import { css, jsx } from '@emotion/core';
 
 import { ChangeEvent, ReactChild } from 'react';
 
-import { MEDIA_SMALL } from '@cityofboston/react-fleet';
-
 import RadioItemComponent from './RadioItemComponent';
 import AnswerIcon from './AnswerIcon';
 
 import { Question, YesNoUnknownAnswer } from '../../types';
 
 import { RADIOGROUP_STYLING } from './styling';
+import { MEDIA_SMALL } from '@cityofboston/react-fleet';
 
 interface Props {
   questionName: Question;
@@ -43,7 +42,6 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
         itemValue={itemValue}
         labelText={itemText}
         handleChange={props.handleChange}
-        css={ITEM_STYLING}
       >
         <AnswerIcon iconName={iconName} />
       </RadioItemComponent>
@@ -54,7 +52,7 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
     <div
       role="radiogroup"
       aria-labelledby={props.questionName}
-      css={RADIOGROUP_STYLING}
+      css={[RADIOGROUP_STYLING, RADIOITEM_STYLING]}
     >
       {radioItem('yes', 'Yes')}
 
@@ -65,9 +63,11 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
   );
 }
 
-const ITEM_STYLING = css({
-  [MEDIA_SMALL]: {
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
+const RADIOITEM_STYLING = css({
+  label: {
+    [MEDIA_SMALL]: {
+      paddingLeft: '1rem',
+      paddingRight: '1rem',
+    },
   },
 });

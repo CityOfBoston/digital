@@ -253,12 +253,12 @@ const DRAWER_CONTENT_STYLE = css({
 });
 
 const OPEN_DRAWER_STYLE = css({
-  [` .${DRAWER_HEADER_STYLE}`]: {
+  '.dr-h': {
     backgroundColor: GRAY_000,
     color: CHARLES_BLUE,
   },
 
-  [` .${DRAWER_ICON_STYLE}`]: {
+  '.dr-i': {
     // This is forced only on “open” so that it can go to white on hover.
     fill: `${OPTIMISTIC_BLUE_DARK} !important`,
   },

@@ -3905,7 +3905,8 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
 }
 
 .emotion-10 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-7 {
@@ -3940,6 +3941,13 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
 
   .emotion-7 > * {
     margin: 1rem;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .emotion-7 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -4167,16 +4175,16 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
 `;
 
 exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1`] = `
-.emotion-19 fieldset + fieldset {
+.emotion-18 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 fieldset + fieldset {
+  .emotion-18 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-19 fieldset + fieldset .lnk {
+  .emotion-18 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
@@ -4309,34 +4317,35 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
   opacity: 0.25;
 }
 
-.emotion-21 {
+.emotion-20 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-21 {
+  .emotion-20 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-21 > div {
+  .emotion-20 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-21 > div.ta-r > button {
+  .emotion-20 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-21 .lnk {
+  .emotion-20 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-20 {
-  padding-right: 1.25rem !important;
+.emotion-19 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-7 {
@@ -4374,6 +4383,13 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
   }
 }
 
+@media screen and (min-width:480px) {
+  .emotion-7 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .emotion-1 {
   width: 80px;
   height: 80px;
@@ -4405,16 +4421,12 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
   stroke: none;
 }
 
-.emotion-18 {
-  m-v500: p-a300 br br-a200 br--r lh--300;
-}
-
 <div>
   <div
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-19"
+      className="emotion-18"
     >
       <fieldset
         className=" emotion-8"
@@ -4683,7 +4695,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
         </div>
       </fieldset>
       <div
-        className="emotion-18"
+        className="m-v500 p-a300 br br-a200 br--r lh--300"
         style={
           Object {
             "paddingBottom": 0,
@@ -4704,13 +4716,13 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
       </div>
     </div>
     <div
-      className="g g--mr emotion-21"
+      className="g g--mr emotion-20"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-20"
+          className="lnk emotion-19"
           onClick={[Function]}
           type="button"
         >
@@ -4924,7 +4936,8 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
 }
 
 .emotion-19 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-7 {
@@ -4959,6 +4972,13 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
 
   .emotion-7 > * {
     margin: 1rem;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .emotion-7 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -5319,16 +5339,16 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
 `;
 
 exports[`Storyshots Birth/Question Components/BornInBoston will not have record 1`] = `
-.emotion-19 fieldset + fieldset {
+.emotion-18 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 fieldset + fieldset {
+  .emotion-18 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-19 fieldset + fieldset .lnk {
+  .emotion-18 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
@@ -5461,34 +5481,35 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
   opacity: 0.25;
 }
 
-.emotion-21 {
+.emotion-20 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-21 {
+  .emotion-20 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-21 > div {
+  .emotion-20 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-21 > div.ta-r > button {
+  .emotion-20 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-21 .lnk {
+  .emotion-20 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-20 {
-  padding-right: 1.25rem !important;
+.emotion-19 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-7 {
@@ -5526,6 +5547,13 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
   }
 }
 
+@media screen and (min-width:480px) {
+  .emotion-7 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 .emotion-1 {
   width: 80px;
   height: 80px;
@@ -5557,16 +5585,12 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
   stroke: none;
 }
 
-.emotion-18 {
-  m-v500: p-a300 br br-a200 br--r lh--300;
-}
-
 <div>
   <div
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-19"
+      className="emotion-18"
     >
       <fieldset
         className=" emotion-8"
@@ -5835,7 +5859,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
         </div>
       </fieldset>
       <div
-        className="emotion-18"
+        className="m-v500 p-a300 br br-a200 br--r lh--300"
         style={
           Object {
             "paddingBottom": 0,
@@ -5859,13 +5883,13 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
       </div>
     </div>
     <div
-      className="g g--mr emotion-21"
+      className="g g--mr emotion-20"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-20"
+          className="lnk emotion-19"
           onClick={[Function]}
           type="button"
         >
@@ -5970,7 +5994,8 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
 }
 
 .emotion-2 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 <div>
@@ -7249,33 +7274,33 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
 `;
 
 exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = `
-.emotion-18 fieldset + fieldset {
+.emotion-17 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-18 fieldset + fieldset {
+  .emotion-17 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-18 fieldset + fieldset .lnk {
+  .emotion-17 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-8 {
+.emotion-7 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-8 legend {
+.emotion-7 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-8 h2 {
+.emotion-7 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -7302,7 +7327,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   font-size: 1rem;
 }
 
-.emotion-11 {
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7319,7 +7344,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 {
+  .emotion-10 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -7330,7 +7355,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   }
 }
 
-.emotion-11 input {
+.emotion-10 input {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -7342,12 +7367,12 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   width: 1px;
 }
 
-.emotion-11 input:focus + span {
+.emotion-10 input:focus + span {
   outline: 4px solid #288be4;
   outline-offset: 1px;
 }
 
-.emotion-11 svg {
+.emotion-10 svg {
   -webkit-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
   flex-basis: 20%;
@@ -7355,14 +7380,14 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 svg {
+  .emotion-10 svg {
     -webkit-flex-basis: auto;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
 }
 
-.emotion-11 span {
+.emotion-10 span {
   margin-left: 1rem;
   padding: 0.8rem 1.5rem;
   font-family: Montserrat,Arial,sans-serif;
@@ -7372,7 +7397,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 span {
+  .emotion-10 span {
     margin-top: 1.75rem;
     margin-left: 0;
     -webkit-box-flex: 0;
@@ -7383,50 +7408,51 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   }
 }
 
-.emotion-11.selected span {
+.emotion-10.selected span {
   background-color: #e0e0e0;
 }
 
-.emotion-11.inactive {
+.emotion-10.inactive {
   opacity: 0.25;
 }
 
-.emotion-20 {
+.emotion-19 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-20 {
+  .emotion-19 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-20 > div {
+  .emotion-19 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-20 > div.ta-r > button {
+  .emotion-19 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-20 .lnk {
+  .emotion-19 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-19 {
-  padding-right: 1.25rem !important;
+.emotion-18 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-16 {
+.emotion-15 {
   margin: 2rem 0 3rem;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-16 {
+  .emotion-15 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7444,55 +7470,58 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
 }
 
 @media screen and (min-width:840px) {
-  .emotion-16 {
+  .emotion-15 {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
 
-  .emotion-16 > * {
+  .emotion-15 > * {
     margin: 1rem;
   }
 }
 
-.emotion-10 {
+@media screen and (min-width:480px) {
+  .emotion-15 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.emotion-9 {
   width: 80px;
   height: 80px;
   fill: #fff;
 }
 
-.emotion-10 ellipse {
+.emotion-9 ellipse {
   stroke: currentColor;
   stroke-width: 5;
 }
 
-.emotion-10.checkMark,
-.emotion-10.xSymbol {
+.emotion-9.checkMark,
+.emotion-9.xSymbol {
   fill: none;
   stroke-width: 7;
   stroke-linecap: round;
 }
 
-.emotion-10.checkMark {
+.emotion-9.checkMark {
   stroke: #62A744;
 }
 
-.emotion-10.xSymbol {
+.emotion-9.xSymbol {
   stroke: #f04f46;
 }
 
-.emotion-10.questionMark path {
+.emotion-9.questionMark path {
   fill: #091f2f;
   stroke: none;
 }
 
-.emotion-1 {
-  lh--400: t--s400 m-b500;
-}
-
 @media screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-2 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7506,36 +7535,36 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   }
 }
 
-.emotion-3 > div {
+.emotion-2 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-3 > div {
+  .emotion-2 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .emotion-3 > div:last-of-type {
+  .emotion-2 > div:last-of-type {
     margin-left: 2rem;
   }
 }
 
-.emotion-4 {
+.emotion-3 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-4 legend {
+.emotion-3 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-4 h2 {
+.emotion-3 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -7547,10 +7576,10 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-18"
+      className="emotion-17"
     >
       <fieldset
-        className=" emotion-8"
+        className=" emotion-7"
       >
         <legend>
           <h2
@@ -7564,7 +7593,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
           </h2>
         </legend>
         <p
-          className="emotion-1"
+          className="lh--400 t--s400 m-b500"
         >
           Please use the names 
           your
@@ -7575,7 +7604,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
            record, you only need to include that name.
         </p>
         <fieldset
-          className="emotion-4"
+          className="emotion-3"
         >
           <legend>
             <h3
@@ -7588,7 +7617,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </h3>
           </legend>
           <div
-            className="emotion-3"
+            className="emotion-2"
           >
             <div>
               <label
@@ -7665,7 +7694,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
           </div>
         </fieldset>
         <fieldset
-          className="emotion-4"
+          className="emotion-3"
         >
           <legend>
             <h3
@@ -7675,7 +7704,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </h3>
           </legend>
           <div
-            className="emotion-3"
+            className="emotion-2"
           >
             <div>
               <label
@@ -7753,7 +7782,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         </fieldset>
       </fieldset>
       <fieldset
-        className=" emotion-8"
+        className=" emotion-7"
       >
         <legend>
           <h2
@@ -7768,15 +7797,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
         </legend>
         <div
           aria-labelledby="parentsMarried"
-          className="emotion-16"
+          className="emotion-15"
           role="radiogroup"
         >
           <label
-            className="  emotion-11"
+            className="  emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="checkMark emotion-10"
+              className="checkMark emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -7804,11 +7833,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </span>
           </label>
           <label
-            className="  emotion-11"
+            className="  emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="questionMark emotion-10"
+              className="questionMark emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -7844,11 +7873,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </span>
           </label>
           <label
-            className="  emotion-11"
+            className="  emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="xSymbol emotion-10"
+              className="xSymbol emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -7887,13 +7916,13 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
       </fieldset>
     </div>
     <div
-      className="g g--mr emotion-20"
+      className="g g--mr emotion-19"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-19"
+          className="lnk emotion-18"
           onClick={[Function]}
           type="button"
         >
@@ -7938,33 +7967,33 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
 `;
 
 exports[`Storyshots Birth/Question Components/ParentalInformation may be restricted (other) 1`] = `
-.emotion-19 fieldset + fieldset {
+.emotion-17 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 fieldset + fieldset {
+  .emotion-17 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-19 fieldset + fieldset .lnk {
+  .emotion-17 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-8 {
+.emotion-7 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-8 legend {
+.emotion-7 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-8 h2 {
+.emotion-7 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -7991,7 +8020,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   font-size: 1rem;
 }
 
-.emotion-11 {
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8008,7 +8037,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 {
+  .emotion-10 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -8019,7 +8048,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   }
 }
 
-.emotion-11 input {
+.emotion-10 input {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -8031,12 +8060,12 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   width: 1px;
 }
 
-.emotion-11 input:focus + span {
+.emotion-10 input:focus + span {
   outline: 4px solid #288be4;
   outline-offset: 1px;
 }
 
-.emotion-11 svg {
+.emotion-10 svg {
   -webkit-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
   flex-basis: 20%;
@@ -8044,14 +8073,14 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 svg {
+  .emotion-10 svg {
     -webkit-flex-basis: auto;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
 }
 
-.emotion-11 span {
+.emotion-10 span {
   margin-left: 1rem;
   padding: 0.8rem 1.5rem;
   font-family: Montserrat,Arial,sans-serif;
@@ -8061,7 +8090,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 span {
+  .emotion-10 span {
     margin-top: 1.75rem;
     margin-left: 0;
     -webkit-box-flex: 0;
@@ -8072,50 +8101,51 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   }
 }
 
-.emotion-11.selected span {
+.emotion-10.selected span {
   background-color: #e0e0e0;
 }
 
-.emotion-11.inactive {
+.emotion-10.inactive {
   opacity: 0.25;
 }
 
-.emotion-21 {
+.emotion-19 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-21 {
+  .emotion-19 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-21 > div {
+  .emotion-19 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-21 > div.ta-r > button {
+  .emotion-19 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-21 .lnk {
+  .emotion-19 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-20 {
-  padding-right: 1.25rem !important;
+.emotion-18 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-16 {
+.emotion-15 {
   margin: 2rem 0 3rem;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-16 {
+  .emotion-15 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8133,55 +8163,58 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:840px) {
-  .emotion-16 {
+  .emotion-15 {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
 
-  .emotion-16 > * {
+  .emotion-15 > * {
     margin: 1rem;
   }
 }
 
-.emotion-10 {
+@media screen and (min-width:480px) {
+  .emotion-15 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.emotion-9 {
   width: 80px;
   height: 80px;
   fill: #fff;
 }
 
-.emotion-10 ellipse {
+.emotion-9 ellipse {
   stroke: currentColor;
   stroke-width: 5;
 }
 
-.emotion-10.checkMark,
-.emotion-10.xSymbol {
+.emotion-9.checkMark,
+.emotion-9.xSymbol {
   fill: none;
   stroke-width: 7;
   stroke-linecap: round;
 }
 
-.emotion-10.checkMark {
+.emotion-9.checkMark {
   stroke: #62A744;
 }
 
-.emotion-10.xSymbol {
+.emotion-9.xSymbol {
   stroke: #f04f46;
 }
 
-.emotion-10.questionMark path {
+.emotion-9.questionMark path {
   fill: #091f2f;
   stroke: none;
 }
 
-.emotion-1 {
-  lh--400: t--s400 m-b500;
-}
-
 @media screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-2 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8195,44 +8228,40 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   }
 }
 
-.emotion-3 > div {
+.emotion-2 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-3 > div {
+  .emotion-2 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .emotion-3 > div:last-of-type {
+  .emotion-2 > div:last-of-type {
     margin-left: 2rem;
   }
 }
 
-.emotion-4 {
+.emotion-3 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-4 legend {
+.emotion-3 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-4 h2 {
+.emotion-3 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
-}
-
-.emotion-18 {
-  m-v500: p-a300 br br-a200 br--r lh--300;
 }
 
 <div>
@@ -8240,10 +8269,10 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-19"
+      className="emotion-17"
     >
       <fieldset
-        className=" emotion-8"
+        className=" emotion-7"
       >
         <legend>
           <h2
@@ -8257,7 +8286,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           </h2>
         </legend>
         <p
-          className="emotion-1"
+          className="lh--400 t--s400 m-b500"
         >
           Please use the names 
           their
@@ -8268,7 +8297,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
            record, you only need to include that name.
         </p>
         <fieldset
-          className="emotion-4"
+          className="emotion-3"
         >
           <legend>
             <h3
@@ -8281,7 +8310,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </h3>
           </legend>
           <div
-            className="emotion-3"
+            className="emotion-2"
           >
             <div>
               <label
@@ -8358,7 +8387,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           </div>
         </fieldset>
         <fieldset
-          className="emotion-4"
+          className="emotion-3"
         >
           <legend>
             <h3
@@ -8368,7 +8397,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </h3>
           </legend>
           <div
-            className="emotion-3"
+            className="emotion-2"
           >
             <div>
               <label
@@ -8446,7 +8475,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </fieldset>
       </fieldset>
       <fieldset
-        className=" emotion-8"
+        className=" emotion-7"
       >
         <legend>
           <h2
@@ -8461,15 +8490,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </legend>
         <div
           aria-labelledby="parentsMarried"
-          className="emotion-16"
+          className="emotion-15"
           role="radiogroup"
         >
           <label
-            className=" inactive emotion-11"
+            className=" inactive emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="checkMark emotion-10"
+              className="checkMark emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -8497,11 +8526,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className=" inactive emotion-11"
+            className=" inactive emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="questionMark emotion-10"
+              className="questionMark emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -8537,11 +8566,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className="selected  emotion-11"
+            className="selected  emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="xSymbol emotion-10"
+              className="xSymbol emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -8579,7 +8608,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </div>
       </fieldset>
       <div
-        className="emotion-18"
+        className="m-v500 p-a300 br br-a200 br--r lh--300"
         style={
           Object {
             "paddingBottom": 0,
@@ -8608,13 +8637,13 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       </div>
     </div>
     <div
-      className="g g--mr emotion-21"
+      className="g g--mr emotion-19"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-20"
+          className="lnk emotion-18"
           onClick={[Function]}
           type="button"
         >
@@ -8659,33 +8688,33 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 `;
 
 exports[`Storyshots Birth/Question Components/ParentalInformation may be restricted (self) 1`] = `
-.emotion-19 fieldset + fieldset {
+.emotion-17 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 fieldset + fieldset {
+  .emotion-17 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-19 fieldset + fieldset .lnk {
+  .emotion-17 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-8 {
+.emotion-7 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-8 legend {
+.emotion-7 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-8 h2 {
+.emotion-7 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -8712,7 +8741,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   font-size: 1rem;
 }
 
-.emotion-11 {
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -8729,7 +8758,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 {
+  .emotion-10 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -8740,7 +8769,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   }
 }
 
-.emotion-11 input {
+.emotion-10 input {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -8752,12 +8781,12 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   width: 1px;
 }
 
-.emotion-11 input:focus + span {
+.emotion-10 input:focus + span {
   outline: 4px solid #288be4;
   outline-offset: 1px;
 }
 
-.emotion-11 svg {
+.emotion-10 svg {
   -webkit-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
   flex-basis: 20%;
@@ -8765,14 +8794,14 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 svg {
+  .emotion-10 svg {
     -webkit-flex-basis: auto;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
 }
 
-.emotion-11 span {
+.emotion-10 span {
   margin-left: 1rem;
   padding: 0.8rem 1.5rem;
   font-family: Montserrat,Arial,sans-serif;
@@ -8782,7 +8811,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 span {
+  .emotion-10 span {
     margin-top: 1.75rem;
     margin-left: 0;
     -webkit-box-flex: 0;
@@ -8793,50 +8822,51 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   }
 }
 
-.emotion-11.selected span {
+.emotion-10.selected span {
   background-color: #e0e0e0;
 }
 
-.emotion-11.inactive {
+.emotion-10.inactive {
   opacity: 0.25;
 }
 
-.emotion-21 {
+.emotion-19 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-21 {
+  .emotion-19 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-21 > div {
+  .emotion-19 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-21 > div.ta-r > button {
+  .emotion-19 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-21 .lnk {
+  .emotion-19 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-20 {
-  padding-right: 1.25rem !important;
+.emotion-18 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-16 {
+.emotion-15 {
   margin: 2rem 0 3rem;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-16 {
+  .emotion-15 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8854,55 +8884,58 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 }
 
 @media screen and (min-width:840px) {
-  .emotion-16 {
+  .emotion-15 {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
 
-  .emotion-16 > * {
+  .emotion-15 > * {
     margin: 1rem;
   }
 }
 
-.emotion-10 {
+@media screen and (min-width:480px) {
+  .emotion-15 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.emotion-9 {
   width: 80px;
   height: 80px;
   fill: #fff;
 }
 
-.emotion-10 ellipse {
+.emotion-9 ellipse {
   stroke: currentColor;
   stroke-width: 5;
 }
 
-.emotion-10.checkMark,
-.emotion-10.xSymbol {
+.emotion-9.checkMark,
+.emotion-9.xSymbol {
   fill: none;
   stroke-width: 7;
   stroke-linecap: round;
 }
 
-.emotion-10.checkMark {
+.emotion-9.checkMark {
   stroke: #62A744;
 }
 
-.emotion-10.xSymbol {
+.emotion-9.xSymbol {
   stroke: #f04f46;
 }
 
-.emotion-10.questionMark path {
+.emotion-9.questionMark path {
   fill: #091f2f;
   stroke: none;
 }
 
-.emotion-1 {
-  lh--400: t--s400 m-b500;
-}
-
 @media screen and (min-width:768px) {
-  .emotion-3 {
+  .emotion-2 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8916,44 +8949,40 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   }
 }
 
-.emotion-3 > div {
+.emotion-2 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-3 > div {
+  .emotion-2 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .emotion-3 > div:last-of-type {
+  .emotion-2 > div:last-of-type {
     margin-left: 2rem;
   }
 }
 
-.emotion-4 {
+.emotion-3 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-4 legend {
+.emotion-3 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-4 h2 {
+.emotion-3 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
-}
-
-.emotion-18 {
-  m-v500: p-a300 br br-a200 br--r lh--300;
 }
 
 <div>
@@ -8961,10 +8990,10 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-19"
+      className="emotion-17"
     >
       <fieldset
-        className=" emotion-8"
+        className=" emotion-7"
       >
         <legend>
           <h2
@@ -8978,7 +9007,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           </h2>
         </legend>
         <p
-          className="emotion-1"
+          className="lh--400 t--s400 m-b500"
         >
           Please use the names 
           your
@@ -8989,7 +9018,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
            record, you only need to include that name.
         </p>
         <fieldset
-          className="emotion-4"
+          className="emotion-3"
         >
           <legend>
             <h3
@@ -9002,7 +9031,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </h3>
           </legend>
           <div
-            className="emotion-3"
+            className="emotion-2"
           >
             <div>
               <label
@@ -9079,7 +9108,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           </div>
         </fieldset>
         <fieldset
-          className="emotion-4"
+          className="emotion-3"
         >
           <legend>
             <h3
@@ -9089,7 +9118,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </h3>
           </legend>
           <div
-            className="emotion-3"
+            className="emotion-2"
           >
             <div>
               <label
@@ -9167,7 +9196,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </fieldset>
       </fieldset>
       <fieldset
-        className=" emotion-8"
+        className=" emotion-7"
       >
         <legend>
           <h2
@@ -9182,15 +9211,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </legend>
         <div
           aria-labelledby="parentsMarried"
-          className="emotion-16"
+          className="emotion-15"
           role="radiogroup"
         >
           <label
-            className=" inactive emotion-11"
+            className=" inactive emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="checkMark emotion-10"
+              className="checkMark emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -9218,11 +9247,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className=" inactive emotion-11"
+            className=" inactive emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="questionMark emotion-10"
+              className="questionMark emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -9258,11 +9287,11 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </span>
           </label>
           <label
-            className="selected  emotion-11"
+            className="selected  emotion-10"
           >
             <svg
               aria-hidden="true"
-              className="xSymbol emotion-10"
+              className="xSymbol emotion-9"
               focusable="false"
               viewBox="-2.5 -2.5 66 66"
               xmlns="http://www.w3.org/2000/svg"
@@ -9300,7 +9329,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         </div>
       </fieldset>
       <div
-        className="emotion-18"
+        className="m-v500 p-a300 br br-a200 br--r lh--300"
         style={
           Object {
             "paddingBottom": 0,
@@ -9327,13 +9356,13 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
       </div>
     </div>
     <div
-      className="g g--mr emotion-21"
+      className="g g--mr emotion-19"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-20"
+          className="lnk emotion-18"
           onClick={[Function]}
           type="button"
         >
@@ -9378,33 +9407,33 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 `;
 
 exports[`Storyshots Birth/Question Components/PersonalInformation birth too recent 1`] = `
-.emotion-8 fieldset + fieldset {
+.emotion-6 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-8 fieldset + fieldset {
+  .emotion-6 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-8 fieldset + fieldset .lnk {
+  .emotion-6 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-3 {
+.emotion-2 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-3 legend {
+.emotion-2 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-3 h2 {
+.emotion-2 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -9431,42 +9460,39 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   font-size: 1rem;
 }
 
-.emotion-10 {
+.emotion-8 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-10 {
+  .emotion-8 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-10 > div {
+  .emotion-8 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-10 > div.ta-r > button {
+  .emotion-8 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-10 .lnk {
+  .emotion-8 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-9 {
-  padding-right: 1.25rem !important;
-}
-
-.emotion-1 {
-  lh--400: t--s400 m-b500;
+.emotion-7 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-2 {
+  .emotion-1 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -9480,35 +9506,35 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   }
 }
 
-.emotion-2 > div {
+.emotion-1 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-2 > div {
+  .emotion-1 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .emotion-2 > div:last-of-type {
+  .emotion-1 > div:last-of-type {
     margin-left: 2rem;
   }
 }
 
-.emotion-6 {
+.emotion-5 {
   border: none;
   padding: 0;
   margin: 0;
 }
 
-.emotion-6 legend {
+.emotion-5 legend {
   padding-left: 0;
   font-size: 120%;
 }
 
-.emotion-5 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9519,36 +9545,32 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   justify-content: space-between;
 }
 
-.emotion-5 > div {
+.emotion-4 > div {
   -webkit-flex: 0 0 24%;
   -ms-flex: 0 0 24%;
   flex: 0 0 24%;
 }
 
-.emotion-5 > div:last-of-type {
+.emotion-4 > div:last-of-type {
   -webkit-flex: 0 0 50%;
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
 }
 
-.emotion-5 input {
+.emotion-4 input {
   -moz-appearance: textfield;
 }
 
-.emotion-5 input::-webkit-inner-spin-button {
+.emotion-4 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.emotion-5 input::-ms-clear {
+.emotion-4 input::-ms-clear {
   display: none;
 }
 
-.emotion-5 label {
+.emotion-4 label {
   margin-top: 0.5rem;
-}
-
-.emotion-7 {
-  m-v500: p-a300 br br-a200 br--r lh--300;
 }
 
 <div>
@@ -9556,10 +9578,10 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-8"
+      className="emotion-6"
     >
       <fieldset
-        className=" emotion-3"
+        className=" emotion-2"
       >
         <legend>
           <h2
@@ -9571,7 +9593,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
           </h2>
         </legend>
         <p
-          className="emotion-1"
+          className="lh--400 t--s400 m-b500"
         >
           If 
           they
@@ -9589,7 +9611,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
            post-adoption name.
         </p>
         <div
-          className="emotion-2"
+          className="emotion-1"
         >
           <div>
             <label
@@ -9694,7 +9716,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
         className="m-v700"
       >
         <fieldset
-          className="emotion-6"
+          className="emotion-5"
         >
           <legend
             style={
@@ -9717,7 +9739,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             </h2>
           </legend>
           <div
-            className="emotion-5"
+            className="emotion-4"
           >
             <div>
               <label
@@ -9786,7 +9808,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
         </fieldset>
       </div>
       <div
-        className="emotion-7"
+        className="m-v500 p-a300 br br-a200 br--r lh--300"
         style={
           Object {
             "paddingBottom": 0,
@@ -9811,13 +9833,13 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
       </div>
     </div>
     <div
-      className="g g--mr emotion-10"
+      className="g g--mr emotion-8"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-9"
+          className="lnk emotion-7"
           onClick={[Function]}
           type="button"
         >
@@ -9862,33 +9884,33 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
 `;
 
 exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = `
-.emotion-7 fieldset + fieldset {
+.emotion-6 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-7 fieldset + fieldset {
+  .emotion-6 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-7 fieldset + fieldset .lnk {
+  .emotion-6 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-3 {
+.emotion-2 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-3 legend {
+.emotion-2 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-3 h2 {
+.emotion-2 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -9915,42 +9937,39 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
   font-size: 1rem;
 }
 
-.emotion-9 {
+.emotion-8 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-9 {
+  .emotion-8 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-9 > div {
+  .emotion-8 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-9 > div.ta-r > button {
+  .emotion-8 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-9 .lnk {
+  .emotion-8 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-8 {
-  padding-right: 1.25rem !important;
-}
-
-.emotion-1 {
-  lh--400: t--s400 m-b500;
+.emotion-7 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-2 {
+  .emotion-1 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -9964,35 +9983,35 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
   }
 }
 
-.emotion-2 > div {
+.emotion-1 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-2 > div {
+  .emotion-1 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .emotion-2 > div:last-of-type {
+  .emotion-1 > div:last-of-type {
     margin-left: 2rem;
   }
 }
 
-.emotion-6 {
+.emotion-5 {
   border: none;
   padding: 0;
   margin: 0;
 }
 
-.emotion-6 legend {
+.emotion-5 legend {
   padding-left: 0;
   font-size: 120%;
 }
 
-.emotion-5 {
+.emotion-4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10003,31 +10022,31 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
   justify-content: space-between;
 }
 
-.emotion-5 > div {
+.emotion-4 > div {
   -webkit-flex: 0 0 24%;
   -ms-flex: 0 0 24%;
   flex: 0 0 24%;
 }
 
-.emotion-5 > div:last-of-type {
+.emotion-4 > div:last-of-type {
   -webkit-flex: 0 0 50%;
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
 }
 
-.emotion-5 input {
+.emotion-4 input {
   -moz-appearance: textfield;
 }
 
-.emotion-5 input::-webkit-inner-spin-button {
+.emotion-4 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.emotion-5 input::-ms-clear {
+.emotion-4 input::-ms-clear {
   display: none;
 }
 
-.emotion-5 label {
+.emotion-4 label {
   margin-top: 0.5rem;
 }
 
@@ -10036,10 +10055,10 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-7"
+      className="emotion-6"
     >
       <fieldset
-        className=" emotion-3"
+        className=" emotion-2"
       >
         <legend>
           <h2
@@ -10051,7 +10070,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
           </h2>
         </legend>
         <p
-          className="emotion-1"
+          className="lh--400 t--s400 m-b500"
         >
           If 
           they
@@ -10069,7 +10088,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
            post-adoption name.
         </p>
         <div
-          className="emotion-2"
+          className="emotion-1"
         >
           <div>
             <label
@@ -10174,7 +10193,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
         className="m-v700"
       >
         <fieldset
-          className="emotion-6"
+          className="emotion-5"
         >
           <legend
             style={
@@ -10197,7 +10216,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             </h2>
           </legend>
           <div
-            className="emotion-5"
+            className="emotion-4"
           >
             <div>
               <label
@@ -10267,13 +10286,13 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
       </div>
     </div>
     <div
-      className="g g--mr emotion-9"
+      className="g g--mr emotion-8"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-8"
+          className="lnk emotion-7"
           onClick={[Function]}
           type="button"
         >
@@ -11808,7 +11827,7 @@ exports[`Storyshots Birth/Question Components/SupportingDocumentsInput error upl
 `;
 
 exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] = `
-.emotion-13 {
+.emotion-11 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -11820,33 +11839,33 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
   width: 1px;
 }
 
-.emotion-19 fieldset + fieldset {
+.emotion-16 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 fieldset + fieldset {
+  .emotion-16 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-19 fieldset + fieldset .lnk {
+  .emotion-16 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-16 {
+.emotion-14 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-16 legend {
+.emotion-14 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-16 h2 {
+.emotion-14 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -11873,72 +11892,69 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
   font-size: 1rem;
 }
 
-.emotion-21 {
+.emotion-18 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-21 {
+  .emotion-18 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-21 > div {
+  .emotion-18 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-21 > div.ta-r > button {
+  .emotion-18 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-21 .lnk {
+  .emotion-18 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-20 {
-  padding-right: 1.25rem !important;
+.emotion-17 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-1 {
-  lh--400: t--s400 m-b500;
-}
-
-.emotion-6:focus > div {
+.emotion-4:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
 }
 
-.emotion-5 {
+.emotion-3 {
   position: relative;
   cursor: pointer;
   overflow: hidden;
   background-color: currentColor;
 }
 
-.emotion-4 {
+.emotion-2 {
   background-color: #288be4;
   color: #000;
 }
 
-.emotion-4.id {
+.emotion-2.id {
   padding: 2rem 4rem;
 }
 
-.emotion-7:focus {
+.emotion-5:focus {
   outline: 3px solid #000;
   outline-offset: -4px;
 }
 
-.emotion-15 {
+.emotion-13 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-15 li {
+.emotion-13 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -11955,17 +11971,17 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
 }
 
 @media screen and (min-width:480px) {
-  .emotion-15 li {
+  .emotion-13 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-15 li .name > span:last-of-type {
+.emotion-13 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-15 li .name > span:last-of-type {
+  .emotion-13 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
@@ -11975,7 +11991,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-19"
+      className="emotion-16"
     >
       <h2
         className="emotion-0"
@@ -11983,12 +11999,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         Verify your identity
       </h2>
       <p
-        className="emotion-1"
+        className="lh--400 t--s400 m-b500"
       >
         Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
       </p>
       <p
-        className="emotion-1"
+        className="lh--400 t--s400 m-b500"
       >
         <em>
           Please note
@@ -12043,7 +12059,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
             className="br br-a200"
           >
             <div
-              className="emotion-6"
+              className="emotion-4"
               onBlur={[Function]}
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -12070,7 +12086,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                 type="file"
               />
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <div
                   style={
@@ -12080,7 +12096,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                   }
                 >
                   <div
-                    className="id emotion-4"
+                    className="id emotion-2"
                   >
                     <svg
                       aria-hidden="true"
@@ -12147,7 +12163,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               }
             >
               <button
-                className="btn btn--w btn--b  emotion-7"
+                className="btn btn--w btn--b  emotion-5"
                 onClick={[Function]}
                 style={
                   Object {
@@ -12168,7 +12184,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
             className="br br-a200"
           >
             <div
-              className="emotion-6"
+              className="emotion-4"
               onBlur={[Function]}
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -12195,7 +12211,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                 type="file"
               />
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <div
                   style={
@@ -12205,7 +12221,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
                   }
                 >
                   <div
-                    className="id emotion-4"
+                    className="id emotion-2"
                   >
                     <svg
                       aria-hidden="true"
@@ -12289,7 +12305,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               }
             >
               <button
-                className="btn btn--w btn--b  emotion-7"
+                className="btn btn--w btn--b  emotion-5"
                 onClick={[Function]}
                 style={
                   Object {
@@ -12305,7 +12321,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         </div>
       </div>
       <fieldset
-        className=" emotion-16"
+        className=" emotion-14"
       >
         <legend>
           <h3
@@ -12327,7 +12343,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
           >
             <input
               accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-              className="emotion-13"
+              className="emotion-11"
               id="uploadSupportingDocuments"
               multiple={true}
               onBlur={[Function]}
@@ -12336,7 +12352,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               type="file"
             />
             <label
-              className="btn btn--sm btn--200 emotion-14"
+              className="btn btn--sm btn--200 emotion-12"
               htmlFor="uploadSupportingDocuments"
               onClick={[Function]}
               style={
@@ -12354,7 +12370,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               Files should be PDF format, and under 10MB each.
             </div>
             <ul
-              className="t--s400 emotion-15"
+              className="t--s400 emotion-13"
             />
           </div>
         </div>
@@ -12365,7 +12381,806 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         No ID?
       </h2>
       <p
-        className="m-b700 emotion-1"
+        className="m-b700 lh--400 t--s400 m-b500"
+      >
+        We can help explain your options.
+         
+        <a
+          href="mailto:birth@boston.gov?subject=Birth%20Certificate%20Support%20Request%3A%20No%20ID"
+          onClick={[Function]}
+          onMouseUp={[Function]}
+        >
+          Request help 
+          <span
+            aria-hidden="true"
+          >
+            →
+          </span>
+        </a>
+      </p>
+    </div>
+    <div
+      className="g g--mr emotion-18"
+    >
+      <div
+        className="t--info g--6 m-b500"
+      >
+        <button
+          className="lnk emotion-17"
+          onClick={[Function]}
+          type="button"
+        >
+          <span
+            style={
+              Object {
+                "fontStyle": "italic",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            <span
+              aria-hidden="true"
+              style={
+                Object {
+                  "fontStyle": "normal",
+                }
+              }
+            >
+              ←
+            </span>
+             
+            Back
+          </span>
+        </button>
+      </div>
+      <div
+        className="g--6 ta-r m-b500"
+      >
+        <button
+          className="btn btn--b-sm"
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+        >
+          Review request
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Birth/Question Components/VerifyIdentification existing images and files 1`] = `
+.emotion-12 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-19 fieldset + fieldset {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-19 fieldset + fieldset {
+    margin-top: 4rem;
+  }
+
+  .emotion-19 fieldset + fieldset .lnk {
+    padding-left: 0;
+  }
+}
+
+.emotion-17 {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.emotion-17 legend {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
+.emotion-17 h2 {
+  margin-bottom: 0;
+  font-family: Montserrat,Arial,sans-serif;
+  font-weight: 700;
+  color: #091f2f;
+}
+
+.emotion-0 {
+  padding-bottom: 0.25rem;
+  margin-bottom: 0;
+  font-family: Lora,Georgia,serif !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #091f2f;
+  border-bottom: 4px solid #091f2f;
+}
+
+.emotion-0.secondary {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-width: 3px;
+}
+
+.emotion-0.secondary em {
+  font-size: 1rem;
+}
+
+.emotion-21 {
+  text-align: center;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-21 {
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+
+  .emotion-21 > div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .emotion-21 > div.ta-r > button {
+    margin-left: auto;
+  }
+
+  .emotion-21 .lnk {
+    padding-left: 0;
+  }
+}
+
+.emotion-20 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
+}
+
+.emotion-5:focus > div {
+  outline: 4px solid #000;
+  outline-offset: -5px;
+}
+
+.emotion-4 {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: currentColor;
+}
+
+.emotion-2 {
+  background-color: #288be4;
+  color: #000;
+}
+
+.emotion-2.id {
+  padding: 2rem 4rem;
+}
+
+.emotion-6:focus {
+  outline: 3px solid #000;
+  outline-offset: -4px;
+}
+
+.emotion-16 {
+  padding-left: 0;
+  color: #091f2f;
+}
+
+.emotion-16 li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-16 li {
+    margin-left: 1rem;
+  }
+}
+
+.emotion-16 li .name > span:last-of-type {
+  margin: 0 0.5rem;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-16 li .name > span:last-of-type {
+    margin: 0 1rem;
+  }
+}
+
+.emotion-14 {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.15s;
+  transition: opacity 0.15s;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.15s;
+  transition: opacity 0.15s;
+}
+
+.emotion-14:hover {
+  opacity: 1;
+}
+
+.emotion-14:hover {
+  opacity: 1;
+}
+
+.emotion-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+<div>
+  <div
+    className="b-c b-c--hsm"
+  >
+    <div
+      className="emotion-19"
+    >
+      <h2
+        className="emotion-0"
+      >
+        Verify your identity
+      </h2>
+      <p
+        className="lh--400 t--s400 m-b500"
+      >
+        Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
+      </p>
+      <p
+        className="lh--400 t--s400 m-b500"
+      >
+        <em>
+          Please note
+        </em>
+        : You must be a person or parent listed on the record to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. We will cancel your request and will not charge your card. Contact
+         
+        <a
+          href="mailto:birth@boston.gov"
+          onClick={[Function]}
+        >
+          birth@boston.gov
+        </a>
+         
+        with questions.
+      </p>
+      <h3
+        className="secondary m-t700 emotion-0"
+        style={
+          Object {
+            "borderBottom": 0,
+          }
+        }
+      >
+        Upload ID images
+      </h3>
+      <h3>
+        We accept the following forms of ID:
+      </h3>
+      <ul
+        className="lh--300"
+      >
+        <li>
+          Driver’s License
+        </li>
+        <li>
+          State ID
+        </li>
+        <li>
+          Passport
+        </li>
+        <li>
+          Military ID
+        </li>
+      </ul>
+      <div
+        className="g"
+      >
+        <div
+          className="g--6 m-v500"
+        >
+          <div
+            className="br br-a200"
+          >
+            <div
+              className="emotion-5"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragEnter={[Function]}
+              onDragLeave={[Function]}
+              onDragOver={[Function]}
+              onDragStart={[Function]}
+              onDrop={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              tabIndex={0}
+            >
+              <input
+                accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
+                autoComplete="off"
+                multiple={false}
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                tabIndex={-1}
+                type="file"
+              />
+              <div
+                className="emotion-4"
+              >
+                <div
+                  style={
+                    Object {
+                      "visibility": "hidden",
+                    }
+                  }
+                >
+                  <div
+                    className="id emotion-2"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      viewBox="0 0 181 134"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 2h176v130H2z"
+                        fill="#fff"
+                      />
+                      <g
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M181 134H0V0h181zM4 130h172V4H4z"
+                        />
+                        <path
+                          d="M95 30h63v4H95z"
+                        />
+                        <path
+                          d="M95 48h63v4H95z"
+                        />
+                        <path
+                          d="M95 66h63v4H95z"
+                        />
+                        <path
+                          d="M95 83h63v4H95z"
+                        />
+                        <path
+                          d="M95 101h63v4H95z"
+                        />
+                      </g>
+                      <g
+                        fill="#fff"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                      >
+                        <path
+                          d="M25 32h51v71H25z"
+                        />
+                        <path
+                          d="M57 70H44l-10 7v25h33V77z"
+                        />
+                        <ellipse
+                          cx="9"
+                          cy="9"
+                          rx="9"
+                          ry="9"
+                          transform="translate(41 46)"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  className="emotion-3"
+                  style={
+                    Object {
+                      "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="br br-t200"
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <button
+                className="btn btn--w btn--b  emotion-6"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
+                type="button"
+              >
+                Remove photo
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="g--6 m-v500"
+        >
+          <div
+            className="br br-a200"
+          >
+            <div
+              className="emotion-5"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onDragEnter={[Function]}
+              onDragLeave={[Function]}
+              onDragOver={[Function]}
+              onDragStart={[Function]}
+              onDrop={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              tabIndex={0}
+            >
+              <input
+                accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
+                autoComplete="off"
+                multiple={false}
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                tabIndex={-1}
+                type="file"
+              />
+              <div
+                className="emotion-4"
+              >
+                <div
+                  style={
+                    Object {
+                      "visibility": "visible",
+                    }
+                  }
+                >
+                  <div
+                    className="id emotion-2"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      viewBox="0 0 181 134"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2 2h176v130H2z"
+                        fill="#fff"
+                      />
+                      <g
+                        fill="currentColor"
+                      >
+                        <path
+                          d="M181 134H0V0h181zM4 130h172V4H4z"
+                        />
+                        <path
+                          d="M2 21h176v25H2z"
+                        />
+                        <path
+                          d="M16 69h5v41h-5z"
+                        />
+                        <path
+                          d="M51 69h5v41h-5z"
+                        />
+                        <path
+                          d="M70 69h5v41h-5z"
+                        />
+                        <path
+                          d="M38 69h5v41h-5z"
+                        />
+                        <path
+                          d="M23 69h2v41h-2z"
+                        />
+                        <path
+                          d="M28 69h2v41h-2z"
+                        />
+                        <path
+                          d="M45 69h2v41h-2z"
+                        />
+                        <path
+                          d="M65 69h2v41h-2z"
+                        />
+                        <path
+                          d="M58 69h2v41h-2z"
+                        />
+                        <path
+                          d="M36 69h2v41h-2z"
+                        />
+                      </g>
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                      >
+                        <path
+                          d="M93 71h70"
+                        />
+                        <path
+                          d="M93 83h70"
+                        />
+                        <path
+                          d="M93 94h70"
+                        />
+                        <path
+                          d="M93 105h70"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="br br-t200"
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <button
+                className="btn btn--w btn--b  emotion-6"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "width": "100%",
+                  }
+                }
+                type="button"
+              >
+                Upload back of ID
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <fieldset
+        className=" emotion-17"
+      >
+        <legend>
+          <h3
+            className="secondary m-t700 emotion-0"
+            style={
+              Object {
+                "borderBottom": 0,
+              }
+            }
+          >
+            Have you had a legal name change or do you have court guardianship?
+          </h3>
+        </legend>
+        <div
+          onClick={[Function]}
+        >
+          <div
+            className="m-b300"
+          >
+            <input
+              accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
+              className="emotion-12"
+              id="uploadSupportingDocuments"
+              multiple={true}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              type="file"
+            />
+            <label
+              className="btn btn--sm btn--200 emotion-13"
+              htmlFor="uploadSupportingDocuments"
+              onClick={[Function]}
+              style={
+                Object {
+                  "fontWeight": "bold",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Upload Supporting Documents
+            </label>
+            <div
+              className="t--subinfo m-v200"
+            >
+              Files should be PDF format, and under 10MB each.
+            </div>
+            <ul
+              className="t--s400 emotion-16"
+            >
+              <li>
+                <span
+                  className="name"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    •
+                  </span>
+                  <span>
+                    Deadname to Finnegan change.pdf
+                  </span>
+                </span>
+                <button
+                  className="emotion-14"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "height": "1.7em",
+                      "overflow": "visible",
+                      "width": "1.7em",
+                    }
+                  }
+                  title="Remove file: Deadname to Finnegan change.pdf"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    height="1.7em"
+                    overflow="visible"
+                    viewBox="0 0 24 24"
+                    width="1.7em"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="#d22d23"
+                      r="12"
+                      stroke="none"
+                    />
+                    <g
+                      transform="rotate(45, 12, 12)"
+                    >
+                      <line
+                        fill="none"
+                        stroke="#fff"
+                        strokeLinecap="round"
+                        strokeWidth="3"
+                        x1="12"
+                        x2="12"
+                        y1="4"
+                        y2="20"
+                      />
+                      <line
+                        fill="none"
+                        stroke="#fff"
+                        strokeLinecap="round"
+                        strokeWidth="3"
+                        x1="4"
+                        x2="20"
+                        y1="12"
+                        y2="12"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <span
+                  className="name"
+                >
+                  <span
+                    aria-hidden="true"
+                  >
+                    •
+                  </span>
+                  <span>
+                    Finnegan to Fiona name change.pdf
+                  </span>
+                </span>
+                <button
+                  className="emotion-14"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "height": "1.7em",
+                      "overflow": "visible",
+                      "width": "1.7em",
+                    }
+                  }
+                  title="Remove file: Finnegan to Fiona name change.pdf"
+                  type="button"
+                >
+                  <svg
+                    aria-hidden="true"
+                    height="1.7em"
+                    overflow="visible"
+                    viewBox="0 0 24 24"
+                    width="1.7em"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      fill="#d22d23"
+                      r="12"
+                      stroke="none"
+                    />
+                    <g
+                      transform="rotate(45, 12, 12)"
+                    >
+                      <line
+                        fill="none"
+                        stroke="#fff"
+                        strokeLinecap="round"
+                        strokeWidth="3"
+                        x1="12"
+                        x2="12"
+                        y1="4"
+                        y2="20"
+                      />
+                      <line
+                        fill="none"
+                        stroke="#fff"
+                        strokeLinecap="round"
+                        strokeWidth="3"
+                        x1="4"
+                        x2="20"
+                        y1="12"
+                        y2="12"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </fieldset>
+      <h2
+        className="secondary m-t700 emotion-0"
+      >
+        No ID?
+      </h2>
+      <p
+        className="m-b700 lh--400 t--s400 m-b500"
       >
         We can help explain your options.
          
@@ -12434,810 +13249,8 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
 </div>
 `;
 
-exports[`Storyshots Birth/Question Components/VerifyIdentification existing images and files 1`] = `
-.emotion-14 {
-  border: 0;
-  -webkit-clip: rect(0 0 0 0);
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.emotion-22 fieldset + fieldset {
-  margin-top: 2rem;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-22 fieldset + fieldset {
-    margin-top: 4rem;
-  }
-
-  .emotion-22 fieldset + fieldset .lnk {
-    padding-left: 0;
-  }
-}
-
-.emotion-19 {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.emotion-19 legend {
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
-}
-
-.emotion-19 h2 {
-  margin-bottom: 0;
-  font-family: Montserrat,Arial,sans-serif;
-  font-weight: 700;
-  color: #091f2f;
-}
-
-.emotion-0 {
-  padding-bottom: 0.25rem;
-  margin-bottom: 0;
-  font-family: Lora,Georgia,serif !important;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #091f2f;
-  border-bottom: 4px solid #091f2f;
-}
-
-.emotion-0.secondary {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  border-width: 3px;
-}
-
-.emotion-0.secondary em {
-  font-size: 1rem;
-}
-
-.emotion-24 {
-  text-align: center;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-24 {
-    margin-top: 2.5rem;
-    text-align: left;
-  }
-
-  .emotion-24 > div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-  }
-
-  .emotion-24 > div.ta-r > button {
-    margin-left: auto;
-  }
-
-  .emotion-24 .lnk {
-    padding-left: 0;
-  }
-}
-
-.emotion-23 {
-  padding-right: 1.25rem !important;
-}
-
-.emotion-1 {
-  lh--400: t--s400 m-b500;
-}
-
-.emotion-7:focus > div {
-  outline: 4px solid #000;
-  outline-offset: -5px;
-}
-
-.emotion-6 {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  background-color: currentColor;
-}
-
-.emotion-4 {
-  background-color: #288be4;
-  color: #000;
-}
-
-.emotion-4.id {
-  padding: 2rem 4rem;
-}
-
-.emotion-8:focus {
-  outline: 3px solid #000;
-  outline-offset: -4px;
-}
-
-.emotion-18 {
-  padding-left: 0;
-  color: #091f2f;
-}
-
-.emotion-18 li {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 1rem;
-  margin-left: 0.5rem;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-18 li {
-    margin-left: 1rem;
-  }
-}
-
-.emotion-18 li .name > span:last-of-type {
-  margin: 0 0.5rem;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-18 li .name > span:last-of-type {
-    margin: 0 1rem;
-  }
-}
-
-.emotion-16 {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0;
-  opacity: 0.8;
-  -webkit-transition: opacity 0.15s;
-  transition: opacity 0.15s;
-  opacity: 0.6;
-  -webkit-transition: opacity 0.15s;
-  transition: opacity 0.15s;
-}
-
-.emotion-16:hover {
-  opacity: 1;
-}
-
-.emotion-16:hover {
-  opacity: 1;
-}
-
-.emotion-5 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-<div>
-  <div
-    className="b-c b-c--hsm"
-  >
-    <div
-      className="emotion-22"
-    >
-      <h2
-        className="emotion-0"
-      >
-        Verify your identity
-      </h2>
-      <p
-        className="emotion-1"
-      >
-        Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
-      </p>
-      <p
-        className="emotion-1"
-      >
-        <em>
-          Please note
-        </em>
-        : You must be a person or parent listed on the record to get a copy of the record. If you are not listed on the record, you will not be able to get a copy. We will cancel your request and will not charge your card. Contact
-         
-        <a
-          href="mailto:birth@boston.gov"
-          onClick={[Function]}
-        >
-          birth@boston.gov
-        </a>
-         
-        with questions.
-      </p>
-      <h3
-        className="secondary m-t700 emotion-0"
-        style={
-          Object {
-            "borderBottom": 0,
-          }
-        }
-      >
-        Upload ID images
-      </h3>
-      <h3>
-        We accept the following forms of ID:
-      </h3>
-      <ul
-        className="lh--300"
-      >
-        <li>
-          Driver’s License
-        </li>
-        <li>
-          State ID
-        </li>
-        <li>
-          Passport
-        </li>
-        <li>
-          Military ID
-        </li>
-      </ul>
-      <div
-        className="g"
-      >
-        <div
-          className="g--6 m-v500"
-        >
-          <div
-            className="br br-a200"
-          >
-            <div
-              className="emotion-7"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onDragEnter={[Function]}
-              onDragLeave={[Function]}
-              onDragOver={[Function]}
-              onDragStart={[Function]}
-              onDrop={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              tabIndex={0}
-            >
-              <input
-                accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-                autoComplete="off"
-                multiple={false}
-                onChange={[Function]}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                tabIndex={-1}
-                type="file"
-              />
-              <div
-                className="emotion-6"
-              >
-                <div
-                  style={
-                    Object {
-                      "visibility": "hidden",
-                    }
-                  }
-                >
-                  <div
-                    className="id emotion-4"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      viewBox="0 0 181 134"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 2h176v130H2z"
-                        fill="#fff"
-                      />
-                      <g
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M181 134H0V0h181zM4 130h172V4H4z"
-                        />
-                        <path
-                          d="M95 30h63v4H95z"
-                        />
-                        <path
-                          d="M95 48h63v4H95z"
-                        />
-                        <path
-                          d="M95 66h63v4H95z"
-                        />
-                        <path
-                          d="M95 83h63v4H95z"
-                        />
-                        <path
-                          d="M95 101h63v4H95z"
-                        />
-                      </g>
-                      <g
-                        fill="#fff"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                      >
-                        <path
-                          d="M25 32h51v71H25z"
-                        />
-                        <path
-                          d="M57 70H44l-10 7v25h33V77z"
-                        />
-                        <ellipse
-                          cx="9"
-                          cy="9"
-                          rx="9"
-                          ry="9"
-                          transform="translate(41 46)"
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-                <div
-                  className="emotion-5"
-                  style={
-                    Object {
-                      "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
-                    }
-                  }
-                />
-              </div>
-            </div>
-            <div
-              className="br br-t200"
-              style={
-                Object {
-                  "position": "relative",
-                }
-              }
-            >
-              <button
-                className="btn btn--w btn--b  emotion-8"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "width": "100%",
-                  }
-                }
-                type="button"
-              >
-                Remove photo
-              </button>
-            </div>
-          </div>
-        </div>
-        <div
-          className="g--6 m-v500"
-        >
-          <div
-            className="br br-a200"
-          >
-            <div
-              className="emotion-7"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onDragEnter={[Function]}
-              onDragLeave={[Function]}
-              onDragOver={[Function]}
-              onDragStart={[Function]}
-              onDrop={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              tabIndex={0}
-            >
-              <input
-                accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-                autoComplete="off"
-                multiple={false}
-                onChange={[Function]}
-                onClick={[Function]}
-                style={
-                  Object {
-                    "display": "none",
-                  }
-                }
-                tabIndex={-1}
-                type="file"
-              />
-              <div
-                className="emotion-6"
-              >
-                <div
-                  style={
-                    Object {
-                      "visibility": "visible",
-                    }
-                  }
-                >
-                  <div
-                    className="id emotion-4"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      viewBox="0 0 181 134"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 2h176v130H2z"
-                        fill="#fff"
-                      />
-                      <g
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M181 134H0V0h181zM4 130h172V4H4z"
-                        />
-                        <path
-                          d="M2 21h176v25H2z"
-                        />
-                        <path
-                          d="M16 69h5v41h-5z"
-                        />
-                        <path
-                          d="M51 69h5v41h-5z"
-                        />
-                        <path
-                          d="M70 69h5v41h-5z"
-                        />
-                        <path
-                          d="M38 69h5v41h-5z"
-                        />
-                        <path
-                          d="M23 69h2v41h-2z"
-                        />
-                        <path
-                          d="M28 69h2v41h-2z"
-                        />
-                        <path
-                          d="M45 69h2v41h-2z"
-                        />
-                        <path
-                          d="M65 69h2v41h-2z"
-                        />
-                        <path
-                          d="M58 69h2v41h-2z"
-                        />
-                        <path
-                          d="M36 69h2v41h-2z"
-                        />
-                      </g>
-                      <g
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                      >
-                        <path
-                          d="M93 71h70"
-                        />
-                        <path
-                          d="M93 83h70"
-                        />
-                        <path
-                          d="M93 94h70"
-                        />
-                        <path
-                          d="M93 105h70"
-                        />
-                      </g>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="br br-t200"
-              style={
-                Object {
-                  "position": "relative",
-                }
-              }
-            >
-              <button
-                className="btn btn--w btn--b  emotion-8"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "width": "100%",
-                  }
-                }
-                type="button"
-              >
-                Upload back of ID
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <fieldset
-        className=" emotion-19"
-      >
-        <legend>
-          <h3
-            className="secondary m-t700 emotion-0"
-            style={
-              Object {
-                "borderBottom": 0,
-              }
-            }
-          >
-            Have you had a legal name change or do you have court guardianship?
-          </h3>
-        </legend>
-        <div
-          onClick={[Function]}
-        >
-          <div
-            className="m-b300"
-          >
-            <input
-              accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-              className="emotion-14"
-              id="uploadSupportingDocuments"
-              multiple={true}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              type="file"
-            />
-            <label
-              className="btn btn--sm btn--200 emotion-15"
-              htmlFor="uploadSupportingDocuments"
-              onClick={[Function]}
-              style={
-                Object {
-                  "fontWeight": "bold",
-                  "whiteSpace": "nowrap",
-                }
-              }
-            >
-              Upload Supporting Documents
-            </label>
-            <div
-              className="t--subinfo m-v200"
-            >
-              Files should be PDF format, and under 10MB each.
-            </div>
-            <ul
-              className="t--s400 emotion-18"
-            >
-              <li>
-                <span
-                  className="name"
-                >
-                  <span
-                    aria-hidden="true"
-                  >
-                    •
-                  </span>
-                  <span>
-                    Deadname to Finnegan change.pdf
-                  </span>
-                </span>
-                <button
-                  className="emotion-16"
-                  onClick={[Function]}
-                  style={
-                    Object {
-                      "height": "1.7em",
-                      "overflow": "visible",
-                      "width": "1.7em",
-                    }
-                  }
-                  title="Remove file: Deadname to Finnegan change.pdf"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    height="1.7em"
-                    overflow="visible"
-                    viewBox="0 0 24 24"
-                    width="1.7em"
-                  >
-                    <circle
-                      cx="12"
-                      cy="12"
-                      fill="#d22d23"
-                      r="12"
-                      stroke="none"
-                    />
-                    <g
-                      transform="rotate(45, 12, 12)"
-                    >
-                      <line
-                        fill="none"
-                        stroke="#fff"
-                        strokeLinecap="round"
-                        strokeWidth="3"
-                        x1="12"
-                        x2="12"
-                        y1="4"
-                        y2="20"
-                      />
-                      <line
-                        fill="none"
-                        stroke="#fff"
-                        strokeLinecap="round"
-                        strokeWidth="3"
-                        x1="4"
-                        x2="20"
-                        y1="12"
-                        y2="12"
-                      />
-                    </g>
-                  </svg>
-                </button>
-              </li>
-              <li>
-                <span
-                  className="name"
-                >
-                  <span
-                    aria-hidden="true"
-                  >
-                    •
-                  </span>
-                  <span>
-                    Finnegan to Fiona name change.pdf
-                  </span>
-                </span>
-                <button
-                  className="emotion-16"
-                  onClick={[Function]}
-                  style={
-                    Object {
-                      "height": "1.7em",
-                      "overflow": "visible",
-                      "width": "1.7em",
-                    }
-                  }
-                  title="Remove file: Finnegan to Fiona name change.pdf"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    height="1.7em"
-                    overflow="visible"
-                    viewBox="0 0 24 24"
-                    width="1.7em"
-                  >
-                    <circle
-                      cx="12"
-                      cy="12"
-                      fill="#d22d23"
-                      r="12"
-                      stroke="none"
-                    />
-                    <g
-                      transform="rotate(45, 12, 12)"
-                    >
-                      <line
-                        fill="none"
-                        stroke="#fff"
-                        strokeLinecap="round"
-                        strokeWidth="3"
-                        x1="12"
-                        x2="12"
-                        y1="4"
-                        y2="20"
-                      />
-                      <line
-                        fill="none"
-                        stroke="#fff"
-                        strokeLinecap="round"
-                        strokeWidth="3"
-                        x1="4"
-                        x2="20"
-                        y1="12"
-                        y2="12"
-                      />
-                    </g>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </fieldset>
-      <h2
-        className="secondary m-t700 emotion-0"
-      >
-        No ID?
-      </h2>
-      <p
-        className="m-b700 emotion-1"
-      >
-        We can help explain your options.
-         
-        <a
-          href="mailto:birth@boston.gov?subject=Birth%20Certificate%20Support%20Request%3A%20No%20ID"
-          onClick={[Function]}
-          onMouseUp={[Function]}
-        >
-          Request help 
-          <span
-            aria-hidden="true"
-          >
-            →
-          </span>
-        </a>
-      </p>
-    </div>
-    <div
-      className="g g--mr emotion-24"
-    >
-      <div
-        className="t--info g--6 m-b500"
-      >
-        <button
-          className="lnk emotion-23"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            style={
-              Object {
-                "fontStyle": "italic",
-                "whiteSpace": "nowrap",
-              }
-            }
-          >
-            <span
-              aria-hidden="true"
-              style={
-                Object {
-                  "fontStyle": "normal",
-                }
-              }
-            >
-              ←
-            </span>
-             
-            Back
-          </span>
-        </button>
-      </div>
-      <div
-        className="g--6 ta-r m-b500"
-      >
-        <button
-          className="btn btn--b-sm"
-          disabled={true}
-          onClick={[Function]}
-          type="button"
-        >
-          Review request
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded images 1`] = `
-.emotion-14 {
+.emotion-12 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -13249,33 +13262,33 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
   width: 1px;
 }
 
-.emotion-22 fieldset + fieldset {
+.emotion-19 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-22 fieldset + fieldset {
+  .emotion-19 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-22 fieldset + fieldset .lnk {
+  .emotion-19 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-19 {
+.emotion-17 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-19 legend {
+.emotion-17 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-19 h2 {
+.emotion-17 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -13302,72 +13315,69 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
   font-size: 1rem;
 }
 
-.emotion-24 {
+.emotion-21 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-24 {
+  .emotion-21 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-24 > div {
+  .emotion-21 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-24 > div.ta-r > button {
+  .emotion-21 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-24 .lnk {
+  .emotion-21 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-23 {
-  padding-right: 1.25rem !important;
+.emotion-20 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-1 {
-  lh--400: t--s400 m-b500;
-}
-
-.emotion-7:focus > div {
+.emotion-5:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
 }
 
-.emotion-6 {
+.emotion-4 {
   position: relative;
   cursor: pointer;
   overflow: hidden;
   background-color: currentColor;
 }
 
-.emotion-4 {
+.emotion-2 {
   background-color: #288be4;
   color: #000;
 }
 
-.emotion-4.id {
+.emotion-2.id {
   padding: 2rem 4rem;
 }
 
-.emotion-8:focus {
+.emotion-6:focus {
   outline: 3px solid #000;
   outline-offset: -4px;
 }
 
-.emotion-18 {
+.emotion-16 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-18 li {
+.emotion-16 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -13384,22 +13394,22 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
 }
 
 @media screen and (min-width:480px) {
-  .emotion-18 li {
+  .emotion-16 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-18 li .name > span:last-of-type {
+.emotion-16 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-18 li .name > span:last-of-type {
+  .emotion-16 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
 
-.emotion-16 {
+.emotion-14 {
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -13412,15 +13422,15 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
   transition: opacity 0.15s;
 }
 
-.emotion-16:hover {
+.emotion-14:hover {
   opacity: 1;
 }
 
-.emotion-16:hover {
+.emotion-14:hover {
   opacity: 1;
 }
 
-.emotion-5 {
+.emotion-3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -13433,7 +13443,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
 
 <div>
   <div
-    className="emotion-22"
+    className="emotion-19"
   >
     <h2
       className="emotion-0"
@@ -13441,12 +13451,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       Verify your identity
     </h2>
     <p
-      className="emotion-1"
+      className="lh--400 t--s400 m-b500"
     >
       Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
     </p>
     <p
-      className="emotion-1"
+      className="lh--400 t--s400 m-b500"
     >
       <em>
         Please note
@@ -13501,7 +13511,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
           className="br br-a200"
         >
           <div
-            className="emotion-7"
+            className="emotion-5"
             onBlur={[Function]}
             onClick={[Function]}
             onDragEnter={[Function]}
@@ -13528,7 +13538,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
               type="file"
             />
             <div
-              className="emotion-6"
+              className="emotion-4"
             >
               <div
                 style={
@@ -13538,7 +13548,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 }
               >
                 <div
-                  className="id emotion-4"
+                  className="id emotion-2"
                 >
                   <svg
                     aria-hidden="true"
@@ -13595,7 +13605,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 </div>
               </div>
               <div
-                className="emotion-5"
+                className="emotion-3"
                 style={
                   Object {
                     "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
@@ -13613,7 +13623,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             }
           >
             <button
-              className="btn btn--w btn--b  emotion-8"
+              className="btn btn--w btn--b  emotion-6"
               onClick={[Function]}
               style={
                 Object {
@@ -13634,7 +13644,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
           className="br br-a200"
         >
           <div
-            className="emotion-7"
+            className="emotion-5"
             onBlur={[Function]}
             onClick={[Function]}
             onDragEnter={[Function]}
@@ -13661,7 +13671,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
               type="file"
             />
             <div
-              className="emotion-6"
+              className="emotion-4"
             >
               <div
                 style={
@@ -13671,7 +13681,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 }
               >
                 <div
-                  className="id emotion-4"
+                  className="id emotion-2"
                 >
                   <svg
                     aria-hidden="true"
@@ -13755,7 +13765,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             }
           >
             <button
-              className="btn btn--w btn--b  emotion-8"
+              className="btn btn--w btn--b  emotion-6"
               onClick={[Function]}
               style={
                 Object {
@@ -13771,7 +13781,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       </div>
     </div>
     <fieldset
-      className=" emotion-19"
+      className=" emotion-17"
     >
       <legend>
         <h3
@@ -13793,7 +13803,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
         >
           <input
             accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-            className="emotion-14"
+            className="emotion-12"
             id="uploadSupportingDocuments"
             multiple={true}
             onBlur={[Function]}
@@ -13802,7 +13812,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             type="file"
           />
           <label
-            className="btn btn--sm btn--200 emotion-15"
+            className="btn btn--sm btn--200 emotion-13"
             htmlFor="uploadSupportingDocuments"
             onClick={[Function]}
             style={
@@ -13820,7 +13830,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
             Files should be PDF format, and under 10MB each.
           </div>
           <ul
-            className="t--s400 emotion-18"
+            className="t--s400 emotion-16"
           >
             <li>
               <span
@@ -13836,7 +13846,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 </span>
               </span>
               <button
-                className="emotion-16"
+                className="emotion-14"
                 onClick={[Function]}
                 style={
                   Object {
@@ -13903,7 +13913,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
                 </span>
               </span>
               <button
-                className="emotion-16"
+                className="emotion-14"
                 onClick={[Function]}
                 style={
                   Object {
@@ -13966,7 +13976,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
       No ID?
     </h2>
     <p
-      className="m-b700 emotion-1"
+      className="m-b700 lh--400 t--s400 m-b500"
     >
       We can help explain your options.
        
@@ -13985,13 +13995,13 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
     </p>
   </div>
   <div
-    className="g g--mr emotion-24"
+    className="g g--mr emotion-21"
   >
     <div
       className="t--info g--6 m-b500"
     >
       <button
-        className="lnk emotion-23"
+        className="lnk emotion-20"
         onClick={[Function]}
         type="button"
       >
@@ -14035,7 +14045,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification reloaded imag
 `;
 
 exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 1`] = `
-.emotion-14 {
+.emotion-12 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -14047,33 +14057,33 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
   width: 1px;
 }
 
-.emotion-25 fieldset + fieldset {
+.emotion-22 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-25 fieldset + fieldset {
+  .emotion-22 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-25 fieldset + fieldset .lnk {
+  .emotion-22 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-22 {
+.emotion-20 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-22 legend {
+.emotion-20 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-22 h2 {
+.emotion-20 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -14100,103 +14110,100 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
   font-size: 1rem;
 }
 
-.emotion-27 {
+.emotion-24 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-27 {
+  .emotion-24 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-27 > div {
+  .emotion-24 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-27 > div.ta-r > button {
+  .emotion-24 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-27 .lnk {
+  .emotion-24 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-26 {
-  padding-right: 1.25rem !important;
+.emotion-23 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-17 {
+.emotion-15 {
   width: 80px;
   height: 80px;
   fill: #fff;
 }
 
-.emotion-17 ellipse {
+.emotion-15 ellipse {
   stroke: currentColor;
   stroke-width: 5;
 }
 
-.emotion-17.checkMark,
-.emotion-17.xSymbol {
+.emotion-15.checkMark,
+.emotion-15.xSymbol {
   fill: none;
   stroke-width: 7;
   stroke-linecap: round;
 }
 
-.emotion-17.checkMark {
+.emotion-15.checkMark {
   stroke: #62A744;
 }
 
-.emotion-17.xSymbol {
+.emotion-15.xSymbol {
   stroke: #f04f46;
 }
 
-.emotion-17.questionMark path {
+.emotion-15.questionMark path {
   fill: #091f2f;
   stroke: none;
 }
 
-.emotion-1 {
-  lh--400: t--s400 m-b500;
-}
-
-.emotion-7:focus > div {
+.emotion-5:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
 }
 
-.emotion-6 {
+.emotion-4 {
   position: relative;
   cursor: pointer;
   overflow: hidden;
   background-color: currentColor;
 }
 
-.emotion-4 {
+.emotion-2 {
   background-color: #288be4;
   color: #000;
 }
 
-.emotion-4.id {
+.emotion-2.id {
   padding: 2rem 4rem;
 }
 
-.emotion-12:focus {
+.emotion-10:focus {
   outline: 3px solid #000;
   outline-offset: -4px;
 }
 
-.emotion-21 {
+.emotion-19 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-21 li {
+.emotion-19 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14213,22 +14220,22 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
 }
 
 @media screen and (min-width:480px) {
-  .emotion-21 li {
+  .emotion-19 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-21 li .name > span:last-of-type {
+.emotion-19 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-21 li .name > span:last-of-type {
+  .emotion-19 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
 
-.emotion-18 {
+.emotion-16 {
   padding: 0;
   background-color: transparent;
   border: none;
@@ -14247,19 +14254,19 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
   color: #d22d23;
 }
 
-.emotion-18 svg {
+.emotion-16 svg {
   height: 1.2em;
   width: 1.2em;
   margin-right: 0.5rem;
 }
 
-.emotion-16 {
+.emotion-14 {
   text-transform: capitalize;
   font-style: italic;
   color: #d22d23;
 }
 
-.emotion-5 {
+.emotion-3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -14270,11 +14277,11 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
   background-position: center center;
 }
 
-.emotion-8 {
+.emotion-6 {
   color: #d22d23;
 }
 
-.emotion-8:focus {
+.emotion-6:focus {
   outline: 3px solid #000;
   outline-offset: -4px;
 }
@@ -14284,7 +14291,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-25"
+      className="emotion-22"
     >
       <h2
         className="emotion-0"
@@ -14292,12 +14299,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         Verify your identity
       </h2>
       <p
-        className="emotion-1"
+        className="lh--400 t--s400 m-b500"
       >
         Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
       </p>
       <p
-        className="emotion-1"
+        className="lh--400 t--s400 m-b500"
       >
         <em>
           Please note
@@ -14352,7 +14359,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
             className="br br-a200"
           >
             <div
-              className="emotion-7"
+              className="emotion-5"
               onBlur={[Function]}
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -14379,7 +14386,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                 type="file"
               />
               <div
-                className="emotion-6"
+                className="emotion-4"
               >
                 <div
                   style={
@@ -14389,7 +14396,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   }
                 >
                   <div
-                    className="id emotion-4"
+                    className="id emotion-2"
                   >
                     <svg
                       aria-hidden="true"
@@ -14446,7 +14453,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   </div>
                 </div>
                 <div
-                  className="emotion-5"
+                  className="emotion-3"
                   style={
                     Object {
                       "backgroundImage": "url(https://patterns.boston.gov/images/global/icons/experiential/pdf-doc.svg)",
@@ -14464,7 +14471,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               }
             >
               <button
-                className="btn btn--w btn--b  emotion-8"
+                className="btn btn--w btn--b  emotion-6"
                 onClick={[Function]}
                 style={
                   Object {
@@ -14485,7 +14492,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
             className="br br-a200"
           >
             <div
-              className="emotion-7"
+              className="emotion-5"
               onBlur={[Function]}
               onClick={[Function]}
               onDragEnter={[Function]}
@@ -14512,7 +14519,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                 type="file"
               />
               <div
-                className="emotion-6"
+                className="emotion-4"
               >
                 <div
                   style={
@@ -14522,7 +14529,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   }
                 >
                   <div
-                    className="id emotion-4"
+                    className="id emotion-2"
                   >
                     <svg
                       aria-hidden="true"
@@ -14606,7 +14613,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               }
             >
               <button
-                className="btn btn--w btn--b  emotion-12"
+                className="btn btn--w btn--b  emotion-10"
                 onClick={[Function]}
                 style={
                   Object {
@@ -14622,7 +14629,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         </div>
       </div>
       <fieldset
-        className=" emotion-22"
+        className=" emotion-20"
       >
         <legend>
           <h3
@@ -14644,7 +14651,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
           >
             <input
               accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-              className="emotion-14"
+              className="emotion-12"
               id="uploadSupportingDocuments"
               multiple={true}
               onBlur={[Function]}
@@ -14653,7 +14660,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               type="file"
             />
             <label
-              className="btn btn--sm btn--200 emotion-15"
+              className="btn btn--sm btn--200 emotion-13"
               htmlFor="uploadSupportingDocuments"
               onClick={[Function]}
               style={
@@ -14671,7 +14678,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
               Files should be PDF format, and under 10MB each.
             </div>
             <ul
-              className="t--s400 emotion-21"
+              className="t--s400 emotion-19"
             >
               <li>
                 <span
@@ -14687,7 +14694,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   </span>
                 </span>
                 <span
-                  className="emotion-16"
+                  className="emotion-14"
                 >
                   canceling
                   …
@@ -14707,13 +14714,13 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   </span>
                 </span>
                 <button
-                  className="emotion-18"
+                  className="emotion-16"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    className="excl emotion-17"
+                    className="excl emotion-15"
                     focusable="false"
                     viewBox="-2.5 -2.5 66 66"
                     xmlns="http://www.w3.org/2000/svg"
@@ -14749,13 +14756,13 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
                   </span>
                 </span>
                 <button
-                  className="emotion-18"
+                  className="emotion-16"
                   onClick={[Function]}
                   type="button"
                 >
                   <svg
                     aria-hidden="true"
-                    className="excl emotion-17"
+                    className="excl emotion-15"
                     focusable="false"
                     viewBox="-2.5 -2.5 66 66"
                     xmlns="http://www.w3.org/2000/svg"
@@ -14787,7 +14794,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
         No ID?
       </h2>
       <p
-        className="m-b700 emotion-1"
+        className="m-b700 lh--400 t--s400 m-b500"
       >
         We can help explain your options.
          
@@ -14806,13 +14813,13 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification upload error 
       </p>
     </div>
     <div
-      className="g g--mr emotion-27"
+      className="g g--mr emotion-24"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-26"
+          className="lnk emotion-23"
           onClick={[Function]}
           type="button"
         >
@@ -15688,7 +15695,8 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
 }
 
 .emotion-6 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 <div>
@@ -16313,7 +16321,8 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
 }
 
 .emotion-14 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-11 {
@@ -16348,6 +16357,13 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
 
   .emotion-11 > * {
     margin: 1rem;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .emotion-11 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -16928,33 +16944,33 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
   font-style: italic;
 }
 
-.emotion-11 fieldset + fieldset {
+.emotion-10 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-11 fieldset + fieldset {
+  .emotion-10 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-11 fieldset + fieldset .lnk {
+  .emotion-10 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-7 {
+.emotion-6 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-7 legend {
+.emotion-6 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-7 h2 {
+.emotion-6 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -16981,42 +16997,39 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
   font-size: 1rem;
 }
 
-.emotion-13 {
+.emotion-12 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-13 {
+  .emotion-12 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-13 > div {
+  .emotion-12 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-13 > div.ta-r > button {
+  .emotion-12 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-13 .lnk {
+  .emotion-12 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-12 {
-  padding-right: 1.25rem !important;
-}
-
-.emotion-5 {
-  lh--400: t--s400 m-b500;
+.emotion-11 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-6 {
+  .emotion-5 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -17030,35 +17043,35 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
   }
 }
 
-.emotion-6 > div {
+.emotion-5 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-6 > div {
+  .emotion-5 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .emotion-6 > div:last-of-type {
+  .emotion-5 > div:last-of-type {
     margin-left: 2rem;
   }
 }
 
-.emotion-10 {
+.emotion-9 {
   border: none;
   padding: 0;
   margin: 0;
 }
 
-.emotion-10 legend {
+.emotion-9 legend {
   padding-left: 0;
   font-size: 120%;
 }
 
-.emotion-9 {
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17069,31 +17082,31 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
   justify-content: space-between;
 }
 
-.emotion-9 > div {
+.emotion-8 > div {
   -webkit-flex: 0 0 24%;
   -ms-flex: 0 0 24%;
   flex: 0 0 24%;
 }
 
-.emotion-9 > div:last-of-type {
+.emotion-8 > div:last-of-type {
   -webkit-flex: 0 0 50%;
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
 }
 
-.emotion-9 input {
+.emotion-8 input {
   -moz-appearance: textfield;
 }
 
-.emotion-9 input::-webkit-inner-spin-button {
+.emotion-8 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.emotion-9 input::-ms-clear {
+.emotion-8 input::-ms-clear {
   display: none;
 }
 
-.emotion-9 label {
+.emotion-8 label {
   margin-top: 0.5rem;
 }
 
@@ -17367,10 +17380,10 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
             className="m-t500"
           >
             <div
-              className="emotion-11"
+              className="emotion-10"
             >
               <fieldset
-                className=" emotion-7"
+                className=" emotion-6"
               >
                 <legend>
                   <h2
@@ -17382,7 +17395,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                   </h2>
                 </legend>
                 <p
-                  className="emotion-5"
+                  className="lh--400 t--s400 m-b500"
                 >
                   If 
                   you
@@ -17400,7 +17413,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                    post-adoption name.
                 </p>
                 <div
-                  className="emotion-6"
+                  className="emotion-5"
                 >
                   <div>
                     <label
@@ -17505,7 +17518,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                 className="m-v700"
               >
                 <fieldset
-                  className="emotion-10"
+                  className="emotion-9"
                 >
                   <legend
                     style={
@@ -17528,7 +17541,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                     </h2>
                   </legend>
                   <div
-                    className="emotion-9"
+                    className="emotion-8"
                   >
                     <div>
                       <label
@@ -17598,13 +17611,13 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
               </div>
             </div>
             <div
-              className="g g--mr emotion-13"
+              className="g g--mr emotion-12"
             >
               <div
                 className="t--info g--6 m-b500"
               >
                 <button
-                  className="lnk emotion-12"
+                  className="lnk emotion-11"
                   onClick={[Function]}
                   type="button"
                 >
@@ -17737,33 +17750,33 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
   font-style: italic;
 }
 
-.emotion-22 fieldset + fieldset {
+.emotion-21 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-22 fieldset + fieldset {
+  .emotion-21 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-22 fieldset + fieldset .lnk {
+  .emotion-21 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-12 {
+.emotion-11 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-12 legend {
+.emotion-11 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-12 h2 {
+.emotion-11 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -17790,7 +17803,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
   font-size: 1rem;
 }
 
-.emotion-15 {
+.emotion-14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17807,7 +17820,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .emotion-15 {
+  .emotion-14 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -17818,7 +17831,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
   }
 }
 
-.emotion-15 input {
+.emotion-14 input {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -17830,12 +17843,12 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
   width: 1px;
 }
 
-.emotion-15 input:focus + span {
+.emotion-14 input:focus + span {
   outline: 4px solid #288be4;
   outline-offset: 1px;
 }
 
-.emotion-15 svg {
+.emotion-14 svg {
   -webkit-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
   flex-basis: 20%;
@@ -17843,14 +17856,14 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .emotion-15 svg {
+  .emotion-14 svg {
     -webkit-flex-basis: auto;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
 }
 
-.emotion-15 span {
+.emotion-14 span {
   margin-left: 1rem;
   padding: 0.8rem 1.5rem;
   font-family: Montserrat,Arial,sans-serif;
@@ -17860,7 +17873,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .emotion-15 span {
+  .emotion-14 span {
     margin-top: 1.75rem;
     margin-left: 0;
     -webkit-box-flex: 0;
@@ -17871,50 +17884,51 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
   }
 }
 
-.emotion-15.selected span {
+.emotion-14.selected span {
   background-color: #e0e0e0;
 }
 
-.emotion-15.inactive {
+.emotion-14.inactive {
   opacity: 0.25;
 }
 
-.emotion-24 {
+.emotion-23 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-24 {
+  .emotion-23 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-24 > div {
+  .emotion-23 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-24 > div.ta-r > button {
+  .emotion-23 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-24 .lnk {
+  .emotion-23 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-23 {
-  padding-right: 1.25rem !important;
+.emotion-22 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-20 {
+.emotion-19 {
   margin: 2rem 0 3rem;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-20 {
+  .emotion-19 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -17932,55 +17946,58 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
 }
 
 @media screen and (min-width:840px) {
-  .emotion-20 {
+  .emotion-19 {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
   }
 
-  .emotion-20 > * {
+  .emotion-19 > * {
     margin: 1rem;
   }
 }
 
-.emotion-14 {
+@media screen and (min-width:480px) {
+  .emotion-19 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.emotion-13 {
   width: 80px;
   height: 80px;
   fill: #fff;
 }
 
-.emotion-14 ellipse {
+.emotion-13 ellipse {
   stroke: currentColor;
   stroke-width: 5;
 }
 
-.emotion-14.checkMark,
-.emotion-14.xSymbol {
+.emotion-13.checkMark,
+.emotion-13.xSymbol {
   fill: none;
   stroke-width: 7;
   stroke-linecap: round;
 }
 
-.emotion-14.checkMark {
+.emotion-13.checkMark {
   stroke: #62A744;
 }
 
-.emotion-14.xSymbol {
+.emotion-13.xSymbol {
   stroke: #f04f46;
 }
 
-.emotion-14.questionMark path {
+.emotion-13.questionMark path {
   fill: #091f2f;
   stroke: none;
 }
 
-.emotion-5 {
-  lh--400: t--s400 m-b500;
-}
-
 @media screen and (min-width:768px) {
-  .emotion-7 {
+  .emotion-6 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -17994,36 +18011,36 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
   }
 }
 
-.emotion-7 > div {
+.emotion-6 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-7 > div {
+  .emotion-6 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
 
-  .emotion-7 > div:last-of-type {
+  .emotion-6 > div:last-of-type {
     margin-left: 2rem;
   }
 }
 
-.emotion-8 {
+.emotion-7 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-8 legend {
+.emotion-7 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-8 h2 {
+.emotion-7 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -18300,10 +18317,10 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
             className="m-t500"
           >
             <div
-              className="emotion-22"
+              className="emotion-21"
             >
               <fieldset
-                className=" emotion-12"
+                className=" emotion-11"
               >
                 <legend>
                   <h2
@@ -18317,7 +18334,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                   </h2>
                 </legend>
                 <p
-                  className="emotion-5"
+                  className="lh--400 t--s400 m-b500"
                 >
                   Please use the names 
                   their
@@ -18328,7 +18345,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                    record, you only need to include that name.
                 </p>
                 <fieldset
-                  className="emotion-8"
+                  className="emotion-7"
                 >
                   <legend>
                     <h3
@@ -18341,7 +18358,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                     </h3>
                   </legend>
                   <div
-                    className="emotion-7"
+                    className="emotion-6"
                   >
                     <div>
                       <label
@@ -18418,7 +18435,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                   </div>
                 </fieldset>
                 <fieldset
-                  className="emotion-8"
+                  className="emotion-7"
                 >
                   <legend>
                     <h3
@@ -18428,7 +18445,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                     </h3>
                   </legend>
                   <div
-                    className="emotion-7"
+                    className="emotion-6"
                   >
                     <div>
                       <label
@@ -18506,7 +18523,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 </fieldset>
               </fieldset>
               <fieldset
-                className=" emotion-12"
+                className=" emotion-11"
               >
                 <legend>
                   <h2
@@ -18521,15 +18538,15 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                 </legend>
                 <div
                   aria-labelledby="parentsMarried"
-                  className="emotion-20"
+                  className="emotion-19"
                   role="radiogroup"
                 >
                   <label
-                    className="  emotion-15"
+                    className="  emotion-14"
                   >
                     <svg
                       aria-hidden="true"
-                      className="checkMark emotion-14"
+                      className="checkMark emotion-13"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -18557,11 +18574,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                     </span>
                   </label>
                   <label
-                    className="  emotion-15"
+                    className="  emotion-14"
                   >
                     <svg
                       aria-hidden="true"
-                      className="questionMark emotion-14"
+                      className="questionMark emotion-13"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -18597,11 +18614,11 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                     </span>
                   </label>
                   <label
-                    className="  emotion-15"
+                    className="  emotion-14"
                   >
                     <svg
                       aria-hidden="true"
-                      className="xSymbol emotion-14"
+                      className="xSymbol emotion-13"
                       focusable="false"
                       viewBox="-2.5 -2.5 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -18640,13 +18657,13 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
               </fieldset>
             </div>
             <div
-              className="g g--mr emotion-24"
+              className="g g--mr emotion-23"
             >
               <div
                 className="t--info g--6 m-b500"
               >
                 <button
-                  className="lnk emotion-23"
+                  className="lnk emotion-22"
                   onClick={[Function]}
                   type="button"
                 >
@@ -18779,7 +18796,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   font-style: italic;
 }
 
-.emotion-17 {
+.emotion-15 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -18791,33 +18808,33 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   width: 1px;
 }
 
-.emotion-23 fieldset + fieldset {
+.emotion-20 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-23 fieldset + fieldset {
+  .emotion-20 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-23 fieldset + fieldset .lnk {
+  .emotion-20 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-20 {
+.emotion-18 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-20 legend {
+.emotion-18 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-20 h2 {
+.emotion-18 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -18844,72 +18861,69 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   font-size: 1rem;
 }
 
-.emotion-25 {
+.emotion-22 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-25 {
+  .emotion-22 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-25 > div {
+  .emotion-22 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-25 > div.ta-r > button {
+  .emotion-22 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-25 .lnk {
+  .emotion-22 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-24 {
-  padding-right: 1.25rem !important;
+.emotion-21 {
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
-.emotion-5 {
-  lh--400: t--s400 m-b500;
-}
-
-.emotion-10:focus > div {
+.emotion-8:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
 }
 
-.emotion-9 {
+.emotion-7 {
   position: relative;
   cursor: pointer;
   overflow: hidden;
   background-color: currentColor;
 }
 
-.emotion-8 {
+.emotion-6 {
   background-color: #288be4;
   color: #000;
 }
 
-.emotion-8.id {
+.emotion-6.id {
   padding: 2rem 4rem;
 }
 
-.emotion-11:focus {
+.emotion-9:focus {
   outline: 3px solid #000;
   outline-offset: -4px;
 }
 
-.emotion-19 {
+.emotion-17 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-19 li {
+.emotion-17 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -18926,17 +18940,17 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 li {
+  .emotion-17 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-19 li .name > span:last-of-type {
+.emotion-17 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 li .name > span:last-of-type {
+  .emotion-17 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
@@ -19211,7 +19225,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
             className="m-t500"
           >
             <div
-              className="emotion-23"
+              className="emotion-20"
             >
               <h2
                 className="emotion-4"
@@ -19219,12 +19233,12 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 Verify your identity
               </h2>
               <p
-                className="emotion-5"
+                className="lh--400 t--s400 m-b500"
               >
                 Under state law, the record you’re ordering may have an access restriction. You must upload a valid form of identification before we can process your request.
               </p>
               <p
-                className="emotion-5"
+                className="lh--400 t--s400 m-b500"
               >
                 <em>
                   Please note
@@ -19279,7 +19293,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                     className="br br-a200"
                   >
                     <div
-                      className="emotion-10"
+                      className="emotion-8"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -19306,7 +19320,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                         type="file"
                       />
                       <div
-                        className="emotion-9"
+                        className="emotion-7"
                       >
                         <div
                           style={
@@ -19316,7 +19330,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                           }
                         >
                           <div
-                            className="id emotion-8"
+                            className="id emotion-6"
                           >
                             <svg
                               aria-hidden="true"
@@ -19383,7 +19397,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  emotion-11"
+                        className="btn btn--w btn--b  emotion-9"
                         onClick={[Function]}
                         style={
                           Object {
@@ -19404,7 +19418,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                     className="br br-a200"
                   >
                     <div
-                      className="emotion-10"
+                      className="emotion-8"
                       onBlur={[Function]}
                       onClick={[Function]}
                       onDragEnter={[Function]}
@@ -19431,7 +19445,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                         type="file"
                       />
                       <div
-                        className="emotion-9"
+                        className="emotion-7"
                       >
                         <div
                           style={
@@ -19441,7 +19455,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                           }
                         >
                           <div
-                            className="id emotion-8"
+                            className="id emotion-6"
                           >
                             <svg
                               aria-hidden="true"
@@ -19525,7 +19539,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       }
                     >
                       <button
-                        className="btn btn--w btn--b  emotion-11"
+                        className="btn btn--w btn--b  emotion-9"
                         onClick={[Function]}
                         style={
                           Object {
@@ -19541,7 +19555,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 </div>
               </div>
               <fieldset
-                className=" emotion-20"
+                className=" emotion-18"
               >
                 <legend>
                   <h3
@@ -19563,7 +19577,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                   >
                     <input
                       accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-                      className="emotion-17"
+                      className="emotion-15"
                       id="uploadSupportingDocuments"
                       multiple={true}
                       onBlur={[Function]}
@@ -19572,7 +19586,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       type="file"
                     />
                     <label
-                      className="btn btn--sm btn--200 emotion-18"
+                      className="btn btn--sm btn--200 emotion-16"
                       htmlFor="uploadSupportingDocuments"
                       onClick={[Function]}
                       style={
@@ -19590,7 +19604,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       Files should be PDF format, and under 10MB each.
                     </div>
                     <ul
-                      className="t--s400 emotion-19"
+                      className="t--s400 emotion-17"
                     />
                   </div>
                 </div>
@@ -19601,7 +19615,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 No ID?
               </h2>
               <p
-                className="m-b700 emotion-5"
+                className="m-b700 lh--400 t--s400 m-b500"
               >
                 We can help explain your options.
                  
@@ -19620,13 +19634,13 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
               </p>
             </div>
             <div
-              className="g g--mr emotion-25"
+              className="g g--mr emotion-22"
             >
               <div
                 className="t--info g--6 m-b500"
               >
                 <button
-                  className="lnk emotion-24"
+                  className="lnk emotion-21"
                   onClick={[Function]}
                   type="button"
                 >
@@ -19820,7 +19834,8 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
 }
 
 .emotion-26 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-7 > .details-content {
@@ -38261,7 +38276,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   margin-top: 0 !important;
 }
 
-.emotion-7 .[object Object] {
+.emotion-7 .dr-h {
+  background-color: #f3f3f3;
+  color: #091f2f;
+}
+
+.emotion-7 .dr-i {
   fill: #1871bd !important;
 }
 
@@ -38567,7 +38587,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: open 1
   margin-top: 0 !important;
 }
 
-.emotion-15 .[object Object] {
+.emotion-15 .dr-h {
+  background-color: #f3f3f3;
+  color: #091f2f;
+}
+
+.emotion-15 .dr-i {
   fill: #1871bd !important;
 }
 
@@ -39450,7 +39475,8 @@ exports[`Storyshots Common Components/Question Components/AnswerIcon x symbol 1`
 
 exports[`Storyshots Common Components/Question Components/BackButton default 1`] = `
 .emotion-0 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 <div>
@@ -39703,6 +39729,13 @@ exports[`Storyshots Common Components/Question Components/QuestionComponent defa
 
   .emotion-7 > * {
     margin: 1rem;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .emotion-7 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -40073,7 +40106,8 @@ exports[`Storyshots Common Components/Question Components/QuestionComponent with
 }
 
 .emotion-10 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-7 {
@@ -40108,6 +40142,13 @@ exports[`Storyshots Common Components/Question Components/QuestionComponent with
 
   .emotion-7 > * {
     margin: 1rem;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .emotion-7 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -40506,7 +40547,8 @@ exports[`Storyshots Common Components/Question Components/QuestionComponent with
 }
 
 .emotion-10 {
-  padding-right: 1.25rem !important;
+  padding: 1.25rem !important;
+  padding-left: 0 !important;
 }
 
 .emotion-7 {
@@ -40541,6 +40583,13 @@ exports[`Storyshots Common Components/Question Components/QuestionComponent with
 
   .emotion-7 > * {
     margin: 1rem;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .emotion-7 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -41307,6 +41356,13 @@ exports[`Storyshots Common Components/Question Components/YesNoUnsureComponent d
 
   .emotion-6 > * {
     margin: 1rem;
+  }
+}
+
+@media screen and (min-width:480px) {
+  .emotion-6 label {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 

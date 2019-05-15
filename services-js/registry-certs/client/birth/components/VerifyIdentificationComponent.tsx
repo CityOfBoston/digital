@@ -21,7 +21,7 @@ import UploadableFile from '../../models/UploadableFile';
 
 import {
   SECTION_HEADING_STYLING,
-  SUPPORTING_TEXT_STYLING,
+  SUPPORTING_TEXT_CLASSNAME,
 } from '../../common/question-components/styling';
 
 // Images that are likely output from scanners or phone cameras
@@ -114,13 +114,13 @@ export default class VerifyIdentificationComponent extends Component<Props> {
       <>
         <h2 css={SECTION_HEADING_STYLING}>Verify your identity</h2>
 
-        <p css={SUPPORTING_TEXT_STYLING}>
+        <p className={SUPPORTING_TEXT_CLASSNAME}>
           Under state law, the record you’re ordering may have an access
           restriction. You must upload a valid form of identification before we
           can process your request.
         </p>
 
-        <p css={SUPPORTING_TEXT_STYLING}>
+        <p className={SUPPORTING_TEXT_CLASSNAME}>
           <em>Please note</em>: You must be a person or parent listed on the
           record to get a copy of the record. If you are not listed on the
           record, you will not be able to get a copy. We will cancel your
@@ -207,7 +207,7 @@ export default class VerifyIdentificationComponent extends Component<Props> {
           No ID?
         </h2>
 
-        <p className="m-b700" css={SUPPORTING_TEXT_STYLING}>
+        <p className={`m-b700 ${SUPPORTING_TEXT_CLASSNAME}`}>
           We can help explain your options.{' '}
           <a
             href={`mailto:birth@boston.gov?subject=${encodeURIComponent(

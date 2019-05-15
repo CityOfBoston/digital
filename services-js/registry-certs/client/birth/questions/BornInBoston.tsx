@@ -110,7 +110,7 @@ export default class BornInBoston extends Component<Props> {
           )}
 
           {(definitelyDontHaveRecord || mightNotHaveRecord) && (
-            <div css={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+            <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
               <h2 className="h3 tt-u">
                 {definitelyDontHaveRecord &&
                   `Sorry, we don’t have ${forSelf ? 'your' : 'their'} record`}

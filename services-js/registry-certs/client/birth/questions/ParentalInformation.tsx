@@ -17,7 +17,7 @@ import YesNoUnsureComponent from '../../common/question-components/YesNoUnsureCo
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
-  SUPPORTING_TEXT_STYLING,
+  SUPPORTING_TEXT_CLASSNAME,
   SECTION_HEADING_STYLING,
   NOTE_BOX_CLASSNAME,
 } from '../../common/question-components/styling';
@@ -104,7 +104,7 @@ export default class ParentalInformation extends Component<Props> {
             </h2>
           }
         >
-          <p css={SUPPORTING_TEXT_STYLING}>
+          <p className={SUPPORTING_TEXT_CLASSNAME}>
             Please use the names {forSelf ? 'your' : 'their'} parents used at
             the time of {forSelf ? 'your' : 'the'} birth. If only one parent is
             listed on {forSelf ? 'your' : 'the'} record, you only need to
@@ -184,7 +184,7 @@ export default class ParentalInformation extends Component<Props> {
     const { forSelf } = this.props.birthCertificateRequest.requestInformation;
 
     return (
-      <div css={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+      <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
         <h2 className="h3 tt-u">Record may have an access restriction</h2>
 
         {forSelf ? (

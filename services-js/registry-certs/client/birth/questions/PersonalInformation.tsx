@@ -14,7 +14,7 @@ import FieldsetComponent from '../../common/question-components/FieldsetComponen
 
 import {
   NAME_FIELDS_CONTAINER_STYLING,
-  SUPPORTING_TEXT_STYLING,
+  SUPPORTING_TEXT_CLASSNAME,
   SECTION_HEADING_STYLING,
   NOTE_BOX_CLASSNAME,
 } from '../../common/question-components/styling';
@@ -74,7 +74,7 @@ export default class PersonalInformation extends Component<Props> {
             </h2>
           }
         >
-          <p css={SUPPORTING_TEXT_STYLING}>
+          <p className={SUPPORTING_TEXT_CLASSNAME}>
             If {forSelf ? 'you' : 'they'} changed {forSelf ? 'your' : 'their'}{' '}
             name at some point, please use the name {forSelf ? 'you' : 'they'}{' '}
             were given at birth. If {forSelf ? 'you' : 'they'} were adopted, use{' '}
@@ -134,7 +134,7 @@ export default class PersonalInformation extends Component<Props> {
 
   private renderRecentBirthWarningText(): ReactChild {
     return (
-      <div css={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+      <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
         <h2 className="h3 tt-u">We might not have the birth certificate yet</h2>
 
         <p>
