@@ -449,6 +449,120 @@ exports[`Storyshots Content Sections|SectionHeader yellow 1`] = `
 </div>
 `;
 
+exports[`Storyshots DetailsDisclosure default 1`] = `
+.emotion-2 > .details-content {
+  display: none;
+}
+
+.emotion-2 button {
+  cursor: pointer;
+}
+
+.emotion-2 button svg {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -webkit-transition: -webkit-transform 0.15s;
+  -webkit-transition: transform 0.15s;
+  transition: transform 0.15s;
+}
+
+.emotion-2 button:hover {
+  color: #1871bd;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-2 button[aria-expanded="true"] svg {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.emotion-2 button[aria-expanded="true"] ~ .details-content {
+  display: block;
+}
+
+.emotion-1 {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: inherit;
+}
+
+.emotion-0 {
+  width: 0.7em;
+  height: 0.7em;
+  margin-right: 0.4em;
+  color: #1871bd;
+}
+
+.emotion-0 path {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "600px",
+    }
+  }
+>
+  <div
+    className="emotion-2"
+  >
+    <button
+      aria-controls="storybook"
+      aria-expanded={false}
+      className="emotion-1"
+      onClick={[Function]}
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        className="emotion-0"
+        focusable="false"
+        overflow="visible"
+        viewBox="0 0 20 20"
+      >
+        <path
+          d="M 2,5 10,20 18,5 Z"
+        />
+      </svg>
+      Are you requesting a certificate for international use that requires an Apostille from the Massachusetts Secretary of State?
+    </button>
+    <div
+      className="details-content"
+      id="storybook"
+    >
+      <p>
+        You need to have a hand signature from the Registry. After you finish your order, please email birth@boston.gov with:
+      </p>
+      <ul>
+        <li>
+          the name of the person on the record
+        </li>
+        <li>
+          their date of birth, and
+        </li>
+        <li>
+          let us know that you need the signature for an Apostille.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Form Elements|Buttons/CloseButton close 1`] = `
 .emotion-0 {
   border: none;

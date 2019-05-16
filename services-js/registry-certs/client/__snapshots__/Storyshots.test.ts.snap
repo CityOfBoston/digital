@@ -20272,11 +20272,11 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
             <p>
               You can only order copies of one person’s birth certificate at a time. If you want to buy copies of a certificate for another person, you need to do a separate transaction.
             </p>
-            <aside
+            <div
               className="emotion-7"
             >
               <button
-                aria-controls="detailsContent"
+                aria-controls="apostille"
                 aria-expanded={false}
                 className="emotion-6"
                 onClick={[Function]}
@@ -20297,7 +20297,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               </button>
               <div
                 className="details-content"
-                id="detailsContent"
+                id="apostille"
               >
                 <p>
                   You need to have a hand signature from the Registry. After you finish your order, please email birth@boston.gov with:
@@ -20314,7 +20314,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                   </li>
                 </ul>
               </div>
-            </aside>
+            </div>
             <div
               className="emotion-14"
             >
