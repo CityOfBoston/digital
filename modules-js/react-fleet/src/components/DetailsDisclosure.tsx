@@ -3,12 +3,13 @@
 import { css, jsx } from '@emotion/core';
 
 import { useEffect, useState, Fragment, ReactChild } from 'react';
+import hash from 'string-hash';
 
 import { CLEAR_DEFAULT_STYLING } from '../utilities/css';
 import { OPTIMISTIC_BLUE_DARK } from '../utilities/constants';
 
 interface Props {
-  summaryContent: string;
+  summaryContent: ReactChild;
   id?: string;
   children: ReactChild | ReactChild[];
 }
@@ -46,9 +47,9 @@ export default function DetailsDisclosure(props: Props): JSX.Element {
       </details>
     );
   } else {
-    // If an id is not passed in, use timestamp to ensure unique ids in case
-    // more than one <DetailsDisclosure> component is present.
-    const id = props.id || Date.now().toString();
+    // If an id is not passed in, a unique id is required in case more
+    // than one <DetailsDisclosure> component is present.
+    const id = props.id || hash(props.summaryContent);
 
     return (
       <div css={FALLBACK_STYLING}>
@@ -70,7 +71,7 @@ export default function DetailsDisclosure(props: Props): JSX.Element {
   }
 }
 
-function summaryElement(content: string): ReactChild {
+function summaryElement(content: ReactChild): ReactChild {
   return (
     // Using <> shorthand results in “React is not defined” errors in Storybook:
     // https://github.com/emotion-js/emotion/issues/1303
