@@ -2,7 +2,7 @@ import {
   FIXED_CC_SERVICE_FEE,
   PERCENTAGE_CC_SERVICE_FEE,
   calculateCreditCardCost,
-  DEATH_CERTIFICATE_COST,
+  CERTIFICATE_COST,
 } from './costs';
 
 // We run this over a bunch of different amounts to verify that, after rounding
@@ -11,7 +11,7 @@ import {
 it(`calculates service fee correctly for certificates`, () => {
   for (let q = 0; q < 100; ++q) {
     const { total, serviceFee, subtotal } = calculateCreditCardCost(
-      DEATH_CERTIFICATE_COST,
+      CERTIFICATE_COST.DEATH,
       q
     );
 

@@ -1,7 +1,16 @@
 // All costs are in cents, which is how Stripe does things.
 
-export const DEATH_CERTIFICATE_COST = 14 * 100;
-export const BIRTH_CERTIFICATE_COST = 14 * 100;
+export const CERTIFICATE_COST = {
+  BIRTH: 14 * 100,
+  DEATH: 14 * 100,
+  MARRIAGE: 14 * 100,
+};
+
+export const CERTIFICATE_COST_STRING = {
+  BIRTH: certificateCostString(CERTIFICATE_COST.BIRTH),
+  DEATH: certificateCostString(CERTIFICATE_COST.DEATH),
+  MARRIAGE: certificateCostString(CERTIFICATE_COST.MARRIAGE),
+};
 
 // Per-transaction fee for records dated before 1870.
 export const RESEARCH_FEE = 10 * 100;
@@ -17,13 +26,6 @@ export const PERCENTAGE_DC_SERVICE_FEE = 0.015;
 // Used to describe the percentage when you have to take into account your own
 // percentage.
 const CC_PERCENT_OF_TOTAL = 1 / (1 - PERCENTAGE_CC_SERVICE_FEE) - 1;
-
-export const DEATH_CERTIFICATE_COST_STRING = certificateCostString(
-  DEATH_CERTIFICATE_COST
-);
-export const BIRTH_CERTIFICATE_COST_STRING = certificateCostString(
-  BIRTH_CERTIFICATE_COST
-);
 
 export const PERCENTAGE_CC_STRING = `${(
   Math.round(CC_PERCENT_OF_TOTAL * 10000) / 100

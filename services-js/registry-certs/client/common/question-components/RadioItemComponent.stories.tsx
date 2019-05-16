@@ -93,7 +93,7 @@ class SampleQuestion extends React.Component<Props, State> {
   }
 }
 
-storiesOf('Birth/Question Components/RadioItemComponent', module)
+storiesOf('Common Components/Question Components/RadioItemComponent', module)
   .add('single item', () => (
     <div style={{ color: '#000' }}>
       <RadioItemComponent

@@ -1,9 +1,14 @@
-import React, { MouseEvent } from 'react';
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+
+import { ChangeEvent, Component, MouseEvent, ReactChild } from 'react';
+
 import { observer } from 'mobx-react';
 
-import RadioItemComponent from '../components/RadioItemComponent';
-import QuestionComponent from '../components/QuestionComponent';
-import FieldsetComponent from '../components/FieldsetComponent';
+import RadioItemComponent from '../../common/question-components/RadioItemComponent';
+import QuestionComponent from '../../common/question-components/QuestionComponent';
+import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 import RelatedIcon from '../icons/RelatedIcon';
 
 import { Relation } from '../../types';
@@ -13,8 +18,7 @@ import {
   HOW_RELATED_CONTAINER_STYLING,
   SECTION_HEADING_STYLING,
   RADIOGROUP_STYLING,
-  RADIOITEM_STYLING,
-} from '../styling';
+} from '../../common/question-components/styling';
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
@@ -26,7 +30,7 @@ interface Props {
  * own record, the howRelated question is also asked.
  */
 @observer
-export default class ForWhom extends React.Component<Props> {
+export default class ForWhom extends Component<Props> {
   public static isComplete(
     birthCertificateRequest: BirthCertificateRequest
   ): boolean {
@@ -34,14 +38,14 @@ export default class ForWhom extends React.Component<Props> {
     return !!(forSelf === true || howRelated);
   }
 
-  private handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+  private handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
     const { birthCertificateRequest } = this.props;
     birthCertificateRequest.answerQuestion({
       [ev.currentTarget.name]: ev.currentTarget.value,
     });
   };
 
-  private handleBooleanChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+  private handleBooleanChange = (ev: ChangeEvent<HTMLInputElement>) => {
     const { birthCertificateRequest } = this.props;
     birthCertificateRequest.answerQuestion({
       [ev.currentTarget.name]: ev.currentTarget.value === 'true',
@@ -51,7 +55,7 @@ export default class ForWhom extends React.Component<Props> {
   private relationQuestion(
     answerValue: Relation,
     questionDisplayText: string
-  ): React.ReactChild {
+  ): ReactChild {
     const {
       requestInformation: { howRelated },
     } = this.props.birthCertificateRequest;
@@ -62,7 +66,6 @@ export default class ForWhom extends React.Component<Props> {
         questionValue={howRelated}
         itemValue={answerValue}
         labelText={questionDisplayText}
-        className={RADIOITEM_STYLING}
         handleChange={this.handleChange}
       >
         <RelatedIcon name={answerValue} />
@@ -83,7 +86,7 @@ export default class ForWhom extends React.Component<Props> {
       >
         <FieldsetComponent
           legendText={
-            <h2 id="forSelf" className={SECTION_HEADING_STYLING}>
+            <h2 id="forSelf" css={SECTION_HEADING_STYLING}>
               Whose birth certificate are you ordering?
             </h2>
           }
@@ -91,14 +94,13 @@ export default class ForWhom extends React.Component<Props> {
           <div
             role="radiogroup"
             aria-labelledby="forSelf"
-            className={RADIOGROUP_STYLING}
+            css={RADIOGROUP_STYLING}
           >
             <RadioItemComponent
               questionName="forSelf"
               questionValue={forSelfValue}
               itemValue="true"
               labelText="Mine"
-              className={RADIOITEM_STYLING}
               handleChange={this.handleBooleanChange}
             >
               <RelatedIcon name="myself" />
@@ -109,7 +111,6 @@ export default class ForWhom extends React.Component<Props> {
               questionValue={forSelfValue}
               itemValue="false"
               labelText="Someone else’s"
-              className={RADIOITEM_STYLING}
               handleChange={this.handleBooleanChange}
             >
               <RelatedIcon name="someoneElse" />
@@ -120,7 +121,7 @@ export default class ForWhom extends React.Component<Props> {
         {forSelf === false && (
           <FieldsetComponent
             legendText={
-              <h3 id="howRelated" className={SECTION_HEADING_STYLING}>
+              <h3 id="howRelated" css={SECTION_HEADING_STYLING}>
                 I’m ordering the birth certificate of my…
               </h3>
             }
@@ -128,7 +129,7 @@ export default class ForWhom extends React.Component<Props> {
             <div
               role="radiogroup"
               aria-labelledby="howRelated"
-              className={HOW_RELATED_CONTAINER_STYLING}
+              css={HOW_RELATED_CONTAINER_STYLING}
             >
               {this.relationQuestion('spouse', 'Spouse')}
 

@@ -1,22 +1,22 @@
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import {
   CHARLES_BLUE,
   FOCUS_INDICATOR_COLOR,
-  GREEN,
+  GRAY_100,
   MEDIA_LARGE,
   MEDIA_MEDIUM,
   MEDIA_SMALL,
   SERIF,
 } from '@cityofboston/react-fleet';
 
-const WHITE = '#fff';
-export const BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
+export const THICK_BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
+export const THIN_BORDER_STYLE = `1px solid ${GRAY_100}`;
 
-export const FOCUS_STYLE = {
+export const FOCUS_STYLE = css({
   outline: `4px solid ${FOCUS_INDICATOR_COLOR}`,
   outlineOffset: 1,
-};
+});
 
 export const SECTION_HEADING_STYLING = css({
   paddingBottom: '0.25rem',
@@ -25,7 +25,7 @@ export const SECTION_HEADING_STYLING = css({
   fontWeight: 700,
   fontSize: '1.5rem',
   color: CHARLES_BLUE,
-  borderBottom: BORDER_STYLE,
+  borderBottom: THICK_BORDER_STYLE,
 
   '&.secondary': {
     marginBottom: '1rem',
@@ -37,8 +37,6 @@ export const SECTION_HEADING_STYLING = css({
     },
   },
 });
-
-export const SUPPORTING_TEXT_STYLING = 'lh--400 t--s400 m-b500';
 
 export const RADIOGROUP_STYLING = css({
   margin: '2rem 0 3rem',
@@ -54,123 +52,6 @@ export const RADIOGROUP_STYLING = css({
 
     '> *': {
       margin: '1rem',
-    },
-  },
-});
-
-export const RADIOITEM_STYLING = css({
-  color: CHARLES_BLUE,
-
-  svg: {
-    width: 100,
-    fill: WHITE,
-    stroke: 'currentColor',
-    strokeMiterlimit: 10,
-    strokeWidth: 3,
-
-    '&.forWhom': {
-      width: 140,
-    },
-
-    '&.spouse': {
-      ellipse: {
-        fill: 'none',
-        stroke: WHITE,
-        strokeWidth: 8,
-      },
-
-      line: {
-        strokeLinecap: 'round',
-      },
-
-      [MEDIA_SMALL]: {
-        height: 90,
-      },
-    },
-
-    '&.child': {
-      strokeLinejoin: 'round',
-      strokeLinecap: 'round',
-    },
-
-    '&.heavier': {
-      strokeWidth: 3.5,
-    },
-  },
-});
-
-export const ANSWER_ITEM_STYLING = css({
-  color: CHARLES_BLUE,
-
-  [MEDIA_SMALL]: {
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
-  },
-});
-
-export const ANSWER_ICON_STYLING = css({
-  width: 80,
-  height: 80,
-  fill: WHITE,
-
-  ellipse: {
-    stroke: 'currentColor',
-    strokeWidth: 5,
-  },
-
-  '&.checkMark, &.xSymbol': {
-    fill: 'none',
-    strokeWidth: 7,
-    strokeLinecap: 'round',
-  },
-
-  '&.checkMark': {
-    stroke: GREEN,
-  },
-
-  '&.xSymbol': {
-    stroke: '#f04f46',
-  },
-
-  '&.questionMark': {
-    path: {
-      fill: CHARLES_BLUE,
-      stroke: 'none',
-    },
-  },
-});
-
-export const QUESTION_CONTAINER_STYLING = css({
-  'fieldset + fieldset': {
-    marginTop: '2rem',
-
-    [MEDIA_SMALL]: {
-      marginTop: '4rem',
-
-      '.lnk': {
-        paddingLeft: 0,
-      },
-    },
-  },
-});
-
-export const QUESTION_BUTTON_CONTAINER_STYLING = css({
-  textAlign: 'center',
-
-  [MEDIA_SMALL]: {
-    marginTop: '2.5rem',
-    textAlign: 'left',
-
-    '> div': {
-      display: 'flex',
-
-      '&.ta-r > button': {
-        marginLeft: 'auto',
-      },
-    },
-
-    '.lnk': {
-      paddingLeft: 0,
     },
   },
 });
@@ -244,3 +125,4 @@ export const NAME_FIELDS_CONTAINER_STYLING = css({
 });
 
 export const NOTE_BOX_CLASSNAME = 'm-v500 p-a300 br br-a200 br--r lh--300';
+export const SUPPORTING_TEXT_CLASSNAME = 'lh--400 t--s400 m-b500';

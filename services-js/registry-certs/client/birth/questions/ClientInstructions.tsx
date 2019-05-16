@@ -1,14 +1,18 @@
-import React, { MouseEvent } from 'react';
+/** @jsx jsx */
 
-import QuestionComponent from '../components/QuestionComponent';
+import { jsx } from '@emotion/core';
 
-import { SECTION_HEADING_STYLING } from '../styling';
+import { Component, MouseEvent, ReactChild } from 'react';
+
+import QuestionComponent from '../../common/question-components/QuestionComponent';
+
+import { SECTION_HEADING_STYLING } from '../../common/question-components/styling';
 
 interface Props {
   handleStepBack: (ev: MouseEvent) => void;
 }
 
-export default class ClientInstructions extends React.Component<Props> {
+export default class ClientInstructions extends Component<Props> {
   public render() {
     return (
       <QuestionComponent
@@ -20,10 +24,10 @@ export default class ClientInstructions extends React.Component<Props> {
     );
   }
 
-  private renderRestrictedText(): React.ReactChild {
+  private renderRestrictedText(): ReactChild {
     return (
       <div className="m-t500">
-        <h2 className={SECTION_HEADING_STYLING}>
+        <h2 css={SECTION_HEADING_STYLING}>
           You must complete this process in person or by mail
         </h2>
 

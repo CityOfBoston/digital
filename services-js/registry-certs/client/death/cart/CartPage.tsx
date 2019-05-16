@@ -8,7 +8,7 @@ import { PageDependencies } from '../../../pages/_app';
 
 import PageLayout from '../../PageLayout';
 
-import { DeathBreadcrumbNavLinks } from '../breadcrumbs';
+import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
@@ -37,7 +37,7 @@ class CartPage extends React.Component<Props> {
       <PageLayout
         showNav
         cart={deathCertificateCart}
-        breadcrumbNav={DeathBreadcrumbNavLinks}
+        breadcrumbNav={BREADCRUMB_NAV_LINKS.death}
       >
         <div className="b-ff">
           <Head>

@@ -1,6 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
 
-import { ANSWER_ICON_STYLING } from '../styling';
+import { css, jsx } from '@emotion/core';
+
+import { CHARLES_BLUE, GREEN, WHITE } from '@cityofboston/react-fleet';
 
 type IconName = 'checkMark' | 'questionMark' | 'xSymbol' | 'excl';
 
@@ -19,7 +21,8 @@ export default function AnswerIcon(props: Props): JSX.Element {
       viewBox="-2.5 -2.5 66 66"
       aria-hidden="true"
       focusable="false"
-      className={`${ANSWER_ICON_STYLING} ${props.iconName}`}
+      className={props.iconName}
+      css={ANSWER_ICON_STYLING}
     >
       <ellipse cx="30.377" cy="30.377" rx="30.377" ry="30.377" />
 
@@ -61,3 +64,35 @@ const iconElements = {
     />
   ),
 };
+
+const ANSWER_ICON_STYLING = css({
+  width: 80,
+  height: 80,
+  fill: WHITE,
+
+  ellipse: {
+    stroke: 'currentColor',
+    strokeWidth: 5,
+  },
+
+  '&.checkMark, &.xSymbol': {
+    fill: 'none',
+    strokeWidth: 7,
+    strokeLinecap: 'round',
+  },
+
+  '&.checkMark': {
+    stroke: GREEN,
+  },
+
+  '&.xSymbol': {
+    stroke: '#f04f46',
+  },
+
+  '&.questionMark': {
+    path: {
+      fill: CHARLES_BLUE,
+      stroke: 'none',
+    },
+  },
+});

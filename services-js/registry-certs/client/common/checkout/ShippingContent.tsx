@@ -9,14 +9,14 @@ import makeShippingValidator from '../../../lib/validators/ShippingValidator';
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
-import { makeStateSelectOptions } from '../form-elements';
+import { makeStateSelectOptions } from '../utility/form-elements';
 
 import { runInitialValidation } from './formik-util';
 import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
 import CheckoutPageLayout from './CheckoutPageLayout';
 
-import { Progress } from '../../birth/PageWrapper';
-import { BackButtonContent } from '../../birth/components/BackButton';
+import { Progress } from '../../PageWrapper';
+import { BackButtonContent } from '../question-components/BackButton';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;

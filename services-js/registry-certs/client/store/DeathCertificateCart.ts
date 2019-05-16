@@ -5,7 +5,9 @@ import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import { DeathCertificate } from '../types';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
 
-import { DEATH_CERTIFICATE_COST } from '../../lib/costs';
+import { CERTIFICATE_COST } from '../../lib/costs';
+
+const DEATH_CERTIFICATE_COST = CERTIFICATE_COST.DEATH;
 
 interface LocalStorageEntry {
   id: string;

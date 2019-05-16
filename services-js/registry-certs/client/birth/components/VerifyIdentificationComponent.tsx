@@ -1,7 +1,10 @@
-import React from 'react';
-import { observer } from 'mobx-react';
+/** @jsx jsx */
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
+
+import { Component } from 'react';
+
+import { observer } from 'mobx-react';
 
 import {
   UploadPhoto,
@@ -10,13 +13,16 @@ import {
   ContactForm,
 } from '@cityofboston/react-fleet';
 
-import FieldsetComponent from '../components/FieldsetComponent';
+import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 import SupportingDocumentsInput from './SupportingDocumentsInput';
 import IdIcon from '../icons/IdIcon';
 
 import UploadableFile from '../../models/UploadableFile';
 
-import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_STYLING } from '../styling';
+import {
+  SECTION_HEADING_STYLING,
+  SUPPORTING_TEXT_CLASSNAME,
+} from '../../common/question-components/styling';
 
 // Images that are likely output from scanners or phone cameras
 const SUPPORTED_MIME_TYPES =
@@ -43,9 +49,7 @@ interface Props {
  * with their current device, if possible.
  */
 @observer
-export default class VerifyIdentificationComponent extends React.Component<
-  Props
-> {
+export default class VerifyIdentificationComponent extends Component<Props> {
   private handleSupportingDocumentsChange = (
     documents: UploadableFile[]
   ): void => {
@@ -108,15 +112,15 @@ export default class VerifyIdentificationComponent extends React.Component<
 
     return (
       <>
-        <h2 className={SECTION_HEADING_STYLING}>Verify your identity</h2>
+        <h2 css={SECTION_HEADING_STYLING}>Verify your identity</h2>
 
-        <p className={SUPPORTING_TEXT_STYLING}>
+        <p className={SUPPORTING_TEXT_CLASSNAME}>
           Under state law, the record you’re ordering may have an access
           restriction. You must upload a valid form of identification before we
           can process your request.
         </p>
 
-        <p className={SUPPORTING_TEXT_STYLING}>
+        <p className={SUPPORTING_TEXT_CLASSNAME}>
           <em>Please note</em>: You must be a person or parent listed on the
           record to get a copy of the record. If you are not listed on the
           record, you will not be able to get a copy. We will cancel your
@@ -133,7 +137,8 @@ export default class VerifyIdentificationComponent extends React.Component<
         </p>
 
         <h3
-          className={`${SECTION_HEADING_STYLING} secondary m-t700`}
+          className="secondary m-t700"
+          css={SECTION_HEADING_STYLING}
           style={{ borderBottom: 0 }}
         >
           Upload ID images
@@ -180,7 +185,8 @@ export default class VerifyIdentificationComponent extends React.Component<
         <FieldsetComponent
           legendText={
             <h3
-              className={`${SECTION_HEADING_STYLING} secondary m-t700`}
+              className="secondary m-t700"
+              css={SECTION_HEADING_STYLING}
               style={{ borderBottom: 0 }}
             >
               Have you had a legal name change or do you have court
@@ -197,11 +203,11 @@ export default class VerifyIdentificationComponent extends React.Component<
           </div>
         </FieldsetComponent>
 
-        <h2 className={`${SECTION_HEADING_STYLING} secondary m-t700`}>
+        <h2 className="secondary m-t700" css={SECTION_HEADING_STYLING}>
           No ID?
         </h2>
 
-        <p className={`${SUPPORTING_TEXT_STYLING} m-b700`}>
+        <p className={`m-b700 ${SUPPORTING_TEXT_CLASSNAME}`}>
           We can help explain your options.{' '}
           <a
             href={`mailto:birth@boston.gov?subject=${encodeURIComponent(
@@ -222,7 +228,7 @@ export default class VerifyIdentificationComponent extends React.Component<
   private renderSupportingDocumentsOnly() {
     return (
       <>
-        <h2 className={SECTION_HEADING_STYLING}>Upload supporting documents</h2>
+        <h2 css={SECTION_HEADING_STYLING}>Upload supporting documents</h2>
 
         <p>
           We need more information. If you have questions, contact{' '}
@@ -248,7 +254,7 @@ export default class VerifyIdentificationComponent extends React.Component<
 
 function IdImage(props: { name: string }): JSX.Element {
   return (
-    <div className={`${PREVIEW_IMAGE_STYLING} id`}>
+    <div className="id" css={PREVIEW_IMAGE_STYLING}>
       <IdIcon side={props.name} />
     </div>
   );

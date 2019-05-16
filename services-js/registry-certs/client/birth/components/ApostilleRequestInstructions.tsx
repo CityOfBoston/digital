@@ -1,9 +1,8 @@
 /** @jsx jsx */
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, ReactChild } from 'react';
 
-import { css } from 'emotion';
-import { jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
 import {
   CLEAR_DEFAULT_STYLING,
@@ -26,11 +25,13 @@ export default function ApostilleRequestInstructions(): JSX.Element {
     const testElement = document.createElement('details');
 
     setDetailsElementIsSupported('open' in testElement);
-  }, [detailsElementIsSupported]); // not fire again. // Because we only need to test for support once, ensure the effect does
+    // Because we only need to test for support once, ensure the effect
+    // does not fire again.
+  }, [detailsElementIsSupported]);
 
   if (detailsElementIsSupported) {
     return (
-      <details className={DETAILS_STYLING}>
+      <details css={DETAILS_STYLING}>
         <summary>{summaryContent()}</summary>
 
         {detailsContent()}
@@ -38,7 +39,7 @@ export default function ApostilleRequestInstructions(): JSX.Element {
     );
   } else {
     return (
-      <aside className={FALLBACK_STYLING}>
+      <aside css={FALLBACK_STYLING}>
         <button
           type="button"
           css={CLEAR_DEFAULT_STYLING.BUTTON}
@@ -57,7 +58,7 @@ export default function ApostilleRequestInstructions(): JSX.Element {
   }
 }
 
-function summaryContent(): React.ReactChild {
+function summaryContent(): ReactChild {
   return (
     <>
       <svg
@@ -65,7 +66,7 @@ function summaryContent(): React.ReactChild {
         aria-hidden="true"
         focusable="false"
         overflow="visible"
-        className={SVG_STYLING}
+        css={SVG_STYLING}
       >
         <path d="M 2,5 10,20 18,5 Z" />
       </svg>
@@ -75,7 +76,7 @@ function summaryContent(): React.ReactChild {
   );
 }
 
-function detailsContent(): React.ReactChild {
+function detailsContent(): ReactChild {
   return (
     <>
       <p>

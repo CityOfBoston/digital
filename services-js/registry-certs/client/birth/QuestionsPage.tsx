@@ -12,7 +12,7 @@ import BirthCertificateRequest, {
   QUESTION_STEPS,
 } from '../store/BirthCertificateRequest';
 
-import PageWrapper from './PageWrapper';
+import PageWrapper from '../PageWrapper';
 
 import ForWhom from './questions/ForWhom';
 import BornInBoston from './questions/BornInBoston';
@@ -326,6 +326,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     return (
       <PageWrapper
+        certificateType="birth"
         progress={{
           totalSteps: steps.length,
           currentStep: steps.indexOf(currentStep) + 1,

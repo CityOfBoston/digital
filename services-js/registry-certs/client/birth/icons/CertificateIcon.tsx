@@ -1,6 +1,6 @@
-import React from 'react';
+/** @jsx jsx */
 
-import { css } from 'emotion';
+import { css, jsx } from '@emotion/core';
 
 import { CHARLES_BLUE, WHITE } from '@cityofboston/react-fleet';
 
@@ -15,7 +15,7 @@ export default function CertificateIcon(props: Props) {
       viewBox="0 0 147 97"
       aria-hidden="true"
       focusable="false"
-      className={ICON_STYLING}
+      css={ICON_STYLING}
     >
       <rect x="2" y="2" width="143" height="93" className="frame" />
 

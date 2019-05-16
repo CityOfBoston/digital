@@ -1,7 +1,10 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
+import { Component, ComponentClass } from 'react';
 import Link from 'next/link';
 import { observer } from 'mobx-react';
-import { css } from 'emotion';
 
 import { CHARLES_BLUE, SERIF, WHITE } from '@cityofboston/react-fleet';
 import DeathCertificateCart from '../store/DeathCertificateCart';
@@ -9,6 +12,28 @@ import DeathCertificateCart from '../store/DeathCertificateCart';
 interface Props {
   cart: DeathCertificateCart;
 }
+
+@observer
+class Nav extends Component<Props> {
+  render() {
+    const { cart } = this.props;
+
+    return (
+      <nav className="nv-s nv-s--sticky" aria-label="Shopping cart">
+        <div className="nv-s-l" css={BAR_STYLE}>
+          <Link prefetch={process.env.NODE_ENV !== 'test'} href="/death/cart">
+            <a className="nv-s-l-b" css={VIEW_CART_LINK_STYLE}>
+              View Cart <span css={CART_STYLE}>{cart.size}</span>
+            </a>
+          </Link>
+        </div>
+      </nav>
+    );
+  }
+}
+
+// defaultProps hack
+export default (Nav as any) as ComponentClass<Props>;
 
 const BAR_STYLE = css({
   display: 'flex',
@@ -52,25 +77,3 @@ const CART_STYLE = css({
     top: 12,
   },
 });
-
-@observer
-class Nav extends React.Component<Props> {
-  render() {
-    const { cart } = this.props;
-
-    return (
-      <nav className="nv-s nv-s--sticky" aria-label="Shopping cart">
-        <div className={`nv-s-l ${BAR_STYLE}`}>
-          <Link prefetch={process.env.NODE_ENV !== 'test'} href="/death/cart">
-            <a className={`nv-s-l-b ${VIEW_CART_LINK_STYLE}`}>
-              View Cart <span className={CART_STYLE}>{cart.size}</span>
-            </a>
-          </Link>
-        </div>
-      </nav>
-    );
-  }
-}
-
-// defaultProps hack
-export default (Nav as any) as React.ComponentClass<Props>;

@@ -2,16 +2,15 @@
 
 import React from 'react';
 
-import stylesheetHrefs from '../../templates/stylesheets.json';
+import stylesheetHrefs from '../../../templates/stylesheets.json';
 
 interface CssOpts {
   cacheParam?: string;
-  additionalCss?: string;
   noStylesheets?: boolean;
 }
 
 export default function styleTags(opts: CssOpts = {}) {
-  const { cacheParam, additionalCss, noStylesheets } = opts;
+  const { cacheParam, noStylesheets } = opts;
 
   const cacheBustedCssHrefs = noStylesheets
     ? []
@@ -32,13 +31,5 @@ export default function styleTags(opts: CssOpts = {}) {
       #nprogress{pointer-events:none;}
       #nprogress .bar{background:rgba(40,139,228,.7);position:fixed;z-index:1031;top:0;left:0;width:100%;height:65px;}
     `}</style>,
-
-    additionalCss && (
-      <style
-        type="text/css"
-        key="static"
-        dangerouslySetInnerHTML={{ __html: additionalCss }}
-      />
-    ),
   ];
 }

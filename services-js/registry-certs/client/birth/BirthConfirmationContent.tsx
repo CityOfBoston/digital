@@ -1,6 +1,8 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
 import Link from 'next/link';
-import { css } from 'emotion';
 
 import CheckoutPageLayout from '../common/checkout/CheckoutPageLayout';
 import CertificateIcon from './icons/CertificateIcon';
@@ -27,11 +29,12 @@ export default function BirthConfirmationContent({
   const footer = (
     <div className="b-c">
       <div className="g">
-        <div className={`g--4 m-b500 ${ICON_CELL_STYLE}`}>
+        <div className="g--4 m-b500" css={ICON_CELL_STYLE}>
           <div className="m-h100">
             <CertificateIcon name="birth" />
           </div>
         </div>
+
         <div className="g--8">
           <h2 className="h3 tt-u">Thank you</h2>
 

@@ -1,18 +1,16 @@
 /** @jsx jsx */
 
-import React from 'react';
-import { css } from 'emotion';
-import { jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
+
+import { ChangeEvent, Component } from 'react';
 
 import { VISUALLY_HIDDEN } from '@cityofboston/react-fleet';
 
 import {
   calculateCreditCardCost,
   calculateDebitCardCost,
-  BIRTH_CERTIFICATE_COST,
-  BIRTH_CERTIFICATE_COST_STRING,
-  DEATH_CERTIFICATE_COST,
-  DEATH_CERTIFICATE_COST_STRING,
+  CERTIFICATE_COST,
+  CERTIFICATE_COST_STRING,
 } from '../../lib/costs';
 
 import { CertificateType } from '../types';
@@ -36,7 +34,7 @@ interface State {
  * Used in cart and order review screens for death certificates.
  * Used in information summary and order review screens for birth certificates.
  */
-export default class CostSummary extends React.Component<Props, State> {
+export default class CostSummary extends Component<Props, State> {
   static defaultProps = {
     allowServiceFeeTypeChoice: false,
   };
@@ -49,7 +47,7 @@ export default class CostSummary extends React.Component<Props, State> {
     };
   }
 
-  handleCardOptionChanged = (ev: React.ChangeEvent<HTMLSelectElement>) => {
+  handleCardOptionChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
     this.setState({
       serviceFeeType: ev.currentTarget.value as any,
     });
@@ -59,9 +57,7 @@ export default class CostSummary extends React.Component<Props, State> {
     const { certificateQuantity, hasResearchFee } = this.props;
     const { serviceFeeType } = this.state;
     const certificateTypeCost =
-      this.props.certificateType === 'birth'
-        ? BIRTH_CERTIFICATE_COST
-        : DEATH_CERTIFICATE_COST;
+      CERTIFICATE_COST[this.props.certificateType.toUpperCase()];
 
     return serviceFeeType === 'CREDIT'
       ? calculateCreditCardCost(
@@ -81,7 +77,7 @@ export default class CostSummary extends React.Component<Props, State> {
     const { total, subtotal, serviceFee, researchFee } = this.calculateCost();
 
     return (
-      <div className={CLEARFIX_STYLE}>
+      <div css={CLEARFIX_STYLE}>
         <table className="t--info ta-r" style={{ float: 'right' }}>
           <caption css={VISUALLY_HIDDEN}>Cost Summary</caption>
           <thead css={VISUALLY_HIDDEN}>
@@ -95,13 +91,9 @@ export default class CostSummary extends React.Component<Props, State> {
               <td>
                 {certificateQuantity}{' '}
                 {certificateQuantity === 1 ? 'certificate' : 'certificates'} ×{' '}
-                {certificateType === 'birth'
-                  ? BIRTH_CERTIFICATE_COST_STRING
-                  : DEATH_CERTIFICATE_COST_STRING}
+                {CERTIFICATE_COST_STRING[certificateType.toUpperCase()]}
               </td>
-              <td className={COST_CELL_STYLE}>
-                ${(subtotal / 100).toFixed(2)}
-              </td>
+              <td css={COST_CELL_STYLE}>${(subtotal / 100).toFixed(2)}</td>
             </tr>
 
             {/* todo: add hyperlinked asterisk to explain to user why research fee was applied */}
@@ -109,29 +101,25 @@ export default class CostSummary extends React.Component<Props, State> {
             {researchFee > 0 && (
               <tr>
                 <td>Research fee</td>
-                <td className={COST_CELL_STYLE}>
-                  ${(researchFee / 100).toFixed(2)}
-                </td>
+                <td css={COST_CELL_STYLE}>${(researchFee / 100).toFixed(2)}</td>
               </tr>
             )}
 
             <tr>
               <td>{this.renderServiceFeeLabel()}</td>
-              <td className={COST_CELL_STYLE}>
-                ${(serviceFee / 100).toFixed(2)}
-              </td>
+              <td css={COST_CELL_STYLE}>${(serviceFee / 100).toFixed(2)}</td>
             </tr>
 
             <tr>
               <td>U.S. shipping included</td>
-              <td className={COST_CELL_STYLE}>
+              <td css={COST_CELL_STYLE}>
                 <i>$0.00</i>
               </td>
             </tr>
 
             <tr>
-              <td className={`sh-title ${TOTAL_STYLE}`}>
-                <span className={TOTAL_TEXT_STYLE}>Total</span>
+              <td className="sh-title" css={TOTAL_STYLE}>
+                <span css={TOTAL_TEXT_STYLE}>Total</span>
               </td>
               <td className="cost-cell cost br br-t100 p-v200">
                 ${(total / 100).toFixed(2)}
@@ -150,11 +138,12 @@ export default class CostSummary extends React.Component<Props, State> {
     if (allowServiceFeeTypeChoice) {
       return (
         <div>
-          <div className={`sel sel--thin ${CARD_SELECT_STYLE}`}>
-            <div className={`sel-c ${CARD_SELECT_CONTAINER_STYLE}`}>
+          <div className="sel sel--thin" css={CARD_SELECT_STYLE}>
+            <div className="sel-c " css={CARD_SELECT_CONTAINER_STYLE}>
               <select
                 id="serviceFeeTypeSelect"
-                className={`sel-f ${CARD_SELECT_FIELD_STYLE}`}
+                className="sel-f"
+                css={CARD_SELECT_FIELD_STYLE}
                 onChange={this.handleCardOptionChanged}
                 value={serviceFeeType}
                 aria-label="Payment type"

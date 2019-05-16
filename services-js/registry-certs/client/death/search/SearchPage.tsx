@@ -1,14 +1,17 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
+import { ChangeEvent, Component, ComponentClass } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import { css } from 'emotion';
 
 import { DeathCertificateSearchResults } from '../../types';
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 
 import PageLayout from '../../PageLayout';
 
-import { DeathBreadcrumbNavLinks } from '../breadcrumbs';
+import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
 import Pagination from '../../common/Pagination';
 
@@ -36,7 +39,7 @@ const HELP_LIST_STYLE = css({
   },
 });
 
-class SearchPage extends React.Component<Props, State> {
+class SearchPage extends Component<Props, State> {
   queryField: HTMLInputElement | null = null;
 
   static getInitialProps: GetInitialProps<
@@ -95,7 +98,7 @@ class SearchPage extends React.Component<Props, State> {
     this.queryField = queryField;
   };
 
-  handleQueryChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+  handleQueryChange = (ev: ChangeEvent<HTMLInputElement>) => {
     const query: string = ev.target.value;
     this.setState({ query });
   };
@@ -120,7 +123,7 @@ class SearchPage extends React.Component<Props, State> {
       <PageLayout
         showNav
         cart={deathCertificateCart}
-        breadcrumbNav={DeathBreadcrumbNavLinks}
+        breadcrumbNav={BREADCRUMB_NAV_LINKS.death}
       >
         <div>
           <div className="b-c b-c--nbp">
@@ -270,7 +273,7 @@ class SearchPage extends React.Component<Props, State> {
 
   renderHelp() {
     return (
-      <ul className={`ul t--subinfo ${HELP_LIST_STYLE}`}>
+      <ul className="ul t--subinfo" css={HELP_LIST_STYLE}>
         <li>
           We only have death records for people who either died in the City of
           Boston or who had Boston as their residence on their death
@@ -321,6 +324,6 @@ class SearchPage extends React.Component<Props, State> {
   }
 }
 
-export default (SearchPage as any) as React.ComponentClass<Props> & {
+export default (SearchPage as any) as ComponentClass<Props> & {
   getInitialProps: (typeof SearchPage)['getInitialProps'];
 };

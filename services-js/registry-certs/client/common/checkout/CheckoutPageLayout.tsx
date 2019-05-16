@@ -1,18 +1,22 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+
+import { ReactElement, ReactNode } from 'react';
+
 import Head from 'next/head';
 
 import { CertificateType } from '../../types';
-import { DeathBreadcrumbNavLinks } from '../../death/breadcrumbs';
-import { BIRTH_BREADCRUMB_NAV_LINKS } from '../../birth/constants';
+import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 import PageLayout from '../../PageLayout';
-import PageWrapper, { Progress } from '../../birth/PageWrapper';
-import { SECTION_HEADING_STYLING } from '../../birth/styling';
+import PageWrapper, { Progress } from '../../PageWrapper';
+import { SECTION_HEADING_STYLING } from '../question-components/styling';
 
 type Props = {
   certificateType: CertificateType;
   title?: string;
-  children?: React.ReactNode;
-  footer?: React.ReactNode;
+  children?: ReactNode;
+  footer?: ReactNode;
   progress?: Progress;
 };
 
@@ -29,14 +33,10 @@ export default function CheckoutPageLayout({
   progress,
   footer,
   children,
-}: Props): React.ReactElement<any> {
-  const breadcrumbNav =
-    certificateType === 'death'
-      ? DeathBreadcrumbNavLinks
-      : BIRTH_BREADCRUMB_NAV_LINKS;
-
-  const certificateName =
-    certificateType === 'death' ? 'Death Certificates' : 'Birth Certificates';
+}: Props): ReactElement<any> {
+  const breadcrumbNav = BREADCRUMB_NAV_LINKS[certificateType];
+  const certificateName = `${certificateType.slice(0, 1).toUpperCase() +
+    certificateType.slice(1)} Certificates`;
 
   const head = (
     <Head>
@@ -46,34 +46,36 @@ export default function CheckoutPageLayout({
     </Head>
   );
 
-  switch (certificateType) {
-    case 'birth':
-      return (
-        <PageWrapper footer={footer} progress={progress}>
-          {head}
-          {title && <h2 className={SECTION_HEADING_STYLING}>{title}</h2>}
+  if (certificateType === 'death') {
+    return (
+      <PageLayout breadcrumbNav={breadcrumbNav}>
+        {head}
+
+        {/* We add the "no bottom padding" variant if there’s a full-width footer element to render. */}
+        <div className={`b-c b-c--hsm ${footer ? 'b-c--nbp' : ''}`}>
+          {title && (
+            <div className="sh sh--b0">
+              <h1 className="sh-title">{title}</h1>
+            </div>
+          )}
+
           {children}
-        </PageWrapper>
-      );
+        </div>
 
-    case 'death':
-      return (
-        <PageLayout breadcrumbNav={breadcrumbNav}>
-          {head}
-
-          {/* We add the "no bottom padding" variant if there’s a full-width footer element to render. */}
-          <div className={`b-c b-c--hsm ${footer ? 'b-c--nbp' : ''}`}>
-            {title && (
-              <div className="sh sh--b0">
-                <h1 className="sh-title">{title}</h1>
-              </div>
-            )}
-
-            {children}
-          </div>
-
-          {footer}
-        </PageLayout>
-      );
+        {footer}
+      </PageLayout>
+    );
+  } else {
+    return (
+      <PageWrapper
+        certificateType={certificateType}
+        footer={footer}
+        progress={progress}
+      >
+        {head}
+        {title && <h2 css={SECTION_HEADING_STYLING}>{title}</h2>}
+        {children}
+      </PageWrapper>
+    );
   }
 }

@@ -1,5 +1,8 @@
-import React from 'react';
-import { css } from 'emotion';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
+import { ReactChild } from 'react';
 
 import { CHARLES_BLUE, GRAY_100 } from '@cityofboston/react-fleet';
 
@@ -10,8 +13,8 @@ export type Props = {
   borderTop: boolean;
   borderBottom: boolean;
   children?: (
-    renderedCertificate: React.ReactChild
-  ) => React.ReactChild | Array<React.ReactChild>;
+    renderedCertificate: ReactChild
+  ) => ReactChild | Array<ReactChild>;
   thin?: boolean;
 } & (
   | {
@@ -45,11 +48,10 @@ const renderCertificate = (
   { firstName, lastName, subinfo, pending, type }: CertificateProps,
   thin: boolean
 ) => (
-  <div key="certificate" className={CERTIFICATE_INFO_BOX_STYLE}>
+  <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
     <div
-      className={`t--sans m-v100 ${
-        thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE
-      }`}
+      className="t--sans m-v100"
+      css={thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE}
     >
       {firstName} {lastName} {type === 'birth' && '(Certified paper copy)'}
       {pending && (
@@ -65,7 +67,7 @@ const renderCertificate = (
       )}
     </div>
 
-    <div className={CERTIFICATE_SUBINFO_STYLE}>{subinfo}</div>
+    <div css={CERTIFICATE_SUBINFO_STYLE}>{subinfo}</div>
   </div>
 );
 
@@ -107,9 +109,8 @@ export default function CertificateRow(props: Props) {
 
   return (
     <div
-      className={`${
-        thin ? 'p-v200' : 'p-v300'
-      } br b--w ${CERTIFICATE_ROW_STYLE} ${borderClass}`}
+      className={`${thin ? 'p-v200' : 'p-v300'} br b--w ${borderClass}`}
+      css={CERTIFICATE_ROW_STYLE}
     >
       {wrapperFunc
         ? wrapperFunc(renderCertificate(certificateProps, !!thin))

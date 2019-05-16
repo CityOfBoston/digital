@@ -5,8 +5,6 @@ import Router from 'next/router';
 import getConfig from 'next/config';
 
 import { configure as mobxConfigure } from 'mobx';
-import { hydrate, cache as emotionCache } from 'emotion';
-import { CacheProvider } from '@emotion/core';
 
 import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
 
@@ -23,12 +21,6 @@ import DeathCertificateCart from '../client/store/DeathCertificateCart';
 import OrderProvider from '../client/store/OrderProvider';
 import DeathCertificatesDao from '../client/dao/DeathCertificatesDao';
 import CheckoutDao from '../client/dao/CheckoutDao';
-
-// Adds server generated styles to emotion cache.
-// '__NEXT_DATA__.ids' is set in '_document.js'
-if (typeof window !== 'undefined') {
-  hydrate((window as any).__NEXT_DATA__.ids);
-}
 
 /**
  * Our App’s getInitialProps automatically calls the page’s getInitialProps with
@@ -289,11 +281,9 @@ export default class RegistryCertsApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <CacheProvider value={emotionCache}>
-        <Container>
-          <Component {...this.pageDependencies} {...pageProps} />
-        </Container>
-      </CacheProvider>
+      <Container>
+        <Component {...this.pageDependencies} {...pageProps} />
+      </Container>
     );
   }
 }
