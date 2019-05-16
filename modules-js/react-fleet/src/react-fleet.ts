@@ -12,6 +12,7 @@ export {
   default as CompatibilityWarning,
 } from './components/CompatibilityWarning';
 export { default as ContactForm } from './components/ContactForm';
+export { default as DetailsDisclosure } from './components/DetailsDisclosure';
 export { default as FileInput } from './form-elements/inputs/FileInput';
 export { default as Footer } from './components/Footer';
 export { default as Header } from './components/Header';

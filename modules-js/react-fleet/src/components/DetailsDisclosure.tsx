@@ -1,15 +1,25 @@
 /** @jsx jsx */
 
-import { useEffect, useState, ReactChild } from 'react';
-
 import { css, jsx } from '@emotion/core';
 
-import {
-  CLEAR_DEFAULT_STYLING,
-  OPTIMISTIC_BLUE_DARK,
-} from '@cityofboston/react-fleet';
+import { useEffect, useState, Fragment, ReactChild } from 'react';
 
-export default function ApostilleRequestInstructions(): JSX.Element {
+import { CLEAR_DEFAULT_STYLING } from '../utilities/css';
+import { OPTIMISTIC_BLUE_DARK } from '../utilities/constants';
+
+interface Props {
+  summaryContent: string;
+  id?: string;
+  children: ReactChild | ReactChild[];
+}
+
+/**
+ * Show/Hide Disclosure component; renders native <details> element when
+ * supported, and provides an a11y-friendly widget as a fallback.
+ *
+ * https://www.w3.org/TR/wai-aria-practices/#disclosure
+ */
+export default function DetailsDisclosure(props: Props): JSX.Element {
   const [detailsElementIsSupported, setDetailsElementIsSupported] = useState<
     boolean
   >(false);
@@ -25,42 +35,46 @@ export default function ApostilleRequestInstructions(): JSX.Element {
     const testElement = document.createElement('details');
 
     setDetailsElementIsSupported('open' in testElement);
-    // Because we only need to test for support once, ensure the effect
-    // does not fire again.
-  }, [detailsElementIsSupported]);
+  }, []); // effect only needs to run once
 
   if (detailsElementIsSupported) {
     return (
       <details css={DETAILS_STYLING}>
-        <summary>{summaryContent()}</summary>
+        <summary>{summaryElement(props.summaryContent)}</summary>
 
-        {detailsContent()}
+        {props.children}
       </details>
     );
   } else {
+    // If an id is not passed in, use timestamp to ensure unique ids in case
+    // more than one <DetailsDisclosure> component is present.
+    const id = props.id || Date.now().toString();
+
     return (
-      <aside css={FALLBACK_STYLING}>
+      <div css={FALLBACK_STYLING}>
         <button
           type="button"
           css={CLEAR_DEFAULT_STYLING.BUTTON}
           aria-expanded={isOpen}
-          aria-controls="detailsContent"
+          aria-controls={id}
           onClick={toggleIsOpen}
         >
-          {summaryContent()}
+          {summaryElement(props.summaryContent)}
         </button>
 
-        <div id="detailsContent" className="details-content">
-          {detailsContent()}
+        <div id={id} className="details-content">
+          {props.children}
         </div>
-      </aside>
+      </div>
     );
   }
 }
 
-function summaryContent(): ReactChild {
+function summaryElement(content: string): ReactChild {
   return (
-    <>
+    // Using <> shorthand results in “React is not defined” errors in Storybook:
+    // https://github.com/emotion-js/emotion/issues/1303
+    <Fragment>
       <svg
         viewBox="0 0 20 20"
         aria-hidden="true"
@@ -70,26 +84,8 @@ function summaryContent(): ReactChild {
       >
         <path d="M 2,5 10,20 18,5 Z" />
       </svg>
-      Are you requesting a certificate for international use that requires an
-      Apostille from the Massachusetts Secretary of State?
-    </>
-  );
-}
-
-function detailsContent(): ReactChild {
-  return (
-    <>
-      <p>
-        You need to have a hand signature from the Registry. After you finish
-        your order, please email birth@boston.gov with:
-      </p>
-
-      <ul>
-        <li>the name of the person on the record</li>
-        <li>their date of birth, and</li>
-        <li>let us know that you need the signature for an Apostille.</li>
-      </ul>
-    </>
+      {content}
+    </Fragment>
   );
 }
 

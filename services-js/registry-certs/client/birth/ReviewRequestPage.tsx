@@ -9,7 +9,11 @@ import Router from 'next/router';
 
 import { observer } from 'mobx-react';
 
-import { CHARLES_BLUE, SERIF } from '@cityofboston/react-fleet';
+import {
+  DetailsDisclosure,
+  CHARLES_BLUE,
+  SERIF,
+} from '@cityofboston/react-fleet';
 
 import { PageDependencies } from '../../pages/_app';
 
@@ -18,7 +22,6 @@ import CostSummary from '../common/CostSummary';
 
 import QuantityDropdown from '../common/QuantityDropdown';
 import BackButton from '../common/question-components/BackButton';
-import ApostilleRequestInstructions from './components/ApostilleRequestInstructions';
 
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 import { CERTIFICATE_COST } from '../../lib/costs';
@@ -155,7 +158,22 @@ export default class ReviewRequestPage extends Component<Props> {
           need to do a separate transaction.
         </p>
 
-        <ApostilleRequestInstructions />
+        <DetailsDisclosure
+          summaryContent="Are you requesting a certificate for international use that requires an
+      Apostille from the Massachusetts Secretary of State?"
+          id="apostille"
+        >
+          <p>
+            You need to have a hand signature from the Registry. After you
+            finish your order, please email birth@boston.gov with:
+          </p>
+
+          <ul>
+            <li>the name of the person on the record</li>
+            <li>their date of birth, and</li>
+            <li>let us know that you need the signature for an Apostille.</li>
+          </ul>
+        </DetailsDisclosure>
 
         <div css={CERTIFICATE_ROW_STYLE}>
           <QuantityDropdown
