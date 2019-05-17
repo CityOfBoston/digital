@@ -9,6 +9,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
 
+import { getParam } from '@cityofboston/next-client-common';
+
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import { DeathCertificate } from '../../types';
 
@@ -43,7 +45,9 @@ class CertificatePage extends React.Component<Props, State> {
     InitialProps,
     'query' | 'res',
     'deathCertificatesDao'
-  > = async ({ query: { id, backUrl }, res }, { deathCertificatesDao }) => {
+  > = async ({ query, res }, { deathCertificatesDao }) => {
+    const id = getParam(query.id);
+
     if (!id) {
       throw new Error('Missing id');
     }
@@ -57,7 +61,7 @@ class CertificatePage extends React.Component<Props, State> {
     return {
       id,
       certificate,
-      backUrl,
+      backUrl: getParam(query.backUrl, null),
     };
   };
 

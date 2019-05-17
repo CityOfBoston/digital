@@ -2,7 +2,7 @@
 
 exports[`getInitialProps handles a 404 1`] = `
 Object {
-  "backUrl": undefined,
+  "backUrl": null,
   "certificate": null,
   "id": "000002",
 }
@@ -10,7 +10,7 @@ Object {
 
 exports[`getInitialProps loads the cert passed in query 1`] = `
 Object {
-  "backUrl": undefined,
+  "backUrl": null,
   "certificate": Object {
     "age": "53",
     "birthDate": "5/1/1962",

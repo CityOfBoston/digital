@@ -15,6 +15,7 @@ import {
   NextContext,
   GtagSiteAnalytics,
   ScreenReaderSupport,
+  getParam,
 } from '@cityofboston/next-client-common';
 import { IncomingMessage } from 'http';
 import { Formik, FormikActions } from 'formik';
@@ -49,7 +50,10 @@ export default class ApplyPage extends React.Component<Props, State> {
     const commissions = await fetchCommissions();
     commissions.sort((current, next) => current.name.localeCompare(next.name));
 
-    return { commissions, commissionID };
+    return {
+      commissions,
+      commissionID: getParam(commissionID),
+    };
   }
 
   componentDidMount() {

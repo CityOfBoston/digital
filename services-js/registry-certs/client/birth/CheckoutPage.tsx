@@ -5,6 +5,8 @@ import { observer } from 'mobx-react';
 import Router from 'next/router';
 import Link from 'next/link';
 
+import { getParam } from '@cityofboston/next-client-common';
+
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
 import { CERTIFICATE_COST } from '../../lib/costs';
@@ -85,9 +87,9 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       case 'confirmation':
         info = {
           page: 'confirmation',
-          orderId: query.orderId || '',
-          contactEmail: query.contactEmail || '',
-          stepCount: parseInt(query.stepCount || '8'),
+          orderId: getParam(query.orderId, ''),
+          contactEmail: getParam(query.contactEmail, ''),
+          stepCount: parseInt(getParam(query.stepCount, '8')),
         };
         break;
       default:

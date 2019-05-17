@@ -18,7 +18,7 @@ export const GOOGLE_TRACKING_ID_KEY = 'googleTrackingId';
 // into the server-side getInitialProps methods by attaching them as properties
 // on the request. This is typically "IncomingMessage & CustomType"
 export interface NextContext<Req = IncomingMessage> {
-  query: { [key: string]: string };
+  query: { [key: string]: string | string[] | undefined };
   pathname: string;
   asPath: string;
   jsonPageRes?: Response;
@@ -356,4 +356,20 @@ export function gql(
   result.push(literals[literals.length - 1]);
 
   return result.join('');
+}
+
+/**
+ * Used to get the first or only value from a Next.js query parameter, which has
+ * type string | string[] | undefined.
+ *
+ * You can provide a fallback in case the param is not provided, in which case
+ * the return type is inferred from the value of the fallback.
+ */
+export function getParam<T = undefined>(
+  queryParam: string | string[] | undefined,
+  fallback?: T
+): string | T {
+  // fallback! at the end here because we don’t want TypeScript to consider the
+  // case where you set "T" explicitly but don’t provide a fallback value.
+  return (Array.isArray(queryParam) ? queryParam[0] : queryParam) || fallback!;
 }

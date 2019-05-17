@@ -17,8 +17,6 @@ import {
   GraphqlCache,
 } from '@cityofboston/next-client-common';
 
-import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
-
 import RequestSearch from '../data/store/RequestSearch';
 import Ui from '../data/store/Ui';
 import BrowserLocation from '../data/store/BrowserLocation';
@@ -29,6 +27,7 @@ import parseLanguagePreferences, {
   LanguagePreference,
 } from '../data/store/BrowserLanguage';
 import { NextConfig } from '../lib/config';
+import { IncomingMessage } from 'http';
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
@@ -53,10 +52,10 @@ export interface GetInitialPropsDependencies {
  */
 export type GetInitialProps<
   T,
-  C extends keyof NextContext<ExtendedIncomingMessage> = never,
+  C extends keyof NextContext = never,
   D extends keyof GetInitialPropsDependencies = never
 > = (
-  cxt: Pick<NextContext<ExtendedIncomingMessage>, C>,
+  cxt: Pick<NextContext, C>,
   deps: Pick<GetInitialPropsDependencies, D>
 ) => T | Promise<T>;
 
@@ -103,7 +102,7 @@ export interface PageDependencies {
 }
 
 interface AppGetInitialPropsContext {
-  ctx: NextContext<ExtendedIncomingMessage>;
+  ctx: NextContext;
   Component: any;
 }
 
@@ -130,7 +129,7 @@ let cachedInitialPageDependencies: GetInitialPropsDependencies;
  * dependency type that we give to getInitialProps.
  */
 function getInitialPageDependencies(
-  req?: ExtendedIncomingMessage
+  req?: IncomingMessage
 ): GetInitialPropsDependencies {
   if (cachedInitialPageDependencies) {
     return cachedInitialPageDependencies;

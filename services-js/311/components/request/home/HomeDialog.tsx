@@ -7,6 +7,7 @@ import Router from 'next/router';
 import {
   FetchGraphql,
   GaSiteAnalytics,
+  getParam,
 } from '@cityofboston/next-client-common';
 
 import { ServiceSummary } from '../../../data/types';
@@ -64,7 +65,7 @@ export default class HomeDialog extends React.Component<Props> {
     return {
       topServiceSummaries: await loadTopServiceSummaries(fetchGraphql, 5),
       stage: stage === 'choose' ? stage : 'home',
-      description: description || '',
+      description: getParam(description, ''),
       bypassTranslateDialog: translate === '0',
     };
   };

@@ -154,7 +154,7 @@ export async function makeServer(port, rollbar: Rollbar) {
     nextApp = next({
       dev,
       dir: 'src',
-      config,
+      conf: config,
     });
   } else {
     nextApp = null;

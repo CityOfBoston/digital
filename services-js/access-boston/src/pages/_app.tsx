@@ -15,8 +15,6 @@ import {
   ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
 
-import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
-
 import CrumbContext from '../client/CrumbContext';
 import { RedirectError } from '../client/auth-helpers';
 ``;
@@ -35,7 +33,7 @@ export interface GetInitialPropsDependencies {
 }
 
 export type GetInitialProps<T> = (
-  cxt: NextContext<ExtendedIncomingMessage>,
+  cxt: NextContext,
   deps: GetInitialPropsDependencies
 ) => T | Promise<T>;
 
@@ -70,7 +68,7 @@ export interface PageDependencies {
 }
 
 interface AppInitialProps {
-  ctx: NextContext<ExtendedIncomingMessage>;
+  ctx: NextContext;
   Component: any;
 }
 

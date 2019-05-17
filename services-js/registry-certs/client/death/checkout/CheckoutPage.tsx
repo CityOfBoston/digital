@@ -4,6 +4,8 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import Router from 'next/router';
 
+import { getParam } from '@cityofboston/next-client-common';
+
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import Order, { OrderInfo } from '../../models/Order';
 
@@ -85,8 +87,8 @@ export default class CheckoutPageController extends React.Component<
       case 'confirmation':
         info = {
           page: 'confirmation',
-          orderId: query.orderId || '',
-          contactEmail: query.contactEmail || '',
+          orderId: getParam(query.orderId, ''),
+          contactEmail: getParam(query.contactEmail, ''),
         };
         break;
       default:

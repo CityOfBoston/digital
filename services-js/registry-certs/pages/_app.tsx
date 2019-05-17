@@ -1,12 +1,11 @@
 import React from 'react';
+import { IncomingMessage } from 'http';
 
 import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
 
 import { configure as mobxConfigure } from 'mobx';
-
-import { ExtendedIncomingMessage } from '@cityofboston/hapi-next';
 
 import {
   makeFetchGraphql,
@@ -38,10 +37,10 @@ export interface GetInitialPropsDependencies {
  */
 export type GetInitialProps<
   T,
-  C extends keyof NextContext<ExtendedIncomingMessage> = never,
+  C extends keyof NextContext = never,
   D extends keyof GetInitialPropsDependencies = never
 > = (
-  cxt: Pick<NextContext<ExtendedIncomingMessage>, C>,
+  cxt: Pick<NextContext, C>,
   deps: Pick<GetInitialPropsDependencies, D>
 ) => T | Promise<T>;
 
@@ -85,7 +84,7 @@ export interface PageDependencies extends GetInitialPropsDependencies {
 }
 
 interface AppInitialProps {
-  ctx: NextContext<ExtendedIncomingMessage>;
+  ctx: NextContext;
   Component: any;
 }
 
@@ -110,7 +109,7 @@ let cachedInitialPageDependencies: GetInitialPropsDependencies;
  * dependency type that we give to getInitialProps.
  */
 function getInitialPageDependencies(
-  req?: ExtendedIncomingMessage
+  req?: IncomingMessage
 ): GetInitialPropsDependencies {
   if (cachedInitialPageDependencies) {
     return cachedInitialPageDependencies;

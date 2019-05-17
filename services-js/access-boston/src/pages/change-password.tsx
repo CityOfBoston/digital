@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
 import { Formik, FormikProps } from 'formik';
+import { format as formatUrl } from 'url';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
@@ -112,11 +113,13 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
             // then we can go straight to done.
             this.doneRedirectRef.current!.redirect();
           } else {
-            Router.push({
-              // clears out any query param since we're setting it below
-              pathname: successUrl(account).replace(/\?.*/, ''),
-              query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
-            });
+            Router.push(
+              formatUrl({
+                // clears out any query param since we're setting it below
+                pathname: successUrl(account).replace(/\?.*/, ''),
+                query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
+              })
+            );
           }
           break;
       }

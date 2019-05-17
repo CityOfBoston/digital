@@ -25,6 +25,7 @@ import LocationMap from '../map/LocationMap';
 import RecentRequests from './RecentRequests';
 import RecentRequestsSearchForm from './RecentRequestsSearchForm';
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
+import { getParam } from '@cityofboston/next-client-common';
 
 type SearchData = {
   view: 'search';
@@ -142,8 +143,8 @@ export default class SearchLayout extends React.Component<Props> {
 
     if (lat && lng) {
       location = {
-        lat: parseFloat(query.lat),
-        lng: parseFloat(query.lng),
+        lat: parseFloat(getParam(lat)!),
+        lng: parseFloat(getParam(lng)!),
       };
     } else {
       location = null;
@@ -152,9 +153,9 @@ export default class SearchLayout extends React.Component<Props> {
     return {
       data: {
         view: 'search',
-        query: query.q || '',
+        query: getParam(query.q, ''),
         location,
-        zoom: zoom ? parseInt(zoom, 10) : null,
+        zoom: zoom ? parseInt(getParam(zoom)!, 10) : null,
       },
     };
   };
