@@ -104,7 +104,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
   const app = next({
     dev: nextDev,
     quiet: process.env.NODE_ENV === 'test',
-    config,
+    conf: config,
   });
 
   const externalAssetUrl = process.env.ASSET_HOST

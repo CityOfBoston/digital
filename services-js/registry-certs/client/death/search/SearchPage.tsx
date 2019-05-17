@@ -6,6 +6,8 @@ import { ChangeEvent, Component, ComponentClass } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
 
+import { getParam } from '@cityofboston/next-client-common';
+
 import { DeathCertificateSearchResults } from '../../types';
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 
@@ -47,13 +49,13 @@ class SearchPage extends Component<Props, State> {
     'query',
     'deathCertificatesDao'
   > = async ({ query }, { deathCertificatesDao }) => {
-    let q = query.q || '';
+    let q = getParam(query.q, '');
     let page = 1;
 
     let results: DeathCertificateSearchResults | null = null;
 
     if (q) {
-      page = parseInt(query.page, 10) || 1;
+      page = parseInt(getParam(query.page, '1'), 10);
 
       results = await deathCertificatesDao.search(q, page);
     }

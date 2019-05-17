@@ -372,7 +372,7 @@ async function addNext(server: HapiServer) {
   const nextApp = next({
     dev,
     dir: 'src',
-    config,
+    conf: config,
   });
 
   // We have to manually add the CSRF token because the Next helpers

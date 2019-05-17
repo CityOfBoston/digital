@@ -11,6 +11,7 @@ import CaseView from './CaseView';
 import { Request } from '../../data/types';
 import loadCase from '../../data/queries/load-case';
 import { GetInitialProps } from '../../pages/_app';
+import { getParam } from '@cityofboston/next-client-common';
 
 type CaseData = {
   request: Request | null;
@@ -27,7 +28,11 @@ export default class CaseLayout extends React.Component<Props> {
     'query' | 'res',
     'fetchGraphql'
   > = async ({ query, res }, { fetchGraphql }) => {
-    const { id } = query;
+    const id = getParam(query.id);
+
+    if (!id) {
+      throw new Error('id missing in CaseLayout');
+    }
 
     const request = await loadCase(fetchGraphql, id);
 

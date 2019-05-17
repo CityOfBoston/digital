@@ -11,13 +11,13 @@ export function makeNProgressStyle(height: number = 65) {
 }
 
 export type Dependencies = {
-  router: Router;
+  router: typeof Router;
   siteAnalytics?: SiteAnalytics;
   screenReaderSupport?: ScreenReaderSupport;
 };
 
 export default class RouterListener {
-  private router: Router | null = null;
+  private router: typeof Router | null = null;
   private siteAnalytics: SiteAnalytics | null = null;
   private screenReaderSupport: ScreenReaderSupport | null = null;
 
@@ -29,9 +29,9 @@ export default class RouterListener {
     this.siteAnalytics = siteAnalytics || null;
     this.screenReaderSupport = screenReaderSupport || null;
 
-    router.onRouteChangeStart = this.routeChangeStart;
-    router.onRouteChangeComplete = this.routeChangeComplete;
-    router.onRouteChangeError = this.routeChangeError;
+    router.events.on('routeChangeStart', this.routeChangeStart);
+    router.events.on('routeChangeComplete', this.routeChangeComplete);
+    router.events.on('routeChangeError', this.routeChangeError);
 
     NProgress.configure({ showSpinner: false });
 
@@ -47,9 +47,9 @@ export default class RouterListener {
 
   detach() {
     if (this.router) {
-      this.router.onRouteChangeStart = null;
-      this.router.onRouteChangeComplete = null;
-      this.router.onRouteChangeError = null;
+      this.router.events.off('routeChangeStart', this.routeChangeStart);
+      this.router.events.off('routeChangeComplete', this.routeChangeComplete);
+      this.router.events.off('routeChangeError', this.routeChangeError);
     }
 
     this.router = null;

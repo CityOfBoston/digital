@@ -9,6 +9,7 @@ import { DeathCertificateOrder } from '../../types';
 import { GetInitialProps } from '../../../pages/_app';
 
 import { BLACK, GRAY_200, MEDIA_PRINT, WHITE } from '@cityofboston/react-fleet';
+import { getParam } from '@cityofboston/next-client-common';
 
 interface Props {
   order: DeathCertificateOrder | null;
@@ -19,10 +20,10 @@ export default class ReceiptPage extends Component<Props> {
     Props,
     'query' | 'res',
     'deathCertificatesDao'
-  > = async (
-    { query: { id, contactEmail }, res },
-    { deathCertificatesDao }
-  ) => {
+  > = async ({ query, res }, { deathCertificatesDao }) => {
+    const id = getParam(query.id);
+    const contactEmail = getParam(query.contactEmail);
+
     if (!id) {
       throw new Error('Missing id');
     }

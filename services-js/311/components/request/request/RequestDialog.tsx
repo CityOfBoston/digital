@@ -9,6 +9,7 @@ import { IPromiseBasedObservable } from 'mobx-utils';
 import {
   FetchGraphql,
   ScreenReaderSupport,
+  getParam,
 } from '@cityofboston/next-client-common';
 
 import { MEDIA_LARGE, HEADER_HEIGHT } from '@cityofboston/react-fleet';
@@ -82,7 +83,10 @@ export default class RequestDialog extends React.Component<Props> {
     'query' | 'res',
     'fetchGraphql'
   > = async ({ query, res }, { fetchGraphql }): Promise<InitialProps> => {
-    const { code, description } = query;
+    const { description } = query;
+    // We can't be routed to here unless code is provided
+    const code = getParam(query.code)!;
+
     let stage = query.stage;
 
     const service = await loadService(fetchGraphql, code);
@@ -102,7 +106,7 @@ export default class RequestDialog extends React.Component<Props> {
           serviceCode: code,
           service,
           stage,
-          description: description || '',
+          description: getParam(description, ''),
         };
       default:
         throw new Error(`Unknown stage: ${stage}`);

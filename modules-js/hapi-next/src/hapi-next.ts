@@ -11,12 +11,7 @@ import {
   ResponseToolkit,
   RequestQuery,
 } from 'hapi';
-import { IncomingMessage } from 'http';
 import { promisify } from 'util';
-
-export interface ExtendedIncomingMessage extends IncomingMessage {
-  payload: any;
-}
 
 /**
  * Makes a Hapi route object to render the Next app from the given module at the
@@ -149,10 +144,6 @@ export function makeNextHandler(
       ...(query as RequestQuery),
       ...params,
     };
-
-    // Pass any Hapi payload along so we can handle form POSTs in
-    // getInitialProps if we want to.
-    (req as ExtendedIncomingMessage).payload = request.payload;
 
     // Our actual pages are mounted at their expected paths (e.g.
     // /commissions/apply in the commissions app, not /apply) so we don’t
