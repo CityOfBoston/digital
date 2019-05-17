@@ -72,6 +72,15 @@ export default class IndexPage extends React.Component<Props> {
     };
   };
 
+  sendEvent2GA = labelVal => {
+    (window as any).dataLayer.push({
+      event: 'access_boston',
+      eventCategory: 'Access Boston',
+      eventAction: 'Landing Page App Clicks',
+      eventLabel: labelVal,
+    });
+  };
+
   render() {
     const {
       account,
@@ -205,6 +214,7 @@ export default class IndexPage extends React.Component<Props> {
         {apps.map(({ title, url, iconUrl }) => (
           <Link href={url} key={title}>
             <a
+              onClick={() => this.sendEvent2GA(title)}
               className="lwi m-t200 g--3 g--3--sl"
               target={url.startsWith('/') ? '_self' : '_blank'}
             >
