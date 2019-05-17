@@ -73,7 +73,7 @@ export default class IndexPage extends React.Component<Props> {
   };
 
   sendEvent2GA = labelVal => {
-    window.dataLayer.push({
+    (window as any).dataLayer.push({
       event: 'access_boston',
       eventCategory: 'Access Boston',
       eventAction: 'Landing Page App Clicks',
