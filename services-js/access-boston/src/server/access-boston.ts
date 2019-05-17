@@ -11,7 +11,7 @@ import yar from 'yar';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import hapiDevErrors from 'hapi-dev-errors';
-import next from 'next';
+const next = require('next');
 import { ApolloServer } from 'apollo-server-hapi';
 
 import { parse, Compile } from 'velocityjs';

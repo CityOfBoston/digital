@@ -255,6 +255,7 @@ exports[`home page rendering 1`] = `
                   className="m-v100"
                   href="/request/CSMCINC"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   Cosmic Incursion
                 </a>
@@ -266,6 +267,7 @@ exports[`home page rendering 1`] = `
               <a
                 href="/services"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 See all services…
               </a>
@@ -328,6 +330,7 @@ exports[`home page rendering 1`] = `
             <a
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Browse public cases
             </a>

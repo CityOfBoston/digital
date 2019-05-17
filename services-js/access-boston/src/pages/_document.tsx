@@ -1,4 +1,11 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentInitialProps,
+  DocumentContext,
+  DocumentProps,
+} from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 import {
@@ -10,13 +17,24 @@ import { CompatibilityWarning, StatusModal } from '@cityofboston/react-fleet';
 
 import { HEADER_HEIGHT } from '../client/styles';
 
-export default class MyDocument extends Document {
-  props: any;
+type Props = {
+  userAgent: string;
+  rollbarAccessToken: string | undefined;
+  rollbarEnvironment: string | undefined;
 
-  static getInitialProps({ renderPage, req }) {
-    const page = renderPage();
+  css: string;
+  ids: string[];
+};
+
+export default class AccessBostonDocument extends Document<Props> {
+  static async getInitialProps({
+    renderPage,
+    req,
+  }: DocumentContext): Promise<Props & DocumentInitialProps> {
+    const page = await renderPage();
     const styles = extractCritical(page.html);
-    const userAgent = req.headers['user-agent'];
+    const userAgent = req!.headers['user-agent'] || '';
+
     return {
       ...page,
       ...styles,
@@ -27,12 +45,12 @@ export default class MyDocument extends Document {
     };
   }
 
-  constructor(props) {
+  constructor(props: Props & DocumentProps) {
     super(props);
 
     const { __NEXT_DATA__, ids } = props;
     if (ids) {
-      __NEXT_DATA__.ids = ids;
+      (__NEXT_DATA__ as any).ids = ids;
     }
   }
 

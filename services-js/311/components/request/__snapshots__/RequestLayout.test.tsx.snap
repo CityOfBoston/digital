@@ -31,6 +31,7 @@ exports[`existing service page rendering phone 1`] = `
           className="nv-s-l-a nv-s-l-a--active"
           href="/"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           BOS:311 Home
         </a>
@@ -42,6 +43,7 @@ exports[`existing service page rendering phone 1`] = `
           className="nv-s-l-a "
           href="/search"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           Search cases
         </a>
@@ -53,6 +55,7 @@ exports[`existing service page rendering phone 1`] = `
           className="nv-s-l-a "
           href="/services"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           All services
         </a>
@@ -64,6 +67,7 @@ exports[`existing service page rendering phone 1`] = `
           className="nv-s-l-a "
           href="/faq"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           FAQ
         </a>
@@ -493,6 +497,7 @@ exports[`existing service page rendering phone location step 1`] = `
           className="nv-s-l-a nv-s-l-a--active"
           href="/"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           BOS:311 Home
         </a>
@@ -504,6 +509,7 @@ exports[`existing service page rendering phone location step 1`] = `
           className="nv-s-l-a "
           href="/search"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           Search cases
         </a>
@@ -515,6 +521,7 @@ exports[`existing service page rendering phone location step 1`] = `
           className="nv-s-l-a "
           href="/services"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           All services
         </a>
@@ -526,6 +533,7 @@ exports[`existing service page rendering phone location step 1`] = `
           className="nv-s-l-a "
           href="/faq"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           FAQ
         </a>
@@ -708,6 +716,7 @@ exports[`missing service page rendering 1`] = `
           className="nv-s-l-a nv-s-l-a--active"
           href="/"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           BOS:311 Home
         </a>
@@ -719,6 +728,7 @@ exports[`missing service page rendering 1`] = `
           className="nv-s-l-a "
           href="/search"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           Search cases
         </a>
@@ -730,6 +740,7 @@ exports[`missing service page rendering 1`] = `
           className="nv-s-l-a "
           href="/services"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           All services
         </a>
@@ -741,6 +752,7 @@ exports[`missing service page rendering 1`] = `
           className="nv-s-l-a "
           href="/faq"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           FAQ
         </a>

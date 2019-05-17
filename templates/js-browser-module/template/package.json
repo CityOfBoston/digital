@@ -29,15 +29,15 @@
     "core-js": "^2.6.4"
   },
   "peerDependencies": {
-    "@babel/runtime": "7.1.2",
+    "@babel/runtime": "^7.4.5",
     "@emotion/core": "^10.0.10",
     "emotion": "^10.0.9",
     "react": "16.8.5"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.5",
-    "@babel/core": "7.1.2",
-    "@babel/runtime": "7.1.2",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "7.4.5",
+    "@babel/runtime": "^7.4.5",
     "@emotion/core": "^10.0.10",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",

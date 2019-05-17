@@ -39,8 +39,8 @@
     "stripe": "^5.4.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.5",
-    "@babel/core": "7.1.2",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "7.4.5",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/boom": "^7.2.0",

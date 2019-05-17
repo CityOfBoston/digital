@@ -36,7 +36,7 @@
     "graphql": "0.13.2"
   },
   "dependencies": {
-    "@babel/runtime": "7.1.2",
+    "@babel/runtime": "^7.4.5",
     "@cityofboston/deploy-tools": "^0.0.0",
     "@cityofboston/form-common": "^0.0.0",
     "@cityofboston/hapi-common": "^0.0.0",
@@ -64,7 +64,7 @@
     "js-yaml": "^3.12.0",
     "jws": "^3.1.5",
     "moment-timezone": "^0.5.14",
-    "next": "8.0.3",
+    "next": "canary",
     "next-cookies": "^1.0.2",
     "node-cleanup": "^2.1.2",
     "node-fetch": "^2.2.0",
@@ -79,8 +79,8 @@
     "yup": "0.27.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.5",
-    "@babel/core": "7.1.2",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "7.4.5",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/graphql-typescript": "^0.0.0",
@@ -105,7 +105,6 @@
     "@types/storybook__react": "^4.0.1",
     "@types/yar": "^9.0.4",
     "@types/yup": "^0.26.0",
-    "@zeit/next-typescript": "1.1.1",
     "babel-core": "^7.0.0-0",
     "babel-plugin-inline-import": "^2.0.6",
     "concurrently": "^3.5.1",

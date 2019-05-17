@@ -4,7 +4,10 @@
     "rootDir": ".",
     "outDir": "build",
     "allowJs": true,
-    "declaration": false
+    "declaration": false,
+    "module": "esnext",
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": [
     "components/**/*",
@@ -14,5 +17,6 @@
     "scripts/**/*",
     "server/**/*",
     "templates/**/*"
-  ]
+  ],
+  "exclude": ["scripts/*.js"]
 }

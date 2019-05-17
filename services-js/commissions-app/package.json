@@ -35,7 +35,7 @@
     "graphql": "0.13.2"
   },
   "dependencies": {
-    "@babel/runtime": "7.1.2",
+    "@babel/runtime": "^7.4.5",
     "@cityofboston/form-common": "^0.0.0",
     "@cityofboston/hapi-common": "^0.0.0",
     "@cityofboston/hapi-next": "^0.0.0",
@@ -60,7 +60,7 @@
     "isomorphic-fetch": "^2.2.1",
     "mjml": "^4.3.1",
     "mssql": "^4.2.1",
-    "next": "8.0.3",
+    "next": "canary",
     "node-cleanup": "^2.1.2",
     "postmark": "^1.6.1",
     "react": "16.8.5",
@@ -70,8 +70,8 @@
     "yup": "0.27.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.5",
-    "@babel/core": "7.1.2",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "7.4.5",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/graphql-typescript": "^0.0.0",
@@ -96,7 +96,6 @@
     "@types/storybook__addon-actions": "^3.4.2",
     "@types/storybook__addon-storyshots": "^3.4.8",
     "@types/storybook__react": "^4.0.1",
-    "@zeit/next-typescript": "1.1.1",
     "babel-core": "^7.0.0-0",
     "concurrently": "^3.5.1",
     "eslint-plugin-graphql": "^3.0.3",

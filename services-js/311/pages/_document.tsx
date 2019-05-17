@@ -1,5 +1,11 @@
 import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentProps,
+} from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 import getConfig from 'next/config';
@@ -15,24 +21,20 @@ import navigationHtml from '../templates/navigation.html';
 import LiveAgent from '../data/store/LiveAgent';
 
 type Props = {
-  __NEXT_DATA__: any;
   ids: string[];
   css: string;
+
   rollbarAccessToken: string | undefined;
   rollbarEnvironment: string | undefined;
 };
 
-export default class extends Document {
-  props: Props;
-
-  static async getInitialProps({ renderPage }) {
-    const page = renderPage();
+export default class extends Document<Props> {
+  static async getInitialProps({ renderPage }: DocumentContext) {
+    const page = await renderPage();
     let styles = {};
 
     if (page.html) {
       styles = extractCritical(page.html);
-    } else if (page.errorHtml) {
-      styles = extractCritical(page.errorHtml);
     }
 
     return {
@@ -44,16 +46,14 @@ export default class extends Document {
     };
   }
 
-  constructor(props: Props) {
+  constructor(props: Props & DocumentProps) {
     super(props);
-
-    this.props = props;
 
     mobxUseStaticRendering(true);
 
     const { __NEXT_DATA__, ids } = props;
     if (ids) {
-      __NEXT_DATA__.ids = ids;
+      (__NEXT_DATA__ as any).ids = ids;
     }
   }
 

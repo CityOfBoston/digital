@@ -864,6 +864,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -875,6 +876,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -886,6 +888,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -897,6 +900,7 @@ exports[`Storyshots CaseLayout 404 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -1177,6 +1181,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -1188,6 +1193,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -1199,6 +1205,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -1210,6 +1217,7 @@ exports[`Storyshots CaseLayout Existing 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -4286,6 +4294,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -4297,6 +4306,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -4308,6 +4318,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -4319,6 +4330,7 @@ exports[`Storyshots ErrorLayout 404 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -4603,6 +4615,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -4614,6 +4627,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -4625,6 +4639,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -4636,6 +4651,7 @@ exports[`Storyshots ErrorLayout 500 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -4920,6 +4936,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -4931,6 +4948,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -4942,6 +4960,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -4953,6 +4972,7 @@ exports[`Storyshots FaqLayout FAQ 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -5429,6 +5449,7 @@ exports[`Storyshots HomePane Home 1`] = `
                   className="m-v100"
                   href="/request/SRTV-00000057"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   Needle Removal
                 </a>
@@ -5445,6 +5466,7 @@ exports[`Storyshots HomePane Home 1`] = `
                   className="m-v100"
                   href="/request/SRTV-00000066"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   Park Lighting Issues
                 </a>
@@ -5461,6 +5483,7 @@ exports[`Storyshots HomePane Home 1`] = `
                   className="m-v100"
                   href="/request/SRTV-00000080"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   Illegal Vending
                 </a>
@@ -5477,6 +5500,7 @@ exports[`Storyshots HomePane Home 1`] = `
                   className="m-v100"
                   href="/request/SRTV-00000086"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   Empty Litter Basket
                 </a>
@@ -5493,6 +5517,7 @@ exports[`Storyshots HomePane Home 1`] = `
                   className="m-v100"
                   href="/request/SRTV-00000092"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   Sidewalk Repair
                 </a>
@@ -5504,6 +5529,7 @@ exports[`Storyshots HomePane Home 1`] = `
               <a
                 href="/services"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 See all services…
               </a>
@@ -5566,6 +5592,7 @@ exports[`Storyshots HomePane Home 1`] = `
             <a
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Browse public cases
             </a>
@@ -7751,6 +7778,7 @@ exports[`Storyshots Nav request selected 1`] = `
         className="nv-s-l-a nv-s-l-a--active"
         href="/"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         BOS:311 Home
       </a>
@@ -7762,6 +7790,7 @@ exports[`Storyshots Nav request selected 1`] = `
         className="nv-s-l-a "
         href="/search"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         Search cases
       </a>
@@ -7773,6 +7802,7 @@ exports[`Storyshots Nav request selected 1`] = `
         className="nv-s-l-a "
         href="/services"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         All services
       </a>
@@ -7784,6 +7814,7 @@ exports[`Storyshots Nav request selected 1`] = `
         className="nv-s-l-a "
         href="/faq"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         FAQ
       </a>
@@ -8424,7 +8455,7 @@ exports[`Storyshots RecentRequests no dates 1`] = `
           className="css-56ucxo"
           style={
             Object {
-              "backgroundImage": "url(https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg)",
+              "backgroundImage": "url()",
             }
           }
         />
@@ -8730,7 +8761,7 @@ exports[`Storyshots RecentRequests results loaded 1`] = `
           className="css-56ucxo"
           style={
             Object {
-              "backgroundImage": "url(https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg)",
+              "backgroundImage": "url()",
             }
           }
         />
@@ -8934,7 +8965,7 @@ exports[`Storyshots RecentRequests results loaded and loading more 1`] = `
           className="css-56ucxo"
           style={
             Object {
-              "backgroundImage": "url(https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg)",
+              "backgroundImage": "url()",
             }
           }
         />
@@ -9195,7 +9226,7 @@ exports[`Storyshots RecentRequests with selection 1`] = `
           className="css-56ucxo"
           style={
             Object {
-              "backgroundImage": "url(https://pbs.twimg.com/media/C22X9ODXgAABGKS.jpg)",
+              "backgroundImage": "url()",
             }
           }
         />
@@ -9500,6 +9531,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -9511,6 +9543,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -9522,6 +9555,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -9533,6 +9567,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -9709,6 +9744,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                           className="m-v100"
                           href="/request/CSMCINC"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           Cosmic Incursion
                         </a>
@@ -9720,6 +9756,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                       <a
                         href="/services"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         See all services…
                       </a>
@@ -9782,6 +9819,7 @@ exports[`Storyshots RequestLayout Request Form 1`] = `
                     <a
                       href="/search"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       Browse public cases
                     </a>
@@ -10007,6 +10045,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -10018,6 +10057,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -10029,6 +10069,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -10040,6 +10081,7 @@ exports[`Storyshots RequestLayout Request Page 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -10596,6 +10638,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -10607,6 +10650,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -10618,6 +10662,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -10629,6 +10674,7 @@ exports[`Storyshots RequestLayout Translate Page 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -10907,6 +10953,7 @@ exports[`Storyshots RequestPopup image 1`] = `
     className="p-a200 css-1i2armg"
     href="/reports/17-0000001"
     onClick={[Function]}
+    onMouseEnter={[Function]}
   >
     <div
       className="css-1inb8y3"
@@ -10954,6 +11001,7 @@ exports[`Storyshots RequestPopup no image 1`] = `
     className="p-a200 css-1i2armg"
     href="/reports/17-0000001"
     onClick={[Function]}
+    onMouseEnter={[Function]}
   >
     <div
       className="css-181n9a"
@@ -11136,6 +11184,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -11147,6 +11196,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -11158,6 +11208,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -11169,6 +11220,7 @@ exports[`Storyshots SearchLayout List View 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -11506,6 +11558,7 @@ exports[`Storyshots SearchLayout Map View 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -11517,6 +11570,7 @@ exports[`Storyshots SearchLayout Map View 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -11528,6 +11582,7 @@ exports[`Storyshots SearchLayout Map View 1`] = `
               className="nv-s-l-a "
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -11539,6 +11594,7 @@ exports[`Storyshots SearchLayout Map View 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -11816,6 +11872,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -11827,6 +11884,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -11838,6 +11896,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -11849,6 +11908,7 @@ exports[`Storyshots ServicesLayout Collapsed 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -12132,6 +12192,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
               className="nv-s-l-a "
               href="/"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               BOS:311 Home
             </a>
@@ -12143,6 +12204,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
               className="nv-s-l-a "
               href="/search"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Search cases
             </a>
@@ -12154,6 +12216,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
               className="nv-s-l-a nv-s-l-a--active"
               href="/services"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               All services
             </a>
@@ -12165,6 +12228,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
               className="nv-s-l-a "
               href="/faq"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               FAQ
             </a>
@@ -12244,6 +12308,7 @@ exports[`Storyshots ServicesLayout Expanded 1`] = `
                           className="css-v7ibj3 p-a300"
                           href="/request/CSMCINC"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           <div
                             className="t--sans tt-u"
@@ -12589,6 +12654,7 @@ exports[`Storyshots SubmitPane GraphQL Error 1`] = `
         <a
           href="/requests/CSMCINC"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           go back and update your request
         </a>
@@ -12667,6 +12733,7 @@ exports[`Storyshots SubmitPane Network Error 1`] = `
         <a
           href="/requests/CSMCINC"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           go back and update your request
         </a>

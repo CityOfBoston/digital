@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 import Hapi from 'hapi';
-import next from 'next';
+const next = require('next');
 import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
@@ -383,3 +383,5 @@ export default async function startServer(args: ServerArgs) {
 
   console.log(`> Ready on http://localhost:${port}`);
 }
+
+export {};

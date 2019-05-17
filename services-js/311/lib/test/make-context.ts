@@ -1,4 +1,4 @@
-import { NextContext } from '@cityofboston/next-client-common';
+import { NextPageContext } from 'next';
 
 /**
  * Test helper to make a `getInitialProps` context that matches what Next.js
@@ -7,7 +7,7 @@ import { NextContext } from '@cityofboston/next-client-common';
 export function makeServerContext(
   pathname: string,
   query: { [key: string]: string } = {}
-): NextContext {
+): NextPageContext {
   const req: any = {};
 
   return {
@@ -27,7 +27,7 @@ export function makeServerContext(
 export function makeBrowserContext(
   pathname: string,
   query: { [key: string]: string } = {}
-): NextContext {
+): NextPageContext {
   // TODO(finh): could include xhr if anyone needs it
   return {
     req: undefined,

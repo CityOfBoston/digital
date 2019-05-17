@@ -4,8 +4,8 @@ import React from 'react';
 import HTTPStatus from 'http-status';
 import Head from 'next/head';
 import { css } from 'emotion';
+import { NextPageContext } from 'next';
 
-import { NextContext } from '@cityofboston/next-client-common';
 import { HEADER_HEIGHT, WHITE } from '@cityofboston/react-fleet';
 import { assetUrl } from '../style-constants';
 
@@ -39,8 +39,16 @@ type Props = {
   statusCode: number;
 };
 
+declare global {
+  interface Error {
+    // Compatibility with GraphqlError
+    source?: string | null;
+    _sentToRollbar?: boolean;
+  }
+}
+
 export default class ErrorLayout extends React.Component<Props> {
-  static getInitialProps({ res, err }: NextContext<unknown>) {
+  static getInitialProps({ res, err }: NextPageContext) {
     const errStatusCode = err ? err.statusCode : null;
     const statusCode = res ? res.statusCode : errStatusCode;
 

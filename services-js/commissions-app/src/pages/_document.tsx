@@ -1,5 +1,12 @@
 import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps,
+  DocumentProps,
+} from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 import {
@@ -13,13 +20,26 @@ import {
   ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
 
-export default class MyDocument extends Document {
-  props: any;
+type Props = {
+  userAgent: string;
+  rollbarAccessToken: string | undefined;
+  rollbarEnvironment: string | undefined;
 
-  static getInitialProps({ renderPage, req }) {
-    const page = renderPage();
+  ids: string[];
+  css: string;
+};
+
+export default class CommissionsDocument extends Document<Props> {
+  static async getInitialProps({
+    renderPage,
+    req,
+  }: DocumentContext): Promise<DocumentInitialProps & Props> {
+    const page = await renderPage();
     const styles = extractCritical(page.html);
-    const userAgent = req.headers['user-agent'];
+
+    // req is always defined server-side (since we’re not doing a static webapp)
+    const userAgent = req!.headers['user-agent'] || '';
+
     return {
       ...page,
       ...styles,
@@ -30,12 +50,12 @@ export default class MyDocument extends Document {
     };
   }
 
-  constructor(props) {
+  constructor(props: DocumentProps & Props) {
     super(props);
 
     const { __NEXT_DATA__, ids } = props;
     if (ids) {
-      __NEXT_DATA__.ids = ids;
+      (__NEXT_DATA__ as any).ids = ids;
     }
   }
 

@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 import Hapi from 'hapi';
 import Inert from 'inert';
-import next from 'next';
+const next = require('next');
 import Boom from 'boom';
 import fs from 'fs';
 import Path from 'path';

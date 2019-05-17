@@ -1,6 +1,13 @@
 import svg4everybody from 'svg4everybody';
 import React from 'react';
-import App, { Container } from 'next/app';
+import { NextPageContext } from 'next';
+import { IncomingMessage } from 'http';
+import App, {
+  Container,
+  AppContext,
+  AppProps,
+  AppInitialProps,
+} from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
 import { configure as mobxConfigure } from 'mobx';
@@ -9,7 +16,6 @@ import { CacheProvider } from '@emotion/core';
 
 import {
   makeFetchGraphql,
-  NextContext,
   ScreenReaderSupport,
   RouterListener,
   GaSiteAnalytics,
@@ -27,7 +33,6 @@ import parseLanguagePreferences, {
   LanguagePreference,
 } from '../data/store/BrowserLanguage';
 import { NextConfig } from '../lib/config';
-import { IncomingMessage } from 'http';
 
 // Adds server generated styles to emotion cache.
 // '__NEXT_DATA__.ids' is set in '_document.js'
@@ -52,10 +57,10 @@ export interface GetInitialPropsDependencies {
  */
 export type GetInitialProps<
   T,
-  C extends keyof NextContext = never,
+  C extends keyof NextPageContext = never,
   D extends keyof GetInitialPropsDependencies = never
 > = (
-  cxt: Pick<NextContext, C>,
+  cxt: Pick<NextPageContext, C>,
   deps: Pick<GetInitialPropsDependencies, D>
 ) => T | Promise<T>;
 
@@ -101,19 +106,9 @@ export interface PageDependencies {
   ui: Ui;
 }
 
-interface AppGetInitialPropsContext {
-  ctx: NextContext;
-  Component: any;
-}
-
-interface InitialProps {
-  pageProps: any;
+interface Props {
   fetchGraphqlCache: GraphqlCache;
   languages: LanguagePreference[];
-}
-
-interface Props extends InitialProps {
-  Component: any;
 }
 
 // It’s important to cache the dependencies passed to getInitialProps because
@@ -157,20 +152,21 @@ function getInitialPageDependencies(
  *  - GetInitialPropsDependencies are passed as a second argument to getInitialProps
  *  - PageDependencies are spread as props for the page
  */
-export default class Three11App extends App {
-  // TypeScript doesn't know that App already has a props member.
-  protected props: Props;
-
+export default class Three11App extends App<Props> {
   private pageDependencies: PageDependencies;
 
   static async getInitialProps({
     Component,
     ctx,
-  }: AppGetInitialPropsContext): Promise<InitialProps> {
+  }: AppContext): Promise<Props & AppInitialProps> {
     const deps = getInitialPageDependencies(ctx.req);
 
     const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx, deps)
+      ? await (Component.getInitialProps as GetInitialProps<
+          any,
+          keyof NextPageContext,
+          keyof GetInitialPropsDependencies
+        >)(ctx, deps)
       : {};
 
     return {
@@ -182,13 +178,8 @@ export default class Three11App extends App {
     };
   }
 
-  constructor(props: Props) {
+  constructor(props: Props & AppProps<any>) {
     super(props);
-
-    // We're a little hacky here because TypeScript doesn't have type
-    // information about App and doesn't know it's a component and that the
-    // super call above actually does this.
-    this.props = props;
 
     mobxConfigure({ enforceActions: true });
 

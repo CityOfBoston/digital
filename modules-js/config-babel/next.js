@@ -14,6 +14,7 @@ module.exports = () => ({
       {
         'preset-env': {
           useBuiltIns: 'usage',
+          corejs: '2',
         },
       },
     ],

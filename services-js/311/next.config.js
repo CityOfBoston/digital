@@ -1,5 +1,4 @@
 const path = require('path');
-const withTypescript = require('@zeit/next-typescript');
 const withPolyfill = require('@cityofboston/next-client-common/with-polyfill')();
 
 function makeAssetPrefix(env) {
@@ -10,9 +9,7 @@ function makeAssetPrefix(env) {
     : '';
 }
 
-module.exports = withTypescript(
-  withPolyfill({
-    distDir: path.join('build', '.next'),
-    assetPrefix: makeAssetPrefix(),
-  })
-);
+module.exports = withPolyfill({
+  distDir: path.join('build', '.next'),
+  assetPrefix: makeAssetPrefix(),
+});

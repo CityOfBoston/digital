@@ -32,3 +32,5 @@ require('./server')
     console.error('Error starting server');
     console.error(err);
   });
+
+export {};

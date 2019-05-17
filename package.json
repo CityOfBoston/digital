@@ -22,7 +22,9 @@
       "templates/js-*/build/*"
     ],
     "nohoist": [
-      "**/@cityofboston/config-typescript"
+      "**/@cityofboston/config-typescript",
+      "**/acorn",
+      "**/acorn-dynamic-import"
     ]
   },
   "scripts": {
@@ -37,7 +39,7 @@
   },
   "devDependencies": {
     "@yarnpkg/lockfile": "^1.0.0",
-    "@babel/core": "^7.4.4",
+    "@babel/core": "7.4.5",
     "babel-eslint": "^11.0.0-beta.0",
     "eslint": "^5.16.0",
     "eslint-plugin-emotion": "^10.0.7",

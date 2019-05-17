@@ -2,8 +2,8 @@ import React from 'react';
 import { css } from 'emotion';
 import Router from 'next/router';
 import { observer } from 'mobx-react';
+import { NextPageContext } from 'next';
 
-import { NextContext } from '@cityofboston/next-client-common';
 import { HEADER_HEIGHT } from '@cityofboston/react-fleet';
 
 import FeedbackBanner from '../common/FeedbackBanner';
@@ -97,7 +97,7 @@ export default class RequestLayout extends React.Component<Props, State> {
   };
 
   static async getInitialProps(
-    ctx: NextContext,
+    ctx: NextPageContext,
     deps: Pick<GetInitialPropsDependencies, 'fetchGraphql'>
   ): Promise<InitialProps> {
     const { query } = ctx;

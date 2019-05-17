@@ -17,3 +17,5 @@ setConfig({
   },
   serverRuntimeConfig: {},
 });
+
+export {};
