@@ -255,7 +255,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
         value: birthCertificateRequest.quantity,
       });
 
-      birthCertificateRequest.clearBirthCertificateRequest();
+      birthCertificateRequest.clearCertificateRequest();
       orderProvider.clear();
 
       // Updating the order in the state is important in case someone clicks

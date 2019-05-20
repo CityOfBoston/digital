@@ -6,7 +6,7 @@ import { MemorableDateInput } from '@cityofboston/react-fleet';
 
 import {
   BirthCertificateRequestInformation,
-  Step,
+  BirthStep,
   JSONObject,
   JSONValue,
 } from '../types';
@@ -38,16 +38,18 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   supportingDocuments: [],
 };
 
-export const QUESTION_STEPS: Step[] = [
+export const QUESTION_STEPS: BirthStep[] = [
   'forWhom',
   'bornInBoston',
   'personalInformation',
   'parentalInformation',
 ];
 
-export const VERIFY_IDENTIFICATION_STEPS: Step[] = ['verifyIdentification'];
+export const VERIFY_IDENTIFICATION_STEPS: BirthStep[] = [
+  'verifyIdentification',
+];
 
-export const CHECKOUT_STEPS: Step[] = [
+export const CHECKOUT_STEPS: BirthStep[] = [
   'reviewRequest',
   'shippingInformation',
   'billingInformation',
@@ -229,7 +231,7 @@ export default class BirthCertificateRequest {
   }
 
   @computed
-  public get steps(): Step[] {
+  public get steps(): BirthStep[] {
     const { forSelf, howRelated } = this.requestInformation;
 
     if (!forSelf && howRelated === 'client') {
@@ -344,14 +346,14 @@ export default class BirthCertificateRequest {
   }
 
   @action
-  public clearBirthCertificateRequest(): void {
+  public clearCertificateRequest(): void {
     this.quantity = 1;
     this.requestInformation = INITIAL_REQUEST_INFORMATION;
     this.uploadSessionId = uuidv4();
   }
 
   @computed
-  public get birthDateString(): string {
+  public get dateString(): string {
     const date = this.requestInformation.birthDate || null;
 
     if (date) {
@@ -359,6 +361,13 @@ export default class BirthCertificateRequest {
     } else {
       return '';
     }
+  }
+
+  @computed
+  get fullName(): string {
+    const { firstName, lastName } = this.requestInformation;
+
+    return `${firstName} ${lastName}`;
   }
 
   /**

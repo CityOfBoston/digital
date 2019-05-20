@@ -4,16 +4,21 @@ import { css, jsx } from '@emotion/core';
 
 import { ChangeEvent, ReactChild } from 'react';
 
+import { MEDIA_SMALL } from '@cityofboston/react-fleet';
+
 import RadioItemComponent from './RadioItemComponent';
 import AnswerIcon from './AnswerIcon';
 
-import { Question, YesNoUnknownAnswer } from '../../types';
+import {
+  BirthQuestion,
+  MarriageQuestion,
+  YesNoUnknownAnswer,
+} from '../../types';
 
 import { RADIOGROUP_STYLING } from './styling';
-import { MEDIA_SMALL } from '@cityofboston/react-fleet';
 
 interface Props {
-  questionName: Question;
+  questionName: BirthQuestion | MarriageQuestion;
   questionValue: YesNoUnknownAnswer;
 
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
