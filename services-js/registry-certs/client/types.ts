@@ -125,17 +125,17 @@ export type MarriageCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
   filedInBoston: YesNoUnknownAnswer;
-  dateOfMarriage?: Date | null;
+  dateOfMarriage: any; // todo
   firstName1: string;
   firstName2: string;
   lastName1: string;
   lastName2: string;
   maidenName1?: string;
   maidenName2?: string;
-  parents1Married: YesNoUnknownAnswer;
-  parents2Married: YesNoUnknownAnswer;
+  parentsMarried1: YesNoUnknownAnswer;
+  parentsMarried2: YesNoUnknownAnswer;
 
-  // only required if parentsMarried !== true:
+  // only required if parentsMarried[1, 2] !== true:
   idImageFront?: UploadableFile | null;
   idImageBack?: UploadableFile | null;
   supportingDocuments: UploadableFile[];

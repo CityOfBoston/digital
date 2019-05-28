@@ -21,11 +21,12 @@ import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../utility/form-elements';
 
 import { runInitialValidation } from './formik-util';
-import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
 import CheckoutPageLayout from './CheckoutPageLayout';
 
 import { Progress } from '../../PageWrapper';
 import { BackButtonContent } from '../question-components/BackButton';
+import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
+import RenderOrderDetails from './OrderDetails';
 
 type Props = {
   submit: (
@@ -44,6 +45,11 @@ type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
+      progress: Progress;
+    }
+  | {
+      certificateType: 'marriage';
+      marriageCertificateRequest: MarriageCertificateRequest;
       progress: Progress;
     });
 
@@ -231,12 +237,14 @@ export default class PaymentContent extends React.Component<Props, State> {
         certificateType={this.props.certificateType}
         title="Payment"
         progress={
-          this.props.certificateType === 'birth'
-            ? this.props.progress
-            : undefined
+          this.props.certificateType === 'death'
+            ? undefined
+            : this.props.progress
         }
       >
-        <div className="m-v300">{this.renderOrderDetails()}</div>
+        <div className="m-v300">
+          <RenderOrderDetails details={this.props} />
+        </div>
 
         <Formik
           ref={this.formikRef}
@@ -248,37 +256,6 @@ export default class PaymentContent extends React.Component<Props, State> {
         />
       </CheckoutPageLayout>
     );
-  }
-
-  renderOrderDetails(): React.ReactNode {
-    const { props } = this;
-    switch (props.certificateType) {
-      case 'death':
-        return (
-          <OrderDetailsDropdown
-            orderType="death"
-            certificateQuantity={props.deathCertificateCart.size}
-          >
-            <OrderDetails
-              type="death"
-              deathCertificateCart={props.deathCertificateCart}
-            />
-          </OrderDetailsDropdown>
-        );
-
-      case 'birth':
-        return (
-          <OrderDetailsDropdown
-            orderType="birth"
-            certificateQuantity={props.birthCertificateRequest.quantity}
-          >
-            <OrderDetails
-              type="birth"
-              birthCertificateRequest={props.birthCertificateRequest}
-            />
-          </OrderDetailsDropdown>
-        );
-    }
   }
 
   renderForm = ({

@@ -18,7 +18,7 @@ import {
   WHITE,
 } from '@cityofboston/react-fleet';
 
-import AnswerIcon from '../../common/question-components/AnswerIcon';
+import AnswerIcon from '../../common/icons/AnswerIcon';
 
 import UploadableFile from '../../models/UploadableFile';
 import { observer } from 'mobx-react';

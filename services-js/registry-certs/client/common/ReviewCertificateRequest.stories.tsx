@@ -9,45 +9,8 @@ import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
 
 import ReviewCertificateRequest from './ReviewCertificateRequest';
 
-import {
-  BirthCertificateRequestInformation,
-  MarriageCertificateRequestInformation,
-} from '../types';
-
-const birthCertRequest: BirthCertificateRequestInformation = {
-  forSelf: true,
-  howRelated: '',
-  bornInBoston: 'yes',
-  parentsLivedInBoston: '',
-  firstName: 'Martin',
-  lastName: 'Walsh',
-  altSpelling: '',
-  birthDate: new Date(Date.UTC(1967, 3, 10)),
-  parentsMarried: 'yes',
-  parent1FirstName: 'Martin',
-  parent1LastName: '',
-  parent2FirstName: '',
-  parent2LastName: '',
-  idImageBack: null,
-  idImageFront: null,
-  supportingDocuments: [],
-};
-
-const marriageCertRequest: MarriageCertificateRequestInformation = {
-  forSelf: true,
-  howRelated: '',
-  filedInBoston: 'yes',
-  dateOfMarriage: new Date(Date.UTC(1967, 3, 10)),
-  firstName1: 'Martin',
-  lastName1: 'Walsh',
-  firstName2: 'Martin',
-  lastName2: 'Walsh',
-  parents1Married: 'yes',
-  parents2Married: 'yes',
-  idImageBack: null,
-  idImageFront: null,
-  supportingDocuments: [],
-};
+import { TYPICAL_REQUEST as birthCertRequest } from '../../fixtures/client/birth-certificates';
+import { TYPICAL_REQUEST as marriageCertRequest } from '../../fixtures/client/marriage-certificates';
 
 const birthCertificateRequest = new BirthCertificateRequest();
 const marriageCertificateRequest = new MarriageCertificateRequest();

@@ -17,6 +17,7 @@ import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
 import { SECTION_HEADING_STYLING } from '../common/question-components/styling';
+import { DetailsDisclosure } from '@cityofboston/react-fleet';
 
 interface Props
   extends Pick<
@@ -66,6 +67,23 @@ export default class ReviewRequestPage extends Component<Props> {
             you want to buy copies of a certificate for a different marriage,
             you need to do a separate transaction.
           </p>
+
+          <DetailsDisclosure
+            summaryContent="Are you requesting a certificate for international use that requires an
+      Apostille from the Massachusetts Secretary of State?"
+            id="apostille"
+          >
+            <p>
+              You need to have a hand signature from the Registry. After you
+              finish your order, please email marriage@boston.gov with:
+            </p>
+
+            <ul>
+              <li>the names of the people on the record</li>
+              <li>the date of marriage, and</li>
+              <li>let us know that you need the signature for an Apostille.</li>
+            </ul>
+          </DetailsDisclosure>
         </ReviewCertificateRequest>
       </PageWrapper>
     );

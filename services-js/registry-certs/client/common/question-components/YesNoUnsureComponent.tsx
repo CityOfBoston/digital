@@ -7,7 +7,7 @@ import { ChangeEvent, ReactChild } from 'react';
 import { MEDIA_SMALL } from '@cityofboston/react-fleet';
 
 import RadioItemComponent from './RadioItemComponent';
-import AnswerIcon from './AnswerIcon';
+import AnswerIcon from '../icons/AnswerIcon';
 
 import {
   BirthQuestion,

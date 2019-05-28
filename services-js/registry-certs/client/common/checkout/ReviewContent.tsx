@@ -12,14 +12,16 @@ import {
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
+
 import Order from '../../models/Order';
 
 import CostSummary from '../CostSummary';
-import { OrderDetails } from './OrderDetails';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import { SubmissionError } from '../../dao/CheckoutDao';
 import CheckoutPageLayout from './CheckoutPageLayout';
 import { Progress } from '../../PageWrapper';
+import RenderOrderDetails from './OrderDetails';
 
 export type Props = {
   submit: (cardElement?: stripe.elements.Element) => Promise<void>;
@@ -34,6 +36,11 @@ export type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
+      progress: Progress;
+    }
+  | {
+      certificateType: 'marriage';
+      marriageCertificateRequest: MarriageCertificateRequest;
       progress: Progress;
     });
 
@@ -146,7 +153,9 @@ export default class ReviewContent extends React.Component<Props, State> {
     const quantity =
       this.props.certificateType === 'death'
         ? this.props.deathCertificateCart.size
-        : this.props.birthCertificateRequest.quantity;
+        : this.props.certificateType === 'birth'
+        ? this.props.birthCertificateRequest.quantity
+        : this.props.marriageCertificateRequest.quantity;
 
     const needsAccepting =
       !acceptNonRefundable ||
@@ -161,9 +170,9 @@ export default class ReviewContent extends React.Component<Props, State> {
         certificateType={certificateType}
         title="Review Order"
         progress={
-          this.props.certificateType === 'birth'
-            ? this.props.progress
-            : undefined
+          this.props.certificateType === 'death'
+            ? undefined
+            : this.props.progress
         }
         footer={
           <div className="b--g m-t700">
@@ -201,7 +210,7 @@ export default class ReviewContent extends React.Component<Props, State> {
               </div>
             </div>
 
-            {this.renderOrderDetails()}
+            <RenderOrderDetails details={this.props} />
           </div>
 
           <div className="m-v700">
@@ -368,42 +377,12 @@ export default class ReviewContent extends React.Component<Props, State> {
     );
   }
 
-  renderOrderDetails(): React.ReactNode {
-    const { props } = this;
-    switch (props.certificateType) {
-      case 'death':
-        return props.deathCertificateCart.size > 0 ? (
-          <OrderDetails
-            type="death"
-            deathCertificateCart={props.deathCertificateCart}
-            thin
-          />
-        ) : (
-          <div className="t--err t--info">Your cart is empty</div>
-        );
-
-      case 'birth':
-        return (
-          <OrderDetails
-            type="birth"
-            birthCertificateRequest={props.birthCertificateRequest}
-            thin
-          />
-        );
-    }
-  }
-
   renderAcceptCheckboxes(): React.ReactNode {
     const containsPending =
       this.props.certificateType === 'death' &&
       this.props.deathCertificateCart.containsPending;
 
     const { acceptNonRefundable, acceptPendingCertificates } = this.state;
-
-    const certificatesName =
-      this.props.certificateType === 'death'
-        ? 'death certificates'
-        : 'birth certificates';
 
     return (
       <div className="m-v700">
@@ -426,7 +405,10 @@ export default class ReviewContent extends React.Component<Props, State> {
             />
             <span className="cb-l">
               I understand that{' '}
-              <strong>{certificatesName} are non-refundable</strong>.
+              <strong>
+                {this.props.certificateType} certificates are non-refundable
+              </strong>
+              .
             </span>
           </label>
         </div>

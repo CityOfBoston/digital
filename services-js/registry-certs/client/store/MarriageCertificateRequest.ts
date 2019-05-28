@@ -31,8 +31,8 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   lastName2: '',
   maidenName1: '',
   maidenName2: '',
-  parents1Married: '',
-  parents2Married: '',
+  parentsMarried1: '',
+  parentsMarried2: '',
   idImageFront: null,
   idImageBack: null,
   supportingDocuments: [],
@@ -248,11 +248,11 @@ export default class MarriageCertificateRequest {
 
   @computed
   public get needsIdentityVerification(): boolean {
-    const { parents1Married, parents2Married } = this.requestInformation;
+    const { parentsMarried1, parentsMarried2 } = this.requestInformation;
 
     return (
-      (parents1Married.length > 0 && parents1Married !== 'yes') ||
-      (parents2Married.length > 0 && parents2Married !== 'yes')
+      (parentsMarried1.length > 0 && parentsMarried1 !== 'yes') ||
+      (parentsMarried2.length > 0 && parentsMarried2 !== 'yes')
     );
   }
 
@@ -297,7 +297,6 @@ export default class MarriageCertificateRequest {
   public get completedQuestionSteps() {
     const steps = {
       forWhom: false,
-      filedInBoston: false,
       dateOfMarriage: false,
       namesOnRecord: false,
       parentalInformation: false,
@@ -308,12 +307,13 @@ export default class MarriageCertificateRequest {
       forSelf,
       howRelated,
       filedInBoston,
+      dateOfMarriage,
       firstName1,
       firstName2,
       lastName1,
       lastName2,
-      parents1Married,
-      parents2Married,
+      parentsMarried1,
+      parentsMarried2,
       idImageFront,
     } = this.requestInformation;
 
@@ -329,8 +329,13 @@ export default class MarriageCertificateRequest {
       }
     }
 
+    // dateOfMarriage
+    if (dateOfMarriage) {
+      steps.dateOfMarriage = true;
+    }
+
     // parentalInformation
-    if (parents1Married.length > 0 && parents2Married.length > 0) {
+    if (parentsMarried1.length > 0 && parentsMarried2.length > 0) {
       steps.parentalInformation = true;
     }
 
@@ -371,16 +376,30 @@ export default class MarriageCertificateRequest {
     }
   }
 
-  @computed
-  get fullNames(): string {
-    const {
-      firstName1,
-      lastName1,
-      firstName2,
-      lastName2,
-    } = this.requestInformation;
+  formatFullName(whom: 'person1' | 'person2'): string {
+    let firstName, lastName, maidenName;
 
-    return `${firstName1} ${lastName1} & ${firstName2} ${lastName2}`;
+    if (whom === 'person1') {
+      firstName = this.requestInformation.firstName1;
+      lastName = this.requestInformation.lastName1;
+      maidenName = this.requestInformation.maidenName1;
+    } else {
+      firstName = this.requestInformation.firstName2;
+      lastName = this.requestInformation.lastName2;
+      maidenName = this.requestInformation.maidenName2;
+    }
+
+    return `${firstName} ${maidenName ? `(${maidenName}) ` : ''}${lastName}`;
+  }
+
+  @computed
+  get fullName1(): string {
+    return this.formatFullName('person1');
+  }
+
+  @computed
+  get fullName2(): string {
+    return this.formatFullName('person2');
   }
 
   /**
@@ -415,17 +434,10 @@ export default class MarriageCertificateRequest {
   /**
    * True if we might not have the marriage certificate based on the user’s
    * answer to whether the marriage was filed in the City of Boston.
-   *
-   * Will always return false if definitelyDontHaveRecord returns true.
    */
   @computed
   public get mightNotHaveRecord(): boolean {
-    const { filedInBoston } = this.requestInformation;
-
-    return (
-      !!(filedInBoston !== '' && filedInBoston !== 'yes') &&
-      !this.definitelyDontHaveRecord
-    );
+    return this.requestInformation.filedInBoston === 'unknown';
   }
 
   /**
@@ -435,13 +447,11 @@ export default class MarriageCertificateRequest {
    */
   @computed
   public get mayBeRestricted(): boolean {
-    const { parents1Married, parents2Married } = this.requestInformation;
+    const { parentsMarried1, parentsMarried2 } = this.requestInformation;
 
     return (
-      parents1Married === 'no' ||
-      parents1Married === 'unknown' ||
-      parents2Married === 'no' ||
-      parents2Married === 'unknown'
+      (parentsMarried1.length > 0 && parentsMarried1 !== 'yes') ||
+      (parentsMarried2.length > 0 && parentsMarried2 !== 'yes')
     );
   }
 }

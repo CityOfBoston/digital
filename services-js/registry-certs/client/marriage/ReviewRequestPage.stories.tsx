@@ -7,23 +7,7 @@ import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
 
 import ReviewRequestPage from './ReviewRequestPage';
 
-import { MarriageCertificateRequestInformation } from '../types';
-
-const marriageCertRequest: MarriageCertificateRequestInformation = {
-  forSelf: true,
-  howRelated: '',
-  filedInBoston: 'yes',
-  dateOfMarriage: new Date(Date.UTC(1967, 3, 10)),
-  firstName1: 'Martin',
-  lastName1: 'Walsh',
-  firstName2: 'Martin',
-  lastName2: 'Walsh',
-  parents1Married: 'yes',
-  parents2Married: 'yes',
-  idImageBack: null,
-  idImageFront: null,
-  supportingDocuments: [],
-};
+import { TYPICAL_REQUEST as marriageCertRequest } from '../../fixtures/client/marriage-certificates';
 
 const marriageCertificateRequest = new MarriageCertificateRequest();
 

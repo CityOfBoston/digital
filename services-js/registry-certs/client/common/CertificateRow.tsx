@@ -7,6 +7,8 @@ import { ReactChild } from 'react';
 import { CHARLES_BLUE, GRAY_100 } from '@cityofboston/react-fleet';
 
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
+
 import { DeathCertificate } from '../types';
 
 export type Props = {
@@ -23,29 +25,35 @@ export type Props = {
     }
   | {
       type: 'birth';
-      birthCertificateRequest: BirthCertificateRequest;
+      certificate: BirthCertificateRequest;
+    }
+  | {
+      type: 'marriage';
+      certificate: MarriageCertificateRequest;
     });
 
 type CertificateProps = {
-  firstName: string;
-  lastName: string;
   subinfo: string;
   pending: boolean;
-  type: 'death' | 'birth';
-};
-
-const makeDeathSubinfo = ({
-  deathDate,
-  deathYear,
-  age,
-}: DeathCertificate): string =>
-  `Died: ${deathDate || deathYear} ${age && ` — Age: ${age}`}`;
-
-const makeBirthSubinfo = ({ birthDateString }): string =>
-  `Born: ${birthDateString}`;
+} & (
+  | {
+      type: 'death';
+      firstName: string;
+      lastName: string;
+    }
+  | {
+      type: 'birth';
+      firstName: string;
+      lastName: string;
+    }
+  | {
+      type: 'marriage';
+      fullName1: string;
+      fullName2: string;
+    });
 
 const renderCertificate = (
-  { firstName, lastName, subinfo, pending, type }: CertificateProps,
+  certificateProps: CertificateProps,
   thin: boolean
 ) => (
   <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
@@ -53,8 +61,32 @@ const renderCertificate = (
       className="t--sans m-v100"
       css={thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE}
     >
-      {firstName} {lastName} {type === 'birth' && '(Certified paper copy)'}
-      {pending && (
+      {certificateProps.type === 'marriage' ? (
+        <span css={LONG_TEXT_STYLE}>
+          <span>
+            {certificateProps.fullName1} & {certificateProps.fullName2}
+          </span>
+
+          <wbr />
+
+          <span>(Certified paper copy)</span>
+        </span>
+      ) : (
+        <span css={LONG_TEXT_STYLE}>
+          <span>
+            {certificateProps.firstName} {certificateProps.lastName}
+          </span>
+          {certificateProps.type === 'birth' && (
+            <>
+              <wbr />
+
+              <span>(Certified paper copy)</span>
+            </>
+          )}
+        </span>
+      )}
+
+      {certificateProps.pending && (
         <span style={{ color: CHARLES_BLUE }}>
           {' — '}
           <span
@@ -67,7 +99,7 @@ const renderCertificate = (
       )}
     </div>
 
-    <div css={CERTIFICATE_SUBINFO_STYLE}>{subinfo}</div>
+    <div css={CERTIFICATE_SUBINFO_STYLE}>{certificateProps.subinfo}</div>
   </div>
 );
 
@@ -90,33 +122,69 @@ export default function CertificateRow(props: Props) {
     }
   }
 
-  const certificateProps: CertificateProps =
-    props.type === 'death'
-      ? {
-          firstName: props.certificate.firstName,
-          lastName: props.certificate.lastName,
-          subinfo: makeDeathSubinfo(props.certificate),
-          pending: props.certificate.pending,
-          type: 'death',
-        }
-      : {
-          firstName: props.birthCertificateRequest.requestInformation.firstName,
-          lastName: props.birthCertificateRequest.requestInformation.lastName,
-          subinfo: makeBirthSubinfo(props.birthCertificateRequest),
-          pending: false,
-          type: 'birth',
-        };
-
   return (
     <div
       className={`${thin ? 'p-v200' : 'p-v300'} br b--w ${borderClass}`}
       css={CERTIFICATE_ROW_STYLE}
     >
       {wrapperFunc
-        ? wrapperFunc(renderCertificate(certificateProps, !!thin))
-        : renderCertificate(certificateProps, !!thin)}
+        ? wrapperFunc(renderCertificate(getCertificateProps(props), !!thin))
+        : renderCertificate(getCertificateProps(props), !!thin)}
     </div>
   );
+}
+
+function getCertificateProps(certificateOrRequest) {
+  if (certificateOrRequest.type === 'death') {
+    return deathCertificateProps(certificateOrRequest.certificate);
+  } else if (certificateOrRequest.type === 'birth') {
+    return birthRequestProps(certificateOrRequest.certificate);
+  } else {
+    return marriageRequestProps(certificateOrRequest.certificate);
+  }
+}
+
+function deathCertificateProps(certificate): CertificateProps {
+  const {
+    firstName,
+    lastName,
+    deathDate,
+    deathYear,
+    age,
+    pending,
+  } = certificate;
+
+  return {
+    firstName,
+    lastName,
+    subinfo: `Died: ${deathDate || deathYear} ${age && ` — Age: ${age}`}`,
+    pending,
+    type: 'death',
+  };
+}
+
+function birthRequestProps(request): CertificateProps {
+  const { firstName, lastName } = request.requestInformation;
+
+  return {
+    firstName,
+    lastName,
+    subinfo: `Born: ${request.dateString}`,
+    pending: false,
+    type: 'birth',
+  };
+}
+
+function marriageRequestProps(request): CertificateProps {
+  const { fullName1, fullName2, dateString } = request;
+
+  return {
+    fullName1,
+    fullName2,
+    subinfo: `Married: ${dateString}`,
+    pending: false,
+    type: 'marriage',
+  };
 }
 
 const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
@@ -143,4 +211,14 @@ const CERTIFICATE_ROW_STYLE = css({
 
   display: 'flex',
   alignItems: 'center',
+});
+
+const LONG_TEXT_STYLE = css({
+  span: {
+    whiteSpace: 'nowrap',
+
+    '&:first-of-type': {
+      marginRight: '0.4em',
+    },
+  },
 });

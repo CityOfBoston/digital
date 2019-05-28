@@ -135,7 +135,9 @@ export default class ReviewCertificateRequest extends Component<Props> {
             <div css={CERTIFICATE_NAME_STYLE}>
               {certificateType === 'birth'
                 ? certificateRequest.fullName
-                : certificateRequest.fullNames}
+                : `${certificateRequest.fullName1} & ${
+                    certificateRequest.fullName2
+                  }`}
             </div>
             <div css={CERTIFICATE_SUBINFO_STYLE}>
               <span>

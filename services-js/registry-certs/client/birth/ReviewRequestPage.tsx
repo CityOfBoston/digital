@@ -17,11 +17,8 @@ import PageWrapper from '../PageWrapper';
 import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
 
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
-// import { CERTIFICATE_COST } from '../../lib/costs';
 
 import { SECTION_HEADING_STYLING } from '../common/question-components/styling';
-
-// const BIRTH_CERTIFICATE_COST = CERTIFICATE_COST.BIRTH;
 
 interface Props
   extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {

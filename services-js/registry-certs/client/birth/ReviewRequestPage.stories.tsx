@@ -7,26 +7,7 @@ import BirthCertificateRequest from '../store/BirthCertificateRequest';
 
 import ReviewRequestPage from './ReviewRequestPage';
 
-import { BirthCertificateRequestInformation } from '../types';
-
-const birthCertRequest: BirthCertificateRequestInformation = {
-  forSelf: true,
-  howRelated: '',
-  bornInBoston: 'yes',
-  parentsLivedInBoston: '',
-  firstName: 'Martin',
-  lastName: 'Walsh',
-  altSpelling: '',
-  birthDate: new Date(Date.UTC(1967, 3, 10)),
-  parentsMarried: 'yes',
-  parent1FirstName: 'Martin',
-  parent1LastName: '',
-  parent2FirstName: '',
-  parent2LastName: '',
-  idImageBack: null,
-  idImageFront: null,
-  supportingDocuments: [],
-};
+import { TYPICAL_REQUEST as birthCertRequest } from '../../fixtures/client/birth-certificates';
 
 const birthCertificateRequest = new BirthCertificateRequest();
 

@@ -6,21 +6,21 @@ import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import CheckoutDao from '../dao/CheckoutDao';
 import Order, { OrderInfo } from '../models/Order';
 import OrderProvider from '../store/OrderProvider';
-import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
+
+import { TYPICAL_REQUEST as marriageCertRequest } from '../../fixtures/client/marriage-certificates';
 
 import CheckoutPage from './CheckoutPage';
-
-import { TYPICAL_REQUEST as birthCertRequest } from '../../fixtures/client/birth-certificates';
 
 const makeStripe = () =>
   typeof Stripe !== 'undefined' ? Stripe('fake-secret-key') : null;
 
-function makeBirthCertificateRequest() {
-  const request = new BirthCertificateRequest();
+function makeMarriageCertificateRequest() {
+  const request = new MarriageCertificateRequest();
 
-  request.quantity = 4;
+  request.quantity = 1;
 
-  request.answerQuestion(birthCertRequest);
+  request.answerQuestion(marriageCertRequest);
 
   return request;
 }
@@ -76,10 +76,10 @@ function makeBillingCompleteOrder(overrides = {}) {
   });
 }
 
-storiesOf('Birth/CheckoutPage', module)
+storiesOf('Marriage/CheckoutPage', module)
   .add('server-side render', () => (
     <CheckoutPage
-      birthCertificateRequest={makeBirthCertificateRequest()}
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'shipping' }}
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
@@ -88,9 +88,9 @@ storiesOf('Birth/CheckoutPage', module)
       orderProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
-  .add('no birth certificate request', () => (
+  .add('no marriage certificate request', () => (
     <CheckoutPage
-      birthCertificateRequest={new BirthCertificateRequest()}
+      marriageCertificateRequest={new MarriageCertificateRequest()}
       info={{ page: 'shipping' }}
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
@@ -102,7 +102,7 @@ storiesOf('Birth/CheckoutPage', module)
   ))
   .add('shipping', () => (
     <CheckoutPage
-      birthCertificateRequest={makeBirthCertificateRequest()}
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'shipping' }}
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
@@ -113,7 +113,7 @@ storiesOf('Birth/CheckoutPage', module)
   ))
   .add('payment', () => (
     <CheckoutPage
-      birthCertificateRequest={makeBirthCertificateRequest()}
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'payment' }}
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
@@ -124,7 +124,7 @@ storiesOf('Birth/CheckoutPage', module)
   ))
   .add('review', () => (
     <CheckoutPage
-      birthCertificateRequest={makeBirthCertificateRequest()}
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'review' }}
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
@@ -135,7 +135,7 @@ storiesOf('Birth/CheckoutPage', module)
   ))
   .add('confirmation', () => (
     <CheckoutPage
-      birthCertificateRequest={new BirthCertificateRequest()}
+      marriageCertificateRequest={new MarriageCertificateRequest()}
       info={{
         page: 'confirmation',
         stepCount: 8,

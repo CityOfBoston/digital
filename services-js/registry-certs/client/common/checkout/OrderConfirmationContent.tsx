@@ -4,23 +4,25 @@ import { css, jsx } from '@emotion/core';
 
 import Link from 'next/link';
 
-import CheckoutPageLayout from '../common/checkout/CheckoutPageLayout';
-import CertificateIcon from './icons/CertificateIcon';
 import { MEDIA_LARGE_MAX } from '@cityofboston/react-fleet';
 
+import { CertificateType } from '../../types';
+
+import CheckoutPageLayout from './CheckoutPageLayout';
+import CertificateIcon from '../icons/CertificateIcon';
+
 type Props = {
+  certificateType: CertificateType;
   orderId: string;
   contactEmail: string;
   stepCount: number;
 };
-
-const ICON_CELL_STYLE = css({
-  [MEDIA_LARGE_MAX]: {
-    display: 'none',
-  },
-});
-
-export default function BirthConfirmationContent({
+/**
+ * Indicates to user that Birth or Marriage request/order has been placed.
+ * Death uses a similar, separate component of its own for this purpose.
+ */
+export default function OrderConfirmationContent({
+  certificateType,
   orderId,
   stepCount,
   contactEmail,
@@ -31,7 +33,9 @@ export default function BirthConfirmationContent({
       <div className="g">
         <div className="g--4 m-b500" css={ICON_CELL_STYLE}>
           <div className="m-h100">
-            <CertificateIcon name="birth" />
+            <CertificateIcon
+              name={certificateType === 'birth' ? 'birth' : 'id'}
+            />
           </div>
         </div>
 
@@ -64,11 +68,14 @@ export default function BirthConfirmationContent({
 
           <p className="t--info" style={{ fontStyle: 'normal' }}>
             Have any questions? Email the Registry Department at{' '}
-            <a href="mailto:birth@boston.gov">birth@boston.gov</a>.
+            <a href={`mailto:${certificateType}@boston.gov`}>
+              {certificateType}@boston.gov
+            </a>
+            .
           </p>
 
           <div className="ta-c m-v700">
-            <Link href="/birth">
+            <Link href={`/${certificateType}`}>
               <a className="btn">Back to start</a>
             </Link>
           </div>
@@ -79,7 +86,7 @@ export default function BirthConfirmationContent({
 
   return (
     <CheckoutPageLayout
-      certificateType="birth"
+      certificateType={certificateType}
       progress={{
         totalSteps: stepCount,
         currentStep: stepCount,
@@ -89,3 +96,9 @@ export default function BirthConfirmationContent({
     />
   );
 }
+
+const ICON_CELL_STYLE = css({
+  [MEDIA_LARGE_MAX]: {
+    display: 'none',
+  },
+});
