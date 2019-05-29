@@ -145,7 +145,7 @@ export default class MarriageCheckoutPage extends React.Component<
     }
 
     if (checkoutStep) {
-      this.sendBirthCertificateProduct();
+      this.sendMarriageCertificateProduct();
 
       siteAnalytics.setProductAction('checkout', { step: checkoutStep });
     }
@@ -229,7 +229,7 @@ export default class MarriageCheckoutPage extends React.Component<
     // If we get this far without throwing, the order has definitely succeeded,
     // so we need to catch any further errors and hide them from the user.
     try {
-      this.sendBirthCertificateProduct();
+      this.sendMarriageCertificateProduct();
 
       siteAnalytics.setProductAction('purchase', {
         id: orderId,
@@ -289,7 +289,7 @@ export default class MarriageCheckoutPage extends React.Component<
     }
   };
 
-  sendBirthCertificateProduct() {
+  sendMarriageCertificateProduct() {
     this.props.siteAnalytics.addProduct(
       '0',
       'Marriage certificate',

@@ -27,6 +27,9 @@ export default function OrderConfirmationContent({
   stepCount,
   contactEmail,
 }: Props) {
+  const registryEmail =
+    certificateType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+
   // Rendered as a footer so we can break the narrow default width
   const footer = (
     <div className="b-c">
@@ -68,10 +71,7 @@ export default function OrderConfirmationContent({
 
           <p className="t--info" style={{ fontStyle: 'normal' }}>
             Have any questions? Email the Registry Department at{' '}
-            <a href={`mailto:${certificateType}@boston.gov`}>
-              {certificateType}@boston.gov
-            </a>
-            .
+            <a href={`mailto:${registryEmail}`}>{registryEmail}</a>.
           </p>
 
           <div className="ta-c m-v700">
