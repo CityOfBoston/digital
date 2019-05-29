@@ -256,7 +256,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         <div className="m-v700 ta-c">
           Questions? Email the Registry Department at{' '}
           <a
-            href="mailto:birth@boston.gov"
+            href="mailto:registry@boston.gov"
             onClick={ContactForm.makeMailtoClickHandler(
               'birth-cert-feedback-form'
             )}

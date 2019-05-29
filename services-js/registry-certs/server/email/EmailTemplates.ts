@@ -6,6 +6,8 @@ import Handlebars from 'handlebars';
 import mjml2html from 'mjml';
 import moment from 'moment-timezone';
 
+import { capitalize } from '../../lib/helpers';
+
 import { PACKAGE_SRC_ROOT } from '../util';
 
 require('./handlebars-helpers');
@@ -13,6 +15,8 @@ require('./handlebars-helpers');
 const readFile = promisify(fs.readFile);
 
 const TEMPLATES_DIR = path.resolve(PACKAGE_SRC_ROOT, `./server/email`);
+
+export type OrderType = 'birth' | 'marriage';
 
 export type ReceiptData = {
   orderDate: Date;
@@ -78,6 +82,7 @@ type ReceiptTemplateData = {
 };
 
 type ExpiredTemplateData = {
+  orderType: OrderType;
   orderDate: string;
   orderId: string;
   registryEmail: string;
@@ -133,8 +138,10 @@ export class EmailTemplates {
     );
   }
 
-  birthReceipt(receipt: ReceiptData): RenderedEmail {
-    return this.birthReceiptShippedCommon(
+  // shared by Birth and Marriage
+  requestReceipt(orderType: OrderType, receipt: ReceiptData): RenderedEmail {
+    return this.requestReceiptCommon(
+      orderType,
       receipt,
       'Thank you for your order!',
       {
@@ -150,10 +157,11 @@ export class EmailTemplates {
     );
   }
 
-  birthShipped(receipt: ReceiptData): RenderedEmail {
-    return this.birthReceiptShippedCommon(
+  requestShipped(orderType: OrderType, receipt: ReceiptData): RenderedEmail {
+    return this.requestReceiptCommon(
+      orderType,
       receipt,
-      'Your birth certificate order is on its way!',
+      `Your ${orderType} certificate order is on its way!`,
       {
         aboveOrderText: [
           'We’ve processed your order and charged your card. Your order is being shipped via U.S. Postal Service to the shipping address you provided.',
@@ -162,24 +170,28 @@ export class EmailTemplates {
     );
   }
 
-  birthReceiptShippedCommon(
+  requestReceiptCommon(
+    orderType,
     receipt: ReceiptData,
     heading: string,
     orderText: object
   ): RenderedEmail {
+    const registryEmail =
+      orderType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+
     return this.receiptEmailRenderer(
       {
         ...receipt,
 
         heading,
         orderDate: formatOrderDate(receipt.orderDate),
-        registryEmail: 'birth@boston.gov',
+        registryEmail,
         subtotal: null,
 
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Certified birth certificate for ${name} (${
+          description: `Certified ${orderType} certificate for ${name} (${
             date
               ? moment(date)
                   // Database times are midnight UTC. We need to specify UTC or else
@@ -193,18 +205,24 @@ export class EmailTemplates {
 
         ...orderText,
       },
-      `City of Boston Birth Certificate Order #${receipt.orderId}`
+      `City of Boston ${capitalize(orderType)} Certificate Order #${
+        receipt.orderId
+      }`
     );
   }
 
-  birthExpired(orderId: string, orderDate: Date) {
+  requestExpired(orderType: OrderType, orderId: string, orderDate: Date) {
+    const registryEmail =
+      orderType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+
     return this.expiredEmailRenderer(
       {
+        orderType,
         orderDate: formatOrderDate(orderDate),
-        orderId: orderId,
-        registryEmail: 'birth@boston.gov',
+        orderId,
+        registryEmail,
       },
-      `City of Boston Birth Certificate Order #${orderId}`
+      `City of Boston ${capitalize(orderType)} Certificate Order #${orderId}`
     );
   }
 }

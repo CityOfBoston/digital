@@ -534,8 +534,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 <a
                   href="mailto:birth@boston.gov"
                 >
-                  birth
-                  @boston.gov
+                  birth@boston.gov
                 </a>
                 .
               </p>
@@ -21527,8 +21526,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                 <a
                   href="mailto:birth@boston.gov"
                 >
-                  birth
-                  @boston.gov
+                  birth@boston.gov
                 </a>
                 .
               </p>
@@ -22080,10 +22078,9 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:marriage@boston.gov"
+                  href="mailto:registry@boston.gov"
                 >
-                  marriage
-                  @boston.gov
+                  registry@boston.gov
                 </a>
                 .
               </p>
@@ -54022,7 +54019,7 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
 </div>
 `;
 
-exports[`Storyshots Email/Birth Expired HTML 1`] = `
+exports[`Storyshots Email/Birth/Expired HTML 1`] = `
 <div>
   <div
     dangerouslySetInnerHTML={
@@ -54376,7 +54373,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
       >
         <b>Date:</b> <i>1/8/2018 2:05PM</i><br/>
-                <b>Order #:</b> <i>RG-DC201801-100001</i>
+                <b>Order #:</b> <i>RG-BC201801-100001</i>
       </div>
     
               </td>
@@ -54674,7 +54671,7 @@ exports[`Storyshots Email/Birth Expired HTML 1`] = `
 </div>
 `;
 
-exports[`Storyshots Email/Birth Expired text 1`] = `
+exports[`Storyshots Email/Birth/Expired text 1`] = `
 <div>
   <pre>
     City of Boston
@@ -54682,7 +54679,7 @@ exports[`Storyshots Email/Birth Expired text 1`] = `
 Your order has been canceled
 
 Date: 1/8/2018 2:05PM
-Order ID: RG-DC201801-100001
+Order ID: RG-BC201801-100001
 
 We have canceled your birth certificate request and removed 
 the hold from your card. Your card will not be charged.
@@ -54696,7 +54693,7 @@ birth@boston.gov.
 </div>
 `;
 
-exports[`Storyshots Email/Birth Receipt HTML 1`] = `
+exports[`Storyshots Email/Birth/Receipt HTML 1`] = `
 <div>
   <div
     dangerouslySetInnerHTML={
@@ -55051,7 +55048,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
       >
         <b>Date:</b> <i>1/8/2018 2:05PM</i><br/>
-                <b>Order #:</b> <i>RG-DC201801-100001</i>
+                <b>Order #:</b> <i>RG-BC201801-100001</i>
       </div>
     
               </td>
@@ -55188,17 +55185,17 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>4 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
-                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
+                    <i>1 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
-                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$1.32</b></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
                 </tr>
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$141.32</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
                 </tr>
       </table>
     
@@ -55213,7 +55210,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        We have received your order. You will be charged when the certificates ship.
+        We have received your order. You will be charged when the certificate ships.
       </div>
     
               </td>
@@ -55445,7 +55442,7 @@ exports[`Storyshots Email/Birth Receipt HTML 1`] = `
 </div>
 `;
 
-exports[`Storyshots Email/Birth Receipt text 1`] = `
+exports[`Storyshots Email/Birth/Receipt text 1`] = `
 <div>
   <pre>
     City of Boston
@@ -55453,7 +55450,7 @@ exports[`Storyshots Email/Birth Receipt text 1`] = `
 Thank you for your order!
 
 Date: 1/8/2018 2:05PM
-Order ID: RG-DC201801-100001
+Order ID: RG-BC201801-100001
 
 Your shipping information:
 Nancy Whitehead
@@ -55461,12 +55458,12 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  4 x Certified birth certificate for Carol Danvers (10/6/1976) $56.00
-  Card processing fee*  $1.32
-  Total  $141.32
+  1 x Certified birth certificate for Carol Danvers (10/6/1976) $14.00
+  Card processing fee*  $0.00
+  Total  $14.56
 
 We have received your order. You will be charged when the 
-certificates ship.
+certificate ships.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
@@ -55484,7 +55481,7 @@ birth@boston.gov.
 </div>
 `;
 
-exports[`Storyshots Email/Birth Shipped HTML 1`] = `
+exports[`Storyshots Email/Birth/Shipped HTML 1`] = `
 <div>
   <div
     dangerouslySetInnerHTML={
@@ -55730,7 +55727,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
       <div
          style=\\"font-family:Montserrat, sans-serif;font-size:20px;font-weight:bold;line-height:1.8;text-align:left;text-transform:uppercase;color:#000000;\\"
       >
-        Your birth certificate order is on its way!
+        Thank you for your order!
       </div>
     
               </td>
@@ -55758,88 +55755,6 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
         </table>
       <![endif]-->
     
-    
-              </td>
-            </tr>
-          
-      </table>
-    
-      </div>
-    
-          <!--[if mso | IE]>
-            </td>
-          
-        </tr>
-      
-                  </table>
-                <![endif]-->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        
-      </div>
-    
-      
-      <!--[if mso | IE]>
-          </td>
-        </tr>
-      </table>
-      
-              </td>
-            </tr>
-          
-            <tr>
-              <td
-                 class=\\"\\" width=\\"600px\\"
-              >
-          
-      <table
-         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
-      >
-        <tr>
-          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
-      <![endif]-->
-    
-      
-      <div  style=\\"Margin:0px auto;max-width:596px;\\">
-        
-        <table
-           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
-        >
-          <tbody>
-            <tr>
-              <td
-                 style=\\"direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;\\"
-              >
-                <!--[if mso | IE]>
-                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
-                
-        <tr>
-      
-            <td
-               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
-            >
-          <![endif]-->
-            
-      <div
-         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
-      >
-        
-      <table
-         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
-      >
-        
-            <tr>
-              <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
-              >
-                
-      <div
-         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
-      >
-        We’ve processed your order and charged your card. Your order is being shipped via U.S. Postal Service to the shipping address you provided.
-      </div>
     
               </td>
             </tr>
@@ -55921,7 +55836,7 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
       >
         <b>Date:</b> <i>1/8/2018 2:05PM</i><br/>
-                <b>Order #:</b> <i>RG-DC201801-100001</i>
+                <b>Order #:</b> <i>RG-BC201801-100001</i>
       </div>
     
               </td>
@@ -56058,19 +55973,47 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>4 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
-                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$56.00</b></td>
+                    <i>1 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
-                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$1.32</b></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
                 </tr>
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$141.32</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
                 </tr>
       </table>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        We have received your order. You will be charged when the certificate ships.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
+      </div>
     
               </td>
             </tr>
@@ -56287,15 +56230,15 @@ exports[`Storyshots Email/Birth Shipped HTML 1`] = `
 </div>
 `;
 
-exports[`Storyshots Email/Birth Shipped text 1`] = `
+exports[`Storyshots Email/Birth/Shipped text 1`] = `
 <div>
   <pre>
     City of Boston
 
-Your birth certificate order is on its way!
+Thank you for your order!
 
 Date: 1/8/2018 2:05PM
-Order ID: RG-DC201801-100001
+Order ID: RG-BC201801-100001
 
 Your shipping information:
 Nancy Whitehead
@@ -56303,9 +56246,16 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  4 x Certified birth certificate for Carol Danvers (10/6/1976) $56.00
-  Card processing fee*  $1.32
-  Total  $141.32
+  1 x Certified birth certificate for Carol Danvers (10/6/1976) $14.00
+  Card processing fee*  $0.00
+  Total  $14.56
+
+We have received your order. You will be charged when the 
+certificate ships.
+
+We will contact you if we need more information to fulfill 
+the order. If we contact you but do not hear back within 3 
+business days, we will cancel the order without charge.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -56319,7 +56269,7 @@ birth@boston.gov.
 </div>
 `;
 
-exports[`Storyshots Email/Death Receipt HTML 1`] = `
+exports[`Storyshots Email/Death/Receipt HTML 1`] = `
 <div>
   <div
     dangerouslySetInnerHTML={
@@ -57063,7 +57013,7 @@ exports[`Storyshots Email/Death Receipt HTML 1`] = `
 </div>
 `;
 
-exports[`Storyshots Email/Death Receipt text 1`] = `
+exports[`Storyshots Email/Death/Receipt text 1`] = `
 <div>
   <pre>
     City of Boston
@@ -57087,6 +57037,2257 @@ Your order:
 
 Your order will be shipped within 1–2 business days via the 
 U.S. Postal Service.
+
+* You are charged an extra service fee of not more than 
+$0.25 plus 2.15%. This fee goes directly to a third party to 
+pay for the cost of card processing. Learn more about card 
+service fees at the City of Boston. 
+[https://www.cityofboston.gov/payments/faqs.asp]
+
+Have any questions? Contact the Registry at 
+registry@boston.gov.
+  </pre>
+</div>
+`;
+
+exports[`Storyshots Email/Marriage/Expired HTML 1`] = `
+<div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <!doctype html>
+    <html xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\">
+      <head>
+        <title>
+          
+        </title>
+        <!--[if !mso]><!-- -->
+        <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
+        <!--<![endif]-->
+        <meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=UTF-8\\">
+        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
+        <style type=\\"text/css\\">
+          #outlook a { padding:0; }
+          .ReadMsgBody { width:100%; }
+          .ExternalClass { width:100%; }
+          .ExternalClass * { line-height:100%; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }
+        </style>
+        <!--[if !mso]><!-->
+        <style type=\\"text/css\\">
+          @media only screen and (max-width:480px) {
+            @-ms-viewport { width:320px; }
+            @viewport { width:320px; }
+          }
+        </style>
+        <!--<![endif]-->
+        <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <!--[if lte mso 11]>
+        <style type=\\"text/css\\">
+          .outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+        
+      <!--[if !mso]><!-->
+        <link href=\\"https://fonts.googleapis.com/css?family=Lora:400,700,400i\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+<link href=\\"https://fonts.googleapis.com/css?family=Montserrat:400,700\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+        <style type=\\"text/css\\">
+          @import url(https://fonts.googleapis.com/css?family=Lora:400,700,400i);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+        </style>
+      <!--<![endif]-->
+
+    
+        
+    <style type=\\"text/css\\">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-12 { width:12% !important; max-width: 12%; }
+.mj-column-per-88 { width:88% !important; max-width: 88%; }
+      }
+    </style>
+    
+  
+        <style type=\\"text/css\\">
+        
+        
+
+    @media only screen and (max-width:480px) {
+      table.full-width-mobile { width: 100% !important; }
+      td.full-width-mobile { width: auto !important; }
+    }
+  
+        </style>
+        
+        
+      </head>
+      <body>
+        
+        
+      <div
+         style=\\"\\"
+      >
+        
+      
+      <!--[if mso | IE]>
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:25px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+      >
+        <tbody>
+          <tr>
+            <td  style=\\"width:200px;\\">
+              
+      <img
+         alt=\\"City of Boston\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/logo.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;\\" width=\\"200\\"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"background:#f2f2f2;background-color:#f2f2f2;Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"background:#f2f2f2;background-color:#f2f2f2;width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"border:2px solid #091f2f;direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Montserrat, sans-serif;font-size:20px;font-weight:bold;line-height:1.8;text-align:left;text-transform:uppercase;color:#000000;\\"
+      >
+        Your order has been canceled
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <p
+         style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:100%;\\"
+      >
+      </p>
+      
+      <!--[if mso | IE]>
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:546px;\\" role=\\"presentation\\" width=\\"546px\\"
+        >
+          <tr>
+            <td style=\\"height:0;line-height:0;\\">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      <![endif]-->
+    
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:10px 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
+      >
+        <b>Date:</b> <i>1/8/2018 2:05PM</i><br/>
+                <b>Order #:</b> <i>RG-MC201801-100001</i>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        We have canceled your marriage certificate request and removed the hold
+                from your card. Your card will not be charged.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:10px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        If you would like to place a new order, visit
+                <a href=\\"https://www.boston.gov/marriage\\">boston.gov/marriage</a>.
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:20px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"width:600px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:ltr;\\"
+      >
+        <!--[if mso | IE]>
+        <table  role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+          <tr>
+        
+              <td
+                 style=\\"vertical-align:middle;width:72px;\\"
+              >
+              <![endif]-->
+                
+      <div
+         class=\\"mj-column-per-12 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:12%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:middle;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+      >
+        <tbody>
+          <tr>
+            <td  style=\\"width:72px;\\">
+              
+      <img
+         alt=\\"\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/seal.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;\\" width=\\"72\\"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]>
+              </td>
+              
+              <td
+                 style=\\"vertical-align:middle;width:528px;\\"
+              >
+              <![endif]-->
+                
+      <div
+         class=\\"mj-column-per-88 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:88%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:middle;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 0 0 10px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        Have any questions? Contact the Registry at <b><i><a
+              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]>
+              </td>
+              
+          </tr>
+          </table>
+        <![endif]-->
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    
+    
+      </div>
+    
+      </body>
+    </html>
+  ",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Email/Marriage/Expired text 1`] = `
+<div>
+  <pre>
+    City of Boston
+
+Your order has been canceled
+
+Date: 1/8/2018 2:05PM
+Order ID: RG-MC201801-100001
+
+We have canceled your marriage certificate request and 
+removed the hold from your card. Your card will not be 
+charged.
+
+If you would like to place a new order, visit 
+https://www.boston.gov/marriage
+
+Have any questions? Contact the Registry at 
+registry@boston.gov.
+  </pre>
+</div>
+`;
+
+exports[`Storyshots Email/Marriage/Receipt HTML 1`] = `
+<div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <!doctype html>
+    <html xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\">
+      <head>
+        <title>
+          
+        </title>
+        <!--[if !mso]><!-- -->
+        <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
+        <!--<![endif]-->
+        <meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=UTF-8\\">
+        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
+        <style type=\\"text/css\\">
+          #outlook a { padding:0; }
+          .ReadMsgBody { width:100%; }
+          .ExternalClass { width:100%; }
+          .ExternalClass * { line-height:100%; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }
+        </style>
+        <!--[if !mso]><!-->
+        <style type=\\"text/css\\">
+          @media only screen and (max-width:480px) {
+            @-ms-viewport { width:320px; }
+            @viewport { width:320px; }
+          }
+        </style>
+        <!--<![endif]-->
+        <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <!--[if lte mso 11]>
+        <style type=\\"text/css\\">
+          .outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+        
+      <!--[if !mso]><!-->
+        <link href=\\"https://fonts.googleapis.com/css?family=Lora:400,700,400i\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+<link href=\\"https://fonts.googleapis.com/css?family=Montserrat:400,700\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+        <style type=\\"text/css\\">
+          @import url(https://fonts.googleapis.com/css?family=Lora:400,700,400i);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+        </style>
+      <!--<![endif]-->
+
+    
+        
+    <style type=\\"text/css\\">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-50 { width:50% !important; max-width: 50%; }
+.mj-column-per-12 { width:12% !important; max-width: 12%; }
+.mj-column-per-88 { width:88% !important; max-width: 88%; }
+      }
+    </style>
+    
+  
+        <style type=\\"text/css\\">
+        
+        
+
+    @media only screen and (max-width:480px) {
+      table.full-width-mobile { width: 100% !important; }
+      td.full-width-mobile { width: auto !important; }
+    }
+  
+        </style>
+        
+        
+      </head>
+      <body>
+        
+        
+      <div
+         style=\\"\\"
+      >
+        
+      
+      <!--[if mso | IE]>
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:25px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+      >
+        <tbody>
+          <tr>
+            <td  style=\\"width:200px;\\">
+              
+      <img
+         alt=\\"City of Boston\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/logo.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;\\" width=\\"200\\"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"background:#f2f2f2;background-color:#f2f2f2;Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"background:#f2f2f2;background-color:#f2f2f2;width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"border:2px solid #091f2f;direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Montserrat, sans-serif;font-size:20px;font-weight:bold;line-height:1.8;text-align:left;text-transform:uppercase;color:#000000;\\"
+      >
+        Thank you for your order!
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <p
+         style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:100%;\\"
+      >
+      </p>
+      
+      <!--[if mso | IE]>
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:546px;\\" role=\\"presentation\\" width=\\"546px\\"
+        >
+          <tr>
+            <td style=\\"height:0;line-height:0;\\">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      <![endif]-->
+    
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:10px 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
+      >
+        <b>Date:</b> <i>1/8/2018 2:05PM</i><br/>
+                <b>Order #:</b> <i>RG-MC201801-100001</i>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:10px 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
+      >
+        <b>Shipping information:</b><br/>
+                <i>Nancy Whitehead<br/>
+                
+                123 Fake St.<br/>
+                
+                Boston, MA 02141</i>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:18px;line-height:1.8;text-align:left;color:#000000;\\"
+      >
+        <b>Order:</b>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\" style=\\"cellspacing:0;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;table-layout:auto;width:100%;\\"
+      >
+        <tr>
+                  <td style=\\"padding: 0 25px\\">
+                    <i>1 × Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016)</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
+                </tr>
+    
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
+                </tr>
+                <tr>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
+                </tr>
+      </table>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        We have received your order. You will be charged when the certificate ships.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        <i>* You are charged an extra service fee of not more than
+                $0.25 plus 2.15%. This fee goes directly to a third party to
+                pay for the cost of card processing. Learn more about <a
+                href=\\"https://www.cityofboston.gov/payments/faqs.asp\\">card service fees</a> at the City
+                of Boston.</i>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:20px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"width:600px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:ltr;\\"
+      >
+        <!--[if mso | IE]>
+        <table  role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+          <tr>
+        
+              <td
+                 style=\\"vertical-align:middle;width:72px;\\"
+              >
+              <![endif]-->
+                
+      <div
+         class=\\"mj-column-per-12 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:12%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:middle;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+      >
+        <tbody>
+          <tr>
+            <td  style=\\"width:72px;\\">
+              
+      <img
+         alt=\\"\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/seal.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;\\" width=\\"72\\"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]>
+              </td>
+              
+              <td
+                 style=\\"vertical-align:middle;width:528px;\\"
+              >
+              <![endif]-->
+                
+      <div
+         class=\\"mj-column-per-88 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:88%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:middle;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 0 0 10px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        Have any questions? Contact the Registry at <b><i><a
+              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]>
+              </td>
+              
+          </tr>
+          </table>
+        <![endif]-->
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    
+    
+      </div>
+    
+      </body>
+    </html>
+  ",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Email/Marriage/Receipt text 1`] = `
+<div>
+  <pre>
+    City of Boston
+
+Thank you for your order!
+
+Date: 1/8/2018 2:05PM
+Order ID: RG-MC201801-100001
+
+Your shipping information:
+Nancy Whitehead
+123 Fake St.
+Boston, MA 02141
+
+Your order:
+  1 x Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016) $14.00
+  Card processing fee*  $0.00
+  Total  $14.56
+
+We have received your order. You will be charged when the 
+certificate ships.
+
+We will contact you if we need more information to fulfill 
+the order. If we contact you but do not hear back within 3 
+business days, we will cancel the order without charge.
+
+* You are charged an extra service fee of not more than 
+$0.25 plus 2.15%. This fee goes directly to a third party to 
+pay for the cost of card processing. Learn more about card 
+service fees at the City of Boston. 
+[https://www.cityofboston.gov/payments/faqs.asp]
+
+Have any questions? Contact the Registry at 
+registry@boston.gov.
+  </pre>
+</div>
+`;
+
+exports[`Storyshots Email/Marriage/Shipped HTML 1`] = `
+<div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <!doctype html>
+    <html xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\">
+      <head>
+        <title>
+          
+        </title>
+        <!--[if !mso]><!-- -->
+        <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
+        <!--<![endif]-->
+        <meta http-equiv=\\"Content-Type\\" content=\\"text/html; charset=UTF-8\\">
+        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
+        <style type=\\"text/css\\">
+          #outlook a { padding:0; }
+          .ReadMsgBody { width:100%; }
+          .ExternalClass { width:100%; }
+          .ExternalClass * { line-height:100%; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }
+        </style>
+        <!--[if !mso]><!-->
+        <style type=\\"text/css\\">
+          @media only screen and (max-width:480px) {
+            @-ms-viewport { width:320px; }
+            @viewport { width:320px; }
+          }
+        </style>
+        <!--<![endif]-->
+        <!--[if mso]>
+        <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <!--[if lte mso 11]>
+        <style type=\\"text/css\\">
+          .outlook-group-fix { width:100% !important; }
+        </style>
+        <![endif]-->
+        
+      <!--[if !mso]><!-->
+        <link href=\\"https://fonts.googleapis.com/css?family=Lora:400,700,400i\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+<link href=\\"https://fonts.googleapis.com/css?family=Montserrat:400,700\\" rel=\\"stylesheet\\" type=\\"text/css\\">
+        <style type=\\"text/css\\">
+          @import url(https://fonts.googleapis.com/css?family=Lora:400,700,400i);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+        </style>
+      <!--<![endif]-->
+
+    
+        
+    <style type=\\"text/css\\">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-50 { width:50% !important; max-width: 50%; }
+.mj-column-per-12 { width:12% !important; max-width: 12%; }
+.mj-column-per-88 { width:88% !important; max-width: 88%; }
+      }
+    </style>
+    
+  
+        <style type=\\"text/css\\">
+        
+        
+
+    @media only screen and (max-width:480px) {
+      table.full-width-mobile { width: 100% !important; }
+      td.full-width-mobile { width: auto !important; }
+    }
+  
+        </style>
+        
+        
+      </head>
+      <body>
+        
+        
+      <div
+         style=\\"\\"
+      >
+        
+      
+      <!--[if mso | IE]>
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:25px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:600px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+      >
+        <tbody>
+          <tr>
+            <td  style=\\"width:200px;\\">
+              
+      <img
+         alt=\\"City of Boston\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/logo.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;\\" width=\\"200\\"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"background:#f2f2f2;background-color:#f2f2f2;Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"background:#f2f2f2;background-color:#f2f2f2;width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"border:2px solid #091f2f;direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Montserrat, sans-serif;font-size:20px;font-weight:bold;line-height:1.8;text-align:left;text-transform:uppercase;color:#000000;\\"
+      >
+        Thank you for your order!
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <p
+         style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:100%;\\"
+      >
+      </p>
+      
+      <!--[if mso | IE]>
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"border-top:solid 4px #000000;font-size:1;margin:0px auto;width:546px;\\" role=\\"presentation\\" width=\\"546px\\"
+        >
+          <tr>
+            <td style=\\"height:0;line-height:0;\\">
+              &nbsp;
+            </td>
+          </tr>
+        </table>
+      <![endif]-->
+    
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:10px 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
+      >
+        <b>Date:</b> <i>1/8/2018 2:05PM</i><br/>
+                <b>Order #:</b> <i>RG-MC201801-100001</i>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:298px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-50 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:10px 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.8;text-align:left;color:#000000;\\"
+      >
+        <b>Shipping information:</b><br/>
+                <i>Nancy Whitehead<br/>
+                
+                123 Fake St.<br/>
+                
+                Boston, MA 02141</i>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 class=\\"\\" width=\\"600px\\"
+              >
+          
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:596px;\\" width=\\"596\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:596px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:10px 0;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"vertical-align:top;width:596px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:top;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 25px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:18px;line-height:1.8;text-align:left;color:#000000;\\"
+      >
+        <b>Order:</b>
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\" border=\\"0\\" style=\\"cellspacing:0;color:#000000;font-family:Lora, serif;font-size:16px;line-height:1.8;table-layout:auto;width:100%;\\"
+      >
+        <tr>
+                  <td style=\\"padding: 0 25px\\">
+                    <i>1 × Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016)</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
+                </tr>
+    
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
+                </tr>
+                <tr>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
+                </tr>
+      </table>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        We have received your order. You will be charged when the certificate ships.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        <i>* You are charged an extra service fee of not more than
+                $0.25 plus 2.15%. This fee goes directly to a third party to
+                pay for the cost of card processing. Learn more about <a
+                href=\\"https://www.cityofboston.gov/payments/faqs.asp\\">card service fees</a> at the City
+                of Boston.</i>
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+              </td>
+            </tr>
+          
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      
+      <table
+         align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" class=\\"\\" style=\\"width:600px;\\" width=\\"600\\"
+      >
+        <tr>
+          <td style=\\"line-height:0px;font-size:0px;mso-line-height-rule:exactly;\\">
+      <![endif]-->
+    
+      
+      <div  style=\\"Margin:0px auto;max-width:600px;\\">
+        
+        <table
+           align=\\"center\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"width:100%;\\"
+        >
+          <tbody>
+            <tr>
+              <td
+                 style=\\"direction:ltr;font-size:0px;padding:20px 0 10px;text-align:center;vertical-align:top;\\"
+              >
+                <!--[if mso | IE]>
+                  <table role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+                
+        <tr>
+      
+            <td
+               class=\\"\\" style=\\"width:600px;\\"
+            >
+          <![endif]-->
+            
+      <div
+         class=\\"mj-column-per-100 outlook-group-fix\\" style=\\"font-size:0;line-height:0;text-align:left;display:inline-block;width:100%;direction:ltr;\\"
+      >
+        <!--[if mso | IE]>
+        <table  role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\">
+          <tr>
+        
+              <td
+                 style=\\"vertical-align:middle;width:72px;\\"
+              >
+              <![endif]-->
+                
+      <div
+         class=\\"mj-column-per-12 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:12%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:middle;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0;word-break:break-word;\\"
+              >
+                
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"border-collapse:collapse;border-spacing:0px;\\"
+      >
+        <tbody>
+          <tr>
+            <td  style=\\"width:72px;\\">
+              
+      <img
+         alt=\\"\\" height=\\"auto\\" src=\\"https://patterns.boston.gov/images/public/seal.png\\" style=\\"border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;\\" width=\\"72\\"
+      />
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]>
+              </td>
+              
+              <td
+                 style=\\"vertical-align:middle;width:528px;\\"
+              >
+              <![endif]-->
+                
+      <div
+         class=\\"mj-column-per-88 outlook-group-fix\\" style=\\"font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:88%;\\"
+      >
+        
+      <table
+         border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" role=\\"presentation\\" style=\\"vertical-align:middle;\\" width=\\"100%\\"
+      >
+        
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:0 0 0 10px;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        Have any questions? Contact the Registry at <b><i><a
+              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+      </div>
+    
+              </td>
+            </tr>
+          
+      </table>
+    
+      </div>
+    
+              <!--[if mso | IE]>
+              </td>
+              
+          </tr>
+          </table>
+        <![endif]-->
+      </div>
+    
+          <!--[if mso | IE]>
+            </td>
+          
+        </tr>
+      
+                  </table>
+                <![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    
+      
+      <!--[if mso | IE]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    
+    
+      </div>
+    
+      </body>
+    </html>
+  ",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Storyshots Email/Marriage/Shipped text 1`] = `
+<div>
+  <pre>
+    City of Boston
+
+Thank you for your order!
+
+Date: 1/8/2018 2:05PM
+Order ID: RG-MC201801-100001
+
+Your shipping information:
+Nancy Whitehead
+123 Fake St.
+Boston, MA 02141
+
+Your order:
+  1 x Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016) $14.00
+  Card processing fee*  $0.00
+  Total  $14.56
+
+We have received your order. You will be charged when the 
+certificate ships.
+
+We will contact you if we need more information to fulfill 
+the order. If we contact you but do not hear back within 3 
+business days, we will cancel the order without charge.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -57602,10 +59803,9 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:marriage@boston.gov"
+                  href="mailto:registry@boston.gov"
                 >
-                  marriage
-                  @boston.gov
+                  registry@boston.gov
                 </a>
                 .
               </p>
@@ -61142,7 +63342,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:birth@boston.gov"
+                href="mailto:registry@boston.gov"
                 onClick={[Function]}
               >
                 birth@boston.gov
@@ -61760,7 +63960,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                 id="apostille"
               >
                 <p>
-                  You need to have a hand signature from the Registry. After you finish your order, please email marriage@boston.gov with:
+                  You need to have a hand signature from the Registry. After you finish your order, please email registry@boston.gov with:
                 </p>
                 <ul>
                   <li>

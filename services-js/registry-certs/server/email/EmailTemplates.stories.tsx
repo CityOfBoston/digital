@@ -9,7 +9,7 @@ function snapToString(name: string) {
   return JSON.parse(SNAPSHOTS[name].trim().replace(/\n/g, '\\n'));
 }
 
-storiesOf('Email/Death Receipt', module)
+storiesOf('Email/Death/Receipt', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
@@ -19,7 +19,7 @@ storiesOf('Email/Death Receipt', module)
   ))
   .add('text', () => <pre>{snapToString('receipt Death certificates 3')}</pre>);
 
-storiesOf('Email/Birth Receipt', module)
+storiesOf('Email/Birth/Receipt', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
@@ -29,7 +29,7 @@ storiesOf('Email/Birth Receipt', module)
   ))
   .add('text', () => <pre>{snapToString('receipt Birth certificate 3')}</pre>);
 
-storiesOf('Email/Birth Shipped', module)
+storiesOf('Email/Birth/Shipped', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
@@ -41,7 +41,7 @@ storiesOf('Email/Birth Shipped', module)
     <pre>{snapToString('receipt Birth certificate shipped 3')}</pre>
   ));
 
-storiesOf('Email/Birth Expired', module)
+storiesOf('Email/Birth/Expired', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
@@ -51,4 +51,40 @@ storiesOf('Email/Birth Expired', module)
   ))
   .add('text', () => (
     <pre>{snapToString('expired Birth certificate expired 3')}</pre>
+  ));
+
+storiesOf('Email/Marriage/Receipt', module)
+  .add('HTML', () => (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: snapToString('receipt Marriage certificate 2'),
+      }}
+    />
+  ))
+  .add('text', () => (
+    <pre>{snapToString('receipt Marriage certificate 3')}</pre>
+  ));
+
+storiesOf('Email/Marriage/Shipped', module)
+  .add('HTML', () => (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: snapToString('receipt Marriage certificate shipped 2'),
+      }}
+    />
+  ))
+  .add('text', () => (
+    <pre>{snapToString('receipt Marriage certificate shipped 3')}</pre>
+  ));
+
+storiesOf('Email/Marriage/Expired', module)
+  .add('HTML', () => (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: snapToString('expired Marriage certificate expired 2'),
+      }}
+    />
+  ))
+  .add('text', () => (
+    <pre>{snapToString('expired Marriage certificate expired 3')}</pre>
   ));

@@ -50,7 +50,7 @@ export default class Emails {
         )
       );
     } catch (e) {
-      // If we can’t send the email we don’t error out the request.
+      // If we can’t send the email, we don’t error out the request.
       this.rollbar.error(e);
     }
   }
@@ -77,7 +77,7 @@ export default class Emails {
       toName,
       toEmail,
       BIRTH_EMAIL,
-      this.templates.birthReceipt(data)
+      this.templates.requestReceipt('birth', data)
     );
   }
 
@@ -90,7 +90,7 @@ export default class Emails {
       toName,
       toEmail,
       BIRTH_EMAIL,
-      this.templates.birthShipped(data)
+      this.templates.requestShipped('birth', data)
     );
   }
 
@@ -104,9 +104,50 @@ export default class Emails {
       toName,
       toEmail,
       BIRTH_EMAIL,
-      this.templates.birthExpired(orderId, orderDate)
+      this.templates.requestExpired('birth', orderId, orderDate)
     );
   }
+
+  // todo
+  // async sendMarriageReceiptEmail(
+  //   toName: string,
+  //   toEmail: string,
+  //   data: ReceiptData
+  // ): Promise<void> {
+  //   await this.sendEmail(
+  //     toName,
+  //     toEmail,
+  //     REGISTRY_EMAIL,
+  //     this.templates.requestReceipt('marriage', data)
+  //   );
+  // }
+  //
+  // async sendMarriageShippedEmail(
+  //   toName: string,
+  //   toEmail: string,
+  //   data: ReceiptData
+  // ): Promise<void> {
+  //   await this.sendEmail(
+  //     toName,
+  //     toEmail,
+  //     REGISTRY_EMAIL,
+  //     this.templates.requestShipped('marriage', data)
+  //   );
+  // }
+  //
+  // async sendMarriageExpiredEmail(
+  //   toName: string,
+  //   toEmail: string,
+  //   orderId: string,
+  //   orderDate: Date
+  // ): Promise<void> {
+  //   await this.sendEmail(
+  //     toName,
+  //     toEmail,
+  //     REGISTRY_EMAIL,
+  //     this.templates.requestExpired('marriage', orderId, orderDate)
+  //   );
+  // }
 }
 
 export function formatTo(toName: string, toEmail: string): string {
