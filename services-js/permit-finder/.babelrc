@@ -1,0 +1,7 @@
+{
+  "presets": [
+    "@cityofboston/config-babel/next",
+    "@cityofboston/config-babel/typescript",
+    "@cityofboston/config-babel/storybook"
+  ]
+}

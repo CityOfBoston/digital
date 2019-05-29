@@ -1,0 +1,254 @@
+[
+  {
+    "Milestones": "Intake",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "1–2 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 1."
+  },
+  {
+    "Milestones": "Admin PZ Review",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  We need a bit more information from you. Please bring 2 sets of your plans to our staff at Counter 2 for review. ",
+    "ExpectedDuration": "1–2 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "Fee",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "1–2 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 1."
+  },
+  {
+    "Milestones": "Fees",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "1–2 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 1."
+  },
+  {
+    "Milestones": "Awaiting Refund Request",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "1–2 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 1."
+  },
+  {
+    "Milestones": "Preliminary Inspection",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "1–2 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
+  },
+  {
+    "Milestones": "PrelimInspection",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "1–2 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
+  },
+  {
+    "Milestones": "PZCon",
+    "DisplayStatus": "Project Review",
+    "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
+    "ExpectedDuration": "20 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
+  },
+  {
+    "Milestones": "Assignment",
+    "DisplayStatus": "Project Review",
+    "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
+    "ExpectedDuration": "20 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
+  },
+  {
+    "Milestones": "PlanningZoning",
+    "DisplayStatus": "Project Review",
+    "Description": "Your project plan is under review by a plans examiner familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
+    "ExpectedDuration": "20 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for your assigned plans examiner."
+  },
+  {
+    "Milestones": "Satisfy Conditions",
+    "DisplayStatus": "Project Review",
+    "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
+    "ExpectedDuration": "20 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
+  },
+  {
+    "Milestones": "Traffic Management Review",
+    "DisplayStatus": "Project Review",
+    "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
+    "ExpectedDuration": "20 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
+  },
+  {
+    "Milestones": "Waiting",
+    "DisplayStatus": "Zoning Review",
+    "Description": "You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.",
+    "ExpectedDuration": "Please get back to us soon so we can continue Project Review",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "Extension",
+    "DisplayStatus": "Zoning Review",
+    "Description": "You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.",
+    "ExpectedDuration": "Please get back to us soon so we can continue Project Review",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "BOA Pending",
+    "DisplayStatus": "Zoning Review",
+    "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
+    "ExpectedDuration": "60–90 days",
+    "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
+  },
+  {
+    "Milestones": "Board of Appeals",
+    "DisplayStatus": "Zoning Review",
+    "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
+    "ExpectedDuration": "60–90 days",
+    "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
+  },
+  {
+    "Milestones": "Board of Appeal",
+    "DisplayStatus": "Zoning Review",
+    "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
+    "ExpectedDuration": "60–90 days",
+    "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
+  },
+  {
+    "Milestones": "Appeal Pending",
+    "DisplayStatus": "Zoning Review",
+    "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
+    "ExpectedDuration": "60–90 days",
+    "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
+  },
+  {
+    "Milestones": "Bldg BOA Pending",
+    "DisplayStatus": "Zoning Review",
+    "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
+    "ExpectedDuration": "60–90 days",
+    "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
+  },
+  {
+    "Milestones": "Final Review",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once you get your permit and make sure all fees are paid you will be ready to get to work. Please make sure your permit is posted in a visable location to make sure your commmunity knows your work is allowed.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "Review",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once you get your permit and make sure all fees are paid you will be ready to get to work. Please make sure your permit is posted in a visable location to make sure your commmunity knows your work is allowed.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "Ready To Issue",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once you get your permit and make sure all fees are paid you will be ready to get to work. Please make sure your permit is posted in a visable location to make sure your commmunity knows your work is allowed.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "ScheduleInspection",
+    "DisplayStatus": "Inspections",
+    "Description": "You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for your assigned inspector."
+  },
+  {
+    "Milestones": "Inspection",
+    "DisplayStatus": "Inspections",
+    "Description": "You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for your assigned inspector."
+  },
+  {
+    "Milestones": "Re-Inspection",
+    "DisplayStatus": "Inspections",
+    "Description": "You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for your assigned inspector."
+  },
+  {
+    "Milestones": "Final Inspection",
+    "DisplayStatus": "Inspections",
+    "Description": "You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for your assigned inspector."
+  },
+  {
+    "Milestones": "ReInspection",
+    "DisplayStatus": "Inspections",
+    "Description": "You’ve got your permit.  Now we need to certify that it meets your area’s building codes. Please contact the Building Inspection unit to schedule an inspection and keep your project on track!",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for your assigned inspector."
+  },
+  {
+    "Milestones": "COO",
+    "DisplayStatus": "Occupancy",
+    "Description": "You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for Counter 3."
+  },
+  {
+    "Milestones": "Certificate Issued",
+    "DisplayStatus": "Occupancy",
+    "Description": "You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for Counter 3."
+  },
+  {
+    "Milestones": "OccNotOnFile",
+    "DisplayStatus": "Occupancy",
+    "Description": "You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for Counter 3."
+  },
+  {
+    "Milestones": "Legal",
+    "DisplayStatus": "Occupancy",
+    "Description": "You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-635-5300 and ask for Counter 3."
+  },
+  {
+    "Milestones": "Abandon",
+    "DisplayStatus": "Abandoned",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Revoked",
+    "DisplayStatus": "Revoked",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Denied",
+    "DisplayStatus": "Completed",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Closed",
+    "DisplayStatus": "Completed",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Complete",
+    "DisplayStatus": "Completed",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  }
+]

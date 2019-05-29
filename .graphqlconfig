@@ -12,6 +12,12 @@
         "./services-js/access-boston/**/*.{graphql,ts,tsx,js,jsx}"
       ]
     },
+    "permit-finder": {
+      "schemaPath": "./services-js/permit-finder/graphql/schema.graphql",
+      "includes": [
+        "./services-js/permit-finder/**/*.{graphql,ts,tsx,js,jsx}"
+      ]
+    },
     "commissions-app": {
       "schemaPath": "./services-js/commissions-app/graphql/schema.graphql",
       "includes": [
