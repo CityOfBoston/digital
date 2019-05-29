@@ -250,11 +250,11 @@ export async function makeServer({ rollbar }: ServerArgs) {
   // work
   if (
     process.env.NODE_ENV === 'production' &&
-    process.env.BIRTH_CERTS_ENABLED !== '1'
+    process.env.MARRIAGE_CERTS_ENABLED !== '1'
   ) {
     server.route({
       method: 'GET',
-      path: '/birth/{p*}',
+      path: '/marriage/{p*}',
       handler: () => {
         throw Boom.notFound();
       },

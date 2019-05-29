@@ -11,7 +11,10 @@ import {
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
+import { TYPICAL_REQUEST as marriageCertRequest } from '../../../fixtures/client/marriage-certificates';
+
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 function makeCart(loading: boolean): any {
   const cart = new DeathCertificateCart();
@@ -54,6 +57,15 @@ function makeBirthCertificateRequest(): BirthCertificateRequest {
   return request;
 }
 
+function makeMarriageCertificateRequest(): MarriageCertificateRequest {
+  const request = new MarriageCertificateRequest();
+
+  request.quantity = 1;
+  request.answerQuestion(marriageCertRequest);
+
+  return request;
+}
+
 const loadingCart = makeCart(true);
 const deathCart = makeCart(false);
 
@@ -66,7 +78,7 @@ storiesOf('Common Components/Order Details', module)
       <OrderDetails type="death" deathCertificateCart={loadingCart} />
     </OrderDetailsDropdown>
   ))
-  .add('OrderDetailsDropdown: closed', () => (
+  .add('OrderDetailsDropdown: death closed', () => (
     <OrderDetailsDropdown
       orderType="death"
       certificateQuantity={deathCart.size}
@@ -74,7 +86,7 @@ storiesOf('Common Components/Order Details', module)
       <OrderDetails type="death" deathCertificateCart={deathCart} />
     </OrderDetailsDropdown>
   ))
-  .add('OrderDetailsDropdown: open', () => (
+  .add('OrderDetailsDropdown: death open', () => (
     <OrderDetailsDropdown
       orderType="death"
       certificateQuantity={deathCart.size}
@@ -95,6 +107,18 @@ storiesOf('Common Components/Order Details', module)
       />
     </OrderDetailsDropdown>
   ))
+  .add('OrderDetailsDropdown: marriage open', () => (
+    <OrderDetailsDropdown
+      orderType="marriage"
+      certificateQuantity={1}
+      startExpanded
+    >
+      <OrderDetails
+        type="marriage"
+        marriageCertificateRequest={makeMarriageCertificateRequest()}
+      />
+    </OrderDetailsDropdown>
+  ))
   .add('OrderDetails: death', () => (
     <OrderDetails type="death" deathCertificateCart={deathCart} />
   ))
@@ -102,5 +126,11 @@ storiesOf('Common Components/Order Details', module)
     <OrderDetails
       type="birth"
       birthCertificateRequest={makeBirthCertificateRequest()}
+    />
+  ))
+  .add('OrderDetails: marriage', () => (
+    <OrderDetails
+      type="marriage"
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
     />
   ));

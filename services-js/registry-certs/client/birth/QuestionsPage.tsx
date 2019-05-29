@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 
-import { Step } from '../types';
+import { BirthStep } from '../types';
 
 import BirthCertificateRequest, {
   QUESTION_STEPS,
@@ -23,7 +23,7 @@ import ClientInstructions from './questions/ClientInstructions';
 import { ContactForm } from '@cityofboston/react-fleet';
 
 interface InitialProps {
-  currentStep: Step;
+  currentStep: BirthStep;
 }
 
 interface Props
@@ -48,7 +48,7 @@ interface State {
    * Saved here so that getDerivedStateFromProps knows when we switch pages. (It
    * doesn’t receive prevProps.)
    */
-  currentStep: Step;
+  currentStep: BirthStep;
 }
 /**
  * Guides the user through a number of questions, step by step, in order to
@@ -79,7 +79,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     return {
       // if the "step" parameter isn't a valid Step we just render a blank page,
       // which isn’t a big deal.
-      currentStep: (query['step'] as Step) || QUESTION_STEPS[0],
+      currentStep: (query['step'] as BirthStep) || QUESTION_STEPS[0],
     };
   };
 
@@ -119,14 +119,14 @@ export default class QuestionsPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (!this.props.testDontScroll) {
+    if (process.env.NODE_ENV !== 'test') {
       window.scroll(0, 0);
     }
   }
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.currentStep !== this.props.currentStep) {
-      if (!this.props.testDontScroll) {
+      if (process.env.NODE_ENV !== 'test') {
         window.scroll(0, 0);
       }
     }
@@ -221,7 +221,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
   // Clear all data and return to initial question.
   private handleUserReset = (): void => {
-    this.props.birthCertificateRequest.clearBirthCertificateRequest();
+    this.props.birthCertificateRequest.clearCertificateRequest();
   };
 
   render() {

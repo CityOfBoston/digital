@@ -6,17 +6,19 @@ import InputMask from 'react-input-mask';
 
 import makeShippingValidator from '../../../lib/validators/ShippingValidator';
 
+import { runInitialValidation } from './formik-util';
+
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
+
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../utility/form-elements';
 
-import { runInitialValidation } from './formik-util';
-import { OrderDetails, OrderDetailsDropdown } from './OrderDetails';
-import CheckoutPageLayout from './CheckoutPageLayout';
-
 import { Progress } from '../../PageWrapper';
+import CheckoutPageLayout from './CheckoutPageLayout';
 import { BackButtonContent } from '../question-components/BackButton';
+import RenderOrderDetails from './OrderDetails';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
@@ -29,6 +31,11 @@ export type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
+      progress: Progress;
+    }
+  | {
+      certificateType: 'marriage';
+      marriageCertificateRequest: MarriageCertificateRequest;
       progress: Progress;
     });
 
@@ -96,14 +103,16 @@ export default class ShippingContent extends React.Component<Props> {
     return (
       <CheckoutPageLayout
         certificateType={certificateType}
-        title={certificateType === 'death' ? 'Checkout' : 'Shipping'}
+        title={certificateType !== 'death' ? 'Shipping' : 'Checkout'}
         progress={
-          this.props.certificateType === 'birth'
-            ? this.props.progress
-            : undefined
+          this.props.certificateType === 'death'
+            ? undefined
+            : this.props.progress
         }
       >
-        <div className="m-v300">{this.renderOrderDetails()}</div>
+        <div className="m-v300">
+          <RenderOrderDetails details={this.props} />
+        </div>
 
         <Formik
           ref={this.formikRef}
@@ -115,37 +124,6 @@ export default class ShippingContent extends React.Component<Props> {
         />
       </CheckoutPageLayout>
     );
-  }
-
-  renderOrderDetails(): React.ReactNode {
-    const { props } = this;
-    switch (props.certificateType) {
-      case 'death':
-        return (
-          <OrderDetailsDropdown
-            orderType="death"
-            certificateQuantity={props.deathCertificateCart.size}
-          >
-            <OrderDetails
-              type="death"
-              deathCertificateCart={props.deathCertificateCart}
-            />
-          </OrderDetailsDropdown>
-        );
-
-      case 'birth':
-        return (
-          <OrderDetailsDropdown
-            orderType="birth"
-            certificateQuantity={props.birthCertificateRequest.quantity}
-          >
-            <OrderDetails
-              type="birth"
-              birthCertificateRequest={props.birthCertificateRequest}
-            />
-          </OrderDetailsDropdown>
-        );
-    }
   }
 
   renderForm = ({
@@ -481,14 +459,12 @@ export default class ShippingContent extends React.Component<Props> {
               so that the above cell’s margins aren’t weird
               from being the first and last child at the same time.*/}
           <div className="g--7 m-b500">
-            {this.props.certificateType === 'death' && (
+            {this.props.certificateType === 'death' ? (
               <Link href="/death/cart">
                 <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
               </Link>
-            )}
-
-            {this.props.certificateType === 'birth' && (
-              <Link href="/birth/review">
+            ) : (
+              <Link href={`/${this.props.certificateType}/review`}>
                 <a style={{ fontStyle: 'italic' }}>
                   <BackButtonContent />
                 </a>

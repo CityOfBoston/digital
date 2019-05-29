@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import Cart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 
 import ShippingContent from './ShippingContent';
@@ -13,6 +14,7 @@ import {
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
+import { TYPICAL_REQUEST as marriageCertRequest } from '../../../fixtures/client/marriage-certificates';
 
 function makeCart() {
   const cart = new Cart();
@@ -58,7 +60,7 @@ function makeOrder(overrides: Partial<OrderInfo> = {}) {
   });
 }
 
-function makeBirthCertificateRequest() {
+export function makeBirthCertificateRequest() {
   const request = new BirthCertificateRequest();
 
   request.quantity = 4;
@@ -71,7 +73,17 @@ function makeBirthCertificateRequest() {
   return request;
 }
 
-storiesOf('Checkout/ShippingContent', module)
+export function makeMarriageCertificateRequest() {
+  const request = new MarriageCertificateRequest();
+
+  request.quantity = 1;
+
+  request.answerQuestion(marriageCertRequest);
+
+  return request;
+}
+
+storiesOf('Common Components/Checkout/ShippingContent', module)
   .add('default', () => (
     <ShippingContent
       certificateType="death"
@@ -100,6 +112,19 @@ storiesOf('Checkout/ShippingContent', module)
     <ShippingContent
       certificateType="birth"
       birthCertificateRequest={makeBirthCertificateRequest()}
+      order={makeOrder()}
+      submit={action('submit')}
+      progress={{
+        currentStep: 6,
+        totalSteps: 8,
+        currentStepCompleted: false,
+      }}
+    />
+  ))
+  .add('marriage certificate', () => (
+    <ShippingContent
+      certificateType="marriage"
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
       order={makeOrder()}
       submit={action('submit')}
       progress={{

@@ -17,8 +17,6 @@ import ReviewContent from '../common/checkout/ReviewContent';
 import CheckoutPageLayout from '../common/checkout/CheckoutPageLayout';
 import OrderConfirmationContent from '../common/checkout/OrderConfirmationContent';
 
-const BIRTH_CERTIFICATE_COST = CERTIFICATE_COST.BIRTH;
-
 type PageInfo =
   | {
       page: 'shipping';
@@ -42,7 +40,7 @@ interface InitialProps {
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
-  | 'birthCertificateRequest'
+  | 'marriageCertificateRequest'
   | 'siteAnalytics'
   | 'orderProvider'
   | 'checkoutDao'
@@ -65,7 +63,10 @@ type State = {
  * This is currently copied over from death’s checkout page, though some
  * elements could potentially be generalized out from them.
  */
-export default class BirthCheckoutPage extends React.Component<Props, State> {
+export default class MarriageCheckoutPage extends React.Component<
+  Props,
+  State
+> {
   static getInitialProps: GetInitialProps<InitialProps, 'query'> = ({
     query,
   }) => {
@@ -159,7 +160,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
 
     order.updateInfo(shippingInfo);
 
-    await Router.push('/birth/checkout?page=payment');
+    await Router.push('/marriage/checkout?page=payment');
 
     window.scroll(0, 0);
   };
@@ -183,7 +184,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       await checkoutDao.tokenizeCard(order, cardElement);
     }
 
-    await Router.push('/birth/checkout?page=review');
+    await Router.push('/marriage/checkout?page=review');
 
     window.scroll(0, 0);
   };
@@ -197,8 +198,8 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
    */
   submitOrder = async () => {
     const {
-      checkoutDao,
-      birthCertificateRequest,
+      // checkoutDao,
+      marriageCertificateRequest,
       siteAnalytics,
       orderProvider,
     } = this.props;
@@ -209,19 +210,21 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       return;
     }
 
-    const stepCount = birthCertificateRequest.steps.length;
+    const stepCount = marriageCertificateRequest.steps.length;
 
-    const orderId = await checkoutDao.submitBirthCertificateRequest(
-      birthCertificateRequest,
-      order
-    );
+    // todo
+    const orderId = 'orderId';
+    // await checkoutDao.submitMarriageCertificateRequest(
+    // marriageCertificateRequest,
+    // order
+    // );
 
-    const confirmationUrl = `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
+    const confirmationUrl = `/marriage/checkout?page=confirmation&orderId=${encodeURIComponent(
       orderId
     )}&contactEmail=${encodeURIComponent(
       order.info.contactEmail
     )}&stepCount=${stepCount}`;
-    '/birth/checkout?page=confirmation';
+    '/marriage/checkout?page=confirmation';
 
     // If we get this far without throwing, the order has definitely succeeded,
     // so we need to catch any further errors and hide them from the user.
@@ -231,31 +234,32 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       siteAnalytics.setProductAction('purchase', {
         id: orderId,
         revenue:
-          (birthCertificateRequest.quantity * BIRTH_CERTIFICATE_COST) / 100,
+          (marriageCertificateRequest.quantity * CERTIFICATE_COST.MARRIAGE) /
+          100,
       });
 
       siteAnalytics.sendEvent('click', {
-        category: 'Birth',
+        category: 'Marriage',
         label: 'submit order',
       });
 
       siteAnalytics.sendEvent('ship to city', {
-        category: 'Birth',
+        category: 'Marriage',
         label: `${order.info.shippingCity}, ${order.info.shippingState}`,
       });
 
       siteAnalytics.sendEvent('ship to state', {
-        category: 'Birth',
+        category: 'Marriage',
         label: order.info.shippingState,
       });
 
       siteAnalytics.sendEvent('place order', {
-        category: 'Birth',
+        category: 'Marriage',
         label: 'certificate quantity',
-        value: birthCertificateRequest.quantity,
+        value: marriageCertificateRequest.quantity,
       });
 
-      birthCertificateRequest.clearCertificateRequest();
+      marriageCertificateRequest.clearCertificateRequest();
       orderProvider.clear();
 
       // Updating the order in the state is important in case someone clicks
@@ -288,15 +292,15 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
   sendBirthCertificateProduct() {
     this.props.siteAnalytics.addProduct(
       '0',
-      'Birth certificate',
-      'Birth certificate',
-      this.props.birthCertificateRequest.quantity,
-      BIRTH_CERTIFICATE_COST / 100
+      'Marriage certificate',
+      'Marriage certificate',
+      this.props.marriageCertificateRequest.quantity,
+      CERTIFICATE_COST.MARRIAGE / 100
     );
   }
 
   render() {
-    const { info, birthCertificateRequest, stripe } = this.props;
+    const { info, marriageCertificateRequest, stripe } = this.props;
     const { order } = this.state;
 
     // We short-circuit here because the confirmation page doesn’t need an order
@@ -304,7 +308,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     if (info.page === 'confirmation') {
       return (
         <OrderConfirmationContent
-          certificateType="birth"
+          certificateType="marriage"
           contactEmail={info.contactEmail}
           orderId={info.orderId}
           stepCount={info.stepCount}
@@ -312,19 +316,19 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       );
     }
 
-    const progressSteps = birthCertificateRequest.steps.length;
+    const progressSteps = marriageCertificateRequest.steps.length;
 
     // This happens during server side rendering
-    if (!order || !birthCertificateRequest.questionStepsComplete) {
+    if (!order || !marriageCertificateRequest.questionStepsComplete) {
       return (
-        <CheckoutPageLayout certificateType="birth">
-          {order && !birthCertificateRequest.questionStepsComplete && (
+        <CheckoutPageLayout certificateType="marriage">
+          {order && !marriageCertificateRequest.questionStepsComplete && (
             <>
               <div className="t--info">
-                Your birth certificate request is incomplete.
+                Your marriage certificate request is incomplete.
               </div>
               <div className="m-v500 ta-c">
-                <Link href="/birth">
+                <Link href="/marriage">
                   <a className="btn">Back to Start</a>
                 </Link>
               </div>
@@ -338,14 +342,15 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       case 'shipping':
         return (
           <ShippingContent
-            certificateType="birth"
-            birthCertificateRequest={birthCertificateRequest}
+            certificateType="marriage"
+            marriageCertificateRequest={marriageCertificateRequest}
             order={order}
             submit={this.advanceToPayment}
             progress={{
               currentStep:
-                birthCertificateRequest.steps.indexOf('shippingInformation') +
-                1,
+                marriageCertificateRequest.steps.indexOf(
+                  'shippingInformation'
+                ) + 1,
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
@@ -355,14 +360,15 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       case 'payment':
         return (
           <PaymentContent
-            certificateType="birth"
+            certificateType="marriage"
             stripe={stripe}
-            birthCertificateRequest={birthCertificateRequest}
+            marriageCertificateRequest={marriageCertificateRequest}
             order={order}
             submit={this.advanceToReview}
             progress={{
               currentStep:
-                birthCertificateRequest.steps.indexOf('billingInformation') + 1,
+                marriageCertificateRequest.steps.indexOf('billingInformation') +
+                1,
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
@@ -372,13 +378,13 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       case 'review':
         return (
           <ReviewContent
-            certificateType="birth"
-            birthCertificateRequest={birthCertificateRequest}
+            certificateType="marriage"
+            marriageCertificateRequest={marriageCertificateRequest}
             order={order}
             submit={this.submitOrder}
             progress={{
               currentStep:
-                birthCertificateRequest.steps.indexOf('submitRequest') + 1,
+                marriageCertificateRequest.steps.indexOf('submitRequest') + 1,
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}

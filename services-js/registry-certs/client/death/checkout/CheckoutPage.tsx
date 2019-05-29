@@ -48,7 +48,9 @@ export type PageDependenciesProps = Pick<
   | 'stripe'
 >;
 
-interface Props extends InitialProps, PageDependenciesProps {}
+interface Props extends InitialProps, PageDependenciesProps {
+  orderForTest?: Order;
+}
 
 type State = {
   /**
@@ -63,7 +65,7 @@ export default class CheckoutPageController extends React.Component<
   State
 > {
   state: State = {
-    order: null,
+    order: this.props.orderForTest || null,
   };
 
   static getInitialProps: GetInitialProps<InitialProps, 'query'> = ({

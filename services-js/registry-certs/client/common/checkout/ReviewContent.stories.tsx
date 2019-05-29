@@ -2,9 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { DeathCertificate } from '../../types.js';
+import { DeathCertificate } from '../../types';
 import Cart from '../../store/DeathCertificateCart';
-import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 
 import { SubmissionError } from '../../dao/CheckoutDao';
@@ -18,6 +17,11 @@ import {
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
+import {
+  makeBirthCertificateRequest,
+  makeMarriageCertificateRequest,
+} from './ShippingContent.stories';
+
 function makeCart(extraCerts?: Array<DeathCertificate>) {
   const cart = new Cart();
 
@@ -27,19 +31,6 @@ function makeCart(extraCerts?: Array<DeathCertificate>) {
   (extraCerts || []).forEach(cert => cart.setQuantity(cert, 2));
 
   return cart;
-}
-
-function makeBirthCertificateRequest() {
-  const request = new BirthCertificateRequest();
-
-  request.quantity = 4;
-  request.answerQuestion({
-    firstName: 'Carol',
-    lastName: 'Danvers',
-    birthDate: new Date(1968, 2, 5),
-  });
-
-  return request;
 }
 
 function makeOrder(overrides: Partial<OrderInfo> = {}) {
@@ -76,7 +67,7 @@ function makeOrder(overrides: Partial<OrderInfo> = {}) {
   });
 }
 
-storiesOf('Checkout/ReviewContent', module)
+storiesOf('Common Components/Checkout/ReviewContent', module)
   .add('default', () => (
     <ReviewContent
       certificateType="death"
@@ -155,6 +146,19 @@ storiesOf('Checkout/ReviewContent', module)
     <ReviewContent
       certificateType="birth"
       birthCertificateRequest={makeBirthCertificateRequest()}
+      order={makeOrder()}
+      submit={action('submit') as any}
+      progress={{
+        currentStep: 8,
+        totalSteps: 8,
+        currentStepCompleted: false,
+      }}
+    />
+  ))
+  .add('marriage certificate', () => (
+    <ReviewContent
+      certificateType="marriage"
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
       order={makeOrder()}
       submit={action('submit') as any}
       progress={{

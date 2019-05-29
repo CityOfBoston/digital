@@ -23,7 +23,10 @@ import {
 } from '../../../lib/costs';
 
 import { CertificateType } from '../../types';
+
 import DeathCertificateCart from '../../store/DeathCertificateCart';
+import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import {
   serviceFeeDisclosureText,
@@ -31,7 +34,6 @@ import {
 } from '../FeeDisclosures';
 
 import CertificateRow from '../../common/CertificateRow';
-import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 
 type OrderDetailsProps =
   | {
@@ -42,6 +44,11 @@ type OrderDetailsProps =
   | {
       type: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
+      thin?: boolean;
+    }
+  | {
+      type: 'marriage';
+      marriageCertificateRequest: MarriageCertificateRequest;
       thin?: boolean;
     };
 
@@ -89,11 +96,24 @@ export const OrderDetails = observer(function OrderDetails(
         <div>
           <CertificateRow
             type="birth"
-            birthCertificateRequest={props.birthCertificateRequest}
+            certificate={props.birthCertificateRequest}
             borderTop={false}
             borderBottom={true}
             thin={props.thin}
             children={makeWrapRow(props.birthCertificateRequest.quantity)}
+          />
+        </div>
+      );
+    case 'marriage':
+      return (
+        <div>
+          <CertificateRow
+            type="marriage"
+            certificate={props.marriageCertificateRequest}
+            borderTop={false}
+            borderBottom={true}
+            thin={props.thin}
+            children={makeWrapRow(props.marriageCertificateRequest.quantity)}
           />
         </div>
       );
@@ -232,6 +252,48 @@ export class OrderDetailsDropdown extends Component<
           )}
         </VelocityTransitionGroup>
       </div>
+    );
+  }
+}
+
+export default function RenderOrderDetails(props): JSX.Element {
+  const { details } = props;
+
+  if (details.certificateType === 'death') {
+    return (
+      <OrderDetailsDropdown
+        orderType="death"
+        certificateQuantity={details.deathCertificateCart.size}
+      >
+        <OrderDetails
+          type="death"
+          deathCertificateCart={details.deathCertificateCart}
+        />
+      </OrderDetailsDropdown>
+    );
+  } else {
+    const quantity =
+      details.certificateType === 'birth'
+        ? details.birthCertificateRequest.quantity
+        : details.marriageCertificateRequest.quantity;
+
+    return (
+      <OrderDetailsDropdown
+        orderType={details.certificateType}
+        certificateQuantity={quantity}
+      >
+        {details.certificateType === 'birth' ? (
+          <OrderDetails
+            type="birth"
+            birthCertificateRequest={details.birthCertificateRequest}
+          />
+        ) : (
+          <OrderDetails
+            type="marriage"
+            marriageCertificateRequest={details.marriageCertificateRequest}
+          />
+        )}
+      </OrderDetailsDropdown>
     );
   }
 }

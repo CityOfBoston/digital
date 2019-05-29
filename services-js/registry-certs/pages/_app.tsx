@@ -16,7 +16,9 @@ import {
 } from '@cityofboston/next-client-common';
 
 import BirthCertificateRequest from '../client/store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../client/store/MarriageCertificateRequest';
 import DeathCertificateCart from '../client/store/DeathCertificateCart';
+
 import OrderProvider from '../client/store/OrderProvider';
 import DeathCertificatesDao from '../client/dao/DeathCertificatesDao';
 import CheckoutDao from '../client/dao/CheckoutDao';
@@ -76,6 +78,7 @@ export interface PageDependencies extends GetInitialPropsDependencies {
   stripe: stripe.Stripe | null;
   checkoutDao: CheckoutDao;
   birthCertificateRequest: BirthCertificateRequest;
+  marriageCertificateRequest: MarriageCertificateRequest;
   deathCertificateCart: DeathCertificateCart;
   screenReaderSupport: ScreenReaderSupport;
   routerListener: RouterListener;
@@ -171,6 +174,7 @@ export default class RegistryCertsApp extends App {
     const initialPageDependencies = getInitialPageDependencies();
 
     const birthCertificateRequest = new BirthCertificateRequest();
+    const marriageCertificateRequest = new MarriageCertificateRequest();
     const deathCertificateCart = new DeathCertificateCart();
     const orderProvider = new OrderProvider();
     const siteAnalytics = new GaSiteAnalytics();
@@ -194,6 +198,7 @@ export default class RegistryCertsApp extends App {
       screenReaderSupport: new ScreenReaderSupport(),
       siteAnalytics,
       birthCertificateRequest,
+      marriageCertificateRequest,
       deathCertificateCart,
       orderProvider,
     };
@@ -208,6 +213,7 @@ export default class RegistryCertsApp extends App {
       orderProvider,
       deathCertificatesDao,
       birthCertificateRequest,
+      marriageCertificateRequest,
     } = this.pageDependencies;
 
     screenReaderSupport.attach();
@@ -235,21 +241,28 @@ export default class RegistryCertsApp extends App {
     }
 
     if (sessionStorage) {
-      // QuestionsPage is set up to clone its birthCertificateRequest object so
-      // that it can manipulate it and only save the value back when the user
-      // presses the "Next" button.
+      // QuestionsPage is set up to clone its birthCertificateRequest/
+      // marriageCertificateRequest object so that it can manipulate it
+      // and only save the value back when the user presses the "Next" button.
       //
       // Because that cloning happens on initial load, any changes to the
-      // birthCertificateRequest here in componentDidMount would not be picked
-      // up. That’s why we clone and create a brand new object, which
-      // QuestionsPage can detect and update itself with.
+      // birthCertificateRequest/marriageCertificateRequest here in
+      // componentDidMount would not be picked up. That’s why we clone and
+      // create a brand new object, which QuestionsPage can detect and update
+      // itself with.
       const newBirthCertificateRequest = birthCertificateRequest.clone();
-      newBirthCertificateRequest.attach(sessionStorage);
+      const newMarriageCertificateRequest = marriageCertificateRequest.clone();
 
-      // We need to re-render our children because the birthCertificateRequest
-      // changed. Since there's just one instance of this we don't bother
-      // changing everything to use state or MobX and just force the update.
+      newBirthCertificateRequest.attach(sessionStorage);
+      newMarriageCertificateRequest.attach(sessionStorage);
+
+      // We need to re-render our children because the
+      // birthCertificateRequest/marriageCertificateRequest changed. Since
+      // there’s just one instance of this, we don’t bother changing everything
+      // to use state or MobX and just force the update.
       this.pageDependencies.birthCertificateRequest = newBirthCertificateRequest;
+      this.pageDependencies.marriageCertificateRequest = newMarriageCertificateRequest;
+
       (this as App).forceUpdate();
     }
 
@@ -268,12 +281,14 @@ export default class RegistryCertsApp extends App {
       screenReaderSupport,
       orderProvider,
       birthCertificateRequest,
+      marriageCertificateRequest,
     } = this.pageDependencies;
 
     routerListener.detach();
     screenReaderSupport.detach();
     orderProvider.detach();
     birthCertificateRequest.detach();
+    marriageCertificateRequest.detach();
   }
 
   render() {

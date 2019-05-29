@@ -6,10 +6,14 @@ import { ReactElement, ReactNode } from 'react';
 
 import Head from 'next/head';
 
+import { capitalize } from '../../../lib/helpers';
+
 import { CertificateType } from '../../types';
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
+
 import PageLayout from '../../PageLayout';
 import PageWrapper, { Progress } from '../../PageWrapper';
+
 import { SECTION_HEADING_STYLING } from '../question-components/styling';
 
 type Props = {
@@ -35,8 +39,7 @@ export default function CheckoutPageLayout({
   children,
 }: Props): ReactElement<any> {
   const breadcrumbNav = BREADCRUMB_NAV_LINKS[certificateType];
-  const certificateName = `${certificateType.slice(0, 1).toUpperCase() +
-    certificateType.slice(1)} Certificates`;
+  const certificateName = `${capitalize(certificateType)} Certificates`;
 
   const head = (
     <Head>

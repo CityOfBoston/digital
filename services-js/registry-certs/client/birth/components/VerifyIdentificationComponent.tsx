@@ -15,7 +15,7 @@ import {
 
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 import SupportingDocumentsInput from './SupportingDocumentsInput';
-import IdIcon from '../icons/IdIcon';
+import IdIcon from '../../common/icons/IdIcon';
 
 import UploadableFile from '../../models/UploadableFile';
 

@@ -9,7 +9,7 @@ import { observer } from 'mobx-react';
 import RadioItemComponent from '../../common/question-components/RadioItemComponent';
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
-import RelatedIcon from '../icons/RelatedIcon';
+import RelatedIcon from '../../common/icons/RelatedIcon';
 
 import { Relation } from '../../types';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';

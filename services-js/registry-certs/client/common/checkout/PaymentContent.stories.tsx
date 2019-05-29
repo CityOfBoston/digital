@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import Cart from '../../store/DeathCertificateCart';
-import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+
 import Order, { OrderInfo } from '../../models/Order';
 
 import PaymentContent from './PaymentContent';
@@ -15,6 +15,11 @@ import {
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
+
+import {
+  makeBirthCertificateRequest,
+  makeMarriageCertificateRequest,
+} from './ShippingContent.stories';
 
 const makeStripe = () =>
   typeof Stripe !== 'undefined' ? Stripe('fake-secret-key') : null;
@@ -80,7 +85,7 @@ function makeBillingCompleteOrder(overrides = {}) {
   });
 }
 
-storiesOf('Checkout/PaymentContent', module)
+storiesOf('Common Components/Checkout/PaymentContent', module)
   .add('default', () => (
     <PaymentContent
       certificateType="death"
@@ -131,10 +136,24 @@ storiesOf('Checkout/PaymentContent', module)
       submit={action('submit')}
     />
   ))
-  .add('birth certificates', () => (
+  .add('birth certificate', () => (
     <PaymentContent
       certificateType="birth"
-      birthCertificateRequest={new BirthCertificateRequest()}
+      birthCertificateRequest={makeBirthCertificateRequest()}
+      stripe={makeStripe()}
+      order={makeBillingCompleteOrder()}
+      submit={action('submit')}
+      progress={{
+        currentStep: 7,
+        totalSteps: 8,
+        currentStepCompleted: false,
+      }}
+    />
+  ))
+  .add('marriage certificate', () => (
+    <PaymentContent
+      certificateType="marriage"
+      marriageCertificateRequest={makeMarriageCertificateRequest()}
       stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
