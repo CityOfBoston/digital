@@ -1,0 +1,149 @@
+[
+  {
+    "Milestones": "Intake",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "Less than 1 Business Day",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "IntakeRev",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "Less than 1 Business Day",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Processing",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "Less than 1 Business Day",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Waiting Fee",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+    "ExpectedDuration": "Less than 1 Business Day",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Review",
+    "DisplayStatus": "Permit Review",
+    "Description": "Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. ",
+    "ExpectedDuration": " 2–15 Business Days",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Reviews",
+    "DisplayStatus": "Permit Review",
+    "Description": "Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. ",
+    "ExpectedDuration": " 2–15 Business Days",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "District Review",
+    "DisplayStatus": "Permit Review",
+    "Description": "Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. ",
+    "ExpectedDuration": " 2–15 Business Days",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Inspection",
+    "DisplayStatus": "Inspections",
+    "Description": "Your application requires an on-site inspection to be processed further. ",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Please call (617) 343-3628 with any questions. Additional information on the permitting process is available at cityofboston.gov/fire/inspections."
+  },
+  {
+    "Milestones": "Ready To Issue",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Issue",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Issue Cert",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Issued",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Work Progress",
+    "DisplayStatus": "Issuance",
+    "Description": "Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.",
+    "ExpectedDuration": "",
+    "ContactInstructions": "Call 617-343-3628."
+  },
+  {
+    "Milestones": "Revoke",
+    "DisplayStatus": "Revoked",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Revoked",
+    "DisplayStatus": "Revoked",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Abandon",
+    "DisplayStatus": "Abandoned",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Abandoned",
+    "DisplayStatus": "Abandoned",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Close",
+    "DisplayStatus": "Completed",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Closed",
+    "DisplayStatus": "Completed",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Complete",
+    "DisplayStatus": "Completed",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  },
+  {
+    "Milestones": "Extension",
+    "DisplayStatus": "** NOT USED **",
+    "Description": "",
+    "ExpectedDuration": "",
+    "ContactInstructions": ""
+  }
+]

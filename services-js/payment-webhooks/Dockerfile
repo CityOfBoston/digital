@@ -29,7 +29,7 @@ ENV NODE_OPTIONS=--use-openssl-ca
 # build-service-container.sh. Working with it and the lockfiles means we can
 # cache the yarn install across builds when there are no dependency changes.
 ADD package-json.tar /app/
-ADD yarn.lock lerna.json /app/
+ADD yarn.lock lerna.json .yarnrc /app/
 
 # We don’t run the scripts because they will try to build our custom packages,
 # which will fail because we don’t have the source code at this point.
