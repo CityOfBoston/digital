@@ -930,9 +930,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call the Boston Inspectional Services Department at <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">(617) 635-5300</a>.",
+                  }
+                }
+              />
               
             </div>
           </div>
@@ -1404,9 +1409,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                Call 617-635-5300 and ask for your assigned inspector.
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-635-5300</a> and ask for your assigned inspector.",
+                  }
+                }
+              />
               <div
                 className="m-t200"
               >
@@ -1917,9 +1927,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                Call 617-635-5300 and ask for ISD Counter 1.
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-635-5300</a> and ask for ISD Counter 1.",
+                  }
+                }
+              />
             </div>
           </div>
         </div>
@@ -2396,9 +2411,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                Call 617-635-5300 and ask for ISD Counter 2.
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-635-5300</a> and ask for ISD Counter 2.",
+                  }
+                }
+              />
               <div
                 className="m-t200"
               >
@@ -2675,7 +2695,13 @@ Array [
                 </div>
                 <div
                   className="css-1rr4qq7"
-                />
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
               </div>
             </div>
             <div
@@ -2891,9 +2917,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                Call 617-635-5300 and ask for your assigned inspector.
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call the Boston Inspectional Services Department at <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">(617) 635-5300</a>.",
+                  }
+                }
+              />
             </div>
           </div>
         </div>
@@ -3358,9 +3389,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                Call 617-635-5300 and ask for Counter 3.
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-635-5300</a> and ask for Counter 3.",
+                  }
+                }
+              />
               <div
                 className="m-t200"
               >
@@ -3865,9 +3901,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                Call 617-635-5300 and ask for your assigned plans examiner.
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-635-5300</a> and ask for your assigned plans examiner.",
+                  }
+                }
+              />
               <div
                 className="m-t200"
               >
@@ -4366,9 +4407,14 @@ Array [
               >
                 Have questions?
               </h3>
-              <div>
-                Call 617-635-5300 and ask for ISD Counter 2.
-              </div>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6176355300\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-635-5300</a> and ask for ISD Counter 2.",
+                  }
+                }
+              />
               <div
                 className="m-t200"
               >
@@ -4385,6 +4431,2564 @@ Array [
                  
                 ERABELLE P. ICHAFIST
               </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Storyshots PermitPage.Fire Department Permit completed 1`] = `
+Array [
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>,
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="p-t300"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--nbp b-c--ntp"
+        >
+          <form
+            action="/permit"
+            className="m-v500"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <div
+              className="css-192qrng"
+            >
+              <input
+                aria-label="Search box"
+                className="txt-f txt-f--sm css-n4etvf"
+                name="id"
+                onChange={[Function]}
+                placeholder="Permit number"
+                type="text"
+                value=""
+              />
+              <button
+                className="btn btn--sm btn--100 css-epvm6"
+                type="submit"
+              >
+                Look Up
+              </button>
+            </div>
+          </form>
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-4070532192"
+            >
+              Permit Finder
+            </h2>
+          </div>
+          <div
+            className="t--intro"
+          >
+            Permit 
+            <strong>
+              FDC123650
+            </strong>
+             is in the
+             
+            <strong>
+              Abandoned
+            </strong>
+             phase as of
+             
+            5/24/2019
+            .
+          </div>
+          
+          <div
+            className="m-b700 css-12jt1a3"
+          >
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Intake and Payment
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                  Less than 1 Business Day
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Permit Review
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                   2–15 Business Days
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Issuance
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Inspection
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
+              >
+                Completed
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Completed on:
+                  </i>
+                  <br />
+                  5/1/2019
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="g m-v700"
+          >
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                About this Permit
+              </h3>
+              <div
+                className="m-b200"
+              >
+                BFD Construction, Demo, Reno
+              </div>
+              <div>
+                50 MILK ST.
+              </div>
+              <div>
+                Boston
+                , 
+                MA
+                 
+                02110
+              </div>
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Open reviews
+              </h3>
+              <ul
+                className="ul"
+              />
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Have questions?
+              </h3>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call the Boston Fire Department at <a href=\\"tel:6173433628\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">(617) 343-3628</a>.",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Storyshots PermitPage.Fire Department Permit inspection 1`] = `
+Array [
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>,
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="p-t300"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--nbp b-c--ntp"
+        >
+          <form
+            action="/permit"
+            className="m-v500"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <div
+              className="css-192qrng"
+            >
+              <input
+                aria-label="Search box"
+                className="txt-f txt-f--sm css-n4etvf"
+                name="id"
+                onChange={[Function]}
+                placeholder="Permit number"
+                type="text"
+                value=""
+              />
+              <button
+                className="btn btn--sm btn--100 css-epvm6"
+                type="submit"
+              >
+                Look Up
+              </button>
+            </div>
+          </form>
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-4070532192"
+            >
+              Permit Finder
+            </h2>
+          </div>
+          <div
+            className="t--intro"
+          >
+            Permit 
+            <strong>
+              FDC123650
+            </strong>
+             is in the
+             
+            <strong>
+              Inspections
+            </strong>
+             phase as of
+             
+            5/24/2019
+            .
+          </div>
+          <p
+            className="t--s500 lh--300"
+          >
+            Your application requires an on-site inspection to be processed further. 
+          </p>
+          <div
+            className="m-b700 css-12jt1a3"
+          >
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Intake and Payment
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                  Less than 1 Business Day
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Permit Review
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                   2–15 Business Days
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Issuance
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
+              >
+                Inspection
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Ready to Be Assigned:
+                  </i>
+                  <br />
+                  5/1/2019
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Completed
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="g m-v700"
+          >
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                About this Permit
+              </h3>
+              <div
+                className="m-b200"
+              >
+                BFD Construction, Demo, Reno
+              </div>
+              <div>
+                50 MILK ST.
+              </div>
+              <div>
+                Boston
+                , 
+                MA
+                 
+                02110
+              </div>
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Open reviews
+              </h3>
+              <ul
+                className="ul"
+              />
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Have questions?
+              </h3>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Please call <a href=\\"tel:6173433628\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">(617) 343-3628</a> with any questions. Additional information on the permitting process is available at <a href=\\"http://cityofboston.gov/fire/inspections\\" class=\\"autolinked autolinked-url\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">cityofboston.gov/fire/inspections</a>.",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Storyshots PermitPage.Fire Department Permit intake 1`] = `
+Array [
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>,
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="p-t300"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--nbp b-c--ntp"
+        >
+          <form
+            action="/permit"
+            className="m-v500"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <div
+              className="css-192qrng"
+            >
+              <input
+                aria-label="Search box"
+                className="txt-f txt-f--sm css-n4etvf"
+                name="id"
+                onChange={[Function]}
+                placeholder="Permit number"
+                type="text"
+                value=""
+              />
+              <button
+                className="btn btn--sm btn--100 css-epvm6"
+                type="submit"
+              >
+                Look Up
+              </button>
+            </div>
+          </form>
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-4070532192"
+            >
+              Permit Finder
+            </h2>
+          </div>
+          <div
+            className="t--intro"
+          >
+            Permit 
+            <strong>
+              FDC123650
+            </strong>
+             is in the
+             
+            <strong>
+              Intake & Payment
+            </strong>
+             phase as of
+             
+            5/24/2019
+            .
+          </div>
+          <p
+            className="t--s500 lh--300"
+          >
+            Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.
+          </p>
+          <div
+            className="m-b700 css-12jt1a3"
+          >
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
+              >
+                Intake and Payment
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                  Less than 1 Business Day
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                  5/1/2019
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Permit Review
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                   2–15 Business Days
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Issuance
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Inspection
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Ready to Be Assigned:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Completed
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="g m-v700"
+          >
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                About this Permit
+              </h3>
+              <div
+                className="m-b200"
+              >
+                BFD Construction, Demo, Reno
+              </div>
+              <div>
+                50 MILK ST.
+              </div>
+              <div>
+                Boston
+                , 
+                MA
+                 
+                02110
+              </div>
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Open reviews
+              </h3>
+              <ul
+                className="ul"
+              />
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Have questions?
+              </h3>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6173433628\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-343-3628</a>.",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Storyshots PermitPage.Fire Department Permit issuance 1`] = `
+Array [
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>,
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="p-t300"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--nbp b-c--ntp"
+        >
+          <form
+            action="/permit"
+            className="m-v500"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <div
+              className="css-192qrng"
+            >
+              <input
+                aria-label="Search box"
+                className="txt-f txt-f--sm css-n4etvf"
+                name="id"
+                onChange={[Function]}
+                placeholder="Permit number"
+                type="text"
+                value=""
+              />
+              <button
+                className="btn btn--sm btn--100 css-epvm6"
+                type="submit"
+              >
+                Look Up
+              </button>
+            </div>
+          </form>
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-4070532192"
+            >
+              Permit Finder
+            </h2>
+          </div>
+          <div
+            className="t--intro"
+          >
+            Permit 
+            <strong>
+              FDC123650
+            </strong>
+             is in the
+             
+            <strong>
+              Issuance
+            </strong>
+             phase as of
+             
+            5/24/2019
+            .
+          </div>
+          <p
+            className="t--s500 lh--300"
+          >
+            Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.
+          </p>
+          <div
+            className="m-b700 css-12jt1a3"
+          >
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Intake and Payment
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                  Less than 1 Business Day
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Permit Review
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                   2–15 Business Days
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
+              >
+                Issuance
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                  5/1/2019
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Inspection
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Ready to Be Assigned:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Completed
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="g m-v700"
+          >
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                About this Permit
+              </h3>
+              <div
+                className="m-b200"
+              >
+                BFD Construction, Demo, Reno
+              </div>
+              <div>
+                50 MILK ST.
+              </div>
+              <div>
+                Boston
+                , 
+                MA
+                 
+                02110
+              </div>
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Open reviews
+              </h3>
+              <ul
+                className="ul"
+              />
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Have questions?
+              </h3>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6173433628\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-343-3628</a>.",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Storyshots PermitPage.Fire Department Permit no milestones 1`] = `
+Array [
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>,
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="p-t300"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--nbp b-c--ntp"
+        >
+          <form
+            action="/permit"
+            className="m-v500"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <div
+              className="css-192qrng"
+            >
+              <input
+                aria-label="Search box"
+                className="txt-f txt-f--sm css-n4etvf"
+                name="id"
+                onChange={[Function]}
+                placeholder="Permit number"
+                type="text"
+                value=""
+              />
+              <button
+                className="btn btn--sm btn--100 css-epvm6"
+                type="submit"
+              >
+                Look Up
+              </button>
+            </div>
+          </form>
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-4070532192"
+            >
+              Permit Finder
+            </h2>
+          </div>
+          <div
+            className="t--intro"
+          >
+            No progress data is available for permit
+             
+            <strong>
+              FDC123650
+            </strong>
+            .
+          </div>
+          <div
+            className="m-b700 css-12jt1a3"
+          >
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Intake and Payment
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                  Less than 1 Business Day
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Permit Review
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                   2–15 Business Days
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Issuance
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Inspection
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Ready to Be Assigned:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Completed
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="g m-v700"
+          >
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                About this Permit
+              </h3>
+              <div
+                className="m-b200"
+              >
+                BFD Construction, Demo, Reno
+              </div>
+              <div>
+                50 MILK ST.
+              </div>
+              <div>
+                Boston
+                , 
+                MA
+                 
+                02110
+              </div>
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Open reviews
+              </h3>
+              <ul
+                className="ul"
+              />
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Have questions?
+              </h3>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call the Boston Fire Department at <a href=\\"tel:6173433628\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">(617) 343-3628</a>.",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+    <div class=\\"ft-c\\">
+      <ul class=\\"ft-ll ft-ll--r\\">
+        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
+      </ul>
+      
+
+<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
+<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
+</ul>    </div>
+  ",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Storyshots PermitPage.Fire Department Permit permit review 1`] = `
+Array [
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>,
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  <div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      </a>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+          </div>
+  </div>
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+</a>
+    <nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+    <div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="p-t300"
+      />
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          className="b-c b-c--nbp b-c--ntp"
+        >
+          <form
+            action="/permit"
+            className="m-v500"
+            method="get"
+            onSubmit={[Function]}
+          >
+            <div
+              className="css-192qrng"
+            >
+              <input
+                aria-label="Search box"
+                className="txt-f txt-f--sm css-n4etvf"
+                name="id"
+                onChange={[Function]}
+                placeholder="Permit number"
+                type="text"
+                value=""
+              />
+              <button
+                className="btn btn--sm btn--100 css-epvm6"
+                type="submit"
+              >
+                Look Up
+              </button>
+            </div>
+          </form>
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-4070532192"
+            >
+              Permit Finder
+            </h2>
+          </div>
+          <div
+            className="t--intro"
+          >
+            Permit 
+            <strong>
+              FDC123650
+            </strong>
+             is in the
+             
+            <strong>
+              Permit Review
+            </strong>
+             phase as of
+             
+            5/24/2019
+            .
+          </div>
+          <p
+            className="t--s500 lh--300"
+          >
+            Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. 
+          </p>
+          <div
+            className="m-b700 css-12jt1a3"
+          >
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Intake and Payment
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                  Less than 1 Business Day
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
+              >
+                Permit Review
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                >
+                  <i>
+                    Target duration:
+                  </i>
+                  <br />
+                   
+                   2–15 Business Days
+                </div>
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                  5/1/2019
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Issuance
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Started on:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Inspection
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                >
+                  <i>
+                    Ready to Be Assigned:
+                  </i>
+                  <br />
+                   Not yet started
+                </div>
+              </div>
+            </div>
+            <div
+              className="cdp m-t500 css-1dafioj"
+            >
+              <div
+                className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
+              >
+                Completed
+              </div>
+              <div
+                className="p-a200 t--s100 css-bdkc65"
+              >
+                <div
+                  className="m-b200 css-1rr4qq7"
+                />
+                <div
+                  className="css-1rr4qq7"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="g m-v700"
+          >
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                About this Permit
+              </h3>
+              <div
+                className="m-b200"
+              >
+                BFD Construction, Demo, Reno
+              </div>
+              <div>
+                50 MILK ST.
+              </div>
+              <div>
+                Boston
+                , 
+                MA
+                 
+                02110
+              </div>
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Open reviews
+              </h3>
+              <ul
+                className="ul"
+              />
+            </div>
+            <div
+              className="g--4 m-b500"
+            >
+              <h3
+                className="h3 tt-u m-b200"
+              >
+                Have questions?
+              </h3>
+              <div
+                className="css-hmkrhm"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Call <a href=\\"tel:6173433628\\" class=\\"autolinked autolinked-phone\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\">617-343-3628</a>.",
+                  }
+                }
+              />
             </div>
           </div>
         </div>

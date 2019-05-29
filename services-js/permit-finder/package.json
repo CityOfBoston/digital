@@ -40,6 +40,7 @@
     "@cityofboston/srv-decrypt-env": "^0.0.0",
     "@emotion/core": "^10.0.10",
     "apollo-server-hapi": "^2.5.0",
+    "autolinker": "^3.0.5",
     "aws-sdk": "^2.245.1",
     "boom": "^7.2.0",
     "core-js": "^2.6.4",

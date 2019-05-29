@@ -5,7 +5,7 @@ import PermitPage from '../pages/permit';
 import { PermitKind } from '../client/graphql/queries';
 import { Permit } from '../client/graphql/load-permit';
 
-const BASE_PERMIT: Permit = {
+const BASE_BUILDING_PERMIT: Permit = {
   permitNumber: 'A50582',
   kind: PermitKind.BUILDING,
   type: 'Amendment to a Long Form',
@@ -14,8 +14,6 @@ const BASE_PERMIT: Permit = {
   city: 'Boston',
   state: 'MA',
   zip: '02110',
-
-  pointOfContactName: 'Michael Bluth',
 
   milestones: [],
   reviews: [
@@ -30,6 +28,20 @@ const BASE_PERMIT: Permit = {
   ],
 };
 
+const BASE_FIRE_PERMIT: Permit = {
+  permitNumber: 'FDC123650',
+  kind: PermitKind.FIRE,
+  type: 'BFD Construction, Demo, Reno',
+
+  address: '50 MILK ST.',
+  city: 'Boston',
+  state: 'MA',
+  zip: '02110',
+
+  milestones: [],
+  reviews: [],
+};
+
 const CURRENT_TIME_MS = 1558725781099;
 
 storiesOf('PermitPage.Building Permit', module)
@@ -37,7 +49,7 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
         milestones: [
           {
             milestoneName: 'Intake',
@@ -53,7 +65,7 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
         milestones: [
           {
             milestoneName: 'PlanningZoning',
@@ -69,7 +81,7 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
         milestones: [
           {
             milestoneName: 'Waiting',
@@ -85,7 +97,7 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
         milestones: [
           {
             milestoneName: 'Ready to Issue',
@@ -101,7 +113,7 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
         milestones: [
           {
             milestoneName: 'ScheduleInspection',
@@ -117,7 +129,7 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
         milestones: [
           {
             milestoneName: 'OccNotOnFile',
@@ -133,7 +145,7 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
         milestones: [
           {
             milestoneName: 'Complete',
@@ -149,7 +161,99 @@ storiesOf('PermitPage.Building Permit', module)
     <PermitPage
       permitNumber="A50582"
       permit={{
-        ...BASE_PERMIT,
+        ...BASE_BUILDING_PERMIT,
+        milestones: [],
+      }}
+      currentTimeMs={CURRENT_TIME_MS}
+    />
+  ));
+
+storiesOf('PermitPage.Fire Department Permit', module)
+  .add('intake', () => (
+    <PermitPage
+      permitNumber="FDC123650"
+      permit={{
+        ...BASE_FIRE_PERMIT,
+        milestones: [
+          {
+            milestoneName: 'Intake',
+            milestoneStartDate: '2019-05-01',
+            cityContactName: null,
+          },
+        ],
+      }}
+      currentTimeMs={CURRENT_TIME_MS}
+    />
+  ))
+  .add('permit review', () => (
+    <PermitPage
+      permitNumber="FDC123650"
+      permit={{
+        ...BASE_FIRE_PERMIT,
+        milestones: [
+          {
+            milestoneName: 'District Review',
+            milestoneStartDate: '2019-05-01',
+            cityContactName: null,
+          },
+        ],
+      }}
+      currentTimeMs={CURRENT_TIME_MS}
+    />
+  ))
+  .add('issuance', () => (
+    <PermitPage
+      permitNumber="FDC123650"
+      permit={{
+        ...BASE_FIRE_PERMIT,
+        milestones: [
+          {
+            milestoneName: 'Ready to Issue',
+            milestoneStartDate: '2019-05-01',
+            cityContactName: null,
+          },
+        ],
+      }}
+      currentTimeMs={CURRENT_TIME_MS}
+    />
+  ))
+  .add('inspection', () => (
+    <PermitPage
+      permitNumber="FDC123650"
+      permit={{
+        ...BASE_FIRE_PERMIT,
+        milestones: [
+          {
+            milestoneName: 'Inspection',
+            milestoneStartDate: '2019-05-01',
+            cityContactName: null,
+          },
+        ],
+      }}
+      currentTimeMs={CURRENT_TIME_MS}
+    />
+  ))
+  .add('completed', () => (
+    <PermitPage
+      permitNumber="FDC123650"
+      permit={{
+        ...BASE_FIRE_PERMIT,
+        milestones: [
+          {
+            milestoneName: 'Abandoned',
+            milestoneStartDate: '2019-05-01',
+            cityContactName: null,
+          },
+        ],
+      }}
+      currentTimeMs={CURRENT_TIME_MS}
+    />
+  ))
+  .add('no milestones', () => (
+    <PermitPage
+      permitNumber="FDC123650"
+      permit={{
+        ...BASE_FIRE_PERMIT,
         milestones: [],
       }}
       currentTimeMs={CURRENT_TIME_MS}

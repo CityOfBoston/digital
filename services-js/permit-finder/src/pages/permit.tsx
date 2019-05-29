@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import React from 'react';
 import { format as formatDate, parse as parseDate } from 'date-fns';
+import Autolinker from 'autolinker';
 
 import Head from 'next/head';
 import Router from 'next/router';
@@ -53,29 +54,44 @@ type MilestoneStep = {
 };
 
 /**
+ * Combination of milestones for building and fire permits.
+ *
  * In practice, as of 5/24/19, only one of these will be non-null.
  *
  * We have tentative support for multiple milestone objects, which could be nice
  * to show "completed" dates, but some work would need to be done to make it
  * work properly.
  */
-type BuildingMilestoneRenderInfo = {
+type MilestoneRenderInfo = {
   intakePayment: MilestoneStep | null;
+  // building only
   projectReview: MilestoneStep | null;
+  // building only
   zoningReview: MilestoneStep | null;
+  // Fire only
+  permitReview: MilestoneStep | null;
   issuance: MilestoneStep | null;
   inspections: MilestoneStep | null;
+  // building only
   occupancy: MilestoneStep | null;
   completed: MilestoneStep | null;
 };
 
-const BUILDING_MILESTONE_ORDER: Array<keyof BuildingMilestoneRenderInfo> = [
+const BUILDING_MILESTONE_ORDER: Array<keyof MilestoneRenderInfo> = [
   'intakePayment',
   'projectReview',
   'zoningReview',
   'issuance',
   'inspections',
   'occupancy',
+  'completed',
+];
+
+const FIRE_MILESTONE_ORDER: Array<keyof MilestoneRenderInfo> = [
+  'intakePayment',
+  'permitReview',
+  'issuance',
+  'inspections',
   'completed',
 ];
 
@@ -111,6 +127,8 @@ export default class PermitPage extends React.Component<Props, State> {
   private handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
+    this.setState({ searchPermitNumber: '' });
+
     Router.push(
       `/permit?id=${encodeURIComponent(this.state.searchPermitNumber)}`
     );
@@ -125,18 +143,39 @@ export default class PermitPage extends React.Component<Props, State> {
       return <IndexPage permitNumber={permitNumber} notFound />;
     }
 
-    const renderInfo = generateBuildingMilestoneRenderInfo(permit.milestones);
-
+    let renderInfo: MilestoneRenderInfo;
+    let latestStep: MilestoneStep | null = null;
     let latestStepIdx = -1;
 
-    BUILDING_MILESTONE_ORDER.forEach((stepName, i) => {
-      if (renderInfo[stepName]) {
-        latestStepIdx = i;
-      }
-    });
+    switch (permit.kind) {
+      case PermitKind.BUILDING:
+        renderInfo = generateBuildingMilestoneRenderInfo(permit.milestones);
 
-    const latestStep =
-      renderInfo[BUILDING_MILESTONE_ORDER[latestStepIdx]] || null;
+        BUILDING_MILESTONE_ORDER.forEach((stepName, i) => {
+          if (renderInfo[stepName]) {
+            latestStepIdx = i;
+          }
+        });
+
+        latestStep =
+          renderInfo[BUILDING_MILESTONE_ORDER[latestStepIdx]] || null;
+        break;
+
+      case PermitKind.FIRE:
+        renderInfo = generateFireMilestoneRenderInfo(permit.milestones);
+
+        FIRE_MILESTONE_ORDER.forEach((stepName, i) => {
+          if (renderInfo[stepName]) {
+            latestStepIdx = i;
+          }
+        });
+
+        latestStep = renderInfo[FIRE_MILESTONE_ORDER[latestStepIdx]] || null;
+        break;
+
+      default:
+        throw new Error('UNEXPECTED PERMIT KIND: ' + permit.kind);
+    }
 
     return (
       <AppLayout>
@@ -214,6 +253,9 @@ export default class PermitPage extends React.Component<Props, State> {
           >
             {permit.kind === PermitKind.BUILDING &&
               this.renderBuildingPermitSteps(renderInfo, latestStepIdx)}
+
+            {permit.kind === PermitKind.FIRE &&
+              this.renderFirePermitSteps(renderInfo, latestStepIdx)}
           </div>
 
           <div className="g m-v700">
@@ -240,11 +282,23 @@ export default class PermitPage extends React.Component<Props, State> {
             <div className="g--4 m-b500">
               <h3 className="h3 tt-u m-b200">Have questions?</h3>
 
-              <div>
-                {latestStep
-                  ? latestStep.contactInstructions
-                  : 'Call 617-635-5300 and ask for your assigned inspector.'}
-              </div>
+              <div
+                css={AUTOLINKED_CONTAINER_STYLE}
+                dangerouslySetInnerHTML={{
+                  __html: Autolinker.link(
+                    (latestStep && latestStep.contactInstructions) ||
+                      (permit.kind === PermitKind.BUILDING &&
+                        'Call the Boston Inspectional Services Department at (617) 635-5300.') ||
+                      (permit.kind === PermitKind.FIRE &&
+                        'Call the Boston Fire Department at (617) 343-3628.') ||
+                      '',
+                    {
+                      className: 'autolinked',
+                    }
+                  ),
+                }}
+              />
+
               {latestStep && latestStep.contactName && (
                 <div className="m-t200">
                   <h4
@@ -264,74 +318,97 @@ export default class PermitPage extends React.Component<Props, State> {
   }
 
   private renderBuildingPermitSteps(
-    renderInfo: BuildingMilestoneRenderInfo,
+    renderInfo: MilestoneRenderInfo,
     latestStepIdx: number
   ) {
+    const commonOpts = {
+      numSteps: 7,
+      activeStep: latestStepIdx,
+      translations: BUILDING_MILESTONE_TRANSLATIONS,
+    };
+
     return (
       <>
         {this.renderStep('Intake and Payment', renderInfo.intakePayment, {
-          isActive: latestStepIdx === 0,
-          showNotYetStarted: false,
-          targetDuration: lookupTargetDuration(
-            BUILDING_MILESTONE_TRANSLATIONS,
-            'Intake & Payment'
-          ),
+          ...commonOpts,
+          step: 0,
+          translationTitle: 'Intake & Payment',
         })}
 
         {this.renderStep('Project Review', renderInfo.projectReview, {
-          isActive: latestStepIdx === 1,
-          showNotYetStarted: latestStepIdx < 1,
-          targetDuration: lookupTargetDuration(
-            BUILDING_MILESTONE_TRANSLATIONS,
-            'Project Review'
-          ),
+          ...commonOpts,
+          step: 1,
         })}
 
         {this.renderStep('Zoning Review', renderInfo.zoningReview, {
-          isActive: latestStepIdx === 2,
-          showNotYetStarted: latestStepIdx < 2,
-          targetDuration: lookupTargetDuration(
-            BUILDING_MILESTONE_TRANSLATIONS,
-            'Zoning Review'
-          ),
+          ...commonOpts,
+          step: 2,
         })}
 
         {this.renderStep('Issuance', renderInfo.issuance, {
-          isActive: latestStepIdx === 3,
-          showNotYetStarted: latestStepIdx < 3,
-          targetDuration: lookupTargetDuration(
-            BUILDING_MILESTONE_TRANSLATIONS,
-            'Issuance'
-          ),
+          ...commonOpts,
+          step: 3,
         })}
 
         {this.renderStep('Inspection', renderInfo.inspections, {
-          isActive: latestStepIdx === 4,
-          showNotYetStarted: latestStepIdx < 4,
-          targetDuration: lookupTargetDuration(
-            BUILDING_MILESTONE_TRANSLATIONS,
-            'Inspection'
-          ),
+          ...commonOpts,
+          step: 4,
         })}
 
         {this.renderStep('Occupancy', renderInfo.occupancy, {
-          isActive: latestStepIdx === 5,
-          showNotYetStarted: latestStepIdx < 5,
-          targetDuration: lookupTargetDuration(
-            BUILDING_MILESTONE_TRANSLATIONS,
-            'Occupancy'
-          ),
+          ...commonOpts,
+          step: 5,
         })}
 
         {this.renderStep('Completed', renderInfo.completed, {
-          isActive: latestStepIdx === 6,
-          showNotYetStarted: false,
-          completedStep: true,
+          ...commonOpts,
+          step: 6,
         })}
       </>
     );
   }
 
+  private renderFirePermitSteps(
+    renderInfo: MilestoneRenderInfo,
+    latestStepIdx: number
+  ) {
+    const commonOpts = {
+      numSteps: 5,
+      activeStep: latestStepIdx,
+      translations: FIRE_MILESTONE_TRANSLATIONS,
+    };
+
+    return (
+      <>
+        {this.renderStep('Intake and Payment', renderInfo.intakePayment, {
+          ...commonOpts,
+          step: 0,
+          translationTitle: 'Intake & Payment',
+        })}
+
+        {this.renderStep('Permit Review', renderInfo.permitReview, {
+          ...commonOpts,
+          step: 1,
+        })}
+
+        {this.renderStep('Issuance', renderInfo.issuance, {
+          ...commonOpts,
+          step: 2,
+        })}
+
+        {this.renderStep('Inspection', renderInfo.inspections, {
+          ...commonOpts,
+          step: 3,
+          dateLabel: 'Ready to Be Assigned:',
+        })}
+
+        {this.renderStep('Completed', renderInfo.completed, {
+          ...commonOpts,
+          step: 4,
+        })}
+      </>
+    );
+  }
   /**
    * Renders the box for a milestone. The logic here is a bit squirrley. We
    * don’t show "Started On" for steps that have passed, or ever for the
@@ -341,12 +418,25 @@ export default class PermitPage extends React.Component<Props, State> {
     title: string,
     milestoneStep: MilestoneStep | null,
     opts: {
-      isActive: boolean;
-      showNotYetStarted: boolean;
-      completedStep?: boolean;
-      targetDuration?: string | null;
+      activeStep: number;
+      step: number;
+      numSteps: number;
+      translations:
+        | typeof BUILDING_MILESTONE_TRANSLATIONS
+        | typeof FIRE_MILESTONE_TRANSLATIONS;
+      translationTitle?: string;
+      dateLabel?: string;
     }
   ) {
+    const isActive = opts.activeStep === opts.step;
+    const isLastStep = opts.step === opts.numSteps - 1;
+    const isCompleted = opts.step < opts.activeStep;
+
+    const targetDuration = lookupTargetDuration(
+      opts.translations,
+      opts.translationTitle || title
+    );
+
     return (
       <div
         className="cdp m-t500"
@@ -355,7 +445,7 @@ export default class PermitPage extends React.Component<Props, State> {
           [MEDIA_SMALL]: { width: `calc(${100}% - 1rem)` },
           [MEDIA_MEDIUM]: { width: `calc(${100 / 2}% - 1rem)` },
           [MEDIA_LARGE]: { width: `calc(${100 / 4}% - 1rem)` },
-          [MEDIA_XX_LARGE]: { width: `calc(${100 / 7}% - 1rem)` },
+          [MEDIA_XX_LARGE]: { width: `calc(${100 / opts.numSteps}% - 1rem)` },
         }}
       >
         <div
@@ -366,9 +456,7 @@ export default class PermitPage extends React.Component<Props, State> {
             flexDirection: 'column',
             alignItems: 'stretch',
             justifyContent: 'space-around',
-            backgroundColor: opts.isActive
-              ? OPTIMISTIC_BLUE_LIGHT
-              : CHARLES_BLUE,
+            backgroundColor: isActive ? OPTIMISTIC_BLUE_LIGHT : CHARLES_BLUE,
           }}
         >
           {title}
@@ -387,7 +475,7 @@ export default class PermitPage extends React.Component<Props, State> {
           }}
         >
           <div className="m-b200" css={{ flex: 1 }}>
-            {milestoneStep && opts.completedStep && (
+            {milestoneStep && isLastStep && (
               <>
                 <i>Completed on:</i>
                 <br />
@@ -395,26 +483,26 @@ export default class PermitPage extends React.Component<Props, State> {
               </>
             )}
             {/* Not all steps have "TargetDuration" values in the translations */}
-            {opts.targetDuration && (
+            {targetDuration && (
               <>
                 <i>Target duration:</i>
-                <br /> {opts.targetDuration}
+                <br /> {targetDuration}
               </>
             )}
           </div>
 
           <div css={{ flex: 1 }}>
-            {milestoneStep && !opts.completedStep && (
+            {milestoneStep && !isLastStep && (
               <>
-                <i>Started on:</i>
+                <i>{opts.dateLabel || 'Started on:'}</i>
                 <br />
                 {formatDate(milestoneStep.milestoneStartDate, 'M/D/YYYY')}
               </>
             )}
 
-            {!milestoneStep && opts.showNotYetStarted && (
+            {!milestoneStep && !isCompleted && !isLastStep && (
               <>
-                <i>Started on:</i>
+                <i>{opts.dateLabel || 'Started on:'}</i>
                 <br /> Not yet started
               </>
             )}
@@ -430,9 +518,8 @@ export default class PermitPage extends React.Component<Props, State> {
  * about, finds an ExpectedDuration in our translations that matches.
  *
  * Note that more than one entry in the translations can match this
- * DisplayStatus, so we return the first one that starts with a number. In
- * practice, the different milestone kinds for a given DisplayStatus are
- * consistent.
+ * DisplayStatus, so we return the last one. This matches the behavior of the
+ * PHP app.
  */
 function lookupTargetDuration(
   translations:
@@ -440,15 +527,15 @@ function lookupTargetDuration(
     | typeof FIRE_MILESTONE_TRANSLATIONS,
   displayStatus: string
 ): string | null {
-  const translation = translations.find(
+  const matchingTranslations = translations.filter(
     ({ DisplayStatus, ExpectedDuration }) =>
-      // We need to make sure the first element is a digit because there are
-      // some expected durations that have help text in them.
-      DisplayStatus === displayStatus && !!ExpectedDuration.match(/^\d/)
+      DisplayStatus === displayStatus && !!ExpectedDuration
   );
 
-  if (translation) {
-    return translation.ExpectedDuration;
+  if (matchingTranslations.length) {
+    // We take the last one to match the PHP behavior. Keeps us from returning
+    // "Waiting"’s jank duration.
+    return matchingTranslations.pop()!.ExpectedDuration;
   } else {
     return null;
   }
@@ -460,11 +547,12 @@ function lookupTargetDuration(
  */
 export function generateBuildingMilestoneRenderInfo(
   milestones: Milestone[]
-): BuildingMilestoneRenderInfo {
-  const info: BuildingMilestoneRenderInfo = {
+): MilestoneRenderInfo {
+  const info: MilestoneRenderInfo = {
     intakePayment: null,
     projectReview: null,
     zoningReview: null,
+    permitReview: null,
     issuance: null,
     inspections: null,
     occupancy: null,
@@ -482,6 +570,8 @@ export function generateBuildingMilestoneRenderInfo(
           description: translation.Description,
           contactInstructions: translation.ContactInstructions,
 
+          // We use parse from date-fns because it will default to the same TZ
+          // that format outputs in
           milestoneStartDate: parseDate(milestone.milestoneStartDate),
           contactName: milestone.cityContactName,
         };
@@ -528,3 +618,75 @@ export function generateBuildingMilestoneRenderInfo(
 
   return info;
 }
+
+export function generateFireMilestoneRenderInfo(
+  milestones: Milestone[]
+): MilestoneRenderInfo {
+  const info: MilestoneRenderInfo = {
+    intakePayment: null,
+    projectReview: null,
+    zoningReview: null,
+    permitReview: null,
+    issuance: null,
+    inspections: null,
+    occupancy: null,
+    completed: null,
+  };
+
+  milestones.forEach(milestone => {
+    FIRE_MILESTONE_TRANSLATIONS.forEach(translation => {
+      if (
+        milestone.milestoneName.toUpperCase() ===
+        translation.Milestones.toUpperCase()
+      ) {
+        const step: MilestoneStep = {
+          displayStatus: translation.DisplayStatus,
+          description: translation.Description,
+          contactInstructions: translation.ContactInstructions,
+
+          // We use parse from date-fns because it will default to the same TZ
+          // that format outputs in
+          milestoneStartDate: parseDate(milestone.milestoneStartDate),
+          contactName: milestone.cityContactName,
+        };
+
+        switch (translation.DisplayStatus) {
+          case 'Intake & Payment':
+            info.intakePayment = step;
+            break;
+
+          case 'Permit Review':
+            info.permitReview = step;
+            break;
+
+          case 'Issuance':
+            info.issuance = step;
+            break;
+
+          case 'Inspections':
+          case 'Inspection':
+            info.inspections = step;
+            break;
+
+          case 'Completed':
+          case 'Revoked':
+          case 'Abandoned':
+          case '** NOT USED **':
+            info.completed = step;
+            break;
+
+          default:
+            return;
+        }
+      }
+    });
+  });
+
+  return info;
+}
+
+const AUTOLINKED_CONTAINER_STYLE = css({
+  '& .autolinked-phone': {
+    whiteSpace: 'nowrap',
+  },
+});
