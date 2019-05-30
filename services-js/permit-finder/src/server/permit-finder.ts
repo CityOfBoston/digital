@@ -3,7 +3,12 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Server as HapiServer } from 'hapi';
+import {
+  Server as HapiServer,
+  RequestQuery,
+  ResponseToolkit,
+  Request as HapiRequest,
+} from 'hapi';
 import Inert from 'inert';
 import cleanup from 'node-cleanup';
 import hapiDevErrors from 'hapi-dev-errors';
@@ -142,6 +147,22 @@ export async function makeServer(port, rollbar: Rollbar) {
   if (process.env.NODE_ENV !== 'test') {
     await addNext(server);
   }
+
+  // Redirects for old permitfinder.boston.gov paths, in case people have them
+  // bookmarked.
+  const redirectLegacyPath = (req: HapiRequest, h: ResponseToolkit) =>
+    (req.query as RequestQuery).id
+      ? h.redirect(
+          `/permit?id=${encodeURIComponent(
+            (req.query as RequestQuery).id.toString()
+          )}`
+        )
+      : h.redirect('/');
+
+  await server.route([
+    { method: 'GET', path: '/details.html', handler: redirectLegacyPath },
+    { method: 'GET', path: '/details_fire.html', handler: redirectLegacyPath },
+  ]);
 
   return {
     server,

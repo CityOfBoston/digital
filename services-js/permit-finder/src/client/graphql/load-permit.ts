@@ -18,8 +18,6 @@ const QUERY = gql`
       state
       zip
 
-      pointOfContactName
-
       milestones {
         milestoneName
         milestoneStartDate

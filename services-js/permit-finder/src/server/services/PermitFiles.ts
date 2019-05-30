@@ -292,7 +292,9 @@ export default class PermitFiles {
       );
 
       if (updatedObjects.length === 0) {
-        console.log('No files have changed');
+        console.log(
+          `No files have changed on S3 since ${new Date(this.lastS3TimeMs)}`
+        );
 
         return;
       } else {
@@ -489,7 +491,6 @@ export default class PermitFiles {
           // The key range we asked for gives us everything about the permit, so
           // we have to find out what type of data is in our particular row.
           const keyBits = key.split(ASCII_LATE);
-          console.log(key);
           switch (keyBits[2]) {
             case 'data':
               data = value;

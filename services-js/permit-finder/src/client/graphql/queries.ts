@@ -25,7 +25,6 @@ export interface LoadPermit_permit {
   city: string;
   state: string;
   zip: string;
-  pointOfContactName: string;
   milestones: LoadPermit_permit_milestones[];
   reviews: LoadPermit_permit_reviews[];
 }

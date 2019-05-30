@@ -4305,6 +4305,13 @@ autodll-webpack-plugin@0.4.2:
     webpack-merge "^4.1.0"
     webpack-sources "^1.0.1"
 
+autolinker@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-3.0.5.tgz#ea8b76631cceb485dc6467d1270dd430cbd8ea51"
+  integrity sha512-3cUfuYHAZHEluASJcGdZ/VSRHqOMKfNCHNso2RDCuMTdWKIjEf4+DUZ9ZVnLHP7NC7FSa7CII+xYdzF346WWlg==
+  dependencies:
+    tslib "^1.9.3"
+
 autoprefixer@^6.0.0:
   version "6.7.7"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.7.7.tgz#1dbd1c835658e35ce3f9984099db00585c782014"
@@ -18465,7 +18472,7 @@ readable-stream@1.1, readable-stream@1.1.x, readable-stream@^1.1.8, readable-str
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@^3.0.6, readable-stream@^3.1.1, readable-stream@^3.0.2:
+readable-stream@^3.0.2, readable-stream@^3.0.6, readable-stream@^3.1.1:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.4.0.tgz#a51c26754658e0a3c21dbf59163bd45ba6f447fc"
   integrity sha512-jItXPLmrSR8jmTRmRWJXCnGJsfy85mB3Wd/uINMXA65yrnFo0cPClFIUWzo2najVNSl+mx7/4W8ttlLWJe99pQ==
