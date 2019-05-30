@@ -9,6 +9,7 @@ import pump from 'pump';
 import csv from 'csv-parser';
 import { Readable, Transform } from 'stream';
 import { LevelUp } from 'levelup';
+import { LevelDown } from 'leveldown';
 import { promisify } from 'util';
 import AWS from 'aws-sdk';
 import s3streams from 's3-streams';
@@ -239,6 +240,15 @@ export default class PermitFiles {
   }
 
   /**
+   * We unwrap the deferred-leveldown and another layer from our levelup
+   * database. We need this in order to get at LevelDown’s getProperty and
+   * compactRange methods.
+   */
+  private get leveldownDb(): LevelDown {
+    return (this.db as any).db.db;
+  }
+
+  /**
    * Loads data from disk, such as fixtures.`
    */
   async loadFromDir(dir: string) {
@@ -376,6 +386,8 @@ export default class PermitFiles {
       const count = await this.clearGeneration(oldGeneration);
       console.log(`Deleted ${count} rows from the last generation`);
       console.timeEnd('clear');
+
+      console.info(this.leveldownDb.getProperty('leveldb.stats'));
     } finally {
       this.loadingDb = false;
     }
@@ -440,8 +452,10 @@ export default class PermitFiles {
     let batch = this.db.batch();
     let i = 0;
 
+    const range = makeKeyRange(makeKey(generation));
+
     await pumpP(
-      this.db.createKeyStream(makeKeyRange(makeKey(generation))),
+      this.db.createKeyStream(range),
       new Transform({
         objectMode: true,
         transform: ((key: string, _encoding, done) => {
@@ -460,6 +474,19 @@ export default class PermitFiles {
         },
       })
     );
+
+    await new Promise((resolve, reject) => {
+      // Now we compact the range that we just deleted in order to purge files
+      // and keep our disk usage from growing over time. (Level will eventually
+      // compact on its own but this is a simple enough way to put bounds on
+      // it.)
+      //
+      // Has to be run on the underlying leveldownDb because this low-level
+      // method is not exposed in the wrappers.
+      this.leveldownDb.compactRange(range.gte, range.lt, err =>
+        err ? reject(err) : resolve()
+      );
+    });
 
     return i;
   }
