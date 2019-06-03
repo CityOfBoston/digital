@@ -50,6 +50,25 @@ interface BirthCertificateOrderItemInput {
 }
 
 /**
+ * This is the data registry needs to process a birth certificate request.
+ *
+ * @graphql input
+ */
+interface MarriageCertificateOrderItemInput {
+  /** ISO8601 format. Should be midnight UTC on the date. */
+  dateOfMarriage: string;
+  firstName1: string;
+  lastName1: string;
+  maidenName1: string;
+  firstName2: string;
+  lastName2: string;
+  maidenName2: string;
+  uploadSessionId: string;
+  quantity: Int;
+  notes: string;
+}
+
+/**
  * Either order or error will be non-null.
  */
 interface OrderResult {
@@ -148,6 +167,34 @@ export interface Mutation extends ResolvableWith<{}> {
     billingZip: string;
 
     item: BirthCertificateOrderItemInput;
+
+    idempotencyKey: string;
+  }): OrderResult;
+
+  submitMarriageCertificateOrder(args: {
+    contactName: string;
+    contactEmail: string;
+    contactPhone: string;
+
+    shippingName: string;
+    shippingCompanyName: string;
+    shippingAddress1: string;
+    shippingAddress2: string;
+    shippingCity: string;
+    shippingState: string;
+    shippingZip: string;
+
+    cardToken: string;
+    cardLast4: string;
+
+    cardholderName: string;
+    billingAddress1: string;
+    billingAddress2: string;
+    billingCity: string;
+    billingState: string;
+    billingZip: string;
+
+    item: MarriageCertificateOrderItemInput;
 
     idempotencyKey: string;
   }): OrderResult;
@@ -388,7 +435,8 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       CERTIFICATE_COST.BIRTH / 100
     );
 
-    await registryDb.addUploadsToBirthCertificateOrder(
+    await registryDb.addUploadsToOrder(
+      'BC',
       requestItemKey,
       item.uploadSessionId
     );
@@ -396,6 +444,133 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     try {
       await makeStripeCharge(
         OrderType.BirthCertificate,
+        { stripe, registryDb, rollbar, emails },
+        {
+          orderId,
+          orderKey,
+          quantity: item.quantity,
+          total,
+          cardToken,
+        }
+      );
+    } catch (e) {
+      // These are user errors due to bad submissions (e.g. wrong CVV code)
+      if (e.type === 'StripeCardError') {
+        return {
+          order: null,
+          error: {
+            message: e.message,
+            cause: OrderErrorCause.USER_PAYMENT,
+          },
+        };
+      } else {
+        // This will cause it to get logged with Rollbar
+        throw e;
+      }
+    }
+
+    return { order: { id: orderId, contactEmail }, error: null };
+  },
+
+  submitMarriageCertificateOrder: async (
+    _root,
+    args,
+    { rollbar, stripe, emails, registryDb }
+  ): Promise<OrderResult> => {
+    const {
+      contactName,
+      contactEmail,
+      contactPhone,
+
+      shippingName,
+      shippingCompanyName,
+      shippingAddress1,
+      shippingAddress2,
+      shippingCity,
+      shippingState,
+      shippingZip,
+
+      cardToken,
+      cardLast4,
+
+      cardholderName,
+      billingAddress1,
+      billingAddress2,
+      billingCity,
+      billingState,
+      billingZip,
+
+      item,
+
+      idempotencyKey,
+    } = args;
+
+    if (item.quantity <= 0) {
+      throw new Error('Certificate quantity may not be less than 0');
+    }
+
+    validateAddresses(args);
+
+    // These are all in cents, to match Stripe
+    const { total, serviceFee } = await calculateCostForToken(
+      stripe,
+      CERTIFICATE_COST.BIRTH,
+      cardToken,
+      item.quantity
+    );
+
+    const orderId = makeOrderId(OrderType.MarriageCertificate);
+    const orderDate = new Date();
+
+    const orderKey = await registryDb.addOrder(OrderType.MarriageCertificate, {
+      orderID: orderId,
+      orderDate,
+      contactName,
+      contactEmail,
+      contactPhone,
+      shippingName,
+      shippingCompany: shippingCompanyName,
+      shippingAddr1: shippingAddress1,
+      shippingAddr2: shippingAddress2,
+      shippingCity,
+      shippingState,
+      shippingZIP: shippingZip,
+      billingName: cardholderName,
+      billingAddr1: billingAddress1,
+      billingAddr2: billingAddress2,
+      billingCity,
+      billingState,
+      billingZIP: billingZip,
+      billingLast4: cardLast4,
+      serviceFee: serviceFee / 100,
+      idempotencyKey,
+    });
+
+    const requestItemKey = await registryDb.addMarriageCertificateRequest(
+      orderKey,
+      {
+        firstName1: item.firstName1,
+        lastName1: item.lastName1,
+        maidenName1: item.maidenName1,
+        firstName2: item.firstName2,
+        lastName2: item.lastName2,
+        maidenName2: item.maidenName2,
+        dateOfMarriage: new Date(item.dateOfMarriage), // todo
+        requestDetails: item.notes,
+      },
+      item.quantity,
+      CERTIFICATE_COST.MARRIAGE / 100
+    );
+
+    await registryDb.addUploadsToOrder(
+      'MC',
+      requestItemKey,
+      item.uploadSessionId
+    );
+
+    try {
+      await makeStripeCharge(
+        OrderType.MarriageCertificate,
         { stripe, registryDb, rollbar, emails },
         {
           orderId,
@@ -533,11 +708,14 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     { type, uploadSessionID, attachmentKey },
     { registryDb }
   ): Promise<DeleteUploadResult> {
-    if (type !== OrderType.BirthCertificate) {
-      throw new Error('Can only delete birth certificate attachments');
+    if (type === OrderType.DeathCertificate) {
+      throw new Error(
+        'Can only delete birth or marriage certificate attachments'
+      );
     }
 
-    const error = await registryDb.deleteBirthAttachment(
+    const error = await registryDb.deleteFileAttachment(
+      type,
       uploadSessionID,
       attachmentKey
     );
@@ -672,6 +850,9 @@ function makeOrderId(type: OrderType): string {
     case OrderType.DeathCertificate:
       prefix = 'DC';
       break;
+    case OrderType.MarriageCertificate:
+      prefix = 'MC';
+      break;
     default:
       throw new Error('Unexpected OrderType: ' + type);
   }
@@ -719,6 +900,11 @@ async function makeStripeCharge(
     case OrderType.BirthCertificate:
       description = 'Birth certificates (Registry)';
       unitPrice = CERTIFICATE_COST.BIRTH;
+      capture = false;
+      break;
+    case OrderType.MarriageCertificate:
+      description = 'Marriage certificates (Registry)';
+      unitPrice = CERTIFICATE_COST.MARRIAGE;
       capture = false;
       break;
     default:

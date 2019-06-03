@@ -71,7 +71,7 @@ describe('UploadableFile', () => {
       Promise.resolve({ success: true, message: null })
     );
 
-    await file.delete();
+    await file.delete('birth');
 
     expect(file.status).toBe('deleted');
     expect(deleteBirthCertificateUploadedFileMock).toHaveBeenCalledWith(
@@ -100,7 +100,7 @@ function sampleFile(status: Status = 'idle', progress: number = 0) {
 
 function sampleFileUploadComplete(file: UploadableFile) {
   return new Promise(resolve => {
-    file.upload();
+    file.upload('birth');
 
     const disposer = autorun(() => {
       if (file.status !== 'uploading') {

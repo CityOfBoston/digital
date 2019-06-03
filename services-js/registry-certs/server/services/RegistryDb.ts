@@ -19,7 +19,10 @@ const readFile = promisify(fs.readFile);
 export enum OrderType {
   DeathCertificate = 'DC',
   BirthCertificate = 'BC',
+  MarriageCertificate = 'MC',
 }
+
+type RestrictedOrderType = 'BC' | 'MC';
 
 export interface DeathCertificate {
   CertificateID: number;
@@ -116,6 +119,18 @@ export interface FindBirthCertificateRequestResult {
   TotalCost: number;
 }
 
+export interface FindMarriageCertificateRequestResult {
+  FirstName1: string;
+  LastName1: string;
+  MaidenName1: string;
+  FirstName2: string;
+  LastName2: string;
+  MaidenName2: string;
+  DateOfMarriage: Date | string;
+  Quantity: number;
+  TotalCost: number;
+}
+
 export interface BirthCertificateRequestArgs {
   certificateLastName: string;
   certificateFirstName: string;
@@ -125,6 +140,17 @@ export interface BirthCertificateRequestArgs {
   parent1FirstName: string;
   parent2LastName: string;
   parent2FirstName: string;
+  requestDetails: string;
+}
+
+export interface MarriageCertificateRequestArgs {
+  firstName1: string;
+  lastName1: string;
+  maidenName1: string;
+  firstName2: string;
+  lastName2: string;
+  maidenName2: string;
+  dateOfMarriage: Date | string;
   requestDetails: string;
 }
 
@@ -384,6 +410,53 @@ export default class RegistryDb {
     return recordset[0].RequestItemKey;
   }
 
+  async addMarriageCertificateRequest(
+    orderKey: number,
+    {
+      firstName1,
+      lastName1,
+      maidenName1,
+      firstName2,
+      lastName2,
+      maidenName2,
+      dateOfMarriage,
+      requestDetails,
+    }: MarriageCertificateRequestArgs,
+    quantity: number,
+    certificateCost: number
+  ): Promise<number> {
+    const resp: IProcedureResult<{
+      RequestItemKey: number;
+      ErrorMessage: string;
+    }> = await this.pool // todo: confirm all names
+      .request()
+      .input('orderKey', orderKey)
+      .input('orderType', OrderType.MarriageCertificate)
+      .input('firstName1', firstName1)
+      .input('lastName1', lastName1)
+      .input('maidenName1', maidenName1)
+      .input('firstName2', firstName2)
+      .input('lastName2', lastName2)
+      .input('maidenName2', maidenName2)
+      .input('dateOfMarriage', dateOfMarriage)
+      .input('requestDetails', requestDetails)
+      .input('quantity', quantity)
+      .input('unitCost', `$${certificateCost.toFixed(2)}`)
+      .execute('Commerce.sp_AddMarriageRequest');
+
+    const { recordset } = resp;
+
+    if (!recordset || recordset.length === 0) {
+      throw new Error(`Could not add marriage request to ${orderKey}.`);
+    }
+
+    if (recordset[0].ErrorMessage) {
+      throw new Error(recordset[0].ErrorMessage);
+    }
+
+    return recordset[0].RequestItemKey;
+  }
+
   async addPayment(
     orderKey: number,
     paymentDate: Date,
@@ -440,6 +513,25 @@ export default class RegistryDb {
     return recordset[0];
   }
 
+  async lookupMarriageCertificateOrderDetails(
+    orderId: string
+  ): Promise<FindMarriageCertificateRequestResult | null> {
+    const resp: IProcedureResult<
+      FindMarriageCertificateRequestResult
+    > = await this.pool
+      .request()
+      .input('orderID', orderId)
+      .execute('Commerce.sp_FindMarriageCertificateRequest'); // todo: check name
+
+    const { recordset } = resp;
+
+    if (!recordset || recordset.length === 0) {
+      return null;
+    }
+
+    return recordset[0];
+  }
+
   async cancelOrder(orderKey: number, reason: string): Promise<void> {
     await this.pool
       .request()
@@ -448,7 +540,12 @@ export default class RegistryDb {
       .execute('Commerce.sp_CancelOrder');
   }
 
-  async uploadBirthAttachment(
+  /**
+   * Uploads a file if the user is required to submit ID images and/or
+   * supporting documents with their Birth or Marriage certificate request.
+   */
+  async uploadFileAttachment(
+    orderType: RestrictedOrderType,
     uploadSessionId: string,
     label: string | null,
     file: AnnotatedFilePart
@@ -470,7 +567,11 @@ export default class RegistryDb {
       .input('fileName', filename)
       .input('label', label)
       .input('attachmentData', payload)
-      .execute('Commerce.sp_AddBirthRequestAttachment');
+      .execute(
+        orderType === 'BC'
+          ? 'Commerce.sp_AddBirthRequestAttachment'
+          : 'Commerce.sp_AddMarriageRequestAttachment' // todo: confirm name
+      );
 
     const result = out.recordset[0];
 
@@ -488,9 +589,13 @@ export default class RegistryDb {
   }
 
   /**
+   * Allow a user to remove an uploaded file for their Birth or Marriage
+   * certificate request.
+   *
    * Returns string on DB error, null on success.
    */
-  async deleteBirthAttachment(
+  async deleteFileAttachment(
+    orderType: RestrictedOrderType,
     uploadSessionId: string,
     attachmentKey: string
   ): Promise<string | null> {
@@ -498,7 +603,11 @@ export default class RegistryDb {
       .request()
       .input('sessionUID', uploadSessionId)
       .input('attachmentKey', parseInt(attachmentKey, 10))
-      .execute('Commerce.sp_DeleteBirthRequestAttachment');
+      .execute(
+        orderType === 'BC'
+          ? 'Commerce.sp_DeleteBirthRequestAttachment'
+          : 'Commerce.sp_DeleteMarriageRequestAttachment' // todo: confirm name
+      );
 
     const result = out.recordset[0];
 
@@ -515,7 +624,12 @@ export default class RegistryDb {
     }
   }
 
-  async addUploadsToBirthCertificateOrder(
+  /**
+   * Associate uploaded files with a particular Birth or Marriage
+   * certificate request.
+   */
+  async addUploadsToOrder(
+    orderType: RestrictedOrderType,
     requestItemKey: number,
     uploadSessionId: string
   ): Promise<void> {
@@ -523,7 +637,11 @@ export default class RegistryDb {
       .request()
       .input('requestItemKey', requestItemKey)
       .input('sessionUID', uploadSessionId)
-      .execute('Commerce.sp_AssociateBirthAttachments');
+      .execute(
+        orderType === 'BC'
+          ? 'Commerce.sp_AssociateBirthAttachments'
+          : 'Commerce.sp_AssociateMarriageAttachments' // todo: confirm name
+      );
 
     const result = out.recordset[0];
     // eslint-disable-next-line no-console

@@ -25,6 +25,28 @@ export interface DeleteBirthCertificateUploadedFileVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: DeleteMarriageCertificateUploadedFile
+// ====================================================
+
+export interface DeleteMarriageCertificateUploadedFile_deleteUpload {
+  message: string | null;
+  success: boolean;
+}
+
+export interface DeleteMarriageCertificateUploadedFile {
+  deleteUpload: DeleteMarriageCertificateUploadedFile_deleteUpload;
+}
+
+export interface DeleteMarriageCertificateUploadedFileVariables {
+  attachmentKey: string;
+  uploadSessionId: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: FetchDeathCertificates
 // ====================================================
 
@@ -248,6 +270,55 @@ export interface SubmitDeathCertificateOrderVariables {
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL mutation operation: SubmitMarriageCertificateOrder
+// ====================================================
+
+export interface SubmitMarriageCertificateOrder_submitMarriageCertificateOrder_order {
+  id: string;
+}
+
+export interface SubmitMarriageCertificateOrder_submitMarriageCertificateOrder_error {
+  message: string;
+  cause: OrderErrorCause;
+}
+
+export interface SubmitMarriageCertificateOrder_submitMarriageCertificateOrder {
+  order: SubmitMarriageCertificateOrder_submitMarriageCertificateOrder_order | null;
+  error: SubmitMarriageCertificateOrder_submitMarriageCertificateOrder_error | null;
+}
+
+export interface SubmitMarriageCertificateOrder {
+  submitMarriageCertificateOrder: SubmitMarriageCertificateOrder_submitMarriageCertificateOrder;
+}
+
+export interface SubmitMarriageCertificateOrderVariables {
+  contactName: string;
+  contactEmail: string;
+  contactPhone: string;
+  shippingName: string;
+  shippingCompanyName: string;
+  shippingAddress1: string;
+  shippingAddress2: string;
+  shippingCity: string;
+  shippingState: string;
+  shippingZip: string;
+  cardToken: string;
+  cardLast4: string;
+  cardholderName: string;
+  billingAddress1: string;
+  billingAddress2: string;
+  billingCity: string;
+  billingState: string;
+  billingZip: string;
+  item: MarriageCertificateOrderItemInput;
+  idempotencyKey: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
@@ -275,6 +346,19 @@ export interface DeathCertificateOrderItemInput {
   id: string;
   name: string;
   quantity: number;
+}
+
+export interface MarriageCertificateOrderItemInput {
+  dateOfMarriage: string;
+  firstName1: string;
+  firstName2: string;
+  lastName1: string;
+  lastName2: string;
+  maidenName1: string;
+  maidenName2: string;
+  notes: string;
+  quantity: number;
+  uploadSessionId: string;
 }
 
 //==============================================================

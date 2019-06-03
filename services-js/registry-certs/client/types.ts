@@ -4,6 +4,7 @@ import {
   LookupDeathCertificateOrder,
   SubmitDeathCertificateOrder_submitDeathCertificateOrder,
   SubmitBirthCertificateOrder_submitBirthCertificateOrder,
+  SubmitMarriageCertificateOrder_submitMarriageCertificateOrder,
 } from './queries/graphql-types';
 
 import UploadableFile from './models/UploadableFile';
@@ -51,6 +52,7 @@ export interface DeathCertificateOrder
 
 export type DeathCertificateOrderResult = SubmitDeathCertificateOrder_submitDeathCertificateOrder;
 export type BirthCertificateOrderResult = SubmitBirthCertificateOrder_submitBirthCertificateOrder;
+export type MarriageCertificateOrderResult = SubmitMarriageCertificateOrder_submitMarriageCertificateOrder;
 
 // Birth-specific
 export type BirthQuestion =

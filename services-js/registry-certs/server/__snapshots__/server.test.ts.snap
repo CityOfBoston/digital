@@ -72,6 +72,9 @@ Object {
           "name": "DeathCertificateOrderItemInput",
         },
         Object {
+          "name": "MarriageCertificateOrderItemInput",
+        },
+        Object {
           "name": "__Schema",
         },
         Object {

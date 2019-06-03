@@ -30,6 +30,7 @@ GraphQLSchema {
     "DeleteUploadResult": "DeleteUploadResult",
     "Float": "Float",
     "Int": "Int",
+    "MarriageCertificateOrderItemInput": "MarriageCertificateOrderItemInput",
     "Mutation": "Mutation",
     "OrderError": "OrderError",
     "OrderErrorCause": "OrderErrorCause",
@@ -51,28 +52,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 3806,
-      "start": 3760,
+      "end": 4616,
+      "start": 4570,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3789,
-          "start": 3771,
+          "end": 4599,
+          "start": 4581,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3789,
-            "start": 3781,
+            "end": 4599,
+            "start": 4591,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3789,
-              "start": 3781,
+              "end": 4599,
+              "start": 4591,
             },
             "value": "Mutation",
           },
@@ -81,21 +82,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 3804,
-          "start": 3792,
+          "end": 4614,
+          "start": 4602,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 3804,
-            "start": 3799,
+            "end": 4614,
+            "start": 4609,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 3804,
-              "start": 3799,
+              "end": 4614,
+              "start": 4609,
             },
             "value": "Query",
           },
