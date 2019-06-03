@@ -1,14 +1,18 @@
 import CERTIFICATES from '../fixtures/registry-data/smith.json';
 import BIRTH_CERTIFICATE_ORDER_DETAILS from '../fixtures/registry-orders/birth-certificate-request-details.json';
+import MARRIAGE_CERTIFICATE_ORDER_DETAILS from '../fixtures/registry-orders/marriage-certificate-request-details.json';
 import ORDER from '../fixtures/registry-orders/order.json';
-import CHARGE_CAPTURED from '../fixtures/stripe/charge-captured.json';
+import CHARGE_CAPTURED_BIRTH from '../fixtures/stripe/charge-captured-birth.json';
+import CHARGE_CAPTURED_MARRIAGE from '../fixtures/stripe/charge-captured-marriage.json';
 import CHARGE_SUCCEEDED from '../fixtures/stripe/charge-succeeded.json';
-import CHARGE_UNCAPTURED from '../fixtures/stripe/charge-uncaptured.json';
+import CHARGE_UNCAPTURED_BIRTH from '../fixtures/stripe/charge-uncaptured-birth.json';
+import CHARGE_UNCAPTURED_MARRIAGE from '../fixtures/stripe/charge-uncaptured-marriage.json';
 import Emails from './services/Emails';
 import {
   DeathCertificate,
   DeathCertificateSearchResult,
   FindBirthCertificateRequestResult,
+  FindMarriageCertificateRequestResult,
   FindOrderResult,
 } from './services/RegistryDb';
 import RegistryDbFake from './services/RegistryDbFake';
@@ -24,18 +28,28 @@ const DB_BIRTH_CERTIFICATE_ORDER_DETAILS = {
   DateOfBirth: new Date(BIRTH_CERTIFICATE_ORDER_DETAILS.DateOfBirth),
 };
 
+const DB_MARRIAGE_CERTIFICATE_ORDER_DETAILS = {
+  ...MARRIAGE_CERTIFICATE_ORDER_DETAILS,
+  DateOfMarriage: new Date(MARRIAGE_CERTIFICATE_ORDER_DETAILS.DateOfMarriage),
+};
+
+const emailMockFunctions = {
+  sendDeathReceiptEmail: jest.fn(),
+  sendBirthReceiptEmail: jest.fn(),
+  sendMarriageReceiptEmail: jest.fn(),
+  sendBirthShippedEmail: jest.fn(),
+  sendMarriageShippedEmail: jest.fn(),
+  sendBirthExpiredEmail: jest.fn(),
+  sendMarriageExpiredEmail: jest.fn(),
+};
+
 describe('charge.created', () => {
   let emails: Required<Emails>;
   let stripe;
   let registryDb: RegistryDbFake;
 
   beforeEach(() => {
-    emails = {
-      sendDeathReceiptEmail: jest.fn(),
-      sendBirthReceiptEmail: jest.fn(),
-      sendBirthShippedEmail: jest.fn(),
-      sendBirthExpiredEmail: jest.fn(),
-    };
+    emails = emailMockFunctions;
     stripe = {} as any;
 
     registryDb = new RegistryDbFake(
@@ -55,6 +69,13 @@ describe('charge.created', () => {
           DB_BIRTH_CERTIFICATE_ORDER_DETAILS
         )
       );
+    jest
+      .spyOn(registryDb, 'lookupMarriageCertificateOrderDetails')
+      .mockReturnValue(
+        Promise.resolve<FindMarriageCertificateRequestResult>(
+          DB_MARRIAGE_CERTIFICATE_ORDER_DETAILS
+        )
+      );
     jest.spyOn(registryDb, 'addPayment');
   });
 
@@ -67,7 +88,7 @@ describe('charge.created', () => {
       },
       '',
       '',
-      JSON.stringify(CHARGE_UNCAPTURED)
+      JSON.stringify(CHARGE_UNCAPTURED_BIRTH)
     );
 
     expect(registryDb.addPayment).toMatchInlineSnapshot(`
@@ -145,11 +166,37 @@ describe('charge.created', () => {
       },
       '',
       '',
-      JSON.stringify(CHARGE_UNCAPTURED)
+      JSON.stringify(CHARGE_UNCAPTURED_BIRTH)
     );
 
     expect(emails.sendBirthReceiptEmail).toHaveBeenCalled();
     expect(emails.sendBirthReceiptEmail).toMatchSnapshot();
+  });
+
+  it('sends marriage email', async () => {
+    (registryDb.findOrder as jest.Mock).mockReturnValue(
+      Promise.resolve({
+        ...ORDER,
+        OrderType: 'MC',
+        // These are null for marriage certs
+        CertificateCost: null,
+        TotalCost: null,
+      })
+    );
+
+    await processStripeEvent(
+      {
+        emails: emails as any,
+        stripe,
+        registryDb: registryDb as any,
+      },
+      '',
+      '',
+      JSON.stringify(CHARGE_UNCAPTURED_MARRIAGE)
+    );
+
+    expect(emails.sendMarriageReceiptEmail).toHaveBeenCalled();
+    expect(emails.sendMarriageReceiptEmail).toMatchSnapshot();
   });
 });
 
@@ -159,12 +206,7 @@ describe('charge.captured', () => {
   let registryDb: RegistryDbFake;
 
   beforeEach(() => {
-    emails = {
-      sendDeathReceiptEmail: jest.fn(),
-      sendBirthReceiptEmail: jest.fn(),
-      sendBirthShippedEmail: jest.fn(),
-      sendBirthExpiredEmail: jest.fn(),
-    };
+    emails = emailMockFunctions;
 
     stripe = {} as any;
 
@@ -178,10 +220,13 @@ describe('charge.captured', () => {
     jest
       .spyOn(registryDb, 'lookupBirthCertificateOrderDetails')
       .mockReturnValue(Promise.resolve(DB_BIRTH_CERTIFICATE_ORDER_DETAILS));
+    jest
+      .spyOn(registryDb, 'lookupMarriageCertificateOrderDetails')
+      .mockReturnValue(Promise.resolve(DB_MARRIAGE_CERTIFICATE_ORDER_DETAILS));
     jest.spyOn(registryDb, 'addPayment').mockReturnValue(Promise.resolve());
   });
 
-  it('sends a shipped email', async () => {
+  it('sends a birth shipped email', async () => {
     await processStripeEvent(
       {
         emails: emails as any,
@@ -190,11 +235,27 @@ describe('charge.captured', () => {
       },
       '',
       '',
-      JSON.stringify(CHARGE_CAPTURED)
+      JSON.stringify(CHARGE_CAPTURED_BIRTH)
     );
 
     expect(emails.sendBirthShippedEmail).toHaveBeenCalled();
     expect(emails.sendBirthShippedEmail).toMatchSnapshot();
+  });
+
+  it('sends a marriage shipped email', async () => {
+    await processStripeEvent(
+      {
+        emails: emails as any,
+        stripe,
+        registryDb: registryDb as any,
+      },
+      '',
+      '',
+      JSON.stringify(CHARGE_CAPTURED_MARRIAGE)
+    );
+
+    expect(emails.sendMarriageShippedEmail).toHaveBeenCalled();
+    expect(emails.sendMarriageShippedEmail).toMatchSnapshot();
   });
 });
 
@@ -204,12 +265,7 @@ describe('charge.expired', () => {
   let registryDb: RegistryDbFake;
 
   beforeEach(() => {
-    emails = {
-      sendDeathReceiptEmail: jest.fn(),
-      sendBirthReceiptEmail: jest.fn(),
-      sendBirthShippedEmail: jest.fn(),
-      sendBirthExpiredEmail: jest.fn(),
-    };
+    emails = emailMockFunctions;
 
     stripe = {} as any;
 
@@ -222,7 +278,7 @@ describe('charge.expired', () => {
       .mockReturnValue(Promise.resolve(DB_ORDER));
   });
 
-  it('sends an expired email', async () => {
+  it('sends a birth request expired email', async () => {
     await processStripeEvent(
       {
         emails: emails as any,
@@ -232,12 +288,31 @@ describe('charge.expired', () => {
       '',
       '',
       JSON.stringify({
-        ...CHARGE_CAPTURED,
+        ...CHARGE_CAPTURED_BIRTH,
         type: 'charge.expired',
       })
     );
 
     expect(emails.sendBirthExpiredEmail).toHaveBeenCalled();
     expect(emails.sendBirthExpiredEmail).toMatchSnapshot();
+  });
+
+  it('sends a marriage request expired email', async () => {
+    await processStripeEvent(
+      {
+        emails: emails as any,
+        stripe,
+        registryDb: registryDb as any,
+      },
+      '',
+      '',
+      JSON.stringify({
+        ...CHARGE_CAPTURED_MARRIAGE,
+        type: 'charge.expired',
+      })
+    );
+
+    expect(emails.sendMarriageExpiredEmail).toHaveBeenCalled();
+    expect(emails.sendMarriageExpiredEmail).toMatchSnapshot();
   });
 });

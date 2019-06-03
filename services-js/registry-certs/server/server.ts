@@ -318,9 +318,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
         uploadSessionId,
       }: UploadPayload<AnnotatedFilePart> = req.payload as any;
 
-      if (type !== 'BC') {
+      if (type === 'DC') {
         throw Boom.badData(
-          'Can only upload attachments for birth certificates'
+          'Can only upload attachments for birth or marriage certificates'
         );
       }
 
@@ -330,7 +330,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
       const db = registryDbFactory.registryDb();
 
-      const attachmentKey = await db.uploadBirthAttachment(
+      const attachmentKey = await db.uploadFileAttachment(
+        type as any,
         uploadSessionId,
         label || null,
         file

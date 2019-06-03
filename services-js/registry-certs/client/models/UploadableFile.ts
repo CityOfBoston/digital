@@ -8,8 +8,10 @@ import {
 } from '@cityofboston/next-client-common';
 
 import { UploadResponse } from '../../lib/upload-types';
+import { CertificateType } from '../types';
 
 import deleteBirthCertificateUploadedFile from '../queries/delete-birth-certificate-uploaded-file';
+import deleteMarriageCertificateUploadedFile from '../queries/delete-marriage-certificate-uploaded-file';
 
 export type Status =
   | 'idle'
@@ -98,7 +100,7 @@ export default class UploadableFile {
   }
 
   @action
-  upload() {
+  upload(certificateType: CertificateType) {
     if (!this.file) {
       throw new Error(
         'upload called on UploadableFile that came from an UploadableFileRecord'
@@ -107,11 +109,12 @@ export default class UploadableFile {
 
     const uploadRequest = new XMLHttpRequest();
     const formData = new FormData();
+    const orderType = certificateType === 'marriage' ? 'MC' : 'BC';
 
     // Explicitly setting the filename keeps IE from sending the whole file’s
     // path as the file name.
     formData.append('file', this.file, this.file.name);
-    formData.append('type', 'BC');
+    formData.append('type', orderType);
     if (this.label) {
       formData.append('label', this.label);
     }
@@ -135,7 +138,10 @@ export default class UploadableFile {
   // If the user is trying to cancel an in-progress upload, we want to express
   // the appropriate status while the cancellation is pending.
   @action
-  async delete(didCancel?: boolean): Promise<boolean> {
+  async delete(
+    certificateType: CertificateType,
+    didCancel?: boolean
+  ): Promise<boolean> {
     if (!this.attachmentKey) {
       return false;
     }
@@ -143,11 +149,18 @@ export default class UploadableFile {
     didCancel ? (this.status = 'canceling') : (this.status = 'deleting');
 
     try {
-      const result = await deleteBirthCertificateUploadedFile(
-        this.fetchGraphql,
-        this.uploadSessionId,
-        this.attachmentKey
-      );
+      const result =
+        certificateType === 'birth'
+          ? await deleteBirthCertificateUploadedFile(
+              this.fetchGraphql,
+              this.uploadSessionId,
+              this.attachmentKey
+            )
+          : await deleteMarriageCertificateUploadedFile(
+              this.fetchGraphql,
+              this.uploadSessionId,
+              this.attachmentKey
+            );
 
       if (result.success) {
         runInAction(() => {

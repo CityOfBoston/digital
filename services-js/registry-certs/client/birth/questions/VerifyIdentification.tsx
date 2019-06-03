@@ -31,7 +31,7 @@ export default class VerifyIdentification extends React.Component<Props> {
         : birthCertificateRequest.requestInformation.idImageBack;
 
     if (existingFile) {
-      existingFile.delete();
+      existingFile.delete('birth');
     }
 
     let uploadableFile: UploadableFile | null = null;
@@ -43,7 +43,7 @@ export default class VerifyIdentification extends React.Component<Props> {
         side === 'front' ? 'id front' : 'id back'
       );
 
-      uploadableFile.upload();
+      uploadableFile.upload('birth');
     }
 
     if (side === 'front') {

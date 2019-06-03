@@ -62,10 +62,10 @@ export async function processChargeSucceeded(
     throw new Error(`Order ${orderId} not found in the database`);
   }
 
-  // We send the payment infomation to the DB even before the charge is
+  // We send the payment information to the DB even before the charge is
   // captured, so that there’s a record of the Stripe charge id.
   //
-  // By marking the payment as successful we can tell Registry they can proceed
+  // By marking the payment as successful, we can tell Registry they can proceed
   // with fulfillment. This method is idempotent.
   await addPaymentToDb(registryDb, orderKey, charge);
 
@@ -82,6 +82,12 @@ export async function processChargeSucceeded(
       dbOrder.ContactName,
       dbOrder.ContactEmail,
       await makeBirthReceiptInfo(registryDb, orderId, dbOrder)
+    );
+  } else if (orderType === 'MC') {
+    await emails.sendMarriageReceiptEmail(
+      dbOrder.ContactName,
+      dbOrder.ContactEmail,
+      await makeMarriageReceiptInfo(registryDb, orderId, dbOrder)
     );
   }
 }
@@ -113,6 +119,14 @@ async function processChargeCaptured(
       dbOrder.ContactEmail,
       await makeBirthReceiptInfo(registryDb, orderId, dbOrder)
     );
+  } else if (orderType === 'MC') {
+    // Sending the email is not idempotent, so we put it last and in the vast
+    // majority of cases it will run once.
+    await emails.sendMarriageShippedEmail(
+      dbOrder.ContactName,
+      dbOrder.ContactEmail,
+      await makeMarriageReceiptInfo(registryDb, orderId, dbOrder)
+    );
   }
 }
 
@@ -133,6 +147,13 @@ async function processChargeExpired(
 
   if (orderType === 'BC') {
     await emails.sendBirthExpiredEmail(
+      dbOrder.ContactName,
+      dbOrder.ContactEmail,
+      orderId,
+      new Date(created * 1000)
+    );
+  } else if (orderType === 'MC') {
+    await emails.sendMarriageExpiredEmail(
       dbOrder.ContactName,
       dbOrder.ContactEmail,
       orderId,
@@ -160,7 +181,7 @@ async function makeDeathReceiptInfo(
       async ({ quantity, cost, certificate }) => ({
         quantity,
         cost,
-        name: nameFromCertificate(await certificate()),
+        name: nameFromDeathCertificate(await certificate()),
         date: null,
       })
     )
@@ -234,6 +255,59 @@ async function makeBirthReceiptInfo(
   };
 }
 
+// Copied from makeBirthReceiptInfo above
+async function makeMarriageReceiptInfo(
+  registryDb: RegistryDb,
+  orderId: string,
+  dbOrder: FindOrderResult
+) {
+  // We slightly-hackily rely on the DB order -> JS object code from the GraphQL
+  // side of things. This could be more principled.
+  const order = orderToReceiptInfo(orderId, dbOrder);
+
+  const details = await registryDb.lookupMarriageCertificateOrderDetails(
+    orderId
+  );
+
+  if (!details) {
+    throw new Error(`Marriage certificate order ${orderId} not found`);
+  }
+
+  const names = namesForMarriageCertificate(details);
+
+  // For marriage certificates, these are null in the database, so we have to
+  // calculate them in another way.
+  const subtotal = details.TotalCost * 100;
+  const total = subtotal + order.serviceFee;
+  const items = [
+    {
+      quantity: details.Quantity,
+      cost: details.TotalCost * 100,
+      name: names,
+      date: details.DateOfMarriage,
+    },
+  ];
+
+  return {
+    orderId: order.id,
+    orderDate: order.date,
+    shippingName: order.shippingName,
+    shippingCompanyName: order.shippingCompanyName,
+    shippingAddress1: order.shippingAddress1,
+    shippingAddress2: order.shippingAddress2,
+    shippingCity: order.shippingCity,
+    shippingState: order.shippingState,
+    shippingZip: order.shippingZip,
+    subtotal,
+    serviceFee: order.serviceFee,
+    total,
+    fixedFee: FIXED_CC_SERVICE_FEE,
+    percentageFee: PERCENTAGE_CC_SERVICE_FEE,
+    serviceFeeUri: SERVICE_FEE_URI,
+    items,
+  };
+}
+
 async function addPaymentToDb(
   registryDb: RegistryDb,
   orderKey: string,
@@ -250,13 +324,25 @@ async function addPaymentToDb(
   );
 }
 
-function nameFromCertificate(cert: DeathCertificate | null) {
+function nameFromDeathCertificate(cert: DeathCertificate | null) {
   if (cert) {
     return `${cert.firstName} ${cert.lastName}`;
   } else {
     // typically should not happen, but we need to guard anyway
     return 'UNKNOWN CERTIFICATE';
   }
+}
+
+function namesForMarriageCertificate(details): string {
+  const person1 = `${details.firstName1} ${
+    details.maidenName1 ? `(${details.maidenName1}) ` : ''
+  }${details.lastName1}`;
+
+  const person2 = `${details.firstName2} ${
+    details.maidenName2 ? `(${details.maidenName2}) ` : ''
+  }${details.firstName2}`;
+
+  return `${person1} & ${person2};`;
 }
 
 /**

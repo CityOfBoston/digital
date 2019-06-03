@@ -3,16 +3,21 @@ import { action, runInAction } from 'mobx';
 import { FetchGraphql } from '@cityofboston/next-client-common';
 
 import DeathCertificateCart from '../store/DeathCertificateCart';
+import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
+
 import Order from '../models/Order';
 
 import submitDeathCertificateOrder from '../queries/submit-death-certificate-order';
+import submitBirthCertificateOrder from '../queries/submit-birth-certificate-order';
+import submitMarriageCertificateOrder from '../queries/submit-marriage-certificate-order';
+
 import { OrderErrorCause } from '../queries/graphql-types';
 import {
   DeathCertificateOrderResult,
   BirthCertificateOrderResult,
+  MarriageCertificateOrderResult,
 } from '../types';
-import BirthCertificateRequest from '../store/BirthCertificateRequest';
-import submitBirthCertificateOrder from '../queries/submit-birth-certificate-order';
 
 export class SubmissionError extends Error {
   public readonly cause: OrderErrorCause;
@@ -150,11 +155,36 @@ export default class CheckoutDao {
     return this.handleOrder(order, orderPromise);
   }
 
+  /**
+   * Copied from submitBirthCertificateRequest() above:
+   *
+   * Submits a marriage certificate request with the order data (address, &c.).
+   *
+   * Sets Order#processing to true while the API call is outstanding
+   *
+   * @returns The order ID on success.
+   * @throws Error or SubmissionError objects. Reports errors to Rollbar.
+   */
+  submitMarriageCertificateRequest(
+    marriageCertificateRequest: MarriageCertificateRequest,
+    order: Order
+  ): Promise<string> {
+    const orderPromise = submitMarriageCertificateOrder(
+      this.fetchGraphql,
+      marriageCertificateRequest,
+      order
+    );
+
+    return this.handleOrder(order, orderPromise);
+  }
+
   @action
   private async handleOrder(
     order: Order,
     orderPromise: Promise<
-      DeathCertificateOrderResult | BirthCertificateOrderResult
+      | DeathCertificateOrderResult
+      | BirthCertificateOrderResult
+      | MarriageCertificateOrderResult
     >
   ): Promise<string> {
     try {

@@ -38,7 +38,7 @@ export type ReceiptData = {
     name: string;
     quantity: number;
     cost: number;
-    date: Date | null;
+    date: Date | null | string;
   }>;
   /** Cost in cents */
   fixedFee: number;

@@ -3,6 +3,7 @@ import RegistryDb, {
   DeathCertificate,
   FindOrderResult,
   FindBirthCertificateRequestResult,
+  FindMarriageCertificateRequestResult,
 } from './RegistryDb';
 
 export default class RegistryDbFake implements Required<RegistryDb> {
@@ -30,12 +31,19 @@ export default class RegistryDbFake implements Required<RegistryDb> {
     return null;
   }
 
+  async lookupMarriageCertificateOrderDetails(): Promise<FindMarriageCertificateRequestResult | null> {
+    return null;
+  }
+
   async addOrder(): Promise<number> {
     return 50;
   }
 
   async addDeathCertificateItem(): Promise<void> {}
   async addBirthCertificateRequest(): Promise<number> {
+    return 105;
+  }
+  async addMarriageCertificateRequest(): Promise<number> {
     return 105;
   }
   async addPayment(): Promise<void> {}
@@ -47,13 +55,13 @@ export default class RegistryDbFake implements Required<RegistryDb> {
 
   async cancelOrder(): Promise<void> {}
 
-  async uploadBirthAttachment(): Promise<string> {
+  async uploadFileAttachment(): Promise<string> {
     return '17';
   }
 
-  async deleteBirthAttachment() {
+  async deleteFileAttachment() {
     return null;
   }
 
-  async addUploadsToBirthCertificateOrder() {}
+  async addUploadsToOrder() {}
 }

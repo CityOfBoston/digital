@@ -103,7 +103,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
           this.props.uploadSessionId
         );
 
-        uploadableFile.upload();
+        uploadableFile.upload('birth');
 
         fileArray.push(uploadableFile);
       }
@@ -132,7 +132,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
   ): Promise<void> => {
     const { selectedFiles } = this.props;
 
-    await file.delete(didCancel);
+    await file.delete('birth', didCancel);
 
     this.props.handleInputChange(
       selectedFiles.filter(fileObject => fileObject !== file)
@@ -255,7 +255,7 @@ function FileButton(props: FileButtonProps): JSX.Element {
     return (
       <button
         type="button"
-        onClick={() => props.uploadableFile.upload()}
+        onClick={() => props.uploadableFile.upload('birth')}
         css={ERROR_CONTAINER_STYLING}
       >
         <AnswerIcon iconName="excl" />
@@ -266,7 +266,7 @@ function FileButton(props: FileButtonProps): JSX.Element {
     return (
       <button
         type="button"
-        onClick={() => props.uploadableFile.upload()}
+        onClick={() => props.uploadableFile.upload('birth')}
         css={ERROR_CONTAINER_STYLING}
       >
         <AnswerIcon iconName="excl" />
