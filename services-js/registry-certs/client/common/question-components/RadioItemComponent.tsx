@@ -8,6 +8,7 @@ import {
   CHARLES_BLUE,
   GRAY_100,
   MEDIA_MEDIUM,
+  MEDIA_MEDIUM_MAX,
   SANS,
   VISUALLY_HIDDEN,
 } from '@cityofboston/react-fleet';
@@ -94,7 +95,12 @@ const RADIOITEM_STYLING = css({
 
   svg: {
     flexBasis: '20%',
-    height: '100%',
+
+    [MEDIA_MEDIUM_MAX]: {
+      // height: 100% prevents extra vertical space on mobile, but *causes*
+      // extra on larger viewports
+      height: '100%',
+    },
 
     [MEDIA_MEDIUM]: {
       flexBasis: 'auto',

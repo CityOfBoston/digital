@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Head from 'next/head';
-// import Router from 'next/router';
+import Router from 'next/router';
 
 import { observer } from 'mobx-react';
+
+import { ContactForm } from '@cityofboston/react-fleet';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 
@@ -15,7 +17,12 @@ import MarriageCertificateRequest, {
 
 import PageWrapper from '../PageWrapper';
 
-import { ContactForm } from '@cityofboston/react-fleet';
+import ForWhom from './questions/ForWhom';
+import ClientInstructions from './questions/ClientInstructions';
+import FiledInBoston from './questions/FiledInBoston';
+import DateOfMarriage from './questions/DateOfMarriage';
+import PersonOnRecord from './questions/PersonOnRecord';
+import VerifyIdentification from './questions/VerifyIdentification';
 
 interface InitialProps {
   currentStep: MarriageStep;
@@ -46,12 +53,10 @@ interface State {
   currentStep: MarriageStep;
 }
 
-// todo: placeholder file; awaiting question flow for Marriage
-
 /**
  * Guides the user through a number of questions, step by step, in order to
  * provide the Registry with the information they will need to locate the
- * birth record.
+ * marriage record.
  *
  * User will progress to /review upon completion of this workflow.
  *
@@ -133,45 +138,45 @@ export default class QuestionsPage extends React.Component<Props, State> {
     }
   }
 
-  // private advanceQuestion = (modifiedRequest: MarriageCertificateRequest) => {
-  //   const { currentStep, marriageCertificateRequest } = this.props;
-  //
-  //   if (marriageCertificateRequest !== modifiedRequest) {
-  //     marriageCertificateRequest.updateFrom(modifiedRequest);
-  //   }
-  //
-  //   // Have to do this after updateFrom because the answers to questions can
-  //   // affect the steps.
-  //   const newSteps = marriageCertificateRequest.steps;
-  //   const currentIndex = newSteps.indexOf(currentStep);
-  //
-  //   if (currentIndex < 0) {
-  //     throw new Error(`Step ${currentStep} not found in new steps`);
-  //   }
-  //
-  //   const nextStep = newSteps[currentIndex + 1];
-  //
-  //   // this.gaEventActionAndLabel();
-  //
-  //   if (nextStep === 'reviewRequest') {
-  //     Router.push('/marriage/review');
-  //   } else {
-  //     Router.push(`/marriage?step=${nextStep}`);
-  //   }
-  // };
+  private advanceQuestion = (modifiedRequest: MarriageCertificateRequest) => {
+    const { currentStep, marriageCertificateRequest } = this.props;
 
-  // private stepBackOneQuestion = (): void => {
-  //   const {
-  //     marriageCertificateRequest: { steps },
-  //     currentStep,
-  //   } = this.props;
-  //   const currentIndex = steps.indexOf(currentStep);
-  //
-  //   // Ensure we cannot go back any further than the first question.
-  //   const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
-  //
-  //   Router.push(`/marriage?step=${steps[newIndex]}`);
-  // };
+    if (marriageCertificateRequest !== modifiedRequest) {
+      marriageCertificateRequest.updateFrom(modifiedRequest);
+    }
+
+    // Have to do this after updateFrom because the answers to questions can
+    // affect the steps.
+    const newSteps = marriageCertificateRequest.steps;
+    const currentIndex = newSteps.indexOf(currentStep);
+
+    if (currentIndex < 0) {
+      throw new Error(`Step ${currentStep} not found in new steps`);
+    }
+
+    const nextStep = newSteps[currentIndex + 1];
+
+    // this.gaEventActionAndLabel();
+
+    if (nextStep === 'reviewRequest') {
+      Router.push('/marriage/review');
+    } else {
+      Router.push(`/marriage?step=${nextStep}`);
+    }
+  };
+
+  private stepBackOneQuestion = (): void => {
+    const {
+      marriageCertificateRequest: { steps },
+      currentStep,
+    } = this.props;
+    const currentIndex = steps.indexOf(currentStep);
+
+    // Ensure we cannot go back any further than the first question.
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+
+    Router.push(`/marriage?step=${steps[newIndex]}`);
+  };
 
   // // Determine correct GA Action and Label for the events to be sent during
   // // each step in the questions flow.
@@ -220,24 +225,130 @@ export default class QuestionsPage extends React.Component<Props, State> {
   //   });
   // };
 
-  // // Clear all data and return to initial question.
-  // private handleUserReset = (): void => {
-  //   this.props.marriageCertificateRequest.clearCertificateRequest();
-  // };
+  // Clear all data and return to initial question.
+  private handleUserReset = (): void => {
+    this.props.marriageCertificateRequest.clearCertificateRequest();
+  };
 
   render() {
-    const {
-      currentStep,
-      // marriageCertificateRequest
-    } = this.props;
+    const { currentStep, marriageCertificateRequest } = this.props;
     const { localMarriageCertificateRequest } = this.state;
 
     let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
 
-    // todo: see birth/QuestionsPage.tsx
-
     const { steps } = localMarriageCertificateRequest;
+
+    switch (currentStep) {
+      case 'forWhom':
+        isStepComplete = ForWhom.isComplete(localMarriageCertificateRequest);
+        questionsEl = (
+          <ForWhom
+            marriageCertificateRequest={localMarriageCertificateRequest}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localMarriageCertificateRequest
+            )}
+          />
+        );
+        break;
+
+      case 'clientInstructions':
+        isStepComplete = true;
+        questionsEl = (
+          <ClientInstructions handleStepBack={this.stepBackOneQuestion} />
+        );
+        break;
+
+      case 'filedInBoston':
+        isStepComplete = FiledInBoston.isComplete(
+          localMarriageCertificateRequest
+        );
+        questionsEl = (
+          <FiledInBoston
+            marriageCertificateRequest={localMarriageCertificateRequest}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localMarriageCertificateRequest
+            )}
+            handleStepBack={this.stepBackOneQuestion}
+            handleUserReset={this.handleUserReset}
+          />
+        );
+        break;
+
+      case 'dateOfMarriage':
+        isStepComplete = DateOfMarriage.isComplete(
+          localMarriageCertificateRequest
+        );
+        questionsEl = (
+          <DateOfMarriage
+            marriageCertificateRequest={localMarriageCertificateRequest}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localMarriageCertificateRequest
+            )}
+            handleStepBack={this.stepBackOneQuestion}
+          />
+        );
+        break;
+
+      case 'personOnRecord1':
+        isStepComplete = DateOfMarriage.isComplete(
+          localMarriageCertificateRequest
+        );
+        questionsEl = (
+          <PersonOnRecord
+            person="person1"
+            marriageCertificateRequest={localMarriageCertificateRequest}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localMarriageCertificateRequest
+            )}
+            handleStepBack={this.stepBackOneQuestion}
+          />
+        );
+        break;
+
+      case 'personOnRecord2':
+        isStepComplete = DateOfMarriage.isComplete(
+          localMarriageCertificateRequest
+        );
+        questionsEl = (
+          <PersonOnRecord
+            person="person2"
+            marriageCertificateRequest={localMarriageCertificateRequest}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              localMarriageCertificateRequest
+            )}
+            handleStepBack={this.stepBackOneQuestion}
+          />
+        );
+        break;
+
+      case 'verifyIdentification':
+        // We just don’t dynamically update the progress bar for uploads right now
+        isStepComplete = false;
+
+        // This is given the actual marriage certificate request, rather than the local
+        // clone, because we’re uploading photos directly to the server. Therefore
+        // we don’t want to require “submit” to store a record of the uploads. If you
+        // upload and then press “back”, when you get back to this page the uploads
+        // need to still be there.
+        questionsEl = (
+          <VerifyIdentification
+            siteAnalytics={this.props.siteAnalytics}
+            marriageCertificateRequest={marriageCertificateRequest}
+            handleProceed={this.advanceQuestion.bind(
+              this,
+              marriageCertificateRequest
+            )}
+            handleStepBack={this.stepBackOneQuestion}
+          />
+        );
+        break;
+    }
 
     return (
       <PageWrapper
@@ -251,6 +362,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         <Head>
           <title>Boston.gov — Request a Marriage Certificate</title>
         </Head>
+
         {questionsEl}
 
         <div className="m-v700 ta-c">
@@ -258,10 +370,10 @@ export default class QuestionsPage extends React.Component<Props, State> {
           <a
             href="mailto:registry@boston.gov"
             onClick={ContactForm.makeMailtoClickHandler(
-              'birth-cert-feedback-form'
+              'marriage-cert-feedback-form'
             )}
           >
-            birth@boston.gov
+            registry@boston.gov
           </a>
           .
         </div>

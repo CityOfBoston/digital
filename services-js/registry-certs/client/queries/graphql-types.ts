@@ -349,7 +349,8 @@ export interface DeathCertificateOrderItemInput {
 }
 
 export interface MarriageCertificateOrderItemInput {
-  dateOfMarriage: string;
+  dateOfMarriageEnd?: string | null;
+  dateOfMarriageStart: string;
   firstName1: string;
   firstName2: string;
   lastName1: string;

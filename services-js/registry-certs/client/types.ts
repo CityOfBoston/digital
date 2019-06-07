@@ -94,8 +94,8 @@ export type MarriageStep =
   | 'clientInstructions'
   | 'filedInBoston'
   | 'dateOfMarriage'
-  | 'namesOnRecord'
-  | 'parentalInformation'
+  | 'personOnRecord1'
+  | 'personOnRecord2'
   | 'verifyIdentification'
   | 'reviewRequest'
   | 'shippingInformation'
@@ -127,7 +127,8 @@ export type MarriageCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
   filedInBoston: YesNoUnknownAnswer;
-  dateOfMarriage: any; // todo
+  dateOfMarriageStart: Date | null;
+  dateOfMarriageEnd?: Date | null;
   firstName1: string;
   firstName2: string;
   lastName1: string;

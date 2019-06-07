@@ -120,13 +120,14 @@ export interface FindBirthCertificateRequestResult {
 }
 
 export interface FindMarriageCertificateRequestResult {
-  FirstName1: string;
-  LastName1: string;
-  MaidenName1: string;
-  FirstName2: string;
-  LastName2: string;
-  MaidenName2: string;
-  DateOfMarriage: Date | string;
+  CertificateFirstName1: string;
+  CertificateLastName1: string;
+  CertificateMaidenName1: string;
+  CertificateFirstName2: string;
+  CertificateLastName2: string;
+  CertificateMaidenName2: string;
+  DateOfMarriageStart: Date;
+  DateOfMarriageEnd: Date | null;
   Quantity: number;
   TotalCost: number;
 }
@@ -144,13 +145,14 @@ export interface BirthCertificateRequestArgs {
 }
 
 export interface MarriageCertificateRequestArgs {
-  firstName1: string;
-  lastName1: string;
-  maidenName1: string;
-  firstName2: string;
-  lastName2: string;
-  maidenName2: string;
-  dateOfMarriage: Date | string;
+  certificateFirstName1: string;
+  certificateLastName1: string;
+  certificateMaidenName1: string;
+  certificateFirstName2: string;
+  certificateLastName2: string;
+  certificateMaidenName2: string;
+  dateOfMarriageStart: Date;
+  dateOfMarriageEnd: Date | null;
   requestDetails: string;
 }
 
@@ -413,13 +415,14 @@ export default class RegistryDb {
   async addMarriageCertificateRequest(
     orderKey: number,
     {
-      firstName1,
-      lastName1,
-      maidenName1,
-      firstName2,
-      lastName2,
-      maidenName2,
-      dateOfMarriage,
+      certificateFirstName1,
+      certificateLastName1,
+      certificateMaidenName1,
+      certificateFirstName2,
+      certificateLastName2,
+      certificateMaidenName2,
+      dateOfMarriageStart,
+      dateOfMarriageEnd,
       requestDetails,
     }: MarriageCertificateRequestArgs,
     quantity: number,
@@ -428,17 +431,18 @@ export default class RegistryDb {
     const resp: IProcedureResult<{
       RequestItemKey: number;
       ErrorMessage: string;
-    }> = await this.pool // todo: confirm all names
+    }> = await this.pool
       .request()
       .input('orderKey', orderKey)
       .input('orderType', OrderType.MarriageCertificate)
-      .input('firstName1', firstName1)
-      .input('lastName1', lastName1)
-      .input('maidenName1', maidenName1)
-      .input('firstName2', firstName2)
-      .input('lastName2', lastName2)
-      .input('maidenName2', maidenName2)
-      .input('dateOfMarriage', dateOfMarriage)
+      .input('certificateFirstName1', certificateFirstName1)
+      .input('certificateLastName1', certificateLastName1)
+      .input('certificateMaidenName1', certificateMaidenName1)
+      .input('certificateFirstName2', certificateFirstName2)
+      .input('certificateLastName2', certificateLastName2)
+      .input('certificateMaidenName2', certificateMaidenName2)
+      .input('dateOfMarriageStart', dateOfMarriageStart)
+      .input('dateOfMarriageEnd', dateOfMarriageEnd)
       .input('requestDetails', requestDetails)
       .input('quantity', quantity)
       .input('unitCost', `$${certificateCost.toFixed(2)}`)
@@ -570,7 +574,7 @@ export default class RegistryDb {
       .execute(
         orderType === 'BC'
           ? 'Commerce.sp_AddBirthRequestAttachment'
-          : 'Commerce.sp_AddMarriageRequestAttachment' // todo: confirm name
+          : 'Commerce.sp_AddMarriageRequestAttachment'
       );
 
     const result = out.recordset[0];

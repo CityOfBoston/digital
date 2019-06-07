@@ -30,7 +30,9 @@ const DB_BIRTH_CERTIFICATE_ORDER_DETAILS = {
 
 const DB_MARRIAGE_CERTIFICATE_ORDER_DETAILS = {
   ...MARRIAGE_CERTIFICATE_ORDER_DETAILS,
-  DateOfMarriage: new Date(MARRIAGE_CERTIFICATE_ORDER_DETAILS.DateOfMarriage),
+  DateOfMarriageStart: new Date(
+    MARRIAGE_CERTIFICATE_ORDER_DETAILS.DateOfMarriageStart
+  ), // todo
 };
 
 const emailMockFunctions = {

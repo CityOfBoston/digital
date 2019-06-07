@@ -96,6 +96,6 @@ const QUANTITY_DROPDOWN_STYLE = css({
   },
 
   '&:after': {
-    content: "'Qty,'",
+    content: "'Qty'",
   },
 });

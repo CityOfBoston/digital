@@ -68,11 +68,11 @@ const iconElements = {
 const ANSWER_ICON_STYLING = css({
   width: 80,
   height: 80,
-  fill: WHITE,
 
   ellipse: {
     stroke: 'currentColor',
     strokeWidth: 5,
+    fill: WHITE,
   },
 
   '&.checkMark, &.xSymbol': {

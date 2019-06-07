@@ -102,7 +102,8 @@ export default async function submitMarriageCertificateOrder(
       forSelf,
       howRelated,
       filedInBoston,
-      dateOfMarriage,
+      dateOfMarriageStart,
+      dateOfMarriageEnd,
       firstName1,
       lastName1,
       maidenName1,
@@ -126,8 +127,8 @@ export default async function submitMarriageCertificateOrder(
     );
   }
 
-  if (!dateOfMarriage) {
-    throw new Error('dateOfMarriage was not set');
+  if (!dateOfMarriageStart) {
+    throw new Error('dateOfMarriageStart was not set');
   }
 
   // Marriage Certificate Request Questions:
@@ -158,7 +159,10 @@ ${filedInBoston === 'unknown' ? '*Unsure if filed in Boston*' : ''}
     billingCity,
     billingZip,
     item: {
-      dateOfMarriage: dateOfMarriage.toISOString(), // todo
+      dateOfMarriageStart: dateOfMarriageStart.toISOString(),
+      dateOfMarriageEnd: dateOfMarriageEnd
+        ? dateOfMarriageEnd.toISOString()
+        : '',
       firstName1,
       lastName1,
       maidenName1: maidenName1 || '',

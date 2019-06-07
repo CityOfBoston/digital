@@ -4,13 +4,13 @@ import uuidv4 from 'uuid/v4';
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import { MemorableDateInput } from '@cityofboston/react-fleet';
 
-// import UploadableFile, { UploadableFileRecord } from '../models/UploadableFile';
+import UploadableFile, { UploadableFileRecord } from '../models/UploadableFile';
 
 import {
   MarriageCertificateRequestInformation,
   MarriageStep,
   JSONObject,
-  // JSONValue,
+  JSONValue,
 } from '../types';
 import { CERTIFICATE_COST } from '../../lib/costs';
 
@@ -24,7 +24,8 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   forSelf: null,
   howRelated: '',
   filedInBoston: '',
-  dateOfMarriage: null,
+  dateOfMarriageStart: null,
+  dateOfMarriageEnd: null,
   firstName1: '',
   firstName2: '',
   lastName1: '',
@@ -42,8 +43,8 @@ export const QUESTION_STEPS: MarriageStep[] = [
   'forWhom',
   'filedInBoston',
   'dateOfMarriage',
-  'namesOnRecord',
-  'parentalInformation',
+  'personOnRecord1',
+  'personOnRecord2',
 ];
 
 export const VERIFY_IDENTIFICATION_STEPS: MarriageStep[] = [
@@ -61,9 +62,9 @@ export const CHECKOUT_STEPS: MarriageStep[] = [
  * Type that has all the same keys as MarriageCertificateRequestInformation but its
  * values are all JSON-serializable.
  */
-// type MarriageCertificateRequestInformationJson = {
-//   [k in NonNullable<keyof MarriageCertificateRequestInformation>]: JSONValue
-// };
+type MarriageCertificateRequestInformationJson = {
+  [k in NonNullable<keyof MarriageCertificateRequestInformation>]: JSONValue
+};
 
 const SESSION_STORAGE_KEY = 'marriageCertificateRequest';
 
@@ -117,38 +118,40 @@ export default class MarriageCertificateRequest {
    * snapshot serializer to use it.
    */
   serializeToJSON(): JSONObject {
-    // const serializedRequestInformation: MarriageCertificateRequestInformation = {
-    //   altSpelling: this.requestInformation.altSpelling,
-    //   birthDate: this.requestInformation.birthDate
-    //     ? this.requestInformation.birthDate.toISOString()
-    //     : null,
-    //   bornInBoston: this.requestInformation.bornInBoston,
-    //   firstName: this.requestInformation.firstName,
-    //   forSelf: this.requestInformation.forSelf,
-    //   howRelated: this.requestInformation.howRelated || null,
-    //   lastName: this.requestInformation.lastName,
-    //   parent1FirstName: this.requestInformation.parent1FirstName,
-    //   parent1LastName: this.requestInformation.parent1LastName,
-    //   parent2FirstName: this.requestInformation.parent2FirstName,
-    //   parent2LastName: this.requestInformation.parent2LastName,
-    //   parentsLivedInBoston:
-    //     this.requestInformation.parentsLivedInBoston || null,
-    //   parentsMarried: this.requestInformation.parentsMarried,
-    //   idImageBack: this.requestInformation.idImageBack
-    //     ? this.requestInformation.idImageBack.record
-    //     : null,
-    //   idImageFront: this.requestInformation.idImageFront
-    //     ? this.requestInformation.idImageFront.record
-    //     : null,
-    //   supportingDocuments: this.requestInformation.supportingDocuments.map(
-    //     f => f.record
-    //   ),
-    // };
+    const serializedRequestInformation: MarriageCertificateRequestInformationJson = {
+      forSelf: this.requestInformation.forSelf,
+      howRelated: this.requestInformation.howRelated || null,
+      filedInBoston: this.requestInformation.filedInBoston,
+      firstName1: this.requestInformation.firstName1,
+      lastName1: this.requestInformation.lastName1,
+      lastName2: this.requestInformation.lastName2,
+      firstName2: this.requestInformation.firstName2,
+      maidenName1: this.requestInformation.maidenName1 || null,
+      maidenName2: this.requestInformation.maidenName2 || null,
+      parentsMarried1: this.requestInformation.parentsMarried1,
+      parentsMarried2: this.requestInformation.parentsMarried2,
+      dateOfMarriageStart: this.requestInformation.dateOfMarriageStart
+        ? this.requestInformation.dateOfMarriageStart.toISOString()
+        : null,
+      dateOfMarriageEnd: this.requestInformation.dateOfMarriageEnd
+        ? this.requestInformation.dateOfMarriageEnd.toISOString()
+        : null,
+
+      idImageBack: this.requestInformation.idImageBack
+        ? this.requestInformation.idImageBack.record
+        : null,
+      idImageFront: this.requestInformation.idImageFront
+        ? this.requestInformation.idImageFront.record
+        : null,
+      supportingDocuments: this.requestInformation.supportingDocuments.map(
+        f => f.record
+      ),
+    };
 
     return {
       quantity: this.quantity,
       uploadSessionId: this.uploadSessionId,
-      // requestInformation: serializedRequestInformation,
+      requestInformation: serializedRequestInformation,
     };
   }
 
@@ -159,42 +162,45 @@ export default class MarriageCertificateRequest {
   replaceWithJson(obj: any) {
     this.quantity = obj.quantity;
     this.uploadSessionId = obj.uploadSessionId;
-    // this.requestInformation = {
-    //   altSpelling: obj.requestInformation.altSpelling,
-    //   birthDate: obj.requestInformation.birthDate
-    //     ? new Date(obj.requestInformation.birthDate)
-    //     : null,
-    //   bornInBoston: obj.requestInformation.bornInBoston,
-    //   firstName: obj.requestInformation.firstName,
-    //   forSelf: obj.requestInformation.forSelf,
-    //   howRelated: obj.requestInformation.howRelated,
-    //   idImageBack: obj.requestInformation.idImageBack
-    //     ? UploadableFile.fromRecord(
-    //         obj.requestInformation.idImageBack,
-    //         this.uploadSessionId,
-    //         'id back'
-    //       )
-    //     : null,
-    //   idImageFront: obj.requestInformation.idImageFront
-    //     ? UploadableFile.fromRecord(
-    //         obj.requestInformation.idImageFront,
-    //         this.uploadSessionId,
-    //         'id front'
-    //       )
-    //     : null,
-    //   lastName: obj.requestInformation.lastName,
-    //   parent1FirstName: obj.requestInformation.parent1FirstName,
-    //   parent1LastName: obj.requestInformation.parent1LastName,
-    //   parent2FirstName: obj.requestInformation.parent2FirstName,
-    //   parent2LastName: obj.requestInformation.parent2LastName,
-    //   parentsLivedInBoston: obj.requestInformation.parentsLivedInBoston,
-    //   parentsMarried: obj.requestInformation.parentsMarried,
-    //   supportingDocuments: (
-    //     obj.requestInformation.supportingDocuments || []
-    //   ).map((r: UploadableFileRecord) =>
-    //     UploadableFile.fromRecord(r, this.uploadSessionId)
-    //   ),
-    // };
+    this.requestInformation = {
+      forSelf: obj.requestInformation.forSelf,
+      howRelated: obj.requestInformation.howRelated,
+      filedInBoston: obj.requestInformation.filedInBoston,
+      dateOfMarriageStart: obj.requestInformation.dateOfMarriageStart
+        ? new Date(obj.requestInformation.dateOfMarriageStart)
+        : null,
+      dateOfMarriageEnd: obj.requestInformation.dateOfMarriageEnd
+        ? new Date(obj.requestInformation.dateOfMarriageEnd)
+        : null,
+      firstName1: obj.requestInformation.firstName1,
+      firstName2: obj.requestInformation.firstName2,
+      lastName1: obj.requestInformation.lastName1,
+      lastName2: obj.requestInformation.lastName2,
+      maidenName1: obj.requestInformation.maidenName1,
+      maidenName2: obj.requestInformation.maidenName2,
+      parentsMarried1: obj.requestInformation.parentsMarried1,
+      parentsMarried2: obj.requestInformation.parentsMarried2,
+
+      idImageBack: obj.requestInformation.idImageBack
+        ? UploadableFile.fromRecord(
+            obj.requestInformation.idImageBack,
+            this.uploadSessionId,
+            'id back'
+          )
+        : null,
+      idImageFront: obj.requestInformation.idImageFront
+        ? UploadableFile.fromRecord(
+            obj.requestInformation.idImageFront,
+            this.uploadSessionId,
+            'id front'
+          )
+        : null,
+      supportingDocuments: (
+        obj.requestInformation.supportingDocuments || []
+      ).map((r: UploadableFileRecord) =>
+        UploadableFile.fromRecord(r, this.uploadSessionId)
+      ),
+    };
   }
 
   @action
@@ -307,7 +313,7 @@ export default class MarriageCertificateRequest {
       forSelf,
       howRelated,
       filedInBoston,
-      dateOfMarriage,
+      dateOfMarriageStart,
       firstName1,
       firstName2,
       lastName1,
@@ -330,7 +336,7 @@ export default class MarriageCertificateRequest {
     }
 
     // dateOfMarriage
-    if (dateOfMarriage) {
+    if (dateOfMarriageStart) {
       steps.dateOfMarriage = true;
     }
 
@@ -365,9 +371,10 @@ export default class MarriageCertificateRequest {
     this.uploadSessionId = uuidv4();
   }
 
+  // todo !!
   @computed
   public get dateString(): string {
-    const date = this.requestInformation.dateOfMarriage || null;
+    const date = this.requestInformation.dateOfMarriageStart || null;
 
     if (date) {
       return MemorableDateInput.formattedDateUtc(date);
@@ -450,8 +457,9 @@ export default class MarriageCertificateRequest {
     const { parentsMarried1, parentsMarried2 } = this.requestInformation;
 
     return (
-      (parentsMarried1.length > 0 && parentsMarried1 !== 'yes') ||
-      (parentsMarried2.length > 0 && parentsMarried2 !== 'yes')
+      parentsMarried1 === 'no' ||
+      parentsMarried1 === 'unknown' ||
+      (parentsMarried2 === 'no' || parentsMarried2 === 'unknown')
     );
   }
 }
