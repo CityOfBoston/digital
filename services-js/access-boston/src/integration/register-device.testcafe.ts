@@ -34,7 +34,7 @@ test.only('Device registration', async t => {
 
   await t
     .click(mfaPage.emailLink)
-    .typeText(mfaPage.emailField, 'test@boston.gov', { paste: true })
+    .typeText(mfaPage.emailField, 'test@boston.gov')
     .pressKey('tab')
     .expect(mfaPage.form.innerText)
     .contains(
