@@ -216,6 +216,7 @@ const CARD_SELECT_STYLE = css({
 
 const CARD_SELECT_FIELD_STYLE = css({
   height: '2rem',
+  lineHeight: 'initial',
   paddingRight: '3rem',
 });
 

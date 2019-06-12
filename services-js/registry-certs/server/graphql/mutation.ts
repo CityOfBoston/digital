@@ -56,7 +56,8 @@ interface BirthCertificateOrderItemInput {
  */
 interface MarriageCertificateOrderItemInput {
   /** ISO8601 format. Should be midnight UTC on the date. */
-  dateOfMarriage: string;
+  dateOfMarriageStart: string;
+  dateOfMarriageEnd: string | null;
   firstName1: string;
   lastName1: string;
   maidenName1: string;
@@ -549,13 +550,16 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const requestItemKey = await registryDb.addMarriageCertificateRequest(
       orderKey,
       {
-        firstName1: item.firstName1,
-        lastName1: item.lastName1,
-        maidenName1: item.maidenName1,
-        firstName2: item.firstName2,
-        lastName2: item.lastName2,
-        maidenName2: item.maidenName2,
-        dateOfMarriage: new Date(item.dateOfMarriage), // todo
+        certificateFirstName1: item.firstName1,
+        certificateLastName1: item.lastName1,
+        certificateMaidenName1: item.maidenName1,
+        certificateFirstName2: item.firstName2,
+        certificateLastName2: item.lastName2,
+        certificateMaidenName2: item.maidenName2,
+        dateOfMarriageStart: new Date(item.dateOfMarriageStart),
+        dateOfMarriageEnd: item.dateOfMarriageEnd
+          ? new Date(item.dateOfMarriageEnd)
+          : null,
         requestDetails: item.notes,
       },
       item.quantity,

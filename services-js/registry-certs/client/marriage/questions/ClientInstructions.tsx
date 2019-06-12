@@ -18,7 +18,7 @@ export default class ClientInstructions extends Component<Props> {
         handleStepBack={this.props.handleStepBack}
         allowProceed={false}
       >
-        <ClientInstructionsContent certificateType="birth" />
+        <ClientInstructionsContent certificateType="marriage" />
       </QuestionComponent>
     );
   }

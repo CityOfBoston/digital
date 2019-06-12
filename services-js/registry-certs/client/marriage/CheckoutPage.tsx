@@ -198,7 +198,7 @@ export default class MarriageCheckoutPage extends React.Component<
    */
   submitOrder = async () => {
     const {
-      // checkoutDao,
+      checkoutDao,
       marriageCertificateRequest,
       siteAnalytics,
       orderProvider,
@@ -211,13 +211,12 @@ export default class MarriageCheckoutPage extends React.Component<
     }
 
     const stepCount = marriageCertificateRequest.steps.length;
-
-    // todo
     const orderId = 'orderId';
-    // await checkoutDao.submitMarriageCertificateRequest(
-    // marriageCertificateRequest,
-    // order
-    // );
+
+    await checkoutDao.submitMarriageCertificateRequest(
+      marriageCertificateRequest,
+      order
+    );
 
     const confirmationUrl = `/marriage/checkout?page=confirmation&orderId=${encodeURIComponent(
       orderId

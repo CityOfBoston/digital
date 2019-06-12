@@ -19,7 +19,6 @@ birthCertificateRequest.setRequestInformation(birthCertRequest);
 marriageCertificateRequest.setRequestInformation(marriageCertRequest);
 
 storiesOf('Common Components/ReviewCertificateRequest', module)
-  // .addDecorator(story => <NarrowWrapper>{story()}</NarrowWrapper>)
   .add('birth', () => (
     <ReviewCertificateRequest
       certificateType="birth"

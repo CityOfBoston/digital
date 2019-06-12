@@ -1,15 +1,15 @@
 import React, { MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
-import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 import VerifyIdentificationComponent from '../../common/question-components/VerifyIdentificationComponent';
 import UploadableFile from '../../models/UploadableFile';
 
 interface Props {
-  siteAnalytics;
-  birthCertificateRequest: BirthCertificateRequest;
+  siteAnalytics?;
+  marriageCertificateRequest: MarriageCertificateRequest;
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
 }
@@ -17,21 +17,21 @@ interface Props {
 @observer
 export default class VerifyIdentification extends React.Component<Props> {
   updateSupportingDocuments = (documents: UploadableFile[]): void => {
-    this.props.birthCertificateRequest.answerQuestion({
+    this.props.marriageCertificateRequest.answerQuestion({
       supportingDocuments: documents,
     });
   };
 
   updateIdImage = (side: string, file: File): void => {
-    const { birthCertificateRequest } = this.props;
+    const { marriageCertificateRequest } = this.props;
 
     const existingFile =
       side === 'front'
-        ? birthCertificateRequest.requestInformation.idImageFront
-        : birthCertificateRequest.requestInformation.idImageBack;
+        ? marriageCertificateRequest.requestInformation.idImageFront
+        : marriageCertificateRequest.requestInformation.idImageBack;
 
     if (existingFile) {
-      existingFile.delete('birth');
+      existingFile.delete('marriage');
     }
 
     let uploadableFile: UploadableFile | null = null;
@@ -39,19 +39,19 @@ export default class VerifyIdentification extends React.Component<Props> {
     if (file) {
       uploadableFile = new UploadableFile(
         file,
-        birthCertificateRequest.uploadSessionId,
+        marriageCertificateRequest.uploadSessionId,
         side === 'front' ? 'id front' : 'id back'
       );
 
-      uploadableFile.upload('birth');
+      uploadableFile.upload('marriage');
     }
 
     if (side === 'front') {
-      birthCertificateRequest.answerQuestion({
+      marriageCertificateRequest.answerQuestion({
         idImageFront: uploadableFile,
       });
     } else if (side === 'back') {
-      birthCertificateRequest.answerQuestion({
+      marriageCertificateRequest.answerQuestion({
         idImageBack: uploadableFile,
       });
     }
@@ -62,7 +62,7 @@ export default class VerifyIdentification extends React.Component<Props> {
       supportingDocuments,
       idImageFront,
       idImageBack,
-    } = this.props.birthCertificateRequest.requestInformation;
+    } = this.props.marriageCertificateRequest.requestInformation;
 
     const canProceed = !!idImageFront && idImageFront.status === 'success';
 
@@ -76,13 +76,15 @@ export default class VerifyIdentification extends React.Component<Props> {
         <VerifyIdentificationComponent
           siteAnalytics={this.props.siteAnalytics}
           sectionsToDisplay="all"
-          uploadSessionId={this.props.birthCertificateRequest.uploadSessionId}
+          uploadSessionId={
+            this.props.marriageCertificateRequest.uploadSessionId
+          }
           supportingDocuments={supportingDocuments}
           updateSupportingDocuments={this.updateSupportingDocuments}
           updateIdImages={this.updateIdImage}
           idImageBack={idImageBack}
           idImageFront={idImageFront}
-          certificateType="birth"
+          certificateType="marriage"
         />
       </QuestionComponent>
     );

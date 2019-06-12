@@ -13,16 +13,16 @@ import {
   ContactForm,
 } from '@cityofboston/react-fleet';
 
-import FieldsetComponent from '../../common/question-components/FieldsetComponent';
-import SupportingDocumentsInput from './SupportingDocumentsInput';
-import IdIcon from '../../common/icons/IdIcon';
+import { capitalize } from '../../../lib/helpers';
 
+import { CertificateType } from '../../types';
 import UploadableFile from '../../models/UploadableFile';
 
-import {
-  SECTION_HEADING_STYLING,
-  SUPPORTING_TEXT_CLASSNAME,
-} from '../../common/question-components/styling';
+import FieldsetComponent from './FieldsetComponent';
+import SupportingDocumentsInput from '../SupportingDocumentsInput';
+import IdIcon from '../icons/IdIcon';
+
+import { SECTION_HEADING_STYLING, SUPPORTING_TEXT_CLASSNAME } from './styling';
 
 // Images that are likely output from scanners or phone cameras
 const SUPPORTED_MIME_TYPES =
@@ -34,6 +34,7 @@ interface Props {
   siteAnalytics;
   sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
   uploadSessionId: string;
+  certificateType: CertificateType;
 
   supportingDocuments: UploadableFile[];
   updateSupportingDocuments: (documents: UploadableFile[]) => void;
@@ -78,14 +79,14 @@ export default class VerifyIdentificationComponent extends Component<Props> {
     }
 
     this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
-      category: 'Birth',
+      category: capitalize(this.props.certificateType),
       label: labelText,
     });
   };
 
   private handlePhotoDrop = (side: Side, image: File | null): void => {
     this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
-      category: 'Birth',
+      category: capitalize(this.props.certificateType),
       label: 'drop to add',
     });
 
@@ -94,7 +95,7 @@ export default class VerifyIdentificationComponent extends Component<Props> {
 
   private handleSendEventClick = (label: string): void => {
     this.props.siteAnalytics.sendEvent('click', {
-      category: 'Birth',
+      category: capitalize(this.props.certificateType),
       label,
     });
   };
@@ -108,7 +109,9 @@ export default class VerifyIdentificationComponent extends Component<Props> {
   }
 
   private renderAll() {
-    const { idImageBack, idImageFront } = this.props;
+    const { certificateType, idImageBack, idImageFront } = this.props;
+    const emailName =
+      certificateType === 'birth' ? certificateType : 'registry';
 
     return (
       <>
@@ -121,17 +124,18 @@ export default class VerifyIdentificationComponent extends Component<Props> {
         </p>
 
         <p className={SUPPORTING_TEXT_CLASSNAME}>
-          <em>Please note</em>: You must be a person or parent listed on the
-          record to get a copy of the record. If you are not listed on the
+          <em>Please note</em>: You must be{' '}
+          {certificateType === 'birth' && 'a person or parent'} listed on the
+          record to get a copy of the certificate. If you are not listed on the
           record, you will not be able to get a copy. We will cancel your
           request and will not charge your card. Contact{' '}
           <a
-            href="mailto:birth@boston.gov"
+            href={`mailto:${emailName}@boston.gov`}
             onClick={ContactForm.makeMailtoClickHandler(
-              'birth-cert-feedback-form'
+              `${certificateType}-cert-feedback-form`
             )}
           >
-            birth@boston.gov
+            {emailName}@boston.gov
           </a>{' '}
           with questions.
         </p>
@@ -210,11 +214,13 @@ export default class VerifyIdentificationComponent extends Component<Props> {
         <p className={`m-b700 ${SUPPORTING_TEXT_CLASSNAME}`}>
           We can help explain your options.{' '}
           <a
-            href={`mailto:birth@boston.gov?subject=${encodeURIComponent(
-              'Birth Certificate Support Request: No ID'
+            href={`mailto:${emailName}@boston.gov?subject=${encodeURIComponent(
+              `${capitalize(
+                certificateType
+              )} Certificate Support Request: No ID`
             )}`}
             onClick={ContactForm.makeMailtoClickHandler(
-              'birth-cert-no-id-form'
+              `${certificateType}-cert-no-id-form`
             )}
             onMouseUp={() => this.handleSendEventClick('no id; requested help')}
           >
@@ -226,13 +232,17 @@ export default class VerifyIdentificationComponent extends Component<Props> {
   }
 
   private renderSupportingDocumentsOnly() {
+    const { certificateType } = this.props;
+    const emailName =
+      certificateType === 'birth' ? certificateType : 'registry';
+
     return (
       <>
         <h2 css={SECTION_HEADING_STYLING}>Upload supporting documents</h2>
 
         <p>
           We need more information. If you have questions, contact{' '}
-          <a href="mailto:birth@boston.gov">birth@boston.gov</a>.
+          <a href={`mailto:${emailName}@boston.gov`}>{emailName}@boston.gov</a>.
         </p>
 
         {this.renderSupportingDocumentsInput()}
@@ -247,6 +257,7 @@ export default class VerifyIdentificationComponent extends Component<Props> {
         selectedFiles={this.props.supportingDocuments}
         handleInputChange={this.handleSupportingDocumentsChange}
         acceptTypes={SUPPORTED_MIME_TYPES}
+        certificateType={this.props.certificateType}
       />
     );
   }

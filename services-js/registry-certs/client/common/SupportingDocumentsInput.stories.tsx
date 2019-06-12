@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import SupportingDocumentsInput from './SupportingDocumentsInput';
-import UploadableFile, { Status } from '../../models/UploadableFile';
+import UploadableFile, { Status } from '../models/UploadableFile';
 
 function sampleFile(status: Status, progress: number = 0) {
   return Object.assign(
@@ -17,13 +17,14 @@ function sampleFile(status: Status, progress: number = 0) {
   );
 }
 
-storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
+storiesOf('Common Components/SupportingDocumentsInput', module)
   .add('empty', () => (
     <SupportingDocumentsInput
       selectedFiles={[]}
       uploadSessionId="id"
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ))
   .add('documents uploading', () => (
@@ -32,6 +33,7 @@ storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
       selectedFiles={[sampleFile('uploading', 23)]}
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ))
   .add('documents successfully uploaded', () => (
@@ -40,6 +42,7 @@ storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
       selectedFiles={[sampleFile('success')]}
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ))
   .add('error uploading one document', () => (
@@ -48,6 +51,7 @@ storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
       selectedFiles={[sampleFile('uploadError')]}
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ))
   .add('error deleting document', () => (
@@ -56,6 +60,7 @@ storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
       selectedFiles={[sampleFile('deletionError')]}
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ))
   .add('cancel in progress', () => (
@@ -64,6 +69,7 @@ storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
       selectedFiles={[sampleFile('canceling')]}
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ))
   .add('delete in progress', () => (
@@ -72,6 +78,7 @@ storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
       selectedFiles={[sampleFile('deleting')]}
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ))
   .add('all three statuses', () => (
@@ -84,5 +91,6 @@ storiesOf('Birth/Question Components/SupportingDocumentsInput', module)
       ]}
       handleInputChange={() => {}}
       acceptTypes="application/pdf"
+      certificateType="birth"
     />
   ));

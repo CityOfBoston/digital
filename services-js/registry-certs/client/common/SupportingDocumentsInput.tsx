@@ -4,6 +4,8 @@ import { css, jsx } from '@emotion/core';
 
 import { createRef, Component } from 'react';
 
+import { observer } from 'mobx-react';
+
 // todo: prevent next/back while uploads pending
 
 import {
@@ -18,16 +20,18 @@ import {
   WHITE,
 } from '@cityofboston/react-fleet';
 
-import AnswerIcon from '../../common/icons/AnswerIcon';
+import { CertificateType } from '../types';
 
-import UploadableFile from '../../models/UploadableFile';
-import { observer } from 'mobx-react';
+import AnswerIcon from './icons/AnswerIcon';
+
+import UploadableFile from '../models/UploadableFile';
 
 interface Props {
   uploadSessionId: string;
   selectedFiles: UploadableFile[];
   handleInputChange(files: UploadableFile[]): void;
   acceptTypes: string;
+  certificateType: CertificateType;
 }
 
 interface State {
@@ -85,7 +89,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
   };
 
   private addFilesFromInput = (files: FileList) => {
-    const { selectedFiles } = this.props;
+    const { certificateType, selectedFiles } = this.props;
 
     // Create an array from the FileList.
     const fileArray: UploadableFile[] = [];
@@ -103,7 +107,7 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
           this.props.uploadSessionId
         );
 
-        uploadableFile.upload('birth');
+        uploadableFile.upload(certificateType);
 
         fileArray.push(uploadableFile);
       }
@@ -130,9 +134,9 @@ ${file.name} is ${fileSize.amount.toFixed(2) +
     file: UploadableFile,
     didCancel?: boolean
   ): Promise<void> => {
-    const { selectedFiles } = this.props;
+    const { certificateType, selectedFiles } = this.props;
 
-    await file.delete('birth', didCancel);
+    await file.delete(certificateType, didCancel);
 
     this.props.handleInputChange(
       selectedFiles.filter(fileObject => fileObject !== file)

@@ -17,7 +17,7 @@ import PageWrapper from '../PageWrapper';
 import ForWhom from './questions/ForWhom';
 import BornInBoston from './questions/BornInBoston';
 import PersonalInformation from './questions/PersonalInformation';
-import ParentalInformation from './questions/ParentalInformation';
+import PersonOnRecord from './questions/ParentalInformation';
 import VerifyIdentification from './questions/VerifyIdentification';
 import ClientInstructions from './questions/ClientInstructions';
 import { ContactForm } from '@cityofboston/react-fleet';
@@ -284,11 +284,11 @@ export default class QuestionsPage extends React.Component<Props, State> {
         break;
 
       case 'parentalInformation':
-        isStepComplete = ParentalInformation.isComplete(
+        isStepComplete = PersonOnRecord.isComplete(
           localBirthCertificateRequest
         );
         questionsEl = (
-          <ParentalInformation
+          <PersonOnRecord
             birthCertificateRequest={localBirthCertificateRequest}
             handleProceed={this.advanceQuestion.bind(
               this,

@@ -4,7 +4,7 @@ export const TYPICAL_REQUEST: MarriageCertificateRequestInformation = {
   forSelf: true,
   howRelated: '',
   filedInBoston: 'yes',
-  dateOfMarriage: new Date(Date.UTC(2015, 5, 10)),
+  dateOfMarriageStart: new Date(Date.UTC(2015, 5, 10)),
   firstName1: 'Laurel',
   lastName1: 'Johnson',
   maidenName1: 'Smith',
