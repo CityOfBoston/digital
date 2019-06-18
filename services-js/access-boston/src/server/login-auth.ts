@@ -38,6 +38,9 @@ interface Paths {
   afterLoginUrl: string;
 }
 
+// Timeout after 8 hours; corresponds to Ping Federate Session configuration
+const MAX_TIMEOUT_LENGTH_MS = 480 * 60 * 1000;
+
 /**
  * Creates the SAML auth for the normal, login flow and adds it to the server.
  * Includes handlers for redirecting to the SAML SSO endpoint and handling its
@@ -54,7 +57,12 @@ export async function addLoginAuth(
     validate: request => {
       const auth = getSessionAuth(request, true);
 
-      if (auth && auth.type === 'login') {
+      if (
+        auth &&
+        auth.type === 'login' &&
+        // Adapted from forgot-password-auth.ts
+        Date.now() < (auth.createdTime || 0) + MAX_TIMEOUT_LENGTH_MS
+      ) {
         return { credentials: { loginAuth: auth } };
       } else {
         return null;
@@ -184,6 +192,7 @@ export async function addLoginAuth(
           sessionVersion: CURRENT_SESSION_VERSION,
           userId: nameId,
           sessionIndex,
+          createdTime: Date.now(),
         };
 
         setSessionAuth(request, loginAuth);

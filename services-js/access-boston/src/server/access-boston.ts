@@ -171,6 +171,9 @@ export async function makeServer(port, rollbar: Rollbar) {
         // If we happen to get POSTed to from the SAML provider we still want to
         // have our session available.
         isSameSite: false,
+        // Timeout after 15 mins of inactivity; corresponds to Ping Federate
+        // Session configuration
+        ttl: 15 * 60 * 1000,
       },
     },
   });

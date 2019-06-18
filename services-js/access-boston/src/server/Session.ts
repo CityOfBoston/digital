@@ -16,6 +16,7 @@ export interface LoginAuth {
   sessionVersion: number | undefined;
   userId: string;
   sessionIndex: string;
+  createdTime: number;
 }
 
 export interface ForgotPasswordAuth {
