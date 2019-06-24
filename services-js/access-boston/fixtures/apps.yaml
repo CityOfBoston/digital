@@ -25,7 +25,7 @@ categories:
         icon: /assets/apps/job-openings.svg
         url: https://careercenter-boston.icims.com/jobs/
         groups:
-          - sponsored_accounts
+          - SG_AB_ALLSPONSORED
       - title: Career Center
         url: https://boston.icims.com/platform
         icon: /assets/apps/career-center.svg
