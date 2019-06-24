@@ -3,6 +3,7 @@
 import { css, jsx } from '@emotion/core';
 
 import { useEffect, useState, Fragment, ReactChild } from 'react';
+
 import hash from 'string-hash';
 
 import { CLEAR_DEFAULT_STYLING } from '../utilities/css';
@@ -12,6 +13,7 @@ interface Props {
   summaryContent: ReactChild;
   id?: string;
   children: ReactChild | ReactChild[];
+  handleToggle?: (isOpen: boolean) => void;
 }
 
 /**
@@ -26,9 +28,11 @@ export default function DetailsDisclosure(props: Props): JSX.Element {
   >(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const toggleIsOpen = () => {
-    setIsOpen(isOpen => !isOpen);
-  };
+  useEffect(() => {
+    if (props.handleToggle) {
+      props.handleToggle(isOpen);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     // ie11 does not support the <details> element, but we can test for support
@@ -38,37 +42,67 @@ export default function DetailsDisclosure(props: Props): JSX.Element {
     setDetailsElementIsSupported('open' in testElement);
   }, []); // effect only needs to run once
 
-  if (detailsElementIsSupported) {
-    return (
-      <details css={DETAILS_STYLING}>
-        <summary>{summaryElement(props.summaryContent)}</summary>
-
-        {props.children}
-      </details>
-    );
-  } else {
-    // If an id is not passed in, a unique id is required in case more
-    // than one <DetailsDisclosure> component is present.
-    const id = props.id || hash(props.summaryContent);
-
-    return (
-      <div css={FALLBACK_STYLING}>
-        <button
-          type="button"
-          css={CLEAR_DEFAULT_STYLING.BUTTON}
-          aria-expanded={isOpen}
-          aria-controls={id}
-          onClick={toggleIsOpen}
+  return (
+    <Fragment>
+      {detailsElementIsSupported ? (
+        // @ts-ignore - DetailsHTMLAttributes<T> erroneously does not include onToggle
+        <details
+          css={DETAILS_STYLING}
+          onToggle={() => setIsOpen(isOpen => !isOpen)}
         >
-          {summaryElement(props.summaryContent)}
-        </button>
+          <summary>{summaryElement(props.summaryContent)}</summary>
 
-        <div id={id} className="details-content">
           {props.children}
-        </div>
+        </details>
+      ) : (
+        <Fallback
+          summaryContent={props.summaryContent}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        >
+          {props.children}
+        </Fallback>
+      )}
+    </Fragment>
+  );
+}
+
+interface FallbackProps {
+  children: ReactChild | Array<ReactChild>;
+  summaryContent: ReactChild;
+  isOpen: boolean;
+  setIsOpen: any;
+  id?: string;
+}
+
+function Fallback(props: FallbackProps) {
+  const { children, isOpen, setIsOpen, summaryContent } = props;
+
+  // If an id is not passed in, a unique id is required in case more
+  // than one <DetailsDisclosure> component is present.
+  const id = props.id || hash(props.summaryContent);
+
+  const toggleIsOpen = () => {
+    setIsOpen(isOpen => !isOpen);
+  };
+
+  return (
+    <div css={FALLBACK_STYLING} id={id}>
+      <button
+        type="button"
+        css={CLEAR_DEFAULT_STYLING.BUTTON}
+        aria-expanded={isOpen}
+        aria-controls={`${id}-content`}
+        onClick={toggleIsOpen}
+      >
+        {summaryElement(summaryContent)}
+      </button>
+
+      <div id={`${id}-content`} className="details-content">
+        {children}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 function summaryElement(content: ReactChild): ReactChild {

@@ -153,6 +153,8 @@ export default class PaymentContent extends React.Component<Props, State> {
 
   async componentDidMount() {
     await runInitialValidation(this.formikRef);
+
+    window.scroll(0, 0);
   }
 
   componentWillUnmount() {

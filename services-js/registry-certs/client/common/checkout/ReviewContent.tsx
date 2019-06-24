@@ -76,6 +76,10 @@ export default class ReviewContent extends React.Component<Props, State> {
     order.regenerateIdempotencyKey();
   }
 
+  componentDidMount(): void {
+    window.scroll(0, 0);
+  }
+
   handleAcceptNonRefundable = (ev: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ acceptNonRefundable: ev.target.checked });
   };

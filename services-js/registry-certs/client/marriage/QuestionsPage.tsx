@@ -30,9 +30,7 @@ interface InitialProps {
 
 interface Props
   extends InitialProps,
-    Pick<PageDependencies, 'marriageCertificateRequest' | 'siteAnalytics'> {
-  testDontScroll?: boolean;
-}
+    Pick<PageDependencies, 'marriageCertificateRequest'> {}
 
 interface State {
   /**
@@ -125,16 +123,12 @@ export default class QuestionsPage extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (!this.props.testDontScroll) {
-      window.scroll(0, 0);
-    }
+    window.scroll(0, 0);
   }
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.currentStep !== this.props.currentStep) {
-      if (!this.props.testDontScroll) {
-        window.scroll(0, 0);
-      }
+      window.scroll(0, 0);
     }
   }
 
@@ -177,53 +171,6 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     Router.push(`/marriage?step=${steps[newIndex]}`);
   };
-
-  // // Determine correct GA Action and Label for the events to be sent during
-  // // each step in the questions flow.
-  // private gaEventActionAndLabel = (): void => {
-  //   const { currentStep } = this.props;
-  //   const { requestInformation } = this.props.birthCertificateRequest;
-  //   const {
-  //     bornInBoston,
-  //     parentsLivedInBoston,
-  //     parentsMarried,
-  //     birthDate,
-  //   } = requestInformation;
-  //
-  //   if (currentStep === 'forWhom') {
-  //     this.gaAnswerQuestion('ordering for', orderingFor(requestInformation));
-  //   } else if (currentStep === 'bornInBoston') {
-  //     this.gaAnswerQuestion('born in Boston', bornInBoston);
-  //
-  //     if (parentsLivedInBoston && parentsLivedInBoston.length > 0) {
-  //       this.gaAnswerQuestion('parents lived in Boston', parentsLivedInBoston);
-  //     }
-  //   } else if (currentStep === 'personalInformation' && birthDate) {
-  //     this.gaAnswerQuestion(
-  //       'birth year',
-  //       birthDate.getUTCFullYear().toString()
-  //     );
-  //   } else if (currentStep === 'parentalInformation') {
-  //     this.gaAnswerQuestion('parents married', parentsMarried);
-  //   }
-  //
-  //   function orderingFor(requestInformation): string {
-  //     const { forSelf, howRelated } = requestInformation;
-  //
-  //     if (forSelf) {
-  //       return 'self';
-  //     } else {
-  //       return howRelated as string;
-  //     }
-  //   }
-  // };
-
-  // gaAnswerQuestion = (action: string, label: string): void => {
-  //   this.props.siteAnalytics.sendEvent(action, {
-  //     category: 'Birth',
-  //     label,
-  //   });
-  // };
 
   // Clear all data and return to initial question.
   private handleUserReset = (): void => {
@@ -338,7 +285,6 @@ export default class QuestionsPage extends React.Component<Props, State> {
         // need to still be there.
         questionsEl = (
           <VerifyIdentification
-            siteAnalytics={this.props.siteAnalytics}
             marriageCertificateRequest={marriageCertificateRequest}
             handleProceed={this.advanceQuestion.bind(
               this,

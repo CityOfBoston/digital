@@ -1,8 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { GaSiteAnalytics } from '@cityofboston/next-client-common';
-
 import CheckoutDao from '../dao/CheckoutDao';
 import Order, { OrderInfo } from '../models/Order';
 import OrderProvider from '../store/OrderProvider';
@@ -81,7 +79,6 @@ storiesOf('Marriage/CheckoutPage', module)
     <CheckoutPage
       marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'shipping' }}
-      siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       // This never resolves, so we just get the initial render.
@@ -92,7 +89,6 @@ storiesOf('Marriage/CheckoutPage', module)
     <CheckoutPage
       marriageCertificateRequest={new MarriageCertificateRequest()}
       info={{ page: 'shipping' }}
-      siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       // This never resolves, so we just get the initial render.
@@ -104,7 +100,6 @@ storiesOf('Marriage/CheckoutPage', module)
     <CheckoutPage
       marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'shipping' }}
-      siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
@@ -115,7 +110,6 @@ storiesOf('Marriage/CheckoutPage', module)
     <CheckoutPage
       marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'payment' }}
-      siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
@@ -126,7 +120,6 @@ storiesOf('Marriage/CheckoutPage', module)
     <CheckoutPage
       marriageCertificateRequest={makeMarriageCertificateRequest()}
       info={{ page: 'review' }}
-      siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
@@ -142,7 +135,6 @@ storiesOf('Marriage/CheckoutPage', module)
         orderId: 'RG-BC201901-414211',
         contactEmail: 'ttoe@squirrelzone.net',
       }}
-      siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}

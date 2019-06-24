@@ -272,6 +272,7 @@ export interface INovahClient {
 const ORDER_TYPE_TO_ALLOCATION_CODE = {
   DC: 'REG13',
   BC: 'REG14',
+  MC: 'REG15',
 };
 
 export class INovahFactory {

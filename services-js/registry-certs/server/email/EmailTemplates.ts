@@ -179,6 +179,16 @@ export class EmailTemplates {
     const registryEmail =
       orderType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
 
+    // returns date string inside parentheses
+    const dateString = (date): string => {
+      return `(${moment(date)
+        // Database times are midnight UTC. We need to specify UTC or else
+        // we’ll print the day before, because midnight UTC is the day
+        // before in Boston.
+        .tz('UTC')
+        .format('l')})`;
+    };
+
     return this.receiptEmailRenderer(
       {
         ...receipt,
@@ -191,16 +201,9 @@ export class EmailTemplates {
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Certified ${orderType} certificate for ${name} (${
-            date
-              ? moment(date)
-                  // Database times are midnight UTC. We need to specify UTC or else
-                  // we'll print the day before, because midnight UTC is the day
-                  // before in Boston.
-                  .tz('UTC')
-                  .format('l')
-              : ''
-          })`,
+          description: `Certified ${orderType} certificate for ${name} ${
+            orderType === 'birth' ? dateString(date) : ''
+          }`,
         })),
 
         ...orderText,

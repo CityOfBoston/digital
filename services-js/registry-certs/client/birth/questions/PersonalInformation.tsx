@@ -23,7 +23,6 @@ const EARLIEST_DATE = new Date(Date.UTC(1870, 0, 1));
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
-  showRecentBirthWarning?: boolean;
 
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
@@ -125,8 +124,8 @@ export default class PersonalInformation extends Component<Props> {
           />
         </div>
 
-        {(this.props.showRecentBirthWarning ||
-          (birthDate && isDateWithinPastThreeWeeks(birthDate))) &&
+        {birthDate &&
+          isDateWithinPastTenDays(birthDate) &&
           this.renderRecentBirthWarningText()}
       </QuestionComponent>
     );
@@ -157,9 +156,9 @@ export default class PersonalInformation extends Component<Props> {
   }
 }
 
-function isDateWithinPastThreeWeeks(date: Date): boolean {
+function isDateWithinPastTenDays(date: Date): boolean {
   const dayInMs = 8.64e7;
-  const threeWeeksAgo = new Date(Date.now() - 21 * dayInMs);
+  const tenDaysAgo = new Date(Date.now() - 10 * dayInMs);
 
-  return threeWeeksAgo < date;
+  return tenDaysAgo < date;
 }

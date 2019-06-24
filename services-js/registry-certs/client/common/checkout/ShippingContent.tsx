@@ -89,6 +89,8 @@ export default class ShippingContent extends React.Component<Props> {
 
   async componentDidMount() {
     await runInitialValidation(this.formikRef);
+
+    window.scroll(0, 0);
   }
 
   validateForm = (values: ShippingInfo): { [key: string]: Array<string> } => {

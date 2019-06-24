@@ -1,8 +1,8 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
-import { ChangeEvent, Component, MouseEvent, ReactChild } from 'react';
+import { Component, MouseEvent } from 'react';
 
 import { observer } from 'mobx-react';
 
@@ -10,12 +10,12 @@ import RadioItemComponent from '../../common/question-components/RadioItemCompon
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 import RelatedIcon from '../../common/icons/RelatedIcon';
+import ClientInstructionsContent from '../../common/question-components/ClientInstructionsContent';
 
-import { Relation } from '../../types';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import {
-  HOW_RELATED_CONTAINER_STYLING,
+  NOTE_BOX_CLASSNAME,
   SECTION_HEADING_STYLING,
   RADIOGROUP_STYLING,
 } from '../../common/question-components/styling';
@@ -25,64 +25,64 @@ interface Props {
   handleProceed: (ev: MouseEvent) => void;
 }
 
+type Whom = 'self' | 'other' | 'client' | null;
+
+interface State {
+  forWhom: Whom;
+}
+
 /**
- * Initial question of the workflow. If the user is not requesting their
- * own record, the howRelated question is also asked.
- *
- * Copied from Birth’s forWhom question, with some changes to howRelated options
+ * Initial question of the workflow. Selecting “my client” displays
+ * ClientInstructions, and prevents the user from proceeding.
  */
 @observer
-export default class ForWhom extends Component<Props> {
+export default class ForWhom extends Component<Props, State> {
+  constructor(props) {
+    super(props);
+
+    function startingValue(): Whom {
+      const { forSelf } = props.marriageCertificateRequest.requestInformation;
+
+      if (forSelf !== null) {
+        return forSelf === true ? 'self' : 'other';
+      } else {
+        return null;
+      }
+    }
+
+    this.state = {
+      forWhom: startingValue(),
+    };
+  }
+
   public static isComplete(
     marriageCertificateRequest: MarriageCertificateRequest
   ): boolean {
-    const {
-      forSelf,
-      howRelated,
-    } = marriageCertificateRequest.requestInformation;
-    return !!(forSelf === true || howRelated);
+    return marriageCertificateRequest.requestInformation.forSelf !== null;
   }
 
-  private handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
-    const { marriageCertificateRequest } = this.props;
-    marriageCertificateRequest.answerQuestion({
-      [ev.currentTarget.name]: ev.currentTarget.value,
-    });
-  };
+  private handleChange(forWhom: Whom) {
+    this.setState({ forWhom });
+  }
 
-  private handleBooleanChange = (ev: ChangeEvent<HTMLInputElement>) => {
-    const { marriageCertificateRequest } = this.props;
-    marriageCertificateRequest.answerQuestion({
-      [ev.currentTarget.name]: ev.currentTarget.value === 'true',
-    });
-  };
+  public componentDidUpdate(
+    _prevProps: Readonly<Props>,
+    prevState: Readonly<State>
+  ): void {
+    const { forWhom } = this.state;
 
-  private relationQuestion(
-    answerValue: Relation,
-    questionDisplayText: string
-  ): ReactChild {
-    const {
-      requestInformation: { howRelated },
-    } = this.props.marriageCertificateRequest;
+    if (prevState.forWhom !== forWhom) {
+      const isClient = forWhom === 'client';
 
-    return (
-      <RadioItemComponent
-        questionName="howRelated"
-        questionValue={howRelated}
-        itemValue={answerValue}
-        labelText={questionDisplayText}
-        handleChange={this.handleChange}
-      >
-        <RelatedIcon name={answerValue} />
-      </RadioItemComponent>
-    );
+      this.props.marriageCertificateRequest.answerQuestion({
+        forSelf: isClient ? null : forWhom === 'self',
+      });
+    }
   }
 
   public render() {
     const { marriageCertificateRequest, handleProceed } = this.props;
-    const { forSelf } = marriageCertificateRequest.requestInformation;
-
-    const forSelfValue: string = forSelf === null ? '' : forSelf.toString();
+    const { forWhom } = this.state;
 
     return (
       <QuestionComponent
@@ -103,52 +103,48 @@ export default class ForWhom extends Component<Props> {
           >
             <RadioItemComponent
               questionName="forSelf"
-              questionValue={forSelfValue}
-              itemValue="true"
+              questionValue={forWhom as string}
+              itemValue="self"
               labelText="Mine"
-              handleChange={this.handleBooleanChange}
+              handleChange={() => this.handleChange('self')}
             >
               <RelatedIcon name="myself" />
             </RadioItemComponent>
 
             <RadioItemComponent
               questionName="forSelf"
-              questionValue={forSelfValue}
-              itemValue="false"
+              questionValue={forWhom as string}
+              itemValue="other"
               labelText="Someone else’s"
-              handleChange={this.handleBooleanChange}
+              handleChange={() => this.handleChange('other')}
             >
               <RelatedIcon name="someoneElse" />
             </RadioItemComponent>
-          </div>
-        </FieldsetComponent>
 
-        {forSelf === false && (
-          <FieldsetComponent
-            legendText={
-              <h3 id="howRelated" css={SECTION_HEADING_STYLING}>
-                I’m ordering the marriage certificate of my…
-              </h3>
-            }
-          >
-            <div
-              role="radiogroup"
-              aria-labelledby="howRelated"
-              css={HOW_RELATED_CONTAINER_STYLING}
+            <RadioItemComponent
+              questionName="forSelf"
+              questionValue={forWhom as string}
+              itemValue="client"
+              labelText="My client"
+              handleChange={() => this.handleChange('client')}
             >
-              {this.relationQuestion('child', 'Child')}
+              <RelatedIcon name="client" />
+            </RadioItemComponent>
+          </div>
 
-              {this.relationQuestion('parent', 'Parent')}
-
-              {this.relationQuestion('familyMember', 'Family member')}
-
-              {this.relationQuestion('friend', 'Friend')}
-
-              {this.relationQuestion('client', 'Client')}
+          {forWhom === 'client' && (
+            <div className={NOTE_BOX_CLASSNAME} css={WARNING_BOX_STYLING}>
+              <ClientInstructionsContent certificateType="marriage" />
             </div>
-          </FieldsetComponent>
-        )}
+          )}
+        </FieldsetComponent>
       </QuestionComponent>
     );
   }
 }
+
+const WARNING_BOX_STYLING = css({
+  '> div': {
+    marginTop: '-0.25rem',
+  },
+});

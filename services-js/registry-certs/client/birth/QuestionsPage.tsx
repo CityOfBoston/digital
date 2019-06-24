@@ -28,9 +28,7 @@ interface InitialProps {
 
 interface Props
   extends InitialProps,
-    Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {
-  testDontScroll?: boolean;
-}
+    Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
 
 interface State {
   /**

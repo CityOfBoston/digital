@@ -130,7 +130,7 @@ export default async function submitBirthCertificateOrder(
   }
 
   // Birth Certificate Request Questions:
-  const notes = `
+  const requestDetails = `
 Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
 | Born in BOS: ${bornInBoston}${
     bornInBoston !== 'yes'
@@ -171,7 +171,7 @@ Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
       parent2FirstName: parent2FirstName || '',
       parent2LastName: parent2LastName || '',
       quantity,
-      notes,
+      requestDetails,
     },
     idempotencyKey,
   };

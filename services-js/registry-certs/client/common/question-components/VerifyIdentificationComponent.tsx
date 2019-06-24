@@ -31,7 +31,7 @@ const SUPPORTED_MIME_TYPES =
 type Side = 'front' | 'back';
 
 interface Props {
-  siteAnalytics;
+  siteAnalytics?: any;
   sectionsToDisplay?: 'all' | 'supportingDocumentsOnly';
   uploadSessionId: string;
   certificateType: CertificateType;
@@ -78,26 +78,32 @@ export default class VerifyIdentificationComponent extends Component<Props> {
       }
     }
 
-    this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
-      category: capitalize(this.props.certificateType),
-      label: labelText,
-    });
+    if (this.props.certificateType === 'birth') {
+      this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
+        category: 'Birth',
+        label: labelText,
+      });
+    }
   };
 
   private handlePhotoDrop = (side: Side, image: File | null): void => {
-    this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
-      category: capitalize(this.props.certificateType),
-      label: 'drop to add',
-    });
+    if (this.props.certificateType === 'birth') {
+      this.props.siteAnalytics.sendEvent(`photo ID ${side}`, {
+        category: 'Birth',
+        label: 'drop to add',
+      });
+    }
 
     this.handleIdImageChange(side, image);
   };
 
   private handleSendEventClick = (label: string): void => {
-    this.props.siteAnalytics.sendEvent('click', {
-      category: capitalize(this.props.certificateType),
-      label,
-    });
+    if (this.props.certificateType === 'birth') {
+      this.props.siteAnalytics.sendEvent('click', {
+        category: 'Birth',
+        label,
+      });
+    }
   };
 
   render() {

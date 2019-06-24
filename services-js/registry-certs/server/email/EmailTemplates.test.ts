@@ -64,7 +64,7 @@ const MARRIAGE_DETAILS = {
     {
       cost: 1400,
       quantity: 1,
-      name: 'Laurel (Smith) Johnson & Terry (Doe) Johnson',
+      name: 'Laurel Johnson & Terry Johnson',
       date: new Date('6/20/2016'),
     },
   ],

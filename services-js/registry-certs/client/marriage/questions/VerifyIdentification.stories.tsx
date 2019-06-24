@@ -17,7 +17,6 @@ function makeMarriageCertificateRequest(
 }
 
 const commonAttributes = {
-  siteAnalytics: {} as any,
   handleProceed: () => {},
   handleStepBack: () => {},
 };

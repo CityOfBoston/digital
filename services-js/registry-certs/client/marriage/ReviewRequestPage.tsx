@@ -8,6 +8,8 @@ import Head from 'next/head';
 
 import { observer } from 'mobx-react';
 
+import { DetailsDisclosure } from '@cityofboston/react-fleet';
+
 import { PageDependencies } from '../../pages/_app';
 
 import PageWrapper from '../PageWrapper';
@@ -17,15 +19,8 @@ import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
 import { SECTION_HEADING_STYLING } from '../common/question-components/styling';
-import { DetailsDisclosure } from '@cityofboston/react-fleet';
 
-interface Props
-  extends Pick<
-    PageDependencies,
-    'marriageCertificateRequest' | 'siteAnalytics'
-  > {
-  testDontScroll?: boolean;
-}
+interface Props extends Pick<PageDependencies, 'marriageCertificateRequest'> {}
 
 /**
  * Component which allows a user to review their request, and update the
@@ -59,8 +54,6 @@ export default class ReviewRequestPage extends Component<Props> {
         <ReviewCertificateRequest
           certificateType="marriage"
           certificateRequest={this.props.marriageCertificateRequest}
-          siteAnalytics={this.props.siteAnalytics}
-          testDontScroll={this.props.testDontScroll}
         >
           <p>
             You can only order copies of one marriage certificate at a time. If

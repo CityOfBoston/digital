@@ -53,8 +53,8 @@ exports[`charge.captured sends a marriage shipped email 1`] = `
         "items": Array [
           Object {
             "cost": 1400,
-            "date": 2016-10-06T04:00:00.000Z,
-            "name": "undefined undefined & undefined undefined;",
+            "date": "",
+            "name": "undefined & undefined;",
             "quantity": 1,
           },
         ],
@@ -257,8 +257,8 @@ exports[`charge.created sends marriage email 1`] = `
         "items": Array [
           Object {
             "cost": 1400,
-            "date": 2016-10-06T04:00:00.000Z,
-            "name": "undefined undefined & undefined undefined;",
+            "date": "",
+            "name": "undefined & undefined;",
             "quantity": 1,
           },
         ],

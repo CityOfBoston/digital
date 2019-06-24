@@ -52,7 +52,7 @@ const DEFAULT_BIRTH_ITEM: BirthCertificateOrderItemInput = {
   parent2LastName: 'Cage',
   quantity: 10,
   uploadSessionId: '',
-  notes: 'parent',
+  requestDetails: 'parent',
 };
 
 describe('Mutation resolvers', () => {
@@ -198,7 +198,7 @@ describe('Mutation resolvers', () => {
             parent2FirstName: 'Dor',
             parent2LastName: 'Green',
             quantity: 10,
-            notes: 'sidekick',
+            requestDetails: 'sidekick',
             uploadSessionId: '',
           },
         },

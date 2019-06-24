@@ -11,6 +11,7 @@ interface Props {
   handleQuantityChange: (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => void;
+  handleQuantityBlur: () => void;
 }
 
 /**
@@ -37,6 +38,7 @@ export default function QuantityDropdown(props: Props) {
         size={3}
         value={quantity}
         onChange={props.handleQuantityChange}
+        onBlur={props.handleQuantityBlur}
       />
 
       <div

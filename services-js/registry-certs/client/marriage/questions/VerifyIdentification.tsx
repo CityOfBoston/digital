@@ -8,7 +8,6 @@ import VerifyIdentificationComponent from '../../common/question-components/Veri
 import UploadableFile from '../../models/UploadableFile';
 
 interface Props {
-  siteAnalytics?;
   marriageCertificateRequest: MarriageCertificateRequest;
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
@@ -74,7 +73,6 @@ export default class VerifyIdentification extends React.Component<Props> {
         nextButtonText="Review request"
       >
         <VerifyIdentificationComponent
-          siteAnalytics={this.props.siteAnalytics}
           sectionsToDisplay="all"
           uploadSessionId={
             this.props.marriageCertificateRequest.uploadSessionId

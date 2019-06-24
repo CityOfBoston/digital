@@ -3,8 +3,8 @@ import React from 'react';
 import { DocumentContext } from 'next';
 import Document, { Head, Main, NextScript } from 'next/document';
 
-import { StatusModal, ContactForm } from '@cityofboston/react-fleet';
 import { ScreenReaderSupport } from '@cityofboston/next-client-common';
+import { StatusModal, ContactForm } from '@cityofboston/react-fleet';
 
 import styleTags from '../client/common/utility/style-tags';
 
@@ -64,6 +64,20 @@ export default class extends Document {
             type="image/vnd.microsoft.icon"
           />
 
+          {process.env.GTM_CONTAINER_ID && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${
+          process.env.GTM_CONTAINER_ID
+        }');`,
+              }}
+            />
+          )}
+
           {rollbarAccessToken && (
             <script
               type="text/javascript"
@@ -114,6 +128,19 @@ export default class extends Document {
         </Head>
 
         <body>
+          {process.env.GTM_CONTAINER_ID && (
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${
+                  process.env.GTM_CONTAINER_ID
+                }`}
+                height="0"
+                width="0"
+                style={{ display: 'none', visibility: 'hidden' }}
+              />
+            </noscript>
+          )}
+
           <ScreenReaderSupport.AnnounceElement />
           <StatusModal.Container />
 

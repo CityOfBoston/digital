@@ -26,7 +26,7 @@ const RELATION_ITEM_STYLING = css({
   strokeMiterlimit: 10,
   strokeWidth: 3,
 
-  '&.forWhom': {
+  '&.forOther': {
     width: 140,
   },
 
@@ -67,7 +67,7 @@ const icons = {
   myself: (
     <svg
       {...commonAttributes}
-      viewBox="-46 -4 140 100"
+      viewBox="-26 -4 100 100"
       className="forWhom heavier"
     >
       <path
@@ -84,7 +84,7 @@ const icons = {
     <svg
       {...commonAttributes}
       viewBox="-2 -4 140 100"
-      className="forWhom heavier"
+      className="forOther heavier"
     >
       <path
         d="M60.832,79.224v41.865H12.04V78.748l14.238-12.2H46.684Z"

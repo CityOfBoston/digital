@@ -519,9 +519,10 @@ exports[`Storyshots DetailsDisclosure default 1`] = `
 >
   <div
     className="emotion-2"
+    id={2889438462}
   >
     <button
-      aria-controls="storybook"
+      aria-controls="2889438462-content"
       aria-expanded={false}
       className="emotion-1"
       onClick={[Function]}
@@ -542,7 +543,7 @@ exports[`Storyshots DetailsDisclosure default 1`] = `
     </button>
     <div
       className="details-content"
-      id="storybook"
+      id="2889438462-content"
     >
       <p>
         You need to have a hand signature from the Registry. After you finish your order, please email birth@boston.gov with:
@@ -1015,6 +1016,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1045,6 +1048,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1060,7 +1071,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label
@@ -1150,6 +1161,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1180,6 +1193,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1195,7 +1216,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label
@@ -1285,6 +1306,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1315,6 +1338,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1330,7 +1361,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label
@@ -1425,6 +1456,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1455,6 +1488,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1470,7 +1511,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label
@@ -1560,6 +1601,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1590,6 +1633,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1605,7 +1656,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label
@@ -1695,6 +1746,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1725,6 +1778,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1740,7 +1801,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label
@@ -1830,6 +1891,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1860,6 +1923,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1875,7 +1946,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label
@@ -1965,6 +2036,8 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
 .emotion-0 > div {
@@ -1995,6 +2068,14 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
   margin-top: 0.5rem;
 }
 
+.emotion-0.disabled {
+  opacity: 0.4;
+}
+
+.emotion-0.disabled * {
+  cursor: not-allowed;
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -2010,7 +2091,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
     </h2>
   </legend>
   <div
-    className="emotion-0"
+    className=" emotion-0"
   >
     <div>
       <label

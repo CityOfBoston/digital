@@ -9,7 +9,11 @@ import QuantityDropdown from './QuantityDropdown';
 storiesOf('Common Components/QuantityDropdown', module).add('default', () => (
   <div style={{ display: 'flex', justifyContent: 'center' }}>
     <CenterWrapper>
-      <QuantityDropdown handleQuantityChange={() => {}} quantity={0} />
+      <QuantityDropdown
+        handleQuantityChange={() => {}}
+        handleQuantityBlur={() => {}}
+        quantity={0}
+      />
     </CenterWrapper>
   </div>
 ));

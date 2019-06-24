@@ -36,9 +36,9 @@ export default function OrderConfirmationContent({
       <div className="g">
         <div className="g--4 m-b500" css={ICON_CELL_STYLE}>
           <div className="m-h100">
-            <CertificateIcon
-              name={certificateType === 'birth' ? 'birth' : 'id'}
-            />
+            {certificateType !== 'death' && (
+              <CertificateIcon name={certificateType} />
+            )}
           </div>
         </div>
 
@@ -83,6 +83,8 @@ export default function OrderConfirmationContent({
       </div>
     </div>
   );
+
+  window.scroll(0, 0);
 
   return (
     <CheckoutPageLayout

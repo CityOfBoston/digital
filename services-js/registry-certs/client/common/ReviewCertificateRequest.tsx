@@ -8,7 +8,7 @@ import Router from 'next/router';
 
 import { observer } from 'mobx-react';
 
-import { CHARLES_BLUE, SERIF } from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, SERIF, Textarea } from '@cityofboston/react-fleet';
 
 import { capitalize } from '../../lib/helpers';
 
@@ -22,10 +22,9 @@ import BackButton from './question-components/BackButton';
 import { THIN_BORDER_STYLE } from './question-components/styling';
 
 interface Props {
-  testDontScroll?: boolean;
   certificateType: 'birth' | 'marriage';
   certificateRequest: any;
-  siteAnalytics: any;
+  siteAnalytics?: any;
   children: ReactChild | ReactChild[];
 }
 
@@ -39,23 +38,23 @@ interface Props {
 @observer
 export default class ReviewCertificateRequest extends Component<Props> {
   componentDidMount() {
-    const { certificateType, siteAnalytics, testDontScroll } = this.props;
+    const { certificateType, siteAnalytics } = this.props;
 
-    if (!testDontScroll) {
-      window.scroll(0, 0);
+    window.scroll(0, 0);
+
+    if (certificateType === 'birth') {
+      // // Since user has provided all needed information by this point, we
+      // // will count this birth certificate as a trackable product.
+      siteAnalytics.addProduct(
+        '0',
+        'Birth certificate',
+        'Birth certificate',
+        this.props.certificateRequest.quantity,
+        CERTIFICATE_COST.BIRTH / 100
+      );
+
+      siteAnalytics.setProductAction('detail');
     }
-
-    // // Since user has provided all needed information by this point, we
-    // // will count this birth certificate as a trackable product.
-    siteAnalytics.addProduct(
-      '0',
-      `${capitalize(certificateType)} certificate`,
-      `${capitalize(certificateType)} certificate`,
-      this.props.certificateRequest.quantity,
-      CERTIFICATE_COST[certificateType.toUpperCase()] / 100
-    );
-
-    siteAnalytics.setProductAction('detail');
   }
 
   private handleQuantityChange = (
@@ -64,17 +63,35 @@ export default class ReviewCertificateRequest extends Component<Props> {
     const { certificateRequest, certificateType, siteAnalytics } = this.props;
 
     const oldValue = certificateRequest.quantity;
-    // Quantity can never be less than 1
-    const newValue = +event.target.value || 1;
-    const difference = Math.abs(oldValue - newValue);
+    const newValue = event.target.value;
+    const difference = Math.abs(oldValue - +newValue);
 
-    // Update quantity; if user erases value in field, quantity will return to 1
-    certificateRequest.setQuantity(newValue);
+    certificateRequest.setQuantity(+newValue);
 
-    siteAnalytics.sendEvent('change certificate quantity', {
-      category: capitalize(certificateType),
-      label: oldValue > newValue ? 'decrease' : 'increase',
-      value: oldValue > newValue ? -difference : difference,
+    if (certificateType === 'birth') {
+      siteAnalytics.sendEvent('change certificate quantity', {
+        category: 'Birth',
+        label: oldValue > newValue ? 'decrease' : 'increase',
+        value: oldValue > newValue ? -difference : difference,
+      });
+    }
+  };
+
+  // If user erases value in field, return quantity to 1 on blur
+  private handleQuantityBlur = () => {
+    const { certificateRequest } = this.props;
+
+    if (certificateRequest.quantity < 1) {
+      certificateRequest.setQuantity(1);
+    }
+  };
+
+  // currently only used for Marriage (6/14 jm)
+  private handleCustomerNotesChange = (
+    event: ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    this.props.certificateRequest.answerQuestion({
+      customerNotes: event.target.value,
     });
   };
 
@@ -83,10 +100,12 @@ export default class ReviewCertificateRequest extends Component<Props> {
 
     this.props.certificateRequest.clearCertificateRequest();
 
-    siteAnalytics.sendEvent('user reset', {
-      category: capitalize(certificateType),
-      label: 'start over',
-    });
+    if (certificateType === 'birth') {
+      siteAnalytics.sendEvent('user reset', {
+        category: 'Birth',
+        label: 'start over',
+      });
+    }
 
     Router.push(`/${certificateType}`);
   };
@@ -96,15 +115,17 @@ export default class ReviewCertificateRequest extends Component<Props> {
 
     const currentStepIndex = certificateRequest.steps.indexOf('reviewRequest');
 
-    siteAnalytics.addProduct(
-      '0',
-      `${capitalize(certificateType)} certificate`,
-      `${capitalize(certificateType)} certificate`,
-      certificateRequest.quantity,
-      CERTIFICATE_COST[certificateType.toUpperCase()] / 100
-    );
+    if (certificateType === 'birth') {
+      siteAnalytics.addProduct(
+        '0',
+        'Birth certificate',
+        'Birth certificate',
+        certificateRequest.quantity,
+        CERTIFICATE_COST.BIRTH / 100
+      );
 
-    siteAnalytics.setProductAction('remove');
+      siteAnalytics.setProductAction('remove');
+    }
 
     Router.push(
       `/${certificateType}?step=${
@@ -129,24 +150,30 @@ export default class ReviewCertificateRequest extends Component<Props> {
           <QuantityDropdown
             quantity={quantity}
             handleQuantityChange={this.handleQuantityChange}
+            handleQuantityBlur={this.handleQuantityBlur}
           />
 
           <div className="t--sans" css={CERTIFICATE_INFO_BOX_STYLE}>
             <div css={CERTIFICATE_NAME_STYLE}>
               {certificateType === 'birth'
                 ? certificateRequest.fullName
-                : `${certificateRequest.fullName1} & ${
-                    certificateRequest.fullName2
-                  }`}
+                : certificateRequest.fullNames}
             </div>
             <div css={CERTIFICATE_SUBINFO_STYLE}>
               <span>
                 {capitalize(certificateType)} Certificate (Certified paper copy)
               </span>
-              <span>
-                {certificateType === 'birth' ? 'Born: ' : 'Date: '}{' '}
-                {certificateRequest.dateString}
-              </span>
+
+              {certificateRequest.dateString ? (
+                <span>
+                  {certificateType === 'birth' &&
+                    `Born: ${certificateRequest.dateString}`}
+                  {certificateType === 'marriage' &&
+                    `Date: ${certificateRequest.dateString}`}
+                </span>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>
@@ -157,6 +184,14 @@ export default class ReviewCertificateRequest extends Component<Props> {
           allowServiceFeeTypeChoice
           serviceFeeType="CREDIT"
         />
+
+        {certificateType === 'marriage' && (
+          <Textarea
+            name="customerNotes"
+            label="Anything else you’d like us to know?"
+            onChange={this.handleCustomerNotesChange}
+          />
+        )}
 
         <div className="g g--mr m-t700">
           <div className="g--9 t--info">

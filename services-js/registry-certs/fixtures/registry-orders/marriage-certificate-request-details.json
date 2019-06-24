@@ -1,12 +1,12 @@
 {
-  "CertificateFirstName1": "Laurel",
-  "CertificateLastName1": "Johnson",
+  "CertificateFullName1": "Laurel Johnson",
+  "CertificateFullName2": "Terry Johnson",
   "CertificateMaidenName1": "Smith",
-  "CertificateFirstName2": "Terry",
-  "CertificateLastName2": "Johnson",
   "CertificateMaidenName2": "Doe",
-  "DateOfMarriageStart": "2016-10-06T04:00:00.000Z",
-  "DateOfMarriageEnd": null,
+  "CertificateAltSpellings1": "",
+  "CertificateAltSpellings2": "",
+  "DateOfMarriageExact": "2016-10-06T04:00:00.000Z",
+  "DateOfMarriageUnsure": "",
   "Quantity": 1,
   "TotalCost": 14
 }

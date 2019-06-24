@@ -20,6 +20,12 @@ const commonAttributes = {
   birthCertificateRequest: makeBirthCertificateRequest(),
 };
 
+function oneWeekAgo(): Date {
+  const dayInMs = 8.64e7;
+
+  return new Date(Date.now() - 7 * dayInMs);
+}
+
 storiesOf('Birth/Question Components/PersonalInformation', module)
   .add('default', () => (
     <div className="b-c b-c--hsm">
@@ -30,7 +36,9 @@ storiesOf('Birth/Question Components/PersonalInformation', module)
     <div className="b-c b-c--hsm">
       <PersonalInformation
         {...commonAttributes}
-        showRecentBirthWarning={true}
+        birthCertificateRequest={makeBirthCertificateRequest({
+          birthDate: oneWeekAgo(),
+        })}
       />
     </div>
   ));

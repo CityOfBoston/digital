@@ -284,7 +284,7 @@ async function makeMarriageReceiptInfo(
       quantity: details.Quantity,
       cost: details.TotalCost * 100,
       name: names,
-      date: details.DateOfMarriageStart, // todo
+      date: '', // we’re not displaying a date on marriage certificate receipts
     },
   ];
 
@@ -334,16 +334,7 @@ function nameFromDeathCertificate(cert: DeathCertificate | null) {
 }
 
 function namesForMarriageCertificate(details): string {
-  // todo - format of names?
-  const person1 = `${details.firstName1} ${
-    details.maidenName1 ? `(${details.maidenName1}) ` : ''
-  }${details.lastName1}`;
-
-  const person2 = `${details.firstName2} ${
-    details.maidenName2 ? `(${details.maidenName2}) ` : ''
-  }${details.firstName2}`;
-
-  return `${person1} & ${person2};`;
+  return `${details.fullName1} & ${details.fullName2};`;
 }
 
 /**
