@@ -9786,7 +9786,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
                 onFocus={[Function]}
                 placeholder="MM"
                 type="number"
-                value="7"
+                value="8"
               />
             </div>
             <div>
@@ -9807,7 +9807,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
                 onFocus={[Function]}
                 placeholder="DD"
                 type="number"
-                value="29"
+                value="1"
               />
             </div>
             <div>
@@ -16097,14 +16097,12 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   display: flex;
 }
 
-@media screen and (min-width:480px) {
-  .emotion-10 {
-    width: 165px;
-  }
-}
-
 .emotion-8 {
   -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .emotion-8::-webkit-inner-spin-button {
@@ -16113,7 +16111,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
 
 @media screen and (min-width:480px) {
   .emotion-8 {
-    width: 99px;
+    width: 70px;
     border-right: 0;
   }
 }
@@ -16136,6 +16134,13 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  margin-left: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-13 {
+    margin-left: 0.75rem;
+  }
 }
 
 .emotion-11 {
@@ -16497,7 +16502,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               className="emotion-14"
             >
               <div
-                className="m-r200 emotion-10"
+                className="emotion-10"
               >
                 <input
                   aria-label="Quantity"
@@ -16518,7 +16523,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                     className="sel-f sel-f--sq"
                     name="quantityMenu"
                     onChange={[Function]}
-                    value={1}
+                    value="1"
                   >
                     <option
                       value="1"
@@ -16768,7 +16773,6 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               </div>
               <button
                 className="btn g--3"
-                disabled={false}
                 onClick={[Function]}
                 type="button"
               >
@@ -38495,12 +38499,6 @@ exports[`Storyshots Common Components/Nav default 1`] = `
 `;
 
 exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
-.emotion-3 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-1 {
   font-style: normal;
   font-weight: bold;
@@ -38522,6 +38520,12 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-0 span {
@@ -38589,12 +38593,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
 `;
 
 exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
-.emotion-3 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-1 {
   font-style: normal;
   font-weight: bold;
@@ -38616,6 +38614,12 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-0 span {
@@ -38781,12 +38785,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
 `;
 
 exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] = `
-.emotion-3 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-1 {
   font-style: normal;
   font-weight: bold;
@@ -38808,6 +38806,12 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-0 span {
@@ -38877,12 +38881,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   padding: 0;
 }
 
-.emotion-5 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-3 {
   font-style: normal;
   font-weight: bold;
@@ -38923,6 +38921,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-5 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-2 span {
@@ -39138,12 +39142,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
   padding: 0;
 }
 
-.emotion-5 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-3 {
   font-style: normal;
   font-weight: bold;
@@ -39184,6 +39182,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-5 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-2 span {
@@ -39510,12 +39514,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   padding: 0;
 }
 
-.emotion-5 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-3 {
   font-style: normal;
   font-weight: bold;
@@ -39556,6 +39554,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-5 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-2 span {
@@ -39898,14 +39902,12 @@ exports[`Storyshots Common Components/QuantityDropdown default 1`] = `
   display: flex;
 }
 
-@media screen and (min-width:480px) {
-  .emotion-2 {
-    width: 165px;
-  }
-}
-
 .emotion-0 {
   -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -39914,7 +39916,7 @@ exports[`Storyshots Common Components/QuantityDropdown default 1`] = `
 
 @media screen and (min-width:480px) {
   .emotion-0 {
-    width: 99px;
+    width: 70px;
     border-right: 0;
   }
 }
@@ -39950,7 +39952,7 @@ exports[`Storyshots Common Components/QuantityDropdown default 1`] = `
       }
     >
       <div
-        className="m-r200 emotion-2"
+        className="emotion-2"
       >
         <input
           aria-label="Quantity"
@@ -39961,7 +39963,7 @@ exports[`Storyshots Common Components/QuantityDropdown default 1`] = `
           onChange={[Function]}
           size={3}
           type="number"
-          value={0}
+          value={1}
         />
         <div
           aria-hidden="true"
@@ -39971,7 +39973,7 @@ exports[`Storyshots Common Components/QuantityDropdown default 1`] = `
             className="sel-f sel-f--sq"
             name="quantityMenu"
             onChange={[Function]}
-            value={0}
+            value="1"
           >
             <option
               value="1"
@@ -45389,14 +45391,12 @@ exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
   display: flex;
 }
 
-@media screen and (min-width:480px) {
-  .emotion-2 {
-    width: 165px;
-  }
-}
-
 .emotion-0 {
   -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -45405,7 +45405,7 @@ exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
 
 @media screen and (min-width:480px) {
   .emotion-0 {
-    width: 99px;
+    width: 70px;
     border-right: 0;
   }
 }
@@ -45428,6 +45428,13 @@ exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  margin-left: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-5 {
+    margin-left: 0.75rem;
+  }
 }
 
 .emotion-3 {
@@ -45470,7 +45477,7 @@ exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
     className="emotion-6"
   >
     <div
-      className="m-r200 emotion-2"
+      className="emotion-2"
     >
       <input
         aria-label="Quantity"
@@ -45491,7 +45498,7 @@ exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
           className="sel-f sel-f--sq"
           name="quantityMenu"
           onChange={[Function]}
-          value={1}
+          value="1"
         >
           <option
             value="1"
@@ -45741,7 +45748,6 @@ exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
     </div>
     <button
       className="btn g--3"
-      disabled={false}
       onClick={[Function]}
       type="button"
     >
@@ -45832,14 +45838,12 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
   display: flex;
 }
 
-@media screen and (min-width:480px) {
-  .emotion-2 {
-    width: 165px;
-  }
-}
-
 .emotion-0 {
   -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .emotion-0::-webkit-inner-spin-button {
@@ -45848,7 +45852,7 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
 
 @media screen and (min-width:480px) {
   .emotion-0 {
-    width: 99px;
+    width: 70px;
     border-right: 0;
   }
 }
@@ -45871,6 +45875,13 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  margin-left: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-5 {
+    margin-left: 0.75rem;
+  }
 }
 
 .emotion-3 {
@@ -45913,7 +45924,7 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
     className="emotion-6"
   >
     <div
-      className="m-r200 emotion-2"
+      className="emotion-2"
     >
       <input
         aria-label="Quantity"
@@ -45934,7 +45945,7 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
           className="sel-f sel-f--sq"
           name="quantityMenu"
           onChange={[Function]}
-          value={1}
+          value="1"
         >
           <option
             value="1"
@@ -46202,7 +46213,6 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
     </div>
     <button
       className="btn g--3"
-      disabled={false}
       onClick={[Function]}
       type="button"
     >
@@ -47714,12 +47724,6 @@ exports[`Storyshots Common Components/SupportingDocumentsInput error uploading o
 `;
 
 exports[`Storyshots Death/CartItem certificate without death date 1`] = `
-.emotion-4 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-2 {
   font-style: normal;
   font-weight: bold;
@@ -47741,6 +47745,12 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-1 span {
@@ -47828,12 +47838,6 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
 `;
 
 exports[`Storyshots Death/CartItem pending certificate 1`] = `
-.emotion-4 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-2 {
   font-style: normal;
   font-weight: bold;
@@ -47855,6 +47859,12 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-1 span {
@@ -47962,12 +47972,6 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
 `;
 
 exports[`Storyshots Death/CartItem typical certificate 1`] = `
-.emotion-4 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-2 {
   font-style: normal;
   font-weight: bold;
@@ -47989,6 +47993,12 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-4 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-1 span {
@@ -49116,12 +49126,6 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
   font-size: 80%;
 }
 
-.emotion-9 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-7 {
   font-style: normal;
   font-weight: bold;
@@ -49203,6 +49207,12 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-9 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-6 span {
@@ -49900,6 +49910,46 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
   color: #d22d23;
 }
 
+.emotion-23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-21 {
+  -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-21::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-21 {
+    width: 70px;
+    border-right: 0;
+  }
+}
+
+.emotion-22 {
+  display: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-22 {
+    display: block;
+  }
+}
+
+.emotion-22:after {
+  content: 'Qty';
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -49990,7 +50040,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
   vertical-align: center;
 }
 
-.emotion-22 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -50001,8 +50051,17 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
   align-items: center;
 }
 
-.emotion-21:after {
-  content: 'Qty,';
+.emotion-24 > div {
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  margin-right: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-24 > div {
+    margin-right: 0.75rem;
+  }
 }
 
 <div>
@@ -50361,41 +50420,33 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
                 className="g--5 m-v300"
               >
                 <form
-                  className="emotion-22"
+                  className="emotion-24"
                   onSubmit={[Function]}
                 >
                   <div
-                    className="m-r100"
+                    className="emotion-23"
                   >
                     <input
                       aria-label="Quantity"
-                      className="txt-f txt-f--combo txt-f--auto ta-r"
+                      className="txt-f txt-f--auto ta-r emotion-21"
+                      min="1"
                       name="quantity"
+                      onBlur={[Function]}
                       onChange={[Function]}
                       size={3}
-                      type="text"
-                      value={5}
+                      type="number"
+                      value={1}
                     />
                     <div
-                      className="sel-c sel-c--sq emotion-21"
+                      aria-hidden="true"
+                      className="sel-c sel-c--sq emotion-22"
                     >
                       <select
-                        aria-label="Quantity menu"
                         className="sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
-                        value={5}
+                        value="1"
                       >
-                        <option
-                          value="0"
-                        >
-                          Remove
-                        </option>
-                        <option
-                          disabled={true}
-                        >
-                          ---------------
-                        </option>
                         <option
                           value="1"
                         >
@@ -50965,6 +51016,46 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
   color: #d22d23;
 }
 
+.emotion-23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-21 {
+  -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-21::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-21 {
+    width: 70px;
+    border-right: 0;
+  }
+}
+
+.emotion-22 {
+  display: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-22 {
+    display: block;
+  }
+}
+
+.emotion-22:after {
+  content: 'Qty';
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -51055,7 +51146,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
   vertical-align: center;
 }
 
-.emotion-22 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51066,8 +51157,17 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
   align-items: center;
 }
 
-.emotion-21:after {
-  content: 'Qty,';
+.emotion-24 > div {
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  margin-right: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-24 > div {
+    margin-right: 0.75rem;
+  }
 }
 
 <div>
@@ -51426,30 +51526,32 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
                 className="g--5 m-v300"
               >
                 <form
-                  className="emotion-22"
+                  className="emotion-24"
                   onSubmit={[Function]}
                 >
                   <div
-                    className="m-r100"
+                    className="emotion-23"
                   >
                     <input
                       aria-label="Quantity"
-                      className="txt-f txt-f--combo txt-f--auto ta-r"
+                      className="txt-f txt-f--auto ta-r emotion-21"
+                      min="1"
                       name="quantity"
+                      onBlur={[Function]}
                       onChange={[Function]}
                       size={3}
-                      type="text"
+                      type="number"
                       value={1}
                     />
                     <div
-                      className="sel-c sel-c--sq emotion-21"
+                      aria-hidden="true"
+                      className="sel-c sel-c--sq emotion-22"
                     >
                       <select
-                        aria-label="Quantity menu"
                         className="sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
-                        value={1}
+                        value="1"
                       >
                         <option
                           value="1"
@@ -51607,6 +51709,46 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
   color: #d22d23;
 }
 
+.emotion-23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-21 {
+  -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-21::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-21 {
+    width: 70px;
+    border-right: 0;
+  }
+}
+
+.emotion-22 {
+  display: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-22 {
+    display: block;
+  }
+}
+
+.emotion-22:after {
+  content: 'Qty';
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -51697,7 +51839,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
   vertical-align: center;
 }
 
-.emotion-22 {
+.emotion-24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51708,8 +51850,17 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
   align-items: center;
 }
 
-.emotion-21:after {
-  content: 'Qty,';
+.emotion-24 > div {
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  margin-right: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-24 > div {
+    margin-right: 0.75rem;
+  }
 }
 
 <div>
@@ -52068,30 +52219,32 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
                 className="g--5 m-v300"
               >
                 <form
-                  className="emotion-22"
+                  className="emotion-24"
                   onSubmit={[Function]}
                 >
                   <div
-                    className="m-r100"
+                    className="emotion-23"
                   >
                     <input
                       aria-label="Quantity"
-                      className="txt-f txt-f--combo txt-f--auto ta-r"
+                      className="txt-f txt-f--auto ta-r emotion-21"
+                      min="1"
                       name="quantity"
+                      onBlur={[Function]}
                       onChange={[Function]}
                       size={3}
-                      type="text"
+                      type="number"
                       value={1}
                     />
                     <div
-                      className="sel-c sel-c--sq emotion-21"
+                      aria-hidden="true"
+                      className="sel-c sel-c--sq emotion-22"
                     >
                       <select
-                        aria-label="Quantity menu"
                         className="sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
-                        value={1}
+                        value="1"
                       >
                         <option
                           value="1"
@@ -52249,6 +52402,46 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
   color: #d22d23;
 }
 
+.emotion-20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-18 {
+  -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-18::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-18 {
+    width: 70px;
+    border-right: 0;
+  }
+}
+
+.emotion-19 {
+  display: none;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-19 {
+    display: block;
+  }
+}
+
+.emotion-19:after {
+  content: 'Qty';
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -52339,7 +52532,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
   vertical-align: center;
 }
 
-.emotion-19 {
+.emotion-21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -52350,8 +52543,17 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
   align-items: center;
 }
 
-.emotion-18:after {
-  content: 'Qty,';
+.emotion-21 > div {
+  -webkit-flex-basis: 30%;
+  -ms-flex-preferred-size: 30%;
+  flex-basis: 30%;
+  margin-right: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-21 > div {
+    margin-right: 0.75rem;
+  }
 }
 
 <div>
@@ -52705,30 +52907,32 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
                 className="g--5 m-v300"
               >
                 <form
-                  className="emotion-19"
+                  className="emotion-21"
                   onSubmit={[Function]}
                 >
                   <div
-                    className="m-r100"
+                    className="emotion-20"
                   >
                     <input
                       aria-label="Quantity"
-                      className="txt-f txt-f--combo txt-f--auto ta-r"
+                      className="txt-f txt-f--auto ta-r emotion-18"
+                      min="1"
                       name="quantity"
+                      onBlur={[Function]}
                       onChange={[Function]}
                       size={3}
-                      type="text"
+                      type="number"
                       value={1}
                     />
                     <div
-                      className="sel-c sel-c--sq emotion-18"
+                      aria-hidden="true"
+                      className="sel-c sel-c--sq emotion-19"
                     >
                       <select
-                        aria-label="Quantity menu"
                         className="sel-f sel-f--sq"
                         name="quantityMenu"
                         onChange={[Function]}
-                        value={1}
+                        value="1"
                       >
                         <option
                           value="1"
@@ -53299,17 +53503,6 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
 `;
 
 exports[`Storyshots Death/ReceiptPage default 1`] = `
-.emotion-16 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 @media print {
   .emotion-18 * {
     color: #000 !important;
@@ -53363,6 +53556,17 @@ exports[`Storyshots Death/ReceiptPage default 1`] = `
 .emotion-13 {
   width: 100%;
   line-height: 1.4;
+}
+
+.emotion-16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 <div>
@@ -54570,12 +54774,6 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
   color: #d22d23;
 }
 
-.emotion-8 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-6 {
   font-style: normal;
   font-weight: bold;
@@ -54642,6 +54840,12 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-8 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-5 span {
@@ -55275,12 +55479,6 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
 `;
 
 exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
-.emotion-3 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-1 {
   font-style: normal;
   font-weight: bold;
@@ -55302,6 +55500,12 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-0 span {
@@ -55353,12 +55557,6 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
 `;
 
 exports[`Storyshots Death/SearchResult typical certificate 1`] = `
-.emotion-3 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
 .emotion-1 {
   font-style: normal;
   font-weight: bold;
@@ -55380,6 +55578,12 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.emotion-3 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .emotion-0 span {
@@ -66539,7 +66743,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
                 onFocus={[Function]}
                 placeholder="MM"
                 type="number"
-                value="7"
+                value="8"
               />
             </div>
             <div>
@@ -66560,7 +66764,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
                 onFocus={[Function]}
                 placeholder="DD"
                 type="number"
-                value="29"
+                value="1"
               />
             </div>
             <div>
@@ -78106,14 +78310,12 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   display: flex;
 }
 
-@media screen and (min-width:480px) {
-  .emotion-10 {
-    width: 165px;
-  }
-}
-
 .emotion-8 {
   -moz-appearance: textfield;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 .emotion-8::-webkit-inner-spin-button {
@@ -78122,7 +78324,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
 
 @media screen and (min-width:480px) {
   .emotion-8 {
-    width: 99px;
+    width: 70px;
     border-right: 0;
   }
 }
@@ -78145,6 +78347,13 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  margin-left: 1.25rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-13 {
+    margin-left: 0.75rem;
+  }
 }
 
 .emotion-11 {
@@ -78516,7 +78725,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
               className="emotion-14"
             >
               <div
-                className="m-r200 emotion-10"
+                className="emotion-10"
               >
                 <input
                   aria-label="Quantity"
@@ -78537,7 +78746,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                     className="sel-f sel-f--sq"
                     name="quantityMenu"
                     onChange={[Function]}
-                    value={1}
+                    value="1"
                   >
                     <option
                       value="1"
@@ -78805,7 +79014,6 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
               </div>
               <button
                 className="btn g--3"
-                disabled={false}
                 onClick={[Function]}
                 type="button"
               >

@@ -1,5 +1,6 @@
 import { action, observable, computed, autorun } from 'mobx';
 import uuidv4 from 'uuid/v4';
+import Router from 'next/router';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import { MemorableDateInput } from '@cityofboston/react-fleet';
@@ -369,6 +370,8 @@ export default class MarriageCertificateRequest {
     this.quantity = 1;
     this.requestInformation = INITIAL_REQUEST_INFORMATION;
     this.uploadSessionId = uuidv4();
+
+    Router.push('/marriage');
   }
 
   @computed

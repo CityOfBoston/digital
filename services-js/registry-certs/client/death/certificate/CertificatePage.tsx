@@ -21,6 +21,8 @@ import PageLayout from '../../PageLayout';
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
 import { serviceFeeDisclosureText } from '../../common/FeeDisclosures';
+import QuantityDropdown from '../../common/QuantityDropdown';
+import { MEDIA_MEDIUM } from '@cityofboston/react-fleet';
 
 interface InitialProps {
   id: string;
@@ -109,21 +111,10 @@ class CertificatePage extends React.Component<Props, State> {
     }
   );
 
-  handleQuantityChange = (
-    ev: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
-  ) => {
-    const { value } = ev.target;
-
-    if (value === 'other') {
-      this.setState({ quantity: null });
-      if (this.quantityField) {
-        this.quantityField.focus();
-      }
-    } else {
-      this.setState({
-        quantity: value ? Math.max(0, Math.min(parseInt(value, 10), 99)) : null,
-      });
-    }
+  handleQuantity = (value: number | null): void => {
+    this.setState({
+      quantity: value,
+    });
   };
 
   handleAddToCart = (ev: React.FormEvent<HTMLFormElement>) => {
@@ -291,56 +282,11 @@ class CertificatePage extends React.Component<Props, State> {
 
     return (
       <form onSubmit={this.handleAddToCart} css={ADD_TO_CART_FORM_STYLE}>
-        <div className="m-r100">
-          <input
-            ref={this.setQuantityField}
-            type="text"
-            name="quantity"
-            aria-label="Quantity"
-            className="txt-f txt-f--combo txt-f--auto ta-r"
-            size={3}
-            value={
-              typeof quantity === 'number' && quantity >= 0 ? quantity : ''
-            }
-            onChange={this.handleQuantityChange}
-          />
-          <div className="sel-c sel-c--sq" css={QUANTITY_DROPDOWN_STYLE}>
-            <select
-              name="quantityMenu"
-              aria-label="Quantity menu"
-              value={
-                typeof quantity === 'number' && quantity <= 10
-                  ? quantity
-                  : 'other'
-              }
-              className="sel-f sel-f--sq"
-              onChange={this.handleQuantityChange}
-            >
-              {cartQuantity
-                ? [
-                    <option value="0" key="remove">
-                      Remove
-                    </option>,
-                    <option disabled key="separator">
-                      ---------------
-                    </option>,
-                  ]
-                : null}
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option disabled>---------------</option>
-              <option value="other">Other…</option>
-            </select>
-          </div>
-        </div>
+        <QuantityDropdown
+          quantity={quantity as any}
+          handleQuantityChange={this.handleQuantity}
+        />
+
         <button
           type="submit"
           className="btn btn--row"
@@ -383,10 +329,17 @@ const LIST_ITEM_TITLE_STYLE = css(LIST_ITEM_ELEMENT_STYLE, {
 const ADD_TO_CART_FORM_STYLE = css({
   display: 'flex',
   alignItems: 'center',
-});
 
-const QUANTITY_DROPDOWN_STYLE = css({
-  '&:after': {
-    content: "'Qty,'",
+  '> div': {
+    flexBasis: '30%',
+    marginRight: '1.25rem',
+
+    [MEDIA_MEDIUM]: {
+      marginRight: '0.75rem',
+    },
+  },
+
+  button: {
+    // flexBasis: '60%'
   },
 });

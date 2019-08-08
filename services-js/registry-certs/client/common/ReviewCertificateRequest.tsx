@@ -8,7 +8,12 @@ import Router from 'next/router';
 
 import { observer } from 'mobx-react';
 
-import { CHARLES_BLUE, SERIF, Textarea } from '@cityofboston/react-fleet';
+import {
+  CHARLES_BLUE,
+  MEDIA_MEDIUM,
+  SERIF,
+  Textarea,
+} from '@cityofboston/react-fleet';
 
 import { capitalize } from '../../lib/helpers';
 
@@ -57,32 +62,23 @@ export default class ReviewCertificateRequest extends Component<Props> {
     }
   }
 
-  private handleQuantityChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  private handleQuantityChange = (value: number | null) => {
     const { certificateRequest, certificateType, siteAnalytics } = this.props;
 
     const oldValue = certificateRequest.quantity;
-    const newValue = event.target.value;
-    const difference = Math.abs(oldValue - +newValue);
+    const newValue = value;
 
-    certificateRequest.setQuantity(+newValue);
+    if (newValue) {
+      const difference = Math.abs(oldValue - newValue);
 
-    if (certificateType === 'birth') {
-      siteAnalytics.sendEvent('change certificate quantity', {
-        category: 'Birth',
-        label: oldValue > newValue ? 'decrease' : 'increase',
-        value: oldValue > newValue ? -difference : difference,
-      });
-    }
-  };
-
-  // If user erases value in field, return quantity to 1 on blur
-  private handleQuantityBlur = () => {
-    const { certificateRequest } = this.props;
-
-    if (certificateRequest.quantity < 1) {
-      certificateRequest.setQuantity(1);
+      if (certificateType === 'birth') {
+        siteAnalytics.sendEvent('change certificate quantity', {
+          category: 'Birth',
+          label: oldValue > newValue ? 'decrease' : 'increase',
+          value: oldValue > newValue ? -difference : difference,
+        });
+      }
+      certificateRequest.setQuantity(newValue as number);
     }
   };
 
@@ -150,7 +146,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
           <QuantityDropdown
             quantity={quantity}
             handleQuantityChange={this.handleQuantityChange}
-            handleQuantityBlur={this.handleQuantityBlur}
           />
 
           <div className="t--sans" css={CERTIFICATE_INFO_BOX_STYLE}>
@@ -159,6 +154,7 @@ export default class ReviewCertificateRequest extends Component<Props> {
                 ? certificateRequest.fullName
                 : certificateRequest.fullNames}
             </div>
+
             <div css={CERTIFICATE_SUBINFO_STYLE}>
               <span>
                 {capitalize(certificateType)} Certificate (Certified paper copy)
@@ -202,7 +198,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
             className="btn g--3"
             type="button"
             onClick={this.goToCheckout}
-            disabled={!this.props.certificateRequest.questionStepsComplete}
           >
             Continue
           </button>
@@ -228,7 +223,13 @@ const CERTIFICATE_NAME_STYLE = css({
   letterSpacing: '1.4px',
 });
 
-const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
+const CERTIFICATE_INFO_BOX_STYLE = css({
+  flex: 1,
+  marginLeft: '1.25rem',
+  [MEDIA_MEDIUM]: {
+    marginLeft: '0.75rem',
+  },
+});
 
 const CERTIFICATE_SUBINFO_STYLE = css({
   color: CHARLES_BLUE,
