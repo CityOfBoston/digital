@@ -333,12 +333,12 @@ export interface BirthCertificateOrderItemInput {
   birthDate: string;
   firstName: string;
   lastName: string;
-  notes: string;
   parent1FirstName: string;
   parent1LastName: string;
   parent2FirstName: string;
   parent2LastName: string;
   quantity: number;
+  requestDetails: string;
   uploadSessionId: string;
 }
 
@@ -349,16 +349,17 @@ export interface DeathCertificateOrderItemInput {
 }
 
 export interface MarriageCertificateOrderItemInput {
-  dateOfMarriageEnd?: string | null;
-  dateOfMarriageStart: string;
-  firstName1: string;
-  firstName2: string;
-  lastName1: string;
-  lastName2: string;
+  altSpellings1: string;
+  altSpellings2: string;
+  customerNotes: string;
+  dateOfMarriageExact: string;
+  dateOfMarriageUnsure: string;
+  fullName1: string;
+  fullName2: string;
   maidenName1: string;
   maidenName2: string;
-  notes: string;
   quantity: number;
+  requestDetails: string;
   uploadSessionId: string;
 }
 

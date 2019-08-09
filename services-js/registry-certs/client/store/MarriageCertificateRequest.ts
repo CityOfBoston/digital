@@ -1,5 +1,6 @@
 import { action, observable, computed, autorun } from 'mobx';
 import uuidv4 from 'uuid/v4';
+import Router from 'next/router';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import { MemorableDateInput } from '@cityofboston/react-fleet';
@@ -24,16 +25,17 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   forSelf: null,
   howRelated: '',
   filedInBoston: '',
-  dateOfMarriageStart: null,
-  dateOfMarriageEnd: null,
-  firstName1: '',
-  firstName2: '',
-  lastName1: '',
-  lastName2: '',
+  dateOfMarriageExact: null,
+  dateOfMarriageUnsure: '',
+  fullName1: '',
+  fullName2: '',
   maidenName1: '',
   maidenName2: '',
   parentsMarried1: '',
   parentsMarried2: '',
+  altSpellings1: '',
+  altSpellings2: '',
+  customerNotes: '',
   idImageFront: null,
   idImageBack: null,
   supportingDocuments: [],
@@ -111,10 +113,10 @@ export default class MarriageCertificateRequest {
   }
 
   /**
-   * Converts the important parts of the request to JSON for sessionstorage
+   * Converts the important parts of the request to JSON for sessionStorage
    * serialization.
    *
-   * We explicitly don’t call this "toJSON" because we don’t want Jest’s
+   * We explicitly don’t call this “toJSON” because we don’t want Jest’s
    * snapshot serializer to use it.
    */
   serializeToJSON(): JSONObject {
@@ -122,20 +124,19 @@ export default class MarriageCertificateRequest {
       forSelf: this.requestInformation.forSelf,
       howRelated: this.requestInformation.howRelated || null,
       filedInBoston: this.requestInformation.filedInBoston,
-      firstName1: this.requestInformation.firstName1,
-      lastName1: this.requestInformation.lastName1,
-      lastName2: this.requestInformation.lastName2,
-      firstName2: this.requestInformation.firstName2,
-      maidenName1: this.requestInformation.maidenName1 || null,
-      maidenName2: this.requestInformation.maidenName2 || null,
+      fullName1: this.requestInformation.fullName1,
+      fullName2: this.requestInformation.fullName2,
+      maidenName1: this.requestInformation.maidenName1 || '',
+      maidenName2: this.requestInformation.maidenName2 || '',
+      altSpellings1: this.requestInformation.altSpellings1 || null,
+      altSpellings2: this.requestInformation.altSpellings2 || null,
       parentsMarried1: this.requestInformation.parentsMarried1,
       parentsMarried2: this.requestInformation.parentsMarried2,
-      dateOfMarriageStart: this.requestInformation.dateOfMarriageStart
-        ? this.requestInformation.dateOfMarriageStart.toISOString()
+      dateOfMarriageExact: this.requestInformation.dateOfMarriageExact
+        ? this.requestInformation.dateOfMarriageExact.toISOString()
         : null,
-      dateOfMarriageEnd: this.requestInformation.dateOfMarriageEnd
-        ? this.requestInformation.dateOfMarriageEnd.toISOString()
-        : null,
+      dateOfMarriageUnsure: this.requestInformation.dateOfMarriageUnsure || '',
+      customerNotes: this.requestInformation.customerNotes || '',
 
       idImageBack: this.requestInformation.idImageBack
         ? this.requestInformation.idImageBack.record
@@ -166,18 +167,16 @@ export default class MarriageCertificateRequest {
       forSelf: obj.requestInformation.forSelf,
       howRelated: obj.requestInformation.howRelated,
       filedInBoston: obj.requestInformation.filedInBoston,
-      dateOfMarriageStart: obj.requestInformation.dateOfMarriageStart
-        ? new Date(obj.requestInformation.dateOfMarriageStart)
+      dateOfMarriageExact: obj.requestInformation.dateOfMarriageExact
+        ? new Date(obj.requestInformation.dateOfMarriageExact)
         : null,
-      dateOfMarriageEnd: obj.requestInformation.dateOfMarriageEnd
-        ? new Date(obj.requestInformation.dateOfMarriageEnd)
-        : null,
-      firstName1: obj.requestInformation.firstName1,
-      firstName2: obj.requestInformation.firstName2,
-      lastName1: obj.requestInformation.lastName1,
-      lastName2: obj.requestInformation.lastName2,
+      dateOfMarriageUnsure: obj.requestInformation.dateOfMarriageUnsure,
+      fullName1: obj.requestInformation.fullName1,
+      fullName2: obj.requestInformation.fullName2,
       maidenName1: obj.requestInformation.maidenName1,
       maidenName2: obj.requestInformation.maidenName2,
+      altSpellings1: obj.requestInformation.altSpellings1,
+      altSpellings2: obj.requestInformation.altSpellings2,
       parentsMarried1: obj.requestInformation.parentsMarried1,
       parentsMarried2: obj.requestInformation.parentsMarried2,
 
@@ -313,11 +312,10 @@ export default class MarriageCertificateRequest {
       forSelf,
       howRelated,
       filedInBoston,
-      dateOfMarriageStart,
-      firstName1,
-      firstName2,
-      lastName1,
-      lastName2,
+      dateOfMarriageExact,
+      dateOfMarriageUnsure,
+      fullName1,
+      fullName2,
       parentsMarried1,
       parentsMarried2,
       idImageFront,
@@ -329,14 +327,17 @@ export default class MarriageCertificateRequest {
     }
 
     // namesOnRecord
-    if (firstName1 && lastName1 && firstName2 && lastName2) {
+    if (fullName1 && fullName2) {
       if (filedInBoston === 'yes') {
         steps.namesOnRecord = true;
       }
     }
 
     // dateOfMarriage
-    if (dateOfMarriageStart) {
+    if (
+      dateOfMarriageExact ||
+      (dateOfMarriageUnsure && dateOfMarriageUnsure.length)
+    ) {
       steps.dateOfMarriage = true;
     }
 
@@ -369,44 +370,33 @@ export default class MarriageCertificateRequest {
     this.quantity = 1;
     this.requestInformation = INITIAL_REQUEST_INFORMATION;
     this.uploadSessionId = uuidv4();
+
+    Router.push('/marriage');
   }
 
-  // todo !!
   @computed
   public get dateString(): string {
-    const date = this.requestInformation.dateOfMarriageStart || null;
+    const date = this.requestInformation.dateOfMarriageExact || null;
 
     if (date) {
       return MemorableDateInput.formattedDateUtc(date);
     } else {
-      return '';
+      return this.requestInformation.dateOfMarriageUnsure || '';
     }
   }
 
-  formatFullName(whom: 'person1' | 'person2'): string {
-    let firstName, lastName, maidenName;
-
-    if (whom === 'person1') {
-      firstName = this.requestInformation.firstName1;
-      lastName = this.requestInformation.lastName1;
-      maidenName = this.requestInformation.maidenName1;
-    } else {
-      firstName = this.requestInformation.firstName2;
-      lastName = this.requestInformation.lastName2;
-      maidenName = this.requestInformation.maidenName2;
-    }
-
-    return `${firstName} ${maidenName ? `(${maidenName}) ` : ''}${lastName}`;
-  }
-
   @computed
-  get fullName1(): string {
-    return this.formatFullName('person1');
-  }
+  get fullNames(): string {
+    const { maidenName1, maidenName2 } = this.requestInformation;
 
-  @computed
-  get fullName2(): string {
-    return this.formatFullName('person2');
+    const fullName1 =
+      this.requestInformation.fullName1 +
+      (maidenName1 ? ` (${maidenName1})` : '');
+    const fullName2 =
+      this.requestInformation.fullName2 +
+      (maidenName2 ? ` (${maidenName2})` : '');
+
+    return `${fullName1} & ${fullName2}`;
   }
 
   /**

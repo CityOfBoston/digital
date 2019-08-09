@@ -68,7 +68,7 @@ export default function YesNoUnsureComponent(props: Props): JSX.Element {
   );
 }
 
-const RADIOITEM_STYLING = css({
+export const RADIOITEM_STYLING = css({
   label: {
     [MEDIA_SMALL]: {
       paddingLeft: '1rem',

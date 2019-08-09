@@ -1,25 +1,24 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { css, jsx } from '@emotion/core';
 
 import { ChangeEvent, Component, MouseEvent, ReactChild } from 'react';
 
 import { observer } from 'mobx-react';
 
-import { TextInput } from '@cityofboston/react-fleet';
+import { TextInput, MEDIA_SMALL } from '@cityofboston/react-fleet';
 
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 import YesNoUnsureComponent from '../../common/question-components/YesNoUnsureComponent';
+import AltSpellings from '../../common/question-components/AltSpellings';
 
 import {
-  NAME_FIELDS_CONTAINER_STYLING,
   SUPPORTING_TEXT_CLASSNAME,
   SECTION_HEADING_STYLING,
   NOTE_BOX_CLASSNAME,
-  // NOTE_BOX_CLASSNAME,
 } from '../../common/question-components/styling';
 
 export type Person = 'person1' | 'person2';
@@ -39,18 +38,16 @@ export default class PersonOnRecord extends Component<Props> {
     { requestInformation }: MarriageCertificateRequest
   ): boolean {
     const {
-      firstName1,
-      lastName1,
-      firstName2,
-      lastName2,
+      fullName1,
+      fullName2,
       parentsMarried1,
       parentsMarried2,
     } = requestInformation;
 
     if (person === 'person1') {
-      return !!(firstName1 && lastName1 && parentsMarried1);
+      return !!(fullName1 && parentsMarried1);
     } else {
-      return !!(firstName2 && lastName2 && parentsMarried2);
+      return !!(fullName2 && parentsMarried2);
     }
   }
 
@@ -60,23 +57,35 @@ export default class PersonOnRecord extends Component<Props> {
     });
   };
 
+  private updateAltSpellings = (
+    person: Person,
+    questionValues: Object
+  ): void => {
+    const keyName = person === 'person1' ? 'altSpellings1' : 'altSpellings2';
+
+    this.props.marriageCertificateRequest.answerQuestion({
+      [keyName]: questionValues,
+    });
+  };
+
   public render() {
     const { marriageCertificateRequest, person } = this.props;
     const {
       forSelf,
-      firstName1,
-      firstName2,
-      lastName1,
-      lastName2,
+      fullName1,
+      fullName2,
       maidenName1,
       maidenName2,
+      altSpellings1,
+      altSpellings2,
       parentsMarried1,
       parentsMarried2,
     } = marriageCertificateRequest.requestInformation;
-    const userForSelf = person === 'person1' && forSelf;
+    const isPerson1: boolean = person === 'person1';
+    const userForSelf: boolean | null = isPerson1 && forSelf;
 
     const headingText = `What is the name of the ${
-      person === 'person1' ? 'first' : 'other'
+      isPerson1 ? 'first' : 'other'
     } person on the certificate?`;
 
     return (
@@ -96,54 +105,51 @@ export default class PersonOnRecord extends Component<Props> {
               </h2>
             }
           >
-            {!userForSelf && person === 'person1' && (
+            {!userForSelf && isPerson1 && (
               <p className={SUPPORTING_TEXT_CLASSNAME}>
                 It doesn’t matter which person comes first on the marriage
                 certificate.
               </p>
             )}
 
-            <div css={NAME_FIELDS_CONTAINER_STYLING}>
-              <TextInput
-                label="First Name"
-                name={person === 'person1' ? 'firstName1' : 'firstName2'}
-                value={person === 'person1' ? firstName1 : firstName2}
-                onChange={this.handleChange}
-              />
+            <TextInput
+              label="Full Name"
+              name={isPerson1 ? 'fullName1' : 'fullName2'}
+              value={isPerson1 ? fullName1 : fullName2}
+              onChange={this.handleChange}
+            />
 
-              <TextInput
-                label="Last Name"
-                name={person === 'person1' ? 'lastName1' : 'lastName2'}
-                value={person === 'person1' ? lastName1 : lastName2}
-                onChange={this.handleChange}
-              />
-            </div>
+            <TextInput
+              label={
+                <>
+                  Maiden name <span style={{ fontSize: '90%' }}>(if any)</span>
+                </>
+              }
+              name={isPerson1 ? 'maidenName1' : 'maidenName2'}
+              value={isPerson1 ? maidenName1 : maidenName2}
+              onChange={this.handleChange}
+              css={SHORT_STYLING}
+            />
 
-            <div className="m-t700">
-              <TextInput
-                label="Maiden name"
-                name={person === 'person1' ? 'maidenName1' : 'maidenName2'}
-                value={person === 'person1' ? maidenName1 : maidenName2}
-                onChange={this.handleChange}
-              />
-            </div>
+            <AltSpellings
+              values={isPerson1 ? altSpellings1 : altSpellings2}
+              person={person}
+              width="short"
+              handleChange={result => this.updateAltSpellings(person, result)}
+            />
           </FieldsetComponent>
 
           <FieldsetComponent
             legendText={
               <h2 id="filedInBoston" css={SECTION_HEADING_STYLING}>
                 Were {userForSelf ? 'your' : 'their'} parents married at the
-                time of {forSelf ? 'your' : 'their'} birth?
+                time of {userForSelf ? 'your' : 'their'} birth?
               </h2>
             }
           >
             <YesNoUnsureComponent
-              questionName={
-                person === 'person1' ? 'parentsMarried1' : 'parentsMarried2'
-              }
-              questionValue={
-                person === 'person1' ? parentsMarried1 : parentsMarried2
-              }
+              questionName={isPerson1 ? 'parentsMarried1' : 'parentsMarried2'}
+              questionValue={isPerson1 ? parentsMarried1 : parentsMarried2}
               handleChange={this.handleChange}
             />
           </FieldsetComponent>
@@ -161,10 +167,11 @@ export default class PersonOnRecord extends Component<Props> {
       forSelf,
       parentsMarried1,
     } = marriageCertificateRequest.requestInformation;
+    const isPerson1: boolean = person === 'person1';
 
     let noteBoxContent: ReactChild;
 
-    if (person === 'person1' && forSelf) {
+    if (isPerson1 && forSelf) {
       noteBoxContent = (
         <>
           <p>
@@ -194,8 +201,8 @@ export default class PersonOnRecord extends Component<Props> {
             <strong>
               If you are listed on the record, you will need to provide a valid
               form of identification (<i>e.g.</i> driver’s license, state ID,
-              military ID, or passport) in{' '}
-              {person === 'person1' ? 'a later' : 'the next'} step.
+              military ID, or passport) in {isPerson1 ? 'a later' : 'the next'}{' '}
+              step.
             </strong>{' '}
             If you are not listed on the record, you will not be able to get a
             copy. Your request will be canceled and your card will not be
@@ -205,13 +212,16 @@ export default class PersonOnRecord extends Component<Props> {
       );
     }
 
-    // If user is on person2 and
-    // If parentsMarried1 and parentsMarried2 are both not “yes” and user
-    // was already warned during the previous step, do not show a second time.
+    // If user is:
+    // - on person2
+    // - neither parentsMarried1 nor parentsMarried2 are “yes”
+    // - user was already warned during the previous step
+    //
+    // do not show a second time.
     if (marriageCertificateRequest.mayBeRestricted) {
       return (
         <>
-          {(person === 'person1' || parentsMarried1 === 'yes') && (
+          {(isPerson1 || parentsMarried1 === 'yes') && (
             <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
               <h2 className="h3 tt-u">Record may have an access restriction</h2>
 
@@ -225,3 +235,9 @@ export default class PersonOnRecord extends Component<Props> {
     }
   }
 }
+
+const SHORT_STYLING = css({
+  [MEDIA_SMALL]: {
+    width: '50%',
+  },
+});

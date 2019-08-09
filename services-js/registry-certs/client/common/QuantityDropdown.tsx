@@ -2,15 +2,12 @@
 
 import { css, jsx } from '@emotion/core';
 
-import { ChangeEvent } from 'react';
-
 import { MEDIA_SMALL } from '@cityofboston/react-fleet';
+import { useEffect, useRef, useState } from 'react';
 
 interface Props {
   quantity: number;
-  handleQuantityChange: (
-    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => void;
+  handleQuantityChange: (value: number | null) => void;
 }
 
 /**
@@ -23,11 +20,50 @@ interface Props {
  * Dropdown portion will only appear in larger viewports.
  */
 export default function QuantityDropdown(props: Props) {
-  const { quantity } = props;
+  const [selectValue, setSelectValue] = useState<string>('1');
+  const [quantity, setQuantity] = useState<number>(1);
+  const inputField = useRef<HTMLInputElement>(null);
+
+  const handleQuantityChange = (value: string): void => {
+    // Allows user to delete the characters before typing in new ones.
+    if (value) {
+      setQuantity(+value);
+      setSelectValue(+value > 10 ? 'other' : value);
+    } else {
+      setQuantity('' as any);
+    }
+  };
+
+  const handleSelectValueChange = (value: string): void => {
+    setSelectValue(value);
+
+    if (value !== 'other') {
+      setQuantity(+value);
+    } else {
+      setQuantity('' as any);
+
+      if (inputField && inputField.current) inputField.current.focus();
+    }
+  };
+
+  const handleQuantityInputBlur = (): void => {
+    // If user erases value in field, return quantity to 1 on blur
+    if (quantity < 1) handleQuantityChange('1');
+  };
+
+  // If the quantity is passed down as props, use that value.
+  useEffect(() => {
+    if (props.quantity) handleQuantityChange(props.quantity.toString());
+  }, []);
+
+  useEffect(() => {
+    props.handleQuantityChange(quantity);
+  }, [quantity]);
 
   return (
-    <div className="m-r200" css={ADD_TO_CART_FORM_STYLE}>
+    <div css={CONTAINER_STYLE}>
       <input
+        ref={inputField}
         type="number"
         min="1"
         name="quantity"
@@ -36,7 +72,8 @@ export default function QuantityDropdown(props: Props) {
         css={QUANTITY_FIELD_STYING}
         size={3}
         value={quantity}
-        onChange={props.handleQuantityChange}
+        onChange={event => handleQuantityChange(event.target.value)}
+        onBlur={handleQuantityInputBlur}
       />
 
       <div
@@ -46,9 +83,9 @@ export default function QuantityDropdown(props: Props) {
       >
         <select
           name="quantityMenu"
-          value={quantity <= 10 ? quantity : 'other'}
+          value={selectValue}
           className="sel-f sel-f--sq"
-          onChange={props.handleQuantityChange}
+          onChange={event => handleSelectValueChange(event.target.value)}
         >
           <option value="1">1</option>
           <option value="2">2</option>
@@ -68,13 +105,7 @@ export default function QuantityDropdown(props: Props) {
   );
 }
 
-const ADD_TO_CART_FORM_STYLE = css({
-  display: 'flex',
-
-  [MEDIA_SMALL]: {
-    width: 165,
-  },
-});
+const CONTAINER_STYLE = css({ display: 'flex' });
 
 const QUANTITY_FIELD_STYING = css({
   MozAppearance: 'textfield',
@@ -82,8 +113,10 @@ const QUANTITY_FIELD_STYING = css({
     WebkitAppearance: 'none',
   },
 
+  flexGrow: 1,
+
   [MEDIA_SMALL]: {
-    width: 99,
+    width: 70,
     borderRight: 0,
   },
 });

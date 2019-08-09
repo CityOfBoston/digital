@@ -24,7 +24,6 @@ storiesOf('Common Components/ReviewCertificateRequest', module)
       certificateType="birth"
       certificateRequest={birthCertificateRequest}
       siteAnalytics={new GaSiteAnalytics()}
-      testDontScroll
     >
       <p />
     </ReviewCertificateRequest>
@@ -34,7 +33,6 @@ storiesOf('Common Components/ReviewCertificateRequest', module)
       certificateType="marriage"
       certificateRequest={marriageCertificateRequest}
       siteAnalytics={new GaSiteAnalytics()}
-      testDontScroll
     >
       <p />
     </ReviewCertificateRequest>

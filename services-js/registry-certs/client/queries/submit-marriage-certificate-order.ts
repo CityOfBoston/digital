@@ -100,18 +100,18 @@ export default async function submitMarriageCertificateOrder(
     uploadSessionId,
     requestInformation: {
       forSelf,
-      howRelated,
       filedInBoston,
-      dateOfMarriageStart,
-      dateOfMarriageEnd,
-      firstName1,
-      lastName1,
+      dateOfMarriageExact,
+      dateOfMarriageUnsure,
+      fullName1,
+      fullName2,
       maidenName1,
-      firstName2,
-      lastName2,
       maidenName2,
+      altSpellings1,
+      altSpellings2,
       parentsMarried1,
       parentsMarried2,
+      customerNotes,
     },
   } = marriageCertificateRequest;
 
@@ -127,13 +127,9 @@ export default async function submitMarriageCertificateOrder(
     );
   }
 
-  if (!dateOfMarriageStart) {
-    throw new Error('dateOfMarriageStart was not set');
-  }
-
   // Marriage Certificate Request Questions:
-  const notes = `
-Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
+  const requestDetails = `
+Ordering for self: ${forSelf ? 'yes' : 'no'}
 | Person1 parents married: ${parentsMarried1}
 | Person2 parents married: ${parentsMarried2}
 ${filedInBoston === 'unknown' ? '*Unsure if filed in Boston*' : ''}
@@ -159,19 +155,20 @@ ${filedInBoston === 'unknown' ? '*Unsure if filed in Boston*' : ''}
     billingCity,
     billingZip,
     item: {
-      dateOfMarriageStart: dateOfMarriageStart.toISOString(),
-      dateOfMarriageEnd: dateOfMarriageEnd
-        ? dateOfMarriageEnd.toISOString()
+      dateOfMarriageExact: dateOfMarriageExact
+        ? dateOfMarriageExact.toISOString()
         : '',
-      firstName1,
-      lastName1,
+      dateOfMarriageUnsure: dateOfMarriageUnsure || '',
+      fullName1,
+      fullName2,
       maidenName1: maidenName1 || '',
-      firstName2,
-      lastName2,
       maidenName2: maidenName2 || '',
+      altSpellings1: altSpellings1 || '',
+      altSpellings2: altSpellings2 || '',
       uploadSessionId,
       quantity,
-      notes,
+      requestDetails,
+      customerNotes: customerNotes || '',
     },
     idempotencyKey,
   };

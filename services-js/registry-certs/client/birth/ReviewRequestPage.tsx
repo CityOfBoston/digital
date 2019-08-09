@@ -21,9 +21,7 @@ import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 import { SECTION_HEADING_STYLING } from '../common/question-components/styling';
 
 interface Props
-  extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {
-  testDontScroll?: boolean;
-}
+  extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
 
 /**
  * Component which allows a user to review their request, and update the
@@ -58,7 +56,6 @@ export default class ReviewRequestPage extends Component<Props> {
           certificateType="birth"
           certificateRequest={this.props.birthCertificateRequest}
           siteAnalytics={this.props.siteAnalytics}
-          testDontScroll={this.props.testDontScroll}
         >
           <p>
             You can only order copies of one person’s birth certificate at a

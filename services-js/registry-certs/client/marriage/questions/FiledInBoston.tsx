@@ -76,6 +76,11 @@ export default class FiledInBoston extends Component<Props> {
               </h2>
             }
           >
+            <p>
+              This refers to where the paperwork was filed, <em>not</em> where
+              the marriage took place.
+            </p>
+
             <YesNoUnsureComponent
               questionName="filedInBoston"
               questionValue={filedInBoston}

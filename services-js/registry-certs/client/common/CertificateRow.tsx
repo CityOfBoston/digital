@@ -48,8 +48,7 @@ type CertificateProps = {
     }
   | {
       type: 'marriage';
-      fullName1: string;
-      fullName2: string;
+      fullNames: string;
     });
 
 const renderCertificate = (
@@ -63,9 +62,7 @@ const renderCertificate = (
     >
       {certificateProps.type === 'marriage' ? (
         <span css={LONG_TEXT_STYLE}>
-          <span>
-            {certificateProps.fullName1} & {certificateProps.fullName2}
-          </span>
+          <span>{certificateProps.fullNames}</span>
 
           <wbr />
 
@@ -176,11 +173,10 @@ function birthRequestProps(request): CertificateProps {
 }
 
 function marriageRequestProps(request): CertificateProps {
-  const { fullName1, fullName2, dateString } = request;
+  const { fullNames, dateString } = request;
 
   return {
-    fullName1,
-    fullName2,
+    fullNames,
     subinfo: `Married: ${dateString}`,
     pending: false,
     type: 'marriage',

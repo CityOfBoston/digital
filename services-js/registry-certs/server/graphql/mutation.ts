@@ -46,7 +46,7 @@ interface BirthCertificateOrderItemInput {
   parent2LastName: string;
   uploadSessionId: string;
   quantity: Int;
-  notes: string;
+  requestDetails: string;
 }
 
 /**
@@ -56,17 +56,18 @@ interface BirthCertificateOrderItemInput {
  */
 interface MarriageCertificateOrderItemInput {
   /** ISO8601 format. Should be midnight UTC on the date. */
-  dateOfMarriageStart: string;
-  dateOfMarriageEnd: string | null;
-  firstName1: string;
-  lastName1: string;
+  dateOfMarriageExact: string;
+  dateOfMarriageUnsure: string;
+  fullName1: string;
+  fullName2: string;
   maidenName1: string;
-  firstName2: string;
-  lastName2: string;
   maidenName2: string;
+  altSpellings1: string;
+  altSpellings2: string;
   uploadSessionId: string;
   quantity: Int;
-  notes: string;
+  requestDetails: string;
+  customerNotes: string;
 }
 
 /**
@@ -253,6 +254,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     } = args;
 
     let totalQuantity = 0;
+
     items.forEach(({ quantity }) => {
       if (quantity <= 0) {
         throw new Error('Certificate quantity may not be less than 0');
@@ -430,7 +432,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         parent1LastName: item.parent1LastName,
         parent2FirstName: item.parent2FirstName,
         parent2LastName: item.parent2LastName,
-        requestDetails: item.notes,
+        requestDetails: item.requestDetails,
       },
       item.quantity,
       CERTIFICATE_COST.BIRTH / 100
@@ -550,17 +552,16 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const requestItemKey = await registryDb.addMarriageCertificateRequest(
       orderKey,
       {
-        certificateFirstName1: item.firstName1,
-        certificateLastName1: item.lastName1,
+        certificateFullName1: item.fullName1,
+        certificateFullName2: item.fullName2,
         certificateMaidenName1: item.maidenName1,
-        certificateFirstName2: item.firstName2,
-        certificateLastName2: item.lastName2,
         certificateMaidenName2: item.maidenName2,
-        dateOfMarriageStart: new Date(item.dateOfMarriageStart),
-        dateOfMarriageEnd: item.dateOfMarriageEnd
-          ? new Date(item.dateOfMarriageEnd)
-          : null,
-        requestDetails: item.notes,
+        certificateAltSpellings1: item.altSpellings1,
+        certificateAltSpellings2: item.altSpellings2,
+        dateOfMarriageExact: new Date(item.dateOfMarriageExact),
+        dateOfMarriageUnsure: item.dateOfMarriageUnsure,
+        requestDetails: item.requestDetails,
+        customerNotes: item.customerNotes,
       },
       item.quantity,
       CERTIFICATE_COST.MARRIAGE / 100

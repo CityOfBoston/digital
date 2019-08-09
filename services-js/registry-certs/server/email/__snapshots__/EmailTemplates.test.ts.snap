@@ -4134,7 +4134,7 @@ exports[`receipt Marriage certificate 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016)</i></td>
+                    <i>1 × Certified marriage certificate for Laurel Johnson &amp; Terry Johnson </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
@@ -4401,7 +4401,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016) $14.00
+  1 x Certified marriage certificate for Laurel Johnson &amp; Terry Johnson  $14.00
   Card processing fee*  $0.00
   Total  $14.56
 
@@ -4910,7 +4910,7 @@ exports[`receipt Marriage certificate shipped 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016)</i></td>
+                    <i>1 × Certified marriage certificate for Laurel Johnson &amp; Terry Johnson </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
@@ -5177,7 +5177,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate for Laurel (Smith) Johnson &amp; Terry (Doe) Johnson (6/20/2016) $14.00
+  1 x Certified marriage certificate for Laurel Johnson &amp; Terry Johnson  $14.00
   Card processing fee*  $0.00
   Total  $14.56
 

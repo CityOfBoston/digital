@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import React from 'react';
+
 import { css, jsx } from '@emotion/core';
 
 type Fields = {
@@ -18,6 +19,8 @@ interface Props {
   onlyAllowFuture?: boolean;
   legend: React.ReactChild;
   handleDate: (newDate: Date | null) => void;
+  resetDate?: boolean;
+  disabled?: boolean;
 }
 
 interface State {
@@ -87,10 +90,16 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       hasFocus: false,
       dirty: !!this.initial,
       lastValidityError: this.initial && this.isDateValid(this.initial),
-      fields: this.initial
-        ? dateToFields(this.initial)
-        : { year: '', month: '', day: '' },
+      fields: this.setFields(this.initial),
     };
+  }
+
+  private setFields(date: Date | null): Fields {
+    if (date) {
+      return dateToFields(date);
+    } else {
+      return { year: '', month: '', day: '' };
+    }
   }
 
   /**
@@ -202,6 +211,9 @@ export default class MemorableDateInput extends React.Component<Props, State> {
     const { fields, dirty, hasFocus, lastValidityError } = this.state;
 
     const missingInputError = inputCompleteError(fields);
+
+    if (this.props.disabled) return null;
+
     if (missingInputError) {
       if (!hasFocus && dirty) {
         return missingInputError;
@@ -212,6 +224,17 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       }
     } else {
       return lastValidityError;
+    }
+  }
+
+  /**
+   * Reset date fields to original values if provided, or clear all fields.
+   */
+  componentDidUpdate(prevProps: Readonly<Props>): void {
+    if (!prevProps.resetDate && this.props.resetDate) {
+      this.setState({ fields: this.setFields(null) }, () => {
+        this.setState({ dirty: false });
+      });
     }
   }
 
@@ -230,7 +253,10 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       <fieldset css={FIELDSET_STYLING}>
         <legend style={{ width: '100%' }}>{this.props.legend}</legend>
 
-        <div css={FIELDS_CONTAINER_STYLING}>
+        <div
+          css={FIELDS_CONTAINER_STYLING}
+          className={this.props.disabled ? 'disabled' : ''}
+        >
           <div>
             <label htmlFor={`${this.componentId}-month`} className="txt-l">
               Month
@@ -243,6 +269,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
               max="12"
               placeholder="MM"
               value={this.state.fields.month}
+              disabled={this.props.disabled}
             />
           </div>
 
@@ -258,6 +285,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
               max="31"
               placeholder="DD"
               value={this.state.fields.day}
+              disabled={this.props.disabled}
             />
           </div>
 
@@ -274,6 +302,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
               max={this.latest ? this.latest.getUTCFullYear() : '9999'}
               placeholder="YYYY"
               value={this.state.fields.year}
+              disabled={this.props.disabled}
             />
           </div>
         </div>
@@ -494,6 +523,7 @@ const FIELDSET_STYLING = css({
   border: 'none',
   padding: 0,
   margin: 0,
+
   legend: {
     paddingLeft: 0,
     fontSize: '120%',
@@ -503,6 +533,7 @@ const FIELDSET_STYLING = css({
 const FIELDS_CONTAINER_STYLING = css({
   display: 'flex',
   justifyContent: 'space-between',
+  transition: 'opacity 0.1s',
 
   '> div': {
     flex: '0 0 24%',
@@ -511,6 +542,7 @@ const FIELDS_CONTAINER_STYLING = css({
       flex: '0 0 50%',
     },
   },
+
   input: {
     MozAppearance: 'textfield',
 
@@ -522,7 +554,16 @@ const FIELDS_CONTAINER_STYLING = css({
       display: 'none',
     },
   },
+
   label: {
     marginTop: '0.5rem',
+  },
+
+  '&.disabled': {
+    opacity: 0.4,
+
+    '*': {
+      cursor: 'not-allowed',
+    },
   },
 });

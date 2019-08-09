@@ -9,7 +9,6 @@ import { getParam } from '@cityofboston/next-client-common';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
-import { CERTIFICATE_COST } from '../../lib/costs';
 
 import ShippingContent from '../common/checkout/ShippingContent';
 import PaymentContent from '../common/checkout/PaymentContent';
@@ -40,11 +39,7 @@ interface InitialProps {
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
-  | 'marriageCertificateRequest'
-  | 'siteAnalytics'
-  | 'orderProvider'
-  | 'checkoutDao'
-  | 'stripe'
+  'marriageCertificateRequest' | 'orderProvider' | 'checkoutDao' | 'stripe'
 >;
 
 interface Props extends InitialProps, PageDependenciesProps {
@@ -110,8 +105,6 @@ export default class MarriageCheckoutPage extends React.Component<
   }
 
   async componentDidMount() {
-    this.reportCheckoutStep(this.props);
-
     const { orderProvider } = this.props;
 
     if (this.state.order) {
@@ -121,34 +114,8 @@ export default class MarriageCheckoutPage extends React.Component<
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
+
     await new Promise(resolve => this.setState({ order }, resolve));
-  }
-
-  componentWillReceiveProps(newProps: Props) {
-    if (newProps.info.page !== this.props.info.page) {
-      this.reportCheckoutStep(newProps);
-    }
-  }
-
-  reportCheckoutStep({ info, siteAnalytics }: Props) {
-    let checkoutStep: number | null = null;
-    switch (info.page) {
-      case 'shipping':
-        checkoutStep = 1;
-        break;
-      case 'payment':
-        checkoutStep = 2;
-        break;
-      case 'review':
-        checkoutStep = 3;
-        break;
-    }
-
-    if (checkoutStep) {
-      this.sendMarriageCertificateProduct();
-
-      siteAnalytics.setProductAction('checkout', { step: checkoutStep });
-    }
   }
 
   advanceToPayment = async (shippingInfo: Partial<OrderInfo>) => {
@@ -200,7 +167,6 @@ export default class MarriageCheckoutPage extends React.Component<
     const {
       checkoutDao,
       marriageCertificateRequest,
-      siteAnalytics,
       orderProvider,
     } = this.props;
 
@@ -211,9 +177,7 @@ export default class MarriageCheckoutPage extends React.Component<
     }
 
     const stepCount = marriageCertificateRequest.steps.length;
-    const orderId = 'orderId';
-
-    await checkoutDao.submitMarriageCertificateRequest(
+    const orderId = await checkoutDao.submitMarriageCertificateRequest(
       marriageCertificateRequest,
       order
     );
@@ -228,36 +192,6 @@ export default class MarriageCheckoutPage extends React.Component<
     // If we get this far without throwing, the order has definitely succeeded,
     // so we need to catch any further errors and hide them from the user.
     try {
-      this.sendMarriageCertificateProduct();
-
-      siteAnalytics.setProductAction('purchase', {
-        id: orderId,
-        revenue:
-          (marriageCertificateRequest.quantity * CERTIFICATE_COST.MARRIAGE) /
-          100,
-      });
-
-      siteAnalytics.sendEvent('click', {
-        category: 'Marriage',
-        label: 'submit order',
-      });
-
-      siteAnalytics.sendEvent('ship to city', {
-        category: 'Marriage',
-        label: `${order.info.shippingCity}, ${order.info.shippingState}`,
-      });
-
-      siteAnalytics.sendEvent('ship to state', {
-        category: 'Marriage',
-        label: order.info.shippingState,
-      });
-
-      siteAnalytics.sendEvent('place order', {
-        category: 'Marriage',
-        label: 'certificate quantity',
-        value: marriageCertificateRequest.quantity,
-      });
-
       marriageCertificateRequest.clearCertificateRequest();
       orderProvider.clear();
 
@@ -287,16 +221,6 @@ export default class MarriageCheckoutPage extends React.Component<
       window.scroll(0, 0);
     }
   };
-
-  sendMarriageCertificateProduct() {
-    this.props.siteAnalytics.addProduct(
-      '0',
-      'Marriage certificate',
-      'Marriage certificate',
-      this.props.marriageCertificateRequest.quantity,
-      CERTIFICATE_COST.MARRIAGE / 100
-    );
-  }
 
   render() {
     const { info, marriageCertificateRequest, stripe } = this.props;

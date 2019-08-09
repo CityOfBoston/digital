@@ -43,13 +43,11 @@ export const RADIOGROUP_STYLING = css({
 
   [MEDIA_MEDIUM]: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'baseline',
     marginBottom: 0,
   },
   [MEDIA_LARGE]: {
-    justifyContent: 'center',
-
     '> *': {
       margin: '1rem',
     },
@@ -58,47 +56,62 @@ export const RADIOGROUP_STYLING = css({
 
 export const HOW_RELATED_CONTAINER_STYLING = css({
   marginTop: '2rem',
+
   label: {
-    marginBottom: '2rem',
     alignItems: 'flex-end',
+    marginBottom: '2rem',
   },
 
   [MEDIA_SMALL]: {
     display: 'flex',
     flexWrap: 'wrap',
+    justifyContent: 'center',
 
     label: {
       flex: '0 1 50%',
-      marginBottom: '3rem',
       alignItems: 'center',
+      marginBottom: '3rem',
+
+      '&:last-of-type': {
+        span: {
+          whiteSpace: 'nowrap',
+        },
+      },
     },
   },
 
   [MEDIA_MEDIUM]: {
     label: {
-      flex: '0 1 33%',
+      flex: '0 1 32%',
+    },
+  },
+
+  [MEDIA_LARGE]: {
+    label: {
       marginBottom: '4rem',
     },
   },
 
-  // better control of item placement at all device widths, when possible
-  // note: the version of js dom used by our version of emotion will throw
-  // an error: https://github.com/emotion-js/emotion/issues/604
-  '@supports (display: grid)': {
-    display: 'grid',
-    gridRowGap: '2rem',
+  '&.birth': {
+    // better control of item placement at all device widths, when possible
+    // note: the version of js dom used by our version of emotion will throw
+    // an error: https://github.com/emotion-js/emotion/issues/604
+    '@supports (display: grid)': {
+      display: 'grid',
+      gridRowGap: '2rem',
 
-    label: {
-      marginBottom: 0,
-    },
+      label: {
+        marginBottom: 0,
+      },
 
-    [MEDIA_SMALL]: {
-      gridTemplateColumns: '1fr 1fr',
-      gridRowGap: '4rem',
-    },
+      [MEDIA_SMALL]: {
+        gridTemplateColumns: '1fr 1fr',
+        gridRowGap: '4rem',
+      },
 
-    [MEDIA_MEDIUM]: {
-      gridTemplateColumns: '1fr 1fr 1fr',
+      [MEDIA_MEDIUM]: {
+        gridTemplateColumns: '1fr 1fr 1fr',
+      },
     },
   },
 });

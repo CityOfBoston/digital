@@ -120,14 +120,14 @@ export interface FindBirthCertificateRequestResult {
 }
 
 export interface FindMarriageCertificateRequestResult {
-  CertificateFirstName1: string;
-  CertificateLastName1: string;
+  CertificateFullName1: string;
+  CertificateFullName2: string;
   CertificateMaidenName1: string;
-  CertificateFirstName2: string;
-  CertificateLastName2: string;
   CertificateMaidenName2: string;
-  DateOfMarriageStart: Date;
-  DateOfMarriageEnd: Date | null;
+  CertificateAltSpellings1: string;
+  CertificateAltSpellings2: string;
+  DateOfMarriageExact: Date;
+  DateOfMarriageUnsure: string;
   Quantity: number;
   TotalCost: number;
 }
@@ -145,15 +145,16 @@ export interface BirthCertificateRequestArgs {
 }
 
 export interface MarriageCertificateRequestArgs {
-  certificateFirstName1: string;
-  certificateLastName1: string;
+  certificateFullName1: string;
+  certificateFullName2: string;
   certificateMaidenName1: string;
-  certificateFirstName2: string;
-  certificateLastName2: string;
   certificateMaidenName2: string;
-  dateOfMarriageStart: Date;
-  dateOfMarriageEnd: Date | null;
+  certificateAltSpellings1: string;
+  certificateAltSpellings2: string;
+  dateOfMarriageExact: Date;
+  dateOfMarriageUnsure: string;
   requestDetails: string;
+  customerNotes: string;
 }
 
 const MAX_ID_LOOKUP_LENGTH = 1000;
@@ -415,14 +416,14 @@ export default class RegistryDb {
   async addMarriageCertificateRequest(
     orderKey: number,
     {
-      certificateFirstName1,
-      certificateLastName1,
+      certificateFullName1,
+      certificateFullName2,
       certificateMaidenName1,
-      certificateFirstName2,
-      certificateLastName2,
       certificateMaidenName2,
-      dateOfMarriageStart,
-      dateOfMarriageEnd,
+      certificateAltSpellings1,
+      certificateAltSpellings2,
+      dateOfMarriageExact,
+      dateOfMarriageUnsure,
       requestDetails,
     }: MarriageCertificateRequestArgs,
     quantity: number,
@@ -435,14 +436,16 @@ export default class RegistryDb {
       .request()
       .input('orderKey', orderKey)
       .input('orderType', OrderType.MarriageCertificate)
-      .input('certificateFirstName1', certificateFirstName1)
-      .input('certificateLastName1', certificateLastName1)
+      .input('certificateFullName1', certificateFullName1)
+      .input('certificateFullName2', certificateFullName2)
       .input('certificateMaidenName1', certificateMaidenName1)
-      .input('certificateFirstName2', certificateFirstName2)
-      .input('certificateLastName2', certificateLastName2)
       .input('certificateMaidenName2', certificateMaidenName2)
-      .input('dateOfMarriageStart', dateOfMarriageStart)
-      .input('dateOfMarriageEnd', dateOfMarriageEnd)
+      .input('certificateAltSpellings1', certificateAltSpellings1)
+      .input('certificateAltSpellings2', certificateAltSpellings2)
+      .input(
+        dateOfMarriageExact ? 'dateOfMarriageExact' : 'dateOfMarriageUnsure',
+        dateOfMarriageExact ? dateOfMarriageExact : dateOfMarriageUnsure
+      )
       .input('requestDetails', requestDetails)
       .input('quantity', quantity)
       .input('unitCost', `$${certificateCost.toFixed(2)}`)
@@ -525,7 +528,7 @@ export default class RegistryDb {
     > = await this.pool
       .request()
       .input('orderID', orderId)
-      .execute('Commerce.sp_FindMarriageCertificateRequest'); // todo: check name
+      .execute('Commerce.sp_FindMarriageCertificateRequest');
 
     const { recordset } = resp;
 
@@ -610,7 +613,7 @@ export default class RegistryDb {
       .execute(
         orderType === 'BC'
           ? 'Commerce.sp_DeleteBirthRequestAttachment'
-          : 'Commerce.sp_DeleteMarriageRequestAttachment' // todo: confirm name
+          : 'Commerce.sp_DeleteMarriageRequestAttachment'
       );
 
     const result = out.recordset[0];
@@ -644,7 +647,7 @@ export default class RegistryDb {
       .execute(
         orderType === 'BC'
           ? 'Commerce.sp_AssociateBirthAttachments'
-          : 'Commerce.sp_AssociateMarriageAttachments' // todo: confirm name
+          : 'Commerce.sp_AssociateMarriageAttachments'
       );
 
     const result = out.recordset[0];

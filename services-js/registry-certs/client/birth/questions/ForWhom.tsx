@@ -130,6 +130,7 @@ export default class ForWhom extends Component<Props> {
               role="radiogroup"
               aria-labelledby="howRelated"
               css={HOW_RELATED_CONTAINER_STYLING}
+              className="birth"
             >
               {this.relationQuestion('spouse', 'Spouse')}
 
