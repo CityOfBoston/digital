@@ -9807,7 +9807,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
                 onFocus={[Function]}
                 placeholder="DD"
                 type="number"
-                value="1"
+                value="2"
               />
             </div>
             <div>
@@ -66764,7 +66764,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
                 onFocus={[Function]}
                 placeholder="DD"
                 type="number"
-                value="1"
+                value="2"
               />
             </div>
             <div>
