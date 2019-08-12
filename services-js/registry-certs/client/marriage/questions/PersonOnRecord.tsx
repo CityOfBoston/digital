@@ -166,12 +166,13 @@ export default class PersonOnRecord extends Component<Props> {
     const {
       forSelf,
       parentsMarried1,
+      parentsMarried2,
     } = marriageCertificateRequest.requestInformation;
     const isPerson1: boolean = person === 'person1';
 
     let noteBoxContent: ReactChild;
 
-    if (isPerson1 && forSelf) {
+    if (forSelf && isPerson1) {
       noteBoxContent = (
         <>
           <p>
@@ -212,26 +213,22 @@ export default class PersonOnRecord extends Component<Props> {
       );
     }
 
-    // If user is:
-    // - on person2
-    // - neither parentsMarried1 nor parentsMarried2 are “yes”
-    // - user was already warned during the previous step
-    //
-    // do not show a second time.
-    if (marriageCertificateRequest.mayBeRestricted) {
+    // Ensure warning appears on correct step, but never show the warning twice.
+    if (
+      (isPerson1 && parentsMarried1 === 'yes') ||
+      (!isPerson1 && parentsMarried2 === 'yes')
+    ) {
+      return <></>;
+    } else {
       return (
         <>
-          {(isPerson1 || parentsMarried1 === 'yes') && (
-            <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
-              <h2 className="h3 tt-u">Record may have an access restriction</h2>
+          <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
+            <h2 className="h3 tt-u">Record may have an access restriction</h2>
 
-              {noteBoxContent}
-            </div>
-          )}
+            {noteBoxContent}
+          </div>
         </>
       );
-    } else {
-      return <></>;
     }
   }
 }

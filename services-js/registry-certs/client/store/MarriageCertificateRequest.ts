@@ -2,7 +2,6 @@ import { action, observable, computed, autorun } from 'mobx';
 import uuidv4 from 'uuid/v4';
 import Router from 'next/router';
 
-import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import { MemorableDateInput } from '@cityofboston/react-fleet';
 
 import UploadableFile, { UploadableFileRecord } from '../models/UploadableFile';
@@ -13,9 +12,6 @@ import {
   JSONObject,
   JSONValue,
 } from '../types';
-import { CERTIFICATE_COST } from '../../lib/costs';
-
-const MARRIAGE_CERTIFICATE_COST = CERTIFICATE_COST.MARRIAGE;
 
 // This is used for initial state during the questions flow, and to
 // reset all fields if user selects “start over”
@@ -92,17 +88,10 @@ export default class MarriageCertificateRequest {
   requestInformation: MarriageCertificateRequestInformation = INITIAL_REQUEST_INFORMATION;
 
   public uploadSessionId: string;
-  public siteAnalytics: GaSiteAnalytics | null = null;
-
   private sessionStorageDisposer: Function | null = null;
 
   constructor() {
     this.uploadSessionId = uuidv4();
-  }
-
-  @action
-  setSiteAnalytics(siteAnalytics: GaSiteAnalytics) {
-    this.siteAnalytics = siteAnalytics;
   }
 
   @action
@@ -253,33 +242,11 @@ export default class MarriageCertificateRequest {
 
   @computed
   public get needsIdentityVerification(): boolean {
-    const { parentsMarried1, parentsMarried2 } = this.requestInformation;
-
-    return (
-      (parentsMarried1.length > 0 && parentsMarried1 !== 'yes') ||
-      (parentsMarried2.length > 0 && parentsMarried2 !== 'yes')
-    );
+    return this.mayBeRestricted;
   }
 
   @action
   public setQuantity(newQuantity: number): void {
-    const { siteAnalytics } = this;
-    const quantityChange = newQuantity - this.quantity;
-
-    if (siteAnalytics) {
-      siteAnalytics.addProduct(
-        '0',
-        'Marriage certificate',
-        'Marriage certificate',
-        Math.abs(quantityChange),
-        MARRIAGE_CERTIFICATE_COST / 100
-      );
-
-      siteAnalytics.setProductAction(
-        newQuantity > this.quantity ? 'add' : 'remove'
-      );
-    }
-
     this.quantity = newQuantity;
   }
 
@@ -288,8 +255,10 @@ export default class MarriageCertificateRequest {
   public answerQuestion(
     answers: Partial<MarriageCertificateRequestInformation>
   ): void {
+    const { requestInformation } = this;
+
     this.requestInformation = {
-      ...this.requestInformation,
+      ...requestInformation,
       ...answers,
     };
   }
@@ -302,15 +271,15 @@ export default class MarriageCertificateRequest {
   public get completedQuestionSteps() {
     const steps = {
       forWhom: false,
+      filedInBoston: false,
       dateOfMarriage: false,
-      namesOnRecord: false,
-      parentalInformation: false,
+      personOnRecord1: false,
+      personOnRecord2: false,
       verifyIdentification: true,
     };
 
     const {
       forSelf,
-      howRelated,
       filedInBoston,
       dateOfMarriageExact,
       dateOfMarriageUnsure,
@@ -322,28 +291,31 @@ export default class MarriageCertificateRequest {
     } = this.requestInformation;
 
     // forWhom
-    if (forSelf || howRelated) {
+    if (forSelf !== null) {
       steps.forWhom = true;
     }
 
-    // namesOnRecord
-    if (fullName1 && fullName2) {
-      if (filedInBoston === 'yes') {
-        steps.namesOnRecord = true;
-      }
+    // filedInBoston
+    if (filedInBoston.length > 0) {
+      steps.filedInBoston = true;
     }
 
     // dateOfMarriage
     if (
       dateOfMarriageExact ||
-      (dateOfMarriageUnsure && dateOfMarriageUnsure.length)
+      (dateOfMarriageUnsure && dateOfMarriageUnsure.length > 0)
     ) {
       steps.dateOfMarriage = true;
     }
 
-    // parentalInformation
-    if (parentsMarried1.length > 0 && parentsMarried2.length > 0) {
-      steps.parentalInformation = true;
+    // personOnRecord1
+    if (fullName1.length > 0 && parentsMarried1.length > 0) {
+      steps.personOnRecord1 = true;
+    }
+
+    // personOnRecord2
+    if (fullName2.length > 0 && parentsMarried2.length > 0) {
+      steps.personOnRecord2 = true;
     }
 
     // verifyIdentification
@@ -449,7 +421,8 @@ export default class MarriageCertificateRequest {
     return (
       parentsMarried1 === 'no' ||
       parentsMarried1 === 'unknown' ||
-      (parentsMarried2 === 'no' || parentsMarried2 === 'unknown')
+      parentsMarried2 === 'no' ||
+      parentsMarried2 === 'unknown'
     );
   }
 }

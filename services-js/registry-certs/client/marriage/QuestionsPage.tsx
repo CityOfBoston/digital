@@ -150,8 +150,6 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     const nextStep = newSteps[currentIndex + 1];
 
-    // this.gaEventActionAndLabel();
-
     if (nextStep === 'reviewRequest') {
       Router.push('/marriage/review');
     } else {
@@ -241,7 +239,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
         break;
 
       case 'personOnRecord1':
-        isStepComplete = DateOfMarriage.isComplete(
+        isStepComplete = PersonOnRecord.isComplete(
+          'person1',
           localMarriageCertificateRequest
         );
         questionsEl = (
@@ -258,7 +257,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
         break;
 
       case 'personOnRecord2':
-        isStepComplete = DateOfMarriage.isComplete(
+        isStepComplete = PersonOnRecord.isComplete(
+          'person2',
           localMarriageCertificateRequest
         );
         questionsEl = (
