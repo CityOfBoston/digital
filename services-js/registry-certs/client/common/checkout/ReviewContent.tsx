@@ -135,6 +135,8 @@ export default class ReviewContent extends React.Component<Props, State> {
       shippingIsComplete,
       processing,
       info: {
+        contactEmail,
+        contactPhone,
         shippingName,
         shippingCompanyName,
         shippingAddress1,
@@ -215,6 +217,28 @@ export default class ReviewContent extends React.Component<Props, State> {
             </div>
 
             <RenderOrderDetails details={this.props} />
+          </div>
+
+          <div className="m-v700">
+            <div className="fs-l">
+              <div className="fs-l-c">
+                Contact Information
+                <span className="t--reset">
+                  &nbsp;—&nbsp;
+                  <span className="t--subinfo">
+                    <Link href={`${checkoutPath}?page=shipping`}>
+                      <a aria-label="Edit contact information">edit</a>
+                    </Link>
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div className="t--info" style={{ fontStyle: 'normal' }}>
+              <strong>{contactEmail}</strong>
+              <br />
+              {contactPhone}
+            </div>
           </div>
 
           <div className="m-v700">
