@@ -15,12 +15,6 @@ function makeMarriageCertificateRequest(
   return marriageCertificateRequest;
 }
 
-function oneWeekAgo(): Date {
-  const dayInMs = 8.64e7;
-
-  return new Date(Date.now() - 7 * dayInMs);
-}
-
 const commonAttributes = {
   handleProceed: () => {},
   handleStepBack: () => {},
@@ -60,8 +54,9 @@ storiesOf('Marriage/Question Components/DateOfMarriage', module)
       <DateOfMarriage
         {...commonAttributes}
         marriageCertificateRequest={makeMarriageCertificateRequest({
-          dateOfMarriageExact: oneWeekAgo(),
+          dateOfMarriageExact: new Date(2008, 3, 23),
         })}
+        showRecentBirthWarning={true}
       />
     </div>
   ))

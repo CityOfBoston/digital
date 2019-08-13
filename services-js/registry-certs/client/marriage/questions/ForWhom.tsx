@@ -19,6 +19,7 @@ import {
   SECTION_HEADING_STYLING,
   RADIOGROUP_STYLING,
 } from '../../common/question-components/styling';
+import { Relation } from '../../types';
 
 interface Props {
   marriageCertificateRequest: MarriageCertificateRequest;
@@ -40,18 +41,8 @@ export default class ForWhom extends Component<Props, State> {
   constructor(props) {
     super(props);
 
-    function startingValue(): Whom {
-      const { forSelf } = props.marriageCertificateRequest.requestInformation;
-
-      if (forSelf !== null) {
-        return forSelf === true ? 'self' : 'other';
-      } else {
-        return null;
-      }
-    }
-
     this.state = {
-      forWhom: startingValue(),
+      forWhom: this.startingValue(),
     };
   }
 
@@ -61,21 +52,52 @@ export default class ForWhom extends Component<Props, State> {
     return marriageCertificateRequest.requestInformation.forSelf !== null;
   }
 
+  private startingValue(): Whom {
+    const {
+      forSelf,
+    } = this.props.marriageCertificateRequest.requestInformation;
+
+    if (forSelf === true) {
+      return 'self';
+    } else if (forSelf === false) {
+      return 'other';
+    }
+
+    return null;
+  }
+
   private handleChange(forWhom: Whom) {
     this.setState({ forWhom });
   }
 
   public componentDidUpdate(
-    _prevProps: Readonly<Props>,
+    prevProps: Readonly<Props>,
     prevState: Readonly<State>
   ): void {
     const { forWhom } = this.state;
 
-    if (prevState.forWhom !== forWhom) {
-      const isClient = forWhom === 'client';
+    // Update answers in response to local state change.
+    if (forWhom !== prevState.forWhom) {
+      if (forWhom === 'self') {
+        this.props.marriageCertificateRequest.answerQuestion({
+          forSelf: true,
+          howRelated: '',
+        });
+      } else {
+        this.props.marriageCertificateRequest.answerQuestion({
+          forSelf: false,
+          howRelated: forWhom as Relation,
+        });
+      }
+    }
 
-      this.props.marriageCertificateRequest.answerQuestion({
-        forSelf: isClient ? null : forWhom === 'self',
+    // Ensure value is reflected if it was previously provided.
+    if (
+      this.props.marriageCertificateRequest.requestInformation.forSelf !==
+      prevProps.marriageCertificateRequest.requestInformation.forSelf
+    ) {
+      this.setState({
+        forWhom: this.startingValue(),
       });
     }
   }
