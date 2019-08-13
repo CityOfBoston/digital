@@ -37974,18 +37974,6 @@ exports[`Storyshots Common Components/CostSummary with research fee 1`] = `
 `;
 
 exports[`Storyshots Common Components/DateRangePicker default 1`] = `
-.emotion-2 input {
-  -moz-appearance: textfield;
-}
-
-.emotion-2 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-.emotion-2 input::-ms-clear {
-  display: none;
-}
-
 @media screen and (min-width:768px) {
   .emotion-2 {
     display: -webkit-box;
@@ -38004,7 +37992,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
     flex: 0 0 10%;
   }
 
-  .emotion-2 > .date-set {
+  .emotion-2 > .date-component {
     -webkit-flex: 0 0 45%;
     -ms-flex: 0 0 45%;
     flex: 0 0 45%;
@@ -38056,6 +38044,18 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
   flex: 0 0 65%;
 }
 
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
 <div>
   <div
     style={
@@ -38069,7 +38069,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
       className=" emotion-2"
     >
       <div
-        className="date-set"
+        className="date-component"
       >
         <div
           aria-label="date 1"
@@ -38088,7 +38088,6 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
               id="date1month"
               max="12"
               min="1"
-              onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               placeholder="MM"
@@ -38129,7 +38128,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
         to
       </div>
       <div
-        className="date-set"
+        className="date-component"
       >
         <div
           aria-label="date 2"
@@ -38148,7 +38147,6 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
               id="date2month"
               max="12"
               min="1"
-              onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               placeholder="MM"
@@ -38189,18 +38187,6 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
 `;
 
 exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
-.emotion-2 input {
-  -moz-appearance: textfield;
-}
-
-.emotion-2 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-.emotion-2 input::-ms-clear {
-  display: none;
-}
-
 @media screen and (min-width:768px) {
   .emotion-2 {
     display: -webkit-box;
@@ -38219,7 +38205,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
     flex: 0 0 10%;
   }
 
-  .emotion-2 > .date-set {
+  .emotion-2 > .date-component {
     -webkit-flex: 0 0 45%;
     -ms-flex: 0 0 45%;
     flex: 0 0 45%;
@@ -38271,6 +38257,18 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
   flex: 0 0 65%;
 }
 
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
 <div>
   <div
     style={
@@ -38284,7 +38282,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
       className=" emotion-2"
     >
       <div
-        className="date-set"
+        className="date-component"
       >
         <div
           aria-label="date 1"
@@ -38303,7 +38301,6 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
               id="date1month"
               max="12"
               min="1"
-              onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               placeholder="MM"
@@ -38344,7 +38341,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
         to
       </div>
       <div
-        className="date-set"
+        className="date-component"
       >
         <div
           aria-label="date 2"
@@ -38363,7 +38360,6 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
               id="date2month"
               max="12"
               min="1"
-              onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               placeholder="MM"
@@ -38404,18 +38400,6 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
 `;
 
 exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
-.emotion-2 input {
-  -moz-appearance: textfield;
-}
-
-.emotion-2 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-.emotion-2 input::-ms-clear {
-  display: none;
-}
-
 @media screen and (min-width:768px) {
   .emotion-2 {
     display: -webkit-box;
@@ -38434,7 +38418,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
     flex: 0 0 10%;
   }
 
-  .emotion-2 > .date-set {
+  .emotion-2 > .date-component {
     -webkit-flex: 0 0 45%;
     -ms-flex: 0 0 45%;
     flex: 0 0 45%;
@@ -38486,6 +38470,18 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
   flex: 0 0 65%;
 }
 
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
 <div>
   <div
     style={
@@ -38499,7 +38495,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
       className=" emotion-2"
     >
       <div
-        className="date-set"
+        className="date-component"
       >
         <div
           aria-label="date 1"
@@ -38518,7 +38514,6 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
               id="date1month"
               max="12"
               min="1"
-              onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               placeholder="MM"
@@ -38559,7 +38554,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
         to
       </div>
       <div
-        className="date-set"
+        className="date-component"
       >
         <div
           aria-label="date 2"
@@ -38578,7 +38573,6 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
               id="date2month"
               max="12"
               min="1"
-              onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               placeholder="MM"
@@ -38618,7 +38612,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
 </div>
 `;
 
-exports[`Storyshots Common Components/DateRangePicker/DateSet default 1`] = `
+exports[`Storyshots Common Components/DateRangePicker/DateComponent default 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -38642,6 +38636,18 @@ exports[`Storyshots Common Components/DateRangePicker/DateSet default 1`] = `
   flex: 0 0 65%;
 }
 
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
 <div>
   <div
     style={
@@ -38652,7 +38658,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateSet default 1`] = `
     }
   >
     <div
-      className="date-set"
+      className="date-component"
     >
       <div
         aria-label="date 1"
@@ -38671,7 +38677,6 @@ exports[`Storyshots Common Components/DateRangePicker/DateSet default 1`] = `
             id="date1month"
             max="12"
             min="1"
-            onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             placeholder="MM"
@@ -38710,7 +38715,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateSet default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Common Components/DateRangePicker/DateSet with values 1`] = `
+exports[`Storyshots Common Components/DateRangePicker/DateComponent with values 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -38734,6 +38739,18 @@ exports[`Storyshots Common Components/DateRangePicker/DateSet with values 1`] = 
   flex: 0 0 65%;
 }
 
+.emotion-0 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-0 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-0 input::-ms-clear {
+  display: none;
+}
+
 <div>
   <div
     style={
@@ -38744,7 +38761,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateSet with values 1`] = 
     }
   >
     <div
-      className="date-set"
+      className="date-component"
     >
       <div
         aria-label="date 2"
@@ -38763,7 +38780,6 @@ exports[`Storyshots Common Components/DateRangePicker/DateSet with values 1`] = 
             id="date2month"
             max="12"
             min="1"
-            onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             placeholder="MM"
@@ -65471,18 +65487,6 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
   stroke: none;
 }
 
-.emotion-9 input {
-  -moz-appearance: textfield;
-}
-
-.emotion-9 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-.emotion-9 input::-ms-clear {
-  display: none;
-}
-
 @media screen and (min-width:768px) {
   .emotion-9 {
     display: -webkit-box;
@@ -65501,7 +65505,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
     flex: 0 0 10%;
   }
 
-  .emotion-9 > .date-set {
+  .emotion-9 > .date-component {
     -webkit-flex: 0 0 45%;
     -ms-flex: 0 0 45%;
     flex: 0 0 45%;
@@ -65551,6 +65555,18 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
   -webkit-flex: 0 0 65%;
   -ms-flex: 0 0 65%;
   flex: 0 0 65%;
+}
+
+.emotion-7 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-7 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-7 input::-ms-clear {
+  display: none;
 }
 
 .emotion-5 {
@@ -65704,7 +65720,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
           className=" emotion-9"
         >
           <div
-            className="date-set"
+            className="date-component"
           >
             <div
               aria-label="date 1"
@@ -65723,7 +65739,6 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
                   id="date1month"
                   max="12"
                   min="1"
-                  onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="MM"
@@ -65764,7 +65779,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
             to
           </div>
           <div
-            className="date-set"
+            className="date-component"
           >
             <div
               aria-label="date 2"
@@ -65783,7 +65798,6 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
                   id="date2month"
                   max="12"
                   min="1"
-                  onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="MM"
@@ -67532,18 +67546,6 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
   stroke: none;
 }
 
-.emotion-9 input {
-  -moz-appearance: textfield;
-}
-
-.emotion-9 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-.emotion-9 input::-ms-clear {
-  display: none;
-}
-
 @media screen and (min-width:768px) {
   .emotion-9 {
     display: -webkit-box;
@@ -67562,7 +67564,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
     flex: 0 0 10%;
   }
 
-  .emotion-9 > .date-set {
+  .emotion-9 > .date-component {
     -webkit-flex: 0 0 45%;
     -ms-flex: 0 0 45%;
     flex: 0 0 45%;
@@ -67612,6 +67614,18 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
   -webkit-flex: 0 0 65%;
   -ms-flex: 0 0 65%;
   flex: 0 0 65%;
+}
+
+.emotion-7 input {
+  -moz-appearance: textfield;
+}
+
+.emotion-7 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.emotion-7 input::-ms-clear {
+  display: none;
 }
 
 .emotion-5 {
@@ -67765,7 +67779,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
           className=" emotion-9"
         >
           <div
-            className="date-set"
+            className="date-component"
           >
             <div
               aria-label="date 1"
@@ -67784,7 +67798,6 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
                   id="date1month"
                   max="12"
                   min="1"
-                  onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="MM"
@@ -67825,7 +67838,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
             to
           </div>
           <div
-            className="date-set"
+            className="date-component"
           >
             <div
               aria-label="date 2"
@@ -67844,7 +67857,6 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
                   id="date2month"
                   max="12"
                   min="1"
-                  onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
                   placeholder="MM"

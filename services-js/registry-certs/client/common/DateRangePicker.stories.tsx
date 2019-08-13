@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import { NarrowWrapper } from '@cityofboston/storybook-common';
 
-import DateRangePicker, { DateSet } from './DateRangePicker';
+import DateRangePicker, { DateComponent } from './DateRangePicker';
 
 storiesOf('Common Components/DateRangePicker', module)
   .add('default', () => (
@@ -23,15 +23,15 @@ storiesOf('Common Components/DateRangePicker', module)
     </NarrowWrapper>
   ));
 
-storiesOf('Common Components/DateRangePicker/DateSet', module)
+storiesOf('Common Components/DateRangePicker/DateComponent', module)
   .add('default', () => (
     <NarrowWrapper>
-      <DateSet handleChange={() => {}} dateName="date1" />
+      <DateComponent handleChange={() => {}} dateName="date1" />
     </NarrowWrapper>
   ))
   .add('with values', () => (
     <NarrowWrapper>
-      <DateSet
+      <DateComponent
         handleChange={() => {}}
         dateName="date2"
         initialDate={[2, 2013]}
