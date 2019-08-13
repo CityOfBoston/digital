@@ -2029,6 +2029,49 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                   <div
                     className="fs-l-c"
                   >
+                    Contact Information
+                    <span
+                      className="t--reset"
+                    >
+                       — 
+                      <span
+                        className="t--subinfo"
+                      >
+                        <a
+                          aria-label="Edit contact information"
+                          href="/birth/checkout?page=shipping"
+                          onClick={[Function]}
+                        >
+                          edit
+                        </a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  <strong>
+                    squirrel.girl@avengers.org
+                  </strong>
+                  <br />
+                  (555) 123-9999
+                </div>
+              </div>
+              <div
+                className="m-v700"
+              >
+                <div
+                  className="fs-l"
+                >
+                  <div
+                    className="fs-l-c"
+                  >
                     Shipping Address
                     <span
                       className="t--reset"
@@ -25189,6 +25232,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
                   <div
                     className="fs-l-c"
                   >
+                    Contact Information
+                    <span
+                      className="t--reset"
+                    >
+                       — 
+                      <span
+                        className="t--subinfo"
+                      >
+                        <a
+                          aria-label="Edit contact information"
+                          href="/birth/checkout?page=shipping"
+                          onClick={[Function]}
+                        >
+                          edit
+                        </a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  <strong>
+                    squirrel.girl@avengers.org
+                  </strong>
+                  <br />
+                  (555) 123-9999
+                </div>
+              </div>
+              <div
+                className="m-v700"
+              >
+                <div
+                  className="fs-l"
+                >
+                  <div
+                    className="fs-l-c"
+                  >
                     Shipping Address
                     <span
                       className="t--reset"
@@ -25892,6 +25978,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                 <div
                   role="region"
                 />
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Contact Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit contact information"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                <strong>
+                  squirrel.girl@avengers.org
+                </strong>
+                <br />
+                (555) 123-9999
               </div>
             </div>
             <div
@@ -26653,6 +26782,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                 <div
                   className="fs-l-c"
                 >
+                  Contact Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit contact information"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                <strong>
+                  squirrel.girl@avengers.org
+                </strong>
+                <br />
+                (555) 123-9999
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
                   Shipping Address
                   <span
                     className="t--reset"
@@ -27376,6 +27548,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                 <div
                   className="fs-l-c"
                 >
+                  Contact Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit contact information"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                <strong>
+                  squirrel.girl@avengers.org
+                </strong>
+                <br />
+                (555) 123-9999
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
                   Shipping Address
                   <span
                     className="t--reset"
@@ -28088,6 +28303,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                 <div
                   role="region"
                 />
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Contact Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit contact information"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                <strong>
+                  
+                </strong>
+                <br />
+                
               </div>
             </div>
             <div
@@ -28863,6 +29121,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
                   <div
                     className="fs-l-c"
                   >
+                    Contact Information
+                    <span
+                      className="t--reset"
+                    >
+                       — 
+                      <span
+                        className="t--subinfo"
+                      >
+                        <a
+                          aria-label="Edit contact information"
+                          href="/marriage/checkout?page=shipping"
+                          onClick={[Function]}
+                        >
+                          edit
+                        </a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  <strong>
+                    squirrel.girl@avengers.org
+                  </strong>
+                  <br />
+                  (555) 123-9999
+                </div>
+              </div>
+              <div
+                className="m-v700"
+              >
+                <div
+                  className="fs-l"
+                >
+                  <div
+                    className="fs-l-c"
+                  >
                     Shipping Address
                     <span
                       className="t--reset"
@@ -29568,6 +29869,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                 <div
                   role="region"
                 />
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Contact Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit contact information"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                <strong>
+                  squirrel.girl@avengers.org
+                </strong>
+                <br />
+                (555) 123-9999
               </div>
             </div>
             <div
@@ -30344,6 +30688,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                 <div
                   className="fs-l-c"
                 >
+                  Contact Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit contact information"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                <strong>
+                  squirrel.girl@avengers.org
+                </strong>
+                <br />
+                (555) 123-9999
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
                   Shipping Address
                   <span
                     className="t--reset"
@@ -31105,6 +31492,49 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                 <div
                   role="region"
                 />
+              </div>
+            </div>
+            <div
+              className="m-v700"
+            >
+              <div
+                className="fs-l"
+              >
+                <div
+                  className="fs-l-c"
+                >
+                  Contact Information
+                  <span
+                    className="t--reset"
+                  >
+                     — 
+                    <span
+                      className="t--subinfo"
+                    >
+                      <a
+                        aria-label="Edit contact information"
+                        href="/death/checkout?page=shipping"
+                        onClick={[Function]}
+                      >
+                        edit
+                      </a>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
+              >
+                <strong>
+                  squirrel.girl@avengers.org
+                </strong>
+                <br />
+                (555) 123-9999
               </div>
             </div>
             <div
@@ -62909,6 +63339,49 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
                   <div
                     role="region"
                   />
+                </div>
+              </div>
+              <div
+                className="m-v700"
+              >
+                <div
+                  className="fs-l"
+                >
+                  <div
+                    className="fs-l-c"
+                  >
+                    Contact Information
+                    <span
+                      className="t--reset"
+                    >
+                       — 
+                      <span
+                        className="t--subinfo"
+                      >
+                        <a
+                          aria-label="Edit contact information"
+                          href="/marriage/checkout?page=shipping"
+                          onClick={[Function]}
+                        >
+                          edit
+                        </a>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "fontStyle": "normal",
+                    }
+                  }
+                >
+                  <strong>
+                    squirrel.girl@avengers.org
+                  </strong>
+                  <br />
+                  (555) 123-9999
                 </div>
               </div>
               <div
