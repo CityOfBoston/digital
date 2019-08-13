@@ -32,7 +32,8 @@ export const PERCENTAGE_CC_STRING = `${(
 ).toFixed(2)}%`;
 export const FIXED_CC_STRING = `$${(FIXED_CC_SERVICE_FEE / 100).toFixed(2)}`;
 
-export const SERVICE_FEE_URI = 'https://www.cityofboston.gov/payments/faqs.asp';
+export const SERVICE_FEE_URL =
+  'https://www.boston.gov/common-questions-about-online-payments';
 
 function certificateCostString(certificateCost: number): string {
   return `$${(certificateCost / 100).toFixed(2)}`;

@@ -7,7 +7,7 @@ import { StatusModal } from '@cityofboston/react-fleet';
 import {
   PERCENTAGE_CC_STRING,
   FIXED_CC_STRING,
-  SERVICE_FEE_URI,
+  SERVICE_FEE_URL,
 } from '../../../lib/costs';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
@@ -187,7 +187,7 @@ export default class ReviewContent extends React.Component<Props, State> {
               {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
               directly to a third party to pay for the cost of credit card
               processing. Learn more about{' '}
-              <a href={SERVICE_FEE_URI}>credit card service fees</a> at the City
+              <a href={SERVICE_FEE_URL}>credit card service fees</a> at the City
               of Boston.
             </div>
           </div>

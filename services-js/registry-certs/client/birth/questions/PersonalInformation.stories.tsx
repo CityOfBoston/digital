@@ -11,6 +11,7 @@ function makeBirthCertificateRequest(
 ): BirthCertificateRequest {
   const birthCertificateRequest = new BirthCertificateRequest();
   birthCertificateRequest.answerQuestion(answers);
+
   return birthCertificateRequest;
 }
 
@@ -19,12 +20,6 @@ const commonAttributes = {
   handleStepBack: () => {},
   birthCertificateRequest: makeBirthCertificateRequest(),
 };
-
-function oneWeekAgo(): Date {
-  const dayInMs = 8.64e7;
-
-  return new Date(Date.now() - 7 * dayInMs);
-}
 
 storiesOf('Birth/Question Components/PersonalInformation', module)
   .add('default', () => (
@@ -37,8 +32,9 @@ storiesOf('Birth/Question Components/PersonalInformation', module)
       <PersonalInformation
         {...commonAttributes}
         birthCertificateRequest={makeBirthCertificateRequest({
-          birthDate: oneWeekAgo(),
+          birthDate: new Date(1990, 3, 28),
         })}
+        showRecentBirthWarning={true}
       />
     </div>
   ));

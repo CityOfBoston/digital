@@ -23,6 +23,7 @@ const EARLIEST_DATE = new Date(Date.UTC(1870, 0, 1));
 
 interface Props {
   birthCertificateRequest: BirthCertificateRequest;
+  showRecentBirthWarning?: boolean;
 
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
@@ -125,7 +126,8 @@ export default class PersonalInformation extends Component<Props> {
         </div>
 
         {birthDate &&
-          isDateWithinPastTenDays(birthDate) &&
+          (isDateWithinPastTenDays(birthDate) ||
+            this.props.showRecentBirthWarning) &&
           this.renderRecentBirthWarningText()}
       </QuestionComponent>
     );

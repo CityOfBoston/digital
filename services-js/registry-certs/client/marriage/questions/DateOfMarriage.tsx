@@ -28,6 +28,7 @@ type KnowsExact = 'yes' | 'no' | null;
 
 interface Props {
   marriageCertificateRequest: MarriageCertificateRequest;
+  showRecentBirthWarning?: boolean;
 
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
@@ -228,7 +229,8 @@ export default class DateOfMarriage extends Component<Props, State> {
         )}
 
         {dateOfMarriageExact &&
-          isDateWithinTenDays(dateOfMarriageExact) &&
+          (isDateWithinTenDays(dateOfMarriageExact) ||
+            this.props.showRecentBirthWarning) &&
           this.renderRecentMarriageWarningText()}
       </QuestionComponent>
     );

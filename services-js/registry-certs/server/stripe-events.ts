@@ -13,7 +13,7 @@ import {
 import {
   FIXED_CC_SERVICE_FEE,
   PERCENTAGE_CC_SERVICE_FEE,
-  SERVICE_FEE_URI,
+  SERVICE_FEE_URL,
 } from '../lib/costs';
 
 interface Dependencies {
@@ -202,7 +202,7 @@ async function makeDeathReceiptInfo(
     total: order.total,
     fixedFee: FIXED_CC_SERVICE_FEE,
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
-    serviceFeeUri: SERVICE_FEE_URI,
+    serviceFeeUri: SERVICE_FEE_URL,
     items,
   };
 }
@@ -250,7 +250,7 @@ async function makeBirthReceiptInfo(
     total,
     fixedFee: FIXED_CC_SERVICE_FEE,
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
-    serviceFeeUri: SERVICE_FEE_URI,
+    serviceFeeUri: SERVICE_FEE_URL,
     items,
   };
 }
@@ -303,7 +303,7 @@ async function makeMarriageReceiptInfo(
     total,
     fixedFee: FIXED_CC_SERVICE_FEE,
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
-    serviceFeeUri: SERVICE_FEE_URI,
+    serviceFeeUri: SERVICE_FEE_URL,
     items,
   };
 }

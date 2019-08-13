@@ -3,7 +3,7 @@ import React from 'react';
 import {
   FIXED_CC_STRING,
   PERCENTAGE_CC_STRING,
-  SERVICE_FEE_URI,
+  SERVICE_FEE_URL,
 } from '../../lib/costs';
 
 export function ServiceFeeDisclosure() {
@@ -22,7 +22,7 @@ export function serviceFeeDisclosureText() {
       You will be charged an extra service fee of no more than {FIXED_CC_STRING}{' '}
       plus {PERCENTAGE_CC_STRING}. This fee goes directly to a third party to
       pay for the cost of card processing. Learn more about{' '}
-      <a href={SERVICE_FEE_URI}>card service fees</a> at the City of Boston.
+      <a href={SERVICE_FEE_URL}>card service fees</a> at the City of Boston.
     </>
   );
 }

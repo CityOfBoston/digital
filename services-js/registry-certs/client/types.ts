@@ -32,6 +32,7 @@ export type Relation =
   | 'familyMember'
   | 'friend'
   | 'client'
+  | 'other'
   | '';
 
 export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';

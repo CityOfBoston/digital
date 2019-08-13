@@ -1,5 +1,5 @@
 import { EmailTemplates, makeEmailTemplates } from './EmailTemplates';
-import { SERVICE_FEE_URI } from '../../lib/costs';
+import { SERVICE_FEE_URL } from '../../lib/costs';
 
 const TEST_ORDER = {
   // 1/8/2018 2:05PM
@@ -18,7 +18,7 @@ const TEST_ORDER = {
   items: [],
   fixedFee: 25,
   percentageFee: 0.0215,
-  serviceFeeUri: SERVICE_FEE_URI,
+  serviceFeeUri: SERVICE_FEE_URL,
 };
 
 const DEATH_DETAILS = {
