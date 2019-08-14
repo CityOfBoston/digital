@@ -4,7 +4,11 @@ import { css, jsx } from '@emotion/core';
 
 import { ChangeEvent, useEffect, useState } from 'react';
 
-import { FREEDOM_RED_LIGHT, MEDIA_MEDIUM } from '@cityofboston/react-fleet';
+import {
+  FREEDOM_RED_LIGHT,
+  MEDIA_MEDIUM,
+  CLEAR_DEFAULT_STYLING,
+} from '@cityofboston/react-fleet';
 
 const CURRENT_YEAR = new Date().getFullYear();
 const LIMIT_YEAR = 1870;
@@ -32,7 +36,7 @@ export default function DateRangePicker(props: Props) {
   const [date2, setDate2] = useState<RangeDate>(dates ? dates[1] : ([] as any));
   const [rangeInvalid, setRangeInvalid] = useState<boolean>(false);
 
-  const handleDateChange = (dateName: DateName, fullDate: RangeDate) => {
+  const handleDateChange = (dateName: DateName, fullDate: RangeDate): void => {
     if (dateName === 'date1') {
       setDate1(fullDate);
     } else {
@@ -76,14 +80,15 @@ export default function DateRangePicker(props: Props) {
   useEffect(() => isRangeValid(), [date1, date2]);
 
   useEffect(() => {
-    if (props.setRangeInvalid !== undefined)
+    if (props.setRangeInvalid !== undefined) {
       props.setRangeInvalid(rangeInvalid);
+    }
   }, [rangeInvalid]);
 
   return (
     <>
       <div css={RANGE_STYLING} className={rangeInvalid ? 'range-invalid' : ''}>
-        <DateSet
+        <DateComponent
           handleChange={handleDateChange}
           dateName="date1"
           initialDate={date1}
@@ -91,7 +96,7 @@ export default function DateRangePicker(props: Props) {
 
         <div className="to">to</div>
 
-        <DateSet
+        <DateComponent
           handleChange={handleDateChange}
           dateName="date2"
           initialDate={date2}
@@ -107,13 +112,17 @@ export default function DateRangePicker(props: Props) {
   );
 }
 
-interface DateSetProps {
+interface DateComponentProps {
   handleChange: (DateName, RangeDate) => void;
   dateName: DateName;
   initialDate?: RangeDate;
 }
 
-export function DateSet(props: DateSetProps) {
+/**
+ * Component which includes a month field and a year field, representing a
+ * single date.
+ */
+export function DateComponent(props: DateComponentProps) {
   const { dateName, initialDate } = props;
 
   const [month, setMonth] = useState<string>('');
@@ -137,38 +146,42 @@ export function DateSet(props: DateSetProps) {
     if (value.length <= 4) setYear(value);
   };
 
-  const isMonthValid = () => {
-    if (+month > 12 || +month === 0) {
+  function isMonthValid(): void {
+    clearErrorState('month');
+
+    if (month.length > 0 && (+month > 12 || +month === 0)) {
       setErrorMessage('Select a month between 1 - 12');
       setMonthInvalid(true);
     } else {
-      setErrorMessage('');
-      setMonthInvalid(false);
+      setDidUpdate(true);
     }
+  }
 
-    setDidUpdate(true);
-  };
+  function isYearValid(): void {
+    clearErrorState('year');
 
-  const isYearValid = () => {
-    if (year.length === 0) {
-      setErrorMessage('');
-      setYearInvalid(false);
-    } else if (year.length < 4) {
-      setErrorMessage('Please enter a valid year.');
-      setYearInvalid(true);
-    } else if (+year > CURRENT_YEAR) {
-      setErrorMessage('The year cannot be in the future.');
-      setYearInvalid(true);
-    } else if (+year < LIMIT_YEAR) {
-      setErrorMessage(`Our records only go back to ${LIMIT_YEAR}.`);
-      setYearInvalid(true);
-    } else {
+    if (year.length === 4) {
+      if (+year > CURRENT_YEAR) {
+        setErrorMessage('The year cannot be in the future.');
+        setYearInvalid(true);
+      } else if (+year < LIMIT_YEAR) {
+        setErrorMessage(`Our records only go back to ${LIMIT_YEAR}.`);
+        setYearInvalid(true);
+      } else {
+        setDidUpdate(true);
+      }
+    } else if (year.length === 0) {
       setErrorMessage('');
       setYearInvalid(false);
     }
+  }
 
-    setDidUpdate(true);
-  };
+  function isYearIncomplete(): void {
+    if (year.length && year.length < 4) {
+      setErrorMessage('The year must be four digits long.');
+      setYearInvalid(true);
+    }
+  }
 
   function clearErrorState(monthOrYear: 'month' | 'year'): void {
     if (monthOrYear === 'month') {
@@ -193,6 +206,9 @@ export function DateSet(props: DateSetProps) {
     }
   }, []);
 
+  useEffect(() => isMonthValid(), [month]);
+  useEffect(() => isYearValid(), [year]);
+
   useEffect(() => {
     if (didUpdate) props.handleChange(dateName, [month, year]);
 
@@ -200,16 +216,17 @@ export function DateSet(props: DateSetProps) {
   }, [didUpdate]);
 
   return (
-    <div className="date-set">
+    <div className="date-component">
       <div
         role="group"
         aria-label={dateName.slice(0, 4) + ' ' + dateName.slice(4)}
-        css={DATE_SET_STYLING}
+        css={[DATE_COMPONENT_STYLING, CLEAR_DEFAULT_STYLING.INPUT_NUMBER]}
       >
         <div>
           <label htmlFor={dateName + 'month'} className="txt-l">
             Month
           </label>
+
           <input
             id={dateName + 'month'}
             type="number"
@@ -217,7 +234,6 @@ export function DateSet(props: DateSetProps) {
             max="12"
             value={month}
             onChange={handleMonthChange}
-            onBlur={isMonthValid}
             onFocus={() => clearErrorState('month')}
             placeholder="MM"
             className={`txt-f ${monthInvalid ? 'txt-f--err' : ''}`}
@@ -228,6 +244,7 @@ export function DateSet(props: DateSetProps) {
           <label htmlFor={dateName + 'year'} className="txt-l">
             Year
           </label>
+
           <input
             id={dateName + 'year'}
             type="number"
@@ -235,7 +252,7 @@ export function DateSet(props: DateSetProps) {
             max={CURRENT_YEAR}
             value={year}
             onChange={handleYearChange}
-            onBlur={isYearValid}
+            onBlur={isYearIncomplete}
             onFocus={() => clearErrorState('year')}
             placeholder="YYYY"
             className={`year-field txt-f ${yearInvalid ? 'txt-f--err' : ''}`}
@@ -249,18 +266,6 @@ export function DateSet(props: DateSetProps) {
 }
 
 const RANGE_STYLING = css({
-  input: {
-    MozAppearance: 'textfield',
-
-    '&::-webkit-inner-spin-button': {
-      WebkitAppearance: 'none',
-    },
-
-    '&::-ms-clear': {
-      display: 'none',
-    },
-  },
-
   [MEDIA_MEDIUM]: {
     display: 'flex',
     alignItems: 'center',
@@ -269,7 +274,7 @@ const RANGE_STYLING = css({
       flex: '0 0 10%',
     },
 
-    '> .date-set': {
+    '> .date-component': {
       flex: '0 0 45%',
     },
   },
@@ -288,7 +293,7 @@ const RANGE_STYLING = css({
   },
 });
 
-const DATE_SET_STYLING = css({
+const DATE_COMPONENT_STYLING = css({
   display: 'flex',
   justifyContent: 'space-between',
 

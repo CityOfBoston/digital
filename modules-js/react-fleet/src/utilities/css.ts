@@ -24,4 +24,17 @@ export const CLEAR_DEFAULT_STYLING = {
     fontSize: 'inherit',
     textAlign: 'inherit',
   }),
+  INPUT_NUMBER: css({
+    input: {
+      MozAppearance: 'textfield',
+
+      '&::-webkit-inner-spin-button': {
+        WebkitAppearance: 'none',
+      },
+
+      '&::-ms-clear': {
+        display: 'none',
+      },
+    },
+  }),
 };
