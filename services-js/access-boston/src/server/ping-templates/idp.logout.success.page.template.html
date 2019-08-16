@@ -41,27 +41,40 @@ is not recommended as it may interfere with expected server behavior.
                 <h2 class="sh-title">Logged Out</h2>
             </div>
 
+            <div class="t--intro">
+                $templateMessages.getMessage($messageKeyPrefix, "info")
+            </div>
             <!-- main container -->
             <div class="g">
                 <!-- first column -->
-                <div class="g--7 t--intro">
-                    $templateMessages.getMessage($messageKeyPrefix, "info")
+                <div class="g--6">
+                    <!-- todo: you will need to add this markup as a new string (or multiple strings, whichever works best for you) in templateMessages  -->
+                    <div class="txt m-b200">
+                        <h3 class="txt-l contact-heading">Need help? Please Contact: </h3>
+
+                        <ul class="ul t--s300 lh--400">
+                            <li style="margin-top: 0.75rem;">
+                                DoIT Service Desk<br><a href="tel:6176357378">617-635-7378</a>
+                            </li>
+
+                            <li style="margin-top: 0.75rem;">
+                                BPS Technology Help Desk Support<br><a href="tel:6176359200">617-635-9200</a>
+                            </li>
+
+                            <li style="margin-top: 0.75rem;">
+                                Looking for online information?<br>
+                                <a class="link link--" href="https://www.boston.gov/access-boston-portal-help" target="_blank">Access Boston Portal Help</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="g--5">
-                    <!-- todo: you will need to add this markup as a new string (or multiple strings, whichever works best for you) in templateMessages  -->
-                    <h3 class="txt-l contact-heading">Need help? Please Contact:</h3>
-
-                    <h4 class="m-t300">Boston Public Schools</h4>
-                    <ul class="ul t--s300 lh--400 m-b300">
-                        <li>BPS Technology Help Desk Support<br><a href="tel:6176359200">(617) 635-9200</a></li>
-                    </ul>
-
-                    <h4 class="m-t300">All Other Departments</h4>
-                    <ul class="ul t--s300 lh--400">
-                        <li>DoIT Service Desk<br><a href="tel:6176357378">(617) 635-7378</a></li>
-                    </ul>
-                    <!-- end todo -->
+                <!--  second column -->
+                <div class="g--6">
+                    <!-- image will not be shown on small viewports (via css) -->
+                    <div class="image-aside" aria-hidden="true">
+                        <img src="./Signed Off_files/city-hall.svg" alt="Boston City Hall" class="m-t600">
+                    </div>
                 </div>
             </div>
 
@@ -73,8 +86,6 @@ is not recommended as it may interfere with expected server behavior.
             </div>
             *#
         </div>
-
     </main>
-
 </body>
 </html>

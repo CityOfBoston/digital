@@ -17,7 +17,7 @@ export default function AccessBostonFooter() {
   return (
     <footer className="ft">
       <div className="ft-c" style={{ paddingTop: 0 }}>
-        <div className="g g--vc p-v200">
+        <div className="g g--vc p-b200">
           <div className="g--8">
             <div className={FOOTER_LEGAL_STYLE}>
               The Access Boston Portal, and the systems, data and other

@@ -1,98 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots AccessBostonFooter default 1`] = `
-<footer
-  className="ft"
->
-  <div
-    className="ft-c"
-    style={
-      Object {
-        "paddingTop": 0,
-      }
-    }
-  >
-    <div
-      className="g g--vc p-v200"
-    >
-      <div
-        className="g--8"
-      >
-        <div
-          className="css-hikchn"
-        >
-          The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
-        </div>
-      </div>
-      <div
-        className="g--4 ta-r"
-      >
-        <a
-          className="css-j6ldvx"
-          href="https://www.boston.gov/access-boston-portal-help"
-          target="_blank"
-        >
-          Need Help?
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-`;
-
-exports[`Storyshots AccessBostonHeader default 1`] = `
-<div
-  className="css-1yqn408 p-a200"
->
-  <h1
-    className="css-e3scnp"
-  >
-    <a
-      href="/"
-      onClick={[Function]}
-      style={
-        Object {
-          "color": "inherit",
-        }
-      }
-    >
-      Access Boston
-    </a>
-  </h1>
-  <div
-    className="css-n9ftlz"
-  >
-    <span
-      style={
-        Object {
-          "marginRight": "1em",
-        }
-      }
-    >
-      Jyn Doe
-    </span>
-    <form
-      action="/logout"
-      method="POST"
-    >
-      <input
-        name="crumb"
-        type="hidden"
-        value=""
-      />
-      <button
-        className="btn btn--sm btn--100"
-        type="submit"
-      >
-        Logout
-      </button>
-    </form>
-  </div>
-</div>
-`;
-
 exports[`Storyshots ChangePasswordPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -140,8 +51,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -418,17 +329,17 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -441,7 +352,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -465,12 +376,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage first time registration 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -518,8 +431,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -800,17 +713,17 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -823,7 +736,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -847,12 +760,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage first time registration w/ temp password 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -900,8 +815,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -1187,17 +1102,17 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -1210,7 +1125,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -1234,12 +1149,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage network error 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -1287,8 +1204,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -1565,72 +1482,72 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <div
-    className="md"
-  >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md"
     >
       <div
-        className="md-b p-a300"
+        className="md-c br br-t400 css-1y2scv5"
       >
         <div
-          className="t--intro t--err"
+          className="md-b p-a300"
         >
-          There was a network problem
-        </div>
-        <div
-          className="t--info m-v300"
-        >
-          Your password was probably not changed. If this keeps happening, please get in touch:
-        </div>
-        <ul
-          className="ul t--s300 lh--400"
-        >
-          <li>
-            DoIT Service Desk
-            <br />
-            <a
-              href="tel:6176357378"
-            >
-              (617) 635-7378
-            </a>
-          </li>
-          <li>
-            BPS Technology Help Desk Support
-            <br />
-            <a
-              href="tel:6176359200"
-            >
-              (617) 635-9200
-            </a>
-          </li>
-        </ul>
-        <div
-          className="ta-r"
-        >
-          <button
-            className="btn"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="t--intro t--err"
           >
-            Try Again
-          </button>
+            There was a network problem
+          </div>
+          <div
+            className="t--info m-v300"
+          >
+            Your password was probably not changed. If this keeps happening, please get in touch:
+          </div>
+          <ul
+            className="ul t--s300 lh--400"
+          >
+            <li>
+              DoIT Service Desk
+              <br />
+              <a
+                href="tel:6176357378"
+              >
+                (617) 635-7378
+              </a>
+            </li>
+            <li>
+              BPS Technology Help Desk Support
+              <br />
+              <a
+                href="tel:6176359200"
+              >
+                (617) 635-9200
+              </a>
+            </li>
+          </ul>
+          <div
+            className="ta-r"
+          >
+            <button
+              className="btn"
+              onClick={[Function]}
+              type="button"
+            >
+              Try Again
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -1643,7 +1560,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -1667,12 +1584,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage session error 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -1720,8 +1639,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -1998,50 +1917,50 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <div
-    className="md"
-  >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md"
     >
       <div
-        className="md-b p-a300"
+        className="md-c br br-t400 css-1y2scv5"
       >
         <div
-          className="t--intro t--err"
+          className="md-b p-a300"
         >
-          Your session has expired
-        </div>
-        <div
-          className="t--info m-v300"
-        >
-          Your password was not changed. You will need to log in again to change your password.
-        </div>
-        <div
-          className="ta-r"
-        >
-          <button
-            className="btn"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="t--intro t--err"
           >
-            Log In
-          </button>
+            Your session has expired
+          </div>
+          <div
+            className="t--info m-v300"
+          >
+            Your password was not changed. You will need to log in again to change your password.
+          </div>
+          <div
+            className="ta-r"
+          >
+            <button
+              className="btn"
+              onClick={[Function]}
+              type="button"
+            >
+              Log In
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -2054,7 +1973,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -2078,12 +1997,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage submitting 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -2131,8 +2052,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -2409,39 +2330,39 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <div
-    className="md"
-  >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md"
     >
       <div
-        className="md-b p-a300"
+        className="md-c br br-t400 css-1y2scv5"
       >
         <div
-          className="t--intro"
+          className="md-b p-a300"
         >
-          Saving your new password…
-        </div>
-        <div
-          className="t--info m-t300"
-        >
-          Please be patient and don’t refresh your browser. This might take a bit.
+          <div
+            className="t--intro"
+          >
+            Saving your new password…
+          </div>
+          <div
+            className="t--info m-t300"
+          >
+            Please be patient and don’t refresh your browser. This might take a bit.
+          </div>
         </div>
       </div>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -2454,7 +2375,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -2478,12 +2399,105 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
-exports[`Storyshots DonePage default 1`] = `
-Array [
+exports[`Storyshots Common components/AccessBostonFooter default 1`] = `
+<footer
+  className="ft"
+>
+  <div
+    className="ft-c"
+    style={
+      Object {
+        "paddingTop": 0,
+      }
+    }
+  >
+    <div
+      className="g g--vc p-b200"
+    >
+      <div
+        className="g--8"
+      >
+        <div
+          className="css-hikchn"
+        >
+          The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+        </div>
+      </div>
+      <div
+        className="g--4 ta-r"
+      >
+        <a
+          className="css-j6ldvx"
+          href="https://www.boston.gov/access-boston-portal-help"
+          target="_blank"
+        >
+          Need Help?
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`Storyshots Common components/AccessBostonHeader default 1`] = `
+<div
+  className="css-1yqn408 p-a200"
+>
+  <h1
+    className="css-e3scnp"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "inherit",
+        }
+      }
+    >
+      Access Boston
+    </a>
+  </h1>
+  <div
+    className="css-n9ftlz"
+  >
+    <span
+      style={
+        Object {
+          "marginRight": "1em",
+        }
+      }
+    >
+      Jyn Doe
+    </span>
+    <form
+      action="/logout"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+      <button
+        className="btn btn--sm btn--100"
+        type="submit"
+      >
+        Logout
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Common components/AppWrapper default 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -2502,8 +2516,153 @@ Array [
         Access Boston
       </a>
     </h1>
-  </div>,
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+  <main
+    className="mn css-1jubgvi"
+  >
+     
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-b200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Storyshots Common components/AppWrapper without interactive header 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      Access Boston
+    </h1>
+  </div>
+  <main
+    className="mn css-1jubgvi"
+  >
+     
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-b200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Storyshots DonePage default 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
+  <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      Access Boston
+    </h1>
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -2535,7 +2694,7 @@ Array [
         </a>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -2548,7 +2707,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -2572,12 +2731,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ForgotPasswordPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -2586,8 +2747,8 @@ Array [
     >
       Access Boston
     </h1>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -2809,7 +2970,7 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -2822,7 +2983,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -2846,281 +3007,285 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ForgotPasswordPage network error 1`] = `
 Array [
   <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      Access Boston
-    </h1>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+    className="css-1q65ynf-AppWrapper"
   >
     <div
-      className="b b-c b-c--hsm"
+      className="css-1yqn408 p-a200"
+    >
+      <h1
+        className="css-e3scnp"
+      >
+        Access Boston
+      </h1>
+    </div>
+    <main
+      className="mn css-1jubgvi"
     >
       <div
-        className="sh m-b300 "
+        className="b b-c b-c--hsm"
       >
-        <h2
-          className="sh-title"
-          id="sh-2144913693"
+        <div
+          className="sh m-b300 "
         >
-          Forgot Password
-        </h2>
-      </div>
-      <form
-        action=""
-        className="m-v500"
-        method="POST"
-        onSubmit={[Function]}
-      >
-        <input
-          autoComplete="username"
-          name="username"
-          readOnly={true}
-          style={
-            Object {
-              "position": "absolute",
-              "visibility": "hidden",
+          <h2
+            className="sh-title"
+            id="sh-2144913693"
+          >
+            Forgot Password
+          </h2>
+        </div>
+        <form
+          action=""
+          className="m-v500"
+          method="POST"
+          onSubmit={[Function]}
+        >
+          <input
+            autoComplete="username"
+            name="username"
+            readOnly={true}
+            style={
+              Object {
+                "position": "absolute",
+                "visibility": "hidden",
+              }
             }
-          }
-          type="text"
-          value="CON01234"
-        />
-        <div
-          className="g g--r m-v200"
-        >
+            type="text"
+            value="CON01234"
+          />
           <div
-            className="g--6 m-b500"
+            className="g g--r m-v200"
           >
             <div
-              className="txt-l m-b200"
-              style={
-                Object {
-                  "marginTop": 1,
-                }
-              }
+              className="g--6 m-b500"
             >
-              New passwords must:
-            </div>
-            <ul
-              className="ul"
-              style={
-                Object {
-                  "lineHeight": 1.6,
-                }
-              }
-            >
-              <li
-                className=""
-              >
-                Be at least 10 characters long
-              </li>
-              <li
-                className=""
-              >
-                Use at least 3 of these:
-                <ul
-                  className="ul"
-                >
-                  <li
-                    className=""
-                  >
-                    A lowercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    An uppercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
-                </ul>
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not have spaces
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not be longer than 32 characters
-              </li>
-            </ul>
-            <div
-              className="t--subinfo m-v300 m-b200"
-            >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
-            </div>
-          </div>
-          <div
-            className="g--6"
-          >
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
+                className="txt-l m-b200"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "marginTop": 1,
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
+                New passwords must:
               </div>
-            </div>
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <ul
+                className="ul"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "lineHeight": 1.6,
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <li
+                  className=""
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Be at least 10 characters long
+                </li>
+                <li
+                  className=""
+                >
+                  Use at least 3 of these:
+                  <ul
+                    className="ul"
+                  >
+                    <li
+                      className=""
+                    >
+                      A lowercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      An uppercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A number
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A special character
+                    </li>
+                  </ul>
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not have spaces
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not be longer than 32 characters
+                </li>
+              </ul>
               <div
-                className="t--info t--err m-v100"
+                className="t--subinfo m-v300 m-b200"
               >
-                 
+                Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
               </div>
             </div>
             <div
-              className="ta-r"
+              className="g--6"
             >
-              <button
-                className="btn"
-                disabled={true}
-                type="submit"
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
               >
-                Reset Password
-              </button>
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="ta-r"
+              >
+                <button
+                  className="btn"
+                  disabled={true}
+                  type="submit"
+                >
+                  Reset Password
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
+        </form>
+      </div>
+    </main>
+    <footer
+      className="ft"
     >
       <div
-        className="g g--vc p-v200"
+        className="ft-c"
+        style={
+          Object {
+            "paddingTop": 0,
+          }
+        }
       >
         <div
-          className="g--8"
+          className="g g--vc p-b200"
         >
           <div
-            className="css-hikchn"
+            className="g--8"
           >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            <div
+              className="css-hikchn"
+            >
+              The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            </div>
+          </div>
+          <div
+            className="g--4 ta-r"
+          >
+            <a
+              className="css-j6ldvx"
+              href="https://www.boston.gov/access-boston-portal-help"
+              target="_blank"
+            >
+              Need Help?
+            </a>
           </div>
         </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
       </div>
-    </div>
-  </footer>,
+    </footer>
+  </div>,
   <div
     className="md"
   >
@@ -3182,274 +3347,278 @@ Array [
 exports[`Storyshots ForgotPasswordPage session error 1`] = `
 Array [
   <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      Access Boston
-    </h1>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+    className="css-1q65ynf-AppWrapper"
   >
     <div
-      className="b b-c b-c--hsm"
+      className="css-1yqn408 p-a200"
+    >
+      <h1
+        className="css-e3scnp"
+      >
+        Access Boston
+      </h1>
+    </div>
+    <main
+      className="mn css-1jubgvi"
     >
       <div
-        className="sh m-b300 "
+        className="b b-c b-c--hsm"
       >
-        <h2
-          className="sh-title"
-          id="sh-2144913693"
+        <div
+          className="sh m-b300 "
         >
-          Forgot Password
-        </h2>
-      </div>
-      <form
-        action=""
-        className="m-v500"
-        method="POST"
-        onSubmit={[Function]}
-      >
-        <input
-          autoComplete="username"
-          name="username"
-          readOnly={true}
-          style={
-            Object {
-              "position": "absolute",
-              "visibility": "hidden",
+          <h2
+            className="sh-title"
+            id="sh-2144913693"
+          >
+            Forgot Password
+          </h2>
+        </div>
+        <form
+          action=""
+          className="m-v500"
+          method="POST"
+          onSubmit={[Function]}
+        >
+          <input
+            autoComplete="username"
+            name="username"
+            readOnly={true}
+            style={
+              Object {
+                "position": "absolute",
+                "visibility": "hidden",
+              }
             }
-          }
-          type="text"
-          value="CON01234"
-        />
-        <div
-          className="g g--r m-v200"
-        >
+            type="text"
+            value="CON01234"
+          />
           <div
-            className="g--6 m-b500"
+            className="g g--r m-v200"
           >
             <div
-              className="txt-l m-b200"
-              style={
-                Object {
-                  "marginTop": 1,
-                }
-              }
+              className="g--6 m-b500"
             >
-              New passwords must:
-            </div>
-            <ul
-              className="ul"
-              style={
-                Object {
-                  "lineHeight": 1.6,
-                }
-              }
-            >
-              <li
-                className=""
-              >
-                Be at least 10 characters long
-              </li>
-              <li
-                className=""
-              >
-                Use at least 3 of these:
-                <ul
-                  className="ul"
-                >
-                  <li
-                    className=""
-                  >
-                    A lowercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    An uppercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
-                </ul>
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not have spaces
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not be longer than 32 characters
-              </li>
-            </ul>
-            <div
-              className="t--subinfo m-v300 m-b200"
-            >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
-            </div>
-          </div>
-          <div
-            className="g--6"
-          >
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
+                className="txt-l m-b200"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "marginTop": 1,
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
+                New passwords must:
               </div>
-            </div>
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <ul
+                className="ul"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "lineHeight": 1.6,
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <li
+                  className=""
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Be at least 10 characters long
+                </li>
+                <li
+                  className=""
+                >
+                  Use at least 3 of these:
+                  <ul
+                    className="ul"
+                  >
+                    <li
+                      className=""
+                    >
+                      A lowercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      An uppercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A number
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A special character
+                    </li>
+                  </ul>
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not have spaces
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not be longer than 32 characters
+                </li>
+              </ul>
               <div
-                className="t--info t--err m-v100"
+                className="t--subinfo m-v300 m-b200"
               >
-                 
+                Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
               </div>
             </div>
             <div
-              className="ta-r"
+              className="g--6"
             >
-              <button
-                className="btn"
-                disabled={true}
-                type="submit"
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
               >
-                Reset Password
-              </button>
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="ta-r"
+              >
+                <button
+                  className="btn"
+                  disabled={true}
+                  type="submit"
+                >
+                  Reset Password
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
+        </form>
+      </div>
+    </main>
+    <footer
+      className="ft"
     >
       <div
-        className="g g--vc p-v200"
+        className="ft-c"
+        style={
+          Object {
+            "paddingTop": 0,
+          }
+        }
       >
         <div
-          className="g--8"
+          className="g g--vc p-b200"
         >
           <div
-            className="css-hikchn"
+            className="g--8"
           >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            <div
+              className="css-hikchn"
+            >
+              The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            </div>
+          </div>
+          <div
+            className="g--4 ta-r"
+          >
+            <a
+              className="css-j6ldvx"
+              href="https://www.boston.gov/access-boston-portal-help"
+              target="_blank"
+            >
+              Need Help?
+            </a>
           </div>
         </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
       </div>
-    </div>
-  </footer>,
+    </footer>
+  </div>,
   <div
     className="md"
   >
@@ -3487,7 +3656,9 @@ Array [
 `;
 
 exports[`Storyshots ForgotPasswordPage success 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -3496,8 +3667,8 @@ Array [
     >
       Access Boston
     </h1>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -3529,7 +3700,7 @@ Array [
         </a>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -3542,7 +3713,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -3566,12 +3737,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots IndexPage change password success 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -3619,8 +3792,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -3992,7 +4165,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4020,7 +4192,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4048,7 +4219,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4076,7 +4246,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4104,7 +4273,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4132,7 +4300,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4179,7 +4346,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="/change-password"
                 onClick={[Function]}
                 target="_self"
               >
@@ -4207,7 +4373,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4254,7 +4419,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4282,7 +4446,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4310,7 +4473,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="#"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4323,6 +4485,33 @@ Array [
                   }
                 >
                   Edit Group
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage Groups
                 </div>
                 <div
                   style={
@@ -4357,7 +4546,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4385,7 +4573,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4413,7 +4600,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4442,7 +4628,7 @@ Array [
         </section>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -4455,7 +4641,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -4479,12 +4665,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots IndexPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -4532,8 +4720,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -4887,7 +5075,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4915,7 +5102,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4943,7 +5129,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4971,7 +5156,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -4999,7 +5183,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5027,7 +5210,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5074,7 +5256,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="/change-password"
                 onClick={[Function]}
                 target="_self"
               >
@@ -5102,7 +5283,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5149,7 +5329,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5177,7 +5356,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5205,7 +5383,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="#"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5218,6 +5395,33 @@ Array [
                   }
                 >
                   Edit Group
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage Groups
                 </div>
                 <div
                   style={
@@ -5252,7 +5456,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5280,7 +5483,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5308,7 +5510,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5337,7 +5538,7 @@ Array [
         </section>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -5350,7 +5551,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -5374,12 +5575,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -5427,8 +5630,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -5835,7 +6038,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5863,7 +6065,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5891,7 +6092,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5919,7 +6119,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5947,7 +6146,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -5975,7 +6173,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6022,7 +6219,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="/change-password"
                 onClick={[Function]}
                 target="_self"
               >
@@ -6050,7 +6246,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6097,7 +6292,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6125,7 +6319,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6153,7 +6346,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="#"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6166,6 +6358,33 @@ Array [
                   }
                 >
                   Edit Group
+                </div>
+                <div
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                className="p-a300 css-v7ibj3"
+                onClick={[Function]}
+                target="_self"
+              >
+                <div
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage Groups
                 </div>
                 <div
                   style={
@@ -6200,7 +6419,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6228,7 +6446,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6256,7 +6473,6 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
               >
@@ -6285,7 +6501,7 @@ Array [
         </section>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -6298,7 +6514,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -6322,8 +6538,8 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots PasswordPolicy blank 1`] = `
@@ -6692,7 +6908,9 @@ Array [
 `;
 
 exports[`Storyshots RegisterMfaPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -6740,799 +6958,198 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
-      className="b b-c b-c--hsm"
+      className="mn css-1jubgvi"
     >
       <div
-        className="sh m-b300 "
-      >
-        <h2
-          className="sh-title"
-          id="sh-1428259210"
-        >
-          Set up security codes
-        </h2>
-      </div>
-      <p
-        className="lh--400 t--s400"
-      >
-        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
-      </p>
-      <hr
-        aria-hidden={true}
-        className="hr hr--sq"
-      />
-      <form
-        className="m-v500"
-        onSubmit={[Function]}
+        className="b b-c b-c--hsm"
       >
         <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
+          className="sh m-b300 "
         >
-          <label
-            className="txt-l"
-            htmlFor="input-1267882554"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
+          <h2
+            className="sh-title"
+            id="sh-1428259210"
           >
-            Phone Number
-            <span
-              aria-hidden="true"
-              className="t--req"
-            >
-               
-              Required
-            </span>
-          </label>
-          <div
-            className="g"
-          >
-            <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-1267882554"
-                name="phoneNumber"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="(XXX) XXX-XXXX"
-                required={true}
-                type="tel"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
-            >
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
-              </div>
-            </div>
-          </div>
-          <div
-            className="t--subinfo m-t100"
-          >
-            You should use your cell phone number if you have one.
-            <br />
-            Note: normal cell phone charges will apply.
-          </div>
+            Set up security codes
+          </h2>
         </div>
-        <div
-          aria-labelledby="smsOrVoice-groupLabel"
-          role="group"
+        <p
+          className="lh--400 t--s400"
         >
-          <div
-            className="txt-l"
-            id="smsOrVoice-groupLabel"
-          >
-            How should we send security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="sms"
-            />
-            <span
-              className="ra-l"
-            >
-              Text message — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="voice"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone call
-            </span>
-          </label>
-        </div>
-        <div
-          className="m-v500 ta-r"
+          Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
+        </p>
+        <p
+          className="lh--400 t--s400"
         >
-          <button
-            className="btn"
-            disabled={true}
-            type="submit"
-          >
-            Next Step
-          </button>
-        </div>
-        <div
-          className="t--subinfo m-v500"
+          This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+        </p>
+        <p
+          className="lh--400 t--s400"
         >
-          Don’t have access to a phone?
-          <br />
-          <a
-            href="/mfa?email=1"
-            onClick={[Function]}
-          >
-            Get codes via personal email
-          </a>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <form
-    action="/done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
-    >
-      <div
-        className="g g--vc p-v200"
-      >
-        <div
-          className="g--8"
-        >
-          <div
-            className="css-hikchn"
-          >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
-          </div>
-        </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>,
-]
-`;
-
-exports[`Storyshots RegisterMfaPage email 1`] = `
-Array [
-  <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        Access Boston
-      </a>
-    </h1>
-    <div
-      className="css-n9ftlz"
-    >
-      <span
-        style={
-          Object {
-            "marginRight": "1em",
-          }
-        }
-      >
-        Jyn Doe
-      </span>
-      <form
-        action="/logout"
-        method="POST"
-      >
-        <input
-          name="crumb"
-          type="hidden"
-          value=""
+          Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
+        </p>
+        <hr
+          aria-hidden={true}
+          className="hr hr--sq"
         />
-        <button
-          className="btn btn--sm btn--100"
-          type="submit"
-        >
-          Logout
-        </button>
-      </form>
-    </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
-  >
-    <div
-      className="b b-c b-c--hsm"
-    >
-      <div
-        className="sh m-b300 "
-      >
-        <h2
-          className="sh-title"
-          id="sh-1428259210"
-        >
-          Set up security codes
-        </h2>
-      </div>
-      <p
-        className="lh--400 t--s400"
-      >
-        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
-      </p>
-      <hr
-        aria-hidden={true}
-        className="hr hr--sq"
-      />
-      <form
-        className="m-v500"
-        onSubmit={[Function]}
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-3734019359"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Email address
-            <span
-              aria-hidden="true"
-              className="t--req"
-            >
-               
-              Required
-            </span>
-          </label>
-          <div
-            className="g"
-          >
-            <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-3734019359"
-                name="email"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="you@example.com"
-                required={true}
-                type="email"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
-            >
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
-              </div>
-            </div>
-          </div>
-          <div
-            className="t--subinfo m-t100"
-          >
-            Choose a personal address, not a City of Boston one.
-          </div>
-        </div>
-        <div
-          className="t--subinfo m-v500"
-        >
-          Switch to
-           
-          <a
-            href="/mfa"
-            onClick={[Function]}
-          >
-            get codes via phone call or text
-          </a>
-        </div>
-        <div
-          className="m-v500 ta-r"
-        >
-          <button
-            className="btn"
-            disabled={true}
-            type="submit"
-          >
-            Next Step
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <form
-    action="/done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
-    >
-      <div
-        className="g g--vc p-v200"
-      >
-        <div
-          className="g--8"
-        >
-          <div
-            className="css-hikchn"
-          >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
-          </div>
-        </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>,
-]
-`;
-
-exports[`Storyshots RegisterMfaPage modal open 1`] = `
-Array [
-  <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        Access Boston
-      </a>
-    </h1>
-    <div
-      className="css-n9ftlz"
-    >
-      <span
-        style={
-          Object {
-            "marginRight": "1em",
-          }
-        }
-      >
-        Jyn Doe
-      </span>
-      <form
-        action="/logout"
-        method="POST"
-      >
-        <input
-          name="crumb"
-          type="hidden"
-          value=""
-        />
-        <button
-          className="btn btn--sm btn--100"
-          type="submit"
-        >
-          Logout
-        </button>
-      </form>
-    </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
-  >
-    <div
-      className="b b-c b-c--hsm"
-    >
-      <div
-        className="sh m-b300 "
-      >
-        <h2
-          className="sh-title"
-          id="sh-1428259210"
-        >
-          Set up security codes
-        </h2>
-      </div>
-      <p
-        className="lh--400 t--s400"
-      >
-        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
-      </p>
-      <hr
-        aria-hidden={true}
-        className="hr hr--sq"
-      />
-      <form
-        className="m-v500"
-        onSubmit={[Function]}
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-1267882554"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Phone Number
-            <span
-              aria-hidden="true"
-              className="t--req"
-            >
-               
-              Required
-            </span>
-          </label>
-          <div
-            className="g"
-          >
-            <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-1267882554"
-                name="phoneNumber"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="(XXX) XXX-XXXX"
-                required={true}
-                type="tel"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
-            >
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
-              </div>
-            </div>
-          </div>
-          <div
-            className="t--subinfo m-t100"
-          >
-            You should use your cell phone number if you have one.
-            <br />
-            Note: normal cell phone charges will apply.
-          </div>
-        </div>
-        <div
-          aria-labelledby="smsOrVoice-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="smsOrVoice-groupLabel"
-          >
-            How should we send security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="sms"
-            />
-            <span
-              className="ra-l"
-            >
-              Text message — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="voice"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone call
-            </span>
-          </label>
-        </div>
-        <div
-          className="m-v500 ta-r"
-        >
-          <button
-            className="btn"
-            disabled={true}
-            type="submit"
-          >
-            Next Step
-          </button>
-        </div>
-        <div
-          className="t--subinfo m-v500"
-        >
-          Don’t have access to a phone?
-          <br />
-          <a
-            href="/mfa?email=1"
-            onClick={[Function]}
-          >
-            Get codes via personal email
-          </a>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <div
-    className="md"
-  >
-    <div
-      className="md-c br br-t400 css-1y2scv5"
-    >
-      <div
-        className="md-b p-a300"
-      >
-        <div
-          className="t--intro"
-        >
-          Check your phone! We’ve sent a text to
-           
-          <strong>
-            
-          </strong>
-          .
-        </div>
         <form
+          className="m-v500"
           onSubmit={[Function]}
         >
           <div
-            className="m-v500"
+            className="txt"
+            style={
+              Object {
+                "marginBottom": "0.5rem",
+              }
+            }
           >
-            <div
-              className="txt"
+            <label
+              className="txt-l"
+              htmlFor="input-1267882554"
               style={
                 Object {
-                  "marginBottom": "0.5rem",
+                  "marginTop": 0,
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-3102479774"
-                style={
-                  Object {
-                    "marginTop": 0,
-                  }
-                }
+              Phone Number
+              <span
+                aria-hidden="true"
+                className="t--req"
               >
-                Security code
-              </label>
+                 
+                Required
+              </span>
+            </label>
+            <div
+              className="g"
+            >
               <div
-                className="css-70qvj9"
+                className="g--6"
               >
                 <input
-                  autoFocus={true}
-                  className="css-15p77ot txt-f "
-                  id="input-3102479774"
-                  maxLength={6}
-                  name="code"
+                  className=" txt-f "
+                  id="input-1267882554"
+                  name="phoneNumber"
+                  onBlur={[Function]}
                   onChange={[Function]}
-                  pattern="[0-9]*"
-                  size={6}
-                  type="text"
+                  placeholder="(XXX) XXX-XXXX"
+                  required={true}
+                  type="tel"
                   value=""
                 />
-                <button
-                  className="btn"
-                  disabled={true}
-                  style={
-                    Object {
-                      "marginLeft": "1em",
-                      "whiteSpace": "nowrap",
-                    }
-                  }
-                  type="submit"
-                >
-                  Activate
-                </button>
               </div>
+              <div
+                className="g--6 css-70qvj9"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo m-t100"
+            >
+              You should use your cell phone number if you have one.
+              <br />
+              Note: normal cell phone charges will apply.
             </div>
           </div>
           <div
-            className="t--subinfo ta-c"
+            aria-labelledby="smsOrVoice-groupLabel"
+            role="group"
           >
-            Didn’t get it?
-             
-            <button
-              className="lnk"
-              onClick={[Function]}
-              type="button"
+            <div
+              className="txt-l"
+              id="smsOrVoice-groupLabel"
             >
-              Resend the code
-            </button>
-             
-            or
-             
-            <button
-              className="lnk"
-              onClick={[Function]}
-              type="button"
+              How should we send security codes?
+            </div>
+            <label
+              className="ra  "
             >
-              try a different number or email
+              <input
+                checked={true}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="sms"
+              />
+              <span
+                className="ra-l"
+              >
+                Text message — 
+                <i>
+                  recommended
+                </i>
+              </span>
+            </label>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={false}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="voice"
+              />
+              <span
+                className="ra-l"
+              >
+                Phone call
+              </span>
+            </label>
+          </div>
+          <div
+            className="m-v500 ta-r"
+          >
+            <button
+              className="btn"
+              disabled={true}
+              type="submit"
+            >
+              Next Step
             </button>
-            .
+          </div>
+          <div
+            className="t--subinfo m-v500"
+          >
+            Don’t have access to a phone?
+            <br />
+            <a
+              href="/mfa?email=1"
+              onClick={[Function]}
+            >
+              Get codes via personal email
+            </a>
           </div>
         </form>
       </div>
     </div>
-  </div>,
-  <form
-    action="/done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="/done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -7545,7 +7162,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -7569,8 +7186,625 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage email 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
+  <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+  <main
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="mn css-1jubgvi"
+    >
+      <div
+        className="b b-c b-c--hsm"
+      >
+        <div
+          className="sh m-b300 "
+        >
+          <h2
+            className="sh-title"
+            id="sh-1428259210"
+          >
+            Set up security codes
+          </h2>
+        </div>
+        <p
+          className="lh--400 t--s400"
+        >
+          Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
+        </p>
+        <hr
+          aria-hidden={true}
+          className="hr hr--sq"
+        />
+        <form
+          className="m-v500"
+          onSubmit={[Function]}
+        >
+          <div
+            className="txt"
+            style={
+              Object {
+                "marginBottom": "0.5rem",
+              }
+            }
+          >
+            <label
+              className="txt-l"
+              htmlFor="input-3734019359"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              Email address
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
+            </label>
+            <div
+              className="g"
+            >
+              <div
+                className="g--6"
+              >
+                <input
+                  className=" txt-f "
+                  id="input-3734019359"
+                  name="email"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="you@example.com"
+                  required={true}
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div
+                className="g--6 css-70qvj9"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo m-t100"
+            >
+              Choose a personal address, not a City of Boston one.
+            </div>
+          </div>
+          <div
+            className="t--subinfo m-v500"
+          >
+            Switch to
+             
+            <a
+              href="/mfa"
+              onClick={[Function]}
+            >
+              get codes via phone call or text
+            </a>
+          </div>
+          <div
+            className="m-v500 ta-r"
+          >
+            <button
+              className="btn"
+              disabled={true}
+              type="submit"
+            >
+              Next Step
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <form
+      action="/done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-b200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage modal open 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
+  <div
+    className="css-1yqn408 p-a200"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+  <main
+    className="mn css-1jubgvi"
+  >
+    <div
+      className="mn css-1jubgvi"
+    >
+      <div
+        className="b b-c b-c--hsm"
+      >
+        <div
+          className="sh m-b300 "
+        >
+          <h2
+            className="sh-title"
+            id="sh-1428259210"
+          >
+            Set up security codes
+          </h2>
+        </div>
+        <p
+          className="lh--400 t--s400"
+        >
+          Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
+        </p>
+        <hr
+          aria-hidden={true}
+          className="hr hr--sq"
+        />
+        <form
+          className="m-v500"
+          onSubmit={[Function]}
+        >
+          <div
+            className="txt"
+            style={
+              Object {
+                "marginBottom": "0.5rem",
+              }
+            }
+          >
+            <label
+              className="txt-l"
+              htmlFor="input-1267882554"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              Phone Number
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
+            </label>
+            <div
+              className="g"
+            >
+              <div
+                className="g--6"
+              >
+                <input
+                  className=" txt-f "
+                  id="input-1267882554"
+                  name="phoneNumber"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="(XXX) XXX-XXXX"
+                  required={true}
+                  type="tel"
+                  value=""
+                />
+              </div>
+              <div
+                className="g--6 css-70qvj9"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo m-t100"
+            >
+              You should use your cell phone number if you have one.
+              <br />
+              Note: normal cell phone charges will apply.
+            </div>
+          </div>
+          <div
+            aria-labelledby="smsOrVoice-groupLabel"
+            role="group"
+          >
+            <div
+              className="txt-l"
+              id="smsOrVoice-groupLabel"
+            >
+              How should we send security codes?
+            </div>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={true}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="sms"
+              />
+              <span
+                className="ra-l"
+              >
+                Text message — 
+                <i>
+                  recommended
+                </i>
+              </span>
+            </label>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={false}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="voice"
+              />
+              <span
+                className="ra-l"
+              >
+                Phone call
+              </span>
+            </label>
+          </div>
+          <div
+            className="m-v500 ta-r"
+          >
+            <button
+              className="btn"
+              disabled={true}
+              type="submit"
+            >
+              Next Step
+            </button>
+          </div>
+          <div
+            className="t--subinfo m-v500"
+          >
+            Don’t have access to a phone?
+            <br />
+            <a
+              href="/mfa?email=1"
+              onClick={[Function]}
+            >
+              Get codes via personal email
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="md"
+    >
+      <div
+        className="md-c br br-t400 css-1y2scv5"
+      >
+        <div
+          className="md-b p-a300"
+        >
+          <div
+            className="t--intro"
+          >
+            Check your phone! We’ve sent a text to
+             
+            <strong>
+              
+            </strong>
+            .
+          </div>
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="m-v500"
+            >
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-3102479774"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Security code
+                </label>
+                <div
+                  className="css-70qvj9"
+                >
+                  <input
+                    autoFocus={true}
+                    className="css-15p77ot txt-f "
+                    id="input-3102479774"
+                    maxLength={6}
+                    name="code"
+                    onChange={[Function]}
+                    pattern="[0-9]*"
+                    size={6}
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    className="btn"
+                    disabled={true}
+                    style={
+                      Object {
+                        "marginLeft": "1em",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
+                    type="submit"
+                  >
+                    Activate
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo ta-c"
+            >
+              Didn’t get it?
+               
+              <button
+                className="lnk"
+                onClick={[Function]}
+                type="button"
+              >
+                Resend the code
+              </button>
+               
+              or
+               
+              <button
+                className="lnk"
+                onClick={[Function]}
+                type="button"
+              >
+                try a different number or email
+              </button>
+              .
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <form
+      action="/done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-b200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-hikchn"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-j6ldvx"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
 `;
 
 exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`] = `
@@ -8668,7 +8902,9 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
 `;
 
 exports[`Storyshots RegisterPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -8716,8 +8952,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -8820,7 +9056,7 @@ Array [
         width="1"
       />
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -8833,7 +9069,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -8857,12 +9093,14 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots RegisterPage password already ok 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
     className="css-1yqn408 p-a200"
   >
@@ -8910,8 +9148,8 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
+  </div>
+  <main
     className="mn css-1jubgvi"
   >
     <div
@@ -9015,7 +9253,7 @@ Array [
         width="1"
       />
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -9028,7 +9266,7 @@ Array [
       }
     >
       <div
-        className="g g--vc p-v200"
+        className="g g--vc p-b200"
       >
         <div
           className="g--8"
@@ -9052,8 +9290,8 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots TextInput variants 1`] = `
