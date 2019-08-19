@@ -4,7 +4,7 @@ import { Formik, FormikProps } from 'formik';
 import * as yup from 'yup';
 
 import { VerificationType } from '../graphql/queries';
-import StatusModal from '../StatusModal';
+import StatusModal from '../common/StatusModal';
 import TextInput from '../TextInput';
 import { SANS } from '@cityofboston/react-fleet';
 

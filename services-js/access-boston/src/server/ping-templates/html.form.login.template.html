@@ -133,7 +133,7 @@ is not recommended as it may interfere with expected server behavior.
                         </div>
                         #end
 
-                        <div class="ping-buttons login m-b400">
+                        <div class="ping-buttons login m-b400" style="text-align: center;">
                             <input type="hidden" name="$ok" value="" />
                             <input type="hidden" name="$cancel" value="" />
 
@@ -143,7 +143,7 @@ is not recommended as it may interfere with expected server behavior.
                         </div>
 
                         #if($supportsPasswordChange || $supportsPasswordReset)
-                        <div class="ping-pass-change">
+                        <div class="ping-pass-change" style="text-align: center;">
                             #if($supportsPasswordChange)
                             <a href="$changePasswordUrl" class="password-change">$templateMessages.getMessage($messageKeyPrefix, "changePassword")</a>
                             #end
@@ -187,9 +187,20 @@ is not recommended as it may interfere with expected server behavior.
                             #end
                         #else
 
-                        <!-- image will not be shown on small viewports (via css) -->
-                        <div class="image-aside" aria-hidden="true">
-                            <img src="$assetPath/images/city-hall.svg" alt="Boston City Hall" class=" m-t600" />
+                        <div class="txt m-b200">
+                            <h3 class="txt-l contact-heading">Need help? Please Contact: </h3>
+
+                            <ul class="ul t--s300 lh--400">
+                                <li style="margin-top: 0.75rem;">DoIT Service Desk<br><a href="tel:6176357378">617-635-7378</a>
+                                </li>
+
+                                <li style="margin-top: 0.75rem;">BPS Technology Help Desk Support<br><a href="tel:6176359200">617-635-9200</a>
+                                </li>
+
+                                <li style="margin-top: 0.75rem;">Looking for online information?<br>
+                                    <a class="link link--" href="https://www.boston.gov/access-boston-portal-help" target="_blank">Access Boston Portal Help</a>
+                                </li>
+                            </ul>
                         </div>
                         #end
 
