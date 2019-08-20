@@ -54,6 +54,22 @@ Array [
     "showRequestAccessLink": false,
     "title": "Account Tools",
   },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
+  },
 ]
 `;
 
@@ -180,6 +196,22 @@ Array [
     "showRequestAccessLink": false,
     "title": "Account Tools",
   },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
+  },
 ]
 `;
 
@@ -236,6 +268,22 @@ Array [
     "icons": false,
     "showRequestAccessLink": false,
     "title": "Account Tools",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
   },
 ]
 `;
@@ -361,6 +409,22 @@ Array [
     "showRequestAccessLink": false,
     "title": "Account Tools",
   },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
+  },
 ]
 `;
 
@@ -475,6 +539,22 @@ Array [
     "icons": false,
     "showRequestAccessLink": false,
     "title": "Account Tools",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
   },
 ]
 `;

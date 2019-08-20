@@ -1,3 +1,7 @@
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -10,18 +14,16 @@ import {
   CHARLES_BLUE,
   MEDIA_LARGE_MAX,
 } from '@cityofboston/react-fleet';
-import { css } from 'emotion';
 
-import AccessBostonHeader from '../client/AccessBostonHeader';
 import fetchAccountAndApps, {
   Account,
   Apps,
   CategoryApps,
 } from '../client/graphql/fetch-account-and-apps';
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
-import { MAIN_CLASS } from '../client/styles';
 import { requireRegistration } from '../client/auth-helpers';
-import AccessBostonFooter from '../client/AccessBostonFooter';
+
+import AppWrapper from '../client/common/AppWrapper';
 
 export enum FlashMessage {
   CHANGE_PASSWORD_SUCCESS = 'password',
@@ -37,18 +39,6 @@ interface Props {
   flashMessage?: FlashMessage;
   daysUntilMfa: number | null;
 }
-
-const APP_ROW_STYLE = css({
-  display: 'inline-block',
-  verticalAlign: 'middle',
-});
-
-const APP_IMAGE_STYLE = css({
-  objectFit: 'contain',
-  [MEDIA_LARGE_MAX]: {
-    maxHeight: 84,
-  },
-});
 
 export default class IndexPage extends React.Component<Props> {
   static getInitialProps: GetInitialProps<Props> = async (
@@ -72,15 +62,6 @@ export default class IndexPage extends React.Component<Props> {
     };
   };
 
-  sendEvent2GA = labelVal => {
-    (window as any).dataLayer.push({
-      event: 'access_boston',
-      eventCategory: 'Access Boston',
-      eventAction: 'Landing Page App Clicks',
-      eventLabel: labelVal,
-    });
-  };
-
   render() {
     const {
       account,
@@ -99,9 +80,7 @@ export default class IndexPage extends React.Component<Props> {
           <title>Access Boston</title>
         </Head>
 
-        <AccessBostonHeader account={account} />
-
-        <div className={MAIN_CLASS}>
+        <AppWrapper account={account}>
           {flashMessage && (
             <div className="b--g">
               <div className="b-c" style={{ padding: 0 }}>
@@ -179,9 +158,7 @@ export default class IndexPage extends React.Component<Props> {
               ))}
             </div>
           </div>
-        </div>
-
-        <AccessBostonFooter />
+        </AppWrapper>
       </>
     );
   }
@@ -190,18 +167,18 @@ export default class IndexPage extends React.Component<Props> {
     return (
       <ul className="ul m-v500">
         {apps.map(({ title, url, description }) => (
-          <li key={title}>
-            <Link href={url}>
-              <a
-                className={`p-a300 ${APP_ROW_STYLE}`}
-                target={url.startsWith('/') ? '_self' : '_blank'}
-              >
-                <div className="t--info" style={{ color: 'inherit' }}>
-                  {title}
-                </div>
-                <div style={{ color: CHARLES_BLUE }}>{description}</div>
-              </a>
-            </Link>
+          <li key={title} css={APP_ROW_STYLE}>
+            <a
+              href={url}
+              id={`app-link-${title}`}
+              className="p-a300"
+              target={url.startsWith('/') ? '_self' : '_blank'}
+            >
+              <span className="t--info" style={{ color: 'inherit' }}>
+                {title}
+              </span>
+              <span style={{ color: CHARLES_BLUE }}>{description}</span>
+            </a>
           </li>
         ))}
       </ul>
@@ -212,26 +189,47 @@ export default class IndexPage extends React.Component<Props> {
     return (
       <div className="g">
         {apps.map(({ title, url, iconUrl }) => (
-          <Link href={url} key={title}>
-            <a
-              onClick={() => this.sendEvent2GA(title)}
-              className="lwi m-t200 g--3 g--3--sl"
-              target={url.startsWith('/') ? '_self' : '_blank'}
-            >
-              <span className="lwi-ic">
-                <img
-                  src={
-                    iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'
-                  }
-                  alt=""
-                  className={`lwi-i ${APP_IMAGE_STYLE}`}
-                />
-              </span>
-              <span className="lwi-t">{title}</span>
-            </a>
-          </Link>
+          <a
+            key={title + url}
+            href={url}
+            id={`app-icon-${title}`}
+            className="m-t200 g--3 g--3--sl lwi"
+            target={url.startsWith('/') ? '_self' : '_blank'}
+          >
+            <span className="lwi-ic">
+              <img
+                src={iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'}
+                alt=""
+                className="lwi-i"
+                css={APP_IMAGE_STYLE}
+              />
+            </span>
+            <span className="lwi-t">{title}</span>
+          </a>
         ))}
       </div>
     );
   }
 }
+
+const APP_ROW_STYLE = css({
+  a: {
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    '&:hover': {
+      color: 'currentColor',
+    },
+  },
+
+  span: {
+    display: 'block',
+  },
+});
+
+const APP_IMAGE_STYLE = css({
+  objectFit: 'contain',
+
+  [MEDIA_LARGE_MAX]: {
+    maxHeight: 84,
+  },
+});

@@ -176,8 +176,7 @@ export class EmailTemplates {
     heading: string,
     orderText: object
   ): RenderedEmail {
-    const registryEmail =
-      orderType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+    const registryEmail = `${orderType}@boston.gov`;
 
     // returns date string inside parentheses
     const dateString = (date): string => {
@@ -198,11 +197,12 @@ export class EmailTemplates {
         registryEmail,
         subtotal: null,
 
+        // todo: provide enhanced information for marriage orders
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Certified ${orderType} certificate for ${name} ${
-            orderType === 'birth' ? dateString(date) : ''
+          description: `Certified ${orderType} certificate ${
+            orderType === 'birth' ? `for ${name} ${dateString(date)}` : ''
           }`,
         })),
 
@@ -215,8 +215,7 @@ export class EmailTemplates {
   }
 
   requestExpired(orderType: OrderType, orderId: string, orderDate: Date) {
-    const registryEmail =
-      orderType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+    const registryEmail = `${orderType}@boston.gov`;
 
     return this.expiredEmailRenderer(
       {

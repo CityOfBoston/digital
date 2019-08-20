@@ -49,6 +49,22 @@ _Note:_ The TestCafe `integrations` tests are excluded from `tsconfig.json` so
 that their definitions of `test` don’t conflict with Jest’s. The `testcafe`
 binary does not use `tsconfig.json`, so this doesn’t affect running the tests.
 
+## Staging
+
+Unlike other projects in the digital repo, there are **two** staging instances
+that can be pushed to, “dev” and “test”. Pushing a branch to staging looks like
+this:
+
+```
+$ git push --force --no-verify origin HEAD:staging/access-boston@dev
+```
+https://access-boston-dev.digital-staging.boston.gov/
+
+or
+```
+$ git push --force --no-verify origin HEAD:staging/access-boston@test
+```
+https://access-boston-test.digital-staging.boston.gov/
 
 ## Deployment
 

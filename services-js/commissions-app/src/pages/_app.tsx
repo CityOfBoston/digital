@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App, { AppProps } from 'next/app';
 import Router from 'next/router';
 import { hydrate, cache as emotionCache } from 'emotion';
 import { CacheProvider } from '@emotion/core';
@@ -16,34 +16,13 @@ if (typeof window !== 'undefined') {
   hydrate((window as any).__NEXT_DATA__.ids);
 }
 
-interface Props {
-  pageProps: any;
-  Component: any;
-}
-
 export default class CommissionsApp extends App {
-  // TypeScript doesn't know that App already has a props member.
-  protected props: Props;
-
   private routerListener: RouterListener;
   private siteAnalytics: SiteAnalytics;
   private screenReaderSupport: ScreenReaderSupport;
 
-  static async getInitialProps({ Component, ctx }) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
-
-    return { pageProps };
-  }
-
-  constructor(props: Props) {
+  constructor(props: AppProps) {
     super(props);
-
-    // We're a little hacky here because TypeScript doesn't have type
-    // information about App and doesn't know it's a component and that the
-    // super call above actually does this.
-    this.props = props;
 
     this.routerListener = new RouterListener();
     this.siteAnalytics = new GtagSiteAnalytics();
@@ -69,9 +48,7 @@ export default class CommissionsApp extends App {
 
     return (
       <CacheProvider value={emotionCache}>
-        <Container>
-          <Component {...pageProps} />
-        </Container>
+        <Component {...pageProps} />
       </CacheProvider>
     );
   }

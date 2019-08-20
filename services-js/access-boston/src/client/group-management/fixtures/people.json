@@ -1,0 +1,48 @@
+[
+  {
+    "dn": "cn=000296,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": ["BPD_Districts"],
+    "sn": "Howard",
+    "givenname": "Terra",
+    "displayname": "Terra Howard",
+    "mail": "terra.howard@boston.gov",
+    "cn": "000296"
+  },
+  {
+    "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": ["ANML02_LostFound", "BPD_Administrative"],
+    "sn": "Howell",
+    "mail": "cloud.howell@cityofboston.gov",
+    "givenname": "Cloud",
+    "displayname": "Cloud Howell",
+    "cn": "132367"
+  },
+  {
+    "dn": "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": ["ANML02_LostFound", "BPD_Districts", "BPD_Administrative"],
+    "sn": "Scientia",
+    "mail": "ignis.scientia@cityofboston.gov",
+    "givenname": "Ignis",
+    "displayname": "Ignis Scientia",
+    "cn": "Ignis Scientia"
+  },
+  {
+    "dn": "cn=Laguna Loire,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": ["ANML02_LostFound", "BPD_Districts"],
+    "sn": "Loire",
+    "mail": "laguna.loire@cityofboston.gov",
+    "givenname": "Laguna",
+    "displayname": "Laguna Loire",
+    "cn": "Laguna Loire",
+    "inactive": true
+  },
+  {
+    "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": [],
+    "sn": "Smith",
+    "mail": "sam.smith@cityofboston.gov",
+    "givenname": "Sam",
+    "displayname": "Sam Smith",
+    "cn": "515151"
+  }
+]

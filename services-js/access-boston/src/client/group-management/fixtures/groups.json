@@ -1,0 +1,21 @@
+[
+  {
+    "dn": "cn=ANML02_LostFound,cn=Lagan_Groups,cn=Groups,dc=boston,dc=cob",
+    "uniquemember": ["132367", "Ignis Scientia", "Laguna Loire"],
+    "cn": "ANML02_LostFound",
+    "displayname": "ANML02_LostFound"
+  },
+  {
+    "dn": "cn=BPD_Districts,cn=Lagan_Groups,cn=Groups,dc=boston,dc=cob",
+    "uniquemember": ["Laguna Loire", "000296", "Ignis Scientia"],
+    "cn": "BPD_Districts",
+    "displayname": "BPD_Districts",
+    "canModify": false
+  },
+  {
+    "dn": "cn=BPD_Administrative,cn=Lagan_Groups,cn=Groups,dc=boston,dc=cob",
+    "uniquemember": ["132367", "Ignis Scientia"],
+    "cn": "BPD_Administrative",
+    "displayname": "BPD_Administrative"
+  }
+]

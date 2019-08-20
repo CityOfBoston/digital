@@ -27,8 +27,7 @@ export default function OrderConfirmationContent({
   stepCount,
   contactEmail,
 }: Props) {
-  const registryEmail =
-    certificateType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+  const registryEmail = `${certificateType}@boston.gov`;
 
   // Rendered as a footer so we can break the narrow default width
   const footer = (
@@ -74,11 +73,21 @@ export default function OrderConfirmationContent({
             <a href={`mailto:${registryEmail}`}>{registryEmail}</a>.
           </p>
 
-          <div className="ta-c m-v700">
-            <Link href={`/${certificateType}`}>
-              <a className="btn">Back to start</a>
+          <p className="t--info" style={{ fontStyle: 'normal' }}>
+            Order a new{' '}
+            <Link href="/birth">
+              <a>birth</a>
             </Link>
-          </div>
+            ,{' '}
+            <Link href="/marriage">
+              <a>marriage</a>
+            </Link>
+            , or{' '}
+            <Link href="/death">
+              <a>death</a>
+            </Link>{' '}
+            certificate.
+          </p>
         </div>
       </div>
     </div>

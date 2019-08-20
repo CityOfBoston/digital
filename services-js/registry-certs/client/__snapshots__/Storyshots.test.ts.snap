@@ -542,17 +542,44 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new
+                 
                 <a
-                  className="btn"
                   href="/birth"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
-                  Back to start
+                  birth
                 </a>
-              </div>
+                ,
+                 
+                <a
+                  href="/marriage"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  marriage
+                </a>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  death
+                </a>
+                 
+                certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -870,6 +897,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
                 className="btn"
                 href="/birth"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 Back to Start
               </a>
@@ -1343,6 +1371,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -1489,6 +1518,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                   <a
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -2041,6 +2071,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                           aria-label="Edit contact information"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -2084,6 +2115,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -2131,6 +2163,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                           aria-label="Edit payment information"
                           href="/birth/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -3734,6 +3767,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                   <a
                     href="/birth/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -6073,7 +6107,7 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
           className="lh--400"
         >
           <p>
-            If you are a legal representative making a request for a client, you need these items to get a record:
+            If you are an attorney making a request for a client, you need these items to get a record:
           </p>
           <ol>
             <li>
@@ -6090,16 +6124,16 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
             You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
           </p>
           <p>
-            You can find more information online at
+            For more information, you can email us at
              
-            <strong>
-              <a
-                href="https://www.boston.gov/birth"
-              >
-                boston.gov/
-                birth
-              </a>
-            </strong>
+            <a
+              href="mailto:birth@boston.gov"
+              onClick={[Function]}
+            >
+              birth
+              @boston.gov
+            </a>
+            .
           </p>
           <p>
             <strong
@@ -12171,7 +12205,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
                   className="lh--400"
                 >
                   <p>
-                    If you are a legal representative making a request for a client, you need these items to get a record:
+                    If you are an attorney making a request for a client, you need these items to get a record:
                   </p>
                   <ol>
                     <li>
@@ -12188,16 +12222,16 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
                     You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
                   </p>
                   <p>
-                    You can find more information online at
+                    For more information, you can email us at
                      
-                    <strong>
-                      <a
-                        href="https://www.boston.gov/birth"
-                      >
-                        boston.gov/
-                        birth
-                      </a>
-                    </strong>
+                    <a
+                      href="mailto:birth@boston.gov"
+                      onClick={[Function]}
+                    >
+                      birth
+                      @boston.gov
+                    </a>
+                    .
                   </p>
                   <p>
                     <strong
@@ -17713,17 +17747,44 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new
+                 
                 <a
-                  className="btn"
                   href="/birth"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
-                  Back to start
+                  birth
                 </a>
-              </div>
+                ,
+                 
+                <a
+                  href="/marriage"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  marriage
+                </a>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  death
+                </a>
+                 
+                certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -18270,23 +18331,50 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:registry@boston.gov"
+                  href="mailto:marriage@boston.gov"
                 >
-                  registry@boston.gov
+                  marriage@boston.gov
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new
+                 
                 <a
-                  className="btn"
+                  href="/birth"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  birth
+                </a>
+                ,
+                 
+                <a
                   href="/marriage"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
-                  Back to start
+                  marriage
                 </a>
-              </div>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  death
+                </a>
+                 
+                certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -18679,6 +18767,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -19345,6 +19434,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -19738,6 +19828,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -20363,6 +20454,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -20842,6 +20934,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -21467,6 +21560,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
                   <a
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -21881,6 +21975,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -22031,6 +22126,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -22424,6 +22520,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -22570,6 +22667,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -22963,6 +23061,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -23588,6 +23687,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -24067,6 +24167,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -24692,6 +24793,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
                   <a
                     href="/marriage/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -25244,6 +25346,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
                           aria-label="Edit contact information"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -25287,6 +25390,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -25334,6 +25438,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
                           aria-label="Edit payment information"
                           href="/birth/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -25920,6 +26025,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26001,6 +26107,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26044,6 +26151,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26091,6 +26199,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26317,6 +26426,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -26713,6 +26823,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26794,6 +26905,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26837,6 +26949,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26884,6 +26997,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27083,6 +27197,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -27479,6 +27594,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27560,6 +27676,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27603,6 +27720,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27650,6 +27768,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27849,6 +27968,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -28245,6 +28365,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28326,6 +28447,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28369,6 +28491,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28403,6 +28526,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28586,6 +28710,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -29133,6 +29258,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
                           aria-label="Edit contact information"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -29176,6 +29302,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -29223,6 +29350,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
                           aria-label="Edit payment information"
                           href="/marriage/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -29811,6 +29939,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -29892,6 +30021,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -29935,6 +30065,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -29982,6 +30113,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30184,6 +30316,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                       className="btn"
                       href="/death/checkout?page=payment"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       Re-try
                     </a>
@@ -30215,6 +30348,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -30619,6 +30753,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30700,6 +30835,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30743,6 +30879,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30790,6 +30927,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31030,6 +31168,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -31434,6 +31573,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31515,6 +31655,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31558,6 +31699,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31605,6 +31747,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31826,6 +31969,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -32936,6 +33080,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
                   <a
                     href="/birth/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -33965,6 +34110,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
                 <a
                   href="/death/cart"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -34973,6 +35119,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
                 <a
                   href="/death/cart"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -35981,6 +36128,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
                 <a
                   href="/death/cart"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -37075,6 +37223,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
                   <a
                     href="/marriage/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -38931,6 +39080,7 @@ exports[`Storyshots Common Components/Nav default 1`] = `
       <a
         className="nv-s-l-b emotion-1"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         View Cart 
         <span
@@ -39314,7 +39464,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
         <div
           className="emotion-2"
         >
-          Married: 6/10/2015
+          
         </div>
       </div>
     </div>
@@ -39873,6 +40023,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
           <a
             href="/death/cart"
             onClick={[Function]}
+            onMouseEnter={[Function]}
             style={
               Object {
                 "display": "block",
@@ -40116,7 +40267,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
               <div
                 className="emotion-4"
               >
-                Married: 6/10/2015
+                
               </div>
             </div>
           </div>
@@ -40160,6 +40311,7 @@ exports[`Storyshots Common Components/Pagination 2 pages 1`] = `
         className="pg-li-i pg-li-i--link pg-li-i--a"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         1
       </a>
@@ -40171,6 +40323,7 @@ exports[`Storyshots Common Components/Pagination 2 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         2
       </a>
@@ -40182,6 +40335,7 @@ exports[`Storyshots Common Components/Pagination 2 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≫
       </a>
@@ -40202,6 +40356,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≪
       </a>
@@ -40213,6 +40368,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         1
       </a>
@@ -40224,6 +40380,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link pg-li-i--a"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         2
       </a>
@@ -40235,6 +40392,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         3
       </a>
@@ -40246,6 +40404,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         4
       </a>
@@ -40257,6 +40416,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≫
       </a>
@@ -40277,6 +40437,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≪
       </a>
@@ -40288,6 +40449,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         17
       </a>
@@ -40299,6 +40461,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link pg-li-i--a"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         18
       </a>
@@ -40310,6 +40473,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         19
       </a>
@@ -40321,6 +40485,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         20
       </a>
@@ -40332,6 +40497,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≫
       </a>
@@ -48735,6 +48901,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -48851,6 +49018,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -49175,6 +49343,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -49291,6 +49460,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -49465,6 +49635,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                     className="btn"
                     href="/death/checkout"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                   >
                     Go to checkout
                   </a>
@@ -49846,6 +50017,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -49962,6 +50134,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -50283,6 +50456,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                     className="btn"
                     href="/death/checkout"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                   >
                     Go to checkout
                   </a>
@@ -50659,6 +50833,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -50971,6 +51146,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -51243,6 +51419,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -51384,6 +51561,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -51765,6 +51943,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -52077,6 +52256,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -52458,6 +52638,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -52770,6 +52951,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -53151,6 +53333,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -53458,6 +53641,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -53730,6 +53914,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -53903,7 +54088,27 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             >
               registry@boston.gov
             </a>
-            .
+            . You can also order a
+             
+            <a
+              href="/birth"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              birth
+            </a>
+             
+            or
+             
+            <a
+              href="/marriage"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+            >
+              marriage
+            </a>
+             
+            certificate online.
           </p>
           <div
             className="m-t500 ta-c t--info"
@@ -53911,6 +54116,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             <a
               href="/death"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Back to search
             </a>
@@ -54529,6 +54735,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -54977,6 +55184,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -55464,6 +55672,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -55663,6 +55872,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
               <a
                 href="/death/certificate/000002"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <div
                   className="p-v300 br b--w br-b100 emotion-9"
@@ -55694,6 +55904,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
               <a
                 href="/death/certificate/000001"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <div
                   className="p-v300 br b--w br-b100 emotion-9"
@@ -55745,6 +55956,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
               <a
                 href="/death/certificate/000003"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <div
                   className="p-v300 br b--w br-b100 emotion-9"
@@ -55786,6 +55998,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link"
                       href="/death?q=Jayn Doe&page=1"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       ≪
                     </a>
@@ -55797,6 +56010,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link "
                       href="/death?q=Jayn Doe&page=1"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       1
                     </a>
@@ -55808,6 +56022,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link pg-li-i--a"
                       href="/death?q=Jayn Doe&page=2"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       2
                     </a>
@@ -55819,6 +56034,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link "
                       href="/death?q=Jayn Doe&page=3"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       3
                     </a>
@@ -55830,6 +56046,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link "
                       href="/death?q=Jayn Doe&page=4"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       4
                     </a>
@@ -55841,6 +56058,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link"
                       href="/death?q=Jayn Doe&page=3"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       ≫
                     </a>
@@ -55971,6 +56189,7 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
   <a
     href="/death/certificate/000003"
     onClick={[Function]}
+    onMouseEnter={[Function]}
   >
     <div
       className="p-v300 br b--w br-b100 emotion-4"
@@ -56049,6 +56268,7 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
   <a
     href="/death/certificate/000002"
     onClick={[Function]}
+    onMouseEnter={[Function]}
   >
     <div
       className="p-v300 br b--w br-b100 emotion-4"
@@ -59712,7 +59932,7 @@ exports[`Storyshots Email/Marriage/Expired HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -59781,7 +60001,7 @@ If you would like to place a new order, visit
 https://www.boston.gov/marriage
 
 Have any questions? Contact the Registry at 
-registry@boston.gov.
+marriage@boston.gov.
   </pre>
 </div>
 `;
@@ -60278,7 +60498,7 @@ exports[`Storyshots Email/Marriage/Receipt HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate for Laurel Johnson &amp; Terry Johnson </i></td>
+                    <i>1 × Certified marriage certificate </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
@@ -60484,7 +60704,7 @@ exports[`Storyshots Email/Marriage/Receipt HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -60551,7 +60771,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate for Laurel Johnson &amp; Terry Johnson  $14.00
+  1 x Certified marriage certificate  $14.00
   Card processing fee*  $0.00
   Total  $14.56
 
@@ -60569,7 +60789,7 @@ service fees at the City of Boston.
 [https://www.boston.gov/common-questions-about-online-payments]
 
 Have any questions? Contact the Registry at 
-registry@boston.gov.
+marriage@boston.gov.
   </pre>
 </div>
 `;
@@ -61066,7 +61286,7 @@ exports[`Storyshots Email/Marriage/Shipped HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate for Laurel Johnson &amp; Terry Johnson </i></td>
+                    <i>1 × Certified marriage certificate </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
@@ -61272,7 +61492,7 @@ exports[`Storyshots Email/Marriage/Shipped HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -61339,7 +61559,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate for Laurel Johnson &amp; Terry Johnson  $14.00
+  1 x Certified marriage certificate  $14.00
   Card processing fee*  $0.00
   Total  $14.56
 
@@ -61357,7 +61577,7 @@ service fees at the City of Boston.
 [https://www.boston.gov/common-questions-about-online-payments]
 
 Have any questions? Contact the Registry at 
-registry@boston.gov.
+marriage@boston.gov.
   </pre>
 </div>
 `;
@@ -61873,23 +62093,50 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:registry@boston.gov"
+                  href="mailto:marriage@boston.gov"
                 >
-                  registry@boston.gov
+                  marriage@boston.gov
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new
+                 
                 <a
-                  className="btn"
+                  href="/birth"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  birth
+                </a>
+                ,
+                 
+                <a
                   href="/marriage"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
-                  Back to start
+                  marriage
                 </a>
-              </div>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  death
+                </a>
+                 
+                certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -62207,6 +62454,7 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
                 className="btn"
                 href="/marriage"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 Back to Start
               </a>
@@ -62680,6 +62928,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -62826,6 +63075,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
                   <a
                     href="/marriage/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -63378,6 +63628,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
                           aria-label="Edit contact information"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -63421,6 +63672,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -63468,6 +63720,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
                           aria-label="Edit payment information"
                           href="/marriage/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -65065,6 +65318,7 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
                   <a
                     href="/marriage/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -65215,7 +65469,7 @@ exports[`Storyshots Marriage/Question Components/ClientInstructions default 1`] 
           className="lh--400"
         >
           <p>
-            If you are a legal representative making a request for a client, you need these items to get a record:
+            If you are an attorney making a request for a client, you need these items to get a record:
           </p>
           <ol>
             <li>
@@ -65232,16 +65486,16 @@ exports[`Storyshots Marriage/Question Components/ClientInstructions default 1`] 
             You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
           </p>
           <p>
-            You can find more information online at
+            For more information, you can email us at
              
-            <strong>
-              <a
-                href="https://www.boston.gov/marriage"
-              >
-                boston.gov/
-                marriage
-              </a>
-            </strong>
+            <a
+              href="mailto:registry@boston.gov"
+              onClick={[Function]}
+            >
+              registry
+              @boston.gov
+            </a>
+            .
           </p>
           <p>
             <strong
@@ -73489,10 +73743,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -73929,7 +74183,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
                   className="lh--400"
                 >
                   <p>
-                    If you are a legal representative making a request for a client, you need these items to get a record:
+                    If you are an attorney making a request for a client, you need these items to get a record:
                   </p>
                   <ol>
                     <li>
@@ -73946,16 +74200,16 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
                     You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
                   </p>
                   <p>
-                    You can find more information online at
+                    For more information, you can email us at
                      
-                    <strong>
-                      <a
-                        href="https://www.boston.gov/marriage"
-                      >
-                        boston.gov/
-                        marriage
-                      </a>
-                    </strong>
+                    <a
+                      href="mailto:registry@boston.gov"
+                      onClick={[Function]}
+                    >
+                      registry
+                      @boston.gov
+                    </a>
+                    .
                   </p>
                   <p>
                     <strong
@@ -74012,10 +74266,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -74812,10 +75066,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -75548,10 +75802,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -76565,10 +76819,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -77582,10 +77836,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -78566,10 +78820,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -79191,7 +79445,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                 id="2889438462-content"
               >
                 <p>
-                  You need to have a hand signature from the Registry. After you finish your order, please email registry@boston.gov with:
+                  You need to have a hand signature from the Registry. After you finish your order, please email marriage@boston.gov with:
                 </p>
                 <ul>
                   <li>

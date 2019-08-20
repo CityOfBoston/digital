@@ -13,6 +13,9 @@ RUN apk add --update python python-dev curl unzip git \
   && rm awscli-bundle.zip \
   && rm -rf awscli-bundle
 
+# To prevent “Error: could not get uid/gid”
+RUN npm config set unsafe-perm true
+
 # Need to upgrade yarn to at least 1.6
 RUN yarn global add yarn@^1.6.0
 

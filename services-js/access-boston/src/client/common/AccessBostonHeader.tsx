@@ -1,10 +1,62 @@
-import React from 'react';
-import Link from 'next/link';
-import { CHARLES_BLUE, SANS, WHITE } from '@cityofboston/react-fleet';
-import { css } from 'emotion';
+/** @jsx jsx */
 
-import { Account } from './graphql/fetch-account';
-import RedirectForm from './RedirectForm';
+import { css, jsx } from '@emotion/core';
+import { Component } from 'react';
+
+import Link from 'next/link';
+
+import { CHARLES_BLUE, SANS, WHITE } from '@cityofboston/react-fleet';
+
+import { Account } from '../graphql/fetch-account';
+import RedirectForm from '../RedirectForm';
+
+interface Props {
+  account?: Account;
+  noLinks?: boolean;
+}
+
+export default class AccessBostonHeader extends Component<Props> {
+  render() {
+    const { account, noLinks } = this.props;
+
+    return (
+      <header className="p-a200" css={HEADER_STYLE}>
+        <h1 css={ACCESS_BOSTON_TITLE_STYLE}>
+          {noLinks ? (
+            'Access Boston'
+          ) : (
+            <Link href="/">
+              <a style={{ color: 'inherit' }}>Access Boston</a>
+            </Link>
+          )}
+        </h1>
+        {account && (
+          <div css={HEADER_RIGHT_STYLE}>
+            <span style={{ marginRight: '1em' }}>
+              {getEmployeeName(account)}
+            </span>
+
+            {!noLinks && (
+              <RedirectForm path="/logout">
+                <button type="submit" className="btn btn--sm btn--100">
+                  Logout
+                </button>
+              </RedirectForm>
+            )}
+          </div>
+        )}
+      </header>
+    );
+  }
+}
+
+function getEmployeeName({ firstName, lastName, employeeId }: Account): string {
+  if (firstName || lastName) {
+    return `${firstName || ''} ${lastName || ''}`.trim();
+  } else {
+    return employeeId;
+  }
+}
 
 const HEADER_STYLE = css({
   display: 'flex',
@@ -31,51 +83,3 @@ const ACCESS_BOSTON_TITLE_STYLE = css({
   fontSize: '1.25rem',
   fontWeight: 'bold',
 });
-
-interface Props {
-  account?: Account;
-  noLinks?: boolean;
-}
-
-export default class AccessBostonHeader extends React.Component<Props> {
-  render() {
-    const { account, noLinks } = this.props;
-
-    return (
-      <div className={`${HEADER_STYLE} p-a200`}>
-        <h1 className={`${ACCESS_BOSTON_TITLE_STYLE}`}>
-          {noLinks ? (
-            'Access Boston'
-          ) : (
-            <Link href="/">
-              <a style={{ color: 'inherit' }}>Access Boston</a>
-            </Link>
-          )}
-        </h1>
-        {account && (
-          <div className={`${HEADER_RIGHT_STYLE}`}>
-            <span style={{ marginRight: '1em' }}>
-              {getEmployeeName(account)}
-            </span>
-
-            {!noLinks && (
-              <RedirectForm path="/logout">
-                <button type="submit" className="btn btn--sm btn--100">
-                  Logout
-                </button>
-              </RedirectForm>
-            )}
-          </div>
-        )}
-      </div>
-    );
-  }
-}
-
-function getEmployeeName({ firstName, lastName, employeeId }: Account): string {
-  if (firstName || lastName) {
-    return `${firstName || ''} ${lastName || ''}`.trim();
-  } else {
-    return employeeId;
-  }
-}
