@@ -61,7 +61,7 @@ categories:
           - SG_AB_CIVIS
       - title: Employee Training
         url: https://login.frontlineeducation.com/
-        icon: /assets/apps/employee-training.svg
+        icon: /assets/apps/person-training.svg
         groups:
           - SG_AB_MLP
       - title: BPS TalentEd

@@ -3,9 +3,7 @@ import Head from 'next/head';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
-import AccessBostonHeader from '../client/AccessBostonHeader';
-import { MAIN_CLASS } from '../client/styles';
-import AccessBostonFooter from '../client/AccessBostonFooter';
+import AppWrapper from '../client/common/AppWrapper';
 
 export default class DonePage extends React.Component {
   render() {
@@ -16,9 +14,7 @@ export default class DonePage extends React.Component {
           <title>Access Boston: Registration</title>
         </Head>
 
-        <AccessBostonHeader />
-
-        <div className={MAIN_CLASS}>
+        <AppWrapper>
           <div className="b b-c b-c--hsm">
             <SectionHeader title="You’re all set!" />
 
@@ -33,9 +29,7 @@ export default class DonePage extends React.Component {
               </a>
             </div>
           </div>
-        </div>
-
-        <AccessBostonFooter />
+        </AppWrapper>
       </>
     );
   }

@@ -1,7 +1,7 @@
 export default {
   assetPath: 'assets/ping/assets',
   name: 'name',
-  username: 'city-employee',
+  username: 'city-person',
   pass: 'pass',
   newPass1: 'newPass2',
   newPass2: 'newPass1',

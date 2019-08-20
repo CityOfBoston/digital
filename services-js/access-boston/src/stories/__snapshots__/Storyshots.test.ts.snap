@@ -19,7 +19,7 @@ exports[`Storyshots AccessBostonFooter default 1`] = `
         className="g--8"
       >
         <div
-          className="css-hikchn"
+          className="css-juqblx-AccessBostonFooter"
         >
           The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
         </div>
@@ -28,7 +28,7 @@ exports[`Storyshots AccessBostonFooter default 1`] = `
         className="g--4 ta-r"
       >
         <a
-          className="css-j6ldvx"
+          className="css-15v0gc2-AccessBostonFooter"
           href="https://www.boston.gov/access-boston-portal-help"
           target="_blank"
         >
@@ -42,7 +42,7 @@ exports[`Storyshots AccessBostonFooter default 1`] = `
 
 exports[`Storyshots AccessBostonHeader default 1`] = `
 <div
-  className="css-1yqn408 p-a200"
+  className="p-a200 css-1yqn408"
 >
   <h1
     className="css-e3scnp"
@@ -92,9 +92,11 @@ exports[`Storyshots AccessBostonHeader default 1`] = `
 `;
 
 exports[`Storyshots ChangePasswordPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -140,9 +142,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -418,17 +420,17 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -447,7 +449,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -456,7 +458,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -465,14 +467,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage first time registration 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -518,9 +522,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -800,17 +804,17 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -829,7 +833,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -838,7 +842,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -847,14 +851,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage first time registration w/ temp password 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -900,9 +906,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -1187,17 +1193,17 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -1216,7 +1222,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -1225,7 +1231,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -1234,14 +1240,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage network error 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -1287,9 +1295,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -1565,72 +1573,72 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <div
-    className="md"
-  >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md"
     >
       <div
-        className="md-b p-a300"
+        className="md-c br br-t400 css-qmagno-StatusModal"
       >
         <div
-          className="t--intro t--err"
+          className="md-b p-a300"
         >
-          There was a network problem
-        </div>
-        <div
-          className="t--info m-v300"
-        >
-          Your password was probably not changed. If this keeps happening, please get in touch:
-        </div>
-        <ul
-          className="ul t--s300 lh--400"
-        >
-          <li>
-            DoIT Service Desk
-            <br />
-            <a
-              href="tel:6176357378"
-            >
-              (617) 635-7378
-            </a>
-          </li>
-          <li>
-            BPS Technology Help Desk Support
-            <br />
-            <a
-              href="tel:6176359200"
-            >
-              (617) 635-9200
-            </a>
-          </li>
-        </ul>
-        <div
-          className="ta-r"
-        >
-          <button
-            className="btn"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="t--intro t--err"
           >
-            Try Again
-          </button>
+            There was a network problem
+          </div>
+          <div
+            className="t--info m-v300"
+          >
+            Your password was probably not changed. If this keeps happening, please get in touch:
+          </div>
+          <ul
+            className="ul t--s300 lh--400"
+          >
+            <li>
+              DoIT Service Desk
+              <br />
+              <a
+                href="tel:6176357378"
+              >
+                (617) 635-7378
+              </a>
+            </li>
+            <li>
+              BPS Technology Help Desk Support
+              <br />
+              <a
+                href="tel:6176359200"
+              >
+                (617) 635-9200
+              </a>
+            </li>
+          </ul>
+          <div
+            className="ta-r"
+          >
+            <button
+              className="btn"
+              onClick={[Function]}
+              type="button"
+            >
+              Try Again
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -1649,7 +1657,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -1658,7 +1666,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -1667,14 +1675,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage session error 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -1720,9 +1730,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -1998,50 +2008,50 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <div
-    className="md"
-  >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md"
     >
       <div
-        className="md-b p-a300"
+        className="md-c br br-t400 css-qmagno-StatusModal"
       >
         <div
-          className="t--intro t--err"
+          className="md-b p-a300"
         >
-          Your session has expired
-        </div>
-        <div
-          className="t--info m-v300"
-        >
-          Your password was not changed. You will need to log in again to change your password.
-        </div>
-        <div
-          className="ta-r"
-        >
-          <button
-            className="btn"
-            onClick={[Function]}
-            type="button"
+          <div
+            className="t--intro t--err"
           >
-            Log In
-          </button>
+            Your session has expired
+          </div>
+          <div
+            className="t--info m-v300"
+          >
+            Your password was not changed. You will need to log in again to change your password.
+          </div>
+          <div
+            className="ta-r"
+          >
+            <button
+              className="btn"
+              onClick={[Function]}
+              type="button"
+            >
+              Log In
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -2060,7 +2070,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -2069,7 +2079,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -2078,14 +2088,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ChangePasswordPage submitting 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -2131,9 +2143,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -2409,39 +2421,39 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
-  <div
-    className="md"
-  >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md"
     >
       <div
-        className="md-b p-a300"
+        className="md-c br br-t400 css-qmagno-StatusModal"
       >
         <div
-          className="t--intro"
+          className="md-b p-a300"
         >
-          Saving your new password…
-        </div>
-        <div
-          className="t--info m-t300"
-        >
-          Please be patient and don’t refresh your browser. This might take a bit.
+          <div
+            className="t--intro"
+          >
+            Saving your new password…
+          </div>
+          <div
+            className="t--info m-t300"
+          >
+            Please be patient and don’t refresh your browser. This might take a bit.
+          </div>
         </div>
       </div>
     </div>
-  </div>,
-  <form
-    action="done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -2460,7 +2472,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -2469,7 +2481,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -2478,14 +2490,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
-exports[`Storyshots DonePage default 1`] = `
-Array [
+exports[`Storyshots Common/AppWrapper default 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -2502,9 +2516,106 @@ Array [
         Access Boston
       </a>
     </h1>
-  </div>,
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+  <main
+    className=" css-1jubgvi"
+  >
+    hi
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-juqblx-AccessBostonFooter"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-15v0gc2-AccessBostonFooter"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Storyshots DonePage default 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="mn css-1jubgvi"
+    className="p-a200 css-1yqn408"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -2535,7 +2646,7 @@ Array [
         </a>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -2554,7 +2665,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -2563,7 +2674,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -2572,23 +2683,25 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ForgotPasswordPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
     >
       Access Boston
     </h1>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -2809,7 +2922,7 @@ Array [
         </div>
       </form>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -2828,7 +2941,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -2837,7 +2950,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -2846,286 +2959,290 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots ForgotPasswordPage network error 1`] = `
 Array [
   <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      Access Boston
-    </h1>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+    className="css-1q65ynf-AppWrapper"
   >
     <div
-      className="b b-c b-c--hsm"
+      className="p-a200 css-1yqn408"
+    >
+      <h1
+        className="css-e3scnp"
+      >
+        Access Boston
+      </h1>
+    </div>
+    <main
+      className=" css-1jubgvi"
     >
       <div
-        className="sh m-b300 "
+        className="b b-c b-c--hsm"
       >
-        <h2
-          className="sh-title"
-          id="sh-2144913693"
+        <div
+          className="sh m-b300 "
         >
-          Forgot Password
-        </h2>
-      </div>
-      <form
-        action=""
-        className="m-v500"
-        method="POST"
-        onSubmit={[Function]}
-      >
-        <input
-          autoComplete="username"
-          name="username"
-          readOnly={true}
-          style={
-            Object {
-              "position": "absolute",
-              "visibility": "hidden",
+          <h2
+            className="sh-title"
+            id="sh-2144913693"
+          >
+            Forgot Password
+          </h2>
+        </div>
+        <form
+          action=""
+          className="m-v500"
+          method="POST"
+          onSubmit={[Function]}
+        >
+          <input
+            autoComplete="username"
+            name="username"
+            readOnly={true}
+            style={
+              Object {
+                "position": "absolute",
+                "visibility": "hidden",
+              }
             }
-          }
-          type="text"
-          value="CON01234"
-        />
-        <div
-          className="g g--r m-v200"
-        >
+            type="text"
+            value="CON01234"
+          />
           <div
-            className="g--6 m-b500"
+            className="g g--r m-v200"
           >
             <div
-              className="txt-l m-b200"
-              style={
-                Object {
-                  "marginTop": 1,
-                }
-              }
+              className="g--6 m-b500"
             >
-              New passwords must:
-            </div>
-            <ul
-              className="ul"
-              style={
-                Object {
-                  "lineHeight": 1.6,
-                }
-              }
-            >
-              <li
-                className=""
-              >
-                Be at least 10 characters long
-              </li>
-              <li
-                className=""
-              >
-                Use at least 3 of these:
-                <ul
-                  className="ul"
-                >
-                  <li
-                    className=""
-                  >
-                    A lowercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    An uppercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
-                </ul>
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not have spaces
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not be longer than 32 characters
-              </li>
-            </ul>
-            <div
-              className="t--subinfo m-v300 m-b200"
-            >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
-            </div>
-          </div>
-          <div
-            className="g--6"
-          >
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
+                className="txt-l m-b200"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "marginTop": 1,
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
+                New passwords must:
               </div>
-            </div>
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <ul
+                className="ul"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "lineHeight": 1.6,
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <li
+                  className=""
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Be at least 10 characters long
+                </li>
+                <li
+                  className=""
+                >
+                  Use at least 3 of these:
+                  <ul
+                    className="ul"
+                  >
+                    <li
+                      className=""
+                    >
+                      A lowercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      An uppercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A number
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A special character
+                    </li>
+                  </ul>
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not have spaces
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not be longer than 32 characters
+                </li>
+              </ul>
               <div
-                className="t--info t--err m-v100"
+                className="t--subinfo m-v300 m-b200"
               >
-                 
+                Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
               </div>
             </div>
             <div
-              className="ta-r"
+              className="g--6"
             >
-              <button
-                className="btn"
-                disabled={true}
-                type="submit"
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
               >
-                Reset Password
-              </button>
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="ta-r"
+              >
+                <button
+                  className="btn"
+                  disabled={true}
+                  type="submit"
+                >
+                  Reset Password
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
+        </form>
+      </div>
+    </main>
+    <footer
+      className="ft"
     >
       <div
-        className="g g--vc p-v200"
+        className="ft-c"
+        style={
+          Object {
+            "paddingTop": 0,
+          }
+        }
       >
         <div
-          className="g--8"
+          className="g g--vc p-v200"
         >
           <div
-            className="css-hikchn"
+            className="g--8"
           >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            <div
+              className="css-juqblx-AccessBostonFooter"
+            >
+              The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            </div>
+          </div>
+          <div
+            className="g--4 ta-r"
+          >
+            <a
+              className="css-15v0gc2-AccessBostonFooter"
+              href="https://www.boston.gov/access-boston-portal-help"
+              target="_blank"
+            >
+              Need Help?
+            </a>
           </div>
         </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
       </div>
-    </div>
-  </footer>,
+    </footer>
+  </div>,
   <div
     className="md"
   >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md-c br br-t400 css-qmagno-StatusModal"
     >
       <div
         className="md-b p-a300"
@@ -3182,279 +3299,283 @@ Array [
 exports[`Storyshots ForgotPasswordPage session error 1`] = `
 Array [
   <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      Access Boston
-    </h1>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+    className="css-1q65ynf-AppWrapper"
   >
     <div
-      className="b b-c b-c--hsm"
+      className="p-a200 css-1yqn408"
+    >
+      <h1
+        className="css-e3scnp"
+      >
+        Access Boston
+      </h1>
+    </div>
+    <main
+      className=" css-1jubgvi"
     >
       <div
-        className="sh m-b300 "
+        className="b b-c b-c--hsm"
       >
-        <h2
-          className="sh-title"
-          id="sh-2144913693"
+        <div
+          className="sh m-b300 "
         >
-          Forgot Password
-        </h2>
-      </div>
-      <form
-        action=""
-        className="m-v500"
-        method="POST"
-        onSubmit={[Function]}
-      >
-        <input
-          autoComplete="username"
-          name="username"
-          readOnly={true}
-          style={
-            Object {
-              "position": "absolute",
-              "visibility": "hidden",
+          <h2
+            className="sh-title"
+            id="sh-2144913693"
+          >
+            Forgot Password
+          </h2>
+        </div>
+        <form
+          action=""
+          className="m-v500"
+          method="POST"
+          onSubmit={[Function]}
+        >
+          <input
+            autoComplete="username"
+            name="username"
+            readOnly={true}
+            style={
+              Object {
+                "position": "absolute",
+                "visibility": "hidden",
+              }
             }
-          }
-          type="text"
-          value="CON01234"
-        />
-        <div
-          className="g g--r m-v200"
-        >
+            type="text"
+            value="CON01234"
+          />
           <div
-            className="g--6 m-b500"
+            className="g g--r m-v200"
           >
             <div
-              className="txt-l m-b200"
-              style={
-                Object {
-                  "marginTop": 1,
-                }
-              }
+              className="g--6 m-b500"
             >
-              New passwords must:
-            </div>
-            <ul
-              className="ul"
-              style={
-                Object {
-                  "lineHeight": 1.6,
-                }
-              }
-            >
-              <li
-                className=""
-              >
-                Be at least 10 characters long
-              </li>
-              <li
-                className=""
-              >
-                Use at least 3 of these:
-                <ul
-                  className="ul"
-                >
-                  <li
-                    className=""
-                  >
-                    A lowercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    An uppercase letter
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
-                </ul>
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not have spaces
-              </li>
-              <li
-                className="css-5qhwje"
-              >
-                Not be longer than 32 characters
-              </li>
-            </ul>
-            <div
-              className="t--subinfo m-v300 m-b200"
-            >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
-            </div>
-          </div>
-          <div
-            className="g--6"
-          >
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
+                className="txt-l m-b200"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "marginTop": 1,
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
-                >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
+                New passwords must:
               </div>
-            </div>
-            <div
-              className="txt"
-              style={
-                Object {
-                  "marginBottom": "0.5rem",
-                }
-              }
-            >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <ul
+                className="ul"
                 style={
                   Object {
-                    "marginTop": 0,
+                    "lineHeight": 1.6,
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <li
+                  className=""
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Be at least 10 characters long
+                </li>
+                <li
+                  className=""
+                >
+                  Use at least 3 of these:
+                  <ul
+                    className="ul"
+                  >
+                    <li
+                      className=""
+                    >
+                      A lowercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      An uppercase letter
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A number
+                    </li>
+                    <li
+                      className=""
+                    >
+                      A special character
+                    </li>
+                  </ul>
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not have spaces
+                </li>
+                <li
+                  className="css-5qhwje"
+                >
+                  Not be longer than 32 characters
+                </li>
+              </ul>
               <div
-                className="t--info t--err m-v100"
+                className="t--subinfo m-v300 m-b200"
               >
-                 
+                Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
               </div>
             </div>
             <div
-              className="ta-r"
+              className="g--6"
             >
-              <button
-                className="btn"
-                disabled={true}
-                type="submit"
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
               >
-                Reset Password
-              </button>
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f "
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="ta-r"
+              >
+                <button
+                  className="btn"
+                  disabled={true}
+                  type="submit"
+                >
+                  Reset Password
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
+        </form>
+      </div>
+    </main>
+    <footer
+      className="ft"
     >
       <div
-        className="g g--vc p-v200"
+        className="ft-c"
+        style={
+          Object {
+            "paddingTop": 0,
+          }
+        }
       >
         <div
-          className="g--8"
+          className="g g--vc p-v200"
         >
           <div
-            className="css-hikchn"
+            className="g--8"
           >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            <div
+              className="css-juqblx-AccessBostonFooter"
+            >
+              The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+            </div>
+          </div>
+          <div
+            className="g--4 ta-r"
+          >
+            <a
+              className="css-15v0gc2-AccessBostonFooter"
+              href="https://www.boston.gov/access-boston-portal-help"
+              target="_blank"
+            >
+              Need Help?
+            </a>
           </div>
         </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
       </div>
-    </div>
-  </footer>,
+    </footer>
+  </div>,
   <div
     className="md"
   >
     <div
-      className="md-c br br-t400 css-1y2scv5"
+      className="md-c br br-t400 css-qmagno-StatusModal"
     >
       <div
         className="md-b p-a300"
@@ -3487,18 +3608,20 @@ Array [
 `;
 
 exports[`Storyshots ForgotPasswordPage success 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
     >
       Access Boston
     </h1>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c b-c--hsm"
@@ -3529,7 +3652,7 @@ Array [
         </a>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -3548,7 +3671,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -3557,7 +3680,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -3566,14 +3689,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots IndexPage change password success 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -3619,9 +3744,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b--g"
@@ -3937,7 +4062,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/employee-training.svg"
+                src="/assets/apps/person-training.svg"
               />
             </span>
             <span
@@ -3989,9 +4114,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -4017,9 +4144,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
                 target="_blank"
@@ -4045,9 +4174,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
                 target="_blank"
@@ -4073,9 +4204,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
                 target="_blank"
@@ -4101,9 +4234,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
                 target="_blank"
@@ -4129,9 +4264,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -4176,9 +4313,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="/change-password"
                 onClick={[Function]}
                 target="_self"
@@ -4204,9 +4343,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
                 onClick={[Function]}
                 target="_blank"
@@ -4251,9 +4392,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -4279,9 +4422,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
                 target="_blank"
@@ -4307,9 +4452,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="#"
                 onClick={[Function]}
                 target="_blank"
@@ -4354,9 +4501,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -4382,9 +4531,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
                 target="_blank"
@@ -4410,9 +4561,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -4442,7 +4595,7 @@ Array [
         </section>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -4461,7 +4614,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -4470,7 +4623,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -4479,14 +4632,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots IndexPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -4532,9 +4687,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c"
@@ -4832,7 +4987,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/employee-training.svg"
+                src="/assets/apps/person-training.svg"
               />
             </span>
             <span
@@ -4884,9 +5039,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -4912,9 +5069,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
                 target="_blank"
@@ -4940,9 +5099,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
                 target="_blank"
@@ -4968,9 +5129,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
                 target="_blank"
@@ -4996,9 +5159,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
                 target="_blank"
@@ -5024,9 +5189,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -5071,9 +5238,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="/change-password"
                 onClick={[Function]}
                 target="_self"
@@ -5099,9 +5268,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
                 onClick={[Function]}
                 target="_blank"
@@ -5146,9 +5317,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -5174,9 +5347,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
                 target="_blank"
@@ -5202,9 +5377,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="#"
                 onClick={[Function]}
                 target="_blank"
@@ -5249,9 +5426,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -5277,9 +5456,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
                 target="_blank"
@@ -5305,9 +5486,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -5337,7 +5520,7 @@ Array [
         </section>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -5356,7 +5539,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -5365,7 +5548,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -5374,14 +5557,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -5427,9 +5612,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b--g"
@@ -5780,7 +5965,7 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/employee-training.svg"
+                src="/assets/apps/person-training.svg"
               />
             </span>
             <span
@@ -5832,9 +6017,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -5860,9 +6047,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="http://boston.getlocalmotion.com/"
                 onClick={[Function]}
                 target="_blank"
@@ -5888,9 +6077,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
                 onClick={[Function]}
                 target="_blank"
@@ -5916,9 +6107,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
                 onClick={[Function]}
                 target="_blank"
@@ -5944,9 +6137,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
                 onClick={[Function]}
                 target="_blank"
@@ -5972,9 +6167,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -6019,9 +6216,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="/change-password"
                 onClick={[Function]}
                 target="_self"
@@ -6047,9 +6246,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
                 onClick={[Function]}
                 target="_blank"
@@ -6094,9 +6295,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -6122,9 +6325,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
                 onClick={[Function]}
                 target="_blank"
@@ -6150,9 +6355,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="#"
                 onClick={[Function]}
                 target="_blank"
@@ -6197,9 +6404,11 @@ Array [
           <ul
             className="ul m-v500"
           >
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -6225,9 +6434,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
                 onClick={[Function]}
                 target="_blank"
@@ -6253,9 +6464,11 @@ Array [
                 </div>
               </a>
             </li>
-            <li>
+            <li
+              className="css-wpy3le"
+            >
               <a
-                className="p-a300 css-v7ibj3"
+                className="p-a300"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
                 onClick={[Function]}
                 target="_blank"
@@ -6285,7 +6498,7 @@ Array [
         </section>
       </div>
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -6304,7 +6517,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -6313,7 +6526,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -6322,8 +6535,1925 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
+  </footer>
+</div>
+`;
+
+exports[`Storyshots ManageGroupsPage default 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
+  <div
+    className="p-a200 css-1yqn408"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+  <main
+    className=" css-1jubgvi"
+  >
+    <div
+      className="css-t28ecl-Index"
+    >
+      <section
+        className="css-qsfvnd-Section"
+      >
+        <div
+          className="b b-c css-nag75r-Section"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-908474927"
+            >
+              Do you want...
+            </h2>
+          </div>
+          <div
+            className="css-1mdhpy7-InitialView"
+            role="radiogroup"
+          >
+            <label>
+              <input
+                checked={true}
+                name="searchType"
+                onChange={[Function]}
+                type="radio"
+                value="group"
+              />
+              <figure
+                className="css-eys947-SearchTypeOption"
+              >
+                <div>
+                  <span>
+                    <svg
+                      aria-hidden="true"
+                      className="css-14cd56j-Icon"
+                      focusable="false"
+                      height={200}
+                      transform="scale(0.5)"
+                      viewBox="0 0 138 68.5"
+                      width={200}
+                    >
+                      <g
+                        transform="translate(-69, -34.25)"
+                      >
+                        <g>
+                          <path
+                            d="M119.53 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+                          />
+                          <circle
+                            cx="111.32"
+                            cy="43.87"
+                            r="10.04"
+                          />
+                          <path
+                            d="M172.21 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+                          />
+                          <circle
+                            cx="164.01"
+                            cy="43.87"
+                            r="10.04"
+                          />
+                        </g>
+                        <g
+                          transform=""
+                        >
+                          <path
+                            d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+                          />
+                          <circle
+                            cx="137.66"
+                            cy="54"
+                            r="10.04"
+                          />
+                        </g>
+                      </g>
+                    </svg>
+                  </span>
+                </div>
+                <figcaption>
+                  Group
+                </figcaption>
+              </figure>
+            </label>
+            <label>
+              <input
+                checked={false}
+                name="searchType"
+                onChange={[Function]}
+                type="radio"
+                value="person"
+              />
+              <figure
+                className="css-eys947-SearchTypeOption"
+              >
+                <div>
+                  <span>
+                    <svg
+                      aria-hidden="true"
+                      className="css-14cd56j-Icon"
+                      focusable="false"
+                      height={200}
+                      transform="scale(0.5)"
+                      viewBox="0 0 138 68.5"
+                      width={200}
+                    >
+                      <g
+                        transform="translate(-69, -34.25)"
+                      >
+                        <g
+                          transform="translate(0, -8)"
+                        >
+                          <path
+                            d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+                          />
+                          <circle
+                            cx="137.66"
+                            cy="54"
+                            r="10.04"
+                          />
+                        </g>
+                      </g>
+                    </svg>
+                  </span>
+                </div>
+                <figcaption>
+                  Person
+                </figcaption>
+              </figure>
+            </label>
+          </div>
+        </div>
+      </section>
+      <section
+        className="css-fo1p8q-Section"
+      >
+        <div
+          className="b b-c css-nag75r-Section"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-1164476724"
+            >
+              Group search
+            </h2>
+          </div>
+          <form>
+            <div
+              role="search"
+            >
+              <label
+                className="txt-l"
+                htmlFor="search-initial-group"
+              >
+                Find a group
+              </label>
+              <div
+                className="css-1gpy1hn-SearchComponent"
+              >
+                <div
+                  aria-expanded={false}
+                  aria-haspopup="listbox"
+                  aria-owns="react-autowhatever-search-initial-group"
+                  role="combobox"
+                  style={
+                    Object {
+                      "position": "relative",
+                    }
+                  }
+                >
+                  <input
+                    aria-activedescendant={null}
+                    aria-autocomplete="list"
+                    aria-controls="react-autowhatever-search-initial-group"
+                    autoComplete="off"
+                    className="txt-f"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Search by group name"
+                    type="text"
+                    value=""
+                  />
+                  <div
+                    id="react-autowhatever-search-initial-group"
+                    role="listbox"
+                    style={
+                      Object {
+                        "minWidth": "50%",
+                        "position": "absolute",
+                        "zIndex": 1,
+                      }
+                    }
+                  />
+                </div>
+                <button
+                  className="btn"
+                  disabled={true}
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Select
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-juqblx-AccessBostonFooter"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-15v0gc2-AccessBostonFooter"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Storyshots ManageGroupsPage/Index default 1`] = `
+<div
+  className="css-t28ecl-Index"
+>
+  <section
+    className="css-qsfvnd-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-908474927"
+        >
+          Do you want...
+        </h2>
+      </div>
+      <div
+        className="css-1mdhpy7-InitialView"
+        role="radiogroup"
+      >
+        <label>
+          <input
+            checked={true}
+            name="searchType"
+            onChange={[Function]}
+            type="radio"
+            value="group"
+          />
+          <figure
+            className="css-eys947-SearchTypeOption"
+          >
+            <div>
+              <span>
+                <svg
+                  aria-hidden="true"
+                  className="css-14cd56j-Icon"
+                  focusable="false"
+                  height={200}
+                  transform="scale(0.5)"
+                  viewBox="0 0 138 68.5"
+                  width={200}
+                >
+                  <g
+                    transform="translate(-69, -34.25)"
+                  >
+                    <g>
+                      <path
+                        d="M119.53 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="111.32"
+                        cy="43.87"
+                        r="10.04"
+                      />
+                      <path
+                        d="M172.21 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="164.01"
+                        cy="43.87"
+                        r="10.04"
+                      />
+                    </g>
+                    <g
+                      transform=""
+                    >
+                      <path
+                        d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="137.66"
+                        cy="54"
+                        r="10.04"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <figcaption>
+              Group
+            </figcaption>
+          </figure>
+        </label>
+        <label>
+          <input
+            checked={false}
+            name="searchType"
+            onChange={[Function]}
+            type="radio"
+            value="person"
+          />
+          <figure
+            className="css-eys947-SearchTypeOption"
+          >
+            <div>
+              <span>
+                <svg
+                  aria-hidden="true"
+                  className="css-14cd56j-Icon"
+                  focusable="false"
+                  height={200}
+                  transform="scale(0.5)"
+                  viewBox="0 0 138 68.5"
+                  width={200}
+                >
+                  <g
+                    transform="translate(-69, -34.25)"
+                  >
+                    <g
+                      transform="translate(0, -8)"
+                    >
+                      <path
+                        d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="137.66"
+                        cy="54"
+                        r="10.04"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <figcaption>
+              Person
+            </figcaption>
+          </figure>
+        </label>
+      </div>
+    </div>
+  </section>
+  <section
+    className="css-fo1p8q-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-1164476724"
+        >
+          Group search
+        </h2>
+      </div>
+      <form>
+        <div
+          role="search"
+        >
+          <label
+            className="txt-l"
+            htmlFor="search-initial-group"
+          >
+            Find a group
+          </label>
+          <div
+            className="css-1gpy1hn-SearchComponent"
+          >
+            <div
+              aria-expanded={false}
+              aria-haspopup="listbox"
+              aria-owns="react-autowhatever-search-initial-group"
+              role="combobox"
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <input
+                aria-activedescendant={null}
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-search-initial-group"
+                autoComplete="off"
+                className="txt-f"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Search by group name"
+                type="text"
+                value=""
+              />
+              <div
+                id="react-autowhatever-search-initial-group"
+                role="listbox"
+                style={
+                  Object {
+                    "minWidth": "50%",
+                    "position": "absolute",
+                    "zIndex": 1,
+                  }
+                }
+              />
+            </div>
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              type="submit"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots ManageGroupsPage/InitialView default 1`] = `
+Array [
+  <section
+    className="css-qsfvnd-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-908474927"
+        >
+          Do you want...
+        </h2>
+      </div>
+      <div
+        className="css-1mdhpy7-InitialView"
+        role="radiogroup"
+      >
+        <label>
+          <input
+            checked={true}
+            name="searchType"
+            onChange={[Function]}
+            type="radio"
+            value="group"
+          />
+          <figure
+            className="css-eys947-SearchTypeOption"
+          >
+            <div>
+              <span>
+                <svg
+                  aria-hidden="true"
+                  className="css-14cd56j-Icon"
+                  focusable="false"
+                  height={200}
+                  transform="scale(0.5)"
+                  viewBox="0 0 138 68.5"
+                  width={200}
+                >
+                  <g
+                    transform="translate(-69, -34.25)"
+                  >
+                    <g>
+                      <path
+                        d="M119.53 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="111.32"
+                        cy="43.87"
+                        r="10.04"
+                      />
+                      <path
+                        d="M172.21 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="164.01"
+                        cy="43.87"
+                        r="10.04"
+                      />
+                    </g>
+                    <g
+                      transform=""
+                    >
+                      <path
+                        d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="137.66"
+                        cy="54"
+                        r="10.04"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <figcaption>
+              Group
+            </figcaption>
+          </figure>
+        </label>
+        <label>
+          <input
+            checked={false}
+            name="searchType"
+            onChange={[Function]}
+            type="radio"
+            value="person"
+          />
+          <figure
+            className="css-eys947-SearchTypeOption"
+          >
+            <div>
+              <span>
+                <svg
+                  aria-hidden="true"
+                  className="css-14cd56j-Icon"
+                  focusable="false"
+                  height={200}
+                  transform="scale(0.5)"
+                  viewBox="0 0 138 68.5"
+                  width={200}
+                >
+                  <g
+                    transform="translate(-69, -34.25)"
+                  >
+                    <g
+                      transform="translate(0, -8)"
+                    >
+                      <path
+                        d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+                      />
+                      <circle
+                        cx="137.66"
+                        cy="54"
+                        r="10.04"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </span>
+            </div>
+            <figcaption>
+              Person
+            </figcaption>
+          </figure>
+        </label>
+      </div>
+    </div>
+  </section>,
+  <section
+    className="css-fo1p8q-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-1164476724"
+        >
+          Group search
+        </h2>
+      </div>
+      <form>
+        <div
+          role="search"
+        >
+          <label
+            className="txt-l"
+            htmlFor="search-initial-group"
+          >
+            Find a group
+          </label>
+          <div
+            className="css-1gpy1hn-SearchComponent"
+          >
+            <div
+              aria-expanded={false}
+              aria-haspopup="listbox"
+              aria-owns="react-autowhatever-search-initial-group"
+              role="combobox"
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <input
+                aria-activedescendant={null}
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-search-initial-group"
+                autoComplete="off"
+                className="txt-f"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Search by group name"
+                type="text"
+                value=""
+              />
+              <div
+                id="react-autowhatever-search-initial-group"
+                role="listbox"
+                style={
+                  Object {
+                    "minWidth": "50%",
+                    "position": "absolute",
+                    "zIndex": 1,
+                  }
+                }
+              />
+            </div>
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              type="submit"
+            >
+              Select
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>,
 ]
+`;
+
+exports[`Storyshots ManageGroupsPage/ListComponents/EditableList editable group view 1`] = `
+<ul
+  className="css-1rublkn-EditableList"
+/>
+`;
+
+exports[`Storyshots ManageGroupsPage/ListComponents/EditableList editable person view 1`] = `
+<ul
+  className="css-1rublkn-EditableList"
+/>
+`;
+
+exports[`Storyshots ManageGroupsPage/ListComponents/ListItemComponent default 1`] = `
+<li
+  className=" checked css-12n556j-ListItemComponent"
+>
+  <input
+    checked={true}
+    disabled={false}
+    id="item-Bob Roberts"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    htmlFor="item-Bob Roberts"
+  >
+    <span>
+      <button
+        className="css-7jli5u"
+        type="button"
+      >
+        Bob Roberts
+      </button>
+    </span>
+  </label>
+</li>
+`;
+
+exports[`Storyshots ManageGroupsPage/ListComponents/ListItemComponent no link 1`] = `
+<li
+  className="css-9on9ni-ListItemComponent"
+>
+  <span>
+    Bob Roberts
+  </span>
+</li>
+`;
+
+exports[`Storyshots ManageGroupsPage/ListComponents/ListItemComponent not modifiable 1`] = `
+<li
+  className="disabled checked css-12n556j-ListItemComponent"
+>
+  <input
+    checked={true}
+    disabled={true}
+    id="item-Bob Roberts"
+    onChange={[Function]}
+    type="checkbox"
+  />
+  <label
+    htmlFor="item-Bob Roberts"
+  >
+    <span>
+      Bob Roberts
+    </span>
+  </label>
+</li>
+`;
+
+exports[`Storyshots ManageGroupsPage/ListComponents/ReviewList groups added 1`] = `
+Array [
+  <div
+    className="sh m-b300 "
+  >
+    <h2
+      className="sh-title"
+      id="review-person-add"
+    >
+      Groups added
+    </h2>
+  </div>,
+  <ul
+    aria-labelledby="review-person-add"
+    className="css-1xpe57o-ReviewList"
+  />,
+]
+`;
+
+exports[`Storyshots ManageGroupsPage/ListComponents/ReviewList members added 1`] = `
+Array [
+  <div
+    className="sh m-b300 "
+  >
+    <h2
+      className="sh-title"
+      id="review-person-add"
+    >
+      Groups added
+    </h2>
+  </div>,
+  <ul
+    aria-labelledby="review-person-add"
+    className="css-1xpe57o-ReviewList"
+  />,
+]
+`;
+
+exports[`Storyshots ManageGroupsPage/ManagementView group view 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100vh",
+    }
+  }
+>
+  <section
+    className="css-qsfvnd-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="css-1juogxt-SelectedComponent"
+      >
+        <svg
+          aria-hidden="true"
+          className="css-14cd56j-Icon"
+          focusable="false"
+          height={70}
+          transform=""
+          viewBox="0 0 138 68.5"
+          width={70}
+        >
+          <circle
+            cx="69"
+            cy="34.25"
+            fill="#fff"
+            r="65"
+            stroke="#000"
+            strokeWidth={5}
+          />
+          <g
+            transform="translate(-69, -34.25)"
+          >
+            <g>
+              <path
+                d="M119.53 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+              />
+              <circle
+                cx="111.32"
+                cy="43.87"
+                r="10.04"
+              />
+              <path
+                d="M172.21 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+              />
+              <circle
+                cx="164.01"
+                cy="43.87"
+                r="10.04"
+              />
+            </g>
+            <g
+              transform=""
+            >
+              <path
+                d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+              />
+              <circle
+                cx="137.66"
+                cy="54"
+                r="10.04"
+              />
+            </g>
+          </g>
+        </svg>
+        <div>
+          <h1
+            className="sh-title"
+          >
+            BPD_Administrative
+             
+            group
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="css-fo1p8q-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-3834272105"
+        >
+          Add a new member
+        </h2>
+      </div>
+      <form>
+        <div
+          role="search"
+        >
+          <label
+            className="txt-l"
+            htmlFor="search-management-person"
+          >
+            Find a person to add
+          </label>
+          <div
+            className="css-1gpy1hn-SearchComponent"
+          >
+            <div
+              aria-expanded={false}
+              aria-haspopup="listbox"
+              aria-owns="react-autowhatever-search-management-person"
+              role="combobox"
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <input
+                aria-activedescendant={null}
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-search-management-person"
+                autoComplete="off"
+                className="txt-f"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Search by name or ID"
+                type="text"
+                value=""
+              />
+              <div
+                id="react-autowhatever-search-management-person"
+                role="listbox"
+                style={
+                  Object {
+                    "minWidth": "50%",
+                    "position": "absolute",
+                    "zIndex": 1,
+                  }
+                }
+              />
+            </div>
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              type="submit"
+            >
+              Add member
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section
+    className="css-xdrtub-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-253775407"
+        >
+          Current members
+        </h2>
+      </div>
+      <ul
+        className="css-1rublkn-EditableList"
+      />
+      <div
+        className="css-1ooo57r-ManagementView"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+        >
+          Review changes
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots ManageGroupsPage/ManagementView person view 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100vh",
+    }
+  }
+>
+  <section
+    className="css-qsfvnd-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="css-1juogxt-SelectedComponent"
+      >
+        <svg
+          aria-hidden="true"
+          className="css-14cd56j-Icon"
+          focusable="false"
+          height={70}
+          transform=""
+          viewBox="0 0 138 68.5"
+          width={70}
+        >
+          <circle
+            cx="69"
+            cy="34.25"
+            fill="#fff"
+            r="65"
+            stroke="#000"
+            strokeWidth={5}
+          />
+          <g
+            transform="translate(-69, -34.25)"
+          >
+            <g
+              transform="translate(0, -8)"
+            >
+              <path
+                d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+              />
+              <circle
+                cx="137.66"
+                cy="54"
+                r="10.04"
+              />
+            </g>
+          </g>
+        </svg>
+        <div>
+          <h1
+            className="sh-title"
+          >
+            Cloud Howell
+             
+          </h1>
+          <address>
+            <a
+              href="mailto:cloud.howell@cityofboston.gov"
+            >
+              cloud.howell@cityofboston.gov
+            </a>
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="css-fo1p8q-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-1747680801"
+        >
+          Add to a group
+        </h2>
+      </div>
+      <form>
+        <div
+          role="search"
+        >
+          <label
+            className="txt-l"
+            htmlFor="search-management-group"
+          >
+            Find a group to add
+          </label>
+          <div
+            className="css-1gpy1hn-SearchComponent"
+          >
+            <div
+              aria-expanded={false}
+              aria-haspopup="listbox"
+              aria-owns="react-autowhatever-search-management-group"
+              role="combobox"
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <input
+                aria-activedescendant={null}
+                aria-autocomplete="list"
+                aria-controls="react-autowhatever-search-management-group"
+                autoComplete="off"
+                className="txt-f"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Search by group name"
+                type="text"
+                value=""
+              />
+              <div
+                id="react-autowhatever-search-management-group"
+                role="listbox"
+                style={
+                  Object {
+                    "minWidth": "50%",
+                    "position": "absolute",
+                    "zIndex": 1,
+                  }
+                }
+              />
+            </div>
+            <button
+              className="btn"
+              disabled={true}
+              onClick={[Function]}
+              type="submit"
+            >
+              Add group
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <section
+    className="css-xdrtub-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="sh m-b300 "
+      >
+        <h2
+          className="sh-title"
+          id="sh-2511288064"
+        >
+          Current groups
+        </h2>
+      </div>
+      <ul
+        className="css-1rublkn-EditableList"
+      />
+      <div
+        className="css-1ooo57r-ManagementView"
+      >
+        <button
+          className="btn"
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+        >
+          Review changes
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots ManageGroupsPage/ReviewChangesView group view, one added two removed 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100vh",
+    }
+  }
+>
+  <section
+    className="css-qsfvnd-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="css-1juogxt-SelectedComponent"
+      >
+        <svg
+          aria-hidden="true"
+          className="css-14cd56j-Icon"
+          focusable="false"
+          height={70}
+          transform=""
+          viewBox="0 0 138 68.5"
+          width={70}
+        >
+          <circle
+            cx="69"
+            cy="34.25"
+            fill="#fff"
+            r="65"
+            stroke="#000"
+            strokeWidth={5}
+          />
+          <g
+            transform="translate(-69, -34.25)"
+          >
+            <g>
+              <path
+                d="M119.53 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+              />
+              <circle
+                cx="111.32"
+                cy="43.87"
+                r="10.04"
+              />
+              <path
+                d="M172.21 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+              />
+              <circle
+                cx="164.01"
+                cy="43.87"
+                r="10.04"
+              />
+            </g>
+            <g
+              transform=""
+            >
+              <path
+                d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+              />
+              <circle
+                cx="137.66"
+                cy="54"
+                r="10.04"
+              />
+            </g>
+          </g>
+        </svg>
+        <div>
+          <h1
+            className="sh-title"
+          >
+            BPD_Administrative
+             
+            group
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="css-96def7-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="css-vphvq3-ReviewChangesView"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Go back
+        </button>
+        <button
+          className="btn"
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots ManageGroupsPage/ReviewChangesView person view, one added 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100vh",
+    }
+  }
+>
+  <section
+    className="css-qsfvnd-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="css-1juogxt-SelectedComponent"
+      >
+        <svg
+          aria-hidden="true"
+          className="css-14cd56j-Icon"
+          focusable="false"
+          height={70}
+          transform=""
+          viewBox="0 0 138 68.5"
+          width={70}
+        >
+          <circle
+            cx="69"
+            cy="34.25"
+            fill="#fff"
+            r="65"
+            stroke="#000"
+            strokeWidth={5}
+          />
+          <g
+            transform="translate(-69, -34.25)"
+          >
+            <g
+              transform="translate(0, -8)"
+            >
+              <path
+                d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+              />
+              <circle
+                cx="137.66"
+                cy="54"
+                r="10.04"
+              />
+            </g>
+          </g>
+        </svg>
+        <div>
+          <h1
+            className="sh-title"
+          >
+            Terra Howard
+             
+          </h1>
+          <address>
+            <a
+              href="mailto:terra.howard@boston.gov"
+            >
+              terra.howard@boston.gov
+            </a>
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="css-96def7-Section"
+  >
+    <div
+      className="b b-c css-nag75r-Section"
+    >
+      <div
+        className="css-vphvq3-ReviewChangesView"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Go back
+        </button>
+        <button
+          className="btn"
+          type="button"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots ManageGroupsPage/SearchComponent group add 1`] = `
+<section
+  className="css-fo1p8q-Section"
+>
+  <div
+    className="b b-c css-nag75r-Section"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+        id="sh-1747680801"
+      >
+        Add to a group
+      </h2>
+    </div>
+    <form>
+      <div
+        role="search"
+      >
+        <label
+          className="txt-l"
+          htmlFor="search-management-group"
+        >
+          Find a group to add
+        </label>
+        <div
+          className="css-1gpy1hn-SearchComponent"
+        >
+          <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-search-management-group"
+            role="combobox"
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls="react-autowhatever-search-management-group"
+              autoComplete="off"
+              className="txt-f"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search by group name"
+              type="text"
+              value=""
+            />
+            <div
+              id="react-autowhatever-search-management-group"
+              role="listbox"
+              style={
+                Object {
+                  "minWidth": "50%",
+                  "position": "absolute",
+                  "zIndex": 1,
+                }
+              }
+            />
+          </div>
+          <button
+            className="btn"
+            disabled={true}
+            onClick={[Function]}
+            type="submit"
+          >
+            Add group
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+`;
+
+exports[`Storyshots ManageGroupsPage/SearchComponent group search 1`] = `
+<section
+  className="css-fo1p8q-Section"
+>
+  <div
+    className="b b-c css-nag75r-Section"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+        id="sh-1164476724"
+      >
+        Group search
+      </h2>
+    </div>
+    <form>
+      <div
+        role="search"
+      >
+        <label
+          className="txt-l"
+          htmlFor="search-initial-group"
+        >
+          Find a group
+        </label>
+        <div
+          className="css-1gpy1hn-SearchComponent"
+        >
+          <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-search-initial-group"
+            role="combobox"
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls="react-autowhatever-search-initial-group"
+              autoComplete="off"
+              className="txt-f"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search by group name"
+              type="text"
+              value=""
+            />
+            <div
+              id="react-autowhatever-search-initial-group"
+              role="listbox"
+              style={
+                Object {
+                  "minWidth": "50%",
+                  "position": "absolute",
+                  "zIndex": 1,
+                }
+              }
+            />
+          </div>
+          <button
+            className="btn"
+            disabled={true}
+            onClick={[Function]}
+            type="submit"
+          >
+            Select
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+`;
+
+exports[`Storyshots ManageGroupsPage/SearchComponent person add 1`] = `
+<section
+  className="css-fo1p8q-Section"
+>
+  <div
+    className="b b-c css-nag75r-Section"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+        id="sh-3834272105"
+      >
+        Add a new member
+      </h2>
+    </div>
+    <form>
+      <div
+        role="search"
+      >
+        <label
+          className="txt-l"
+          htmlFor="search-management-person"
+        >
+          Find a person to add
+        </label>
+        <div
+          className="css-1gpy1hn-SearchComponent"
+        >
+          <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-search-management-person"
+            role="combobox"
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls="react-autowhatever-search-management-person"
+              autoComplete="off"
+              className="txt-f"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search by name or ID"
+              type="text"
+              value=""
+            />
+            <div
+              id="react-autowhatever-search-management-person"
+              role="listbox"
+              style={
+                Object {
+                  "minWidth": "50%",
+                  "position": "absolute",
+                  "zIndex": 1,
+                }
+              }
+            />
+          </div>
+          <button
+            className="btn"
+            disabled={true}
+            onClick={[Function]}
+            type="submit"
+          >
+            Add member
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+`;
+
+exports[`Storyshots ManageGroupsPage/SearchComponent person search 1`] = `
+<section
+  className="css-fo1p8q-Section"
+>
+  <div
+    className="b b-c css-nag75r-Section"
+  >
+    <div
+      className="sh m-b300 "
+    >
+      <h2
+        className="sh-title"
+        id="sh-3073077726"
+      >
+        Person search
+      </h2>
+    </div>
+    <form>
+      <div
+        role="search"
+      >
+        <label
+          className="txt-l"
+          htmlFor="search-initial-person"
+        >
+          Find a person
+        </label>
+        <div
+          className="css-1gpy1hn-SearchComponent"
+        >
+          <div
+            aria-expanded={false}
+            aria-haspopup="listbox"
+            aria-owns="react-autowhatever-search-initial-person"
+            role="combobox"
+            style={
+              Object {
+                "position": "relative",
+              }
+            }
+          >
+            <input
+              aria-activedescendant={null}
+              aria-autocomplete="list"
+              aria-controls="react-autowhatever-search-initial-person"
+              autoComplete="off"
+              className="txt-f"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              placeholder="Search by name or ID"
+              type="text"
+              value=""
+            />
+            <div
+              id="react-autowhatever-search-initial-person"
+              role="listbox"
+              style={
+                Object {
+                  "minWidth": "50%",
+                  "position": "absolute",
+                  "zIndex": 1,
+                }
+              }
+            />
+          </div>
+          <button
+            className="btn"
+            disabled={true}
+            onClick={[Function]}
+            type="submit"
+          >
+            Select
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+`;
+
+exports[`Storyshots ManageGroupsPage/SelectedComponent groups view 1`] = `
+<section
+  className="css-qsfvnd-Section"
+>
+  <div
+    className="b b-c css-nag75r-Section"
+  >
+    <div
+      className="css-1juogxt-SelectedComponent"
+    >
+      <svg
+        aria-hidden="true"
+        className="css-14cd56j-Icon"
+        focusable="false"
+        height={70}
+        transform=""
+        viewBox="0 0 138 68.5"
+        width={70}
+      >
+        <circle
+          cx="69"
+          cy="34.25"
+          fill="#fff"
+          r="65"
+          stroke="#000"
+          strokeWidth={5}
+        />
+        <g
+          transform="translate(-69, -34.25)"
+        >
+          <g>
+            <path
+              d="M119.53 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+            />
+            <circle
+              cx="111.32"
+              cy="43.87"
+              r="10.04"
+            />
+            <path
+              d="M172.21 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+            />
+            <circle
+              cx="164.01"
+              cy="43.87"
+              r="10.04"
+            />
+          </g>
+          <g
+            transform=""
+          >
+            <path
+              d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+            />
+            <circle
+              cx="137.66"
+              cy="54"
+              r="10.04"
+            />
+          </g>
+        </g>
+      </svg>
+      <div>
+        <h1
+          className="sh-title"
+        >
+          ANML02_LostFound
+           
+          group
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`Storyshots ManageGroupsPage/SelectedComponent person view 1`] = `
+<section
+  className="css-qsfvnd-Section"
+>
+  <div
+    className="b b-c css-nag75r-Section"
+  >
+    <div
+      className="css-1juogxt-SelectedComponent"
+    >
+      <svg
+        aria-hidden="true"
+        className="css-14cd56j-Icon"
+        focusable="false"
+        height={70}
+        transform=""
+        viewBox="0 0 138 68.5"
+        width={70}
+      >
+        <circle
+          cx="69"
+          cy="34.25"
+          fill="#fff"
+          r="65"
+          stroke="#000"
+          strokeWidth={5}
+        />
+        <g
+          transform="translate(-69, -34.25)"
+        >
+          <g
+            transform="translate(0, -8)"
+          >
+            <path
+              d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+            />
+            <circle
+              cx="137.66"
+              cy="54"
+              r="10.04"
+            />
+          </g>
+        </g>
+      </svg>
+      <div>
+        <h1
+          className="sh-title"
+        >
+          Terra Howard
+           
+        </h1>
+        <address>
+          <a
+            href="mailto:terra.howard@boston.gov"
+          >
+            terra.howard@boston.gov
+          </a>
+        </address>
+      </div>
+    </div>
+  </div>
+</section>
 `;
 
 exports[`Storyshots PasswordPolicy blank 1`] = `
@@ -6692,9 +8822,11 @@ Array [
 `;
 
 exports[`Storyshots RegisterMfaPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -6740,799 +8872,198 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
-      className="b b-c b-c--hsm"
+      className=" css-1jubgvi"
     >
       <div
-        className="sh m-b300 "
-      >
-        <h2
-          className="sh-title"
-          id="sh-1428259210"
-        >
-          Set up security codes
-        </h2>
-      </div>
-      <p
-        className="lh--400 t--s400"
-      >
-        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
-      </p>
-      <hr
-        aria-hidden={true}
-        className="hr hr--sq"
-      />
-      <form
-        className="m-v500"
-        onSubmit={[Function]}
+        className="b b-c b-c--hsm"
       >
         <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
+          className="sh m-b300 "
         >
-          <label
-            className="txt-l"
-            htmlFor="input-1267882554"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
+          <h2
+            className="sh-title"
+            id="sh-1428259210"
           >
-            Phone Number
-            <span
-              aria-hidden="true"
-              className="t--req"
-            >
-               
-              Required
-            </span>
-          </label>
-          <div
-            className="g"
-          >
-            <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-1267882554"
-                name="phoneNumber"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="(XXX) XXX-XXXX"
-                required={true}
-                type="tel"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
-            >
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
-              </div>
-            </div>
-          </div>
-          <div
-            className="t--subinfo m-t100"
-          >
-            You should use your cell phone number if you have one.
-            <br />
-            Note: normal cell phone charges will apply.
-          </div>
+            Set up security codes
+          </h2>
         </div>
-        <div
-          aria-labelledby="smsOrVoice-groupLabel"
-          role="group"
+        <p
+          className="lh--400 t--s400"
         >
-          <div
-            className="txt-l"
-            id="smsOrVoice-groupLabel"
-          >
-            How should we send security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="sms"
-            />
-            <span
-              className="ra-l"
-            >
-              Text message — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="voice"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone call
-            </span>
-          </label>
-        </div>
-        <div
-          className="m-v500 ta-r"
+          Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
+        </p>
+        <p
+          className="lh--400 t--s400"
         >
-          <button
-            className="btn"
-            disabled={true}
-            type="submit"
-          >
-            Next Step
-          </button>
-        </div>
-        <div
-          className="t--subinfo m-v500"
+          This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+        </p>
+        <p
+          className="lh--400 t--s400"
         >
-          Don’t have access to a phone?
-          <br />
-          <a
-            href="/mfa?email=1"
-            onClick={[Function]}
-          >
-            Get codes via personal email
-          </a>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <form
-    action="/done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
-    >
-      <div
-        className="g g--vc p-v200"
-      >
-        <div
-          className="g--8"
-        >
-          <div
-            className="css-hikchn"
-          >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
-          </div>
-        </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>,
-]
-`;
-
-exports[`Storyshots RegisterMfaPage email 1`] = `
-Array [
-  <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        Access Boston
-      </a>
-    </h1>
-    <div
-      className="css-n9ftlz"
-    >
-      <span
-        style={
-          Object {
-            "marginRight": "1em",
-          }
-        }
-      >
-        Jyn Doe
-      </span>
-      <form
-        action="/logout"
-        method="POST"
-      >
-        <input
-          name="crumb"
-          type="hidden"
-          value=""
+          Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
+        </p>
+        <hr
+          aria-hidden={true}
+          className="hr hr--sq"
         />
-        <button
-          className="btn btn--sm btn--100"
-          type="submit"
-        >
-          Logout
-        </button>
-      </form>
-    </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
-  >
-    <div
-      className="b b-c b-c--hsm"
-    >
-      <div
-        className="sh m-b300 "
-      >
-        <h2
-          className="sh-title"
-          id="sh-1428259210"
-        >
-          Set up security codes
-        </h2>
-      </div>
-      <p
-        className="lh--400 t--s400"
-      >
-        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
-      </p>
-      <hr
-        aria-hidden={true}
-        className="hr hr--sq"
-      />
-      <form
-        className="m-v500"
-        onSubmit={[Function]}
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-3734019359"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Email address
-            <span
-              aria-hidden="true"
-              className="t--req"
-            >
-               
-              Required
-            </span>
-          </label>
-          <div
-            className="g"
-          >
-            <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-3734019359"
-                name="email"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="you@example.com"
-                required={true}
-                type="email"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
-            >
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
-              </div>
-            </div>
-          </div>
-          <div
-            className="t--subinfo m-t100"
-          >
-            Choose a personal address, not a City of Boston one.
-          </div>
-        </div>
-        <div
-          className="t--subinfo m-v500"
-        >
-          Switch to
-           
-          <a
-            href="/mfa"
-            onClick={[Function]}
-          >
-            get codes via phone call or text
-          </a>
-        </div>
-        <div
-          className="m-v500 ta-r"
-        >
-          <button
-            className="btn"
-            disabled={true}
-            type="submit"
-          >
-            Next Step
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <form
-    action="/done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
-  <footer
-    className="ft"
-  >
-    <div
-      className="ft-c"
-      style={
-        Object {
-          "paddingTop": 0,
-        }
-      }
-    >
-      <div
-        className="g g--vc p-v200"
-      >
-        <div
-          className="g--8"
-        >
-          <div
-            className="css-hikchn"
-          >
-            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
-          </div>
-        </div>
-        <div
-          className="g--4 ta-r"
-        >
-          <a
-            className="css-j6ldvx"
-            href="https://www.boston.gov/access-boston-portal-help"
-            target="_blank"
-          >
-            Need Help?
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>,
-]
-`;
-
-exports[`Storyshots RegisterMfaPage modal open 1`] = `
-Array [
-  <div
-    className="css-1yqn408 p-a200"
-  >
-    <h1
-      className="css-e3scnp"
-    >
-      <a
-        href="/"
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "inherit",
-          }
-        }
-      >
-        Access Boston
-      </a>
-    </h1>
-    <div
-      className="css-n9ftlz"
-    >
-      <span
-        style={
-          Object {
-            "marginRight": "1em",
-          }
-        }
-      >
-        Jyn Doe
-      </span>
-      <form
-        action="/logout"
-        method="POST"
-      >
-        <input
-          name="crumb"
-          type="hidden"
-          value=""
-        />
-        <button
-          className="btn btn--sm btn--100"
-          type="submit"
-        >
-          Logout
-        </button>
-      </form>
-    </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
-  >
-    <div
-      className="b b-c b-c--hsm"
-    >
-      <div
-        className="sh m-b300 "
-      >
-        <h2
-          className="sh-title"
-          id="sh-1428259210"
-        >
-          Set up security codes
-        </h2>
-      </div>
-      <p
-        className="lh--400 t--s400"
-      >
-        Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
-      </p>
-      <p
-        className="lh--400 t--s400"
-      >
-        Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
-      </p>
-      <hr
-        aria-hidden={true}
-        className="hr hr--sq"
-      />
-      <form
-        className="m-v500"
-        onSubmit={[Function]}
-      >
-        <div
-          className="txt"
-          style={
-            Object {
-              "marginBottom": "0.5rem",
-            }
-          }
-        >
-          <label
-            className="txt-l"
-            htmlFor="input-1267882554"
-            style={
-              Object {
-                "marginTop": 0,
-              }
-            }
-          >
-            Phone Number
-            <span
-              aria-hidden="true"
-              className="t--req"
-            >
-               
-              Required
-            </span>
-          </label>
-          <div
-            className="g"
-          >
-            <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-1267882554"
-                name="phoneNumber"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="(XXX) XXX-XXXX"
-                required={true}
-                type="tel"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
-            >
-              <div
-                className="t--info t--err m-v100"
-              >
-                 
-              </div>
-            </div>
-          </div>
-          <div
-            className="t--subinfo m-t100"
-          >
-            You should use your cell phone number if you have one.
-            <br />
-            Note: normal cell phone charges will apply.
-          </div>
-        </div>
-        <div
-          aria-labelledby="smsOrVoice-groupLabel"
-          role="group"
-        >
-          <div
-            className="txt-l"
-            id="smsOrVoice-groupLabel"
-          >
-            How should we send security codes?
-          </div>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={true}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="sms"
-            />
-            <span
-              className="ra-l"
-            >
-              Text message — 
-              <i>
-                recommended
-              </i>
-            </span>
-          </label>
-          <label
-            className="ra  "
-          >
-            <input
-              checked={false}
-              className="ra-f"
-              name="smsOrVoice"
-              onBlur={[Function]}
-              onChange={[Function]}
-              type="radio"
-              value="voice"
-            />
-            <span
-              className="ra-l"
-            >
-              Phone call
-            </span>
-          </label>
-        </div>
-        <div
-          className="m-v500 ta-r"
-        >
-          <button
-            className="btn"
-            disabled={true}
-            type="submit"
-          >
-            Next Step
-          </button>
-        </div>
-        <div
-          className="t--subinfo m-v500"
-        >
-          Don’t have access to a phone?
-          <br />
-          <a
-            href="/mfa?email=1"
-            onClick={[Function]}
-          >
-            Get codes via personal email
-          </a>
-        </div>
-      </form>
-    </div>
-  </div>,
-  <div
-    className="md"
-  >
-    <div
-      className="md-c br br-t400 css-1y2scv5"
-    >
-      <div
-        className="md-b p-a300"
-      >
-        <div
-          className="t--intro"
-        >
-          Check your phone! We’ve sent a text to
-           
-          <strong>
-            
-          </strong>
-          .
-        </div>
         <form
+          className="m-v500"
           onSubmit={[Function]}
         >
           <div
-            className="m-v500"
+            className="txt"
+            style={
+              Object {
+                "marginBottom": "0.5rem",
+              }
+            }
           >
-            <div
-              className="txt"
+            <label
+              className="txt-l"
+              htmlFor="input-1267882554"
               style={
                 Object {
-                  "marginBottom": "0.5rem",
+                  "marginTop": 0,
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-3102479774"
-                style={
-                  Object {
-                    "marginTop": 0,
-                  }
-                }
+              Phone Number
+              <span
+                aria-hidden="true"
+                className="t--req"
               >
-                Security code
-              </label>
+                 
+                Required
+              </span>
+            </label>
+            <div
+              className="g"
+            >
               <div
-                className="css-70qvj9"
+                className="g--6"
               >
                 <input
-                  autoFocus={true}
-                  className="css-15p77ot txt-f "
-                  id="input-3102479774"
-                  maxLength={6}
-                  name="code"
+                  className=" txt-f "
+                  id="input-1267882554"
+                  name="phoneNumber"
+                  onBlur={[Function]}
                   onChange={[Function]}
-                  pattern="[0-9]*"
-                  size={6}
-                  type="text"
+                  placeholder="(XXX) XXX-XXXX"
+                  required={true}
+                  type="tel"
                   value=""
                 />
-                <button
-                  className="btn"
-                  disabled={true}
-                  style={
-                    Object {
-                      "marginLeft": "1em",
-                      "whiteSpace": "nowrap",
-                    }
-                  }
-                  type="submit"
-                >
-                  Activate
-                </button>
               </div>
+              <div
+                className="g--6 css-70qvj9"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo m-t100"
+            >
+              You should use your cell phone number if you have one.
+              <br />
+              Note: normal cell phone charges will apply.
             </div>
           </div>
           <div
-            className="t--subinfo ta-c"
+            aria-labelledby="smsOrVoice-groupLabel"
+            role="group"
           >
-            Didn’t get it?
-             
-            <button
-              className="lnk"
-              onClick={[Function]}
-              type="button"
+            <div
+              className="txt-l"
+              id="smsOrVoice-groupLabel"
             >
-              Resend the code
-            </button>
-             
-            or
-             
-            <button
-              className="lnk"
-              onClick={[Function]}
-              type="button"
+              How should we send security codes?
+            </div>
+            <label
+              className="ra  "
             >
-              try a different number or email
+              <input
+                checked={true}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="sms"
+              />
+              <span
+                className="ra-l"
+              >
+                Text message — 
+                <i>
+                  recommended
+                </i>
+              </span>
+            </label>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={false}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="voice"
+              />
+              <span
+                className="ra-l"
+              >
+                Phone call
+              </span>
+            </label>
+          </div>
+          <div
+            className="m-v500 ta-r"
+          >
+            <button
+              className="btn"
+              disabled={true}
+              type="submit"
+            >
+              Next Step
             </button>
-            .
+          </div>
+          <div
+            className="t--subinfo m-v500"
+          >
+            Don’t have access to a phone?
+            <br />
+            <a
+              href="/mfa?email=1"
+              onClick={[Function]}
+            >
+              Get codes via personal email
+            </a>
           </div>
         </form>
       </div>
     </div>
-  </div>,
-  <form
-    action="/done"
-    method="POST"
-  >
-    <input
-      name="crumb"
-      type="hidden"
-      value=""
-    />
-  </form>,
+    <form
+      action="/done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
   <footer
     className="ft"
   >
@@ -7551,7 +9082,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -7560,7 +9091,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -7569,13 +9100,630 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage email 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
+  <div
+    className="p-a200 css-1yqn408"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+  <main
+    className=" css-1jubgvi"
+  >
+    <div
+      className=" css-1jubgvi"
+    >
+      <div
+        className="b b-c b-c--hsm"
+      >
+        <div
+          className="sh m-b300 "
+        >
+          <h2
+            className="sh-title"
+            id="sh-1428259210"
+          >
+            Set up security codes
+          </h2>
+        </div>
+        <p
+          className="lh--400 t--s400"
+        >
+          Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
+        </p>
+        <hr
+          aria-hidden={true}
+          className="hr hr--sq"
+        />
+        <form
+          className="m-v500"
+          onSubmit={[Function]}
+        >
+          <div
+            className="txt"
+            style={
+              Object {
+                "marginBottom": "0.5rem",
+              }
+            }
+          >
+            <label
+              className="txt-l"
+              htmlFor="input-3734019359"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              Email address
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
+            </label>
+            <div
+              className="g"
+            >
+              <div
+                className="g--6"
+              >
+                <input
+                  className=" txt-f "
+                  id="input-3734019359"
+                  name="email"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="you@example.com"
+                  required={true}
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div
+                className="g--6 css-70qvj9"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo m-t100"
+            >
+              Choose a personal address, not a City of Boston one.
+            </div>
+          </div>
+          <div
+            className="t--subinfo m-v500"
+          >
+            Switch to
+             
+            <a
+              href="/mfa"
+              onClick={[Function]}
+            >
+              get codes via phone call or text
+            </a>
+          </div>
+          <div
+            className="m-v500 ta-r"
+          >
+            <button
+              className="btn"
+              disabled={true}
+              type="submit"
+            >
+              Next Step
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <form
+      action="/done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-juqblx-AccessBostonFooter"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-15v0gc2-AccessBostonFooter"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`Storyshots RegisterMfaPage modal open 1`] = `
+<div
+  className="css-1q65ynf-AppWrapper"
+>
+  <div
+    className="p-a200 css-1yqn408"
+  >
+    <h1
+      className="css-e3scnp"
+    >
+      <a
+        href="/"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "inherit",
+          }
+        }
+      >
+        Access Boston
+      </a>
+    </h1>
+    <div
+      className="css-n9ftlz"
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "1em",
+          }
+        }
+      >
+        Jyn Doe
+      </span>
+      <form
+        action="/logout"
+        method="POST"
+      >
+        <input
+          name="crumb"
+          type="hidden"
+          value=""
+        />
+        <button
+          className="btn btn--sm btn--100"
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
+  </div>
+  <main
+    className=" css-1jubgvi"
+  >
+    <div
+      className=" css-1jubgvi"
+    >
+      <div
+        className="b b-c b-c--hsm"
+      >
+        <div
+          className="sh m-b300 "
+        >
+          <h2
+            className="sh-title"
+            id="sh-1428259210"
+          >
+            Set up security codes
+          </h2>
+        </div>
+        <p
+          className="lh--400 t--s400"
+        >
+          Access Boston will send you a security code when you log in on a new computer, tablet, or phone. You’ll also need a code to reset your password if you forget it.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          This is called multi-factor authentication. It keeps your account secure even if someone steals your password.
+        </p>
+        <p
+          className="lh--400 t--s400"
+        >
+          Use your cell phone number if you have one. This is the most secure option. If you don’t have a phone, you can use a personal email address instead.
+        </p>
+        <hr
+          aria-hidden={true}
+          className="hr hr--sq"
+        />
+        <form
+          className="m-v500"
+          onSubmit={[Function]}
+        >
+          <div
+            className="txt"
+            style={
+              Object {
+                "marginBottom": "0.5rem",
+              }
+            }
+          >
+            <label
+              className="txt-l"
+              htmlFor="input-1267882554"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
+            >
+              Phone Number
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
+            </label>
+            <div
+              className="g"
+            >
+              <div
+                className="g--6"
+              >
+                <input
+                  className=" txt-f "
+                  id="input-1267882554"
+                  name="phoneNumber"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="(XXX) XXX-XXXX"
+                  required={true}
+                  type="tel"
+                  value=""
+                />
+              </div>
+              <div
+                className="g--6 css-70qvj9"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo m-t100"
+            >
+              You should use your cell phone number if you have one.
+              <br />
+              Note: normal cell phone charges will apply.
+            </div>
+          </div>
+          <div
+            aria-labelledby="smsOrVoice-groupLabel"
+            role="group"
+          >
+            <div
+              className="txt-l"
+              id="smsOrVoice-groupLabel"
+            >
+              How should we send security codes?
+            </div>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={true}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="sms"
+              />
+              <span
+                className="ra-l"
+              >
+                Text message — 
+                <i>
+                  recommended
+                </i>
+              </span>
+            </label>
+            <label
+              className="ra  "
+            >
+              <input
+                checked={false}
+                className="ra-f"
+                name="smsOrVoice"
+                onBlur={[Function]}
+                onChange={[Function]}
+                type="radio"
+                value="voice"
+              />
+              <span
+                className="ra-l"
+              >
+                Phone call
+              </span>
+            </label>
+          </div>
+          <div
+            className="m-v500 ta-r"
+          >
+            <button
+              className="btn"
+              disabled={true}
+              type="submit"
+            >
+              Next Step
+            </button>
+          </div>
+          <div
+            className="t--subinfo m-v500"
+          >
+            Don’t have access to a phone?
+            <br />
+            <a
+              href="/mfa?email=1"
+              onClick={[Function]}
+            >
+              Get codes via personal email
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="md"
+    >
+      <div
+        className="md-c br br-t400 css-qmagno-StatusModal"
+      >
+        <div
+          className="md-b p-a300"
+        >
+          <div
+            className="t--intro"
+          >
+            Check your phone! We’ve sent a text to
+             
+            <strong>
+              
+            </strong>
+            .
+          </div>
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="m-v500"
+            >
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-3102479774"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Security code
+                </label>
+                <div
+                  className="css-70qvj9"
+                >
+                  <input
+                    autoFocus={true}
+                    className="css-15p77ot txt-f "
+                    id="input-3102479774"
+                    maxLength={6}
+                    name="code"
+                    onChange={[Function]}
+                    pattern="[0-9]*"
+                    size={6}
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    className="btn"
+                    disabled={true}
+                    style={
+                      Object {
+                        "marginLeft": "1em",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
+                    type="submit"
+                  >
+                    Activate
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              className="t--subinfo ta-c"
+            >
+              Didn’t get it?
+               
+              <button
+                className="lnk"
+                onClick={[Function]}
+                type="button"
+              >
+                Resend the code
+              </button>
+               
+              or
+               
+              <button
+                className="lnk"
+                onClick={[Function]}
+                type="button"
+              >
+                try a different number or email
+              </button>
+              .
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <form
+      action="/done"
+      method="POST"
+    >
+      <input
+        name="crumb"
+        type="hidden"
+        value=""
+      />
+    </form>
+  </main>
+  <footer
+    className="ft"
+  >
+    <div
+      className="ft-c"
+      style={
+        Object {
+          "paddingTop": 0,
+        }
+      }
+    >
+      <div
+        className="g g--vc p-v200"
+      >
+        <div
+          className="g--8"
+        >
+          <div
+            className="css-juqblx-AccessBostonFooter"
+          >
+            The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
+          </div>
+        </div>
+        <div
+          className="g--4 ta-r"
+        >
+          <a
+            className="css-15v0gc2-AccessBostonFooter"
+            href="https://www.boston.gov/access-boston-portal-help"
+            target="_blank"
+          >
+            Need Help?
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
 `;
 
 exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`] = `
 <div
-  className="mn css-1jubgvi"
+  className=" css-1jubgvi"
 >
   <div
     className="b b-c b-c--hsm"
@@ -7760,7 +9908,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
 
 exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] = `
 <div
-  className="mn css-1jubgvi"
+  className=" css-1jubgvi"
 >
   <div
     className="b b-c b-c--hsm"
@@ -7888,7 +10036,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
 
 exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
 <div
-  className="mn css-1jubgvi"
+  className=" css-1jubgvi"
 >
   <div
     className="b b-c b-c--hsm"
@@ -8071,7 +10219,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal checking the code 1`
   className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 css-qmagno-StatusModal"
   >
     <div
       className="md-b p-a300"
@@ -8177,7 +10325,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal incorrect code 1`] =
   className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 css-qmagno-StatusModal"
   >
     <div
       className="md-b p-a300"
@@ -8282,7 +10430,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal other error 1`] = `
   className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 css-qmagno-StatusModal"
   >
     <div
       className="md-b p-a300"
@@ -8335,7 +10483,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal sending 1`] = `
   className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 css-qmagno-StatusModal"
   >
     <div
       className="md-b p-a300"
@@ -8355,7 +10503,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for SMS code
   className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 css-qmagno-StatusModal"
   >
     <div
       className="md-b p-a300"
@@ -8461,7 +10609,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for email co
   className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 css-qmagno-StatusModal"
   >
     <div
       className="md-b p-a300"
@@ -8566,7 +10714,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
   className="md"
 >
   <div
-    className="md-c br br-t400 css-1y2scv5"
+    className="md-c br br-t400 css-qmagno-StatusModal"
   >
     <div
       className="md-b p-a300"
@@ -8668,9 +10816,11 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
 `;
 
 exports[`Storyshots RegisterPage default 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -8716,9 +10866,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c"
@@ -8820,7 +10970,7 @@ Array [
         width="1"
       />
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -8839,7 +10989,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -8848,7 +10998,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -8857,14 +11007,16 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots RegisterPage password already ok 1`] = `
-Array [
+<div
+  className="css-1q65ynf-AppWrapper"
+>
   <div
-    className="css-1yqn408 p-a200"
+    className="p-a200 css-1yqn408"
   >
     <h1
       className="css-e3scnp"
@@ -8910,9 +11062,9 @@ Array [
         </button>
       </form>
     </div>
-  </div>,
-  <div
-    className="mn css-1jubgvi"
+  </div>
+  <main
+    className=" css-1jubgvi"
   >
     <div
       className="b b-c"
@@ -9015,7 +11167,7 @@ Array [
         width="1"
       />
     </div>
-  </div>,
+  </main>
   <footer
     className="ft"
   >
@@ -9034,7 +11186,7 @@ Array [
           className="g--8"
         >
           <div
-            className="css-hikchn"
+            className="css-juqblx-AccessBostonFooter"
           >
             The Access Boston Portal, and the systems, data and other resources that require Access Boston authentication for access are only to be used for legitimate City of Boston purposes. Use may be monitored, and unauthorized access or improper use of the resources may be subject to civil and/or criminal penalties under applicable federal, state and/or local law.
           </div>
@@ -9043,7 +11195,7 @@ Array [
           className="g--4 ta-r"
         >
           <a
-            className="css-j6ldvx"
+            className="css-15v0gc2-AccessBostonFooter"
             href="https://www.boston.gov/access-boston-portal-help"
             target="_blank"
           >
@@ -9052,8 +11204,8 @@ Array [
         </div>
       </div>
     </div>
-  </footer>,
-]
+  </footer>
+</div>
 `;
 
 exports[`Storyshots TextInput variants 1`] = `

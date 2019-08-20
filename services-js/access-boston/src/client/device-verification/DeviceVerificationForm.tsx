@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { SectionHeader, RadioGroup } from '@cityofboston/react-fleet';
 
 import { MAIN_CLASS } from '../styles';
-import TextInput, { renderErrorNextToInput } from '../TextInput';
+import TextInput, { renderErrorNextToInput } from '../common/TextInput';
 
 // Pull of only the FormikProps we actually use. This keeps us from needing to
 // pass fake versions of everything in our Storybook stories.

@@ -7,7 +7,9 @@ const MAIN_STYLE = css({
   paddingTop: HEADER_HEIGHT,
 });
 
-export const MAIN_CLASS = `mn ${MAIN_STYLE}`;
+// todo: necessary?
+// export const MAIN_CLASS = `mn ${MAIN_STYLE}`;
+export const MAIN_CLASS = ` ${MAIN_STYLE}`;
 
 /** Useful HTML attributes for password fields. */
 export const DEFAULT_PASSWORD_ATTRIBUTES = {

@@ -1,0 +1,38 @@
+[
+  {
+    "dn": "cn=ANML02_LostFound,cn=Lagan_Groups,cn=Groups,dc=boston,dc=cob",
+    "controls": [],
+    "objectClass": ["top", "groupOfUniqueNames"],
+    "uniqueMember": [
+      "",
+      "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+      "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob",
+      "cn=Laguna Loire,cn=Internal Users,dc=boston,dc=cob"
+    ],
+    "cn": "ANML02_LostFound"
+  },
+  {
+    "dn": "cn=BPD_Districts,cn=Lagan_Groups,cn=Groups,dc=boston,dc=cob",
+    "controls": [],
+    "objectClass": ["top", "groupOfUniqueNames"],
+    "uniqueMember": [
+      "",
+      "cn=Laguna Loire,cn=Internal Users,dc=boston,dc=cob",
+      "cn=000296,cn=Internal Users,dc=boston,dc=cob",
+      "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob"
+    ],
+    "cn": "BPD_Districts",
+    "canModify": false
+  },
+  {
+    "dn": "cn=BPD_Administrative,cn=Lagan_Groups,cn=Groups,dc=boston,dc=cob",
+    "controls": [],
+    "objectClass": ["top", "groupOfUniqueNames"],
+    "uniqueMember": [
+      "",
+      "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+      "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob"
+    ],
+    "cn": "BPD_Administrative"
+  }
+]

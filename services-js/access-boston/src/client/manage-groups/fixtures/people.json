@@ -1,0 +1,57 @@
+[
+  {
+    "dn": "cn=000296,cn=Internal Users,dc=boston,dc=cob",
+    "controls": [],
+    "objectClass": ["inetOrgPerson", "organizationalPerson", "person", "top"],
+    "groups": ["BPD_Districts"],
+    "sn": "Howard",
+    "givenName": "Terra",
+    "displayName": "Terra Howard",
+    "mail": "terra.howard@boston.gov",
+    "cn": "000296",
+    "uid": "000296"
+  },
+  {
+    "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+    "controls": [],
+    "objectClass": ["inetOrgPerson", "top", "organizationalPerson", "person"],
+    "groups": ["ANML02_LostFound", "BPD_Administrative"],
+    "employeeType": "Full-Time",
+    "sn": "Howell",
+    "mail": "cloud.howell@cityofboston.gov",
+    "givenName": "Cloud",
+    "displayName": "Cloud Howell",
+    "cn": "132367",
+    "uid": "132367",
+    "title": "Head Clerk & Secretary"
+  },
+  {
+    "dn": "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob",
+    "controls": [],
+    "objectClass": ["inetOrgPerson", "top", "organizationalPerson", "person"],
+    "groups": ["ANML02_LostFound", "BPD_Districts", "BPD_Administrative"],
+    "employeeType": "Full-Time",
+    "sn": "Scientia",
+    "mail": "ignis.scientia@cityofboston.gov",
+    "givenName": "Ignis",
+    "displayName": "Ignis Scientia",
+    "cn": "Ignis Scientia",
+    "uid": "087028",
+    "title": "Head Clerk & Secretary"
+  },
+  {
+    "dn": "cn=Laguna Loire,cn=Internal Users,dc=boston,dc=cob",
+    "controls": [],
+    "objectClass": ["inetOrgPerson", "top", "organizationalPerson", "person"],
+    "groups": ["ANML02_LostFound", "BPD_Districts"],
+    "employeeType": "Full-Time",
+    "sn": "Loire",
+    "mail": "laguna.loire@cityofboston.gov",
+    "givenName": "Laguna",
+    "displayName": "Laguna Loire",
+    "cn": "Laguna Loire",
+    "uid": "050086",
+    "title": "Head Clerk & Secretary",
+    "inactive": true
+  }
+]

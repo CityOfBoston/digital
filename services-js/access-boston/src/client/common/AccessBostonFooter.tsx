@@ -1,17 +1,8 @@
-import React from 'react';
-import { css } from 'emotion';
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
 import { OPTIMISTIC_BLUE_LIGHT, SANS } from '@cityofboston/react-fleet';
-
-const FOOTER_LINK_STYLE = css({
-  color: OPTIMISTIC_BLUE_LIGHT,
-  fontFamily: SANS,
-  textTransform: 'uppercase',
-});
-
-const FOOTER_LEGAL_STYLE = css({
-  color: 'white',
-  fontSize: '90%',
-});
 
 export default function AccessBostonFooter() {
   return (
@@ -19,7 +10,7 @@ export default function AccessBostonFooter() {
       <div className="ft-c" style={{ paddingTop: 0 }}>
         <div className="g g--vc p-v200">
           <div className="g--8">
-            <div className={FOOTER_LEGAL_STYLE}>
+            <div css={FOOTER_LEGAL_STYLE}>
               The Access Boston Portal, and the systems, data and other
               resources that require Access Boston authentication for access are
               only to be used for legitimate City of Boston purposes. Use may be
@@ -32,7 +23,7 @@ export default function AccessBostonFooter() {
             <a
               href="https://www.boston.gov/access-boston-portal-help"
               target="_blank"
-              className={FOOTER_LINK_STYLE}
+              css={FOOTER_LINK_STYLE}
             >
               Need Help?
             </a>
@@ -42,3 +33,14 @@ export default function AccessBostonFooter() {
     </footer>
   );
 }
+
+const FOOTER_LINK_STYLE = css({
+  color: OPTIMISTIC_BLUE_LIGHT,
+  fontFamily: SANS,
+  textTransform: 'uppercase',
+});
+
+const FOOTER_LEGAL_STYLE = css({
+  color: 'white',
+  fontSize: '90%',
+});
