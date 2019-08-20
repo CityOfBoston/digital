@@ -542,17 +542,39 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new 
                 <a
-                  className="btn"
                   href="/birth"
                   onClick={[Function]}
                 >
-                  Back to start
+                  birth
                 </a>
-              </div>
+                ,
+                 
+                <a
+                  href="/marriage"
+                  onClick={[Function]}
+                >
+                  marriage
+                </a>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                >
+                  death
+                </a>
+                 certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -6073,7 +6095,7 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
           className="lh--400"
         >
           <p>
-            If you are a legal representative making a request for a client, you need these items to get a record:
+            If you are an attorney making a request for a client, you need these items to get a record:
           </p>
           <ol>
             <li>
@@ -6090,16 +6112,16 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
             You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
           </p>
           <p>
-            You can find more information online at
+            For more information, you can email us at
              
-            <strong>
-              <a
-                href="https://www.boston.gov/birth"
-              >
-                boston.gov/
-                birth
-              </a>
-            </strong>
+            <a
+              href="mailto:birth@boston.gov"
+              onClick={[Function]}
+            >
+              birth
+              @boston.gov
+            </a>
+            .
           </p>
           <p>
             <strong
@@ -12171,7 +12193,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
                   className="lh--400"
                 >
                   <p>
-                    If you are a legal representative making a request for a client, you need these items to get a record:
+                    If you are an attorney making a request for a client, you need these items to get a record:
                   </p>
                   <ol>
                     <li>
@@ -12188,16 +12210,16 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
                     You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
                   </p>
                   <p>
-                    You can find more information online at
+                    For more information, you can email us at
                      
-                    <strong>
-                      <a
-                        href="https://www.boston.gov/birth"
-                      >
-                        boston.gov/
-                        birth
-                      </a>
-                    </strong>
+                    <a
+                      href="mailto:birth@boston.gov"
+                      onClick={[Function]}
+                    >
+                      birth
+                      @boston.gov
+                    </a>
+                    .
                   </p>
                   <p>
                     <strong
@@ -17713,17 +17735,39 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new 
                 <a
-                  className="btn"
                   href="/birth"
                   onClick={[Function]}
                 >
-                  Back to start
+                  birth
                 </a>
-              </div>
+                ,
+                 
+                <a
+                  href="/marriage"
+                  onClick={[Function]}
+                >
+                  marriage
+                </a>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                >
+                  death
+                </a>
+                 certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -18276,17 +18320,39 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new 
                 <a
-                  className="btn"
+                  href="/birth"
+                  onClick={[Function]}
+                >
+                  birth
+                </a>
+                ,
+                 
+                <a
                   href="/marriage"
                   onClick={[Function]}
                 >
-                  Back to start
+                  marriage
                 </a>
-              </div>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                >
+                  death
+                </a>
+                 certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -53903,7 +53969,22 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             >
               registry@boston.gov
             </a>
-            .
+            . You can also order a 
+            <a
+              href="/birth"
+              onClick={[Function]}
+            >
+              birth
+            </a>
+             or
+             
+            <a
+              href="/marriage"
+              onClick={[Function]}
+            >
+              marriage
+            </a>
+             certificate online.
           </p>
           <div
             className="m-t500 ta-c t--info"
@@ -61879,17 +61960,39 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 </a>
                 .
               </p>
-              <div
-                className="ta-c m-v700"
+              <p
+                className="t--info"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                  }
+                }
               >
+                Order a new 
                 <a
-                  className="btn"
+                  href="/birth"
+                  onClick={[Function]}
+                >
+                  birth
+                </a>
+                ,
+                 
+                <a
                   href="/marriage"
                   onClick={[Function]}
                 >
-                  Back to start
+                  marriage
                 </a>
-              </div>
+                , or
+                 
+                <a
+                  href="/death"
+                  onClick={[Function]}
+                >
+                  death
+                </a>
+                 certificate.
+              </p>
             </div>
           </div>
         </div>
@@ -65215,7 +65318,7 @@ exports[`Storyshots Marriage/Question Components/ClientInstructions default 1`] 
           className="lh--400"
         >
           <p>
-            If you are a legal representative making a request for a client, you need these items to get a record:
+            If you are an attorney making a request for a client, you need these items to get a record:
           </p>
           <ol>
             <li>
@@ -65232,16 +65335,16 @@ exports[`Storyshots Marriage/Question Components/ClientInstructions default 1`] 
             You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
           </p>
           <p>
-            You can find more information online at
+            For more information, you can email us at
              
-            <strong>
-              <a
-                href="https://www.boston.gov/marriage"
-              >
-                boston.gov/
-                marriage
-              </a>
-            </strong>
+            <a
+              href="mailto:registry@boston.gov"
+              onClick={[Function]}
+            >
+              registry
+              @boston.gov
+            </a>
+            .
           </p>
           <p>
             <strong
@@ -73929,7 +74032,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
                   className="lh--400"
                 >
                   <p>
-                    If you are a legal representative making a request for a client, you need these items to get a record:
+                    If you are an attorney making a request for a client, you need these items to get a record:
                   </p>
                   <ol>
                     <li>
@@ -73946,16 +74049,16 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
                     You must complete this process in person at Boston City Hall or by mail. In person, the cost per request is $12. We take cash, credit or debit cards, checks, or money orders. By mail, the cost per request is $14. We accept checks or money orders payable to the City of Boston.
                   </p>
                   <p>
-                    You can find more information online at
+                    For more information, you can email us at
                      
-                    <strong>
-                      <a
-                        href="https://www.boston.gov/marriage"
-                      >
-                        boston.gov/
-                        marriage
-                      </a>
-                    </strong>
+                    <a
+                      href="mailto:registry@boston.gov"
+                      onClick={[Function]}
+                    >
+                      registry
+                      @boston.gov
+                    </a>
+                    .
                   </p>
                   <p>
                     <strong

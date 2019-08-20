@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { css, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
 import { Component, MouseEvent } from 'react';
 
@@ -10,12 +10,10 @@ import RadioItemComponent from '../../common/question-components/RadioItemCompon
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 import RelatedIcon from '../../common/icons/RelatedIcon';
-import ClientInstructionsContent from '../../common/question-components/ClientInstructionsContent';
 
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import {
-  NOTE_BOX_CLASSNAME,
   SECTION_HEADING_STYLING,
   RADIOGROUP_STYLING,
 } from '../../common/question-components/styling';
@@ -153,20 +151,8 @@ export default class ForWhom extends Component<Props, State> {
               <RelatedIcon name="client" />
             </RadioItemComponent>
           </div>
-
-          {forWhom === 'client' && (
-            <div className={NOTE_BOX_CLASSNAME} css={WARNING_BOX_STYLING}>
-              <ClientInstructionsContent certificateType="marriage" />
-            </div>
-          )}
         </FieldsetComponent>
       </QuestionComponent>
     );
   }
 }
-
-const WARNING_BOX_STYLING = css({
-  '> div': {
-    marginTop: '-0.25rem',
-  },
-});
