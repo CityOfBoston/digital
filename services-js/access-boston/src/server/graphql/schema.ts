@@ -86,6 +86,8 @@ export interface Account {
   resetPasswordToken: string;
   /** ISO 8601 */
   mfaRequiredDate: string | null;
+  groups: string[] | null;
+  email: string;
 }
 
 export interface Apps {
@@ -137,7 +139,15 @@ const queryRootResolvers: QueryRootResolvers = {
         firstName,
         lastName,
         mfaRequiredDate,
+        groups,
+        email,
       } = loginSession;
+      let mgmt_groups: Array<string> = [];
+      if (typeof groups === 'object' && groups.length > 0) {
+        mgmt_groups = groups.filter(
+          entry => entry.indexOf('SG_AB_GRPMGMT_') > -1
+        );
+      }
 
       return {
         employeeId: userId,
@@ -148,6 +158,8 @@ const queryRootResolvers: QueryRootResolvers = {
         hasMfaDevice,
         resetPasswordToken: '',
         mfaRequiredDate: mfaRequiredDate ? mfaRequiredDate : null,
+        groups: mgmt_groups,
+        email: email,
       };
     } else if (forgotPasswordAuth) {
       return {
@@ -161,6 +173,8 @@ const queryRootResolvers: QueryRootResolvers = {
         hasMfaDevice: false,
         resetPasswordToken: forgotPasswordAuth.resetPasswordToken,
         mfaRequiredDate: null,
+        groups: [''],
+        email: '',
       };
     } else {
       // This must have the message "Forbidden" because it’s matched explicitly
@@ -185,17 +199,30 @@ const queryRootResolvers: QueryRootResolvers = {
           loginSession.hasMfaDevice,
           loginSession.cobAgency || null
         )
-        .map(({ apps, icons, showRequestAccessLink, title }) => ({
-          title,
-          showIcons: icons,
-          requestAccessUrl: showRequestAccessLink ? '#' : null,
-          apps: apps.map(({ title, iconUrl, url, description }) => ({
+        .map(({ apps, icons, showRequestAccessLink, title }) => {
+          const retObj = {
             title,
-            iconUrl: iconUrl || null,
-            url,
-            description,
-          })),
-        })),
+            showIcons: icons,
+            requestAccessUrl: showRequestAccessLink ? '#' : null,
+            apps: apps.map(({ title, iconUrl, url, description }) => ({
+              title,
+              iconUrl: iconUrl || null,
+              url,
+              description,
+            })),
+          };
+          if (retObj.title === 'Support Tools') {
+            const filterGroups = loginSession.groups.filter(
+              entry => entry.indexOf('SG_AB_GRPMGMT_') > -1
+            );
+            if (filterGroups.length < 1) {
+              retObj.apps = apps.filter(
+                entry => entry.title !== 'Group Management'
+              );
+            }
+          }
+          return retObj;
+        }),
     };
   },
 

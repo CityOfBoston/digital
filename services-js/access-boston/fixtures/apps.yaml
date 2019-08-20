@@ -125,6 +125,8 @@ categories:
         url: "#"
         groups:
           - SG_AB_HCMSECURITY
+      - title: Group Management
+        url: /group-management
 
   - title: Manager Tools
     apps:

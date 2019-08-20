@@ -46,7 +46,6 @@ export interface LoginSession {
   firstName: string;
   lastName: string;
   email: string;
-
   groups: string[];
   needsNewPassword: boolean;
   needsMfaDevice: boolean;

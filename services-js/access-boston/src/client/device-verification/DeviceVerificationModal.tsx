@@ -5,7 +5,7 @@ import * as yup from 'yup';
 
 import { VerificationType } from '../graphql/queries';
 import StatusModal from '../StatusModal';
-import TextInput from '../TextInput';
+import TextInput from '../common/TextInput';
 import { SANS } from '@cityofboston/react-fleet';
 
 export enum VerificationStatus {

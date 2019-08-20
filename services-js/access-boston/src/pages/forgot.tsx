@@ -4,15 +4,14 @@ import { Formik, FormikProps, FormikActions } from 'formik';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
-import AccessBostonHeader from '../client/AccessBostonHeader';
-import PasswordPolicy from '../client/PasswordPolicy';
-import TextInput from '../client/TextInput';
+import PasswordPolicy from '../client/common/PasswordPolicy';
+import TextInput from '../client/common/TextInput';
 
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 
 import { forgotPasswordSchema } from '../lib/validation';
 
-import { MAIN_CLASS, DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
+import { DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
 import {
   GetInitialProps,
   GetInitialPropsDependencies,
@@ -21,8 +20,9 @@ import {
 import StatusModal from '../client/StatusModal';
 
 import resetPassword from '../client/graphql/reset-password';
-import HelpContactInfo from '../client/HelpContactInfo';
-import AccessBostonFooter from '../client/AccessBostonFooter';
+import HelpContactInfo from '../client/common/HelpContactInfo';
+
+import AppWrapper from '../client/common/AppWrapper';
 
 interface InitialProps {
   account: Account;
@@ -128,9 +128,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
           <title>Access Boston: Forgot Password</title>
         </Head>
 
-        <AccessBostonHeader noLinks />
-
-        <div className={MAIN_CLASS}>
+        <AppWrapper noLinks>
           <div className="b b-c b-c--hsm">
             {showSuccessMessage ? (
               this.renderSuccessMessage()
@@ -148,9 +146,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               </>
             )}
           </div>
-        </div>
-
-        <AccessBostonFooter />
+        </AppWrapper>
 
         {showSubmittingModal && this.renderSubmitting()}
       </>
