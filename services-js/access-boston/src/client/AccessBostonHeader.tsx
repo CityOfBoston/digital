@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CHARLES_BLUE, SANS, WHITE } from '@cityofboston/react-fleet';
 import { css } from 'emotion';
 
-import { Account } from '../graphql/fetch-account';
+import { Account } from './graphql/fetch-account';
 import RedirectForm from './RedirectForm';
 
 const HEADER_STYLE = css({

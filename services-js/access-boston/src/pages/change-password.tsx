@@ -7,13 +7,14 @@ import { format as formatUrl } from 'url';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
-import PasswordPolicy from '../client/account-management/PasswordPolicy';
+import AccessBostonHeader from '../client/AccessBostonHeader';
+import PasswordPolicy from '../client/PasswordPolicy';
 import TextInput from '../client/TextInput';
-import StatusModal from '../client/common/StatusModal';
+import StatusModal from '../client/StatusModal';
 
 import { changePasswordSchema } from '../lib/validation';
 
-import { DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
+import { MAIN_CLASS, DEFAULT_PASSWORD_ATTRIBUTES } from '../client/styles';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import changePassword from '../client/graphql/change-password';
 
@@ -24,9 +25,9 @@ import {
   GetInitialProps,
   PageDependencies,
 } from './_app';
-import RedirectForm from '../client/common/RedirectForm';
-import HelpContactInfo from '../client/account-management/HelpContactInfo';
-import AppWrapper from '../client/common/AppWrapper';
+import RedirectForm from '../client/RedirectForm';
+import HelpContactInfo from '../client/HelpContactInfo';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 interface InitialProps {
   account: Account;
@@ -149,7 +150,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           <title>Access Boston: Change Password</title>
         </Head>
 
-        <AppWrapper account={account}>
+        <AccessBostonHeader account={account} />
+
+        <div className={MAIN_CLASS}>
           <div className="b b-c b-c--hsm">
             <SectionHeader
               title={
@@ -191,11 +194,13 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               render={this.renderForm}
             />
           </div>
+        </div>
 
-          {showSubmittingModal && this.renderSubmitting()}
+        {showSubmittingModal && this.renderSubmitting()}
 
-          <RedirectForm path="done" ref={this.doneRedirectRef} />
-        </AppWrapper>
+        <RedirectForm path="done" ref={this.doneRedirectRef} />
+
+        <AccessBostonFooter />
       </>
     );
   }
