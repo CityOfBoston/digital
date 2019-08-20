@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 import { FREEDOM_RED_DARK, DEFAULT_TEXT } from '@cityofboston/react-fleet';
 
-import { analyzePassword } from '../../lib/validation';
+import { analyzePassword } from '../lib/validation';
 
 // This needs to be equal or higher priority to '.ul>li:before', so ':before'
 // didn't cut it.

@@ -3,7 +3,8 @@ import Head from 'next/head';
 import { Formik } from 'formik';
 
 import { PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
-import { PHONE_REGEXP } from '@cityofboston/form-common';
+
+import AccessBostonHeader from '../client/AccessBostonHeader';
 
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import addMfaDevice, {
@@ -26,11 +27,11 @@ import DeviceVerificationModal, {
 import verifyMfaDevice from '../client/graphql/verify-mfa-device';
 
 import { MfaError, VerificationType } from '../client/graphql/queries';
-import RedirectForm from '../client/common/RedirectForm';
+import RedirectForm from '../client/RedirectForm';
 import { registerDeviceSchema } from '../lib/validation';
 import { RedirectError } from '../client/auth-helpers';
-
-import AppWrapper from '../client/common/AppWrapper';
+import AccessBostonFooter from '../client/AccessBostonFooter';
+import { PHONE_REGEXP } from '@cityofboston/form-common';
 
 interface InitialProps {
   account: Account;
@@ -225,39 +226,41 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
           <title>Access Boston: Add Security Noun</title>
         </Head>
 
-        <AppWrapper account={account}>
-          <Formik
-            ref={this.formikRef as any}
-            initialValues={initialValues}
-            // True so Formik response to when phoneOrEmail changes (due to query
-            // parameter changing the prop) in initialValues
-            enableReinitialize
-            isInitialValid={false}
-            validationSchema={registerDeviceSchema}
-            onSubmit={this.handleSubmit}
-            render={formikProps => (
-              <>
-                <DeviceVerificationForm
-                  {...formikProps}
-                  serverError={verificationError}
+        <AccessBostonHeader account={account} />
+
+        <Formik
+          ref={this.formikRef as any}
+          initialValues={initialValues}
+          // True so Formik response to when phoneOrEmail changes (due to query
+          // parameter changing the prop) in initialValues
+          enableReinitialize
+          isInitialValid={false}
+          validationSchema={registerDeviceSchema}
+          onSubmit={this.handleSubmit}
+          render={formikProps => (
+            <>
+              <DeviceVerificationForm
+                {...formikProps}
+                serverError={verificationError}
+              />
+
+              {(formikProps.isSubmitting || testVerificationCodeModal) && (
+                <DeviceVerificationModal
+                  status={status}
+                  {...this.formValuesToAddDeviceArgs(formikProps.values)}
+                  resendVerification={this.resendVerification}
+                  resetVerification={this.resetVerification}
+                  validateCode={this.validateCode}
                 />
+              )}
+            </>
+          )}
+        />
 
-                {(formikProps.isSubmitting || testVerificationCodeModal) && (
-                  <DeviceVerificationModal
-                    status={status}
-                    {...this.formValuesToAddDeviceArgs(formikProps.values)}
-                    resendVerification={this.resendVerification}
-                    resetVerification={this.resetVerification}
-                    validateCode={this.validateCode}
-                  />
-                )}
-              </>
-            )}
-          />
+        {/* TODO(fiona): This needs to go through a single-sign out flow */}
+        <RedirectForm ref={this.doneRedirectRef} path="/done" />
 
-          {/* TODO(fiona): This needs to go through a single-sign out flow */}
-          <RedirectForm ref={this.doneRedirectRef} path="/done" />
-        </AppWrapper>
+        <AccessBostonFooter />
       </>
     );
   }

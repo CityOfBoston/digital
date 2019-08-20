@@ -1,5 +1,5 @@
 import React from 'react';
-import CrumbContext from '../CrumbContext';
+import CrumbContext from '../client/CrumbContext';
 
 interface Props {
   path: string;

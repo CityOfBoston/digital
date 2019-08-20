@@ -5,11 +5,13 @@ import getConfig from 'next/config';
 
 import { SectionHeader, PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
+import AccessBostonHeader from '../client/AccessBostonHeader';
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
+import { MAIN_CLASS } from '../client/styles';
 import { RedirectError } from '../client/auth-helpers';
-import HelpContactInfo from '../client/account-management/HelpContactInfo';
-import AppWrapper from '../client/common/AppWrapper';
+import HelpContactInfo from '../client/HelpContactInfo';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 interface Props {
   account: Account;
@@ -49,7 +51,9 @@ export default class RegisterPage extends React.Component<Props> {
           <title>Access Boston: Registration</title>
         </Head>
 
-        <AppWrapper account={account}>
+        <AccessBostonHeader account={account} />
+
+        <div className={MAIN_CLASS}>
           <div className="b b-c">
             <SectionHeader title="Welcome to Access Boston!" />
 
@@ -112,7 +116,9 @@ export default class RegisterPage extends React.Component<Props> {
 
             <img src={logoutImgSrc} alt="" width="1" height="1" />
           </div>
-        </AppWrapper>
+        </div>
+
+        <AccessBostonFooter />
       </>
     );
   }

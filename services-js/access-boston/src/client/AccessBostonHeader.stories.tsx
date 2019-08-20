@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Account } from '../graphql/fetch-account';
-import AppWrapper from './AppWrapper';
+import AccessBostonHeader from './AccessBostonHeader';
+import { Account } from './graphql/fetch-account';
 
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
@@ -15,6 +15,6 @@ const ACCOUNT: Account = {
   mfaRequiredDate: null,
 };
 
-storiesOf('Common components/AppWrapper', module)
-  .add('default', () => <AppWrapper account={ACCOUNT}>&nbsp;</AppWrapper>)
-  .add('without interactive header', () => <AppWrapper>&nbsp;</AppWrapper>);
+storiesOf('AccessBostonHeader', module).add('default', () => (
+  <AccessBostonHeader account={ACCOUNT} />
+));

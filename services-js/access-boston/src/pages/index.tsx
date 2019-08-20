@@ -1,9 +1,4 @@
-/** @jsx jsx */
-
-import { css, jsx } from '@emotion/core';
-
-import { Component } from 'react';
-
+import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -15,15 +10,18 @@ import {
   CHARLES_BLUE,
   MEDIA_LARGE_MAX,
 } from '@cityofboston/react-fleet';
+import { css } from 'emotion';
 
+import AccessBostonHeader from '../client/AccessBostonHeader';
 import fetchAccountAndApps, {
   Account,
   Apps,
   CategoryApps,
 } from '../client/graphql/fetch-account-and-apps';
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
+import { MAIN_CLASS } from '../client/styles';
 import { requireRegistration } from '../client/auth-helpers';
-import AppWrapper from '../client/common/AppWrapper';
+import AccessBostonFooter from '../client/AccessBostonFooter';
 
 export enum FlashMessage {
   CHANGE_PASSWORD_SUCCESS = 'password',
@@ -52,7 +50,7 @@ const APP_IMAGE_STYLE = css({
   },
 });
 
-export default class IndexPage extends Component<Props> {
+export default class IndexPage extends React.Component<Props> {
   static getInitialProps: GetInitialProps<Props> = async (
     { query },
     { fetchGraphql }: GetInitialPropsDependencies
@@ -101,7 +99,9 @@ export default class IndexPage extends Component<Props> {
           <title>Access Boston</title>
         </Head>
 
-        <AppWrapper account={account}>
+        <AccessBostonHeader account={account} />
+
+        <div className={MAIN_CLASS}>
           {flashMessage && (
             <div className="b--g">
               <div className="b-c" style={{ padding: 0 }}>
@@ -179,7 +179,9 @@ export default class IndexPage extends Component<Props> {
               ))}
             </div>
           </div>
-        </AppWrapper>
+        </div>
+
+        <AccessBostonFooter />
       </>
     );
   }
@@ -191,8 +193,7 @@ export default class IndexPage extends Component<Props> {
           <li key={title}>
             <Link href={url}>
               <a
-                className="p-a300"
-                css={APP_ROW_STYLE}
+                className={`p-a300 ${APP_ROW_STYLE}`}
                 target={url.startsWith('/') ? '_self' : '_blank'}
               >
                 <div className="t--info" style={{ color: 'inherit' }}>
@@ -223,8 +224,7 @@ export default class IndexPage extends Component<Props> {
                     iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'
                   }
                   alt=""
-                  className="lwi-i"
-                  css={APP_IMAGE_STYLE}
+                  className={`lwi-i ${APP_IMAGE_STYLE}`}
                 />
               </span>
               <span className="lwi-t">{title}</span>

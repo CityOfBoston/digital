@@ -3,6 +3,6 @@ import { storiesOf } from '@storybook/react';
 
 import AccessBostonFooter from './AccessBostonFooter';
 
-storiesOf('Common components/AccessBostonFooter', module).add('default', () => (
+storiesOf('AccessBostonFooter', module).add('default', () => (
   <AccessBostonFooter />
 ));
