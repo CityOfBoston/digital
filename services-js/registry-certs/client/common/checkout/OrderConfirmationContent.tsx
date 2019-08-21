@@ -74,11 +74,11 @@ export default function OrderConfirmationContent({
             <a href={`mailto:${registryEmail}`}>{registryEmail}</a>.
           </p>
 
-          <div className="ta-c m-v700">
-            <Link href={`/${certificateType}`}>
-              <a className="btn">Back to start</a>
-            </Link>
-          </div>
+          <p className="t--info" style={{ fontStyle: 'normal' }}>
+            Order a new <Link href="/birth">birth</Link>,{' '}
+            <Link href="/marriage">marriage</Link>, or{' '}
+            <Link href="/death">death</Link> certificate.
+          </p>
         </div>
       </div>
     </div>

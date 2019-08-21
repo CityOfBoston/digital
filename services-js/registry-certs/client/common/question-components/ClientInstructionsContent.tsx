@@ -5,6 +5,7 @@ import { jsx } from '@emotion/core';
 import { CertificateType } from '../../types';
 
 import { SECTION_HEADING_STYLING } from './styling';
+import { ContactForm } from '@cityofboston/react-fleet';
 
 interface Props {
   certificateType: CertificateType;
@@ -12,6 +13,7 @@ interface Props {
 
 export default function ClientInstructionsContent(props: Props): JSX.Element {
   const { certificateType } = props;
+  const emailUser = certificateType === 'birth' ? 'birth' : 'registry';
 
   return (
     <div className="m-t500">
@@ -21,8 +23,8 @@ export default function ClientInstructionsContent(props: Props): JSX.Element {
 
       <div className="lh--400">
         <p>
-          If you are a legal representative making a request for a client, you
-          need these items to get a record:
+          If you are an attorney making a request for a client, you need these
+          items to get a record:
         </p>
 
         <ol>
@@ -48,12 +50,16 @@ export default function ClientInstructionsContent(props: Props): JSX.Element {
         </p>
 
         <p>
-          You can find more information online at{' '}
-          <strong>
-            <a href={`https://www.boston.gov/${certificateType}`}>
-              boston.gov/{certificateType}
-            </a>
-          </strong>
+          For more information, you can email us at{' '}
+          <a
+            href={`mailto:${emailUser}@boston.gov`}
+            onClick={ContactForm.makeMailtoClickHandler(
+              `${certificateType}-cert-feedback-form`
+            )}
+          >
+            {emailUser}@boston.gov
+          </a>
+          .
         </p>
 
         <p>
