@@ -68,7 +68,7 @@ export default class ReviewRequestPage extends Component<Props> {
           >
             <p>
               You need to have a hand signature from the Registry. After you
-              finish your order, please email registry@boston.gov with:
+              finish your order, please email marriage@boston.gov with:
             </p>
 
             <ul>

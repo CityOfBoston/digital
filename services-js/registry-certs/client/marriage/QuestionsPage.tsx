@@ -314,12 +314,12 @@ export default class QuestionsPage extends React.Component<Props, State> {
         <div className="m-v700 ta-c">
           Questions? Email the Registry Department at{' '}
           <a
-            href="mailto:registry@boston.gov"
+            href="mailto:marriage@boston.gov"
             onClick={ContactForm.makeMailtoClickHandler(
               'marriage-cert-feedback-form'
             )}
           >
-            registry@boston.gov
+            marriage@boston.gov
           </a>
           .
         </div>

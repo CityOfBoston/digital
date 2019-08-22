@@ -27,8 +27,7 @@ export default function OrderConfirmationContent({
   stepCount,
   contactEmail,
 }: Props) {
-  const registryEmail =
-    certificateType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+  const registryEmail = `${certificateType}@boston.gov`;
 
   // Rendered as a footer so we can break the narrow default width
   const footer = (

@@ -10,6 +10,7 @@ import {
 
 const REGISTRY_EMAIL = '"City of Boston Registry" <registry@boston.gov>';
 const BIRTH_EMAIL = '"City of Boston Registry" <birth@boston.gov>';
+const MARRIAGE_EMAIL = '"City of Boston Registry" <marriage@boston.gov>';
 
 export default class Emails {
   private postmarkClient: PostmarkClient;
@@ -116,7 +117,7 @@ export default class Emails {
     await this.sendEmail(
       toName,
       toEmail,
-      REGISTRY_EMAIL,
+      MARRIAGE_EMAIL,
       this.templates.requestReceipt('marriage', data)
     );
   }
@@ -129,7 +130,7 @@ export default class Emails {
     await this.sendEmail(
       toName,
       toEmail,
-      REGISTRY_EMAIL,
+      MARRIAGE_EMAIL,
       this.templates.requestShipped('marriage', data)
     );
   }
@@ -143,7 +144,7 @@ export default class Emails {
     await this.sendEmail(
       toName,
       toEmail,
-      REGISTRY_EMAIL,
+      MARRIAGE_EMAIL,
       this.templates.requestExpired('marriage', orderId, orderDate)
     );
   }

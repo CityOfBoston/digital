@@ -1259,7 +1259,7 @@ exports[`expired Marriage certificate expired 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -1322,7 +1322,7 @@ If you would like to place a new order, visit
 https://www.boston.gov/marriage
 
 Have any questions? Contact the Registry at 
-registry@boston.gov."
+marriage@boston.gov."
 `;
 
 exports[`receipt Birth certificate 2`] = `
@@ -4340,7 +4340,7 @@ exports[`receipt Marriage certificate 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -4419,7 +4419,7 @@ service fees at the City of Boston.
 [https://www.boston.gov/common-questions-about-online-payments]
 
 Have any questions? Contact the Registry at 
-registry@boston.gov."
+marriage@boston.gov."
 `;
 
 exports[`receipt Marriage certificate shipped 2`] = `
@@ -5116,7 +5116,7 @@ exports[`receipt Marriage certificate shipped 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -5195,5 +5195,5 @@ service fees at the City of Boston.
 [https://www.boston.gov/common-questions-about-online-payments]
 
 Have any questions? Contact the Registry at 
-registry@boston.gov."
+marriage@boston.gov."
 `;

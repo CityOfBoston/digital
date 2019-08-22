@@ -176,8 +176,7 @@ export class EmailTemplates {
     heading: string,
     orderText: object
   ): RenderedEmail {
-    const registryEmail =
-      orderType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+    const registryEmail = `${orderType}@boston.gov`;
 
     // returns date string inside parentheses
     const dateString = (date): string => {
@@ -215,8 +214,7 @@ export class EmailTemplates {
   }
 
   requestExpired(orderType: OrderType, orderId: string, orderDate: Date) {
-    const registryEmail =
-      orderType === 'birth' ? 'birth@boston.gov' : 'registry@boston.gov';
+    const registryEmail = `${orderType}@boston.gov`;
 
     return this.expiredEmailRenderer(
       {
