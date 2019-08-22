@@ -18314,9 +18314,9 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:registry@boston.gov"
+                  href="mailto:marriage@boston.gov"
                 >
-                  registry@boston.gov
+                  marriage@boston.gov
                 </a>
                 .
               </p>
@@ -59793,7 +59793,7 @@ exports[`Storyshots Email/Marriage/Expired HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -59862,7 +59862,7 @@ If you would like to place a new order, visit
 https://www.boston.gov/marriage
 
 Have any questions? Contact the Registry at 
-registry@boston.gov.
+marriage@boston.gov.
   </pre>
 </div>
 `;
@@ -60565,7 +60565,7 @@ exports[`Storyshots Email/Marriage/Receipt HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -60650,7 +60650,7 @@ service fees at the City of Boston.
 [https://www.boston.gov/common-questions-about-online-payments]
 
 Have any questions? Contact the Registry at 
-registry@boston.gov.
+marriage@boston.gov.
   </pre>
 </div>
 `;
@@ -61353,7 +61353,7 @@ exports[`Storyshots Email/Marriage/Shipped HTML 1`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Have any questions? Contact the Registry at <b><i><a
-              href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
+              href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
               </td>
@@ -61438,7 +61438,7 @@ service fees at the City of Boston.
 [https://www.boston.gov/common-questions-about-online-payments]
 
 Have any questions? Contact the Registry at 
-registry@boston.gov.
+marriage@boston.gov.
   </pre>
 </div>
 `;
@@ -61954,9 +61954,9 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:registry@boston.gov"
+                  href="mailto:marriage@boston.gov"
                 >
-                  registry@boston.gov
+                  marriage@boston.gov
                 </a>
                 .
               </p>
@@ -73592,10 +73592,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -74115,10 +74115,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -74915,10 +74915,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -75651,10 +75651,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -76668,10 +76668,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -77685,10 +77685,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -78669,10 +78669,10 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
               Questions? Email the Registry Department at
                
               <a
-                href="mailto:registry@boston.gov"
+                href="mailto:marriage@boston.gov"
                 onClick={[Function]}
               >
-                registry@boston.gov
+                marriage@boston.gov
               </a>
               .
             </div>
@@ -79294,7 +79294,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                 id="2889438462-content"
               >
                 <p>
-                  You need to have a hand signature from the Registry. After you finish your order, please email registry@boston.gov with:
+                  You need to have a hand signature from the Registry. After you finish your order, please email marriage@boston.gov with:
                 </p>
                 <ul>
                   <li>
