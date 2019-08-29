@@ -442,10 +442,12 @@ export default class RegistryDb {
       .input('certificateMaidenName2', certificateMaidenName2)
       .input('certificateAltSpellings1', certificateAltSpellings1)
       .input('certificateAltSpellings2', certificateAltSpellings2)
-      .input(
-        dateOfMarriageExact ? 'dateOfMarriageExact' : 'dateOfMarriageUnsure',
-        dateOfMarriageExact ? dateOfMarriageExact : dateOfMarriageUnsure
-      )
+      // .input(
+      //   dateOfMarriageExact ? 'dateOfMarriageExact' : 'dateOfMarriageUnsure',
+      //   dateOfMarriageExact ? dateOfMarriageExact : dateOfMarriageUnsure
+      // )
+      .input('dateOfMarriageExact', dateOfMarriageExact)
+      .input('dateOfMarriageUnsure', dateOfMarriageUnsure)
       .input('requestDetails', requestDetails)
       .input('quantity', quantity)
       .input('unitCost', `$${certificateCost.toFixed(2)}`)

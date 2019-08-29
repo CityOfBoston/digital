@@ -550,7 +550,8 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                   }
                 }
               >
-                Order a new 
+                Order a new
+                 
                 <a
                   href="/birth"
                   onClick={[Function]}
@@ -573,7 +574,8 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 >
                   death
                 </a>
-                 certificate.
+                 
+                certificate.
               </p>
             </div>
           </div>
@@ -17743,7 +17745,8 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                   }
                 }
               >
-                Order a new 
+                Order a new
+                 
                 <a
                   href="/birth"
                   onClick={[Function]}
@@ -17766,7 +17769,8 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                 >
                   death
                 </a>
-                 certificate.
+                 
+                certificate.
               </p>
             </div>
           </div>
@@ -18328,7 +18332,8 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                   }
                 }
               >
-                Order a new 
+                Order a new
+                 
                 <a
                   href="/birth"
                   onClick={[Function]}
@@ -18351,7 +18356,8 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 >
                   death
                 </a>
-                 certificate.
+                 
+                certificate.
               </p>
             </div>
           </div>
@@ -39380,7 +39386,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
         <div
           className="emotion-2"
         >
-          Married: 6/10/2015
+          
         </div>
       </div>
     </div>
@@ -40182,7 +40188,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
               <div
                 className="emotion-4"
               >
-                Married: 6/10/2015
+                
               </div>
             </div>
           </div>
@@ -53969,14 +53975,16 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             >
               registry@boston.gov
             </a>
-            . You can also order a 
+            . You can also order a
+             
             <a
               href="/birth"
               onClick={[Function]}
             >
               birth
             </a>
-             or
+             
+            or
              
             <a
               href="/marriage"
@@ -53984,7 +53992,8 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             >
               marriage
             </a>
-             certificate online.
+             
+            certificate online.
           </p>
           <div
             className="m-t500 ta-c t--info"
@@ -60359,7 +60368,7 @@ exports[`Storyshots Email/Marriage/Receipt HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate for Laurel Johnson &amp; Terry Johnson </i></td>
+                    <i>1 × Certified marriage certificate </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
@@ -60632,7 +60641,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate for Laurel Johnson &amp; Terry Johnson  $14.00
+  1 x Certified marriage certificate  $14.00
   Card processing fee*  $0.00
   Total  $14.56
 
@@ -61147,7 +61156,7 @@ exports[`Storyshots Email/Marriage/Shipped HTML 1`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate for Laurel Johnson &amp; Terry Johnson </i></td>
+                    <i>1 × Certified marriage certificate </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
                 </tr>
     
@@ -61420,7 +61429,7 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate for Laurel Johnson &amp; Terry Johnson  $14.00
+  1 x Certified marriage certificate  $14.00
   Card processing fee*  $0.00
   Total  $14.56
 
@@ -61968,7 +61977,8 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                   }
                 }
               >
-                Order a new 
+                Order a new
+                 
                 <a
                   href="/birth"
                   onClick={[Function]}
@@ -61991,7 +62001,8 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 >
                   death
                 </a>
-                 certificate.
+                 
+                certificate.
               </p>
             </div>
           </div>

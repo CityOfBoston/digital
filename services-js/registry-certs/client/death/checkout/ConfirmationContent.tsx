@@ -61,8 +61,15 @@ export default class ConfirmationContent extends React.Component<Props> {
             Have any questions? Contact the Registry on weekdays from 9 a.m. – 4
             p.m. at <a href="tel:617-635-4175">617-635-4175</a>, or email{' '}
             <a href="mailto:registry@boston.gov">registry@boston.gov</a>. You
-            can also order a <Link href="/birth">birth</Link> or{' '}
-            <Link href="/marriage">marriage</Link> certificate online.
+            can also order a{' '}
+            <Link href="/birth">
+              <a>birth</a>
+            </Link>{' '}
+            or{' '}
+            <Link href="/marriage">
+              <a>marriage</a>
+            </Link>{' '}
+            certificate online.
           </p>
 
           <div className="m-t500 ta-c t--info">

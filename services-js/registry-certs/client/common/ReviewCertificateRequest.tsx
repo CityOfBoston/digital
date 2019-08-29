@@ -43,7 +43,7 @@ interface Props {
 @observer
 export default class ReviewCertificateRequest extends Component<Props> {
   componentDidMount() {
-    const { certificateType, siteAnalytics } = this.props;
+    const { certificateRequest, certificateType, siteAnalytics } = this.props;
 
     window.scroll(0, 0);
 
@@ -54,11 +54,20 @@ export default class ReviewCertificateRequest extends Component<Props> {
         '0',
         'Birth certificate',
         'Birth certificate',
-        this.props.certificateRequest.quantity,
+        certificateRequest.quantity,
         CERTIFICATE_COST.BIRTH / 100
       );
 
       siteAnalytics.setProductAction('detail');
+    }
+
+    // todo: temporary hack - 8/24 jm
+    if (certificateType === 'marriage') {
+      if (!certificateRequest.requestInformation.dateOfMarriageExact) {
+        certificateRequest.answerQuestion({
+          dateOfMarriageExact: new Date(1870, 0, 1),
+        });
+      }
     }
   }
 
