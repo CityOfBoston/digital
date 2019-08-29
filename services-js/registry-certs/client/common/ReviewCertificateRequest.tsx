@@ -169,15 +169,20 @@ export default class ReviewCertificateRequest extends Component<Props> {
                 {capitalize(certificateType)} Certificate (Certified paper copy)
               </span>
 
-              {certificateRequest.dateString ? (
-                <span>
-                  {certificateType === 'birth' &&
-                    `Born: ${certificateRequest.dateString}`}
-                  {certificateType === 'marriage' &&
-                    `Date: ${certificateRequest.dateString}`}
-                </span>
-              ) : (
-                <></>
+              {/* todo: revert later - 8/29 jm */}
+              {/*{certificateRequest.dateString ? (*/}
+              {/*  <span>*/}
+              {/*    {certificateType === 'birth' &&*/}
+              {/*      `Born: ${certificateRequest.dateString}`}*/}
+              {/*    {certificateType === 'marriage' &&*/}
+              {/*      `Date: ${certificateRequest.dateString}`}*/}
+              {/*  </span>*/}
+              {/*) : (*/}
+              {/*  <></>*/}
+              {/*)}*/}
+
+              {certificateRequest.dateString && certificateType === 'birth' && (
+                <span>Born: {certificateRequest.dateString}</span>
               )}
             </div>
           </div>
