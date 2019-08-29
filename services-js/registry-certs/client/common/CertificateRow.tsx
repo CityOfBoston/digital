@@ -173,11 +173,22 @@ function birthRequestProps(request): CertificateProps {
 }
 
 function marriageRequestProps(request): CertificateProps {
-  const { fullNames, dateString } = request;
+  const {
+    fullNames,
+    // dateString
+  } = request;
+
+  // todo: temporary hack - 8/29 jm
+  // return {
+  //   fullNames,
+  //   subinfo: `Married: ${dateString}`,
+  //   pending: false,
+  //   type: 'marriage',
+  // };
 
   return {
     fullNames,
-    subinfo: `Married: ${dateString}`,
+    subinfo: '',
     pending: false,
     type: 'marriage',
   };

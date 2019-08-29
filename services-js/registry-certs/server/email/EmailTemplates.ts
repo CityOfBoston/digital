@@ -197,11 +197,12 @@ export class EmailTemplates {
         registryEmail,
         subtotal: null,
 
+        // todo: provide enhanced information for marriage orders
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Certified ${orderType} certificate for ${name} ${
-            orderType === 'birth' ? dateString(date) : ''
+          description: `Certified ${orderType} certificate ${
+            orderType === 'birth' ? `for ${name} ${dateString(date)}` : ''
           }`,
         })),
 
