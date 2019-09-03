@@ -16671,8 +16671,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                      Certificate (Certified paper copy)
                   </span>
                   <span>
-                    Born: 
-                    3/1/1968
+                    Born: 3/1/1968
                   </span>
                 </div>
               </div>
@@ -46098,8 +46097,7 @@ exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
            Certificate (Certified paper copy)
         </span>
         <span>
-          Born: 
-          3/1/1968
+          Born: 3/1/1968
         </span>
       </div>
     </div>
@@ -46544,6 +46542,9 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
         <span>
           Marriage
            Certificate (Certified paper copy)
+        </span>
+        <span>
+          Date: 6/10/2015
         </span>
       </div>
     </div>
@@ -79423,6 +79424,9 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                   <span>
                     Marriage
                      Certificate (Certified paper copy)
+                  </span>
+                  <span>
+                    Date: 6/10/2015
                   </span>
                 </div>
               </div>

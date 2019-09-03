@@ -558,7 +558,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         certificateMaidenName2: item.maidenName2,
         certificateAltSpellings1: item.altSpellings1,
         certificateAltSpellings2: item.altSpellings2,
-        dateOfMarriageExact: new Date(item.dateOfMarriageExact),
+        dateOfMarriageExact: item.dateOfMarriageExact,
         dateOfMarriageUnsure: item.dateOfMarriageUnsure,
         requestDetails: item.requestDetails,
         customerNotes: item.customerNotes,

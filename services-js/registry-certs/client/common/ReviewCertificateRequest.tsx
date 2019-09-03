@@ -60,15 +60,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
 
       siteAnalytics.setProductAction('detail');
     }
-
-    // todo: temporary hack - 8/24 jm
-    if (certificateType === 'marriage') {
-      if (!certificateRequest.requestInformation.dateOfMarriageExact) {
-        certificateRequest.answerQuestion({
-          dateOfMarriageExact: new Date(1870, 0, 1),
-        });
-      }
-    }
   }
 
   private handleQuantityChange = (value: number | null) => {
@@ -169,20 +160,15 @@ export default class ReviewCertificateRequest extends Component<Props> {
                 {capitalize(certificateType)} Certificate (Certified paper copy)
               </span>
 
-              {/* todo: revert later - 8/29 jm */}
-              {/*{certificateRequest.dateString ? (*/}
-              {/*  <span>*/}
-              {/*    {certificateType === 'birth' &&*/}
-              {/*      `Born: ${certificateRequest.dateString}`}*/}
-              {/*    {certificateType === 'marriage' &&*/}
-              {/*      `Date: ${certificateRequest.dateString}`}*/}
-              {/*  </span>*/}
-              {/*) : (*/}
-              {/*  <></>*/}
-              {/*)}*/}
-
-              {certificateRequest.dateString && certificateType === 'birth' && (
-                <span>Born: {certificateRequest.dateString}</span>
+              {certificateRequest.dateString ? (
+                <span>
+                  {certificateType === 'birth' &&
+                    `Born: ${certificateRequest.dateString}`}
+                  {certificateType === 'marriage' &&
+                    `Date: ${certificateRequest.dateString}`}
+                </span>
+              ) : (
+                <></>
               )}
             </div>
           </div>

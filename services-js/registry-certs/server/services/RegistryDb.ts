@@ -151,7 +151,7 @@ export interface MarriageCertificateRequestArgs {
   certificateMaidenName2: string;
   certificateAltSpellings1: string;
   certificateAltSpellings2: string;
-  dateOfMarriageExact: Date;
+  dateOfMarriageExact: string;
   dateOfMarriageUnsure: string;
   requestDetails: string;
   customerNotes: string;
@@ -442,12 +442,12 @@ export default class RegistryDb {
       .input('certificateMaidenName2', certificateMaidenName2)
       .input('certificateAltSpellings1', certificateAltSpellings1)
       .input('certificateAltSpellings2', certificateAltSpellings2)
-      // .input(
-      //   dateOfMarriageExact ? 'dateOfMarriageExact' : 'dateOfMarriageUnsure',
-      //   dateOfMarriageExact ? dateOfMarriageExact : dateOfMarriageUnsure
-      // )
-      .input('dateOfMarriageExact', dateOfMarriageExact)
-      .input('dateOfMarriageUnsure', dateOfMarriageUnsure)
+      .input(
+        dateOfMarriageExact ? 'dateOfMarriageExact' : 'dateOfMarriageUnsure',
+        dateOfMarriageExact
+          ? new Date(dateOfMarriageExact)
+          : dateOfMarriageUnsure
+      )
       .input('requestDetails', requestDetails)
       .input('quantity', quantity)
       .input('unitCost', `$${certificateCost.toFixed(2)}`)
