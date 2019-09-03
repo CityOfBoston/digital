@@ -192,7 +192,8 @@ export default class CheckoutDao {
 
       let orderResult:
         | DeathCertificateOrderResult
-        | BirthCertificateOrderResult;
+        | BirthCertificateOrderResult
+        | MarriageCertificateOrderResult;
 
       try {
         orderResult = await orderPromise;
