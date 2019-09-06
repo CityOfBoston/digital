@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "@cityofboston/config-babel/node",
+    "@cityofboston/config-babel/typescript"
+  ],
+  "plugins": [
+    [
+      "inline-import"
+    ]
+  ]
+}
