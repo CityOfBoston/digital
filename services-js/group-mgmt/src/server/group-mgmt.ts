@@ -3,8 +3,26 @@
 import { Server as HapiServer } from 'hapi';
 import cleanup from 'node-cleanup';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
+import ldap from 'ldapjs';
 
 const port = parseInt(process.env.PORT || '7000', 10);
+
+// Access-Boston Active Directory(LDAP) Lookup
+// const ldapConfig = {
+//   url: 'ldap://localhost:388',
+//   baseDn: 'dc=boston,dc=cob',
+//   bindDn: 'cn=',
+//   scope: 'sub',
+//   passw: 'GoodNewsEveryone',
+// };
+const ldapConfig = {
+  url: 'ldap://zdvds01.cityhall.boston.cob:2389',
+  baseDn: 'dc=boston,dc=cob',
+  bindDn: 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev',
+  scope: 'sub',
+  passw: '5!9ySn9gDN',
+};
+const ldapClient = ldap.createClient({ url: ldapConfig.url });
 
 export async function makeServer() {
   const serverOptions = {
@@ -17,6 +35,80 @@ export async function makeServer() {
   // Returns an async shutdown method.
   const startup = async () => {
     return async () => {};
+  };
+
+  const bindLdapClient = () => {
+    if (ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev') {
+      console.log('LDAP Bind (Start)');
+
+      ldapClient.bind(ldapConfig.bindDn, ldapConfig.passw, function(err) {
+        if (err) {
+          console.log('ldapClient.bind err: ', err);
+        } else {
+          console.log('LDAP Bind (Complete)!');
+        }
+      });
+    }
+  };
+
+  // const unBindLdapClient = () => {
+  //   if (ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev') {
+  //     ldapClient.unbind(function(err) {
+  //       if (err) {
+  //         console.log('(LDAP) Client Unbind Error: ', err);
+  //       }
+  //       console.log('Connection Closed: LDAP Client');
+  //     });
+  //   }
+  // };
+
+  const promise_ldapSearch = (err, res) => {
+    if (err) {
+      console.log('[err]: ', err);
+    }
+
+    return new Promise((resolve, reject) => {
+      const entries: object[] = Array();
+      res.on('searchEntry', entry => {
+        const currEntry = entry.object || {};
+        entries.push(currEntry);
+      });
+
+      res.on('error', err => {
+        console.error('error: ' + err.message);
+        reject();
+      });
+
+      res.on('end', () => {
+        resolve(entries);
+        // unBindLdapClient();
+      });
+    });
+  };
+
+  const searchWrapper = (attributes = [], filter, scope = 'sub') => {
+    const results = new Promise(function(resolve) {
+      bindLdapClient();
+
+      ldapClient.search(
+        ldapConfig.baseDn,
+        {
+          filter: filter || '(objectClass=groupOfUniqueNames)',
+          scope: scope || 'sub',
+          attributes: attributes || [],
+          // paged: true,
+          // sizeLimit: 10,
+        },
+        function(err, res) {
+          if (err) {
+            console.log('ldapsearch error: ', err);
+          }
+          resolve(promise_ldapSearch(err, res));
+        }
+      );
+    });
+
+    return results;
   };
 
   try {
@@ -37,6 +129,116 @@ export async function makeServer() {
       options: {
         // mark this as a health check so that it doesn’t get logged
         tags: ['health'],
+      },
+    });
+
+    // method: GET | url: /access-boston
+    server.route({
+      method: 'GET',
+      path: '/access-boston',
+      handler: () => {
+        return 'Access-Boston Title';
+      },
+    });
+
+    // method: GET | url: /access-boston/api
+    server.route({
+      method: 'GET',
+      path: '/access-boston/api',
+      handler: () => {
+        return 'Access-Boston > API Title';
+      },
+    });
+
+    // method: GET | url: /access-boston/api/v1
+    server.route({
+      method: 'GET',
+      path: '/access-boston/api/v1',
+      handler: () => {
+        return 'Access-Boston > API > v1 Title';
+      },
+    });
+
+    // method: GET | url: /access-boston/api/v1/group/id
+    server.route({
+      method: 'POST',
+      path: '/access-boston/api/v1/group/id',
+      handler: async request => {
+        const query = request.url.query || { query: { cn: '' } };
+        const group = searchWrapper([], `(cn=${query['cn']})`);
+        // console.log('url: /access-boston/api/v1/group/id | request > query: ', query);
+
+        return group;
+      },
+    });
+
+    // method: PATCH | url: /access-boston/api/v1/group/update/id
+    server.route({
+      method: 'PATCH',
+      path: '/access-boston/api/v1/group/update/id',
+      handler: async request => {
+        const changeOpts = new ldap.Change({
+          operation: request.payload['operation'],
+          modification: {
+            uniqueMember: [request.payload['uniqueMember']],
+          },
+        });
+
+        bindLdapClient();
+        ldapClient.modify(request.payload['dn'], changeOpts, function() {});
+
+        return 200;
+      },
+    });
+
+    // ------------------------------------
+
+    // method: GET | url: /access-boston/api/v1/person/id
+    server.route({
+      method: 'POST',
+      path: '/access-boston/api/v1/person/id',
+      handler: async request => {
+        const query = request.url.query || { cn: '' };
+        const group = searchWrapper([], `(cn=${query['cn']})`);
+        // console.log('url: /access-boston/api/v1/person/id | request > query: ', query);
+
+        return group;
+      },
+    });
+
+    // method: GET | url: /access-boston/api/v1/person
+    server.route({
+      method: 'POST',
+      path: '/access-boston/api/v1/person',
+      handler: async request => {
+        const query = request.url.query || { cn: '' };
+        const group = searchWrapper([], `(cn=${query['cn']}*)`);
+
+        return group;
+      },
+    });
+
+    // method: GET | url: /manage-groups/search/groups
+    server.route({
+      method: 'POST',
+      path: '/manage-groups/search/groups',
+      handler: async request => {
+        const attrs = request.payload['attributes'];
+        const attrArr =
+          typeof attrs !== 'undefined'
+            ? attrs
+                .trim()
+                .replace(/\s+/g, '')
+                .replace(/'/g, '')
+                .replace(/"/g, '')
+                .split(',')
+            : [];
+
+        return searchWrapper(
+          attrArr,
+          request.payload['filter'],
+          request.payload['scope']
+        );
       },
     });
   } catch (err) {
