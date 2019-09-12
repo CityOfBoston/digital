@@ -19,10 +19,34 @@ const ldapConfig = {
   url: 'ldap://zdvds01.cityhall.boston.cob:2389',
   baseDn: 'dc=boston,dc=cob',
   bindDn: 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev',
+  userDn: 'cn=svc_groupmgmt,cn=Users,dc=boston,cn=cob',
   scope: 'sub',
   passw: '5!9ySn9gDN',
 };
 const ldapClient = ldap.createClient({ url: ldapConfig.url });
+
+// interface SamlLogoutRequestAssertion {
+//   response_header: SamlResponseHeader;
+//   type: 'logout_request';
+//   issuer: string;
+//   name_id: string;
+//   session_index: string;
+// }
+
+interface Group {
+  dn?: string;
+  controls?: Array<[]>;
+  uniquemember?: Array<[string]>;
+  owner?: Array<[string]>;
+  actualdn?: string;
+  entrydn?: string;
+  objectclass?: Array<[String]>;
+  modifyTimestamp?: string;
+  modifiersName?: string;
+  createTimestamp?: string;
+  cn?: string;
+  creatorsName?: string;
+}
 
 export async function makeServer() {
   const serverOptions = {
@@ -53,12 +77,16 @@ export async function makeServer() {
 
   // const unBindLdapClient = () => {
   //   if (ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev') {
+  //     console.log('unBindLdapClient START');
+
   //     ldapClient.unbind(function(err) {
   //       if (err) {
   //         console.log('(LDAP) Client Unbind Error: ', err);
   //       }
   //       console.log('Connection Closed: LDAP Client');
   //     });
+
+  //     console.log('unBindLdapClient END');
   //   }
   // };
 
@@ -80,38 +108,132 @@ export async function makeServer() {
       });
 
       res.on('end', () => {
+        console.log('entries.length: ', entries.length, '\n -------------- \n');
         resolve(entries);
-        // unBindLdapClient();
       });
     });
   };
 
-  const searchWrapper = (attributes = [], filter, scope = 'sub') => {
+  const filters = {
+    groups: {
+      default: '(objectClass=groupOfUniqueNames)',
+    },
+    person: {
+      default: {
+        pre: '(&(objectClass=organizationalPerson)(cn=',
+        post: '*))',
+      },
+      displayName: {
+        pre: '(&(objectClass=organizationalPerson)(displayName=',
+        post: '*))',
+      }, // (&(objectClass=organizationalPerson)(displayName=qui*))
+    },
+  };
+
+  const attributes = {
+    default: ['dn', 'cn'],
+    all: [],
+  };
+
+  const setAttributes = (attr = ['']) => {
+    const attrSet: Array<string> = [];
+    const group_model: Group = {
+      dn: '',
+      controls: [],
+      uniquemember: [],
+      owner: [],
+      actualdn: '',
+      entrydn: '',
+      objectclass: [],
+      modifyTimestamp: '',
+      modifiersName: '',
+      createTimestamp: '',
+      cn: '',
+      creatorsName: '',
+    };
+    const modelKeys = Object.keys(group_model);
+
+    attr.forEach(element => {
+      if (modelKeys.indexOf(element) > -1) {
+        attrSet.push(element);
+      }
+    });
+
+    if (attrSet.length > 0) {
+      return attrSet;
+    }
+
+    // Custom Attributes
+    switch (attr[0]) {
+      case 'all':
+        return attributes.all;
+      default:
+        return attributes.default;
+    }
+  };
+
+  const setFilter = filterStr => {
+    switch (filterStr) {
+      default:
+        return filters.groups.default;
+    }
+  };
+
+  const searchWrapper = (
+    attributes = ['dn,cn'],
+    filter = '',
+    scope = 'sub'
+  ) => {
+    const thisAttributes =
+      typeof attributes === 'object' && attributes.length > 1
+        ? attributes
+        : setAttributes(attributes);
     const results = new Promise(function(resolve) {
       bindLdapClient();
+      const filterQryParams = {
+        scope: scope || 'sub',
+        attributes: thisAttributes,
+        filter:
+          typeof filter === undefined || filter.length === 0
+            ? setFilter(filter)
+            : filter,
+      };
 
-      ldapClient.search(
-        ldapConfig.baseDn,
-        {
-          filter: filter || '(objectClass=groupOfUniqueNames)',
-          scope: scope || 'sub',
-          attributes: attributes || [],
-          // paged: true,
-          // sizeLimit: 10,
-        },
-        function(err, res) {
-          if (err) {
-            console.log('ldapsearch error: ', err);
-          }
-          resolve(promise_ldapSearch(err, res));
+      ldapClient.search(ldapConfig.baseDn, filterQryParams, function(err, res) {
+        if (err) {
+          console.log('ldapsearch error: ', err);
         }
-      );
+        resolve(promise_ldapSearch(err, res));
+      });
     });
 
     return results;
   };
 
   try {
+    // method: GET | url: /access-boston/api/v1/groups
+    server.route({
+      method: 'POST',
+      path: '/access-boston/api/v1/groups',
+      handler: async request => {
+        const query = request.url.query
+          ? request.url.query
+          : { attributes: [] };
+        const attrs = query['attributes'];
+        const attrArr =
+          typeof attrs !== 'undefined'
+            ? attrs
+                .trim()
+                .replace(/\s+/g, '')
+                .replace(/'/g, '')
+                .replace(/"/g, '')
+                .split(',')
+            : [];
+        const group = searchWrapper(attrArr);
+        return group;
+      },
+    });
+
     // method: GET | url: /
     server.route({
       method: 'GET',
@@ -184,7 +306,6 @@ export async function makeServer() {
           },
         });
 
-        bindLdapClient();
         ldapClient.modify(request.payload['dn'], changeOpts, function() {});
 
         return 200;
@@ -200,8 +321,6 @@ export async function makeServer() {
       handler: async request => {
         const query = request.url.query || { cn: '' };
         const group = searchWrapper([], `(cn=${query['cn']})`);
-        // console.log('url: /access-boston/api/v1/person/id | request > query: ', query);
-
         return group;
       },
     });
@@ -213,32 +332,7 @@ export async function makeServer() {
       handler: async request => {
         const query = request.url.query || { cn: '' };
         const group = searchWrapper([], `(cn=${query['cn']}*)`);
-
         return group;
-      },
-    });
-
-    // method: GET | url: /manage-groups/search/groups
-    server.route({
-      method: 'POST',
-      path: '/manage-groups/search/groups',
-      handler: async request => {
-        const attrs = request.payload['attributes'];
-        const attrArr =
-          typeof attrs !== 'undefined'
-            ? attrs
-                .trim()
-                .replace(/\s+/g, '')
-                .replace(/'/g, '')
-                .replace(/"/g, '')
-                .split(',')
-            : [];
-
-        return searchWrapper(
-          attrArr,
-          request.payload['filter'],
-          request.payload['scope']
-        );
       },
     });
   } catch (err) {
