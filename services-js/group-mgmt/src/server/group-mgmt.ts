@@ -4,49 +4,28 @@ import { Server as HapiServer } from 'hapi';
 import cleanup from 'node-cleanup';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import ldap from 'ldapjs';
+import { Group, Person, FilterOptions } from './interfaces/ldap';
+import { type } from 'os';
 
 const port = parseInt(process.env.PORT || '7000', 10);
 
 // Access-Boston Active Directory(LDAP) Lookup
-// const ldapConfig = {
-//   url: 'ldap://localhost:388',
-//   baseDn: 'dc=boston,dc=cob',
-//   bindDn: 'cn=',
-//   scope: 'sub',
-//   passw: 'GoodNewsEveryone',
-// };
 const ldapConfig = {
-  url: 'ldap://zdvds01.cityhall.boston.cob:2389',
+  url: 'ldap://localhost:388',
   baseDn: 'dc=boston,dc=cob',
-  bindDn: 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev',
-  userDn: 'cn=svc_groupmgmt,cn=Users,dc=boston,cn=cob',
+  bindDn: 'cn=admin,dc=boston,dc=cob',
   scope: 'sub',
-  passw: '5!9ySn9gDN',
+  passw: 'GoodNewsEveryone',
 };
+// const ldapConfig = {
+//   url: 'ldap://zdvds01.cityhall.boston.cob:2389',
+//   baseDn: 'dc=boston,dc=cob',
+//   bindDn: 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev',
+//   userDn: 'cn=svc_groupmgmt,cn=Users,dc=boston,cn=cob',
+//   scope: 'sub',
+//   passw: '5!9ySn9gDN',
+// };
 const ldapClient = ldap.createClient({ url: ldapConfig.url });
-
-// interface SamlLogoutRequestAssertion {
-//   response_header: SamlResponseHeader;
-//   type: 'logout_request';
-//   issuer: string;
-//   name_id: string;
-//   session_index: string;
-// }
-
-interface Group {
-  dn?: string;
-  controls?: Array<[]>;
-  uniquemember?: Array<[string]>;
-  owner?: Array<[string]>;
-  actualdn?: string;
-  entrydn?: string;
-  objectclass?: Array<[String]>;
-  modifyTimestamp?: string;
-  modifiersName?: string;
-  createTimestamp?: string;
-  cn?: string;
-  creatorsName?: string;
-}
 
 export async function makeServer() {
   const serverOptions = {
@@ -61,8 +40,11 @@ export async function makeServer() {
     return async () => {};
   };
 
-  const bindLdapClient = () => {
-    if (ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev') {
+  const bindLdapClient = (force: Boolean = false) => {
+    if (
+      ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev' ||
+      force
+    ) {
       console.log('LDAP Bind (Start)');
 
       ldapClient.bind(ldapConfig.bindDn, ldapConfig.passw, function(err) {
@@ -95,6 +77,8 @@ export async function makeServer() {
       console.log('[err]: ', err);
     }
 
+    console.log('promise_ldapSearch: TOP');
+
     return new Promise((resolve, reject) => {
       const entries: object[] = Array();
       res.on('searchEntry', entry => {
@@ -114,48 +98,67 @@ export async function makeServer() {
     });
   };
 
+  const groupModel: Group = {
+    dn: '',
+    controls: [],
+    uniquemember: [],
+    owner: [],
+    actualdn: '',
+    entrydn: '',
+    objectclass: [],
+    modifyTimestamp: '',
+    modifiersName: '',
+    createTimestamp: '',
+    cn: '',
+    creatorsName: '',
+  };
+
+  const personModel: Person = {
+    dn: '',
+    cn: '',
+    controls: [],
+    mail: '',
+    sn: '',
+    givenName: '',
+    displayName: '',
+  };
+
   const filters = {
     groups: {
       default: '(objectClass=groupOfUniqueNames)',
+      pre: '(&(objectClass=groupOfUniqueNames)(',
+      post: '))',
     },
     person: {
-      default: {
-        pre: '(&(objectClass=organizationalPerson)(cn=',
-        post: '*))',
-      },
-      displayName: {
-        pre: '(&(objectClass=organizationalPerson)(displayName=',
-        post: '*))',
-      }, // (&(objectClass=organizationalPerson)(displayName=qui*))
+      default: '(objectClass=organizationalPerson)',
+      pre: '(&(objectClass=organizationalPerson)(',
+      post: '*))',
     },
   };
 
-  const attributes = {
+  const customAttributes = {
     default: ['dn', 'cn'],
     all: [],
   };
 
-  const setAttributes = (attr = ['']) => {
+  const setAttributes = (attr = [''], type = 'group') => {
     const attrSet: Array<string> = [];
-    const group_model: Group = {
-      dn: '',
-      controls: [],
-      uniquemember: [],
-      owner: [],
-      actualdn: '',
-      entrydn: '',
-      objectclass: [],
-      modifyTimestamp: '',
-      modifiersName: '',
-      createTimestamp: '',
-      cn: '',
-      creatorsName: '',
-    };
-    const modelKeys = Object.keys(group_model);
-
     attr.forEach(element => {
-      if (modelKeys.indexOf(element) > -1) {
-        attrSet.push(element);
+      if (type === 'group') {
+        if (
+          Object.keys(groupModel).indexOf(element) > -1 &&
+          attrSet.indexOf(element) === -1
+        ) {
+          attrSet.push(element);
+        }
+      }
+      if (type === 'person') {
+        if (
+          Object.keys(personModel).indexOf(element) > -1 &&
+          attrSet.indexOf(element) === -1
+        ) {
+          attrSet.push(element);
+        }
       }
     });
 
@@ -166,14 +169,49 @@ export async function makeServer() {
     // Custom Attributes
     switch (attr[0]) {
       case 'all':
-        return attributes.all;
+        return customAttributes.all;
       default:
-        return attributes.default;
+        return customAttributes.default;
     }
   };
 
-  const setFilter = filterStr => {
-    switch (filterStr) {
+  const getFilterValue = (filter: FilterOptions) => {
+    const searchFilterStr = type => {
+      const objClass =
+        type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
+      return `(&(objectClass=${objClass})(|(displaname=Marie*)(sn=${
+        filter.value
+      }*)(givenname=${filter.value}*)(cn=${filter.value}*)))`;
+    };
+
+    switch (filter.filterType) {
+      case 'person':
+        if (filter.value.length === 0) {
+          return `${filters.person.default}`;
+        }
+        if (filter.field === 'search') {
+          return searchFilterStr(type);
+        }
+
+        return `${filters.person.pre}${filter.field}=${filter.value}${
+          filters.person.post
+        }`;
+      case 'group':
+        if (filter.value.length === 0) {
+          return `${filters.groups.default}`;
+        }
+        if (filter.field === 'cn') {
+          return `${filters.groups.pre}${filter.field}=${filter.value}${
+            filters.groups.post
+          }`;
+        }
+        if (filter.field === 'search') {
+          return searchFilterStr(type);
+        }
+
+        return `${filters.groups.pre}${filter.field}=${filter.value}${
+          filters.groups.post
+        }`;
       default:
         return filters.groups.default;
     }
@@ -181,23 +219,26 @@ export async function makeServer() {
 
   const searchWrapper = (
     attributes = ['dn,cn'],
-    filter = '',
-    scope = 'sub'
+    filter: FilterOptions = {
+      filterType: 'group',
+      field: '',
+      value: filters.groups.default,
+    }
   ) => {
+    const filterValue = getFilterValue(filter);
     const thisAttributes =
       typeof attributes === 'object' && attributes.length > 1
         ? attributes
-        : setAttributes(attributes);
+        : setAttributes(attributes, filter.filterType);
     const results = new Promise(function(resolve) {
       bindLdapClient();
+
       const filterQryParams = {
-        scope: scope || 'sub',
+        scope: 'sub',
         attributes: thisAttributes,
-        filter:
-          typeof filter === undefined || filter.length === 0
-            ? setFilter(filter)
-            : filter,
+        filter: filterValue,
       };
+      console.log('searchWrapper: filterQryParams ', filterQryParams);
 
       ldapClient.search(ldapConfig.baseDn, filterQryParams, function(err, res) {
         if (err) {
@@ -211,9 +252,44 @@ export async function makeServer() {
   };
 
   try {
+    // method: GET | url: /access-boston/api/v1/person
+    server.route({
+      method: 'GET',
+      path: '/access-boston/api/v1/person',
+      handler: async request => {
+        // const query = request.url.query || { cn: '' };
+        const query = request.url.query
+          ? request.url.query
+          : { attributes: [] };
+        const attrs = query['attributes'];
+        const attrArr =
+          typeof attrs !== 'undefined'
+            ? attrs
+                .trim()
+                .replace(/\s+/g, '')
+                .replace(/'/g, '')
+                .replace(/"/g, '')
+                .split(',')
+            : [];
+        const searchField = query['search']
+          ? 'search'
+          : query['displayName']
+          ? 'displayName'
+          : 'cn';
+        const filterParams: FilterOptions = {
+          filterType: 'person',
+          field: searchField,
+          value: query[searchField],
+        };
+        // console.log('filterParams: ', filterParams);
+        const person = searchWrapper(attrArr, filterParams);
+        return person;
+      },
+    });
+
     // method: GET | url: /access-boston/api/v1/groups
     server.route({
-      method: 'POST',
+      method: 'GET',
       path: '/access-boston/api/v1/groups',
       handler: async request => {
         const query = request.url.query
@@ -229,17 +305,56 @@ export async function makeServer() {
                 .replace(/"/g, '')
                 .split(',')
             : [];
-        const group = searchWrapper(attrArr);
+        const searchField = query['search'] ? 'search' : 'cn';
+        const filterParams: FilterOptions = {
+          filterType: 'group',
+          field: searchField,
+          value: query[searchField] ? query[searchField] : '',
+        };
+        console.log('query: ', query);
+        console.log('URI: /access-boston/api/v1/groups');
+        console.log('searchField: ', searchField);
+        console.log('filterParams: ', filterParams);
+
+        const group = searchWrapper(attrArr, filterParams);
+        console.log('Route:  group', ' | returning ', group);
         return group;
       },
     });
 
-    // method: GET | url: /
+    // method: PATCH | url: /access-boston/api/v1/group/update
     server.route({
-      method: 'GET',
-      path: '/',
-      handler: () => {
-        return 'Title';
+      method: 'PATCH',
+      path: '/access-boston/api/v1/group/update',
+      handler: async request => {
+        console.log('PATCH /access-boston/api/v1/group/update');
+        console.log('operation: ', request.payload['operation']);
+        console.log('uniqueMember: ', request.payload['uniqueMember']);
+        console.log('cn: ', request.payload['cn']);
+        console.log('request.payload: ', request.payload);
+
+        const changeOpts = new ldap.Change({
+          operation: request.payload['operation'],
+          modification: {
+            uniqueMember: [request.payload['uniqueMember']],
+          },
+        });
+
+        bindLdapClient(true);
+
+        ldapClient.modify(request.payload['dn'], changeOpts, () => {
+          console.log('PATCH-ing');
+          const filterParams: FilterOptions = {
+            filterType: 'group',
+            field: 'cn',
+            value: request.payload['cn'],
+          };
+          const group = searchWrapper([], filterParams);
+          console.log(group);
+          return group;
+        });
+
+        return 200;
       },
     });
 
@@ -254,87 +369,24 @@ export async function makeServer() {
       },
     });
 
-    // method: GET | url: /access-boston
-    server.route({
-      method: 'GET',
-      path: '/access-boston',
-      handler: () => {
-        return 'Access-Boston Title';
-      },
-    });
-
-    // method: GET | url: /access-boston/api
-    server.route({
-      method: 'GET',
-      path: '/access-boston/api',
-      handler: () => {
-        return 'Access-Boston > API Title';
-      },
-    });
-
-    // method: GET | url: /access-boston/api/v1
-    server.route({
-      method: 'GET',
-      path: '/access-boston/api/v1',
-      handler: () => {
-        return 'Access-Boston > API > v1 Title';
-      },
-    });
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+    // ----------------------------------------------------
 
     // method: GET | url: /access-boston/api/v1/group/id
-    server.route({
-      method: 'POST',
-      path: '/access-boston/api/v1/group/id',
-      handler: async request => {
-        const query = request.url.query || { query: { cn: '' } };
-        const group = searchWrapper([], `(cn=${query['cn']})`);
-        // console.log('url: /access-boston/api/v1/group/id | request > query: ', query);
+    // server.route({
+    //   method: 'POST',
+    //   path: '/access-boston/api/v1/group/id',
+    //   handler: async request => {
+    //     const query = request.url.query || { query: { cn: '' } };
+    //     const group = searchWrapper([], `(cn=${query['cn']})`);
+    //     // console.log('url: /access-boston/api/v1/group/id | request > query: ', query);
 
-        return group;
-      },
-    });
-
-    // method: PATCH | url: /access-boston/api/v1/group/update/id
-    server.route({
-      method: 'PATCH',
-      path: '/access-boston/api/v1/group/update/id',
-      handler: async request => {
-        const changeOpts = new ldap.Change({
-          operation: request.payload['operation'],
-          modification: {
-            uniqueMember: [request.payload['uniqueMember']],
-          },
-        });
-
-        ldapClient.modify(request.payload['dn'], changeOpts, function() {});
-
-        return 200;
-      },
-    });
-
+    //     return group;
+    //   },
+    // });
     // ------------------------------------
-
-    // method: GET | url: /access-boston/api/v1/person/id
-    server.route({
-      method: 'POST',
-      path: '/access-boston/api/v1/person/id',
-      handler: async request => {
-        const query = request.url.query || { cn: '' };
-        const group = searchWrapper([], `(cn=${query['cn']})`);
-        return group;
-      },
-    });
-
-    // method: GET | url: /access-boston/api/v1/person
-    server.route({
-      method: 'POST',
-      path: '/access-boston/api/v1/person',
-      handler: async request => {
-        const query = request.url.query || { cn: '' };
-        const group = searchWrapper([], `(cn=${query['cn']}*)`);
-        return group;
-      },
-    });
   } catch (err) {
     console.log('try/catch: err: ', err);
   }
