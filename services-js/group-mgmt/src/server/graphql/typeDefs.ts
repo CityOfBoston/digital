@@ -22,11 +22,13 @@ export const typeDefs = `
     givenName: String
     displayName: String
     uid: String
+    isMemberOf: [String]
   }
 
   type Query {
     person(cn: String): [Person]
     personSearch(term: String): [Person]
+    group(cn: String): [Group]
     groupSearch(term: String): [Group]
 	}
 	

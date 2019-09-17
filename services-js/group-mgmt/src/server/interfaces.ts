@@ -1,12 +1,32 @@
+// interface results {
+//   data?: Array<[]>;
+//   // person?: Array<[object]>;
+//   // personSearch?: Array<[object]>;
+//   // group?: Array<[object]>;
+//   // grouSearch?: Array<[object]>;
+// }
+
+interface controls {
+  controls: String;
+}
+
+interface objectclass {
+  objectclass: String;
+}
+
+interface uniquemember {
+  uniquemember: String;
+}
+
 export interface Group {
   dn?: string;
   cn?: string;
-  controls?: Array<[]>;
-  uniquemember?: Array<[string]>;
+  controls?: Array<[controls]>;
+  uniquemember?: Array<[uniquemember]>;
   owner?: Array<[string]>;
   actualdn?: string;
   entrydn?: string;
-  objectclass?: Array<[String]>;
+  objectclass?: Array<[objectclass]>;
   modifyTimestamp?: string;
   modifiersName?: string;
   createTimestamp?: string;
@@ -17,6 +37,7 @@ export interface Person {
   dn: string;
   cn: string;
   controls?: Array<[]>;
+  isMemberOf?: Array<[String]>;
   mail?: string;
   sn?: string;
   givenName?: string;

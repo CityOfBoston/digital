@@ -115,10 +115,10 @@ const setAttributes = (attr = [''], type = 'group') => {
 };
 
 const getFilterValue = (filter: FilterOptions) => {
-  const searchFilterStr = type => {
+  const searchFilterStr = (type: String) => {
     const objClass =
       type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
-    return `(&(objectClass=${objClass})(|(displaname=Marie*)(sn=${
+    return `(&(objectClass=${objClass})(|(displaname=${filter.value}*)(sn=${
       filter.value
     }*)(givenname=${filter.value}*)(cn=${filter.value}*)))`;
   };
@@ -382,6 +382,17 @@ const resolvers = {
       };
       const person = searchWrapper(['all'], filterParams);
       return await person;
+    },
+    async group() {
+      const value = arguments[1].cn;
+      const filterParams: FilterOptions = {
+        filterType: 'group',
+        field: 'cn',
+        value,
+      };
+
+      const group = searchWrapper(['all'], filterParams);
+      return await group;
     },
     async groupSearch() {
       const value = arguments[1].term;
