@@ -10,8 +10,10 @@ import { makeExecutableSchema, ApolloServer } from 'apollo-server-hapi';
 // import typeDefs from './graphql/schema';
 import ldap from 'ldapjs';
 import {
-  GroupModel,
-  PersonModel,
+  // Group,
+  Person,
+  PersonClass,
+  GroupClass,
   FilterOptions,
   LdapFilters,
   CustomAttributes,
@@ -85,7 +87,7 @@ const setAttributes = (attr = [''], type = 'group') => {
   attr.forEach(element => {
     if (type === 'group') {
       if (
-        Object.keys(GroupModel).indexOf(element) > -1 &&
+        Object.keys(new GroupClass({})).indexOf(element) > -1 &&
         attrSet.indexOf(element) === -1
       ) {
         attrSet.push(element);
@@ -93,7 +95,7 @@ const setAttributes = (attr = [''], type = 'group') => {
     }
     if (type === 'person') {
       if (
-        Object.keys(PersonModel).indexOf(element) > -1 &&
+        Object.keys(new PersonClass({})).indexOf(element) > -1 &&
         attrSet.indexOf(element) === -1
       ) {
         attrSet.push(element);
@@ -118,7 +120,7 @@ const getFilterValue = (filter: FilterOptions) => {
   const searchFilterStr = (type: String) => {
     const objClass =
       type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
-    return `(&(objectClass=${objClass})(|(displaname=${filter.value}*)(sn=${
+    return `(&(objectClass=${objClass})(|(displayName=${filter.value}*)(sn=${
       filter.value
     }*)(givenname=${filter.value}*)(cn=${filter.value}*)))`;
   };
@@ -182,7 +184,7 @@ const searchWrapper = (
     if (
       filter.filterType === 'person' &&
       filter.field === 'cn' &&
-      filter.value.length < 3
+      filter.value.length < 2
     ) {
       reject();
     }
@@ -194,6 +196,7 @@ const searchWrapper = (
       resolve(promise_ldapSearch(err, res));
     });
   });
+  console.log('searchWrapper > results: ', results);
 
   return results;
 };
@@ -372,7 +375,7 @@ const resolvers = {
       return await persons;
     },
     async person() {
-      console.log('personSearch: (cn) > ', arguments[1], arguments[1].cn);
+      // console.log('personSearch: (cn) > ', arguments[1], arguments[1].cn);
       const value = arguments[1].cn;
 
       const filterParams: FilterOptions = {
@@ -380,8 +383,11 @@ const resolvers = {
         field: 'cn',
         value,
       };
-      const person = searchWrapper(['all'], filterParams);
-      return await person;
+      const person: any = await searchWrapper(['all'], filterParams);
+      const formatted: Person = new PersonClass(person[0]);
+      // console.log('PersonClass: ', new PersonClass(person[0]));
+
+      return [formatted];
     },
     async group() {
       const value = arguments[1].cn;

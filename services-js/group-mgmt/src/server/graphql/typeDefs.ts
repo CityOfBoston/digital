@@ -2,16 +2,11 @@ export const typeDefs = `
   type Group {
     dn: String
     cn: String
-    controls: [String]
     uniquemember: [String]
     owner: [String]
     actualdn: String
     entrydn: String
     objectclass: [String]
-    modifyTimestamp: String
-    modifiersName: String
-    createTimestamp: String
-    creatorsName: String
   }
 
   type Person {
@@ -20,9 +15,11 @@ export const typeDefs = `
     mail: String
     sn: String
     givenName: String
-    displayName: String
+    displayname: String
     uid: String
     isMemberOf: [String]
+    nsAccountLock: String
+    objectclass: [String]
   }
 
   type Query {

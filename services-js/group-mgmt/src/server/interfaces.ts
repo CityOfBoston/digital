@@ -1,11 +1,3 @@
-// interface results {
-//   data?: Array<[]>;
-//   // person?: Array<[object]>;
-//   // personSearch?: Array<[object]>;
-//   // group?: Array<[object]>;
-//   // grouSearch?: Array<[object]>;
-// }
-
 interface controls {
   controls: String;
 }
@@ -27,28 +19,86 @@ export interface Group {
   actualdn?: string;
   entrydn?: string;
   objectclass?: Array<[objectclass]>;
-  modifyTimestamp?: string;
-  modifiersName?: string;
-  createTimestamp?: string;
-  creatorsName?: string;
+}
+
+export class GroupClass implements Group {
+  dn: string = '';
+  cn: string = '';
+  controls: Array<[controls]> = [];
+  uniquemember: Array<[uniquemember]> = [];
+  owner: Array<[string]> = [];
+  actualdn: string = '';
+  entrydn: string = '';
+  objectclass: Array<[objectclass]> = [];
+
+  constructor(opts: {
+    dn?: any;
+    cn?: any;
+    controls?: any;
+    uniquemember?: any;
+    owner?: any;
+    actualdn?: any;
+    entrydn?: any;
+    objectclass?: any;
+  }) {
+    (this.dn = opts.dn ? opts.dn : ''),
+      (this.cn = opts.cn ? opts.cn : ''),
+      (this.controls = opts.controls ? opts.controls : ''),
+      (this.uniquemember = opts.uniquemember ? opts.uniquemember : ''),
+      (this.owner = opts.owner ? opts.owner : ''),
+      (this.actualdn = opts.actualdn ? opts.actualdn : ''),
+      (this.entrydn = opts.entrydn ? opts.entrydn : ''),
+      (this.objectclass = opts.objectclass ? opts.objectclass : []);
+  }
 }
 
 export interface Person {
   dn: string;
   cn: string;
-  controls?: Array<[]>;
+  controls?: Array<[controls]>;
   isMemberOf?: Array<[String]>;
   mail?: string;
   sn?: string;
-  givenName?: string;
-  displayName?: string;
+  givenname?: string;
+  displayname?: string;
   uid?: any;
+  nsAccountLock?: string;
+  objectclass?: Array<[string]>;
 }
 
-export interface FilterOptions {
-  filterType: string;
-  field: string;
-  value: string;
+export class PersonClass implements Person {
+  dn: string = '';
+  cn: string = '';
+  mail: string = '';
+  sn: string = '';
+  controls: Array<[controls]> = [];
+  isMemberOf: Array<[String]> = [];
+  givenname: string = '';
+  displayname: string = '';
+  nsAccountLock: string = '';
+  objectclass: Array<[string]> = [];
+
+  constructor(opts: {
+    dn?: any;
+    cn?: any;
+    mail?: any;
+    sn?: any;
+    controls?: any;
+    givenname?: any;
+    displayname?: any;
+    nsAccountLock?: any;
+    objectclass?: any;
+  }) {
+    (this.dn = opts.dn ? opts.dn : ''),
+      (this.cn = opts.cn ? opts.cn : ''),
+      (this.mail = opts.mail ? opts.mail : ''),
+      (this.sn = opts.sn ? opts.sn : ''),
+      (this.controls = opts.controls ? opts.controls : []),
+      (this.givenname = opts.givenname ? opts.givenname : ''),
+      (this.displayname = opts.displayname ? opts.displayname : ''),
+      (this.nsAccountLock = opts.nsAccountLock ? opts.nsAccountLock : ''),
+      (this.objectclass = opts.objectclass ? opts.objectclass : []);
+  }
 }
 
 export const GroupModel: Group = {
@@ -59,22 +109,14 @@ export const GroupModel: Group = {
   actualdn: '',
   entrydn: '',
   objectclass: [],
-  modifyTimestamp: '',
-  modifiersName: '',
-  createTimestamp: '',
   cn: '',
-  creatorsName: '',
 };
 
-export const PersonModel: Person = {
-  dn: '',
-  cn: '',
-  controls: [],
-  mail: '',
-  sn: '',
-  givenName: '',
-  displayName: '',
-};
+export interface FilterOptions {
+  filterType: string;
+  field: string;
+  value: string;
+}
 
 export const LdapFilters = {
   groups: {
@@ -102,8 +144,8 @@ objectClass: person
 objectClass: top
 mail: zidane.tribal@boston.gov
 sn: Tribal
-givenName: Zidane
-displayName: Zidane Tribal
+givenname: Zidane
+displayname: Zidane Tribal
 cn: 143523
 uid: 143523
 */
@@ -128,8 +170,8 @@ uid: 143523
 //   "employeeType": "Full-Time",
 //   "mail": "freya.crescent@boston.gov",
 //   "sn": "Crescent",
-//   "givenName": "Freya",
-//   "displayName": "Freya Crescent",
+//   "givenname": "Freya",
+//   "displayname": "Freya Crescent",
 //   "cn": "Freya Crescent",
 //   "uid": "Freya Crescent"
 // }
