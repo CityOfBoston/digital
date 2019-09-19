@@ -19,6 +19,7 @@ export const typeDefs = `
     uid: String
     isMemberOf: [String]
     nsAccountLock: String
+    inactive: Boolean
     objectclass: [String]
   }
 

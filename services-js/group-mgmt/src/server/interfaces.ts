@@ -62,6 +62,7 @@ export interface Person {
   givenname?: string;
   displayname?: string;
   uid?: any;
+  inactive?: Boolean;
   nsAccountLock?: string;
   objectclass?: Array<[string]>;
 }
@@ -75,6 +76,7 @@ export class PersonClass implements Person {
   isMemberOf: Array<[String]> = [];
   givenname: string = '';
   displayname: string = '';
+  inactive: Boolean = false;
   nsAccountLock: string = '';
   objectclass: Array<[string]> = [];
 
@@ -86,9 +88,27 @@ export class PersonClass implements Person {
     controls?: any;
     givenname?: any;
     displayname?: any;
+    inactive?: any;
     nsAccountLock?: any;
     objectclass?: any;
   }) {
+    const returnBool = (val: string = 'FALSE') => {
+      switch (val.toLocaleLowerCase()) {
+        case 'true':
+          return true;
+        case 'false':
+          return false;
+        default:
+          return false;
+      }
+    };
+    const convertToBool = (val: any, base: Boolean = true) => {
+      let retVal: Boolean = returnBool(val);
+      if (base && typeof base === 'boolean' && val === null) {
+        retVal = base;
+      }
+      return retVal;
+    };
     (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.mail = opts.mail ? opts.mail : ''),
@@ -96,7 +116,7 @@ export class PersonClass implements Person {
       (this.controls = opts.controls ? opts.controls : []),
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
-      (this.nsAccountLock = opts.nsAccountLock ? opts.nsAccountLock : ''),
+      (this.inactive = convertToBool(opts.nsAccountLock, false)),
       (this.objectclass = opts.objectclass ? opts.objectclass : []);
   }
 }

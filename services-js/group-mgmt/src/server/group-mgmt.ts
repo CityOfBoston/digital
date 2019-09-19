@@ -10,8 +10,8 @@ import { makeExecutableSchema, ApolloServer } from 'apollo-server-hapi';
 // import typeDefs from './graphql/schema';
 import ldap from 'ldapjs';
 import {
-  // Group,
   Person,
+  Group,
   PersonClass,
   GroupClass,
   FilterOptions,
@@ -67,7 +67,22 @@ const promise_ldapSearch = (err, res) => {
     const entries: object[] = Array();
     res.on('searchEntry', entry => {
       const currEntry = entry.object || {};
-      entries.push(currEntry);
+
+      if (currEntry.objectClass.indexOf('organizationalPerson') > -1) {
+        console.log('currEntry.cn (Person): ', currEntry);
+        const Person: Person = new PersonClass(currEntry);
+        entries.push(Person);
+      }
+      if (currEntry.objectClass.indexOf('groupOfUniqueNames') > -1) {
+        console.log('currEntry.cn (Group): ', currEntry);
+        const Group: Group = new GroupClass(currEntry);
+        entries.push(Group);
+      }
+
+      // const type = currEntry.objectClass.indexOf('organizationalPerson') > -1 || currEntry.objectClass.indexOf('groupOfUniqueNames') > -1;
+      // console.log('organizationalPerson: ', currEntry.cn, ' | ', currEntry.objectClass.indexOf('organizationalPerson'));
+      // console.log('type: ', type, '\n --------------');
+      // entries.push(currEntry);
     });
 
     res.on('error', err => {
@@ -77,6 +92,8 @@ const promise_ldapSearch = (err, res) => {
 
     res.on('end', () => {
       console.log('entries.length: ', entries.length, '\n -------------- \n');
+      // const Person: Person = new PersonClass(person[0]);
+      // console.log('entries: ', typeof entries/*, persons.length*/, entries, '\n ---- \n');
       resolve(entries);
     });
   });
@@ -371,8 +388,17 @@ const resolvers = {
         field: 'search',
         value: term,
       };
-      const persons = searchWrapper(['all'], filterParams);
-      return await persons;
+      const persons = await searchWrapper(['all'], filterParams);
+      console.log('persons: ', persons, '\n ----');
+      // console.log('PERSONs: ', typeof persons/*, persons.length*/, persons, '\n ---- \n');
+
+      // const results: Array<[]> = persons.map(person => {
+      //   const Person: Person = new PersonClass(person[0]);
+      //   return Person;
+      // });
+      // console.log('results: ', results);
+
+      return persons;
     },
     async person() {
       // console.log('personSearch: (cn) > ', arguments[1], arguments[1].cn);
@@ -384,10 +410,12 @@ const resolvers = {
         value,
       };
       const person: any = await searchWrapper(['all'], filterParams);
-      const formatted: Person = new PersonClass(person[0]);
+      // const Person: Person = new PersonClass(person[0]);
       // console.log('PersonClass: ', new PersonClass(person[0]));
-
-      return [formatted];
+      // console.log('person[0].nsAccountLock: ', person[0].nsAccountLock);
+      // console.log('Person: ', Person, '\n ----');
+      // return [Person];
+      return person;
     },
     async group() {
       const value = arguments[1].cn;
