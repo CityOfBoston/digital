@@ -1,24 +1,39 @@
+import {
+  renameObjectKeys,
+  convertToBool,
+  remapObjKeys,
+  convertOptionalArray,
+} from '../lib/helpers';
+
 interface controls {
   controls: String;
-}
-
-interface objectclass {
-  objectclass: String;
 }
 
 interface uniquemember {
   uniquemember: String;
 }
 
+interface objectclass {
+  objectclass: String;
+}
+
+export class objectClassArray {
+  objectclass: Array<[objectclass]> = [];
+  constructor(opts: any) {
+    this.objectclass = opts;
+  }
+}
+
 export interface Group {
   dn?: string;
   cn?: string;
   controls?: Array<[controls]>;
-  uniquemember?: Array<[uniquemember]>;
+  uniquemember: Array<[uniquemember]> | [string];
   owner?: Array<[string]>;
   actualdn?: string;
   entrydn?: string;
   objectclass?: Array<[objectclass]>;
+  displayname?: string;
 }
 
 export class GroupClass implements Group {
@@ -29,7 +44,8 @@ export class GroupClass implements Group {
   owner: Array<[string]> = [];
   actualdn: string = '';
   entrydn: string = '';
-  objectclass: Array<[objectclass]> = [];
+  objectclass?: Array<[objectclass]> = [];
+  displayname?: string = '';
 
   constructor(opts: {
     dn?: any;
@@ -40,15 +56,28 @@ export class GroupClass implements Group {
     actualdn?: any;
     entrydn?: any;
     objectclass?: any;
+    displayname?: any;
   }) {
+    opts = renameObjectKeys(remapObjKeys(this, opts), opts);
+    // console.log('opts: ', opts);
+    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
+    const members = convertOptionalArray(
+      opts.uniquemember ? opts.uniquemember : []
+    );
+    const owner = convertOptionalArray(opts.owner ? opts.owner : []);
+    const objectclass = convertOptionalArray(
+      opts.objectclass ? opts.objectclass : []
+    );
+
     (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
-      (this.controls = opts.controls ? opts.controls : ''),
-      (this.uniquemember = opts.uniquemember ? opts.uniquemember : ''),
-      (this.owner = opts.owner ? opts.owner : ''),
+      (this.controls = controls),
+      (this.uniquemember = members),
+      (this.owner = owner),
       (this.actualdn = opts.actualdn ? opts.actualdn : ''),
       (this.entrydn = opts.entrydn ? opts.entrydn : ''),
-      (this.objectclass = opts.objectclass ? opts.objectclass : []);
+      (this.displayname = opts.displayname ? opts.displayname : ''),
+      (this.objectclass = objectclass);
   }
 }
 
@@ -56,14 +85,14 @@ export interface Person {
   dn: string;
   cn: string;
   controls?: Array<[controls]>;
-  isMemberOf?: Array<[String]>;
+  ismemberof?: Array<[String]>;
   mail?: string;
   sn?: string;
   givenname?: string;
   displayname?: string;
   uid?: any;
   inactive?: Boolean;
-  nsAccountLock?: string;
+  nsaccountlock?: string;
   objectclass?: Array<[string]>;
 }
 
@@ -73,11 +102,11 @@ export class PersonClass implements Person {
   mail: string = '';
   sn: string = '';
   controls: Array<[controls]> = [];
-  isMemberOf: Array<[String]> = [];
+  ismemberof: Array<[String]> = [];
   givenname: string = '';
   displayname: string = '';
   inactive: Boolean = false;
-  nsAccountLock: string = '';
+  nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
 
   constructor(opts: {
@@ -86,38 +115,32 @@ export class PersonClass implements Person {
     mail?: any;
     sn?: any;
     controls?: any;
+    ismemberof?: any;
     givenname?: any;
     displayname?: any;
     inactive?: any;
     nsAccountLock?: any;
     objectclass?: any;
   }) {
-    const returnBool = (val: string = 'FALSE') => {
-      switch (val.toLocaleLowerCase()) {
-        case 'true':
-          return true;
-        case 'false':
-          return false;
-        default:
-          return false;
-      }
-    };
-    const convertToBool = (val: any, base: Boolean = true) => {
-      let retVal: Boolean = returnBool(val);
-      if (base && typeof base === 'boolean' && val === null) {
-        retVal = base;
-      }
-      return retVal;
-    };
+    opts = renameObjectKeys(remapObjKeys(this, opts), opts);
+    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
+    const ismemberof = convertOptionalArray(
+      opts.ismemberof ? opts.ismemberof : []
+    );
+    const objectclass = convertOptionalArray(
+      opts.objectclass ? opts.objectclass : []
+    );
+
     (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.mail = opts.mail ? opts.mail : ''),
       (this.sn = opts.sn ? opts.sn : ''),
-      (this.controls = opts.controls ? opts.controls : []),
+      (this.controls = controls),
+      (this.ismemberof = ismemberof),
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.inactive = convertToBool(opts.nsAccountLock, false)),
-      (this.objectclass = opts.objectclass ? opts.objectclass : []);
+      (this.objectclass = objectclass);
   }
 }
 
@@ -130,6 +153,7 @@ export const GroupModel: Group = {
   entrydn: '',
   objectclass: [],
   cn: '',
+  displayname: '',
 };
 
 export interface FilterOptions {
@@ -155,43 +179,3 @@ export const CustomAttributes = {
   default: ['dn', 'cn'],
   all: [],
 };
-
-/*
-dn: cn=143523,cn=Internal Users,dc=boston,dc=cob
-objectClass: inetOrgPerson
-objectClass: organizationalPerson
-objectClass: person
-objectClass: top
-mail: zidane.tribal@boston.gov
-sn: Tribal
-givenname: Zidane
-displayname: Zidane Tribal
-cn: 143523
-uid: 143523
-*/
-
-// interface SamlLogoutRequestAssertion {
-//   response_header: SamlResponseHeader;
-//   type: 'logout_request';
-//   issuer: string;
-//   name_id: string;
-//   session_index: string;
-// }
-
-// {
-//   "dn": "cn=Freya Crescent,cn=Internal Users,dc=boston,dc=cob",
-//   "controls": [],
-//   "objectClass": [
-//       "inetOrgPerson",
-//       "top",
-//       "organizationalPerson",
-//       "person"
-//   ],
-//   "employeeType": "Full-Time",
-//   "mail": "freya.crescent@boston.gov",
-//   "sn": "Crescent",
-//   "givenname": "Freya",
-//   "displayname": "Freya Crescent",
-//   "cn": "Freya Crescent",
-//   "uid": "Freya Crescent"
-// }

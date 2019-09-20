@@ -12,12 +12,14 @@ import ldap from 'ldapjs';
 import {
   Person,
   Group,
+  objectClassArray,
   PersonClass,
   GroupClass,
   FilterOptions,
   LdapFilters,
   CustomAttributes,
 } from './interfaces';
+import { renameObjectKeys, remapObjKeys } from '../lib/helpers';
 import { ldapConfig } from './ldapConfig';
 import { typeDefs } from './graphql/typeDefs';
 
@@ -56,33 +58,31 @@ const bindLdapClient = (force: Boolean = false) => {
 //   }
 // };
 
-const promise_ldapSearch = (err, res) => {
+const search_promise = (err, res) => {
   if (err) {
     console.log('[err]: ', err);
   }
 
-  console.log('promise_ldapSearch: TOP');
-
   return new Promise((resolve, reject) => {
     const entries: object[] = Array();
+    const refInstance = new objectClassArray({});
     res.on('searchEntry', entry => {
-      const currEntry = entry.object || {};
+      let currEntry = entry.object || {};
+      currEntry = renameObjectKeys(
+        remapObjKeys(refInstance, currEntry),
+        currEntry
+      );
 
-      if (currEntry.objectClass.indexOf('organizationalPerson') > -1) {
-        console.log('currEntry.cn (Person): ', currEntry);
+      if (currEntry.objectclass.indexOf('organizationalPerson') > -1) {
         const Person: Person = new PersonClass(currEntry);
         entries.push(Person);
       }
-      if (currEntry.objectClass.indexOf('groupOfUniqueNames') > -1) {
-        console.log('currEntry.cn (Group): ', currEntry);
+
+      if (currEntry.objectclass.indexOf('groupOfUniqueNames') > -1) {
+        console.log('entry.object: ', entry.object, '\n .........');
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
-
-      // const type = currEntry.objectClass.indexOf('organizationalPerson') > -1 || currEntry.objectClass.indexOf('groupOfUniqueNames') > -1;
-      // console.log('organizationalPerson: ', currEntry.cn, ' | ', currEntry.objectClass.indexOf('organizationalPerson'));
-      // console.log('type: ', type, '\n --------------');
-      // entries.push(currEntry);
     });
 
     res.on('error', err => {
@@ -92,8 +92,6 @@ const promise_ldapSearch = (err, res) => {
 
     res.on('end', () => {
       console.log('entries.length: ', entries.length, '\n -------------- \n');
-      // const Person: Person = new PersonClass(person[0]);
-      // console.log('entries: ', typeof entries/*, persons.length*/, entries, '\n ---- \n');
       resolve(entries);
     });
   });
@@ -196,7 +194,7 @@ const searchWrapper = (
       attributes: thisAttributes,
       filter: filterValue,
     };
-    console.log('searchWrapper: filterQryParams ', filterQryParams);
+    // console.log('searchWrapper: filterQryParams ', filterQryParams);
 
     if (
       filter.filterType === 'person' &&
@@ -210,10 +208,10 @@ const searchWrapper = (
       if (err) {
         console.log('ldapsearch error: ', err);
       }
-      resolve(promise_ldapSearch(err, res));
+      resolve(search_promise(err, res));
     });
   });
-  console.log('searchWrapper > results: ', results);
+  // console.log('searchWrapper > results: ', results);
 
   return results;
 };
@@ -390,31 +388,16 @@ const resolvers = {
       };
       const persons = await searchWrapper(['all'], filterParams);
       console.log('persons: ', persons, '\n ----');
-      // console.log('PERSONs: ', typeof persons/*, persons.length*/, persons, '\n ---- \n');
-
-      // const results: Array<[]> = persons.map(person => {
-      //   const Person: Person = new PersonClass(person[0]);
-      //   return Person;
-      // });
-      // console.log('results: ', results);
-
       return persons;
     },
     async person() {
-      // console.log('personSearch: (cn) > ', arguments[1], arguments[1].cn);
       const value = arguments[1].cn;
-
       const filterParams: FilterOptions = {
         filterType: 'person',
         field: 'cn',
         value,
       };
       const person: any = await searchWrapper(['all'], filterParams);
-      // const Person: Person = new PersonClass(person[0]);
-      // console.log('PersonClass: ', new PersonClass(person[0]));
-      // console.log('person[0].nsAccountLock: ', person[0].nsAccountLock);
-      // console.log('Person: ', Person, '\n ----');
-      // return [Person];
       return person;
     },
     async group() {
@@ -436,8 +419,8 @@ const resolvers = {
         value,
       };
 
-      const group = searchWrapper(['all'], filterParams);
-      return await group;
+      const groups = searchWrapper(['all'], filterParams);
+      return await groups;
     },
   },
   Mutation: {

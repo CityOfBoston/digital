@@ -2,11 +2,13 @@ export const typeDefs = `
   type Group {
     dn: String
     cn: String
-    uniquemember: [String]
-    owner: [String]
+    controls: [String!]!
+    uniquemember: [String!]!
+    owner: [String!]!
     actualdn: String
     entrydn: String
     objectclass: [String]
+    displayname: String
   }
 
   type Person {
@@ -14,11 +16,12 @@ export const typeDefs = `
     dn: String
     mail: String
     sn: String
-    givenName: String
+    givenname: String
     displayname: String
     uid: String
-    isMemberOf: [String]
-    nsAccountLock: String
+    controls: [String!]!
+    ismemberof: [String!]!
+    nsaccountlock: String
     inactive: Boolean
     objectclass: [String]
   }
@@ -36,7 +39,7 @@ export const typeDefs = `
 			dn: String!,
 			cn: String!, 
 			operation: String!
-			uniqueMember: String!
+			uniquemember: String!
 		): Group
   }
 
