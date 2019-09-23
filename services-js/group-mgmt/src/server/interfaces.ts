@@ -3,6 +3,7 @@ import {
   convertToBool,
   remapObjKeys,
   convertOptionalArray,
+  abstractDN,
 } from '../lib/helpers';
 
 interface controls {
@@ -59,10 +60,13 @@ export class GroupClass implements Group {
     displayname?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
-    // console.log('opts: ', opts);
     const controls = convertOptionalArray(opts.controls ? opts.controls : []);
+    const getOnlyActiveMembers = (arr: any) => {
+      const parsedCn = arr.map((str: String) => abstractDN(str)['cn']);
+      return parsedCn;
+    };
     const members = convertOptionalArray(
-      opts.uniquemember ? opts.uniquemember : []
+      opts.uniquemember ? getOnlyActiveMembers(opts.uniquemember) : []
     );
     const owner = convertOptionalArray(opts.owner ? opts.owner : []);
     const objectclass = convertOptionalArray(
@@ -160,6 +164,7 @@ export interface FilterOptions {
   filterType: string;
   field: string;
   value: string;
+  allowInactive: boolean;
 }
 
 export const LdapFilters = {
@@ -170,7 +175,9 @@ export const LdapFilters = {
   },
   person: {
     default: '(objectClass=organizationalPerson)',
+    // pre: '(&(objectClass=organizationalPerson)(',
     pre: '(&(objectClass=organizationalPerson)(',
+    inactive: '|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(',
     post: '*))',
   },
 };

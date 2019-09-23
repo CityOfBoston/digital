@@ -40,3 +40,28 @@ export const remapObjKeys = (sourceObj, targetObj) => {
 
   return keyMapObj;
 };
+
+export const abstractDN = (dn: String = '') => {
+  let dnObj = {};
+  // console.log('abstractDN > dn: ', dn);
+  const spt = dn
+    .trim()
+    .replace(/, /gim, ',')
+    .split(',');
+
+  spt.forEach(elem => {
+    if (elem.indexOf('=') > -1) {
+      const keyValArr = elem.split('=');
+
+      if (keyValArr.length === 2) {
+        const key = keyValArr[0].toLowerCase();
+        const val = keyValArr[1];
+        if (Object.keys(dnObj).indexOf(key) === -1) {
+          dnObj[key] = val;
+        }
+      }
+    }
+  });
+
+  return dnObj;
+};

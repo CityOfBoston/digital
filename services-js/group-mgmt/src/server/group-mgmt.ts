@@ -31,13 +31,13 @@ const bindLdapClient = (force: Boolean = false) => {
     ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev' ||
     force
   ) {
-    console.log('LDAP Bind (Start)');
+    // console.log('LDAP Bind (Start)');
 
     ldapClient.bind(ldapConfig.bindDn, ldapConfig.passw, function(err) {
       if (err) {
         console.log('ldapClient.bind err: ', err);
       } else {
-        console.log('LDAP Bind (Complete)!');
+        // console.log('LDAP Bind (Complete)!');
       }
     });
   }
@@ -79,7 +79,8 @@ const search_promise = (err, res) => {
       }
 
       if (currEntry.objectclass.indexOf('groupOfUniqueNames') > -1) {
-        console.log('entry.object: ', entry.object, '\n .........');
+        // console.log('entry.object: ', entry.object, '\n .........');
+        currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
@@ -91,7 +92,7 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
-      console.log('entries.length: ', entries.length, '\n -------------- \n');
+      // console.log('entries.length: ', entries.length, '\n -------------- \n');
       resolve(entries);
     });
   });
@@ -135,13 +136,24 @@ const getFilterValue = (filter: FilterOptions) => {
   const searchFilterStr = (type: String) => {
     const objClass =
       type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
-    return `(&(objectClass=${objClass})(|(displayName=${filter.value}*)(sn=${
-      filter.value
-    }*)(givenname=${filter.value}*)(cn=${filter.value}*)))`;
+    let searchStr = `(&(objectClass=${objClass})`;
+    if (type === 'group') {
+      return `${searchStr}(cn=${filter.value}*))`;
+    } else {
+      return `(&(objectClass=${objClass})(|(displayName=${filter.value}*)(sn=${
+        filter.value
+      }*)(givenname=${filter.value}*)(cn=${filter.value}*)))`;
+    }
   };
 
   switch (filter.filterType) {
     case 'person':
+      if (filter.allowInactive === false) {
+        return `${LdapFilters.person.pre}${LdapFilters.person.inactive}cn=${
+          filter.value
+        }${LdapFilters.person.post}`;
+      }
+
       if (filter.value.length === 0) {
         return `${LdapFilters.person.default}`;
       }
@@ -179,13 +191,16 @@ const searchWrapper = (
     filterType: 'group',
     field: '',
     value: LdapFilters.groups.default,
+    allowInactive: true,
   }
 ) => {
   const filterValue = getFilterValue(filter);
+  // console.log('filterValue: ', filterValue);
   const thisAttributes =
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
       : setAttributes(attributes, filter.filterType);
+  // console.log('thisAttributes: ', thisAttributes);
   const results = new Promise(function(resolve, reject) {
     bindLdapClient();
 
@@ -258,6 +273,7 @@ export async function makeServer() {
           filterType: 'person',
           field: searchField,
           value: query[searchField],
+          allowInactive: true,
         };
         // console.log('filterParams: ', filterParams);
         // console.log('method: GET | url: /access-boston/api/v1/person: (query) >', query);
@@ -289,6 +305,7 @@ export async function makeServer() {
           filterType: 'group',
           field: searchField,
           value: query[searchField] ? query[searchField] : '',
+          allowInactive: true,
         };
         console.log('query: ', query);
         console.log('URI: /access-boston/api/v1/groups');
@@ -327,6 +344,7 @@ export async function makeServer() {
             filterType: 'group',
             field: 'cn',
             value: request.payload['cn'],
+            allowInactive: true,
           };
           const group = searchWrapper([], filterParams);
           console.log(group);
@@ -348,25 +366,6 @@ export async function makeServer() {
       },
     });
 
-    // ----------------------------------------------------
-    // ----------------------------------------------------
-    // ----------------------------------------------------
-    // ----------------------------------------------------
-
-    // method: GET | url: /access-boston/api/v1/group/id
-    // server.route({
-    //   method: 'POST',
-    //   path: '/access-boston/api/v1/group/id',
-    //   handler: async request => {
-    //     const query = request.url.query || { query: { cn: '' } };
-    //     const group = searchWrapper([], `(cn=${query['cn']})`);
-    //     // console.log('url: /access-boston/api/v1/group/id | request > query: ', query);
-
-    //     return group;
-    //   },
-    // });
-    // ------------------------------------
-
     await addGraphQl(server);
   } catch (err) {
     console.log('try/catch: err: ', err);
@@ -375,51 +374,103 @@ export async function makeServer() {
   return { server, startup };
 }
 
+const fetchActiveMembers = async group => {
+  let retVal: any = [];
+  const promises = group.uniquemember.map(async (member: string) => {
+    const filterParams: FilterOptions = {
+      filterType: 'person',
+      field: 'cn',
+      value: member,
+      allowInactive: false,
+    };
+    const retObj: any = await searchWrapper(['all'], filterParams);
+    return retObj;
+  });
+  const gprMembers = await Promise.all(promises);
+  const activeMembers = gprMembers.filter((entry: any) => entry[0]);
+  if (gprMembers.length > 0) {
+    const memb = activeMembers.map((entry: any) => `cn=${entry[0].cn}`);
+    retVal = memb;
+  }
+
+  return retVal;
+};
+
 const resolvers = {
   Query: {
-    async personSearch() {
-      console.log('personSearch: (term) > ', arguments[1], arguments[1].term);
-      const term = arguments[1].term;
+    async personSearch(parent: any, args: { term: string }) {
+      if (parent) {
+        console.log('parent: personSearch');
+      }
+      console.log('personSearch: (term) > ', args, args.term);
+      const term = args.term;
 
       const filterParams: FilterOptions = {
         filterType: 'person',
         field: 'search',
         value: term,
+        allowInactive: true,
       };
       const persons = await searchWrapper(['all'], filterParams);
       console.log('persons: ', persons, '\n ----');
       return persons;
     },
-    async person() {
-      const value = arguments[1].cn;
+    async person(parent: any, args: { cn: string }) {
+      if (parent) {
+        console.log('parent: personSearch');
+      }
+      const value = args.cn;
+      // const allowInactive = args.allowInactive;
+      // console.log('allowInactive: ', args.cn, ' | ', allowInactive);
+
       const filterParams: FilterOptions = {
         filterType: 'person',
         field: 'cn',
         value,
+        allowInactive: false,
       };
       const person: any = await searchWrapper(['all'], filterParams);
       return person;
     },
-    async group() {
-      const value = arguments[1].cn;
+    async group(parent: any, args: { cn: string }) {
+      if (parent) {
+        console.log('parent: personSearch');
+      }
+      const value = args.cn;
       const filterParams: FilterOptions = {
         filterType: 'group',
         field: 'cn',
         value,
+        allowInactive: true,
       };
+      const group: any = await searchWrapper(['all'], filterParams);
+      group.forEach(async (elem, index) => {
+        const activeMembers = await fetchActiveMembers(elem);
+        if (activeMembers.length > 0) {
+          group[index]['uniquemember'] = activeMembers;
+        }
+        console.log('index: ', index, ' | group[index]: ', group[index]);
+      });
+      console.log('group: ', group);
 
-      const group = searchWrapper(['all'], filterParams);
-      return await group;
+      return group;
     },
-    async groupSearch() {
-      const value = arguments[1].term;
+    async groupSearch(parent: any, args: { term: string }) {
+      if (parent) {
+        console.log('parent: personSearch');
+      }
+      const value = args.term;
       const filterParams: FilterOptions = {
         filterType: 'group',
         field: 'search',
         value,
+        allowInactive: true,
       };
 
-      const groups = searchWrapper(['all'], filterParams);
+      const groups: any = await searchWrapper(['all'], filterParams);
+      // const activeMembers = await fetchActiveMembers(groups);
+      // console.log('activeMembers: ', activeMembers);
+      console.log('groups: ', groups);
       return await groups;
     },
   },
@@ -442,6 +493,7 @@ const resolvers = {
           filterType: 'group',
           field: 'cn',
           value: opts.cn,
+          allowInactive: true,
         };
         const group = searchWrapper([], filterParams);
         // console.log(group);
@@ -451,7 +503,6 @@ const resolvers = {
   },
 };
 
-// const logger = { log: (e : string) => console.log(e) }
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 async function addGraphQl(server: HapiServer) {
@@ -468,7 +519,6 @@ async function addGraphQl(server: HapiServer) {
 
 export default (async function startServer() {
   await decryptEnv();
-  console.log('decryptEnv');
 
   const { server, startup } = await makeServer();
 
