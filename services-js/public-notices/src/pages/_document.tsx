@@ -1,21 +1,26 @@
 import React from 'react';
-import { DocumentContext } from 'next';
 import getConfig from 'next/config';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, {
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentProps,
+  DocumentInitialProps,
+} from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 type Props = {
-  __NEXT_DATA__: any;
   // From Emotion’s hydration
   ids?: string[];
   css: string;
 };
 
-export default class extends Document {
-  props: Props;
-
-  static getInitialProps({ renderPage }: DocumentContext): Props {
-    const page = renderPage();
+export default class extends Document<Props> {
+  static async getInitialProps({
+    renderPage,
+  }: DocumentContext): Promise<Props & DocumentInitialProps> {
+    const page = await renderPage();
     const styles = extractCritical(page.html);
 
     return {
@@ -24,15 +29,14 @@ export default class extends Document {
     };
   }
 
-  constructor(props: Props) {
+  constructor(props: Props & DocumentProps) {
     super(props);
-    this.props = props;
 
     const { __NEXT_DATA__, ids } = props;
 
     // These are the ids for Emotion classes already on the page.
     if (ids) {
-      __NEXT_DATA__.ids = ids;
+      (__NEXT_DATA__ as any).ids = ids;
     }
   }
 

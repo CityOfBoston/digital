@@ -1,5 +1,7 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App, { AppContext, AppInitialProps, AppProps } from 'next/app';
+import { NextPageContext } from 'next';
+
 import Router from 'next/router';
 import getConfig from 'next/config';
 import cookies from 'next-cookies';
@@ -10,7 +12,6 @@ import {
   FetchGraphql,
   makeFetchGraphql,
   RouterListener,
-  NextContext,
   GtagSiteAnalytics,
   ScreenReaderSupport,
 } from '@cityofboston/next-client-common';
@@ -33,7 +34,7 @@ export interface GetInitialPropsDependencies {
 }
 
 export type GetInitialProps<T> = (
-  cxt: NextContext,
+  cxt: NextPageContext,
   deps: GetInitialPropsDependencies
 ) => T | Promise<T>;
 
@@ -67,24 +68,8 @@ export interface PageDependencies {
   screenReaderSupport: ScreenReaderSupport;
 }
 
-interface AppInitialProps {
-  ctx: NextContext;
-  Component: any;
-}
-
-interface InitialProps {
-  pageProps: any;
+interface Props {
   serverCrumb: string;
-}
-
-interface Props extends InitialProps {
-  Component: any;
-}
-
-interface State {
-  /** We have to keep the crumb in state because after the initial server-side
-   * render, getInitialProps is unable to read it off of the cookies. */
-  crumb: string;
 }
 
 /**
@@ -93,17 +78,20 @@ interface State {
  *  - GetInitialPropsDependencies are passed as a second argument to getInitialProps
  *  - PageDependencies are spread as props for the page
  */
-export default class AccessBostonApp extends App {
-  // TypeScript doesn't know that App already has a props member.
-  protected props: Props;
-  protected state: State;
-
+export default class AccessBostonApp extends App<Props> {
   private pageDependencies: PageDependencies;
+
+  /**
+   * We have to keep the crumb on the instance because after the initial
+   * server-side render, getInitialProps is unable to read it off of the
+   * cookies.
+   */
+  private crumb: string;
 
   static async getInitialProps({
     Component,
     ctx,
-  }: AppInitialProps): Promise<InitialProps> {
+  }: AppContext): Promise<Props & AppInitialProps> {
     const initialPageDependencies: GetInitialPropsDependencies = {
       fetchGraphql: makeFetchGraphql(getConfig(), ctx.req),
     };
@@ -114,7 +102,7 @@ export default class AccessBostonApp extends App {
 
     try {
       const pageProps = Component.getInitialProps
-        ? await Component.getInitialProps(ctx, initialPageDependencies)
+        ? await (Component.getInitialProps as any)(ctx, initialPageDependencies)
         : {};
 
       return {
@@ -122,7 +110,7 @@ export default class AccessBostonApp extends App {
         serverCrumb: crumb || '',
       };
     } catch (e) {
-      let redirectUrl;
+      let redirectUrl: string | null;
 
       if (e instanceof RedirectError) {
         redirectUrl = e.url;
@@ -156,17 +144,10 @@ export default class AccessBostonApp extends App {
     }
   }
 
-  constructor(props: Props) {
+  constructor(props: Props & AppProps<any>) {
     super(props);
 
-    // We're a little hacky here because TypeScript doesn't have type
-    // information about App and doesn't know it's a component and that the
-    // super call above actually does this.
-    this.props = props;
-
-    this.state = {
-      crumb: this.props.serverCrumb,
-    };
+    this.crumb = this.props.serverCrumb;
 
     this.pageDependencies = {
       routerListener: new RouterListener(),
@@ -199,14 +180,11 @@ export default class AccessBostonApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-    const { crumb } = this.state;
 
     return (
-      <CrumbContext.Provider value={crumb}>
+      <CrumbContext.Provider value={this.crumb}>
         <CacheProvider value={emotionCache}>
-          <Container>
-            <Component {...this.pageDependencies} {...pageProps} />
-          </Container>
+          <Component {...this.pageDependencies} {...pageProps} />
         </CacheProvider>
       </CrumbContext.Provider>
     );

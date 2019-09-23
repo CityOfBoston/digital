@@ -6,3 +6,5 @@ global.requestAnimationFrame = function(callback) {
 // “Error: Not implemented: window.scroll” from printing to the console
 // when running tests.
 window.scroll = () => {};
+
+export {};

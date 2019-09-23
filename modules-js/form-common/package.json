@@ -27,13 +27,13 @@
     "core-js": "^2.6.4"
   },
   "peerDependencies": {
-    "@babel/runtime": "7.1.2",
+    "@babel/runtime": "^7.6.0",
     "react": "16.8.5"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.5",
-    "@babel/core": "7.1.2",
-    "@babel/runtime": "7.1.2",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/runtime": "^7.6.0",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "24.x.x",

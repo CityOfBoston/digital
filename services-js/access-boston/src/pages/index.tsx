@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
+import { css } from 'emotion';
+
 import { differenceInCalendarDays } from 'date-fns';
 
 import {
@@ -10,7 +12,6 @@ import {
   CHARLES_BLUE,
   MEDIA_LARGE_MAX,
 } from '@cityofboston/react-fleet';
-import { css } from 'emotion';
 
 import AccessBostonHeader from '../client/AccessBostonHeader';
 import fetchAccountAndApps, {
@@ -70,15 +71,6 @@ export default class IndexPage extends React.Component<Props> {
       account,
       apps,
     };
-  };
-
-  sendEvent2GA = labelVal => {
-    (window as any).dataLayer.push({
-      event: 'access_boston',
-      eventCategory: 'Access Boston',
-      eventAction: 'Landing Page App Clicks',
-      eventLabel: labelVal,
-    });
   };
 
   render() {
@@ -191,17 +183,17 @@ export default class IndexPage extends React.Component<Props> {
       <ul className="ul m-v500">
         {apps.map(({ title, url, description }) => (
           <li key={title}>
-            <Link href={url}>
-              <a
-                className={`p-a300 ${APP_ROW_STYLE}`}
-                target={url.startsWith('/') ? '_self' : '_blank'}
-              >
-                <div className="t--info" style={{ color: 'inherit' }}>
-                  {title}
-                </div>
-                <div style={{ color: CHARLES_BLUE }}>{description}</div>
-              </a>
-            </Link>
+            <a
+              href={url}
+              id={`app-link-${title}`}
+              className={`p-a300 ${APP_ROW_STYLE}`}
+              target={url.startsWith('/') ? '_self' : '_blank'}
+            >
+              <div className="t--info" style={{ color: 'inherit' }}>
+                {title}
+              </div>
+              <div style={{ color: CHARLES_BLUE }}>{description}</div>
+            </a>
           </li>
         ))}
       </ul>
@@ -212,24 +204,22 @@ export default class IndexPage extends React.Component<Props> {
     return (
       <div className="g">
         {apps.map(({ title, url, iconUrl }) => (
-          <Link href={url} key={title}>
-            <a
-              onClick={() => this.sendEvent2GA(title)}
-              className="lwi m-t200 g--3 g--3--sl"
-              target={url.startsWith('/') ? '_self' : '_blank'}
-            >
-              <span className="lwi-ic">
-                <img
-                  src={
-                    iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'
-                  }
-                  alt=""
-                  className={`lwi-i ${APP_IMAGE_STYLE}`}
-                />
-              </span>
-              <span className="lwi-t">{title}</span>
-            </a>
-          </Link>
+          <a
+            href={url}
+            key={title + url}
+            id={`app-icon-${title}`}
+            className="lwi m-t200 g--3 g--3--sl"
+            target={url.startsWith('/') ? '_self' : '_blank'}
+          >
+            <span className="lwi-ic">
+              <img
+                src={iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'}
+                alt=""
+                className={`lwi-i ${APP_IMAGE_STYLE}`}
+              />
+            </span>
+            <span className="lwi-t">{title}</span>
+          </a>
         ))}
       </div>
     );

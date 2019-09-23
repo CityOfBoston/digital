@@ -555,6 +555,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 <a
                   href="/birth"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   birth
                 </a>
@@ -563,6 +564,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 <a
                   href="/marriage"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   marriage
                 </a>
@@ -571,6 +573,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   death
                 </a>
@@ -894,6 +897,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
                 className="btn"
                 href="/birth"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 Back to Start
               </a>
@@ -1367,6 +1371,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -1513,6 +1518,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
                   <a
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -2065,6 +2071,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                           aria-label="Edit contact information"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -2108,6 +2115,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -2155,6 +2163,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
                           aria-label="Edit payment information"
                           href="/birth/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -3758,6 +3767,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                   <a
                     href="/birth/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -17750,6 +17760,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                 <a
                   href="/birth"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   birth
                 </a>
@@ -17758,6 +17769,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                 <a
                   href="/marriage"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   marriage
                 </a>
@@ -17766,6 +17778,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   death
                 </a>
@@ -18337,6 +18350,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 <a
                   href="/birth"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   birth
                 </a>
@@ -18345,6 +18359,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 <a
                   href="/marriage"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   marriage
                 </a>
@@ -18353,6 +18368,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   death
                 </a>
@@ -18751,6 +18767,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -19417,6 +19434,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -19810,6 +19828,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -20435,6 +20454,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -20914,6 +20934,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -21539,6 +21560,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
                   <a
                     href="/birth/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -21953,6 +21975,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -22103,6 +22126,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -22496,6 +22520,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -22642,6 +22667,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -23035,6 +23061,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -23660,6 +23687,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
                 <a
                   href="/death/checkout?page=shipping"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -24139,6 +24167,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -24764,6 +24793,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
                   <a
                     href="/marriage/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -25316,6 +25346,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
                           aria-label="Edit contact information"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -25359,6 +25390,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
                           aria-label="Edit shipping address"
                           href="/birth/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -25406,6 +25438,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
                           aria-label="Edit payment information"
                           href="/birth/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -25992,6 +26025,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26073,6 +26107,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26116,6 +26151,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26163,6 +26199,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26389,6 +26426,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -26785,6 +26823,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26866,6 +26905,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26909,6 +26949,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -26956,6 +26997,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27155,6 +27197,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -27551,6 +27594,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27632,6 +27676,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27675,6 +27720,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27722,6 +27768,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -27921,6 +27968,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -28317,6 +28365,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28398,6 +28447,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28441,6 +28491,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28475,6 +28526,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -28658,6 +28710,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -29205,6 +29258,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
                           aria-label="Edit contact information"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -29248,6 +29302,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -29295,6 +29350,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
                           aria-label="Edit payment information"
                           href="/marriage/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -29883,6 +29939,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -29964,6 +30021,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30007,6 +30065,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30054,6 +30113,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30256,6 +30316,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
                       className="btn"
                       href="/death/checkout?page=payment"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       Re-try
                     </a>
@@ -30287,6 +30348,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -30691,6 +30753,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30772,6 +30835,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30815,6 +30879,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -30862,6 +30927,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31102,6 +31168,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -31506,6 +31573,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit cart"
                         href="/death/cart"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31587,6 +31655,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit contact information"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31630,6 +31699,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit shipping address"
                         href="/death/checkout?page=shipping"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31677,6 +31747,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
                         aria-label="Edit payment information"
                         href="/death/checkout?page=payment"
                         onClick={[Function]}
+                        onMouseEnter={[Function]}
                       >
                         edit
                       </a>
@@ -31898,6 +31969,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
               <a
                 href="/death"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 I’m not done yet, go back to search
               </a>
@@ -33008,6 +33080,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
                   <a
                     href="/birth/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -34037,6 +34110,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
                 <a
                   href="/death/cart"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -35045,6 +35119,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
                 <a
                   href="/death/cart"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -36053,6 +36128,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
                 <a
                   href="/death/cart"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -37147,6 +37223,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
                   <a
                     href="/marriage/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -39003,6 +39080,7 @@ exports[`Storyshots Common Components/Nav default 1`] = `
       <a
         className="nv-s-l-b emotion-1"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         View Cart 
         <span
@@ -39945,6 +40023,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
           <a
             href="/death/cart"
             onClick={[Function]}
+            onMouseEnter={[Function]}
             style={
               Object {
                 "display": "block",
@@ -40232,6 +40311,7 @@ exports[`Storyshots Common Components/Pagination 2 pages 1`] = `
         className="pg-li-i pg-li-i--link pg-li-i--a"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         1
       </a>
@@ -40243,6 +40323,7 @@ exports[`Storyshots Common Components/Pagination 2 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         2
       </a>
@@ -40254,6 +40335,7 @@ exports[`Storyshots Common Components/Pagination 2 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≫
       </a>
@@ -40274,6 +40356,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≪
       </a>
@@ -40285,6 +40368,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         1
       </a>
@@ -40296,6 +40380,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link pg-li-i--a"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         2
       </a>
@@ -40307,6 +40392,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         3
       </a>
@@ -40318,6 +40404,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         4
       </a>
@@ -40329,6 +40416,7 @@ exports[`Storyshots Common Components/Pagination 7 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≫
       </a>
@@ -40349,6 +40437,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≪
       </a>
@@ -40360,6 +40449,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         17
       </a>
@@ -40371,6 +40461,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link pg-li-i--a"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         18
       </a>
@@ -40382,6 +40473,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         19
       </a>
@@ -40393,6 +40485,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link "
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         20
       </a>
@@ -40404,6 +40497,7 @@ exports[`Storyshots Common Components/Pagination 20 pages 1`] = `
         className="pg-li-i pg-li-i--link"
         href=""
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         ≫
       </a>
@@ -48807,6 +48901,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -48923,6 +49018,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -49247,6 +49343,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -49363,6 +49460,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -49537,6 +49635,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
                     className="btn"
                     href="/death/checkout"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                   >
                     Go to checkout
                   </a>
@@ -49918,6 +50017,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -50034,6 +50134,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -50355,6 +50456,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                     className="btn"
                     href="/death/checkout"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                   >
                     Go to checkout
                   </a>
@@ -50731,6 +50833,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -51043,6 +51146,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -51315,6 +51419,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -51456,6 +51561,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -51837,6 +51943,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -52149,6 +52256,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -52530,6 +52638,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -52842,6 +52951,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -53223,6 +53333,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -53530,6 +53641,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
                 <a
                   href="/search?q=Jayn"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                   style={
                     Object {
                       "fontStyle": "italic",
@@ -53802,6 +53914,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -53980,6 +54093,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             <a
               href="/birth"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               birth
             </a>
@@ -53989,6 +54103,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             <a
               href="/marriage"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               marriage
             </a>
@@ -54001,6 +54116,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             <a
               href="/death"
               onClick={[Function]}
+              onMouseEnter={[Function]}
             >
               Back to search
             </a>
@@ -54619,6 +54735,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -55067,6 +55184,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -55554,6 +55672,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
           <a
             className="nv-s-l-b emotion-1"
             onClick={[Function]}
+            onMouseEnter={[Function]}
           >
             View Cart 
             <span
@@ -55753,6 +55872,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
               <a
                 href="/death/certificate/000002"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <div
                   className="p-v300 br b--w br-b100 emotion-9"
@@ -55784,6 +55904,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
               <a
                 href="/death/certificate/000001"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <div
                   className="p-v300 br b--w br-b100 emotion-9"
@@ -55835,6 +55956,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
               <a
                 href="/death/certificate/000003"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 <div
                   className="p-v300 br b--w br-b100 emotion-9"
@@ -55876,6 +55998,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link"
                       href="/death?q=Jayn Doe&page=1"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       ≪
                     </a>
@@ -55887,6 +56010,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link "
                       href="/death?q=Jayn Doe&page=1"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       1
                     </a>
@@ -55898,6 +56022,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link pg-li-i--a"
                       href="/death?q=Jayn Doe&page=2"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       2
                     </a>
@@ -55909,6 +56034,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link "
                       href="/death?q=Jayn Doe&page=3"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       3
                     </a>
@@ -55920,6 +56046,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link "
                       href="/death?q=Jayn Doe&page=4"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       4
                     </a>
@@ -55931,6 +56058,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                       className="pg-li-i pg-li-i--link"
                       href="/death?q=Jayn Doe&page=3"
                       onClick={[Function]}
+                      onMouseEnter={[Function]}
                     >
                       ≫
                     </a>
@@ -56061,6 +56189,7 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
   <a
     href="/death/certificate/000003"
     onClick={[Function]}
+    onMouseEnter={[Function]}
   >
     <div
       className="p-v300 br b--w br-b100 emotion-4"
@@ -56139,6 +56268,7 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
   <a
     href="/death/certificate/000002"
     onClick={[Function]}
+    onMouseEnter={[Function]}
   >
     <div
       className="p-v300 br b--w br-b100 emotion-4"
@@ -61982,6 +62112,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 <a
                   href="/birth"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   birth
                 </a>
@@ -61990,6 +62121,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 <a
                   href="/marriage"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   marriage
                 </a>
@@ -61998,6 +62130,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
                 <a
                   href="/death"
                   onClick={[Function]}
+                  onMouseEnter={[Function]}
                 >
                   death
                 </a>
@@ -62321,6 +62454,7 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
                 className="btn"
                 href="/marriage"
                 onClick={[Function]}
+                onMouseEnter={[Function]}
               >
                 Back to Start
               </a>
@@ -62794,6 +62928,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -62940,6 +63075,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
                   <a
                     href="/marriage/checkout?page=shipping"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",
@@ -63492,6 +63628,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
                           aria-label="Edit contact information"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -63535,6 +63672,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
                           aria-label="Edit shipping address"
                           href="/marriage/checkout?page=shipping"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -63582,6 +63720,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
                           aria-label="Edit payment information"
                           href="/marriage/checkout?page=payment"
                           onClick={[Function]}
+                          onMouseEnter={[Function]}
                         >
                           edit
                         </a>
@@ -65179,6 +65318,7 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
                   <a
                     href="/marriage/review"
                     onClick={[Function]}
+                    onMouseEnter={[Function]}
                     style={
                       Object {
                         "fontStyle": "italic",

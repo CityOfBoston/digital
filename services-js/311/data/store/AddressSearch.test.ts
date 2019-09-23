@@ -65,7 +65,8 @@ describe('searching', () => {
     addressSearch.stop();
   });
 
-  it('updates address and location on success', async () => {
+  // disabled as per Reilly 9/23 jm
+  xit('updates address and location on success', async () => {
     addressSearch.query = '1 City Hall Plaza';
     addressSearch.search(false);
 
@@ -85,7 +86,8 @@ describe('searching', () => {
     expect(addressSearch.intent).toEqual('ADDRESS');
   });
 
-  it('searches for an intersection and uses LATLNG intent', async () => {
+  // disabled as per Reilly 9/23 jm
+  xit('searches for an intersection and uses LATLNG intent', async () => {
     addressSearch.query = 'Milk and Washington';
     addressSearch.search(false);
 
@@ -115,7 +117,7 @@ describe('searching', () => {
     expect(addressSearch.addressId).toEqual(null);
   });
 
-  it('has no selection when search returns multilpe things', async () => {
+  it('has no selection when search returns multiple things', async () => {
     addressSearch.query = '1 City Hall Plaza';
     addressSearch.search(false);
 

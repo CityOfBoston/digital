@@ -22,8 +22,8 @@ type Props = {
   rollbarEnvironment: string | undefined;
 };
 
-export default class extends Document {
-  props: Props;
+export default class extends Document<Props> {
+  props: Props | any;
 
   static async getInitialProps({ renderPage }) {
     const page = renderPage();
@@ -44,7 +44,7 @@ export default class extends Document {
     };
   }
 
-  constructor(props: Props) {
+  constructor(props: Props | any) {
     super(props);
 
     this.props = props;
@@ -68,7 +68,7 @@ export default class extends Document {
     } = getConfig();
 
     return (
-      <html lang="en" className="js flexbox">
+      <html lang="en-US" className="js flexbox">
         <Head>
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -22,7 +22,9 @@
       "templates/js-*/build/*"
     ],
     "nohoist": [
-      "**/@cityofboston/config-typescript"
+      "**/@cityofboston/config-typescript",
+      "**/acorn",
+      "**/acorn-dynamic-import"
     ]
   },
   "scripts": {
