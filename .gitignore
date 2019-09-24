@@ -9,6 +9,7 @@ screenshots
 schema.graphql
 
 .env
+.env.ldap
 
 lerna-debug.log
 yarn-error.log

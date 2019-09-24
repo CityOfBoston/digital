@@ -48,17 +48,29 @@ export const abstractDN = (dn: String = '') => {
     .trim()
     .replace(/, /gim, ',')
     .split(',');
-
+  // console.log('spt: ', spt);
   spt.forEach(elem => {
     if (elem.indexOf('=') > -1) {
       const keyValArr = elem.split('=');
-
       if (keyValArr.length === 2) {
         const key = keyValArr[0].toLowerCase();
         const val = keyValArr[1];
+        // console.log('key: ', Object.keys(dnObj).indexOf(key));
         if (Object.keys(dnObj).indexOf(key) === -1) {
-          dnObj[key] = val;
+          dnObj[key] = [];
         }
+        dnObj[key].push(val);
+        // if (Object.keys(dnObj).indexOf(key) === -1) {
+        //   dnObj[key] = val;
+        // } else {
+        //   const temp = dnObj[key];
+        //   if (typeof dnObj[key] === 'object' && dnObj[key].length > 0) {
+        //     dnObj[key].push(val);
+        //   } else {
+        //     dnObj[key] = [temp];
+        //     dnObj[key].push(val);
+        //   }
+        // }
       }
     }
   });

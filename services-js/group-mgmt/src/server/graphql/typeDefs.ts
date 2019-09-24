@@ -21,8 +21,8 @@ export const typeDefs = `
     uid: String
     controls: [String!]!
     ismemberof: [String!]!
+    active: Boolean
     nsaccountlock: String
-    inactive: Boolean
     objectclass: [String]
   }
 
@@ -53,3 +53,4 @@ export const typeDefs = `
     mutation: Mutation
   }
 `;
+// nsaccountlock: String

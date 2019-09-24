@@ -6,16 +6,29 @@ import {
   abstractDN,
 } from '../lib/helpers';
 
-interface controls {
+export interface controls {
   controls: String;
 }
 
-interface uniquemember {
+export interface uniquemember {
   uniquemember: String;
 }
 
-interface objectclass {
+export interface objectclass {
   objectclass: String;
+}
+
+export interface Member {
+  cn: String;
+  dn: String;
+}
+
+export interface ismemberOfObjectArray {
+  group: Member;
+}
+
+export interface isMember {
+  groups: Array<[ismemberOfObjectArray]>;
 }
 
 export class objectClassArray {
@@ -62,7 +75,7 @@ export class GroupClass implements Group {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     const controls = convertOptionalArray(opts.controls ? opts.controls : []);
     const getOnlyActiveMembers = (arr: any) => {
-      const parsedCn = arr.map((str: String) => abstractDN(str)['cn']);
+      const parsedCn = arr.map((str: String) => abstractDN(str)['cn'][0]);
       return parsedCn;
     };
     const members = convertOptionalArray(
@@ -95,7 +108,7 @@ export interface Person {
   givenname?: string;
   displayname?: string;
   uid?: any;
-  inactive?: Boolean;
+  active?: Boolean;
   nsaccountlock?: string;
   objectclass?: Array<[string]>;
 }
@@ -109,9 +122,10 @@ export class PersonClass implements Person {
   ismemberof: Array<[String]> = [];
   givenname: string = '';
   displayname: string = '';
-  inactive: Boolean = false;
+  active: Boolean = false;
   nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
+  uid: string | number = '';
 
   constructor(opts: {
     dn?: any;
@@ -122,9 +136,10 @@ export class PersonClass implements Person {
     ismemberof?: any;
     givenname?: any;
     displayname?: any;
-    inactive?: any;
+    active?: any;
     nsAccountLock?: any;
     objectclass?: any;
+    uid?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     const controls = convertOptionalArray(opts.controls ? opts.controls : []);
@@ -135,6 +150,29 @@ export class PersonClass implements Person {
       opts.objectclass ? opts.objectclass : []
     );
 
+    // const members_Arr = [];
+    // const parseMembers = (membersArr: Array<[]> = []) => {
+    //   // const retArr = [];
+    //   const arrayGroup = membersArr.map( (elem, index: Number) => {
+    //     // const cn = abstractDN(elem)['cn'];
+    //     const aCn1 = 'CN=Exchange Servers,OU=Microsoft Exchange Security Groups,DC=gr-u,DC=it';
+    //     // const aCn2 = elem;
+    //     console.log('typeof elem: ', typeof elem, elem, abstractDN(aCn1));
+    //     console.log(`index: ${index} | elem: `, elem);
+    //     return {
+    //       dn: 'elem',
+    //       cn: ''
+    //     };
+    //   });
+
+    //   return arrayGroup;
+    // };
+
+    // console.log('ismemberof: ', ismemberof);
+    // console.log('parseMembers: ', parseMembers(ismemberof));
+
+    // abstractDN(str)['cn'][0]
+
     (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.mail = opts.mail ? opts.mail : ''),
@@ -143,7 +181,8 @@ export class PersonClass implements Person {
       (this.ismemberof = ismemberof),
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
-      (this.inactive = convertToBool(opts.nsAccountLock, false)),
+      (this.uid = opts.uid ? opts.uid : ''),
+      (this.active = convertToBool(opts.nsAccountLock, false)),
       (this.objectclass = objectclass);
   }
 }
@@ -183,7 +222,7 @@ export const LdapFilters = {
   person: {
     default: '(objectClass=organizationalPerson)',
     pre: '(&(objectClass=organizationalPerson)(',
-    inactive: '|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(',
+    active: '|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(',
     post: '*))',
   },
 };

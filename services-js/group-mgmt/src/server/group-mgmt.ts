@@ -47,14 +47,12 @@ const bindLdapClient = (force: Boolean = false) => {
 // const unBindLdapClient = () => {
 //   if (ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev') {
 //     console.log('unBindLdapClient START');
-
 //     ldapClient.unbind(function(err) {
 //       if (err) {
 //         console.log('(LDAP) Client Unbind Error: ', err);
 //       }
 //       console.log('Connection Closed: LDAP Client');
 //     });
-
 //     console.log('unBindLdapClient END');
 //   }
 // };
@@ -150,7 +148,7 @@ const getFilterValue = (filter: FilterOptions) => {
   switch (filter.filterType) {
     case 'person':
       if (filter.allowInactive === false) {
-        return `${LdapFilters.person.pre}${LdapFilters.person.inactive}cn=${
+        return `${LdapFilters.person.pre}${LdapFilters.person.active}cn=${
           filter.value
         }${LdapFilters.person.post}`;
       }

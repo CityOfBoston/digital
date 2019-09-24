@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const start = require('./group-mgmt.js').default;
 console.log('start.server');
+// console.log('process: ', process);
 
 start().catch(err => {
   console.error('Error starting server', err);
