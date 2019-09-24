@@ -15,6 +15,7 @@ import {
   objectClassArray,
   PersonClass,
   GroupClass,
+  FilterOptionsClass,
   FilterOptions,
   LdapFilters,
   CustomAttributes,
@@ -396,6 +397,29 @@ const fetchActiveMembers = async group => {
   return retVal;
 };
 
+const getParsedGroups = async groups => {
+  return new Promise((resolve, reject) => {
+    try {
+      const promisedGroups: Array<[]> = [];
+      groups.forEach(async (elem, index) => {
+        const activeMembers = await fetchActiveMembers(elem);
+
+        if (activeMembers.length > 0) {
+          elem['uniquemember'] = activeMembers;
+          promisedGroups.push(elem);
+        }
+        if (index + 1 === groups.length) {
+          // console.log('END \n --------------');
+          resolve(promisedGroups);
+        }
+      });
+    } catch (err) {
+      console.log('parsedGroups Error: ', err);
+      reject();
+    }
+  });
+};
+
 const resolvers = {
   Query: {
     async personSearch(parent: any, args: { term: string }) {
@@ -405,14 +429,14 @@ const resolvers = {
       console.log('personSearch: (term) > ', args, args.term);
       const term = args.term;
 
-      const filterParams: FilterOptions = {
+      const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'person',
         field: 'search',
         value: term,
         allowInactive: true,
-      };
+      });
       const persons = await searchWrapper(['all'], filterParams);
-      console.log('persons: ', persons, '\n ----');
+      console.log('persons: ', persons, '\n --------');
       return persons;
     },
     async person(parent: any, args: { cn: string }) {
@@ -420,16 +444,15 @@ const resolvers = {
         console.log('parent: personSearch');
       }
       const value = args.cn;
-      // const allowInactive = args.allowInactive;
-      // console.log('allowInactive: ', args.cn, ' | ', allowInactive);
 
-      const filterParams: FilterOptions = {
+      const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'person',
         field: 'cn',
         value,
         allowInactive: false,
-      };
+      });
       const person: any = await searchWrapper(['all'], filterParams);
+      console.log('person: ', person, '\n --------');
       return person;
     },
     async group(parent: any, args: { cn: string }) {
@@ -437,41 +460,33 @@ const resolvers = {
         console.log('parent: personSearch');
       }
       const value = args.cn;
-      const filterParams: FilterOptions = {
+      const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'cn',
         value,
         allowInactive: true,
-      };
-      const group: any = await searchWrapper(['all'], filterParams);
-      group.forEach(async (elem, index) => {
-        const activeMembers = await fetchActiveMembers(elem);
-        if (activeMembers.length > 0) {
-          group[index]['uniquemember'] = activeMembers;
-        }
-        console.log('index: ', index, ' | group[index]: ', group[index]);
       });
-      console.log('group: ', group);
-
-      return group;
+      const groups: any = await searchWrapper(['all'], filterParams);
+      const parsedGroups = await getParsedGroups(groups);
+      // console.log('resolvers > group > async parsedGroups: ', parsedGroups, '\n --------');
+      return parsedGroups;
     },
     async groupSearch(parent: any, args: { term: string }) {
       if (parent) {
         console.log('parent: personSearch');
       }
       const value = args.term;
-      const filterParams: FilterOptions = {
+      const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'search',
         value,
         allowInactive: true,
-      };
+      });
 
       const groups: any = await searchWrapper(['all'], filterParams);
-      // const activeMembers = await fetchActiveMembers(groups);
-      // console.log('activeMembers: ', activeMembers);
-      console.log('groups: ', groups);
-      return await groups;
+      const parsedGroups = await getParsedGroups(groups);
+      // console.log('resolvers > groups > async parsedGroups: ', parsedGroups, '\n --------');
+      return parsedGroups;
     },
   },
   Mutation: {

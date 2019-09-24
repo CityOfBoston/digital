@@ -148,23 +148,30 @@ export class PersonClass implements Person {
   }
 }
 
-export const GroupModel: Group = {
-  dn: '',
-  controls: [],
-  uniquemember: [],
-  owner: [],
-  actualdn: '',
-  entrydn: '',
-  objectclass: [],
-  cn: '',
-  displayname: '',
-};
-
 export interface FilterOptions {
   filterType: string;
   field: string;
   value: string;
   allowInactive: boolean;
+}
+
+export class FilterOptionsClass implements FilterOptions {
+  filterType: string = '';
+  field: string = 'cn';
+  value: string = '';
+  allowInactive: boolean = false;
+
+  constructor(opts: {
+    filterType?: any;
+    field?: any;
+    value?: any;
+    allowInactive?: any;
+  }) {
+    (this.filterType = opts.filterType ? opts.filterType : ''),
+      (this.field = opts.field ? opts.field : ''),
+      (this.value = opts.value ? opts.value : ''),
+      (this.allowInactive = opts.allowInactive ? opts.allowInactive : '');
+  }
 }
 
 export const LdapFilters = {
@@ -175,7 +182,6 @@ export const LdapFilters = {
   },
   person: {
     default: '(objectClass=organizationalPerson)',
-    // pre: '(&(objectClass=organizationalPerson)(',
     pre: '(&(objectClass=organizationalPerson)(',
     inactive: '|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(',
     post: '*))',
