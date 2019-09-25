@@ -16,7 +16,7 @@ import {
   LdapFilters,
   CustomAttributes,
 } from './interfaces';
-import { renameObjectKeys, remapObjKeys } from '../lib/helpers';
+import { renameObjectKeys, remapObjKeys, returnBool } from '../lib/helpers';
 import { ldapConfig } from './ldapConfig';
 import { typeDefs } from './graphql/typeDefs';
 
@@ -266,6 +266,23 @@ export async function makeServer() {
 
 const resolvers = {
   Query: {
+    async isPersonInactive(parent: any, args: any) {
+      if (parent) {
+        console.log('parent: personSearch');
+      }
+
+      const retArr: Array<[]> = [];
+      const promises = await args.people.map(async cn => {
+        const value = cn.indexOf('=') > -1 ? cn.split('=')[1] : cn;
+        const in_active = await isMemberActive(value);
+        if (in_active === false) {
+          retArr.push(cn);
+        }
+      });
+
+      await Promise.all(promises);
+      return retArr;
+    },
     async personSearch(parent: any, args: { term: string }) {
       if (parent) {
         console.log('parent: personSearch');
@@ -285,7 +302,7 @@ const resolvers = {
     },
     async person(parent: any, args: { cn: string }) {
       if (parent) {
-        console.log('parent: personSearch');
+        console.log('parent: person');
       }
       const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
       // console.log('value: ', value);
@@ -302,7 +319,7 @@ const resolvers = {
     },
     async group(parent: any, args: { cn: string }) {
       if (parent) {
-        console.log('parent: personSearch');
+        console.log('parent: group');
       }
       const value = args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -315,7 +332,7 @@ const resolvers = {
     },
     async groupSearch(parent: any, args: { term: string }) {
       if (parent) {
-        console.log('parent: personSearch');
+        console.log('parent: groups');
       }
       const value = args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -326,16 +343,23 @@ const resolvers = {
       });
 
       const groups: any = await searchWrapper(['all'], filterParams);
-      console.log('groups.uniquemember: ', groups[0].uniquemember);
-
-      // const onlyActiveMembers = [];
-      // groups.forEach(async group => {
-      //   group.uniquemember.forEach(async memberSt => {
-      //     const value = memberSt.indexOf('=') > -1 ? memberSt.split('=')[1] : memberSt;
-      //     const in_active = await isMemberActive(value);
-      //     console.log('in_active: ', in_active);
-      //   });
-      // });
+      const onlyActiveMembers: Array<[]> = [];
+      // console.log('groups.uniquemember: ', groups[0].uniquemember);
+      await groups.forEach(async group => {
+        group.uniquemember.forEach(async (memberSt: any) => {
+          // console.log('index: ', index, groups[index].uniquemember);
+          const value =
+            memberSt.indexOf('=') > -1 ? memberSt.split('=')[1] : memberSt;
+          const in_active = await isMemberActive(value);
+          // const in_active = await isMemberActive(value);
+          // console.log('in_active(value): ', value, ' | ', in_active);
+          if (in_active === false) {
+            onlyActiveMembers.push(memberSt);
+            // console.log('onlyActiveMembers: ', onlyActiveMembers);
+          }
+        });
+      });
+      // console.log('FINAL: onlyActiveMembers: ', onlyActiveMembers);
       return groups;
     },
   },
@@ -368,17 +392,20 @@ const resolvers = {
   },
 };
 
-// const isMemberActive = async (cn: String) => {
-//   console.log('isMemberActive: ', cn);
-//   const filterParams: FilterOptions = new FilterOptionsClass({
-//     filterType: 'person',
-//     field: '',
-//     value: cn,
-//     allowInactive: false,
-//   });
-//   const person: any = await searchWrapper(['all'], filterParams);
-//   console.log('person: ', returnBool(person[0].nsaccountlock));
-// };
+const isMemberActive = async (cn: String) => {
+  const filterParams: FilterOptions = new FilterOptionsClass({
+    filterType: 'person',
+    field: '',
+    value: cn,
+    allowInactive: false,
+  });
+  const person: any = await searchWrapper(['all'], filterParams);
+  if (person && typeof person === 'object' && person.length > 0) {
+    return returnBool(person[0].nsaccountlock);
+  } else {
+    return true;
+  }
+};
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 

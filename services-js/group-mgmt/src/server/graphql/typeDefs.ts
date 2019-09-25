@@ -26,16 +26,12 @@ export const typeDefs = `
     objectclass: [String]
   }
 
-  type CN {
-    cn: String!
-  }
-
   type Query {
     person(cn: String!): [Person]
     personSearch(term: String!): [Person]!
     group(cn: String!): [Group]
     groupSearch(term: String!): [Group]!
-    getCNFromDN(dn: String!): [CN]!
+    isPersonInactive(people: [String!]!): [String]!
 	}
 	
   # Defines all available mutations.
