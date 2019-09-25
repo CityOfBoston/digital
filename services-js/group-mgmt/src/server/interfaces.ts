@@ -73,14 +73,20 @@ export class GroupClass implements Group {
     displayname?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
-    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
     const getOnlyActiveMembers = (arr: any) => {
-      const parsedCn = arr.map((str: String) => abstractDN(str)['cn'][0]);
+      const data = arr.filter((node: Array<[String]>) => node.length > 0);
+      const parsedCn = data.map((str: String) => {
+        const abs = abstractDN(str);
+        return `cn=${abs['cn'][0]}`;
+      });
       return parsedCn;
     };
     const members = convertOptionalArray(
-      opts.uniquemember ? getOnlyActiveMembers(opts.uniquemember) : []
+      typeof opts.uniquemember !== 'undefined'
+        ? getOnlyActiveMembers(opts.uniquemember)
+        : []
     );
+    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
     const owner = convertOptionalArray(opts.owner ? opts.owner : []);
     const objectclass = convertOptionalArray(
       opts.objectclass ? opts.objectclass : []

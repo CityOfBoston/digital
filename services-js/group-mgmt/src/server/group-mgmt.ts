@@ -373,50 +373,50 @@ export async function makeServer() {
   return { server, startup };
 }
 
-const fetchActiveMembers = async group => {
-  let retVal: any = [];
-  const promises = group.uniquemember.map(async (member: string) => {
-    const filterParams: FilterOptions = {
-      filterType: 'person',
-      field: 'cn',
-      value: member,
-      allowInactive: false,
-    };
-    const retObj: any = await searchWrapper(['all'], filterParams);
-    return retObj;
-  });
-  const gprMembers = await Promise.all(promises);
-  const activeMembers = gprMembers.filter((entry: any) => entry[0]);
-  if (gprMembers.length > 0) {
-    const memb = activeMembers.map((entry: any) => `cn=${entry[0].cn}`);
-    retVal = memb;
-  }
+// const fetchActiveMembers = async group => {
+//   let retVal: any = [];
+//   const promises = group.uniquemember.map(async (member: string) => {
+//     const filterParams: FilterOptions = {
+//       filterType: 'person',
+//       field: 'cn',
+//       value: member,
+//       allowInactive: false,
+//     };
+//     const retObj: any = await searchWrapper(['all'], filterParams);
+//     return retObj;
+//   });
+//   const gprMembers = await Promise.all(promises);
+//   const activeMembers = gprMembers.filter((entry: any) => entry[0]);
+//   if (gprMembers.length > 0) {
+//     const memb = activeMembers.map((entry: any) => `cn=${entry[0].cn}`);
+//     retVal = memb;
+//   }
 
-  return retVal;
-};
+//   return retVal;
+// };
 
-const getParsedGroups = async groups => {
-  return new Promise((resolve, reject) => {
-    try {
-      const promisedGroups: Array<[]> = [];
-      groups.forEach(async (elem, index) => {
-        const activeMembers = await fetchActiveMembers(elem);
+// const getParsedGroups = async groups => {
+//   return new Promise((resolve, reject) => {
+//     try {
+//       const promisedGroups: Array<[]> = [];
+//       groups.forEach(async (elem, index) => {
+//         const activeMembers = await fetchActiveMembers(elem);
 
-        if (activeMembers.length > 0) {
-          elem['uniquemember'] = activeMembers;
-          promisedGroups.push(elem);
-        }
-        if (index + 1 === groups.length) {
-          // console.log('END \n --------------');
-          resolve(promisedGroups);
-        }
-      });
-    } catch (err) {
-      console.log('parsedGroups Error: ', err);
-      reject();
-    }
-  });
-};
+//         if (activeMembers.length > 0) {
+//           elem['uniquemember'] = activeMembers;
+//           promisedGroups.push(elem);
+//         }
+//         if (index + 1 === groups.length) {
+//           // console.log('END \n --------------');
+//           resolve(promisedGroups);
+//         }
+//       });
+//     } catch (err) {
+//       console.log('parsedGroups Error: ', err);
+//       reject();
+//     }
+//   });
+// };
 
 const resolvers = {
   Query: {
@@ -465,9 +465,10 @@ const resolvers = {
         allowInactive: true,
       });
       const groups: any = await searchWrapper(['all'], filterParams);
-      const parsedGroups = await getParsedGroups(groups);
+      // const parsedGroups = await getParsedGroups(groups);
       // console.log('resolvers > group > async parsedGroups: ', parsedGroups, '\n --------');
-      return parsedGroups;
+      // return parsedGroups;
+      return groups;
     },
     async groupSearch(parent: any, args: { term: string }) {
       if (parent) {
@@ -482,9 +483,10 @@ const resolvers = {
       });
 
       const groups: any = await searchWrapper(['all'], filterParams);
-      const parsedGroups = await getParsedGroups(groups);
+      // const parsedGroups = await getParsedGroups(groups);
       // console.log('resolvers > groups > async parsedGroups: ', parsedGroups, '\n --------');
-      return parsedGroups;
+      // return parsedGroups;
+      return groups;
     },
   },
   Mutation: {
