@@ -74,7 +74,10 @@ export class GroupClass implements Group {
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     const getOnlyActiveMembers = (arr: any) => {
-      const data = arr.filter((node: Array<[String]>) => node.length > 0);
+      const unparsedArr = typeof arr === 'string' ? [arr] : arr;
+      const data = unparsedArr.filter(
+        (node: Array<[String]>) => node.length > 0
+      );
       const parsedCn = data.map((str: String) => {
         const abs = abstractDN(str);
         return `cn=${abs['cn'][0]}`;
