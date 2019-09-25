@@ -114,7 +114,7 @@ export interface Person {
   givenname?: string;
   displayname?: string;
   uid?: any;
-  active?: Boolean;
+  inactive?: Boolean;
   nsaccountlock?: string;
   objectclass?: Array<[string]>;
 }
@@ -128,7 +128,7 @@ export class PersonClass implements Person {
   ismemberof: Array<[String]> = [];
   givenname: string = '';
   displayname: string = '';
-  active: Boolean = false;
+  inactive: Boolean = true;
   nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
   uid: string | number = '';
@@ -142,7 +142,7 @@ export class PersonClass implements Person {
     ismemberof?: any;
     givenname?: any;
     displayname?: any;
-    active?: any;
+    inactive?: any;
     nsAccountLock?: any;
     objectclass?: any;
     uid?: any;
@@ -155,40 +155,26 @@ export class PersonClass implements Person {
     const objectclass = convertOptionalArray(
       opts.objectclass ? opts.objectclass : []
     );
-
-    // const members_Arr = [];
-    // const parseMembers = (membersArr: Array<[]> = []) => {
-    //   // const retArr = [];
-    //   const arrayGroup = membersArr.map( (elem, index: Number) => {
-    //     // const cn = abstractDN(elem)['cn'];
-    //     const aCn1 = 'CN=Exchange Servers,OU=Microsoft Exchange Security Groups,DC=gr-u,DC=it';
-    //     // const aCn2 = elem;
-    //     console.log('typeof elem: ', typeof elem, elem, abstractDN(aCn1));
-    //     console.log(`index: ${index} | elem: `, elem);
-    //     return {
-    //       dn: 'elem',
-    //       cn: ''
-    //     };
-    //   });
-
-    //   return arrayGroup;
-    // };
-
-    // console.log('ismemberof: ', ismemberof);
-    // console.log('parseMembers: ', parseMembers(ismemberof));
-
-    // abstractDN(str)['cn'][0]
+    const parseMembers = (membersArr: Array<[]> = []) => {
+      const arrayGroup = membersArr.map(elem => {
+        return abstractDN(`${elem}`)['cn'][0];
+      });
+      return arrayGroup;
+    };
+    const members = convertOptionalArray(
+      typeof opts.ismemberof !== 'undefined' ? parseMembers(ismemberof) : []
+    );
 
     (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.mail = opts.mail ? opts.mail : ''),
       (this.sn = opts.sn ? opts.sn : ''),
       (this.controls = controls),
-      (this.ismemberof = ismemberof),
+      (this.ismemberof = members),
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.uid = opts.uid ? opts.uid : ''),
-      (this.active = convertToBool(opts.nsAccountLock, false)),
+      (this.inactive = convertToBool(opts.nsAccountLock, true)),
       (this.objectclass = objectclass);
   }
 }
@@ -215,7 +201,7 @@ export class FilterOptionsClass implements FilterOptions {
     (this.filterType = opts.filterType ? opts.filterType : ''),
       (this.field = opts.field ? opts.field : ''),
       (this.value = opts.value ? opts.value : ''),
-      (this.allowInactive = opts.allowInactive ? opts.allowInactive : '');
+      (this.allowInactive = opts.allowInactive ? opts.allowInactive : false);
   }
 }
 
@@ -228,7 +214,7 @@ export const LdapFilters = {
   person: {
     default: '(objectClass=organizationalPerson)',
     pre: '(&(objectClass=organizationalPerson)(',
-    active: '|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(',
+    inactive: '|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(',
     post: '*))',
   },
 };

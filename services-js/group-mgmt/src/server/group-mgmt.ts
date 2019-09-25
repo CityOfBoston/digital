@@ -4,10 +4,6 @@ import { Server as HapiServer } from 'hapi';
 import cleanup from 'node-cleanup';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import { makeExecutableSchema, ApolloServer } from 'apollo-server-hapi';
-// import { apolloHapi, graphiqlHapi } from'apollo-server-hapi';
-// import { HapiGraphqlContextFunction } from '@cityofboston/hapi-common';
-// import graphqlSchema, { Context } from './graphql/schema';
-// import typeDefs from './graphql/schema';
 import ldap from 'ldapjs';
 import {
   Person,
@@ -66,6 +62,7 @@ const search_promise = (err, res) => {
     const entries: object[] = Array();
     const refInstance = new objectClassArray({});
     res.on('searchEntry', entry => {
+      // console.log('ENTRY: ');
       let currEntry = entry.object || {};
       currEntry = renameObjectKeys(
         remapObjKeys(refInstance, currEntry),
@@ -91,7 +88,7 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
-      // console.log('entries.length: ', entries.length, '\n -------------- \n');
+      // console.log('entries.length: ', entries.length, entries, '\n -------------- \n');
       resolve(entries);
     });
   });
@@ -148,9 +145,11 @@ const getFilterValue = (filter: FilterOptions) => {
   switch (filter.filterType) {
     case 'person':
       if (filter.allowInactive === false) {
-        return `${LdapFilters.person.pre}${LdapFilters.person.active}cn=${
-          filter.value
-        }${LdapFilters.person.post}`;
+        const retStr = `${LdapFilters.person.pre}${
+          LdapFilters.person.inactive
+        }cn=${filter.value}${LdapFilters.person.post}`;
+        // console.log('filter.filterType > retStr: ', retStr);
+        return retStr;
       }
 
       if (filter.value.length === 0) {
@@ -195,6 +194,7 @@ const searchWrapper = (
 ) => {
   const filterValue = getFilterValue(filter);
   // console.log('filterValue: ', filterValue);
+  // console.log('filter: ', filter);
   const thisAttributes =
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
@@ -208,7 +208,7 @@ const searchWrapper = (
       attributes: thisAttributes,
       filter: filterValue,
     };
-    // console.log('searchWrapper: filterQryParams ', filterQryParams);
+    // console.log('searchWrapper: filterQryParams ', filterQryParams.filter);
 
     if (
       filter.filterType === 'person' &&
@@ -222,6 +222,7 @@ const searchWrapper = (
       if (err) {
         console.log('ldapsearch error: ', err);
       }
+      // console.log('ldapClient.search: filterValue ', filterValue, filterQryParams);
       resolve(search_promise(err, res));
     });
   });
@@ -244,116 +245,6 @@ export async function makeServer() {
   };
 
   try {
-    // method: GET | url: /access-boston/api/v1/person
-    server.route({
-      method: 'GET',
-      path: '/access-boston/api/v1/person',
-      handler: async request => {
-        // const query = request.url.query || { cn: '' };
-        const query: Object = request.url.query
-          ? request.url.query
-          : { attributes: [] };
-        const attrs = query['attributes'];
-        const attrArr =
-          typeof attrs !== 'undefined'
-            ? attrs
-                .trim()
-                .replace(/\s+/g, '')
-                .replace(/'/g, '')
-                .replace(/"/g, '')
-                .split(',')
-            : [];
-        const searchField = query['search']
-          ? 'search'
-          : query['displayName']
-          ? 'displayName'
-          : 'cn';
-        const filterParams: FilterOptions = {
-          filterType: 'person',
-          field: searchField,
-          value: query[searchField],
-          allowInactive: true,
-        };
-        // console.log('filterParams: ', filterParams);
-        // console.log('method: GET | url: /access-boston/api/v1/person: (query) >', query);
-        const person = searchWrapper(attrArr, filterParams);
-        return person;
-      },
-    });
-
-    // method: GET | url: /access-boston/api/v1/groups
-    server.route({
-      method: 'GET',
-      path: '/access-boston/api/v1/groups',
-      handler: async request => {
-        const query = request.url.query
-          ? request.url.query
-          : { attributes: [] };
-        const attrs = query['attributes'];
-        const attrArr =
-          typeof attrs !== 'undefined'
-            ? attrs
-                .trim()
-                .replace(/\s+/g, '')
-                .replace(/'/g, '')
-                .replace(/"/g, '')
-                .split(',')
-            : [];
-        const searchField = query['search'] ? 'search' : 'cn';
-        const filterParams: FilterOptions = {
-          filterType: 'group',
-          field: searchField,
-          value: query[searchField] ? query[searchField] : '',
-          allowInactive: true,
-        };
-        console.log('query: ', query);
-        console.log('URI: /access-boston/api/v1/groups');
-        console.log('searchField: ', searchField);
-        console.log('filterParams: ', filterParams);
-
-        const group = searchWrapper(attrArr, filterParams);
-        console.log('Route:  group', ' | returning ', group);
-        return group;
-      },
-    });
-
-    // method: PATCH | url: /access-boston/api/v1/group/update
-    server.route({
-      method: 'PATCH',
-      path: '/access-boston/api/v1/group/update',
-      handler: async request => {
-        console.log('PATCH /access-boston/api/v1/group/update');
-        console.log('operation: ', request.payload['operation']);
-        console.log('uniqueMember: ', request.payload['uniqueMember']);
-        console.log('cn: ', request.payload['cn']);
-        console.log('request.payload: ', request.payload);
-
-        const changeOpts = new ldap.Change({
-          operation: request.payload['operation'],
-          modification: {
-            uniqueMember: [request.payload['uniqueMember']],
-          },
-        });
-
-        bindLdapClient(true);
-
-        ldapClient.modify(request.payload['dn'], changeOpts, () => {
-          console.log('PATCH-ing');
-          const filterParams: FilterOptions = {
-            filterType: 'group',
-            field: 'cn',
-            value: request.payload['cn'],
-            allowInactive: true,
-          };
-          const group = searchWrapper([], filterParams);
-          console.log(group);
-          return group;
-        });
-
-        return 200;
-      },
-    });
-
     // method: GET | url: /access-boston/api/v1/ok
     server.route({
       method: 'GET',
@@ -373,58 +264,13 @@ export async function makeServer() {
   return { server, startup };
 }
 
-// const fetchActiveMembers = async group => {
-//   let retVal: any = [];
-//   const promises = group.uniquemember.map(async (member: string) => {
-//     const filterParams: FilterOptions = {
-//       filterType: 'person',
-//       field: 'cn',
-//       value: member,
-//       allowInactive: false,
-//     };
-//     const retObj: any = await searchWrapper(['all'], filterParams);
-//     return retObj;
-//   });
-//   const gprMembers = await Promise.all(promises);
-//   const activeMembers = gprMembers.filter((entry: any) => entry[0]);
-//   if (gprMembers.length > 0) {
-//     const memb = activeMembers.map((entry: any) => `cn=${entry[0].cn}`);
-//     retVal = memb;
-//   }
-
-//   return retVal;
-// };
-
-// const getParsedGroups = async groups => {
-//   return new Promise((resolve, reject) => {
-//     try {
-//       const promisedGroups: Array<[]> = [];
-//       groups.forEach(async (elem, index) => {
-//         const activeMembers = await fetchActiveMembers(elem);
-
-//         if (activeMembers.length > 0) {
-//           elem['uniquemember'] = activeMembers;
-//           promisedGroups.push(elem);
-//         }
-//         if (index + 1 === groups.length) {
-//           // console.log('END \n --------------');
-//           resolve(promisedGroups);
-//         }
-//       });
-//     } catch (err) {
-//       console.log('parsedGroups Error: ', err);
-//       reject();
-//     }
-//   });
-// };
-
 const resolvers = {
   Query: {
     async personSearch(parent: any, args: { term: string }) {
       if (parent) {
         console.log('parent: personSearch');
       }
-      console.log('personSearch: (term) > ', args, args.term);
+      // console.log('personSearch: (term) > ', args, args.term);
       const term = args.term;
 
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -434,14 +280,15 @@ const resolvers = {
         allowInactive: true,
       });
       const persons = await searchWrapper(['all'], filterParams);
-      console.log('persons: ', persons, '\n --------');
+      // console.log('persons: ', persons, '\n --------');
       return persons;
     },
     async person(parent: any, args: { cn: string }) {
       if (parent) {
         console.log('parent: personSearch');
       }
-      const value = args.cn;
+      const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
+      // console.log('value: ', value);
 
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'person',
@@ -450,7 +297,7 @@ const resolvers = {
         allowInactive: false,
       });
       const person: any = await searchWrapper(['all'], filterParams);
-      console.log('person: ', person, '\n --------');
+      // console.log('person: ', person, '\n --------');
       return person;
     },
     async group(parent: any, args: { cn: string }) {
@@ -462,12 +309,8 @@ const resolvers = {
         filterType: 'group',
         field: 'cn',
         value,
-        allowInactive: true,
       });
       const groups: any = await searchWrapper(['all'], filterParams);
-      // const parsedGroups = await getParsedGroups(groups);
-      // console.log('resolvers > group > async parsedGroups: ', parsedGroups, '\n --------');
-      // return parsedGroups;
       return groups;
     },
     async groupSearch(parent: any, args: { term: string }) {
@@ -479,13 +322,20 @@ const resolvers = {
         filterType: 'group',
         field: 'search',
         value,
-        allowInactive: true,
+        allowInactive: false,
       });
 
       const groups: any = await searchWrapper(['all'], filterParams);
-      // const parsedGroups = await getParsedGroups(groups);
-      // console.log('resolvers > groups > async parsedGroups: ', parsedGroups, '\n --------');
-      // return parsedGroups;
+      console.log('groups.uniquemember: ', groups[0].uniquemember);
+
+      // const onlyActiveMembers = [];
+      // groups.forEach(async group => {
+      //   group.uniquemember.forEach(async memberSt => {
+      //     const value = memberSt.indexOf('=') > -1 ? memberSt.split('=')[1] : memberSt;
+      //     const in_active = await isMemberActive(value);
+      //     console.log('in_active: ', in_active);
+      //   });
+      // });
       return groups;
     },
   },
@@ -517,6 +367,18 @@ const resolvers = {
     },
   },
 };
+
+// const isMemberActive = async (cn: String) => {
+//   console.log('isMemberActive: ', cn);
+//   const filterParams: FilterOptions = new FilterOptionsClass({
+//     filterType: 'person',
+//     field: '',
+//     value: cn,
+//     allowInactive: false,
+//   });
+//   const person: any = await searchWrapper(['all'], filterParams);
+//   console.log('person: ', returnBool(person[0].nsaccountlock));
+// };
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
