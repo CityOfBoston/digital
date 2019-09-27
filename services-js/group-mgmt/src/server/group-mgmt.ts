@@ -15,6 +15,7 @@ import {
   FilterOptions,
   LdapFilters,
   CustomAttributes,
+  ResponseClass,
 } from './interfaces';
 import { renameObjectKeys, remapObjKeys, returnBool } from '../lib/helpers';
 import { ldapConfig } from './ldapConfig';
@@ -29,29 +30,15 @@ const bindLdapClient = (force: Boolean = false) => {
     force
   ) {
     // console.log('LDAP Bind (Start)');
-
     ldapClient.bind(ldapConfig.bindDn, ldapConfig.passw, function(err) {
       if (err) {
         console.log('ldapClient.bind err: ', err);
-      } else {
-        // console.log('LDAP Bind (Complete)!');
-      }
+      } /*else {
+        console.log('LDAP Bind (Complete)!');
+      }*/
     });
   }
 };
-
-// const unBindLdapClient = () => {
-//   if (ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev') {
-//     console.log('unBindLdapClient START');
-//     ldapClient.unbind(function(err) {
-//       if (err) {
-//         console.log('(LDAP) Client Unbind Error: ', err);
-//       }
-//       console.log('Connection Closed: LDAP Client');
-//     });
-//     console.log('unBindLdapClient END');
-//   }
-// };
 
 const search_promise = (err, res) => {
   if (err) {
@@ -209,7 +196,6 @@ const searchWrapper = (
       filter: filterValue,
     };
     // console.log('searchWrapper: filterQryParams ', filterQryParams.filter);
-
     if (
       filter.filterType === 'person' &&
       filter.field === 'cn' &&
@@ -344,50 +330,37 @@ const resolvers = {
 
       const groups: any = await searchWrapper(['all'], filterParams);
       const onlyActiveMembers: Array<[]> = [];
-      // console.log('groups.uniquemember: ', groups[0].uniquemember);
       await groups.forEach(async group => {
         group.uniquemember.forEach(async (memberSt: any) => {
-          // console.log('index: ', index, groups[index].uniquemember);
           const value =
             memberSt.indexOf('=') > -1 ? memberSt.split('=')[1] : memberSt;
           const in_active = await isMemberActive(value);
-          // const in_active = await isMemberActive(value);
-          // console.log('in_active(value): ', value, ' | ', in_active);
           if (in_active === false) {
             onlyActiveMembers.push(memberSt);
-            // console.log('onlyActiveMembers: ', onlyActiveMembers);
           }
         });
       });
-      // console.log('FINAL: onlyActiveMembers: ', onlyActiveMembers);
       return groups;
     },
   },
   Mutation: {
     async updateGroupMembers() {
-      const opts = arguments[1];
+      try {
+        const opts = arguments[1];
+        const changeOpts = new ldap.Change({
+          operation: opts.operation,
+          modification: {
+            uniquemember: [opts.uniquemember],
+          },
+        });
+        // console.log('updateGroupMembers > updateGroupMembers > changeOpts: ', changeOpts); // remapObjKeys
+        bindLdapClient();
+        ldapClient.modify(opts.dn, changeOpts, async () => {});
+      } catch (err) {
+        // console.log('Mutation > updateGroupMembers > err: ', err);
+      }
 
-      const changeOpts = new ldap.Change({
-        operation: opts.operation,
-        modification: {
-          uniqueMember: [opts.uniqueMember],
-        },
-      });
-
-      bindLdapClient(true);
-
-      ldapClient.modify(opts.dn, changeOpts, async () => {
-        console.log('PATCH-ing');
-        const filterParams: FilterOptions = {
-          filterType: 'group',
-          field: 'cn',
-          value: opts.cn,
-          allowInactive: true,
-        };
-        const group = searchWrapper([], filterParams);
-        // console.log(group);
-        return await group;
-      });
+      return new ResponseClass({});
     },
   },
 };

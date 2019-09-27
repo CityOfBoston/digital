@@ -26,22 +26,39 @@ export const typeDefs = `
     objectclass: [String]
   }
 
+  type Error {
+    resonse: String!
+  }
+
+  type ResponseBody {
+    data: String!
+    error: Error!
+  }
+
+  type Response {
+    message: String!
+    code: Int!
+    body: ResponseBody!
+  }
+
   type Query {
     person(cn: String!): [Person]
     personSearch(term: String!): [Person]!
     group(cn: String!): [Group]
     groupSearch(term: String!): [Group]!
     isPersonInactive(people: [String!]!): [String]!
+    Person(limit: Int!): [Person!]!
+    Group(limit: Int!): [Group]
 	}
 	
   # Defines all available mutations.
   type Mutation {
     updateGroupMembers(
-			dn: String!,
+      dn: String!,
 			cn: String!, 
 			operation: String!
 			uniquemember: String!
-		): Group
+    ): Response
   }
 
   schema {
@@ -49,4 +66,3 @@ export const typeDefs = `
     mutation: Mutation
   }
 `;
-// nsaccountlock: String

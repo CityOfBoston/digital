@@ -18,6 +18,19 @@ export const ldapConfig = {
 };
 
 /*
+const unBindLdapClient = () => {
+  if (ldapConfig.bindDn === 'cn=svc_groupmgmt,cn=Users,o=localHDAPDev') {
+    console.log('unBindLdapClient START');
+    ldapClient.unbind(function(err) {
+      if (err) {
+        console.log('(LDAP) Client Unbind Error: ', err);
+      }
+      console.log('Connection Closed: LDAP Client');
+    });
+    console.log('unBindLdapClient END');
+  }
+};
+
 DEV
 searchWrapper: filterQryParams  (&(objectClass=groupOfUniqueNames)(cn=BPD*))
 searchWrapper: filterQryParams  (&(objectClass=organizationalPerson)(|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(cn=050086*))

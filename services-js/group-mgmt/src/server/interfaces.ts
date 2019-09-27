@@ -31,6 +31,33 @@ export interface isMember {
   groups: Array<[ismemberOfObjectArray]>;
 }
 
+export interface Error {
+  resonse: String;
+}
+
+export interface ResponseBody {
+  data: String;
+  error: Error;
+}
+
+export interface Response {
+  message: String;
+  code: String;
+  body: ResponseBody;
+}
+
+export class ResponseClass implements Response {
+  message: string = '';
+  code: string = '200';
+  body: any;
+
+  constructor(opts: { message?: any; code?: any; body?: any }) {
+    (this.message = opts.message ? opts.message : '200 Ok'),
+      (this.code = opts.code ? opts.code : '200'),
+      (this.body = opts.body ? opts.body : {});
+  }
+}
+
 export class objectClassArray {
   objectclass: Array<[objectclass]> = [];
   constructor(opts: any) {
@@ -89,6 +116,7 @@ export class GroupClass implements Group {
         ? getOnlyActiveMembers(opts.uniquemember)
         : []
     );
+    // const members = opts.uniquemember;
     const controls = convertOptionalArray(opts.controls ? opts.controls : []);
     const owner = convertOptionalArray(opts.owner ? opts.owner : []);
     const objectclass = convertOptionalArray(
