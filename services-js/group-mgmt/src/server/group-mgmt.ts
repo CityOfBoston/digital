@@ -22,7 +22,10 @@ import { ldapConfig } from './ldapConfig';
 import { typeDefs } from './graphql/typeDefs';
 
 const port = parseInt(process.env.PORT || '7000', 10);
-const ldapClient = ldap.createClient({ url: ldapConfig.url });
+const ldapClient = ldap.createClient({
+  url: ldapConfig.url,
+  reconnect: true,
+});
 
 const bindLdapClient = (force: Boolean = false) => {
   if (
