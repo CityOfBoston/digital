@@ -418,6 +418,7 @@ async function addGraphQl(server: HapiServer) {
 
   await apolloServer.applyMiddleware({
     app: server,
+    cors: true,
   });
 }
 
