@@ -28,7 +28,8 @@ env:
 
 before_install:
   # Travis has a very old version of Yarn installed, so we need to upgrade.
-  - npm install -g yarn@`jq -r .engines.yarn package.json`
+  # - npm install -g yarn@`jq -r .engines.yarn package.json`
+  - npm install -g yarn@1.18.0
   # npm install -g instead of npx so we don't need to re-unpack every time.
   - npm install -g lerna@`jq -r .devDependencies.lerna package.json`
   # npm install -g instead of npx so we don't need to re-unpack every time.
