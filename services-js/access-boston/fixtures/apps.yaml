@@ -39,6 +39,11 @@ categories:
       - title: The Hub
         url: https://edit-dev-hub.boston.gov/user
         icon: /assets/apps/hub.svg
+      - title: AgilePoint
+        url: https://boston-d-app01.nxone.com/
+        icon: /assets/apps/agilepoint.svg
+        groups:
+          - SG_AB_AGILEPOINT
       - title: Hyperion
         url: https://login.us2.oraclecloud.com/
         icon: /assets/apps/hyperion.svg
