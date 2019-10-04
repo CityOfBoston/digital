@@ -115,7 +115,8 @@ describe('choose page', () => {
   });
 });
 
-describe('integration', () => {
+// disabled as per Reilly 9/23 jm
+xdescribe('integration', () => {
   let wrapper;
   let resolveSuggestions;
 

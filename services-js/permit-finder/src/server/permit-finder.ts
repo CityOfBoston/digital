@@ -12,7 +12,7 @@ import {
 import Inert from 'inert';
 import cleanup from 'node-cleanup';
 import hapiDevErrors from 'hapi-dev-errors';
-import next from 'next';
+const next = require('next');
 import { ApolloServer } from 'apollo-server-hapi';
 import AWS from 'aws-sdk';
 
@@ -137,7 +137,7 @@ export async function makeServer(port, rollbar: Rollbar) {
     route: {
       cors: true,
       auth:
-        apiKeys.length || process.env.NODE_ENV == 'staging'
+        apiKeys.length || process.env.NODE_ENV == ('staging' as any)
           ? 'apiHeaderKeys'
           : false,
     },

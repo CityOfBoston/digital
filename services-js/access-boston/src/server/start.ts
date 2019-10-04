@@ -6,7 +6,10 @@
  */
 
 // We don't want any local configurations to affect the test runs
-if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'testcafe') {
+if (
+  process.env.NODE_ENV !== 'test' &&
+  process.env.NODE_ENV !== ('testcafe' as any)
+) {
   require('dotenv').config();
 }
 
@@ -27,3 +30,5 @@ startServer(rollbar).catch((err: Error) => {
   console.error('Error starting server', err);
   process.exit(1);
 });
+
+export {};

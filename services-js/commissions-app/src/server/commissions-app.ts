@@ -7,7 +7,7 @@ import { boomify } from 'boom';
 import Inert from 'inert';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
-import next from 'next';
+const next = require('next');
 import Rollbar from 'rollbar';
 import { Client as PostmarkClient } from 'postmark';
 import { ApolloServer } from 'apollo-server-hapi';
