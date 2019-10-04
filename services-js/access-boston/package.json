@@ -22,7 +22,8 @@
     "generate-graphql-types": "npx apollo codegen:generate --includes=\"src/client/**/*.ts\" --localSchemaFile=graphql/schema.graphql --target=typescript --outputFlat --no-addTypename src/client/graphql/queries.ts",
     "prepare-deploy": "build-storybook -s static",
     "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy deploy/Dockerfile",
-    "postdeploy": "ts-node ./scripts/post-deploy"
+    "postdeploy": "ts-node ./scripts/post-deploy",
+    "update-storyshots": "jest -u"
   },
   "jest": {
     "testPathIgnorePatterns": [

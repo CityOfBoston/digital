@@ -3856,6 +3856,27 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
+            href="https://boston-d-app01.nxone.com/"
+            id="app-icon-AgilePoint"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/agilepoint.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              AgilePoint
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
             href="https://login.us2.oraclecloud.com/"
             id="app-icon-Hyperion"
             target="_blank"
@@ -4748,6 +4769,27 @@ Array [
               className="lwi-t"
             >
               The Hub
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://boston-d-app01.nxone.com/"
+            id="app-icon-AgilePoint"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/agilepoint.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              AgilePoint
             </span>
           </a>
           <a
@@ -5698,6 +5740,27 @@ Array [
               className="lwi-t"
             >
               The Hub
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://boston-d-app01.nxone.com/"
+            id="app-icon-AgilePoint"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/agilepoint.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              AgilePoint
             </span>
           </a>
           <a
