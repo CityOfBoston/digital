@@ -22,12 +22,12 @@
   "dependencies": {
     "compression": "^1.6.2",
     "core-js": "^2.6.4",
-    "next": "^9.0.6",
+    "next": "8.0.3",
     "react": "16.8.5",
     "react-dom": "16.8.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "7.1.2",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/hapi": "^17.0.19",

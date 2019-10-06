@@ -17,7 +17,6 @@ module.exports = api => ({
       require('@babel/preset-env'),
       {
         useBuiltIns: 'usage',
-        corejs: 2,
         modules: api.env('esm') ? false : undefined,
       },
     ],

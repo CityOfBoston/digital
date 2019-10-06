@@ -1,11 +1,4 @@
-import Document, {
-  Head,
-  Main,
-  NextScript,
-  DocumentInitialProps,
-  DocumentContext,
-  DocumentProps,
-} from 'next/document';
+import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
 
 import {
@@ -17,25 +10,13 @@ import { CompatibilityWarning, StatusModal } from '@cityofboston/react-fleet';
 
 import { HEADER_HEIGHT } from '../client/styles';
 
-type Props = {
-  userAgent: string;
-  rollbarAccessToken: string | undefined;
-  rollbarEnvironment: string | undefined;
-
-  css: string;
-  ids: string[];
-};
-
-export default class MyDocument extends Document<Props> {
+export default class MyDocument extends Document {
   props: any;
 
-  static async getInitialProps({
-    renderPage,
-    req,
-  }: DocumentContext): Promise<Props & DocumentInitialProps> {
-    const page = await renderPage();
+  static getInitialProps({ renderPage, req }) {
+    const page = renderPage();
     const styles = extractCritical(page.html);
-    const userAgent = req!.headers['user-agent'] || '';
+    const userAgent = req.headers['user-agent'];
     return {
       ...page,
       ...styles,
@@ -46,12 +27,12 @@ export default class MyDocument extends Document<Props> {
     };
   }
 
-  constructor(props: Props & DocumentProps) {
+  constructor(props) {
     super(props);
 
     const { __NEXT_DATA__, ids } = props;
     if (ids) {
-      (__NEXT_DATA__ as any).ids = ids;
+      __NEXT_DATA__.ids = ids;
     }
   }
 
@@ -59,7 +40,7 @@ export default class MyDocument extends Document<Props> {
     const { userAgent, rollbarAccessToken, rollbarEnvironment } = this.props;
 
     return (
-      <html lang="en-US">
+      <html>
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 

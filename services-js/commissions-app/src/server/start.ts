@@ -23,5 +23,3 @@ startServer(rollbar).catch((err: Error) => {
   console.error('Error starting server', err);
   process.exit(1);
 });
-
-export {};

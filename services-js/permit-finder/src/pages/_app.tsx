@@ -1,13 +1,13 @@
 import React from 'react';
-import App, { AppProps, AppContext, AppInitialProps } from 'next/app';
+import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
-import { NextPageContext } from 'next';
 
 import {
   FetchGraphql,
   makeFetchGraphql,
   RouterListener,
+  NextContext,
   GtagSiteAnalytics,
   ScreenReaderSupport,
   SiteAnalytics,
@@ -23,10 +23,10 @@ export interface GetInitialPropsDependencies {
 
 export type GetInitialProps<
   T,
-  C extends keyof NextPageContext = never,
+  C extends keyof NextContext = never,
   D extends keyof GetInitialPropsDependencies = never
 > = (
-  cxt: Pick<NextPageContext, C>,
+  cxt: Pick<NextContext, C>,
   deps: Pick<GetInitialPropsDependencies, D>
 ) => T | Promise<T>;
 
@@ -71,6 +71,19 @@ export interface PageDependencies {
   screenReaderSupport: ScreenReaderSupport;
 }
 
+interface AppInitialProps {
+  ctx: NextContext;
+  Component: any;
+}
+
+interface InitialProps {
+  pageProps: any;
+}
+
+interface Props extends InitialProps {
+  Component: any;
+}
+
 /**
  * Custom app wrapper for setting up global dependencies:
  *
@@ -78,23 +91,22 @@ export interface PageDependencies {
  *  - PageDependencies are spread as props for the page
  */
 export default class AccessBostonApp extends App {
+  // TypeScript doesn't know that App already has a props member.
+  protected props: Props;
+
   private pageDependencies: PageDependencies;
 
   static async getInitialProps({
     Component,
     ctx,
-  }: AppContext): Promise<AppInitialProps> {
+  }: AppInitialProps): Promise<InitialProps> {
     try {
       const initialPageDependencies: GetInitialPropsDependencies = {
         fetchGraphql: makeFetchGraphql(getConfig(), ctx.req),
       };
 
       const pageProps = Component.getInitialProps
-        ? await (Component.getInitialProps as GetInitialProps<
-            any,
-            keyof NextPageContext,
-            keyof GetInitialPropsDependencies
-          >)(ctx, initialPageDependencies)
+        ? await Component.getInitialProps(ctx, initialPageDependencies)
         : {};
 
       return { pageProps };
@@ -117,8 +129,13 @@ export default class AccessBostonApp extends App {
     }
   }
 
-  constructor(props: AppProps<any>) {
+  constructor(props: Props) {
     super(props);
+
+    // We're a little hacky here because TypeScript doesn't have type
+    // information about App and doesn't know it's a component and that the
+    // super call above actually does this.
+    this.props = props;
 
     this.pageDependencies = {
       routerListener: new RouterListener(),
@@ -159,6 +176,10 @@ export default class AccessBostonApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
-    return <Component {...this.pageDependencies} {...pageProps} />;
+    return (
+      <Container>
+        <Component {...this.pageDependencies} {...pageProps} />
+      </Container>
+    );
   }
 }

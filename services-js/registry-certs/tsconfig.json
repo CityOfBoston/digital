@@ -5,16 +5,12 @@
     "outDir": "build",
     "allowJs": true,
     "sourceMap": true,
-    "declaration": false,
-    "noEmit": true,
-    "module": "esnext",
-    "isolatedModules": true
+    "declaration": false
   },
   "include": [
     "client/**/*",
     "lib/**/*",
     "pages/**/*",
     "server/**/*"
-  ],
-  "exclude": []
+  ]
 }

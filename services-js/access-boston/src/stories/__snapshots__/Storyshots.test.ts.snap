@@ -50,7 +50,6 @@ exports[`Storyshots AccessBostonHeader default 1`] = `
     <a
       href="/"
       onClick={[Function]}
-      onMouseEnter={[Function]}
       style={
         Object {
           "color": "inherit",
@@ -103,7 +102,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -412,7 +410,6 @@ Array [
               <a
                 href="/"
                 onClick={[Function]}
-                onMouseEnter={[Function]}
               >
                 Cancel and go back to Access Boston
               </a>
@@ -483,7 +480,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -866,7 +862,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -1254,7 +1249,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -1563,7 +1557,6 @@ Array [
               <a
                 href="/"
                 onClick={[Function]}
-                onMouseEnter={[Function]}
               >
                 Cancel and go back to Access Boston
               </a>
@@ -1689,7 +1682,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -1998,7 +1990,6 @@ Array [
               <a
                 href="/"
                 onClick={[Function]}
-                onMouseEnter={[Function]}
               >
                 Cancel and go back to Access Boston
               </a>
@@ -2102,7 +2093,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -2411,7 +2401,6 @@ Array [
               <a
                 href="/"
                 onClick={[Function]}
-                onMouseEnter={[Function]}
               >
                 Cancel and go back to Access Boston
               </a>
@@ -2504,7 +2493,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -3593,7 +3581,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -3689,7 +3676,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://baisfn.cityhall.boston.cob/"
-            id="app-icon-BAIS FN"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3710,7 +3697,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://hcm.cityhall.boston.cob/"
-            id="app-icon-BAIS HCM"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3731,7 +3718,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.maps.arcgis.com/"
-            id="app-icon-Boston Maps"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3752,7 +3739,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://employeeconnect-boston.icims.com/"
-            id="app-icon-Current Job Openings"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3773,7 +3760,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://careercenter-boston.icims.com/jobs/"
-            id="app-icon-Current Job Openings"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3794,7 +3781,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.icims.com/platform"
-            id="app-icon-Career Center"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3815,7 +3802,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://ess.boston.gov/"
-            id="app-icon-Employee Self-Service"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3836,7 +3823,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://edit-dev-hub.boston.gov/user"
-            id="app-icon-The Hub"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3878,7 +3865,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.us2.oraclecloud.com/"
-            id="app-icon-Hyperion"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3899,7 +3886,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://platform.civisanalytics.com/"
-            id="app-icon-Civis"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3920,7 +3907,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
-            id="app-icon-IIQ"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3941,7 +3928,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://https://sso.e-builder.net/"
-            id="app-icon-E-builder"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3962,7 +3949,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.frontlineeducation.com/"
-            id="app-icon-Employee Training"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -3983,7 +3970,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
-            id="app-icon-BPS TalentEd"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4027,7 +4014,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
-                id="app-link-Create Sponsored Account"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4055,7 +4042,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="http://boston.getlocalmotion.com/"
-                id="app-link-FleetHub"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4083,7 +4070,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
-                id="app-link-International Travel"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4111,7 +4098,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
-                id="app-link-Unblock Website Request"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4139,7 +4126,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
-                id="app-link-Building Maintenance"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4167,7 +4154,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
-                id="app-link-Request FN Access"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4214,7 +4201,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="/change-password"
-                id="app-link-Change My Password"
+                onClick={[Function]}
                 target="_self"
               >
                 <div
@@ -4242,7 +4229,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
-                id="app-link-Manage My Device(s)"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4289,7 +4276,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
-                id="app-link-Identity Verification"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4317,7 +4304,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
-                id="app-link-View User Information"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4345,7 +4332,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="#"
-                id="app-link-Edit Group"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4392,7 +4379,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
-                id="app-link-Set a Delegate"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4420,7 +4407,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
-                id="app-link-My Approvals"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4448,7 +4435,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
-                id="app-link-Manage Sponsored Account"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4528,7 +4515,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -4606,7 +4592,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://baisfn.cityhall.boston.cob/"
-            id="app-icon-BAIS FN"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4627,7 +4613,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://hcm.cityhall.boston.cob/"
-            id="app-icon-BAIS HCM"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4648,7 +4634,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.maps.arcgis.com/"
-            id="app-icon-Boston Maps"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4669,7 +4655,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://employeeconnect-boston.icims.com/"
-            id="app-icon-Current Job Openings"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4690,7 +4676,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://careercenter-boston.icims.com/jobs/"
-            id="app-icon-Current Job Openings"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4711,7 +4697,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.icims.com/platform"
-            id="app-icon-Career Center"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4732,7 +4718,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://ess.boston.gov/"
-            id="app-icon-Employee Self-Service"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4753,7 +4739,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://edit-dev-hub.boston.gov/user"
-            id="app-icon-The Hub"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4795,7 +4781,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.us2.oraclecloud.com/"
-            id="app-icon-Hyperion"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4816,7 +4802,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://platform.civisanalytics.com/"
-            id="app-icon-Civis"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4837,7 +4823,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
-            id="app-icon-IIQ"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4858,7 +4844,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://https://sso.e-builder.net/"
-            id="app-icon-E-builder"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4879,7 +4865,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.frontlineeducation.com/"
-            id="app-icon-Employee Training"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4900,7 +4886,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
-            id="app-icon-BPS TalentEd"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -4944,7 +4930,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
-                id="app-link-Create Sponsored Account"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -4972,7 +4958,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="http://boston.getlocalmotion.com/"
-                id="app-link-FleetHub"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5000,7 +4986,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
-                id="app-link-International Travel"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5028,7 +5014,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
-                id="app-link-Unblock Website Request"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5056,7 +5042,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
-                id="app-link-Building Maintenance"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5084,7 +5070,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
-                id="app-link-Request FN Access"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5131,7 +5117,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="/change-password"
-                id="app-link-Change My Password"
+                onClick={[Function]}
                 target="_self"
               >
                 <div
@@ -5159,7 +5145,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
-                id="app-link-Manage My Device(s)"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5206,7 +5192,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
-                id="app-link-Identity Verification"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5234,7 +5220,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
-                id="app-link-View User Information"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5262,7 +5248,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="#"
-                id="app-link-Edit Group"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5309,7 +5295,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
-                id="app-link-Set a Delegate"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5337,7 +5323,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
-                id="app-link-My Approvals"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5365,7 +5351,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
-                id="app-link-Manage Sponsored Account"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5445,7 +5431,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -5529,7 +5514,6 @@ Array [
               className="btn"
               href="/mfa"
               onClick={[Function]}
-              onMouseEnter={[Function]}
               style={
                 Object {
                   "whiteSpace": "nowrap",
@@ -5577,7 +5561,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://baisfn.cityhall.boston.cob/"
-            id="app-icon-BAIS FN"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5598,7 +5582,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://hcm.cityhall.boston.cob/"
-            id="app-icon-BAIS HCM"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5619,7 +5603,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.maps.arcgis.com/"
-            id="app-icon-Boston Maps"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5640,7 +5624,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://employeeconnect-boston.icims.com/"
-            id="app-icon-Current Job Openings"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5661,7 +5645,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://careercenter-boston.icims.com/jobs/"
-            id="app-icon-Current Job Openings"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5682,7 +5666,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://boston.icims.com/platform"
-            id="app-icon-Career Center"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5703,7 +5687,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://ess.boston.gov/"
-            id="app-icon-Employee Self-Service"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5724,7 +5708,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://edit-dev-hub.boston.gov/user"
-            id="app-icon-The Hub"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5766,7 +5750,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.us2.oraclecloud.com/"
-            id="app-icon-Hyperion"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5787,7 +5771,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://platform.civisanalytics.com/"
-            id="app-icon-Civis"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5808,7 +5792,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://identity.boston.gov/identityiq/"
-            id="app-icon-IIQ"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5829,7 +5813,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://https://sso.e-builder.net/"
-            id="app-icon-E-builder"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5850,7 +5834,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://login.frontlineeducation.com/"
-            id="app-icon-Employee Training"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5871,7 +5855,7 @@ Array [
           <a
             className="lwi m-t200 g--3 g--3--sl"
             href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
-            id="app-icon-BPS TalentEd"
+            onClick={[Function]}
             target="_blank"
           >
             <span
@@ -5915,7 +5899,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/createSponsor.jsf"
-                id="app-link-Create Sponsored Account"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5943,7 +5927,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="http://boston.getlocalmotion.com/"
-                id="app-link-FleetHub"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5971,7 +5955,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://goo.gl/forms/Xobh9aZeGXSnKH2m2"
-                id="app-link-International Travel"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -5999,7 +5983,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://boston.seamlessdocs.com/f/geol18cumhw"
-                id="app-link-Unblock Website Request"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6027,7 +6011,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://eamtst.cityhall.boston.cob:5443/WebMaint/"
-                id="app-link-Building Maintenance"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6055,7 +6039,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/requestPsfn.jsf"
-                id="app-link-Request FN Access"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6102,7 +6086,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="/change-password"
-                id="app-link-Change My Password"
+                onClick={[Function]}
                 target="_self"
               >
                 <div
@@ -6130,7 +6114,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
-                id="app-link-Manage My Device(s)"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6177,7 +6161,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/identityVerification.jsf"
-                id="app-link-Identity Verification"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6205,7 +6189,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
-                id="app-link-View User Information"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6233,7 +6217,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="#"
-                id="app-link-Edit Group"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6280,7 +6264,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
-                id="app-link-Set a Delegate"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6308,7 +6292,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
-                id="app-link-My Approvals"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6336,7 +6320,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/extendSponsor.jsf"
-                id="app-link-Manage Sponsored Account"
+                onClick={[Function]}
                 target="_blank"
               >
                 <div
@@ -6781,7 +6765,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -6991,7 +6974,6 @@ Array [
           <a
             href="/mfa?email=1"
             onClick={[Function]}
-            onMouseEnter={[Function]}
           >
             Get codes via personal email
           </a>
@@ -7060,7 +7042,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -7207,7 +7188,6 @@ Array [
           <a
             href="/mfa"
             onClick={[Function]}
-            onMouseEnter={[Function]}
           >
             get codes via phone call or text
           </a>
@@ -7287,7 +7267,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -7497,7 +7476,6 @@ Array [
           <a
             href="/mfa?email=1"
             onClick={[Function]}
-            onMouseEnter={[Function]}
           >
             Get codes via personal email
           </a>
@@ -7834,7 +7812,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
         <a
           href="/mfa?email=1"
           onClick={[Function]}
-          onMouseEnter={[Function]}
         >
           Get codes via personal email
         </a>
@@ -7952,7 +7929,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
         <a
           href="/mfa"
           onClick={[Function]}
-          onMouseEnter={[Function]}
         >
           get codes via phone call or text
         </a>
@@ -8144,7 +8120,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
         <a
           href="/mfa?email=1"
           onClick={[Function]}
-          onMouseEnter={[Function]}
         >
           Get codes via personal email
         </a>
@@ -8766,7 +8741,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -8865,7 +8839,6 @@ Array [
               className="btn"
               href="/change-password"
               onClick={[Function]}
-              onMouseEnter={[Function]}
             >
               Get Started
             </a>
@@ -8962,7 +8935,6 @@ Array [
       <a
         href="/"
         onClick={[Function]}
-        onMouseEnter={[Function]}
         style={
           Object {
             "color": "inherit",
@@ -9062,7 +9034,6 @@ Array [
               className="btn"
               href="/mfa"
               onClick={[Function]}
-              onMouseEnter={[Function]}
             >
               Get Started
             </a>

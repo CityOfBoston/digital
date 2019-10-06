@@ -24,7 +24,7 @@
     "mssql": "^4.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "7.1.2",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "24.x.x",

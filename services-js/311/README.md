@@ -4,40 +4,28 @@ The source code for the future [311.boston.gov](https://311.boston.gov).
 
 [![Build Status](https://travis-ci.org/CityOfBoston/311.svg?branch=develop)](https://travis-ci.org/CityOfBoston/311)
 
-### todo note: 9/23/19
-
-All apps have been upgraded from Next.js 8.x.x => 9.x.x **except** for this one!
-
-After upgrading (along with Babel from 7.1.x to 7.6.x), running Jest throws
-
-```
-[mobx] Encountered an uncaught exception that was thrown by a reaction or observer component, in: 'Reaction[RecentRequestRow#3350.render()] { Invariant Violation: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.
-```
-
-Since this application is not in production and it is unknown whether it ever will be, it was decided to leave it as-is for the time being.
-
 ## Developers
 
 This is a Node project using the [Next.js](https://github.com/zeit/next.js/)
 framework for server-side rendering.
 
-- **Development Server**: `npm run dev` <http://localhost:3000/>
-- **React Storybook**: `npm run storybook` <http://localhost:9001/>
-- **Tests**: `npm test` or `npm test -- --watch`
-- **Lint**: `npm run lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
+ * **Development Server**: `npm run dev` <http://localhost:3000/>
+ * **React Storybook**: `npm run storybook` <http://localhost:9001/>
+ * **Tests**: `npm test` or `npm test -- --watch`
+ * **Lint**: `npm run lint` (uses [ESLint](http://eslint.org/) `--fix` to fix common style errors)
 
 ### Getting started
 
-**Make sure you have at least Node 8.2 installed, preferrably with `nvm` or
+__Make sure you have at least Node 8.2 installed, preferrably with `nvm` or
 equivalent so you automatically pick up our `.nvmrc` file. Also, `npm` >= 5.3
-(installed by default with Node 8.2 and up) and `gulp-cli`.**
+(installed by default with Node 8.2 and up) and `gulp-cli`.__
 
-1.  Get the Open311 api_key and URL from a friend
-1.  Copy `.env.sample` to `.env` and fill in the endpoint and keys
-1.  Get other API keys: Mapbox, Searchly, &c. and put them in .env
-1.  `yarn install`
-1.  `yarn dev`
-1.  Visit <http://localhost:3000/> in your browser
+ 1. Get the Open311 api_key and URL from a friend
+ 1. Copy `.env.sample` to `.env` and fill in the endpoint and keys
+ 1. Get other API keys: Mapbox, Searchly, &c. and put them in .env
+ 1. `yarn install`
+ 1. `yarn dev`
+ 1. Visit <http://localhost:3000/> in your browser
 
 ### JavaScript
 
@@ -49,9 +37,9 @@ preset.
 
 Please make full use of:
 
-- [Object rest spread](https://babeljs.io/docs/plugins/transform-object-rest-spread/): `{ foo: 1, ...bar }`
-- [Async functions](https://babeljs.io/docs/plugins/transform-async-to-generator/): `async (promisedNum) => (3 + await promisedNum)`
-- [Class properties](https://babeljs.io/docs/plugins/transform-class-properties/): `class MyComponent { onClick = () => { this.setState({ clicked: true })} }`
+ * [Object rest spread](https://babeljs.io/docs/plugins/transform-object-rest-spread/): `{ foo: 1, ...bar }`
+ * [Async functions](https://babeljs.io/docs/plugins/transform-async-to-generator/): `async (promisedNum) => (3 + await promisedNum)`
+ * [Class properties](https://babeljs.io/docs/plugins/transform-class-properties/): `class MyComponent { onClick = () => { this.setState({ clicked: true })} }`
 
 Code style is enforced by ESLint, which can be run (in `--fix` mode) with
 `npm run lint`. Committed code must contain no errors or warnings. On a per-file
@@ -90,7 +78,8 @@ Components and containers are organized under `/components` by page.
 For UI-focused development, use [React Storybook](https://getstorybook.io/) by
 running `npm run storybook` and visiting <http://localhost:9001>
 
-**Local use of patterns library:** After running `gulp` and `npx fractal start -- --watch` in the patterns directory, change `stylesheets.json` to
+**Local use of patterns library:** After running `gulp` and `npx fractal
+start -- --watch` in the patterns directory, change `stylesheets.json` to
 reference `https://localhost:3001` instead of `cob-patterns-staging`.
 
 ## Public domain
@@ -105,6 +94,6 @@ This project is in the worldwide [public domain](LICENSE.md). As stated in [LICE
 
 If you're interested in helping this project, there are three ways to help. Be sure to checkout our [Guide to Contributing](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md).
 
-- [Report issues on Boston.gov](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#reporting-bugs)
-- [Suggest new features](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#suggest-new-features)
-- [Contributing to development](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#contributing-to-development)
+* [Report issues on Boston.gov](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#reporting-bugs)
+* [Suggest new features](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#suggest-new-features)
+* [Contributing to development](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#contributing-to-development)

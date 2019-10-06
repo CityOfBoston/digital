@@ -28,7 +28,7 @@ export default class ReceiptPage extends Component<Props> {
       throw new Error('Missing id');
     }
 
-    if (!contactEmail || Array.isArray(contactEmail)) {
+    if (!contactEmail) {
       throw new Error('Missing contactEmail');
     }
 

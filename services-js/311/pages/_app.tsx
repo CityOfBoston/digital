@@ -157,16 +157,16 @@ function getInitialPageDependencies(
  *  - GetInitialPropsDependencies are passed as a second argument to getInitialProps
  *  - PageDependencies are spread as props for the page
  */
-export default class Three11App extends App<Props | any> {
+export default class Three11App extends App {
   // TypeScript doesn't know that App already has a props member.
-  props: Props | any;
+  protected props: Props;
 
   private pageDependencies: PageDependencies;
 
   static async getInitialProps({
     Component,
     ctx,
-  }: AppGetInitialPropsContext | any): Promise<InitialProps> {
+  }: AppGetInitialPropsContext): Promise<InitialProps> {
     const deps = getInitialPageDependencies(ctx.req);
 
     const pageProps = Component.getInitialProps
@@ -182,7 +182,7 @@ export default class Three11App extends App<Props | any> {
     };
   }
 
-  constructor(props: Props | any) {
+  constructor(props: Props) {
     super(props);
 
     // We're a little hacky here because TypeScript doesn't have type

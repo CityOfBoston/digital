@@ -1,12 +1,7 @@
 /* eslint react/no-danger: 0 */
 import React from 'react';
-import Document, {
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-  DocumentInitialProps,
-} from 'next/document';
+import { DocumentContext } from 'next';
+import Document, { Head, Main, NextScript } from 'next/document';
 
 import { ScreenReaderSupport } from '@cityofboston/next-client-common';
 import { StatusModal, ContactForm } from '@cityofboston/react-fleet';
@@ -14,17 +9,18 @@ import { StatusModal, ContactForm } from '@cityofboston/react-fleet';
 import styleTags from '../client/common/utility/style-tags';
 
 type Props = {
+  __NEXT_DATA__: any;
   cacheParam: string;
   rollbarAccessToken: string | undefined;
   rollbarEnvironment: string;
   rollbarVersion: string | undefined;
 };
 
-export default class extends Document<Props> {
-  static async getInitialProps({
-    renderPage,
-  }: DocumentContext): Promise<DocumentInitialProps & Props> {
-    const page = await renderPage();
+export default class extends Document {
+  props: Props;
+
+  static getInitialProps({ renderPage }: DocumentContext): Props {
+    const page = renderPage();
 
     // This is set by our standard deployment process.
     const cacheParam =
@@ -38,11 +34,15 @@ export default class extends Document<Props> {
       cacheParam,
       rollbarAccessToken: process.env.ROLLBAR_BROWSER_ACCESS_TOKEN,
       rollbarEnvironment:
-        process.env.ROLLBAR_ENVIRONMENT ||
-        process.env.NODE_ENV ||
-        'development',
+        process.env.ROLLBAR_ENVIRONMENT || process.env.NODE_ENV,
       rollbarVersion: process.env.GIT_REVISION,
     };
+  }
+
+  constructor(props: Props) {
+    super(props);
+
+    this.props = props;
   }
 
   render() {

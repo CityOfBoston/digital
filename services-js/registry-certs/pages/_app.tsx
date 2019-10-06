@@ -1,15 +1,15 @@
 import React from 'react';
 import { IncomingMessage } from 'http';
 
-import App, { AppContext, AppInitialProps, AppProps } from 'next/app';
+import App, { Container } from 'next/app';
 import Router from 'next/router';
 import getConfig from 'next/config';
-import { NextPageContext } from 'next';
 
 import { configure as mobxConfigure } from 'mobx';
 
 import {
   makeFetchGraphql,
+  NextContext,
   ScreenReaderSupport,
   RouterListener,
   GaSiteAnalytics,
@@ -39,10 +39,10 @@ export interface GetInitialPropsDependencies {
  */
 export type GetInitialProps<
   T,
-  C extends keyof NextPageContext = never,
+  C extends keyof NextContext = never,
   D extends keyof GetInitialPropsDependencies = never
 > = (
-  cxt: Pick<NextPageContext, C>,
+  cxt: Pick<NextContext, C>,
   deps: Pick<GetInitialPropsDependencies, D>
 ) => T | Promise<T>;
 
@@ -86,6 +86,19 @@ export interface PageDependencies extends GetInitialPropsDependencies {
   siteAnalytics: GaSiteAnalytics;
 }
 
+interface AppInitialProps {
+  ctx: NextContext;
+  Component: any;
+}
+
+interface InitialProps {
+  pageProps: any;
+}
+
+interface Props extends InitialProps {
+  Component: any;
+}
+
 // It’s important to cache the dependencies passed to getInitialProps because
 // they won’t be automatically re-used the way that the dependencies passed as
 // props are.
@@ -127,18 +140,20 @@ function getInitialPageDependencies(
  *  - PageDependencies are spread as props for the page
  */
 export default class RegistryCertsApp extends App {
+  // TypeScript doesn't know that App already has a props member.
+  protected props: Props;
+
   private pageDependencies: PageDependencies;
 
   static async getInitialProps({
     Component,
     ctx,
-  }: AppContext): Promise<AppInitialProps> {
+  }: AppInitialProps): Promise<InitialProps> {
     const pageProps = Component.getInitialProps
-      ? await (Component.getInitialProps as GetInitialProps<
-          any,
-          keyof NextPageContext,
-          keyof GetInitialPropsDependencies
-        >)(ctx, getInitialPageDependencies(ctx.req))
+      ? await Component.getInitialProps(
+          ctx,
+          getInitialPageDependencies(ctx.req)
+        )
       : {};
 
     return {
@@ -146,8 +161,13 @@ export default class RegistryCertsApp extends App {
     };
   }
 
-  constructor(props: AppProps) {
+  constructor(props: Props) {
     super(props);
+
+    // We're a little hacky here because TypeScript doesn't have type
+    // information about App and doesn't know it's a component and that the
+    // super call above actually does this.
+    this.props = props;
 
     mobxConfigure({ enforceActions: true });
 
@@ -274,6 +294,10 @@ export default class RegistryCertsApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
-    return <Component {...this.pageDependencies} {...pageProps} />;
+    return (
+      <Container>
+        <Component {...this.pageDependencies} {...pageProps} />
+      </Container>
+    );
   }
 }

@@ -125,7 +125,6 @@
     "@types/storybook__addon-actions": "^3.4.2",
     "@types/storybook__addon-storyshots": "^3.4.8",
     "@types/storybook__react": "^4.0.1",
-    "@zeit/next-typescript": "1.1.1",
     "babel-core": "^7.0.0-0",
     "babel-plugin-inline-import": "^2.0.6",
     "cheerio": "^1.0.0-rc.2",

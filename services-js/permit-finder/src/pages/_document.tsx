@@ -1,10 +1,4 @@
-import Document, {
-  Head,
-  Main,
-  NextScript,
-  DocumentInitialProps,
-  DocumentContext,
-} from 'next/document';
+import Document, { Head, Main, NextScript } from 'next/document';
 
 import {
   makeNProgressStyle,
@@ -13,19 +7,12 @@ import {
 } from '@cityofboston/next-client-common';
 import { CompatibilityWarning, StatusModal } from '@cityofboston/react-fleet';
 
-type Props = {
-  userAgent: string;
-  rollbarAccessToken: string | undefined;
-  rollbarEnvironment: string | undefined;
-};
+export default class PermitFinderDocument extends Document {
+  props: any;
 
-export default class PermitFinderDocument extends Document<Props> {
-  static async getInitialProps({
-    renderPage,
-    req,
-  }: DocumentContext): Promise<Props & DocumentInitialProps> {
+  static async getInitialProps({ renderPage, req }) {
     const page = await renderPage();
-    const userAgent = req!.headers['user-agent'] || '';
+    const userAgent = req.headers['user-agent'];
 
     return {
       ...page,
@@ -40,10 +27,10 @@ export default class PermitFinderDocument extends Document<Props> {
     const { userAgent, rollbarAccessToken, rollbarEnvironment } = this.props;
 
     return (
-      <html lang="en-US">
+      <html>
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="shortcut icon"
             href="/assets/favicon.ico"

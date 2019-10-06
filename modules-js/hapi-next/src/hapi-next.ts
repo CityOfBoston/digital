@@ -1,4 +1,5 @@
 import querystring from 'querystring';
+import next from 'next';
 import compression from 'compression';
 
 import {
@@ -33,7 +34,7 @@ import { promisify } from 'util';
  * );
  */
 export function makeRoutesForNextApp(
-  app: any, // Next server object
+  app: next.Server,
   pathPrefix: string = '/',
   pageRouteOptions: RouteOptions | ((server: HapiServer) => RouteOptions) = {},
   staticRouteOptions:
@@ -120,7 +121,7 @@ export function makeRoutesForNextApp(
  * path. E.g.: /certificates/12345 should be handled by the "certificates" page.
  */
 export function makeNextHandler(
-  app: any, // Next server object
+  app: next.Server,
   page: string | null = null
 ): Lifecycle.Method {
   return async (request: HapiRequest, h: ResponseToolkit) => {
