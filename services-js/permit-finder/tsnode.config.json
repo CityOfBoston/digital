@@ -1,0 +1,6 @@
+{
+  "extends": "./node_modules/@cityofboston/config-typescript/tsconfig.default.json",
+  "compilerOptions": {
+    "module": "commonjs"
+  }
+}
