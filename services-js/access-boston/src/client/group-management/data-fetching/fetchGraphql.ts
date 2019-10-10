@@ -1,7 +1,10 @@
 import fetch from 'node-fetch';
 
 export async function fetchGraphql(query: string, variables: any) {
-  const groupManagementApiUrl = process.env.GROUP_MANAGEMENT_API_URL;
+  const defaultGraphQLUrl =
+    'https://group-mgmt.digital-staging.boston.gov/graphql';
+  const groupManagementApiUrl =
+    process.env.GROUP_MANAGEMENT_API_URL || defaultGraphQLUrl;
 
   if (groupManagementApiUrl) {
     return await fetch(groupManagementApiUrl as string, {

@@ -53,6 +53,8 @@ import Session from './Session';
 import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
 
+require('dotenv').config();
+
 const readFile = promisify(fs.readFile);
 
 const PATH_PREFIX = '';
