@@ -3672,24 +3672,12 @@ Array [
           </h2>
         </div>
         <div
-          className="t--subinfo p-a200 m-v300"
-        >
-          Looking for an app that’s not shown here? Fill out the
-           
-          <a
-            href="#"
-          >
-            request access form
-          </a>
-          .
-        </div>
-        <div
           className="g"
         >
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://baisfn.cityhall.boston.cob/"
-            id="app-icon-BAIS FN"
+            href="https://ess.boston.gov/"
+            id="app-icon-Employee Self-Service"
             target="_blank"
           >
             <span
@@ -3698,19 +3686,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/bais-fn.svg"
+                src="/assets/apps/ess.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              BAIS FN
+              Employee Self-Service
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://hcm.cityhall.boston.cob/"
-            id="app-icon-BAIS HCM"
+            href="https://hub.boston.gov/"
+            id="app-icon-The Hub"
             target="_blank"
           >
             <span
@@ -3719,19 +3707,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/bais-hcm.svg"
+                src="/assets/apps/hub.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              BAIS HCM
+              The Hub
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston.maps.arcgis.com/"
-            id="app-icon-Boston Maps"
+            href="https://boston.nxone.com"
+            id="app-icon-AgilePoint"
             target="_blank"
           >
             <span
@@ -3740,18 +3728,39 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/boston-maps.svg"
+                src="https://assets.boston.gov/icons/accessboston/agilepoint.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Boston Maps
+              AgilePoint
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://employeeconnect-boston.icims.com/"
+            href="https://boston.wombatsecurity.com"
+            id="app-icon-Security Awareness"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/proofpoint-web-security.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Security Awareness
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com&TargetResource=https%3A//employeeconnect-boston.icims.com/r.jsp"
             id="app-icon-Current Job Openings"
             target="_blank"
           >
@@ -3793,7 +3802,7 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston.icims.com/platform"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com"
             id="app-icon-Career Center"
             target="_blank"
           >
@@ -3814,8 +3823,8 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://ess.boston.gov/"
-            id="app-icon-Employee Self-Service"
+            href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
+            id="app-icon-BPS Job Listings"
             target="_blank"
           >
             <span
@@ -3824,19 +3833,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/ess.svg"
+                src="/assets/apps/talented.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Employee Self-Service
+              BPS Job Listings
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://edit-dev-hub.boston.gov/user"
-            id="app-icon-The Hub"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=http%3A%2F%2Fwww.mylearningplan.com%2Fmvc%2Fsaml%2Fmetadata%2F13583"
+            id="app-icon-Employee Training"
             target="_blank"
           >
             <span
@@ -3845,19 +3854,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/hub.svg"
+                src="/assets/apps/employee-training.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              The Hub
+              Employee Training
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston-d-app01.nxone.com/"
-            id="app-icon-AgilePoint"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com"
+            id="app-icon-Boston Maps"
             target="_blank"
           >
             <span
@@ -3866,18 +3875,60 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/agilepoint.svg"
+                src="/assets/apps/boston-maps.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              AgilePoint
+              Boston Maps
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://login.us2.oraclecloud.com/"
+            href="https://baisfn.cityhall.boston.cob/psp/prdfn/EMPLOYEE/ERP/h/?tab=DEFAULT"
+            id="app-icon-BAIS FN"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-fn.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS FN
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://hcm.cityhall.boston.cob/psp/pshrpd3/EMPLOYEE/HRMS/h/?tab=DEFAULT"
+            id="app-icon-BAIS HCM"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-hcm.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS HCM
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://login.us2.oraclecloud.com/oam/server/obrareq.cgi?encquery%3Dv2GuCFxM8VxsxDZPK9HzUGyy9Q3kTEgTTNlLlAmtoZTwncih0HU8NAbYsRh9raKXKy8d7P4g6V6FY84QopZtihSoEOcPDIVU7qktPzNiMf87zkN0Hm9YU%2BT%2B3ytwl%2FKTMsgQpsowiFHZDm13DFTGawpK%2B%2Bt3RL%2F3YiNDK33gCZnp9AZw%2Fm5OFX8d9xf%2BP8q9mlMEN3SrirXdsgAq4Jzli5LbTH38nJTp9y0kYPR1cnwH8VP80yul1ZxpngYMTatK3Z613FGf4luKZdL0G9560UC5cdbxKo3Rqhwp76BvyRFaQ%2B%2F%2FhwI3PIWWdLcyR4scKux9x5p5H2GePV7xJSst0g%3D%3D%20agentid%3DPlanning_WG%20ver%3D1%20crmethod%3D2"
             id="app-icon-Hyperion"
             target="_blank"
           >
@@ -3898,7 +3949,7 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://platform.civisanalytics.com/"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=https%3A%2F%2Fplatform.civisanalytics.com%2Fusers%2Fsaml%2Fmetadata"
             id="app-icon-Civis"
             target="_blank"
           >
@@ -3940,8 +3991,8 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://https://sso.e-builder.net/"
-            id="app-icon-E-builder"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=sso.e-builder.net"
+            id="app-icon-E-Builder"
             target="_blank"
           >
             <span
@@ -3956,49 +4007,7 @@ Array [
             <span
               className="lwi-t"
             >
-              E-builder
-            </span>
-          </a>
-          <a
-            className="lwi m-t200 g--3 g--3--sl"
-            href="https://login.frontlineeducation.com/"
-            id="app-icon-Employee Training"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="/assets/apps/employee-training.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Employee Training
-            </span>
-          </a>
-          <a
-            className="lwi m-t200 g--3 g--3--sl"
-            href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
-            id="app-icon-BPS TalentEd"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="/assets/apps/talented.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              BPS TalentEd
+              E-Builder
             </span>
           </a>
         </div>
@@ -4095,34 +4104,6 @@ Array [
                   }
                 >
                   International Travel
-                </div>
-                <div
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </div>
-              </a>
-            </li>
-            <li>
-              <a
-                className="p-a300 css-v7ibj3"
-                href="https://boston.seamlessdocs.com/f/geol18cumhw"
-                id="app-link-Unblock Website Request"
-                target="_blank"
-              >
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Unblock Website Request
                 </div>
                 <div
                   style={
@@ -4241,7 +4222,7 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
+                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
                 id="app-link-Manage My Device(s)"
                 target="_blank"
               >
@@ -4316,7 +4297,7 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
+                href="https://identity.boston.gov/identityiq/viewUserIdentityonly.jsf"
                 id="app-link-View User Information"
                 target="_blank"
               >
@@ -4392,7 +4373,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
-                id="app-link-Set a Delegate"
+                id="app-link-Set an Access Boston Delegate"
                 target="_blank"
               >
                 <div
@@ -4403,7 +4384,7 @@ Array [
                     }
                   }
                 >
-                  Set a Delegate
+                  Set an Access Boston Delegate
                 </div>
                 <div
                   style={
@@ -4420,7 +4401,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
-                id="app-link-My Approvals"
+                id="app-link-My Access Boston Approvals"
                 target="_blank"
               >
                 <div
@@ -4431,7 +4412,7 @@ Array [
                     }
                   }
                 >
-                  My Approvals
+                  My Access Boston Approvals
                 </div>
                 <div
                   style={
@@ -4589,24 +4570,12 @@ Array [
           </h2>
         </div>
         <div
-          className="t--subinfo p-a200 m-v300"
-        >
-          Looking for an app that’s not shown here? Fill out the
-           
-          <a
-            href="#"
-          >
-            request access form
-          </a>
-          .
-        </div>
-        <div
           className="g"
         >
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://baisfn.cityhall.boston.cob/"
-            id="app-icon-BAIS FN"
+            href="https://ess.boston.gov/"
+            id="app-icon-Employee Self-Service"
             target="_blank"
           >
             <span
@@ -4615,19 +4584,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/bais-fn.svg"
+                src="/assets/apps/ess.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              BAIS FN
+              Employee Self-Service
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://hcm.cityhall.boston.cob/"
-            id="app-icon-BAIS HCM"
+            href="https://hub.boston.gov/"
+            id="app-icon-The Hub"
             target="_blank"
           >
             <span
@@ -4636,19 +4605,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/bais-hcm.svg"
+                src="/assets/apps/hub.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              BAIS HCM
+              The Hub
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston.maps.arcgis.com/"
-            id="app-icon-Boston Maps"
+            href="https://boston.nxone.com"
+            id="app-icon-AgilePoint"
             target="_blank"
           >
             <span
@@ -4657,18 +4626,39 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/boston-maps.svg"
+                src="https://assets.boston.gov/icons/accessboston/agilepoint.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Boston Maps
+              AgilePoint
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://employeeconnect-boston.icims.com/"
+            href="https://boston.wombatsecurity.com"
+            id="app-icon-Security Awareness"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/proofpoint-web-security.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Security Awareness
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com&TargetResource=https%3A//employeeconnect-boston.icims.com/r.jsp"
             id="app-icon-Current Job Openings"
             target="_blank"
           >
@@ -4710,7 +4700,7 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston.icims.com/platform"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com"
             id="app-icon-Career Center"
             target="_blank"
           >
@@ -4731,8 +4721,8 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://ess.boston.gov/"
-            id="app-icon-Employee Self-Service"
+            href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
+            id="app-icon-BPS Job Listings"
             target="_blank"
           >
             <span
@@ -4741,19 +4731,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/ess.svg"
+                src="/assets/apps/talented.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Employee Self-Service
+              BPS Job Listings
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://edit-dev-hub.boston.gov/user"
-            id="app-icon-The Hub"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=http%3A%2F%2Fwww.mylearningplan.com%2Fmvc%2Fsaml%2Fmetadata%2F13583"
+            id="app-icon-Employee Training"
             target="_blank"
           >
             <span
@@ -4762,19 +4752,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/hub.svg"
+                src="/assets/apps/employee-training.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              The Hub
+              Employee Training
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston-d-app01.nxone.com/"
-            id="app-icon-AgilePoint"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com"
+            id="app-icon-Boston Maps"
             target="_blank"
           >
             <span
@@ -4783,18 +4773,60 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/agilepoint.svg"
+                src="/assets/apps/boston-maps.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              AgilePoint
+              Boston Maps
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://login.us2.oraclecloud.com/"
+            href="https://baisfn.cityhall.boston.cob/psp/prdfn/EMPLOYEE/ERP/h/?tab=DEFAULT"
+            id="app-icon-BAIS FN"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-fn.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS FN
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://hcm.cityhall.boston.cob/psp/pshrpd3/EMPLOYEE/HRMS/h/?tab=DEFAULT"
+            id="app-icon-BAIS HCM"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-hcm.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS HCM
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://login.us2.oraclecloud.com/oam/server/obrareq.cgi?encquery%3Dv2GuCFxM8VxsxDZPK9HzUGyy9Q3kTEgTTNlLlAmtoZTwncih0HU8NAbYsRh9raKXKy8d7P4g6V6FY84QopZtihSoEOcPDIVU7qktPzNiMf87zkN0Hm9YU%2BT%2B3ytwl%2FKTMsgQpsowiFHZDm13DFTGawpK%2B%2Bt3RL%2F3YiNDK33gCZnp9AZw%2Fm5OFX8d9xf%2BP8q9mlMEN3SrirXdsgAq4Jzli5LbTH38nJTp9y0kYPR1cnwH8VP80yul1ZxpngYMTatK3Z613FGf4luKZdL0G9560UC5cdbxKo3Rqhwp76BvyRFaQ%2B%2F%2FhwI3PIWWdLcyR4scKux9x5p5H2GePV7xJSst0g%3D%3D%20agentid%3DPlanning_WG%20ver%3D1%20crmethod%3D2"
             id="app-icon-Hyperion"
             target="_blank"
           >
@@ -4815,7 +4847,7 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://platform.civisanalytics.com/"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=https%3A%2F%2Fplatform.civisanalytics.com%2Fusers%2Fsaml%2Fmetadata"
             id="app-icon-Civis"
             target="_blank"
           >
@@ -4857,8 +4889,8 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://https://sso.e-builder.net/"
-            id="app-icon-E-builder"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=sso.e-builder.net"
+            id="app-icon-E-Builder"
             target="_blank"
           >
             <span
@@ -4873,49 +4905,7 @@ Array [
             <span
               className="lwi-t"
             >
-              E-builder
-            </span>
-          </a>
-          <a
-            className="lwi m-t200 g--3 g--3--sl"
-            href="https://login.frontlineeducation.com/"
-            id="app-icon-Employee Training"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="/assets/apps/employee-training.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Employee Training
-            </span>
-          </a>
-          <a
-            className="lwi m-t200 g--3 g--3--sl"
-            href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
-            id="app-icon-BPS TalentEd"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="/assets/apps/talented.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              BPS TalentEd
+              E-Builder
             </span>
           </a>
         </div>
@@ -5012,34 +5002,6 @@ Array [
                   }
                 >
                   International Travel
-                </div>
-                <div
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </div>
-              </a>
-            </li>
-            <li>
-              <a
-                className="p-a300 css-v7ibj3"
-                href="https://boston.seamlessdocs.com/f/geol18cumhw"
-                id="app-link-Unblock Website Request"
-                target="_blank"
-              >
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Unblock Website Request
                 </div>
                 <div
                   style={
@@ -5158,7 +5120,7 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
+                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
                 id="app-link-Manage My Device(s)"
                 target="_blank"
               >
@@ -5233,7 +5195,7 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
+                href="https://identity.boston.gov/identityiq/viewUserIdentityonly.jsf"
                 id="app-link-View User Information"
                 target="_blank"
               >
@@ -5309,7 +5271,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
-                id="app-link-Set a Delegate"
+                id="app-link-Set an Access Boston Delegate"
                 target="_blank"
               >
                 <div
@@ -5320,7 +5282,7 @@ Array [
                     }
                   }
                 >
-                  Set a Delegate
+                  Set an Access Boston Delegate
                 </div>
                 <div
                   style={
@@ -5337,7 +5299,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
-                id="app-link-My Approvals"
+                id="app-link-My Access Boston Approvals"
                 target="_blank"
               >
                 <div
@@ -5348,7 +5310,7 @@ Array [
                     }
                   }
                 >
-                  My Approvals
+                  My Access Boston Approvals
                 </div>
                 <div
                   style={
@@ -5560,24 +5522,12 @@ Array [
           </h2>
         </div>
         <div
-          className="t--subinfo p-a200 m-v300"
-        >
-          Looking for an app that’s not shown here? Fill out the
-           
-          <a
-            href="#"
-          >
-            request access form
-          </a>
-          .
-        </div>
-        <div
           className="g"
         >
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://baisfn.cityhall.boston.cob/"
-            id="app-icon-BAIS FN"
+            href="https://ess.boston.gov/"
+            id="app-icon-Employee Self-Service"
             target="_blank"
           >
             <span
@@ -5586,19 +5536,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/bais-fn.svg"
+                src="/assets/apps/ess.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              BAIS FN
+              Employee Self-Service
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://hcm.cityhall.boston.cob/"
-            id="app-icon-BAIS HCM"
+            href="https://hub.boston.gov/"
+            id="app-icon-The Hub"
             target="_blank"
           >
             <span
@@ -5607,19 +5557,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/bais-hcm.svg"
+                src="/assets/apps/hub.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              BAIS HCM
+              The Hub
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston.maps.arcgis.com/"
-            id="app-icon-Boston Maps"
+            href="https://boston.nxone.com"
+            id="app-icon-AgilePoint"
             target="_blank"
           >
             <span
@@ -5628,18 +5578,39 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/boston-maps.svg"
+                src="https://assets.boston.gov/icons/accessboston/agilepoint.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Boston Maps
+              AgilePoint
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://employeeconnect-boston.icims.com/"
+            href="https://boston.wombatsecurity.com"
+            id="app-icon-Security Awareness"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/proofpoint-web-security.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Security Awareness
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com&TargetResource=https%3A//employeeconnect-boston.icims.com/r.jsp"
             id="app-icon-Current Job Openings"
             target="_blank"
           >
@@ -5681,7 +5652,7 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston.icims.com/platform"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com"
             id="app-icon-Career Center"
             target="_blank"
           >
@@ -5702,8 +5673,8 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://ess.boston.gov/"
-            id="app-icon-Employee Self-Service"
+            href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
+            id="app-icon-BPS Job Listings"
             target="_blank"
           >
             <span
@@ -5712,19 +5683,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/ess.svg"
+                src="/assets/apps/talented.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              Employee Self-Service
+              BPS Job Listings
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://edit-dev-hub.boston.gov/user"
-            id="app-icon-The Hub"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=http%3A%2F%2Fwww.mylearningplan.com%2Fmvc%2Fsaml%2Fmetadata%2F13583"
+            id="app-icon-Employee Training"
             target="_blank"
           >
             <span
@@ -5733,19 +5704,19 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/hub.svg"
+                src="/assets/apps/employee-training.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              The Hub
+              Employee Training
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://boston-d-app01.nxone.com/"
-            id="app-icon-AgilePoint"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com"
+            id="app-icon-Boston Maps"
             target="_blank"
           >
             <span
@@ -5754,18 +5725,60 @@ Array [
               <img
                 alt=""
                 className="lwi-i css-149l0yi"
-                src="/assets/apps/agilepoint.svg"
+                src="/assets/apps/boston-maps.svg"
               />
             </span>
             <span
               className="lwi-t"
             >
-              AgilePoint
+              Boston Maps
             </span>
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://login.us2.oraclecloud.com/"
+            href="https://baisfn.cityhall.boston.cob/psp/prdfn/EMPLOYEE/ERP/h/?tab=DEFAULT"
+            id="app-icon-BAIS FN"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-fn.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS FN
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://hcm.cityhall.boston.cob/psp/pshrpd3/EMPLOYEE/HRMS/h/?tab=DEFAULT"
+            id="app-icon-BAIS HCM"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="/assets/apps/bais-hcm.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BAIS HCM
+            </span>
+          </a>
+          <a
+            className="lwi m-t200 g--3 g--3--sl"
+            href="https://login.us2.oraclecloud.com/oam/server/obrareq.cgi?encquery%3Dv2GuCFxM8VxsxDZPK9HzUGyy9Q3kTEgTTNlLlAmtoZTwncih0HU8NAbYsRh9raKXKy8d7P4g6V6FY84QopZtihSoEOcPDIVU7qktPzNiMf87zkN0Hm9YU%2BT%2B3ytwl%2FKTMsgQpsowiFHZDm13DFTGawpK%2B%2Bt3RL%2F3YiNDK33gCZnp9AZw%2Fm5OFX8d9xf%2BP8q9mlMEN3SrirXdsgAq4Jzli5LbTH38nJTp9y0kYPR1cnwH8VP80yul1ZxpngYMTatK3Z613FGf4luKZdL0G9560UC5cdbxKo3Rqhwp76BvyRFaQ%2B%2F%2FhwI3PIWWdLcyR4scKux9x5p5H2GePV7xJSst0g%3D%3D%20agentid%3DPlanning_WG%20ver%3D1%20crmethod%3D2"
             id="app-icon-Hyperion"
             target="_blank"
           >
@@ -5786,7 +5799,7 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://platform.civisanalytics.com/"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=https%3A%2F%2Fplatform.civisanalytics.com%2Fusers%2Fsaml%2Fmetadata"
             id="app-icon-Civis"
             target="_blank"
           >
@@ -5828,8 +5841,8 @@ Array [
           </a>
           <a
             className="lwi m-t200 g--3 g--3--sl"
-            href="https://https://sso.e-builder.net/"
-            id="app-icon-E-builder"
+            href="https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=sso.e-builder.net"
+            id="app-icon-E-Builder"
             target="_blank"
           >
             <span
@@ -5844,49 +5857,7 @@ Array [
             <span
               className="lwi-t"
             >
-              E-builder
-            </span>
-          </a>
-          <a
-            className="lwi m-t200 g--3 g--3--sl"
-            href="https://login.frontlineeducation.com/"
-            id="app-icon-Employee Training"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="/assets/apps/employee-training.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Employee Training
-            </span>
-          </a>
-          <a
-            className="lwi m-t200 g--3 g--3--sl"
-            href="https://bostonpublicschools.tedk12.com/hire/index.aspx"
-            id="app-icon-BPS TalentEd"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="/assets/apps/talented.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              BPS TalentEd
+              E-Builder
             </span>
           </a>
         </div>
@@ -5983,34 +5954,6 @@ Array [
                   }
                 >
                   International Travel
-                </div>
-                <div
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </div>
-              </a>
-            </li>
-            <li>
-              <a
-                className="p-a300 css-v7ibj3"
-                href="https://boston.seamlessdocs.com/f/geol18cumhw"
-                id="app-link-Unblock Website Request"
-                target="_blank"
-              >
-                <div
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Unblock Website Request
                 </div>
                 <div
                   style={
@@ -6129,7 +6072,7 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://desktop.pingone.com/boston-dev/Selection?cmd=devices"
+                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
                 id="app-link-Manage My Device(s)"
                 target="_blank"
               >
@@ -6204,7 +6147,7 @@ Array [
             <li>
               <a
                 className="p-a300 css-v7ibj3"
-                href="https://identity.boston.gov/identityiq/lcm/chooseIdentities.jsf?quickLink=COB-QuickLink-ViewIdentityOnly"
+                href="https://identity.boston.gov/identityiq/viewUserIdentityonly.jsf"
                 id="app-link-View User Information"
                 target="_blank"
               >
@@ -6280,7 +6223,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf"
-                id="app-link-Set a Delegate"
+                id="app-link-Set an Access Boston Delegate"
                 target="_blank"
               >
                 <div
@@ -6291,7 +6234,7 @@ Array [
                     }
                   }
                 >
-                  Set a Delegate
+                  Set an Access Boston Delegate
                 </div>
                 <div
                   style={
@@ -6308,7 +6251,7 @@ Array [
               <a
                 className="p-a300 css-v7ibj3"
                 href="https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval"
-                id="app-link-My Approvals"
+                id="app-link-My Access Boston Approvals"
                 target="_blank"
               >
                 <div
@@ -6319,7 +6262,7 @@ Array [
                     }
                   }
                 >
-                  My Approvals
+                  My Access Boston Approvals
                 </div>
                 <div
                   style={
