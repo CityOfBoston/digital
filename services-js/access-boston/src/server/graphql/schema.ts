@@ -185,17 +185,30 @@ const queryRootResolvers: QueryRootResolvers = {
           loginSession.hasMfaDevice,
           loginSession.cobAgency || null
         )
-        .map(({ apps, icons, showRequestAccessLink, title }) => ({
-          title,
-          showIcons: icons,
-          requestAccessUrl: showRequestAccessLink ? '#' : null,
-          apps: apps.map(({ title, iconUrl, url, description }) => ({
+        .map(({ apps, icons, showRequestAccessLink, title }) => {
+          const retObj = {
             title,
-            iconUrl: iconUrl || null,
-            url,
-            description,
-          })),
-        })),
+            showIcons: icons,
+            requestAccessUrl: showRequestAccessLink ? '#' : null,
+            apps: apps.map(({ title, iconUrl, url, description }) => ({
+              title,
+              iconUrl: iconUrl || null,
+              url,
+              description,
+            })),
+          };
+          if (retObj.title === 'Support Tools') {
+            const filterGroups = loginSession.groups.filter(
+              entry => entry.indexOf('SG_AB_GRPMGMT_') > -1
+            );
+            if (filterGroups.length < 1) {
+              retObj.apps = apps.filter(
+                entry => entry.title !== 'Group Management'
+              );
+            }
+          }
+          return retObj;
+        }),
     };
   },
 
