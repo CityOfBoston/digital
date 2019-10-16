@@ -12,7 +12,6 @@ if (
 ) {
   require('dotenv').config();
 }
-console.log('process.env.NODE_ENV: ', process.env.NODE_ENV);
 
 const Rollbar = require('rollbar');
 const rollbar = new Rollbar({
@@ -31,7 +30,6 @@ startServer(rollbar).catch((err: Error) => {
   console.error('Error starting server', err);
   process.exit(1);
 });
-
-console.log('process.env: ', process.env);
+console.log('GROUP_MANAGEMENT_API_URL: ', process.env.GROUP_MANAGEMENT_API_URL);
 
 export {};
