@@ -171,7 +171,7 @@ export async function addLoginAuth(
         request.payload as any
       );
       // eslint-disable-next-line no-console
-      console.log('login-auth assertResult: ', assertResult);
+      // console.log('login-auth assertResult: ', assertResult);
 
       if (assertResult.type === 'login') {
         const {

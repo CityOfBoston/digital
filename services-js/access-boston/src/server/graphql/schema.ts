@@ -86,6 +86,7 @@ export interface Account {
   resetPasswordToken: string;
   /** ISO 8601 */
   mfaRequiredDate: string | null;
+  groups: string[] | null;
 }
 
 export interface Apps {
@@ -137,7 +138,14 @@ const queryRootResolvers: QueryRootResolvers = {
         firstName,
         lastName,
         mfaRequiredDate,
+        groups,
       } = loginSession;
+      let mgmt_groups: Array<string> = [];
+      if (typeof groups === 'object' && groups.length > 0) {
+        mgmt_groups = groups.filter(
+          entry => entry.indexOf('SG_AB_GRPMGMT_') > -1
+        );
+      }
 
       return {
         employeeId: userId,
@@ -148,6 +156,7 @@ const queryRootResolvers: QueryRootResolvers = {
         hasMfaDevice,
         resetPasswordToken: '',
         mfaRequiredDate: mfaRequiredDate ? mfaRequiredDate : null,
+        groups: mgmt_groups,
       };
     } else if (forgotPasswordAuth) {
       return {
@@ -161,6 +170,7 @@ const queryRootResolvers: QueryRootResolvers = {
         hasMfaDevice: false,
         resetPasswordToken: forgotPasswordAuth.resetPasswordToken,
         mfaRequiredDate: null,
+        groups: [''],
       };
     } else {
       // This must have the message "Forbidden" because it’s matched explicitly

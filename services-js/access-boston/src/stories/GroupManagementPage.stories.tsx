@@ -14,6 +14,7 @@ const ACCOUNT: Account = {
   hasMfaDevice: true,
   resetPasswordToken: '',
   mfaRequiredDate: '2019-03-19T15:49:37.758Z',
+  groups: [''],
 };
 
 storiesOf('GroupManagementPage', module).add('default', () => (

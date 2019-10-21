@@ -29,6 +29,7 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleSelectClick={() => {}}
       //@ts-ignore
       selectedItem={mockGroup}
+      dns={[]}
     />
   ))
   .add('group add', () => (
@@ -39,6 +40,7 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleSelectClick={() => {}}
       //@ts-ignore
       selectedItem={mockPerson}
+      dns={[]}
     />
   ))
   .add('person search', () => (
@@ -47,6 +49,7 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       view="initial"
       handleFetch={fetchPersonSearch}
       handleSelectClick={() => {}}
+      dns={[]}
     />
   ))
   .add('group search', () => (
@@ -55,6 +58,7 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       view="initial"
       handleFetch={fetchGroupSearch}
       handleSelectClick={() => {}}
+      dns={[]}
     />
   ))
   .add('searching', () => (
@@ -64,6 +68,7 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleFetch={fetchGroupSearch}
       handleSelectClick={() => {}}
       currentStatus="searching"
+      dns={[]}
     />
   ))
   .add('no results', () => (
@@ -73,6 +78,7 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleFetch={fetchGroupSearch}
       handleSelectClick={() => {}}
       currentStatus="noResults"
+      dns={[]}
     />
   ))
   .add('server error/could not reach server', () => (
@@ -82,5 +88,6 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleFetch={fetchGroupSearch}
       handleSelectClick={() => {}}
       currentStatus="fetchError"
+      dns={[]}
     />
   ));

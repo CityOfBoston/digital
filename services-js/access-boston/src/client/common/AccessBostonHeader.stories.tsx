@@ -13,6 +13,7 @@ const ACCOUNT: Account = {
   hasMfaDevice: false,
   resetPasswordToken: '',
   mfaRequiredDate: null,
+  groups: [''],
 };
 
 storiesOf('AccessBostonHeader', module).add('default', () => (

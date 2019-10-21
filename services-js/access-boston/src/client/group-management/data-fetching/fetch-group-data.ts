@@ -10,16 +10,16 @@ const GROUP_DATA = `
 `;
 
 const FETCH_GROUP = `
-  query getGroup($cn: String!) {
-    group(cn: $cn) {
+  query getGroup($cn: String! $dns: [String!]!) {
+    group(cn: $cn dns: $dns) {
       ${GROUP_DATA}
     }
   }
 `;
 
 const SEARCH_GROUPS = `
-  query searchGroups($term: String!) {
-    groupSearch(term: $term) {
+  query searchGroups($term: String! $dns: [String!]!) {
+    groupSearch(term: $term dns: $dns) {
       ${GROUP_DATA}
     }
   }
@@ -28,15 +28,25 @@ const SEARCH_GROUPS = `
 /**
  * Returns a single Group object.
  */
-export async function fetchGroup(cn: string): Promise<any> {
-  return await fetchGraphql(FETCH_GROUP, { cn });
+export async function fetchGroup(cn: string, dns: String[] = []): Promise<any> {
+  // console.log('fetch-group-data > fetchGroup > dns: ', dns);
+  return await fetchGraphql(FETCH_GROUP, { cn, dns });
 }
 
 /**
  * Returns a promise resolving to an array of Group objects.
  */
-export async function fetchGroupSearch(term: string): Promise<Group[]> {
-  return await fetchGraphql(SEARCH_GROUPS, { term }).then(response =>
+export async function fetchGroupSearch(
+  term: string,
+  _selectedItem: any,
+  dns: String[] = []
+): Promise<Group[]> {
+  // console.log('_selectedItem: ', _selectedItem);
+  // console.log('fetchGroupSearch: SEARCH_GROUPS: ', dns, SEARCH_GROUPS);
+  if (!dns) {
+    dns = [];
+  }
+  return await fetchGraphql(SEARCH_GROUPS, { term, dns }).then(response =>
     response.groupSearch.map(group => toGroup(group))
   );
 }
@@ -49,11 +59,13 @@ export async function fetchGroupSearch(term: string): Promise<Group[]> {
  */
 export async function fetchPersonsGroups(
   person: Person,
-  _currentUserAllowedGroups: string[]
+  _currentUserAllowedGroups: string[],
+  dns: String[]
 ): Promise<Group[]> {
+  // console.log('fetch-group-data > fetchGroup > dns: ', dns);
   return await Promise.all(
     person.groups.map(groupCn =>
-      fetchGroup(groupCn).then(response => toGroup(response.group[0]))
+      fetchGroup(groupCn, dns).then(response => toGroup(response.group[0]))
     )
   );
 }
@@ -65,9 +77,12 @@ export async function fetchPersonsGroups(
  */
 export async function fetchGroupSearchRemaining(
   term: string,
-  person: Person
+  person: Person,
+  dns: String[]
 ): Promise<Group[]> {
-  const groups = await fetchGroupSearch(term);
+  const groups = await fetchGroupSearch(term, dns);
+  // console.log('fetch-group-data > fetchGroupSearchRemaining > dns: ', dns);
+  // console.log('fetchGroupSearch > groups: ', groups, '\n -------');
 
   return groups.filter(group => !person.groups.includes(group.cn));
 }

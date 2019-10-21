@@ -31,6 +31,7 @@ interface Props {
  */
 export default function InitialView(props: Props) {
   const { mode, changeMode } = props;
+  // console.log('InitialView > props: ', props);
 
   const handleModeChange = (event: ChangeEvent<HTMLInputElement>) => {
     changeMode(event.target.value as Mode);

@@ -63,6 +63,7 @@ export interface FetchAccountAndApps_account {
   hasMfaDevice: boolean;
   resetPasswordToken: string;
   mfaRequiredDate: string | null;
+  groups: string[] | null;
 }
 
 export interface FetchAccountAndApps_apps_categories_apps {
@@ -105,6 +106,7 @@ export interface FetchAccount_account {
   hasMfaDevice: boolean;
   resetPasswordToken: string;
   mfaRequiredDate: string | null;
+  groups: string[] | null;
 }
 
 export interface FetchAccount {

@@ -50,7 +50,7 @@ export default class GroupManagement extends React.Component<Props> {
 
         <AppWrapper account={account}>
           {/*<ApolloProvider client={client as any}>*/}
-          <Index />
+          <Index groups={account.groups} />
           {/*</ApolloProvider>*/}
         </AppWrapper>
       </>

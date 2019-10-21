@@ -19,6 +19,7 @@ const QUERY = gql`
       hasMfaDevice
       resetPasswordToken
       mfaRequiredDate
+      groups
     }
 
     apps {

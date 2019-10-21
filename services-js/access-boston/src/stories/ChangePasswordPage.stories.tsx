@@ -13,6 +13,7 @@ const ACCOUNT: Account = {
   hasMfaDevice: true,
   resetPasswordToken: '',
   mfaRequiredDate: null,
+  groups: [''],
 };
 
 storiesOf('ChangePasswordPage', module)
@@ -21,13 +22,13 @@ storiesOf('ChangePasswordPage', module)
   ))
   .add('first time registration', () => (
     <ChangePasswordPage
-      account={{ ...ACCOUNT, registered: false, needsNewPassword: true }}
+      account={{ ...ACCOUNT, needsNewPassword: true }}
       fetchGraphql={null as any}
     />
   ))
   .add('first time registration w/ temp password', () => (
     <ChangePasswordPage
-      account={{ ...ACCOUNT, registered: false, needsNewPassword: true }}
+      account={{ ...ACCOUNT, needsNewPassword: true }}
       fetchGraphql={null as any}
       hasTemporaryPassword
     />

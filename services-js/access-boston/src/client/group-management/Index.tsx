@@ -27,13 +27,22 @@ import {
   fetchPersonSearchRemaining,
 } from './data-fetching/fetch-person-data';
 
+interface Props {
+  groups: any;
+  // mode: Mode;
+  // changeMode: (mode: Mode) => void;
+  // searchComponent: ReactNode;
+}
+
 /**
  * Definitions:
  * - user: the app owner currently logged in
  * - group: item representing a LDAP group
  * - person: item representing a City person
  */
-export default function Index() {
+export default function Index(props: Props) {
+  const { groups } = props;
+  // console.log('GROUPS!!!!!: ', groups);
   const [state, dispatchState] = useReducer(stateReducer, initialState);
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
@@ -63,13 +72,16 @@ export default function Index() {
     changeMode(state.mode === 'group' ? 'person' : 'group');
   };
 
-  const handleFetchGroupMembers = (selected: Group): void => {
+  const handleFetchGroupMembers = (
+    selected: Group,
+    dns: String[] = []
+  ): void => {
     const { members } = selected;
 
     if (members && members.length > 0) {
       setLoading(true);
 
-      fetchGroupMembers(selected).then(result => {
+      fetchGroupMembers(selected, dns).then(result => {
         dispatchList({
           type: 'LIST/LOAD_LIST',
           list: result,
@@ -80,13 +92,16 @@ export default function Index() {
     }
   };
 
-  const handleFetchPersonsGroups = (selected: Person): void => {
+  const handleFetchPersonsGroups = (
+    selected: Person,
+    dns: String[] = []
+  ): void => {
     const { groups } = selected;
 
     if (groups && groups.length > 0) {
       setLoading(true);
 
-      fetchPersonsGroups(selected, []).then(result => {
+      fetchPersonsGroups(selected, [], dns).then(result => {
         dispatchList({
           type: 'LIST/LOAD_LIST',
           list: result,
@@ -102,9 +117,9 @@ export default function Index() {
     const { mode, selected } = state;
 
     if (mode === 'group') {
-      if (selected.cn) handleFetchGroupMembers(selected);
+      if (selected.cn) handleFetchGroupMembers(selected, groups);
     } else {
-      if (selected.cn) handleFetchPersonsGroups(selected);
+      if (selected.cn) handleFetchPersonsGroups(selected, groups);
     }
   }, [state.selected]);
 
@@ -158,6 +173,7 @@ export default function Index() {
                 }
                 handleSelectClick={handleAddToList}
                 selectedItem={state.selected}
+                dns={groups}
               />
             }
             editableList={
@@ -187,6 +203,9 @@ export default function Index() {
       );
 
     default:
+      // const stateModeMethod = state.mode === 'group' ? fetchGroupSearch : fetchPersonSearch;
+      // console.log('Index > state.view > default: dns(groups)', groups);
+      // console.log('stateModeMethod: ', state.mode === 'group', stateModeMethod, '\n----------');
       return (
         <div css={CONTAINER_STYLING}>
           <InitialView
@@ -200,6 +219,7 @@ export default function Index() {
                   state.mode === 'group' ? fetchGroupSearch : fetchPersonSearch
                 }
                 handleSelectClick={handleInitialSelection}
+                dns={groups}
               />
             }
           />

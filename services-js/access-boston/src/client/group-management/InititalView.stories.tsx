@@ -33,6 +33,7 @@ function Wrapper() {
             state.mode === 'group' ? fetchGroupSearch : fetchPersonSearch
           }
           handleSelectClick={() => {}}
+          dns={[]}
         />
       }
     />

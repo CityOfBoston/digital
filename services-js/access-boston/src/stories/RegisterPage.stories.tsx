@@ -15,6 +15,7 @@ storiesOf('RegisterPage', module)
         hasMfaDevice: false,
         resetPasswordToken: '',
         mfaRequiredDate: null,
+        groups: [''],
       }}
     />
   ))
@@ -29,6 +30,7 @@ storiesOf('RegisterPage', module)
         hasMfaDevice: false,
         resetPasswordToken: '',
         mfaRequiredDate: null,
+        groups: [''],
       }}
     />
   ));

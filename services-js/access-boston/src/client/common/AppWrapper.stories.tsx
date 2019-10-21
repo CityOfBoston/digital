@@ -15,6 +15,7 @@ const ACCOUNT: Account = {
   hasMfaDevice: false,
   resetPasswordToken: '',
   mfaRequiredDate: null,
+  groups: [''],
 };
 
 storiesOf('Common/AppWrapper', module).add('default', () => (

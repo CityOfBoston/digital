@@ -29,10 +29,12 @@ interface Props {
   selectedItem?: Group | Person;
   handleFetch: (
     value: string,
-    item //?: Group | Person;
+    item, //?: Group | Person;
+    dns
   ) => Promise<Group[] | Person[]>;
   handleSelectClick: (selection: any) => void;
   currentStatus?: Status; // solely for Storybook
+  dns: String[];
 }
 
 /**
@@ -52,7 +54,8 @@ export default function SearchComponent(props: Props) {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { currentStatus, mode, view } = props;
+  const { currentStatus, mode, view, dns } = props;
+  // console.log('SearchComponent > Props dns: ', dns);
   const { searchStatus, searchText, searchResults, selection } = state;
 
   // Associate label with search field.
@@ -90,17 +93,20 @@ export default function SearchComponent(props: Props) {
 
   const handleFetch = (): void => {
     dispatch({ type: 'SEARCH/UPDATE_STATUS', searchStatus: 'searching' });
+    // console.log('SearchComponent > handleFetch dns: ', dns);
 
     if (view === 'initial') {
+      // console.log('SearchComponent > handleFetch view > initial');
       props
-        .handleFetch(searchText, null)
+        .handleFetch(searchText, null, dns)
         .then(result => updateSuggestions(result))
         .catch(() =>
           dispatch({ type: 'SEARCH/UPDATE_STATUS', searchStatus: 'fetchError' })
         );
     } else {
+      // console.log('SearchComponent > handleFetch view > else');
       props
-        .handleFetch(searchText, props.selectedItem as Person | Group)
+        .handleFetch(searchText, props.selectedItem as Person | Group, dns)
         .then(result => updateSuggestions(result));
     }
   };

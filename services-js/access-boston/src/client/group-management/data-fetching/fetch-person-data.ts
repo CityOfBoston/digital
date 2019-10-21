@@ -13,16 +13,16 @@ const PERSON_DATA = `
 `;
 
 const FETCH_PERSON = `
-  query getPerson($cn: String!) {
-    person(cn: $cn) {
+  query getPerson($cn: String! $dns: [String!]!) {
+    person(cn: $cn dns: $dns) {
       ${PERSON_DATA}
     }
   }
 `;
 
 const SEARCH_PEOPLE = `
-  query searchPeople($term: String!) {
-    personSearch(term: $term) {
+  query searchPeople($term: String! $dns: [String!]!) {
+    personSearch(term: $term dns: $dns) {
       ${PERSON_DATA}
     }
   }
@@ -31,16 +31,29 @@ const SEARCH_PEOPLE = `
 /**
  * Returns a single Person object.
  */
-export async function fetchPerson(cn: string): Promise<any> {
-  return await fetchGraphql(FETCH_PERSON, { cn });
+export async function fetchPerson(
+  cn: string,
+  dns: String[] = []
+): Promise<any> {
+  // console.log('fetch-person-data > fetchPerson > dns: ', dns);
+  return await fetchGraphql(FETCH_PERSON, { cn, dns });
 }
 
 /**
  * Returns a promise resolving to an array of People representing all
  * members that match the search term provided.
  */
-export async function fetchPersonSearch(term: string): Promise<Person[]> {
-  return await fetchGraphql(SEARCH_PEOPLE, { term }).then(response =>
+export async function fetchPersonSearch(
+  term: string,
+  _selectedItem: any,
+  dns: String[] = []
+): Promise<Person[]> {
+  // console.log('fetch-person-data > fetchPersonSearch > dns: ', dns);
+  // console.log('_selectedItem: ', _selectedItem);
+  if (!dns) {
+    dns = [];
+  }
+  return await fetchGraphql(SEARCH_PEOPLE, { term, dns }).then(response =>
     response.personSearch.map(person => toPerson(person))
   );
 }
@@ -51,14 +64,17 @@ export async function fetchPersonSearch(term: string): Promise<Person[]> {
  *
  * Inactive employees WILL be included in these results; see line 63.
  */
-export async function fetchGroupMembers(group: Group): Promise<Person[]> {
+export async function fetchGroupMembers(
+  group: Group,
+  dns: String[] = []
+): Promise<Person[]> {
   return await Promise.all(
     group.members.map(
       personCn => {
         // todo: remove .replace() when api data no longer includes cn=
         const cn = personCn.replace('cn=', '');
 
-        return fetchPerson(cn)
+        return fetchPerson(cn, dns)
           .then(response => toPerson(response.person[0]))
           .catch(() => toPerson({ cn, inactive: true }));
       },
@@ -74,9 +90,10 @@ export async function fetchGroupMembers(group: Group): Promise<Person[]> {
  */
 export async function fetchPersonSearchRemaining(
   term: string,
-  group: Group
+  group: Group,
+  dns: String[]
 ): Promise<Person[]> {
-  const people = await fetchPersonSearch(term);
+  const people = await fetchPersonSearch(term, dns);
 
   return people.filter(person => !group.members.includes(person.cn));
 }

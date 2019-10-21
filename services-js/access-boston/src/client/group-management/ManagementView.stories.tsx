@@ -73,6 +73,7 @@ export function Wrapper(props) {
             }
             handleSelectClick={() => {}}
             selectedItem={selected}
+            dns={[]}
           />
         }
         editableList={
