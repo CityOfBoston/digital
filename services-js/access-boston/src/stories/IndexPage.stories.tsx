@@ -18,7 +18,7 @@ const ACCOUNT: Account = {
   resetPasswordToken: '',
   mfaRequiredDate: '2019-03-19T15:49:37.758Z',
   groups: [''],
-  // registered: true,
+  email: 'jondoe@boston.gov',
 };
 
 const appsRegistry = makeAppsRegistry(APPS_YAML, true);

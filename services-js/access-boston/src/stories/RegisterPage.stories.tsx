@@ -16,6 +16,7 @@ storiesOf('RegisterPage', module)
         resetPasswordToken: '',
         mfaRequiredDate: null,
         groups: [''],
+        email: 'jondoe@boston.gov',
       }}
     />
   ))
@@ -31,6 +32,7 @@ storiesOf('RegisterPage', module)
         resetPasswordToken: '',
         mfaRequiredDate: null,
         groups: [''],
+        email: 'jondoe@boston.gov',
       }}
     />
   ));

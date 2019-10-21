@@ -14,6 +14,7 @@ const ACCOUNT: Account = {
   resetPasswordToken: '',
   mfaRequiredDate: null,
   groups: [''],
+  email: 'jondoe@boston.gov',
 };
 
 storiesOf('RegisterMfaPage', module)

@@ -15,6 +15,7 @@ const ACCOUNT: Account = {
   resetPasswordToken: '',
   mfaRequiredDate: '2019-03-19T15:49:37.758Z',
   groups: [''],
+  email: 'jondoe@boston.gov',
 };
 
 storiesOf('GroupManagementPage', module).add('default', () => (
