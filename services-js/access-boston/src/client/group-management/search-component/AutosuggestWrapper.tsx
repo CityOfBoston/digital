@@ -111,10 +111,6 @@ const AUTOSUGGEST_STYLING = {
     zIndex: 1,
     position: 'absolute',
     minWidth: '50%',
-    maxHeight: '300px',
-    overflowY: 'scroll',
-    width: '100%',
-    top: '62px',
   },
   suggestionsList: {
     position: 'relative',
