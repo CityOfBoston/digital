@@ -22,14 +22,13 @@ interface Props {
   resetAll: () => void;
   items: Array<Group | Person>;
   submitting?: boolean;
-  dns?: Array<string>;
 }
 
 export default function ReviewChangesView(props: Props) {
   const [submitting, setSubmitting] = useState<boolean>(
     props.submitting || false
   );
-  const { items, mode, selected, dns } = props;
+  const { items, mode, selected } = props;
   const internalMode = mode === 'person' ? 'group' : 'person';
 
   const addedItems = items.filter(item => item.status === 'add') || [];
@@ -53,22 +52,31 @@ export default function ReviewChangesView(props: Props) {
     // todo: need interface
 
     // todo: replace  with something to listen for successful server response
-    setTimeout(() => {
-      setSubmitting(false);
-      props.resetAll();
-    }, 1700);
+    // setTimeout(() => {
+    //   setSubmitting(false);
+    //   props.resetAll();
+    // }, 2000);
 
     const changesArr = [...addedItems, ...removedItems];
     // eslint-disable-next-line no-console
-    console.log('changesArr: ', changesArr);
+    // console.log('changesArr: ', changesArr);
     try {
       // eslint-disable-next-line no-console
-      console.log('promising ...', dns, selected.dn);
+      // console.log('promising ...', dns, selected.dn, selected);
       const promises = changesArr.map(entry => {
-        updateGroup(selected.dn, entry.status, entry.dn, dns);
+        const operation =
+          entry.status === 'current' || entry.status === 'remove'
+            ? 'delete'
+            : entry.status;
+        // console.log('operation: ', operation, entry.status, '\n------');
+        return updateGroup(selected.dn, operation, entry.dn);
       });
-
-      await Promise.all(promises);
+      await Promise.all(promises).then(() => {
+        setTimeout(() => {
+          setSubmitting(false);
+          props.resetAll();
+        }, 1500);
+      });
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log('Submit Changes (Error): ', error);

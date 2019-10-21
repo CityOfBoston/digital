@@ -42,7 +42,7 @@ export function getAllCns(uniqueMember: string[]): string[] {
  * Group object.
  */
 export function toGroup(dataObject): Group {
-  // console.log(dataObject);
+  // console.log('toGroup > dataObject: ', dataObject);
   return {
     ...commonAttributes(dataObject),
     members: dataObject.uniquemember || [],
@@ -56,6 +56,7 @@ export function toGroup(dataObject): Group {
  * Person object.
  */
 export function toPerson(dataObject): Person {
+  // console.log('toPerson > dataObject: ');
   return {
     ...commonAttributes(dataObject),
     groups: dataObject.ismemberof || [],
@@ -67,6 +68,7 @@ export function toPerson(dataObject): Person {
 }
 
 function commonAttributes(dataObject): CommonAttributes {
+  // console.log('CommonAttributes dataObj: ', dataObject);
   return {
     cn: dataObject.cn,
     dn: dataObject.dn || '',

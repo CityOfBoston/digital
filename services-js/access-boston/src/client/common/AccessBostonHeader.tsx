@@ -18,6 +18,7 @@ interface Props {
 export default class AccessBostonHeader extends Component<Props> {
   render() {
     const { account, noLinks } = this.props;
+    // console.log('header > account: ', account);
 
     return (
       <header className="p-a200" css={HEADER_STYLE}>

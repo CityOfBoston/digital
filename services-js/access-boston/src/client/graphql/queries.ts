@@ -64,6 +64,7 @@ export interface FetchAccountAndApps_account {
   resetPasswordToken: string;
   mfaRequiredDate: string | null;
   groups: string[] | null;
+  email: string;
 }
 
 export interface FetchAccountAndApps_apps_categories_apps {
@@ -107,6 +108,7 @@ export interface FetchAccount_account {
   resetPasswordToken: string;
   mfaRequiredDate: string | null;
   groups: string[] | null;
+  email: string;
 }
 
 export interface FetchAccount {

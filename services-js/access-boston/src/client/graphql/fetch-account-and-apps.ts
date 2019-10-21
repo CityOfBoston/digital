@@ -20,6 +20,7 @@ const QUERY = gql`
       resetPasswordToken
       mfaRequiredDate
       groups
+      email
     }
 
     apps {

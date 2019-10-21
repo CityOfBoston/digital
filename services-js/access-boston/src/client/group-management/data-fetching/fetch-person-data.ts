@@ -75,7 +75,10 @@ export async function fetchGroupMembers(
         const cn = personCn.replace('cn=', '');
 
         return fetchPerson(cn, dns)
-          .then(response => toPerson(response.person[0]))
+          .then(response => {
+            // console.log('response.person[0]: ', response.person[0]);
+            return toPerson(response.person[0]);
+          })
           .catch(() => toPerson({ cn, inactive: true }));
       },
       [] as Person[]

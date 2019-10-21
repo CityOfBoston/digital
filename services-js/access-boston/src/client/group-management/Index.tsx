@@ -198,7 +198,6 @@ export default function Index(props: Props) {
             changeView={changeView}
             resetAll={resetAll}
             items={list}
-            dns={groups}
           />
         </div>
       );

@@ -9,7 +9,7 @@ const GROUP_DATA = `
   uniquemember
 `;
 
-const GROUP_UPDATE_DATA = `{code message}`;
+// const GROUP_UPDATE_DATA = `{code message}`;
 
 const FETCH_GROUP = `
   query getGroup($cn: String! $dns: [String!]!) {
@@ -32,16 +32,12 @@ const UPDATE_GROUP = `
     $dn: String!
     $operation: String!
     $uniquemember: String!
-    $dns: [String]
   ) {
     updateGroupMembers(
       dn: $dn
       operation: $operation
       uniquemember: $uniquemember
-      dns: $dns
-    ) {
-      ${GROUP_UPDATE_DATA}
-    }
+    ) {code message}
   }
 `;
 
@@ -51,22 +47,21 @@ const UPDATE_GROUP = `
 export async function updateGroup(
   dn: string,
   operation: string,
-  uniquemember: string,
-  dns: String[] = []
+  uniquemember: string
+  // dns: String[] = []
 ): Promise<any> {
   // eslint-disable-next-line no-console
-  console.log(
-    'fetch-group-data > updateGroup > dns: ',
-    dns,
-    dn,
-    operation,
-    uniquemember
-  );
+  // console.log(
+  //   'fetch-group-data > updateGroup > dns: ',
+  //   dn,
+  //   operation,
+  //   uniquemember
+  // );
   return await fetchGraphql(UPDATE_GROUP, {
     dn,
     operation,
     uniquemember,
-    dns,
+    // dns,
   });
 }
 

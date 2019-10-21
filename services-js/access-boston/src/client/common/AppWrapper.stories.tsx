@@ -16,6 +16,7 @@ const ACCOUNT: Account = {
   resetPasswordToken: '',
   mfaRequiredDate: null,
   groups: [''],
+  email: '',
 };
 
 storiesOf('Common/AppWrapper', module).add('default', () => (
