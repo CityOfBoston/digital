@@ -13,6 +13,7 @@ import StatusModal from '../StatusModal';
 import Section from './Section';
 import SelectedComponent from './SelectedComponent';
 import ReviewList from './list-components/ReviewList';
+import { updateGroup } from './data-fetching/fetch-group-data';
 
 interface Props {
   mode: Mode;
@@ -21,18 +22,21 @@ interface Props {
   resetAll: () => void;
   items: Array<Group | Person>;
   submitting?: boolean;
+  dns?: Array<string>;
 }
 
 export default function ReviewChangesView(props: Props) {
   const [submitting, setSubmitting] = useState<boolean>(
     props.submitting || false
   );
-  const { items, mode, selected } = props;
-
+  const { items, mode, selected, dns } = props;
   const internalMode = mode === 'person' ? 'group' : 'person';
 
   const addedItems = items.filter(item => item.status === 'add') || [];
   const removedItems = items.filter(item => item.status === 'remove') || [];
+  // console.log('addedItems: ', addedItems);
+  // console.log('removedItems: ', removedItems);
+  // console.log('props: ', props);
 
   const renderSubmitting = () => {
     return (
@@ -42,7 +46,7 @@ export default function ReviewChangesView(props: Props) {
     );
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setSubmitting(true);
 
     // todo: send mutation query to api
@@ -53,6 +57,22 @@ export default function ReviewChangesView(props: Props) {
       setSubmitting(false);
       props.resetAll();
     }, 1700);
+
+    const changesArr = [...addedItems, ...removedItems];
+    // eslint-disable-next-line no-console
+    console.log('changesArr: ', changesArr);
+    try {
+      // eslint-disable-next-line no-console
+      console.log('promising ...', dns, selected.dn);
+      const promises = changesArr.map(entry => {
+        updateGroup(selected.dn, entry.status, entry.dn, dns);
+      });
+
+      await Promise.all(promises);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log('Submit Changes (Error): ', error);
+    }
 
     // todo: handle error state (print error to modal?)
   };

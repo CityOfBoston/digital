@@ -9,6 +9,8 @@ const GROUP_DATA = `
   uniquemember
 `;
 
+const GROUP_UPDATE_DATA = `{code message}`;
+
 const FETCH_GROUP = `
   query getGroup($cn: String! $dns: [String!]!) {
     group(cn: $cn dns: $dns) {
@@ -24,6 +26,49 @@ const SEARCH_GROUPS = `
     }
   }
 `;
+
+const UPDATE_GROUP = `
+  mutation updateGroup(
+    $dn: String!
+    $operation: String!
+    $uniquemember: String!
+    $dns: [String]
+  ) {
+    updateGroupMembers(
+      dn: $dn
+      operation: $operation
+      uniquemember: $uniquemember
+      dns: $dns
+    ) {
+      ${GROUP_UPDATE_DATA}
+    }
+  }
+`;
+
+/**
+ * Updates a Group object with a single entry.
+ */
+export async function updateGroup(
+  dn: string,
+  operation: string,
+  uniquemember: string,
+  dns: String[] = []
+): Promise<any> {
+  // eslint-disable-next-line no-console
+  console.log(
+    'fetch-group-data > updateGroup > dns: ',
+    dns,
+    dn,
+    operation,
+    uniquemember
+  );
+  return await fetchGraphql(UPDATE_GROUP, {
+    dn,
+    operation,
+    uniquemember,
+    dns,
+  });
+}
 
 /**
  * Returns a single Group object.
