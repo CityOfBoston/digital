@@ -111,6 +111,7 @@ const AUTOSUGGEST_STYLING = {
     zIndex: 1,
     position: 'absolute',
     minWidth: '50%',
+    width: '100%',
   },
   suggestionsList: {
     position: 'relative',
