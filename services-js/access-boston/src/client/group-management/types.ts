@@ -1,6 +1,7 @@
 export type View = 'initial' | 'management' | 'review';
 export type Mode = 'person' | 'group';
 export type ItemStatus = 'current' | 'add' | 'remove';
+export type ShowLabel = true | false;
 
 export interface CommonAttributes {
   dn: string;
