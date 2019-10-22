@@ -32,7 +32,6 @@ export default function ManagementView(props: Props) {
 
   const addedItems = list.filter(item => item.status === 'add') || [];
   const removedItems = list.filter(item => item.status === 'remove') || [];
-
   const canProceed: boolean = addedItems.length > 0 || removedItems.length > 0;
 
   return (
@@ -45,7 +44,6 @@ export default function ManagementView(props: Props) {
         <SectionHeader
           title={`Current ${mode === 'person' ? 'groups' : 'members'}`}
         />
-
         {props.editableList}
 
         {!props.loading && list.length > 0 && (

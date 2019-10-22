@@ -17,3 +17,33 @@ export function findMatch(item: any, value: string): any | null {
 export function getItemObject(list: any[], cn: string): any {
   return list.find(item => item.cn === cn);
 }
+
+/**
+ *
+ * @param {object} arr - Array to chunk into an array of arrays
+ * @param {object} size - Interger value to chunk array into
+ * @description Chunk Array into an (2D) array of smaller arrays
+ * @return {object} - Return an array(2D) of arrays of chunked values
+ *
+ * @example
+ *     chunkArray(
+ *        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+ *        5
+ *     );
+ *     return [
+ *        [ 1, 2, 3, 4, 5 ],
+ *        [ 6, 7, 8, 9, 10 ],
+ *        [ 11, 12, 13 ]
+ *     ];
+ */
+export const chunkArray = (arr: Array<any> = [], size: Number): object => {
+  let result: any = [];
+  let castSize: any = size;
+
+  if (arr.length > 0) {
+    for (let i = 0; i < arr.length; i += castSize) {
+      result.push(arr.slice(i, i + castSize));
+    }
+  }
+  return result;
+};
