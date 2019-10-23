@@ -8,7 +8,7 @@ export async function fetchGraphql(query: string, variables: any) {
   // console.log('fetchGraphql > variables: ', variables);
   // console.log('fetchGraphql > query: ', query);
   // eslint-disable-next-line no-console
-  console.log('groupManagementApiUrl: ', groupManagementApiUrl);
+  // console.log('groupManagementApiUrl: ', groupManagementApiUrl);
 
   if (groupManagementApiUrl) {
     return await fetch(groupManagementApiUrl as string, {

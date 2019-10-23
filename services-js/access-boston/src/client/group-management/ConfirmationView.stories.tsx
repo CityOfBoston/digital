@@ -50,7 +50,4 @@ storiesOf('GroupManagementPage/ConfirmationView', module)
   ))
   .add('person view, one added', () => (
     <Wrapper mode="person" selected={peopleList[4]} />
-  ))
-  .add('submitting changes', () => (
-    <Wrapper mode="person" selected={peopleList[0]} submitting={true} />
   ));

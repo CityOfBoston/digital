@@ -1,4 +1,4 @@
-export type View = 'initial' | 'management' | 'review';
+export type View = 'initial' | 'management' | 'review' | 'confirmation';
 export type Mode = 'person' | 'group';
 export type ItemStatus = 'current' | 'add' | 'remove';
 export type ShowLabel = true | false;

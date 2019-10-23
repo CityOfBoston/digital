@@ -33,9 +33,6 @@ export default function ReviewChangesView(props: Props) {
 
   const addedItems = items.filter(item => item.status === 'add') || [];
   const removedItems = items.filter(item => item.status === 'remove') || [];
-  // console.log('addedItems: ', addedItems);
-  // console.log('removedItems: ', removedItems);
-  // console.log('props: ', props);
 
   const renderSubmitting = () => {
     return (
@@ -48,33 +45,19 @@ export default function ReviewChangesView(props: Props) {
   const handleSubmit = async () => {
     setSubmitting(true);
 
-    // todo: send mutation query to api
-    // todo: need interface
-
-    // todo: replace  with something to listen for successful server response
-    // setTimeout(() => {
-    //   setSubmitting(false);
-    //   props.resetAll();
-    // }, 2000);
-
     const changesArr = [...addedItems, ...removedItems];
-    // eslint-disable-next-line no-console
-    // console.log('changesArr: ', changesArr);
     try {
-      // eslint-disable-next-line no-console
-      // console.log('promising ...', dns, selected.dn, selected);
       const promises = changesArr.map(entry => {
         const operation =
           entry.status === 'current' || entry.status === 'remove'
             ? 'delete'
             : entry.status;
-        // console.log('operation: ', operation, entry.status, '\n------');
         return updateGroup(selected.dn, operation, entry.dn);
       });
       await Promise.all(promises).then(() => {
         setTimeout(() => {
           setSubmitting(false);
-          props.resetAll();
+          props.changeView('confirmation');
         }, 1500);
       });
     } catch (error) {

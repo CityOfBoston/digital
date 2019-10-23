@@ -2,17 +2,18 @@
 
 import { css, jsx } from '@emotion/core';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 
-import { SANS } from '@cityofboston/react-fleet';
+// import { SANS } from '@cityofboston/react-fleet';
 
 import { Group, Person, Mode, View } from './types';
 
-import StatusModal from '../StatusModal';
+// import StatusModal from '../StatusModal';
 
 import Section from './Section';
 import SelectedComponent from './SelectedComponent';
 import ReviewList from './list-components/ReviewList';
+import { SectionHeader } from '@cityofboston/react-fleet';
 
 interface Props {
   mode: Mode;
@@ -20,30 +21,20 @@ interface Props {
   changeView: (view: View) => void;
   resetAll: () => void;
   items: Array<Group | Person>;
-  submitting?: boolean;
 }
 
 export default function ReviewConfirmationView(props: Props) {
-  const [submitting, setSubmitting] = useState<boolean>(
-    props.submitting || false
-  );
+  // const [submitting, setSubmitting] = useState<boolean>(
+  //   props.submitting || false
+  // );
   const { items, mode, selected } = props;
   const internalMode = mode === 'person' ? 'group' : 'person';
 
   const addedItems = items.filter(item => item.status === 'add') || [];
   const removedItems = items.filter(item => item.status === 'remove') || [];
-
-  const renderSubmitting = () => {
-    return (
-      <StatusModal>
-        <div css={MODAL_STYLING}>Submitting changes...</div>
-      </StatusModal>
-    );
-  };
-
   const handleSubmit = async () => {
-    setSubmitting(true);
     props.resetAll();
+    // props.changeView('initial');
   };
 
   return (
@@ -51,8 +42,15 @@ export default function ReviewConfirmationView(props: Props) {
       <SelectedComponent mode={mode} selected={selected} />
 
       <Section aria-label="Confirmation" stretch>
+        <SectionHeader title={`Confirmation`} css={MAIN_HEADER_STYLING} />
+
         {addedItems.length > 0 && (
-          <ReviewList mode={internalMode} items={addedItems} status="add" />
+          <ReviewList
+            mode={internalMode}
+            items={addedItems}
+            status="add"
+            subheader={true}
+          />
         )}
 
         {removedItems.length > 0 && (
@@ -60,6 +58,7 @@ export default function ReviewConfirmationView(props: Props) {
             mode={internalMode}
             items={removedItems}
             status="remove"
+            subheader={true}
           />
         )}
 
@@ -67,8 +66,6 @@ export default function ReviewConfirmationView(props: Props) {
           <button type="button" className="btn" onClick={handleSubmit}>
             Close
           </button>
-
-          {submitting && renderSubmitting()}
         </div>
       </Section>
     </>
@@ -80,6 +77,6 @@ const BUTTON_CONTAINER_STYLING = css({
   justifyContent: 'space-between',
 });
 
-const MODAL_STYLING = css({
-  fontFamily: SANS,
+const MAIN_HEADER_STYLING = css({
+  marginBottom: '2em',
 });

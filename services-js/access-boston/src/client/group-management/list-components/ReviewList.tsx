@@ -17,13 +17,14 @@ interface Props {
   status: ItemStatus;
   items: Array<Group | Person>;
   showLabel?: ShowLabel;
+  subheader?: Boolean;
 }
 
 /**
  * Displays a list of added or removed items; utilized by ReviewChangesView.
  */
 export default function ReviewList(props: Props) {
-  const { mode, status, showLabel } = props;
+  const { mode, status, showLabel, subheader } = props;
 
   const internalMode = mode === 'person' ? 'group' : 'person';
   const titleText = mode === 'person' ? 'members' : 'groups';
@@ -31,6 +32,7 @@ export default function ReviewList(props: Props) {
 
   const id = `review-${internalMode}-${status}`;
   const ShowLabel = typeof showLabel === 'undefined' ? true : showLabel;
+  const sub_header = subheader && subheader === true ? true : false;
 
   return (
     <>
@@ -38,6 +40,7 @@ export default function ReviewList(props: Props) {
         <SectionHeader
           title={`${capitalize(titleText)} ${statusText}`}
           id={id}
+          subheader={sub_header}
         />
       )}
 

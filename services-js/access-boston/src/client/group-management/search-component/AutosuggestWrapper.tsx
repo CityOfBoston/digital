@@ -115,6 +115,7 @@ const AUTOSUGGEST_STYLING = {
     maxHeight: '300px',
     overflowY: 'scroll',
     marginTop: '7px',
+    overflowX: 'hidden',
   },
   suggestionsList: {
     position: 'relative',

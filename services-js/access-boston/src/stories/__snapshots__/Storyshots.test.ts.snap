@@ -3963,6 +3963,7 @@ exports[`Storyshots GroupManagementPage default 1`] = `
                           "marginTop": "7px",
                           "maxHeight": "300px",
                           "minWidth": "50%",
+                          "overflowX": "hidden",
                           "overflowY": "scroll",
                           "position": "absolute",
                           "width": "100%",
@@ -4024,6 +4025,224 @@ exports[`Storyshots GroupManagementPage default 1`] = `
       </div>
     </div>
   </footer>
+</div>
+`;
+
+exports[`Storyshots GroupManagementPage/ConfirmationView group view, one added two removed 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100vh",
+    }
+  }
+>
+  <section
+    className="css-1rwk0pe-Section"
+  >
+    <div
+      className="b b-c css-jmjowc-Section"
+    >
+      <div
+        className="css-1juogxt-SelectedComponent"
+      >
+        <svg
+          aria-hidden="true"
+          className="css-14cd56j-Icon"
+          focusable="false"
+          height={70}
+          transform=""
+          viewBox="0 0 138 68.5"
+          width={70}
+        >
+          <circle
+            cx="69"
+            cy="34.25"
+            fill="#fff"
+            r="65"
+            stroke="#000"
+            strokeWidth={5}
+          />
+          <g
+            transform="translate(-69, -34.25)"
+          >
+            <g>
+              <path
+                d="M119.53 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+              />
+              <circle
+                cx="111.32"
+                cy="43.87"
+                r="10.04"
+              />
+              <path
+                d="M172.21 60.99h-15.66l-11.13 8.42v28.9h37.84V69.73l-11.05-8.74z"
+              />
+              <circle
+                cx="164.01"
+                cy="43.87"
+                r="10.04"
+              />
+            </g>
+            <g
+              transform=""
+            >
+              <path
+                d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+              />
+              <circle
+                cx="137.66"
+                cy="54"
+                r="10.04"
+              />
+            </g>
+          </g>
+        </svg>
+        <div>
+          <h1
+            className="sh-title"
+          >
+            BPD_Administrative
+             
+            group
+          </h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="css-1u1sttu-Section"
+  >
+    <div
+      className="b b-c css-jmjowc-Section"
+    >
+      <div
+        className="sh m-b300 css-1a9e0cv-ReviewConfirmationView"
+      >
+        <h2
+          className="sh-title"
+          id="sh-1762304842"
+        >
+          Confirmation
+        </h2>
+      </div>
+      <div
+        className="css-1x8k578-ReviewConfirmationView"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Storyshots GroupManagementPage/ConfirmationView person view, one added 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+      "height": "100vh",
+    }
+  }
+>
+  <section
+    className="css-1rwk0pe-Section"
+  >
+    <div
+      className="b b-c css-jmjowc-Section"
+    >
+      <div
+        className="css-1juogxt-SelectedComponent"
+      >
+        <svg
+          aria-hidden="true"
+          className="css-14cd56j-Icon"
+          focusable="false"
+          height={70}
+          transform=""
+          viewBox="0 0 138 68.5"
+          width={70}
+        >
+          <circle
+            cx="69"
+            cy="34.25"
+            fill="#fff"
+            r="65"
+            stroke="#000"
+            strokeWidth={5}
+          />
+          <g
+            transform="translate(-69, -34.25)"
+          >
+            <g
+              transform="translate(0, -8)"
+            >
+              <path
+                d="M145.87 71.12h-15.66l-11.13 8.41v28.91h37.84V79.86l-11.05-8.74z"
+              />
+              <circle
+                cx="137.66"
+                cy="54"
+                r="10.04"
+              />
+            </g>
+          </g>
+        </svg>
+        <div>
+          <h1
+            className="sh-title"
+          >
+            Sam Smith
+             
+          </h1>
+          <address>
+            <a
+              href="mailto:sam.smith@cityofboston.gov"
+            >
+              sam.smith@cityofboston.gov
+            </a>
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="css-1u1sttu-Section"
+  >
+    <div
+      className="b b-c css-jmjowc-Section"
+    >
+      <div
+        className="sh m-b300 css-1a9e0cv-ReviewConfirmationView"
+      >
+        <h2
+          className="sh-title"
+          id="sh-1762304842"
+        >
+          Confirmation
+        </h2>
+      </div>
+      <div
+        className="css-1x8k578-ReviewConfirmationView"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </section>
 </div>
 `;
 
@@ -4229,6 +4448,7 @@ exports[`Storyshots GroupManagementPage/Index default 1`] = `
                       "marginTop": "7px",
                       "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowX": "hidden",
                       "overflowY": "scroll",
                       "position": "absolute",
                       "width": "100%",
@@ -4454,6 +4674,7 @@ Array [
                       "marginTop": "7px",
                       "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowX": "hidden",
                       "overflowY": "scroll",
                       "position": "absolute",
                       "width": "100%",
@@ -4830,6 +5051,7 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
                       "marginTop": "7px",
                       "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowX": "hidden",
                       "overflowY": "scroll",
                       "position": "absolute",
                       "width": "100%",
@@ -5030,6 +5252,7 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
                       "marginTop": "7px",
                       "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowX": "hidden",
                       "overflowY": "scroll",
                       "position": "absolute",
                       "width": "100%",
@@ -5240,6 +5463,7 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
                       "marginTop": "7px",
                       "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowX": "hidden",
                       "overflowY": "scroll",
                       "position": "absolute",
                       "width": "100%",
@@ -5687,6 +5911,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent group add 1`] = `
                     "marginTop": "7px",
                     "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowX": "hidden",
                     "overflowY": "scroll",
                     "position": "absolute",
                     "width": "100%",
@@ -5777,6 +6002,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent group search 1`] = `
                     "marginTop": "7px",
                     "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowX": "hidden",
                     "overflowY": "scroll",
                     "position": "absolute",
                     "width": "100%",
@@ -5867,6 +6093,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent no results 1`] = `
                     "marginTop": "7px",
                     "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowX": "hidden",
                     "overflowY": "scroll",
                     "position": "absolute",
                     "width": "100%",
@@ -5957,6 +6184,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent person add 1`] = `
                     "marginTop": "7px",
                     "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowX": "hidden",
                     "overflowY": "scroll",
                     "position": "absolute",
                     "width": "100%",
@@ -6047,6 +6275,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent person search 1`] = `
                     "marginTop": "7px",
                     "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowX": "hidden",
                     "overflowY": "scroll",
                     "position": "absolute",
                     "width": "100%",
@@ -6137,6 +6366,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent searching 1`] = `
                     "marginTop": "7px",
                     "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowX": "hidden",
                     "overflowY": "scroll",
                     "position": "absolute",
                     "width": "100%",
@@ -6227,6 +6457,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent server error/could not r
                     "marginTop": "7px",
                     "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowX": "hidden",
                     "overflowY": "scroll",
                     "position": "absolute",
                     "width": "100%",

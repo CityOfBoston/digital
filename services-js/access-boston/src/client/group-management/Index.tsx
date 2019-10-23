@@ -12,6 +12,7 @@ import { reducer as listReducer } from './state/list';
 import InitialView from './InitialView';
 import ManagementView from './ManagementView';
 import ReviewChangesView from './ReviewChangesView';
+import ReviewConfirmationView from './ReviewConfirmationView';
 
 import EditableList from './list-components/EditableList';
 import SearchComponent from './search-component/SearchComponent';
@@ -202,6 +203,18 @@ export default function Index(props: Props) {
         </div>
       );
 
+    case 'confirmation':
+      return (
+        <div css={CONFIRMATION_CONTAINER_STYLING}>
+          <ReviewConfirmationView
+            mode={state.mode}
+            selected={state.selected}
+            changeView={changeView}
+            resetAll={resetAll}
+            items={list}
+          />
+        </div>
+      );
     default:
       // const stateModeMethod = state.mode === 'group' ? fetchGroupSearch : fetchPersonSearch;
       // console.log('Index > state.view > default: dns(groups)', groups);
@@ -230,7 +243,11 @@ export default function Index(props: Props) {
 
 const CONTAINER_STYLING: any = {
   flexGrow: 1,
+  display: 'flex',
+  flexDirection: 'column',
+};
 
+const CONFIRMATION_CONTAINER_STYLING: any = {
   display: 'flex',
   flexDirection: 'column',
 };
