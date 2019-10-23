@@ -3960,8 +3960,12 @@ exports[`Storyshots GroupManagementPage default 1`] = `
                       role="listbox"
                       style={
                         Object {
+                          "marginTop": "7px",
+                          "maxHeight": "300px",
                           "minWidth": "50%",
+                          "overflowY": "scroll",
                           "position": "absolute",
+                          "width": "100%",
                           "zIndex": 1,
                         }
                       }
@@ -4222,8 +4226,12 @@ exports[`Storyshots GroupManagementPage/Index default 1`] = `
                   role="listbox"
                   style={
                     Object {
+                      "marginTop": "7px",
+                      "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowY": "scroll",
                       "position": "absolute",
+                      "width": "100%",
                       "zIndex": 1,
                     }
                   }
@@ -4443,8 +4451,12 @@ Array [
                   role="listbox"
                   style={
                     Object {
+                      "marginTop": "7px",
+                      "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowY": "scroll",
                       "position": "absolute",
+                      "width": "100%",
                       "zIndex": 1,
                     }
                   }
@@ -4815,8 +4827,12 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
                   role="listbox"
                   style={
                     Object {
+                      "marginTop": "7px",
+                      "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowY": "scroll",
                       "position": "absolute",
+                      "width": "100%",
                       "zIndex": 1,
                     }
                   }
@@ -5011,8 +5027,12 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
                   role="listbox"
                   style={
                     Object {
+                      "marginTop": "7px",
+                      "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowY": "scroll",
                       "position": "absolute",
+                      "width": "100%",
                       "zIndex": 1,
                     }
                   }
@@ -5217,8 +5237,12 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
                   role="listbox"
                   style={
                     Object {
+                      "marginTop": "7px",
+                      "maxHeight": "300px",
                       "minWidth": "50%",
+                      "overflowY": "scroll",
                       "position": "absolute",
+                      "width": "100%",
                       "zIndex": 1,
                     }
                   }
@@ -5660,8 +5684,12 @@ exports[`Storyshots GroupManagementPage/SearchComponent group add 1`] = `
                 role="listbox"
                 style={
                   Object {
+                    "marginTop": "7px",
+                    "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowY": "scroll",
                     "position": "absolute",
+                    "width": "100%",
                     "zIndex": 1,
                   }
                 }
@@ -5746,8 +5774,12 @@ exports[`Storyshots GroupManagementPage/SearchComponent group search 1`] = `
                 role="listbox"
                 style={
                   Object {
+                    "marginTop": "7px",
+                    "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowY": "scroll",
                     "position": "absolute",
+                    "width": "100%",
                     "zIndex": 1,
                   }
                 }
@@ -5832,8 +5864,12 @@ exports[`Storyshots GroupManagementPage/SearchComponent no results 1`] = `
                 role="listbox"
                 style={
                   Object {
+                    "marginTop": "7px",
+                    "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowY": "scroll",
                     "position": "absolute",
+                    "width": "100%",
                     "zIndex": 1,
                   }
                 }
@@ -5918,8 +5954,12 @@ exports[`Storyshots GroupManagementPage/SearchComponent person add 1`] = `
                 role="listbox"
                 style={
                   Object {
+                    "marginTop": "7px",
+                    "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowY": "scroll",
                     "position": "absolute",
+                    "width": "100%",
                     "zIndex": 1,
                   }
                 }
@@ -6004,8 +6044,12 @@ exports[`Storyshots GroupManagementPage/SearchComponent person search 1`] = `
                 role="listbox"
                 style={
                   Object {
+                    "marginTop": "7px",
+                    "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowY": "scroll",
                     "position": "absolute",
+                    "width": "100%",
                     "zIndex": 1,
                   }
                 }
@@ -6090,8 +6134,12 @@ exports[`Storyshots GroupManagementPage/SearchComponent searching 1`] = `
                 role="listbox"
                 style={
                   Object {
+                    "marginTop": "7px",
+                    "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowY": "scroll",
                     "position": "absolute",
+                    "width": "100%",
                     "zIndex": 1,
                   }
                 }
@@ -6176,8 +6224,12 @@ exports[`Storyshots GroupManagementPage/SearchComponent server error/could not r
                 role="listbox"
                 style={
                   Object {
+                    "marginTop": "7px",
+                    "maxHeight": "300px",
                     "minWidth": "50%",
+                    "overflowY": "scroll",
                     "position": "absolute",
+                    "width": "100%",
                     "zIndex": 1,
                   }
                 }
