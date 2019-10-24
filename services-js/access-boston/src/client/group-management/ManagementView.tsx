@@ -51,6 +51,14 @@ export default function ManagementView(props: Props) {
             <button
               type="button"
               className="btn"
+              onClick={() => props.changeView('initial')}
+            >
+              Go back
+            </button>
+
+            <button
+              type="button"
+              className="btn"
               onClick={() => props.changeView('review')}
               disabled={!canProceed}
             >
@@ -64,5 +72,6 @@ export default function ManagementView(props: Props) {
 }
 
 const BUTTON_CONTAINER_STYLING = css({
-  textAlign: 'right',
+  display: 'flex',
+  justifyContent: 'space-between',
 });
