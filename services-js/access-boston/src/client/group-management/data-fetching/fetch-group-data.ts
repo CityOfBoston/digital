@@ -53,7 +53,8 @@ export async function updateGroup(
   //   'fetch-group-data > updateGroup > dns: ',
   //   dn,
   //   operation,
-  //   uniquemember
+  //   uniquemember,
+  //   UPDATE_GROUP
   // );
   return await fetchGraphql(UPDATE_GROUP, {
     dn,

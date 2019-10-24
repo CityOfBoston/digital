@@ -44,15 +44,19 @@ export default function ReviewChangesView(props: Props) {
 
   const handleSubmit = async () => {
     setSubmitting(true);
-
     const changesArr = [...addedItems, ...removedItems];
     try {
       const promises = changesArr.map(entry => {
+        const _mode = mode === 'person';
+        const updateParams: any = {
+          dn: _mode ? entry.dn : selected.dn,
+          cn: _mode ? selected.dn : entry.dn,
+        };
         const operation =
           entry.status === 'current' || entry.status === 'remove'
             ? 'delete'
             : entry.status;
-        return updateGroup(selected.dn, operation, entry.dn);
+        return updateGroup(updateParams.dn, operation, updateParams.cn);
       });
       await Promise.all(promises).then(() => {
         setTimeout(() => {

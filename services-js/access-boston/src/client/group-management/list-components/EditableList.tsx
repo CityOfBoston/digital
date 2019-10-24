@@ -54,7 +54,7 @@ export default function EditableList(props: Props) {
     );
   } else {
     // console.log('EditableList props.items: ', props.items);
-    const pageSize: number = 100;
+    const pageSize: number = 1000;
     let itemsList: any = chunkArray(props.items, pageSize);
     let page: number = 1;
     let items_list = props.items;
