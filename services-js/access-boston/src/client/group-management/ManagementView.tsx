@@ -19,6 +19,7 @@ interface Props {
   changeView: (view: View) => void;
   searchComponent: ReactNode;
   editableList: ReactNode;
+  resetAll: () => void;
 }
 
 /**
@@ -45,17 +46,18 @@ export default function ManagementView(props: Props) {
           title={`Current ${mode === 'person' ? 'groups' : 'members'}`}
         />
         {props.editableList}
-
-        {!props.loading && list.length > 0 && (
-          <div css={BUTTON_CONTAINER_STYLING}>
-            <button
-              type="button"
-              className="btn"
-              onClick={() => props.changeView('initial')}
-            >
-              Go back
-            </button>
-
+        <div css={BUTTON_CONTAINER_STYLING}>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              props.resetAll();
+              props.changeView('initial');
+            }}
+          >
+            Go back
+          </button>
+          {!props.loading && list.length > 0 && (
             <button
               type="button"
               className="btn"
@@ -64,8 +66,8 @@ export default function ManagementView(props: Props) {
             >
               Review changes
             </button>
-          </div>
-        )}
+          )}
+        </div>
       </Section>
     </>
   );

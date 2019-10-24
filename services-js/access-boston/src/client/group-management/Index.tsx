@@ -116,7 +116,6 @@ export default function Index(props: Props) {
   // Once a selection is made, populate the list and update suggestions.
   useEffect(() => {
     const { mode, selected } = state;
-
     if (mode === 'group') {
       if (selected.cn) handleFetchGroupMembers(selected, groups);
     } else {
@@ -186,6 +185,7 @@ export default function Index(props: Props) {
                 handleClick={handleClickListItem}
               />
             }
+            resetAll={resetAll}
           />
         </div>
       );

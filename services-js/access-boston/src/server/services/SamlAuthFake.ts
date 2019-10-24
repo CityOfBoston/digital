@@ -52,7 +52,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
         'SG_AB_GRPMGMT_EBUILDER',
         'SG_AB_GRPMGMT_AUDITING',
         'SG_AB_GRPMGMT_PSHCM',
-        // 'SG_AB_GRPMGMT_Lagan_Groups',
+        'SG_AB_GRPMGMT_Lagan_Groups',
       ],
       needsNewPassword: isNewUser,
       needsMfaDevice: isNewUser && userId !== 'NEW88888',

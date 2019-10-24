@@ -5099,6 +5099,17 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
           This group has no members
         </div>
       </ul>
+      <div
+        className="css-9n2gef-ManagementView"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Go back
+        </button>
+      </div>
     </div>
   </section>
 </div>
@@ -5322,6 +5333,17 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
           </svg>
         </span>
       </div>
+      <div
+        className="css-9n2gef-ManagementView"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Go back
+        </button>
+      </div>
     </div>
   </section>
 </div>
@@ -5511,6 +5533,17 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
           This person hasn’t been added to any groups
         </div>
       </ul>
+      <div
+        className="css-9n2gef-ManagementView"
+      >
+        <button
+          className="btn"
+          onClick={[Function]}
+          type="button"
+        >
+          Go back
+        </button>
+      </div>
     </div>
   </section>
 </div>

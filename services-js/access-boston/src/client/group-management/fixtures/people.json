@@ -11,7 +11,12 @@
   },
   {
     "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
-    "ismemberof": ["ANML02_LostFound", "BPD_Administrative"],
+    "ismemberof": [
+      "ANML02_LostFound",
+      "BPD_Administrative",
+      "SG_AB_PSHCM",
+      "BPD_Districts"
+    ],
     "sn": "Howell",
     "mail": "cloud.howell@cityofboston.gov",
     "givenname": "Cloud",
@@ -37,7 +42,6 @@
     "givenname": "Laguna",
     "displayname": "Laguna Loire",
     "cn": "Laguna Loire",
-    "nsaccountlock": true,
     "nsaccountlock": "TRUE"
   },
   {
@@ -79,7 +83,7 @@
       "SG_AB_AGILEPOINT",
       "SG_AB_Proofpoint"
     ],
-    "nsaccountlock": false
+    "nsaccountlock": "FALSE"
   },
 
   {
@@ -101,7 +105,7 @@
       "SG_AB_AGILEPOINT",
       "SG_AB_Proofpoint"
     ],
-    "nsaccountlock": false
+    "nsaccountlock": "FALSE"
   },
 
   {
@@ -123,7 +127,7 @@
       "SG_AB_AGILEPOINT",
       "SG_AB_Proofpoint"
     ],
-    "nsaccountlock": false
+    "nsaccountlock": "FALSE"
   },
 
   {
@@ -145,7 +149,7 @@
       "SG_AB_AGILEPOINT",
       "SG_AB_Proofpoint"
     ],
-    "nsaccountlock": false
+    "nsaccountlock": "FALSE"
   },
 
   {

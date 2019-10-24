@@ -14,7 +14,6 @@ import Spinner from '../Spinner';
 import ListItemComponent from './ListItemComponent';
 
 import { LIST_STYLING } from './styling';
-import { chunkArray } from '../fixtures/helpers';
 
 interface Props {
   mode: Mode;
@@ -53,26 +52,10 @@ export default function EditableList(props: Props) {
       </div>
     );
   } else {
-    // console.log('EditableList props.items: ', props.items);
-    const pageSize: number = 1000;
-    let itemsList: any = chunkArray(props.items, pageSize);
-    let page: number = 1;
-    let items_list = props.items;
-
-    if (
-      !props.loading &&
-      props.items.length > 0 &&
-      props.items.length > pageSize
-    ) {
-      items_list = itemsList[page];
-      // eslint-disable-next-line no-console
-      console.log('items_list: ', ' | page: ', page, ' | list: ', items_list);
-    }
-
     return (
       <ul css={LIST_STYLING}>
-        {items_list && items_list.length > 0 ? (
-          items_list.map(item => (
+        {props.items && props.items.length > 0 ? (
+          props.items.map(item => (
             <ListItemComponent
               key={item.displayName}
               view="management"

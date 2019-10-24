@@ -84,6 +84,7 @@ export function Wrapper(props) {
             handleChange={toggleItem}
           />
         }
+        resetAll={() => {}}
       />
     </div>
   );
