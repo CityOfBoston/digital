@@ -22,14 +22,16 @@ interface Props {
   resetAll: () => void;
   items: Array<Group | Person>;
   submitting?: boolean;
+  dns?: [String];
 }
 
 export default function ReviewChangesView(props: Props) {
   const [submitting, setSubmitting] = useState<boolean>(
     props.submitting || false
   );
-  const { items, mode, selected } = props;
+  const { items, mode, selected, dns } = props;
   const internalMode = mode === 'person' ? 'group' : 'person';
+  // console.log('ReviewChangesView > dns: ', dns);
 
   const addedItems = items.filter(item => item.status === 'add') || [];
   const removedItems = items.filter(item => item.status === 'remove') || [];
@@ -56,7 +58,8 @@ export default function ReviewChangesView(props: Props) {
           entry.status === 'current' || entry.status === 'remove'
             ? 'delete'
             : entry.status;
-        return updateGroup(updateParams.dn, operation, updateParams.cn);
+        // console.log('ReviewChangesView > handleSubmit > dns: ', dns);
+        return updateGroup(updateParams.dn, operation, updateParams.cn, dns);
       });
       await Promise.all(promises).then(() => {
         setTimeout(() => {

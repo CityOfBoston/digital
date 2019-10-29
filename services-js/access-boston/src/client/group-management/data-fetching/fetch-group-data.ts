@@ -30,11 +30,13 @@ const UPDATE_GROUP = `
     $dn: String!
     $operation: String!
     $uniquemember: String!
+    $dns: [String]
   ) {
     updateGroupMembers(
       dn: $dn
       operation: $operation
       uniquemember: $uniquemember
+      dns: $dns
     ) {code message}
   }
 `;
@@ -45,22 +47,23 @@ const UPDATE_GROUP = `
 export async function updateGroup(
   dn: string,
   operation: string,
-  uniquemember: string
-  // dns: String[] = []
+  uniquemember: string,
+  dns: String[] = []
 ): Promise<any> {
   // eslint-disable-next-line no-console
   // console.log(
   //   'fetch-group-data > updateGroup > dns: ',
-  //   dn,
-  //   operation,
-  //   uniquemember,
-  //   UPDATE_GROUP
+  //   ' | dn: ', dn,
+  //   ' | operation: ', operation,
+  //   ' | uniquemember: ', uniquemember,
+  //   ' | UPDATE_GROUP: ', UPDATE_GROUP,
+  //   ' | dns: ', dns
   // );
   return await fetchGraphql(UPDATE_GROUP, {
     dn,
     operation,
     uniquemember,
-    // dns,
+    dns,
   });
 }
 
@@ -83,8 +86,10 @@ export async function fetchGroupSearch(
   _selectedItem: any,
   dns: String[] = []
 ): Promise<Group[]> {
+  // console.log('term: ', term);
   // console.log('_selectedItem: ', _selectedItem);
-  // console.log('fetchGroupSearch: SEARCH_GROUPS: ', dns, SEARCH_GROUPS);
+  // console.log('fetchGroupSearch: dns: ', dns);
+  // console.log('fetchGroupSearch: SEARCH_GROUPS: ', SEARCH_GROUPS);
   if (!dns) {
     dns = [];
   }
@@ -122,9 +127,9 @@ export async function fetchGroupSearchRemaining(
   person: Person,
   dns: String[]
 ): Promise<Group[]> {
-  const groups = await fetchGroupSearch(term, dns);
+  const groups = await fetchGroupSearch(term, [], dns);
   // console.log('fetch-group-data > fetchGroupSearchRemaining > dns: ', dns);
-  // console.log('fetchGroupSearch > groups: ', groups, '\n -------');
+  // console.log('fetchGroupSearch > results(groups): ', groups, '\n -------');
 
   return groups.filter(group => !person.groups.includes(group.cn));
 }

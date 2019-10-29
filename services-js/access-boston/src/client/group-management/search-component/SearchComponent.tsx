@@ -97,6 +97,7 @@ export default function SearchComponent(props: Props) {
 
     if (view === 'initial') {
       // console.log('SearchComponent > handleFetch view > initial');
+      // console.log('SearchComponent > handleFetch view > initial: ', dns);
       props
         .handleFetch(searchText, null, dns)
         .then(result => updateSuggestions(result))
@@ -105,6 +106,7 @@ export default function SearchComponent(props: Props) {
         );
     } else {
       // console.log('SearchComponent > handleFetch view > else');
+      // console.log('SearchComponent > handleFetch view > else: ', dns);
       props
         .handleFetch(searchText, props.selectedItem as Person | Group, dns)
         .then(result => updateSuggestions(result));
