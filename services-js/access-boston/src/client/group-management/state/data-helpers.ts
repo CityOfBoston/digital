@@ -41,13 +41,26 @@ export function getAllCns(uniqueMember: string[]): string[] {
  * Accepts a group object from server response, and returns a usable
  * Group object.
  */
-export function toGroup(dataObject): Group {
-  // console.log('toGroup > dataObject: ', dataObject);
+export function toGroup(
+  dataObject,
+  _dns: Array<string> = [],
+  _ous: Array<string> = []
+): Group {
+  let isAvailable =
+    dataObject.canModify !== undefined ? dataObject.canModify : true;
+  let inDomain = true;
+  if (_ous.length > 0) {
+    inDomain = isDomainNameInOUs(dataObject.dn, _ous);
+    if (!inDomain) {
+      isAvailable = false;
+    }
+    // console.log('isDomainNameInOUs: ', dataObject.dn, _ous, '\n', inDomain, '\n----', );
+  }
+
   return {
     ...commonAttributes(dataObject),
     members: dataObject.uniquemember || [],
-    isAvailable:
-      dataObject.canModify !== undefined ? dataObject.canModify : true,
+    isAvailable,
   };
 }
 
@@ -76,3 +89,15 @@ function commonAttributes(dataObject): CommonAttributes {
     status: 'current' as ItemStatus,
   };
 }
+
+export const isDomainNameInOUs = (dn: string, dns: Array<string>) => {
+  let splitDN: any = dn.split(',');
+  // console.log('split 1: ', splitDN);
+  splitDN.shift();
+  // console.log('split 2: ', splitDN);
+  splitDN = splitDN.toString();
+  // console.log('split 3: ', splitDN);
+  // console.log('split 4 dns.indexOf(splitDN): ', dns.indexOf(splitDN));
+
+  return dns.indexOf(splitDN) !== -1;
+};

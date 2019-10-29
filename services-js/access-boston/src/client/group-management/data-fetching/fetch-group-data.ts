@@ -25,6 +25,12 @@ const SEARCH_GROUPS = `
   }
 `;
 
+const OU_CONTAINERS = `
+  query ouContainers($ous: [String]!) {
+    convertOUsToContainers(ous: $ous)
+  }
+`;
+
 const UPDATE_GROUP = `
   mutation updateGroup(
     $dn: String!
@@ -68,6 +74,14 @@ export async function updateGroup(
 }
 
 /**
+ * Returns an array of OU containers.
+ */
+export async function fetchOuContainers(ous: string[]): Promise<any> {
+  // console.log('fetch-group-data > fetchOuContainers > ous: ', ous);
+  return await fetchGraphql(OU_CONTAINERS, { ous });
+}
+
+/**
  * Returns a single Group object.
  */
 export async function fetchGroup(
@@ -107,12 +121,15 @@ export async function fetchGroupSearch(
 export async function fetchPersonsGroups(
   person: Person,
   _currentUserAllowedGroups: string[],
-  dns: String[]
+  dns: string[],
+  ous: string[]
 ): Promise<Group[]> {
   // console.log('fetch-group-data > fetchGroup > dns: ', dns);
   return await Promise.all(
     person.groups.map(groupCn =>
-      fetchGroup(groupCn, dns).then(response => toGroup(response.group[0]))
+      fetchGroup(groupCn, dns).then(response =>
+        toGroup(response.group[0], dns, ous)
+      )
     )
   );
 }

@@ -8,19 +8,22 @@ export type ActionTypes =
   | 'APP/CHANGE_MODE'
   | 'APP/RESET_STATE'
   | 'APP/SET_SELECTED'
-  | 'APP/CLEAR_SELECTED';
+  | 'APP/CLEAR_SELECTED'
+  | 'APP/SET_OUS';
 
 interface Action {
   type: ActionTypes;
   view?: View;
   mode?: Mode;
   selected?: Group | Person;
+  ous?: [string];
 }
 
 export const initialState = {
   view: 'initial',
   mode: 'group',
   selected: {},
+  ous: [],
 };
 
 export const reducer = (state, action: Partial<Action>) => {
@@ -36,6 +39,9 @@ export const reducer = (state, action: Partial<Action>) => {
 
     case 'APP/SET_SELECTED':
       return { ...state, selected: action.selected };
+
+    case 'APP/SET_OUS':
+      return { ...state, ous: action.ous };
 
     case 'APP/CLEAR_SELECTED':
       return { ...state, selected: {} };

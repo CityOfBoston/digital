@@ -21,6 +21,7 @@ import {
   fetchGroupSearch,
   fetchGroupSearchRemaining,
   fetchPersonsGroups,
+  fetchOuContainers,
 } from './data-fetching/fetch-group-data';
 import {
   fetchGroupMembers,
@@ -48,6 +49,8 @@ export default function Index(props: Props) {
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
 
+  // console.log('state: ', state);
+
   const changeView = (newView: View): void =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
 
@@ -73,6 +76,17 @@ export default function Index(props: Props) {
     changeMode(state.mode === 'group' ? 'person' : 'group');
   };
 
+  const setOus = () => {
+    fetchOuContainers(groups).then(result => {
+      dispatchState({
+        type: 'APP/SET_OUS',
+        ous: result.convertOUsToContainers,
+      });
+
+      // console.log('state: ', state);
+    });
+  };
+
   const handleFetchGroupMembers = (
     selected: Group,
     dns: String[] = []
@@ -95,14 +109,15 @@ export default function Index(props: Props) {
 
   const handleFetchPersonsGroups = (
     selected: Person,
-    dns: String[] = []
+    dns: string[] = []
   ): void => {
     const { groups } = selected;
 
     if (groups && groups.length > 0) {
       setLoading(true);
+      // console.log('handleFetchPersonsGroups > fetchPersonsGroups > dns: ', dns);
 
-      fetchPersonsGroups(selected, [], dns).then(result => {
+      fetchPersonsGroups(selected, [], dns, state.ous).then(result => {
         dispatchList({
           type: 'LIST/LOAD_LIST',
           list: result,
@@ -116,6 +131,8 @@ export default function Index(props: Props) {
   // Once a selection is made, populate the list and update suggestions.
   useEffect(() => {
     const { mode, selected } = state;
+    setOus();
+
     if (mode === 'group') {
       if (selected.cn) handleFetchGroupMembers(selected, groups);
     } else {
@@ -183,6 +200,7 @@ export default function Index(props: Props) {
                 loading={loading}
                 handleChange={handleToggleItem}
                 handleClick={handleClickListItem}
+                dns={groups}
               />
             }
             resetAll={resetAll}

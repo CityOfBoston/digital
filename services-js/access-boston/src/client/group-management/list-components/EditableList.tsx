@@ -21,6 +21,7 @@ interface Props {
   loading?: boolean;
   handleChange: (item: Group | Person) => void;
   handleClick?: (item: Group | Person) => void;
+  dns?: [String];
 }
 
 /**
@@ -36,6 +37,11 @@ interface Props {
  * editableList reflects the current state of the user’s intended edits.
  */
 export default function EditableList(props: Props) {
+  // const { dns } = props;
+  // if (props.mode === 'person') {
+  //   console.log('Mode = Person > dns: ', dns, props);
+  // }
+
   const handleClick = (item: Group | Person): void => {
     if (props.handleClick) props.handleClick(item);
   };
