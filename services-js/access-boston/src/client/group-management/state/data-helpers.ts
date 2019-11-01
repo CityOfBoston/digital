@@ -49,12 +49,12 @@ export function toGroup(
   let isAvailable =
     dataObject.canModify !== undefined ? dataObject.canModify : true;
   let inDomain = true;
+
   if (_ous.length > 0) {
     inDomain = isDomainNameInOUs(dataObject.dn, _ous);
     if (!inDomain) {
       isAvailable = false;
     }
-    // console.log('isDomainNameInOUs: ', dataObject.dn, _ous, '\n', inDomain, '\n----', );
   }
 
   return {
@@ -92,12 +92,13 @@ function commonAttributes(dataObject): CommonAttributes {
 
 export const isDomainNameInOUs = (dn: string, dns: Array<string>) => {
   let splitDN: any = dn.split(',');
-  // console.log('split 1: ', splitDN);
   splitDN.shift();
-  // console.log('split 2: ', splitDN);
-  splitDN = splitDN.toString();
-  // console.log('split 3: ', splitDN);
-  // console.log('split 4 dns.indexOf(splitDN): ', dns.indexOf(splitDN));
-
-  return dns.indexOf(splitDN) !== -1;
+  splitDN = splitDN
+    .toString()
+    .trim()
+    .toLowerCase();
+  const retArr = dns.filter(
+    entry => entry.trim().toLocaleLowerCase() === splitDN
+  );
+  return retArr.length > 0;
 };

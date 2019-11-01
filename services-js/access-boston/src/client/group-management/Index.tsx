@@ -21,7 +21,7 @@ import {
   fetchGroupSearch,
   fetchGroupSearchRemaining,
   fetchPersonsGroups,
-  fetchOuContainers,
+  fetchOurContainers,
 } from './data-fetching/fetch-group-data';
 import {
   fetchGroupMembers,
@@ -77,7 +77,7 @@ export default function Index(props: Props) {
   };
 
   const setOus = () => {
-    fetchOuContainers(groups).then(result => {
+    fetchOurContainers(groups).then(result => {
       dispatchState({
         type: 'APP/SET_OUS',
         ous: result.convertOUsToContainers,

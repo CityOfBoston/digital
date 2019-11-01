@@ -76,8 +76,8 @@ export async function updateGroup(
 /**
  * Returns an array of OU containers.
  */
-export async function fetchOuContainers(ous: string[]): Promise<any> {
-  // console.log('fetch-group-data > fetchOuContainers > ous: ', ous);
+export async function fetchOurContainers(ous: string[]): Promise<any> {
+  // console.log('fetch-group-data > fetchOurContainers > ous: ', ous);
   return await fetchGraphql(OU_CONTAINERS, { ous });
 }
 
@@ -124,12 +124,29 @@ export async function fetchPersonsGroups(
   dns: string[],
   ous: string[]
 ): Promise<Group[]> {
-  // console.log('fetch-group-data > fetchGroup > dns: ', dns);
+  // console.log('fetch-group-data > fetchPersonsGroups > dns: ', dns, person, ous);
   return await Promise.all(
     person.groups.map(groupCn =>
-      fetchGroup(groupCn, dns).then(response =>
-        toGroup(response.group[0], dns, ous)
-      )
+      fetchGroup(groupCn, dns).then(response => {
+        // console.log('fetchPersonsGroups > fetchGroup response: ', response.group[0], response.group. response);
+        try {
+          if (response.group[0]) {
+            const retGroup = toGroup(response.group[0], dns, ous);
+            return retGroup;
+          }
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log('error: ', error);
+        }
+        const retgroup: Group = {
+          dn: '',
+          cn: '',
+          displayName: '',
+          members: [],
+          status: 'current',
+        };
+        return retgroup;
+      })
     )
   );
 }
