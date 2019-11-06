@@ -1,0 +1,51 @@
+query {
+  # person(cn: "X04522") {cn mail inactive}
+  # person(cn: "CON01512") {cn mail inactive}
+  # group(cn: "BTDT_District03") {actualdn entrydn members: uniquemember}
+  # groupSearch(term: "BTD") {dn cn uniquemember}
+  personSearch(term: "0007") {dn cn displayname mail inactive}
+}
+
+# query getGroupActiveMembers($cn: String = "BTDT_District03") {
+#   group(cn: $cn) {members: uniquemember}
+# }
+
+# query getActiveMembers(
+#   $term: String = "05007"
+# ) {
+#   personSearch(term: $term) {cn mail groups2: isMemberOf nsAccountLock}
+#   # personSearch(term: $term) {cn mail groups: isMemberOf}
+# }
+
+# query something {
+#   # person(cn: "CON01512") {cn mail inactive}
+#   # person(cn: "CON01512") {cn mail active: nsAccountLock}
+#   # person(cn: "X04522") {cn mail inactive}
+#   person(cn: "000829") {cn mail inactive}
+# }
+
+# query isUserActive($cn: String = "CON01512") {
+#   nsAccountLock @include(if: false) person(cn: $cn) {
+#     cn
+#     # nsAccountLock
+#     active: nsAccountLock @include(if: false)
+#   }
+# }
+
+# query getGroupActiveMembers($cn: String = "BTDT_District03") {
+#   group(cn: $cn) {members: uniquemember}
+# }
+
+# , $active: Boolean = false
+# $first: Int = 3
+# query {
+	# group(cn: "BTDT_District03") {members: uniquemember}
+  
+  # personSearch(term: "050") {
+  #   dn
+  #   cn
+  # }
+  
+  # person(cn: "050") { dn, cn, isMemberOf }
+  # 053342
+# }
