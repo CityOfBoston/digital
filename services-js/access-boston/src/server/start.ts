@@ -30,5 +30,6 @@ startServer(rollbar).catch((err: Error) => {
   console.error('Error starting server', err);
   process.exit(1);
 });
+console.log('GROUP_MANAGEMENT_API_URL: ', process.env.GROUP_MANAGEMENT_API_URL);
 
 export {};

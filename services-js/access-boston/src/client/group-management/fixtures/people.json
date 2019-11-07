@@ -1,0 +1,194 @@
+[
+  {
+    "dn": "cn=000296,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": ["BPD_Districts"],
+    "sn": "Howard",
+    "givenname": "Terra",
+    "displayname": "Terra Howard",
+    "mail": "terra.howard@boston.gov",
+    "cn": "000296",
+    "nsaccountlock": "TRUE"
+  },
+  {
+    "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": [
+      "ANML02_LostFound",
+      "BPD_Administrative",
+      "SG_AB_PSHCM",
+      "BPD_Districts"
+    ],
+    "sn": "Howell",
+    "mail": "cloud.howell@cityofboston.gov",
+    "givenname": "Cloud",
+    "displayname": "Cloud Howell",
+    "cn": "132367",
+    "nsaccountlock": "TRUE"
+  },
+  {
+    "dn": "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": ["ANML02_LostFound", "BPD_Districts", "BPD_Administrative"],
+    "sn": "Scientia",
+    "mail": "ignis.scientia@cityofboston.gov",
+    "givenname": "Ignis",
+    "displayname": "Ignis Scientia",
+    "cn": "Ignis Scientia",
+    "nsaccountlock": "TRUE"
+  },
+  {
+    "dn": "cn=Laguna Loire,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": ["ANML02_LostFound", "BPD_Districts"],
+    "sn": "Loire",
+    "mail": "laguna.loire@cityofboston.gov",
+    "givenname": "Laguna",
+    "displayname": "Laguna Loire",
+    "cn": "Laguna Loire",
+    "nsaccountlock": "TRUE"
+  },
+  {
+    "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+    "ismemberof": [],
+    "sn": "Smith",
+    "mail": "sam.smith@cityofboston.gov",
+    "givenname": "Sam",
+    "displayname": "Sam Smith",
+    "cn": "515151",
+    "nsaccountlock": "TRUE"
+  },
+
+
+
+
+
+
+
+
+
+  
+
+  {
+    "dn": "cn=010613,cn=Internal Users,dc=boston,dc=cob",
+    "cn": "010613",
+    "givenname": "John",
+    "sn": "Brennan",
+    "displayname": "Brennan,John D",
+    "uid": "010613",
+    "mail": "BrennanJ.bpd@ci.boston.ma.us",
+    "ismemberof": [
+      "sg_ab_icims",
+      "sg_ab_ess",
+      "sg_ab_sponsor",
+      "sg_ab_manager",
+      "sg_ab_mlp",
+      "SG_AB_PSHCM",
+      "SG_AB_AGILEPOINT",
+      "SG_AB_Proofpoint"
+    ],
+    "nsaccountlock": "FALSE"
+  },
+
+  {
+    "dn": "cn=010650,cn=Internal Users,dc=boston,dc=cob",
+    "cn": "010650",
+    "givenname": "Kathleen",
+    "sn": "Clancy",
+    "displayname": "Clancy,Kathleen E.",
+    "uid": "010650",
+    "mail": "Kathleen.Clancy@boston.gov",
+    "ismemberof": [
+      "BO_A_PowerUsers",
+      "BO_C_EDW_FN_PowerUsers",
+      "sg_ab_icims",
+      "sg_ab_ess",
+      "sg_ab_sponsor",
+      "sg_ab_mlp",
+      "SG_AB_PSHCM",
+      "SG_AB_AGILEPOINT",
+      "SG_AB_Proofpoint"
+    ],
+    "nsaccountlock": "FALSE"
+  },
+
+  {
+    "dn": "cn=010688,cn=Internal Users,dc=boston,dc=cob",
+    "cn": "010688",
+    "givenname": "Michael",
+    "sn": "Gavin",
+    "displayname": "Gavin,Michael J",
+    "uid": "010688",
+    "mail": "GavinM.bpd@ci.boston.ma.us",
+    "ismemberof": [
+      "sg_ab_icims",
+      "sg_ab_ess",
+      "sg_ab_sponsor",
+      "sg_ab_manager",
+      "sg_ab_mlp",
+      "SG_AB_PSFN",
+      "SG_AB_PSHCM",
+      "SG_AB_AGILEPOINT",
+      "SG_AB_Proofpoint"
+    ],
+    "nsaccountlock": "FALSE"
+  },
+
+  {
+    "dn": "cn=010719,cn=Internal Users,dc=boston,dc=cob",
+    "cn": "010719",
+    "givenname": "William",
+    "sn": "Knecht",
+    "displayname": "Knecht,William G",
+    "uid": "010719",
+    "mail": "KnechtW.bpd@ci.boston.ma.us",
+    "ismemberof": [
+      "sg_ab_icims",
+      "sg_ab_ess",
+      "sg_ab_sponsor",
+      "sg_ab_manager",
+      "sg_ab_mlp",
+      "SG_AB_PSFN",
+      "SG_AB_PSHCM",
+      "SG_AB_AGILEPOINT",
+      "SG_AB_Proofpoint"
+    ],
+    "nsaccountlock": "FALSE"
+  },
+
+  {
+    "cn": "097210",
+    "displayname": "Hill,Frank L.",
+    "dn": "cn=097210,cn=Internal Users,dc=boston,dc=cob",
+    "givenname": "Frank",
+    "ismemberof": ["sg_ab_icims", "sg_ab_ess", "sg_ab_manager", "sg_ab_mlp", "SG_AB_PSFN", "SG_AB_PSHCM"],
+    "mail": "097210@boston.k12.ma.us",
+    "sn": "Hill"
+  },
+
+  {
+    "cn": "010537",
+    "displayname": "Gallarelli,Joseph A",
+    "dn": "cn=010537,cn=Internal Users,dc=boston,dc=cob",
+    "givenname": "Joseph",
+    "ismemberof": [
+      "sg_ab_icims",
+      "sg_ab_ess",
+      "sg_ab_sponsor",
+      "sg_ab_manager",
+      "sg_ab_mlp",
+      "SG_AB_PSHCM",
+      "SG_AB_AGILEPOINT",
+      "SG_AB_Proofpoint"
+    ],
+    "mail": "GallarelliJ.bpd@ci.boston.ma.us",
+    "sn": "Gallarelli"
+  },
+
+  {
+    "cn": "141860",
+    "displayname": "Dierdre Connelly",
+    "dn": "cn=141860,cn=Internal Users,dc=boston,dc=cob",
+    "givenname": "Dierdre",
+    "ismemberof": ["AP OID Default", "sg_ab_icims", "sg_ab_ess", "sg_ab_sponsor", "sg_ab_mlp", "SG_AB_PSHCM"],
+    "mail": "dierdre.connelly2@pd.boston.gov",
+    "sn": "Connelly"
+  }
+
+]

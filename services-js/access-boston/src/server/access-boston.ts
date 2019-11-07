@@ -3,6 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
+import fetch from 'node-fetch';
 
 import { Server as HapiServer, ResponseObject, Lifecycle } from 'hapi';
 import Inert from 'inert';
@@ -52,6 +53,8 @@ import { addForgotPasswordAuth } from './forgot-password-auth';
 import Session from './Session';
 import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
+
+require('dotenv').config();
 
 const readFile = promisify(fs.readFile);
 
@@ -348,6 +351,42 @@ async function addVelocityTemplates(server: HapiServer) {
       return new Compile(asts, { escape: false }).render(pingData);
     },
   });
+
+  server.route({
+    path: '/fetchGraphql',
+    method: ['POST'],
+    options: {
+      auth: false,
+      plugins: {
+        crumb: false,
+      },
+    },
+    handler: async _req => {
+      const fetchQ = async this_req => {
+        const query = this_req.payload.query;
+        const variables = this_req.payload.variables;
+
+        return await fetch(
+          `${process.env.GROUP_MANAGEMENT_API_URL}` as string,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              token: `${process.env.GROUP_MGMT_API_KEY}` as string,
+            },
+            body: JSON.stringify({
+              query,
+              variables,
+            }),
+          }
+        )
+          .then(response => response.json())
+          .then(response => response);
+      };
+
+      return await fetchQ(_req);
+    },
+  });
 }
 
 async function addNext(server: HapiServer) {
@@ -445,6 +484,19 @@ async function addNext(server: HapiServer) {
 
       return nextHandler(request, h);
     })(makeNextHandler(nextApp)),
+  });
+
+  server.route({
+    method: ['GET'],
+    path: '/warptime',
+    handler: () => {
+      return `${process.env.GROUP_MANAGEMENT_API_URL}`;
+    },
+    options: {
+      // mark this as a health check so that it doesn’t get logged
+      tags: ['health'],
+      auth: false,
+    },
   });
 
   server.route(

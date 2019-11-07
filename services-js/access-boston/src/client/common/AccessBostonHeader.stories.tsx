@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import AccessBostonHeader from './AccessBostonHeader';
-import { Account } from './graphql/fetch-account';
+import { Account } from '../graphql/fetch-account';
 
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
@@ -13,6 +13,8 @@ const ACCOUNT: Account = {
   hasMfaDevice: false,
   resetPasswordToken: '',
   mfaRequiredDate: null,
+  groups: [''],
+  email: '',
 };
 
 storiesOf('AccessBostonHeader', module).add('default', () => (

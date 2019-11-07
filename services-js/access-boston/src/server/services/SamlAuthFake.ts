@@ -48,6 +48,11 @@ export default class SamlAuthFake implements Required<SamlAuth> {
         'COB-Group-TestGrp01',
         'SG_AB_IAM_TEAM',
         'SG_AB_SERVICEDESK_USERS',
+        'SG_AB_GRPMGMT_CIVIS',
+        'SG_AB_GRPMGMT_EBUILDER',
+        'SG_AB_GRPMGMT_AUDITING',
+        'SG_AB_GRPMGMT_PSHCM',
+        'SG_AB_GRPMGMT_Lagan_Groups',
       ],
       needsNewPassword: isNewUser,
       needsMfaDevice: isNewUser && userId !== 'NEW88888',
@@ -56,7 +61,8 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       userMfaRegistrationDate: '04/17/2019',
       cobAgency: 'CH',
     };
-
+    // eslint-disable-next-line no-console
+    // console.log('SamlAuthFake > result: ', result);
     return Promise.resolve(result);
   }
 

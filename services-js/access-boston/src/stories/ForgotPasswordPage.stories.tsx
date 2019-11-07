@@ -13,6 +13,8 @@ const ACCOUNT: Account = {
   hasMfaDevice: true,
   resetPasswordToken: 'jfqWE7DExC4nUa7pvkABezkM4oNT',
   mfaRequiredDate: null,
+  groups: [''],
+  email: 'jondoe@boston.gov',
 };
 
 storiesOf('ForgotPasswordPage', module)

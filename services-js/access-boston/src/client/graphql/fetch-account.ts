@@ -14,6 +14,8 @@ const QUERY = gql`
       hasMfaDevice
       resetPasswordToken
       mfaRequiredDate
+      groups
+      email
     }
   }
 `;
