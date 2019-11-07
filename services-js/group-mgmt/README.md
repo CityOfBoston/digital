@@ -6,21 +6,3 @@
 
 We a GraphQL endpoint that allows you to get Groups and Persons, and update Groups.
 
-```json
-# Find Person by cn (min-char: 3 || returns error obj)
-query {
-  person(cn: "050") { dn, cn }
-}
-
-# Returns
-{
-  "data": {
-    "person": [
-      {
-        "dn": "cn=050086,cn=Internal Users,dc=boston,dc=cob",
-        "cn": "050086"
-      }
-    ]
-  }
-}
-```
