@@ -5,4 +5,3 @@
 ## Development
 
 We a GraphQL endpoint that allows you to get Groups and Persons, and update Groups.
-
