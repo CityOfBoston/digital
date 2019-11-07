@@ -141,7 +141,11 @@ export default function Pagination(props: Props) {
         prevList1
       )}
       {currentPage !== 0 && (
-        <li className="pg-li" css={NORM_HOVER} key={currentPage}>
+        <li
+          className="pg-li"
+          css={NORM_HOVER}
+          key={`${currentPage}_currentPage`}
+        >
           <a
             className="pg-li-i pg-li-i--link pg-li-i--a"
             onClick={() => {
