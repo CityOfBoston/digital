@@ -17,7 +17,5 @@ export async function fetchGraphql(
   })
     .then(response => response.json())
     .then(response => response.data);
-  // eslint-disable-next-line no-console
-  // console.log('retFascade: ', retFascade);
   return retFascade;
 }

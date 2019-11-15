@@ -1,0 +1,246 @@
+{
+	"categories": [
+		{
+			"title": "Applications",
+			"show_request_access_link": false,
+			"icons": true,
+			"apps": [
+				{
+					"title": "Employee Self-Service",
+					"url": "https://ess.boston.gov/",
+					"icon": "/assets/apps/ess.svg",
+					"groups": [
+						"SG_AB_ESS"
+					]
+				},
+				{
+					"title": "The Hub",
+					"url": "https://hub.boston.gov/",
+					"icon": "/assets/apps/hub.svg"
+				},
+				{
+					"title": "AgilePoint",
+					"url": "https://boston.nxone.com",
+					"icon": "https://assets.boston.gov/icons/accessboston/agilepoint.svg",
+					"groups": [
+						"SG_AB_AGILEPOINT"
+					]
+				},
+				{
+					"title": "Security Awareness",
+					"url": "https://boston.wombatsecurity.com",
+					"icon": "https://assets.boston.gov/icons/accessboston/proofpoint-web-security.svg",
+					"groups": [
+						"SG_AB_PROOFPOINT"
+					]
+				},
+				{
+					"title": "Current Job Openings",
+					"url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com&TargetResource=https%3A//employeeconnect-boston.icims.com/r.jsp",
+					"icon": "/assets/apps/job-openings.svg",
+					"groups": [
+						"SG_AB_ICIMS"
+					]
+				},
+				{
+					"title": "Current Job Openings",
+					"icon": "/assets/apps/job-openings.svg",
+					"url": "https://careercenter-boston.icims.com/jobs/",
+					"groups": [
+						"SG_AB_ALLSPONSORED"
+					]
+				},
+				{
+					"title": "Career Center",
+					"url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=icims.com",
+					"icon": "/assets/apps/career-center.svg",
+					"groups": [
+						"SG_AB_CAREERCTR"
+					]
+				},
+				{
+					"title": "BPS Job Listings",
+					"url": "https://bostonpublicschools.tedk12.com/hire/index.aspx",
+					"icon": "/assets/apps/talented.svg"
+				},
+				{
+					"title": "Employee Training",
+					"url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=http%3A%2F%2Fwww.mylearningplan.com%2Fmvc%2Fsaml%2Fmetadata%2F13583",
+					"icon": "/assets/apps/employee-training.svg",
+					"groups": [
+						"SG_AB_MLP"
+					]
+				},
+				{
+					"title": "Boston Maps",
+					"url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com",
+					"icon": "/assets/apps/boston-maps.svg"
+				},
+				{
+					"title": "BAIS FN",
+					"url": "https://baisfn.cityhall.boston.cob/psp/prdfn/EMPLOYEE/ERP/h/?tab=DEFAULT",
+					"icon": "/assets/apps/bais-fn.svg",
+					"groups": [
+						"SG_AB_PSFN"
+					]
+				},
+				{
+					"title": "BAIS HCM",
+					"url": "https://hcm.cityhall.boston.cob/psp/pshrpd3/EMPLOYEE/HRMS/h/?tab=DEFAULT",
+					"icon": "/assets/apps/bais-hcm.svg",
+					"groups": [
+						"SG_AB_PSHCM"
+					]
+				},
+				{
+					"title": "Hyperion",
+					"url": "https://login.us2.oraclecloud.com/oam/server/obrareq.cgi?encquery%3Dv2GuCFxM8VxsxDZPK9HzUGyy9Q3kTEgTTNlLlAmtoZTwncih0HU8NAbYsRh9raKXKy8d7P4g6V6FY84QopZtihSoEOcPDIVU7qktPzNiMf87zkN0Hm9YU%2BT%2B3ytwl%2FKTMsgQpsowiFHZDm13DFTGawpK%2B%2Bt3RL%2F3YiNDK33gCZnp9AZw%2Fm5OFX8d9xf%2BP8q9mlMEN3SrirXdsgAq4Jzli5LbTH38nJTp9y0kYPR1cnwH8VP80yul1ZxpngYMTatK3Z613FGf4luKZdL0G9560UC5cdbxKo3Rqhwp76BvyRFaQ%2B%2F%2FhwI3PIWWdLcyR4scKux9x5p5H2GePV7xJSst0g%3D%3D%20agentid%3DPlanning_WG%20ver%3D1%20crmethod%3D2",
+					"icon": "/assets/apps/hyperion.svg",
+					"groups": [
+						"SG_AB_HYPERION"
+					]
+				},
+				{
+					"title": "Civis",
+					"url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=https%3A%2F%2Fplatform.civisanalytics.com%2Fusers%2Fsaml%2Fmetadata",
+					"icon": "/assets/apps/civis.svg",
+					"groups": [
+						"SG_AB_CIVIS"
+					]
+				},
+				{
+					"title": "IIQ",
+					"url": "https://identity.boston.gov/identityiq/",
+					"icon": "/assets/apps/identityiq.svg",
+					"groups": [
+						"SG_AB_IAM_TEAM"
+					]
+				},
+				{
+					"title": "E-Builder",
+					"url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=sso.e-builder.net",
+					"icon": "/assets/apps/e-builder.svg",
+					"groups": [
+						"SG_AB_EBUILDER"
+					]
+				}
+			]
+		},
+		{
+			"title": "Forms / Links",
+			"apps": [
+				{
+					"title": "Create Sponsored Account",
+					"url": "https://identity.boston.gov/identityiq/createSponsor.jsf",
+					"groups": [
+						"SG_AB_SPONSOR"
+					]
+				},
+				{
+					"title": "FleetHub",
+					"url": "http://boston.getlocalmotion.com/",
+					"agencies": [
+						"CH"
+					]
+				},
+				{
+					"title": "International Travel",
+					"url": "https://goo.gl/forms/Xobh9aZeGXSnKH2m2",
+					"agencies": [
+						"BPD",
+						"BFD",
+						"CH"
+					]
+				},
+				{
+					"title": "Building Maintenance",
+					"url": "https://eamtst.cityhall.boston.cob:5443/WebMaint/",
+					"agencies": [
+						"CH"
+					]
+				},
+				{
+					"title": "Request FN Access",
+					"url": "https://identity.boston.gov/identityiq/requestPsfn.jsf",
+					"groups": [
+						"SG_AB_FN_LIASONS_USERS"
+					]
+				}
+			]
+		},
+		{
+			"title": "Account Tools",
+			"apps": [
+				{
+					"title": "Change My Password",
+					"url": "/change-password"
+				},
+				{
+					"title": "Manage My Device(s)",
+					"url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+					"mfa_device_required": true
+				}
+			]
+		},
+		{
+			"title": "Support Tools",
+			"apps": [
+				{
+					"title": "Identity Verification",
+					"url": "https://identity.boston.gov/identityiq/identityVerification.jsf",
+					"groups": [
+						"SG_AB_SERVICEDESK_USERS"
+					]
+				},
+				{
+					"title": "View User Information",
+					"url": "https://identity.boston.gov/identityiq/viewUserIdentityonly.jsf",
+					"groups": [
+						"SG_AB_SERVICEDESK_USERS"
+					]
+				},
+				{
+					"title": "Edit Group",
+					"url": "#",
+					"groups": [
+						"SG_AB_HCMSECURITY"
+					]
+				},
+				{
+					"title": "Group Management",
+					"url": "/group-management"
+				}
+			]
+		},
+		{
+			"title": "Manager Tools",
+			"apps": [
+				{
+					"title": "Set an Access Boston Delegate",
+					"url": "https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf",
+					"groups": [
+						"SG_AB_MANAGER",
+						"SG_AB_TRAINING_TEAM",
+						"SG_AB_FN_LIASONS_USERS"
+					]
+				},
+				{
+					"title": "My Access Boston Approvals",
+					"url": "https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval",
+					"groups": [
+						"SG_AB_MANAGER",
+						"SG_AB_TRAINING_TEAM",
+						"SG_AB_FN_LIASONS_USERS"
+					]
+				},
+				{
+					"title": "Manage Sponsored Account",
+					"url": "https://identity.boston.gov/identityiq/extendSponsor.jsf",
+					"groups": [
+						"SG_AB_SPONSOR"
+					]
+				}
+			]
+		}
+	]
+}

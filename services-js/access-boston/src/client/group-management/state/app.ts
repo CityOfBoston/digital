@@ -21,7 +21,6 @@ export type ActionTypes =
   | 'APP/SET_SELECTED'
   | 'APP/CLEAR_SELECTED'
   | 'APP/SET_OUS'
-  | 'APP/SET_API'
   | 'APP/CHANGE_PAGE'
   | 'APP/CHANGE_PAGECOUNT';
 
@@ -64,9 +63,6 @@ export const reducer = (state, action: Partial<Action>) => {
 
     case 'APP/SET_OUS':
       return { ...state, ous: action.ous };
-
-    case 'APP/SET_API':
-      return { ...state, api: action.api };
 
     case 'APP/CLEAR_SELECTED':
       return { ...state, selected: {} };

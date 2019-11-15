@@ -191,6 +191,7 @@ const queryRootResolvers: QueryRootResolvers = {
       // in _app.tsx.
       throw Boom.forbidden('Forbidden', session.sessionDebugInfo());
     }
+    // console.log('schema > appsRegistry: ', appsRegistry);
 
     return {
       categories: appsRegistry

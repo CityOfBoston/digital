@@ -31,7 +31,6 @@ import {
   fetchGroupSearchRemaining,
   fetchPersonsGroups,
   fetchOurContainers,
-  fetchDataURL,
 } from './data-fetching/fetch-group-data';
 import {
   fetchGroupMembers,
@@ -121,19 +120,6 @@ export default function Index(props: Props) {
     changeMode(state.mode === 'group' ? 'person' : 'group');
   };
 
-  const setApiUrl = async () => {
-    const apiURL =
-      process.env.GROUP_MANAGEMENT_API_URL2 || (await fetchDataURL());
-    if (state.api === '') {
-      // console.log('SET OUS(api): ', typeof state.api, state.api);
-      dispatchState({
-        type: 'APP/SET_API',
-        api: apiURL,
-      });
-      // console.log('api: ', state.api);
-    }
-  };
-
   const setOus = async () => {
     const _api = state.api === '' ? undefined : state.api;
     fetchOurContainers(groups, _api).then(result => {
@@ -201,12 +187,9 @@ export default function Index(props: Props) {
       );
     }
   };
-
-  setApiUrl();
   // Once a selection is made, populate the list and update suggestions.
   useEffect(() => {
     const { mode, selected } = state;
-    // setApiUrl();
     setOus();
     // console.log('useEffect > state: ', state);
     if (mode === 'group') {

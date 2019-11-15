@@ -74,15 +74,6 @@ export async function updateGroup(
 }
 
 /**
- * Returns GRAPH QL API.
- */
-export async function fetchDataURL(): Promise<any> {
-  return await fetch('/warptime' as string, { method: 'GET' })
-    .then(response => response.text())
-    .then(response => response);
-}
-
-/**
  * Returns an array of OU containers.
  */
 export async function fetchOurContainers(

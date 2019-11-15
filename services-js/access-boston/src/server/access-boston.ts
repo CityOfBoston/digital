@@ -1,9 +1,9 @@
 /* eslint no-console: 0 */
 
 import fs from 'fs';
-import path from 'path';
 import { promisify } from 'util';
 import fetch from 'node-fetch';
+import path from 'path';
 
 import { Server as HapiServer, ResponseObject, Lifecycle } from 'hapi';
 import Inert from 'inert';
@@ -107,17 +107,26 @@ export async function makeServer(port, rollbar: Rollbar) {
   }
 
   const server = new HapiServer(serverOptions);
-
-  const appsRegistry = await (process.env.NODE_ENV === 'production' ||
-  (dev && fs.existsSync('./apps.yaml'))
-    ? makeAppsRegistry(await readFile('./apps.yaml', 'utf-8'))
+  const appsConfigData = await fetch(
+    `${process.env.APPS_CONFIG_URL}` as string,
+    {
+      method: 'GET',
+    }
+  )
+    .then(response => response.json())
+    .then(response => response);
+  const appConfigLoaded =
+    appsConfigData && typeof appsConfigData !== 'undefined';
+  const appsRegistry = appConfigLoaded
+    ? makeAppsRegistry(appsConfigData, process.env.NODE_ENV !== 'test', false)
     : makeAppsRegistry(
         await readFile(
           path.resolve(__dirname, '../../fixtures/apps.yaml'),
           'utf-8'
         ),
-        process.env.NODE_ENV !== 'test'
-      ));
+        process.env.NODE_ENV !== 'test',
+        false
+      );
 
   const identityIq: IdentityIq =
     process.env.NODE_ENV === 'production' || process.env.IDENTITYIQ_URL
@@ -484,19 +493,6 @@ async function addNext(server: HapiServer) {
 
       return nextHandler(request, h);
     })(makeNextHandler(nextApp)),
-  });
-
-  server.route({
-    method: ['GET'],
-    path: '/warptime',
-    handler: () => {
-      return `${process.env.GROUP_MANAGEMENT_API_URL}`;
-    },
-    options: {
-      // mark this as a health check so that it doesn’t get logged
-      tags: ['health'],
-      auth: false,
-    },
   });
 
   server.route(

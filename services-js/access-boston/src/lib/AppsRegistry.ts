@@ -1,4 +1,5 @@
 import yaml from 'js-yaml';
+// import appsJson from './apps.json';
 
 export interface AppsCategory {
   title: string;
@@ -29,7 +30,7 @@ export default class AppsRegistry {
 
   constructor(appsYaml: any, showAll = false) {
     this.showAll = showAll;
-    const yamlCategories = appsYaml.categories;
+    const yamlCategories: any = appsYaml.categories;
 
     if (!yamlCategories || !Array.isArray(yamlCategories)) {
       throw new Error('Missing categories array');
@@ -127,8 +128,9 @@ export default class AppsRegistry {
 
 export function makeAppsRegistry(
   yamlString: string,
-  showAll = false
+  showAll = false,
+  isYaml = true
 ): AppsRegistry {
-  const appsYaml = yaml.safeLoad(yamlString);
+  const appsYaml = isYaml === true ? yaml.safeLoad(yamlString) : yamlString;
   return new AppsRegistry(appsYaml, showAll);
 }
