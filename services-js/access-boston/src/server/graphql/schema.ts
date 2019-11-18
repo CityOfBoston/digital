@@ -107,6 +107,7 @@ export interface App {
   url: string;
   iconUrl: string | null;
   description: string;
+  target: string | null;
 }
 
 // This file is built by the "generate-graphql-schema" script from
@@ -204,11 +205,12 @@ const queryRootResolvers: QueryRootResolvers = {
             title,
             showIcons: icons,
             requestAccessUrl: showRequestAccessLink ? '#' : null,
-            apps: apps.map(({ title, iconUrl, url, description }) => ({
+            apps: apps.map(({ title, iconUrl, url, description, target }) => ({
               title,
               iconUrl: iconUrl || null,
               url,
               description,
+              target,
             })),
           };
           if (retObj.title === 'Support Tools') {

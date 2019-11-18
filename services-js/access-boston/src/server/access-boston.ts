@@ -118,7 +118,6 @@ export async function makeServer(port, rollbar: Rollbar) {
         ),
         process.env.NODE_ENV !== 'test'
       ));
-
   const identityIq: IdentityIq =
     process.env.NODE_ENV === 'production' || process.env.IDENTITYIQ_URL
       ? new IdentityIq(
