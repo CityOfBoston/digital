@@ -72,6 +72,7 @@ export interface FetchAccountAndApps_apps_categories_apps {
   url: string;
   iconUrl: string | null;
   description: string;
+  target: string | null;
 }
 
 export interface FetchAccountAndApps_apps_categories {

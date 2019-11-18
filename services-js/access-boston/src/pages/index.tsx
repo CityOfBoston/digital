@@ -74,6 +74,8 @@ export default class IndexPage extends React.Component<Props> {
 
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
+    // eslint-disable-next-line
+    console.log('listCategories: ', listCategories);
 
     return (
       <>
@@ -170,52 +172,60 @@ export default class IndexPage extends React.Component<Props> {
     );
   }
 
+  private linkDefaultTarget = url => (url.startsWith('/') ? '_self' : '_blank');
+
   private renderAppList(apps: CategoryApps) {
-    return (
-      <ul className="ul m-v500">
-        {apps.map(({ title, url, description }) => (
-          <li key={title} css={APP_ROW_STYLE}>
-            <a
-              href={url}
-              id={`app-link-${title}`}
-              className="p-a300"
-              target={url.startsWith('/') ? '_self' : '_blank'}
-            >
-              <span className="t--info" style={{ color: 'inherit' }}>
-                {title}
-              </span>
-              <span style={{ color: CHARLES_BLUE }}>{description}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    );
+    const listItems = apps.map(({ title, url, description, target }) => {
+      const hrefTarget =
+        target && (target === '_blank' || target === '_self')
+          ? this.linkDefaultTarget(target)
+          : this.linkDefaultTarget(url);
+      return (
+        <li key={title} css={APP_ROW_STYLE}>
+          <a
+            href={url}
+            id={`app-link-${title}`}
+            className="p-a300"
+            target={hrefTarget}
+          >
+            <span className="t--info" style={{ color: 'inherit' }}>
+              {title}
+            </span>
+            <span style={{ color: CHARLES_BLUE }}>{description}</span>
+          </a>
+        </li>
+      );
+    });
+    return <ul className="ul m-v500">{listItems}</ul>;
   }
 
   private renderAppIcons(apps: CategoryApps) {
-    return (
-      <div className="g">
-        {apps.map(({ title, url, iconUrl }) => (
-          <a
-            key={title + url}
-            href={url}
-            id={`app-icon-${title}`}
-            className="m-t200 g--3 g--3--sl lwi"
-            target={url.startsWith('/') ? '_self' : '_blank'}
-          >
-            <span className="lwi-ic">
-              <img
-                src={iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'}
-                alt=""
-                className="lwi-i"
-                css={APP_IMAGE_STYLE}
-              />
-            </span>
-            <span className="lwi-t">{title}</span>
-          </a>
-        ))}
-      </div>
-    );
+    const listItems = apps.map(({ title, url, iconUrl, target }) => {
+      const hrefTarget =
+        target && (target === '_blank' || target === '_self')
+          ? this.linkDefaultTarget(target)
+          : this.linkDefaultTarget(url);
+      return (
+        <a
+          key={title + url}
+          href={url}
+          id={`app-icon-${title}`}
+          className="m-t200 g--3 g--3--sl lwi"
+          target={hrefTarget}
+        >
+          <span className="lwi-ic">
+            <img
+              src={iconUrl || 'https://patterns.boston.gov/images/b-dark.svg'}
+              alt=""
+              className="lwi-i"
+              css={APP_IMAGE_STYLE}
+            />
+          </span>
+          <span className="lwi-t">{title}</span>
+        </a>
+      );
+    });
+    return <div className="g">{listItems}</div>;
   }
 }
 
