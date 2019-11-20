@@ -3,21 +3,48 @@ import {
   OPTIMISTIC_BLUE_DARK,
   CHARLES_BLUE,
   WHITE,
+  FREEDOM_RED_DARK,
+  DEFAULT_TEXT,
+  GRAY_300,
 } from '@cityofboston/react-fleet';
 
 export const PAGINATION = css({
   marginBottom: '2.5em',
+  fontWeight: 'normal',
 
   a: {
     cursor: 'pointer',
   },
 
-  'li span:hover': {
-    color: CHARLES_BLUE,
+  '&:hover': {
+    color: WHITE,
+  },
+
+  'li span': {
+    color: WHITE,
+  },
+
+  'span.pg-li-i': {
+    borderColor: CHARLES_BLUE,
+    color: DEFAULT_TEXT,
   },
 
   'a.pg-li-i--a': {
     backgroundColor: OPTIMISTIC_BLUE_DARK,
+    color: WHITE,
+  },
+
+  '.last-li': {
+    borderColor: DEFAULT_TEXT,
+  },
+
+  'a.last-link': {
+    cursor: 'initial',
+    color: GRAY_300,
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderColor: GRAY_300,
+    borderLeftColor: CHARLES_BLUE,
   },
 });
 
@@ -34,7 +61,7 @@ export const HOVER_STYLES = css({
     color: WHITE,
   },
   '&:hover': {
-    backgroundColor: OPTIMISTIC_BLUE_DARK,
+    backgroundColor: FREEDOM_RED_DARK,
     color: WHITE,
     opacity: 1,
   },
