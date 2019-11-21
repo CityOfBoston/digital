@@ -98,8 +98,10 @@ export default function PasswordPolicy({
       </ul>
 
       <div className="t--subinfo m-v300 m-b200">
-        Don’t use personal info, like your name or address. Your new password
-        will have to be different than your last 5 passwords.
+        Don't use personal info, like your name, ID or address. If you use just
+        two consecutive characters from your name or ID in your password, it
+        will fail. Your new password will have to be different than your last 5
+        passwords.
       </div>
     </>
   );

@@ -252,7 +252,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
             <div
               className="t--subinfo m-v300 m-b200"
             >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+              Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
             </div>
           </div>
           <div
@@ -648,7 +648,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
             <div
               className="t--subinfo m-v300 m-b200"
             >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+              Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
             </div>
           </div>
           <div
@@ -1038,7 +1038,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
             <div
               className="t--subinfo m-v300 m-b200"
             >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+              Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
             </div>
           </div>
           <div
@@ -1409,7 +1409,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
             <div
               className="t--subinfo m-v300 m-b200"
             >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+              Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
             </div>
           </div>
           <div
@@ -1846,7 +1846,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
             <div
               className="t--subinfo m-v300 m-b200"
             >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+              Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
             </div>
           </div>
           <div
@@ -2261,7 +2261,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
             <div
               className="t--subinfo m-v300 m-b200"
             >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+              Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
             </div>
           </div>
           <div
@@ -2820,7 +2820,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
             <div
               className="t--subinfo m-v300 m-b200"
             >
-              Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+              Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
             </div>
           </div>
           <div
@@ -3097,7 +3097,7 @@ Array [
               <div
                 className="t--subinfo m-v300 m-b200"
               >
-                Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+                Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
               </div>
             </div>
             <div
@@ -3430,7 +3430,7 @@ Array [
               <div
                 className="t--subinfo m-v300 m-b200"
               >
-                Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+                Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
               </div>
             </div>
             <div
@@ -9663,7 +9663,7 @@ Array [
   <div
     className="t--subinfo m-v300 m-b200"
   >
-    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+    Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
   </div>,
 ]
 `;
@@ -9736,7 +9736,7 @@ Array [
   <div
     className="t--subinfo m-v300 m-b200"
   >
-    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+    Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
   </div>,
 ]
 `;
@@ -9809,7 +9809,7 @@ Array [
   <div
     className="t--subinfo m-v300 m-b200"
   >
-    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+    Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
   </div>,
 ]
 `;
@@ -9882,7 +9882,7 @@ Array [
   <div
     className="t--subinfo m-v300 m-b200"
   >
-    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+    Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
   </div>,
 ]
 `;
@@ -9955,7 +9955,7 @@ Array [
   <div
     className="t--subinfo m-v300 m-b200"
   >
-    Don’t use personal info, like your name or address. Your new password will have to be different than your last 5 passwords.
+    Don't use personal info, like your name, ID or address. If you use just two consecutive characters from your name or ID in your password, it will fail. Your new password will have to be different than your last 5 passwords.
   </div>,
 ]
 `;
