@@ -110,7 +110,10 @@ export default function Pagination(props: Props) {
   });
   return (
     <ul className="pg" css={PAGINATION}>
-      <li className="pg-li" css={NORM_HOVER}>
+      <li
+        className={currentPage === 0 ? 'pg-li' : 'pg-li prev-next'}
+        css={NORM_HOVER}
+      >
         {currentPage === 0 ? (
           <span className="pg-li-i">previous</span>
         ) : (
@@ -174,7 +177,7 @@ export default function Pagination(props: Props) {
 
       {currentPage < pageCount && (
         <li
-          className={currentPage === lastPage ? 'last-li' : 'pg-li'}
+          className={currentPage === lastPage ? 'last-li' : 'pg-li prev-next'}
           css={NORM_HOVER}
         >
           {currentPage === lastPage ? (

@@ -46,6 +46,14 @@ export const PAGINATION = css({
     borderColor: GRAY_300,
     borderLeftColor: CHARLES_BLUE,
   },
+
+  '.prev-next:hover': {
+    backgroundColor: FREEDOM_RED_DARK,
+  },
+
+  '.prev-next a:hover': {
+    backgroundColor: FREEDOM_RED_DARK,
+  },
 });
 
 export const NORM_HOVER = css({
