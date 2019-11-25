@@ -5107,7 +5107,7 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Go back
+          Back
         </button>
       </div>
     </div>
@@ -5341,7 +5341,7 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Go back
+          Back
         </button>
       </div>
     </div>
@@ -5541,7 +5541,7 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
           onClick={[Function]}
           type="button"
         >
-          Go back
+          Back
         </button>
       </div>
     </div>
@@ -5646,7 +5646,7 @@ exports[`Storyshots GroupManagementPage/ReviewChangesView group view, one added 
           onClick={[Function]}
           type="button"
         >
-          Go back
+          Back
         </button>
         <button
           className="btn"
@@ -5746,7 +5746,7 @@ exports[`Storyshots GroupManagementPage/ReviewChangesView person view, one added
           onClick={[Function]}
           type="button"
         >
-          Go back
+          Back
         </button>
         <button
           className="btn"
@@ -5846,7 +5846,7 @@ exports[`Storyshots GroupManagementPage/ReviewChangesView submitting changes 1`]
           onClick={[Function]}
           type="button"
         >
-          Go back
+          Back
         </button>
         <button
           className="btn"

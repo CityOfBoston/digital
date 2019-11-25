@@ -98,7 +98,7 @@ export default function ReviewChangesView(props: Props) {
             className="btn"
             onClick={() => props.changeView('management')}
           >
-            Go back
+            Back
           </button>
 
           <button type="button" className="btn" onClick={handleSubmit}>

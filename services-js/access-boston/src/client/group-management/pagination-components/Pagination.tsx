@@ -110,9 +110,12 @@ export default function Pagination(props: Props) {
   });
   return (
     <ul className="pg" css={PAGINATION}>
-      <li className="pg-li" css={NORM_HOVER}>
+      <li
+        className={currentPage === 0 ? 'pg-li' : 'pg-li prev-next'}
+        css={NORM_HOVER}
+      >
         {currentPage === 0 ? (
-          <span className="pg-li-i">&lt; previous</span>
+          <span className="pg-li-i">previous</span>
         ) : (
           <a
             className="pg-li-i pg-li-i--a pg-li-i--link"
@@ -120,7 +123,7 @@ export default function Pagination(props: Props) {
             onClick={prev}
           >
             <span className="pg-li-i-h" onClick={prev}>
-              &lt; previous
+              previous
             </span>
           </a>
         )}
@@ -161,7 +164,7 @@ export default function Pagination(props: Props) {
       {currentPage < lastPage && lastPage - currentPage > 2 && (
         <li className="pg-li" css={NORM_HOVER}>
           <a
-            className="pg-li-i pg-li-i--link"
+            className="pg-li-i"
             onClick={() => {
               goToPage(lastPage);
             }}
@@ -173,16 +176,19 @@ export default function Pagination(props: Props) {
       )}
 
       {currentPage < pageCount && (
-        <li className="pg-li" css={NORM_HOVER}>
+        <li
+          className={currentPage === lastPage ? 'last-li' : 'pg-li prev-next'}
+          css={NORM_HOVER}
+        >
           {currentPage === lastPage ? (
-            <span className="pg-li-i">next &gt;</span>
+            <a className="pg-li-i pg-li-i--link last-link">next</a>
           ) : (
             <a
               className="pg-li-i pg-li-i--a pg-li-i--link"
               css={HOVER_STYLES}
               onClick={next}
             >
-              <span className="pg-li-i-h">next &gt;</span>
+              <span className="pg-li-i-h">next</span>
             </a>
           )}
         </li>

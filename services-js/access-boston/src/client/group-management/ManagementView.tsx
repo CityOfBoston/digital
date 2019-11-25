@@ -55,7 +55,7 @@ export default function ManagementView(props: Props) {
               props.changeView('initial');
             }}
           >
-            Go back
+            Back
           </button>
           {!props.loading && list.length > 0 && (
             <button

@@ -140,24 +140,29 @@ export default class IndexPage extends React.Component<Props> {
             ))}
 
             <div className="g">
-              {listCategories.map(({ title, apps, requestAccessUrl }) => (
-                <section
-                  className="m-b500 g--6"
-                  key={title}
-                  aria-labelledby={SectionHeader.makeId(title)}
-                >
-                  <SectionHeader title={title} />
-
-                  {requestAccessUrl && (
-                    <div className="t--subinfo p-a200 m-v300">
-                      Is there an app that you need access to that’s not shown
-                      here? Fill out the{' '}
-                      <a href={requestAccessUrl}>request access form</a>.
-                    </div>
-                  )}
-                  {this.renderAppList(apps)}
-                </section>
-              ))}
+              {listCategories.map(({ title, apps, requestAccessUrl }) => {
+                const elems =
+                  apps.length > 0 ? (
+                    <section
+                      className="m-b500 g--6"
+                      key={title}
+                      aria-labelledby={SectionHeader.makeId(title)}
+                    >
+                      <SectionHeader title={title} />
+                      {requestAccessUrl && (
+                        <div className="t--subinfo p-a200 m-v300">
+                          Is there an app that you need access to that’s not
+                          shown here? Fill out the{' '}
+                          <a href={requestAccessUrl}>request access form</a>.
+                        </div>
+                      )}
+                      {this.renderAppList(apps)}
+                    </section>
+                  ) : (
+                    ''
+                  );
+                return elems;
+              })}
             </div>
           </div>
         </AppWrapper>
