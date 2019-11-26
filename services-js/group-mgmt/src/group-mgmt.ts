@@ -3,12 +3,10 @@
 import { Server as HapiServer } from 'hapi';
 import cleanup from 'node-cleanup';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
-import { LDAPEnvClass } from './server/interfaces';
 
 require('dotenv').config();
 
-const env = new LDAPEnvClass(process.env);
-const port = parseInt(env.LDAP_PORT || '3000', 10);
+const port = '3000';
 
 export async function makeServer() {
   const serverOptions = {
@@ -73,8 +71,6 @@ export default (async function startServer() {
   });
 
   console.log('await server.start');
-  // console.log('env: ', env);
-  // console.log('process: ', process.env);
   await server.start();
 
   console.log(`> Ready on http://localhost:${port}`);

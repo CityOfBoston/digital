@@ -1,5 +1,5 @@
 /* eslint no-console: 0 */
-import { makeServer } from '../src/group-mgmt';
+import { makeServer } from './group-mgmt';
 
 describe('server creation', () => {
   it('can be created', async () => {
