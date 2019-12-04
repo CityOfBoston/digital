@@ -18,11 +18,15 @@ import { Mode } from './types';
 import Section from './Section';
 
 import Icon from './Icon';
+// import { Group, Person } from '../group-management/types';
+import MinGroupDisplay from './MinGroupDisplay';
 
 interface Props {
   mode: Mode;
   changeMode: (mode: Mode) => void;
   searchComponent: ReactNode;
+  adminMinGroups?: [];
+  handleAdminGroupClick: (item: any) => void;
 }
 
 /**
@@ -30,12 +34,16 @@ interface Props {
  * the option to perform an initial search by person, or by group.
  */
 export default function InitialView(props: Props) {
-  const { mode, changeMode } = props;
-  // console.log('InitialView > props: ', props);
-
+  const { mode, changeMode, adminMinGroups } = props;
   const handleModeChange = (event: ChangeEvent<HTMLInputElement>) => {
     changeMode(event.target.value as Mode);
   };
+  const admin_groups: [] = adminMinGroups ? adminMinGroups : [];
+  const showMinGroupDisplay =
+    adminMinGroups &&
+    adminMinGroups.length > 0 &&
+    adminMinGroups.length < 4 &&
+    mode === 'group';
 
   return (
     <>
@@ -65,7 +73,14 @@ export default function InitialView(props: Props) {
         </div>
       </Section>
 
-      {props.searchComponent}
+      {showMinGroupDisplay ? (
+        <MinGroupDisplay
+          groups={admin_groups}
+          handleAdminGroupClick={props.handleAdminGroupClick}
+        />
+      ) : (
+        <>{props.searchComponent}</>
+      )}
     </>
   );
 }

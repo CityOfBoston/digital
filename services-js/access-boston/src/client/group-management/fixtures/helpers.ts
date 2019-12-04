@@ -47,3 +47,44 @@ export const chunkArray = (arr: Array<any> = [], size: Number): object => {
   }
   return result;
 };
+
+/**
+ * @param {object} keysMap - Object, key/value Object with renamed keys
+ * @param {object} targetObj - Object whose keys you want to rename
+ * @description Rename object keys using the keyMap object
+ *
+ * @example
+ *     renameObjectKeys(
+ *      {
+ *       dn: 'cn',
+ *       CN: 'cn',
+ *       isMemberof: 'ismemberof',
+ *       nsAccountLock: 'nsaccountlock',
+ *      },
+ *      {
+ *        dn: '',
+ *        cn: '100992',
+ *        ismemberof: [],
+ *        nsaccountlock: 'FALSE',
+ *        isSponsor: 'TRUE',
+ *      },
+ *     );
+ *     returns {
+ *       dn: '',
+ *       cn: '100992',
+ *       ismemberof: [],
+ *       nsaccountlock: 'FALSE',
+ *       isSponsor: 'TRUE',
+ *     }
+ */
+export const renameObjectKeys = (keysMap: object, obj) => {
+  const retObj: object = Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] },
+    }),
+    {}
+  );
+
+  return retObj;
+};
