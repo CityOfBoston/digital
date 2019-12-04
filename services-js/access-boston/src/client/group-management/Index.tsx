@@ -3,17 +3,7 @@
 import { jsx } from '@emotion/core';
 
 import { useEffect, useReducer, useState } from 'react';
-
-// import { Group, Mode, Person, View, currentPage } from './types';
-import {
-  Group,
-  Mode,
-  Person,
-  View,
-  // pageSize,
-  // currentPage,
-  // pageCount,
-} from './types';
+import { Group, Mode, Person, View } from './types';
 
 import { reducer as stateReducer, initialState } from './state/app';
 import { reducer as listReducer } from './state/list';
@@ -32,18 +22,18 @@ import {
   fetchPersonsGroups,
   fetchOurContainers,
   fetchDataURL,
+  fetchMinimumUserGroups,
 } from './data-fetching/fetch-group-data';
 import {
   fetchGroupMembers,
   fetchPersonSearch,
   fetchPersonSearchRemaining,
 } from './data-fetching/fetch-person-data';
+import { renameObjectKeys, chunkArray } from './fixtures/helpers';
+import { pageSize } from './types';
 
 interface Props {
   groups: any;
-  // mode: Mode;
-  // changeMode: (mode: Mode) => void;
-  // searchComponent: ReactNode;
 }
 
 /**
@@ -54,12 +44,9 @@ interface Props {
  */
 export default function Index(props: Props) {
   const { groups } = props;
-  // console.log('GROUPS!!!!!: ', groups);
   const [state, dispatchState] = useReducer(stateReducer, initialState);
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
-
-  // console.log('state: ', state);
 
   const changeView = (newView: View): void =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
@@ -77,13 +64,6 @@ export default function Index(props: Props) {
   };
 
   const changePage = (currentPage: number): void => {
-    // eslint-disable-next-line no-console
-    // console.log(
-    //   'changePage (changing): ',
-    //   state.currentPage,
-    //   ' to ',
-    //   currentPage
-    // );
     dispatchState({ type: 'APP/CHANGE_PAGE', currentPage });
     const { mode, selected } = state;
     if (mode === 'group') {
@@ -104,14 +84,10 @@ export default function Index(props: Props) {
   };
 
   const changePageCount = (pageCount: number): void => {
-    // console.log('changePageCount (changing): ', state.pageCount, ' to ', pageCount);
     dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
-    // console.log('changePageCount > state: ', state);
   };
 
   const handleInitialSelection = (selectedItem: any): void => {
-    // eslint-disable-next-line no-console
-    // console.log('handleInitialSelection > selectedItem: ', selectedItem);
     changeSelected(selectedItem);
     changeView('management');
   };
@@ -121,53 +97,74 @@ export default function Index(props: Props) {
     changeMode(state.mode === 'group' ? 'person' : 'group');
   };
 
+  const handleAdminListItemClick = (item: any): void => {
+    changeSelected(item);
+    changeView('management');
+  };
+
   const setApiUrl = async () => {
     const apiURL =
-      process.env.GROUP_MANAGEMENT_API_URL2 || (await fetchDataURL());
+      process.env.GROUP_MANAGEMENT_API_URL || (await fetchDataURL());
     if (state.api === '') {
-      // console.log('SET OUS(api): ', typeof state.api, state.api);
       dispatchState({
         type: 'APP/SET_API',
         api: apiURL,
       });
-      // console.log('api: ', state.api);
     }
   };
 
   const setOus = async () => {
-    const _api = state.api === '' ? undefined : state.api;
-    fetchOurContainers(groups, _api).then(result => {
+    fetchOurContainers(groups).then(result => {
       dispatchState({
         type: 'APP/SET_OUS',
         ous: result.convertOUsToContainers,
       });
-      // eslint-disable-next-line no-console
-      // console.log('state: ', state);
     });
   };
+
+  if (!state.ous || state.ous.length === 0) {
+    setOus();
+  }
+
+  const getAdminMinGroups = async () => {
+    fetchMinimumUserGroups(groups).then(result => {
+      let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
+        let remappedObj = renameObjectKeys(
+          { uniquemember: 'members', memberof: 'members' },
+          entry
+        );
+        remappedObj['chunked'] =
+          remappedObj['members'] && remappedObj['members'].length > -1
+            ? chunkArray(remappedObj['members'], pageSize)
+            : [];
+        remappedObj['isAvailable'] = true;
+        remappedObj['status'] = 'current';
+
+        return remappedObj;
+      });
+
+      dispatchState({
+        type: 'APP/SET_ADMIN_MIN_GROUPS',
+        dns: ret,
+      });
+    });
+  };
+
+  if (!state.adminMinGroups || state.adminMinGroups.length === 0) {
+    getAdminMinGroups();
+  }
 
   const handleFetchGroupMembers = (
     selected: Group,
     dns: String[] = [],
     _currentPage: number = 0
   ): void => {
-    // const { currentPage } = state;
     const { members, chunked } = selected;
-    // eslint-disable-next-line no-console
-    // console.log('handleFetchGroupMembers > member: ', members);
-    changePageCount(chunked.length);
+    const mask_chunked = chunked ? chunked : [];
+    changePageCount(mask_chunked.length);
 
     if (members && members.length > 0) {
       setLoading(true);
-      // eslint-disable-next-line no-console
-      // console.log(
-      //   'handleFetchGroupMembers > member.length: ',
-      //   members.length,
-      //   ' | selected:',
-      //   selected
-      // );
-      // console.log('chunked[currentPage]: ', selected.chunked[_currentPage]);
-
       fetchGroupMembers(selected, dns, _currentPage).then(result => {
         dispatchList({
           type: 'LIST/LOAD_LIST',
@@ -188,8 +185,6 @@ export default function Index(props: Props) {
 
     if (groups && groups.length > 0) {
       setLoading(true);
-      // console.log('handleFetchPersonsGroups > fetchPersonsGroups > dns: ', dns);
-
       fetchPersonsGroups(selected, [], dns, state.ous, _currentPage).then(
         result => {
           dispatchList({
@@ -206,16 +201,9 @@ export default function Index(props: Props) {
   // Once a selection is made, populate the list and update suggestions.
   useEffect(() => {
     const { mode, selected } = state;
-    // setApiUrl();
-    setOus();
-    // console.log('useEffect > state: ', state);
     if (mode === 'group') {
-      // eslint-disable-next-line no-console
-      // console.log('useEffect > group > selected.cn: ', selected.cn, selected);
       if (selected.cn) handleFetchGroupMembers(selected, groups);
     } else {
-      // eslint-disable-next-line no-console
-      // console.log('useEffect > person > selected.cn: ', selected.cn, selected);
       if (selected.cn) handleFetchPersonsGroups(selected, groups);
     }
   }, [state.selected]);
@@ -226,18 +214,6 @@ export default function Index(props: Props) {
 
   const handleAddToList = (item: Group | Person) =>
     dispatchList({ type: 'LIST/ADD_ITEM', item });
-  //
-  // const handleRemoveFromList = (item: Group | Person) =>
-  //   dispatchList({ type: 'REMOVE_ITEM', item });
-  //
-  // const handleClearList = () => dispatchList({ type: 'CLEAR_LIST' });
-  //
-  // // Updates status for a given item appearing in the list.
-  // const handleListItemChange = (item: Group | Person) => {
-  //   const action = item.status !== 'remove' ? 'REMOVE_ITEM' : 'RETURN_ITEM';
-  //
-  //   dispatchList({ type: action, cn: item.cn });
-  // };
 
   // Convenience method.
   const inverseMode = (): Mode => {
@@ -319,14 +295,13 @@ export default function Index(props: Props) {
         </div>
       );
     default:
-      // const stateModeMethod = state.mode === 'group' ? fetchGroupSearch : fetchPersonSearch;
-      // console.log('Index > state.view > default: dns(groups)', groups);
-      // console.log('stateModeMethod: ', state.mode === 'group', stateModeMethod, '\n----------');
       return (
         <div css={CONTAINER_STYLING}>
           <InitialView
             mode={state.mode}
             changeMode={changeMode}
+            adminMinGroups={state.adminMinGroups}
+            handleAdminGroupClick={handleAdminListItemClick}
             searchComponent={
               <SearchComponent
                 mode={state.mode}

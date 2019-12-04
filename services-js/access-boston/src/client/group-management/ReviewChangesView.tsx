@@ -31,11 +31,8 @@ export default function ReviewChangesView(props: Props) {
   );
   const { items, mode, selected, dns } = props;
   const internalMode = mode === 'person' ? 'group' : 'person';
-  // console.log('ReviewChangesView > dns: ', dns);
-
   const addedItems = items.filter(item => item.status === 'add') || [];
   const removedItems = items.filter(item => item.status === 'remove') || [];
-
   const renderSubmitting = () => {
     return (
       <StatusModal>
@@ -58,7 +55,6 @@ export default function ReviewChangesView(props: Props) {
           entry.status === 'current' || entry.status === 'remove'
             ? 'delete'
             : entry.status;
-        // console.log('ReviewChangesView > handleSubmit > dns: ', dns);
         return updateGroup(updateParams.dn, operation, updateParams.cn, dns);
       });
       await Promise.all(promises).then(() => {

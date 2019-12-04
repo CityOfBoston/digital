@@ -88,6 +88,7 @@ export default function SearchComponent(props: Props) {
     selection: Group | Person,
     selectionValue: string
   ): void => {
+    // console.log('SearchComponent > handleSelection > handleSelection > selection: ', selectionValue, selection);
     dispatch({ type: 'SEARCH/UPDATE_SELECTION', selection, selectionValue });
   };
 

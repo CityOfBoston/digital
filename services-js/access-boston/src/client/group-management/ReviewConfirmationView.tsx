@@ -34,7 +34,6 @@ export default function ReviewConfirmationView(props: Props) {
   const removedItems = items.filter(item => item.status === 'remove') || [];
   const handleSubmit = async () => {
     props.resetAll();
-    // props.changeView('initial');
   };
 
   return (

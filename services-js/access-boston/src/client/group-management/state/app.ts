@@ -23,7 +23,8 @@ export type ActionTypes =
   | 'APP/SET_OUS'
   | 'APP/SET_API'
   | 'APP/CHANGE_PAGE'
-  | 'APP/CHANGE_PAGECOUNT';
+  | 'APP/CHANGE_PAGECOUNT'
+  | 'APP/SET_ADMIN_MIN_GROUPS';
 
 interface Action {
   type: ActionTypes;
@@ -34,6 +35,7 @@ interface Action {
   api?: string;
   currentPage?: CurrentPage;
   pageCount?: PageCount;
+  dns?: [];
 }
 
 export const initialState = {
@@ -46,11 +48,20 @@ export const initialState = {
   startPage,
   currentPage,
   pageCount,
+  adminMinGroups: [],
 };
 
 export const reducer = (state, action: Partial<Action>) => {
   //@ts-ignore todo
   // console.info(action.type);
+
+  const currUserOUs = state.ous;
+  const currAdminGroup = state.adminMinGroups;
+  const newInitState = {
+    ...initialState,
+    adminMinGroups: currAdminGroup,
+    ous: currUserOUs,
+  };
 
   switch (action.type) {
     case 'APP/CHANGE_VIEW':
@@ -65,6 +76,9 @@ export const reducer = (state, action: Partial<Action>) => {
     case 'APP/SET_OUS':
       return { ...state, ous: action.ous };
 
+    case 'APP/SET_ADMIN_MIN_GROUPS':
+      return { ...state, adminMinGroups: action.dns };
+
     case 'APP/SET_API':
       return { ...state, api: action.api };
 
@@ -72,7 +86,7 @@ export const reducer = (state, action: Partial<Action>) => {
       return { ...state, selected: {} };
 
     case 'APP/RESET_STATE':
-      return initialState;
+      return newInitState;
 
     case 'APP/CHANGE_PAGE':
       return { ...state, currentPage: action.currentPage };
