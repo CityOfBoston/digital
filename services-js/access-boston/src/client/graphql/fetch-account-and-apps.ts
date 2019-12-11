@@ -33,6 +33,7 @@ const QUERY = gql`
           url
           iconUrl
           description
+          target
         }
       }
     }

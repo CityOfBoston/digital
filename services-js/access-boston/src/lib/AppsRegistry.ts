@@ -17,6 +17,7 @@ export interface App {
   mfaDeviceRequired: boolean;
   // null agencies means "all agencies"
   agencies: string[] | null;
+  target: string;
 }
 
 /**
@@ -55,6 +56,7 @@ export default class AppsRegistry {
           icon,
           mfa_device_required,
           agencies,
+          target,
         } = a;
 
         if (!title || typeof title !== 'string') {
@@ -81,6 +83,7 @@ export default class AppsRegistry {
           groups: groups || null,
           mfaDeviceRequired: mfa_device_required || false,
           agencies: agencies || null,
+          target: target || '',
         };
       });
 

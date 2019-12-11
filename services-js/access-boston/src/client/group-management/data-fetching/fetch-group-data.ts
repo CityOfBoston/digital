@@ -25,6 +25,14 @@ const SEARCH_GROUPS = `
   }
 `;
 
+const OU_MINIMUM_GROUPS = `
+  query ouContainers($dns: [String]!) {
+    getMinimumUserGroups(dns: $dns) {
+      ${GROUP_DATA}
+    }
+  }
+`;
+
 const OU_CONTAINERS = `
   query ouContainers($ous: [String]!) {
     convertOUsToContainers(ous: $ous)
@@ -56,15 +64,6 @@ export async function updateGroup(
   uniquemember: string,
   dns: String[] = []
 ): Promise<any> {
-  // eslint-disable-next-line no-console
-  // console.log(
-  //   'fetch-group-data > updateGroup > dns: ',
-  //   ' | dn: ', dn,
-  //   ' | operation: ', operation,
-  //   ' | uniquemember: ', uniquemember,
-  //   ' | UPDATE_GROUP: ', UPDATE_GROUP,
-  //   ' | dns: ', dns
-  // );
   return await fetchGraphql(UPDATE_GROUP, {
     dn,
     operation,
@@ -89,8 +88,16 @@ export async function fetchOurContainers(
   ous: string[],
   _api: any = undefined
 ): Promise<any> {
-  // console.log('fetch-group-data > fetchOurContainers > ous: ', ous);
-  return await fetchGraphql(OU_CONTAINERS, { ous }, _api);
+  const retVal = await fetchGraphql(OU_CONTAINERS, { ous });
+  return retVal;
+}
+
+/**
+ * Returns an array of OU containers.
+ */
+export async function fetchMinimumUserGroups(dns: string[]): Promise<any> {
+  const results = await fetchGraphql(OU_MINIMUM_GROUPS, { dns });
+  return results;
 }
 
 /**
@@ -100,7 +107,6 @@ export async function fetchGroup(
   cn: string,
   _dns: String[] = []
 ): Promise<any> {
-  // console.log('fetch-group-data > fetchGroup > _dns: ', _dns);
   return await fetchGraphql(FETCH_GROUP, { cn });
 }
 
@@ -112,10 +118,6 @@ export async function fetchGroupSearch(
   _selectedItem: any,
   dns: String[] = []
 ): Promise<Group[]> {
-  // console.log('term: ', term);
-  // console.log('_selectedItem: ', _selectedItem);
-  // console.log('fetchGroupSearch: dns: ', dns);
-  // console.log('fetchGroupSearch: SEARCH_GROUPS: ', SEARCH_GROUPS);
   if (!dns) {
     dns = [];
   }
@@ -137,11 +139,9 @@ export async function fetchPersonsGroups(
   ous: string[],
   _currentPage: number = 0
 ): Promise<Group[]> {
-  // console.log('fetch-group-data > fetchPersonsGroups > dns: ', dns, person, ous);
   return await Promise.all(
     person.chunked[_currentPage].map(groupCn =>
       fetchGroup(groupCn, dns).then(response => {
-        // console.log('fetchPersonsGroups > fetchGroup response: ', response.group[0], response.group. response);
         try {
           if (response.group[0]) {
             const retGroup = toGroup(response.group[0], dns, ous);
@@ -175,8 +175,5 @@ export async function fetchGroupSearchRemaining(
   dns: String[]
 ): Promise<Group[]> {
   const groups = await fetchGroupSearch(term, [], dns);
-  // console.log('fetch-group-data > fetchGroupSearchRemaining > dns: ', dns);
-  // console.log('fetchGroupSearch > results(groups): ', groups, '\n -------');
-
   return groups.filter(group => !person.groups.includes(group.cn));
 }

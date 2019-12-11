@@ -35,7 +35,6 @@ export async function fetchPerson(
   cn: string,
   dns: String[] = []
 ): Promise<any> {
-  // console.log('fetch-person-data > fetchPerson > dns: ', dns);
   return await fetchGraphql(FETCH_PERSON, { cn, dns });
 }
 
@@ -48,8 +47,6 @@ export async function fetchPersonSearch(
   _selectedItem: any,
   dns: String[] = []
 ): Promise<Person[]> {
-  // console.log('fetch-person-data > fetchPersonSearch > dns: ', dns);
-  // console.log('_selectedItem: ', _selectedItem);
   if (!dns) {
     dns = [];
   }
@@ -77,7 +74,6 @@ export async function fetchGroupMembers(
 
         return fetchPerson(cn, dns)
           .then(response => {
-            // console.log('response.person[0]: ', response.person[0]);
             return toPerson(response.person[0]);
           })
           .catch(() => toPerson({ cn, inactive: true }));

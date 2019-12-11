@@ -23,6 +23,8 @@ function Wrapper() {
 
   return (
     <InitialView
+      adminMinGroups={[]}
+      handleAdminGroupClick={() => {}}
       mode={state.mode}
       changeMode={toggleMode}
       searchComponent={

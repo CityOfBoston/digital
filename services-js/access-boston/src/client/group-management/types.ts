@@ -23,19 +23,17 @@ export interface CommonAttributes {
   isAvailable?: boolean;
 }
 
-export interface ChunkedArray {
-  chunkedArray: Array<{}>;
-}
+// export interface ChunkedArray {
+//   chunkedArray: any;
+// }
 
 export interface Group extends CommonAttributes {
   members: string[];
-  // chunkedMembers?: Array<ChunkedArray>;
   chunked?: any;
 }
 
 export interface Person extends CommonAttributes {
   groups: string[];
-  // chunkedGroups?: Array<ChunkedArray>;
   chunked?: any;
   givenName: string;
   sn: string;

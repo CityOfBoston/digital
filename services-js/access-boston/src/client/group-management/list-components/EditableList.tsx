@@ -124,28 +124,6 @@ export default function EditableList(props: Props) {
               handlePrevPage={handlePrevPage}
               handlePageNumClick={handlePageNumClick}
             />
-
-            {/* <div css={BUTTON_CONTAINER_STYLING}>
-              <button
-                type="button"
-                className="btn"
-                onClick={() => {
-                  handlePrevPage(currentPage, changePage);
-                }}
-              >
-                PREV
-              </button>
-
-              <button
-                type="button"
-                className="btn"
-                onClick={() => {
-                  handleNextPage(currentPage, pageCount, changePage);
-                }}
-              >
-                NEXT
-              </button>
-            </div> */}
           </>
         )}
       </>
