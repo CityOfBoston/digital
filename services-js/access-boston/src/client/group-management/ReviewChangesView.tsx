@@ -23,13 +23,14 @@ interface Props {
   items: Array<Group | Person>;
   submitting?: boolean;
   dns?: [String];
+  getAdminMinGroups?: () => void | {};
 }
 
 export default function ReviewChangesView(props: Props) {
   const [submitting, setSubmitting] = useState<boolean>(
     props.submitting || false
   );
-  const { items, mode, selected, dns } = props;
+  const { items, mode, selected, dns, getAdminMinGroups } = props;
   const internalMode = mode === 'person' ? 'group' : 'person';
   const addedItems = items.filter(item => item.status === 'add') || [];
   const removedItems = items.filter(item => item.status === 'remove') || [];
@@ -39,6 +40,10 @@ export default function ReviewChangesView(props: Props) {
         <div css={MODAL_STYLING}>Submitting changes...</div>
       </StatusModal>
     );
+  };
+
+  const getAdmin_MinGroups = () => {
+    getAdminMinGroups ? getAdminMinGroups() : () => {};
   };
 
   const handleSubmit = async () => {
@@ -58,6 +63,7 @@ export default function ReviewChangesView(props: Props) {
         return updateGroup(updateParams.dn, operation, updateParams.cn, dns);
       });
       await Promise.all(promises).then(() => {
+        getAdmin_MinGroups();
         setTimeout(() => {
           setSubmitting(false);
           props.changeView('confirmation');

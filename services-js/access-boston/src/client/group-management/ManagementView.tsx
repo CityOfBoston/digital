@@ -31,9 +31,14 @@ interface Props {
 export default function ManagementView(props: Props) {
   const { mode, selected, list } = props;
 
-  const addedItems = list.filter(item => item.status === 'add') || [];
-  const removedItems = list.filter(item => item.status === 'remove') || [];
+  const addedItems =
+    list.filter(item => item.status === 'add' || item.action === 'new') || [];
+  // console.log('addedItems: ', addedItems);
+  const removedItems =
+    list.filter(item => item.status === 'remove' && item.action === '') || [];
+  // console.log('removedItems: ', removedItems);
   const canProceed: boolean = addedItems.length > 0 || removedItems.length > 0;
+  // console.log('canProceed: ', canProceed, '\n-------');
 
   return (
     <>

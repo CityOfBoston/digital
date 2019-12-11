@@ -1,6 +1,7 @@
 export type View = 'initial' | 'management' | 'review' | 'confirmation';
 export type Mode = 'person' | 'group';
-export type ItemStatus = 'current' | 'add' | 'remove';
+export type ItemStatus = 'current' | 'add' | 'remove' | 'new';
+export type Action = '' | 'new';
 export type ShowLabel = true | false;
 export type CurrentPage = number;
 export type PageCount = number;
@@ -17,6 +18,7 @@ export interface CommonAttributes {
   displayName: string;
 
   status: ItemStatus;
+  action: Action;
 
   // A group is available if the user is an app owner and may add/remove users;
   // a person is available if they are not set as “inactive”.

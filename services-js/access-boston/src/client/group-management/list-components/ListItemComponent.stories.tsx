@@ -14,6 +14,7 @@ const person: Person = {
   sn: 'Roberts',
   mail: 'bob.roberts@boton.gov',
   groups: [],
+  action: '',
 };
 
 function Wrapper(props) {

@@ -9,7 +9,8 @@ export type ActionTypes =
   | 'LIST/ADD_ITEM'
   | 'LIST/REMOVE_ITEM'
   | 'LIST/TOGGLE_ITEM_STATUS'
-  | 'LIST/RETURN_ITEM';
+  | 'LIST/RETURN_ITEM'
+  | 'LIST/DELETE_ITEM';
 
 interface Action {
   type: ActionTypes;
@@ -44,6 +45,14 @@ export const reducer = (list, action: Partial<Action>) => {
         },
         ...list,
       ];
+
+    case 'LIST/DELETE_ITEM':
+      return list.filter(item => {
+        const action_item: any = action.item;
+        if (item.cn !== action_item.cn) {
+          return { ...item };
+        }
+      });
 
     case 'LIST/REMOVE_ITEM':
       return list.map(item => {

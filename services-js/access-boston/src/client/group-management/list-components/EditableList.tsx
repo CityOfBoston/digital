@@ -51,15 +51,11 @@ export default function EditableList(props: Props) {
     changePage(pageNum);
   };
   const handleNextPage = (currentPage, pageCount, changePage) => {
-    // eslint-disable-next-line no-console
-    // console.log('handleNextPage > dir: ', currentPage);
     if (currentPage < pageCount - 1) {
       changePage(currentPage + 1);
     }
   };
   const handlePrevPage = (currentPage, changePage) => {
-    // eslint-disable-next-line no-console
-    // console.log('handlePrevPage > dir: ', currentPage);
     if (currentPage > 0) {
       changePage(currentPage - 1);
     }
@@ -70,8 +66,6 @@ export default function EditableList(props: Props) {
       ? 'This group has no members'
       : 'This person hasn’t been added to any groups';
 
-  // const page_count = props.pageCount;
-
   if (props.loading === true) {
     return (
       <div css={LOADER_STYLING}>
@@ -79,14 +73,6 @@ export default function EditableList(props: Props) {
       </div>
     );
   } else {
-    // eslint-disable-next-line no-console
-    // console.log(
-    //   'pageCount: ', pageCount,
-    //   ' | currentPage: ', currentPage,
-    //   ' | pageSize: ', pageSize, props
-    // );
-    // const { pageCount } = props;
-    // const page_count = props.pageCount;
     return (
       <>
         <ul css={LIST_STYLING}>
@@ -105,12 +91,6 @@ export default function EditableList(props: Props) {
             <div css={NO_RESULTS_STYLING}>{noResultsText}</div>
           )}
         </ul>
-
-        {/* {console.log(
-          'EditableList .... pageCount: ', pageCount,
-          ' | pageSize: ', pageSize,
-          ' | items: ', props.items.length
-        )} */}
 
         {props.pageCount > 1 && (
           <>
@@ -142,8 +122,3 @@ const NO_RESULTS_STYLING = css({
   fontFamily: SANS,
   color: FREEDOM_RED_DARK,
 });
-
-// const BUTTON_CONTAINER_STYLING = css({
-//   display: 'flex',
-//   justifyContent: 'space-between',
-// });
