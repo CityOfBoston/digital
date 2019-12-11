@@ -35,6 +35,8 @@ interface Props {
   handleSelectClick: (selection: any) => void;
   currentStatus?: Status; // solely for Storybook
   dns: String[];
+  cnArray?: Array<string>;
+  currentlist?: Array<any>;
 }
 
 /**
@@ -54,8 +56,7 @@ export default function SearchComponent(props: Props) {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { currentStatus, mode, view, dns } = props;
-  // console.log('SearchComponent > Props dns: ', dns);
+  const { currentStatus, mode, view, dns, cnArray, currentlist } = props;
   const { searchStatus, searchText, searchResults, selection } = state;
 
   // Associate label with search field.
@@ -72,9 +73,20 @@ export default function SearchComponent(props: Props) {
   const handleClick = (event: MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault();
 
-    props.handleSelectClick(selection);
-
-    dispatch({ type: 'SEARCH/SUBMIT_SELECTION' });
+    if (cnArray && cnArray.length > 1 && state.searchStatus === 'duplicate') {
+      handleChange('');
+    } else {
+      const new_currentlist =
+        currentlist && currentlist.length > 0 ? currentlist : [{ cn: '' }];
+      const newArr = new_currentlist.map(entry => entry.cn);
+      const isDup = isSelectionDuplication(newArr, selection.cn);
+      if (!isDup.duplication) {
+        props.handleSelectClick(selection);
+        dispatch({ type: 'SEARCH/SUBMIT_SELECTION' });
+      } else {
+        handleChange('');
+      }
+    }
   };
 
   const handleChange = (text: string): void => {
@@ -94,11 +106,8 @@ export default function SearchComponent(props: Props) {
 
   const handleFetch = (): void => {
     dispatch({ type: 'SEARCH/UPDATE_STATUS', searchStatus: 'searching' });
-    // console.log('SearchComponent > handleFetch dns: ', dns);
 
     if (view === 'initial') {
-      // console.log('SearchComponent > handleFetch view > initial');
-      // console.log('SearchComponent > handleFetch view > initial: ', dns);
       props
         .handleFetch(searchText, null, dns)
         .then(result => updateSuggestions(result))
@@ -106,8 +115,6 @@ export default function SearchComponent(props: Props) {
           dispatch({ type: 'SEARCH/UPDATE_STATUS', searchStatus: 'fetchError' })
         );
     } else {
-      // console.log('SearchComponent > handleFetch view > else');
-      // console.log('SearchComponent > handleFetch view > else: ', dns);
       props
         .handleFetch(searchText, props.selectedItem as Person | Group, dns)
         .then(result => updateSuggestions(result));
@@ -131,6 +138,52 @@ export default function SearchComponent(props: Props) {
 
     return null;
   }
+
+  const isSelectionDuplication = (cnArray: Array<string>, cn: string) => {
+    let warningLabel = '';
+    let duplication = false;
+
+    if (cnArray && cnArray.length > 0) {
+      const newArr = cnArray.map(entry => {
+        if (entry && entry.indexOf('=') > -1) {
+          return entry.split('=')[1];
+        } else {
+          return entry;
+        }
+      });
+
+      if (newArr && newArr.indexOf(cn) > -1) {
+        warningLabel = 'Already Added';
+        duplication = true;
+      }
+    }
+
+    return { duplication, warningLabel };
+  };
+
+  const buttonLabel = () => {
+    if (cnArray && cnArray.length > 0 && state.searchStatus === 'duplicate') {
+      return textCopy[view][mode].clear;
+    } else {
+      return textCopy[view][mode].button;
+    }
+  };
+
+  const buttonDisabled = () => {
+    if (cnArray && cnArray.length > 0 && state.searchStatus === 'duplicate') {
+      return false;
+    } else {
+      return !selection.cn;
+    }
+  };
+
+  const defaultSearchText = (_newText: any = 0) => {
+    if (_newText && typeof _newText === 'string') {
+      return _newText;
+    } else {
+      return searchText;
+    }
+  };
 
   // used solely for Storybook; ensures specified status state is displayed.
   useEffect(() => {
@@ -182,9 +235,11 @@ export default function SearchComponent(props: Props) {
                   mode === 'person' ? 'name or ID' : 'group name'
                 }`}
                 onChange={handleChange}
-                searchText={searchText}
+                searchText={defaultSearchText()}
                 searchResults={searchResults}
                 onSuggestionSelected={handleSelection}
+                cnArray={cnArray}
+                isSelectionDuplication={isSelectionDuplication}
               />
 
               {statusIndicator()}
@@ -194,9 +249,9 @@ export default function SearchComponent(props: Props) {
               type="submit"
               className="btn"
               onClick={handleClick}
-              disabled={!selection.cn}
+              disabled={buttonDisabled()}
             >
-              {textCopy[view][mode].button}
+              {buttonLabel()}
             </button>
           </div>
         </div>
@@ -211,11 +266,13 @@ const textCopy = {
       title: 'Person search',
       label: 'Find a person',
       button: 'Select',
+      clear: 'Clear',
     },
     group: {
       title: 'Group search',
       label: 'Find a group',
       button: 'Select',
+      clear: 'Clear',
     },
   },
   management: {
@@ -223,11 +280,13 @@ const textCopy = {
       title: 'Add a new member',
       label: 'Find a person to add',
       button: 'Add member',
+      clear: 'Clear',
     },
     group: {
       title: 'Add to a group',
       label: 'Find a group to add',
       button: 'Add group',
+      clear: 'Clear',
     },
   },
 };

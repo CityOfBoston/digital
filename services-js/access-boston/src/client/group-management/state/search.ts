@@ -3,7 +3,12 @@
 
 import { Group, Person } from '../types';
 
-export type Status = 'searching' | 'idle' | 'noResults' | 'fetchError';
+export type Status =
+  | 'searching'
+  | 'idle'
+  | 'noResults'
+  | 'fetchError'
+  | 'duplicate';
 
 type ActionTypes =
   | 'SEARCH/UPDATE_STATUS'
@@ -48,7 +53,9 @@ export const reducer = (state, action: Partial<Action>) => {
         ...state,
         searchResults: action.searchResults,
         searchStatus:
-          action.searchResults && action.searchResults.length > 0
+          state.searchText.indexOf('Already Added') > -1
+            ? 'duplicate'
+            : action.searchResults && action.searchResults.length > 0
             ? 'idle'
             : 'noResults',
       };

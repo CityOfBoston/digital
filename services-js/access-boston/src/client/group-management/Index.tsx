@@ -224,6 +224,13 @@ export default function Index(props: Props) {
     }
   };
 
+  let cnEntries = [];
+  if (state.selected.members || state.selected.groups) {
+    cnEntries = state.selected.members
+      ? state.selected.members
+      : state.selected.groups;
+  }
+
   switch (state.view) {
     case 'management':
       return (
@@ -247,6 +254,8 @@ export default function Index(props: Props) {
                 handleSelectClick={handleAddToList}
                 selectedItem={state.selected}
                 dns={groups}
+                cnArray={cnEntries}
+                currentlist={list}
               />
             }
             editableList={
