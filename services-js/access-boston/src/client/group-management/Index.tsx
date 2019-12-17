@@ -209,7 +209,11 @@ export default function Index(props: Props) {
   }, [state.selected]);
 
   const handleToggleItem = (item: Group | Person) => {
-    dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
+    if (item.action && item.action === 'new') {
+      dispatchList({ type: 'LIST/DELETE_ITEM', item });
+    } else {
+      dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
+    }
   };
 
   const handleAddToList = (item: Group | Person) =>
@@ -223,6 +227,13 @@ export default function Index(props: Props) {
       return 'person';
     }
   };
+
+  let cnEntries = [];
+  if (state.selected.members || state.selected.groups) {
+    cnEntries = state.selected.members
+      ? state.selected.members
+      : state.selected.groups;
+  }
 
   switch (state.view) {
     case 'management':
@@ -247,6 +258,8 @@ export default function Index(props: Props) {
                 handleSelectClick={handleAddToList}
                 selectedItem={state.selected}
                 dns={groups}
+                cnArray={cnEntries}
+                currentlist={list}
               />
             }
             editableList={
@@ -278,6 +291,7 @@ export default function Index(props: Props) {
             resetAll={resetAll}
             items={list}
             dns={groups}
+            getAdminMinGroups={getAdminMinGroups}
           />
         </div>
       );

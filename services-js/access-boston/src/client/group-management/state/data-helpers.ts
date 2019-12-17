@@ -4,6 +4,7 @@ import {
   ItemStatus,
   Person,
   pageSize,
+  Action,
 } from '../types';
 import { chunkArray } from '../fixtures/helpers';
 
@@ -112,6 +113,7 @@ function commonAttributes(dataObject): CommonAttributes {
     dn: dataObject.dn || '',
     displayName: dataObject.displayname || dataObject.cn,
     status: 'current' as ItemStatus,
+    action: '' as Action,
   };
 }
 

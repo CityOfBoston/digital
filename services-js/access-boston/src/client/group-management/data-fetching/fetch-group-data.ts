@@ -157,6 +157,7 @@ export async function fetchPersonsGroups(
           displayName: '',
           members: [],
           status: 'current',
+          action: '',
         };
         return retgroup;
       })
