@@ -82,7 +82,6 @@ export default function SearchComponent(props: Props) {
       const isDup = isSelectionDuplication(newArr, selection.cn);
       if (!isDup.duplication) {
         selection.action = 'new';
-        // selection.state = 'add';
         props.handleSelectClick(selection);
         dispatch({ type: 'SEARCH/SUBMIT_SELECTION' });
       } else {
