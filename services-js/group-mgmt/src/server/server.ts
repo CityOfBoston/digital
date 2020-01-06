@@ -97,20 +97,16 @@ const search_promise = (err, res) => {
         currEntry.objectclass.indexOf('groupOfUniqueNames') > -1 ||
         currEntry.objectclass.indexOf('container') > -1
       ) {
-        // console.log('entry.object: ', entry.object, '\n .........');
         currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
 
       if (currEntry.objectclass.indexOf('organizationalRole') > -1) {
-        // console.log('entry.object: ', entry.object, '\n .........');
         currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
-
-      // console.log('entry.object: ', entry.object, '\n .........');
     });
 
     res.on('error', err => {
@@ -119,7 +115,6 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
-      // console.log('entries.length: ', entries.length, entries, '\n -------------- \n');
       resolve(entries);
     });
   });
@@ -499,13 +494,9 @@ const resolvers = {
       const dn_list = dns.map(entry => entry.group.dn);
       return dn_list;
     },
-    async isPersonInactive(parent: any, args: any) {
-      if (parent) {
-        console.log('parent: personSearch');
-      }
-
+    async returnActiveUsers(_parent: any, args: { users: Array<string> }) {
       const retArr: Array<[]> = [];
-      const promises = await args.people.map(async (cn: any) => {
+      const promises = await args.users.map(async (cn: any) => {
         const value = cn.indexOf('=') > -1 ? abstractDN(cn)['cn'][0] : cn;
         const in_active = await isMemberActive(value);
         if (in_active === false) {
@@ -518,7 +509,7 @@ const resolvers = {
     },
     async personSearch(
       _parent: any,
-      args: { term: string; _dns: Array<string>; allowInactive: Boolean }
+      args: { term: string; allowInactive: Boolean }
     ) {
       const term = args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -528,16 +519,10 @@ const resolvers = {
         allowInactive: args.allowInactive ? args.allowInactive : false,
       });
       const persons = await searchWrapper(['all'], filterParams);
-      // console.log('filterParams: ', filterParams);
-      // console.log('persons: ', persons, '\n --------');
       return persons;
     },
-    async person(parent: any, args: { cn: string; _dns: Array<string> }) {
-      if (parent) {
-        console.log('Query > person > parent: person');
-      }
+    async person(_parent: any, args: { cn: string }) {
       const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
-      // console.log('value: ', value);
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'person',
         field: 'cn',
@@ -545,19 +530,13 @@ const resolvers = {
         allowInactive: false,
       });
       const person: any = await searchWrapper(['all'], filterParams);
-      // console.log('person: ', person, '\n --------');
       return person;
     },
-    async group(parent: any, args: { cn: string; dns: Array<string> }) {
+    async group(_parent: any, args: { cn: string; dns: Array<string> }) {
       let dns: any = [];
-      if (parent) {
-        console.log('Query > group > parent: group');
-      }
       if (args.dns) {
         dns = await convertDnsToGroupDNs(args.dns);
-        // console.log('Query > group > dns: ', args.dns);
       }
-      // console.log('dns: ', args);
 
       const value = args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -566,7 +545,6 @@ const resolvers = {
         value,
         dns,
       });
-      // console.log('filterParams: ', filterParams);
       const groups: any = await searchWrapper(['all'], filterParams);
       return groups;
     },
@@ -575,8 +553,6 @@ const resolvers = {
       args: {
         term: string;
         dns: Array<string>;
-        activemembers: any;
-        allowInactive: Boolean;
       }
     ) {
       let dns: any = [];
@@ -584,49 +560,20 @@ const resolvers = {
       if (args.dns && args.dns.length > 0) {
         dns = await convertDnsToGroupDNs(args.dns);
         dn_list = dns.map(entry => entry.group.dn);
-        // console.log('dns: ', dns[dns.length-1], dns);
-        // console.log('dns DN: ', dn_list);
       }
-      // console.log('Query > groupSearch > dns: ', args.dns, dns);
 
       const value = args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'search',
         value,
-        allowInactive: args.allowInactive ? args.allowInactive : false,
+        allowInactive: false,
         dns,
       });
 
       let groups: any = await searchWrapper(['all'], filterParams);
       groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
-      // console.log('groups: ', groups, '\n --------', filterParams);
-      // console.log('filterParams: ', filterParams);
-      // console.log('groups: ', '\n', groups.filter(entry => dn_list.indexOf(entry.dn) === -1));
-      // console.log('groups: ', groups, '\n');
-      if (args.activemembers && args.activemembers === true) {
-        // console.log('Query > groupSearch > activemembers: ', args.activemembers);
-        await groups.forEach(async group => {
-          if (
-            typeof group.uniquemember === 'object' &&
-            group.uniquemember.length > 0
-          ) {
-            const activemembers: Array<[]> = [];
-            group.uniquemember.forEach(async (memberSt: any) => {
-              const value =
-                memberSt.indexOf('=') > -1 ? memberSt.split('=')[1] : memberSt;
-              const in_active = await isMemberActive(value);
-              if (in_active === false) {
-                activemembers.push(memberSt);
-              }
-            });
-            // console.log('activemembers: ', activemembers, '\n', group.uniquemember, '\n');
-          }
-        });
-        return groups;
-      } else {
-        return groups;
-      }
+      return groups;
     },
   },
 };

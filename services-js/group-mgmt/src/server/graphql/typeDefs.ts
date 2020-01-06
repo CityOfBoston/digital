@@ -66,11 +66,11 @@ export const typeDefs = `
   }
 
   type Query {
-    person(cn: String! dns: [String]): [Person]
-    personSearch(term: String! dns: [String] allowsInactive: Boolean): [Person]!
+    person(cn: String!): [Person]
+    personSearch(term: String! allowInactive: Boolean): [Person]!
     group(cn: String! dns: [String]): [Group]
-    groupSearch(term: String! dns: [String] activemembers: Boolean allowsInactive: Boolean): [Group]!
-    isPersonInactive(people: [String!]!): [String]!
+    groupSearch(term: String! dns: [String]): [Group]!
+    returnActiveUsers(users: [String!]!): [String]!
     convertOUsToContainers(ous: [String]!): [String]!
     getMinimumUserGroups(dns: [String]!): [Group]!
     getGroupChildren(parentDn: String): [Group]!
