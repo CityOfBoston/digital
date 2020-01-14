@@ -2908,6 +2908,11 @@ Array [
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
+.emotion-4 {
+  position: relative;
+  overflow: hidden;
+}
+
 .emotion-2:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
@@ -2938,7 +2943,7 @@ exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
     className="g--4"
   >
     <div
-      className="br br-a200"
+      className="br br-a200 emotion-4"
     >
       <div
         className="emotion-2"
@@ -3063,6 +3068,11 @@ exports[`Storyshots Form Elements|UploadPhoto custom background element 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
+.emotion-4 {
+  position: relative;
+  overflow: hidden;
+}
+
 .emotion-2:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
@@ -3099,7 +3109,7 @@ exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
     className="g--4"
   >
     <div
-      className="br br-a200"
+      className="br br-a200 emotion-4"
     >
       <div
         className="emotion-2"
@@ -3215,6 +3225,11 @@ exports[`Storyshots Form Elements|UploadPhoto default 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
+.emotion-5 {
+  position: relative;
+  overflow: hidden;
+}
+
 .emotion-3:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
@@ -3262,7 +3277,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
     className="g--4"
   >
     <div
-      className="br br-a200"
+      className="br br-a200 emotion-5"
     >
       <div
         className="emotion-3"
@@ -3386,6 +3401,11 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo (reloaded) 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
+.emotion-5 {
+  position: relative;
+  overflow: hidden;
+}
+
 .emotion-3:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
@@ -3433,7 +3453,7 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
     className="g--4"
   >
     <div
-      className="br br-a200"
+      className="br br-a200 emotion-5"
     >
       <div
         className="emotion-3"
@@ -3557,6 +3577,11 @@ exports[`Storyshots Form Elements|UploadPhoto existing photo 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
+.emotion-4 {
+  position: relative;
+  overflow: hidden;
+}
+
 .emotion-2:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
@@ -3597,7 +3622,7 @@ exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
     className="g--4"
   >
     <div
-      className="br br-a200"
+      className="br br-a200 emotion-4"
     >
       <div
         className="emotion-2"
@@ -3713,6 +3738,11 @@ exports[`Storyshots Form Elements|UploadPhoto upload error 1`] = `
 `;
 
 exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
+.emotion-7 {
+  position: relative;
+  overflow: hidden;
+}
+
 .emotion-2:focus > div {
   outline: 4px solid #000;
   outline-offset: -5px;
@@ -3737,17 +3767,46 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
   stroke: currentColor;
 }
 
-.emotion-3:focus {
+.emotion-6:focus {
   outline: 3px solid #000;
   outline-offset: -4px;
 }
 
-.emotion-4 {
+.emotion-5 {
+  display: block;
   position: absolute;
   left: 0;
-  bottom: 0;
-  height: 6px;
+  line-height: 1.5em;
+  min-height: 1px;
+  border-bottom-width: 2px;
+  border-bottom-color: #091f2f;
+  border-bottom-style: solid;
+  width: 100%;
+  background-color: #828282;
+  text-indent: -9000;
+}
+
+.emotion-3 {
+  font-size: 1em;
+  font-family: Montserrat,Arial,sans-serif;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-4 {
+  color: #288be4;
+  line-height: 1.5em;
+  min-height: 1px;
+  height: auto;
   background-color: #288be4;
+  border-right-width: 1px;
+  border-right-color: #091f2f;
+  border-right-style: solid;
+  text-indent: -9000px;
 }
 
 <div
@@ -3757,7 +3816,7 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
     className="g--4"
   >
     <div
-      className="br br-a200"
+      className="br br-a200 emotion-7"
     >
       <div
         className="emotion-2"
@@ -3847,6 +3906,32 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
         </div>
       </div>
       <div
+        className="emotion-5"
+        style={
+          Object {
+            "top": "0",
+          }
+        }
+      >
+        <label
+          className="emotion-3"
+        >
+          Uploading: 
+          39
+          %
+        </label>
+        <div
+          className="emotion-4"
+          style={
+            Object {
+              "width": "39.232312%",
+            }
+          }
+        >
+          39.232312
+        </div>
+      </div>
+      <div
         className="br br-t200"
         style={
           Object {
@@ -3855,7 +3940,7 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
         }
       >
         <button
-          className="btn btn--w btn--b btn--r-hov emotion-3"
+          className="btn btn--w btn--b btn--r-hov emotion-6"
           onClick={[Function]}
           style={
             Object {
@@ -3866,14 +3951,6 @@ exports[`Storyshots Form Elements|UploadPhoto uploading: 60% complete 1`] = `
         >
           Cancel upload
         </button>
-        <div
-          className="emotion-4"
-          style={
-            Object {
-              "width": "60%",
-            }
-          }
-        />
       </div>
     </div>
   </div>
@@ -5549,6 +5626,207 @@ exports[`Storyshots UI|Navigation/BreadcrumbNav single level 1`] = `
     </li>
   </ul>
 </nav>
+`;
+
+exports[`Storyshots UI|Navigation/Pagination 2 pages 1`] = `
+<ul
+  className="pg"
+>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link pg-li-i--a"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      2
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      ≫
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots UI|Navigation/Pagination 7 pages 1`] = `
+<ul
+  className="pg"
+>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      ≪
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link pg-li-i--a"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      2
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      3
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      4
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      ≫
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots UI|Navigation/Pagination 20 pages 1`] = `
+<ul
+  className="pg"
+>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      ≪
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      17
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link pg-li-i--a"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      18
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      19
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link "
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      20
+    </a>
+  </li>
+  <li
+    className="pg-li"
+  >
+    <a
+      className="pg-li-i pg-li-i--link"
+      href=""
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      ≫
+    </a>
+  </li>
+</ul>
 `;
 
 exports[`Storyshots UI|Pages/ErrorPage 404 1`] = `

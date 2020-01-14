@@ -30,7 +30,7 @@ storiesOf('Form Elements|UploadPhoto', module)
     />
   ))
   .add('uploading: 60% complete', () => (
-    <UploadPhoto uploadProgress={60} {...mockHandlerFunctions} />
+    <UploadPhoto uploadProgress={39.232312} {...mockHandlerFunctions} />
   ))
   .add('upload error', () => (
     <UploadPhoto errorMessage="server error" {...mockHandlerFunctions} />
