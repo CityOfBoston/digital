@@ -10452,7 +10452,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
 `;
 
 exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] = `
-.emotion-11 {
+.emotion-13 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -10464,33 +10464,33 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
   width: 1px;
 }
 
-.emotion-16 fieldset + fieldset {
+.emotion-18 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-16 fieldset + fieldset {
+  .emotion-18 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-16 fieldset + fieldset .lnk {
+  .emotion-18 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-14 {
+.emotion-16 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-14 legend {
+.emotion-16 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-14 h2 {
+.emotion-16 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -10517,35 +10517,40 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
   font-size: 1rem;
 }
 
-.emotion-18 {
+.emotion-20 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-18 {
+  .emotion-20 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-18 > div {
+  .emotion-20 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-18 > div.ta-r > button {
+  .emotion-20 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-18 .lnk {
+  .emotion-20 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-17 {
+.emotion-19 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
+}
+
+.emotion-6 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-4:focus > div {
@@ -10574,12 +10579,12 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
   outline-offset: -4px;
 }
 
-.emotion-13 {
+.emotion-15 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-13 li {
+.emotion-15 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10596,17 +10601,17 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
 }
 
 @media screen and (min-width:480px) {
-  .emotion-13 li {
+  .emotion-15 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-13 li .name > span:last-of-type {
+.emotion-15 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-13 li .name > span:last-of-type {
+  .emotion-15 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
@@ -10616,7 +10621,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-16"
+      className="emotion-18"
     >
       <h2
         className="emotion-0"
@@ -10685,7 +10690,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
           className="g--6 m-v500"
         >
           <div
-            className="br br-a200"
+            className="br br-a200 emotion-6"
           >
             <div
               className="emotion-4"
@@ -10810,7 +10815,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
           className="g--6 m-v500"
         >
           <div
-            className="br br-a200"
+            className="br br-a200 emotion-6"
           >
             <div
               className="emotion-4"
@@ -10950,7 +10955,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
         </div>
       </div>
       <fieldset
-        className=" emotion-14"
+        className=" emotion-16"
       >
         <legend>
           <h3
@@ -10972,7 +10977,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
           >
             <input
               accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-              className="emotion-11"
+              className="emotion-13"
               id="uploadSupportingDocuments"
               multiple={true}
               onBlur={[Function]}
@@ -10981,7 +10986,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               type="file"
             />
             <label
-              className="btn btn--sm btn--200 emotion-12"
+              className="btn btn--sm btn--200 emotion-14"
               htmlFor="uploadSupportingDocuments"
               onClick={[Function]}
               style={
@@ -10999,7 +11004,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
               Files should be PDF format, and under 10MB each.
             </div>
             <ul
-              className="t--s400 emotion-13"
+              className="t--s400 emotion-15"
             />
           </div>
         </div>
@@ -11029,13 +11034,13 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
       </p>
     </div>
     <div
-      className="g g--mr emotion-18"
+      className="g g--mr emotion-20"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-17"
+          className="lnk emotion-19"
           onClick={[Function]}
           type="button"
         >
@@ -15041,7 +15046,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   font-style: italic;
 }
 
-.emotion-15 {
+.emotion-17 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -15053,33 +15058,33 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   width: 1px;
 }
 
-.emotion-20 fieldset + fieldset {
+.emotion-22 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-20 fieldset + fieldset {
+  .emotion-22 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-20 fieldset + fieldset .lnk {
+  .emotion-22 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-18 {
+.emotion-20 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-18 legend {
+.emotion-20 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-18 h2 {
+.emotion-20 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -15106,35 +15111,40 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   font-size: 1rem;
 }
 
-.emotion-22 {
+.emotion-24 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-22 {
+  .emotion-24 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-22 > div {
+  .emotion-24 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-22 > div.ta-r > button {
+  .emotion-24 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-22 .lnk {
+  .emotion-24 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-21 {
+.emotion-23 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
+}
+
+.emotion-10 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-8:focus > div {
@@ -15163,12 +15173,12 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   outline-offset: -4px;
 }
 
-.emotion-17 {
+.emotion-19 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-17 li {
+.emotion-19 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15185,17 +15195,17 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
 }
 
 @media screen and (min-width:480px) {
-  .emotion-17 li {
+  .emotion-19 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-17 li .name > span:last-of-type {
+.emotion-19 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-17 li .name > span:last-of-type {
+  .emotion-19 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
@@ -15470,7 +15480,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
             className="m-t500"
           >
             <div
-              className="emotion-20"
+              className="emotion-22"
             >
               <h2
                 className="emotion-4"
@@ -15539,7 +15549,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                   className="g--6 m-v500"
                 >
                   <div
-                    className="br br-a200"
+                    className="br br-a200 emotion-10"
                   >
                     <div
                       className="emotion-8"
@@ -15664,7 +15674,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                   className="g--6 m-v500"
                 >
                   <div
-                    className="br br-a200"
+                    className="br br-a200 emotion-10"
                   >
                     <div
                       className="emotion-8"
@@ -15804,7 +15814,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                 </div>
               </div>
               <fieldset
-                className=" emotion-18"
+                className=" emotion-20"
               >
                 <legend>
                   <h3
@@ -15826,7 +15836,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                   >
                     <input
                       accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-                      className="emotion-15"
+                      className="emotion-17"
                       id="uploadSupportingDocuments"
                       multiple={true}
                       onBlur={[Function]}
@@ -15835,7 +15845,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       type="file"
                     />
                     <label
-                      className="btn btn--sm btn--200 emotion-16"
+                      className="btn btn--sm btn--200 emotion-18"
                       htmlFor="uploadSupportingDocuments"
                       onClick={[Function]}
                       style={
@@ -15853,7 +15863,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
                       Files should be PDF format, and under 10MB each.
                     </div>
                     <ul
-                      className="t--s400 emotion-17"
+                      className="t--s400 emotion-19"
                     />
                   </div>
                 </div>
@@ -15883,13 +15893,13 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
               </p>
             </div>
             <div
-              className="g g--mr emotion-22"
+              className="g g--mr emotion-24"
             >
               <div
                 className="t--info g--6 m-b500"
               >
                 <button
-                  className="lnk emotion-21"
+                  className="lnk emotion-23"
                   onClick={[Function]}
                   type="button"
                 >
@@ -42997,7 +43007,7 @@ exports[`Storyshots Common Components/Question Components/RadioItemComponent sin
 `;
 
 exports[`Storyshots Common Components/Question Components/VerifyIdentificationComponent default 1`] = `
-.emotion-11 {
+.emotion-13 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -43009,19 +43019,19 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   width: 1px;
 }
 
-.emotion-14 {
+.emotion-16 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-14 legend {
+.emotion-16 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-14 h2 {
+.emotion-16 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -43046,6 +43056,11 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 
 .emotion-0.secondary em {
   font-size: 1rem;
+}
+
+.emotion-6 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-4:focus > div {
@@ -43074,12 +43089,12 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   outline-offset: -4px;
 }
 
-.emotion-13 {
+.emotion-15 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-13 li {
+.emotion-15 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -43096,17 +43111,17 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 }
 
 @media screen and (min-width:480px) {
-  .emotion-13 li {
+  .emotion-15 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-13 li .name > span:last-of-type {
+.emotion-15 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-13 li .name > span:last-of-type {
+  .emotion-15 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
@@ -43179,7 +43194,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-6"
       >
         <div
           className="emotion-4"
@@ -43304,7 +43319,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-6"
       >
         <div
           className="emotion-4"
@@ -43444,7 +43459,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
     </div>
   </div>
   <fieldset
-    className=" emotion-14"
+    className=" emotion-16"
   >
     <legend>
       <h3
@@ -43466,7 +43481,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       >
         <input
           accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-          className="emotion-11"
+          className="emotion-13"
           id="uploadSupportingDocuments"
           multiple={true}
           onBlur={[Function]}
@@ -43475,7 +43490,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           type="file"
         />
         <label
-          className="btn btn--sm btn--200 emotion-12"
+          className="btn btn--sm btn--200 emotion-14"
           htmlFor="uploadSupportingDocuments"
           onClick={[Function]}
           style={
@@ -43493,7 +43508,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           Files should be PDF format, and under 10MB each.
         </div>
         <ul
-          className="t--s400 emotion-13"
+          className="t--s400 emotion-15"
         />
       </div>
     </div>
@@ -43525,7 +43540,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 `;
 
 exports[`Storyshots Common Components/Question Components/VerifyIdentificationComponent existing images and files 1`] = `
-.emotion-12 {
+.emotion-14 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -43537,19 +43552,19 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   width: 1px;
 }
 
-.emotion-17 {
+.emotion-19 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-17 legend {
+.emotion-19 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-17 h2 {
+.emotion-19 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -43574,6 +43589,11 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 
 .emotion-0.secondary em {
   font-size: 1rem;
+}
+
+.emotion-7 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-5:focus > div {
@@ -43602,12 +43622,12 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   outline-offset: -4px;
 }
 
-.emotion-16 {
+.emotion-18 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-16 li {
+.emotion-18 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -43624,22 +43644,22 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 }
 
 @media screen and (min-width:480px) {
-  .emotion-16 li {
+  .emotion-18 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-16 li .name > span:last-of-type {
+.emotion-18 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-16 li .name > span:last-of-type {
+  .emotion-18 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
 
-.emotion-14 {
+.emotion-16 {
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -43652,11 +43672,11 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   transition: opacity 0.15s;
 }
 
-.emotion-14:hover {
+.emotion-16:hover {
   opacity: 1;
 }
 
-.emotion-14:hover {
+.emotion-16:hover {
   opacity: 1;
 }
 
@@ -43738,7 +43758,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-7"
       >
         <div
           className="emotion-5"
@@ -43871,7 +43891,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-7"
       >
         <div
           className="emotion-5"
@@ -44011,7 +44031,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
     </div>
   </div>
   <fieldset
-    className=" emotion-17"
+    className=" emotion-19"
   >
     <legend>
       <h3
@@ -44033,7 +44053,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       >
         <input
           accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-          className="emotion-12"
+          className="emotion-14"
           id="uploadSupportingDocuments"
           multiple={true}
           onBlur={[Function]}
@@ -44042,7 +44062,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           type="file"
         />
         <label
-          className="btn btn--sm btn--200 emotion-13"
+          className="btn btn--sm btn--200 emotion-15"
           htmlFor="uploadSupportingDocuments"
           onClick={[Function]}
           style={
@@ -44060,7 +44080,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           Files should be PDF format, and under 10MB each.
         </div>
         <ul
-          className="t--s400 emotion-16"
+          className="t--s400 emotion-18"
         >
           <li>
             <span
@@ -44076,7 +44096,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
               </span>
             </span>
             <button
-              className="emotion-14"
+              className="emotion-16"
               onClick={[Function]}
               style={
                 Object {
@@ -44143,7 +44163,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
               </span>
             </span>
             <button
-              className="emotion-14"
+              className="emotion-16"
               onClick={[Function]}
               style={
                 Object {
@@ -44227,7 +44247,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 `;
 
 exports[`Storyshots Common Components/Question Components/VerifyIdentificationComponent reloaded images 1`] = `
-.emotion-12 {
+.emotion-14 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -44239,19 +44259,19 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   width: 1px;
 }
 
-.emotion-17 {
+.emotion-19 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-17 legend {
+.emotion-19 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-17 h2 {
+.emotion-19 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -44276,6 +44296,11 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 
 .emotion-0.secondary em {
   font-size: 1rem;
+}
+
+.emotion-7 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-5:focus > div {
@@ -44304,12 +44329,12 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   outline-offset: -4px;
 }
 
-.emotion-16 {
+.emotion-18 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-16 li {
+.emotion-18 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44326,22 +44351,22 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 }
 
 @media screen and (min-width:480px) {
-  .emotion-16 li {
+  .emotion-18 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-16 li .name > span:last-of-type {
+.emotion-18 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-16 li .name > span:last-of-type {
+  .emotion-18 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
 
-.emotion-14 {
+.emotion-16 {
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -44354,11 +44379,11 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   transition: opacity 0.15s;
 }
 
-.emotion-14:hover {
+.emotion-16:hover {
   opacity: 1;
 }
 
-.emotion-14:hover {
+.emotion-16:hover {
   opacity: 1;
 }
 
@@ -44440,7 +44465,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-7"
       >
         <div
           className="emotion-5"
@@ -44573,7 +44598,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-7"
       >
         <div
           className="emotion-5"
@@ -44713,7 +44738,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
     </div>
   </div>
   <fieldset
-    className=" emotion-17"
+    className=" emotion-19"
   >
     <legend>
       <h3
@@ -44735,7 +44760,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       >
         <input
           accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-          className="emotion-12"
+          className="emotion-14"
           id="uploadSupportingDocuments"
           multiple={true}
           onBlur={[Function]}
@@ -44744,7 +44769,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           type="file"
         />
         <label
-          className="btn btn--sm btn--200 emotion-13"
+          className="btn btn--sm btn--200 emotion-15"
           htmlFor="uploadSupportingDocuments"
           onClick={[Function]}
           style={
@@ -44762,7 +44787,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           Files should be PDF format, and under 10MB each.
         </div>
         <ul
-          className="t--s400 emotion-16"
+          className="t--s400 emotion-18"
         >
           <li>
             <span
@@ -44778,7 +44803,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
               </span>
             </span>
             <button
-              className="emotion-14"
+              className="emotion-16"
               onClick={[Function]}
               style={
                 Object {
@@ -44845,7 +44870,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
               </span>
             </span>
             <button
-              className="emotion-14"
+              className="emotion-16"
               onClick={[Function]}
               style={
                 Object {
@@ -44929,7 +44954,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 `;
 
 exports[`Storyshots Common Components/Question Components/VerifyIdentificationComponent upload error 1`] = `
-.emotion-12 {
+.emotion-14 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -44941,19 +44966,19 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   width: 1px;
 }
 
-.emotion-20 {
+.emotion-22 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-20 legend {
+.emotion-22 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-20 h2 {
+.emotion-22 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -44980,35 +45005,40 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   font-size: 1rem;
 }
 
-.emotion-15 {
+.emotion-17 {
   width: 80px;
   height: 80px;
 }
 
-.emotion-15 ellipse {
+.emotion-17 ellipse {
   stroke: currentColor;
   stroke-width: 5;
   fill: #fff;
 }
 
-.emotion-15.checkMark,
-.emotion-15.xSymbol {
+.emotion-17.checkMark,
+.emotion-17.xSymbol {
   fill: none;
   stroke-width: 7;
   stroke-linecap: round;
 }
 
-.emotion-15.checkMark {
+.emotion-17.checkMark {
   stroke: #62A744;
 }
 
-.emotion-15.xSymbol {
+.emotion-17.xSymbol {
   stroke: #f04f46;
 }
 
-.emotion-15.questionMark path {
+.emotion-17.questionMark path {
   fill: #091f2f;
   stroke: none;
+}
+
+.emotion-7 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-5:focus > div {
@@ -45032,17 +45062,17 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   padding: 2rem 4rem;
 }
 
-.emotion-10:focus {
+.emotion-11:focus {
   outline: 3px solid #000;
   outline-offset: -4px;
 }
 
-.emotion-19 {
+.emotion-21 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-19 li {
+.emotion-21 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -45059,22 +45089,22 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 li {
+  .emotion-21 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-19 li .name > span:last-of-type {
+.emotion-21 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-19 li .name > span:last-of-type {
+  .emotion-21 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
 
-.emotion-16 {
+.emotion-18 {
   padding: 0;
   background-color: transparent;
   border: none;
@@ -45093,13 +45123,13 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
   color: #d22d23;
 }
 
-.emotion-16 svg {
+.emotion-18 svg {
   height: 1.2em;
   width: 1.2em;
   margin-right: 0.5rem;
 }
 
-.emotion-14 {
+.emotion-16 {
   text-transform: capitalize;
   font-style: italic;
   color: #d22d23;
@@ -45192,7 +45222,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-7"
       >
         <div
           className="emotion-5"
@@ -45325,7 +45355,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       className="g--6 m-v500"
     >
       <div
-        className="br br-a200"
+        className="br br-a200 emotion-7"
       >
         <div
           className="emotion-5"
@@ -45449,7 +45479,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           }
         >
           <button
-            className="btn btn--w btn--b  emotion-10"
+            className="btn btn--w btn--b  emotion-11"
             onClick={[Function]}
             style={
               Object {
@@ -45465,7 +45495,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
     </div>
   </div>
   <fieldset
-    className=" emotion-20"
+    className=" emotion-22"
   >
     <legend>
       <h3
@@ -45487,7 +45517,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
       >
         <input
           accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-          className="emotion-12"
+          className="emotion-14"
           id="uploadSupportingDocuments"
           multiple={true}
           onBlur={[Function]}
@@ -45496,7 +45526,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           type="file"
         />
         <label
-          className="btn btn--sm btn--200 emotion-13"
+          className="btn btn--sm btn--200 emotion-15"
           htmlFor="uploadSupportingDocuments"
           onClick={[Function]}
           style={
@@ -45514,7 +45544,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
           Files should be PDF format, and under 10MB each.
         </div>
         <ul
-          className="t--s400 emotion-19"
+          className="t--s400 emotion-21"
         >
           <li>
             <span
@@ -45530,7 +45560,7 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
               </span>
             </span>
             <span
-              className="emotion-14"
+              className="emotion-16"
             >
               canceling
               …
@@ -45550,13 +45580,13 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
               </span>
             </span>
             <button
-              className="emotion-16"
+              className="emotion-18"
               onClick={[Function]}
               type="button"
             >
               <svg
                 aria-hidden="true"
-                className="excl emotion-15"
+                className="excl emotion-17"
                 focusable="false"
                 viewBox="-2.5 -2.5 66 66"
                 xmlns="http://www.w3.org/2000/svg"
@@ -45592,13 +45622,13 @@ exports[`Storyshots Common Components/Question Components/VerifyIdentificationCo
               </span>
             </span>
             <button
-              className="emotion-16"
+              className="emotion-18"
               onClick={[Function]}
               type="button"
             >
               <svg
                 aria-hidden="true"
-                className="excl emotion-15"
+                className="excl emotion-17"
                 focusable="false"
                 viewBox="-2.5 -2.5 66 66"
                 xmlns="http://www.w3.org/2000/svg"
@@ -72386,7 +72416,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
 `;
 
 exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`] = `
-.emotion-11 {
+.emotion-13 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -72398,33 +72428,33 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
   width: 1px;
 }
 
-.emotion-16 fieldset + fieldset {
+.emotion-18 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-16 fieldset + fieldset {
+  .emotion-18 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-16 fieldset + fieldset .lnk {
+  .emotion-18 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-14 {
+.emotion-16 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-14 legend {
+.emotion-16 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-14 h2 {
+.emotion-16 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -72451,35 +72481,40 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
   font-size: 1rem;
 }
 
-.emotion-18 {
+.emotion-20 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-18 {
+  .emotion-20 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-18 > div {
+  .emotion-20 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-18 > div.ta-r > button {
+  .emotion-20 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-18 .lnk {
+  .emotion-20 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-17 {
+.emotion-19 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
+}
+
+.emotion-6 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-4:focus > div {
@@ -72508,12 +72543,12 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
   outline-offset: -4px;
 }
 
-.emotion-13 {
+.emotion-15 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-13 li {
+.emotion-15 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -72530,17 +72565,17 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
 }
 
 @media screen and (min-width:480px) {
-  .emotion-13 li {
+  .emotion-15 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-13 li .name > span:last-of-type {
+.emotion-15 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-13 li .name > span:last-of-type {
+  .emotion-15 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
@@ -72550,7 +72585,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-16"
+      className="emotion-18"
     >
       <h2
         className="emotion-0"
@@ -72618,7 +72653,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
           className="g--6 m-v500"
         >
           <div
-            className="br br-a200"
+            className="br br-a200 emotion-6"
           >
             <div
               className="emotion-4"
@@ -72743,7 +72778,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
           className="g--6 m-v500"
         >
           <div
-            className="br br-a200"
+            className="br br-a200 emotion-6"
           >
             <div
               className="emotion-4"
@@ -72883,7 +72918,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
         </div>
       </div>
       <fieldset
-        className=" emotion-14"
+        className=" emotion-16"
       >
         <legend>
           <h3
@@ -72905,7 +72940,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
           >
             <input
               accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-              className="emotion-11"
+              className="emotion-13"
               id="uploadSupportingDocuments"
               multiple={true}
               onBlur={[Function]}
@@ -72914,7 +72949,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
               type="file"
             />
             <label
-              className="btn btn--sm btn--200 emotion-12"
+              className="btn btn--sm btn--200 emotion-14"
               htmlFor="uploadSupportingDocuments"
               onClick={[Function]}
               style={
@@ -72932,7 +72967,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
               Files should be PDF format, and under 10MB each.
             </div>
             <ul
-              className="t--s400 emotion-13"
+              className="t--s400 emotion-15"
             />
           </div>
         </div>
@@ -72962,13 +72997,13 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
       </p>
     </div>
     <div
-      className="g g--mr emotion-18"
+      className="g g--mr emotion-20"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-17"
+          className="lnk emotion-19"
           onClick={[Function]}
           type="button"
         >
@@ -77917,7 +77952,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
   font-style: italic;
 }
 
-.emotion-15 {
+.emotion-17 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -77929,33 +77964,33 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
   width: 1px;
 }
 
-.emotion-20 fieldset + fieldset {
+.emotion-22 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-20 fieldset + fieldset {
+  .emotion-22 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-20 fieldset + fieldset .lnk {
+  .emotion-22 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-18 {
+.emotion-20 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-18 legend {
+.emotion-20 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-18 h2 {
+.emotion-20 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -77982,35 +78017,40 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
   font-size: 1rem;
 }
 
-.emotion-22 {
+.emotion-24 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-22 {
+  .emotion-24 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-22 > div {
+  .emotion-24 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-22 > div.ta-r > button {
+  .emotion-24 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-22 .lnk {
+  .emotion-24 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-21 {
+.emotion-23 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
+}
+
+.emotion-10 {
+  position: relative;
+  overflow: hidden;
 }
 
 .emotion-8:focus > div {
@@ -78039,12 +78079,12 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
   outline-offset: -4px;
 }
 
-.emotion-17 {
+.emotion-19 {
   padding-left: 0;
   color: #091f2f;
 }
 
-.emotion-17 li {
+.emotion-19 li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -78061,17 +78101,17 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
 }
 
 @media screen and (min-width:480px) {
-  .emotion-17 li {
+  .emotion-19 li {
     margin-left: 1rem;
   }
 }
 
-.emotion-17 li .name > span:last-of-type {
+.emotion-19 li .name > span:last-of-type {
   margin: 0 0.5rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-17 li .name > span:last-of-type {
+  .emotion-19 li .name > span:last-of-type {
     margin: 0 1rem;
   }
 }
@@ -78356,7 +78396,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
             className="m-t500"
           >
             <div
-              className="emotion-20"
+              className="emotion-22"
             >
               <h2
                 className="emotion-4"
@@ -78424,7 +78464,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
                   className="g--6 m-v500"
                 >
                   <div
-                    className="br br-a200"
+                    className="br br-a200 emotion-10"
                   >
                     <div
                       className="emotion-8"
@@ -78549,7 +78589,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
                   className="g--6 m-v500"
                 >
                   <div
-                    className="br br-a200"
+                    className="br br-a200 emotion-10"
                   >
                     <div
                       className="emotion-8"
@@ -78689,7 +78729,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
                 </div>
               </div>
               <fieldset
-                className=" emotion-18"
+                className=" emotion-20"
               >
                 <legend>
                   <h3
@@ -78711,7 +78751,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
                   >
                     <input
                       accept="image/jpeg,image/png,image/tiff,image/bmp,application/pdf"
-                      className="emotion-15"
+                      className="emotion-17"
                       id="uploadSupportingDocuments"
                       multiple={true}
                       onBlur={[Function]}
@@ -78720,7 +78760,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
                       type="file"
                     />
                     <label
-                      className="btn btn--sm btn--200 emotion-16"
+                      className="btn btn--sm btn--200 emotion-18"
                       htmlFor="uploadSupportingDocuments"
                       onClick={[Function]}
                       style={
@@ -78738,7 +78778,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
                       Files should be PDF format, and under 10MB each.
                     </div>
                     <ul
-                      className="t--s400 emotion-17"
+                      className="t--s400 emotion-19"
                     />
                   </div>
                 </div>
@@ -78768,13 +78808,13 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
               </p>
             </div>
             <div
-              className="g g--mr emotion-22"
+              className="g g--mr emotion-24"
             >
               <div
                 className="t--info g--6 m-b500"
               >
                 <button
-                  className="lnk emotion-21"
+                  className="lnk emotion-23"
                   onClick={[Function]}
                   type="button"
                 >

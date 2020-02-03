@@ -9,6 +9,8 @@ import {
   GRAY_300,
   OPTIMISTIC_BLUE_LIGHT,
   WHITE,
+  CHARLES_BLUE,
+  SANS,
 } from '../utilities/constants';
 
 interface Props {
@@ -36,6 +38,7 @@ interface Props {
 interface State {
   file: File | true | null;
   previewUrl: string | null;
+  previewElemPosY: number | null;
 }
 
 /**
@@ -71,6 +74,7 @@ export default class UploadPhoto extends React.Component<Props, State> {
       typeof URL.createObjectURL !== 'undefined'
         ? URL.createObjectURL(this.props.initialFile)
         : null,
+    previewElemPosY: 0,
   };
 
   private onDrop = (files: File[]): void => {
@@ -138,8 +142,10 @@ export default class UploadPhoto extends React.Component<Props, State> {
     const previewUrl = file
       ? this.state.previewUrl || this.props.defaultPreviewUrl
       : null;
-
     const isUploading = uploadProgress && uploadProgress < 100;
+    const uploadProgNum: number =
+      typeof uploadProgress === 'number' ? uploadProgress : 0;
+    const uploadProgressLabel = Math.round(uploadProgNum);
     const hasError = !!errorMessage;
 
     let buttonTitle: string;
@@ -154,8 +160,20 @@ export default class UploadPhoto extends React.Component<Props, State> {
       buttonTitle = this.props.buttonTitleUpload || 'Upload photo';
     }
 
+    if (
+      uploadProgressLabel === 100 &&
+      errorMessage &&
+      errorMessage.length > 0
+    ) {
+      buttonTitle = errorMessage;
+    }
+
+    if (errorMessage && errorMessage.length > 0 && uploadProgressLabel < 100) {
+      buttonTitle = errorMessage;
+    }
+
     return (
-      <div className="br br-a200">
+      <div className="br br-a200" css={ELEM_WRAPPER}>
         <Dropzone
           ref={this.dropzoneRef}
           accept={acceptTypes}
@@ -190,7 +208,19 @@ export default class UploadPhoto extends React.Component<Props, State> {
             </div>
           )}
         </Dropzone>
-
+        {!!isUploading && !errorMessage && (
+          <div
+            css={PROGRESS_WRAPPER_STYLING}
+            style={{ top: `${this.state.previewElemPosY}` }}
+          >
+            <label css={PROGRESS_LABEL_STYLING}>
+              Uploading: {uploadProgressLabel}%
+            </label>
+            <div css={PROGRESS_STYLING} style={{ width: `${uploadProgress}%` }}>
+              {uploadProgress}
+            </div>
+          </div>
+        )}
         <div className="br br-t200" style={{ position: 'relative' }}>
           <button
             className={`btn btn--w btn--b ${isUploading ? 'btn--r-hov' : ''}`}
@@ -201,13 +231,6 @@ export default class UploadPhoto extends React.Component<Props, State> {
           >
             {buttonTitle}
           </button>
-
-          {!!isUploading && (
-            <div
-              css={PROGRESS_STYLING}
-              style={{ width: `${uploadProgress}%` }}
-            />
-          )}
         </div>
       </div>
     );
@@ -237,6 +260,51 @@ function defaultInitialAppearance(): JSX.Element {
     </div>
   );
 }
+
+const ELEM_WRAPPER = css({
+  position: 'relative',
+  overflow: 'hidden',
+});
+
+const PROGRESS_WRAPPER_STYLING = css({
+  display: 'block',
+  position: 'absolute',
+  left: 0,
+
+  lineHeight: '1.5em',
+  minHeight: 1,
+
+  borderBottomWidth: 2,
+  borderBottomColor: CHARLES_BLUE,
+  borderBottomStyle: 'solid',
+  width: '100%',
+  backgroundColor: GRAY_300,
+  textIndent: '-9000',
+});
+
+const PROGRESS_STYLING = css({
+  color: OPTIMISTIC_BLUE_LIGHT,
+  lineHeight: '1.5em',
+  minHeight: 1,
+  height: 'auto',
+  backgroundColor: OPTIMISTIC_BLUE_LIGHT,
+  borderRightWidth: 1,
+  borderRightColor: CHARLES_BLUE,
+  borderRightStyle: 'solid',
+  textIndent: '-9000px',
+});
+
+const PROGRESS_LABEL_STYLING = css({
+  fontSize: '1em',
+  fontFamily: SANS,
+  color: WHITE,
+  textAlign: 'center',
+
+  position: 'absolute',
+  top: 0,
+  width: '100%',
+  height: '100%',
+});
 
 const DEFAULT_IMAGE_STYLING = css({
   backgroundColor: GRAY_300,
@@ -293,14 +361,6 @@ const DRAG_RING_STYLING = css({
     borderStyle: 'dashed',
     borderColor: WHITE,
   },
-});
-
-const PROGRESS_STYLING = css({
-  position: 'absolute',
-  left: 0,
-  bottom: 0,
-  height: 6,
-  backgroundColor: OPTIMISTIC_BLUE_LIGHT,
 });
 
 const ERROR_MESSAGE_STYLING = css({

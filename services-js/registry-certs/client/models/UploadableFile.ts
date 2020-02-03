@@ -189,11 +189,20 @@ export default class UploadableFile {
       return;
     }
 
+    const getStatusText = (xhr: XMLHttpRequest) => {
+      return xhr.statusText &&
+        typeof xhr.statusText === 'string' &&
+        xhr.statusText.length > 0
+        ? `: ${xhr.statusText}`
+        : '';
+    };
+
     try {
       json = JSON.parse(xhr.responseText);
     } catch (e) {
+      const statMessage = getStatusText(xhr);
       this.status = 'uploadError';
-      this.errorMessage = `Upload failed: ${xhr.statusText}`;
+      this.errorMessage = `Upload failed${statMessage}`;
       return;
     }
 
@@ -201,8 +210,9 @@ export default class UploadableFile {
       this.status = 'success';
       this.attachmentKey = json.attachmentKey;
     } else {
+      const statMessage = getStatusText(xhr);
       this.status = 'uploadError';
-      this.errorMessage = `Upload failed: ${xhr.statusText}`;
+      this.errorMessage = `Upload failed${statMessage}`;
     }
   }
 
@@ -216,7 +226,6 @@ export default class UploadableFile {
   @action.bound
   handleError(ev: ProgressEvent | null) {
     this.status = 'uploadError';
-
     if (!ev || ev.target !== this.uploadRequest || !this.uploadRequest) {
       return;
     }
