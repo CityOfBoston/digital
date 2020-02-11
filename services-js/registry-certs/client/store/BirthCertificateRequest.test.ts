@@ -134,91 +134,95 @@ describe('serialization', () => {
 
   it('converts to JSON', () => {
     expect(req.serializeToJSON()).toMatchInlineSnapshot(`
-Object {
-  "quantity": 10,
-  "requestInformation": Object {
-    "altSpelling": "Car-Ell, Vers",
-    "birthDate": "1968-03-01T05:00:00.000Z",
-    "bornInBoston": "yes",
-    "firstName": "Carol",
-    "forSelf": true,
-    "howRelated": null,
-    "idImageBack": null,
-    "idImageFront": Object {
-      "attachmentKey": "4",
-      "name": "id.jpg",
-    },
-    "lastName": "Danvers",
-    "parent1FirstName": "Mari-Ell",
-    "parent1LastName": "",
-    "parent2FirstName": "Joe",
-    "parent2LastName": "Danvers",
-    "parentsLivedInBoston": null,
-    "parentsMarried": "unknown",
-    "supportingDocuments": Array [
-      Object {
-        "attachmentKey": "10",
-        "name": "deployment.pdf",
-      },
-    ],
-  },
-  "uploadSessionId": "8a883b5e-f5d0-4181-b7a2-5423442054e7",
-}
-`);
+            Object {
+              "quantity": 10,
+              "requestInformation": Object {
+                "altSpelling": "Car-Ell, Vers",
+                "birthDate": "1968-03-01T05:00:00.000Z",
+                "bornInBoston": "yes",
+                "firstName": "Carol",
+                "forSelf": true,
+                "howRelated": null,
+                "idImageBack": null,
+                "idImageFront": Object {
+                  "attachmentKey": "4",
+                  "name": "id.jpg",
+                },
+                "lastName": "Danvers",
+                "parent1FirstName": "Mari-Ell",
+                "parent1LastName": "",
+                "parent2FirstName": "Joe",
+                "parent2LastName": "Danvers",
+                "parentsLivedInBoston": null,
+                "parentsMarried": "unknown",
+                "supportingDocuments": Array [
+                  Object {
+                    "attachmentKey": "10",
+                    "name": "deployment.pdf",
+                  },
+                ],
+              },
+              "uploadSessionId": "8a883b5e-f5d0-4181-b7a2-5423442054e7",
+            }
+        `);
   });
 
   it('round-trips back from JSON', () => {
     const newRequest = new BirthCertificateRequest();
     newRequest.replaceWithJson(req.serializeToJSON());
     expect(newRequest).toMatchInlineSnapshot(`
-BirthCertificateRequest {
-  "quantity": 10,
-  "requestInformation": Object {
-    "altSpelling": "Car-Ell, Vers",
-    "birthDate": 1968-03-01T05:00:00.000Z,
-    "bornInBoston": "yes",
-    "firstName": "Carol",
-    "forSelf": true,
-    "howRelated": null,
-    "idImageBack": null,
-    "idImageFront": UploadableFile {
-      "attachmentKey": "4",
-      "errorMessage": null,
-      "fetchGraphql": [Function],
-      "file": null,
-      "label": "id front",
-      "name": "id.jpg",
-      "progress": 0,
-      "status": "success",
-      "uploadRequest": null,
-      "uploadSessionId": "8a883b5e-f5d0-4181-b7a2-5423442054e7",
-    },
-    "lastName": "Danvers",
-    "parent1FirstName": "Mari-Ell",
-    "parent1LastName": "",
-    "parent2FirstName": "Joe",
-    "parent2LastName": "Danvers",
-    "parentsLivedInBoston": null,
-    "parentsMarried": "unknown",
-    "supportingDocuments": Array [
-      UploadableFile {
-        "attachmentKey": "10",
-        "errorMessage": null,
-        "fetchGraphql": [Function],
-        "file": null,
-        "label": undefined,
-        "name": "deployment.pdf",
-        "progress": 0,
-        "status": "success",
-        "uploadRequest": null,
+      BirthCertificateRequest {
+        "quantity": 10,
+        "requestInformation": Object {
+          "altSpelling": "Car-Ell, Vers",
+          "birthDate": 1968-03-01T05:00:00.000Z,
+          "bornInBoston": "yes",
+          "firstName": "Carol",
+          "forSelf": true,
+          "howRelated": null,
+          "idImageBack": null,
+          "idImageFront": UploadableFile {
+            "attachmentKey": "4",
+            "errorMessage": null,
+            "fetchGraphql": [Function],
+            "file": null,
+            "filesize": 0,
+            "getStatusText": [Function],
+            "label": "id front",
+            "name": "id.jpg",
+            "progress": 0,
+            "status": "success",
+            "uploadRequest": null,
+            "uploadSessionId": "8a883b5e-f5d0-4181-b7a2-5423442054e7",
+          },
+          "lastName": "Danvers",
+          "parent1FirstName": "Mari-Ell",
+          "parent1LastName": "",
+          "parent2FirstName": "Joe",
+          "parent2LastName": "Danvers",
+          "parentsLivedInBoston": null,
+          "parentsMarried": "unknown",
+          "supportingDocuments": Array [
+            UploadableFile {
+              "attachmentKey": "10",
+              "errorMessage": null,
+              "fetchGraphql": [Function],
+              "file": null,
+              "filesize": 0,
+              "getStatusText": [Function],
+              "label": undefined,
+              "name": "deployment.pdf",
+              "progress": 0,
+              "status": "success",
+              "uploadRequest": null,
+              "uploadSessionId": "8a883b5e-f5d0-4181-b7a2-5423442054e7",
+            },
+          ],
+        },
+        "sessionStorageDisposer": null,
+        "siteAnalytics": null,
         "uploadSessionId": "8a883b5e-f5d0-4181-b7a2-5423442054e7",
-      },
-    ],
-  },
-  "sessionStorageDisposer": null,
-  "siteAnalytics": null,
-  "uploadSessionId": "8a883b5e-f5d0-4181-b7a2-5423442054e7",
-}
-`);
+      }
+    `);
   });
 });

@@ -30,6 +30,13 @@ export type UploadableFileRecord = {
   readonly name: string | null;
 };
 
+export type minXMLHttpRequest = {
+  statusCode: number;
+  statusText: string;
+  error: string;
+  message: string;
+};
+
 /**
  * Binary files provided by the user are immediately uploaded to (or deleted
  * from) the db server. Because an input may accept multiple files at once,
@@ -43,6 +50,7 @@ export default class UploadableFile {
 
   private readonly uploadSessionId: string;
   private readonly label: string | undefined;
+  private readonly filesize: number;
 
   @observable status: Status;
   @observable progress: number; // 0 - 100
@@ -70,13 +78,20 @@ export default class UploadableFile {
 
   constructor(file: File | string, uploadSessionId: string, label?: string) {
     this.fetchGraphql = fetchGraphql();
+    const megabyteInt = 1048576;
 
     if (file instanceof File) {
       this.file = file;
       this.name = file.name;
+
+      const modulus = file.size % megabyteInt;
+      const percentRemainder = parseFloat((modulus / megabyteInt).toFixed(2));
+      const wholeInt = (file.size - modulus) / megabyteInt;
+      this.filesize = parseFloat((wholeInt + percentRemainder).toFixed(2));
     } else {
       this.file = null;
       this.name = file;
+      this.filesize = 0;
     }
 
     this.label = label;
@@ -85,6 +100,14 @@ export default class UploadableFile {
     this.progress = 0;
     this.attachmentKey = null;
   }
+
+  getStatusText = (xhr: XMLHttpRequest | minXMLHttpRequest) => {
+    return xhr.statusText &&
+      typeof xhr.statusText === 'string' &&
+      xhr.statusText.length > 0
+      ? `: ${xhr.statusText}`
+      : '';
+  };
 
   @computed
   get record(): UploadableFileRecord | null {
@@ -184,23 +207,23 @@ export default class UploadableFile {
   handleLoad(ev: ProgressEvent) {
     const xhr = ev.target;
     let json: UploadResponse | null = null;
+    let statMessage: string = '';
 
     if (!(xhr instanceof XMLHttpRequest)) {
       return;
     }
 
-    const getStatusText = (xhr: XMLHttpRequest) => {
-      return xhr.statusText &&
-        typeof xhr.statusText === 'string' &&
-        xhr.statusText.length > 0
-        ? `: ${xhr.statusText}`
-        : '';
-    };
+    // TODO: We are limiting uploads to 15mb, this is an ad-hoc approach to prevent image from uploading if its greater than the size limit
+    if (this.filesize > 15) {
+      this.status = 'uploadError';
+      this.errorMessage = `Upload failed: Image Too Large`;
+      return;
+    }
 
     try {
       json = JSON.parse(xhr.responseText);
     } catch (e) {
-      const statMessage = getStatusText(xhr);
+      statMessage = this.getStatusText(xhr);
       this.status = 'uploadError';
       this.errorMessage = `Upload failed${statMessage}`;
       return;
@@ -210,7 +233,7 @@ export default class UploadableFile {
       this.status = 'success';
       this.attachmentKey = json.attachmentKey;
     } else {
-      const statMessage = getStatusText(xhr);
+      statMessage = this.getStatusText(xhr);
       this.status = 'uploadError';
       this.errorMessage = `Upload failed${statMessage}`;
     }
