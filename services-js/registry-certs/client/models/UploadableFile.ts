@@ -235,7 +235,7 @@ export default class UploadableFile {
     } else {
       statMessage = this.getStatusText(xhr);
       this.status = 'uploadError';
-      this.errorMessage = `Upload failed${statMessage}`;
+      this.errorMessage = `Upload failed: Image Too Large`;
     }
   }
 
