@@ -107,10 +107,21 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   const permitFiles = new PermitFiles();
 
-  if (process.env.DATA_S3_BUCKET) {
-    const bucket = process.env.DATA_S3_BUCKET;
-    const s3 = new AWS.S3();
-
+  if (
+    process.env.DATA_S3_BUCKET ||
+    (process.env.ENV && process.env.ENV === 'LOCAL')
+  ) {
+    let bucket: string = process.env.DATA_S3_BUCKET || '';
+    let s3: any = {};
+    if (process.env.ENV && process.env.ENV === 'LOCAL') {
+      bucket = process.env.LOCAL_ENV_BUCKET || '';
+      s3 = new AWS.S3({
+        accessKeyId: process.env.LOCAL_ENV_ACCESS_KEY_ID || '',
+        secretAccessKey: process.env.LOCAL_ENV_SECRET_ACCESS_KEY || '',
+      });
+    } else {
+      s3 = new AWS.S3();
+    }
     await permitFiles.loadFromS3(s3, bucket);
 
     setInterval(async () => {
