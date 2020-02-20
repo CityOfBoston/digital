@@ -20,6 +20,22 @@ type State = {
   permitNumber: string;
 };
 
+const deviceSizes = {
+  small: '480px',
+  small_max: '479px',
+  medium: '768px',
+  medium_max: '767',
+  large: '840px',
+  large_max: '839px',
+  x_large: '980px',
+  x_large_max: '979px',
+  xx_large: '1280px',
+  xx_large_max: '1279px',
+};
+
+const mediaQuery = (sizeKey: string) =>
+  `@media screen and (max-width: ${sizeKey})`;
+
 export default class IndexPage extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -72,13 +88,13 @@ export default class IndexPage extends React.Component<Props, State> {
                   autoComplete="off"
                   autoFocus
                   value={permitNumber}
-                  css={{ flex: 1, marginRight: '3rem' }}
+                  css={INPUT}
                   onChange={ev =>
                     this.setState({ permitNumber: ev.currentTarget.value })
                   }
                 />
 
-                <button className="btn" type="submit">
+                <button className="btn" type="submit" css={BUTTON}>
                   Look Up Permit
                 </button>
               </div>
@@ -112,4 +128,21 @@ const SEARCH_ROW_STYLE = css({
   margin: '0 auto',
   display: 'flex',
   alignItems: 'center',
+});
+
+const BUTTON = css({
+  [mediaQuery(deviceSizes.small_max)]: {
+    padding: '0.5rem',
+    fontSize: '12px',
+  },
+});
+
+const INPUT = css({
+  flex: 1,
+  marginRight: '3rem',
+  cursor: 'pointer',
+  [mediaQuery(deviceSizes.small_max)]: {
+    marginRight: '0.5rem',
+    padding: 0,
+  },
 });

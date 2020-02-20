@@ -185,7 +185,7 @@ Array [
                   aria-label="Search box"
                   autoComplete="off"
                   autoFocus={true}
-                  className="sf-i-f css-v5307g"
+                  className="sf-i-f css-sz35qu"
                   name="id"
                   onChange={[Function]}
                   placeholder="Permit number"
@@ -193,7 +193,7 @@ Array [
                   value=""
                 />
                 <button
-                  className="btn"
+                  className="btn css-nv4rbj"
                   type="submit"
                 >
                   Look Up Permit
@@ -435,7 +435,7 @@ Array [
                   aria-label="Search box"
                   autoComplete="off"
                   autoFocus={true}
-                  className="sf-i-f css-v5307g"
+                  className="sf-i-f css-sz35qu"
                   name="id"
                   onChange={[Function]}
                   placeholder="Permit number"
@@ -443,7 +443,7 @@ Array [
                   value="A50582"
                 />
                 <button
-                  className="btn"
+                  className="btn css-nv4rbj"
                   type="submit"
                 >
                   Look Up Permit
