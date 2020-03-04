@@ -13,16 +13,16 @@ const PERSON_DATA = `
 `;
 
 const FETCH_PERSON = `
-  query getPerson($cn: String! $dns: [String!]!) {
-    person(cn: $cn dns: $dns) {
+  query getPerson($cn: String!) {
+    person(cn: $cn) {
       ${PERSON_DATA}
     }
   }
 `;
 
 const SEARCH_PEOPLE = `
-  query searchPeople($term: String! $dns: [String!]!) {
-    personSearch(term: $term dns: $dns) {
+  query searchPeople($term: String!) {
+    personSearch(term: $term) {
       ${PERSON_DATA}
     }
   }
@@ -33,9 +33,9 @@ const SEARCH_PEOPLE = `
  */
 export async function fetchPerson(
   cn: string,
-  dns: String[] = []
+  _dns: String[] = []
 ): Promise<any> {
-  return await fetchGraphql(FETCH_PERSON, { cn, dns });
+  return await fetchGraphql(FETCH_PERSON, { cn });
 }
 
 /**
@@ -45,12 +45,12 @@ export async function fetchPerson(
 export async function fetchPersonSearch(
   term: string,
   _selectedItem: any,
-  dns: String[] = []
+  _dns: String[] = []
 ): Promise<Person[]> {
-  if (!dns) {
-    dns = [];
+  if (!_dns) {
+    _dns = [];
   }
-  return await fetchGraphql(SEARCH_PEOPLE, { term, dns }).then(response =>
+  return await fetchGraphql(SEARCH_PEOPLE, { term }).then(response =>
     response.personSearch.map(person => toPerson(person))
   );
 }
