@@ -168,8 +168,16 @@ const getFilterValue = (filter: FilterOptions) => {
           filter.value
         }*)(cn=*${filter.value}*)))`;
       } else {
-        if (filter.by && filter.by.length > 0) {
-          return `(&(objectClass=${objClass})(cn=${filter.value}*))`;
+        const filterBy: string = filter.by ? filter.by : '';
+        const defaultFilters = ['cn', 'sn', 'displayName', 'givenname'];
+        if (
+          filterBy !== '' &&
+          filterBy.length > 0 &&
+          defaultFilters.indexOf(filterBy) > -1
+        ) {
+          return `(&(objectClass=${objClass})(${filterBy.toLowerCase()}=${
+            filter.value
+          }*))`;
         } else {
           return `(&(objectClass=${objClass})(|(displayName=*${
             filter.value
