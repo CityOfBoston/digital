@@ -270,6 +270,7 @@ export interface FilterOptions {
   value: string;
   allowInactive: boolean;
   dns: Array<any>;
+  by?: string;
 }
 
 export class FilterOptionsClass implements FilterOptions {
@@ -278,6 +279,7 @@ export class FilterOptionsClass implements FilterOptions {
   value: string = '';
   allowInactive: boolean = false;
   dns: [];
+  by: string = '';
 
   constructor(opts: {
     filterType?: any;
@@ -285,12 +287,14 @@ export class FilterOptionsClass implements FilterOptions {
     value?: any;
     allowInactive?: any;
     dns?: any;
+    by?: any;
   }) {
     (this.filterType = opts.filterType ? opts.filterType : ''),
       (this.field = opts.field ? opts.field : ''),
       (this.value = opts.value ? opts.value : ''),
       (this.dns = opts.dns ? opts.dns : []),
-      (this.allowInactive = opts.allowInactive ? opts.allowInactive : false);
+      (this.allowInactive = opts.allowInactive ? opts.allowInactive : false),
+      (this.by = opts.by ? opts.by : '');
   }
 }
 
