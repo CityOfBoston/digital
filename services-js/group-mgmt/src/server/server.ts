@@ -162,12 +162,6 @@ const getFilterValue = (filter: FilterOptions) => {
       return `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
     } else {
       if (filter.allowInactive === false) {
-        return `(&(objectClass=${objClass})(${
-          LdapFilters.person.inactive
-        }|(displayname=*${filter.value}*)(sn=*${filter.value}*)(givenname=*${
-          filter.value
-        }*)(cn=*${filter.value}*)))`;
-      } else {
         const filterBy: string = filter.by ? filter.by : '';
         const defaultFilters = ['cn', 'sn', 'displayName', 'givenname'];
         if (
@@ -179,12 +173,18 @@ const getFilterValue = (filter: FilterOptions) => {
             filter.value
           }*))`;
         } else {
-          return `(&(objectClass=${objClass})(|(displayName=*${
+          return `(&(objectClass=${objClass})(${
+            LdapFilters.person.inactive
+          }|(displayname=*${filter.value}*)(sn=*${filter.value}*)(givenname=*${
             filter.value
-          }*)(sn=${filter.value}*)(givenname=${filter.value}*)(cn=${
-            filter.value
-          }*)))`;
+          }*)(cn=*${filter.value}*)))`;
         }
+      } else {
+        return `(&(objectClass=${objClass})(|(displayName=*${
+          filter.value
+        }*)(sn=${filter.value}*)(givenname=${filter.value}*)(cn=${
+          filter.value
+        }*)))`;
       }
     }
   };
@@ -540,16 +540,13 @@ const resolvers = {
       return persons;
     },
     async person(
-      parent: any,
+      _parent: any,
       args: {
         cn: string;
         _dns: Array<string>;
         by: string;
       }
     ) {
-      if (parent) {
-        console.log('Query > person > parent: person');
-      }
       const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'person',
