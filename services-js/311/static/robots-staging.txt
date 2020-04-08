@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /
-
-Sitemap: https://cob-311.herokuapp.com/sitemap.xml
