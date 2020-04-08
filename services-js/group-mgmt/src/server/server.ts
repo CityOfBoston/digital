@@ -97,20 +97,16 @@ const search_promise = (err, res) => {
         currEntry.objectclass.indexOf('groupOfUniqueNames') > -1 ||
         currEntry.objectclass.indexOf('container') > -1
       ) {
-        // console.log('entry.object: ', entry.object, '\n .........');
         currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
 
       if (currEntry.objectclass.indexOf('organizationalRole') > -1) {
-        // console.log('entry.object: ', entry.object, '\n .........');
         currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
-
-      // console.log('entry.object: ', entry.object, '\n .........');
     });
 
     res.on('error', err => {
@@ -119,7 +115,6 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
-      // console.log('entries.length: ', entries.length, entries, '\n -------------- \n');
       resolve(entries);
     });
   });
@@ -167,11 +162,23 @@ const getFilterValue = (filter: FilterOptions) => {
       return `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
     } else {
       if (filter.allowInactive === false) {
-        return `(&(objectClass=${objClass})(${
-          LdapFilters.person.inactive
-        }|(displayname=*${filter.value}*)(sn=*${filter.value}*)(givenname=*${
-          filter.value
-        }*)(cn=*${filter.value}*)))`;
+        const filterBy: string = filter.by ? filter.by : '';
+        const defaultFilters = ['cn', 'sn', 'displayName', 'givenname'];
+        if (
+          filterBy !== '' &&
+          filterBy.length > 0 &&
+          defaultFilters.indexOf(filterBy) > -1
+        ) {
+          return `(&(objectClass=${objClass})(${filterBy.toLowerCase()}=${
+            filter.value
+          }*))`;
+        } else {
+          return `(&(objectClass=${objClass})(${
+            LdapFilters.person.inactive
+          }|(displayname=*${filter.value}*)(sn=*${filter.value}*)(givenname=*${
+            filter.value
+          }*)(cn=*${filter.value}*)))`;
+        }
       } else {
         return `(&(objectClass=${objClass})(|(displayName=*${
           filter.value
@@ -181,7 +188,6 @@ const getFilterValue = (filter: FilterOptions) => {
       }
     }
   };
-  // console.log('getFilterValue > filter: ', filter);
 
   switch (filter.filterType) {
     case 'person':
@@ -263,22 +269,20 @@ const searchWrapper = async (
     value: LdapFilters.groups.default,
     allowInactive: true,
     dns: [],
+    by: '',
   }
 ) => {
   const base_dn = env.LDAP_BASE_DN;
   const filterValue = getFilterValue(filter);
-  // console.log('filterValue: ', filterValue);
   const thisAttributes =
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
       : setAttributes(attributes, filter.filterType);
-  // console.log('thisAttributes: ', thisAttributes);
   const filterQryParams = {
     scope: 'sub',
     attributes: thisAttributes,
     filter: filterValue,
   };
-  // console.log('filterQryParams: ', filterQryParams);
   let results: any;
 
   if (filter.dns.length > 0) {
@@ -305,7 +309,6 @@ const searchWrapper = async (
       });
     });
   }
-  // console.log('searchWrapper > results: ', results);
 
   return results;
 };
@@ -518,7 +521,12 @@ const resolvers = {
     },
     async personSearch(
       _parent: any,
-      args: { term: string; _dns: Array<string>; allowInactive: Boolean }
+      args: {
+        term: string;
+        _dns: Array<string>;
+        allowInactive: Boolean;
+        by: string;
+      }
     ) {
       const term = args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -526,26 +534,28 @@ const resolvers = {
         field: 'search',
         value: term,
         allowInactive: args.allowInactive ? args.allowInactive : false,
+        by: args.by ? args.by : '',
       });
       const persons = await searchWrapper(['all'], filterParams);
-      // console.log('filterParams: ', filterParams);
-      // console.log('persons: ', persons, '\n --------');
       return persons;
     },
-    async person(parent: any, args: { cn: string; _dns: Array<string> }) {
-      if (parent) {
-        console.log('Query > person > parent: person');
+    async person(
+      _parent: any,
+      args: {
+        cn: string;
+        _dns: Array<string>;
+        by: string;
       }
+    ) {
       const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
-      // console.log('value: ', value);
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'person',
         field: 'cn',
         value,
         allowInactive: false,
+        by: args.by ? args.by : '',
       });
       const person: any = await searchWrapper(['all'], filterParams);
-      // console.log('person: ', person, '\n --------');
       return person;
     },
     async group(parent: any, args: { cn: string; dns: Array<string> }) {
@@ -555,9 +565,7 @@ const resolvers = {
       }
       if (args.dns) {
         dns = await convertDnsToGroupDNs(args.dns);
-        // console.log('Query > group > dns: ', args.dns);
       }
-      // console.log('dns: ', args);
 
       const value = args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -566,7 +574,6 @@ const resolvers = {
         value,
         dns,
       });
-      // console.log('filterParams: ', filterParams);
       const groups: any = await searchWrapper(['all'], filterParams);
       return groups;
     },
@@ -584,10 +591,7 @@ const resolvers = {
       if (args.dns && args.dns.length > 0) {
         dns = await convertDnsToGroupDNs(args.dns);
         dn_list = dns.map(entry => entry.group.dn);
-        // console.log('dns: ', dns[dns.length-1], dns);
-        // console.log('dns DN: ', dn_list);
       }
-      // console.log('Query > groupSearch > dns: ', args.dns, dns);
 
       const value = args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -600,12 +604,7 @@ const resolvers = {
 
       let groups: any = await searchWrapper(['all'], filterParams);
       groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
-      // console.log('groups: ', groups, '\n --------', filterParams);
-      // console.log('filterParams: ', filterParams);
-      // console.log('groups: ', '\n', groups.filter(entry => dn_list.indexOf(entry.dn) === -1));
-      // console.log('groups: ', groups, '\n');
       if (args.activemembers && args.activemembers === true) {
-        // console.log('Query > groupSearch > activemembers: ', args.activemembers);
         await groups.forEach(async group => {
           if (
             typeof group.uniquemember === 'object' &&
@@ -620,7 +619,6 @@ const resolvers = {
                 activemembers.push(memberSt);
               }
             });
-            // console.log('activemembers: ', activemembers, '\n', group.uniquemember, '\n');
           }
         });
         return groups;
