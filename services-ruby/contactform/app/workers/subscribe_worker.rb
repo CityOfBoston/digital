@@ -9,7 +9,7 @@ class SubscribeWorker
     response = bot.subscribe(subscriber, list)
 
     if response.code == 200
-#       subscriber_details = Hash.from_xml(response.body)
+      subscriber_details = Hash.from_xml(response.body)
 
       unless subscriber_details["result"]["profile_id"].nil?
 #         status_check = bot.check_subscriber(subscriber_details["result"]["profile_id"])
