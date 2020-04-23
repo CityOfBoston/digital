@@ -9,15 +9,15 @@ class SubscribeWorker
     response = bot.subscribe(subscriber, list)
 
     if response.code == 200
-      subscriber_details = Hash.from_xml(response.body)
+#       subscriber_details = Hash.from_xml(response.body)
 
       unless subscriber_details["result"]["profile_id"].nil?
-        status_check = bot.check_subscriber(subscriber_details["result"]["profile_id"])
-        status_response = Hash.from_xml(status_check.body)
-
-        if status_response["subscriber"]["status"] == "pending"
-          bot.resubscribe(subscriber_details["result"]["profile_id"])
-        end
+#         status_check = bot.check_subscriber(subscriber_details["result"]["profile_id"])
+#         status_response = Hash.from_xml(status_check.body)
+#
+#         if status_response["subscriber"]["status"] == "pending"
+#           bot.resubscribe(subscriber_details["result"]["profile_id"])
+#         end
 
         subscriber.destroy!
       end
