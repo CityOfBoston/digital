@@ -86,3 +86,7 @@ We also need to generate keys.
  1) Download `http://localhost:3000/metadata.xml` and
     `http://localhost:3000/metadata-forgot.xml` and send them to the IAM team.
 
+
+### Self-Service Deploy Log
+- [Env: Dev] 2020.05.08 Test Deploy 
+
