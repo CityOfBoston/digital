@@ -185,10 +185,10 @@ Array [
                   aria-label="Search box"
                   autoComplete="off"
                   autoFocus={true}
-                  className="sf-i-f css-v5307g"
+                  className="sf-i-f css-s39hkg"
                   name="id"
                   onChange={[Function]}
-                  placeholder="Permit number"
+                  placeholder="Permit #"
                   type="text"
                   value=""
                 />
@@ -435,10 +435,10 @@ Array [
                   aria-label="Search box"
                   autoComplete="off"
                   autoFocus={true}
-                  className="sf-i-f css-v5307g"
+                  className="sf-i-f css-s39hkg"
                   name="id"
                   onChange={[Function]}
-                  placeholder="Permit number"
+                  placeholder="Permit #"
                   type="text"
                   value="A50582"
                 />

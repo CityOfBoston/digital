@@ -67,12 +67,17 @@ export default class IndexPage extends React.Component<Props, State> {
                   aria-label="Search box"
                   type="text"
                   name="id"
-                  placeholder="Permit number"
+                  placeholder="Permit #"
                   className="sf-i-f"
                   autoComplete="off"
                   autoFocus
                   value={permitNumber}
-                  css={{ flex: 1, marginRight: '3rem' }}
+                  css={{
+                    flex: 1,
+                    marginRight: '1rem',
+                    paddingRight: '1px',
+                    fontSize: '15px',
+                  }}
                   onChange={ev =>
                     this.setState({ permitNumber: ev.currentTarget.value })
                   }
