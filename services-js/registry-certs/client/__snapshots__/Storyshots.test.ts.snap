@@ -172,14 +172,14 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -199,7 +199,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -208,7 +208,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -728,14 +728,14 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -755,7 +755,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -764,7 +764,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -1108,14 +1108,14 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -1135,7 +1135,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -1144,7 +1144,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -1790,14 +1790,14 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -1817,7 +1817,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -1826,7 +1826,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -2527,14 +2527,14 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -2554,7 +2554,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -2563,7 +2563,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -2889,14 +2889,14 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -2916,7 +2916,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -2925,7 +2925,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -11465,14 +11465,14 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -11492,7 +11492,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -11501,7 +11501,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -12019,14 +12019,14 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -12046,7 +12046,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -12055,7 +12055,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -12721,14 +12721,14 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -12748,7 +12748,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -12757,7 +12757,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -13447,14 +13447,14 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -13474,7 +13474,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -13483,7 +13483,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -14386,14 +14386,14 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -14413,7 +14413,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -14422,7 +14422,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -15303,14 +15303,14 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -15330,7 +15330,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -15339,7 +15339,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -16357,14 +16357,14 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -16384,7 +16384,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -16393,7 +16393,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -17037,14 +17037,14 @@ exports[`Storyshots Common Components/Checkout/CheckoutPage server-side render 1
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -17064,7 +17064,7 @@ exports[`Storyshots Common Components/Checkout/CheckoutPage server-side render 1
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -17073,7 +17073,7 @@ exports[`Storyshots Common Components/Checkout/CheckoutPage server-side render 1
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -17387,14 +17387,14 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -17414,7 +17414,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -17423,7 +17423,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -18002,14 +18002,14 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -18029,7 +18029,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -18038,7 +18038,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -18540,14 +18540,14 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -18567,7 +18567,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -18576,7 +18576,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -19601,14 +19601,14 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -19628,7 +19628,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -19637,7 +19637,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -20681,14 +20681,14 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -20708,7 +20708,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -20717,7 +20717,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -21748,14 +21748,14 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -21775,7 +21775,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -21784,7 +21784,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -22293,14 +22293,14 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -22320,7 +22320,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -22329,7 +22329,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -22834,14 +22834,14 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -22861,7 +22861,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -22870,7 +22870,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -23914,14 +23914,14 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -23941,7 +23941,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -23950,7 +23950,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -25075,14 +25075,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -25102,7 +25102,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -25111,7 +25111,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -25845,14 +25845,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -25872,7 +25872,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -25881,7 +25881,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -26643,14 +26643,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -26670,7 +26670,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -26679,7 +26679,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -27414,14 +27414,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -27441,7 +27441,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -27450,7 +27450,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -28185,14 +28185,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -28212,7 +28212,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -28221,7 +28221,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -28987,14 +28987,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -29014,7 +29014,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -29023,7 +29023,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -29759,14 +29759,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -29786,7 +29786,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -29795,7 +29795,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -30573,14 +30573,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -30600,7 +30600,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -30609,7 +30609,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -31393,14 +31393,14 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -31420,7 +31420,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -31429,7 +31429,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -32212,14 +32212,14 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -32239,7 +32239,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -32248,7 +32248,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -33268,14 +33268,14 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -33295,7 +33295,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -33304,7 +33304,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -34277,14 +34277,14 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -34304,7 +34304,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -34313,7 +34313,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -35286,14 +35286,14 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -35313,7 +35313,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -35322,7 +35322,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -36355,14 +36355,14 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -36382,7 +36382,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -36391,7 +36391,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -48875,14 +48875,14 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -48902,7 +48902,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -48911,7 +48911,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -49317,14 +49317,14 @@ exports[`Storyshots Death/CartPage loading 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -49344,7 +49344,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -49353,7 +49353,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -49991,14 +49991,14 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -50018,7 +50018,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -50027,7 +50027,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -50807,14 +50807,14 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -50834,7 +50834,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -50843,7 +50843,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -51393,14 +51393,14 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -51420,7 +51420,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -51429,7 +51429,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -51917,14 +51917,14 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -51944,7 +51944,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -51953,7 +51953,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -52612,14 +52612,14 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -52639,7 +52639,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -52648,7 +52648,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -53307,14 +53307,14 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -53334,7 +53334,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -53343,7 +53343,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -53888,14 +53888,14 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -53915,7 +53915,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -53924,7 +53924,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -54709,14 +54709,14 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -54736,7 +54736,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -54745,7 +54745,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -55158,14 +55158,14 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -55185,7 +55185,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -55194,7 +55194,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -55646,14 +55646,14 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -55673,7 +55673,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -55682,7 +55682,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -61784,14 +61784,14 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -61811,7 +61811,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -61820,7 +61820,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -62315,14 +62315,14 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -62342,7 +62342,7 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -62351,7 +62351,7 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -62695,14 +62695,14 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -62722,7 +62722,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -62731,7 +62731,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -63377,14 +63377,14 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -63404,7 +63404,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -63413,7 +63413,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -64108,14 +64108,14 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -64135,7 +64135,7 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -64144,7 +64144,7 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -64470,14 +64470,14 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -64497,7 +64497,7 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -64506,7 +64506,7 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -73428,14 +73428,14 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -73455,7 +73455,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -73464,7 +73464,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -74027,14 +74027,14 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -74054,7 +74054,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -74063,7 +74063,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -74729,14 +74729,14 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -74756,7 +74756,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -74765,7 +74765,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -75510,14 +75510,14 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -75537,7 +75537,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -75546,7 +75546,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -76333,14 +76333,14 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -76360,7 +76360,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -76369,7 +76369,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -77350,14 +77350,14 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -77377,7 +77377,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -77386,7 +77386,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -78219,14 +78219,14 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -78246,7 +78246,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -78255,7 +78255,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -79272,14 +79272,14 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -79299,7 +79299,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -79308,7 +79308,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
