@@ -86,3 +86,8 @@ We also need to generate keys.
  1) Download `http://localhost:3000/metadata.xml` and
     `http://localhost:3000/metadata-forgot.xml` and send them to the IAM team.
 
+
+### Deploys
+
+- 2020.05.27: New App entry, PHIRE
+
