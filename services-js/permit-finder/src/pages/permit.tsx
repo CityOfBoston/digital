@@ -242,7 +242,7 @@ export default class PermitPage extends React.Component<Props, State> {
             <p className="t--s500 lh--300">{latestStep.description}</p>
           )}
 
-          <div
+          <ul
             className="m-b700"
             css={{
               display: 'flex',
@@ -256,7 +256,7 @@ export default class PermitPage extends React.Component<Props, State> {
 
             {permit.kind === PermitKind.FIRE &&
               this.renderFirePermitSteps(renderInfo, latestStepIdx)}
-          </div>
+          </ul>
 
           <div className="g m-v700">
             <div className="g--4 m-b500">
@@ -438,7 +438,7 @@ export default class PermitPage extends React.Component<Props, State> {
     );
 
     return (
-      <div
+      <li
         className="cdp m-t500"
         css={{
           marginLeft: '1rem',
@@ -508,7 +508,7 @@ export default class PermitPage extends React.Component<Props, State> {
             )}
           </div>
         </div>
-      </div>
+      </li>
     );
   }
 }

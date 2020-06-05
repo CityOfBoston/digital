@@ -754,10 +754,10 @@ Array [
             .
           </div>
           
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -782,8 +782,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -808,8 +808,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -834,8 +834,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -853,8 +853,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -872,8 +872,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -891,8 +891,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -916,8 +916,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -1248,10 +1248,10 @@ Array [
           >
             You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1276,8 +1276,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1302,8 +1302,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1328,8 +1328,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1347,8 +1347,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1372,8 +1372,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1397,8 +1397,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1416,8 +1416,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -1763,10 +1763,10 @@ Array [
           >
             Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1797,8 +1797,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1829,8 +1829,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1861,8 +1861,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1886,8 +1886,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1911,8 +1911,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1936,8 +1936,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -1955,8 +1955,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -2286,10 +2286,10 @@ Array [
           >
             Congratulations! Once you get your permit and make sure all fees are paid you will be ready to get to work. Please make sure your permit is posted in a visable location to make sure your commmunity knows your work is allowed.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2314,8 +2314,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2340,8 +2340,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2366,8 +2366,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2391,8 +2391,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2416,8 +2416,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2441,8 +2441,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2460,8 +2460,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -2795,10 +2795,10 @@ Array [
             </strong>
             .
           </div>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2829,8 +2829,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2861,8 +2861,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2893,8 +2893,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2918,8 +2918,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2943,8 +2943,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2968,8 +2968,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -2987,8 +2987,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -3318,10 +3318,10 @@ Array [
           >
             You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3346,8 +3346,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3372,8 +3372,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3398,8 +3398,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3417,8 +3417,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3436,8 +3436,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3461,8 +3461,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3480,8 +3480,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -3827,10 +3827,10 @@ Array [
           >
             Your project plan is under review by a plans examiner familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3855,8 +3855,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3887,8 +3887,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3919,8 +3919,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3944,8 +3944,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3969,8 +3969,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -3994,8 +3994,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4013,8 +4013,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -4360,10 +4360,10 @@ Array [
           >
             You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4388,8 +4388,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4414,8 +4414,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4446,8 +4446,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4471,8 +4471,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4496,8 +4496,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4521,8 +4521,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
             >
               <div
@@ -4540,8 +4540,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -4883,10 +4883,10 @@ Array [
             .
           </div>
           
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -4911,8 +4911,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -4937,8 +4937,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -4956,8 +4956,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -4975,8 +4975,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5000,8 +5000,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -5324,10 +5324,10 @@ Array [
           >
             Your application requires an on-site inspection to be processed further. 
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5352,8 +5352,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5378,8 +5378,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5397,8 +5397,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5422,8 +5422,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5441,8 +5441,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -5765,10 +5765,10 @@ Array [
           >
             Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5799,8 +5799,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5831,8 +5831,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5856,8 +5856,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5881,8 +5881,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -5900,8 +5900,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -6224,10 +6224,10 @@ Array [
           >
             Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6252,8 +6252,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6278,8 +6278,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6303,8 +6303,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6328,8 +6328,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6347,8 +6347,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -6659,10 +6659,10 @@ Array [
             </strong>
             .
           </div>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6693,8 +6693,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6725,8 +6725,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6750,8 +6750,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6775,8 +6775,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -6794,8 +6794,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -7118,10 +7118,10 @@ Array [
           >
             Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. 
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -7146,8 +7146,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -7178,8 +7178,8 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -7203,8 +7203,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -7228,8 +7228,8 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
             >
               <div
@@ -7247,8 +7247,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
