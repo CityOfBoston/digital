@@ -440,6 +440,7 @@ export default class PermitPage extends React.Component<Props, State> {
     return (
       <li
         className="cdp m-t500"
+        tabIndex={0}
         css={{
           marginLeft: '1rem',
           [MEDIA_SMALL]: { width: `calc(${100}% - 1rem)` },
