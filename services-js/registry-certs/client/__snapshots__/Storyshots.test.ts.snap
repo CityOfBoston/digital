@@ -591,18 +591,39 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -912,18 +933,39 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -1560,18 +1602,39 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -2390,18 +2453,39 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -2693,18 +2777,39 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -3809,18 +3914,39 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -11787,18 +11913,39 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -12310,18 +12457,39 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -13104,18 +13272,39 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -13924,18 +14113,39 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -14972,18 +15182,39 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -15962,18 +16193,39 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -16910,18 +17162,39 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -17191,18 +17464,39 @@ exports[`Storyshots Common Components/Checkout/CheckoutPage server-side render 1
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -17806,18 +18100,39 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -18396,18 +18711,39 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -19465,18 +19801,39 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -20485,18 +20842,39 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -21612,18 +21990,39 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -22157,18 +22556,39 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -22698,18 +23118,39 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -23718,18 +24159,39 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -24845,18 +25307,39 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -25675,18 +26158,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -26473,18 +26977,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -27244,18 +27769,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -28015,18 +28561,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -28757,18 +29324,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -29581,18 +30169,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -30395,18 +31004,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -31215,18 +31845,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -32016,18 +32667,39 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -33132,18 +33804,39 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -34141,18 +34834,39 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -35150,18 +35864,39 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -36159,18 +36894,39 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -37275,18 +38031,39 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -49096,18 +49873,39 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -49705,18 +50503,39 @@ exports[`Storyshots Death/CartPage loading 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -50526,18 +51345,39 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -51221,18 +52061,39 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -51636,18 +52497,39 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -52331,18 +53213,39 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -53026,18 +53929,39 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -53716,18 +54640,39 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -54160,18 +55105,39 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -54986,18 +55952,39 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -55424,18 +56411,39 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -56148,18 +57156,39 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -62178,18 +63207,39 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -62499,18 +63549,39 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -63147,18 +64218,39 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -63971,18 +65063,39 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -64274,18 +65387,39 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -65390,18 +66524,39 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -73795,18 +74950,39 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -74318,18 +75494,39 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -75118,18 +76315,39 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -75854,18 +77072,39 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -76871,18 +78110,39 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -77888,18 +79148,39 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -78877,18 +80158,39 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -79843,18 +81145,39 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
