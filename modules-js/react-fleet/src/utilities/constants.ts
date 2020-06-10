@@ -1,7 +1,4 @@
-// export const PUBLIC_CSS_URL = 'https://patterns.boston.gov/css/public.css';
-// export const PUBLIC_CSS_URL = 'http://10.0.0.172:8080/css/public.css';
-export const PUBLIC_CSS_URL =
-  'https://cob-digital-apps-staging-static.s3.amazonaws.com/patterns/staging/assets/css/public.css';
+export const PUBLIC_CSS_URL = 'https://patterns.boston.gov/css/public.css';
 export const WHITE = '#fff';
 export const BLACK = '#000';
 export const YELLOW = '#fcb61a';
