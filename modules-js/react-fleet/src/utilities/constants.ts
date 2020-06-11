@@ -1,4 +1,5 @@
-export const PUBLIC_CSS_URL = 'https://patterns.boston.gov/css/public.css';
+export const PUBLIC_CSS_URL =
+  'https://cob-patterns-staging.herokuapp.com/css/public.css';
 export const WHITE = '#fff';
 export const BLACK = '#000';
 export const YELLOW = '#fcb61a';
