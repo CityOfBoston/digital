@@ -94,14 +94,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -121,7 +121,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -130,7 +130,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -185,10 +185,10 @@ Array [
                   aria-label="Search box"
                   autoComplete="off"
                   autoFocus={true}
-                  className="sf-i-f css-v5307g"
+                  className="sf-i-f css-s39hkg"
                   name="id"
                   onChange={[Function]}
-                  placeholder="Permit number"
+                  placeholder="Permit #"
                   type="text"
                   value=""
                 />
@@ -226,18 +226,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -344,14 +365,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -371,7 +392,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -380,7 +401,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -435,10 +456,10 @@ Array [
                   aria-label="Search box"
                   autoComplete="off"
                   autoFocus={true}
-                  className="sf-i-f css-v5307g"
+                  className="sf-i-f css-s39hkg"
                   name="id"
                   onChange={[Function]}
-                  placeholder="Permit number"
+                  placeholder="Permit #"
                   type="text"
                   value="A50582"
                 />
@@ -481,18 +502,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -599,14 +641,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -626,7 +668,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -635,7 +677,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -712,11 +754,12 @@ Array [
             .
           </div>
           
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -740,9 +783,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -766,9 +810,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -792,9 +837,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -811,9 +857,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -830,9 +877,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -849,9 +897,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -874,8 +923,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -950,18 +999,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -1068,14 +1138,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -1095,7 +1165,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -1104,7 +1174,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -1185,11 +1255,12 @@ Array [
           >
             You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1213,9 +1284,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1239,9 +1311,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1265,9 +1338,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1284,9 +1358,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -1309,9 +1384,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1334,9 +1410,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1353,8 +1430,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -1444,18 +1521,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -1562,14 +1660,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -1589,7 +1687,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -1598,7 +1696,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -1679,11 +1777,12 @@ Array [
           >
             Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -1713,9 +1812,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1745,9 +1845,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1777,9 +1878,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1802,9 +1904,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1827,9 +1930,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1852,9 +1956,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -1871,8 +1976,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -1946,18 +2051,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -2064,14 +2190,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -2091,7 +2217,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -2100,7 +2226,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -2181,11 +2307,12 @@ Array [
           >
             Congratulations! Once you get your permit and make sure all fees are paid you will be ready to get to work. Please make sure your permit is posted in a visable location to make sure your commmunity knows your work is allowed.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2209,9 +2336,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2235,9 +2363,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2261,9 +2390,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -2286,9 +2416,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2311,9 +2442,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2336,9 +2468,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2355,8 +2488,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -2446,18 +2579,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -2564,14 +2718,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -2591,7 +2745,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -2600,7 +2754,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -2669,11 +2823,12 @@ Array [
             </strong>
             .
           </div>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2703,9 +2858,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2735,9 +2891,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2767,9 +2924,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2792,9 +2950,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2817,9 +2976,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2842,9 +3002,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -2861,8 +3022,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -2936,18 +3097,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -3054,14 +3236,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -3081,7 +3263,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -3090,7 +3272,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -3171,11 +3353,12 @@ Array [
           >
             You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3199,9 +3382,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3225,9 +3409,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3251,9 +3436,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3270,9 +3456,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3289,9 +3476,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -3314,9 +3502,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3333,8 +3522,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -3424,18 +3613,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -3542,14 +3752,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -3569,7 +3779,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -3578,7 +3788,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -3659,11 +3869,12 @@ Array [
           >
             Your project plan is under review by a plans examiner familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3687,9 +3898,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -3719,9 +3931,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3751,9 +3964,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3776,9 +3990,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3801,9 +4016,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3826,9 +4042,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -3845,8 +4062,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -3936,18 +4153,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -4054,14 +4292,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4081,7 +4319,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -4090,7 +4328,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -4171,11 +4409,12 @@ Array [
           >
             You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4199,9 +4438,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4225,9 +4465,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -4257,9 +4498,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4282,9 +4524,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4307,9 +4550,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4332,9 +4576,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1807s3c"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4351,8 +4596,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -4442,18 +4687,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -4560,14 +4826,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -4587,7 +4853,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -4596,7 +4862,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -4673,11 +4939,12 @@ Array [
             .
           </div>
           
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4701,9 +4968,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4727,9 +4995,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4746,9 +5015,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -4765,9 +5035,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -4790,8 +5061,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -4858,18 +5129,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -4976,14 +5268,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -5003,7 +5295,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -5012,7 +5304,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -5093,11 +5385,12 @@ Array [
           >
             Your application requires an on-site inspection to be processed further. 
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5121,9 +5414,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5147,9 +5441,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5166,9 +5461,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -5191,9 +5487,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5210,8 +5507,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -5278,18 +5575,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -5396,14 +5714,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -5423,7 +5741,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -5432,7 +5750,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -5513,11 +5831,12 @@ Array [
           >
             Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -5547,9 +5866,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5579,9 +5899,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5604,9 +5925,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5629,9 +5951,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5648,8 +5971,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -5716,18 +6039,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -5834,14 +6178,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -5861,7 +6205,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -5870,7 +6214,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -5951,11 +6295,12 @@ Array [
           >
             Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -5979,9 +6324,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6005,9 +6351,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -6030,9 +6377,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6055,9 +6403,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6074,8 +6423,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -6142,18 +6491,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -6260,14 +6630,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -6287,7 +6657,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -6296,7 +6666,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -6365,11 +6735,12 @@ Array [
             </strong>
             .
           </div>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6399,9 +6770,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6431,9 +6803,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6456,9 +6829,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6481,9 +6855,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6500,8 +6875,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -6568,18 +6943,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
@@ -6686,14 +7082,14 @@ Array [
 </label>
       <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Boston.gov\\" class=\\"lo-i\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
               <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
           </div>
   </div>
-    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"City of Boston Seal\\" class=\\"s-i\\">
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
     <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
@@ -6713,7 +7109,7 @@ Array [
     </li>
     <li class=\\"nv-h-l-i\\">
       <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
       </label>
     </li>
   </ul>
@@ -6722,7 +7118,7 @@ Array [
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
       <button class=\\"sf-i-b\\">Search</button>
     </div>
   </form>
@@ -6803,11 +7199,12 @@ Array [
           >
             Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. 
           </p>
-          <div
+          <ul
             className="m-b700 css-12jt1a3"
           >
-            <div
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6831,9 +7228,10 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-1jos7ho"
@@ -6863,9 +7261,10 @@ Array [
                   5/1/2019
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6888,9 +7287,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6913,9 +7313,10 @@ Array [
                    Not yet started
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               className="cdp m-t500 css-1dafioj"
+              tabIndex={0}
             >
               <div
                 className="ta-c t--upper t--sans t--w t--s100 p-a200 css-h6ie10"
@@ -6932,8 +7333,8 @@ Array [
                   className="css-1rr4qq7"
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
           <div
             className="g m-v700"
           >
@@ -7000,18 +7401,39 @@ Array [
     dangerouslySetInnerHTML={
       Object {
         "__html": "
-    <div class=\\"ft-c\\">
-      <ul class=\\"ft-ll ft-ll--r\\">
-        <li class=\\"ft-ll-i\\"><a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\"><span class=\\"ft-ll-311\\">BOS:311</span><span class=\\"tablet--hidden\\"> - </span>Report an issue</a></li>
-      </ul>
-      
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
 
-<ul class=\\"ft-ll\\"><li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a></li>
-<li class=\\"ft-ll-i\\"><a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a></li>
-</ul>    </div>
-  ",
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
       }
     }
     style={
