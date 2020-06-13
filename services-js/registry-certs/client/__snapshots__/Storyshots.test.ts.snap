@@ -16288,13 +16288,13 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   font-style: italic;
 }
 
-.emotion-25:after {
+.emotion-23:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-15 {
+.emotion-13 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -16306,19 +16306,19 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   width: 1px;
 }
 
-.emotion-17 {
+.emotion-15 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-24 {
+.emotion-22 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-23 {
+.emotion-21 {
   font-size: 80%;
 }
 
@@ -16342,71 +16342,16 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   font-size: 1rem;
 }
 
-.emotion-26 {
+.emotion-24 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
 
-.emotion-7 > .details-content {
-  display: none;
+.emotion-5 ol li {
+  padding-bottom: 0.7em;
 }
 
-.emotion-7 button {
-  cursor: pointer;
-}
-
-.emotion-7 button svg {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  -webkit-transition: -webkit-transform 0.15s;
-  -webkit-transition: transform 0.15s;
-  transition: transform 0.15s;
-}
-
-.emotion-7 button:hover {
-  color: #1871bd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-7 button[aria-expanded="true"] svg {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-
-.emotion-7 button[aria-expanded="true"] ~ .details-content {
-  display: block;
-}
-
-.emotion-6 {
-  background-color: transparent;
-  color: inherit;
-  border: none;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  font-family: inherit;
-  font-size: inherit;
-  text-align: inherit;
-}
-
-.emotion-5 {
-  width: 0.7em;
-  height: 0.7em;
-  margin-right: 0.4em;
-  color: #1871bd;
-}
-
-.emotion-5 path {
-  fill: currentColor;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linejoin: round;
-}
-
-.emotion-14 {
+.emotion-12 {
   border-bottom: 1px solid #e0e0e0;
   border-top: 1px solid #e0e0e0;
   padding-bottom: 0.5em;
@@ -16423,20 +16368,20 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   align-items: center;
 }
 
-.emotion-14 > div:first-of-type {
+.emotion-12 > div:first-of-type {
   -webkit-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
   flex-basis: 25%;
 }
 
-.emotion-10 {
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-8 {
+.emotion-6 {
   -moz-appearance: textfield;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -16444,32 +16389,32 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   flex-grow: 1;
 }
 
-.emotion-8::-webkit-inner-spin-button {
+.emotion-6::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-8 {
+  .emotion-6 {
     width: 70px;
     border-right: 0;
   }
 }
 
-.emotion-9 {
+.emotion-7 {
   display: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-9 {
+  .emotion-7 {
     display: block;
   }
 }
 
-.emotion-9:after {
+.emotion-7:after {
   content: 'Qty';
 }
 
-.emotion-13 {
+.emotion-11 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -16477,12 +16422,12 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .emotion-13 {
+  .emotion-11 {
     margin-left: 0.75rem;
   }
 }
 
-.emotion-11 {
+.emotion-9 {
   font-style: normal;
   font-weight: bold;
   -webkit-letter-spacing: 1.4px;
@@ -16491,26 +16436,26 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
   letter-spacing: 1.4px;
 }
 
-.emotion-12 {
+.emotion-10 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-style: italic;
 }
 
-.emotion-12 > span {
+.emotion-10 > span {
   display: block;
 }
 
-.emotion-20 {
+.emotion-18 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-19:after {
+.emotion-17:after {
   width: 2rem;
 }
 
-.emotion-18 {
+.emotion-16 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -16790,62 +16735,39 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
             >
               Review your record request
             </h2>
-            <p>
-              You can only order copies of one person’s birth certificate at a time. If you want to buy copies of a certificate for another person, you need to do a separate transaction.
-            </p>
             <div
-              className="emotion-7"
-              id={2889438462}
+              className="emotion-5"
             >
-              <button
-                aria-controls="2889438462-content"
-                aria-expanded={false}
-                className="emotion-6"
-                onClick={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="emotion-5"
-                  focusable="false"
-                  overflow="visible"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M 2,5 10,20 18,5 Z"
-                  />
-                </svg>
-                Are you requesting a certificate for international use that requires an Apostille from the Massachusetts Secretary of State?
-              </button>
-              <div
-                className="details-content"
-                id="2889438462-content"
-              >
-                <p>
-                  You need to have a hand signature from the Registry. After you finish your order, please email birth@boston.gov with:
-                </p>
-                <ul>
-                  <li>
-                    the name of the person on the record
-                  </li>
-                  <li>
-                    their date of birth, and
-                  </li>
-                  <li>
-                    let us know that you need the signature for an Apostille.
-                  </li>
-                </ul>
-              </div>
+              <p>
+                You can only order copies of one person's birth certificate at a time. Want to order copies of a certificate for another person? Please put in a separate request.
+              </p>
+              <p>
+                Do you need a certificate for international use that requires an Apostille from the Massachusetts Secretary of State's Office? Follow these steps:
+              </p>
+              <ol>
+                <li>
+                  Request a certified birth certificate from the City of Boston Registry. You don’t need extra information or paperwork.
+                </li>
+                <li>
+                  Submit the certificate to the
+                  <a
+                    href="https://www.sec.state.ma.us/pre/precom/comidx.htm"
+                  >
+                    Massachusetts Secretary of State's Office
+                  </a>
+                  .
+                </li>
+              </ol>
             </div>
             <div
-              className="emotion-14"
+              className="emotion-12"
             >
               <div
-                className="emotion-10"
+                className="emotion-8"
               >
                 <input
                   aria-label="Quantity"
-                  className="txt-f txt-f--auto ta-r emotion-8"
+                  className="txt-f txt-f--auto ta-r emotion-6"
                   min="1"
                   name="quantity"
                   onBlur={[Function]}
@@ -16856,7 +16778,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 />
                 <div
                   aria-hidden="true"
-                  className="sel-c sel-c--sq emotion-9"
+                  className="sel-c sel-c--sq emotion-7"
                 >
                   <select
                     className="sel-f sel-f--sq"
@@ -16928,15 +16850,15 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 </div>
               </div>
               <div
-                className="t--sans emotion-13"
+                className="t--sans emotion-11"
               >
                 <div
-                  className="emotion-11"
+                  className="emotion-9"
                 >
                   Carol Danvers
                 </div>
                 <div
-                  className="emotion-12"
+                  className="emotion-10"
                 >
                   <span>
                     Birth
@@ -16949,7 +16871,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               </div>
             </div>
             <div
-              className="emotion-25"
+              className="emotion-23"
             >
               <table
                 className="t--info ta-r"
@@ -16960,12 +16882,12 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 }
               >
                 <caption
-                  className="emotion-15"
+                  className="emotion-13"
                 >
                   Cost Summary
                 </caption>
                 <thead
-                  className="emotion-15"
+                  className="emotion-13"
                 >
                   <tr>
                     <th
@@ -16991,7 +16913,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                       $14.00
                     </td>
                     <td
-                      className="emotion-17"
+                      className="emotion-15"
                     >
                       $
                       14.00
@@ -17001,14 +16923,14 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                     <td>
                       <div>
                         <div
-                          className="sel sel--thin emotion-20"
+                          className="sel sel--thin emotion-18"
                         >
                           <div
-                            className="sel-c  emotion-19"
+                            className="sel-c  emotion-17"
                           >
                             <select
                               aria-label="Payment type"
-                              className="sel-f emotion-18"
+                              className="sel-f emotion-16"
                               id="serviceFeeTypeSelect"
                               onChange={[Function]}
                               value="CREDIT"
@@ -17038,7 +16960,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                       </div>
                     </td>
                     <td
-                      className="emotion-17"
+                      className="emotion-15"
                     >
                       $
                       0.56
@@ -17049,7 +16971,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                       U.S. shipping included
                     </td>
                     <td
-                      className="emotion-17"
+                      className="emotion-15"
                     >
                       <i>
                         $0.00
@@ -17058,10 +16980,10 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                   </tr>
                   <tr>
                     <td
-                      className="sh-title emotion-24"
+                      className="sh-title emotion-22"
                     >
                       <span
-                        className="emotion-23"
+                        className="emotion-21"
                       >
                         Total
                       </span>
@@ -17083,7 +17005,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
                 className="g--9 t--info"
               >
                 <button
-                  className="lnk emotion-26"
+                  className="lnk emotion-24"
                   onClick={[Function]}
                   type="button"
                 >
@@ -80243,13 +80165,13 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   font-style: italic;
 }
 
-.emotion-25:after {
+.emotion-23:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-15 {
+.emotion-13 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -80261,19 +80183,19 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   width: 1px;
 }
 
-.emotion-17 {
+.emotion-15 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-24 {
+.emotion-22 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-23 {
+.emotion-21 {
   font-size: 80%;
 }
 
@@ -80297,71 +80219,16 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   font-size: 1rem;
 }
 
-.emotion-26 {
+.emotion-24 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
 
-.emotion-7 > .details-content {
-  display: none;
+.emotion-5 ol li {
+  padding-bottom: 0.7em;
 }
 
-.emotion-7 button {
-  cursor: pointer;
-}
-
-.emotion-7 button svg {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-  -webkit-transition: -webkit-transform 0.15s;
-  -webkit-transition: transform 0.15s;
-  transition: transform 0.15s;
-}
-
-.emotion-7 button:hover {
-  color: #1871bd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-7 button[aria-expanded="true"] svg {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-
-.emotion-7 button[aria-expanded="true"] ~ .details-content {
-  display: block;
-}
-
-.emotion-6 {
-  background-color: transparent;
-  color: inherit;
-  border: none;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  font-family: inherit;
-  font-size: inherit;
-  text-align: inherit;
-}
-
-.emotion-5 {
-  width: 0.7em;
-  height: 0.7em;
-  margin-right: 0.4em;
-  color: #1871bd;
-}
-
-.emotion-5 path {
-  fill: currentColor;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linejoin: round;
-}
-
-.emotion-14 {
+.emotion-12 {
   border-bottom: 1px solid #e0e0e0;
   border-top: 1px solid #e0e0e0;
   padding-bottom: 0.5em;
@@ -80378,20 +80245,20 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   align-items: center;
 }
 
-.emotion-14 > div:first-of-type {
+.emotion-12 > div:first-of-type {
   -webkit-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
   flex-basis: 25%;
 }
 
-.emotion-10 {
+.emotion-8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-8 {
+.emotion-6 {
   -moz-appearance: textfield;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -80399,32 +80266,32 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   flex-grow: 1;
 }
 
-.emotion-8::-webkit-inner-spin-button {
+.emotion-6::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-8 {
+  .emotion-6 {
     width: 70px;
     border-right: 0;
   }
 }
 
-.emotion-9 {
+.emotion-7 {
   display: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-9 {
+  .emotion-7 {
     display: block;
   }
 }
 
-.emotion-9:after {
+.emotion-7:after {
   content: 'Qty';
 }
 
-.emotion-13 {
+.emotion-11 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -80432,12 +80299,12 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
 }
 
 @media screen and (min-width:768px) {
-  .emotion-13 {
+  .emotion-11 {
     margin-left: 0.75rem;
   }
 }
 
-.emotion-11 {
+.emotion-9 {
   font-style: normal;
   font-weight: bold;
   -webkit-letter-spacing: 1.4px;
@@ -80446,26 +80313,26 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
   letter-spacing: 1.4px;
 }
 
-.emotion-12 {
+.emotion-10 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-style: italic;
 }
 
-.emotion-12 > span {
+.emotion-10 > span {
   display: block;
 }
 
-.emotion-20 {
+.emotion-18 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-19:after {
+.emotion-17:after {
   width: 2rem;
 }
 
-.emotion-18 {
+.emotion-16 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -80755,62 +80622,39 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
             >
               Review your record request
             </h2>
-            <p>
-              You can only order copies of one marriage certificate at a time. If you want to buy copies of a certificate for a different marriage, you need to do a separate transaction.
-            </p>
             <div
-              className="emotion-7"
-              id={2889438462}
+              className="emotion-5"
             >
-              <button
-                aria-controls="2889438462-content"
-                aria-expanded={false}
-                className="emotion-6"
-                onClick={[Function]}
-                type="button"
-              >
-                <svg
-                  aria-hidden="true"
-                  className="emotion-5"
-                  focusable="false"
-                  overflow="visible"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M 2,5 10,20 18,5 Z"
-                  />
-                </svg>
-                Are you requesting a certificate for international use that requires an Apostille from the Massachusetts Secretary of State?
-              </button>
-              <div
-                className="details-content"
-                id="2889438462-content"
-              >
-                <p>
-                  You need to have a hand signature from the Registry. After you finish your order, please email marriage@boston.gov with:
-                </p>
-                <ul>
-                  <li>
-                    the names of the people on the record
-                  </li>
-                  <li>
-                    the date of marriage, and
-                  </li>
-                  <li>
-                    let us know that you need the signature for an Apostille.
-                  </li>
-                </ul>
-              </div>
+              <p>
+                You can only order copies of a marriage certificate for one couple at a time. Want to order copies of a certificate for a different marriage? Please put in a separate request.
+              </p>
+              <p>
+                Do you need a certificate for international use that requires an Apostille from the Massachusetts Secretary of State's Office? Follow these steps:
+              </p>
+              <ol>
+                <li>
+                  Request a certified birth certificate from the City of Boston Registry. You don’t need extra information or paperwork.
+                </li>
+                <li>
+                  Submit the certificate to the
+                  <a
+                    href="https://www.sec.state.ma.us/pre/precom/comidx.htm"
+                  >
+                    Massachusetts Secretary of State's Office
+                  </a>
+                  .
+                </li>
+              </ol>
             </div>
             <div
-              className="emotion-14"
+              className="emotion-12"
             >
               <div
-                className="emotion-10"
+                className="emotion-8"
               >
                 <input
                   aria-label="Quantity"
-                  className="txt-f txt-f--auto ta-r emotion-8"
+                  className="txt-f txt-f--auto ta-r emotion-6"
                   min="1"
                   name="quantity"
                   onBlur={[Function]}
@@ -80821,7 +80665,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                 />
                 <div
                   aria-hidden="true"
-                  className="sel-c sel-c--sq emotion-9"
+                  className="sel-c sel-c--sq emotion-7"
                 >
                   <select
                     className="sel-f sel-f--sq"
@@ -80893,15 +80737,15 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                 </div>
               </div>
               <div
-                className="t--sans emotion-13"
+                className="t--sans emotion-11"
               >
                 <div
-                  className="emotion-11"
+                  className="emotion-9"
                 >
                   Laurel Johnson (Laurel Smith) & Terry Johnson (Terry Doe)
                 </div>
                 <div
-                  className="emotion-12"
+                  className="emotion-10"
                 >
                   <span>
                     Marriage
@@ -80914,7 +80758,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
               </div>
             </div>
             <div
-              className="emotion-25"
+              className="emotion-23"
             >
               <table
                 className="t--info ta-r"
@@ -80925,12 +80769,12 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                 }
               >
                 <caption
-                  className="emotion-15"
+                  className="emotion-13"
                 >
                   Cost Summary
                 </caption>
                 <thead
-                  className="emotion-15"
+                  className="emotion-13"
                 >
                   <tr>
                     <th
@@ -80956,7 +80800,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                       $14.00
                     </td>
                     <td
-                      className="emotion-17"
+                      className="emotion-15"
                     >
                       $
                       14.00
@@ -80966,14 +80810,14 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                     <td>
                       <div>
                         <div
-                          className="sel sel--thin emotion-20"
+                          className="sel sel--thin emotion-18"
                         >
                           <div
-                            className="sel-c  emotion-19"
+                            className="sel-c  emotion-17"
                           >
                             <select
                               aria-label="Payment type"
-                              className="sel-f emotion-18"
+                              className="sel-f emotion-16"
                               id="serviceFeeTypeSelect"
                               onChange={[Function]}
                               value="CREDIT"
@@ -81003,7 +80847,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                       </div>
                     </td>
                     <td
-                      className="emotion-17"
+                      className="emotion-15"
                     >
                       $
                       0.56
@@ -81014,7 +80858,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                       U.S. shipping included
                     </td>
                     <td
-                      className="emotion-17"
+                      className="emotion-15"
                     >
                       <i>
                         $0.00
@@ -81023,10 +80867,10 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                   </tr>
                   <tr>
                     <td
-                      className="sh-title emotion-24"
+                      className="sh-title emotion-22"
                     >
                       <span
-                        className="emotion-23"
+                        className="emotion-21"
                       >
                         Total
                       </span>
@@ -81066,7 +80910,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                 className="g--9 t--info"
               >
                 <button
-                  className="lnk emotion-26"
+                  className="lnk emotion-24"
                   onClick={[Function]}
                   type="button"
                 >

@@ -8,8 +8,6 @@ import Head from 'next/head';
 
 import { observer } from 'mobx-react';
 
-import { DetailsDisclosure } from '@cityofboston/react-fleet';
-
 import { PageDependencies } from '../../pages/_app';
 
 import PageWrapper from '../PageWrapper';
@@ -18,7 +16,10 @@ import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
 
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
-import { SECTION_HEADING_STYLING } from '../common/question-components/styling';
+import {
+  SECTION_HEADING_STYLING,
+  DISCLAIMER_STYLING,
+} from '../common/question-components/styling';
 
 interface Props extends Pick<PageDependencies, 'marriageCertificateRequest'> {}
 
@@ -55,28 +56,32 @@ export default class ReviewRequestPage extends Component<Props> {
           certificateType="marriage"
           certificateRequest={this.props.marriageCertificateRequest}
         >
-          <p>
-            You can only order copies of one marriage certificate at a time. If
-            you want to buy copies of a certificate for a different marriage,
-            you need to do a separate transaction.
-          </p>
-
-          <DetailsDisclosure
-            summaryContent="Are you requesting a certificate for international use that requires an
-      Apostille from the Massachusetts Secretary of State?"
-            id="apostille"
-          >
+          <div css={DISCLAIMER_STYLING}>
             <p>
-              You need to have a hand signature from the Registry. After you
-              finish your order, please email marriage@boston.gov with:
+              You can only order copies of a marriage certificate for one couple
+              at a time. Want to order copies of a certificate for a different
+              marriage? Please put in a separate request.
             </p>
 
-            <ul>
-              <li>the names of the people on the record</li>
-              <li>the date of marriage, and</li>
-              <li>let us know that you need the signature for an Apostille.</li>
-            </ul>
-          </DetailsDisclosure>
+            <p>
+              Do you need a certificate for international use that requires an
+              Apostille from the Massachusetts Secretary of State's Office?
+              Follow these steps:
+            </p>
+            <ol>
+              <li>
+                Request a certified birth certificate from the City of Boston
+                Registry. You don’t need extra information or paperwork.
+              </li>
+              <li>
+                Submit the certificate to the
+                <a href="https://www.sec.state.ma.us/pre/precom/comidx.htm">
+                  Massachusetts Secretary of State's Office
+                </a>
+                .
+              </li>
+            </ol>
+          </div>
         </ReviewCertificateRequest>
       </PageWrapper>
     );
