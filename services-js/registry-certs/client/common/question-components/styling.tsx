@@ -38,6 +38,12 @@ export const SECTION_HEADING_STYLING = css({
   },
 });
 
+export const DISCLAIMER_STYLING = css({
+  'ol li': {
+    paddingBottom: '0.7em',
+  },
+});
+
 export const RADIOGROUP_STYLING = css({
   margin: '2rem 0 3rem',
 
