@@ -67,3 +67,4 @@ Don’t forget to re-compile the JS when you change it.
 
 #### Deploys
 - 2020.06.16: Restart deploy 1
+- 2020.06.16: Restart deploy 2
