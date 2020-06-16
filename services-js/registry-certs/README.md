@@ -63,3 +63,7 @@ Next.js’s hot-reloading dev mode is not supported in IE11. You will need to ru
 `USE_BUILD` environment variable set.
 
 Don’t forget to re-compile the JS when you change it.
+
+
+#### Deploys
+- 2020.06.16: Restart deploy 1
