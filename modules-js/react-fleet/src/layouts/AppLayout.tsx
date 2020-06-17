@@ -51,33 +51,6 @@ export default function AppLayout({
             <div className="p-t300">{breadcrumbNav}</div>
           )}
 
-          <div
-            role="article"
-            about="/city-boston-technical-issues"
-            className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
-          >
-            <div className="b-c b-c--xsmv fyi--dark-blue">
-              <div className="fyi-c">
-                <div className="fyi-t fyi-t--dark-blue">
-                  <div>
-                    <div className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items">
-                      <div>CITY OF BOSTON TECHNICAL ISSUES</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="fyi-s fyi-s--dark-blue">/</div>
-
-                <div className="fyi-d fyi-d--dark-blue">
-                  We're currently experiencing technical issues with some of our
-                  systems, including our applications for ordering birth,
-                  marriage, and death certificates. We're working to resolve
-                  these issues now.
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div id="content-start" className="a11y--content-start" />
 
           <main className="b-ff">{children}</main>
