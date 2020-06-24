@@ -17,6 +17,7 @@ import {
 
 import BirthCertificateRequest from '../client/store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../client/store/MarriageCertificateRequest';
+import MarriageIntentionCertificateRequest from '../client/store/MarriageIntentionCertificateRequest';
 import DeathCertificateCart from '../client/store/DeathCertificateCart';
 
 import OrderProvider from '../client/store/OrderProvider';
@@ -79,6 +80,7 @@ export interface PageDependencies extends GetInitialPropsDependencies {
   checkoutDao: CheckoutDao;
   birthCertificateRequest: BirthCertificateRequest;
   marriageCertificateRequest: MarriageCertificateRequest;
+  marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
   deathCertificateCart: DeathCertificateCart;
   screenReaderSupport: ScreenReaderSupport;
   routerListener: RouterListener;
@@ -155,6 +157,7 @@ export default class RegistryCertsApp extends App {
 
     const birthCertificateRequest = new BirthCertificateRequest();
     const marriageCertificateRequest = new MarriageCertificateRequest();
+    const marriageIntentionCertificateRequest = new MarriageIntentionCertificateRequest();
     const deathCertificateCart = new DeathCertificateCart();
     const orderProvider = new OrderProvider();
     const siteAnalytics = new GaSiteAnalytics();
@@ -179,6 +182,7 @@ export default class RegistryCertsApp extends App {
       siteAnalytics,
       birthCertificateRequest,
       marriageCertificateRequest,
+      marriageIntentionCertificateRequest,
       deathCertificateCart,
       orderProvider,
     };
@@ -194,6 +198,7 @@ export default class RegistryCertsApp extends App {
       deathCertificatesDao,
       birthCertificateRequest,
       marriageCertificateRequest,
+      marriageIntentionCertificateRequest,
     } = this.pageDependencies;
 
     screenReaderSupport.attach();
@@ -232,9 +237,11 @@ export default class RegistryCertsApp extends App {
       // itself with.
       const newBirthCertificateRequest = birthCertificateRequest.clone();
       const newMarriageCertificateRequest = marriageCertificateRequest.clone();
+      const newMarriageIntentionCertificateRequest = marriageIntentionCertificateRequest.clone();
 
       newBirthCertificateRequest.attach(sessionStorage);
       newMarriageCertificateRequest.attach(sessionStorage);
+      newMarriageIntentionCertificateRequest.attach(sessionStorage);
 
       // We need to re-render our children because the
       // birthCertificateRequest/marriageCertificateRequest changed. Since
@@ -242,6 +249,7 @@ export default class RegistryCertsApp extends App {
       // to use state or MobX and just force the update.
       this.pageDependencies.birthCertificateRequest = newBirthCertificateRequest;
       this.pageDependencies.marriageCertificateRequest = newMarriageCertificateRequest;
+      this.pageDependencies.marriageIntentionCertificateRequest = newMarriageIntentionCertificateRequest;
 
       (this as App).forceUpdate();
     }
@@ -262,6 +270,7 @@ export default class RegistryCertsApp extends App {
       orderProvider,
       birthCertificateRequest,
       marriageCertificateRequest,
+      marriageIntentionCertificateRequest,
     } = this.pageDependencies;
 
     routerListener.detach();
@@ -269,6 +278,7 @@ export default class RegistryCertsApp extends App {
     orderProvider.detach();
     birthCertificateRequest.detach();
     marriageCertificateRequest.detach();
+    marriageIntentionCertificateRequest.detach();
   }
 
   render() {

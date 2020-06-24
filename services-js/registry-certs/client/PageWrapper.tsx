@@ -15,7 +15,7 @@ import PageLayout from './PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../lib/breadcrumbs';
 
-type CertificateRequestType = 'birth' | 'marriage';
+type CertificateRequestType = 'birth' | 'marriage' | 'marriageIntention';
 
 export interface Progress {
   totalSteps: number;

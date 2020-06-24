@@ -35,6 +35,8 @@ export type Relation =
   | 'other'
   | '';
 
+export type DisclaimerOpts = 'accepted' | '';
+
 export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
 
 // Death-specific
@@ -67,6 +69,12 @@ export type BirthQuestion =
   | 'parentsLivedInBoston'
   | 'howRelated';
 
+export type MarriageIntentionQuestion =
+  | 'disclaimer'
+  | 'partyAForm'
+  | 'partyBForm'
+  | 'reviewForm';
+
 export type BirthStep =
   | 'forWhom'
   | 'clientInstructions'
@@ -78,6 +86,12 @@ export type BirthStep =
   | 'shippingInformation'
   | 'billingInformation'
   | 'submitRequest';
+
+export type MarriageIntentionStep =
+  | 'disclaimer'
+  | 'partyAForm'
+  | 'partyBForm'
+  | 'reviewForm';
 
 // Marriage-specific
 export type MarriageQuestion =
@@ -102,6 +116,15 @@ export type MarriageStep =
   | 'shippingInformation'
   | 'billingInformation'
   | 'submitRequest';
+
+export type MarriageIntentionRequestInformation = {
+  disclaimer: boolean | null;
+  reviewForm: boolean | null;
+  personAFirstName: string;
+  personBFirstName: string;
+  personALastName: string;
+  personBLastName: string;
+};
 
 export type BirthCertificateRequestInformation = {
   forSelf: boolean | null;
@@ -144,4 +167,15 @@ export type MarriageCertificateRequestInformation = {
   idImageFront?: UploadableFile | null;
   idImageBack?: UploadableFile | null;
   supportingDocuments: UploadableFile[];
+};
+
+export type MarriageIntentionCertificateRequestInformation = {
+  disclaimer: boolean | null;
+  // reviewForm: boolean | null;
+  personAFirstName: string;
+  personBFirstName: string;
+  personALastName: string;
+  personBLastName: string;
+  // personABirthDate?: Date | null;
+  // personBBirthDate?: Date | null;
 };
