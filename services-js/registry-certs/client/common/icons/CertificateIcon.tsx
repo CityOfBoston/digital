@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/core';
 import { CHARLES_BLUE, WHITE } from '@cityofboston/react-fleet';
 
 interface Props {
-  name: 'birth' | 'marriage';
+  name: 'birth' | 'marriage' | 'marriage-intention';
 }
 
 export default function CertificateIcon(props: Props) {

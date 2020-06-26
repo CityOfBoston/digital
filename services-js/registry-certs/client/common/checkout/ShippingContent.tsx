@@ -10,6 +10,7 @@ import { runInitialValidation } from './formik-util';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import Order, { OrderInfo } from '../../models/Order';
@@ -36,6 +37,11 @@ export type Props = {
   | {
       certificateType: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
+      progress: Progress;
+    }
+  | {
+      certificateType: 'marriage-intention';
+      marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
       progress: Progress;
     });
 

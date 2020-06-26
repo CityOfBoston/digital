@@ -4,6 +4,7 @@ import {
   LookupDeathCertificateOrder,
   SubmitDeathCertificateOrder_submitDeathCertificateOrder,
   SubmitBirthCertificateOrder_submitBirthCertificateOrder,
+  SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder,
   SubmitMarriageCertificateOrder_submitMarriageCertificateOrder,
 } from './queries/graphql-types';
 
@@ -23,7 +24,11 @@ export type JSONObject = {
 
 export interface JSONArray extends Array<JSONValue> {}
 
-export type CertificateType = 'death' | 'birth' | 'marriage';
+export type CertificateType =
+  | 'death'
+  | 'birth'
+  | 'marriage'
+  | 'marriage-intention';
 
 export type Relation =
   | 'spouse'
@@ -53,6 +58,7 @@ export interface DeathCertificateOrder
 
 export type DeathCertificateOrderResult = SubmitDeathCertificateOrder_submitDeathCertificateOrder;
 export type BirthCertificateOrderResult = SubmitBirthCertificateOrder_submitBirthCertificateOrder;
+export type MarriageIntentionCertificateOrderResult = SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder;
 export type MarriageCertificateOrderResult = SubmitMarriageCertificateOrder_submitMarriageCertificateOrder;
 
 // Birth-specific
@@ -67,7 +73,31 @@ export type BirthQuestion =
   | 'parentsLivedInBoston'
   | 'howRelated';
 
+// Marriage-Intention-specific
+export type MarriageIntentionQuestion =
+  | 'forSelf'
+  | 'bornInBoston'
+  | 'nameOnRecord'
+  | 'birthDate'
+  | 'parentsMarried'
+  | 'parentsNames'
+  | 'reviewRequest'
+  | 'parentsLivedInBoston'
+  | 'howRelated';
+
 export type BirthStep =
+  | 'forWhom'
+  | 'clientInstructions'
+  | 'bornInBoston'
+  | 'personalInformation'
+  | 'parentalInformation'
+  | 'verifyIdentification'
+  | 'reviewRequest'
+  | 'shippingInformation'
+  | 'billingInformation'
+  | 'submitRequest';
+
+export type MarriageIntentionStep =
   | 'forWhom'
   | 'clientInstructions'
   | 'bornInBoston'
@@ -104,6 +134,27 @@ export type MarriageStep =
   | 'submitRequest';
 
 export type BirthCertificateRequestInformation = {
+  forSelf: boolean | null;
+  howRelated?: Relation;
+  bornInBoston: YesNoUnknownAnswer;
+  parentsLivedInBoston?: YesNoUnknownAnswer;
+  firstName: string;
+  lastName: string;
+  altSpelling: string;
+  birthDate?: Date | null;
+  parentsMarried: YesNoUnknownAnswer;
+  parent1FirstName: string;
+  parent1LastName: string;
+  parent2FirstName: string;
+  parent2LastName: string;
+
+  // only required if parentsMarried !== true:
+  idImageFront?: UploadableFile | null;
+  idImageBack?: UploadableFile | null;
+  supportingDocuments: UploadableFile[];
+};
+
+export type MarriageIntentionCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
   bornInBoston: YesNoUnknownAnswer;

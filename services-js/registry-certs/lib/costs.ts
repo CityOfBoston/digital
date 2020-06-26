@@ -4,12 +4,16 @@ export const CERTIFICATE_COST = {
   BIRTH: 14 * 100,
   DEATH: 14 * 100,
   MARRIAGE: 14 * 100,
+  MARRIAGE_INTENTION: 14 * 100,
 };
 
 export const CERTIFICATE_COST_STRING = {
   BIRTH: certificateCostString(CERTIFICATE_COST.BIRTH),
   DEATH: certificateCostString(CERTIFICATE_COST.DEATH),
   MARRIAGE: certificateCostString(CERTIFICATE_COST.MARRIAGE),
+  MARRIAGE_INTENTION: certificateCostString(
+    CERTIFICATE_COST.MARRIAGE_INTENTION
+  ),
 };
 
 // Per-transaction fee for records dated before 1870.

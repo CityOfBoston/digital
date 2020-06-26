@@ -16,6 +16,7 @@ import {
 } from '@cityofboston/next-client-common';
 
 import BirthCertificateRequest from '../client/store/BirthCertificateRequest';
+import MarriageIntentionCertificateRequest from '../client/store/MarriageIntentionCertificateRequest';
 import MarriageCertificateRequest from '../client/store/MarriageCertificateRequest';
 import DeathCertificateCart from '../client/store/DeathCertificateCart';
 
@@ -78,6 +79,7 @@ export interface PageDependencies extends GetInitialPropsDependencies {
   stripe: stripe.Stripe | null;
   checkoutDao: CheckoutDao;
   birthCertificateRequest: BirthCertificateRequest;
+  marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
   marriageCertificateRequest: MarriageCertificateRequest;
   deathCertificateCart: DeathCertificateCart;
   screenReaderSupport: ScreenReaderSupport;
@@ -154,6 +156,7 @@ export default class RegistryCertsApp extends App {
     const initialPageDependencies = getInitialPageDependencies();
 
     const birthCertificateRequest = new BirthCertificateRequest();
+    const marriageIntentionCertificateRequest = new MarriageIntentionCertificateRequest();
     const marriageCertificateRequest = new MarriageCertificateRequest();
     const deathCertificateCart = new DeathCertificateCart();
     const orderProvider = new OrderProvider();
@@ -178,6 +181,7 @@ export default class RegistryCertsApp extends App {
       screenReaderSupport: new ScreenReaderSupport(),
       siteAnalytics,
       birthCertificateRequest,
+      marriageIntentionCertificateRequest,
       marriageCertificateRequest,
       deathCertificateCart,
       orderProvider,

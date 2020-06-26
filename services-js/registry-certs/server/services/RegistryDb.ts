@@ -20,9 +20,10 @@ export enum OrderType {
   DeathCertificate = 'DC',
   BirthCertificate = 'BC',
   MarriageCertificate = 'MC',
+  MarriageIntentionCertificate = 'MIC',
 }
 
-type RestrictedOrderType = 'BC' | 'MC';
+type RestrictedOrderType = 'BC' | 'MC' | 'MIC';
 
 export interface DeathCertificate {
   CertificateID: number;

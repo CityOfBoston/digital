@@ -328,6 +328,56 @@ export interface SubmitMarriageCertificateOrderVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL mutation operation: SubmitMarriageIntentionCertificateOrder
+// ====================================================
+
+export interface SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder_order {
+  id: string;
+}
+
+export interface SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder_error {
+  message: string;
+  cause: OrderErrorCause;
+}
+
+export interface SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder {
+  order: SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder_order | null;
+  error: SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder_error | null;
+}
+
+export interface SubmitMarriageIntentionCertificateOrder {
+  submitMarriageIntentionCertificateOrder: SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder;
+}
+
+export interface SubmitMarriageIntentionCertificateOrderVariables {
+  contactName: string;
+  contactEmail: string;
+  contactPhone: string;
+  shippingName: string;
+  shippingCompanyName: string;
+  shippingAddress1: string;
+  shippingAddress2: string;
+  shippingCity: string;
+  shippingState: string;
+  shippingZip: string;
+  cardToken: string;
+  cardLast4: string;
+  cardholderName: string;
+  billingAddress1: string;
+  billingAddress2: string;
+  billingCity: string;
+  billingState: string;
+  billingZip: string;
+  item: MarriageIntentionCertificateOrderItemInput;
+  idempotencyKey: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
@@ -367,6 +417,20 @@ export interface MarriageCertificateOrderItemInput {
   fullName2: string;
   maidenName1: string;
   maidenName2: string;
+  quantity: number;
+  requestDetails: string;
+  uploadSessionId: string;
+}
+
+export interface MarriageIntentionCertificateOrderItemInput {
+  alternateSpellings: string;
+  birthDate: string;
+  firstName: string;
+  lastName: string;
+  parent1FirstName: string;
+  parent1LastName: string;
+  parent2FirstName: string;
+  parent2LastName: string;
   quantity: number;
   requestDetails: string;
   uploadSessionId: string;

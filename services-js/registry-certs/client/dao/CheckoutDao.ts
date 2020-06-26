@@ -4,18 +4,21 @@ import { FetchGraphql } from '@cityofboston/next-client-common';
 
 import DeathCertificateCart from '../store/DeathCertificateCart';
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import MarriageIntentionCertificateRequest from '../store/MarriageIntentionCertificateRequest';
 import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
 
 import Order from '../models/Order';
 
 import submitDeathCertificateOrder from '../queries/submit-death-certificate-order';
 import submitBirthCertificateOrder from '../queries/submit-birth-certificate-order';
+import submitMarriageIntentionCertificateOrder from '../queries/submit-marriage-intention-certificate-order';
 import submitMarriageCertificateOrder from '../queries/submit-marriage-certificate-order';
 
 import { OrderErrorCause } from '../queries/graphql-types';
 import {
   DeathCertificateOrderResult,
   BirthCertificateOrderResult,
+  MarriageIntentionCertificateOrderResult,
   MarriageCertificateOrderResult,
 } from '../types';
 
@@ -156,6 +159,27 @@ export default class CheckoutDao {
   }
 
   /**
+   * Submits a marriage intention certificate request with the order data (address, &c.).
+   *
+   * Sets Order#processing to true while the API call is outstanding
+   *
+   * @returns The order ID on success.
+   * @throws Error or SubmissionError objects. Reports errors to Rollbar.
+   */
+  submitMarriageIntentionCertificateRequest(
+    birthCertificateRequest: MarriageIntentionCertificateRequest,
+    order: Order
+  ): Promise<string> {
+    const orderPromise = submitMarriageIntentionCertificateOrder(
+      this.fetchGraphql,
+      birthCertificateRequest,
+      order
+    );
+
+    return this.handleOrder(order, orderPromise);
+  }
+
+  /**
    * Copied from submitBirthCertificateRequest() above:
    *
    * Submits a marriage certificate request with the order data (address, &c.).
@@ -184,6 +208,7 @@ export default class CheckoutDao {
     orderPromise: Promise<
       | DeathCertificateOrderResult
       | BirthCertificateOrderResult
+      | MarriageIntentionCertificateOrderResult
       | MarriageCertificateOrderResult
     >
   ): Promise<string> {
@@ -193,6 +218,7 @@ export default class CheckoutDao {
       let orderResult:
         | DeathCertificateOrderResult
         | BirthCertificateOrderResult
+        | MarriageIntentionCertificateOrderResult
         | MarriageCertificateOrderResult;
 
       try {

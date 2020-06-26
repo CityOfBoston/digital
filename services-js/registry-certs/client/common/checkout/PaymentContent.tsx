@@ -25,6 +25,7 @@ import CheckoutPageLayout from './CheckoutPageLayout';
 
 import { Progress } from '../../PageWrapper';
 import { BackButtonContent } from '../question-components/BackButton';
+import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 import RenderOrderDetails from './OrderDetails';
 
@@ -50,6 +51,11 @@ type Props = {
   | {
       certificateType: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
+      progress: Progress;
+    }
+  | {
+      certificateType: 'marriage-intention';
+      marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
       progress: Progress;
     });
 

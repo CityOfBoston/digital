@@ -12,6 +12,7 @@ import {
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
+import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import Order from '../../models/Order';
@@ -41,6 +42,11 @@ export type Props = {
   | {
       certificateType: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
+      progress: Progress;
+    }
+  | {
+      certificateType: 'marriage-intention';
+      marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
       progress: Progress;
     });
 
@@ -161,6 +167,8 @@ export default class ReviewContent extends React.Component<Props, State> {
         ? this.props.deathCertificateCart.size
         : this.props.certificateType === 'birth'
         ? this.props.birthCertificateRequest.quantity
+        : this.props.certificateType === 'marriage-intention'
+        ? this.props.marriageIntentionCertificateRequest.quantity
         : this.props.marriageCertificateRequest.quantity;
 
     const needsAccepting =
