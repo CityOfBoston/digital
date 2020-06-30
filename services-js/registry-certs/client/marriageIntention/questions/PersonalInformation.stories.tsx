@@ -21,7 +21,7 @@ const commonAttributes = {
   marriageIntentionCertificateRequest: makeMarriageIntentionCertificateRequest(),
 };
 
-storiesOf('Birth/Question Components/PersonalInformation', module)
+storiesOf('Marriage-Intention/Question Components/PersonalInformation', module)
   .add('default', () => (
     <div className="b-c b-c--hsm">
       <PersonalInformation {...commonAttributes} />

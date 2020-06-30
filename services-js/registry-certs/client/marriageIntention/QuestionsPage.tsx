@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 
-import { BirthStep } from '../types';
+import { MarriageIntentionStep } from '../types';
 
 import MarriageIntentionCertificateRequest, {
   QUESTION_STEPS,
@@ -23,7 +23,7 @@ import ClientInstructions from './questions/ClientInstructions';
 import { ContactForm } from '@cityofboston/react-fleet';
 
 interface InitialProps {
-  currentStep: BirthStep;
+  currentStep: MarriageIntentionStep;
 }
 
 interface Props
@@ -49,12 +49,12 @@ interface State {
    * Saved here so that getDerivedStateFromProps knows when we switch pages. (It
    * doesn’t receive prevProps.)
    */
-  currentStep: BirthStep;
+  currentStep: MarriageIntentionStep;
 }
 /**
  * Guides the user through a number of questions, step by step, in order to
  * provide the Registry with the information they will need to locate the
- * birth record.
+ * marriage-intention record.
  *
  * User will progress to /review upon completion of this workflow.
  */
@@ -68,7 +68,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     // that we don’t have to accommodate someone manually changing the
     // URL to a step ahead of what they’ve filled out.
     if (res && query['step']) {
-      res.writeHead(302, { Location: '/birth' });
+      res.writeHead(302, { Location: '/intention' });
       res.end();
 
       // Need to return something for type safety, but Next.js will halt
@@ -80,7 +80,8 @@ export default class QuestionsPage extends React.Component<Props, State> {
     return {
       // if the "step" parameter isn't a valid Step we just render a blank page,
       // which isn’t a big deal.
-      currentStep: (query['step'] as BirthStep) || QUESTION_STEPS[0],
+      currentStep:
+        (query['step'] as MarriageIntentionStep) || QUESTION_STEPS[0],
     };
   };
 
@@ -93,7 +94,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     // When the step changes we create a new clone of the request for us to play
     // with. We'll update the original, global request when the user submits.
     //
-    // We also are sensitive to the prop birth certificate request changing,
+    // We also are sensitive to the prop marriage-intention certificate request changing,
     // which can happen when it’s restored from session storage.
     if (
       props.currentStep !== state.currentStep ||
@@ -159,9 +160,9 @@ export default class QuestionsPage extends React.Component<Props, State> {
     this.gaEventActionAndLabel();
 
     if (nextStep === 'reviewRequest') {
-      Router.push('/birth/review');
+      Router.push('/intention/review');
     } else {
-      Router.push(`/birth?step=${nextStep}`);
+      Router.push(`/intention?step=${nextStep}`);
     }
   };
 
@@ -175,7 +176,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
     // Ensure we cannot go back any further than the first question.
     const newIndex = currentIndex > 0 ? currentIndex - 1 : 0;
 
-    Router.push(`/birth?step=${steps[newIndex]}`);
+    Router.push(`/intention?step=${steps[newIndex]}`);
   };
 
   // Determine correct GA Action and Label for the events to be sent during
@@ -222,7 +223,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
   gaAnswerQuestion = (action: string, label: string): void => {
     this.props.siteAnalytics.sendEvent(action, {
-      category: 'Birth',
+      category: 'Marriage-Intention',
       label,
     });
   };
@@ -323,7 +324,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         // We just don't dynamically update the progress bar for uploads right now
         isStepComplete = false;
 
-        // This is given the actual birth certificate request, rather than the local
+        // This is given the actual marriage-intention certificate request, rather than the local
         // clone, because we’re uploading photos directly to the server. Therefore
         // we don't want to require "submit" to store a record of the uploads. If you
         // upload and then press back, when you get back to this page the uploads
@@ -348,7 +349,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
 
     return (
       <PageWrapper
-        certificateType="birth"
+        certificateType="marriage-intention"
         progress={{
           totalSteps: steps.length,
           currentStep: steps.indexOf(currentStep) + 1,
@@ -356,7 +357,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         }}
       >
         <Head>
-          <title>Boston.gov — Request a Birth Certificate</title>
+          <title>Boston.gov — Request a Marriage-Intention Certificate</title>
         </Head>
         {questionsEl}
 
@@ -365,7 +366,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
           <a
             href="mailto:birth@boston.gov"
             onClick={ContactForm.makeMailtoClickHandler(
-              'birth-cert-feedback-form'
+              'marriage-intention-cert-feedback-form'
             )}
           >
             birth@boston.gov

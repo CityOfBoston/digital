@@ -7,15 +7,20 @@ import MarriageIntentionCertificateRequest from '../store/MarriageIntentionCerti
 
 import ReviewRequestPage from './ReviewRequestPage';
 
-import { TYPICAL_REQUEST as birthCertRequest } from '../../fixtures/client/birth-certificates';
+import { TYPICAL_REQUEST as marriageIntentionCertRequest } from '../../fixtures/client/marriage-intention-certificate';
 
 const marriageIntentionCertificateRequest = new MarriageIntentionCertificateRequest();
 
-marriageIntentionCertificateRequest.setRequestInformation(birthCertRequest);
+marriageIntentionCertificateRequest.setRequestInformation(
+  marriageIntentionCertRequest
+);
 
-storiesOf('Birth/ReviewRequestPage', module).add('default page', () => (
-  <ReviewRequestPage
-    marriageIntentionCertificateRequest={marriageIntentionCertificateRequest}
-    siteAnalytics={new GaSiteAnalytics()}
-  />
-));
+storiesOf('Marriage-Intention/ReviewRequestPage', module).add(
+  'default page',
+  () => (
+    <ReviewRequestPage
+      marriageIntentionCertificateRequest={marriageIntentionCertificateRequest}
+      siteAnalytics={new GaSiteAnalytics()}
+    />
+  )
+);

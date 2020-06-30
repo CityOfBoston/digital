@@ -90,7 +90,7 @@ export default class ForWhom extends Component<Props> {
         <FieldsetComponent
           legendText={
             <h2 id="forSelf" css={SECTION_HEADING_STYLING}>
-              Whose birth certificate are you ordering?
+              Whose marriage-intention certificate are you ordering?
             </h2>
           }
         >
@@ -125,7 +125,7 @@ export default class ForWhom extends Component<Props> {
           <FieldsetComponent
             legendText={
               <h3 id="howRelated" css={SECTION_HEADING_STYLING}>
-                I’m ordering the birth certificate of my…
+                I’m ordering the marriage-intention certificate of my…
               </h3>
             }
           >

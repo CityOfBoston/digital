@@ -99,7 +99,7 @@ export default class BornInBoston extends Component<Props> {
               legendText={
                 <h3 id="parentsLivedInBoston" css={SECTION_HEADING_STYLING}>
                   Did {forSelf ? 'your' : 'their'} parents live in Boston at the
-                  time of {forSelf ? 'your' : 'their'} birth?
+                  time of {forSelf ? 'your' : 'their'} marriage intention?
                 </h3>
               }
             >
@@ -123,7 +123,7 @@ export default class BornInBoston extends Component<Props> {
               <p>
                 We only have records for people born in the City of Boston, or
                 people whose parents were married and living in Boston at the
-                time of the birth.
+                time of the marriage intention.
               </p>
 
               {definitelyDontHaveRecord && (

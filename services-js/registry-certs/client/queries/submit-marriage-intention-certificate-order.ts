@@ -115,13 +115,13 @@ export default async function submitMarriageIntentionCertificateOrder(
 
   if (!cardToken || !cardLast4) {
     throw new Error(
-      'submitBirthCertificateOrder called before card tokenization'
+      'submitMarriageIntentionCertificateOrder called before card tokenization'
     );
   }
 
   if (!idempotencyKey) {
     throw new Error(
-      'submitBirthCertificateOrder called before setting idempotencyKey'
+      'submitMarriageIntentionCertificateOrder called before setting idempotencyKey'
     );
   }
 

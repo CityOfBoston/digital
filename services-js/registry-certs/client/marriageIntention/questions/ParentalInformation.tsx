@@ -103,15 +103,15 @@ export default class ParentalInformation extends Component<Props> {
           legendText={
             <h2 css={SECTION_HEADING_STYLING}>
               What were {forSelf ? 'your' : 'their'} parents’ names at the time
-              of {forSelf ? 'your' : 'the'} birth?
+              of {forSelf ? 'your' : 'the'} marriage-intention?
             </h2>
           }
         >
           <p className={SUPPORTING_TEXT_CLASSNAME}>
             Please use the names {forSelf ? 'your' : 'their'} parents used at
-            the time of {forSelf ? 'your' : 'the'} birth. If only one parent is
-            listed on {forSelf ? 'your' : 'the'} record, you only need to
-            include that name.
+            the time of {forSelf ? 'your' : 'the'} marriage-intention. If only
+            one parent is listed on {forSelf ? 'your' : 'the'} record, you only
+            need to include that name.
           </p>
 
           <fieldset css={FIELDSET_STYLING}>
@@ -167,7 +167,7 @@ export default class ParentalInformation extends Component<Props> {
           legendText={
             <h2 css={SECTION_HEADING_STYLING}>
               Were {forSelf ? 'your' : `${firstName}’s`} parents married at the
-              time of {forSelf ? 'your' : 'their'} birth?
+              time of {forSelf ? 'your' : 'their'} marriage-intention?
             </h2>
           }
         >
@@ -196,8 +196,8 @@ export default class ParentalInformation extends Component<Props> {
         {forSelf ? (
           <>
             <p>
-              If your parents weren’t married at the time of your birth, your
-              record may have an access restriction.
+              If your parents weren’t married at the time of your
+              marriage-intention, your record may have an accessrestriction.
             </p>
 
             <p>
@@ -212,9 +212,9 @@ export default class ParentalInformation extends Component<Props> {
         ) : (
           <>
             <p>
-              If their parents weren’t married at the time of the birth, the
-              record is restricted and can only be requested by the people
-              listed on the record.
+              If their parents weren’t married at the time of the
+              marriage-intention, the record is restricted and can only be
+              requested by the people listed on the record.
             </p>
 
             <p>

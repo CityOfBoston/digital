@@ -29,7 +29,7 @@ interface Props
 
 /**
  * Component which allows a user to review their request, and update the
- * quantity of birth certificates they are requesting.
+ * quantity of marriage-intention certificates they are requesting.
  *
  * User can proceed to /checkout, go back to the questions flow, or
  * clear all information and start over.
@@ -42,7 +42,7 @@ export default class ReviewRequestPage extends Component<Props> {
 
     return (
       <PageWrapper
-        certificateType="birth"
+        certificateType="marriage-intention"
         progress={{
           totalSteps: steps.length,
           currentStep: steps.indexOf('reviewRequest') + 1,
@@ -57,15 +57,15 @@ export default class ReviewRequestPage extends Component<Props> {
         <h2 css={SECTION_HEADING_STYLING}>{pageTitle}</h2>
 
         <ReviewCertificateRequest
-          certificateType="birth"
+          certificateType="marriage-intention"
           certificateRequest={this.props.marriageIntentionCertificateRequest}
           siteAnalytics={this.props.siteAnalytics}
         >
           <div css={DISCLAIMER_STYLING}>
             <p>
-              You can only order copies of one person's birth certificate at a
-              time. Want to order copies of a certificate for another person?
-              Please put in a separate request.
+              You can only order copies of one person's marriage-intention
+              certificate at a time. Want to order copies of a certificate for
+              another person? Please put in a separate request.
             </p>
 
             <p>
@@ -76,8 +76,9 @@ export default class ReviewRequestPage extends Component<Props> {
 
             <ol>
               <li>
-                Request a certified birth certificate from the City of Boston
-                Registry. You don’t need extra information or paperwork.
+                Request a certified marriage-intention certificate from the City
+                of Boston Registry. You don’t need extra information or
+                paperwork.
               </li>
               <li>
                 Submit the certificate to the

@@ -14,15 +14,18 @@ function makeMarriageIntentionCertificateRequest(
   return marriageIntentionCertificateRequest;
 }
 
-storiesOf('Birth/QuestionsFlowPage', module).add('1. Who is this for?', () => (
-  <QuestionsPage
-    siteAnalytics={{} as any}
-    currentStep="forWhom"
-    marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
-  />
-));
+storiesOf('Marriage-Intention/QuestionsFlowPage', module).add(
+  '1. Who is this for?',
+  () => (
+    <QuestionsPage
+      siteAnalytics={{} as any}
+      currentStep="forWhom"
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+    />
+  )
+);
 
-storiesOf('Birth/QuestionsFlowPage', module).add(
+storiesOf('Marriage-Intention/QuestionsFlowPage', module).add(
   '1a. Client instructions',
   () => (
     <QuestionsPage
@@ -38,19 +41,22 @@ storiesOf('Birth/QuestionsFlowPage', module).add(
   )
 );
 
-storiesOf('Birth/QuestionsFlowPage', module).add('2. Born in Boston?', () => (
-  <QuestionsPage
-    siteAnalytics={{} as any}
-    currentStep="bornInBoston"
-    marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest(
-      {
-        forSelf: true,
-      }
-    )}
-  />
-));
+storiesOf('Marriage-Intention/QuestionsFlowPage', module).add(
+  '2. Born in Boston?',
+  () => (
+    <QuestionsPage
+      siteAnalytics={{} as any}
+      currentStep="bornInBoston"
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest(
+        {
+          forSelf: true,
+        }
+      )}
+    />
+  )
+);
 
-storiesOf('Birth/QuestionsFlowPage', module).add(
+storiesOf('Marriage-Intention/QuestionsFlowPage', module).add(
   '3. Personal information',
   () => (
     <QuestionsPage
@@ -65,7 +71,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add(
   )
 );
 
-storiesOf('Birth/QuestionsFlowPage', module).add(
+storiesOf('Marriage-Intention/QuestionsFlowPage', module).add(
   '4. Parental information',
   () => (
     <QuestionsPage
@@ -81,7 +87,7 @@ storiesOf('Birth/QuestionsFlowPage', module).add(
   )
 );
 
-storiesOf('Birth/QuestionsFlowPage', module).add(
+storiesOf('Marriage-Intention/QuestionsFlowPage', module).add(
   '5. Identity verification',
   () => (
     <QuestionsPage

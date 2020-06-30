@@ -7,14 +7,14 @@ import { MemorableDateInput } from '@cityofboston/react-fleet';
 
 import {
   MarriageIntentionCertificateRequestInformation,
-  BirthStep,
+  MarriageIntentionStep,
   JSONObject,
   JSONValue,
 } from '../types';
 import { CERTIFICATE_COST } from '../../lib/costs';
 import UploadableFile, { UploadableFileRecord } from '../models/UploadableFile';
 
-const BIRTH_CERTIFICATE_COST = CERTIFICATE_COST.BIRTH;
+const MARRIAGE_INTENTION_CERTIFICATE_COST = CERTIFICATE_COST.MARRIAGE_INTENTION;
 
 // This is used for initial state during the questions flow, and to
 // reset all fields if user selects “start over”
@@ -39,18 +39,18 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   supportingDocuments: [],
 };
 
-export const QUESTION_STEPS: BirthStep[] = [
+export const QUESTION_STEPS: MarriageIntentionStep[] = [
   'forWhom',
   'bornInBoston',
   'personalInformation',
   'parentalInformation',
 ];
 
-export const VERIFY_IDENTIFICATION_STEPS: BirthStep[] = [
+export const VERIFY_IDENTIFICATION_STEPS: MarriageIntentionStep[] = [
   'verifyIdentification',
 ];
 
-export const CHECKOUT_STEPS: BirthStep[] = [
+export const CHECKOUT_STEPS: MarriageIntentionStep[] = [
   'reviewRequest',
   'shippingInformation',
   'billingInformation',
@@ -67,10 +67,10 @@ type MarriageIntentionCertificateRequestInformationJson = {
   >]: JSONValue
 };
 
-const SESSION_STORAGE_KEY = 'birthCertificateRequest';
+const SESSION_STORAGE_KEY = 'marriageIntentionCertificateRequest';
 
 /**
- * State object for a birth certificate request.
+ * State object for a marriage-intention certificate request.
  *
  * quantity: Number of certificates requested
  *
@@ -234,7 +234,7 @@ export default class MarriageIntentionCertificateRequest {
   }
 
   @computed
-  public get steps(): BirthStep[] {
+  public get steps(): MarriageIntentionStep[] {
     const { forSelf, howRelated } = this.requestInformation;
 
     if (!forSelf && howRelated === 'client') {
@@ -263,10 +263,10 @@ export default class MarriageIntentionCertificateRequest {
     if (siteAnalytics) {
       siteAnalytics.addProduct(
         '0',
-        'Birth certificate',
-        'Birth certificate',
+        'Marriage-Intention certificate',
+        'Marriage-Intention certificate',
         Math.abs(quantityChange),
-        BIRTH_CERTIFICATE_COST / 100
+        MARRIAGE_INTENTION_CERTIFICATE_COST / 100
       );
 
       siteAnalytics.setProductAction(
@@ -354,7 +354,7 @@ export default class MarriageIntentionCertificateRequest {
     this.requestInformation = INITIAL_REQUEST_INFORMATION;
     this.uploadSessionId = uuidv4();
 
-    Router.push('/birth');
+    Router.push('/intention');
   }
 
   @computed
@@ -381,9 +381,9 @@ export default class MarriageIntentionCertificateRequest {
    */
   @action
   public clone(): MarriageIntentionCertificateRequest {
-    const birthCertificateRequest = new MarriageIntentionCertificateRequest();
+    const marriageIntentionCertificateRequest = new MarriageIntentionCertificateRequest();
 
-    return Object.assign(birthCertificateRequest, this);
+    return Object.assign(marriageIntentionCertificateRequest, this);
   }
 
   /**
@@ -398,7 +398,7 @@ export default class MarriageIntentionCertificateRequest {
   /**
    * True if, based on the user’s answers to whether or not they were born in
    * Boston and whether or not their parents lived in Boston, we don’t have the
-   * birth certificate.
+   * marriage-intention certificate.
    */
   @computed
   public get definitelyDontHaveRecord(): boolean {
@@ -408,7 +408,7 @@ export default class MarriageIntentionCertificateRequest {
   }
 
   /**
-   * True if we might not have the birth certificate based on the user’s answers
+   * True if we might not have the marriage-intention certificate based on the user’s answers
    * to whether they were born in Boston and whether their parents lived here.
    *
    * Will always return false if definitelyDontHaveRecord returns true.
@@ -428,7 +428,7 @@ export default class MarriageIntentionCertificateRequest {
   }
 
   // Unless user has specified that the parents were married at the time of
-  // birth, we must inform the user that the record may be restricted.
+  // marriage-intention, we must inform the user that the record may be restricted.
   @computed
   public get mayBeRestricted(): boolean {
     const { parentsMarried } = this.requestInformation;

@@ -19,7 +19,7 @@ const commonAttributes = {
   handleStepBack: () => {},
 };
 
-storiesOf('Birth/Question Components/ParentalInformation', module)
+storiesOf('Marriage-Intention/Question Components/ParentalInformation', module)
   .add('default', () => (
     <div className="b-c b-c--hsm">
       <ParentalInformation

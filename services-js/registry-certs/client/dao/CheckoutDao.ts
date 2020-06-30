@@ -167,12 +167,12 @@ export default class CheckoutDao {
    * @throws Error or SubmissionError objects. Reports errors to Rollbar.
    */
   submitMarriageIntentionCertificateRequest(
-    birthCertificateRequest: MarriageIntentionCertificateRequest,
+    marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest,
     order: Order
   ): Promise<string> {
     const orderPromise = submitMarriageIntentionCertificateOrder(
       this.fetchGraphql,
-      birthCertificateRequest,
+      marriageIntentionCertificateRequest,
       order
     );
 

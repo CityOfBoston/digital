@@ -14,7 +14,7 @@ function makeMarriageIntentionCertificateRequest(
   return marriageIntentionCertificateRequest;
 }
 
-storiesOf('Birth/Question Components/ForWhom', module)
+storiesOf('Marriage-Intention/Question Components/ForWhom', module)
   .add('default', () => (
     <div className="b-c b-c--hsm">
       <ForWhom

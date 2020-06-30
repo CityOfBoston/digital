@@ -54,6 +54,18 @@ export interface BirthCertificate {
   Impounded: boolean;
 }
 
+export interface MarriageIntentionCertificate {
+  CertificatesID: number;
+  'Registered Number': string;
+  InOut: boolean;
+  'Date of Birth': string;
+  'Certificate Name': string;
+  'Last Name': string;
+  'First Name': string;
+  RegisteredYear: string;
+  Impounded: boolean;
+}
+
 export interface AddOrderOptions {
   orderID: string;
   orderDate: Date;
@@ -120,6 +132,14 @@ export interface FindBirthCertificateRequestResult {
   TotalCost: number;
 }
 
+export interface FindMarriageIntentionCertificateRequestResult {
+  CertificateFirstName: string;
+  CertificateLastName: string;
+  DateOfBirth: Date;
+  Quantity: number;
+  TotalCost: number;
+}
+
 export interface FindMarriageCertificateRequestResult {
   CertificateFullName1: string;
   CertificateFullName2: string;
@@ -134,6 +154,18 @@ export interface FindMarriageCertificateRequestResult {
 }
 
 export interface BirthCertificateRequestArgs {
+  certificateLastName: string;
+  certificateFirstName: string;
+  alternativeSpellings: string;
+  dateOfBirth: Date;
+  parent1LastName: string;
+  parent1FirstName: string;
+  parent2LastName: string;
+  parent2FirstName: string;
+  requestDetails: string;
+}
+
+export interface MarriageIntentionCertificateRequestArgs {
   certificateLastName: string;
   certificateFirstName: string;
   alternativeSpellings: string;
@@ -363,6 +395,55 @@ export default class RegistryDb {
         `Could not add item to order ${orderKey}. Likely no certificate ID ${certificateId} in the database.`
       );
     }
+  }
+
+  async addMarriageIntentionCertificateRequest(
+    orderKey: number,
+    {
+      certificateFirstName,
+      certificateLastName,
+      alternativeSpellings,
+      dateOfBirth,
+      parent1FirstName,
+      parent1LastName,
+      parent2FirstName,
+      parent2LastName,
+      requestDetails,
+    }: MarriageIntentionCertificateRequestArgs,
+    quantity: number,
+    certificateCost: number
+  ): Promise<number> {
+    const resp: IProcedureResult<{
+      RequestItemKey: number;
+      ErrorMessage: string;
+    }> = await this.pool
+      .request()
+      .input('orderKey', orderKey)
+      .input('orderType', OrderType.BirthCertificate)
+      .input('certificateLastName', certificateLastName)
+      .input('certificateFirstName', certificateFirstName)
+      .input('alternativeSpellings', alternativeSpellings)
+      .input('dateOfBirth', dateOfBirth)
+      .input('parent1LastName', parent1LastName)
+      .input('parent1FirstName', parent1FirstName)
+      .input('parent2LastName', parent2LastName)
+      .input('parent2FirstName', parent2FirstName)
+      .input('requestDetails', requestDetails)
+      .input('quantity', quantity)
+      .input('unitCost', `$${certificateCost.toFixed(2)}`)
+      .execute('Commerce.sp_AddBirthRequest');
+
+    const { recordset } = resp;
+
+    if (!recordset || recordset.length === 0) {
+      throw new Error(`Could not add birth request to ${orderKey}.`);
+    }
+
+    if (recordset[0].ErrorMessage) {
+      throw new Error(recordset[0].ErrorMessage);
+    }
+
+    return recordset[0].RequestItemKey;
   }
 
   async addBirthCertificateRequest(

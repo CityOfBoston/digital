@@ -10,7 +10,7 @@ import MarriageIntentionCertificateRequest from '../store/MarriageIntentionCerti
 
 import CheckoutPage from './CheckoutPage';
 
-import { TYPICAL_REQUEST as birthCertRequest } from '../../fixtures/client/birth-certificates';
+import { TYPICAL_REQUEST as marriageIntentionCertRequest } from '../../fixtures/client/marriage-intention-certificate';
 
 const makeStripe = () =>
   typeof Stripe !== 'undefined' ? Stripe('fake-secret-key') : null;
@@ -20,7 +20,7 @@ function makeMarriageIntentionCertificateRequest() {
 
   request.quantity = 4;
 
-  request.answerQuestion(birthCertRequest);
+  request.answerQuestion(marriageIntentionCertRequest);
 
   return request;
 }
@@ -76,7 +76,7 @@ function makeBillingCompleteOrder(overrides = {}) {
   });
 }
 
-storiesOf('Birth/CheckoutPage', module)
+storiesOf('Marriage-Intention/CheckoutPage', module)
   .add('server-side render', () => (
     <CheckoutPage
       marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
@@ -88,7 +88,7 @@ storiesOf('Birth/CheckoutPage', module)
       orderProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
-  .add('no birth certificate request', () => (
+  .add('no marriage-intention certificate request', () => (
     <CheckoutPage
       marriageIntentionCertificateRequest={
         new MarriageIntentionCertificateRequest()

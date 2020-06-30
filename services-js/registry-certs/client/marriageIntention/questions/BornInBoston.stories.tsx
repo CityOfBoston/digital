@@ -20,7 +20,7 @@ const commonAttributes = {
   handleUserReset: () => {},
 };
 
-storiesOf('Birth/Question Components/BornInBoston', module)
+storiesOf('Marriage-Intention/Question Components/BornInBoston', module)
   .add('initial question', () => (
     <div className="b-c b-c--hsm">
       <BornInBoston

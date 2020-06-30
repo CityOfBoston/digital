@@ -31,7 +31,7 @@ export default class VerifyIdentification extends React.Component<Props> {
         : marriageIntentionCertificateRequest.requestInformation.idImageBack;
 
     if (existingFile) {
-      existingFile.delete('birth');
+      existingFile.delete('marriage-intention');
     }
 
     let uploadableFile: UploadableFile | null = null;
@@ -43,7 +43,7 @@ export default class VerifyIdentification extends React.Component<Props> {
         side === 'front' ? 'id front' : 'id back'
       );
 
-      uploadableFile.upload('birth');
+      uploadableFile.upload('marriage-intention');
     }
 
     if (side === 'front') {
@@ -84,7 +84,7 @@ export default class VerifyIdentification extends React.Component<Props> {
           updateIdImages={this.updateIdImage}
           idImageBack={idImageBack}
           idImageFront={idImageFront}
-          certificateType="birth"
+          certificateType="marriage-intention"
         />
       </QuestionComponent>
     );

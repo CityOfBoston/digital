@@ -22,14 +22,14 @@ const commonAttributes = {
   handleStepBack: () => {},
 };
 
-storiesOf('Birth/Question Components/VerifyIdentification', module).add(
-  'default',
-  () => (
-    <div className="b-c b-c--hsm">
-      <VerifyIdentification
-        {...commonAttributes}
-        marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
-      />
-    </div>
-  )
-);
+storiesOf(
+  'Marriage-Intention/Question Components/VerifyIdentification',
+  module
+).add('default', () => (
+  <div className="b-c b-c--hsm">
+    <VerifyIdentification
+      {...commonAttributes}
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+    />
+  </div>
+));

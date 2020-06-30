@@ -17,7 +17,7 @@ import ReviewContent from '../common/checkout/ReviewContent';
 import CheckoutPageLayout from '../common/checkout/CheckoutPageLayout';
 import OrderConfirmationContent from '../common/checkout/OrderConfirmationContent';
 
-const BIRTH_CERTIFICATE_COST = CERTIFICATE_COST.BIRTH;
+const MARRIAGE_INTENTION_CERTIFICATE_COST = CERTIFICATE_COST.MARRIAGE_INTENTION;
 
 type PageInfo =
   | {
@@ -159,7 +159,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
 
     order.updateInfo(shippingInfo);
 
-    await Router.push('/marriage-intention/checkout?page=payment');
+    await Router.push('/intention/checkout?page=payment');
 
     window.scroll(0, 0);
   };
@@ -183,7 +183,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       await checkoutDao.tokenizeCard(order, cardElement);
     }
 
-    await Router.push('/marriage-intention/checkout?page=review');
+    await Router.push('/intention/checkout?page=review');
 
     window.scroll(0, 0);
   };
@@ -216,12 +216,12 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       order
     );
 
-    const confirmationUrl = `/marriage-intention/checkout?page=confirmation&orderId=${encodeURIComponent(
+    const confirmationUrl = `/intention/checkout?page=confirmation&orderId=${encodeURIComponent(
       orderId
     )}&contactEmail=${encodeURIComponent(
       order.info.contactEmail
     )}&stepCount=${stepCount}`;
-    '/marriage-intention/checkout?page=confirmation';
+    '/intention/checkout?page=confirmation';
 
     // If we get this far without throwing, the order has definitely succeeded,
     // so we need to catch any further errors and hide them from the user.
@@ -232,7 +232,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
         id: orderId,
         revenue:
           (marriageIntentionCertificateRequest.quantity *
-            BIRTH_CERTIFICATE_COST) /
+            MARRIAGE_INTENTION_CERTIFICATE_COST) /
           100,
       });
 
@@ -293,7 +293,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       'Birth certificate',
       'Birth certificate',
       this.props.marriageIntentionCertificateRequest.quantity,
-      BIRTH_CERTIFICATE_COST / 100
+      MARRIAGE_INTENTION_CERTIFICATE_COST / 100
     );
   }
 
