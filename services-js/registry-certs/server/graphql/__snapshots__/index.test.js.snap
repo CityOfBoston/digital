@@ -31,6 +31,7 @@ GraphQLSchema {
     "Float": "Float",
     "Int": "Int",
     "MarriageCertificateOrderItemInput": "MarriageCertificateOrderItemInput",
+    "MarriageIntentionCertificateOrderItemInput": "MarriageIntentionCertificateOrderItemInput",
     "Mutation": "Mutation",
     "OrderError": "OrderError",
     "OrderErrorCause": "OrderErrorCause",
@@ -52,28 +53,28 @@ GraphQLSchema {
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 4702,
-      "start": 4656,
+      "end": 5593,
+      "start": 5547,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 4685,
-          "start": 4667,
+          "end": 5576,
+          "start": 5558,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 4685,
-            "start": 4677,
+            "end": 5576,
+            "start": 5568,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 4685,
-              "start": 4677,
+              "end": 5576,
+              "start": 5568,
             },
             "value": "Mutation",
           },
@@ -82,21 +83,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 4700,
-          "start": 4688,
+          "end": 5591,
+          "start": 5579,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 4700,
-            "start": 4695,
+            "end": 5591,
+            "start": 5586,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 4700,
-              "start": 4695,
+              "end": 5591,
+              "start": 5586,
             },
             "value": "Query",
           },

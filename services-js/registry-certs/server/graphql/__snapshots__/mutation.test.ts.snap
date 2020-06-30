@@ -5,3 +5,5 @@ exports[`Mutation resolvers submitBirthCertificateOrder throws if a validator fa
 exports[`Mutation resolvers submitDeathCertificateOrder throws if a validator fails 1`] = `[Error: contactName: The full name field is required.]`;
 
 exports[`Mutation resolvers submitDeathCertificateOrder throws if there are no items 1`] = `[Error: Quantity of order is 0]`;
+
+exports[`Mutation resolvers submitMarriageIntentionCertificateOrder throws if a validator fails 1`] = `[Error: contactName: The full name field is required.]`;

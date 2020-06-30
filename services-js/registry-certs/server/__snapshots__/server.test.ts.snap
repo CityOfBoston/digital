@@ -75,6 +75,9 @@ Object {
           "name": "MarriageCertificateOrderItemInput",
         },
         Object {
+          "name": "MarriageIntentionCertificateOrderItemInput",
+        },
+        Object {
           "name": "__Schema",
         },
         Object {
