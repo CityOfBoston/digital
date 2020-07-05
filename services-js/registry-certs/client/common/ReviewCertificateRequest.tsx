@@ -27,7 +27,7 @@ import BackButton from './question-components/BackButton';
 import { THIN_BORDER_STYLE } from './question-components/styling';
 
 interface Props {
-  certificateType: 'birth' | 'marriage';
+  certificateType: 'birth' | 'marriage' | 'intention';
   certificateRequest: any;
   siteAnalytics?: any;
   children: ReactChild | ReactChild[];

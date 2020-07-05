@@ -5,6 +5,7 @@ import {
   SubmitDeathCertificateOrder_submitDeathCertificateOrder,
   SubmitBirthCertificateOrder_submitBirthCertificateOrder,
   SubmitMarriageCertificateOrder_submitMarriageCertificateOrder,
+  SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder,
 } from './queries/graphql-types';
 
 import UploadableFile from './models/UploadableFile';
@@ -43,6 +44,12 @@ export interface DeathCertificate
     FetchDeathCertificates['deathCertificates']['certificates'][0]
   > {}
 
+// Intention-specific
+export interface IntentionCertificate
+  extends NonNullable<
+    FetchDeathCertificates['deathCertificates']['certificates'][0]
+  > {}
+
 export interface DeathCertificateSearchResults
   extends NonNullable<SearchDeathCertificates['deathCertificates']['search']> {}
 
@@ -54,6 +61,7 @@ export interface DeathCertificateOrder
 export type DeathCertificateOrderResult = SubmitDeathCertificateOrder_submitDeathCertificateOrder;
 export type BirthCertificateOrderResult = SubmitBirthCertificateOrder_submitBirthCertificateOrder;
 export type MarriageCertificateOrderResult = SubmitMarriageCertificateOrder_submitMarriageCertificateOrder;
+export type MarriageIntentionCertificateOrderResult = SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder;
 
 // Birth-specific
 export type BirthQuestion =
@@ -78,6 +86,18 @@ export type BirthStep =
   | 'shippingInformation'
   | 'billingInformation'
   | 'submitRequest';
+
+export type MarriageIntentionQuestion = 'introStart';
+
+export type MarriageIntentionStep =
+  | 'instructions'
+  | 'partnerFormA'
+  | 'partnerFormB'
+  | 'contactInfo'
+  | 'reviewForms'
+  | 'reviewRequest';
+
+export type IntentionQuestion = 'introStart';
 
 // Marriage-specific
 export type MarriageQuestion =
@@ -122,6 +142,85 @@ export type BirthCertificateRequestInformation = {
   idImageFront?: UploadableFile | null;
   idImageBack?: UploadableFile | null;
   supportingDocuments: UploadableFile[];
+};
+
+export type MarriageIntentionCertificateRequestInformation = {
+  partnerA_fullName: string;
+  partnerA_firstMiddleName: string;
+  partnerA_suffix: string;
+  partnerA_firstName: string;
+  partnerA_lastName: string;
+  partnerA_middleName: string;
+  partnerA_surName: string;
+  partnerA_dob?: Date | null;
+  partnerA_age: string;
+  partnerA_occupation: string;
+  partnerA_sex: string;
+  partnerA_bloodRelation: string;
+  partnerA_bloodRelationDesc: string;
+  partnerA_parentsMarriedAtBirth: string;
+  partnerA_parentA_Name: string;
+  partnerA_parentA_Surname: string;
+  partnerA_parentB_Name: string;
+  partnerA_parentB_Surname: string;
+  partnerA_birthHospital: string;
+  partnerA_birthCity: string;
+  partnerA_birthState: string;
+  partnerA_birthCountry: string;
+  partnerA_birthZip: string;
+  partnerA_partnershipType: string;
+  partnerA_partnershipTypeDissolved: string;
+  partnerA_residenceAddress: string;
+  partnerA_residenceStreetNum: string;
+  partnerA_residenceStreetName: string;
+  partnerA_residenceSAptNum: string;
+  partnerA_residenceCountry: string;
+  partnerA_residenceCity: string;
+  partnerA_residenceState: string;
+  partnerA_residenceZip: string;
+  partnerA_marriageNumb: string;
+  partnerA_lastMarriageStatus: string;
+
+  partnerB_fullName: string;
+  partnerB_firstMiddleName: string;
+  partnerB_suffix: string;
+  partnerB_firstName: string;
+  partnerB_lastName: string;
+  partnerB_middleName: string;
+  partnerB_surName: string;
+  partnerB_dob?: Date | null;
+  partnerB_age: string;
+  partnerB_occupation: string;
+  partnerB_sex: string;
+  partnerB_bloodRelation: string;
+  partnerB_bloodRelationDesc: string;
+  partnerB_parentsMarriedAtBirth: string;
+  partnerB_parentA_Name: string;
+  partnerB_parentA_Surname: string;
+  partnerB_parentB_Name: string;
+  partnerB_parentB_Surname: string;
+  partnerB_birthHospital: string;
+  partnerB_birthCity: string;
+  partnerB_birthState: string;
+  partnerB_birthCountry: string;
+  partnerB_birthZip: string;
+  partnerB_partnershipType: string;
+  partnerB_partnershipTypeDissolved: string;
+  partnerB_residenceAddress: string;
+  partnerB_residenceStreetNum: string;
+  partnerB_residenceStreetName: string;
+  partnerB_residenceSAptNum: string;
+  partnerB_residenceCountry: string;
+  partnerB_residenceCity: string;
+  partnerB_residenceState: string;
+  partnerB_residenceZip: string;
+  partnerB_marriageNumb: string;
+  partnerB_lastMarriageStatus: string;
+
+  email: string;
+  dayPhone: string;
+  appointmentDate: Date | null;
+  // appointmentTime: string;
 };
 
 export type MarriageCertificateRequestInformation = {

@@ -8,6 +8,7 @@ interface Props {
   currentStep: number;
   currentStepCompleted?: boolean;
   showStepName?: string;
+  offset?: number | undefined;
 }
 
 /**
@@ -25,17 +26,20 @@ interface Props {
  * the current task.
  */
 export default function ProgressBar(props: Props): JSX.Element {
-  const { totalSteps, currentStep } = props;
+  const { totalSteps, currentStep, offset } = props;
   let progressText = `Step ${currentStep} of ${totalSteps}`;
 
   if (props.showStepName) {
     progressText = progressText + `: ${props.showStepName}`;
   }
 
+  const total =
+    offset && typeof offset === 'number' ? totalSteps + offset : totalSteps;
+
   return (
     <div css={PROGRESS_BAR_STYLE}>
       <progress
-        max={totalSteps}
+        max={total}
         aria-valuemin={1}
         aria-valuemax={totalSteps}
         aria-valuenow={currentStep}

@@ -17,7 +17,9 @@ interface Props {
   latestDate?: Date;
   onlyAllowPast?: boolean;
   onlyAllowFuture?: boolean;
-  legend: React.ReactChild;
+  sansFieldset?: boolean;
+  hideLengend?: boolean;
+  legend?: React.ReactChild;
   handleDate: (newDate: Date | null) => void;
   resetDate?: boolean;
   disabled?: boolean;
@@ -247,69 +249,102 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       onFocus: this.handleFocus,
     };
 
+    const { legend } = this.props;
+
     const error = this.currentError();
 
-    return (
-      <fieldset css={FIELDSET_STYLING}>
-        <legend style={{ width: '100%' }}>{this.props.legend}</legend>
+    const legendElem = () => {
+      let style = { width: '100%' };
+      if (this.props.hideLengend) {
+        style['display'] = 'none';
+      }
+      if (legend) {
+        return <legend style={style}>{legend}</legend>;
+      } else {
+        return <span />;
+      }
+    };
 
-        <div
-          css={FIELDS_CONTAINER_STYLING}
-          className={this.props.disabled ? 'disabled' : ''}
-        >
-          <div>
-            <label htmlFor={`${this.componentId}-month`} className="txt-l">
-              Month
-            </label>
-            <input
-              {...inputAttributes}
-              id={`${this.componentId}-month`}
-              name="month"
-              min="1"
-              max="12"
-              placeholder="MM"
-              value={this.state.fields.month}
-              disabled={this.props.disabled}
-            />
+    const content = () => {
+      return (
+        <div>
+          {legend && legendElem()}
+
+          <div
+            css={FIELDS_CONTAINER_STYLING}
+            className={this.props.disabled ? 'disabled' : ''}
+          >
+            <div>
+              <label htmlFor={`${this.componentId}-month`} className="txt-l">
+                Month
+              </label>
+              <input
+                {...inputAttributes}
+                id={`${this.componentId}-month`}
+                name="month"
+                min="1"
+                max="12"
+                placeholder="MM"
+                value={this.state.fields.month}
+                disabled={this.props.disabled}
+                maxLength={2}
+              />
+            </div>
+
+            <div>
+              <label htmlFor={`${this.componentId}-day`} className="txt-l">
+                Day
+              </label>
+              <input
+                {...inputAttributes}
+                id={`${this.componentId}-day`}
+                name="day"
+                min="1"
+                max="31"
+                placeholder="DD"
+                value={this.state.fields.day}
+                disabled={this.props.disabled}
+                maxLength={2}
+              />
+            </div>
+
+            <div>
+              <label htmlFor={`${this.componentId}-year`} className="txt-l">
+                Year
+              </label>
+
+              <input
+                {...inputAttributes}
+                id={`${this.componentId}-year`}
+                name="year"
+                min={this.earliest ? this.earliest.getUTCFullYear() : '1000'}
+                max={this.latest ? this.latest.getUTCFullYear() : '9999'}
+                placeholder="YYYY"
+                value={this.state.fields.year}
+                disabled={this.props.disabled}
+                maxLength={4}
+              />
+            </div>
           </div>
 
-          <div>
-            <label htmlFor={`${this.componentId}-day`} className="txt-l">
-              Day
-            </label>
-            <input
-              {...inputAttributes}
-              id={`${this.componentId}-day`}
-              name="day"
-              min="1"
-              max="31"
-              placeholder="DD"
-              value={this.state.fields.day}
-              disabled={this.props.disabled}
-            />
-          </div>
-
-          <div>
-            <label htmlFor={`${this.componentId}-year`} className="txt-l">
-              Year
-            </label>
-
-            <input
-              {...inputAttributes}
-              id={`${this.componentId}-year`}
-              name="year"
-              min={this.earliest ? this.earliest.getUTCFullYear() : '1000'}
-              max={this.latest ? this.latest.getUTCFullYear() : '9999'}
-              placeholder="YYYY"
-              value={this.state.fields.year}
-              disabled={this.props.disabled}
-            />
-          </div>
+          {error && <div className="t--err m-t200">{error}</div>}
         </div>
+      );
+    };
 
-        {error && <div className="t--err m-t200">{error}</div>}
-      </fieldset>
-    );
+    const wFieldset = () => {
+      return <fieldset css={FIELDSET_STYLING}>{content()}</fieldset>;
+    };
+
+    const returnElem = () => {
+      if (this.props.sansFieldset) {
+        return content();
+      } else {
+        return wFieldset();
+      }
+    };
+
+    return returnElem();
   }
 }
 

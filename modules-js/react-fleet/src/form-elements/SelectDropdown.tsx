@@ -1,12 +1,17 @@
 import React from 'react';
 import hash from 'string-hash';
 
+interface Options {
+  label: string;
+  value: string;
+}
+
 interface Props {
   label: string;
   small?: boolean;
   hideLabel?: boolean;
   hideBlankOption?: boolean;
-  options: string[];
+  options: string[] | Options[];
 
   id?: string;
   className?: string;
@@ -14,6 +19,8 @@ interface Props {
   name?: string;
   defaultValue?: string;
   required?: boolean;
+  disableLabelNoWrap?: boolean;
+  labelBelowInput?: boolean;
 
   value?: string;
   disabled?: boolean;
@@ -49,19 +56,53 @@ export default function SelectDropdown(props: Props): JSX.Element {
     }`,
   };
 
-  return (
-    <div className={props.className} style={props.style}>
-      <label htmlFor={id} className={classNames.label}>
-        {props.hideLabel ? (
-          <>&nbsp;</>
-        ) : (
-          <span style={{ marginRight: '0.5em', whiteSpace: 'nowrap' }}>
-            {props.label}
-          </span>
-        )}
+  const opts = (_options: any) => {
+    if (typeof _options[0] === 'object') {
+      return _options.map((option: { value: any; label: React.ReactNode }) => (
+        <option key={`${id}_${option.value}`} value={option.value}>
+          {option.label}
+        </option>
+      ));
+    } else {
+      return _options.map((option: React.ReactNode) => (
+        <option key={`${id}_${option}`}>{option}</option>
+      ));
+    }
+  };
 
+  const labelElem = (label): React.ReactChild => {
+    const modLabelStyle = { marginTop: '1em', marginBottom: '2em' };
+    const optStyles = props.labelBelowInput ? modLabelStyle : {};
+    let styleObj = { marginRight: '0.5em' };
+    if (!props.disableLabelNoWrap) {
+      styleObj['whiteSpace'] = 'nowrap';
+    }
+
+    return (
+      <label htmlFor={id} className={classNames.label} style={optStyles}>
+        {props.hideLabel ? <>&nbsp;</> : <span style={styleObj}>{label}</span>}
         {props.required && <span className="t--req">Required</span>}
       </label>
+    );
+  };
+
+  const spacer = () => {
+    return (
+      <div className="t--subinfo t--err m-b100">
+        {/* The &nbsp; is to keep space for the error so the form doesn’t jump when one is added. */}
+        {props.error && typeof props.error === 'string' ? (
+          props.error
+        ) : (
+          <>&nbsp;</>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <div className={props.className} style={props.style}>
+      {!props.labelBelowInput && labelElem(props.label)}
+      {props.labelBelowInput && spacer()}
 
       <div className={classNames.container}>
         <select
@@ -79,11 +120,11 @@ export default function SelectDropdown(props: Props): JSX.Element {
         >
           {!props.hideBlankOption && <option />}
 
-          {props.options.map(option => (
-            <option key={`${id}_${option}`}>{option}</option>
-          ))}
+          {opts(props.options)}
         </select>
       </div>
+
+      {props.labelBelowInput && labelElem(props.label)}
     </div>
   );
 }

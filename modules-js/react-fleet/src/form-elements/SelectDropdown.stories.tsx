@@ -8,6 +8,21 @@ import { NarrowWrapper } from '@cityofboston/storybook-common';
 
 import SelectDropdown from './SelectDropdown';
 
+export const PARTNERSHIP_TYPE = [
+  {
+    label: 'Does Not Apply',
+    value: 'Does Not Apply',
+  },
+  {
+    label: 'Civil Unions',
+    value: 'Civil Unions',
+  },
+  {
+    label: 'Domestic Partnership',
+    value: 'Domestic Partnership',
+  },
+];
+
 storiesOf('Form Elements|SelectDropdown', module)
   .addDecorator(story => <NarrowWrapper>{story()}</NarrowWrapper>)
   .addDecorator(withKnobs)
@@ -49,6 +64,15 @@ storiesOf('Form Elements|SelectDropdown', module)
         hideBlankOption
         label="Small Dropdown"
         options={['Ash', 'Maple', 'Willow']}
+      />
+
+      <br />
+
+      <SelectDropdown
+        label="Label/Value Options Object"
+        required
+        hideBlankOption
+        options={PARTNERSHIP_TYPE}
       />
     </>
   ));

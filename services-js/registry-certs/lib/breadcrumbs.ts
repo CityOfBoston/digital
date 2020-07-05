@@ -5,7 +5,7 @@ const parentLinks = [
   },
   {
     url: 'https://www.boston.gov/departments/registry',
-    text: 'Registry: Birth, death, and marriage',
+    text: 'Registry: Birth, death, and marriage and marriage intention',
   },
 ];
 
@@ -29,6 +29,13 @@ export const BREADCRUMB_NAV_LINKS = {
     currentPage: {
       url: '/marriage',
       text: 'Marriage certificates',
+    },
+  },
+  intention: {
+    parentLinks,
+    currentPage: {
+      url: '/marriageintention',
+      text: 'Marriage Intention',
     },
   },
 };

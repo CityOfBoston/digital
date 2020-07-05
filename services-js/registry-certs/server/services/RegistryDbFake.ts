@@ -43,6 +43,9 @@ export default class RegistryDbFake implements Required<RegistryDb> {
   async addBirthCertificateRequest(): Promise<number> {
     return 105;
   }
+  async addMarriageIntentionCertificateRequest(): Promise<number> {
+    return 105;
+  }
   async addMarriageCertificateRequest(): Promise<number> {
     return 105;
   }

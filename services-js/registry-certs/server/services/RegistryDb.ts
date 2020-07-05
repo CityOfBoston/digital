@@ -20,9 +20,10 @@ export enum OrderType {
   DeathCertificate = 'DC',
   BirthCertificate = 'BC',
   MarriageCertificate = 'MC',
+  MarriageIntentionCertificate = 'MIC',
 }
 
-type RestrictedOrderType = 'BC' | 'MC';
+type RestrictedOrderType = 'BC' | 'MC' | 'MIC';
 
 export interface DeathCertificate {
   CertificateID: number;
@@ -132,6 +133,77 @@ export interface FindMarriageCertificateRequestResult {
   TotalCost: number;
 }
 
+export interface MarriageIntentionCertificateRequestArgs {
+  Email: string;
+  DayPhone: string;
+  PlaceOfMarriage: string;
+  AppointmentDate: string;
+
+  AApplicantFName: string;
+  AApplicantLName: string;
+  AApplicantMiddleName: string;
+  AApplicantSuffix: string;
+  APostmarriageSurname: string;
+  ADOB: string;
+  ACurrentAge: string;
+  AOccupation: string;
+  AFatherName: string;
+  AMotherName: string;
+  AFatherSurname: string;
+  AMotherSurname: string;
+  APartnershipState: string;
+  AStreetAddress: string;
+  ACity: string;
+  AState: string;
+  AZIPCode: string;
+  AResidenceCountry: string;
+  AMarriageNumber: string;
+  AStatofLastMarriage: string;
+  APartnershipStatus: string;
+  ADissolutionStatus: string;
+  AParentsMarried: string;
+  ABloodRelative: string;
+  ABloodDescr: string;
+  ABirthplace: string;
+  ABirthState: string;
+  ABirthCountry: string;
+  ASexNum: string;
+  ASex: string;
+  ABirthHospital: string;
+
+  BApplicantFName: string;
+  BApplicantLName: string;
+  BApplicantMiddleName: string;
+  BApplicantSuffix: string;
+  BPostmarriageSurname: string;
+  BDOB: string;
+  BCurrentAge: string;
+  BOccupation: string;
+  BFatherName: string;
+  BMotherName: string;
+  BFatherSurname: string;
+  BMotherSurname: string;
+  BPartnershipState: string;
+  BStreetAddress: string;
+  BCity: string;
+  BState: string;
+  BZIPCode: string;
+  BResidenceCountry: string;
+  BMarriageNumber: string;
+  BStatofLastMarriage: string;
+  BPartnershipStatus: string;
+  BDissolutionStatus: string;
+  BParentsMarried: string;
+  BBloodRelative: string;
+  BBloodDescr: string;
+  BBirthplace: string;
+  BBirthState: string;
+  BBirthCountry: string;
+  BSexNum: string;
+  BSex: string;
+  BBirthHospital: string;
+}
+
 export interface BirthCertificateRequestArgs {
   certificateLastName: string;
   certificateFirstName: string;
@@ -186,6 +258,17 @@ export function splitKeys(
   }
 
   return keyStrings;
+}
+
+export function convertJsDateToSql(dateVal: any): any {
+  const timezoneOffset = new Date().getTimezoneOffset() * 60000;
+  const aptDate: any = new Date(dateVal);
+  const formattedAptDate: any = new Date(aptDate - timezoneOffset)
+    .toISOString()
+    .replace('T', ' ')
+    .replace('Z', '');
+
+  return formattedAptDate;
 }
 
 export default class RegistryDb {
@@ -364,49 +447,193 @@ export default class RegistryDb {
     }
   }
 
-  async addBirthCertificateRequest(
-    orderKey: number,
-    {
-      certificateFirstName,
-      certificateLastName,
-      alternativeSpellings,
-      dateOfBirth,
-      parent1FirstName,
-      parent1LastName,
-      parent2FirstName,
-      parent2LastName,
-      requestDetails,
-    }: BirthCertificateRequestArgs,
-    quantity: number,
-    certificateCost: number
-  ): Promise<number> {
+  async addMarriageIntentionCertificateRequest({
+    Email,
+    DayPhone,
+    PlaceOfMarriage,
+    AppointmentDate,
+    AApplicantFName,
+    AApplicantLName,
+    AApplicantMiddleName,
+    AApplicantSuffix,
+    APostmarriageSurname,
+    ADOB,
+    ACurrentAge,
+    AOccupation,
+    AFatherName,
+    AMotherName,
+    AFatherSurname,
+    AMotherSurname,
+    APartnershipState,
+    AStreetAddress,
+    ACity,
+    AState,
+    AZIPCode,
+    AResidenceCountry,
+    AMarriageNumber,
+    AStatofLastMarriage,
+    APartnershipStatus,
+    ADissolutionStatus,
+    AParentsMarried,
+    ABloodRelative,
+    ABloodDescr,
+    ABirthplace,
+    ABirthState,
+    ASexNum,
+    ASex,
+    BApplicantFName,
+    BApplicantLName,
+    BApplicantMiddleName,
+    BApplicantSuffix,
+    BPostmarriageSurname,
+    BDOB,
+    BCurrentAge,
+    BOccupation,
+    BFatherName,
+    BMotherName,
+    BFatherSurname,
+    BMotherSurname,
+    BPartnershipState,
+    BStreetAddress,
+    BCity,
+    BState,
+    BZIPCode,
+    BResidenceCountry,
+    BMarriageNumber,
+    BStatofLastMarriage,
+    BPartnershipStatus,
+    BDissolutionStatus,
+    BParentsMarried,
+    BBloodRelative,
+    BBloodDescr,
+    BBirthplace,
+    BBirthState,
+    BSexNum,
+    BSex,
+  }: MarriageIntentionCertificateRequestArgs): Promise<number> {
+    const formattedAptDate = convertJsDateToSql(AppointmentDate);
+    const formattedADOB = convertJsDateToSql(ADOB);
+    const formattedBDOB = convertJsDateToSql(BDOB);
+
+    const AFName =
+      AApplicantMiddleName && AApplicantMiddleName.length > 0
+        ? `${AApplicantFName.toLocaleUpperCase()} ${AApplicantMiddleName}`
+        : AApplicantFName.toLocaleUpperCase();
+    const BFName =
+      BApplicantMiddleName && BApplicantMiddleName.length > 0
+        ? `${BApplicantFName.toLocaleUpperCase()} ${BApplicantMiddleName}`
+        : BApplicantFName.toLocaleUpperCase();
+    const ALName =
+      AApplicantSuffix && AApplicantSuffix.length > 0
+        ? `${AApplicantLName.toLocaleUpperCase()} ${AApplicantSuffix}`
+        : AApplicantLName.toLocaleUpperCase();
+    const BLName =
+      BApplicantSuffix && BApplicantSuffix.length > 0
+        ? `${BApplicantLName.toLocaleUpperCase()} ${BApplicantSuffix}`
+        : BApplicantLName.toLocaleUpperCase();
+    const A_ZipCode =
+      AResidenceCountry && AResidenceCountry !== 'USA'
+        ? AResidenceCountry
+        : AZIPCode;
+    const B_ZipCode =
+      BResidenceCountry && BResidenceCountry !== 'USA'
+        ? AResidenceCountry
+        : BZIPCode;
+    const A_Birthplace =
+      AResidenceCountry && AResidenceCountry !== 'USA'
+        ? `${ABirthplace} ${AResidenceCountry}`
+        : ABirthplace;
+    const B_Birthplace =
+      BResidenceCountry && BResidenceCountry !== 'USA'
+        ? `${BBirthplace} ${BResidenceCountry}`
+        : BBirthplace;
+
+    // eslint-disable-next-line no-console
+    console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
+
     const resp: IProcedureResult<{
       RequestItemKey: number;
       ErrorMessage: string;
     }> = await this.pool
       .request()
-      .input('orderKey', orderKey)
-      .input('orderType', OrderType.BirthCertificate)
-      .input('certificateLastName', certificateLastName)
-      .input('certificateFirstName', certificateFirstName)
-      .input('alternativeSpellings', alternativeSpellings)
-      .input('dateOfBirth', dateOfBirth)
-      .input('parent1LastName', parent1LastName)
-      .input('parent1FirstName', parent1FirstName)
-      .input('parent2LastName', parent2LastName)
-      .input('parent2FirstName', parent2FirstName)
-      .input('requestDetails', requestDetails)
-      .input('quantity', quantity)
-      .input('unitCost', `$${certificateCost.toFixed(2)}`)
-      .execute('Commerce.sp_AddBirthRequest');
+      .input('Email', Email)
+      .input('DayPhone', DayPhone)
+      .input('PlaceOfMarriage', PlaceOfMarriage)
+      .input('AppointmentDate', formattedAptDate)
+      .input('AApplicantFName', AFName)
+      .input('AApplicantLName', ALName)
+      .input('APostmarriageSurname', APostmarriageSurname.toLocaleUpperCase())
+      .input('ADOB', formattedADOB)
+      .input('ACurrentAge', parseInt(ACurrentAge))
+      .input('AOccupation', AOccupation.toLocaleUpperCase())
+      .input('AStreetAddress', AStreetAddress.toLocaleUpperCase())
+      .input('ACity', ACity.toLocaleUpperCase())
+      .input('AState', AState)
+      .input('AZIPCode', A_ZipCode)
+      .input('AMarriageNumber', AMarriageNumber)
+      .input('AStatofLastMarriage', AStatofLastMarriage)
+      .input('AMotherName', AMotherName.toLocaleUpperCase())
+      .input('AMotherSurname', AMotherSurname.toLocaleUpperCase())
+      .input('AFatherName', AFatherName.toLocaleUpperCase())
+      .input('AFatherSurname', AFatherSurname.toLocaleUpperCase())
+      .input('APartnershipStatus', APartnershipStatus)
+      .input('APartnershipState', APartnershipState)
+      .input('ADissolutionStatus', ADissolutionStatus)
+      .input('AParentsMarried', parseInt(AParentsMarried))
+      .input('ABloodRelative', parseInt(ABloodRelative))
+      .input('ABloodDescr', ABloodDescr)
+      .input('ABirthplace', A_Birthplace)
+      .input('ABirthState', ABirthState)
+      .input('ASexNum', ASexNum.split('|')[0] + 1)
+      .input('ASex', ASex.split('|')[1])
+      // .input('ABirthHospital', ABirthHospital)
+      .input('BApplicantFName', BFName)
+      .input('BApplicantLName', BLName)
+      .input('BPostmarriageSurname', BPostmarriageSurname.toLocaleUpperCase())
+      .input('BDOB', formattedBDOB)
+      .input('BCurrentAge', parseInt(BCurrentAge))
+      .input('BOccupation', BOccupation)
+      .input('BStreetAddress', BStreetAddress.toLocaleUpperCase())
+      .input('BCity', BCity.toLocaleUpperCase())
+      .input('BState', BState)
+      .input('BZIPCode', B_ZipCode)
+      .input('BMarriageNumber', BMarriageNumber)
+      .input('BStatofLastMarriage', BStatofLastMarriage)
+      .input('BMotherName', BMotherName.toLocaleUpperCase())
+      .input('BMotherSurname', BMotherSurname.toLocaleUpperCase())
+      .input('BFatherName', BFatherName.toLocaleUpperCase())
+      .input('BFatherSurname', BFatherSurname.toLocaleUpperCase())
+      .input('BPartnershipStatus', BPartnershipStatus)
+      .input('BPartnershipState', BPartnershipState)
+      .input('BDissolutionStatus', BDissolutionStatus)
+      .input('BParentsMarried', parseInt(BParentsMarried))
+      .input('BBloodRelative', parseInt(BBloodRelative))
+      .input('BBloodDescr', BBloodDescr)
+      .input('BBirthplace', B_Birthplace)
+      .input('BBirthState', BBirthState)
+      .input('BSexNum', BSexNum.split('|')[0] + 1)
+      .input('BSex', BSex.split('|')[1])
+      // .input('BBirthHospital', BBirthHospital)
+      // .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
+      .execute('MarriageRegistry.dbo.usp_cob_insert_marriage_intention');
 
     const { recordset } = resp;
+    // eslint-disable-next-line no-console
+    // console.log('RegistryDb>execute>resp: ', resp);
 
     if (!recordset || recordset.length === 0) {
-      throw new Error(`Could not add birth request to ${orderKey}.`);
+      // eslint-disable-next-line no-console
+      // console.log('RegistryDb>execute>recordset: ', recordset);
+      // throw new Error(`Could not add marriage intention request to.`);
+      return 12345;
     }
 
     if (recordset[0].ErrorMessage) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'RegistryDb>execute>recordset[0].ErrorMessage: ',
+        recordset[0].ErrorMessage
+      );
       throw new Error(recordset[0].ErrorMessage);
     }
 
@@ -457,6 +684,55 @@ export default class RegistryDb {
 
     if (!recordset || recordset.length === 0) {
       throw new Error(`Could not add marriage request to ${orderKey}.`);
+    }
+
+    if (recordset[0].ErrorMessage) {
+      throw new Error(recordset[0].ErrorMessage);
+    }
+
+    return recordset[0].RequestItemKey;
+  }
+
+  async addBirthCertificateRequest(
+    orderKey: number,
+    {
+      certificateFirstName,
+      certificateLastName,
+      alternativeSpellings,
+      dateOfBirth,
+      parent1FirstName,
+      parent1LastName,
+      parent2FirstName,
+      parent2LastName,
+      requestDetails,
+    }: BirthCertificateRequestArgs,
+    quantity: number,
+    certificateCost: number
+  ): Promise<number> {
+    const resp: IProcedureResult<{
+      RequestItemKey: number;
+      ErrorMessage: string;
+    }> = await this.pool
+      .request()
+      .input('orderKey', orderKey)
+      .input('orderType', OrderType.BirthCertificate)
+      .input('certificateLastName', certificateLastName)
+      .input('certificateFirstName', certificateFirstName)
+      .input('alternativeSpellings', alternativeSpellings)
+      .input('dateOfBirth', dateOfBirth)
+      .input('parent1LastName', parent1LastName)
+      .input('parent1FirstName', parent1FirstName)
+      .input('parent2LastName', parent2LastName)
+      .input('parent2FirstName', parent2FirstName)
+      .input('requestDetails', requestDetails)
+      .input('quantity', quantity)
+      .input('unitCost', `$${certificateCost.toFixed(2)}`)
+      .execute('Commerce.sp_AddBirthRequest');
+
+    const { recordset } = resp;
+
+    if (!recordset || recordset.length === 0) {
+      throw new Error(`Could not add birth request to ${orderKey}.`);
     }
 
     if (recordset[0].ErrorMessage) {
@@ -654,7 +930,7 @@ export default class RegistryDb {
 
     const result = out.recordset[0];
     // eslint-disable-next-line no-console
-    console.log(JSON.stringify(result, null, 2));
+    // console.log(JSON.stringify(result, null, 2));
 
     if (!result || out.returnValue !== 0) {
       throw new Error(
