@@ -92,4 +92,5 @@ We also need to generate keys.
 - 2020.05.27: New App entry, PHIRE
 - 2020.07.10: Adding group to Building Maintenance Form Link
 - 2020.07.14: Reverting Building Maintenance new group
+- 2020.07.14: Test empty deploy, checking if failed deploy is related to expired build start
 
