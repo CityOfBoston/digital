@@ -86,7 +86,6 @@ export default class AppsRegistry {
           target: target || '',
         };
       });
-
       return {
         title,
         apps,
@@ -106,20 +105,26 @@ export default class AppsRegistry {
         .map(c => ({
           ...c,
           apps: c.apps.filter(({ groups, mfaDeviceRequired, agencies }) => {
+            // console.log('PRE (showAll): ', this.showAll);
+            // this.showAll = false;
+
             const groupsRequirementMet =
-              !groups || groups.find(g => userGroups.includes(g));
+              groups && groups.find(g => userGroups.includes(g)) ? true : false;
 
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
 
             const agencyRequirementMet =
-              !agencies || (cobAgency && agencies.includes(cobAgency));
+              agencies && (cobAgency && agencies.includes(cobAgency));
+            const isGroupOrAgencies =
+              (groupsRequirementMet || agencyRequirementMet) &&
+              mfaRequirementMet;
+            // console.log('group?: ', groups && groups.find(g => userGroups.includes(g)), ' | groupsRequirementMet: ', groupsRequirementMet);
+            // console.log(`agencyRequirementMet > : title: ${title}, agencies: [${agencies}] | [${cobAgency}] ${agencyRequirementMet}`);
+            // console.log(`groupsRequirementMet: ${groupsRequirementMet} | !groups: ${!groups} | group.find: ${!groups || groups.find(g => userGroups.includes(g))} | mfaRequirementMet: ${mfaRequirementMet} | agencyRequirementMet: ${agencyRequirementMet}`);
+            // console.log(`this.showAll: ${this.showAll} | showApp: ${this.showAll || (groupsRequirementMet && mfaRequirementMet && agencyRequirementMet)}`, '\n');
+            // console.log('groups: ', groups);
 
-            return (
-              this.showAll ||
-              (groupsRequirementMet &&
-                mfaRequirementMet &&
-                agencyRequirementMet)
-            );
+            return this.showAll || isGroupOrAgencies;
           }),
         }))
         // Filter out apps with no categories
