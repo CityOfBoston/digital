@@ -108,23 +108,34 @@ export default class AppsRegistry {
             // console.log('PRE (showAll): ', this.showAll);
             // this.showAll = false;
 
-            const groupsRequirementMet =
-              groups && groups.find(g => userGroups.includes(g)) ? true : false;
-
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
 
-            const agencyRequirementMet =
-              agencies && (cobAgency && agencies.includes(cobAgency));
+            const groupsRequirementMet = groups
+              ? groups && groups.find(g => userGroups.includes(g))
+                ? true
+                : false
+              : false;
+            // const groupsRequirementMet =
+            //   !groups || groups.find(g => userGroups.includes(g));
+
+            const agencyRequirementMet = agencies
+              ? agencies && (cobAgency && agencies.includes(cobAgency))
+              : false;
+            // const agencyRequirementMet =
+            //   !agencies || (cobAgency && agencies.includes(cobAgency));
+
             const isGroupOrAgencies =
               (groupsRequirementMet || agencyRequirementMet) &&
               mfaRequirementMet;
-            // console.log('group?: ', groups && groups.find(g => userGroups.includes(g)), ' | groupsRequirementMet: ', groupsRequirementMet);
-            // console.log(`agencyRequirementMet > : title: ${title}, agencies: [${agencies}] | [${cobAgency}] ${agencyRequirementMet}`);
-            // console.log(`groupsRequirementMet: ${groupsRequirementMet} | !groups: ${!groups} | group.find: ${!groups || groups.find(g => userGroups.includes(g))} | mfaRequirementMet: ${mfaRequirementMet} | agencyRequirementMet: ${agencyRequirementMet}`);
-            // console.log(`this.showAll: ${this.showAll} | showApp: ${this.showAll || (groupsRequirementMet && mfaRequirementMet && agencyRequirementMet)}`, '\n');
             // console.log('groups: ', groups);
+            // console.log(`groupsRequirementMet: ${groupsRequirementMet} | !groups: ${!groups} | group.find: ${!groups || groups.find(g => userGroups.includes(g))} | mfaRequirementMet: ${mfaRequirementMet} | agencyRequirementMet: ${agencyRequirementMet}`);
+            // console.log('---------------');
+            // console.log('group?: ', groups && groups.find(g => userGroups.includes(g)), ' | groupsRequirementMet: ', groupsRequirementMet, groups);
+            // console.log(`agencyRequirementMet > : title: ${title}, agencies: [${agencies}] | [${cobAgency}] ${agencyRequirementMet}`);
+            // console.log(`App: ${title} - this.showAll: ${this.showAll} | showApp: ${this.showAll || (groupsRequirementMet && mfaRequirementMet && agencyRequirementMet)}`, '\n');
+            // console.log('---------------');
 
-            return this.showAll || isGroupOrAgencies;
+            return this.showAll || (!groups && !agencies) || isGroupOrAgencies;
           }),
         }))
         // Filter out apps with no categories

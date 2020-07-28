@@ -7,6 +7,36 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/hub.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "The Hub",
+        "url": "https://hub.boston.gov/",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/talented.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "BPS Job Listings",
+        "url": "https://bostonpublicschools.tedk12.com/hire/index.aspx",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/boston-maps.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Boston Maps",
+        "url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
         "groups": Array [
           "SG_AB_IAM_TEAM",
         ],
@@ -20,6 +50,50 @@ Array [
     "icons": true,
     "showRequestAccessLink": false,
     "title": "Applications",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Tools",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "_blank",
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
   },
 ]
 `;
@@ -31,74 +105,33 @@ Array [
       Object {
         "agencies": null,
         "description": "",
-        "groups": Array [
-          "SG_AB_IAM_TEAM",
-        ],
-        "iconUrl": "/assets/apps/identityiq.svg",
+        "groups": null,
+        "iconUrl": "/assets/apps/hub.svg",
         "mfaDeviceRequired": false,
         "target": "",
-        "title": "IIQ",
-        "url": "https://identity.boston.gov/identityiq/",
+        "title": "The Hub",
+        "url": "https://hub.boston.gov/",
       },
-    ],
-    "icons": true,
-    "showRequestAccessLink": false,
-    "title": "Applications",
-  },
-  Object {
-    "apps": Array [
       Object {
-        "agencies": Array [
-          "CH",
-        ],
+        "agencies": null,
         "description": "",
         "groups": null,
-        "iconUrl": null,
+        "iconUrl": "/assets/apps/talented.svg",
         "mfaDeviceRequired": false,
         "target": "",
-        "title": "FleetHub",
-        "url": "http://boston.getlocalmotion.com/",
+        "title": "BPS Job Listings",
+        "url": "https://bostonpublicschools.tedk12.com/hire/index.aspx",
       },
       Object {
-        "agencies": Array [
-          "BPD",
-          "BFD",
-          "CH",
-        ],
+        "agencies": null,
         "description": "",
         "groups": null,
-        "iconUrl": null,
+        "iconUrl": "/assets/apps/boston-maps.svg",
         "mfaDeviceRequired": false,
         "target": "",
-        "title": "International Travel",
-        "url": "https://goo.gl/forms/Xobh9aZeGXSnKH2m2",
+        "title": "Boston Maps",
+        "url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com",
       },
-      Object {
-        "agencies": Array [
-          "CH",
-        ],
-        "description": "",
-        "groups": Array [
-          "SG_AB_BLDGMAINTREQ",
-        ],
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Building Maintenance",
-        "url": "https://eamtst.cityhall.boston.cob:5443/WebMaint/",
-      },
-    ],
-    "icons": false,
-    "showRequestAccessLink": false,
-    "title": "Forms / Links",
-  },
-]
-`;
-
-exports[`appsForUserTypeAndGroups returns apps for an agency 1`] = `
-Array [
-  Object {
-    "apps": Array [
       Object {
         "agencies": null,
         "description": "",
@@ -116,11 +149,6 @@ Array [
     "showRequestAccessLink": false,
     "title": "Applications",
   },
-]
-`;
-
-exports[`appsForUserTypeAndGroups returns apps that require an MFA device 1`] = `
-Array [
   Object {
     "apps": Array [
       Object {
@@ -168,11 +196,190 @@ Array [
     "showRequestAccessLink": false,
     "title": "Forms / Links",
   },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Tools",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "_blank",
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
+  },
 ]
 `;
 
-exports[`appsForUserTypeAndGroups returns just the "everyone" category for no groups 1`] = `
+exports[`appsForUserTypeAndGroups returns apps for an agency 1`] = `
 Array [
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/hub.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "The Hub",
+        "url": "https://hub.boston.gov/",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/talented.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "BPS Job Listings",
+        "url": "https://bostonpublicschools.tedk12.com/hire/index.aspx",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/boston-maps.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Boston Maps",
+        "url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": Array [
+          "SG_AB_IAM_TEAM",
+        ],
+        "iconUrl": "/assets/apps/identityiq.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "IIQ",
+        "url": "https://identity.boston.gov/identityiq/",
+      },
+    ],
+    "icons": true,
+    "showRequestAccessLink": false,
+    "title": "Applications",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Tools",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "_blank",
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
+  },
+]
+`;
+
+exports[`appsForUserTypeAndGroups returns apps that require an MFA device 1`] = `
+Array [
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/hub.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "The Hub",
+        "url": "https://hub.boston.gov/",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/talented.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "BPS Job Listings",
+        "url": "https://bostonpublicschools.tedk12.com/hire/index.aspx",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/boston-maps.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Boston Maps",
+        "url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com",
+      },
+    ],
+    "icons": true,
+    "showRequestAccessLink": false,
+    "title": "Applications",
+  },
   Object {
     "apps": Array [
       Object {
@@ -219,6 +426,183 @@ Array [
     "icons": false,
     "showRequestAccessLink": false,
     "title": "Forms / Links",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Tools",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "_blank",
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
+  },
+]
+`;
+
+exports[`appsForUserTypeAndGroups returns just the "everyone" category for no groups 1`] = `
+Array [
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/hub.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "The Hub",
+        "url": "https://hub.boston.gov/",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/talented.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "BPS Job Listings",
+        "url": "https://bostonpublicschools.tedk12.com/hire/index.aspx",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": "/assets/apps/boston-maps.svg",
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Boston Maps",
+        "url": "https://sso.boston.gov/idp/startSSO.ping?PartnerSpId=boston.maps.arcgis.com",
+      },
+    ],
+    "icons": true,
+    "showRequestAccessLink": false,
+    "title": "Applications",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": Array [
+          "CH",
+        ],
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "FleetHub",
+        "url": "http://boston.getlocalmotion.com/",
+      },
+      Object {
+        "agencies": Array [
+          "BPD",
+          "BFD",
+          "CH",
+        ],
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "International Travel",
+        "url": "https://goo.gl/forms/Xobh9aZeGXSnKH2m2",
+      },
+      Object {
+        "agencies": Array [
+          "CH",
+        ],
+        "description": "",
+        "groups": Array [
+          "SG_AB_BLDGMAINTREQ",
+        ],
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Building Maintenance",
+        "url": "https://eamtst.cityhall.boston.cob:5443/WebMaint/",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Forms / Links",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Tools",
+  },
+  Object {
+    "apps": Array [
+      Object {
+        "agencies": null,
+        "description": "",
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "_blank",
+        "title": "Group Management",
+        "url": "/group-management",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Support Tools",
   },
 ]
 `;
