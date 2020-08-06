@@ -86,7 +86,6 @@ export default class AppsRegistry {
           target: target || '',
         };
       });
-
       return {
         title,
         apps,
@@ -106,20 +105,25 @@ export default class AppsRegistry {
         .map(c => ({
           ...c,
           apps: c.apps.filter(({ groups, mfaDeviceRequired, agencies }) => {
-            const groupsRequirementMet =
-              !groups || groups.find(g => userGroups.includes(g));
+            // this.showAll = false;
 
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
 
-            const agencyRequirementMet =
-              !agencies || (cobAgency && agencies.includes(cobAgency));
+            const groupsRequirementMet = groups
+              ? groups && groups.find(g => userGroups.includes(g))
+                ? true
+                : false
+              : false;
 
-            return (
-              this.showAll ||
-              (groupsRequirementMet &&
-                mfaRequirementMet &&
-                agencyRequirementMet)
-            );
+            const agencyRequirementMet = agencies
+              ? agencies && (cobAgency && agencies.includes(cobAgency))
+              : false;
+
+            const isGroupOrAgencies =
+              (groupsRequirementMet || agencyRequirementMet) &&
+              mfaRequirementMet;
+
+            return this.showAll || (!groups && !agencies) || isGroupOrAgencies;
           }),
         }))
         // Filter out apps with no categories

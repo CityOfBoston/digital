@@ -53,6 +53,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
         'SG_AB_GRPMGMT_AUDITING',
         // 'SG_AB_GRPMGMT_PSHCM',
         // 'SG_AB_GRPMGMT_Lagan_Groups',
+        'SG_AB_BLDGMAINTREQ',
       ],
       needsNewPassword: isNewUser,
       needsMfaDevice: isNewUser && userId !== 'NEW88888',
@@ -62,7 +63,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       cobAgency: 'CH',
     };
     // eslint-disable-next-line no-console
-    // console.log('SamlAuthFake > result: ', result);
+    // console.log('SamlAuthFake > handlePostAssert > result: ', result);
     return Promise.resolve(result);
   }
 
