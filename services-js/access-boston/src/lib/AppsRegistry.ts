@@ -105,7 +105,6 @@ export default class AppsRegistry {
         .map(c => ({
           ...c,
           apps: c.apps.filter(({ groups, mfaDeviceRequired, agencies }) => {
-            // console.log('PRE (showAll): ', this.showAll);
             // this.showAll = false;
 
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
@@ -115,25 +114,14 @@ export default class AppsRegistry {
                 ? true
                 : false
               : false;
-            // const groupsRequirementMet =
-            //   !groups || groups.find(g => userGroups.includes(g));
 
             const agencyRequirementMet = agencies
               ? agencies && (cobAgency && agencies.includes(cobAgency))
               : false;
-            // const agencyRequirementMet =
-            //   !agencies || (cobAgency && agencies.includes(cobAgency));
 
             const isGroupOrAgencies =
               (groupsRequirementMet || agencyRequirementMet) &&
               mfaRequirementMet;
-            // console.log('groups: ', groups);
-            // console.log(`groupsRequirementMet: ${groupsRequirementMet} | !groups: ${!groups} | group.find: ${!groups || groups.find(g => userGroups.includes(g))} | mfaRequirementMet: ${mfaRequirementMet} | agencyRequirementMet: ${agencyRequirementMet}`);
-            // console.log('---------------');
-            // console.log('group?: ', groups && groups.find(g => userGroups.includes(g)), ' | groupsRequirementMet: ', groupsRequirementMet, groups);
-            // console.log(`agencyRequirementMet > : title: ${title}, agencies: [${agencies}] | [${cobAgency}] ${agencyRequirementMet}`);
-            // console.log(`App: ${title} - this.showAll: ${this.showAll} | showApp: ${this.showAll || (groupsRequirementMet && mfaRequirementMet && agencyRequirementMet)}`, '\n');
-            // console.log('---------------');
 
             return this.showAll || (!groups && !agencies) || isGroupOrAgencies;
           }),
