@@ -95,4 +95,5 @@ We also need to generate keys.
 - 2020.07.14: Test empty deploy, checking if failed deploy is related to expired build start
 - 2020.08.04: New App Deploy (PROD) - RISKMASTER
 - 2020.08.07: New App Deploy (PROD) - XYBION
+- 2020.08.24: New App Deploy (PROD) - Gov QA
 
