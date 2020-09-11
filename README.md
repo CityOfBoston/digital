@@ -295,6 +295,25 @@ these polyfills before any other code.
 
 We build all of our interfaces to be responsive, down to 320px wide.
 
+
+### Updates and Patches
+- 2020.12.10: React-Fleet - Node-Fetch 1.6.9 > 2.6.1
+  - Affected Apps
+    - modules-js
+      - react-fleat `| []`
+    - services-js
+      - 311 `| []`
+      - 311-indexer `| []`
+      - access-boston `| []`
+      - group-mgmt `| []`
+      - internal-slack-bot `| []`
+      - payment-webhooks `| []`
+      - permit-finder `| []`
+      - public-notices `| []`
+      - registry-certs `| [x] | Docker > node:8.14-alpine`
+
+
+
 ### Deploys
 
 - 2020.11.10: Reworking how AWS gets around Docker Hub Rate limiting 
