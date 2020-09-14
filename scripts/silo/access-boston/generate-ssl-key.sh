@@ -14,7 +14,7 @@ if [ -z "$SSL_KEY_PASS" ]; then
 fi
 
 if [ -z "$AWS_CODEBUILD_SSL_KEYGEN_PASS" ]; then
-  echo "SSL_KEY_PASS PRESENT: ${AWS_CODEBUILD_SSL_KEYGEN_PASS}"
+  echo "AWS_CODEBUILD_SSL_KEYGEN_PASS: ${AWS_CODEBUILD_SSL_KEYGEN_PASS}"
 fi
 
 openssl genrsa -des3 -passout pass:swordfish -out "${FILENAME_BASE}.pass.key" 2048
