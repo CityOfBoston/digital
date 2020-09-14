@@ -13,6 +13,10 @@ if [ -z "$SSL_KEY_PASS" ]; then
   echo "SSL_KEY_PASS PRESENT: ${SSL_KEY_PASS}"
 fi
 
+if [ -z "$AWS_CODEBUILD_SSL_KEYGEN_PASS" ]; then
+  echo "SSL_KEY_PASS PRESENT: ${AWS_CODEBUILD_SSL_KEYGEN_PASS}"
+fi
+
 openssl genrsa -des3 -passout pass:swordfish -out "${FILENAME_BASE}.pass.key" 2048
 openssl rsa -passin pass:swordfish -in "${FILENAME_BASE}.pass.key" -out "${FILENAME_BASE}.key"
 rm "${FILENAME_BASE}.pass.key"
