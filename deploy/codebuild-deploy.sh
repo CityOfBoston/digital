@@ -10,9 +10,6 @@ export DEPLOY_BRANCH="${CODEBUILD_SOURCE_VERSION}"
 
 export SERVICE_NAME="${BASH_REMATCH[2]}"
 
-echo "buildspec > codebuild-deploy > AWS_CODEBUILD_SSL_KEYGEN_PASS $AWS_CODEBUILD_SSL_KEYGEN_PASS"
-export SSL_KEYGEN_PASS="${AWS_CODEBUILD_SSL_KEYGEN_PASS}"
-
 # We use npm rather than installing yarn when deploying, since the real work is
 # done inside building the container.
 #
