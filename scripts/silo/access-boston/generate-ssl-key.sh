@@ -6,6 +6,13 @@ FILENAME_BASE=${2:-server}
 
 cd $1
 
+echo "FILE: generate-ssl-key.sh"
+echo "ECHO PASS Next?"
+
+if [ -z "$SSL_KEY_PASS" ]; then
+  echo "SSL_KEY_PASS PRESENT: ${SSL_KEY_PASS}"
+fi
+
 openssl genrsa -des3 -passout pass:swordfish -out "${FILENAME_BASE}.pass.key" 2048
 openssl rsa -passin pass:swordfish -in "${FILENAME_BASE}.pass.key" -out "${FILENAME_BASE}.key"
 rm "${FILENAME_BASE}.pass.key"
