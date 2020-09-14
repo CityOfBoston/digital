@@ -38,7 +38,7 @@ ADD . /app/
 RUN echo "PRE - Generate-SSL-KEY Script"
 RUN /app/scripts/silo/access-boston/generate-ssl-key.sh /app/services-js/$WORKSPACE
 RUN echo "POST - Generate-SSL-KEY Script"
-RUN ls
+RUN ls -la
 
 # This does the building of our repo’s packages, which couldn’t happen during
 # the initial install because we didn’t have source. The scope keeps us from
