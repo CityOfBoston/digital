@@ -9,4 +9,5 @@ phases:
   # service update as post_build.
   build:
     commands:
+      - echo "buildspec > AWS_CODEBUILD_SSL_KEYGEN_PASS: [${AWS_CODEBUILD_SSL_KEYGEN_PASS}]"
       - ./deploy/codebuild-deploy.sh

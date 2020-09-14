@@ -3,7 +3,7 @@
 set -e
 
 FILENAME_BASE=${2:-server}
-SSL_KEY_PASSWORD=`swordfish`
+SSL_KEY_PASSWORD=`[ -z "$AWS_CODEBUILD_SSL_KEYGEN_PASS" ] && echo $AWS_CODEBUILD_SSL_KEYGEN_PASS || echo swordfish`
 
 cd $1
 
@@ -15,12 +15,12 @@ if [ -z "$SSL_KEY_PASS" ]; then
 fi
 
 if [ -z "$AWS_CODEBUILD_SSL_KEYGEN_PASS" ]; then
-  echo "AWS_CODEBUILD_SSL_KEYGEN_PASS: ${AWS_CODEBUILD_SSL_KEYGEN_PASS}"
+  echo "AWS_CODEBUILD_SSL_KEYGEN_PASS: [${AWS_CODEBUILD_SSL_KEYGEN_PASS}]"
 fi
 
 echo "SSL_KEY_PASSWORD: [${SSL_KEY_PASSWORD}]"
 
-openssl genrsa -des3 -passout pass:"${SSL_KEY_PASSWORD}" -out "${FILENAME_BASE}.pass.key" 2048
+openssl genrsa -des3 -passout pass:swordfish -out "${FILENAME_BASE}.pass.key" 2048
 openssl rsa -passin pass:swordfish -in "${FILENAME_BASE}.pass.key" -out "${FILENAME_BASE}.key"
 rm "${FILENAME_BASE}.pass.key"
 openssl req -new -key "${FILENAME_BASE}.key" -out "${FILENAME_BASE}.csr" \
