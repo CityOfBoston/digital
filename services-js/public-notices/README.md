@@ -24,3 +24,7 @@ This app uses Next.js’s [static HTML
 export](https://nextjs.org/docs#static-html-export). The deployment process
 uploads it to an S3 bucket. Like all apps.boston.gov S3-hosted sites, it is
 served through the default handler nginx container.
+
+### Deploys
+
+- 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
