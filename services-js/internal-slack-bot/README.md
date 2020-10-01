@@ -94,3 +94,7 @@ This bot currently handles deployments for the [digital](https://github.com/City
   response_url: 'https://hooks.slack.com/actions/TDU9X9E5U/472314226533/DSJdjaL29rZY8lwAXrt1oPvE',
   trigger_id: '472012823779.470337320198.b6a9063564118120b0b7bb3472399d60' }
 ```
+
+### Deploys
+
+- 2020.09.31: Security Patch: Remove hardcoded ssl pass in deploy script

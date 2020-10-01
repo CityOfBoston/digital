@@ -14,3 +14,7 @@ npm run test-latest-charge
 ```
 
 This requires at least one charge in Stripe.
+
+### Deploys
+
+- 2020.09.31: Security Patch: Remove hardcoded ssl pass in deploy script
