@@ -615,7 +615,7 @@ export default class RegistryDb {
       .input('BSex', BSex.split('|')[1])
       // .input('BBirthHospital', BBirthHospital)
       // .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
-      .execute('MarriageRegistry.dbo.usp_cob_insert_marriage_intention');
+      .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
 
     const { recordset } = resp;
     // eslint-disable-next-line no-console
