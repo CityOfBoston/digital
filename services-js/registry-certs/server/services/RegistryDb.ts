@@ -517,36 +517,36 @@ export default class RegistryDb {
 
     const AFName =
       AApplicantMiddleName && AApplicantMiddleName.length > 0
-        ? `${AApplicantFName.toLocaleUpperCase()} ${AApplicantMiddleName}`
+        ? `${AApplicantFName.toLocaleUpperCase()} ${AApplicantMiddleName.toLocaleUpperCase()}`
         : AApplicantFName.toLocaleUpperCase();
     const BFName =
       BApplicantMiddleName && BApplicantMiddleName.length > 0
-        ? `${BApplicantFName.toLocaleUpperCase()} ${BApplicantMiddleName}`
+        ? `${BApplicantFName.toLocaleUpperCase()} ${BApplicantMiddleName.toLocaleUpperCase()}`
         : BApplicantFName.toLocaleUpperCase();
     const ALName =
       AApplicantSuffix && AApplicantSuffix.length > 0
-        ? `${AApplicantLName.toLocaleUpperCase()} ${AApplicantSuffix}`
+        ? `${AApplicantLName.toLocaleUpperCase()} ${AApplicantSuffix.toLocaleUpperCase()}`
         : AApplicantLName.toLocaleUpperCase();
     const BLName =
       BApplicantSuffix && BApplicantSuffix.length > 0
-        ? `${BApplicantLName.toLocaleUpperCase()} ${BApplicantSuffix}`
+        ? `${BApplicantLName.toLocaleUpperCase()} ${BApplicantSuffix.toLocaleUpperCase()}`
         : BApplicantLName.toLocaleUpperCase();
     const A_ZipCode =
       AResidenceCountry && AResidenceCountry !== 'USA'
-        ? AResidenceCountry
+        ? AResidenceCountry.toLocaleUpperCase()
         : AZIPCode;
     const B_ZipCode =
       BResidenceCountry && BResidenceCountry !== 'USA'
-        ? AResidenceCountry
+        ? AResidenceCountry.toLocaleUpperCase()
         : BZIPCode;
     const A_Birthplace =
       AResidenceCountry && AResidenceCountry !== 'USA'
-        ? `${ABirthplace} ${AResidenceCountry}`
-        : ABirthplace;
+        ? `${ABirthplace.toLocaleUpperCase()} ${AResidenceCountry.toLocaleUpperCase()}`
+        : ABirthplace.toLocaleUpperCase();
     const B_Birthplace =
       BResidenceCountry && BResidenceCountry !== 'USA'
-        ? `${BBirthplace} ${BResidenceCountry}`
-        : BBirthplace;
+        ? `${BBirthplace.toLocaleUpperCase()} ${BResidenceCountry.toLocaleUpperCase()}`
+        : BBirthplace.toLocaleUpperCase();
 
     // eslint-disable-next-line no-console
     console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
@@ -581,7 +581,7 @@ export default class RegistryDb {
       .input('ADissolutionStatus', ADissolutionStatus)
       .input('AParentsMarried', parseInt(AParentsMarried))
       .input('ABloodRelative', parseInt(ABloodRelative))
-      .input('ABloodDescr', ABloodDescr)
+      .input('ABloodDescr', ABloodDescr.toLocaleUpperCase())
       .input('ABirthplace', A_Birthplace)
       .input('ABirthState', ABirthState)
       .input('ASexNum', ASexNum.split('|')[0] + 1)
@@ -592,7 +592,7 @@ export default class RegistryDb {
       .input('BPostmarriageSurname', BPostmarriageSurname.toLocaleUpperCase())
       .input('BDOB', formattedBDOB)
       .input('BCurrentAge', parseInt(BCurrentAge))
-      .input('BOccupation', BOccupation)
+      .input('BOccupation', BOccupation.toLocaleUpperCase())
       .input('BStreetAddress', BStreetAddress.toLocaleUpperCase())
       .input('BCity', BCity.toLocaleUpperCase())
       .input('BState', BState)
@@ -608,13 +608,12 @@ export default class RegistryDb {
       .input('BDissolutionStatus', BDissolutionStatus)
       .input('BParentsMarried', parseInt(BParentsMarried))
       .input('BBloodRelative', parseInt(BBloodRelative))
-      .input('BBloodDescr', BBloodDescr)
+      .input('BBloodDescr', BBloodDescr.toLocaleUpperCase())
       .input('BBirthplace', B_Birthplace)
       .input('BBirthState', BBirthState)
       .input('BSexNum', BSexNum.split('|')[0] + 1)
       .input('BSex', BSex.split('|')[1])
       // .input('BBirthHospital', BBirthHospital)
-      // .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
       .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
 
     const { recordset } = resp;
