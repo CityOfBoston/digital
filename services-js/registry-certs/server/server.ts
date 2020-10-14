@@ -10,6 +10,8 @@ import cleanup from 'node-cleanup';
 import Stripe from 'stripe';
 import { Client as PostmarkClient } from 'postmark';
 import Rollbar from 'rollbar';
+import axios from 'axios';
+import qs from 'qs';
 
 import {
   loggingPlugin,
@@ -120,6 +122,14 @@ export async function makeServer({ rollbar }: ServerArgs) {
     database: process.env.REGISTRY_DATA_DB_DATABASE!,
   };
 
+  const registryDbFactoryOpts2: DatabaseConnectionOptions = {
+    username: process.env.REGISTRY_INTENTION_DB_USER!,
+    password: process.env.REGISTRY_INTENTION_DB_PASSWORD!,
+    domain: process.env.REGISTRY_INTENTION_DB_DOMAIN,
+    server: process.env.REGISTRY_INTENTION_DB_SERVER!,
+    database: process.env.REGISTRY_INTENTION_DB_DATABASE!,
+  };
+
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
   const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
   if (process.env.NODE_ENV === 'production' && !stripeWebhookSecret) {
@@ -137,6 +147,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
   );
 
   let registryDbFactory: RegistryDbFactory;
+  let registryDbFactory2: RegistryDbFactory;
 
   const startup = async () => {
     const services = await Promise.all([
@@ -147,11 +158,22 @@ export async function makeServer({ rollbar }: ServerArgs) {
       process.env.NODE_ENV !== 'test' ? app.prepare() : Promise.resolve(),
     ]);
 
+    const services2 = await Promise.all([
+      registryDbFactoryOpts.server
+        ? makeRegistryDbFactory(rollbar, registryDbFactoryOpts2)
+        : makeFixtureRegistryDbFactory('fixtures/registry-data/phill.json'),
+      // We don’t run next for the server test
+      process.env.NODE_ENV !== 'test' ? app.prepare() : Promise.resolve(),
+    ]);
+
     registryDbFactory = services[0] as any;
+    registryDbFactory2 = services2[0] as any;
 
     return async () => {
+      // console.log('async > registryDbFactory 1-2: ', registryDbFactory, registryDbFactory2);
       await Promise.all([
         registryDbFactory.cleanup(),
+        registryDbFactory2.cleanup(),
         app.close(),
         server.stop(),
       ]);
@@ -202,8 +224,10 @@ export async function makeServer({ rollbar }: ServerArgs) {
       ? request.auth.credentials.source
       : 'unknown';
 
+    console.log('HapiGraphqlContextFunction > return registryDb 1-2');
     return {
       registryDb: registryDbFactory.registryDb(),
+      registryDb2: registryDbFactory2.registryDb(),
       stripe,
       emails,
       rollbar,
@@ -241,9 +265,51 @@ export async function makeServer({ rollbar }: ServerArgs) {
   });
 
   server.route({
+    path: '/fetchGraphql',
+    method: ['POST'],
+    options: {
+      auth: false,
+      plugins: {
+        crumb: false,
+      },
+    },
+    handler: async _req => {
+      const payload = _req.payload;
+      // eslint-disable-next-line no-console
+      // console.log('payload: ', payload);
+      const fetchQ = async _this_req => {
+        let data = qs.stringify(payload);
+        let config: any = {
+          method: 'post',
+          // url: 'https://contactform.boston.gov/emails',
+          // url: 'https://d8-ci.boston.gov/contactform/emails',
+          // url: 'https://d8-ci.boston.gov/rest/email/registry',
+          url: 'https://www.boston.gov/rest/email/registry',
+          headers: {
+            Authorization: process.env.CONTACTFORM_TOKEN,
+            'Content-Type': process.env.CONTACTFORM_CONTENT_TYPE,
+          },
+          data: data,
+        };
+
+        return await axios(config)
+          .then(response => {
+            console.log(JSON.stringify(response.data));
+            return response.data;
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      };
+
+      return await fetchQ(_req);
+    },
+  });
+
+  server.route({
     method: 'GET',
     path: '/',
-    handler: (_, h) => h.redirect(process.env.ROOT_REDIRECT_URL || '/death'),
+    handler: (_, h) => h.redirect(process.env.ROOT_REDIRECT_URL || '/birth'),
   });
 
   // small hack to keep people from finding the UI in prod, since it doesn’t

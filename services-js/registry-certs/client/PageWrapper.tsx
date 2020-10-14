@@ -15,18 +15,22 @@ import PageLayout from './PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../lib/breadcrumbs';
 
-type CertificateRequestType = 'birth' | 'marriage';
+type CertificateRequestType = 'birth' | 'marriage' | 'intention';
 
 export interface Progress {
   totalSteps: number;
   currentStep: number;
   currentStepCompleted: boolean;
+  offset?: number | undefined;
 }
 
 interface Props {
   certificateType: CertificateRequestType;
   progress?: Progress;
   footer?: ReactNode;
+  classString?: string;
+  mainHeadline?: string;
+  offset?: number;
 }
 
 /**
@@ -36,19 +40,39 @@ interface Props {
  */
 export default class PageWrapper extends Component<Props> {
   render() {
-    const { certificateType, progress, footer, children } = this.props;
+    const {
+      certificateType,
+      progress,
+      footer,
+      children,
+      classString,
+      mainHeadline,
+      offset,
+    } = this.props;
+    const sec2ndClassStr = footer ? 'b-c--nbp' : '';
+    const classStr =
+      classString && classString.length > 0
+        ? `${classString}${sec2ndClassStr}`
+        : `b-c b-c--hsm ${sec2ndClassStr}`;
+
+    const $mainHeadline =
+      mainHeadline && mainHeadline.length > 0
+        ? mainHeadline
+        : `Request a ${certificateType} certificate`;
+
+    let modProgress = Object.assign({}, progress);
+    if (offset && typeof offset === 'number') {
+      modProgress.offset = offset;
+    }
 
     return (
       <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS[certificateType]}>
-        <div
-          className={`b-c b-c--hsm ${footer ? 'b-c--nbp' : ''}`}
-          aria-live="polite"
-        >
+        <div className={classStr} aria-live="polite">
           <h1 className="sh-title" css={titleStyle(certificateType)}>
-            Request a {certificateType} certificate
+            {$mainHeadline}
           </h1>
 
-          {progress && <ProgressBar {...progress} />}
+          {progress && <ProgressBar {...modProgress} />}
 
           <section className="m-t500">{children}</section>
         </div>

@@ -36,6 +36,9 @@ type Props = {
   name?: string;
   defaultValue?: string;
   placeholder?: string;
+  disableLabelNoWrap?: boolean;
+  labelBelowInput?: boolean;
+  optionalDescription?: string;
 
   required?: boolean;
   inputMode?: string;
@@ -72,19 +75,28 @@ export default function TextInput(props: Props): JSX.Element {
 
   const labelText = (label): React.ReactChild => {
     if (typeof label === 'string') {
-      return (
-        <span style={{ marginRight: '0.5em', whiteSpace: 'nowrap' }}>
-          {label}
-        </span>
-      );
+      let styleObj = { marginRight: '0.5em' };
+      if (!props.disableLabelNoWrap) {
+        styleObj['whiteSpace'] = 'nowrap';
+      }
+
+      return <span style={styleObj}>{label}</span>;
     } else {
       return label;
     }
   };
 
-  return (
-    <div className={props.className} style={props.style}>
-      <label htmlFor={id} className={classNames.label}>
+  const optionalDescriptionElem = optionalDescription => {
+    const cont = 'notice css-content-psedo';
+    return <label className={cont}>{optionalDescription}</label>;
+  };
+
+  const labelElem = () => {
+    const modLabelStyle = { marginTop: '1em', marginBottom: '2em' };
+    const optStyles = props.labelBelowInput ? modLabelStyle : {};
+
+    return (
+      <label htmlFor={id} className={classNames.label} style={optStyles}>
         {props.hideLabel ? <>&nbsp;</> : labelText(props.label)}
 
         {/* Because “required” attribute is set on <input> element, */}
@@ -95,6 +107,28 @@ export default function TextInput(props: Props): JSX.Element {
           </span>
         )}
       </label>
+    );
+  };
+
+  const spacer = () => {
+    return (
+      <div className="t--subinfo t--err m-b100">
+        {/* The &nbsp; is to keep space for the error so the form doesn’t jump when one is added. */}
+        {props.error && typeof props.error === 'string' ? (
+          props.error
+        ) : (
+          <>&nbsp;</>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <div className={props.className} style={props.style}>
+      {!props.labelBelowInput && labelElem()}
+      {props.labelBelowInput && spacer()}
+      {typeof props.optionalDescription !== 'undefined' &&
+        optionalDescriptionElem(props.optionalDescription)}
 
       <input
         className={classNames.input}
@@ -116,14 +150,8 @@ export default function TextInput(props: Props): JSX.Element {
         onKeyDown={props.onKeyDown}
       />
 
-      <div className="t--subinfo t--err m-b100">
-        {/* The &nbsp; is to keep space for the error so the form doesn’t jump when one is added. */}
-        {props.error && typeof props.error === 'string' ? (
-          props.error
-        ) : (
-          <>&nbsp;</>
-        )}
-      </div>
+      {props.labelBelowInput && labelElem()}
+      {!props.labelBelowInput && spacer()}
     </div>
   );
 }

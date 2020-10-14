@@ -278,7 +278,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -322,9 +322,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -855,7 +853,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -899,9 +897,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <section
             className="m-t500"
@@ -1256,7 +1252,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -1300,9 +1296,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -1959,7 +1953,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -2003,9 +1997,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -2717,7 +2709,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -2761,9 +2753,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <section
             className="m-t500"
@@ -3100,7 +3090,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -3144,9 +3134,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -7770,10 +7758,6 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-
-  .emotion-2 > div:last-of-type {
-    margin-left: 2rem;
-  }
 }
 
 .emotion-3 {
@@ -7847,6 +7831,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
+                style={Object {}}
               >
                 <span
                   style={
@@ -7878,6 +7863,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               <label
                 className="txt-l "
                 htmlFor="input-5381"
+                style={Object {}}
               >
                 <span
                   style={
@@ -7934,6 +7920,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
+                style={Object {}}
               >
                 <span
                   style={
@@ -7965,6 +7952,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               <label
                 className="txt-l "
                 htmlFor="input-5381"
+                style={Object {}}
               >
                 <span
                   style={
@@ -8461,10 +8449,6 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-
-  .emotion-2 > div:last-of-type {
-    margin-left: 2rem;
-  }
 }
 
 .emotion-3 {
@@ -8538,6 +8522,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
+                style={Object {}}
               >
                 <span
                   style={
@@ -8569,6 +8554,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-5381"
+                style={Object {}}
               >
                 <span
                   style={
@@ -8625,6 +8611,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
+                style={Object {}}
               >
                 <span
                   style={
@@ -8656,6 +8643,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-5381"
+                style={Object {}}
               >
                 <span
                   style={
@@ -9180,10 +9168,6 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-
-  .emotion-2 > div:last-of-type {
-    margin-left: 2rem;
-  }
 }
 
 .emotion-3 {
@@ -9257,6 +9241,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
+                style={Object {}}
               >
                 <span
                   style={
@@ -9288,6 +9273,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-5381"
+                style={Object {}}
               >
                 <span
                   style={
@@ -9344,6 +9330,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-2048906072"
+                style={Object {}}
               >
                 <span
                   style={
@@ -9375,6 +9362,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <label
                 className="txt-l "
                 htmlFor="input-5381"
+                style={Object {}}
               >
                 <span
                   style={
@@ -9737,10 +9725,6 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-
-  .emotion-1 > div:last-of-type {
-    margin-left: 2rem;
-  }
 }
 
 .emotion-5 {
@@ -9847,6 +9831,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             <label
               className="txt-l "
               htmlFor="input-2048906072"
+              style={Object {}}
             >
               <span
                 style={
@@ -9878,6 +9863,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             <label
               className="txt-l "
               htmlFor="input-1103291528"
+              style={Object {}}
             >
               <span
                 style={
@@ -9913,6 +9899,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             <label
               className="txt-l "
               htmlFor="input-2099238988"
+              style={Object {}}
             >
               <span
                 style={
@@ -9948,94 +9935,99 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
         <fieldset
           className="emotion-5"
         >
-          <legend
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
-          >
-            <h2
-              className="emotion-0"
+          <div>
+            <legend
               style={
                 Object {
-                  "marginBottom": "1.5rem",
+                  "width": "100%",
                 }
               }
             >
-              When were 
-              they
-               born?
-            </h2>
-          </legend>
-          <div
-            className=" emotion-4"
-          >
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dob-month"
+              <h2
+                className="emotion-0"
+                style={
+                  Object {
+                    "marginBottom": "1.5rem",
+                  }
+                }
               >
-                Month
-              </label>
-              <input
-                className="txt-f"
-                id="dob-month"
-                max="12"
-                min="1"
-                name="month"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="MM"
-                type="number"
-                value="4"
-              />
+                When were 
+                they
+                 born?
+              </h2>
+            </legend>
+            <div
+              className=" emotion-4"
+            >
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dob-month"
+                >
+                  Month
+                </label>
+                <input
+                  className="txt-f"
+                  id="dob-month"
+                  max="12"
+                  maxLength={2}
+                  min="1"
+                  name="month"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="MM"
+                  type="number"
+                  value="4"
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dob-day"
+                >
+                  Day
+                </label>
+                <input
+                  className="txt-f"
+                  id="dob-day"
+                  max="31"
+                  maxLength={2}
+                  min="1"
+                  name="day"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="DD"
+                  type="number"
+                  value="28"
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dob-year"
+                >
+                  Year
+                </label>
+                <input
+                  className="txt-f"
+                  id="dob-year"
+                  max={2020}
+                  maxLength={4}
+                  min={1870}
+                  name="year"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="YYYY"
+                  type="number"
+                  value="1990"
+                />
+              </div>
             </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dob-day"
-              >
-                Day
-              </label>
-              <input
-                className="txt-f"
-                id="dob-day"
-                max="31"
-                min="1"
-                name="day"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="DD"
-                type="number"
-                value="28"
-              />
-            </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dob-year"
-              >
-                Year
-              </label>
-              <input
-                className="txt-f"
-                id="dob-year"
-                max={2020}
-                min={1870}
-                name="year"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="YYYY"
-                type="number"
-                value="1990"
-              />
-            </div>
+            
           </div>
-          
         </fieldset>
       </div>
       <div
@@ -10225,10 +10217,6 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-
-  .emotion-1 > div:last-of-type {
-    margin-left: 2rem;
-  }
 }
 
 .emotion-5 {
@@ -10335,6 +10323,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             <label
               className="txt-l "
               htmlFor="input-2048906072"
+              style={Object {}}
             >
               <span
                 style={
@@ -10366,6 +10355,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             <label
               className="txt-l "
               htmlFor="input-1103291528"
+              style={Object {}}
             >
               <span
                 style={
@@ -10401,6 +10391,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             <label
               className="txt-l "
               htmlFor="input-2099238988"
+              style={Object {}}
             >
               <span
                 style={
@@ -10436,91 +10427,96 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
         <fieldset
           className="emotion-5"
         >
-          <legend
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
-          >
-            <h2
-              className="emotion-0"
+          <div>
+            <legend
               style={
                 Object {
-                  "marginBottom": "1.5rem",
+                  "width": "100%",
                 }
               }
             >
-              When were 
-              they
-               born?
-            </h2>
-          </legend>
-          <div
-            className=" emotion-4"
-          >
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dob-month"
+              <h2
+                className="emotion-0"
+                style={
+                  Object {
+                    "marginBottom": "1.5rem",
+                  }
+                }
               >
-                Month
-              </label>
-              <input
-                className="txt-f"
-                id="dob-month"
-                max="12"
-                min="1"
-                name="month"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="MM"
-                type="number"
-                value=""
-              />
-            </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dob-day"
-              >
-                Day
-              </label>
-              <input
-                className="txt-f"
-                id="dob-day"
-                max="31"
-                min="1"
-                name="day"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="DD"
-                type="number"
-                value=""
-              />
-            </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dob-year"
-              >
-                Year
-              </label>
-              <input
-                className="txt-f"
-                id="dob-year"
-                max={2020}
-                min={1870}
-                name="year"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="YYYY"
-                type="number"
-                value=""
-              />
+                When were 
+                they
+                 born?
+              </h2>
+            </legend>
+            <div
+              className=" emotion-4"
+            >
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dob-month"
+                >
+                  Month
+                </label>
+                <input
+                  className="txt-f"
+                  id="dob-month"
+                  max="12"
+                  maxLength={2}
+                  min="1"
+                  name="month"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="MM"
+                  type="number"
+                  value=""
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dob-day"
+                >
+                  Day
+                </label>
+                <input
+                  className="txt-f"
+                  id="dob-day"
+                  max="31"
+                  maxLength={2}
+                  min="1"
+                  name="day"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="DD"
+                  type="number"
+                  value=""
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dob-year"
+                >
+                  Year
+                </label>
+                <input
+                  className="txt-f"
+                  id="dob-year"
+                  max={2020}
+                  maxLength={4}
+                  min={1870}
+                  name="year"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="YYYY"
+                  type="number"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </fieldset>
@@ -11697,7 +11693,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -11741,9 +11737,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -12272,7 +12266,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -12316,9 +12310,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -12995,7 +12987,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -13039,9 +13031,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -13477,10 +13467,6 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-
-  .emotion-5 > div:last-of-type {
-    margin-left: 2rem;
-  }
 }
 
 .emotion-9 {
@@ -13742,7 +13728,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -13786,9 +13772,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -13852,6 +13836,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                     <label
                       className="txt-l "
                       htmlFor="input-2048906072"
+                      style={Object {}}
                     >
                       <span
                         style={
@@ -13883,6 +13868,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                     <label
                       className="txt-l "
                       htmlFor="input-1103291528"
+                      style={Object {}}
                     >
                       <span
                         style={
@@ -13918,6 +13904,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                     <label
                       className="txt-l "
                       htmlFor="input-2099238988"
+                      style={Object {}}
                     >
                       <span
                         style={
@@ -13953,91 +13940,96 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                 <fieldset
                   className="emotion-9"
                 >
-                  <legend
-                    style={
-                      Object {
-                        "width": "100%",
-                      }
-                    }
-                  >
-                    <h2
-                      className="emotion-4"
+                  <div>
+                    <legend
                       style={
                         Object {
-                          "marginBottom": "1.5rem",
+                          "width": "100%",
                         }
                       }
                     >
-                      When were 
-                      you
-                       born?
-                    </h2>
-                  </legend>
-                  <div
-                    className=" emotion-8"
-                  >
-                    <div>
-                      <label
-                        className="txt-l"
-                        htmlFor="dob-month"
+                      <h2
+                        className="emotion-4"
+                        style={
+                          Object {
+                            "marginBottom": "1.5rem",
+                          }
+                        }
                       >
-                        Month
-                      </label>
-                      <input
-                        className="txt-f"
-                        id="dob-month"
-                        max="12"
-                        min="1"
-                        name="month"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        placeholder="MM"
-                        type="number"
-                        value=""
-                      />
-                    </div>
-                    <div>
-                      <label
-                        className="txt-l"
-                        htmlFor="dob-day"
-                      >
-                        Day
-                      </label>
-                      <input
-                        className="txt-f"
-                        id="dob-day"
-                        max="31"
-                        min="1"
-                        name="day"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        placeholder="DD"
-                        type="number"
-                        value=""
-                      />
-                    </div>
-                    <div>
-                      <label
-                        className="txt-l"
-                        htmlFor="dob-year"
-                      >
-                        Year
-                      </label>
-                      <input
-                        className="txt-f"
-                        id="dob-year"
-                        max={2020}
-                        min={1870}
-                        name="year"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onFocus={[Function]}
-                        placeholder="YYYY"
-                        type="number"
-                        value=""
-                      />
+                        When were 
+                        you
+                         born?
+                      </h2>
+                    </legend>
+                    <div
+                      className=" emotion-8"
+                    >
+                      <div>
+                        <label
+                          className="txt-l"
+                          htmlFor="dob-month"
+                        >
+                          Month
+                        </label>
+                        <input
+                          className="txt-f"
+                          id="dob-month"
+                          max="12"
+                          maxLength={2}
+                          min="1"
+                          name="month"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="MM"
+                          type="number"
+                          value=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          className="txt-l"
+                          htmlFor="dob-day"
+                        >
+                          Day
+                        </label>
+                        <input
+                          className="txt-f"
+                          id="dob-day"
+                          max="31"
+                          maxLength={2}
+                          min="1"
+                          name="day"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="DD"
+                          type="number"
+                          value=""
+                        />
+                      </div>
+                      <div>
+                        <label
+                          className="txt-l"
+                          htmlFor="dob-year"
+                        >
+                          Year
+                        </label>
+                        <input
+                          className="txt-f"
+                          id="dob-year"
+                          max={2020}
+                          maxLength={4}
+                          min={1870}
+                          name="year"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          placeholder="YYYY"
+                          type="number"
+                          value=""
+                        />
+                      </div>
                     </div>
                   </div>
                 </fieldset>
@@ -14478,10 +14470,6 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
     -ms-flex-positive: 1;
     flex-grow: 1;
   }
-
-  .emotion-6 > div:last-of-type {
-    margin-left: 2rem;
-  }
 }
 
 .emotion-7 {
@@ -14702,7 +14690,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -14746,9 +14734,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -14820,6 +14806,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                       <label
                         className="txt-l "
                         htmlFor="input-2048906072"
+                        style={Object {}}
                       >
                         <span
                           style={
@@ -14851,6 +14838,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                       <label
                         className="txt-l "
                         htmlFor="input-5381"
+                        style={Object {}}
                       >
                         <span
                           style={
@@ -14907,6 +14895,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                       <label
                         className="txt-l "
                         htmlFor="input-2048906072"
+                        style={Object {}}
                       >
                         <span
                           style={
@@ -14938,6 +14927,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                       <label
                         className="txt-l "
                         htmlFor="input-5381"
+                        style={Object {}}
                       >
                         <span
                           style={
@@ -15640,7 +15630,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -15684,9 +15674,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -16660,7 +16648,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -16704,9 +16692,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -17338,7 +17324,7 @@ exports[`Storyshots Common Components/Checkout/CheckoutPage server-side render 1
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -17709,7 +17695,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -17753,9 +17739,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -18345,7 +18329,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -18389,9 +18373,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -18904,7 +18886,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -19986,7 +19968,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -21087,7 +21069,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -21131,9 +21113,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -22175,7 +22155,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -22741,7 +22721,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -23303,7 +23283,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -24404,7 +24384,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -24448,9 +24428,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -25586,7 +25564,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -25630,9 +25608,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -26377,7 +26353,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -27196,7 +27172,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -27988,7 +27964,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -28780,7 +28756,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -29603,7 +29579,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -29647,9 +29623,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -30396,7 +30370,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -31231,7 +31205,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -32072,7 +32046,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -32912,7 +32886,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -32956,9 +32930,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            birth
-             certificate
+            Request a birth certificate
           </h1>
           <div
             className="emotion-3"
@@ -33989,7 +33961,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -35019,7 +34991,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -36049,7 +36021,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -37139,7 +37111,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -37183,9 +37155,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -49698,7 +49668,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -50161,7 +50131,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -50856,7 +50826,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -51693,7 +51663,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -52300,7 +52270,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -52845,7 +52815,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -53561,7 +53531,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -54277,7 +54247,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -54879,7 +54849,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -55721,7 +55691,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -56191,7 +56161,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -56700,7 +56670,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
             <a
               href="https://www.boston.gov/departments/registry"
             >
-              Registry: Birth, death, and marriage
+              Registry: Birth, death, and marriage and marriage intention
             </a>
             <span
               aria-hidden="true"
@@ -62841,7 +62811,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -62885,9 +62855,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -63393,7 +63361,7 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -63437,9 +63405,7 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <section
             className="m-t500"
@@ -63794,7 +63760,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -63838,9 +63804,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -64497,7 +64461,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -64541,9 +64505,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -65249,7 +65211,7 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -65293,9 +65255,7 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <section
             className="m-t500"
@@ -65632,7 +65592,7 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -65676,9 +65636,7 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -68019,92 +67977,97 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage knows exact date
         <fieldset
           className="emotion-8"
         >
-          <legend
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
-          >
-            <h2
-              className="emotion-0"
+          <div>
+            <legend
               style={
                 Object {
-                  "marginBottom": "1.5rem",
+                  "width": "100%",
                 }
               }
             >
-              What was the date of the marriage?
-            </h2>
-          </legend>
-          <div
-            className=" emotion-7"
-          >
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dateOfMarriageStart-month"
+              <h2
+                className="emotion-0"
+                style={
+                  Object {
+                    "marginBottom": "1.5rem",
+                  }
+                }
               >
-                Month
-              </label>
-              <input
-                className="txt-f"
-                id="dateOfMarriageStart-month"
-                max="12"
-                min="1"
-                name="month"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="MM"
-                type="number"
-                value="4"
-              />
+                What was the date of the marriage?
+              </h2>
+            </legend>
+            <div
+              className=" emotion-7"
+            >
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dateOfMarriageStart-month"
+                >
+                  Month
+                </label>
+                <input
+                  className="txt-f"
+                  id="dateOfMarriageStart-month"
+                  max="12"
+                  maxLength={2}
+                  min="1"
+                  name="month"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="MM"
+                  type="number"
+                  value="4"
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dateOfMarriageStart-day"
+                >
+                  Day
+                </label>
+                <input
+                  className="txt-f"
+                  id="dateOfMarriageStart-day"
+                  max="31"
+                  maxLength={2}
+                  min="1"
+                  name="day"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="DD"
+                  type="number"
+                  value="23"
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dateOfMarriageStart-year"
+                >
+                  Year
+                </label>
+                <input
+                  className="txt-f"
+                  id="dateOfMarriageStart-year"
+                  max={2020}
+                  maxLength={4}
+                  min={1870}
+                  name="year"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="YYYY"
+                  type="number"
+                  value="2008"
+                />
+              </div>
             </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dateOfMarriageStart-day"
-              >
-                Day
-              </label>
-              <input
-                className="txt-f"
-                id="dateOfMarriageStart-day"
-                max="31"
-                min="1"
-                name="day"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="DD"
-                type="number"
-                value="23"
-              />
-            </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dateOfMarriageStart-year"
-              >
-                Year
-              </label>
-              <input
-                className="txt-f"
-                id="dateOfMarriageStart-year"
-                max={2020}
-                min={1870}
-                name="year"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="YYYY"
-                type="number"
-                value="2008"
-              />
-            </div>
+            
           </div>
-          
         </fieldset>
       </div>
     </div>
@@ -68552,92 +68515,97 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
         <fieldset
           className="emotion-8"
         >
-          <legend
-            style={
-              Object {
-                "width": "100%",
-              }
-            }
-          >
-            <h2
-              className="emotion-0"
+          <div>
+            <legend
               style={
                 Object {
-                  "marginBottom": "1.5rem",
+                  "width": "100%",
                 }
               }
             >
-              What was the date of the marriage?
-            </h2>
-          </legend>
-          <div
-            className=" emotion-7"
-          >
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dateOfMarriageStart-month"
+              <h2
+                className="emotion-0"
+                style={
+                  Object {
+                    "marginBottom": "1.5rem",
+                  }
+                }
               >
-                Month
-              </label>
-              <input
-                className="txt-f"
-                id="dateOfMarriageStart-month"
-                max="12"
-                min="1"
-                name="month"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="MM"
-                type="number"
-                value="4"
-              />
+                What was the date of the marriage?
+              </h2>
+            </legend>
+            <div
+              className=" emotion-7"
+            >
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dateOfMarriageStart-month"
+                >
+                  Month
+                </label>
+                <input
+                  className="txt-f"
+                  id="dateOfMarriageStart-month"
+                  max="12"
+                  maxLength={2}
+                  min="1"
+                  name="month"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="MM"
+                  type="number"
+                  value="4"
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dateOfMarriageStart-day"
+                >
+                  Day
+                </label>
+                <input
+                  className="txt-f"
+                  id="dateOfMarriageStart-day"
+                  max="31"
+                  maxLength={2}
+                  min="1"
+                  name="day"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="DD"
+                  type="number"
+                  value="23"
+                />
+              </div>
+              <div>
+                <label
+                  className="txt-l"
+                  htmlFor="dateOfMarriageStart-year"
+                >
+                  Year
+                </label>
+                <input
+                  className="txt-f"
+                  id="dateOfMarriageStart-year"
+                  max={2020}
+                  maxLength={4}
+                  min={1870}
+                  name="year"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  placeholder="YYYY"
+                  type="number"
+                  value="2008"
+                />
+              </div>
             </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dateOfMarriageStart-day"
-              >
-                Day
-              </label>
-              <input
-                className="txt-f"
-                id="dateOfMarriageStart-day"
-                max="31"
-                min="1"
-                name="day"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="DD"
-                type="number"
-                value="23"
-              />
-            </div>
-            <div>
-              <label
-                className="txt-l"
-                htmlFor="dateOfMarriageStart-year"
-              >
-                Year
-              </label>
-              <input
-                className="txt-f"
-                id="dateOfMarriageStart-year"
-                max={2020}
-                min={1870}
-                name="year"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onFocus={[Function]}
-                placeholder="YYYY"
-                type="number"
-                value="2008"
-              />
-            </div>
+            
           </div>
-          
         </fieldset>
       </div>
       <div
@@ -71846,6 +71814,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
           <label
             className="txt-l "
             htmlFor="input-1103008209"
+            style={Object {}}
           >
             <span
               style={
@@ -71879,6 +71848,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
           <label
             className="txt-l "
             htmlFor="input-5381"
+            style={Object {}}
           >
             Maiden name 
             <span
@@ -72506,6 +72476,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
           <label
             className="txt-l "
             htmlFor="input-1103008209"
+            style={Object {}}
           >
             <span
               style={
@@ -72539,6 +72510,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
           <label
             className="txt-l "
             htmlFor="input-5381"
+            style={Object {}}
           >
             Maiden name 
             <span
@@ -73166,6 +73138,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
           <label
             className="txt-l "
             htmlFor="input-1103008209"
+            style={Object {}}
           >
             <span
               style={
@@ -73199,6 +73172,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
           <label
             className="txt-l "
             htmlFor="input-5381"
+            style={Object {}}
           >
             Maiden name 
             <span
@@ -74611,7 +74585,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -74655,9 +74629,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -75231,7 +75203,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -75275,9 +75247,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -75954,7 +75924,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -75998,9 +75968,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -76756,7 +76724,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -76800,9 +76768,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -77600,7 +77566,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -77644,9 +77610,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -77687,6 +77651,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
                   <label
                     className="txt-l "
                     htmlFor="input-1103008209"
+                    style={Object {}}
                   >
                     <span
                       style={
@@ -77720,6 +77685,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
                   <label
                     className="txt-l "
                     htmlFor="input-5381"
+                    style={Object {}}
                   >
                     Maiden name 
                     <span
@@ -78638,7 +78604,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -78682,9 +78648,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -78725,6 +78689,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
                   <label
                     className="txt-l "
                     htmlFor="input-1103008209"
+                    style={Object {}}
                   >
                     <span
                       style={
@@ -78758,6 +78723,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
                   <label
                     className="txt-l "
                     htmlFor="input-5381"
+                    style={Object {}}
                   >
                     Maiden name 
                     <span
@@ -79528,7 +79494,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -79572,9 +79538,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"
@@ -80547,7 +80511,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
               <a
                 href="https://www.boston.gov/departments/registry"
               >
-                Registry: Birth, death, and marriage
+                Registry: Birth, death, and marriage and marriage intention
               </a>
               <span
                 aria-hidden="true"
@@ -80591,9 +80555,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
           <h1
             className="sh-title emotion-2"
           >
-            Request a 
-            marriage
-             certificate
+            Request a marriage certificate
           </h1>
           <div
             className="emotion-3"

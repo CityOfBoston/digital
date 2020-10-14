@@ -145,6 +145,77 @@ export interface Mutation extends ResolvableWith<{}> {
     idempotencyKey: string;
   }): OrderResult;
 
+  submitMarriageIntentionCertificateOrder(args: {
+    Email: string;
+    DayPhone: string;
+    PlaceOfMarriage: string;
+    AppointmentDate: string;
+
+    AApplicantFName: string;
+    AApplicantLName: string;
+    AApplicantMiddleName: string;
+    AApplicantSuffix: string;
+    APostmarriageSurname: string;
+    ADOB: string;
+    ACurrentAge: string;
+    AOccupation: string;
+    AFatherName: string;
+    AMotherName: string;
+    AFatherSurname: string;
+    AMotherSurname: string;
+    APartnershipState: string;
+    AStreetAddress: string;
+    ACity: string;
+    AState: string;
+    AZIPCode: string;
+    AResidenceCountry: string;
+    AMarriageNumber: string;
+    AStatofLastMarriage: string;
+    APartnershipStatus: string;
+    ADissolutionStatus: string;
+    AParentsMarried: string;
+    ABloodRelative: string;
+    ABloodDescr: string;
+    ABirthplace: string;
+    ABirthState: string;
+    ABirthCountry: string;
+    ASexNum: string;
+    ASex: string;
+    ABirthHospital: string;
+
+    BApplicantFName: string;
+    BApplicantLName: string;
+    BApplicantMiddleName: string;
+    BApplicantSuffix: string;
+    BPostmarriageSurname: string;
+    BDOB: string;
+    BCurrentAge: string;
+    BOccupation: string;
+    BFatherName: string;
+    BMotherName: string;
+    BFatherSurname: string;
+    BMotherSurname: string;
+    BPartnershipState: string;
+    BStreetAddress: string;
+    BCity: string;
+    BState: string;
+    BZIPCode: string;
+    BResidenceCountry: string;
+    BMarriageNumber: string;
+    BStatofLastMarriage: string;
+    BPartnershipStatus: string;
+    BDissolutionStatus: string;
+    BParentsMarried: string;
+    BBloodRelative: string;
+    BBloodDescr: string;
+    BBirthplace: string;
+    BBirthState: string;
+    BBirthCountry: string;
+    BSexNum: string;
+    BSex: string;
+    BBirthHospital: string;
+  }): OrderResult;
+
   submitBirthCertificateOrder(args: {
     contactName: string;
     contactEmail: string;
@@ -342,6 +413,164 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         // This will cause it to get logged with Rollbar
         throw e;
       }
+    }
+
+    return { order: { id: orderId, contactEmail }, error: null };
+  },
+
+  submitMarriageIntentionCertificateOrder: async (
+    _root,
+    args,
+    // { rollbar, stripe, emails, registryDb }
+    { registryDb }
+  ): Promise<OrderResult> => {
+    console.log('mutation > submitMarriageIntentionCertificateOrder:');
+    // console.log(rollbar, stripe, emails, registryDb);
+    const {
+      Email,
+      DayPhone,
+      PlaceOfMarriage,
+      AppointmentDate,
+      AApplicantFName,
+      AApplicantLName,
+      AApplicantMiddleName,
+      AApplicantSuffix,
+      APostmarriageSurname,
+      ADOB,
+      ACurrentAge,
+      AOccupation,
+      AFatherName,
+      AMotherName,
+      AFatherSurname,
+      AMotherSurname,
+      APartnershipState,
+      AStreetAddress,
+      ACity,
+      AState,
+      AZIPCode,
+      AResidenceCountry,
+      AMarriageNumber,
+      AStatofLastMarriage,
+      APartnershipStatus,
+      ADissolutionStatus,
+      AParentsMarried,
+      ABloodRelative,
+      ABloodDescr,
+      ABirthplace,
+      ABirthState,
+      ABirthCountry,
+      ASexNum,
+      ASex,
+      ABirthHospital,
+      BApplicantFName,
+      BApplicantLName,
+      BApplicantMiddleName,
+      BApplicantSuffix,
+      BPostmarriageSurname,
+      BDOB,
+      BCurrentAge,
+      BOccupation,
+      BFatherName,
+      BMotherName,
+      BFatherSurname,
+      BMotherSurname,
+      BPartnershipState,
+      BStreetAddress,
+      BCity,
+      BState,
+      BZIPCode,
+      BResidenceCountry,
+      BMarriageNumber,
+      BStatofLastMarriage,
+      BPartnershipStatus,
+      BDissolutionStatus,
+      BParentsMarried,
+      BBloodRelative,
+      BBloodDescr,
+      BBirthplace,
+      BBirthState,
+      BBirthCountry,
+      BSexNum,
+      BSex,
+      BBirthHospital,
+    } = args;
+
+    let contactEmail = Email;
+
+    const orderId = makeOrderId(OrderType.MarriageIntentionCertificate);
+    // console.log('orderId: ', orderId);
+
+    try {
+      await registryDb.addMarriageIntentionCertificateRequest({
+        Email: Email,
+        DayPhone: DayPhone,
+        AppointmentDate: AppointmentDate,
+        PlaceOfMarriage: PlaceOfMarriage,
+        AApplicantFName: AApplicantFName,
+        AApplicantLName: AApplicantLName,
+        AApplicantMiddleName: AApplicantMiddleName,
+        AApplicantSuffix: AApplicantSuffix,
+        APostmarriageSurname: APostmarriageSurname,
+        ADOB: ADOB,
+        ACurrentAge: ACurrentAge,
+        AOccupation: AOccupation,
+        AFatherName: AFatherName,
+        AMotherName: AMotherName,
+        AFatherSurname: AFatherSurname,
+        AMotherSurname: AMotherSurname,
+        APartnershipState: APartnershipState,
+        AStreetAddress: AStreetAddress,
+        ACity: ACity,
+        AState: AState,
+        AZIPCode: AZIPCode,
+        AResidenceCountry: AResidenceCountry,
+        AMarriageNumber: AMarriageNumber,
+        AStatofLastMarriage: AStatofLastMarriage,
+        APartnershipStatus: APartnershipStatus,
+        ADissolutionStatus: ADissolutionStatus,
+        AParentsMarried: AParentsMarried,
+        ABloodRelative: ABloodRelative,
+        ABloodDescr: ABloodDescr,
+        ABirthplace: ABirthplace,
+        ABirthState: ABirthState,
+        ABirthCountry: ABirthCountry,
+        ASexNum: ASexNum,
+        ASex: ASex,
+        ABirthHospital: ABirthHospital,
+        BApplicantFName: BApplicantFName,
+        BApplicantLName: BApplicantLName,
+        BApplicantMiddleName: BApplicantMiddleName,
+        BApplicantSuffix: BApplicantSuffix,
+        BPostmarriageSurname: BPostmarriageSurname,
+        BDOB: BDOB,
+        BCurrentAge: BCurrentAge,
+        BOccupation: BOccupation,
+        BFatherName: BFatherName,
+        BMotherName: BMotherName,
+        BFatherSurname: BFatherSurname,
+        BMotherSurname: BMotherSurname,
+        BPartnershipState: BPartnershipState,
+        BStreetAddress: BStreetAddress,
+        BCity: BCity,
+        BState: BState,
+        BZIPCode: BZIPCode,
+        BResidenceCountry: BResidenceCountry,
+        BMarriageNumber: BMarriageNumber,
+        BStatofLastMarriage: BStatofLastMarriage,
+        BPartnershipStatus: BPartnershipStatus,
+        BDissolutionStatus: BDissolutionStatus,
+        BParentsMarried: BParentsMarried,
+        BBloodRelative: BBloodRelative,
+        BBloodDescr: BBloodDescr,
+        BBirthplace: BBirthplace,
+        BBirthState: BBirthState,
+        BBirthCountry: BBirthCountry,
+        BSexNum: BSexNum,
+        BSex: BSex,
+        BBirthHospital: BBirthHospital,
+      });
+    } catch (e) {
+      throw e;
     }
 
     return { order: { id: orderId, contactEmail }, error: null };
@@ -857,6 +1086,9 @@ function makeOrderId(type: OrderType): string {
       break;
     case OrderType.MarriageCertificate:
       prefix = 'MC';
+      break;
+    case OrderType.MarriageIntentionCertificate:
+      prefix = 'MIC';
       break;
     default:
       throw new Error('Unexpected OrderType: ' + type);

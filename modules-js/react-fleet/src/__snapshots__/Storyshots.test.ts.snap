@@ -1059,82 +1059,87 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="default-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="default-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="default-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="default-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="default-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="default-year"
-        max="9999"
-        min="1000"
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value=""
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="default-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="default-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="default-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="default-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="default-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="default-year"
+          max="9999"
+          maxLength={4}
+          min="1000"
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </fieldset>
@@ -1204,82 +1209,87 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="earliest-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="earliest-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="earliest-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="earliest-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="earliest-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="earliest-year"
-        max="9999"
-        min={1630}
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value=""
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="earliest-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="earliest-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="earliest-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="earliest-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="earliest-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="earliest-year"
+          max="9999"
+          maxLength={4}
+          min={1630}
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </fieldset>
@@ -1349,88 +1359,93 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="initial-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="initial-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value="1"
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="initial-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="initial-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value="1"
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="initial-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="initial-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value="1"
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="initial-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="initial-year"
+          max={1999}
+          maxLength={4}
+          min="1000"
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value="2000"
+        />
+      </div>
     </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="initial-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="initial-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value="1"
-      />
+    <div
+      className="t--err m-t200"
+    >
+      The date must be earlier than 12/31/1999
     </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="initial-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="initial-year"
-        max={1999}
-        min="1000"
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value="2000"
-      />
-    </div>
-  </div>
-  <div
-    className="t--err m-t200"
-  >
-    The date must be earlier than 12/31/1999
   </div>
 </fieldset>
 `;
@@ -1499,82 +1514,87 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="latest-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="latest-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="latest-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="latest-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="latest-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="latest-year"
-        max={2025}
-        min="1000"
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value=""
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="latest-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="latest-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="latest-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="latest-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="latest-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="latest-year"
+          max={2025}
+          maxLength={4}
+          min="1000"
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </fieldset>
@@ -1644,82 +1664,87 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="future-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="future-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="future-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="future-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="future-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="future-year"
-        max="9999"
-        min={2020}
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value=""
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="future-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="future-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="future-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="future-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="future-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="future-year"
+          max="9999"
+          maxLength={4}
+          min={2020}
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </fieldset>
@@ -1789,82 +1814,87 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="story-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="story-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="story-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="story-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="story-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="story-year"
-        max={2040}
-        min={2020}
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value=""
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="story-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="story-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="story-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="story-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="story-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="story-year"
+          max={2040}
+          maxLength={4}
+          min={2020}
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </fieldset>
@@ -1934,82 +1964,87 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="past-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="past-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="past-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="past-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value=""
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="past-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="past-year"
-        max={2020}
-        min="1000"
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value=""
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="past-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="past-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="past-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="past-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value=""
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="past-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="past-year"
+          max={2020}
+          maxLength={4}
+          min="1000"
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
+      </div>
     </div>
   </div>
 </fieldset>
@@ -2079,85 +2114,90 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
 <fieldset
   className="emotion-1"
 >
-  <legend
-    style={
-      Object {
-        "width": "100%",
+  <div>
+    <legend
+      style={
+        Object {
+          "width": "100%",
+        }
       }
-    }
-  >
-    <h2>
-      Date
-    </h2>
-  </legend>
-  <div
-    className=" emotion-0"
-  >
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="initial-month"
-      >
-        Month
-      </label>
-      <input
-        className="txt-f"
-        id="initial-month"
-        max="12"
-        min="1"
-        name="month"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="MM"
-        type="number"
-        value="12"
-      />
+    >
+      <h2>
+        Date
+      </h2>
+    </legend>
+    <div
+      className=" emotion-0"
+    >
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="initial-month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f"
+          id="initial-month"
+          max="12"
+          maxLength={2}
+          min="1"
+          name="month"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value="12"
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="initial-day"
+        >
+          Day
+        </label>
+        <input
+          className="txt-f"
+          id="initial-day"
+          max="31"
+          maxLength={2}
+          min="1"
+          name="day"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="DD"
+          type="number"
+          value="31"
+        />
+      </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="initial-year"
+        >
+          Year
+        </label>
+        <input
+          className="txt-f"
+          id="initial-year"
+          max={2020}
+          maxLength={4}
+          min="1000"
+          name="year"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value="1999"
+        />
+      </div>
     </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="initial-day"
-      >
-        Day
-      </label>
-      <input
-        className="txt-f"
-        id="initial-day"
-        max="31"
-        min="1"
-        name="day"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="DD"
-        type="number"
-        value="31"
-      />
-    </div>
-    <div>
-      <label
-        className="txt-l"
-        htmlFor="initial-year"
-      >
-        Year
-      </label>
-      <input
-        className="txt-f"
-        id="initial-year"
-        max={2020}
-        min="1000"
-        name="year"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onFocus={[Function]}
-        placeholder="YYYY"
-        type="number"
-        value="1999"
-      />
-    </div>
+    
   </div>
-  
 </fieldset>
 `;
 
@@ -2363,6 +2403,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
     <label
       className="txt-l "
       htmlFor="input-362326901"
+      style={Object {}}
     >
       <span
         style={
@@ -2406,6 +2447,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
     <label
       className="txt-l "
       htmlFor="input-2348632648"
+      style={Object {}}
     >
       <span
         style={
@@ -2434,6 +2476,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
     <label
       className="txt-l "
       htmlFor="input-3077581017"
+      style={Object {}}
     >
       <span
         style={
@@ -2474,6 +2517,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l "
       htmlFor="input-1357588218"
+      style={Object {}}
     >
       <span
         style={
@@ -2509,6 +2553,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l "
       htmlFor="input-3174958747"
+      style={Object {}}
     >
       <span
         style={
@@ -2539,6 +2584,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       <label
         className="txt-l "
         htmlFor="input-423803610"
+        style={Object {}}
       >
         <span
           style={
@@ -2570,6 +2616,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l "
       htmlFor="input-5381"
+      style={Object {}}
     >
       <span
         style={
@@ -2609,6 +2656,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l txt-l--sm"
       htmlFor="input-472033325"
+      style={Object {}}
     >
       <span
         style={
@@ -2650,6 +2698,7 @@ exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
     <label
       className="txt-l "
       htmlFor="select-572458229"
+      style={Object {}}
     >
       <span
         style={
@@ -2702,6 +2751,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
     <label
       className="txt-l "
       htmlFor="select-4229616983"
+      style={Object {}}
     >
       <span
         style={
@@ -2745,6 +2795,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
     <label
       className="txt-l "
       htmlFor="select-4147655300"
+      style={Object {}}
     >
       <span
         style={
@@ -2790,6 +2841,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
     <label
       className="txt-l txt-l--sm"
       htmlFor="select-4045240769"
+      style={Object {}}
     >
       <span
         style={
@@ -2818,6 +2870,56 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
         </option>
         <option>
           Willow
+        </option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="select-49712226"
+      style={Object {}}
+    >
+      <span
+        style={
+          Object {
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Label/Value Options Object
+      </span>
+      <span
+        className="t--req"
+      >
+        Required
+      </span>
+    </label>
+    <div
+      className="sel-c  "
+    >
+      <select
+        aria-label=""
+        className="sel-f  "
+        id="select-49712226"
+        required={true}
+      >
+        <option
+          value="Does Not Apply"
+        >
+          Does Not Apply
+        </option>
+        <option
+          value="Civil Unions"
+        >
+          Civil Unions
+        </option>
+        <option
+          value="Domestic Partnership"
+        >
+          Domestic Partnership
         </option>
       </select>
     </div>
