@@ -265,7 +265,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
   });
 
   server.route({
-    path: '/fetchGraphql',
+    path: '/marriageintention/fetchGraphql',
     method: ['POST'],
     options: {
       auth: false,
@@ -281,9 +281,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
         let data = qs.stringify(payload);
         let config: any = {
           method: 'post',
-          // url: 'https://contactform.boston.gov/emails',
-          // url: 'https://d8-ci.boston.gov/contactform/emails',
-          // url: 'https://d8-ci.boston.gov/rest/email/registry',
           url: 'https://www.boston.gov/rest/email/registry',
           headers: {
             Authorization: process.env.CONTACTFORM_TOKEN,
