@@ -26,7 +26,7 @@ async function PostConfirmationEmail(data: {
 
     let config: any = {
       method: 'post',
-      url: '/fetchGraphql',
+      url: '/marriageintention/fetchGraphql',
       data: dataObj,
     };
 

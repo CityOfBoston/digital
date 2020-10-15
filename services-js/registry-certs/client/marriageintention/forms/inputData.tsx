@@ -36,20 +36,20 @@ export const LAST_MARRIAGE_STATUS = [
   },
   {
     label: 'Widowed',
-    value: '0|WID',
+    value: 'WID',
   },
   {
     label: 'Divorce',
-    value: '1|DIV',
+    value: 'DIV',
   },
   {
     label: 'Void or annulled by court order',
-    value: '2|CRT',
+    value: 'CRT',
   },
   {
     label:
       'Void, under former GL c.207/§11 or by operation of law at time of marriage',
-    value: 'Void Under GL c.207/§11',
+    value: '207',
   },
 ];
 
