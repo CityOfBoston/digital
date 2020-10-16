@@ -665,9 +665,15 @@ async function addGraphQl(server: Hapi.Server) {
       }
     }
   };
+
   const apolloServer = new ApolloServer({
     schema,
     context,
+    formatError: error => {
+      console.log('Apollo Error: ', error);
+      error.message = 'Internal Server Error';
+      return error;
+    },
   });
 
   await apolloServer.applyMiddleware({
