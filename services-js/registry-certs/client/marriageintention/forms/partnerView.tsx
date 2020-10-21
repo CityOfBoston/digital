@@ -48,6 +48,7 @@ interface Props {
   bloodRelation: string;
   bloodRelationDesc: string;
   suffix: string;
+  partnershipState: string;
 }
 
 @observer
@@ -202,12 +203,12 @@ export default class PartnerView extends Component<Props> {
             <h2 css={BOTTOM_SPACING_STYLING}>Parents</h2>
 
             <div css={COLUMNS_STYLING}>
-              <label>Parent 1/Father: </label>
+              <label>Parent 1/Mother: </label>
               {this.props.parentA}
             </div>
 
             <div css={COLUMNS_STYLING}>
-              <label>Parent 2/Mother: </label>
+              <label>Parent 2/Father: </label>
               {this.props.parentB}
             </div>
 
@@ -215,7 +216,7 @@ export default class PartnerView extends Component<Props> {
               <label>
                 Were your parents married at the time of your birth?:
               </label>
-              {this.props.parentsMarriedAtBirth === '1' ? ' Yes' : ' No'}
+              {this.props.parentsMarriedAtBirth}
             </div>
           </div>
 
@@ -255,17 +256,24 @@ export default class PartnerView extends Component<Props> {
 
             {this.props.partnerShipType !== 'N/A' && (
               <div css={COLUMNS_STYLING}>
-                <label>Civil Union Or Domestic Partnership: Dissolved: </label>
+                <label>Civil Union Or Domestic Partnership Dissolved: </label>
                 {this.props.partnerShipDissolve}
+              </div>
+            )}
+
+            {this.props.partnerShipType !== 'N/A' && (
+              <div css={COLUMNS_STYLING}>
+                <label>Partnership State: </label>
+                {this.props.partnershipState}
               </div>
             )}
 
             <div css={COLUMNS_STYLING}>
               <label>Blood Relation to Partner?: </label>
-              {this.props.bloodRelation === '1' ? 'Yes' : 'No'}
+              {this.props.bloodRelation}
             </div>
 
-            {this.props.bloodRelation !== '1' && (
+            {this.props.bloodRelation === 'Yes' && (
               <div css={COLUMNS_STYLING}>
                 <label>Describe Blood Relation: </label>
                 {this.props.bloodRelationDesc}

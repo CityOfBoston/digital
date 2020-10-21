@@ -55,6 +55,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerA_residenceZip: '',
   partnerA_marriageNumb: '',
   partnerA_lastMarriageStatus: '',
+  partnerA_partnershipState: '',
 
   partnerB_fullName: '',
   partnerB_firstMiddleName: '',
@@ -91,6 +92,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerB_residenceZip: '',
   partnerB_marriageNumb: '',
   partnerB_lastMarriageStatus: '',
+  partnerB_partnershipState: '',
 
   email: '',
   dayPhone: '',
@@ -202,6 +204,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_marriageNumb: this.requestInformation.partnerA_marriageNumb,
       partnerA_lastMarriageStatus: this.requestInformation
         .partnerA_lastMarriageStatus,
+      partnerA_partnershipState: this.requestInformation
+        .partnerA_partnershipState,
 
       partnerB_fullName: this.requestInformation.partnerB_fullName,
       partnerB_firstMiddleName: this.requestInformation
@@ -254,6 +258,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_marriageNumb: this.requestInformation.partnerB_marriageNumb,
       partnerB_lastMarriageStatus: this.requestInformation
         .partnerB_lastMarriageStatus,
+      partnerB_partnershipState: this.requestInformation
+        .partnerB_partnershipState,
 
       email: this.requestInformation.email,
       dayPhone: this.requestInformation.dayPhone,
@@ -321,6 +327,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_marriageNumb: obj.requestInformation.partnerA_marriageNumb,
       partnerA_lastMarriageStatus:
         obj.requestInformation.partnerA_lastMarriageStatus,
+      partnerA_partnershipState:
+        obj.requestInformation.partnerA_partnershipState,
 
       partnerB_fullName: this.requestInformation.partnerB_fullName,
       partnerB_firstMiddleName: this.requestInformation
@@ -370,6 +378,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_marriageNumb: obj.requestInformation.partnerB_marriageNumb,
       partnerB_lastMarriageStatus:
         obj.requestInformation.partnerB_lastMarriageStatus,
+      partnerB_partnershipState:
+        obj.requestInformation.partnerB_partnershipState,
 
       email: obj.requestInformation.email,
       dayPhone: obj.requestInformation.dayPhone,
