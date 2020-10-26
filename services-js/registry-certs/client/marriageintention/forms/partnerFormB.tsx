@@ -81,13 +81,13 @@ export default class PartnerForm extends Component<Props> {
       partnerB_parentA_Surname,
       partnerB_parentB_Name,
       partnerB_parentB_Surname,
+      // partnerB_birthHospital,
       partnerB_birthCity,
       partnerB_birthState,
       partnerB_birthCountry,
+      // partnerB_birthZip,
       partnerB_partnershipType,
       partnerB_partnershipTypeDissolved,
-      partnerB_suffix,
-      partnerB_partnershipState,
 
       partnerB_marriageNumb,
       partnerB_lastMarriageStatus,
@@ -97,17 +97,16 @@ export default class PartnerForm extends Component<Props> {
     let partnerB_partnership_dissolved = true;
     let partnerB_lastMarriageStatusReq = true;
     let partnerB_birthStateZip = true;
-    let suffix = partnerB_suffix && partnerB_suffix.length > 0 ? true : false;
-    let partnershipState = true;
-    if (
-      partnerB_partnershipType !== PARTNERSHIP_TYPE[0].value &&
-      partnerB_partnershipState.length < 2
-    ) {
-      partnershipState = false;
-    }
 
     const bloodRelDescReq =
       partnerB_bloodRelation && partnerB_bloodRelation == '1' ? true : false;
+
+    // if (partnerB_birthCountry === 'USA') {
+    //   partnerB_birthStateZip =
+    //     partnerB_birthState.length > 0 && partnerB_birthZip.length > 0
+    //       ? true
+    //       : false;
+    // }
 
     if (partnerB_birthCountry === 'USA') {
       partnerB_birthStateZip = partnerB_birthState.length > 0 ? true : false;
@@ -157,8 +156,6 @@ export default class PartnerForm extends Component<Props> {
       partnerB_residenceAddress &&
       partnerB_residenceCountry &&
       partnerB_occupation &&
-      suffix &&
-      partnershipState &&
       partnerB_birthStateZip
     );
   }
@@ -206,22 +203,6 @@ export default class PartnerForm extends Component<Props> {
       },
       ''
     );
-
-    if (event.target.value === '0') {
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerA_bloodRelationDesc']: '',
-        },
-        ''
-      );
-
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerB_bloodRelationDesc']: '',
-        },
-        ''
-      );
-    }
   };
 
   private handleBirthDateChange = (newDate: Date | null): void => {
@@ -635,7 +616,6 @@ export default class PartnerForm extends Component<Props> {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
       partnerB_partnershipTypeDissolved,
-      partnerB_partnershipState,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     return (
@@ -660,15 +640,6 @@ export default class PartnerForm extends Component<Props> {
             hideLabel
           />
         </div>
-
-        <TextInput
-          label="Partnership State/Country"
-          name="partnerB_partnershipState"
-          value={partnerB_partnershipState}
-          onChange={this.handleChange}
-          disableLabelNoWrap={true}
-          maxLength={100}
-        />
       </div>
     );
   }
@@ -1073,7 +1044,7 @@ export default class PartnerForm extends Component<Props> {
         >
           <SelectDropdown
             label="Suffix"
-            // hideBlankOption
+            hideBlankOption
             options={SUFFIX_OPTIONS}
             name={'partnerB_suffix'}
             value={partnerB_suffix}
