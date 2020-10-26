@@ -1,7 +1,7 @@
 export const SUFFIX_OPTIONS = [
   {
-    label: 'Does Not Apply',
-    value: 'N/A',
+    label: 'Does not Apply',
+    value: '',
   },
   {
     label: 'I',
@@ -82,7 +82,7 @@ export const PARTNERSHIP_TYPE = [
 export const PARTNERSHIP_TYPE_DISSOLVED = [
   {
     label: 'Does Not Apply',
-    value: 'N/A',
+    value: 'Does Not Apply',
   },
   {
     label: 'Yes',

@@ -180,7 +180,6 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerA_residenceZip: string;
   partnerA_marriageNumb: string;
   partnerA_lastMarriageStatus: string;
-  partnerA_partnershipState: string;
 
   partnerB_fullName: string;
   partnerB_firstMiddleName: string;
@@ -217,7 +216,6 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerB_residenceZip: string;
   partnerB_marriageNumb: string;
   partnerB_lastMarriageStatus: string;
-  partnerB_partnershipState: string;
 
   email: string;
   dayPhone: string;

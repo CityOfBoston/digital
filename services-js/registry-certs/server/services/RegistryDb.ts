@@ -136,6 +136,7 @@ export interface FindMarriageCertificateRequestResult {
 export interface MarriageIntentionCertificateRequestArgs {
   Email: string;
   DayPhone: string;
+  PlaceOfMarriage: string;
   AppointmentDate: string;
 
   AApplicantFName: string;
@@ -150,6 +151,7 @@ export interface MarriageIntentionCertificateRequestArgs {
   AMotherName: string;
   AFatherSurname: string;
   AMotherSurname: string;
+  APartnershipState: string;
   AStreetAddress: string;
   ACity: string;
   AState: string;
@@ -168,7 +170,6 @@ export interface MarriageIntentionCertificateRequestArgs {
   ASexNum: string;
   ASex: string;
   ABirthHospital: string;
-  APartnershipState: string;
 
   BApplicantFName: string;
   BApplicantLName: string;
@@ -182,6 +183,7 @@ export interface MarriageIntentionCertificateRequestArgs {
   BMotherName: string;
   BFatherSurname: string;
   BMotherSurname: string;
+  BPartnershipState: string;
   BStreetAddress: string;
   BCity: string;
   BState: string;
@@ -200,7 +202,6 @@ export interface MarriageIntentionCertificateRequestArgs {
   BSexNum: string;
   BSex: string;
   BBirthHospital: string;
-  BPartnershipState: string;
 }
 
 export interface BirthCertificateRequestArgs {
@@ -449,6 +450,7 @@ export default class RegistryDb {
   async addMarriageIntentionCertificateRequest({
     Email,
     DayPhone,
+    PlaceOfMarriage,
     AppointmentDate,
     AApplicantFName,
     AApplicantLName,
@@ -462,6 +464,7 @@ export default class RegistryDb {
     AMotherName,
     AFatherSurname,
     AMotherSurname,
+    APartnershipState,
     AStreetAddress,
     ACity,
     AState,
@@ -470,7 +473,6 @@ export default class RegistryDb {
     AMarriageNumber,
     AStatofLastMarriage,
     APartnershipStatus,
-    APartnershipState,
     ADissolutionStatus,
     AParentsMarried,
     ABloodRelative,
@@ -491,6 +493,7 @@ export default class RegistryDb {
     BMotherName,
     BFatherSurname,
     BMotherSurname,
+    BPartnershipState,
     BStreetAddress,
     BCity,
     BState,
@@ -499,7 +502,6 @@ export default class RegistryDb {
     BMarriageNumber,
     BStatofLastMarriage,
     BPartnershipStatus,
-    BPartnershipState,
     BDissolutionStatus,
     BParentsMarried,
     BBloodRelative,
@@ -522,15 +524,11 @@ export default class RegistryDb {
         ? `${BApplicantFName.toLocaleUpperCase()} ${BApplicantMiddleName.toLocaleUpperCase()}`
         : BApplicantFName.toLocaleUpperCase();
     const ALName =
-      AApplicantSuffix &&
-      AApplicantSuffix.length > 0 &&
-      AApplicantSuffix !== 'N/A'
+      AApplicantSuffix && AApplicantSuffix.length > 0
         ? `${AApplicantLName.toLocaleUpperCase()} ${AApplicantSuffix.toLocaleUpperCase()}`
         : AApplicantLName.toLocaleUpperCase();
     const BLName =
-      BApplicantSuffix &&
-      BApplicantSuffix.length > 0 &&
-      BApplicantSuffix !== 'N/A'
+      BApplicantSuffix && BApplicantSuffix.length > 0
         ? `${BApplicantLName.toLocaleUpperCase()} ${BApplicantSuffix.toLocaleUpperCase()}`
         : BApplicantLName.toLocaleUpperCase();
     const A_ZipCode =
@@ -549,24 +547,10 @@ export default class RegistryDb {
       BResidenceCountry && BResidenceCountry !== 'USA'
         ? `${BBirthplace.toLocaleUpperCase()} ${BResidenceCountry.toLocaleUpperCase()}`
         : BBirthplace.toLocaleUpperCase();
+
     // eslint-disable-next-line no-console
-    // console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
-    const A_partnershipStatus =
-      APartnershipStatus === 'N/A' ? null : APartnershipStatus;
-    const BB_partnershipStatus =
-      BPartnershipStatus === 'N/A' ? null : BPartnershipStatus;
-    const A_PartnershipState =
-      APartnershipStatus === 'N/A' ? '' : APartnershipState;
-    const B_PartnershipState =
-      BPartnershipStatus === 'N/A' ? '' : BPartnershipState;
-    const A_DissolutionStatus =
-      APartnershipStatus === 'N/A' || ADissolutionStatus === 'N/A'
-        ? null
-        : ADissolutionStatus;
-    const B_DissolutionStatus =
-      BPartnershipStatus === 'N/A' || BDissolutionStatus === 'N/A'
-        ? null
-        : BDissolutionStatus;
+    console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
+
     const resp: IProcedureResult<{
       RequestItemKey: number;
       ErrorMessage: string;
@@ -574,6 +558,7 @@ export default class RegistryDb {
       .request()
       .input('Email', Email)
       .input('DayPhone', DayPhone)
+      .input('PlaceOfMarriage', PlaceOfMarriage)
       .input('AppointmentDate', formattedAptDate)
       .input('AApplicantFName', AFName)
       .input('AApplicantLName', ALName)
@@ -591,8 +576,9 @@ export default class RegistryDb {
       .input('AMotherSurname', AMotherSurname.toLocaleUpperCase())
       .input('AFatherName', AFatherName.toLocaleUpperCase())
       .input('AFatherSurname', AFatherSurname.toLocaleUpperCase())
-      .input('APartnershipStatus', A_partnershipStatus)
-      .input('ADissolutionStatus', A_DissolutionStatus)
+      .input('APartnershipStatus', APartnershipStatus)
+      .input('APartnershipState', APartnershipState)
+      .input('ADissolutionStatus', ADissolutionStatus)
       .input('AParentsMarried', parseInt(AParentsMarried))
       .input('ABloodRelative', parseInt(ABloodRelative))
       .input('ABloodDescr', ABloodDescr.toLocaleUpperCase())
@@ -600,7 +586,7 @@ export default class RegistryDb {
       .input('ABirthState', ABirthState)
       .input('ASexNum', ASexNum.split('|')[0] + 1)
       .input('ASex', ASex.split('|')[1])
-      .input('APartnershipState', A_PartnershipState)
+      // .input('ABirthHospital', ABirthHospital)
       .input('BApplicantFName', BFName)
       .input('BApplicantLName', BLName)
       .input('BPostmarriageSurname', BPostmarriageSurname.toLocaleUpperCase())
@@ -617,8 +603,9 @@ export default class RegistryDb {
       .input('BMotherSurname', BMotherSurname.toLocaleUpperCase())
       .input('BFatherName', BFatherName.toLocaleUpperCase())
       .input('BFatherSurname', BFatherSurname.toLocaleUpperCase())
-      .input('BPartnershipStatus', BB_partnershipStatus)
-      .input('BDissolutionStatus', B_DissolutionStatus)
+      .input('BPartnershipStatus', BPartnershipStatus)
+      .input('BPartnershipState', BPartnershipState)
+      .input('BDissolutionStatus', BDissolutionStatus)
       .input('BParentsMarried', parseInt(BParentsMarried))
       .input('BBloodRelative', parseInt(BBloodRelative))
       .input('BBloodDescr', BBloodDescr.toLocaleUpperCase())
@@ -626,7 +613,7 @@ export default class RegistryDb {
       .input('BBirthState', BBirthState)
       .input('BSexNum', BSexNum.split('|')[0] + 1)
       .input('BSex', BSex.split('|')[1])
-      .input('BPartnershipState', B_PartnershipState)
+      // .input('BBirthHospital', BBirthHospital)
       .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
 
     const { recordset } = resp;

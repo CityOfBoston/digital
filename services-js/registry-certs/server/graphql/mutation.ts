@@ -148,6 +148,7 @@ export interface Mutation extends ResolvableWith<{}> {
   submitMarriageIntentionCertificateOrder(args: {
     Email: string;
     DayPhone: string;
+    PlaceOfMarriage: string;
     AppointmentDate: string;
 
     AApplicantFName: string;
@@ -162,6 +163,7 @@ export interface Mutation extends ResolvableWith<{}> {
     AMotherName: string;
     AFatherSurname: string;
     AMotherSurname: string;
+    APartnershipState: string;
     AStreetAddress: string;
     ACity: string;
     AState: string;
@@ -180,7 +182,6 @@ export interface Mutation extends ResolvableWith<{}> {
     ASexNum: string;
     ASex: string;
     ABirthHospital: string;
-    APartnershipState: string;
 
     BApplicantFName: string;
     BApplicantLName: string;
@@ -194,6 +195,7 @@ export interface Mutation extends ResolvableWith<{}> {
     BMotherName: string;
     BFatherSurname: string;
     BMotherSurname: string;
+    BPartnershipState: string;
     BStreetAddress: string;
     BCity: string;
     BState: string;
@@ -212,7 +214,6 @@ export interface Mutation extends ResolvableWith<{}> {
     BSexNum: string;
     BSex: string;
     BBirthHospital: string;
-    BPartnershipState: string;
   }): OrderResult;
 
   submitBirthCertificateOrder(args: {
@@ -428,6 +429,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const {
       Email,
       DayPhone,
+      PlaceOfMarriage,
       AppointmentDate,
       AApplicantFName,
       AApplicantLName,
@@ -441,6 +443,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       AMotherName,
       AFatherSurname,
       AMotherSurname,
+      APartnershipState,
       AStreetAddress,
       ACity,
       AState,
@@ -459,7 +462,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       ASexNum,
       ASex,
       ABirthHospital,
-      APartnershipState,
       BApplicantFName,
       BApplicantLName,
       BApplicantMiddleName,
@@ -472,6 +474,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       BMotherName,
       BFatherSurname,
       BMotherSurname,
+      BPartnershipState,
       BStreetAddress,
       BCity,
       BState,
@@ -490,7 +493,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       BSexNum,
       BSex,
       BBirthHospital,
-      BPartnershipState,
     } = args;
 
     let contactEmail = Email;
@@ -503,6 +505,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         Email: Email,
         DayPhone: DayPhone,
         AppointmentDate: AppointmentDate,
+        PlaceOfMarriage: PlaceOfMarriage,
         AApplicantFName: AApplicantFName,
         AApplicantLName: AApplicantLName,
         AApplicantMiddleName: AApplicantMiddleName,
@@ -515,6 +518,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         AMotherName: AMotherName,
         AFatherSurname: AFatherSurname,
         AMotherSurname: AMotherSurname,
+        APartnershipState: APartnershipState,
         AStreetAddress: AStreetAddress,
         ACity: ACity,
         AState: AState,
@@ -533,7 +537,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         ASexNum: ASexNum,
         ASex: ASex,
         ABirthHospital: ABirthHospital,
-        APartnershipState: APartnershipState,
         BApplicantFName: BApplicantFName,
         BApplicantLName: BApplicantLName,
         BApplicantMiddleName: BApplicantMiddleName,
@@ -546,6 +549,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         BMotherName: BMotherName,
         BFatherSurname: BFatherSurname,
         BMotherSurname: BMotherSurname,
+        BPartnershipState: BPartnershipState,
         BStreetAddress: BStreetAddress,
         BCity: BCity,
         BState: BState,
@@ -564,7 +568,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         BSexNum: BSexNum,
         BSex: BSex,
         BBirthHospital: BBirthHospital,
-        BPartnershipState: BPartnershipState,
       });
     } catch (e) {
       throw e;
