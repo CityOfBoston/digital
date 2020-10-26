@@ -38,6 +38,7 @@ const QUERY = gql`
     $partnerA_residenceZip: String!
     $partnerA_marriageNumb: String!
     $partnerA_lastMarriageStatus: String!
+    $partnerA_partnershipState: String!
     $partnerB_firstName: String!
     $partnerB_lastName: String!
     $partnerB_middleName: String!
@@ -67,11 +68,11 @@ const QUERY = gql`
     $partnerB_residenceCountry: String!
     $partnerB_marriageNumb: String!
     $partnerB_lastMarriageStatus: String!
+    $partnerB_partnershipState: String!
   ) {
     submitMarriageIntentionCertificateOrder(
       Email: $email
       DayPhone: $dayPhone
-      PlaceOfMarriage: $partnerA_residenceCity
       AppointmentDate: $appointmentDate
       AApplicantFName: $partnerA_firstName
       AApplicantLName: $partnerA_lastName
@@ -85,7 +86,6 @@ const QUERY = gql`
       AMotherName: $partnerA_parentB_Name
       AFatherSurname: $partnerA_parentA_Surname
       AMotherSurname: $partnerA_parentB_Surname
-      APartnershipState: $partnerA_residenceState
       AStreetAddress: $partnerA_residenceAddress
       ACity: $partnerA_residenceCity
       AState: $partnerA_residenceState
@@ -93,6 +93,7 @@ const QUERY = gql`
       AResidenceCountry: $partnerA_residenceCountry
       AMarriageNumber: $partnerA_marriageNumb
       AStatofLastMarriage: $partnerA_lastMarriageStatus
+      APartnershipState: $partnerA_partnershipState
       APartnershipStatus: $partnerA_partnershipType
       ADissolutionStatus: $partnerA_partnershipTypeDissolved
       AParentsMarried: $partnerA_parentsMarriedAtBirth
@@ -116,7 +117,6 @@ const QUERY = gql`
       BMotherName: $partnerB_parentB_Name
       BFatherSurname: $partnerB_parentA_Surname
       BMotherSurname: $partnerB_parentB_Surname
-      BPartnershipState: $partnerB_residenceState
       BStreetAddress: $partnerB_residenceAddress
       BCity: $partnerB_residenceCity
       BState: $partnerB_residenceState
@@ -124,6 +124,7 @@ const QUERY = gql`
       BResidenceCountry: $partnerB_residenceCountry
       BMarriageNumber: $partnerB_marriageNumb
       BStatofLastMarriage: $partnerB_lastMarriageStatus
+      BPartnershipState: $partnerB_partnershipState
       BPartnershipStatus: $partnerB_partnershipType
       BDissolutionStatus: $partnerB_partnershipTypeDissolved
       BParentsMarried: $partnerB_parentsMarriedAtBirth
@@ -188,6 +189,7 @@ export default async function submitMarriageIntentionCertificateOrder(
       partnerA_residenceZip,
       partnerA_marriageNumb,
       partnerA_lastMarriageStatus,
+      partnerA_partnershipState,
       partnerB_firstName,
       partnerB_lastName,
       partnerB_middleName,
@@ -220,6 +222,7 @@ export default async function submitMarriageIntentionCertificateOrder(
       partnerB_residenceZip,
       partnerB_marriageNumb,
       partnerB_lastMarriageStatus,
+      partnerB_partnershipState,
     },
   } = marriageIntentionCertificateRequest;
 
@@ -259,6 +262,7 @@ export default async function submitMarriageIntentionCertificateOrder(
     partnerA_residenceZip,
     partnerA_marriageNumb,
     partnerA_lastMarriageStatus,
+    partnerA_partnershipState,
 
     partnerB_firstName,
     partnerB_lastName,
@@ -292,6 +296,7 @@ export default async function submitMarriageIntentionCertificateOrder(
     partnerB_residenceZip,
     partnerB_marriageNumb,
     partnerB_lastMarriageStatus,
+    partnerB_partnershipState,
   };
 
   // eslint-disable-next-line no-console

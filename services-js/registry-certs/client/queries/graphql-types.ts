@@ -379,9 +379,11 @@ export interface SubmitMarriageIntentionCertificateOrderVariables {
   partnerA_residenceAddress: string;
   partnerA_residenceCity: string;
   partnerA_residenceState: string;
+  partnerA_residenceCountry: string;
   partnerA_residenceZip: string;
   partnerA_marriageNumb: string;
   partnerA_lastMarriageStatus: string;
+  partnerA_partnershipState: string;
   partnerB_firstName: string;
   partnerB_lastName: string;
   partnerB_middleName: string;
@@ -408,8 +410,10 @@ export interface SubmitMarriageIntentionCertificateOrderVariables {
   partnerB_residenceCity: string;
   partnerB_residenceState: string;
   partnerB_residenceZip: string;
+  partnerB_residenceCountry: string;
   partnerB_marriageNumb: string;
   partnerB_lastMarriageStatus: string;
+  partnerB_partnershipState: string;
 }
 
 /* tslint:disable */
