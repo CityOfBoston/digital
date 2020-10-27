@@ -266,7 +266,7 @@ export default class PartnerView extends Component<Props> {
               {this.props.bloodRelation === '1' ? 'Yes' : 'No'}
             </div>
 
-            {this.props.bloodRelation !== '1' && (
+            {this.props.bloodRelation === 'Yes' && (
               <div css={COLUMNS_STYLING}>
                 <label>Describe Blood Relation: </label>
                 {this.props.bloodRelationDesc}
