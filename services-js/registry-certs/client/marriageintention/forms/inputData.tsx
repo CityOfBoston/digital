@@ -1,7 +1,7 @@
 export const SUFFIX_OPTIONS = [
   {
-    label: 'Does not Apply',
-    value: '',
+    label: 'Does Not Apply',
+    value: 'N/A',
   },
   {
     label: 'I',

@@ -91,9 +91,10 @@ export default class PartnerView extends Component<Props> {
       lastMarriageStatusObj && lastMarriageStatusObj.value
         ? lastMarriageStatusObj.label
         : '';
-    const lastName = suffix
-      ? `${this.props.lastName} ${suffix}`
-      : `${this.props.lastName}`;
+    const lastName =
+      suffix && suffix !== 'N/A'
+        ? `${this.props.lastName} ${suffix}`
+        : `${this.props.lastName}`;
     return (
       <div>
         <div css={SECTION_WRAPPER_STYLING}>
@@ -202,12 +203,12 @@ export default class PartnerView extends Component<Props> {
             <h2 css={BOTTOM_SPACING_STYLING}>Parents</h2>
 
             <div css={COLUMNS_STYLING}>
-              <label>Parent 1/Father: </label>
+              <label>Parent 1/Mother: </label>
               {this.props.parentA}
             </div>
 
             <div css={COLUMNS_STYLING}>
-              <label>Parent 2/Mother: </label>
+              <label>Parent 2/Father: </label>
               {this.props.parentB}
             </div>
 

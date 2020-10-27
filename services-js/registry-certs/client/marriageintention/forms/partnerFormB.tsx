@@ -81,13 +81,12 @@ export default class PartnerForm extends Component<Props> {
       partnerB_parentA_Surname,
       partnerB_parentB_Name,
       partnerB_parentB_Surname,
-      // partnerB_birthHospital,
       partnerB_birthCity,
       partnerB_birthState,
       partnerB_birthCountry,
-      // partnerB_birthZip,
       partnerB_partnershipType,
       partnerB_partnershipTypeDissolved,
+      partnerB_suffix,
 
       partnerB_marriageNumb,
       partnerB_lastMarriageStatus,
@@ -97,16 +96,10 @@ export default class PartnerForm extends Component<Props> {
     let partnerB_partnership_dissolved = true;
     let partnerB_lastMarriageStatusReq = true;
     let partnerB_birthStateZip = true;
+    let suffix = partnerB_suffix && partnerB_suffix.length > 0 ? true : false;
 
     const bloodRelDescReq =
       partnerB_bloodRelation && partnerB_bloodRelation == '1' ? true : false;
-
-    // if (partnerB_birthCountry === 'USA') {
-    //   partnerB_birthStateZip =
-    //     partnerB_birthState.length > 0 && partnerB_birthZip.length > 0
-    //       ? true
-    //       : false;
-    // }
 
     if (partnerB_birthCountry === 'USA') {
       partnerB_birthStateZip = partnerB_birthState.length > 0 ? true : false;
@@ -145,10 +138,8 @@ export default class PartnerForm extends Component<Props> {
       partnerB_parentA_Surname &&
       partnerB_parentB_Name &&
       partnerB_parentB_Surname &&
-      // partnerB_birthHospital &&
       partnerB_birthCity &&
       partnerB_birthCountry &&
-      // partnerB_birthState &&
       partnerB_partnershipType &&
       partnerB_partnership_dissolved &&
       partnerB_marriageNumb &&
@@ -156,6 +147,7 @@ export default class PartnerForm extends Component<Props> {
       partnerB_residenceAddress &&
       partnerB_residenceCountry &&
       partnerB_occupation &&
+      suffix &&
       partnerB_birthStateZip
     );
   }
@@ -1044,7 +1036,7 @@ export default class PartnerForm extends Component<Props> {
         >
           <SelectDropdown
             label="Suffix"
-            hideBlankOption
+            // hideBlankOption
             options={SUFFIX_OPTIONS}
             name={'partnerB_suffix'}
             value={partnerB_suffix}

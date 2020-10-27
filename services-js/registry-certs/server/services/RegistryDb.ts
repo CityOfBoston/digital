@@ -524,11 +524,15 @@ export default class RegistryDb {
         ? `${BApplicantFName.toLocaleUpperCase()} ${BApplicantMiddleName.toLocaleUpperCase()}`
         : BApplicantFName.toLocaleUpperCase();
     const ALName =
-      AApplicantSuffix && AApplicantSuffix.length > 0
+      AApplicantSuffix &&
+      AApplicantSuffix.length > 0 &&
+      AApplicantSuffix !== 'N/A'
         ? `${AApplicantLName.toLocaleUpperCase()} ${AApplicantSuffix.toLocaleUpperCase()}`
         : AApplicantLName.toLocaleUpperCase();
     const BLName =
-      BApplicantSuffix && BApplicantSuffix.length > 0
+      BApplicantSuffix &&
+      BApplicantSuffix.length > 0 &&
+      BApplicantSuffix !== 'N/A'
         ? `${BApplicantLName.toLocaleUpperCase()} ${BApplicantSuffix.toLocaleUpperCase()}`
         : BApplicantLName.toLocaleUpperCase();
     const A_ZipCode =
