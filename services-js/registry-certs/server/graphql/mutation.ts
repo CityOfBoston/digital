@@ -163,7 +163,6 @@ export interface Mutation extends ResolvableWith<{}> {
     AMotherName: string;
     AFatherSurname: string;
     AMotherSurname: string;
-    APartnershipState: string;
     AStreetAddress: string;
     ACity: string;
     AState: string;
@@ -173,6 +172,7 @@ export interface Mutation extends ResolvableWith<{}> {
     AStatofLastMarriage: string;
     APartnershipStatus: string;
     ADissolutionStatus: string;
+    APartnershipState: string;
     AParentsMarried: string;
     ABloodRelative: string;
     ABloodDescr: string;
@@ -195,7 +195,6 @@ export interface Mutation extends ResolvableWith<{}> {
     BMotherName: string;
     BFatherSurname: string;
     BMotherSurname: string;
-    BPartnershipState: string;
     BStreetAddress: string;
     BCity: string;
     BState: string;
@@ -205,6 +204,7 @@ export interface Mutation extends ResolvableWith<{}> {
     BStatofLastMarriage: string;
     BPartnershipStatus: string;
     BDissolutionStatus: string;
+    BPartnershipState: string;
     BParentsMarried: string;
     BBloodRelative: string;
     BBloodDescr: string;
@@ -443,7 +443,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       AMotherName,
       AFatherSurname,
       AMotherSurname,
-      APartnershipState,
       AStreetAddress,
       ACity,
       AState,
@@ -453,6 +452,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       AStatofLastMarriage,
       APartnershipStatus,
       ADissolutionStatus,
+      APartnershipState,
       AParentsMarried,
       ABloodRelative,
       ABloodDescr,
@@ -474,7 +474,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       BMotherName,
       BFatherSurname,
       BMotherSurname,
-      BPartnershipState,
       BStreetAddress,
       BCity,
       BState,
@@ -484,6 +483,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       BStatofLastMarriage,
       BPartnershipStatus,
       BDissolutionStatus,
+      BPartnershipState,
       BParentsMarried,
       BBloodRelative,
       BBloodDescr,
@@ -518,7 +518,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         AMotherName: AMotherName,
         AFatherSurname: AFatherSurname,
         AMotherSurname: AMotherSurname,
-        APartnershipState: APartnershipState,
         AStreetAddress: AStreetAddress,
         ACity: ACity,
         AState: AState,
@@ -528,6 +527,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         AStatofLastMarriage: AStatofLastMarriage,
         APartnershipStatus: APartnershipStatus,
         ADissolutionStatus: ADissolutionStatus,
+        APartnershipState: APartnershipState,
         AParentsMarried: AParentsMarried,
         ABloodRelative: ABloodRelative,
         ABloodDescr: ABloodDescr,
@@ -549,7 +549,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         BMotherName: BMotherName,
         BFatherSurname: BFatherSurname,
         BMotherSurname: BMotherSurname,
-        BPartnershipState: BPartnershipState,
         BStreetAddress: BStreetAddress,
         BCity: BCity,
         BState: BState,
@@ -559,6 +558,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         BStatofLastMarriage: BStatofLastMarriage,
         BPartnershipStatus: BPartnershipStatus,
         BDissolutionStatus: BDissolutionStatus,
+        BPartnershipState: BPartnershipState,
         BParentsMarried: BParentsMarried,
         BBloodRelative: BBloodRelative,
         BBloodDescr: BBloodDescr,

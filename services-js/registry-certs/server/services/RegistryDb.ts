@@ -464,7 +464,6 @@ export default class RegistryDb {
     AMotherName,
     AFatherSurname,
     AMotherSurname,
-    APartnershipState,
     AStreetAddress,
     ACity,
     AState,
@@ -474,6 +473,7 @@ export default class RegistryDb {
     AStatofLastMarriage,
     APartnershipStatus,
     ADissolutionStatus,
+    APartnershipState,
     AParentsMarried,
     ABloodRelative,
     ABloodDescr,
@@ -493,7 +493,6 @@ export default class RegistryDb {
     BMotherName,
     BFatherSurname,
     BMotherSurname,
-    BPartnershipState,
     BStreetAddress,
     BCity,
     BState,
@@ -503,6 +502,7 @@ export default class RegistryDb {
     BStatofLastMarriage,
     BPartnershipStatus,
     BDissolutionStatus,
+    BPartnershipState,
     BParentsMarried,
     BBloodRelative,
     BBloodDescr,
@@ -553,7 +553,24 @@ export default class RegistryDb {
         : BBirthplace.toLocaleUpperCase();
 
     // eslint-disable-next-line no-console
-    console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
+    // console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
+
+    const A_partnershipStatus =
+      APartnershipStatus === 'N/A' ? null : APartnershipStatus;
+    const BB_partnershipStatus =
+      BPartnershipStatus === 'N/A' ? null : BPartnershipStatus;
+    const A_PartnershipState =
+      APartnershipStatus === 'N/A' ? '' : APartnershipState;
+    const B_PartnershipState =
+      BPartnershipStatus === 'N/A' ? '' : BPartnershipState;
+    const A_DissolutionStatus =
+      APartnershipStatus === 'N/A' || ADissolutionStatus === 'N/A'
+        ? null
+        : ADissolutionStatus;
+    const B_DissolutionStatus =
+      BPartnershipStatus === 'N/A' || BDissolutionStatus === 'N/A'
+        ? null
+        : BDissolutionStatus;
 
     const resp: IProcedureResult<{
       RequestItemKey: number;
@@ -580,9 +597,9 @@ export default class RegistryDb {
       .input('AMotherSurname', AMotherSurname.toLocaleUpperCase())
       .input('AFatherName', AFatherName.toLocaleUpperCase())
       .input('AFatherSurname', AFatherSurname.toLocaleUpperCase())
-      .input('APartnershipStatus', APartnershipStatus)
-      .input('APartnershipState', APartnershipState)
-      .input('ADissolutionStatus', ADissolutionStatus)
+      .input('APartnershipStatus', A_partnershipStatus)
+      .input('ADissolutionStatus', A_DissolutionStatus)
+      .input('APartnershipState', A_PartnershipState)
       .input('AParentsMarried', parseInt(AParentsMarried))
       .input('ABloodRelative', parseInt(ABloodRelative))
       .input('ABloodDescr', ABloodDescr.toLocaleUpperCase())
@@ -590,7 +607,7 @@ export default class RegistryDb {
       .input('ABirthState', ABirthState)
       .input('ASexNum', ASexNum.split('|')[0] + 1)
       .input('ASex', ASex.split('|')[1])
-      // .input('ABirthHospital', ABirthHospital)
+
       .input('BApplicantFName', BFName)
       .input('BApplicantLName', BLName)
       .input('BPostmarriageSurname', BPostmarriageSurname.toLocaleUpperCase())
@@ -607,9 +624,9 @@ export default class RegistryDb {
       .input('BMotherSurname', BMotherSurname.toLocaleUpperCase())
       .input('BFatherName', BFatherName.toLocaleUpperCase())
       .input('BFatherSurname', BFatherSurname.toLocaleUpperCase())
-      .input('BPartnershipStatus', BPartnershipStatus)
-      .input('BPartnershipState', BPartnershipState)
-      .input('BDissolutionStatus', BDissolutionStatus)
+      .input('BPartnershipStatus', BB_partnershipStatus)
+      .input('BDissolutionStatus', B_DissolutionStatus)
+      .input('BPartnershipState', B_PartnershipState)
       .input('BParentsMarried', parseInt(BParentsMarried))
       .input('BBloodRelative', parseInt(BBloodRelative))
       .input('BBloodDescr', BBloodDescr.toLocaleUpperCase())
@@ -617,7 +634,6 @@ export default class RegistryDb {
       .input('BBirthState', BBirthState)
       .input('BSexNum', BSexNum.split('|')[0] + 1)
       .input('BSex', BSex.split('|')[1])
-      // .input('BBirthHospital', BBirthHospital)
       .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
 
     const { recordset } = resp;
