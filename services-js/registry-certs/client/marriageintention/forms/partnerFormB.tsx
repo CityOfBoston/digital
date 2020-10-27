@@ -195,6 +195,22 @@ export default class PartnerForm extends Component<Props> {
       },
       ''
     );
+
+    if (event.target.value === '0') {
+      this.props.marriageIntentionCertificateRequest.answerQuestion(
+        {
+          ['partnerA_bloodRelationDesc']: '',
+        },
+        ''
+      );
+
+      this.props.marriageIntentionCertificateRequest.answerQuestion(
+        {
+          ['partnerB_bloodRelationDesc']: '',
+        },
+        ''
+      );
+    }
   };
 
   private handleBirthDateChange = (newDate: Date | null): void => {

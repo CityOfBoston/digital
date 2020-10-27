@@ -74,6 +74,10 @@ export default class ReviewForms extends Component<Props> {
       requestInformation.appointmentDate
     )}`;
 
+    const YesNoAnswer = (val: any) => {
+      return parseInt(val) === 1 ? 'Yes' : 'No';
+    };
+
     return (
       <QuestionComponent
         handleProceed={this.props.handleProceed}
@@ -157,9 +161,9 @@ export default class ReviewForms extends Component<Props> {
             parentsMarriedAtBirth={`
               ${requestInformation.partnerA_parentsMarriedAtBirth}
             `}
-            bloodRelation={`
-              ${requestInformation.partnerA_bloodRelation}
-            `}
+            bloodRelation={YesNoAnswer(
+              requestInformation.partnerA_bloodRelation
+            )}
             bloodRelationDesc={`
               ${requestInformation.partnerA_bloodRelationDesc}
             `}
@@ -209,9 +213,9 @@ export default class ReviewForms extends Component<Props> {
             parentsMarriedAtBirth={`
               ${requestInformation.partnerB_parentsMarriedAtBirth}
             `}
-            bloodRelation={`
-              ${requestInformation.partnerB_bloodRelation}
-            `}
+            bloodRelation={YesNoAnswer(
+              requestInformation.partnerB_bloodRelation
+            )}
             bloodRelationDesc={`
               ${requestInformation.partnerB_bloodRelationDesc}
             `}
