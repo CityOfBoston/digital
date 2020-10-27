@@ -82,7 +82,7 @@ export const PARTNERSHIP_TYPE = [
 export const PARTNERSHIP_TYPE_DISSOLVED = [
   {
     label: 'Does Not Apply',
-    value: 'Does Not Apply',
+    value: 'N/A',
   },
   {
     label: 'Yes',
