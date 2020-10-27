@@ -45,6 +45,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerA_birthZip: '',
   partnerA_partnershipType: '',
   partnerA_partnershipTypeDissolved: '',
+  partnerA_partnershipState: '',
   partnerA_residenceAddress: '',
   partnerA_residenceStreetNum: '',
   partnerA_residenceStreetName: '',
@@ -81,6 +82,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerB_birthZip: '',
   partnerB_partnershipType: '',
   partnerB_partnershipTypeDissolved: '',
+  partnerB_partnershipState: '',
   partnerB_residenceAddress: '',
   partnerB_residenceStreetNum: '',
   partnerB_residenceStreetName: '',
@@ -95,7 +97,6 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   email: '',
   dayPhone: '',
   appointmentDate: null,
-  // appointmentTime: '',
 };
 
 export const QUESTION_STEPS: MarriageIntentionStep[] = [
@@ -106,15 +107,7 @@ export const QUESTION_STEPS: MarriageIntentionStep[] = [
   'reviewForms',
 ];
 
-// export const VERIFY_IDENTIFICATION_STEPS: MarriageIntentionStep[] = [
-//   'verifyIdentification',
-// ];
-
-export const CHECKOUT_STEPS: MarriageIntentionStep[] = [
-  'reviewRequest',
-  // 'billingInformation',
-  // 'submitRequest',
-];
+export const CHECKOUT_STEPS: MarriageIntentionStep[] = ['reviewRequest'];
 
 type MarriageIntentionCertificateRequestInformationJson = {
   [k in NonNullable<
@@ -186,6 +179,8 @@ export default class MarriageIntentionCertificateRequest {
         .partnerA_partnershipType,
       partnerA_partnershipTypeDissolved: this.requestInformation
         .partnerA_partnershipTypeDissolved,
+      partnerA_partnershipState: this.requestInformation
+        .partnerA_partnershipState,
       partnerA_residenceAddress: this.requestInformation
         .partnerA_residenceAddress,
       partnerA_residenceStreetNum: this.requestInformation
@@ -238,6 +233,8 @@ export default class MarriageIntentionCertificateRequest {
         .partnerB_partnershipType,
       partnerB_partnershipTypeDissolved: this.requestInformation
         .partnerB_partnershipTypeDissolved,
+      partnerB_partnershipState: this.requestInformation
+        .partnerB_partnershipState,
       partnerB_residenceAddress: this.requestInformation
         .partnerB_residenceAddress,
       partnerB_residenceStreetNum: this.requestInformation
@@ -305,6 +302,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_partnershipType: obj.requestInformation.partnerA_partnershipType,
       partnerA_partnershipTypeDissolved:
         obj.requestInformation.partnerA_partnershipTypeDissolved,
+      partnerA_partnershipState:
+        obj.requestInformation.partnerA_partnershipState,
       partnerA_residenceAddress: this.requestInformation
         .partnerA_residenceAddress,
       partnerA_residenceStreetNum:
@@ -354,6 +353,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_partnershipType: obj.requestInformation.partnerB_partnershipType,
       partnerB_partnershipTypeDissolved:
         obj.requestInformation.partnerB_partnershipTypeDissolved,
+      partnerB_partnershipState:
+        obj.requestInformation.partnerB_partnershipState,
       partnerB_residenceAddress: this.requestInformation
         .partnerB_residenceAddress,
       partnerB_residenceStreetNum:

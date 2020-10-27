@@ -158,15 +158,16 @@ export default class ReviewForms extends Component<Props> {
               ${requestInformation.partnerA_parentB_Name} 
               ${requestInformation.partnerA_parentB_Surname}
             `}
-            parentsMarriedAtBirth={`
-              ${requestInformation.partnerA_parentsMarriedAtBirth}
-            `}
+            parentsMarriedAtBirth={YesNoAnswer(
+              requestInformation.partnerA_parentsMarriedAtBirth
+            )}
             bloodRelation={YesNoAnswer(
               requestInformation.partnerA_bloodRelation
             )}
             bloodRelationDesc={`
               ${requestInformation.partnerA_bloodRelationDesc}
             `}
+            partnershipState={requestInformation.partnerA_partnershipState}
           />
 
           {/* PARTY B */}
@@ -210,15 +211,16 @@ export default class ReviewForms extends Component<Props> {
               ${requestInformation.partnerB_parentB_Name} 
               ${requestInformation.partnerB_parentB_Surname}
             `}
-            parentsMarriedAtBirth={`
-              ${requestInformation.partnerB_parentsMarriedAtBirth}
-            `}
+            parentsMarriedAtBirth={YesNoAnswer(
+              requestInformation.partnerB_parentsMarriedAtBirth
+            )}
             bloodRelation={YesNoAnswer(
               requestInformation.partnerB_bloodRelation
             )}
             bloodRelationDesc={`
               ${requestInformation.partnerB_bloodRelationDesc}
             `}
+            partnershipState={requestInformation.partnerB_partnershipState}
           />
         </div>
       </QuestionComponent>

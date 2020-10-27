@@ -86,6 +86,7 @@ export default class PartnerForm extends Component<Props> {
       partnerB_birthCountry,
       partnerB_partnershipType,
       partnerB_partnershipTypeDissolved,
+      partnerB_partnershipState,
       partnerB_suffix,
 
       partnerB_marriageNumb,
@@ -97,6 +98,13 @@ export default class PartnerForm extends Component<Props> {
     let partnerB_lastMarriageStatusReq = true;
     let partnerB_birthStateZip = true;
     let suffix = partnerB_suffix && partnerB_suffix.length > 0 ? true : false;
+    let partnershipState = true;
+    if (
+      partnerB_partnershipType !== PARTNERSHIP_TYPE[0].value &&
+      partnerB_partnershipState.length < 2
+    ) {
+      partnershipState = false;
+    }
 
     const bloodRelDescReq =
       partnerB_bloodRelation && partnerB_bloodRelation == '1' ? true : false;
@@ -148,6 +156,7 @@ export default class PartnerForm extends Component<Props> {
       partnerB_residenceCountry &&
       partnerB_occupation &&
       suffix &&
+      partnershipState &&
       partnerB_birthStateZip
     );
   }
@@ -624,6 +633,7 @@ export default class PartnerForm extends Component<Props> {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
       partnerB_partnershipTypeDissolved,
+      partnerB_partnershipState,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     return (
@@ -648,6 +658,15 @@ export default class PartnerForm extends Component<Props> {
             hideLabel
           />
         </div>
+
+        <TextInput
+          label="Partnership State/Country"
+          name="partnerB_partnershipState"
+          value={partnerB_partnershipState}
+          onChange={this.handleChange}
+          disableLabelNoWrap={true}
+          maxLength={100}
+        />
       </div>
     );
   }

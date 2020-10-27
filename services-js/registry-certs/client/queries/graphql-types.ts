@@ -376,6 +376,7 @@ export interface SubmitMarriageIntentionCertificateOrderVariables {
   partnerA_birthHospital: string;
   partnerA_partnershipType: string;
   partnerA_partnershipTypeDissolved: string;
+  partnerA_partnershipState: string;
   partnerA_residenceAddress: string;
   partnerA_residenceCity: string;
   partnerA_residenceState: string;
@@ -405,6 +406,7 @@ export interface SubmitMarriageIntentionCertificateOrderVariables {
   partnerB_birthHospital: string;
   partnerB_partnershipType: string;
   partnerB_partnershipTypeDissolved: string;
+  partnerB_partnershipState: string;
   partnerB_residenceAddress: string;
   partnerB_residenceCity: string;
   partnerB_residenceState: string;

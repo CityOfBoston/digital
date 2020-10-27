@@ -31,6 +31,7 @@ const QUERY = gql`
     $partnerA_birthHospital: String!
     $partnerA_partnershipType: String!
     $partnerA_partnershipTypeDissolved: String!
+    $partnerA_partnershipState: String!
     $partnerA_residenceAddress: String!
     $partnerA_residenceCity: String!
     $partnerA_residenceState: String!
@@ -60,6 +61,7 @@ const QUERY = gql`
     $partnerB_birthHospital: String!
     $partnerB_partnershipType: String!
     $partnerB_partnershipTypeDissolved: String!
+    $partnerB_partnershipState: String!
     $partnerB_residenceAddress: String!
     $partnerB_residenceCity: String!
     $partnerB_residenceState: String!
@@ -85,7 +87,6 @@ const QUERY = gql`
       AMotherName: $partnerA_parentB_Name
       AFatherSurname: $partnerA_parentA_Surname
       AMotherSurname: $partnerA_parentB_Surname
-      APartnershipState: $partnerA_residenceState
       AStreetAddress: $partnerA_residenceAddress
       ACity: $partnerA_residenceCity
       AState: $partnerA_residenceState
@@ -95,6 +96,7 @@ const QUERY = gql`
       AStatofLastMarriage: $partnerA_lastMarriageStatus
       APartnershipStatus: $partnerA_partnershipType
       ADissolutionStatus: $partnerA_partnershipTypeDissolved
+      APartnershipState: $partnerA_partnershipState
       AParentsMarried: $partnerA_parentsMarriedAtBirth
       ABloodRelative: $partnerA_bloodRelation
       ABloodDescr: $partnerA_bloodRelationDesc
@@ -116,7 +118,6 @@ const QUERY = gql`
       BMotherName: $partnerB_parentB_Name
       BFatherSurname: $partnerB_parentA_Surname
       BMotherSurname: $partnerB_parentB_Surname
-      BPartnershipState: $partnerB_residenceState
       BStreetAddress: $partnerB_residenceAddress
       BCity: $partnerB_residenceCity
       BState: $partnerB_residenceState
@@ -126,6 +127,7 @@ const QUERY = gql`
       BStatofLastMarriage: $partnerB_lastMarriageStatus
       BPartnershipStatus: $partnerB_partnershipType
       BDissolutionStatus: $partnerB_partnershipTypeDissolved
+      BPartnershipState: $partnerB_partnershipState
       BParentsMarried: $partnerB_parentsMarriedAtBirth
       BBloodRelative: $partnerB_bloodRelation
       BBloodDescr: $partnerB_bloodRelationDesc
@@ -178,6 +180,7 @@ export default async function submitMarriageIntentionCertificateOrder(
       partnerA_birthCountry,
       partnerA_partnershipType,
       partnerA_partnershipTypeDissolved,
+      partnerA_partnershipState,
       partnerA_residenceAddress,
       partnerA_residenceStreetNum,
       partnerA_residenceStreetName,
@@ -210,6 +213,7 @@ export default async function submitMarriageIntentionCertificateOrder(
       partnerB_birthCountry,
       partnerB_partnershipType,
       partnerB_partnershipTypeDissolved,
+      partnerB_partnershipState,
       partnerB_residenceAddress,
       partnerB_residenceStreetNum,
       partnerB_residenceStreetName,
@@ -249,6 +253,7 @@ export default async function submitMarriageIntentionCertificateOrder(
     partnerA_birthCountry,
     partnerA_partnershipType,
     partnerA_partnershipTypeDissolved,
+    partnerA_partnershipState,
     partnerA_residenceAddress,
     partnerA_residenceStreetNum,
     partnerA_residenceStreetName,
@@ -282,6 +287,7 @@ export default async function submitMarriageIntentionCertificateOrder(
     partnerB_birthCountry,
     partnerB_partnershipType,
     partnerB_partnershipTypeDissolved,
+    partnerB_partnershipState,
     partnerB_residenceAddress,
     partnerB_residenceStreetNum,
     partnerB_residenceStreetName,
