@@ -256,6 +256,14 @@ async function addGraphQl(
   const apolloServer = new ApolloServer({
     schema: graphqlSchema,
     context,
+    formatError: () => {
+      return {
+        message: 'Internal Server Error',
+        locations: [],
+        path: [],
+        extensions: {},
+      };
+    },
     extensions: [rollbarErrorExtension(rollbar)],
   });
 
