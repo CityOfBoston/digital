@@ -151,7 +151,6 @@ export interface MarriageIntentionCertificateRequestArgs {
   AMotherName: string;
   AFatherSurname: string;
   AMotherSurname: string;
-  APartnershipState: string;
   AStreetAddress: string;
   ACity: string;
   AState: string;
@@ -161,6 +160,7 @@ export interface MarriageIntentionCertificateRequestArgs {
   AStatofLastMarriage: string;
   APartnershipStatus: string;
   ADissolutionStatus: string;
+  APartnershipState: string;
   AParentsMarried: string;
   ABloodRelative: string;
   ABloodDescr: string;
@@ -183,7 +183,6 @@ export interface MarriageIntentionCertificateRequestArgs {
   BMotherName: string;
   BFatherSurname: string;
   BMotherSurname: string;
-  BPartnershipState: string;
   BStreetAddress: string;
   BCity: string;
   BState: string;
@@ -193,6 +192,7 @@ export interface MarriageIntentionCertificateRequestArgs {
   BStatofLastMarriage: string;
   BPartnershipStatus: string;
   BDissolutionStatus: string;
+  BPartnershipState: string;
   BParentsMarried: string;
   BBloodRelative: string;
   BBloodDescr: string;
@@ -479,6 +479,7 @@ export default class RegistryDb {
     ABloodDescr,
     ABirthplace,
     ABirthState,
+    ABirthCountry,
     ASexNum,
     ASex,
     BApplicantFName,
@@ -508,12 +509,16 @@ export default class RegistryDb {
     BBloodDescr,
     BBirthplace,
     BBirthState,
+    BBirthCountry,
     BSexNum,
     BSex,
   }: MarriageIntentionCertificateRequestArgs): Promise<number> {
     const formattedAptDate = convertJsDateToSql(AppointmentDate);
     const formattedADOB = convertJsDateToSql(ADOB);
     const formattedBDOB = convertJsDateToSql(BDOB);
+
+    // eslint-disable-next-line no-console
+    // console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
 
     const AFName =
       AApplicantMiddleName && AApplicantMiddleName.length > 0
@@ -544,17 +549,13 @@ export default class RegistryDb {
         ? AResidenceCountry.toLocaleUpperCase()
         : BZIPCode;
     const A_Birthplace =
-      AResidenceCountry && AResidenceCountry !== 'USA'
-        ? `${ABirthplace.toLocaleUpperCase()} ${AResidenceCountry.toLocaleUpperCase()}`
+      ABirthCountry && ABirthCountry !== 'USA'
+        ? `${ABirthplace.toLocaleUpperCase()} ${ABirthCountry.toLocaleUpperCase()}`
         : ABirthplace.toLocaleUpperCase();
     const B_Birthplace =
-      BResidenceCountry && BResidenceCountry !== 'USA'
-        ? `${BBirthplace.toLocaleUpperCase()} ${BResidenceCountry.toLocaleUpperCase()}`
+      BBirthCountry && BBirthCountry !== 'USA'
+        ? `${BBirthplace.toLocaleUpperCase()} ${BBirthCountry.toLocaleUpperCase()}`
         : BBirthplace.toLocaleUpperCase();
-
-    // eslint-disable-next-line no-console
-    // console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
-
     const A_partnershipStatus =
       APartnershipStatus === 'N/A' ? null : APartnershipStatus;
     const BB_partnershipStatus =
@@ -571,6 +572,8 @@ export default class RegistryDb {
       BPartnershipStatus === 'N/A' || BDissolutionStatus === 'N/A'
         ? null
         : BDissolutionStatus;
+    const A_BirthState = ABirthCountry !== 'USA' ? ABirthCountry : ABirthState;
+    const B_BirthState = BBirthCountry !== 'USA' ? BBirthCountry : BBirthState;
 
     const resp: IProcedureResult<{
       RequestItemKey: number;
@@ -604,7 +607,7 @@ export default class RegistryDb {
       .input('ABloodRelative', parseInt(ABloodRelative))
       .input('ABloodDescr', ABloodDescr.toLocaleUpperCase())
       .input('ABirthplace', A_Birthplace)
-      .input('ABirthState', ABirthState)
+      .input('ABirthState', A_BirthState)
       .input('ASexNum', ASexNum.split('|')[0] + 1)
       .input('ASex', ASex.split('|')[1])
 
@@ -631,7 +634,7 @@ export default class RegistryDb {
       .input('BBloodRelative', parseInt(BBloodRelative))
       .input('BBloodDescr', BBloodDescr.toLocaleUpperCase())
       .input('BBirthplace', B_Birthplace)
-      .input('BBirthState', BBirthState)
+      .input('BBirthState', B_BirthState)
       .input('BSexNum', BSexNum.split('|')[0] + 1)
       .input('BSex', BSex.split('|')[1])
       .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
