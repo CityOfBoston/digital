@@ -73,7 +73,6 @@ const QUERY = gql`
     submitMarriageIntentionCertificateOrder(
       Email: $email
       DayPhone: $dayPhone
-      PlaceOfMarriage: $partnerA_residenceCity
       AppointmentDate: $appointmentDate
       AApplicantFName: $partnerA_firstName
       AApplicantLName: $partnerA_lastName

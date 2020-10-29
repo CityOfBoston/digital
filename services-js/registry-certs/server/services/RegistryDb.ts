@@ -136,7 +136,6 @@ export interface FindMarriageCertificateRequestResult {
 export interface MarriageIntentionCertificateRequestArgs {
   Email: string;
   DayPhone: string;
-  PlaceOfMarriage: string;
   AppointmentDate: string;
 
   AApplicantFName: string;
@@ -450,7 +449,6 @@ export default class RegistryDb {
   async addMarriageIntentionCertificateRequest({
     Email,
     DayPhone,
-    PlaceOfMarriage,
     AppointmentDate,
     AApplicantFName,
     AApplicantLName,
@@ -582,7 +580,6 @@ export default class RegistryDb {
       .request()
       .input('Email', Email)
       .input('DayPhone', DayPhone)
-      .input('PlaceOfMarriage', PlaceOfMarriage)
       .input('AppointmentDate', formattedAptDate)
       .input('AApplicantFName', AFName)
       .input('AApplicantLName', ALName)
