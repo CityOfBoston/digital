@@ -55,19 +55,6 @@ interface Props {
 export default class PartnerView extends Component<Props> {
   constructor(props: Props) {
     super(props);
-
-    this.state = {
-      partyLabel: props.partyLabel,
-      firstName: props.firstName,
-      lastName: props.lastName,
-      middleName: props.middleName,
-      surName: props.surName,
-      dob: props.dob,
-      age: props.age,
-      occupation: props.occupation,
-      sex: props.sex,
-      address: props.address,
-    };
   }
 
   public render() {
@@ -182,10 +169,12 @@ export default class PartnerView extends Component<Props> {
               {this.props.birthCity}
             </div>
 
-            <div css={COLUMNS_STYLING}>
-              <label>State: </label>
-              {this.props.birthState}
-            </div>
+            {this.props.birthState.length > 0 && (
+              <div css={COLUMNS_STYLING}>
+                <label>State: </label>
+                {this.props.birthState}
+              </div>
+            )}
 
             <div css={COLUMNS_STYLING}>
               <label>Country: </label>

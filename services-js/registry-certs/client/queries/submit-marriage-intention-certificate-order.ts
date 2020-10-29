@@ -82,8 +82,8 @@ const QUERY = gql`
       ADOB: $partnerA_dob
       ACurrentAge: $partnerA_age
       AOccupation: $partnerA_occupation
-      AFatherName: $partnerA_parentA_Name
-      AMotherName: $partnerA_parentB_Name
+      AFatherName: $partnerA_parentB_Name
+      AMotherName: $partnerA_parentA_Name
       AFatherSurname: $partnerA_parentA_Surname
       AMotherSurname: $partnerA_parentB_Surname
       AStreetAddress: $partnerA_residenceAddress
@@ -113,8 +113,8 @@ const QUERY = gql`
       BDOB: $partnerB_dob
       BCurrentAge: $partnerB_age
       BOccupation: $partnerB_occupation
-      BFatherName: $partnerB_parentA_Name
-      BMotherName: $partnerB_parentB_Name
+      BFatherName: $partnerB_parentB_Name
+      BMotherName: $partnerB_parentA_Name
       BFatherSurname: $partnerB_parentA_Surname
       BMotherSurname: $partnerB_parentB_Surname
       BStreetAddress: $partnerB_residenceAddress

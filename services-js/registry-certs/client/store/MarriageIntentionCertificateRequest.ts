@@ -448,7 +448,6 @@ export default class MarriageIntentionCertificateRequest {
   ): void {
     partnerLabel = partnerLabel || '';
     // console.log(`answerQuestion>partnerLabel: [${partnerLabel}]`);
-
     if (partnerLabel === '') {
       this.requestInformation = {
         ...this.requestInformation,

@@ -78,6 +78,19 @@ export default class ReviewForms extends Component<Props> {
       return parseInt(val) === 1 ? 'Yes' : 'No';
     };
 
+    const partnerA_parentA = `${requestInformation.partnerA_parentA_Name}/${
+      requestInformation.partnerA_parentA_Surname
+    }`;
+    const partnerA_parentB = `${requestInformation.partnerA_parentB_Name}/${
+      requestInformation.partnerA_parentB_Surname
+    }`;
+    const partnerB_parentA = `${requestInformation.partnerB_parentA_Name}/${
+      requestInformation.partnerB_parentA_Surname
+    }`;
+    const partnerB_parentB = `${requestInformation.partnerB_parentB_Name}/${
+      requestInformation.partnerB_parentB_Surname
+    }`;
+
     return (
       <QuestionComponent
         handleProceed={this.props.handleProceed}
@@ -134,7 +147,8 @@ export default class ReviewForms extends Component<Props> {
             occupation={requestInformation.partnerA_occupation}
             sex={requestInformation.partnerA_sex}
             address={`
-              ${requestInformation.partnerA_residenceAddress} 
+              ${requestInformation.partnerA_residenceAddress},
+              ${requestInformation.partnerA_residenceCity}
               ${requestInformation.partnerA_residenceState} 
               ${requestInformation.partnerA_residenceZip} 
               ${requestInformation.partnerA_residenceCountry}
@@ -150,14 +164,8 @@ export default class ReviewForms extends Component<Props> {
             partnerShipDissolve={`
               ${requestInformation.partnerA_partnershipTypeDissolved}
             `}
-            parentA={`
-              ${requestInformation.partnerA_parentA_Name} 
-              ${requestInformation.partnerA_parentA_Surname}
-            `}
-            parentB={`
-              ${requestInformation.partnerA_parentB_Name} 
-              ${requestInformation.partnerA_parentB_Surname}
-            `}
+            parentA={partnerA_parentA}
+            parentB={partnerA_parentB}
             parentsMarriedAtBirth={YesNoAnswer(
               requestInformation.partnerA_parentsMarriedAtBirth
             )}
@@ -188,6 +196,7 @@ export default class ReviewForms extends Component<Props> {
             address={`
               ${requestInformation.partnerB_residenceAddress} 
               ${requestInformation.partnerB_residenceStreetName}, 
+              ${requestInformation.partnerA_residenceCity}
               ${requestInformation.partnerB_residenceState} 
               ${requestInformation.partnerB_residenceZip} 
               ${requestInformation.partnerB_residenceCountry}
@@ -203,14 +212,8 @@ export default class ReviewForms extends Component<Props> {
             partnerShipDissolve={`
               ${requestInformation.partnerB_partnershipTypeDissolved}
             `}
-            parentA={`
-              ${requestInformation.partnerB_parentA_Name} 
-              ${requestInformation.partnerB_parentA_Surname}
-            `}
-            parentB={`
-              ${requestInformation.partnerB_parentB_Name} 
-              ${requestInformation.partnerB_parentB_Surname}
-            `}
+            parentA={partnerB_parentA}
+            parentB={partnerB_parentB}
             parentsMarriedAtBirth={YesNoAnswer(
               requestInformation.partnerB_parentsMarriedAtBirth
             )}
