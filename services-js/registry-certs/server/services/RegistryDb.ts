@@ -136,7 +136,6 @@ export interface FindMarriageCertificateRequestResult {
 export interface MarriageIntentionCertificateRequestArgs {
   Email: string;
   DayPhone: string;
-  PlaceOfMarriage: string;
   AppointmentDate: string;
 
   AApplicantFName: string;
@@ -450,7 +449,6 @@ export default class RegistryDb {
   async addMarriageIntentionCertificateRequest({
     Email,
     DayPhone,
-    PlaceOfMarriage,
     AppointmentDate,
     AApplicantFName,
     AApplicantLName,
@@ -517,9 +515,6 @@ export default class RegistryDb {
     const formattedADOB = convertJsDateToSql(ADOB);
     const formattedBDOB = convertJsDateToSql(BDOB);
 
-    // eslint-disable-next-line no-console
-    // console.log('RegistryDb > formattedAptDate: ', formattedAptDate);
-
     const AFName =
       AApplicantMiddleName && AApplicantMiddleName.length > 0
         ? `${AApplicantFName.toLocaleUpperCase()} ${AApplicantMiddleName.toLocaleUpperCase()}`
@@ -575,6 +570,16 @@ export default class RegistryDb {
     const A_BirthState = ABirthCountry !== 'USA' ? ABirthCountry : ABirthState;
     const B_BirthState = BBirthCountry !== 'USA' ? BBirthCountry : BBirthState;
 
+    const formattedParentName = (name: string, surname: string) => {
+      return surname && surname.length > 2
+        ? `${name.toLocaleUpperCase()}/${surname.toLocaleUpperCase()}`
+        : `${name.toLocaleUpperCase()}`;
+    };
+    const A_MotherName = formattedParentName(AMotherName, AMotherSurname);
+    const A_FatherName = formattedParentName(AFatherName, AFatherSurname);
+    const B_FatherName = formattedParentName(BFatherName, BFatherSurname);
+    const B_MotherName = formattedParentName(BMotherName, BMotherSurname);
+
     const resp: IProcedureResult<{
       RequestItemKey: number;
       ErrorMessage: string;
@@ -582,24 +587,23 @@ export default class RegistryDb {
       .request()
       .input('Email', Email)
       .input('DayPhone', DayPhone)
-      .input('PlaceOfMarriage', PlaceOfMarriage)
       .input('AppointmentDate', formattedAptDate)
       .input('AApplicantFName', AFName)
       .input('AApplicantLName', ALName)
       .input('APostmarriageSurname', APostmarriageSurname.toLocaleUpperCase())
       .input('ADOB', formattedADOB)
       .input('ACurrentAge', parseInt(ACurrentAge))
-      .input('AOccupation', AOccupation.toLocaleUpperCase())
-      .input('AStreetAddress', AStreetAddress.toLocaleUpperCase())
-      .input('ACity', ACity.toLocaleUpperCase())
-      .input('AState', AState)
+      .input('AOccupation', AOccupation.toLocaleUpperCase().trim())
+      .input('AStreetAddress', AStreetAddress.toLocaleUpperCase().trim())
+      .input('ACity', ACity.toLocaleUpperCase().trim())
+      .input('AState', AState.trim())
       .input('AZIPCode', A_ZipCode)
       .input('AMarriageNumber', AMarriageNumber)
       .input('AStatofLastMarriage', AStatofLastMarriage)
-      .input('AMotherName', AMotherName.toLocaleUpperCase())
-      .input('AMotherSurname', AMotherSurname.toLocaleUpperCase())
-      .input('AFatherName', AFatherName.toLocaleUpperCase())
-      .input('AFatherSurname', AFatherSurname.toLocaleUpperCase())
+      .input('AMotherName', A_MotherName)
+      .input('AMotherSurname', null)
+      .input('AFatherName', A_FatherName)
+      .input('AFatherSurname', null)
       .input('APartnershipStatus', A_partnershipStatus)
       .input('ADissolutionStatus', A_DissolutionStatus)
       .input('APartnershipState', A_PartnershipState)
@@ -616,17 +620,17 @@ export default class RegistryDb {
       .input('BPostmarriageSurname', BPostmarriageSurname.toLocaleUpperCase())
       .input('BDOB', formattedBDOB)
       .input('BCurrentAge', parseInt(BCurrentAge))
-      .input('BOccupation', BOccupation.toLocaleUpperCase())
-      .input('BStreetAddress', BStreetAddress.toLocaleUpperCase())
-      .input('BCity', BCity.toLocaleUpperCase())
-      .input('BState', BState)
+      .input('BOccupation', BOccupation.toLocaleUpperCase().trim())
+      .input('BStreetAddress', BStreetAddress.toLocaleUpperCase().trim())
+      .input('BCity', BCity.toLocaleUpperCase().trim())
+      .input('BState', BState.trim())
       .input('BZIPCode', B_ZipCode)
       .input('BMarriageNumber', BMarriageNumber)
       .input('BStatofLastMarriage', BStatofLastMarriage)
-      .input('BMotherName', BMotherName.toLocaleUpperCase())
-      .input('BMotherSurname', BMotherSurname.toLocaleUpperCase())
-      .input('BFatherName', BFatherName.toLocaleUpperCase())
-      .input('BFatherSurname', BFatherSurname.toLocaleUpperCase())
+      .input('BMotherName', B_MotherName)
+      .input('BMotherSurname', null)
+      .input('BFatherName', B_FatherName)
+      .input('BFatherSurname', null)
       .input('BPartnershipStatus', BB_partnershipStatus)
       .input('BDissolutionStatus', B_DissolutionStatus)
       .input('BPartnershipState', B_PartnershipState)
@@ -641,7 +645,7 @@ export default class RegistryDb {
 
     const { recordset } = resp;
     // eslint-disable-next-line no-console
-    // console.log('RegistryDb>execute>resp: ', resp);
+    console.log('RegistryDb>execute>resp: ', resp);
 
     if (!recordset || recordset.length === 0) {
       // eslint-disable-next-line no-console

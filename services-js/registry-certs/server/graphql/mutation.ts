@@ -148,7 +148,6 @@ export interface Mutation extends ResolvableWith<{}> {
   submitMarriageIntentionCertificateOrder(args: {
     Email: string;
     DayPhone: string;
-    PlaceOfMarriage: string;
     AppointmentDate: string;
 
     AApplicantFName: string;
@@ -429,7 +428,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const {
       Email,
       DayPhone,
-      PlaceOfMarriage,
       AppointmentDate,
       AApplicantFName,
       AApplicantLName,
@@ -505,7 +503,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         Email: Email,
         DayPhone: DayPhone,
         AppointmentDate: AppointmentDate,
-        PlaceOfMarriage: PlaceOfMarriage,
         AApplicantFName: AApplicantFName,
         AApplicantLName: AApplicantLName,
         AApplicantMiddleName: AApplicantMiddleName,
