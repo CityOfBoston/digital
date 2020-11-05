@@ -4,7 +4,7 @@
 
 Public documentation and [wiki](https://github.com/CityOfBoston/digital/wiki) for DoIT’s Digital team
 
-## Monorepo Installation
+## Monorepo Installation.
 
 ```
 $ yarn install
