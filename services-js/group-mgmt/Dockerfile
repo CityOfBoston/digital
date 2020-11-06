@@ -1,4 +1,4 @@
-FROM node:10.18-alpine
+FROM node:10.10.0-alpine
 
 ENV WORKSPACE=group-mgmt
 
