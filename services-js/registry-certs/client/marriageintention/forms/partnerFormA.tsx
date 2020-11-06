@@ -188,6 +188,60 @@ export default class PartnerForm extends Component<Props> {
     );
   };
 
+  private handlePartnershipStatusChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.props.marriageIntentionCertificateRequest.answerQuestion(
+      {
+        ['partnerA_partnershipType']: event.target.value,
+      },
+      ''
+    );
+
+    this.props.marriageIntentionCertificateRequest.answerQuestion(
+      {
+        ['partnerB_partnershipType']: event.target.value,
+      },
+      ''
+    );
+  };
+
+  private handlePartnershipTypeDissolvedChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.props.marriageIntentionCertificateRequest.answerQuestion(
+      {
+        ['partnerA_partnershipTypeDissolved']: event.target.value,
+      },
+      ''
+    );
+
+    this.props.marriageIntentionCertificateRequest.answerQuestion(
+      {
+        ['partnerB_partnershipTypeDissolved']: event.target.value,
+      },
+      ''
+    );
+  };
+
+  private handlePartnershipStateChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.props.marriageIntentionCertificateRequest.answerQuestion(
+      {
+        ['partnerA_partnershipState']: event.target.value,
+      },
+      ''
+    );
+
+    this.props.marriageIntentionCertificateRequest.answerQuestion(
+      {
+        ['partnerB_partnershipState']: event.target.value,
+      },
+      ''
+    );
+  };
+
   private handleBloodRelChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
@@ -614,7 +668,7 @@ export default class PartnerForm extends Component<Props> {
               items={PARTNERSHIP_TYPE}
               name="partnerA_partnershipType"
               checkedValue={partnerA_partnershipType}
-              handleItemChange={this.handleChange}
+              handleItemChange={this.handlePartnershipStatusChange}
               groupLabel=""
               hideLabel
             />
@@ -653,7 +707,7 @@ export default class PartnerForm extends Component<Props> {
             items={PARTNERSHIP_TYPE_DISSOLVED}
             name="partnerA_partnershipTypeDissolved"
             checkedValue={partnerA_partnershipTypeDissolved}
-            handleItemChange={this.handleChange}
+            handleItemChange={this.handlePartnershipTypeDissolvedChange}
             groupLabel=""
             hideLabel
           />
@@ -663,7 +717,7 @@ export default class PartnerForm extends Component<Props> {
           label="Partnership State/Country"
           name="partnerA_partnershipState"
           value={partnerA_partnershipState}
-          onChange={this.handleChange}
+          onChange={this.handlePartnershipStateChange}
           disableLabelNoWrap={true}
           maxLength={100}
         />
