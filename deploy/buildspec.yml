@@ -1,6 +1,10 @@
 version: 0.2
 
 phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
   install:
     commands:
       - npm config set scripts-prepend-node-path true
@@ -9,4 +13,8 @@ phases:
   # service update as post_build.
   build:
     commands:
+      - echo Re-Logging in to Docker Hub...
+      - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
+      - ./deploy/dockerHubRateLimit.sh
       - ./deploy/codebuild-deploy.sh
+      - ./deploy/dockerHubRateLimit.sh

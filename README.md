@@ -294,3 +294,7 @@ isomorphic-fetch, to the `polyfills.js` file in `next-client-common`. The
 these polyfills before any other code.
 
 We build all of our interfaces to be responsive, down to 320px wide.
+
+### Deploys
+
+- 2020.11.10: Reworking how AWS gets around Docker Hub Rate limiting 
