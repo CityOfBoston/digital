@@ -196,7 +196,7 @@ export default class ReviewForms extends Component<Props> {
             address={`
               ${requestInformation.partnerB_residenceAddress} 
               ${requestInformation.partnerB_residenceStreetName}, 
-              ${requestInformation.partnerA_residenceCity}
+              ${requestInformation.partnerB_residenceCity}
               ${requestInformation.partnerB_residenceState} 
               ${requestInformation.partnerB_residenceZip} 
               ${requestInformation.partnerB_residenceCountry}
