@@ -14,6 +14,8 @@ import {
 import RegistryDbFake from './RegistryDbFake';
 import { AnnotatedFilePart, PACKAGE_SRC_ROOT } from '../util';
 
+import { COUNTRIES } from '../../client/marriageintention/forms/inputData';
+
 const readFile = promisify(fs.readFile);
 
 export enum OrderType {
@@ -543,14 +545,26 @@ export default class RegistryDb {
       BResidenceCountry && BResidenceCountry !== 'USA'
         ? AResidenceCountry.toLocaleUpperCase()
         : BZIPCode;
+    const getCountryFullName = (Name: string) => {
+      const countryObj = COUNTRIES.find(entry => entry.value === Name);
+      return countryObj && countryObj.label ? ` ${countryObj.label}` : '';
+    };
     const A_Birthplace =
       ABirthCountry && ABirthCountry !== 'USA'
-        ? `${ABirthplace.toLocaleUpperCase()} ${ABirthCountry.toLocaleUpperCase()}`
-        : `${ABirthplace.toLocaleUpperCase()} ${ABirthState.toLocaleUpperCase()} ${ABirthCountry.toLocaleUpperCase()}`;
+        ? `${ABirthplace.toLocaleUpperCase()}${getCountryFullName(
+            ABirthCountry
+          )}`
+        : `${ABirthplace.toLocaleUpperCase()} ${ABirthState.toLocaleUpperCase()}${getCountryFullName(
+            ABirthCountry
+          )}`;
     const B_Birthplace =
       BBirthCountry && BBirthCountry !== 'USA'
-        ? `${BBirthplace.toLocaleUpperCase()} ${BBirthCountry.toLocaleUpperCase()}`
-        : `${BBirthplace.toLocaleUpperCase()} ${BBirthState.toLocaleUpperCase()} ${BBirthCountry.toLocaleUpperCase()}`;
+        ? `${BBirthplace.toLocaleUpperCase()}${getCountryFullName(
+            BBirthCountry
+          )}`
+        : `${BBirthplace.toLocaleUpperCase()} ${BBirthState.toLocaleUpperCase()}${getCountryFullName(
+            BBirthCountry
+          )}`;
     const A_partnershipStatus =
       APartnershipStatus === 'N/A' ? null : APartnershipStatus;
     const BB_partnershipStatus =
