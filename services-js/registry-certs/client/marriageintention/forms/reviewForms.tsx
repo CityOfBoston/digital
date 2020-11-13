@@ -8,6 +8,8 @@ import { observer } from 'mobx-react';
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 
+import { COUNTRIES, US_STATES } from './inputData';
+
 import {
   SECTION_HEADING_STYLING,
   SECTION_WRAPPER_STYLING,
@@ -90,6 +92,14 @@ export default class ReviewForms extends Component<Props> {
     const partnerB_parentB = `${requestInformation.partnerB_parentB_Name}/${
       requestInformation.partnerB_parentB_Surname
     }`;
+    const getCountryFullName = (Name: string) => {
+      const countryObj = COUNTRIES.find(entry => entry.value === Name);
+      return countryObj && countryObj.label ? countryObj.label : '';
+    };
+    const getStateFullName = (Name: string) => {
+      const countryObj = US_STATES.find(entry => entry.value === Name);
+      return countryObj && countryObj.label ? countryObj.label : '';
+    };
 
     return (
       <QuestionComponent
@@ -149,13 +159,19 @@ export default class ReviewForms extends Component<Props> {
             address={`
               ${requestInformation.partnerA_residenceAddress},
               ${requestInformation.partnerA_residenceCity}
-              ${requestInformation.partnerA_residenceState} 
+              ${getStateFullName(requestInformation.partnerA_residenceState)} 
               ${requestInformation.partnerA_residenceZip} 
-              ${requestInformation.partnerA_residenceCountry}
+              ${getCountryFullName(
+                requestInformation.partnerA_residenceCountry
+              )}
             `}
             birthCity={requestInformation.partnerA_birthCity}
-            birthState={requestInformation.partnerA_birthState}
-            birthCountry={requestInformation.partnerA_birthCountry}
+            birthState={getStateFullName(
+              requestInformation.partnerA_birthState
+            )}
+            birthCountry={getCountryFullName(
+              requestInformation.partnerA_birthCountry
+            )}
             marriageNumb={requestInformation.partnerA_marriageNumb}
             lastMarriageStatus={`${
               requestInformation.partnerA_lastMarriageStatus
@@ -194,16 +210,21 @@ export default class ReviewForms extends Component<Props> {
             occupation={requestInformation.partnerB_occupation}
             sex={requestInformation.partnerB_sex}
             address={`
-              ${requestInformation.partnerB_residenceAddress} 
-              ${requestInformation.partnerB_residenceStreetName}, 
-              ${requestInformation.partnerA_residenceCity}
-              ${requestInformation.partnerB_residenceState} 
+              ${requestInformation.partnerB_residenceAddress},
+              ${requestInformation.partnerB_residenceCity}
+              ${getStateFullName(requestInformation.partnerB_residenceState)} 
               ${requestInformation.partnerB_residenceZip} 
-              ${requestInformation.partnerB_residenceCountry}
+              ${getCountryFullName(
+                requestInformation.partnerB_residenceCountry
+              )}
             `}
             birthCity={requestInformation.partnerB_birthCity}
-            birthState={requestInformation.partnerB_birthState}
-            birthCountry={requestInformation.partnerB_birthCountry}
+            birthState={getStateFullName(
+              requestInformation.partnerB_birthState
+            )}
+            birthCountry={getCountryFullName(
+              requestInformation.partnerB_birthCountry
+            )}
             marriageNumb={requestInformation.partnerB_marriageNumb}
             lastMarriageStatus={`${
               requestInformation.partnerB_lastMarriageStatus
