@@ -172,9 +172,6 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerA_partnershipTypeDissolved: string;
   partnerA_partnershipState: string;
   partnerA_residenceAddress: string;
-  partnerA_residenceStreetNum: string;
-  partnerA_residenceStreetName: string;
-  partnerA_residenceSAptNum: string;
   partnerA_residenceCountry: string;
   partnerA_residenceCity: string;
   partnerA_residenceState: string;
@@ -209,9 +206,6 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerB_partnershipTypeDissolved: string;
   partnerB_partnershipState: string;
   partnerB_residenceAddress: string;
-  partnerB_residenceStreetNum: string;
-  partnerB_residenceStreetName: string;
-  partnerB_residenceSAptNum: string;
   partnerB_residenceCountry: string;
   partnerB_residenceCity: string;
   partnerB_residenceState: string;

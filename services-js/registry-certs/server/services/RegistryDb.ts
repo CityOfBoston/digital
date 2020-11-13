@@ -546,11 +546,11 @@ export default class RegistryDb {
     const A_Birthplace =
       ABirthCountry && ABirthCountry !== 'USA'
         ? `${ABirthplace.toLocaleUpperCase()} ${ABirthCountry.toLocaleUpperCase()}`
-        : ABirthplace.toLocaleUpperCase();
+        : `${ABirthplace.toLocaleUpperCase()} ${ABirthState.toLocaleUpperCase()} ${ABirthCountry.toLocaleUpperCase()}`;
     const B_Birthplace =
       BBirthCountry && BBirthCountry !== 'USA'
         ? `${BBirthplace.toLocaleUpperCase()} ${BBirthCountry.toLocaleUpperCase()}`
-        : BBirthplace.toLocaleUpperCase();
+        : `${BBirthplace.toLocaleUpperCase()} ${BBirthState.toLocaleUpperCase()} ${BBirthCountry.toLocaleUpperCase()}`;
     const A_partnershipStatus =
       APartnershipStatus === 'N/A' ? null : APartnershipStatus;
     const BB_partnershipStatus =

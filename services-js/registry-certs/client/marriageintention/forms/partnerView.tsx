@@ -216,6 +216,7 @@ export default class PartnerView extends Component<Props> {
               PAIRED_COLUMNS_STYLING,
               REVIEW_BOTTOM_SPACING_STYLING,
               MARRIAGE_INTENTION_FORM_STYLING,
+              REVIEW_SUB_HEADING_STYLING,
             ]}
           >
             <h2 css={BOTTOM_SPACING_STYLING}>Marriage</h2>

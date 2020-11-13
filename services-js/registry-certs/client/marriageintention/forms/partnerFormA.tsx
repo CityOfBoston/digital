@@ -13,7 +13,6 @@ import {
 } from '@cityofboston/react-fleet';
 
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
-
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 
@@ -188,60 +187,6 @@ export default class PartnerForm extends Component<Props> {
     );
   };
 
-  private handlePartnershipStatusChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerA_partnershipType']: event.target.value,
-      },
-      ''
-    );
-
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerB_partnershipType']: event.target.value,
-      },
-      ''
-    );
-  };
-
-  private handlePartnershipTypeDissolvedChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerA_partnershipTypeDissolved']: event.target.value,
-      },
-      ''
-    );
-
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerB_partnershipTypeDissolved']: event.target.value,
-      },
-      ''
-    );
-  };
-
-  private handlePartnershipStateChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerA_partnershipState']: event.target.value,
-      },
-      ''
-    );
-
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerB_partnershipState']: event.target.value,
-      },
-      ''
-    );
-  };
-
   private handleBloodRelChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
@@ -291,6 +236,26 @@ export default class PartnerForm extends Component<Props> {
     );
   };
 
+  private handleBirthplaceCountryChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
+    this.props.marriageIntentionCertificateRequest.answerQuestion(
+      {
+        [event.target.name]: event.target.value,
+      },
+      ''
+    );
+
+    if (event.target.value !== 'USA') {
+      this.props.marriageIntentionCertificateRequest.answerQuestion(
+        {
+          ['partnerA_birthState']: '',
+        },
+        ''
+      );
+    }
+  };
+
   private handleResidenceCountryChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
@@ -300,6 +265,22 @@ export default class PartnerForm extends Component<Props> {
       },
       ''
     );
+
+    if (event.target.value !== 'USA') {
+      this.props.marriageIntentionCertificateRequest.answerQuestion(
+        {
+          ['partnerA_residenceState']: '',
+        },
+        ''
+      );
+
+      this.props.marriageIntentionCertificateRequest.answerQuestion(
+        {
+          ['partnerA_residenceZip']: '',
+        },
+        ''
+      );
+    }
   };
 
   private handleZipCodeChange = (
@@ -469,8 +450,6 @@ export default class PartnerForm extends Component<Props> {
           {this.sex()}
           {this.parentsMarried()}
           {this.bloodRelation()}
-
-          {/* {this.showDeepPartnerData()} */}
         </FieldsetComponent>
       </QuestionComponent>
     );
@@ -668,7 +647,7 @@ export default class PartnerForm extends Component<Props> {
               items={PARTNERSHIP_TYPE}
               name="partnerA_partnershipType"
               checkedValue={partnerA_partnershipType}
-              handleItemChange={this.handlePartnershipStatusChange}
+              handleItemChange={this.handleChange}
               groupLabel=""
               hideLabel
             />
@@ -707,7 +686,7 @@ export default class PartnerForm extends Component<Props> {
             items={PARTNERSHIP_TYPE_DISSOLVED}
             name="partnerA_partnershipTypeDissolved"
             checkedValue={partnerA_partnershipTypeDissolved}
-            handleItemChange={this.handlePartnershipTypeDissolvedChange}
+            handleItemChange={this.handleChange}
             groupLabel=""
             hideLabel
           />
@@ -717,7 +696,7 @@ export default class PartnerForm extends Component<Props> {
           label="Partnership State/Country"
           name="partnerA_partnershipState"
           value={partnerA_partnershipState}
-          onChange={this.handlePartnershipStateChange}
+          onChange={this.handleChange}
           disableLabelNoWrap={true}
           maxLength={100}
         />
@@ -844,7 +823,6 @@ export default class PartnerForm extends Component<Props> {
   birthPlace() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
-      // partnerA_birthHospital,
       partnerA_birthCity,
       partnerA_birthCountry,
     } = marriageIntentionCertificateRequest.requestInformation;
@@ -883,7 +861,7 @@ export default class PartnerForm extends Component<Props> {
               name={'partnerA_birthCountry'}
               options={COUNTRIES}
               value={partnerA_birthCountry}
-              onChange={this.handleChange}
+              onChange={this.handleBirthplaceCountryChange}
               onBlur={this.checkBirthCityForNeighborhood}
             />
           </div>

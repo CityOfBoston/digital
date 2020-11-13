@@ -194,8 +194,7 @@ export default class ReviewForms extends Component<Props> {
             occupation={requestInformation.partnerB_occupation}
             sex={requestInformation.partnerB_sex}
             address={`
-              ${requestInformation.partnerB_residenceAddress} 
-              ${requestInformation.partnerB_residenceStreetName}, 
+              ${requestInformation.partnerB_residenceAddress},
               ${requestInformation.partnerB_residenceCity}
               ${requestInformation.partnerB_residenceState} 
               ${requestInformation.partnerB_residenceZip} 
