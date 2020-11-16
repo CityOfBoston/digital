@@ -797,7 +797,9 @@ export default class RegistryDb {
         : BZIPCode;
     const getCountryFullName = (Name: string) => {
       const countryObj = COUNTRIES.find(entry => entry.value === Name);
-      return countryObj && countryObj.label ? ` ${countryObj.label}` : '';
+      return countryObj && countryObj.label
+        ? ` ${countryObj.label.toLocaleUpperCase()}`
+        : '';
     };
     const A_Birthplace =
       ABirthCountry && ABirthCountry !== 'USA'
