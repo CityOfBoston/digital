@@ -208,23 +208,26 @@ export default class IndexPage extends React.Component<Props, State> {
     modifiedRequest: MarriageIntentionCertificateRequest
   ) => {
     // eslint-disable-next-line no-console
-    console.log('ReviewForm > submitRequest', this);
+    // console.log('ReviewForm > submitRequest', this);
     const { marriageIntentionDao } = this.props;
 
     try {
-      let formCompleted: any = null;
+      // let formCompleted: any = null;
 
       // eslint-disable-next-line no-console
-      console.log('index > submitRequest > modifiedRequest: ', modifiedRequest);
+      // console.log('index > submitRequest > modifiedRequest: ', modifiedRequest);
 
-      formCompleted = await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
+      await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
         modifiedRequest
       );
+      // formCompleted = await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
+      //   modifiedRequest
+      // );
       // eslint-disable-next-line no-console
-      console.log(
-        'ReviewForm > submitRequest > formCompleted: ',
-        formCompleted
-      );
+      // console.log(
+      //   'ReviewForm > submitRequest > formCompleted: ',
+      //   formCompleted
+      // );
 
       this.advanceQuestion(modifiedRequest);
     } catch (e) {

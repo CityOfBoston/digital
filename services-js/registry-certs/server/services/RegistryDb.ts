@@ -16,10 +16,22 @@ import { AnnotatedFilePart, PACKAGE_SRC_ROOT } from '../util';
 
 // import { COUNTRIES } from '../../client/marriageintention/forms/inputData';
 export const COUNTRIES = [
-  { label: 'United States of America', value: 'USA' },
-  { label: 'United States Virgin Islands', value: 'VIR' },
+  {
+    label: 'United States of America',
+    shortLabel: 'USA',
+    value: 'USA',
+  },
+  {
+    label: 'United States Virgin Islands',
+    shortLabel: 'Virgin Islands',
+    value: 'VIR',
+  },
   { label: 'Afghanistan', value: 'AFG' },
-  { label: 'Åland Islands', value: 'ALA' },
+  {
+    label: 'Åland Islands',
+    shortLabel: 'Aland Islands',
+    value: 'ALA',
+  },
   { label: 'Albania', value: 'ALB' },
   { label: 'Algeria', value: 'DZA' },
   { label: 'American Samoa', value: 'ASM' },
@@ -43,8 +55,16 @@ export const COUNTRIES = [
   { label: 'Benin', value: 'BEN' },
   { label: 'Bermuda', value: 'BMU' },
   { label: 'Bhutan', value: 'BTN' },
-  { label: 'Bolivia (Plurinational State of)', value: 'BOL' },
-  { label: 'Bonaire, Saint Eustatius and Saba', value: 'BES' },
+  {
+    label: 'Bolivia (Plurinational State of)',
+    shortLabel: 'Bolivia',
+    value: 'BOL',
+  },
+  {
+    label: 'Bonaire, Saint Eustatius and Saba',
+    shortLabel: 'Bonaire',
+    value: 'BES',
+  },
   { label: 'Bosnia and Herzegovina', value: 'BIH' },
   { label: 'Botswana', value: 'BWA' },
   { label: 'Brazil', value: 'BRA' },
@@ -62,8 +82,16 @@ export const COUNTRIES = [
   { label: 'Chad', value: 'TCD' },
   { label: 'Chile', value: 'CHL' },
   { label: 'China', value: 'CHN' },
-  { label: 'China, Hong Kong Special Administrative Region', value: 'HKG' },
-  { label: 'China, Macao Special Administrative Region', value: 'MAC' },
+  {
+    label: 'China, Hong Kong Special Administrative Region',
+    shortLabel: 'China',
+    value: 'HKG',
+  },
+  {
+    label: 'China, Macao Special Administrative Region',
+    shortLabel: 'Macao',
+    value: 'MAC',
+  },
   { label: 'Colombia', value: 'COL' },
   { label: 'Comoros', value: 'COM' },
   { label: 'Congo', value: 'COG' },
@@ -77,9 +105,14 @@ export const COUNTRIES = [
   { label: 'Czech Republic', value: 'CZE' },
   {
     label: "Democratic People's Republic of Korea",
+    shortLabel: 'North Korea',
     value: 'PRK',
   },
-  { label: 'Democratic Republic of the Congo', value: 'COD' },
+  {
+    label: 'Democratic Republic of the Congo',
+    shortLabel: 'Congo',
+    value: 'COD',
+  },
   { label: 'Denmark', value: 'DNK' },
   { label: 'Djibouti', value: 'DJI' },
   { label: 'Dominica', value: 'DMA' },
@@ -92,7 +125,11 @@ export const COUNTRIES = [
   { label: 'Estonia', value: 'EST' },
   { label: 'Ethiopia', value: 'ETH' },
   { label: 'Faeroe Islands', value: 'FRO' },
-  { label: 'Falkland Islands (Malvinas)', value: 'FLK' },
+  {
+    label: 'Falkland Islands (Malvinas)',
+    shortLabel: 'Falkland Islands',
+    value: 'FLK',
+  },
   { label: 'Fiji', value: 'FJI' },
   { label: 'Finland', value: 'FIN' },
   { label: 'France', value: 'FRA' },
@@ -121,7 +158,11 @@ export const COUNTRIES = [
   { label: 'Iceland', value: 'ISL' },
   { label: 'India', value: 'IND' },
   { label: 'Indonesia', value: 'IDN' },
-  { label: 'Iran (Islamic Republic of)', value: 'IRN' },
+  {
+    label: 'Iran (Islamic Republic of)',
+    shortLabel: 'Iran',
+    value: 'IRN',
+  },
   { label: 'Iraq', value: 'IRQ' },
   { label: 'Ireland', value: 'IRL' },
   { label: 'Isle of Man', value: 'IMN' },
@@ -138,6 +179,7 @@ export const COUNTRIES = [
   { label: 'Kyrgyzstan', value: 'KGZ' },
   {
     label: "Lao People's Democratic Republic",
+    shortLabel: 'Lao',
     value: 'LAO',
   },
   { label: 'Latvia', value: 'LVA' },
@@ -160,7 +202,11 @@ export const COUNTRIES = [
   { label: 'Mauritius', value: 'MUS' },
   { label: 'Mayotte', value: 'MYT' },
   { label: 'Mexico', value: 'MEX' },
-  { label: 'Micronesia (Federated States of)', value: 'FSM' },
+  {
+    label: 'Micronesia (Federated States of)',
+    shortLabel: 'Micronesia',
+    value: 'FSM',
+  },
   { label: 'Monaco', value: 'MCO' },
   { label: 'Mongolia', value: 'MNG' },
   { label: 'Montenegro', value: 'MNE' },
@@ -179,7 +225,11 @@ export const COUNTRIES = [
   { label: 'Nigeria', value: 'NGA' },
   { label: 'Niue', value: 'NIU' },
   { label: 'Norfolk Island', value: 'NFK' },
-  { label: 'Northern Mariana Islands', value: 'MNP' },
+  {
+    label: 'Northern Mariana Islands',
+    shortLabel: 'Mariana Islands',
+    value: 'MNP',
+  },
   { label: 'Norway', value: 'NOR' },
   { label: 'Oman', value: 'OMN' },
   { label: 'Pakistan', value: 'PAK' },
@@ -195,7 +245,11 @@ export const COUNTRIES = [
   { label: 'Puerto Rico', value: 'PRI' },
   { label: 'Qatar', value: 'QAT' },
   { label: 'Republic of Korea', value: 'KOR' },
-  { label: 'Republic of Moldova', value: 'MDA' },
+  {
+    label: 'Republic of Moldova',
+    shortLabel: 'Moldova',
+    value: 'MDA',
+  },
   { label: 'Réunion', value: 'REU' },
   { label: 'Romania', value: 'ROU' },
   { label: 'Russian Federation', value: 'RUS' },
@@ -204,9 +258,16 @@ export const COUNTRIES = [
   { label: 'Saint Helena', value: 'SHN' },
   { label: 'Saint Kitts and Nevis', value: 'KNA' },
   { label: 'Saint Lucia', value: 'LCA' },
-  { label: 'Saint-Martin (French part)', value: 'MAF' },
+  {
+    label: 'Saint-Martin (French part)',
+    shortLabel: 'Saint-Martin',
+    value: 'MAF',
+  },
   { label: 'Saint Pierre and Miquelon', value: 'SPM' },
-  { label: 'Saint Vincent and the Grenadines', value: 'VCT' },
+  {
+    label: 'Saint Vincent and the Grenadines',
+    value: 'VCT',
+  },
   { label: 'Samoa', value: 'WSM' },
   { label: 'San Marino', value: 'SMR' },
   { label: 'Sao Tome and Principe', value: 'STP' },
@@ -216,7 +277,11 @@ export const COUNTRIES = [
   { label: 'Seychelles', value: 'SYC' },
   { label: 'Sierra Leone', value: 'SLE' },
   { label: 'Singapore', value: 'SGP' },
-  { label: 'Sint Maarten (Dutch part)', value: 'SXM' },
+  {
+    label: 'Sint Maarten (Dutch part)',
+    shortLabel: 'Sint Maarten',
+    value: 'SXM',
+  },
   { label: 'Slovakia', value: 'SVK' },
   { label: 'Slovenia', value: 'SVN' },
   { label: 'Solomon Islands', value: 'SLB' },
@@ -225,17 +290,29 @@ export const COUNTRIES = [
   { label: 'South Sudan', value: 'SSD' },
   { label: 'Spain', value: 'ESP' },
   { label: 'Sri Lanka', value: 'LKA' },
-  { label: 'State of Palestine', value: 'PSE' },
+  {
+    label: 'State of Palestine',
+    shortLabel: 'Palestine',
+    value: 'PSE',
+  },
   { label: 'Sudan', value: 'SDN' },
   { label: 'Suriname', value: 'SUR' },
-  { label: 'Svalbard and Jan Mayen Islands', value: 'SJM' },
+  {
+    label: 'Svalbard and Jan Mayen Islands',
+    shortLabel: 'Svalbard',
+    value: 'SJM',
+  },
   { label: 'Swaziland', value: 'SWZ' },
   { label: 'Sweden', value: 'SWE' },
   { label: 'Switzerland', value: 'CHE' },
   { label: 'Syrian Arab Republic', value: 'SYR' },
   { label: 'Tajikistan', value: 'TJK' },
   { label: 'Thailand', value: 'THA' },
-  { label: 'The former Yugoslav Republic of Macedonia', value: 'MKD' },
+  {
+    label: 'The former Yugoslav Republic of Macedonia',
+    shortLabel: 'Macedonia',
+    value: 'MKD',
+  },
   { label: 'Timor-Leste', value: 'TLS' },
   { label: 'Togo', value: 'TGO' },
   { label: 'Tokelau', value: 'TKL' },
@@ -244,22 +321,43 @@ export const COUNTRIES = [
   { label: 'Tunisia', value: 'TUN' },
   { label: 'Turkey', value: 'TUR' },
   { label: 'Turkmenistan', value: 'TKM' },
-  { label: 'Turks and Caicos Islands', value: 'TCA' },
+  {
+    label: 'Turks and Caicos Islands',
+    shortLabel: 'Turks & Caicos',
+    value: 'TCA',
+  },
   { label: 'Tuvalu', value: 'TUV' },
   { label: 'Uganda', value: 'UGA' },
   { label: 'Ukraine', value: 'UKR' },
-  { label: 'United Arab Emirates', value: 'ARE' },
+  {
+    label: 'United Arab Emirates',
+    shortLabel: 'UAE',
+    value: 'ARE',
+  },
   {
     label: 'United Kingdom of Great Britain and Northern Ireland',
+    shortLabel: 'United Kingdom',
     value: 'GBR',
   },
-  { label: 'United Republic of Tanzania', value: 'TZA' },
+  {
+    label: 'United Republic of Tanzania',
+    shortLabel: 'United Republic of Tanzania',
+    value: 'TZA',
+  },
   { label: 'Uruguay', value: 'URY' },
   { label: 'Uzbekistan', value: 'UZB' },
   { label: 'Vanuatu', value: 'VUT' },
-  { label: 'Venezuela (Bolivarian Republic of)', value: 'VEN' },
+  {
+    label: 'Venezuela (Bolivarian Republic of)',
+    shortLabel: 'Venezuela',
+    value: 'VEN',
+  },
   { label: 'Viet Nam', value: 'VNM' },
-  { label: 'Wallis and Futuna Islands', value: 'WLF' },
+  {
+    label: 'Wallis and Futuna Islands',
+    shortLabel: 'Wallis',
+    value: 'WLF',
+  },
   { label: 'Western Sahara', value: 'ESH' },
   { label: 'Yemen', value: 'YEM' },
   { label: 'Zambia', value: 'ZMB' },
@@ -797,9 +895,15 @@ export default class RegistryDb {
         : BZIPCode;
     const getCountryFullName = (Name: string) => {
       const countryObj = COUNTRIES.find(entry => entry.value === Name);
-      return countryObj && countryObj.label
-        ? ` ${countryObj.label.toLocaleUpperCase()}`
-        : '';
+      let retVal = '';
+
+      if (countryObj && countryObj.label) {
+        retVal = ` ${countryObj.label.toLocaleUpperCase()}`;
+        if (countryObj.shortLabel)
+          retVal = ` ${countryObj.shortLabel.toLocaleUpperCase()}`;
+      }
+
+      return retVal;
     };
     const A_Birthplace =
       ABirthCountry && ABirthCountry !== 'USA'

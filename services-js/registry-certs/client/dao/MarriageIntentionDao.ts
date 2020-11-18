@@ -53,7 +53,7 @@ export default class MarriageIntentionDao {
   private async handleOrder(
     orderPromise: Promise<MarriageIntentionCertificateOrderResult>
   ): Promise<string> {
-    let processing = true;
+    // let processing = true;
 
     try {
       let orderResult: MarriageIntentionCertificateOrderResult;
@@ -95,9 +95,9 @@ export default class MarriageIntentionDao {
       }
     } finally {
       runInAction(() => {
-        processing = false;
+        // processing = false;
         // eslint-disable-next-line no-console
-        console.log('processing: ', processing);
+        // console.log('processing: ', processing);
       });
     }
   }
