@@ -905,22 +905,25 @@ export default class RegistryDb {
 
       return retVal;
     };
+    const getStateFullName = (Name: string) => {
+      return Name !== '--' ? ` ${Name.toLocaleUpperCase()}` : '';
+    };
     const A_Birthplace =
       ABirthCountry && ABirthCountry !== 'USA'
         ? `${ABirthplace.toLocaleUpperCase()}${getCountryFullName(
             ABirthCountry
           )}`
-        : `${ABirthplace.toLocaleUpperCase()} ${ABirthState.toLocaleUpperCase()}${getCountryFullName(
-            ABirthCountry
-          )}`;
+        : `${ABirthplace.toLocaleUpperCase()}${getStateFullName(
+            ABirthState
+          )}${getCountryFullName(ABirthCountry)}`;
     const B_Birthplace =
       BBirthCountry && BBirthCountry !== 'USA'
         ? `${BBirthplace.toLocaleUpperCase()}${getCountryFullName(
             BBirthCountry
           )}`
-        : `${BBirthplace.toLocaleUpperCase()} ${BBirthState.toLocaleUpperCase()}${getCountryFullName(
-            BBirthCountry
-          )}`;
+        : `${BBirthplace.toLocaleUpperCase()}${getStateFullName(
+            BBirthState
+          )}${getCountryFullName(BBirthCountry)}`;
     const A_partnershipStatus =
       APartnershipStatus === 'N/A' ? null : APartnershipStatus;
     const BB_partnershipStatus =
