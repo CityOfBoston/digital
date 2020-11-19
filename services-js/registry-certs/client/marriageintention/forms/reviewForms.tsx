@@ -94,11 +94,21 @@ export default class ReviewForms extends Component<Props> {
     }`;
     const getCountryFullName = (Name: string) => {
       const countryObj = COUNTRIES.find(entry => entry.value === Name);
-      return countryObj && countryObj.label ? countryObj.label : '';
+      let retVal = '';
+
+      if (countryObj && countryObj.label) {
+        retVal = ` ${countryObj.label.toLocaleUpperCase()}`;
+        if (countryObj.shortLabel)
+          retVal = ` ${countryObj.shortLabel.toLocaleUpperCase()}`;
+      }
+
+      return retVal;
     };
     const getStateFullName = (Name: string) => {
       const countryObj = US_STATES.find(entry => entry.value === Name);
-      return countryObj && countryObj.label ? countryObj.label : '';
+      return countryObj && countryObj.label && countryObj.label !== '--'
+        ? countryObj.label
+        : '';
     };
 
     return (

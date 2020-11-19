@@ -878,15 +878,23 @@ export default class PartnerForm extends Component<Props> {
 
     return (
       <div css={SECTION_WRAPPER_STYLING}>
-        <TextInput
-          label="Birthplace State/Province"
-          name="partnerA_birthState"
-          value={partnerA_birthState}
-          onChange={this.handleChange}
-          onBlur={this.checkBirthCityForNeighborhood}
-          disableLabelNoWrap={true}
-          maxLength={50}
-        />
+        <div css={NAME_FIELDS_CONTAINER_STYLING}>
+          <div css={OVERRIDE_SELECT_DISPLAY_STYLING}>
+            <div className="fs-c m-b300">
+              <div className="sel">
+                <SelectDropdown
+                  label="Birthplace State/Province"
+                  hideBlankOption
+                  options={US_STATES}
+                  name={'partnerA_birthState'}
+                  value={partnerA_birthState}
+                  onChange={this.handleChange}
+                  onBlur={this.checkBirthCityForNeighborhood}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

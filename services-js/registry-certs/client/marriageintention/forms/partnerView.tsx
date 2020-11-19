@@ -169,12 +169,13 @@ export default class PartnerView extends Component<Props> {
               {this.props.birthCity}
             </div>
 
-            {this.props.birthState.length > 0 && (
-              <div css={COLUMNS_STYLING}>
-                <label>State: </label>
-                {this.props.birthState}
-              </div>
-            )}
+            {this.props.birthState.length > 0 &&
+              this.props.birthState !== '--' && (
+                <div css={COLUMNS_STYLING}>
+                  <label>State: </label>
+                  {this.props.birthState}
+                </div>
+              )}
 
             <div css={COLUMNS_STYLING}>
               <label>Country: </label>
