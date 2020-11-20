@@ -949,9 +949,9 @@ export default class RegistryDb {
         : `${name.toLocaleUpperCase()}`;
     };
     const A_MotherName = formattedParentName(AMotherName, AMotherSurname);
+    const B_MotherName = formattedParentName(BMotherName, BMotherSurname);
     const A_FatherName = formattedParentName(AFatherName, AFatherSurname);
     const B_FatherName = formattedParentName(BFatherName, BFatherSurname);
-    const B_MotherName = formattedParentName(BMotherName, BMotherSurname);
 
     const resp: IProcedureResult<{
       RequestItemKey: number;
