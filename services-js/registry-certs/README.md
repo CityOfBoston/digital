@@ -64,6 +64,29 @@ Next.js’s hot-reloading dev mode is not supported in IE11. You will need to ru
 
 Don’t forget to re-compile the JS when you change it.
 
+# Registry Suite (Overview)
+## Application Structure
+
+This App is designed to process `City of Boston` requests of birth, death, marriage certificates and marriage intention applications. The Birth, Death and Marriage requests are paid requests that get processed through the `Stripe` payment processing platform. Marriage Intention requests currently don't make use of our `Stripe` processing because at the moment their payments are being handled elsewhere. However, they share about 70-80% the same functionality as the other requests types in the WebApp.
+
+The entry point for the Registry Apps is `pages/_app.tsx`. This is a React.js app that uses the MobX library for state management. The entry point uses the `*CertificateRequest` classes as `PageDependencies` in each of the applications/request forms. These `*CertificateRequest` classes define the data fields and methods the application/forms will use. `*CertificateRequests` have a few `key` methods, methoddddddssssss   
+
+App Structure
+
+- `Applicatiton Controller` [`pages/_app.tsx`]
+  - [`client/store/`]
+    - BirthCertificateRequest`(Class)`
+    - DeathCertificateRequest`(Class)`
+    - MarriageCentificateRequest`(Class)`
+    - MarriageIntentionRequest`(Class)`
+
+## Useful CMDs
+
+```shell
+# https://stackoverflow.com/questions/12123633/differences-for-a-certain-folder-between-git-branches
+git diff update-next..registry_certs/fix_nextjs-storybook services-js/registry-certs/server/services/
+```
+
 ## Deploys
 
 * 2020.06.16: Restart deploy 1
@@ -73,10 +96,3 @@ Don’t forget to re-compile the JS when you change it.
 * 2021.03.26: Post Security Patch test deploys
 * 2021.03.30: Reset AWS container to use the current code base (we changed the task repo on AWS)
 * 2021.10.28: Added `nofollow` to staging sites
-
-## Useful CMDs
-
-```shell
-# https://stackoverflow.com/questions/12123633/differences-for-a-certain-folder-between-git-branches
-git diff update-next..registry_certs/fix_nextjs-storybook services-js/registry-certs/server/services/
-```
