@@ -64,8 +64,27 @@ Next.js’s hot-reloading dev mode is not supported in IE11. You will need to ru
 
 Don’t forget to re-compile the JS when you change it.
 
+# Registry Suite (Overview)
+## Application Structure
 
-#### Deploys
+This App is designed to process `City of Boston` requests of birth, death, marriage certificates and marriage intention applications. The Birth, Death and Marriage requests are paid requests that get processed through the `Stripe` payment processing platform. Marriage Intention requests currently don't make use of our `Stripe` processing because at the moment their payments are being handled elsewhere. However, they share about 70-80% the same functionality as the other requests types in the WebApp.
+
+The entry point for the Registry Apps is `pages/_app.tsx`. This is a React.js app that uses the MobX library for state management. The entry point uses the `*CertificateRequest` classes as `PageDependencies` in each of the applications/request forms. These `*CertificateRequest` classes define the data fields and methods the application/forms will use. `*CertificateRequests` have a few `key` methods that serialize and the application `state` in the browser session among other things.
+
+App Structure
+
+- `Applicatiton Controller` [`pages/_app.tsx`]
+  - [`client/store/`]
+    - BirthCertificateRequest`(Class)`
+    - DeathCertificateRequest`(Class)`
+    - MarriageCentificateRequest`(Class)`
+    - MarriageIntentionRequest`(Class)`
+
+### Application Controller
+
+Within the application controller exist a few methods to be aware of such as a `routerlistener`, `screenreaderSupport`, `siteAnalytics`, `orderProvider`, etc. These are general use methods that will be inherited in almost all child applications. Of these, `siteAnalitics` and `orderProvider` are the most important. `siteAnalytics` explains itself, however the `orderProvider` is used only by the certificate requests that use `Stripe` payment. `orderProvider` handles storing and manipulating the required order information like shipping address, credit card info, etc. within the `sessionStorage`. When the Application Controller is mounted, `*CertificateRequests` fields are merged with the field data from the `orderProvider`.
+
+## Deploys
 - 2020.06.16: Restart deploy 1
 - 2020.06.16: Restart deploy 2
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
