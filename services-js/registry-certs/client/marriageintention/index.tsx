@@ -196,8 +196,6 @@ export default class IndexPage extends React.Component<Props, State> {
   };
 
   gaAnswerQuestion = (action: string, label: string): void => {
-    // eslint-disable-next-line no-console
-    // console.log(`gaAnswerQuestion: , action: ${action} | label: ${label}`);
     this.props.siteAnalytics.sendEvent(action, {
       category: 'MarriageIntention',
       label,
@@ -207,27 +205,12 @@ export default class IndexPage extends React.Component<Props, State> {
   private submitRequest = async (
     modifiedRequest: MarriageIntentionCertificateRequest
   ) => {
-    // eslint-disable-next-line no-console
-    // console.log('ReviewForm > submitRequest', this);
     const { marriageIntentionDao } = this.props;
 
     try {
-      // let formCompleted: any = null;
-
-      // eslint-disable-next-line no-console
-      // console.log('index > submitRequest > modifiedRequest: ', modifiedRequest);
-
       await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
         modifiedRequest
       );
-      // formCompleted = await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
-      //   modifiedRequest
-      // );
-      // eslint-disable-next-line no-console
-      // console.log(
-      //   'ReviewForm > submitRequest > formCompleted: ',
-      //   formCompleted
-      // );
 
       this.advanceQuestion(modifiedRequest);
     } catch (e) {
@@ -325,11 +308,6 @@ export default class IndexPage extends React.Component<Props, State> {
         );
         break;
       case 'reviewForms':
-        // eslint-disable-next-line no-console
-        // console.log(
-        //   'index>switch>reviewForms: ',
-        //   localMarriageIntentionCertificateRequest
-        // );
         questionsEl = (
           <ReviewForms
             marriageIntentionCertificateRequest={
