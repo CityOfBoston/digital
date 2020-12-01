@@ -123,7 +123,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (2.0.5)
-    puma (3.10.0)
+    puma (3.12.6)
     rack (2.0.6)
     rack-cors (0.4.1)
     rack-protection (1.5.5)
@@ -230,7 +230,7 @@ DEPENDENCIES
   pg
   postmark-rails
   pry-rails
-  puma (~> 3.10)
+  puma (~> 3.12)
   rack-cors
   rails (~> 5.1.6.2)
   rollbar (~> 2.19.2)
