@@ -80,9 +80,11 @@ App Structure
     - MarriageCentificateRequest`(Class)`
     - MarriageIntentionRequest`(Class)`
 
-### 
+### Application Controller
 
-#### Deploys
+Within the application controller exist a few methods to be aware of such as a `routerlistener`, `screenreaderSupport`, `siteAnalytics`, `orderProvider`, etc. These are general use methods that will be inherited in almost all child applications. Of these, `siteAnalitics` and `orderProvider` are the most important. `siteAnalytics` explains itself, however the `orderProvider` is used only by the certificate requests that use `Stripe` payment. `orderProvider` handles storing and manipulating the required order information like shipping address, credit card info, etc. within the `sessionStorage`. When the Application Controller is mounted, `*CertificateRequests` fields are merged with the field data from the `orderProvider`.
+
+## Deploys
 - 2020.06.16: Restart deploy 1
 - 2020.06.16: Restart deploy 2
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
