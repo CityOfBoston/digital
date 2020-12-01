@@ -79,7 +79,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
-    puma (3.11.0)
+    puma (3.12.6)
     rack (2.0.6)
     rack-cors (1.0.2)
     rack-test (1.1.0)
@@ -164,7 +164,7 @@ DEPENDENCIES
   httparty
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  puma (~> 3.9)
+  puma (~> 3.12)
   rack-cors
   rails (~> 5.1.6.2)
   rollbar
