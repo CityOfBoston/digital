@@ -1,6 +1,7 @@
 node_modules
 build
 coverage
+archives
 
 !.storybook
 !.*.js
