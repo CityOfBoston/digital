@@ -73,17 +73,6 @@ export default class ContactInfo extends Component<Props> {
     );
   };
 
-  // private handleAptTimeChange = (
-  //   event: ChangeEvent<HTMLInputElement>
-  // ): void => {
-  //   this.props.marriageIntentionCertificateRequest.answerQuestion(
-  //     {
-  //       appointmentTime: event.target.value,
-  //     },
-  //     ''
-  //   );
-  // };
-
   private handleAptDateChange = (newDate: Date | null): void => {
     this.props.marriageIntentionCertificateRequest.answerQuestion(
       {
@@ -105,6 +94,8 @@ export default class ContactInfo extends Component<Props> {
     const earliestDateToday = new Date(
       new Date(new Date(new Date().setHours(9)).setMinutes(0)).setSeconds(0)
     );
+
+    // const earliestDateToday = new Date(new Date().setHours(-1, 59, 59, 0));
 
     return (
       <QuestionComponent
@@ -170,26 +161,6 @@ export default class ContactInfo extends Component<Props> {
                 handleDate={this.handleAptDateChange}
               />
             </div>
-            {/* <div
-              css={[
-                NAME_FIELDS_CONTAINER_STYLING,
-                PAIRED_INPUT_STYLING,
-                OVERRIDE_SELECT_DISPLAY_STYLING,
-                NAME_FIELDS_BASIC_CONTAINER_STYLING,
-              ]}
-            >
-              <TextInput
-                label="Appointment Time"
-                name="appointmentTime"
-                value={appointmentTime}
-                onChange={this.handleAptTimeChange}
-                placeholder={'09:00am'}
-                optionalDescription={
-                  'Enter time in this format hh:mm am/pm, ex. 09:00AM'
-                }
-                maxLength={7}
-              />
-            </div> */}
           </div>
         </FieldsetComponent>
       </QuestionComponent>

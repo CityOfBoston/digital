@@ -48,23 +48,25 @@ export default class ReviewForms extends Component<Props> {
     return true;
   }
 
-  private formatDate(_dateObj): any {
-    const dateTimeFormat = new Intl.DateTimeFormat('en', {
-      year: 'numeric',
-      month: 'short',
-      day: '2-digit',
-    });
-    const [
-      { value: month },
-      ,
-      { value: day },
-      ,
-      { value: year },
-    ] = dateTimeFormat.formatToParts(_dateObj);
-    const _day = _dateObj.getUTCDate();
-    const currDay = day === _day ? day : _day;
+  private adjustForTimezone(date: Date): Date {
+    var timeOffsetInMS: number = date.getTimezoneOffset() * 60000;
+    date.setTime(date.getTime() + timeOffsetInMS);
+    return date;
+  }
 
-    return `${month} ${currDay}, ${year}`;
+  private formatDate(_dateObj): any {
+    const dateObj = new Date(this.adjustForTimezone(_dateObj));
+    const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
+      dateObj
+    );
+    const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(
+      dateObj
+    );
+    const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(
+      dateObj
+    );
+
+    return `${month} ${day}, ${year}`;
   }
 
   public render() {
