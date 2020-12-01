@@ -67,13 +67,13 @@ Don’t forget to re-compile the JS when you change it.
 # Registry Suite (Overview)
 ## Application Structure
 
-This App is designed to process `City of Boston` requests of birth, death, marriage certificates and marriage intention applications. The Birth, Death and Marriage requests are paid requests that get process through the `Stripe` payment processing platform. Marriage Intention requests currently don't make use of our `Stripe` processing because at the moment their payments are being handled elsewhere. However, they share about 70-80% the same functionality as the other requests types in the WebApp.
+This App is designed to process `City of Boston` requests of birth, death, marriage certificates and marriage intention applications. The Birth, Death and Marriage requests are paid requests that get processed through the `Stripe` payment processing platform. Marriage Intention requests currently don't make use of our `Stripe` processing because at the moment their payments are being handled elsewhere. However, they share about 70-80% the same functionality as the other requests types in the WebApp.
 
 The entry point for the Registry Apps is `pages/_app.tsx`. This is a React.js app that uses the MobX library for state management. The entry point uses the `*CertificateRequest` classes as `PageDependencies` in each of the applications/request forms. These `*CertificateRequest` classes define the data fields and methods the application/forms will use. `*CertificateRequests` have a few `key` methods that serialize and the application `state` in the browser session among other things.
 
 App Structure
 
-- Applicatiton Controller (`pages/_app.tsx`)
+- `Applicatiton Controller` [`pages/_app.tsx`]
   - [`client/store/`]
     - BirthCertificateRequest`(Class)`
     - DeathCertificateRequest`(Class)`
