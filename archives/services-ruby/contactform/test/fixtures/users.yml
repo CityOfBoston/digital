@@ -1,8 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-city:
-  name: City of Boston
-
-with_token:
-  name: City of Boston
-  auth_token: digital_team_and_grape_ape_present
