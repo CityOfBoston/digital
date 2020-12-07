@@ -93,7 +93,7 @@ export default class PartnerView extends Component<Props> {
               textDecoration: 'none',
             }}
           >
-            Partner {this.props.partyLabel}
+            Person {this.props.partyLabel}
           </h2>
 
           <div css={PAIRED_COLUMNS_STYLING}>
