@@ -86,7 +86,6 @@ export default class PartnerForm extends Component<Props> {
       partnerA_partnershipType,
       partnerA_partnershipTypeDissolved,
       partnerA_partnershipState,
-      partnerA_suffix,
 
       partnerA_marriageNumb,
       partnerA_lastMarriageStatus,
@@ -96,7 +95,6 @@ export default class PartnerForm extends Component<Props> {
     let partnerA_partnership_dissolved = true;
     let partnerA_lastMarriageStatusReq = true;
     let partnerA_birthStateZip = true;
-    let suffix = partnerA_suffix && partnerA_suffix.length > 0 ? true : false;
     let partnershipState = true;
     if (
       partnerA_partnershipType !== PARTNERSHIP_TYPE[0].value &&
@@ -154,7 +152,6 @@ export default class PartnerForm extends Component<Props> {
       partnerA_residenceAddress &&
       partnerA_residenceCountry &&
       partnerA_occupation &&
-      suffix &&
       partnershipState &&
       partnerA_birthStateZip
     );
