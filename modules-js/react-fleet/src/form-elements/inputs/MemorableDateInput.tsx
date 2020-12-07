@@ -439,6 +439,13 @@ export function returnLimitAsDate(
  * isDateValid tests them against the validity constraints.
  */
 export function inputCompleteError(fields: Fields): string | null {
+  // Check for negative values in fields and resets them.
+  for (var key of Object.keys(fields)) {
+    if (fields[key] < 0) {
+      fields[key] = fields[key] * -1;
+    }
+  }
+
   const { month, day, year } = fields;
   const missingFields: string[] = [];
 
