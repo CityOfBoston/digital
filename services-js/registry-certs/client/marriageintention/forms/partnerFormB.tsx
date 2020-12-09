@@ -493,11 +493,10 @@ export default class PartnerForm extends Component<Props> {
     );
   }
 
-  residenceStateZip() {
+  residenceState() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
       partnerB_residenceState,
-      partnerB_residenceZip,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     return (
@@ -518,7 +517,18 @@ export default class PartnerForm extends Component<Props> {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
 
+  residenceZip() {
+    const { marriageIntentionCertificateRequest } = this.props;
+    const {
+      partnerB_residenceZip,
+    } = marriageIntentionCertificateRequest.requestInformation;
+
+    return (
+      <div>
         <TextInput
           label="Residence Zip Code"
           name="partnerB_residenceZip"
@@ -535,9 +545,7 @@ export default class PartnerForm extends Component<Props> {
   residence() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
-      partnerB_residenceAddress,
       partnerB_residenceCountry,
-      partnerB_residenceCity,
       partnerB_marriageNumb,
     } = marriageIntentionCertificateRequest.requestInformation;
 
@@ -550,31 +558,6 @@ export default class PartnerForm extends Component<Props> {
         <div
           css={[TWO_AND_HALF_MARGINBOTTOM, NAME_FIELDS_BASIC_CONTAINER_STYLING]}
         >
-          <TextInput
-            label="Residence Address"
-            name="partnerB_residenceAddress"
-            value={partnerB_residenceAddress}
-            onChange={this.handleChange}
-            disableLabelNoWrap={true}
-            optionalDescription={
-              'Please include your apartment number if that applies.'
-            }
-            maxLength={100}
-          />
-
-          <TextInput
-            label="Residence City/Town"
-            name="partnerB_residenceCity"
-            value={partnerB_residenceCity}
-            onChange={this.handleChange}
-            onBlur={this.replaceBosNeighborhoods}
-            disableLabelNoWrap={true}
-            optionalDescription={
-              "For Boston residents: Please put 'Boston' as the City, do not use neighborhood names."
-            }
-            maxLength={100}
-          />
-
           <div
             css={[
               NAME_FIELDS_BASIC_CONTAINER_STYLING,
@@ -596,7 +579,9 @@ export default class PartnerForm extends Component<Props> {
             </div>
           </div>
 
-          {partnerB_residenceCountry === 'USA' && this.residenceStateZip()}
+          {partnerB_residenceCountry === 'USA' && this.residenceState()}
+          {partnerB_residenceCountry && this.residenceCity()}
+          {partnerB_residenceCountry === 'USA' && this.residenceZip()}
 
           <div
             css={[
@@ -618,6 +603,43 @@ export default class PartnerForm extends Component<Props> {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  residenceCity() {
+    const { marriageIntentionCertificateRequest } = this.props;
+    const {
+      partnerB_residenceAddress,
+      partnerB_residenceCity,
+    } = marriageIntentionCertificateRequest.requestInformation;
+
+    return (
+      <div>
+        <TextInput
+          label="Residence City/Town"
+          name="partnerB_residenceCity"
+          value={partnerB_residenceCity}
+          onChange={this.handleChange}
+          onBlur={this.replaceBosNeighborhoods}
+          disableLabelNoWrap={true}
+          optionalDescription={
+            "For Boston residents: Please put 'Boston' as the City, do not use neighborhood names."
+          }
+          maxLength={100}
+        />
+
+        <TextInput
+          label="Residence Address"
+          name="partnerB_residenceAddress"
+          value={partnerB_residenceAddress}
+          onChange={this.handleChange}
+          disableLabelNoWrap={true}
+          optionalDescription={
+            'Please include your apartment number if that applies.'
+          }
+          maxLength={100}
+        />
       </div>
     );
   }
@@ -820,7 +842,6 @@ export default class PartnerForm extends Component<Props> {
   birthPlace() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
-      partnerB_birthCity,
       partnerB_birthCountry,
     } = marriageIntentionCertificateRequest.requestInformation;
 
@@ -830,21 +851,6 @@ export default class PartnerForm extends Component<Props> {
           css={[NAME_FIELDS_BASIC_CONTAINER_STYLING, HEADER_SPACING_STYLING]}
         >
           <h2 css={SECTION_HEADING_STYLING}>Birthplace</h2>
-
-          <TextInput
-            label="Birthplace City/Town"
-            name="partnerB_birthCity"
-            value={partnerB_birthCity}
-            onChange={this.handleChange}
-            disableLabelNoWrap={true}
-            onBlur={this.checkBirthCityForNeighborhood}
-            optionalDescription={
-              'Please list the city/town where the hospital was located, not where your family was living.'
-            }
-            maxLength={100}
-          />
-
-          {partnerB_birthCountry === 'USA' && this.birthStateZip()}
 
           <div
             css={[
@@ -862,7 +868,34 @@ export default class PartnerForm extends Component<Props> {
               onBlur={this.checkBirthCityForNeighborhood}
             />
           </div>
+
+          {partnerB_birthCountry === 'USA' && this.birthStateZip()}
+          {partnerB_birthCountry && this.birthCity()}
         </div>
+      </div>
+    );
+  }
+
+  birthCity() {
+    const { marriageIntentionCertificateRequest } = this.props;
+    const {
+      partnerB_birthCity,
+    } = marriageIntentionCertificateRequest.requestInformation;
+
+    return (
+      <div>
+        <TextInput
+          label="Birthplace City/Town"
+          name="partnerB_birthCity"
+          value={partnerB_birthCity}
+          onChange={this.handleChange}
+          disableLabelNoWrap={true}
+          onBlur={this.checkBirthCityForNeighborhood}
+          optionalDescription={
+            'Please list the city/town where the hospital was located, not where your family was living.'
+          }
+          maxLength={100}
+        />
       </div>
     );
   }
