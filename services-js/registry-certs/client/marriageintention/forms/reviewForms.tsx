@@ -150,7 +150,7 @@ export default class ReviewForms extends Component<Props> {
             </div>
           </div>
           <h1 css={[SECTION_HEADING_STYLING, MAIN_HEADING_STYLING]}>
-            Review Partner Information
+            Review Information
           </h1>
 
           {/* PARTY A */}

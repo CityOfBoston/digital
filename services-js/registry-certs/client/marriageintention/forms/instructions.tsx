@@ -58,13 +58,13 @@ export default class Instructions extends Component<Props> {
           <p>
             After you finalize your paperwork at your appointment, we will issue
             your marriage license and put in the mail three days later. It will
-            be sent to the address listed under Party A. Your license will
+            be sent to the address listed under Person A. Your license will
             expire 60 days from the date of your appointment.
           </p>
 
           <p>Please Note:</p>
           <ul>
-            <li>Both parties must be over age 18 and be free to marry.</li>
+            <li>Both persons must be over age 18 and be free to marry.</li>
             <li>
               You must have a valid marriage license and be married in
               Massachusetts by a person eligible to perform weddings in

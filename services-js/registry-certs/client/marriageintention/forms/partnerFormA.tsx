@@ -86,7 +86,6 @@ export default class PartnerForm extends Component<Props> {
       partnerA_partnershipType,
       partnerA_partnershipTypeDissolved,
       partnerA_partnershipState,
-      partnerA_suffix,
 
       partnerA_marriageNumb,
       partnerA_lastMarriageStatus,
@@ -96,7 +95,6 @@ export default class PartnerForm extends Component<Props> {
     let partnerA_partnership_dissolved = true;
     let partnerA_lastMarriageStatusReq = true;
     let partnerA_birthStateZip = true;
-    let suffix = partnerA_suffix && partnerA_suffix.length > 0 ? true : false;
     let partnershipState = true;
     if (
       partnerA_partnershipType !== PARTNERSHIP_TYPE[0].value &&
@@ -154,7 +152,6 @@ export default class PartnerForm extends Component<Props> {
       partnerA_residenceAddress &&
       partnerA_residenceCountry &&
       partnerA_occupation &&
-      suffix &&
       partnershipState &&
       partnerA_birthStateZip
     );
@@ -496,11 +493,10 @@ export default class PartnerForm extends Component<Props> {
     );
   }
 
-  residenceStateZip() {
+  residenceState() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
       partnerA_residenceState,
-      partnerA_residenceZip,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     return (
@@ -521,7 +517,18 @@ export default class PartnerForm extends Component<Props> {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
 
+  residenceZip() {
+    const { marriageIntentionCertificateRequest } = this.props;
+    const {
+      partnerA_residenceZip,
+    } = marriageIntentionCertificateRequest.requestInformation;
+
+    return (
+      <div>
         <TextInput
           label="Residence Zip Code"
           name="partnerA_residenceZip"
@@ -538,9 +545,7 @@ export default class PartnerForm extends Component<Props> {
   residence() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
-      partnerA_residenceAddress,
       partnerA_residenceCountry,
-      partnerA_residenceCity,
       partnerA_marriageNumb,
     } = marriageIntentionCertificateRequest.requestInformation;
 
@@ -553,31 +558,6 @@ export default class PartnerForm extends Component<Props> {
         <div
           css={[TWO_AND_HALF_MARGINBOTTOM, NAME_FIELDS_BASIC_CONTAINER_STYLING]}
         >
-          <TextInput
-            label="Residence Address"
-            name="partnerA_residenceAddress"
-            value={partnerA_residenceAddress}
-            onChange={this.handleChange}
-            disableLabelNoWrap={true}
-            optionalDescription={
-              'Please include your apartment number if that applies.'
-            }
-            maxLength={100}
-          />
-
-          <TextInput
-            label="Residence City/Town"
-            name="partnerA_residenceCity"
-            value={partnerA_residenceCity}
-            onChange={this.handleChange}
-            onBlur={this.replaceBosNeighborhoods}
-            disableLabelNoWrap={true}
-            optionalDescription={
-              "For Boston residents: Please put 'Boston' as the City, do not use neighborhood names."
-            }
-            maxLength={100}
-          />
-
           <div
             css={[
               NAME_FIELDS_BASIC_CONTAINER_STYLING,
@@ -599,7 +579,9 @@ export default class PartnerForm extends Component<Props> {
             </div>
           </div>
 
-          {partnerA_residenceCountry === 'USA' && this.residenceStateZip()}
+          {partnerA_residenceCountry === 'USA' && this.residenceState()}
+          {partnerA_residenceCountry && this.residenceCity()}
+          {partnerA_residenceCountry === 'USA' && this.residenceZip()}
 
           <div
             css={[
@@ -621,6 +603,43 @@ export default class PartnerForm extends Component<Props> {
             </div>
           </div>
         </div>
+      </div>
+    );
+  }
+
+  residenceCity() {
+    const { marriageIntentionCertificateRequest } = this.props;
+    const {
+      partnerA_residenceAddress,
+      partnerA_residenceCity,
+    } = marriageIntentionCertificateRequest.requestInformation;
+
+    return (
+      <div>
+        <TextInput
+          label="Residence City/Town"
+          name="partnerA_residenceCity"
+          value={partnerA_residenceCity}
+          onChange={this.handleChange}
+          onBlur={this.replaceBosNeighborhoods}
+          disableLabelNoWrap={true}
+          optionalDescription={
+            "For Boston residents: Please put 'Boston' as the City, do not use neighborhood names."
+          }
+          maxLength={100}
+        />
+
+        <TextInput
+          label="Residence Address"
+          name="partnerA_residenceAddress"
+          value={partnerA_residenceAddress}
+          onChange={this.handleChange}
+          disableLabelNoWrap={true}
+          optionalDescription={
+            'Please include your apartment number if that applies.'
+          }
+          maxLength={100}
+        />
       </div>
     );
   }
@@ -823,7 +842,6 @@ export default class PartnerForm extends Component<Props> {
   birthPlace() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
-      partnerA_birthCity,
       partnerA_birthCountry,
     } = marriageIntentionCertificateRequest.requestInformation;
 
@@ -833,21 +851,6 @@ export default class PartnerForm extends Component<Props> {
           css={[NAME_FIELDS_BASIC_CONTAINER_STYLING, HEADER_SPACING_STYLING]}
         >
           <h2 css={SECTION_HEADING_STYLING}>Birthplace</h2>
-
-          <TextInput
-            label="Birthplace City/Town"
-            name="partnerA_birthCity"
-            value={partnerA_birthCity}
-            onChange={this.handleChange}
-            disableLabelNoWrap={true}
-            onBlur={this.checkBirthCityForNeighborhood}
-            optionalDescription={
-              'Please list the city/town where the hospital was located, not where your family was living.'
-            }
-            maxLength={100}
-          />
-
-          {partnerA_birthCountry === 'USA' && this.birthStateZip()}
 
           <div
             css={[
@@ -865,7 +868,34 @@ export default class PartnerForm extends Component<Props> {
               onBlur={this.checkBirthCityForNeighborhood}
             />
           </div>
+
+          {partnerA_birthCountry === 'USA' && this.birthStateZip()}
+          {partnerA_birthCountry && this.birthCity()}
         </div>
+      </div>
+    );
+  }
+
+  birthCity() {
+    const { marriageIntentionCertificateRequest } = this.props;
+    const {
+      partnerA_birthCity,
+    } = marriageIntentionCertificateRequest.requestInformation;
+
+    return (
+      <div>
+        <TextInput
+          label="Birthplace City/Town"
+          name="partnerA_birthCity"
+          value={partnerA_birthCity}
+          onChange={this.handleChange}
+          disableLabelNoWrap={true}
+          onBlur={this.checkBirthCityForNeighborhood}
+          optionalDescription={
+            'Please list the city/town where the hospital was located, not where your family was living.'
+          }
+          maxLength={100}
+        />
       </div>
     );
   }
