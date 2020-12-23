@@ -304,7 +304,7 @@ We build all of our interfaces to be responsive, down to 320px wide.
     - services-js
       - 311 `| []`
       - 311-indexer `| []`
-      - access-boston `| []`
+      - access-boston `| [x] | Docker > node:8.14-alpine`
       - group-mgmt `| []`
       - internal-slack-bot `| []`
       - payment-webhooks `| []`
