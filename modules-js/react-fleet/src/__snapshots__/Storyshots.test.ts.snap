@@ -1735,7 +1735,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
           id="future-year"
           max="9999"
           maxLength={4}
-          min={2020}
+          min={2021}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1885,7 +1885,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           id="story-year"
           max={2040}
           maxLength={4}
-          min={2020}
+          min={2021}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -2033,7 +2033,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
         <input
           className="txt-f"
           id="past-year"
-          max={2020}
+          max={2021}
           maxLength={4}
           min="1000"
           name="year"
@@ -2183,7 +2183,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
         <input
           className="txt-f"
           id="initial-year"
-          max={2020}
+          max={2021}
           maxLength={4}
           min="1000"
           name="year"
