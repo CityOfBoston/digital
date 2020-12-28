@@ -207,7 +207,7 @@ export default class PartnerView extends Component<Props> {
               <label>
                 Were your parents married at the time of your birth?:
               </label>
-              {this.props.parentsMarriedAtBirth}
+              {` ${this.props.parentsMarriedAtBirth}`}
             </div>
           </div>
 
