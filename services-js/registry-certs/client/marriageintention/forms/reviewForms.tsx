@@ -127,6 +127,12 @@ export default class ReviewForms extends Component<Props> {
             MI_REVIEW_STYLING,
           ]}
         >
+          <p>
+            Please review the details below. If you notice any errors, click the
+            "back" button at the bottom of your screen and correct your
+            information before submitting this application.
+          </p>
+
           <h1 css={[SECTION_HEADING_STYLING, MAIN_HEADING_STYLING]}>
             Review Information
           </h1>
