@@ -11885,7 +11885,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -12427,7 +12427,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
               />
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -13240,7 +13240,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -14083,7 +14083,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -15150,7 +15150,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -16159,7 +16159,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -74822,7 +74822,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -75364,7 +75364,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
               />
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -76183,7 +76183,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -76938,7 +76938,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -77976,7 +77976,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -79014,7 +79014,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                
@@ -80022,7 +80022,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
               </div>
             </div>
             <div
-              className="m-v700 ta-c"
+              className="m-v700"
             >
               Questions? Email the Registry Department at
                

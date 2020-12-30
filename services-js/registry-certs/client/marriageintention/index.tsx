@@ -389,7 +389,7 @@ export default class IndexPage extends React.Component<Props, State> {
 
           {questionsEl}
 
-          <div className="m-v700 ta-c">
+          <div className="m-v700">
             Questions? Email the Registry Department at{' '}
             <a
               href="mailto:marriage@boston.gov"
