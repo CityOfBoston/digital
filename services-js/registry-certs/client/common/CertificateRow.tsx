@@ -150,11 +150,12 @@ function deathCertificateProps(certificate): CertificateProps {
     age,
     pending,
   } = certificate;
+  const ageStr = age ? ` — Age: ${age}` : '';
 
   return {
     firstName,
     lastName,
-    subinfo: `Died: ${deathDate || deathYear} ${age && ` — Age: ${age}`}`,
+    subinfo: `Died: ${deathDate || deathYear}${ageStr}`,
     pending,
     type: 'death',
   };
