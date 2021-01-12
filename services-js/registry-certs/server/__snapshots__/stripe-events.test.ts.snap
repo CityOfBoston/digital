@@ -171,13 +171,13 @@ exports[`charge.created sends death email 1`] = `
           Object {
             "cost": 9800,
             "date": null,
-            "name": "MAUDIE MERTZ",
+            "name": "RYAN C KILLPATRICK",
             "quantity": 7,
           },
           Object {
             "cost": 1400,
             "date": null,
-            "name": "MAUDIE MERTZ",
+            "name": "RYAN C KILLPATRICK",
             "quantity": 1,
           },
         ],
@@ -206,13 +206,13 @@ exports[`charge.created sends death email 1`] = `
           Object {
             "cost": 9800,
             "date": null,
-            "name": "MAUDIE MERTZ",
+            "name": "RYAN C KILLPATRICK",
             "quantity": 7,
           },
           Object {
             "cost": 1400,
             "date": null,
-            "name": "MAUDIE MERTZ",
+            "name": "RYAN C KILLPATRICK",
             "quantity": 1,
           },
         ],

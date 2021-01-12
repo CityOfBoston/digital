@@ -39949,7 +39949,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         <div
           className="emotion-2"
         >
-          Died: 3/4/2016  — Age: 53
+          Died: 3/4/2016 — Age: 53
         </div>
       </div>
     </div>
@@ -40010,7 +40010,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         <div
           className="emotion-2"
         >
-          Died: 4/15/2014  — Age: 44 yrs. 2 mos. 10 dys
+          Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
         </div>
       </div>
     </div>
@@ -40051,7 +40051,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         <div
           className="emotion-2"
         >
-          Died: 2004  — Age: 6
+          Died: 2004 — Age: 6
         </div>
       </div>
     </div>
@@ -40571,7 +40571,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               <div
                 className="emotion-4"
               >
-                Died: 3/4/2016  — Age: 53
+                Died: 3/4/2016 — Age: 53
               </div>
             </div>
           </div>
@@ -40632,7 +40632,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               <div
                 className="emotion-4"
               >
-                Died: 4/15/2014  — Age: 44 yrs. 2 mos. 10 dys
+                Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
               </div>
             </div>
           </div>
@@ -40673,7 +40673,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               <div
                 className="emotion-4"
               >
-                Died: 2004  — Age: 6
+                Died: 2004 — Age: 6
               </div>
             </div>
           </div>
@@ -49132,7 +49132,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
         <div
           className="emotion-3"
         >
-          Died: 2004  — Age: 6
+          Died: 2004 — Age: 6
         </div>
       </div>
       <button
@@ -49266,7 +49266,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
         <div
           className="emotion-3"
         >
-          Died: 4/15/2014  — Age: 44 yrs. 2 mos. 10 dys
+          Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
         </div>
       </div>
       <button
@@ -49380,7 +49380,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
         <div
           className="emotion-3"
         >
-          Died: 3/4/2016  — Age: 53
+          Died: 3/4/2016 — Age: 53
         </div>
       </div>
       <button
@@ -50930,7 +50930,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                       <div
                         className="emotion-8"
                       >
-                        Died: 3/4/2016  — Age: 53
+                        Died: 3/4/2016 — Age: 53
                       </div>
                     </div>
                     <button
@@ -50994,7 +50994,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                       <div
                         className="emotion-8"
                       >
-                        Died: 4/15/2014  — Age: 44 yrs. 2 mos. 10 dys
+                        Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
                       </div>
                     </div>
                     <button
@@ -51038,7 +51038,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
                       <div
                         className="emotion-8"
                       >
-                        Died: 2004  — Age: 6
+                        Died: 2004 — Age: 6
                       </div>
                     </div>
                     <button
@@ -56826,7 +56826,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                     <div
                       className="emotion-7"
                     >
-                      Died: 3/4/2016  — Age: 53
+                      Died: 3/4/2016 — Age: 53
                     </div>
                   </div>
                 </div>
@@ -56878,7 +56878,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                     <div
                       className="emotion-7"
                     >
-                      Died: 4/15/2014  — Age: 44 yrs. 2 mos. 10 dys
+                      Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
                     </div>
                   </div>
                 </div>
@@ -56910,7 +56910,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
                     <div
                       className="emotion-7"
                     >
-                      Died: 2004  — Age: 6
+                      Died: 2004 — Age: 6
                     </div>
                   </div>
                 </div>
@@ -57164,7 +57164,7 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
         <div
           className="emotion-2"
         >
-          Died: 2004  — Age: 6
+          Died: 2004 — Age: 6
         </div>
       </div>
     </div>
@@ -57243,7 +57243,7 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
         <div
           className="emotion-2"
         >
-          Died: 3/4/2016  — Age: 53
+          Died: 3/4/2016 — Age: 53
         </div>
       </div>
     </div>
