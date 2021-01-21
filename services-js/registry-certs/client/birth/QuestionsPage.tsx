@@ -336,7 +336,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         </Head>
         {questionsEl}
 
-        <div className="m-v700 ta-c">
+        <div className="m-v700">
           Questions? Email the Registry Department at{' '}
           <a
             href="mailto:birth@boston.gov"
