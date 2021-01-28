@@ -89,6 +89,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerB_lastMarriageStatus: '',
 
   email: '',
+  // dayPhone: '(___) ___-____',
   dayPhone: '',
   appointmentDate: null,
 };
