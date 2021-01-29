@@ -1040,6 +1040,7 @@ export default class PartnerForm extends Component<Props> {
             value={partnerA_age}
             onChange={this.handleChange}
             maxLength={2}
+            disabled={true}
             disableLabelNoWrap={true}
             optionalDescription={
               'Your age will be automatically calculated based on your date of birth.'

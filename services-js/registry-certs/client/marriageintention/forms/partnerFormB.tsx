@@ -1044,6 +1044,7 @@ export default class PartnerForm extends Component<Props> {
             optionalDescription={
               'Your age will be automatically calculated based on your date of birth.'
             }
+            disabled={true}
           />
         </div>
       </div>
