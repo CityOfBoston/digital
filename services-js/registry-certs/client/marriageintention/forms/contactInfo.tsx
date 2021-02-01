@@ -33,56 +33,35 @@ export default class ContactInfo extends Component<Props> {
     requestInformation,
     isEmailValid,
   }: MarriageIntentionCertificateRequest): boolean {
-    const { email, dayPhone, appointmentDate } = requestInformation;
+    const {
+      email,
+      dayPhone,
+      // appointmentTime,
+      appointmentDate,
+    } = requestInformation;
 
-    let dayPhoneLen: number = 0;
-    const matchPhone: any = dayPhone.match(/\d+/gi);
-    if (matchPhone) {
-      dayPhoneLen = parseInt(matchPhone.join(''));
-    }
+    // const regExStr = /^(\d{1,2}):(\d{2})(:00)?([ap]m)?$/;
 
     return !!(
       email &&
       isEmailValid(email) &&
       dayPhone &&
-      dayPhoneLen > 9 &&
+      // regExStr.test(appointmentTime) &&
+      // appointmentTime &&
       appointmentDate
     );
   }
 
   private handlePhoneChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const parsedPhone = event.target.value.replace(/[a-z]/g, '');
+    const parsedPhone = event.target.value
+      .replace(/[^0-9]/g, '')
+      .replace(/(\..*)\./g, '$1');
     this.props.marriageIntentionCertificateRequest.answerQuestion(
       {
         [event.target.name]: parsedPhone,
       },
       ''
     );
-  };
-
-  private processOnKeyDown = (event: ChangeEvent<HTMLInputElement>): void => {
-    let val = event.target.value
-      .replace(/[^0-9]/g, '')
-      .replace(/(\..*)\./g, '$1');
-    const formatted = (_txt: any, f: any, s: any, t: any) => {
-      if (t) {
-        return `(${f}) ${s}-${t}`;
-      } else if (s) {
-        return `(${f}) ${s}`;
-      } else if (f) {
-        return `(${f})`;
-      } else {
-        return '';
-      }
-    };
-
-    if (val.length > 3) {
-      event.target.value = val
-        .replace(/[^0-9]/g, '')
-        .replace(/(\..*)\./g, '$1')
-        .replace(/\D/g, '')
-        .replace(/(\d{1,3})(\d{1,3})?(\d{1,4})?/g, formatted);
-    }
   };
 
   private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -109,6 +88,7 @@ export default class ContactInfo extends Component<Props> {
       email,
       dayPhone,
       appointmentDate,
+      // appointmentTime,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     const earliestDateToday = new Date(
@@ -144,14 +124,12 @@ export default class ContactInfo extends Component<Props> {
                   label="Phone Number"
                   name="dayPhone"
                   value={dayPhone}
-                  placeholder={'(___) ___-____'}
                   onChange={this.handlePhoneChange}
-                  maxLength={14}
+                  maxLength={11}
                   minLength={10}
                   optionalDescription={
                     'Numbers only, no spaces or dashes needed.'
                   }
-                  onKeyDown={this.processOnKeyDown}
                 />
               </div>
 
