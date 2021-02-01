@@ -215,6 +215,7 @@ export type MarriageIntentionCertificateRequestInformation = {
 
   email: string;
   dayPhone: string;
+  dayPhoneUnformattedStr: string;
   appointmentDate: Date | null;
   // appointmentTime: string;
 };

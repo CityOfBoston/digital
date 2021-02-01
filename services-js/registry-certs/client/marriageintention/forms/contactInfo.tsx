@@ -18,7 +18,6 @@ import {
   SECTION_HEADING_STYLING,
   NAME_FIELDS_CONTAINER_STYLING,
   NAME_FIELDS_BASIC_CONTAINER_STYLING,
-  // OVERRIDE_SELECT_DISPLAY_STYLING,
 } from '../../common/question-components/styling';
 
 interface Props {
@@ -33,35 +32,66 @@ export default class ContactInfo extends Component<Props> {
     requestInformation,
     isEmailValid,
   }: MarriageIntentionCertificateRequest): boolean {
-    const {
-      email,
-      dayPhone,
-      // appointmentTime,
-      appointmentDate,
-    } = requestInformation;
+    const { email, dayPhone, appointmentDate } = requestInformation;
 
-    // const regExStr = /^(\d{1,2}):(\d{2})(:00)?([ap]m)?$/;
+    let dayPhoneLen: number = 0;
+    const matchPhone: any = dayPhone.match(/\d+/gi);
+
+    if (matchPhone) {
+      dayPhoneLen = parseInt(matchPhone.join(''));
+    }
 
     return !!(
       email &&
       isEmailValid(email) &&
       dayPhone &&
-      // regExStr.test(appointmentTime) &&
-      // appointmentTime &&
+      dayPhoneLen > 9 &&
       appointmentDate
     );
   }
 
   private handlePhoneChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const parsedPhone = event.target.value
-      .replace(/[^0-9]/g, '')
-      .replace(/(\..*)\./g, '$1');
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
+    const { marriageIntentionCertificateRequest } = this.props;
+    const parsedPhone = event.target.value.replace(/[a-z]/g, '');
+    marriageIntentionCertificateRequest.answerQuestion(
+      {
+        dayPhoneUnformattedStr: event.target.value
+          .replace(/[^0-9]/g, '')
+          .replace(/(\..*)\./g, '$1'),
+      },
+      ''
+    );
+    marriageIntentionCertificateRequest.answerQuestion(
       {
         [event.target.name]: parsedPhone,
       },
       ''
     );
+  };
+
+  private processOnKeyDown = (event: ChangeEvent<HTMLInputElement>): void => {
+    let val = event.target.value
+      .replace(/[^0-9]/g, '')
+      .replace(/(\..*)\./g, '$1');
+    const formatted = (_txt: any, f: any, s: any, t: any) => {
+      if (t) {
+        return `(${f}) ${s}-${t}`;
+      } else if (s) {
+        return `(${f}) ${s}`;
+      } else if (f) {
+        return `(${f})`;
+      } else {
+        return '';
+      }
+    };
+
+    if (val.length > 3) {
+      event.target.value = val
+        .replace(/[^0-9]/g, '')
+        .replace(/(\..*)\./g, '$1')
+        .replace(/\D/g, '')
+        .replace(/(\d{1,3})(\d{1,3})?(\d{1,4})?/g, formatted);
+    }
   };
 
   private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -88,14 +118,11 @@ export default class ContactInfo extends Component<Props> {
       email,
       dayPhone,
       appointmentDate,
-      // appointmentTime,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     const earliestDateToday = new Date(
       new Date(new Date(new Date().setHours(9)).setMinutes(0)).setSeconds(0)
     );
-
-    // const earliestDateToday = new Date(new Date().setHours(-1, 59, 59, 0));
 
     return (
       <QuestionComponent
@@ -125,11 +152,13 @@ export default class ContactInfo extends Component<Props> {
                   name="dayPhone"
                   value={dayPhone}
                   onChange={this.handlePhoneChange}
-                  maxLength={11}
+                  maxLength={14}
                   minLength={10}
                   optionalDescription={
                     'Numbers only, no spaces or dashes needed.'
                   }
+                  onKeyDown={this.processOnKeyDown}
+                  placeholder={'(___) ___-____'}
                 />
               </div>
 
