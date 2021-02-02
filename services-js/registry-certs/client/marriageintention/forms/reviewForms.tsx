@@ -44,10 +44,6 @@ export default class ReviewForms extends Component<Props> {
     };
   }
 
-  public static isComplete(): boolean {
-    return true;
-  }
-
   private adjustForTimezone(date: Date): Date {
     var timeOffsetInMS: number = date.getTimezoneOffset() * 60000;
     date.setTime(date.getTime() + timeOffsetInMS);

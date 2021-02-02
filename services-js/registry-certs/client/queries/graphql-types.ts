@@ -352,7 +352,7 @@ export interface SubmitMarriageIntentionCertificateOrder {
 
 export interface SubmitMarriageIntentionCertificateOrderVariables {
   email: string;
-  dayPhone: string;
+  dayPhoneUnformattedStr: string;
   appointmentDate: string;
   partnerA_firstName: string;
   partnerA_lastName: string;
