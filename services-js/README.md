@@ -19,3 +19,22 @@
 |--------|---------|---------|---------|
 |    Registry-Certs    |    ^17.5.2    |    >=20.1.0    |     [x]    |
 |        |         |         |         |
+
+-------------------------
+
+#### modules-js/hapi-next/package.json | HapiJs
+#### modules-js/hapi-common/package.json | HapiJs
+
+| Webapp | Worked? |
+|--------|---------|
+|    Registry Certs    |     [x]    |
+|    Permit-Finder    |    [x]     |
+|    Public Notices    |    [x]     |
+|    Access Boston    |    [x]     |
+|    Group Mgmt    |    [x]     |
+|    Payment Webhooks    |    [x]     |
+|    Commissions Search    |    [x]     |
+|    Commissions App    |    [o]     |
+|    Internal Slack Bot    |    [o]     |
+|    311    |    [o]     |
+
