@@ -1,4 +1,4 @@
-FROM node:8.14-alpine
+FROM node:10.24.0-alpine
 
 ENV WORKSPACE=access-boston
 
