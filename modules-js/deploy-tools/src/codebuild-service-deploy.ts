@@ -84,7 +84,12 @@ const cacheTag = 'latest';
   }
 
   const versionedTag = `${repository}:codebuild-${buildNum}-${commit}`;
-  const buildTags = [`${repository}:${cacheTag}`, versionedTag];
+  const envTag = variant ? `${variant}` : `default`;
+  const buildTags = [
+    `${repository}:${cacheTag}`,
+    `${repository}:deploy-${envTag}`,
+    versionedTag,
+  ];
 
   console.error('📻 Pulling previous image…');
   const pullResult = await pullImage(repository, cacheTag);
