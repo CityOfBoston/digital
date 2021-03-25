@@ -1,15 +1,15 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 10
   pre_build:
     commands:
       - echo Logging in to Docker Hub...
       - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
   install:
+    runtime-versions:
+      nodejs: 10
     commands:
+      - node -v
       - npm config set scripts-prepend-node-path true
       - npm install -g yarn
   # TODO(finh): It would be neat to do container building as the build step and
