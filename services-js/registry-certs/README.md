@@ -70,3 +70,4 @@ Don’t forget to re-compile the JS when you change it.
 - 2020.06.16: Restart deploy 2
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
 - 2020.11.12: Test Shippie-Toe is working with a simple PROD deploy
+- 2021.03.26: Post Security Patch test deploys
