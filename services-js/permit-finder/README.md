@@ -21,3 +21,7 @@ out of the container’s filesystem).
 ### Deploys
 
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
+
+### Deploys
+
+- 2021.03.26: Post Security Patch test deploys
