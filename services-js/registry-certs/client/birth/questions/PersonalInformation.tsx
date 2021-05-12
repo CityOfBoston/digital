@@ -78,7 +78,9 @@ export default class PersonalInformation extends Component<Props> {
             If {forSelf ? 'you' : 'they'} changed {forSelf ? 'your' : 'their'}{' '}
             name at some point, please use the name {forSelf ? 'you' : 'they'}{' '}
             were given at birth. If {forSelf ? 'you' : 'they'} were adopted, use{' '}
-            {forSelf ? 'your' : 'their'} post-adoption name.
+            {forSelf ? 'your' : 'their'} post-adoption name. Please note, we do
+            not need {forSelf ? 'your' : 'their'} middle name to process your
+            request.
           </p>
 
           <div css={NAME_FIELDS_CONTAINER_STYLING}>
