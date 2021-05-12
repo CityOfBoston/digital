@@ -51,7 +51,7 @@
     "jest-environment-jsdom": "24.0.0",
     "jest-environment-node": "24.0.0",
     "khaos": "^0.9.3",
-    "lerna": "^3.13.0",
+    "lerna": "^4.0.0",
     "lint-staged": "^8.1.0",
     "prettier": "^1.17.0",
     "typescript": "^3.4.5"
