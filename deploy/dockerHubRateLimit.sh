@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-
+exit 0
 export DOCKERHUBCREDS="${DOCKERHUB_USERNAME}:${DOCKERHUB_PASSWORD}"
 AUTHSTRIN="Authorization: Bearer "
 TOKEN=$(curl --user $DOCKERHUBCREDS "https://auth.docker.io/token?service=registry.docker.io&scope=repository:ratelimitpreview/test:pull" | grep -Po '"token": *\K"[^"]*"' | sed -e 's/^"//' -e 's/"$//')
