@@ -54,7 +54,7 @@
     "formik": "^1.4.2",
     "graphql": "^14.3.0",
     "handlebars": "^4.0.12",
-    "@hapi/hapi": ">=20.1.0",
+    "hapi": "^17.5.2",
     "hapi-accept-language2": "^2.0.3",
     "inert": "^5.1.0",
     "isomorphic-fetch": "^2.2.1",

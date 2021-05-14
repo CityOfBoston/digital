@@ -2,7 +2,7 @@
 
 import * as fs from 'fs';
 import { IncomingMessage, ServerResponse } from 'http';
-import Hapi from 'hapi';
+import * as Hapi from 'hapi';
 import * as Rollbar from 'rollbar';
 import cleanup from 'node-cleanup';
 
