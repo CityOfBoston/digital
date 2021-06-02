@@ -4229,6 +4229,14 @@
     "@types/events" "*"
     "@types/node" "*"
 
+"@types/mssql@^6.0.8":
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/@types/mssql/-/mssql-6.0.8.tgz#f2831267c4c577022d1584943b371af87e8a147d"
+  integrity sha512-N3dr3o1c6EXhHhhNRaKpLTdAoXT/s6qDEJET5FID2gFCj58vIV9q/7RtkvYdE6ntpkJF5F9hpURhxT/oC62yLw==
+  dependencies:
+    "@types/node" "*"
+    "@types/tedious" "*"
+
 "@types/nock@^9.3.1":
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/@types/nock/-/nock-9.3.1.tgz#7d761a43a10aebc7ec6bae29d89afc6cbffa5d30"
@@ -4424,6 +4432,13 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
   integrity sha512-42zEJkBpNfMEAvWR5WlwtTH22oDzcMjFsL9gDGExwF8X8WvAiw7Vwop7hPw03QT8TKfec83LwbHj6SvpqM4ELQ==
+
+"@types/tedious@*":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/tedious/-/tedious-4.0.3.tgz#633a221309661df741eccc552e3a15b3204171aa"
+  integrity sha512-JMGNbZ7BOBSG/Tsus41SMdxqHgWpYhy0ZYGdC5vHGR75grOB17Zm+EZ7JaA32pS4Wtnt4wUPO30EqlmMI78sCA==
+  dependencies:
+    "@types/node" "*"
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2":
   version "2.0.3"
