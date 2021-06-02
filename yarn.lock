@@ -12026,10 +12026,6 @@ generate-object-property@^1.0.0:
   dependencies:
     is-property "^1.0.0"
 
-generic-pool@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-3.4.2.tgz#92ff7196520d670839a67308092a12aadf2f6a59"
-
 generic-pool@^3.7.1:
   version "3.7.8"
   resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-3.7.8.tgz#202087bf5ec5e0b3bae39842a0ef98bcd4c1e450"
@@ -17873,14 +17869,6 @@ ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
-
-mssql@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/mssql/-/mssql-4.2.1.tgz#c7133247e912d71185b09d3c2bae0f19345fcde6"
-  dependencies:
-    debug "^3.1.0"
-    generic-pool "^3.4.2"
-    tedious "^2.6.4"
 
 mssql@^4.3.8:
   version "4.3.9"
@@ -23874,7 +23862,7 @@ teamwork@3.x.x:
   resolved "https://registry.yarnpkg.com/teamwork/-/teamwork-3.2.0.tgz#27916edab815459c1a4686252eb18fb5925f49fa"
   integrity sha512-xAmJ8PIVjRZMXAHgUuOP8ITsv0SedyWAit2UWiNImXgg/F+BxrsG46ZegElNBM0Dwp+iMfbigg/Ll/M2oDRYww==
 
-tedious@^2.6.4, tedious@^2.7.1:
+tedious@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/tedious/-/tedious-2.7.1.tgz#5308edebdd33767ca67b36fc71b2ab9c54675278"
   integrity sha512-u3ciATGm5byim91b3+c3MVTvY1zKjDmhUhnBQZXKymT2Vb9w322dziPQY6MhBNyBEcNONPsAMR+7/Uub7NYABQ==
