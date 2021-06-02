@@ -342,13 +342,14 @@ export async function makeServer({ rollbar }: ServerArgs) {
       payload: {
         parse: true,
         allow: 'multipart/form-data',
-        maxBytes: 1000 * 1000 * 10,
+        maxBytes: 1000 * 1000 * 11,
         // We don't want to time out these uploads in particular. The socket
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: false,
         multipart: {
           output: 'annotated',
         },
+        failAction: 'ignore',
       },
     },
     handler: async (req): Promise<UploadResponse> => {
