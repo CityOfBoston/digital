@@ -342,6 +342,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
       payload: {
         parse: true,
         allow: 'multipart/form-data',
+        maxBytes: 1000 * 1000 * 20,
         // We don't want to time out these uploads in particular. The socket
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: false,
