@@ -1236,6 +1236,17 @@ export default class RegistryDb {
   ): Promise<string> {
     const { filename, headers, payload } = file;
 
+    // eslint-disable-next-line no-console
+    console.log(
+      'uploadFileAttachment > headers: ',
+      headers,
+      ' | ',
+      ' | mime.lookup(filename): ',
+      mime.lookup(filename),
+      ' | payload: ',
+      payload
+    );
+
     const out: IProcedureResult<{
       AttachmentKey: number;
       ErrorMessage: string;

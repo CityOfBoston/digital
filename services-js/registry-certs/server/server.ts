@@ -340,6 +340,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
     path: '/upload',
     options: {
       payload: {
+        uploads: '/root',
+        failAction: 'log',
+        // log: {collect: true},
         parse: true,
         allow: 'multipart/form-data',
         maxBytes: 1000 * 1000 * 11,
@@ -349,7 +352,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
         multipart: {
           output: 'annotated',
         },
-        failAction: 'ignore',
       },
     },
     handler: async (req): Promise<UploadResponse> => {
@@ -372,12 +374,27 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
       const db = registryDbFactory.registryDb();
 
+      console.log(
+        'type: ',
+        type,
+        ' | uploadSessionId: ',
+        uploadSessionId,
+        ' | label: ',
+        label,
+        ' | file: ',
+        file
+      );
+      console.log('file (pre-attachmentKey REQ): ', file);
+
       const attachmentKey = await db.uploadFileAttachment(
         type as any,
         uploadSessionId,
         label || null,
         file
       );
+
+      console.log('attachmentKey: ', attachmentKey);
+      console.log('file (post-attachmentKey REQ): ', file);
 
       return {
         attachmentKey,

@@ -172,6 +172,18 @@ export default class UploadPhoto extends React.Component<Props, State> {
       buttonTitle = errorMessage;
     }
 
+    // eslint-disable-next-line no-console
+    console.log('UploadPhoto > errorMessage: ', errorMessage);
+    // eslint-disable-next-line no-console
+    console.log(
+      'UploadPhoto > acceptTypes: ',
+      acceptTypes,
+      ' | uploadProgress: ',
+      uploadProgress
+    );
+    // eslint-disable-next-line no-console
+    console.log('UploadPhoto > file: ', file);
+
     return (
       <div className="br br-a200" css={ELEM_WRAPPER}>
         <Dropzone
