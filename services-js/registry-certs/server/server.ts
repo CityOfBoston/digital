@@ -335,6 +335,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
     },
   });
 
+  const maxBytes = 1000 * 1000 * 11;
+
   server.route({
     method: 'POST',
     path: '/upload',
@@ -345,7 +347,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
         // log: {collect: true},
         parse: true,
         allow: 'multipart/form-data',
-        maxBytes: 1000 * 1000 * 11,
+        maxBytes,
         // We don't want to time out these uploads in particular. The socket
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: false,
@@ -374,8 +376,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
       const db = registryDbFactory.registryDb();
 
+      console.log('server.ts > maxBytes: ', maxBytes);
       console.log(
-        'type: ',
+        'server.ts > type: ',
         type,
         ' | uploadSessionId: ',
         uploadSessionId,
@@ -384,7 +387,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
         ' | file: ',
         file
       );
-      console.log('file (pre-attachmentKey REQ): ', file);
+      console.log('server.ts > file (pre-attachmentKey REQ): ', file);
 
       const attachmentKey = await db.uploadFileAttachment(
         type as any,
