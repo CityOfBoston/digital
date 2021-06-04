@@ -1275,6 +1275,16 @@ export default class RegistryDb {
 
     const result = out.recordset[0];
 
+    // eslint-disable-next-line no-console
+    console.log(
+      ':-------------------:\n',
+      new Date().toLocaleString().replace(',', '')
+    );
+    // eslint-disable-next-line no-console
+    console.log('uploadFileAttachment > out.recordset[0]: ', out);
+    // eslint-disable-next-line no-console
+    console.log(':-------------------:\n');
+
     if (!result || out.returnValue !== 0) {
       throw new Error(
         `Did not get a successful result from SqlServer: ${out.returnValue}`
@@ -1282,6 +1292,16 @@ export default class RegistryDb {
     }
 
     if (result.ErrorMessage) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'uploadFileAttachment > result.ErrorMessage: ',
+        result.ErrorMessage
+      );
+      // eslint-disable-next-line no-console
+      console.log('uploadFileAttachment > result: ', result);
+      // eslint-disable-next-line no-console
+      console.log(':-------------------:\n');
+
       throw new Error(result.ErrorMessage);
     }
 
