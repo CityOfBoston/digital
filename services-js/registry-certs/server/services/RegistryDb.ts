@@ -1354,8 +1354,30 @@ export default class RegistryDb {
     // }
 
     // return result.AttachmentKey.toString();
+    const out: IProcedureResult<{
+      AttachmentKey: number;
+      ErrorMessage: string;
+    }> = await this.pool
+      .request()
+      .input('sessionUID', uploadSessionId)
+      .input(
+        'contentType',
+        headers['content-type'] ||
+          mime.lookup(filename) ||
+          'application/octet-stream'
+      )
+      .input('fileName', filename)
+      .input('label', label)
+      .input('attachmentData', 'payload')
+      .execute(
+        orderType === 'BC'
+          ? 'Commerce.sp_AddBirthRequestAttachment'
+          : 'Commerce.sp_AddMarriageRequestAttachment'
+      );
 
-    return '123456789';
+    const result = out.recordset[0];
+    return result.AttachmentKey.toString();
+    // return '123456789';
   }
 
   /**
