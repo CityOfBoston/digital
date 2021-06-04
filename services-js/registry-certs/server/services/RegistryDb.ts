@@ -1252,11 +1252,7 @@ export default class RegistryDb {
     label: string | null,
     file: AnnotatedFilePart
   ): Promise<string> {
-    const {
-      filename,
-      headers,
-      // , payload
-    } = file;
+    const { filename, headers, payload } = file;
 
     // eslint-disable-next-line no-console
     console.log(
@@ -1280,25 +1276,25 @@ export default class RegistryDb {
       label
     );
 
-    const resp: IProcedureResult<
-      DeathCertificateSearchResult
-    > = (await this.pool
-      .request()
-      .input('searchFor', 'menino')
-      .input('pageNumber', 0)
-      .input('pageSize', 20)
-      .input('sortBy', 'dateOfDeath')
-      .input('startYear', null)
-      .input('endYear', null)
-      .execute('Registry.Death.sp_FindCertificatesWeb')) as any;
+    // const resp: IProcedureResult<
+    //   DeathCertificateSearchResult
+    // > = (await this.pool
+    //   .request()
+    //   .input('searchFor', 'menino')
+    //   .input('pageNumber', 0)
+    //   .input('pageSize', 20)
+    //   .input('sortBy', 'dateOfDeath')
+    //   .input('startYear', null)
+    //   .input('endYear', null)
+    //   .execute('Registry.Death.sp_FindCertificatesWeb')) as any;
 
-    const { recordset } = resp;
+    // const { recordset } = resp;
 
-    // eslint-disable-next-line no-console
-    console.log(
-      'uploadFileAttachment > (DeathCertificateSearchResult) recordset: ',
-      recordset
-    );
+    // // eslint-disable-next-line no-console
+    // console.log(
+    //   'uploadFileAttachment > (DeathCertificateSearchResult) recordset: ',
+    //   recordset
+    // );
 
     // const out: IProcedureResult<{
     //   AttachmentKey: number;
@@ -1354,26 +1350,39 @@ export default class RegistryDb {
     // }
 
     // return result.AttachmentKey.toString();
+
     const out: IProcedureResult<{
       AttachmentKey: number;
       ErrorMessage: string;
-    }> = await this.pool
+    }> = (await this.pool
       .request()
       .input('sessionUID', uploadSessionId)
-      .input(
-        'contentType',
-        headers['content-type'] ||
-          mime.lookup(filename) ||
-          'application/octet-stream'
-      )
+      .input('contentType', mime.lookup(filename))
       .input('fileName', filename)
       .input('label', label)
-      .input('attachmentData', 'payload')
-      .execute(
-        orderType === 'BC'
-          ? 'Commerce.sp_AddBirthRequestAttachment'
-          : 'Commerce.sp_AddMarriageRequestAttachment'
-      );
+      .input('attachmentData', payload)
+      .execute('Commerce.sp_AddBirthRequestAttachment')) as any;
+
+    // const out: IProcedureResult<{
+    //   AttachmentKey: number;
+    //   ErrorMessage: string;
+    // }> = await this.pool
+    //   .request()
+    //   .input('sessionUID', uploadSessionId)
+    //   .input(
+    //     'contentType',
+    //     headers['content-type'] ||
+    //       mime.lookup(filename) ||
+    //       'application/octet-stream'
+    //   )
+    //   .input('fileName', filename)
+    //   .input('label', label)
+    //   .input('attachmentData', 'payload')
+    //   .execute(
+    //     orderType === 'BC'
+    //       ? 'Commerce.sp_AddBirthRequestAttachment'
+    //       : 'Commerce.sp_AddMarriageRequestAttachment'
+    //   );
 
     const result = out.recordset[0];
     return result.AttachmentKey.toString();
