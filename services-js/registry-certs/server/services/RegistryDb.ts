@@ -659,6 +659,9 @@ export default class RegistryDb {
       throw new Error('Recordset for search came back empty');
     }
 
+    // eslint-disable-next-line no-console
+    console.log('searchDeathCertificates: ', recordset);
+
     return recordset;
   }
 
@@ -693,6 +696,8 @@ export default class RegistryDb {
         }
       })
     );
+    // eslint-disable-next-line no-console
+    console.log('lookupDeathCertificateLoaderFetch: ', allResults);
 
     allResults.forEach(results => {
       results.forEach((cert: DeathCertificate) => {
@@ -1277,7 +1282,7 @@ export default class RegistryDb {
 
     // eslint-disable-next-line no-console
     console.log(
-      ':-------------------:\n',
+      ':------- out.recordset[0] ------:\n',
       new Date().toLocaleString().replace(',', '')
     );
     // eslint-disable-next-line no-console
