@@ -660,7 +660,24 @@ export default class RegistryDb {
     }
 
     // eslint-disable-next-line no-console
-    console.log('searchDeathCertificates: ', recordset);
+    console.log(
+      ':-------------------:\n',
+      new Date().toLocaleString().replace(',', '')
+    );
+    // eslint-disable-next-line no-console
+    // console.log('searchDeathCertificates: ', recordset);
+
+    // eslint-disable-next-line no-console
+    console.log(`
+      searchDeathCertificates args:
+      searchFor: ${name},
+      searchFor: ${name}, 
+      pageNumber: ${page}, 
+      pageSize: ${pageSize}, 
+      sortBy: dateOfDeath, 
+      startYear: ${startYear}, 
+      endYear: ${endYear}
+    `);
 
     return recordset;
   }
@@ -696,9 +713,6 @@ export default class RegistryDb {
         }
       })
     );
-    // eslint-disable-next-line no-console
-    console.log('lookupDeathCertificateLoaderFetch: ', allResults);
-
     allResults.forEach(results => {
       results.forEach((cert: DeathCertificate) => {
         idToOutputMap[cert.CertificateID.toString()] = cert;
@@ -1369,8 +1383,6 @@ export default class RegistryDb {
       );
 
     const result = out.recordset[0];
-    // eslint-disable-next-line no-console
-    // console.log(JSON.stringify(result, null, 2));
 
     if (!result || out.returnValue !== 0) {
       throw new Error(
