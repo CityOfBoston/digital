@@ -120,6 +120,7 @@
     "@storybook/react": "^5.0.10",
     "@types/graphql": "^14.2.0",
     "@types/jest": "24.x.x",
+    "@types/joi": "^17.2.3",
     "@types/moment-timezone": "^0.5.12",
     "@types/mssql": "^6.0.8",
     "@types/nock": "^9.3.1",

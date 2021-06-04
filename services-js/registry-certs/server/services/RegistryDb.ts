@@ -1238,13 +1238,18 @@ export default class RegistryDb {
 
     // eslint-disable-next-line no-console
     console.log(
+      ':-------------------:\n',
+      new Date().toLocaleString().replace(',', '')
+    );
+    // eslint-disable-next-line no-console
+    console.log(
       'uploadFileAttachment > headers: ',
       headers,
       ' | ',
       ' | mime.lookup(filename): ',
-      mime.lookup(filename),
-      ' | payload: ',
-      payload
+      mime.lookup(filename)
+      // ' | payload: ',
+      // payload
     );
 
     const out: IProcedureResult<{

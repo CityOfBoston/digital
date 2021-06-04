@@ -5,6 +5,7 @@ import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
 import Path from 'path';
+// import Joi from "joi";
 import { ApolloServer } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 import Stripe from 'stripe';
@@ -343,7 +344,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     options: {
       payload: {
         uploads: '/root',
-        failAction: 'log',
+        // failAction: 'log',
         // log: {collect: true},
         parse: true,
         allow: 'multipart/form-data',
@@ -355,6 +356,16 @@ export async function makeServer({ rollbar }: ServerArgs) {
           output: 'annotated',
         },
       },
+      // validate: {
+      //   payload: {
+      //     bannerImage: Joi.any()
+      //       .meta({ swaggerType: 'file' })
+      //       .optional()
+      //       .allow('')
+      //       .description('image file'),
+      //   },
+      //   failAction: UniversalFunctions.failActionFunction
+      // },
     },
     handler: async (req): Promise<UploadResponse> => {
       const {
@@ -376,6 +387,12 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
       const db = registryDbFactory.registryDb();
 
+      // eslint-disable-next-line no-console
+      console.log(
+        ':-------------------:\n',
+        new Date().toLocaleString().replace(',', '')
+      );
+
       console.log('server.ts > maxBytes: ', maxBytes);
       console.log(
         'server.ts > type: ',
@@ -396,8 +413,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
         file
       );
 
-      console.log('attachmentKey: ', attachmentKey);
-      console.log('file (post-attachmentKey REQ): ', file);
+      console.log('server.ts > attachmentKey: ', attachmentKey);
+      console.log('server.ts > file (post-attachmentKey REQ): ', file);
 
       return {
         attachmentKey,
