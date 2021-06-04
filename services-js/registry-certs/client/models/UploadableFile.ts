@@ -202,7 +202,7 @@ export default class UploadableFile {
     } catch (e) {
       const statMessage = getStatusText(xhr);
       this.status = 'uploadError';
-      this.errorMessage = `Upload failed${statMessage}`;
+      this.errorMessage = `Upload failed(1) ${statMessage}`;
       return;
     }
 
@@ -212,7 +212,7 @@ export default class UploadableFile {
     } else {
       const statMessage = getStatusText(xhr);
       this.status = 'uploadError';
-      this.errorMessage = `Upload failed${statMessage}`;
+      this.errorMessage = `Upload failed(2) ${statMessage}`;
     }
   }
 

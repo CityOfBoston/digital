@@ -1348,9 +1348,9 @@ export default class RegistryDb {
 
     //   throw new Error(result.ErrorMessage);
     // }
-
     // return result.AttachmentKey.toString();
-
+    // eslint-disable-next-line no-console
+    console.log('pre-DB push of image');
     const out: IProcedureResult<{
       AttachmentKey: number;
       ErrorMessage: string;
@@ -1361,8 +1361,13 @@ export default class RegistryDb {
       .input('fileName', filename)
       .input('label', label)
       .input('attachmentData', payload)
-      .execute('Commerce.sp_AddBirthRequestAttachment')) as any;
-
+      .execute(
+        orderType === 'BC'
+          ? 'Commerce.sp_AddBirthRequestAttachment'
+          : 'Commerce.sp_AddMarriageRequestAttachment'
+      )) as any;
+    // eslint-disable-next-line no-console
+    console.log('post-DB push of image: ', out);
     // const out: IProcedureResult<{
     //   AttachmentKey: number;
     //   ErrorMessage: string;

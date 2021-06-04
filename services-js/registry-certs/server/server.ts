@@ -388,23 +388,23 @@ export async function makeServer({ rollbar }: ServerArgs) {
       const db = registryDbFactory.registryDb();
 
       // eslint-disable-next-line no-console
-      console.log(
-        ':-------------------:\n',
-        new Date().toLocaleString().replace(',', '')
-      );
+      // console.log(
+      //   ':-------------------:\n',
+      //   new Date().toLocaleString().replace(',', '')
+      // );
 
       console.log('server.ts > maxBytes: ', maxBytes);
-      console.log(
-        'server.ts > type: ',
-        type,
-        ' | uploadSessionId: ',
-        uploadSessionId,
-        ' | label: ',
-        label,
-        ' | file: ',
-        file
-      );
-      console.log('server.ts > file (pre-attachmentKey REQ): ', file);
+      // console.log(
+      //   'server.ts > type: ',
+      //   type,
+      //   ' | uploadSessionId: ',
+      //   uploadSessionId,
+      //   ' | label: ',
+      //   label,
+      //   ' | file: ',
+      //   file
+      // );
+      // console.log('server.ts > file (pre-attachmentKey REQ): ', file);
 
       const attachmentKey = await db.uploadFileAttachment(
         type as any,
@@ -413,8 +413,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
         file
       );
 
-      console.log('server.ts > attachmentKey: ', attachmentKey);
-      console.log('server.ts > file (post-attachmentKey REQ): ', file);
+      // console.log('server.ts > attachmentKey: ', attachmentKey);
+      // console.log('server.ts > file (post-attachmentKey REQ): ', file);
 
       return {
         attachmentKey,
