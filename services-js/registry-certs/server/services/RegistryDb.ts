@@ -670,7 +670,6 @@ export default class RegistryDb {
     // eslint-disable-next-line no-console
     console.log(`
       searchDeathCertificates args:
-      searchFor: ${name},
       searchFor: ${name}, 
       pageNumber: ${page}, 
       pageSize: ${pageSize}, 
@@ -1287,7 +1286,7 @@ export default class RegistryDb {
       .request()
       .input('searchFor', 'menino')
       .input('pageNumber', 0)
-      .input('pageSize', 0)
+      .input('pageSize', 20)
       .input('sortBy', 'dateOfDeath')
       .input('startYear', null)
       .input('endYear', null)
