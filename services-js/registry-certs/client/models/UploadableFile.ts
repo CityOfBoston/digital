@@ -201,6 +201,8 @@ export default class UploadableFile {
       json = JSON.parse(xhr.responseText);
     } catch (e) {
       const statMessage = getStatusText(xhr);
+      // eslint-disable-next-line no-console
+      console.log('xhr.status: ', xhr.status, xhr);
       this.status = 'uploadError';
       this.errorMessage = `Upload failed(1) ${statMessage}`;
       return;
@@ -211,6 +213,8 @@ export default class UploadableFile {
       this.attachmentKey = json.attachmentKey;
     } else {
       const statMessage = getStatusText(xhr);
+      // eslint-disable-next-line no-console
+      console.log('xhr.status: ', xhr.status, xhr);
       this.status = 'uploadError';
       this.errorMessage = `Upload failed(2) ${statMessage}`;
     }
