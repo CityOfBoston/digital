@@ -658,26 +658,6 @@ export default class RegistryDb {
     if (!recordset) {
       throw new Error('Recordset for search came back empty');
     }
-
-    // eslint-disable-next-line no-console
-    console.log(
-      ':-------------------:\n',
-      new Date().toLocaleString().replace(',', '')
-    );
-    // eslint-disable-next-line no-console
-    // console.log('searchDeathCertificates: ', recordset);
-
-    // eslint-disable-next-line no-console
-    console.log(`
-      searchDeathCertificates args:
-      searchFor: ${name}, 
-      pageNumber: ${page}, 
-      pageSize: ${pageSize}, 
-      sortBy: dateOfDeath, 
-      startYear: ${startYear}, 
-      endYear: ${endYear}
-    `);
-
     return recordset;
   }
 
