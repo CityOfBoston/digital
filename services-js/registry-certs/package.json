@@ -142,6 +142,7 @@
     "faker": "^4.1.0",
     "fetch-mock": "^5.12.2",
     "jest": "^24.8.0",
+    "joi": "^17.4.0",
     "json-loader": "^0.5.4",
     "mockdate": "^2.0.2",
     "prettier": "^1.17.0",

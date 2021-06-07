@@ -25,7 +25,7 @@ export async function createConnectionPool(
       acquireTimeoutMillis: 10000,
     },
     options: {
-      encrypt: true,
+      encrypt: false,
     },
   };
 
