@@ -168,28 +168,6 @@ export default class UploadPhoto extends React.Component<Props, State> {
       buttonTitle = errorMessage;
     }
 
-    if (errorMessage && errorMessage.length) {
-      // eslint-disable-next-line no-console
-      console.log(
-        ':-------------------:\n',
-        new Date().toLocaleString().replace(',', '')
-      );
-
-      // eslint-disable-next-line no-console
-      console.log('UploadPhoto > errorMessage: ', errorMessage);
-
-      // eslint-disable-next-line no-console
-      // console.log(
-      //   'UploadPhoto > acceptTypes: ',
-      //   acceptTypes,
-      //   ' | uploadProgress: ',
-      //   uploadProgress
-      // );
-
-      // eslint-disable-next-line no-console
-      console.log('UploadPhoto > file: ', file);
-    }
-
     if (errorMessage && errorMessage.length > 0 && uploadProgressLabel < 100) {
       buttonTitle = errorMessage;
     }

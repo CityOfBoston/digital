@@ -59,7 +59,7 @@
     "inert": "^5.1.0",
     "isomorphic-fetch": "^2.2.1",
     "mjml": "^4.3.1",
-    "mssql": "^6.3.2",
+    "mssql": "^7.1.0",
     "next": "^9.0.6",
     "node-cleanup": "^2.1.2",
     "postmark": "^1.6.1",

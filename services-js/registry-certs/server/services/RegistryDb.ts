@@ -1232,105 +1232,7 @@ export default class RegistryDb {
     label: string | null,
     file: AnnotatedFilePart
   ): Promise<string> {
-    const { filename, headers, payload } = file;
-
-    // eslint-disable-next-line no-console
-    console.log(
-      ':-------------------:\n',
-      new Date().toLocaleString().replace(',', '')
-    );
-    // eslint-disable-next-line no-console
-    console.log(
-      'uploadFileAttachment > headers: ',
-      headers,
-      ' | ',
-      ' | mime.lookup(filename): ',
-      mime.lookup(filename),
-      // ' | payload: ',
-      // payload
-      ' | orderType: ',
-      orderType,
-      ' | uploadSessionId: ',
-      uploadSessionId,
-      ' | label: ',
-      label
-    );
-
-    // const resp: IProcedureResult<
-    //   DeathCertificateSearchResult
-    // > = (await this.pool
-    //   .request()
-    //   .input('searchFor', 'menino')
-    //   .input('pageNumber', 0)
-    //   .input('pageSize', 20)
-    //   .input('sortBy', 'dateOfDeath')
-    //   .input('startYear', null)
-    //   .input('endYear', null)
-    //   .execute('Registry.Death.sp_FindCertificatesWeb')) as any;
-
-    // const { recordset } = resp;
-
-    // // eslint-disable-next-line no-console
-    // console.log(
-    //   'uploadFileAttachment > (DeathCertificateSearchResult) recordset: ',
-    //   recordset
-    // );
-
-    // const out: IProcedureResult<{
-    //   AttachmentKey: number;
-    //   ErrorMessage: string;
-    // }> = await this.pool
-    //   .request()
-    //   .input('sessionUID', uploadSessionId)
-    //   .input(
-    //     'contentType',
-    //     headers['content-type'] ||
-    //       mime.lookup(filename) ||
-    //       'application/octet-stream'
-    //   )
-    //   .input('fileName', filename)
-    //   .input('label', label)
-    //   .input('attachmentData', payload)
-    //   .execute(
-    //     orderType === 'BC'
-    //       ? 'Commerce.sp_AddBirthRequestAttachment'
-    //       : 'Commerce.sp_AddMarriageRequestAttachment'
-    //   );
-
-    // const result = out.recordset[0];
-
-    // // eslint-disable-next-line no-console
-    // console.log(
-    //   ':------- out.recordset[0] ------:\n',
-    //   new Date().toLocaleString().replace(',', '')
-    // );
-    // // eslint-disable-next-line no-console
-    // console.log('uploadFileAttachment > out.recordset[0]: ', out);
-    // // eslint-disable-next-line no-console
-    // console.log(':-------------------:\n');
-
-    // if (!result || out.returnValue !== 0) {
-    //   throw new Error(
-    //     `Did not get a successful result from SqlServer: ${out.returnValue}`
-    //   );
-    // }
-
-    // if (result.ErrorMessage) {
-    //   // eslint-disable-next-line no-console
-    //   console.log(
-    //     'uploadFileAttachment > result.ErrorMessage: ',
-    //     result.ErrorMessage
-    //   );
-    //   // eslint-disable-next-line no-console
-    //   console.log('uploadFileAttachment > result: ', result);
-    //   // eslint-disable-next-line no-console
-    //   console.log(':-------------------:\n');
-
-    //   throw new Error(result.ErrorMessage);
-    // }
-    // return result.AttachmentKey.toString();
-    // eslint-disable-next-line no-console
-    console.log('pre-DB push of image');
+    const { filename, payload } = file;
     const out: IProcedureResult<{
       AttachmentKey: number;
       ErrorMessage: string;
@@ -1346,32 +1248,9 @@ export default class RegistryDb {
           ? 'Commerce.sp_AddBirthRequestAttachment'
           : 'Commerce.sp_AddMarriageRequestAttachment'
       )) as any;
-    // eslint-disable-next-line no-console
-    console.log('post-DB push of image: ', out);
-    // const out: IProcedureResult<{
-    //   AttachmentKey: number;
-    //   ErrorMessage: string;
-    // }> = await this.pool
-    //   .request()
-    //   .input('sessionUID', uploadSessionId)
-    //   .input(
-    //     'contentType',
-    //     headers['content-type'] ||
-    //       mime.lookup(filename) ||
-    //       'application/octet-stream'
-    //   )
-    //   .input('fileName', filename)
-    //   .input('label', label)
-    //   .input('attachmentData', 'payload')
-    //   .execute(
-    //     orderType === 'BC'
-    //       ? 'Commerce.sp_AddBirthRequestAttachment'
-    //       : 'Commerce.sp_AddMarriageRequestAttachment'
-    //   );
 
     const result = out.recordset[0];
     return result.AttachmentKey.toString();
-    // return '123456789';
   }
 
   /**

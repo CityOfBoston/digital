@@ -336,7 +336,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
     },
   });
 
-  const maxBytes = 1000 * 1000 * 11;
+  // Default value: 1048576 (1MB).
+  const maxBytes = 1048576 * 10;
 
   server.route({
     method: 'POST',
@@ -344,8 +345,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
     options: {
       payload: {
         uploads: '/root',
-        // failAction: 'log',
-        // log: {collect: true},
         parse: true,
         allow: 'multipart/form-data',
         maxBytes,
@@ -356,16 +355,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
           output: 'annotated',
         },
       },
-      // validate: {
-      //   payload: {
-      //     bannerImage: Joi.any()
-      //       .meta({ swaggerType: 'file' })
-      //       .optional()
-      //       .allow('')
-      //       .description('image file'),
-      //   },
-      //   failAction: UniversalFunctions.failActionFunction
-      // },
     },
     handler: async (req): Promise<UploadResponse> => {
       const {
@@ -386,35 +375,12 @@ export async function makeServer({ rollbar }: ServerArgs) {
       }
 
       const db = registryDbFactory.registryDb();
-
-      // eslint-disable-next-line no-console
-      // console.log(
-      //   ':-------------------:\n',
-      //   new Date().toLocaleString().replace(',', '')
-      // );
-
-      console.log('server.ts > maxBytes: ', maxBytes);
-      // console.log(
-      //   'server.ts > type: ',
-      //   type,
-      //   ' | uploadSessionId: ',
-      //   uploadSessionId,
-      //   ' | label: ',
-      //   label,
-      //   ' | file: ',
-      //   file
-      // );
-      // console.log('server.ts > file (pre-attachmentKey REQ): ', file);
-
       const attachmentKey = await db.uploadFileAttachment(
         type as any,
         uploadSessionId,
         label || null,
         file
       );
-
-      // console.log('server.ts > attachmentKey: ', attachmentKey);
-      // console.log('server.ts > file (post-attachmentKey REQ): ', file);
 
       return {
         attachmentKey,
