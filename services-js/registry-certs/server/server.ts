@@ -5,7 +5,6 @@ import Boom from 'boom';
 import Inert from 'inert';
 import fs from 'fs';
 import Path from 'path';
-// import Joi from "joi";
 import { ApolloServer } from 'apollo-server-hapi';
 import cleanup from 'node-cleanup';
 import Stripe from 'stripe';
@@ -121,6 +120,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     domain: process.env.REGISTRY_DATA_DB_DOMAIN,
     server: process.env.REGISTRY_DATA_DB_SERVER!,
     database: process.env.REGISTRY_DATA_DB_DATABASE!,
+    encrypt: false,
   };
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');

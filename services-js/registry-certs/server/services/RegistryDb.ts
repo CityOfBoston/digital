@@ -658,6 +658,7 @@ export default class RegistryDb {
     if (!recordset) {
       throw new Error('Recordset for search came back empty');
     }
+
     return recordset;
   }
 
@@ -692,6 +693,7 @@ export default class RegistryDb {
         }
       })
     );
+
     allResults.forEach(results => {
       results.forEach((cert: DeathCertificate) => {
         idToOutputMap[cert.CertificateID.toString()] = cert;
@@ -1250,6 +1252,17 @@ export default class RegistryDb {
       )) as any;
 
     const result = out.recordset[0];
+
+    if (!result || out.returnValue !== 0) {
+      throw new Error(
+        `Did not get a successful result from SqlServer: ${out.returnValue}`
+      );
+    }
+
+    if (result.ErrorMessage) {
+      throw new Error(result.ErrorMessage);
+    }
+
     return result.AttachmentKey.toString();
   }
 
@@ -1309,6 +1322,8 @@ export default class RegistryDb {
       );
 
     const result = out.recordset[0];
+    // eslint-disable-next-line no-console
+    // console.log(JSON.stringify(result, null, 2));
 
     if (!result || out.returnValue !== 0) {
       throw new Error(
