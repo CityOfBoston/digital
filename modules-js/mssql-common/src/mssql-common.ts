@@ -22,7 +22,7 @@ export async function createConnectionPool(
   }: DatabaseConnectionOptions,
   errorCb: (err: Error) => any
 ): Promise<ConnectionPool> {
-  let encryptValue = encrypt ? encrypt : true;
+  const encryptValue = encrypt ? encrypt : true;
   const opts: ConnectionPoolConfig = {
     user: username,
     password,

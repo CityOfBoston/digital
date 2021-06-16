@@ -9822,7 +9822,9 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
            were adopted, use
            
           their
-           post-adoption name.
+           post-adoption name. Please note, we do not need 
+          their
+           middle name to process your request.
         </p>
         <div
           className="emotion-1"
@@ -10314,7 +10316,9 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
            were adopted, use
            
           their
-           post-adoption name.
+           post-adoption name. Please note, we do not need 
+          their
+           middle name to process your request.
         </p>
         <div
           className="emotion-1"
@@ -13827,7 +13831,9 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                    were adopted, use
                    
                   your
-                   post-adoption name.
+                   post-adoption name. Please note, we do not need 
+                  your
+                   middle name to process your request.
                 </p>
                 <div
                   className="emotion-5"
