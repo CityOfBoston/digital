@@ -30,7 +30,7 @@ export async function createConnectionPool(
     database,
     pool: {
       min: 0,
-      // Keeps the acquisition from looping forever if there's a failure.
+      // Keeps the acquisition from looping forever if there's a failure..
       acquireTimeoutMillis: 10000,
     },
     options: {
