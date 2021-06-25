@@ -8,21 +8,12 @@ export interface DatabaseConnectionOptions {
   server: string;
   domain?: string;
   database: string;
-  encrypt?: boolean;
 }
 
 export async function createConnectionPool(
-  {
-    username,
-    password,
-    server,
-    domain,
-    database,
-    encrypt,
-  }: DatabaseConnectionOptions,
+  { username, password, server, domain, database }: DatabaseConnectionOptions,
   errorCb: (err: Error) => any
 ): Promise<ConnectionPool> {
-  const encryptValue = encrypt ? encrypt : true;
   const opts: ConnectionPoolConfig = {
     user: username,
     password,
@@ -30,11 +21,11 @@ export async function createConnectionPool(
     database,
     pool: {
       min: 0,
-      // Keeps the acquisition from looping forever if there's a failure..
+      // Keeps the acquisition from looping forever if there's a failure.
       acquireTimeoutMillis: 10000,
     },
     options: {
-      encrypt: encryptValue,
+      encrypt: false,
     },
   };
 
