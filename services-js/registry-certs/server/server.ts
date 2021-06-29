@@ -120,14 +120,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     domain: process.env.REGISTRY_DATA_DB_DOMAIN,
     server: process.env.REGISTRY_DATA_DB_SERVER!,
     database: process.env.REGISTRY_DATA_DB_DATABASE!,
-  };
-
-  const registryDbFactoryOpts2: DatabaseConnectionOptions = {
-    username: process.env.REGISTRY_INTENTION_DB_USER!,
-    password: process.env.REGISTRY_INTENTION_DB_PASSWORD!,
-    domain: process.env.REGISTRY_INTENTION_DB_DOMAIN,
-    server: process.env.REGISTRY_INTENTION_DB_SERVER!,
-    database: process.env.REGISTRY_INTENTION_DB_DATABASE!,
+    encryption: false,
   };
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
@@ -158,22 +151,12 @@ export async function makeServer({ rollbar }: ServerArgs) {
       process.env.NODE_ENV !== 'test' ? app.prepare() : Promise.resolve(),
     ]);
 
-    const services2 = await Promise.all([
-      registryDbFactoryOpts.server
-        ? makeRegistryDbFactory(rollbar, registryDbFactoryOpts2)
-        : makeFixtureRegistryDbFactory('fixtures/registry-data/phill.json'),
-      // We don’t run next for the server test
-      process.env.NODE_ENV !== 'test' ? app.prepare() : Promise.resolve(),
-    ]);
-
     registryDbFactory = services[0] as any;
-    registryDbFactory2 = services2[0] as any;
 
     return async () => {
       // console.log('async > registryDbFactory 1-2: ', registryDbFactory, registryDbFactory2);
       await Promise.all([
         registryDbFactory.cleanup(),
-        registryDbFactory2.cleanup(),
         app.close(),
         server.stop(),
       ]);
