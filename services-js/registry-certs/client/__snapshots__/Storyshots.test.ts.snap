@@ -309,6 +309,43 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -884,6 +921,43 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -1281,6 +1355,43 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -1982,6 +2093,43 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -2740,6 +2888,43 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -3119,6 +3304,43 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -11728,6 +11950,43 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -12299,6 +12558,43 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -13020,6 +13316,43 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -13761,6 +14094,43 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -14727,6 +15097,43 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -15665,6 +16072,43 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -16685,6 +17129,43 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -17361,6 +17842,43 @@ exports[`Storyshots Common Components/Checkout/CheckoutPage server-side render 1
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -17730,6 +18248,43 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -18366,6 +18921,43 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -18921,6 +19513,43 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -20003,6 +20632,43 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -21106,6 +21772,43 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -22192,6 +22895,43 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -22758,6 +23498,43 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -23318,6 +24095,43 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -24419,6 +25233,43 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -25601,6 +26452,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -26388,6 +27276,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -27209,6 +28134,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -28001,6 +28963,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -28791,6 +29790,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -29616,6 +30652,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -30405,6 +31478,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -31240,6 +32350,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -32083,6 +33230,43 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -32921,6 +34105,43 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -33998,6 +35219,43 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -35028,6 +36286,43 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -36056,6 +37351,43 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -37146,6 +38478,43 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -49704,6 +51073,43 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
         </ul>
       </nav>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -50166,6 +51572,43 @@ exports[`Storyshots Death/CartPage loading 1`] = `
           </li>
         </ul>
       </nav>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -50861,6 +52304,43 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
           </li>
         </ul>
       </nav>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -51699,6 +53179,43 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
         </ul>
       </nav>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -52306,6 +53823,43 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
         </ul>
       </nav>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -52850,6 +54404,43 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
           </li>
         </ul>
       </nav>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -53567,6 +55158,43 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
         </ul>
       </nav>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -54283,6 +55911,43 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
         </ul>
       </nav>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -54884,6 +56549,43 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
           </li>
         </ul>
       </nav>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -55727,6 +57429,43 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
         </ul>
       </nav>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -56196,6 +57935,43 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
           </li>
         </ul>
       </nav>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -56705,6 +58481,43 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
           </li>
         </ul>
       </nav>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         className="a11y--content-start"
         id="content-start"
@@ -62848,6 +64661,43 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -63398,6 +65248,43 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -63795,6 +65682,43 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -64496,6 +66420,43 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -65248,6 +67209,43 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -65627,6 +67625,43 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -74622,6 +76657,43 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -75238,6 +77310,43 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -75959,6 +78068,43 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -76759,6 +78905,43 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -77601,6 +79784,43 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -78641,6 +80861,43 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
         </nav>
       </div>
       <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         className="a11y--content-start"
         id="content-start"
       />
@@ -79529,6 +81786,43 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
@@ -80546,6 +82840,43 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
             </li>
           </ul>
         </nav>
+      </div>
+      <div
+        about="/city-boston-technical-issues"
+        className="node-11562371 node clearfix node-site-alert modstate-published b b--dark-blue b--fw"
+        role="article"
+      >
+        <div
+          className="b-c b-c--xsmv fyi--dark-blue"
+        >
+          <div
+            className="fyi-c"
+          >
+            <div
+              className="fyi-t fyi-t--dark-blue"
+            >
+              <div>
+                <div
+                  className="field field-name-title-field field-type-text field-type-string field-label-hidden field-items"
+                >
+                  <div>
+                    CITY OF BOSTON TECHNICAL ISSUES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="fyi-s fyi-s--dark-blue"
+            >
+              /
+            </div>
+            <div
+              className="fyi-d fyi-d--dark-blue"
+            >
+              We're currently experiencing technical issues with some of our systems, including our applications for ordering birth, marriage, and death certificates. We're working to resolve these issues now.
+            </div>
+          </div>
+        </div>
       </div>
       <div
         className="a11y--content-start"
