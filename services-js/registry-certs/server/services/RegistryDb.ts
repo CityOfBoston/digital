@@ -952,6 +952,10 @@ export default class RegistryDb {
     const B_MotherName = formattedParentName(BMotherName, BMotherSurname);
     const A_FatherName = formattedParentName(AFatherName, AFatherSurname);
     const B_FatherName = formattedParentName(BFatherName, BFatherSurname);
+    const A_StatofLastMarriage =
+      AStatofLastMarriage === 'N/A' ? '' : AStatofLastMarriage;
+    const B_StatofLastMarriage =
+      BStatofLastMarriage === 'N/A' ? '' : BStatofLastMarriage;
 
     const resp: IProcedureResult<{
       RequestItemKey: number;
@@ -972,7 +976,7 @@ export default class RegistryDb {
       .input('AState', AState.trim())
       .input('AZIPCode', A_ZipCode)
       .input('AMarriageNumber', AMarriageNumber)
-      .input('AStatofLastMarriage', AStatofLastMarriage)
+      .input('AStatofLastMarriage', A_StatofLastMarriage)
       .input('AMotherName', A_MotherName)
       .input('AMotherSurname', null)
       .input('AFatherName', A_FatherName)
@@ -999,7 +1003,7 @@ export default class RegistryDb {
       .input('BState', BState.trim())
       .input('BZIPCode', B_ZipCode)
       .input('BMarriageNumber', BMarriageNumber)
-      .input('BStatofLastMarriage', BStatofLastMarriage)
+      .input('BStatofLastMarriage', B_StatofLastMarriage)
       .input('BMotherName', B_MotherName)
       .input('BMotherSurname', null)
       .input('BFatherName', B_FatherName)
