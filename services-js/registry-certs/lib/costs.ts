@@ -69,6 +69,7 @@ export function calculateDebitCardCost(
     researchFee
   );
 }
+
 function calculateCost(
   eachCost: number,
   quantity: number,
@@ -76,16 +77,57 @@ function calculateCost(
   percentageCost: number,
   hasResearchFee: boolean | undefined
 ) {
+  // eslint-disable-next-line no-console
+  console.log('-------------');
   const subtotal = quantity * eachCost;
-
   const researchFee = hasResearchFee ? RESEARCH_FEE : 0;
+
+  // eslint-disable-next-line no-console
+  console.log(
+    `Prior total: ${(subtotal + fixedCost + researchFee) /
+      (1 - percentageCost)}`
+  );
 
   // Math: https://support.stripe.com/questions/can-i-charge-my-stripe-fees-to-my-customers
   const total = Math.round(
     (subtotal + fixedCost + researchFee) / (1 - percentageCost)
   );
-
   const serviceFee = total - subtotal - researchFee;
+
+  // eslint-disable-next-line no-console
+  console.log(`quantity: ${quantity}`);
+  // eslint-disable-next-line no-console
+  console.log(`eachCost: ${eachCost}`);
+  // eslint-disable-next-line no-console
+  console.log(`hasResearchFee: ${hasResearchFee}`);
+  // eslint-disable-next-line no-console
+  console.log(`subtotal: ${subtotal}`);
+  // eslint-disable-next-line no-console
+  console.log(`fixedCost: ${fixedCost}`);
+  // eslint-disable-next-line no-console
+  console.log(`researchFee: ${researchFee}`);
+  // eslint-disable-next-line no-console
+  console.log(`percentageCost: ${percentageCost}`);
+  // eslint-disable-next-line no-console
+  console.log(`total: ${total}`);
+  // eslint-disable-next-line no-console
+  console.log('-----');
+  // eslint-disable-next-line no-console
+  console.log('calculateCost: ', {
+    subtotal,
+    serviceFee,
+    researchFee,
+    total,
+  });
+
+  // eslint-disable-next-line no-console
+  console.log(`subtotal: $${(subtotal / 100).toFixed(2)}`);
+  // eslint-disable-next-line no-console
+  console.log(`serviceFee: $${(serviceFee / 100).toFixed(2)}`);
+  // eslint-disable-next-line no-console
+  console.log(`researchFee: $${(researchFee / 100).toFixed(2)}`);
+  // eslint-disable-next-line no-console
+  console.log(`total: $${(total / 100).toFixed(2)}`);
 
   return {
     subtotal,
