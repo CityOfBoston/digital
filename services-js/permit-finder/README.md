@@ -25,3 +25,4 @@ out of the container’s filesystem).
 ### Deploys
 
 - 2021.03.26: Post Security Patch test deploys
+- 2021.07.27: Update Intake copy
