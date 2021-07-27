@@ -6,8 +6,15 @@ WORKDIR /app
 
 RUN apk add --no-cache git openssl 
 
+# Install python/pip
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
+
 # Install the AWS CLI
-RUN apk add --update python python-dev curl unzip git \
+RUN apk add --update curl unzip git \
+# RUN apk add --update python3 python3-dev curl unzip git \
   && cd /tmp \
   && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
   && unzip awscli-bundle.zip \
