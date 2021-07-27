@@ -18,11 +18,8 @@ The Level DB is created in a temporary directory (see the service configuration
 in Terraform where a separate volume is mounted over /tmp to get the DB access
 out of the container’s filesystem).
 
-### Deploys
+## Deploys
 
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
-
-### Deploys
-
 - 2021.03.26: Post Security Patch test deploys
 - 2021.07.27: Update Intake copy
