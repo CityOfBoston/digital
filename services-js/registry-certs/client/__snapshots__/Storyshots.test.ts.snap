@@ -175,7 +175,7 @@ exports[`Storyshots Birth/CheckoutPage confirmation 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -750,7 +750,7 @@ exports[`Storyshots Birth/CheckoutPage no birth certificate request 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -1149,7 +1149,7 @@ exports[`Storyshots Birth/CheckoutPage payment 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -1850,7 +1850,7 @@ exports[`Storyshots Birth/CheckoutPage review 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -2606,7 +2606,7 @@ exports[`Storyshots Birth/CheckoutPage server-side render 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -2987,7 +2987,7 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -11594,7 +11594,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1. Who is this for? 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -12167,7 +12167,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 1a. Client instructions 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -12888,7 +12888,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 2. Born in Boston? 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -13629,7 +13629,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -14593,7 +14593,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -15533,7 +15533,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -16551,7 +16551,7 @@ exports[`Storyshots Birth/ReviewRequestPage default page 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -17227,7 +17227,7 @@ exports[`Storyshots Common Components/Checkout/CheckoutPage server-side render 1
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -17598,7 +17598,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent birth 1`
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -18232,7 +18232,7 @@ exports[`Storyshots Common Components/Checkout/OrderConfirmationContent marriage
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -18789,7 +18789,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent Stripe error 1`] =
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -19871,7 +19871,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent ZIP code error 1`]
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -20972,7 +20972,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent birth certificate 
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -22058,7 +22058,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent credit card error 
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -22624,7 +22624,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent default 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -23186,7 +23186,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent existing billing 1
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -24287,7 +24287,7 @@ exports[`Storyshots Common Components/Checkout/PaymentContent marriage certifica
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -25467,7 +25467,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent birth certificate 1
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -26256,7 +26256,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent cart has pending ce
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -27075,7 +27075,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent default 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -27867,7 +27867,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent empty cart 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -28659,7 +28659,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent invalid order 1`] =
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -29482,7 +29482,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent marriage certificat
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -30273,7 +30273,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent payment error 1`] =
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -31108,7 +31108,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submission error 1`
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -31949,7 +31949,7 @@ exports[`Storyshots Common Components/Checkout/ReviewContent submitting 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -32789,7 +32789,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -33864,7 +33864,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -34894,7 +34894,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -35924,7 +35924,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -37014,7 +37014,7 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -49553,7 +49553,7 @@ exports[`Storyshots Death/CartPage empty cart 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -50016,7 +50016,7 @@ exports[`Storyshots Death/CartPage loading 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -50711,7 +50711,7 @@ exports[`Storyshots Death/CartPage normal page 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -51548,7 +51548,7 @@ exports[`Storyshots Death/CertificatePage certificate in cart 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -52155,7 +52155,7 @@ exports[`Storyshots Death/CertificatePage missing certificate 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -52700,7 +52700,7 @@ exports[`Storyshots Death/CertificatePage normal certificate 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -53416,7 +53416,7 @@ exports[`Storyshots Death/CertificatePage normal certificate — not from search
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -54132,7 +54132,7 @@ exports[`Storyshots Death/CertificatePage pending certificate 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -54734,7 +54734,7 @@ exports[`Storyshots Death/ConfirmationContent default 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -55576,7 +55576,7 @@ exports[`Storyshots Death/SearchPage no results 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -56046,7 +56046,7 @@ exports[`Storyshots Death/SearchPage no search 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -56555,7 +56555,7 @@ exports[`Storyshots Death/SearchPage with results 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -62714,7 +62714,7 @@ exports[`Storyshots Marriage/CheckoutPage confirmation 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -63264,7 +63264,7 @@ exports[`Storyshots Marriage/CheckoutPage no marriage certificate request 1`] = 
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -63663,7 +63663,7 @@ exports[`Storyshots Marriage/CheckoutPage payment 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -64364,7 +64364,7 @@ exports[`Storyshots Marriage/CheckoutPage review 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -65114,7 +65114,7 @@ exports[`Storyshots Marriage/CheckoutPage server-side render 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -65495,7 +65495,7 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -74488,7 +74488,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1. Who is this for? 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -75106,7 +75106,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 1a. Client instructions 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -75827,7 +75827,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 2. Filed in Boston? 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -76627,7 +76627,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 3. Date of marriage? 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -77469,7 +77469,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -78507,7 +78507,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -79397,7 +79397,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
@@ -80414,7 +80414,7 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Martin J. Walsh</a></span>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
           </div>
   </div>
     <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
