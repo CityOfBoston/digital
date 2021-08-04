@@ -70,4 +70,23 @@ storiesOf('Form Elements|Inputs/MemorableDateInput', module)
       handleDate={() => {}}
       legend={<h2>Date</h2>}
     />
+  ))
+  .add('onlyAllowFuture and earliestDate: today', () => (
+    <MemorableDateInput
+      componentId="story"
+      earliestDate={new Date()}
+      onlyAllowFuture={true}
+      handleDate={() => {}}
+      legend={<h2>Date</h2>}
+    />
+  ))
+  .add('onlyAllowFuture and includeToday: today', () => (
+    <MemorableDateInput
+      componentId="story"
+      latestDate={new Date('1/1/2040')}
+      onlyAllowFuture={true}
+      includeToday={true}
+      handleDate={() => {}}
+      legend={<h2>Date</h2>}
+    />
   ));
