@@ -17,6 +17,7 @@ interface Props {
   latestDate?: Date;
   onlyAllowPast?: boolean;
   onlyAllowFuture?: boolean;
+  includeToday?: boolean;
   sansFieldset?: boolean;
   hideLengend?: boolean;
   legend?: React.ReactChild;
@@ -52,6 +53,7 @@ interface State {
  *
  * onlyAllowPast: If true, will only accept yesterday or earlier for a date.
  * onlyAllowFuture: If true, will only accept tomorrow or later for a date.
+ * includeToday: If true, onlyAllowFuture will accept today for a date.
  *
  * Whenever the date is updated, this.props.handleDate is called.
  *
@@ -121,7 +123,8 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       this.earliest,
       this.latest,
       this.props.onlyAllowPast,
-      this.props.onlyAllowFuture
+      this.props.onlyAllowFuture,
+      this.props.includeToday
     );
   }
 
@@ -491,7 +494,8 @@ export function dateValidError(
   earliest: Date | null,
   latest: Date | null,
   onlyAllowPast: boolean = false,
-  onlyAllowFuture: boolean = false
+  onlyAllowFuture: boolean = false,
+  includeToday: boolean = false
 ): string {
   const dateTime = date.getTime();
 
@@ -505,10 +509,34 @@ export function dateValidError(
     todayLocal.getDate()
   );
 
+  // If onlyAllowFuture needs to include the current day
+  /**
+   * Used to validate if the date passed s greater than the current date (after subtracting one day). This is dones to include the current day.
+   * Returns a boolean for whether to use `onlyAllowFuture`.
+   */
+  const allowFuture = () => {
+    const _todayLocal = new Date(new Date().setDate(new Date().getDate() - 1));
+    const _todayTime = Date.UTC(
+      _todayLocal.getFullYear(),
+      _todayLocal.getMonth(),
+      _todayLocal.getDate()
+    );
+    if (
+      includeToday &&
+      includeToday === true &&
+      onlyAllowFuture &&
+      onlyAllowFuture === true
+    ) {
+      return dateTime > _todayTime;
+    } else {
+      return dateTime > todayTime;
+    }
+  };
+
   // success conditions for each limiting attribute:
   const passes = {
     onlyAllowPast: dateTime < todayTime,
-    onlyAllowFuture: dateTime > todayTime,
+    onlyAllowFuture: allowFuture(),
     earliest: earliest && dateTime > earliest.getTime(),
     latest: latest && dateTime < latest.getTime(),
   };

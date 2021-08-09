@@ -188,6 +188,7 @@ export default class ContactInfo extends Component<Props> {
                 onlyAllowFuture={true}
                 earliestDate={earliestDateToday}
                 handleDate={this.handleAptDateChange}
+                includeToday={true}
               />
             </div>
           </div>
