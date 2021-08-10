@@ -9,6 +9,7 @@ export interface DatabaseConnectionOptions {
   domain?: string;
   database: string;
   encryption?: boolean;
+  multiSubnetFailover?: boolean;
 }
 
 export async function createConnectionPool(
@@ -35,6 +36,8 @@ export async function createConnectionPool(
     },
     options: {
       encrypt: encryptVal,
+      // @ts-ignore
+      multiSubnetFailover: true,
     },
   };
 
