@@ -107,3 +107,4 @@ We also need to generate keys.
 - 2021.04.15: PROD deploy - ScerIS tile fix, uppercase groups
 - 2021.05.20: PROD deploy - BAIS FN Tile link update
 - 2021.05.20: PROD deploy - BAIS FN Tile link update, second attempt
+- 2021.08.26: PROD deploy - ServiceNow (new dashboard App)
