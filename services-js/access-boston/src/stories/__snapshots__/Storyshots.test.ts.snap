@@ -6736,6 +6736,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
         aria-labelledby="sh-1322116428"
         className="m-b500"
       >
+        
         <div
           className="sh m-b300 "
         >
@@ -7094,6 +7095,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
           aria-labelledby="sh-361796124"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -7263,6 +7265,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
           aria-labelledby="sh-1450655087"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -7342,6 +7345,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
           aria-labelledby="sh-997653249"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -7481,6 +7485,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
           aria-labelledby="sh-3535738525"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -7692,6 +7697,7 @@ exports[`Storyshots IndexPage default 1`] = `
         aria-labelledby="sh-1322116428"
         className="m-b500"
       >
+        
         <div
           className="sh m-b300 "
         >
@@ -8050,6 +8056,7 @@ exports[`Storyshots IndexPage default 1`] = `
           aria-labelledby="sh-361796124"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -8219,6 +8226,7 @@ exports[`Storyshots IndexPage default 1`] = `
           aria-labelledby="sh-1450655087"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -8298,6 +8306,7 @@ exports[`Storyshots IndexPage default 1`] = `
           aria-labelledby="sh-997653249"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -8437,6 +8446,7 @@ exports[`Storyshots IndexPage default 1`] = `
           aria-labelledby="sh-3535738525"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -8702,6 +8712,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
         aria-labelledby="sh-1322116428"
         className="m-b500"
       >
+        
         <div
           className="sh m-b300 "
         >
@@ -9060,6 +9071,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           aria-labelledby="sh-361796124"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -9229,6 +9241,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           aria-labelledby="sh-1450655087"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -9308,6 +9321,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           aria-labelledby="sh-997653249"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >
@@ -9447,6 +9461,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           aria-labelledby="sh-3535738525"
           className="m-b500 g--6"
         >
+          
           <div
             className="sh m-b300 "
           >

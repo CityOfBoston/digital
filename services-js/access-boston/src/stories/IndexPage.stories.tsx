@@ -29,6 +29,7 @@ const APPS: Apps = {
     showIcons: cat.icons,
     requestAccessUrl: cat.showRequestAccessLink ? '#' : null,
     apps: cat.apps,
+    notice: cat.notice,
   })),
 };
 

@@ -58,7 +58,6 @@ export default class MyDocument extends Document<Props> {
 
   render() {
     const { userAgent, rollbarAccessToken, rollbarEnvironment } = this.props;
-
     return (
       <html lang="en-US">
         <Head>

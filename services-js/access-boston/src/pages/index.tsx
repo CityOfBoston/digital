@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/core';
@@ -120,12 +121,17 @@ export default class IndexPage extends React.Component<Props> {
           )}
 
           <div className="b b-c">
-            {iconCategories.map(({ title, apps, requestAccessUrl }) => (
+            {iconCategories.map(({ title, apps, requestAccessUrl, notice }) => (
               <section
                 className="m-b500"
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
+                {notice && notice.length > 0 && (
+                  <div css={APP_ALERT_MSG}>
+                    <span className="label">NOTICE:</span> {notice}
+                  </div>
+                )}
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (
@@ -139,29 +145,36 @@ export default class IndexPage extends React.Component<Props> {
             ))}
 
             <div className="g">
-              {listCategories.map(({ title, apps, requestAccessUrl }) => {
-                const elems =
-                  apps.length > 0 ? (
-                    <section
-                      className="m-b500 g--6"
-                      key={title}
-                      aria-labelledby={SectionHeader.makeId(title)}
-                    >
-                      <SectionHeader title={title} />
-                      {requestAccessUrl && (
-                        <div className="t--subinfo p-a200 m-v300">
-                          Is there an app that you need access to that’s not
-                          shown here? Fill out the{' '}
-                          <a href={requestAccessUrl}>request access form</a>.
-                        </div>
-                      )}
-                      {this.renderAppList(apps)}
-                    </section>
-                  ) : (
-                    ''
-                  );
-                return elems;
-              })}
+              {listCategories.map(
+                ({ title, apps, requestAccessUrl, notice }) => {
+                  const elems =
+                    apps.length > 0 ? (
+                      <section
+                        className="m-b500 g--6"
+                        key={title}
+                        aria-labelledby={SectionHeader.makeId(title)}
+                      >
+                        {notice && notice.length > 0 && (
+                          <div css={APP_ALERT_MSG}>
+                            <span className="label">NOTICE:</span> {notice}
+                          </div>
+                        )}
+                        <SectionHeader title={title} />
+                        {requestAccessUrl && (
+                          <div className="t--subinfo p-a200 m-v300">
+                            Is there an app that you need access to that’s not
+                            shown here? Fill out the{' '}
+                            <a href={requestAccessUrl}>request access form</a>.
+                          </div>
+                        )}
+                        {this.renderAppList(apps)}
+                      </section>
+                    ) : (
+                      ''
+                    );
+                  return elems;
+                }
+              )}
             </div>
           </div>
         </AppWrapper>
@@ -225,6 +238,19 @@ export default class IndexPage extends React.Component<Props> {
     return <div className="g">{listItems}</div>;
   }
 }
+
+const APP_ALERT_MSG = css({
+  fontSize: '18px',
+  paddingBottom: '1.25em',
+  span: {
+    fontSize: '20px',
+    fontFamily: 'Montserrat',
+    paddingRight: '0.25em',
+    color: 'red',
+    fontWeight: 'bold',
+    marginBottom: '0.5em',
+  },
+});
 
 const APP_ROW_STYLE = css({
   a: {

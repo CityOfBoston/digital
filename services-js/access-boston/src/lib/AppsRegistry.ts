@@ -5,6 +5,7 @@ export interface AppsCategory {
   showRequestAccessLink: boolean;
   icons: boolean;
   apps: App[];
+  notice: string;
 }
 
 export interface App {
@@ -86,8 +87,12 @@ export default class AppsRegistry {
           target: target || '',
         };
       });
+      const notice = Object.keys(c).find(entry => entry === 'notice')
+        ? c.notice
+        : '';
       return {
         title,
+        notice,
         apps,
         showRequestAccessLink: !!show_request_access_link,
         icons: !!icons,

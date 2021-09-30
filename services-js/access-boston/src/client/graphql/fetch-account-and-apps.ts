@@ -35,6 +35,7 @@ const QUERY = gql`
           description
           target
         }
+        notice
       }
     }
   }

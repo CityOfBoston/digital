@@ -98,8 +98,8 @@ export interface AppCategory {
   title: string;
   showIcons: boolean;
   requestAccessUrl: string | null;
-
   apps: App[];
+  notice: string;
 }
 
 export interface App {
@@ -200,7 +200,7 @@ const queryRootResolvers: QueryRootResolvers = {
           loginSession.hasMfaDevice,
           loginSession.cobAgency || null
         )
-        .map(({ apps, icons, showRequestAccessLink, title }) => {
+        .map(({ apps, icons, showRequestAccessLink, title, notice }) => {
           const retObj = {
             title,
             showIcons: icons,
@@ -212,6 +212,7 @@ const queryRootResolvers: QueryRootResolvers = {
               description,
               target,
             })),
+            notice: notice,
           };
           if (retObj.title === 'Support Tools') {
             const filterGroups = loginSession.groups.filter(

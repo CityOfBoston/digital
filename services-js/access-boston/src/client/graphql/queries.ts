@@ -83,6 +83,7 @@ export interface FetchAccountAndApps_apps_categories {
   showIcons: boolean;
   requestAccessUrl: string | null;
   apps: FetchAccountAndApps_apps_categories_apps[];
+  notice: string;
 }
 
 export interface FetchAccountAndApps_apps {
