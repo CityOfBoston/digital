@@ -129,8 +129,8 @@ export default class IndexPage extends React.Component<Props> {
                 <div css={APP_ALERT_MSG}>
                   <span className="label">NOTICE:</span>
                   ESS, HCM, BAIS FN, and the Supplier Portal will undergo
-                  undergo maintenance that will cause up to 2 hours of downtime
-                  between 5:00 and 7:00 p.m. on Thursday, Sept 30th.
+                  maintenance that will cause up to 2 hours of downtime between
+                  5:00 and 7:00 p.m. on Thursday, Sept 30th.
                 </div>
                 <SectionHeader title={title} />
 
