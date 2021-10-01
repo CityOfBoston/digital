@@ -126,12 +126,6 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
-                <div css={APP_ALERT_MSG}>
-                  <span className="label">NOTICE:</span>
-                  ESS, HCM, BAIS FN, and the Supplier Portal will undergo
-                  maintenance that will cause up to 2 hours of downtime between
-                  5:00 and 7:00 p.m. on Thursday, Sept 30th.
-                </div>
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (
@@ -231,19 +225,6 @@ export default class IndexPage extends React.Component<Props> {
     return <div className="g">{listItems}</div>;
   }
 }
-
-const APP_ALERT_MSG = css({
-  fontSize: '18px',
-  paddingBottom: '1.25em',
-  span: {
-    fontSize: '20px',
-    fontFamily: 'Montserrat',
-    paddingRight: '0.25em',
-    color: 'red',
-    fontWeight: 'bold',
-    marginBottom: '0.5em',
-  },
-});
 
 const APP_ROW_STYLE = css({
   a: {
