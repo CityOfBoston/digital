@@ -53,7 +53,7 @@
     "inert": "^5.1.0",
     "level": "^5.0.1",
     "moment-timezone": "^0.5.14",
-    "next": "^9.0.6",
+    "next": ">=11.1.0",
     "node-cleanup": "^2.1.2",
     "node-fetch": "^2.2.0",
     "pump": "^3.0.0",
