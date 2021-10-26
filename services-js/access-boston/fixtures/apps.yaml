@@ -1,8 +1,8 @@
+notice: ESS, HCM, BAIS FN, and the Supplier Portal will undergo maintenance that will cause up to 2 hours of downtime between 5:00 and 7:00 p.m. on Thursday, Sept 30th.
 categories:
   - title: Applications
     show_request_access_link: false
     icons: true
-    notice: ESS, HCM, BAIS FN, and the Supplier Portal will undergo maintenance that will cause up to 2 hours of downtime between 5:00 and 7:00 p.m. on Thursday, Sept 30th.
     apps:
       - title: Employee Self-Service
         url: https://ess.boston.gov/
