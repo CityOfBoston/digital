@@ -72,6 +72,7 @@ Don’t forget to re-compile the JS when you change it.
 * 2020.11.12: Test Shippie-Toe is working with a simple PROD deploy
 * 2021.03.26: Post Security Patch test deploys
 * 2021.03.30: Reset AWS container to use the current code base (we changed the task repo on AWS)
+* 2021.10.28: Added `nofollow` to staging sites
 
 ## Useful CMDs
 
