@@ -64,6 +64,10 @@ export default class extends Document<Props> {
             type="image/vnd.microsoft.icon"
           />
 
+          {process.env.NOFOLLOW && process.env.NOFOLLOW === 'true' && (
+            <meta name="robots" content="noindex" />
+          )}
+
           {process.env.GTM_CONTAINER_ID && (
             <script
               dangerouslySetInnerHTML={{
