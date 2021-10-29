@@ -110,3 +110,4 @@ We also need to generate keys.
 - 2021.08.26: PROD deploy - ServiceNow (new dashboard App)
 - 2021.08.30: PROD deploy - Covid Compliance
 - 2021.09.20: PROD deploy - Hyperion, update app URL
+- 2021.10.29: PROD deploy - V3 tile
