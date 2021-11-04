@@ -20,6 +20,8 @@ const FIXTURE_SEARCHES = ['smith'];
     domain: undefined,
     server: process.env.REGISTRY_DATA_DB_SERVER,
     database: process.env.REGISTRY_DATA_DB_DATABASE,
+    encryption: true,
+    multiSubnetFailover: true,
   };
 
   const registryDbFactory = await makeRegistryDbFactory(

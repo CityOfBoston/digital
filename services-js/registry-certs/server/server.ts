@@ -121,6 +121,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     server: process.env.REGISTRY_DATA_DB_SERVER!,
     database: process.env.REGISTRY_DATA_DB_DATABASE!,
     encryption: false,
+    multiSubnetFailover: true,
   };
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');

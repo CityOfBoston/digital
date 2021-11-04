@@ -20,10 +20,15 @@ export async function createConnectionPool(
     domain,
     database,
     encryption,
+    multiSubnetFailover,
   }: DatabaseConnectionOptions,
   errorCb: (err: Error) => any
 ): Promise<ConnectionPool> {
+  // DUE to changes to DB Connections to On-Prem COB Servers
+  // ^ we are not requiring to encrypt and use multiSubnetFailOver
   const encryptVal = typeof encryption === 'boolean' ? encryption : true;
+  const multiSubnetFailoverVal =
+    typeof multiSubnetFailover === 'boolean' ? multiSubnetFailover : true;
   const opts: ConnectionPoolConfig = {
     user: username,
     password,
@@ -37,7 +42,7 @@ export async function createConnectionPool(
     options: {
       encrypt: encryptVal,
       // @ts-ignore
-      multiSubnetFailover: true,
+      multiSubnetFailover: multiSubnetFailoverVal,
     },
   };
 
