@@ -306,6 +306,7 @@ export const COUNTRIES = [
   { label: 'Sweden', value: 'SWE' },
   { label: 'Switzerland', value: 'CHE' },
   { label: 'Syrian Arab Republic', value: 'SYR' },
+  { label: 'Taiwan', value: 'TWAN' },
   { label: 'Tajikistan', value: 'TJK' },
   { label: 'Thailand', value: 'THA' },
   {
