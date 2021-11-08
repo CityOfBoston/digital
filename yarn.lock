@@ -4179,7 +4179,7 @@
   dependencies:
     moment ">=2.14.0"
 
-"@types/mssql@^0":
+"@types/mssql@^7.1.4":
   version "7.1.4"
   resolved "https://registry.yarnpkg.com/@types/mssql/-/mssql-7.1.4.tgz#95ed649ebf93fa7db199411db2c2ed6c959ac002"
   integrity sha512-WqK7aICej9PXMIhdHlVtJ7kj/SezW8AjJ3zEn837StU8B/m1CGXOFUKlESdTlxbWDh6EzATbnnRKaRZgqjIWDA==
@@ -4187,13 +4187,6 @@
     "@types/node" "*"
     "@types/tedious" "*"
     tarn "^3.0.1"
-
-"@types/mssql@^4.0.10":
-  version "4.0.10"
-  resolved "https://registry.yarnpkg.com/@types/mssql/-/mssql-4.0.10.tgz#cfb94588c652db07b0751bb3d7dbfadd1d50a9d3"
-  dependencies:
-    "@types/events" "*"
-    "@types/node" "*"
 
 "@types/nock@^9.3.1":
   version "9.3.1"
