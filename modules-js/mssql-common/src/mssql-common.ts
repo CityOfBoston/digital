@@ -37,7 +37,7 @@ export async function createConnectionPool(
     pool: {
       min: 0,
       // Keeps the acquisition from looping forever if there's a failure.
-      acquireTimeoutMillis: 10000,
+      // acquireTimeoutMillis: 10000,
     },
     options: {
       encrypt: encryptVal,

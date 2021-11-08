@@ -4179,6 +4179,15 @@
   dependencies:
     moment ">=2.14.0"
 
+"@types/mssql@^0":
+  version "7.1.4"
+  resolved "https://registry.yarnpkg.com/@types/mssql/-/mssql-7.1.4.tgz#95ed649ebf93fa7db199411db2c2ed6c959ac002"
+  integrity sha512-WqK7aICej9PXMIhdHlVtJ7kj/SezW8AjJ3zEn837StU8B/m1CGXOFUKlESdTlxbWDh6EzATbnnRKaRZgqjIWDA==
+  dependencies:
+    "@types/node" "*"
+    "@types/tedious" "*"
+    tarn "^3.0.1"
+
 "@types/mssql@^4.0.10":
   version "4.0.10"
   resolved "https://registry.yarnpkg.com/@types/mssql/-/mssql-4.0.10.tgz#cfb94588c652db07b0751bb3d7dbfadd1d50a9d3"
@@ -4363,6 +4372,13 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.2.tgz#e13182e1b69871a422d7863e11a4a6f5b814a4bd"
   integrity sha512-42zEJkBpNfMEAvWR5WlwtTH22oDzcMjFsL9gDGExwF8X8WvAiw7Vwop7hPw03QT8TKfec83LwbHj6SvpqM4ELQ==
+
+"@types/tedious@*":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@types/tedious/-/tedious-4.0.5.tgz#388c4b4fb14b18e282ffecff70a9a160750c44b1"
+  integrity sha512-zlnChTP63Bds6kMBuKOR+qJPB9wcYf1zVm78qiXTnT1gbcU6wdTmSp28cd2BPxePy4mrGM6TnQG1fmHxQW1pZw==
+  dependencies:
+    "@types/node" "*"
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2":
   version "2.0.3"
@@ -7070,7 +7086,7 @@ babel-runtime@^5.6.15, babel-runtime@^5.8.34:
   dependencies:
     core-js "^1.0.0"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.9.2:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -7214,6 +7230,14 @@ binary@^0.3.0:
   dependencies:
     buffers "~0.1.1"
     chainsaw "~0.1.0"
+
+bl@^1.0.0:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/bl/-/bl-1.2.3.tgz#1e8dd80142eac80d7158c9dccc047fb620e035e7"
+  integrity sha512-pvcNpa0UU69UT341rO6AYy4FVAIkUHuZXRIWbq+zHnsVcRzDDjIAhGuuYoi0d//cwIwtt4pkpKycWEfjdV+vww==
+  dependencies:
+    readable-stream "^2.3.5"
+    safe-buffer "^5.1.1"
 
 bl@^1.2.2:
   version "1.2.2"
@@ -9899,6 +9923,13 @@ dns-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dns-equal/-/dns-equal-1.0.0.tgz#b39e7f1da6eb0a75ba9c17324b34753c47e0654d"
 
+dns-lookup-all@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/dns-lookup-all/-/dns-lookup-all-1.0.2.tgz#4d8b2b1af69c83a7b262eb5de92485b7b3a215eb"
+  integrity sha1-TYsrGvacg6eyYutd6SSFt7OiFes=
+  dependencies:
+    semver "^5.3.0"
+
 dns-packet@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/dns-packet/-/dns-packet-1.3.1.tgz#12aa426981075be500b910eedcd0b47dd7deda5a"
@@ -11912,6 +11943,11 @@ generate-object-property@^1.0.0:
   dependencies:
     is-property "^1.0.0"
 
+generic-pool@^2.0.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-2.5.4.tgz#38c6188513e14030948ec6e5cf65523d9779299b"
+  integrity sha1-OMYYhRPhQDCUjsblz2VSPZd5KZs=
+
 generic-pool@^3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-3.4.2.tgz#92ff7196520d670839a67308092a12aadf2f6a59"
@@ -13301,7 +13337,7 @@ iconv-lite@0.4.23:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-iconv-lite@0.4.24, iconv-lite@^0.4.23, iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@^0.4.5, iconv-lite@~0.4.13:
+iconv-lite@0.4.24, iconv-lite@^0.4.11, iconv-lite@^0.4.23, iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@^0.4.5, iconv-lite@~0.4.13:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   dependencies:
@@ -17725,6 +17761,14 @@ ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
+
+mssql@^0:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/mssql/-/mssql-0.6.2.tgz#b52019337e75e5bec320f8441f61b507c5f74073"
+  integrity sha1-tSAZM3515b7DIPhEH2G1B8X3QHM=
+  dependencies:
+    generic-pool "^2.0.4"
+    tedious "^1.0.0"
 
 mssql@^4.2.1:
   version "4.2.1"
@@ -22987,6 +23031,11 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
+sprintf@0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/sprintf/-/sprintf-0.1.5.tgz#8f83e39a9317c1a502cb7db8050e51c679f6edcf"
+  integrity sha1-j4PjmpMXwaUCy324BQ5Rxnn27c8=
+
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
@@ -23698,10 +23747,28 @@ tarn@^1.1.4:
   resolved "https://registry.yarnpkg.com/tarn/-/tarn-1.1.5.tgz#7be88622e951738b9fa3fb77477309242cdddc2d"
   integrity sha512-PMtJ3HCLAZeedWjJPgGnCvcphbCOMbtZpjKgLq3qM5Qq9aQud+XHrL0WlrlgnTyS8U+jrjGbEXprFcQrxPy52g==
 
+tarn@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/tarn/-/tarn-3.0.1.tgz#ebac2c6dbc6977d34d4526e0a7814200386a8aec"
+  integrity sha512-6usSlV9KyHsspvwu2duKH+FMUhqJnAh6J5J/4MITl8s94iSUQTLkJggdiewKv4RyARQccnigV48Z+khiuVZDJw==
+
 teamwork@3.x.x:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/teamwork/-/teamwork-3.2.0.tgz#27916edab815459c1a4686252eb18fb5925f49fa"
   integrity sha512-xAmJ8PIVjRZMXAHgUuOP8ITsv0SedyWAit2UWiNImXgg/F+BxrsG46ZegElNBM0Dwp+iMfbigg/Ll/M2oDRYww==
+
+tedious@^1.0.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/tedious/-/tedious-1.15.0.tgz#9bda9e9798212c8fcd9438a70cb2a806abcae70a"
+  integrity sha1-m9qel5ghLI/NlDinDLKoBqvK5wo=
+  dependencies:
+    babel-runtime "^6.9.2"
+    big-number "0.3.1"
+    bl "^1.0.0"
+    dns-lookup-all "^1.0.2"
+    iconv-lite "^0.4.11"
+    readable-stream "^2.0.2"
+    sprintf "0.1.5"
 
 tedious@^2.6.4:
   version "2.7.1"
