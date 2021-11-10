@@ -165,40 +165,35 @@ export async function makeServer({ rollbar }: ServerArgs) {
     registryDbFactory = services[0] as any;
 
     // eslint-disable-next-line no-console
-    // console.log(
-    //   'SERVER start > registryDbFactory|services: ',
-    //   ' | JSON.stringify(registryDbFactory): ',
-    //   JSON.stringify(registryDbFactory),
-    //   ' | registryDbFactory: ',
-    //   registryDbFactory,
-    //   ' | JSON.stringify(services): ',
-    //   JSON.stringify(services),
-    //   ' | services: ',
-    //   services
-    // );
+    console.log('SERVER start > registryDbFactory | services: ', services);
 
-    try {
-      // eslint-disable-next-line no-console
-      console.log(
-        'SERVER start > registryDbFactory | JSON.stringify(registryDbFactory): ',
-        JSON.stringify(registryDbFactory)
-      );
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'SERVER start > registryDbFactory | JSON.stringify(registryDbFactory) error: ',
-        error
-      );
-    }
+    // try {
+    //   // eslint-disable-next-line no-console
+    //   console.log(
+    //     'SERVER start > registryDbFactory | JSON.stringify(registryDbFactory): ',
+    //     JSON.stringify(registryDbFactory)
+    //   );
+    // } catch (error) {
+    //   // eslint-disable-next-line no-console
+    //   console.log(
+    //     'SERVER start > registryDbFactory | JSON.stringify(registryDbFactory) error: ',
+    //     error
+    //   );
+    // }
 
-    // eslint-disable-next-line no-console
-    console.log(
-      'SERVER start > registryDbFactory|registryDbFactory: ',
-      registryDbFactory
-    );
-
-    // eslint-disable-next-line no-console
-    console.log('SERVER start > registryDbFactory|services: ', services);
+    // try {
+    //   // eslint-disable-next-line no-console
+    //   console.log(
+    //     'SERVER start > registryDbFactory | JSON.stringify(services): ',
+    //     JSON.stringify(services)
+    //   );
+    // } catch (error) {
+    //   // eslint-disable-next-line no-console
+    //   console.log(
+    //     'SERVER start > registryDbFactory | JSON.stringify(services) error: ',
+    //     error
+    //   );
+    // }
 
     return async () => {
       await Promise.all([
