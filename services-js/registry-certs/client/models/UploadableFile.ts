@@ -202,6 +202,8 @@ export default class UploadableFile {
     } catch (e) {
       const statMessage = getStatusText(xhr);
       this.status = 'uploadError';
+      // eslint-disable-next-line no-console
+      console.log('UploadableFile::handleLoad::xhr.responseText ', xhr);
       this.errorMessage = `Upload failed${statMessage}`;
       return;
     }
@@ -212,6 +214,8 @@ export default class UploadableFile {
     } else {
       const statMessage = getStatusText(xhr);
       this.status = 'uploadError';
+      // eslint-disable-next-line no-console
+      console.log('UploadableFile::handleLoad::xhr.status !== 200 ', xhr);
       this.errorMessage = `Upload failed${statMessage}`;
     }
   }
@@ -227,7 +231,7 @@ export default class UploadableFile {
   handleError(ev: ProgressEvent | null) {
     this.status = 'uploadError';
     // eslint-disable-next-line no-console
-    console.log('UploadableFile: ', ev, this.uploadRequest);
+    console.log('UploadableFile: ', this.uploadRequest, ev);
 
     if (!ev || ev.target !== this.uploadRequest || !this.uploadRequest) {
       return;

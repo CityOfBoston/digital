@@ -398,6 +398,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
         file
       );
 
+      // eslint-disable-next-line no-console
+      console.log('Server::/upload::attachmentKey ', attachmentKey);
+
       return {
         attachmentKey,
         filename: file.filename,

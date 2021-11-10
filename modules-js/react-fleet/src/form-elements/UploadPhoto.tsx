@@ -165,10 +165,21 @@ export default class UploadPhoto extends React.Component<Props, State> {
       errorMessage &&
       errorMessage.length > 0
     ) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'UploadPhoto errorMessage + uploadProgressLabel === 100: ',
+        errorMessage
+      );
+
       buttonTitle = errorMessage;
     }
 
     if (errorMessage && errorMessage.length > 0 && uploadProgressLabel < 100) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'UploadPhoto errorMessage + uploadProgressLabel < 100: ',
+        errorMessage
+      );
       buttonTitle = errorMessage;
     }
 
