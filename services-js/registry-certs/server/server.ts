@@ -177,12 +177,28 @@ export async function makeServer({ rollbar }: ServerArgs) {
     //   services
     // );
 
+    try {
+      // eslint-disable-next-line no-console
+      console.log(
+        'SERVER start > registryDbFactory | JSON.stringify(registryDbFactory): ',
+        JSON.stringify(registryDbFactory)
+      );
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'SERVER start > registryDbFactory | JSON.stringify(registryDbFactory) error: ',
+        error
+      );
+    }
+
     // eslint-disable-next-line no-console
     console.log(
-      'SERVER start > registryDbFactory|services: ',
-      registryDbFactory,
-      services
+      'SERVER start > registryDbFactory|registryDbFactory: ',
+      registryDbFactory
     );
+
+    // eslint-disable-next-line no-console
+    console.log('SERVER start > registryDbFactory|services: ', services);
 
     return async () => {
       await Promise.all([
