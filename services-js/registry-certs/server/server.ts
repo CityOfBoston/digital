@@ -167,8 +167,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
     // eslint-disable-next-line no-console
     console.log(
       'SERVER start > registryDbFactory|services: ',
+      ' | JSON.stringify(registryDbFactory): ',
       JSON.stringify(registryDbFactory),
+      ' | registryDbFactory: ',
       registryDbFactory,
+      ' | JSON.stringify(services): ',
+      JSON.stringify(services),
+      ' | services: ',
       services
     );
 
