@@ -128,11 +128,19 @@ export default class UploadableFile {
       uploadRequest.upload.onprogress = this.handleProgress;
     }
 
+    // eslint-disable-next-line no-console
+    console.log('UploadableFile::upload::');
+
     this.progress = 0;
     this.status = 'uploading';
 
-    uploadRequest.open('POST', '/upload');
-    uploadRequest.send(formData);
+    try {
+      uploadRequest.open('POST', '/upload');
+      uploadRequest.send(formData);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log('UploadableFile::upload:: try/catch error ', error);
+    }
   }
 
   // If the user is trying to cancel an in-progress upload, we want to express
@@ -189,6 +197,14 @@ export default class UploadableFile {
       return;
     }
 
+    // eslint-disable-next-line no-console
+    console.log('UploadableFile::handleLoad::xhr ', xhr);
+    // eslint-disable-next-line no-console
+    console.log(
+      'UploadableFile::handleLoad::xhr instanceOf ',
+      xhr instanceof XMLHttpRequest
+    );
+
     const getStatusText = (xhr: XMLHttpRequest) => {
       return xhr.statusText &&
         typeof xhr.statusText === 'string' &&
@@ -231,7 +247,7 @@ export default class UploadableFile {
   handleError(ev: ProgressEvent | null) {
     this.status = 'uploadError';
     // eslint-disable-next-line no-console
-    console.log('UploadableFile: ', this.uploadRequest, ev);
+    console.log('UploadableFile::handleError ', this.uploadRequest, ev);
 
     if (!ev || ev.target !== this.uploadRequest || !this.uploadRequest) {
       return;
@@ -244,9 +260,14 @@ export default class UploadableFile {
 
   @action.bound
   handleLoadEnd(ev: ProgressEvent) {
+    // eslint-disable-next-line no-console
+    console.log('UploadableFile::handleLoadEnd:: before');
     if (ev.target !== this.uploadRequest) {
       return;
     }
+
+    // eslint-disable-next-line no-console
+    console.log('UploadableFile::handleLoadEnd:: after');
 
     this.uploadRequest = null;
     this.progress = 0;

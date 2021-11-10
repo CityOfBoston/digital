@@ -379,6 +379,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
         uploadSessionId,
       }: UploadPayload<AnnotatedFilePart> = req.payload as any;
 
+      // eslint-disable-next-line no-console
+      console.log('Server::/upload:: ');
+
       if (type === 'DC') {
         throw Boom.badData(
           'Can only upload attachments for birth or marriage certificates'
