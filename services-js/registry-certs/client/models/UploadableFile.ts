@@ -226,6 +226,9 @@ export default class UploadableFile {
   @action.bound
   handleError(ev: ProgressEvent | null) {
     this.status = 'uploadError';
+    // eslint-disable-next-line no-console
+    console.log('UploadableFile: ', ev, this.uploadRequest);
+
     if (!ev || ev.target !== this.uploadRequest || !this.uploadRequest) {
       return;
     }

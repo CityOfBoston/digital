@@ -164,6 +164,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
     registryDbFactory = services[0] as any;
 
+    // eslint-disable-next-line no-console
+    console.log(
+      'SERVER start > registryDbFactory|services: ',
+      registryDbFactory,
+      services
+    );
+
     return async () => {
       await Promise.all([
         registryDbFactory.cleanup(),

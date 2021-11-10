@@ -656,11 +656,28 @@ export default class RegistryDb {
 
     const { recordset } = resp;
 
+    // eslint-disable-next-line no-console
+    console.log('RegistryDb::searchDeathCertificate::recordset ', recordset);
+
     if (!recordset) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'RegistryDb > searchDeathCertificates > !recordset: ',
+        recordset
+      );
       throw new Error('Recordset for search came back empty');
     }
 
     return recordset;
+
+    // try {
+    // } catch (error) {
+    //   // eslint-disable-next-line no-console
+    //   console.log(
+    //     'RegistryDb > searchDeatchCertificates > trycatch error > : ',
+    //     error
+    //   );
+    // }
   }
 
   async lookupDeathCertificate(id: string): Promise<DeathCertificate | null> {
@@ -1264,13 +1281,28 @@ export default class RegistryDb {
 
     const result = out.recordset[0];
 
+    // eslint-disable-next-line no-console
+    console.log('RegistryDb > uploadFileAttachment > out > : ', out);
+
     if (!result || out.returnValue !== 0) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'RegistryDb > uploadFileAttachment > result | out : ',
+        out,
+        result
+      );
+
       throw new Error(
         `Did not get a successful result from SqlServer: ${out.returnValue}`
       );
     }
 
     if (result.ErrorMessage) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'RegistryDb > uploadFileAttachment > errorMessage > : ',
+        result.ErrorMessage
+      );
       throw new Error(result.ErrorMessage);
     }
 
