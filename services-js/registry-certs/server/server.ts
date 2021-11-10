@@ -178,7 +178,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     // );
 
     // eslint-disable-next-line no-console
-    console.log('SERVER start > registryDbFactory|services: ', services);
+    // console.log('SERVER start > registryDbFactory|services: ', services);
 
     return async () => {
       await Promise.all([

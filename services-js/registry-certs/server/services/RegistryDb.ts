@@ -1407,12 +1407,10 @@ export async function makeRegistryDbFactory(
   rollbar: Rollbar,
   connectionOptions: DatabaseConnectionOptions
 ): Promise<RegistryDbFactory> {
-  const pool = await createConnectionPool(connectionOptions, err =>
-    rollbar.error(err)
-  ).catch((err: any) => {
-    // eslint-disable-next-line no-console
-    console.log('ConnectionPool Error: ', err);
-  });
+  const pool = await createConnectionPool(
+    connectionOptions,
+    (err: Rollbar.LogArgument) => rollbar.error(err)
+  );
   return new RegistryDbFactory(pool);
 }
 
