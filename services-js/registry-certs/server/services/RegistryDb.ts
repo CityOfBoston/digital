@@ -1258,6 +1258,9 @@ export default class RegistryDb {
   ): Promise<string> {
     const { filename, headers, payload } = file;
 
+    // eslint-disable-next-line no-console
+    console.log('RegistryDb > uploadFileAttachment > START');
+
     const out: IProcedureResult<{
       AttachmentKey: number;
       ErrorMessage: string;
@@ -1279,10 +1282,14 @@ export default class RegistryDb {
           : 'Commerce.sp_AddMarriageRequestAttachment'
       );
 
+    // eslint-disable-next-line no-console
+    console.log('RegistryDb > uploadFileAttachment > after record QRY');
     const result = out.recordset[0];
 
     // eslint-disable-next-line no-console
     console.log('RegistryDb > uploadFileAttachment > out > : ', out);
+    // eslint-disable-next-line no-console
+    console.log('RegistryDb::uploadFileAttachment::result ', result);
 
     if (!result || out.returnValue !== 0) {
       // eslint-disable-next-line no-console

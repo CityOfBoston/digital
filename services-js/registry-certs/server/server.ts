@@ -391,8 +391,12 @@ export async function makeServer({ rollbar }: ServerArgs) {
       if (!uploadSessionId) {
         throw Boom.badData('No uploadSessionId provided');
       }
+      // eslint-disable-next-line no-console
+      console.log('Server::/upload:: before registryDbFactory.registryDb()');
 
       const db = registryDbFactory.registryDb();
+      // eslint-disable-next-line no-console
+      console.log('Server::/upload:: after registryDbFactory.registryDb()');
 
       const attachmentKey = await db.uploadFileAttachment(
         type as any,
