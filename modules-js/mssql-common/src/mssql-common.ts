@@ -9,6 +9,7 @@ export interface DatabaseConnectionOptions {
   domain?: string;
   database: string;
   encryption?: boolean;
+  multiSubnetFailover?: boolean;
 }
 
 export async function createConnectionPool(
@@ -19,10 +20,13 @@ export async function createConnectionPool(
     domain,
     database,
     encryption,
+    multiSubnetFailover,
   }: DatabaseConnectionOptions,
   errorCb: (err: Error) => any
 ): Promise<ConnectionPool> {
   const encryptVal = typeof encryption === 'boolean' ? encryption : true;
+  const multiSubnetFailoverVal =
+    typeof multiSubnetFailover === 'boolean' ? multiSubnetFailover : false;
   const opts: ConnectionPoolConfig = {
     user: username,
     password,
@@ -35,6 +39,8 @@ export async function createConnectionPool(
     },
     options: {
       encrypt: encryptVal,
+      // @ts-ignore
+      multiSubnetFailover: multiSubnetFailoverVal,
     },
   };
 
