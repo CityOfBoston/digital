@@ -154,6 +154,10 @@ export async function makeServer({ rollbar }: ServerArgs) {
   let registryDbFactory: RegistryDbFactory;
 
   const startup = async () => {
+    console.log(
+      'SERVER > startup! registryDbFactoryOpts',
+      registryDbFactoryOpts
+    );
     const services = await Promise.all([
       registryDbFactoryOpts.server
         ? makeRegistryDbFactory(rollbar, registryDbFactoryOpts)
@@ -166,8 +170,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
 
     // eslint-disable-next-line no-console
     console.log(
-      'SERVER start > registryDbFactory | services: ',
-      services[0].registryDb
+      'SERVER start > registryDbFactory | pool: ',
+      registryDbFactory.getPool(),
+      '---------------'
     );
 
     // eslint-disable-next-line no-console

@@ -1394,6 +1394,10 @@ export class RegistryDbFactory {
     this.pool = pool;
   }
 
+  getPool(): any {
+    return this.pool;
+  }
+
   registryDb() {
     return new RegistryDb(this.pool);
   }
@@ -1429,6 +1433,10 @@ export async function makeFixtureRegistryDbFactory(
 
     cleanup() {
       return Promise.resolve(null);
+    },
+
+    getPool() {
+      return {};
     },
   };
 }
