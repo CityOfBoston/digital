@@ -113,6 +113,17 @@ export async function makeServer({ rollbar }: ServerArgs) {
     ? `https://${process.env.ASSET_HOST}/registry-certs`
     : undefined;
 
+  const encryption =
+    process.env.ENCRYPT_DB_CONNECTION &&
+    typeof process.env.ENCRYPT_DB_CONNECTION === 'boolean'
+      ? process.env.ENCRYPT_DB_CONNECTION
+      : true;
+
+  const multiSubnetFailover =
+    process.env.USE_MULTISUBNETFAILOVER &&
+    typeof process.env.USE_MULTISUBNETFAILOVER === 'boolean'
+      ? process.env.USE_MULTISUBNETFAILOVER
+      : true;
   // These env variables are named "DATA" for historical reasons.
   const registryDbFactoryOpts: DatabaseConnectionOptions = {
     username: process.env.REGISTRY_DATA_DB_USER!,
@@ -120,8 +131,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
     domain: process.env.REGISTRY_DATA_DB_DOMAIN,
     server: process.env.REGISTRY_DATA_DB_SERVER!,
     database: process.env.REGISTRY_DATA_DB_DATABASE!,
-    encryption: true,
-    multiSubnetFailover: true,
+    encryption,
+    multiSubnetFailover,
   };
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');
