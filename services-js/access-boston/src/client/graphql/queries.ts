@@ -3,9 +3,11 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 // ====================================================
 // GraphQL mutation operation: AddMfaDevice
 // ====================================================
+
 
 export interface AddMfaDevice_addMfaDevice {
   sessionId: string | null;
@@ -27,9 +29,11 @@ export interface AddMfaDeviceVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 // ====================================================
 // GraphQL mutation operation: ChangePassword
 // ====================================================
+
 
 export interface ChangePassword_changePassword {
   caseId: string | null;
@@ -53,9 +57,11 @@ export interface ChangePasswordVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 // ====================================================
 // GraphQL query operation: FetchAccountAndApps
 // ====================================================
+
 
 export interface FetchAccountAndApps_account {
   employeeId: string;
@@ -99,9 +105,11 @@ export interface FetchAccountAndApps {
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 // ====================================================
 // GraphQL query operation: FetchAccount
 // ====================================================
+
 
 export interface FetchAccount_account {
   employeeId: string;
@@ -125,9 +133,11 @@ export interface FetchAccount {
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 // ====================================================
 // GraphQL mutation operation: ResetPassword
 // ====================================================
+
 
 export interface ResetPassword_resetPassword {
   caseId: string | null;
@@ -151,9 +161,11 @@ export interface ResetPasswordVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 // ====================================================
 // GraphQL mutation operation: VerifyMfaDevice
 // ====================================================
+
 
 export interface VerifyMfaDevice_verifyMfaDevice {
   success: boolean;
@@ -174,9 +186,11 @@ export interface VerifyMfaDeviceVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
 
 export enum MfaError {
   ALREADY_REGISTERED = "ALREADY_REGISTERED",
@@ -201,3 +215,4 @@ export enum WorkflowStatus {
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
+
