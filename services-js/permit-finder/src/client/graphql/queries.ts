@@ -3,9 +3,11 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 // ====================================================
 // GraphQL query operation: LoadPermit
 // ====================================================
+
 
 export interface LoadPermit_permit_milestones {
   milestoneName: string;
@@ -43,9 +45,11 @@ export interface LoadPermitVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
 
 export enum PermitKind {
   BUILDING = "BUILDING",
@@ -55,3 +59,4 @@ export enum PermitKind {
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
+
