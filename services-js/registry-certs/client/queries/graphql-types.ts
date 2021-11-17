@@ -3,11 +3,9 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL mutation operation: DeleteBirthCertificateUploadedFile
 // ====================================================
-
 
 export interface DeleteBirthCertificateUploadedFile_deleteUpload {
   message: string | null;
@@ -28,11 +26,9 @@ export interface DeleteBirthCertificateUploadedFileVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL mutation operation: DeleteMarriageCertificateUploadedFile
 // ====================================================
-
 
 export interface DeleteMarriageCertificateUploadedFile_deleteUpload {
   message: string | null;
@@ -53,11 +49,9 @@ export interface DeleteMarriageCertificateUploadedFileVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL query operation: FetchDeathCertificates
 // ====================================================
-
 
 export interface FetchDeathCertificates_deathCertificates_certificates {
   id: string;
@@ -87,11 +81,9 @@ export interface FetchDeathCertificatesVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL query operation: LookupDeathCertificateOrder
 // ====================================================
-
 
 export interface LookupDeathCertificateOrder_deathCertificates_order_items_certificate {
   id: string;
@@ -143,11 +135,9 @@ export interface LookupDeathCertificateOrderVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL query operation: SearchDeathCertificates
 // ====================================================
-
 
 export interface SearchDeathCertificates_deathCertificates_search_results {
   id: string;
@@ -188,11 +178,9 @@ export interface SearchDeathCertificatesVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL mutation operation: SubmitBirthCertificateOrder
 // ====================================================
-
 
 export interface SubmitBirthCertificateOrder_submitBirthCertificateOrder_order {
   id: string;
@@ -240,11 +228,9 @@ export interface SubmitBirthCertificateOrderVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL mutation operation: SubmitDeathCertificateOrder
 // ====================================================
-
 
 export interface SubmitDeathCertificateOrder_submitDeathCertificateOrder_order {
   id: string;
@@ -292,11 +278,9 @@ export interface SubmitDeathCertificateOrderVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL mutation operation: SubmitMarriageCertificateOrder
 // ====================================================
-
 
 export interface SubmitMarriageCertificateOrder_submitMarriageCertificateOrder_order {
   id: string;
@@ -344,11 +328,9 @@ export interface SubmitMarriageCertificateOrderVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL mutation operation: SubmitMarriageIntentionCertificateOrder
 // ====================================================
-
 
 export interface SubmitMarriageIntentionCertificateOrder_submitMarriageIntentionCertificateOrder_order {
   id: string;
@@ -439,11 +421,9 @@ export interface SubmitMarriageIntentionCertificateOrderVariables {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
-
 
 export enum OrderErrorCause {
   INTERNAL = "INTERNAL",
@@ -488,4 +468,3 @@ export interface MarriageCertificateOrderItemInput {
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
-

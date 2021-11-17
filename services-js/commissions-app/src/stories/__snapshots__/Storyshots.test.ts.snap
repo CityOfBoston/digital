@@ -5262,33 +5262,31 @@ Array [
         dangerouslySetInnerHTML={
           Object {
             "__html": "
-  <label for=\\"brg-tr\\" class=\\"brg-b\\">
-    <div class=\\"brg\\">
-      <span class=\\"brg-c\\">
-        <span class=\\"brg-c-i\\"></span>
-      </span>
-      <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
-    </div>
-  </label>
-
-  <div class=\\"lo lo--abs\\">
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-      <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Michelle Wu</a></span>
-    </div>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
+          </div>
   </div>
-  <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\" />
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
-
-<nav class=\\"nv-h\\">
+    <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
-    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
-    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
-    <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
-    <li class=\\"tr nv-h-l-i\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
       <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
       <ul class=\\"tr-dd\\">
         <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
@@ -5306,8 +5304,7 @@ Array [
     </li>
   </ul>
 </nav>
-
-<div class=\\"h-s\\">
+    <div class=\\"h-s\\">
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
@@ -6510,33 +6507,31 @@ Array [
         dangerouslySetInnerHTML={
           Object {
             "__html": "
-  <label for=\\"brg-tr\\" class=\\"brg-b\\">
-    <div class=\\"brg\\">
-      <span class=\\"brg-c\\">
-        <span class=\\"brg-c-i\\"></span>
-      </span>
-      <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
-    </div>
-  </label>
-
-  <div class=\\"lo lo--abs\\">
+    <label for=\\"brg-tr\\" class=\\"brg-b\\">
+  <div class=\\"brg\\">
+    <span class=\\"brg-c\\">
+      <span class=\\"brg-c-i\\"></span>
+    </span>
+    <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+  </div>
+</label>
+      <div class=\\"lo lo--abs\\">
     <div class=\\"lo-l\\">
       <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
         <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
       </a>
-      <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Michelle Wu</a></span>
-    </div>
+              <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Kim Janey</a></span>
+          </div>
   </div>
-  <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\" />
+    <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\">
 </a>
-
-<nav class=\\"nv-h\\">
+    <nav class=\\"nv-h\\">
   <ul class=\\"nv-h-l\\">
-    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
-    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
-    <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
-    <li class=\\"tr nv-h-l-i\\">
+              <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+          <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+        <li class=\\"tr nv-h-l-i\\">
       <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
       <ul class=\\"tr-dd\\">
         <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
@@ -6554,8 +6549,7 @@ Array [
     </li>
   </ul>
 </nav>
-
-<div class=\\"h-s\\">
+    <div class=\\"h-s\\">
   <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
     <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
     <div class=\\"sf-i\\">
