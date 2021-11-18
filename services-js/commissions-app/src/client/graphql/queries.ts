@@ -3,11 +3,9 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 // ====================================================
 // GraphQL query operation: FetchCommissions
 // ====================================================
-
 
 export interface FetchCommissions_commissions {
   id: number;
@@ -25,13 +23,10 @@ export interface FetchCommissions {
 // @generated
 // This file was automatically generated and should not be edited.
 
-
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
 
-
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
-
