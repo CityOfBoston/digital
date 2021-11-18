@@ -28,7 +28,7 @@
     "aws-sdk": "^2.100.0",
     "cometd": "^4.0.3",
     "cometd-nodejs-client": "^1.0.2",
-    "core-js": "^2.6.4",
+    "core-js": "^3.19.1",
     "dotenv": "^5.0.0",
     "elasticsearch": "^14.0.0",
     "form-data": "^2.3.3",

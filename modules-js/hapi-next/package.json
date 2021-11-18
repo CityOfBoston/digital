@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "compression": "^1.6.2",
-    "core-js": "^2.6.4",
-    "next": "^9.0.6",
+    "core-js": "^3.19.1",
+    "next": ">=11.1.0",
     "react": "16.8.5",
     "react-dom": "16.8.5"
   },

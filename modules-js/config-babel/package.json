@@ -5,20 +5,20 @@
   "license": "CC0-1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-decorators": "^7.6.0",
-    "@babel/plugin-transform-runtime": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.6.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
     "babel-plugin-require-context-hook": "^1.0.0",
-    "next": "^9.0.6"
+    "next": ">=11.1.0"
   },
   "devDependencies": {
-    "core-js": "^2.6.4"
+    "core-js": "^3.19.1"
   },
   "peerDependencies": {
-    "core-js": "^2.6.4"
+    "core-js": "^3.19.1"
   }
 }
