@@ -17,7 +17,8 @@
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/"
-    ]
+    ],
+    "transformIgnorePatterns": ["/node_modules/(?!${esModules})"]
   },
   "dependencies": {
     "core-js": "^2.6.4"

@@ -4,8 +4,13 @@
   "description": "Presets for our babel config",
   "license": "CC0-1.0",
   "private": true,
+  "engines": {
+    "npm": ">=6.14.11",
+    "node": ">=12.21.0"
+  },
   "dependencies": {
     "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-private-methods": "^7.7.4",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/plugin-transform-runtime": "^7.6.0",
