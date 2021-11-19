@@ -1,4 +1,4 @@
-FROM node:10.24.0-alpine
+FROM node:12.21.0-alpine
 
 ENV WORKSPACE=registry-certs
 
