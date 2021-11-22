@@ -54,6 +54,6 @@
     "lerna": "^4.0.0",
     "lint-staged": "^8.1.0",
     "prettier": "^1.17.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   }
 }

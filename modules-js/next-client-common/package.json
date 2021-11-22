@@ -51,6 +51,6 @@
     "nprogress": "^0.2.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.60.1",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   }
 }

@@ -33,7 +33,7 @@
     "jest": "^24.8.0",
     "rimraf": "^2.6.2",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   },
   "peerDependencies": {
     "core-js": "^2.6.4"
