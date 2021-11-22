@@ -379,7 +379,7 @@ type RestrictedOrderType = 'BC' | 'MC' | 'MIC';
 export interface DeathCertificate {
   CertificateID: number;
   'Registered Number': string;
-  InOut: 'I' | '*' | '#';
+  InOut: 'I' | '*' | '#' | undefined | string;
   'Date of Death': string | null;
   'Decedent Name': string;
   'Last Name': string;
