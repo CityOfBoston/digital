@@ -51,6 +51,8 @@ import { AnnotatedFilePart, PACKAGE_SRC_ROOT } from './util';
 import { makeEmailTemplates } from './email/EmailTemplates';
 import { UploadPayload, UploadResponse } from '../lib/upload-types';
 
+import { toBoolean } from '../utils/helpers';
+
 type ServerArgs = {
   rollbar: Rollbar;
 };
@@ -113,8 +115,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
     ? `https://${process.env.ASSET_HOST}/registry-certs`
     : undefined;
 
-  const encryption = true;
-  const multiSubnetFailover = false;
+  const encryption = process.env.ENCRYPT_DB_CONNECTION
+    ? toBoolean(process.env.ENCRYPT_DB_CONNECTION, true).value
+    : true;
+  const multiSubnetFailover = process.env.USE_MULTISUBNETFAILOVER
+    ? toBoolean(process.env.USE_MULTISUBNETFAILOVER, false).value
+    : false;
+
   // These env variables are named "DATA" for historical reasons.
   const registryDbFactoryOpts: DatabaseConnectionOptions = {
     username: process.env.REGISTRY_DATA_DB_USER!,
@@ -122,8 +129,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
     domain: process.env.REGISTRY_DATA_DB_DOMAIN,
     server: process.env.REGISTRY_DATA_DB_SERVER!,
     database: process.env.REGISTRY_DATA_DB_DATABASE!,
-    encryption: encryption,
-    multiSubnetFailover: multiSubnetFailover,
+    encryption,
+    multiSubnetFailover,
   };
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'fake-secret-key');

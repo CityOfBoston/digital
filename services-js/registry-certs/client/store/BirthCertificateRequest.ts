@@ -47,7 +47,7 @@ export const QUESTION_STEPS: BirthStep[] = [
 ];
 
 export const VERIFY_IDENTIFICATION_STEPS: BirthStep[] = [
-  'verifyIdentification',
+  // 'verifyIdentification',
 ];
 
 export const CHECKOUT_STEPS: BirthStep[] = [
@@ -240,7 +240,7 @@ export default class BirthCertificateRequest {
     } else {
       return [
         ...QUESTION_STEPS,
-        ...(this.needsIdentityVerification ? VERIFY_IDENTIFICATION_STEPS : []),
+        // ...(this.needsIdentityVerification ? VERIFY_IDENTIFICATION_STEPS : []),
         ...CHECKOUT_STEPS,
       ];
     }
@@ -306,7 +306,7 @@ export default class BirthCertificateRequest {
       parentsLivedInBoston,
       parent1FirstName,
       parentsMarried,
-      idImageFront,
+      // idImageFront,
     } = this.requestInformation;
 
     // forWhom
@@ -330,9 +330,9 @@ export default class BirthCertificateRequest {
     }
 
     // verifyIdentification
-    if (this.needsIdentityVerification) {
-      steps.verifyIdentification = !!idImageFront;
-    }
+    // if (this.needsIdentityVerification) {
+    //   steps.verifyIdentification = !!idImageFront;
+    // }
 
     return steps;
   }
