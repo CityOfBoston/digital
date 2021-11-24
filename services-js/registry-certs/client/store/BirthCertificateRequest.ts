@@ -47,7 +47,7 @@ export const QUESTION_STEPS: BirthStep[] = [
 ];
 
 export const VERIFY_IDENTIFICATION_STEPS: BirthStep[] = [
-  'verifyIdentification',
+  // 'verifyIdentification',
 ];
 
 export const CHECKOUT_STEPS: BirthStep[] = [

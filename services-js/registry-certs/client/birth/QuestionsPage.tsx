@@ -285,6 +285,7 @@ export default class QuestionsPage extends React.Component<Props, State> {
         isStepComplete = PersonOnRecord.isComplete(
           localBirthCertificateRequest
         );
+        // isStepComplete = PersonOnRecord.isComplete();
         questionsEl = (
           <PersonOnRecord
             birthCertificateRequest={localBirthCertificateRequest}

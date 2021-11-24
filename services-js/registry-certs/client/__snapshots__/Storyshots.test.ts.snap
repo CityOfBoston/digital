@@ -8848,6 +8848,36 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           Record may have an access restriction
         </h2>
+        <div
+          style={
+            Object {
+              "borderBottomColor": "red",
+              "borderBottomStyle": "solid",
+              "borderBottomWidth": "1px",
+              "borderTopColor": "red",
+              "borderTopStyle": "solid",
+              "borderTopWidth": "1px",
+              "marginBottom": "1em",
+              "marginTop": "1em",
+              "paddingTop": "1em",
+            }
+          }
+        >
+          <h2
+            className="h3 tt-u"
+          >
+            Maintenance
+          </h2>
+          <p
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Document upload is temporarily offline. You will be required to provide documentation via email. The Registry staff will reach to you after the transactions is complete.
+          </p>
+        </div>
         <p>
           If their parents weren’t married at the time of the birth, the record is restricted and can only be requested by the people listed on the record.
         </p>
@@ -8907,7 +8937,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           onClick={[Function]}
           type="button"
         >
-          Next
+          Review request
         </button>
       </div>
     </div>
@@ -9567,6 +9597,36 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           Record may have an access restriction
         </h2>
+        <div
+          style={
+            Object {
+              "borderBottomColor": "red",
+              "borderBottomStyle": "solid",
+              "borderBottomWidth": "1px",
+              "borderTopColor": "red",
+              "borderTopStyle": "solid",
+              "borderTopWidth": "1px",
+              "marginBottom": "1em",
+              "marginTop": "1em",
+              "paddingTop": "1em",
+            }
+          }
+        >
+          <h2
+            className="h3 tt-u"
+          >
+            Maintenance
+          </h2>
+          <p
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Document upload is temporarily offline. You will be required to provide documentation via email. The Registry staff will reach to you after the transactions is complete.
+          </p>
+        </div>
         <p>
           If your parents weren’t married at the time of your birth, your record may have an access restriction.
         </p>
@@ -9624,7 +9684,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           onClick={[Function]}
           type="button"
         >
-          Next
+          Review request
         </button>
       </div>
     </div>
@@ -15722,19 +15782,19 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
             className="emotion-3"
           >
             <progress
-              aria-valuemax={9}
+              aria-valuemax={8}
               aria-valuemin={1}
-              aria-valuenow={5}
-              aria-valuetext="Step 5 of 9"
-              max={9}
-              value={4}
+              aria-valuenow={0}
+              aria-valuetext="Step 0 of 8"
+              max={8}
+              value={-1}
             >
-              Step 5 of 9
+              Step 0 of 8
             </progress>
             <span
               aria-hidden="true"
             >
-              Step 5 of 9
+              Step 0 of 8
             </span>
           </div>
           <section
@@ -79736,19 +79796,19 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
             className="emotion-3"
           >
             <progress
-              aria-valuemax={10}
+              aria-valuemax={9}
               aria-valuemin={1}
-              aria-valuenow={6}
-              aria-valuetext="Step 6 of 10"
-              max={10}
-              value={5}
+              aria-valuenow={0}
+              aria-valuetext="Step 0 of 9"
+              max={9}
+              value={-1}
             >
-              Step 6 of 10
+              Step 0 of 9
             </progress>
             <span
               aria-hidden="true"
             >
-              Step 6 of 10
+              Step 0 of 9
             </span>
           </div>
           <section

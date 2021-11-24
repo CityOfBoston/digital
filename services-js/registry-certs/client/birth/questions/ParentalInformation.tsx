@@ -65,14 +65,15 @@ export default class ParentalInformation extends Component<Props> {
       handleStepBack,
     } = this.props;
 
-    const needsVerification = birthCertificateRequest.mayBeRestricted;
+    // const needsVerification = birthCertificateRequest.mayBeRestricted;
 
     return (
       <QuestionComponent
         handleProceed={handleProceed}
         handleStepBack={handleStepBack}
         allowProceed={ParentalInformation.isComplete(birthCertificateRequest)}
-        nextButtonText={needsVerification ? 'Next' : 'Review request'}
+        // nextButtonText={needsVerification ? 'Next' : 'Review request'}
+        nextButtonText={'Review request'}
       >
         {this.renderQuestions()}
       </QuestionComponent>
@@ -186,6 +187,27 @@ export default class ParentalInformation extends Component<Props> {
     return (
       <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
         <h2 className="h3 tt-u">Record may have an access restriction</h2>
+
+        <div
+          style={{
+            paddingTop: '1em',
+            marginTop: '1em',
+            marginBottom: '1em',
+            borderTopWidth: '1px',
+            borderTopStyle: 'solid',
+            borderTopColor: 'red',
+            borderBottomWidth: '1px',
+            borderBottomStyle: 'solid',
+            borderBottomColor: 'red',
+          }}
+        >
+          <h2 className="h3 tt-u">Maintenance</h2>
+          <p style={{ fontWeight: 'bold' }}>
+            Document upload is temporarily offline. You will be required to
+            provide documentation via email. The Registry staff will reach to
+            you after the transactions is complete.
+          </p>
+        </div>
 
         {forSelf ? (
           <>

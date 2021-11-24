@@ -46,7 +46,7 @@ export const QUESTION_STEPS: MarriageStep[] = [
 ];
 
 export const VERIFY_IDENTIFICATION_STEPS: MarriageStep[] = [
-  'verifyIdentification',
+  // 'verifyIdentification',
 ];
 
 export const CHECKOUT_STEPS: MarriageStep[] = [
