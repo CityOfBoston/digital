@@ -234,7 +234,7 @@ export default class MarriageCertificateRequest {
     } else {
       return [
         ...QUESTION_STEPS,
-        ...(this.needsIdentityVerification ? VERIFY_IDENTIFICATION_STEPS : []),
+        // ...(this.needsIdentityVerification ? VERIFY_IDENTIFICATION_STEPS : []),
         ...CHECKOUT_STEPS,
       ];
     }
@@ -287,7 +287,7 @@ export default class MarriageCertificateRequest {
       fullName2,
       parentsMarried1,
       parentsMarried2,
-      idImageFront,
+      // idImageFront,
     } = this.requestInformation;
 
     // forWhom
@@ -319,9 +319,9 @@ export default class MarriageCertificateRequest {
     }
 
     // verifyIdentification
-    if (this.needsIdentityVerification) {
-      steps.verifyIdentification = !!idImageFront;
-    }
+    // if (this.needsIdentityVerification) {
+    //   steps.verifyIdentification = !!idImageFront;
+    // }
 
     return steps;
   }
