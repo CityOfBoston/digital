@@ -115,10 +115,10 @@ export async function makeServer({ rollbar }: ServerArgs) {
     ? `https://${process.env.ASSET_HOST}/registry-certs`
     : undefined;
 
-  let encryption = process.env.ENCRYPT_DB_CONNECTION
+  const encryption = process.env.ENCRYPT_DB_CONNECTION
     ? toBoolean(process.env.ENCRYPT_DB_CONNECTION, true).value
     : true;
-  let multiSubnetFailover = process.env.USE_MULTISUBNETFAILOVER
+  const multiSubnetFailover = process.env.USE_MULTISUBNETFAILOVER
     ? toBoolean(process.env.USE_MULTISUBNETFAILOVER, false).value
     : false;
 
