@@ -204,8 +204,8 @@ export default class ParentalInformation extends Component<Props> {
           <h2 className="h3 tt-u">Maintenance</h2>
           <p style={{ fontWeight: 'bold' }}>
             Document upload is temporarily offline. You will be required to
-            provide documentation via email. The Registry staff will reach to
-            you after the transactions is complete.
+            provide documentation via email. The Registry staff will reach out
+            to you after the transactions is complete.
           </p>
         </div>
 

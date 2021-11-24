@@ -242,7 +242,7 @@ export default class PersonOnRecord extends Component<Props> {
               <p style={{ fontWeight: 'bold' }}>
                 Document upload is temporarily offline. You will be required to
                 provide documentation via email. The Registry staff will reach
-                to you after the transactions is complete.
+                out to you after the transactions is complete.
               </p>
             </div>
 

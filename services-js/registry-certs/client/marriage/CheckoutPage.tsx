@@ -243,12 +243,6 @@ export default class MarriageCheckoutPage extends React.Component<
 
     // This happens during server side rendering
     if (!order || !marriageCertificateRequest.questionStepsComplete) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'marriageCertificateRequest.questionStepsComplete: ',
-        marriageCertificateRequest.questionStepsComplete,
-        !order
-      );
       return (
         <CheckoutPageLayout certificateType="marriage">
           {order && !marriageCertificateRequest.questionStepsComplete && (
