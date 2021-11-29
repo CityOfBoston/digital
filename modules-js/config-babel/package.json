@@ -5,8 +5,8 @@
   "license": "CC0-1.0",
   "private": true,
   "engines": {
-    "npm": ">=6.14.11",
-    "node": ">=12.21.0"
+    "npm": ">=6.14.15",
+    "node": ">=12.22.7"
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
