@@ -676,7 +676,7 @@ export default class RegistryDb {
     const keyStrings = splitKeys(MAX_ID_LOOKUP_LENGTH, keys);
 
     const idToOutputMap: {
-      [key: string]: DeathCertificate | null | Error;
+      [key: string]: DeathCertificate | null | Error | unknown;
     } = {};
 
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(

@@ -107,17 +107,17 @@ export default class ReviewContent extends React.Component<Props, State> {
 
       if (err instanceof SubmissionError) {
         this.setState({
-          submissionError: err.message,
+          submissionError: (err as SubmissionError).message,
           submissionErrorIsForPayment:
-            err.cause === OrderErrorCause.USER_PAYMENT,
+            (err as any).cause === OrderErrorCause.USER_PAYMENT,
         });
       } else {
         let errorMsg: string = 'An unknown error occurred';
-        if (err.message) {
-          if (err.message.toLocaleLowerCase().includes('stripe')) {
+        if ((err as Error).message) {
+          if ((err as Error).message.toLocaleLowerCase().includes('stripe')) {
             errorMsg = 'An error occured with our connection.';
           } else {
-            errorMsg = err.message;
+            errorMsg = (err as Error).message;
           }
         }
 

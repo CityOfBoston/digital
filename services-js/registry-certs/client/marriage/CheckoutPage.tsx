@@ -115,7 +115,7 @@ export default class MarriageCheckoutPage extends React.Component<
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
 
-    await new Promise(resolve => this.setState({ order }, resolve));
+    await new Promise((resolve: any) => this.setState({ order }, resolve));
   }
 
   advanceToPayment = async (shippingInfo: Partial<OrderInfo>) => {

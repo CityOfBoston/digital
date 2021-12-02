@@ -400,11 +400,11 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       );
     } catch (e) {
       // These are user errors due to bad submissions (e.g. wrong CVV code)
-      if (e.type === 'StripeCardError') {
+      if ((e as any).type === 'StripeCardError') {
         return {
           order: null,
           error: {
-            message: e.message,
+            message: (e as Error).message,
             cause: OrderErrorCause.USER_PAYMENT,
           },
         };
@@ -684,11 +684,11 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       );
     } catch (e) {
       // These are user errors due to bad submissions (e.g. wrong CVV code)
-      if (e.type === 'StripeCardError') {
+      if ((e as any).type === 'StripeCardError') {
         return {
           order: null,
           error: {
-            message: e.message,
+            message: (e as Error).message,
             cause: OrderErrorCause.USER_PAYMENT,
           },
         };
@@ -813,11 +813,11 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       );
     } catch (e) {
       // These are user errors due to bad submissions (e.g. wrong CVV code)
-      if (e.type === 'StripeCardError') {
+      if ((e as any).type === 'StripeCardError') {
         return {
           order: null,
           error: {
-            message: e.message,
+            message: (e as Error).message,
             cause: OrderErrorCause.USER_PAYMENT,
           },
         };
@@ -845,9 +845,9 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         error: null,
       };
     } catch (e) {
-      rollbar.error(e);
+      rollbar.error(e as any);
 
-      switch (e.code) {
+      switch ((e as any).code) {
         case 'charge_expired_for_capture':
           return {
             success: false,
@@ -872,7 +872,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
             success: false,
             error: {
               code: ChargeOrderErrorCode.UNKNOWN,
-              message: e.message || e.toString(),
+              message: (e as any).message || (e as any).toString(),
             },
           };
       }
@@ -911,9 +911,9 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
         error: null,
       };
     } catch (e) {
-      rollbar.error(e);
+      rollbar.error(e as any);
 
-      switch (e.code) {
+      switch ((e as any).code) {
         case 'resource_missing':
           return {
             success: false,
@@ -928,7 +928,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
             success: false,
             error: {
               code: ChargeOrderErrorCode.UNKNOWN,
-              message: e.message || e.toString(),
+              message: (e as any).message || (e as any).toString(),
             },
           };
       }
@@ -1184,7 +1184,7 @@ async function makeStripeCharge(
       console.log('CANCEL ORDER FAILED');
       // Let Rollbar know, but still fail the mutation with the original
       // error.
-      rollbar.error(e);
+      rollbar.error(e as any);
     }
 
     throw e;

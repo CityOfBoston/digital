@@ -229,7 +229,9 @@ export default class PaymentContent extends React.Component<Props, State> {
         this.valuesFromFormik(values)
       );
     } catch (e) {
-      this.setState({ tokenizationError: e.message || 'An unknown error' });
+      this.setState({
+        tokenizationError: (e as Error).message || 'An unknown error',
+      });
     }
   };
 

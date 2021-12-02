@@ -340,7 +340,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
         );
         return '';
       } catch (e) {
-        rollbar.error(e, request.raw.req);
+        rollbar.error(e as any, request.raw.req);
         throw e;
       }
     },
