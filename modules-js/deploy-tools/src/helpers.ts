@@ -610,7 +610,7 @@ export async function uploadToS3(
     const noCacheRules = await readFile('.nocache', 'utf-8');
     noCache.add(noCacheRules);
   } catch (e) {
-    if (e.code !== 'ENOENT') {
+    if ((e as any).code !== 'ENOENT') {
       throw e;
     }
   }
@@ -685,7 +685,7 @@ export async function downloadFromS3(bucket: string, keyPrefix: string) {
         try {
           await mkdir(localPath);
         } catch (err) {
-          if (err.code !== 'EEXIST') {
+          if ((err as any).code !== 'EEXIST') {
             throw err;
           }
         }
