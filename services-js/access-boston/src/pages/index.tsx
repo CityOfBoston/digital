@@ -126,6 +126,11 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
+                <div css={APP_ALERT_MSG}>
+                  <div className="notice">NOTICE: </div>
+                  Beacon, the new HR self-service portal, is now live! Look for
+                  the lighthouse icon below.
+                </div>
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (
@@ -245,5 +250,18 @@ const APP_IMAGE_STYLE = css({
 
   [MEDIA_LARGE_MAX]: {
     maxHeight: 84,
+  },
+});
+
+const APP_ALERT_MSG = css({
+  fontSize: '18px',
+  paddingBottom: '1.25em',
+  span: {
+    fontSize: '20px',
+    fontFamily: 'Montserrat',
+    paddingRight: '0.25em',
+    color: 'red',
+    fontWeight: 'bold',
+    marginBottom: '0.5em',
   },
 });
