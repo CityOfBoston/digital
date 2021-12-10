@@ -4,10 +4,6 @@
   "description": "Presets for our babel config",
   "license": "CC0-1.0",
   "private": true,
-  "engines": {
-    "npm": ">=6.14.15",
-    "node": ">=12.22.7"
-  },
   "dependencies": {
     "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-private-methods": "^7.7.4",
