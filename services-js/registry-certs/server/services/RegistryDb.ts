@@ -1241,10 +1241,7 @@ export default class RegistryDb {
   ): Promise<string> {
     const { filename, headers, payload } = file;
 
-    const out: IProcedureResult<{
-      AttachmentKey: number;
-      ErrorMessage: string;
-    }> = await this.pool
+    const out: any = await this.pool
       .request()
       .input('sessionUID', uploadSessionId)
       .input(
@@ -1256,7 +1253,7 @@ export default class RegistryDb {
       .input('fileName', filename)
       .input('label', label)
       .input('attachmentData', payload)
-      .execute(
+      .batch(
         orderType === 'BC'
           ? 'Commerce.sp_AddBirthRequestAttachment'
           : 'Commerce.sp_AddMarriageRequestAttachment'

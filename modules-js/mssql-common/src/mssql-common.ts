@@ -32,6 +32,7 @@ export async function createConnectionPool(
     password,
     server,
     database,
+    stream: true,
     pool: {
       min: 0,
       // Keeps the acquisition from looping forever if there's a failure.
