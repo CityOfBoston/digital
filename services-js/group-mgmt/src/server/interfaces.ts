@@ -105,7 +105,7 @@ export class SearchOptionsClass implements SearchOptions {
   pagesize: Number = 10;
 
   constructor(opts: {
-    base?: String;
+    base?: any;
     scope?: Number;
     filter?: String;
     attrs?: String;
