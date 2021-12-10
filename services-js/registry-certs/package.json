@@ -149,6 +149,6 @@
     "rimraf": "^2.6.2",
     "ts-node": "^6.0.5",
     "tsc-watch": "^1.0.26",
-    "typescript": "^4.3.4"
+    "typescript": "^4.4.2"
   }
 }
