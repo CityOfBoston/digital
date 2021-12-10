@@ -17,9 +17,9 @@
     "next": ">=11.1.0"
   },
   "devDependencies": {
-    "core-js": "^3.6.4"
+    "core-js": "^3.19.3"
   },
   "peerDependencies": {
-    "core-js": "^3.6.4"
+    "core-js": "^3.19.3"
   }
 }

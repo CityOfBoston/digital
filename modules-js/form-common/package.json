@@ -24,7 +24,7 @@
     "testPathIgnorePatterns": ["<rootDir>/build/", "<rootDir>/node_modules/"]
   },
   "dependencies": {
-    "core-js": "^3.6.4"
+    "core-js": "^3.19.3"
   },
   "peerDependencies": {
     "@babel/runtime": "^7.6.0",
