@@ -6761,6 +6761,27 @@ exports[`Storyshots IndexPage change password success 1`] = `
         >
           <a
             className="m-t200 g--3 g--3--sl lwi"
+            href="https://cibostondev.service-now.com/cob"
+            id="app-icon-Beacon"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/lighthouse.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Beacon
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
             href="https://ess.boston.gov/"
             id="app-icon-Employee Self-Service"
             target="_blank"
@@ -7093,6 +7114,27 @@ exports[`Storyshots IndexPage change password success 1`] = `
               className="lwi-t"
             >
               E-Builder
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://sso-test.boston.gov/idp/startSSO.ping?PartnerSpId=https%3A%2F%2Fcibostontest.service-now.com"
+            id="app-icon-ServiceNow - Lightkeeper"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/ship_wheel.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              ServiceNow - Lightkeeper
             </span>
           </a>
         </div>
@@ -7727,6 +7769,27 @@ exports[`Storyshots IndexPage default 1`] = `
         >
           <a
             className="m-t200 g--3 g--3--sl lwi"
+            href="https://cibostondev.service-now.com/cob"
+            id="app-icon-Beacon"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/lighthouse.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Beacon
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
             href="https://ess.boston.gov/"
             id="app-icon-Employee Self-Service"
             target="_blank"
@@ -8059,6 +8122,27 @@ exports[`Storyshots IndexPage default 1`] = `
               className="lwi-t"
             >
               E-Builder
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://sso-test.boston.gov/idp/startSSO.ping?PartnerSpId=https%3A%2F%2Fcibostontest.service-now.com"
+            id="app-icon-ServiceNow - Lightkeeper"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/ship_wheel.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              ServiceNow - Lightkeeper
             </span>
           </a>
         </div>
@@ -8747,6 +8831,27 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
         >
           <a
             className="m-t200 g--3 g--3--sl lwi"
+            href="https://cibostondev.service-now.com/cob"
+            id="app-icon-Beacon"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/lighthouse.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Beacon
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
             href="https://ess.boston.gov/"
             id="app-icon-Employee Self-Service"
             target="_blank"
@@ -9079,6 +9184,27 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
               className="lwi-t"
             >
               E-Builder
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://sso-test.boston.gov/idp/startSSO.ping?PartnerSpId=https%3A%2F%2Fcibostontest.service-now.com"
+            id="app-icon-ServiceNow - Lightkeeper"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/ship_wheel.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              ServiceNow - Lightkeeper
             </span>
           </a>
         </div>
