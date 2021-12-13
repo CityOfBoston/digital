@@ -112,3 +112,4 @@ We also need to generate keys.
 - 2021.09.20: PROD deploy - Hyperion, update app URL
 - 2021.10.29: PROD deploy - V3 tile
 - 2021.11.23: PROD deploy - Update IIQ URL
+- 2021.12.13: PROD deploy - Beacon tile and ServiceNow Rebranding
