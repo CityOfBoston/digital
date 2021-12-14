@@ -6737,14 +6737,18 @@ exports[`Storyshots IndexPage change password success 1`] = `
         className="m-b500"
       >
         <div
-          className="css-7vt55w"
+          className="css-1rggak7"
         >
-          <div
+          <label
             className="notice"
           >
             NOTICE: 
-          </div>
-          Beacon, the new HR self-service portal, is now live! Look for the lighthouse icon below.
+          </label>
+          <span>
+            Beacon, the new HR self-service portal, is now live!
+          </span>
+           
+          Look for the lighthouse icon below.
         </div>
         <div
           className="sh m-b300 "
@@ -7745,14 +7749,18 @@ exports[`Storyshots IndexPage default 1`] = `
         className="m-b500"
       >
         <div
-          className="css-7vt55w"
+          className="css-1rggak7"
         >
-          <div
+          <label
             className="notice"
           >
             NOTICE: 
-          </div>
-          Beacon, the new HR self-service portal, is now live! Look for the lighthouse icon below.
+          </label>
+          <span>
+            Beacon, the new HR self-service portal, is now live!
+          </span>
+           
+          Look for the lighthouse icon below.
         </div>
         <div
           className="sh m-b300 "
@@ -8807,14 +8815,18 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
         className="m-b500"
       >
         <div
-          className="css-7vt55w"
+          className="css-1rggak7"
         >
-          <div
+          <label
             className="notice"
           >
             NOTICE: 
-          </div>
-          Beacon, the new HR self-service portal, is now live! Look for the lighthouse icon below.
+          </label>
+          <span>
+            Beacon, the new HR self-service portal, is now live!
+          </span>
+           
+          Look for the lighthouse icon below.
         </div>
         <div
           className="sh m-b300 "

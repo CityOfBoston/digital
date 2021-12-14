@@ -127,9 +127,11 @@ export default class IndexPage extends React.Component<Props> {
                 aria-labelledby={SectionHeader.makeId(title)}
               >
                 <div css={APP_ALERT_MSG}>
-                  <div className="notice">NOTICE: </div>
-                  Beacon, the new HR self-service portal, is now live! Look for
-                  the lighthouse icon below.
+                  <label className="notice">NOTICE: </label>
+                  <span>
+                    Beacon, the new HR self-service portal, is now live!
+                  </span>{' '}
+                  Look for the lighthouse icon below.
                 </div>
                 <SectionHeader title={title} />
 
@@ -256,12 +258,16 @@ const APP_IMAGE_STYLE = css({
 const APP_ALERT_MSG = css({
   fontSize: '18px',
   paddingBottom: '1.25em',
-  span: {
+  lineHeight: '1.25em',
+  label: {
     fontSize: '20px',
     fontFamily: 'Montserrat',
     paddingRight: '0.25em',
     color: 'red',
     fontWeight: 'bold',
     marginBottom: '0.5em',
+  },
+  span: {
+    fontWeight: 'bold',
   },
 });
