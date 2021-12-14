@@ -7,6 +7,7 @@ import { makeAppsRegistry } from '../lib/AppsRegistry';
 
 // @ts-ignore
 import APPS_YAML from '../../fixtures/apps.yaml';
+import { NoticeClass } from '../lib/AppsRegistry';
 
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
@@ -34,7 +35,12 @@ const APPS: Apps = {
 
 storiesOf('IndexPage', module)
   .add('default', () => (
-    <IndexPage account={ACCOUNT} apps={APPS} daysUntilMfa={null} />
+    <IndexPage
+      account={ACCOUNT}
+      apps={APPS}
+      daysUntilMfa={null}
+      notice={new NoticeClass({})}
+    />
   ))
   .add('change password success', () => (
     <IndexPage
@@ -42,6 +48,7 @@ storiesOf('IndexPage', module)
       apps={APPS}
       flashMessage={FlashMessage.CHANGE_PASSWORD_SUCCESS}
       daysUntilMfa={null}
+      notice={new NoticeClass({})}
     />
   ))
   .add('hasn’t registered MFA', () => (
@@ -52,5 +59,6 @@ storiesOf('IndexPage', module)
       }}
       apps={APPS}
       daysUntilMfa={28}
+      notice={new NoticeClass({})}
     />
   ));

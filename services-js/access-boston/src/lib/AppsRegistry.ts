@@ -1,5 +1,11 @@
 import yaml from 'js-yaml';
 
+export interface Notice {
+  label: string;
+  pretext: string;
+  text: string;
+}
+
 export interface AppsCategory {
   title: string;
   showRequestAccessLink: boolean;
@@ -20,6 +26,30 @@ export interface App {
   target: string;
 }
 
+export class NoticeClass implements Notice {
+  label: string = '';
+  pretext: string = '';
+  text: string = '';
+
+  constructor(opts: { label?: any; pretext?: any; text?: any }) {
+    (this.label = opts.label ? opts.label : ''),
+      (this.pretext = opts.pretext ? opts.pretext : ''),
+      (this.text = opts.text ? opts.text : '');
+  }
+}
+
+// export class ResponseClass implements Response {
+//   message: string = '';
+//   code: string = '200';
+//   body: any;
+
+//   constructor(opts: { message?: any; code?: any; body?: any }) {
+//     (this.message = opts.message ? opts.message : '200 Ok'),
+//       (this.code = opts.code ? opts.code : '200'),
+//       (this.body = opts.body ? opts.body : { error: '', data: '' });
+//   }
+// }
+
 /**
  * This class is in lib rather than server just so we can use it in Storybook
  * stories. It doesn’t actually get used by the client app.
@@ -27,14 +57,18 @@ export interface App {
 export default class AppsRegistry {
   showAll: boolean;
   allCategories: AppsCategory[];
+  noticeMsg: Notice[];
 
   constructor(appsYaml: any, showAll = false) {
     this.showAll = showAll;
     const yamlCategories = appsYaml.categories;
+    const yamlNotice = appsYaml.notice;
 
     if (!yamlCategories || !Array.isArray(yamlCategories)) {
       throw new Error('Missing categories array');
     }
+
+    this.noticeMsg = yamlNotice ? yamlNotice : new NoticeClass({});
 
     this.allCategories = yamlCategories.map(c => {
       const { title, apps: yamlApps, show_request_access_link, icons } = c;
@@ -93,6 +127,10 @@ export default class AppsRegistry {
         icons: !!icons,
       };
     });
+  }
+
+  appsForNotice(): Notice[] {
+    return this.noticeMsg;
   }
 
   appsForGroups(

@@ -70,6 +70,12 @@ export interface FetchAccountAndApps_account {
   email: string;
 }
 
+export interface FetchAccountAndApps_notice {
+  label: string;
+  pretext: string;
+  text: string;
+}
+
 export interface FetchAccountAndApps_apps_categories_apps {
   title: string;
   url: string;
@@ -91,6 +97,7 @@ export interface FetchAccountAndApps_apps {
 
 export interface FetchAccountAndApps {
   account: FetchAccountAndApps_account;
+  notice: FetchAccountAndApps_notice;
   apps: FetchAccountAndApps_apps;
 }
 

@@ -27,6 +27,8 @@ import { requireRegistration } from '../client/auth-helpers';
 
 import AppWrapper from '../client/common/AppWrapper';
 
+import { Notice } from '../server/graphql/schema';
+
 export enum FlashMessage {
   CHANGE_PASSWORD_SUCCESS = 'password',
 }
@@ -40,6 +42,7 @@ interface Props {
   apps: Apps;
   flashMessage?: FlashMessage;
   daysUntilMfa: number | null;
+  notice: Notice;
 }
 
 export default class IndexPage extends React.Component<Props> {
@@ -47,7 +50,7 @@ export default class IndexPage extends React.Component<Props> {
     { query },
     { fetchGraphql }: GetInitialPropsDependencies
   ): Promise<Props> => {
-    const { account, apps } = await fetchAccountAndApps(fetchGraphql);
+    const { account, apps, notice } = await fetchAccountAndApps(fetchGraphql);
 
     requireRegistration(account);
 
@@ -61,6 +64,7 @@ export default class IndexPage extends React.Component<Props> {
       daysUntilMfa,
       account,
       apps,
+      notice,
     };
   };
 
@@ -70,9 +74,14 @@ export default class IndexPage extends React.Component<Props> {
       flashMessage,
       apps: { categories },
       daysUntilMfa,
+      notice,
     } = this.props;
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
+    const noticeLabel =
+      notice.text.length > 0 && notice.label.length > 0
+        ? notice.label
+        : 'Notice';
 
     return (
       <>
@@ -126,13 +135,15 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
-                <div css={APP_ALERT_MSG}>
-                  <label className="notice">NOTICE: </label>
-                  <span>
-                    Beacon, the new HR self-service portal, is now live!
-                  </span>{' '}
-                  Look for the lighthouse icon below.
-                </div>
+                {notice.text.length > 0 && (
+                  <div css={APP_ALERT_MSG}>
+                    {notice.label.length > 0 && (
+                      <label className="notice">{noticeLabel}: </label>
+                    )}
+                    {notice.pretext.length > 0 && <span>{notice.pretext}</span>}
+                    {notice.text}
+                  </div>
+                )}
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (
