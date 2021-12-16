@@ -140,7 +140,9 @@ export default class IndexPage extends React.Component<Props> {
                     {notice.label.length > 0 && (
                       <label className="notice">{noticeLabel}: </label>
                     )}
-                    {notice.pretext.length > 0 && <span>{notice.pretext}</span>}
+                    {notice.pretext.length > 0 && (
+                      <span>{notice.pretext} </span>
+                    )}
                     {notice.text}
                   </div>
                 )}
@@ -277,6 +279,7 @@ const APP_ALERT_MSG = css({
     color: 'red',
     fontWeight: 'bold',
     marginBottom: '0.5em',
+    textTransform: 'uppercase',
   },
   span: {
     fontWeight: 'bold',
