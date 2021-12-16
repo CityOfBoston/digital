@@ -38,18 +38,6 @@ export class NoticeClass implements Notice {
   }
 }
 
-// export class ResponseClass implements Response {
-//   message: string = '';
-//   code: string = '200';
-//   body: any;
-
-//   constructor(opts: { message?: any; code?: any; body?: any }) {
-//     (this.message = opts.message ? opts.message : '200 Ok'),
-//       (this.code = opts.code ? opts.code : '200'),
-//       (this.body = opts.body ? opts.body : { error: '', data: '' });
-//   }
-// }
-
 /**
  * This class is in lib rather than server just so we can use it in Storybook
  * stories. It doesn’t actually get used by the client app.
