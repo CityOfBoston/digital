@@ -58,11 +58,20 @@ export default class MyDocument extends Document<Props> {
 
   render() {
     const { userAgent, rollbarAccessToken, rollbarEnvironment } = this.props;
+    const noFollow = !process.env.NOFOLLOW
+      ? false
+      : process.env.NOFOLLOW === 'true';
+    const noIndex = !process.env.NOINDEX
+      ? false
+      : process.env.NOINDEX === 'true';
 
     return (
       <html lang="en-US">
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+
+          {noFollow && <meta name="robots" content="nofollow" />}
+          {noIndex && <meta name="robots" content="noindex" />}
 
           {process.env.GTM_CONTAINER_ID && (
             <script
