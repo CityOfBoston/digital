@@ -133,6 +133,9 @@ export async function makeServer(port, rollbar: Rollbar) {
       ? await pingIdFromProperties(PINGID_PROPERTIES_FILE)
       : (new PingIdFake() as any);
 
+  console.log('getUserDetails: ', await pingId.getUserDetails('CON1234'));
+  console.log('HEYYYYY');
+
   await server.register(acceptLanguagePlugin);
   await server.register(Inert);
   await server.register(Crumb);

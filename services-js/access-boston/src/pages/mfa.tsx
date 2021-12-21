@@ -69,6 +69,8 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
     // We need to do this up top because if the forgot password succeeds on a
     // POST it torches the session.
     const account = await fetchAccount(fetchGraphql);
+    // eslint-disable-next-line no-console
+    console.log('account', account);
 
     if (account.hasMfaDevice) {
       throw new RedirectError('/');

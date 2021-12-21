@@ -47,6 +47,8 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
   }
 
   const pingUser = await pingId.getUserDetails(userId);
+  // eslint-disable-next-line no-console
+  console.log('pingUser: ', pingUser);
 
   if (!pingUser) {
     await pingId.addUser({
