@@ -12436,6 +12436,11 @@ generic-pool@^3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-3.4.2.tgz#92ff7196520d670839a67308092a12aadf2f6a59"
 
+generic-pool@^3.6, generic-pool@^3.7.1:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-3.8.2.tgz#aab4f280adb522fdfbdc5e5b64d718d3683f04e9"
+  integrity sha512-nGToKy6p3PAbYQ7p1UlWl6vSPwfwU6TMSWK7TTu+WUY4ZjyZQGniGGt2oNVvyNSpyZYSB43zMXVLcBm08MTMkg==
+
 get-caller-file@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
@@ -18433,13 +18438,31 @@ ms@2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-mssql@4.2.1, mssql@^4.2.1:
+mssql@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/mssql/-/mssql-4.3.1.tgz#e21e8d41c34a9fe6fe26c3b01d019ae9b6e563c5"
+  integrity sha512-Us9eorAgcL1/5V6TCOAU+pr1zN0iIfO/tRKhMa5VhcaQiiMUOicp7bSigyS6I+IOTy7Yn57lVTxkyiGd+vnuNw==
+  dependencies:
+    debug "^3.2.6"
+    generic-pool "^3.6"
+    tedious "^2.7.1"
+
+mssql@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/mssql/-/mssql-4.2.1.tgz#c7133247e912d71185b09d3c2bae0f19345fcde6"
   dependencies:
     debug "^3.1.0"
     generic-pool "^3.4.2"
     tedious "^2.6.4"
+
+mssql@^4.3.1:
+  version "4.3.9"
+  resolved "https://registry.yarnpkg.com/mssql/-/mssql-4.3.9.tgz#e84713909d5c404d261df67173639294bacb26d2"
+  integrity sha512-Qy/ewvlCHIJ13bPXTXaP7ZTskWMB0gwcYUtVedt7HvEAbRneYfggUe5mbRc/e9I12mdvepGKAXfm1bn20X4S8g==
+  dependencies:
+    debug "^3.2.6"
+    generic-pool "^3.7.1"
+    tedious "^2.7.1"
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
@@ -24693,7 +24716,7 @@ teamwork@3.x.x:
   resolved "https://registry.yarnpkg.com/teamwork/-/teamwork-3.2.0.tgz#27916edab815459c1a4686252eb18fb5925f49fa"
   integrity sha512-xAmJ8PIVjRZMXAHgUuOP8ITsv0SedyWAit2UWiNImXgg/F+BxrsG46ZegElNBM0Dwp+iMfbigg/Ll/M2oDRYww==
 
-tedious@^2.6.4:
+tedious@^2.6.4, tedious@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/tedious/-/tedious-2.7.1.tgz#5308edebdd33767ca67b36fc71b2ab9c54675278"
   integrity sha512-u3ciATGm5byim91b3+c3MVTvY1zKjDmhUhnBQZXKymT2Vb9w322dziPQY6MhBNyBEcNONPsAMR+7/Uub7NYABQ==
