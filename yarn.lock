@@ -4460,10 +4460,10 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@types/mssql@^4.0.16":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@types/mssql/-/mssql-4.3.1.tgz#dbca4a0b1ff4d4a96a33a4408b0ce88d63da4039"
-  integrity sha512-LB+fDgwAbcvGfFCWN89gqZgyTIbEmnLW4RzVZeiaDSZJwL8xv8Rei2zM/5E62eW9G0UoY/4fHDXxTNRnCdlJRg==
+"@types/mssql@^6.0.8":
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/@types/mssql/-/mssql-6.0.8.tgz#f2831267c4c577022d1584943b371af87e8a147d"
+  integrity sha512-N3dr3o1c6EXhHhhNRaKpLTdAoXT/s6qDEJET5FID2gFCj58vIV9q/7RtkvYdE6ntpkJF5F9hpURhxT/oC62yLw==
   dependencies:
     "@types/node" "*"
     "@types/tedious" "*"
