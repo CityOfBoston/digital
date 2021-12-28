@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@rmp135/sql-ts": "^1.1.0",
-    "mssql": "^5.1.0"
+    "mssql": "^6.2.0"
   },
   "devDependencies": {
     "@cityofboston/config-typescript": "^0.0.0",
