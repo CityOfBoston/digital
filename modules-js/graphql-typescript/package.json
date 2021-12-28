@@ -21,7 +21,7 @@
     "transformIgnorePatterns": ["/node_modules/(?!${esModules})"]
   },
   "dependencies": {
-    "core-js": "^3.19.3"
+    "core-js": "^3.20.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
@@ -36,6 +36,6 @@
     "typescript": "^4.4.2"
   },
   "peerDependencies": {
-    "core-js": "^3.19.3"
+    "core-js": "^3.20.1"
   }
 }
