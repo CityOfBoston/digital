@@ -29,7 +29,7 @@
     ]
   },
   "dependencies": {
-    "core-js": "^3.20.1"
+    "core-js": "^3.19.3"
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.10",
