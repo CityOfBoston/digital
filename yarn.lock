@@ -18617,7 +18617,7 @@ mssql@^4.2.1:
     generic-pool "^3.4.2"
     tedious "^2.6.4"
 
-mssql@^6.2.1:
+mssql@^6.3.1:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/mssql/-/mssql-6.4.0.tgz#d347015b1c589f4220e387a5f0aff3f22d77b9d1"
   integrity sha512-Mtgu3PXqoaL7aHCMurttvEHibjvz5XKjlR6ZCDyAeKtDBORpxm88JyzEU2EESVf7588GulYKc7Gr+Txf5CICBQ==
