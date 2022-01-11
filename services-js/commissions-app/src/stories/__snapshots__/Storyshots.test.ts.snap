@@ -18,7 +18,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
     <p
       className="t--s400 lh--400"
     >
-      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions's enabling legislation. If you have any questions, email
        
       <a
         href="mailto:boardsandcommissions@boston.gov"
@@ -921,80 +921,17 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         </h2>
       </div>
       <p
-        className="m-b400"
+        className="m-b400 t--intro"
       >
-        Files must be PDFs and under 5MB each in size.
+        If you have a cover letter or resume you'd like to submit with your application, please email those in a pdf format to
+         
+        <a
+          href="mailto:boardsandcomissions@boston.gov?subject=Boards and Commissions application submission"
+        >
+          boardsandcommissions@boston.gov
+        </a>
+        .
       </p>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-coverLetter"
-          name="coverLetter"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-coverLetter"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Cover Letter
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-resume"
-          name="resume"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-resume"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Resumé
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
     </section>
     <hr
       aria-hidden={true}
@@ -1034,7 +971,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
     <p
       className="t--s400 lh--400"
     >
-      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions's enabling legislation. If you have any questions, email
        
       <a
         href="mailto:boardsandcommissions@boston.gov"
@@ -1937,80 +1874,17 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         </h2>
       </div>
       <p
-        className="m-b400"
+        className="m-b400 t--intro"
       >
-        Files must be PDFs and under 5MB each in size.
+        If you have a cover letter or resume you'd like to submit with your application, please email those in a pdf format to
+         
+        <a
+          href="mailto:boardsandcomissions@boston.gov?subject=Boards and Commissions application submission"
+        >
+          boardsandcommissions@boston.gov
+        </a>
+        .
       </p>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-coverLetter"
-          name="coverLetter"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-coverLetter"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Cover Letter
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-resume"
-          name="resume"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-resume"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Resumé
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
     </section>
     <hr
       aria-hidden={true}
@@ -2050,7 +1924,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
     <p
       className="t--s400 lh--400"
     >
-      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions's enabling legislation. If you have any questions, email
        
       <a
         href="mailto:boardsandcommissions@boston.gov"
@@ -2988,80 +2862,17 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         </h2>
       </div>
       <p
-        className="m-b400"
+        className="m-b400 t--intro"
       >
-        Files must be PDFs and under 5MB each in size.
+        If you have a cover letter or resume you'd like to submit with your application, please email those in a pdf format to
+         
+        <a
+          href="mailto:boardsandcomissions@boston.gov?subject=Gwen Stacy Boards and Commissions application submission"
+        >
+          boardsandcommissions@boston.gov
+        </a>
+        .
       </p>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-coverLetter"
-          name="coverLetter"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-coverLetter"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Cover Letter
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-resume"
-          name="resume"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-resume"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Resumé
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
     </section>
     <hr
       aria-hidden={true}
@@ -3101,7 +2912,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
     <p
       className="t--s400 lh--400"
     >
-      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions's enabling legislation. If you have any questions, email
        
       <a
         href="mailto:boardsandcommissions@boston.gov"
@@ -4004,80 +3815,17 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         </h2>
       </div>
       <p
-        className="m-b400"
+        className="m-b400 t--intro"
       >
-        Files must be PDFs and under 5MB each in size.
+        If you have a cover letter or resume you'd like to submit with your application, please email those in a pdf format to
+         
+        <a
+          href="mailto:boardsandcomissions@boston.gov?subject=Boards and Commissions application submission"
+        >
+          boardsandcommissions@boston.gov
+        </a>
+        .
       </p>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-coverLetter"
-          name="coverLetter"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-coverLetter"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Cover Letter
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-resume"
-          name="resume"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-resume"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Resumé
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
     </section>
     <hr
       aria-hidden={true}
@@ -4158,7 +3906,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
     <p
       className="t--s400 lh--400"
     >
-      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+      Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions's enabling legislation. If you have any questions, email
        
       <a
         href="mailto:boardsandcommissions@boston.gov"
@@ -5061,80 +4809,17 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         </h2>
       </div>
       <p
-        className="m-b400"
+        className="m-b400 t--intro"
       >
-        Files must be PDFs and under 5MB each in size.
+        If you have a cover letter or resume you'd like to submit with your application, please email those in a pdf format to
+         
+        <a
+          href="mailto:boardsandcomissions@boston.gov?subject=Boards and Commissions application submission"
+        >
+          boardsandcommissions@boston.gov
+        </a>
+        .
       </p>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-coverLetter"
-          name="coverLetter"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-coverLetter"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Cover Letter
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
-      <div
-        className="txt m-b300 css-60uf05"
-      >
-        <input
-          accept="application/pdf"
-          className="css-1dv1kvn"
-          id="FileInput-resume"
-          name="resume"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          type="file"
-        />
-        <label
-          className="btn btn--sm btn--100 css-0"
-          htmlFor="FileInput-resume"
-          style={
-            Object {
-              "fontWeight": "bold",
-              "whiteSpace": "nowrap",
-            }
-          }
-        >
-          Choose 
-          Resumé
-           file
-        </label>
-        <div
-          className="css-y0g14a"
-        >
-          <span>
-            No file selected
-          </span>
-        </div>
-      </div>
     </section>
     <hr
       aria-hidden={true}
@@ -5169,7 +4854,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           <div
             className="t--info m-t300"
           >
-            Please be patient and don’t refresh your browser. This might take a bit.
+            Please be patient and don't refresh your browser. This might take a bit.
           </div>
         </div>
       </div>
@@ -5351,7 +5036,7 @@ Array [
               <p
                 className="t--s400 lh--400"
               >
-                Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions’s enabling legislation. If you have any questions, email
+                Please note that many of these Boards and Commissions require City of Boston residency as well as specific qualifications for members. Please familiarize yourself with each board or commissions's enabling legislation. If you have any questions, email
                  
                 <a
                   href="mailto:boardsandcommissions@boston.gov"
@@ -6279,80 +5964,17 @@ Array [
                   </h2>
                 </div>
                 <p
-                  className="m-b400"
+                  className="m-b400 t--intro"
                 >
-                  Files must be PDFs and under 5MB each in size.
+                  If you have a cover letter or resume you'd like to submit with your application, please email those in a pdf format to
+                   
+                  <a
+                    href="mailto:boardsandcomissions@boston.gov?subject=Boards and Commissions application submission"
+                  >
+                    boardsandcommissions@boston.gov
+                  </a>
+                  .
                 </p>
-                <div
-                  className="txt m-b300 css-60uf05"
-                >
-                  <input
-                    accept="application/pdf"
-                    className="css-1dv1kvn"
-                    id="FileInput-coverLetter"
-                    name="coverLetter"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    type="file"
-                  />
-                  <label
-                    className="btn btn--sm btn--100 css-0"
-                    htmlFor="FileInput-coverLetter"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                        "whiteSpace": "nowrap",
-                      }
-                    }
-                  >
-                    Choose 
-                    Cover Letter
-                     file
-                  </label>
-                  <div
-                    className="css-y0g14a"
-                  >
-                    <span>
-                      No file selected
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className="txt m-b300 css-60uf05"
-                >
-                  <input
-                    accept="application/pdf"
-                    className="css-1dv1kvn"
-                    id="FileInput-resume"
-                    name="resume"
-                    onBlur={[Function]}
-                    onChange={[Function]}
-                    onFocus={[Function]}
-                    type="file"
-                  />
-                  <label
-                    className="btn btn--sm btn--100 css-0"
-                    htmlFor="FileInput-resume"
-                    style={
-                      Object {
-                        "fontWeight": "bold",
-                        "whiteSpace": "nowrap",
-                      }
-                    }
-                  >
-                    Choose 
-                    Resumé
-                     file
-                  </label>
-                  <div
-                    className="css-y0g14a"
-                  >
-                    <span>
-                      No file selected
-                    </span>
-                  </div>
-                </div>
               </section>
               <hr
                 aria-hidden={true}

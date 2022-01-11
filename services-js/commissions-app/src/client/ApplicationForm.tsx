@@ -7,7 +7,7 @@ import { ApplyFormValues } from '../lib/validationSchema';
 import { Commission } from './graphql/fetch-commissions';
 
 import {
-  FileInput,
+  // FileInput,
   SectionHeader,
   Textarea,
   TextInput,
@@ -92,6 +92,14 @@ export default function ApplicationForm(props: Props): JSX.Element {
     />
   );
 
+  const { firstName, lastName } = props.values;
+  const defaultSubject = 'Boards and Commissions application submission';
+  let mailSubject =
+    firstName && firstName.length > 0 && lastName && lastName.length > 0
+      ? `${firstName} ${lastName} ${defaultSubject}`
+      : `${defaultSubject}`;
+  let mailtoStr = `mailto:boardsandcomissions@boston.gov?subject=${mailSubject}`;
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -105,7 +113,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
       <p className={PARAGRAPH_STYLING}>
         Please note that many of these Boards and Commissions require City of
         Boston residency as well as specific qualifications for members. Please
-        familiarize yourself with each board or commissions’s enabling
+        familiarize yourself with each board or commissions's enabling
         legislation. If you have any questions, email{' '}
         <a href="mailto:boardsandcommissions@boston.gov">
           boardsandcommissions@boston.gov
@@ -163,9 +171,13 @@ export default function ApplicationForm(props: Props): JSX.Element {
       <section aria-labelledby={SectionHeader.makeId('Reference Information')}>
         <SectionHeader title="Reference Information" />
 
-        <p className="m-b400">Files must be PDFs and under 5MB each in size.</p>
+        <p className="m-b400 t--intro">
+          If you have a cover letter or resume you'd like to submit with your
+          application, please email those in a pdf format to{' '}
+          <a href={mailtoStr}>boardsandcommissions@boston.gov</a>.
+        </p>
 
-        <FileInput
+        {/* <FileInput
           name="coverLetter"
           title="Cover Letter"
           fileTypes={['application/pdf']}
@@ -179,7 +191,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
           fileTypes={['application/pdf']}
           sizeLimit={{ amount: 5, unit: 'MB' }}
           handleChange={setFieldValue}
-        />
+        /> */}
       </section>
 
       <hr className="hr hr--sq" aria-hidden style={{ marginTop: '3rem' }} />
@@ -195,7 +207,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
       {isSubmitting && (
         <StatusModal message="Submitting application…" waiting>
           <div className="t--info m-t300">
-            Please be patient and don’t refresh your browser. This might take a
+            Please be patient and don't refresh your browser. This might take a
             bit.
           </div>
         </StatusModal>

@@ -131,8 +131,8 @@ export default class ApplyPage extends React.Component<Props, State> {
       degreeAttained: '',
       educationalInstitution: '',
       otherInformation: '',
-      coverLetter: null,
-      resume: null,
+      // coverLetter: null,
+      // resume: null,
     };
 
     return (
