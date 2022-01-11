@@ -18582,7 +18582,7 @@ mssql@^4.2.1:
     generic-pool "^3.4.2"
     tedious "^2.6.4"
 
-mssql@^4.3.1:
+mssql@^4.3.7:
   version "4.3.9"
   resolved "https://registry.yarnpkg.com/mssql/-/mssql-4.3.9.tgz#e84713909d5c404d261df67173639294bacb26d2"
   integrity sha512-Qy/ewvlCHIJ13bPXTXaP7ZTskWMB0gwcYUtVedt7HvEAbRneYfggUe5mbRc/e9I12mdvepGKAXfm1bn20X4S8g==
