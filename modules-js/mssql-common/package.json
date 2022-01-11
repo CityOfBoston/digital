@@ -21,14 +21,14 @@
   },
   "dependencies": {
     "core-js": "^3.19.3",
-    "mssql": "^6.3.1"
+    "mssql": "^4.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@cityofboston/config-babel": "^0.0.0",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/jest": "24.x.x",
-    "@types/mssql": "^6.0.8",
+    "@types/mssql": "^4.0.10",
     "@types/node": "^8.0.0",
     "jest": "^24.8.0",
     "rimraf": "^2.6.2",
