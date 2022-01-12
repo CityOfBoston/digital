@@ -6,6 +6,7 @@ import {
 
 export type Account = FetchAccountAndApps['account'];
 export type Apps = FetchAccountAndApps['apps'];
+export type Notice = FetchAccountAndApps['notice'];
 export type CategoryApps = Array<FetchAccountAndApps_apps_categories_apps>;
 
 const QUERY = gql`
@@ -21,6 +22,12 @@ const QUERY = gql`
       mfaRequiredDate
       groups
       email
+    }
+
+    notice {
+      label
+      pretext
+      text
     }
 
     apps {

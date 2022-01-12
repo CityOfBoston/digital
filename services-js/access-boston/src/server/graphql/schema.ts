@@ -42,6 +42,7 @@ export interface Schema {
 }
 
 export interface Query {
+  notice: Notice;
   account: Account;
   apps: Apps;
   workflow(args: { caseId: string }): Workflow;
@@ -110,6 +111,12 @@ export interface App {
   target: string | null;
 }
 
+export interface Notice {
+  label: string;
+  pretext: string;
+  text: string;
+}
+
 // This file is built by the "generate-graphql-schema" script from
 // the above interfaces.
 const schemaGraphql = fs.readFileSync(
@@ -128,6 +135,16 @@ export type QueryRootResolvers = Resolvers<Query, Context>;
 export type MutationResolvers = Resolvers<Mutation, Context>;
 
 const queryRootResolvers: QueryRootResolvers = {
+  notice: (_root, _arg, { appsRegistry }) => {
+    const notice = appsRegistry.appsForNotice();
+
+    return {
+      label: notice['label'],
+      pretext: notice['pretext'],
+      text: notice['text'],
+    };
+  },
+
   account: (_root, _args, { session }) => {
     const { loginAuth, forgotPasswordAuth, loginSession } = session;
 
