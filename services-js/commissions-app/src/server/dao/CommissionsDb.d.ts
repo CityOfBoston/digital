@@ -176,10 +176,10 @@ export interface ApplicantsEntity {
   DegreeAttained?: string | null 
   Institution?: string | null 
   Education?: string | null 
-  CoverLetter?: string | null 
-  Resume?: string | null 
-  CoverLetterImg?: any | null 
-  ResumeImg?: any | null 
+  // CoverLetter?: string | null 
+  // Resume?: string | null 
+  // CoverLetterImg?: any | null 
+  // ResumeImg?: any | null 
   Comments?: string | null 
   Ethnicity?: string | null 
   AddDtTm: Date 

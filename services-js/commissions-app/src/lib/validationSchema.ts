@@ -17,8 +17,8 @@ export interface ApplyFormValues {
   degreeAttained: string;
   educationalInstitution: string;
   otherInformation: string;
-  coverLetter: File | Buffer | null;
-  resume: File | Buffer | null;
+  // coverLetter: File | Buffer | null;
+  // resume: File | Buffer | null;
 }
 
 // TODO(finh): These "max" values come from the database. We should enforce them
@@ -76,6 +76,6 @@ export const applyFormSchema = Yup.object<ApplyFormValues>({
   degreeAttained: Yup.string().max(100),
   otherInformation: Yup.string().max(1000),
   educationalInstitution: Yup.string().max(100),
-  coverLetter: Yup.mixed(),
-  resume: Yup.mixed(),
+  // coverLetter: Yup.mixed(),
+  // resume: Yup.mixed(),
 });

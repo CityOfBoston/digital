@@ -49,8 +49,8 @@ const DEFAULT_PROPS: Props = {
     degreeAttained: '',
     educationalInstitution: '',
     otherInformation: '',
-    coverLetter: null,
-    resume: null,
+    // coverLetter: null,
+    // resume: null,
   },
   errors: {},
   touched: {},
@@ -97,8 +97,8 @@ storiesOf('ApplicationForm', module)
         degreeAttained: 'High School',
         educationalInstitution: 'Midtown High School',
         otherInformation: 'I have spider powers.',
-        coverLetter: {} as any,
-        resume: {} as any,
+        // coverLetter: {} as any,
+        // resume: {} as any,
       }}
     />
   ))
