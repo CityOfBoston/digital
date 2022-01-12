@@ -10093,7 +10093,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
                 <input
                   className="txt-f"
                   id="dob-year"
-                  max={2021}
+                  max={2022}
                   maxLength={4}
                   min={1870}
                   name="year"
@@ -10587,7 +10587,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
                 <input
                   className="txt-f"
                   id="dob-year"
-                  max={2021}
+                  max={2022}
                   maxLength={4}
                   min={1870}
                   name="year"
@@ -14114,7 +14114,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                         <input
                           className="txt-f"
                           id="dob-year"
-                          max={2021}
+                          max={2022}
                           maxLength={4}
                           min={1870}
                           name="year"
@@ -39110,7 +39110,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
             <input
               className="year-field txt-f "
               id="date1year"
-              max={2021}
+              max={2022}
               min={1870}
               onBlur={[Function]}
               onChange={[Function]}
@@ -39169,7 +39169,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
             <input
               className="year-field txt-f "
               id="date2year"
-              max={2021}
+              max={2022}
               min={1870}
               onBlur={[Function]}
               onChange={[Function]}
@@ -39323,7 +39323,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
             <input
               className="year-field txt-f "
               id="date1year"
-              max={2021}
+              max={2022}
               min={1870}
               onBlur={[Function]}
               onChange={[Function]}
@@ -39382,7 +39382,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
             <input
               className="year-field txt-f "
               id="date2year"
-              max={2021}
+              max={2022}
               min={1870}
               onBlur={[Function]}
               onChange={[Function]}
@@ -39536,7 +39536,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
             <input
               className="year-field txt-f "
               id="date1year"
-              max={2021}
+              max={2022}
               min={1870}
               onBlur={[Function]}
               onChange={[Function]}
@@ -39595,7 +39595,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
             <input
               className="year-field txt-f "
               id="date2year"
-              max={2021}
+              max={2022}
               min={1870}
               onBlur={[Function]}
               onChange={[Function]}
@@ -39699,7 +39699,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent default 1`] 
           <input
             className="year-field txt-f "
             id="date1year"
-            max={2021}
+            max={2022}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -39802,7 +39802,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent with values 
           <input
             className="year-field txt-f "
             id="date2year"
-            max={2021}
+            max={2022}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -67306,7 +67306,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
                 <input
                   className="year-field txt-f "
                   id="date1year"
-                  max={2021}
+                  max={2022}
                   min={1870}
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -67365,7 +67365,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
                 <input
                   className="year-field txt-f "
                   id="date2year"
-                  max={2021}
+                  max={2022}
                   min={1870}
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -68284,7 +68284,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage knows exact date
                 <input
                   className="txt-f"
                   id="dateOfMarriageStart-year"
-                  max={2021}
+                  max={2022}
                   maxLength={4}
                   min={1870}
                   name="year"
@@ -68822,7 +68822,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
                 <input
                   className="txt-f"
                   id="dateOfMarriageStart-year"
-                  max={2021}
+                  max={2022}
                   maxLength={4}
                   min={1870}
                   name="year"
@@ -69375,7 +69375,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
                 <input
                   className="year-field txt-f "
                   id="date1year"
-                  max={2021}
+                  max={2022}
                   min={1870}
                   onBlur={[Function]}
                   onChange={[Function]}
@@ -69434,7 +69434,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
                 <input
                   className="year-field txt-f "
                   id="date2year"
-                  max={2021}
+                  max={2022}
                   min={1870}
                   onBlur={[Function]}
                   onChange={[Function]}
