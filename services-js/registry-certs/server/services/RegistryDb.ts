@@ -1239,7 +1239,7 @@ export default class RegistryDb {
     label: string | null,
     file: AnnotatedFilePart
   ): Promise<string> {
-    const { filename, headers, payload } = file;
+    const { filename, /* headers, */ payload } = file;
 
     const uploadStoreProcedure =
       orderType === 'BC'
