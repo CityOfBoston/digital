@@ -1259,7 +1259,7 @@ export default class RegistryDb {
 
     // eslint-disable-next-line no-console
     console.log(
-      'RegistryDb > uploadFileAttachment > uploadStoreProcedure: ',
+      'RegistryDb > uploadFileAttachment > mimetype: ',
       mime.lookup(filename)
     );
 
