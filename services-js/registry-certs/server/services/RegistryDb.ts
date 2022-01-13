@@ -1251,17 +1251,17 @@ export default class RegistryDb {
       uploadStoreProcedure
     );
 
-    // eslint-disable-next-line no-console
-    console.log(
-      `RegistryDb > uploadFileAttachment > headers['content-type']: `,
-      headers['content-type']
-    );
+    // // eslint-disable-next-line no-console
+    // console.log(
+    //   `RegistryDb > uploadFileAttachment > headers['content-type']: `,
+    //   headers['content-type']
+    // );
 
-    // eslint-disable-next-line no-console
-    console.log(
-      'RegistryDb > uploadFileAttachment > mimetype: ',
-      mime.lookup(filename)
-    );
+    // // eslint-disable-next-line no-console
+    // console.log(
+    //   'RegistryDb > uploadFileAttachment > mimetype: ',
+    //   mime.lookup(filename)
+    // );
 
     try {
       const out: any = await this.pool
