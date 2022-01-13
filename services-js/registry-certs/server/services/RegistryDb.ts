@@ -1241,37 +1241,56 @@ export default class RegistryDb {
   ): Promise<string> {
     const { filename, headers, payload } = file;
 
-    const out: any = await this.pool
-      .request()
-      .input('sessionUID', uploadSessionId)
-      .input(
-        'contentType',
-        headers['content-type'] ||
-          mime.lookup(filename) ||
-          'application/octet-stream'
-      )
-      .input('fileName', filename)
-      .input('label', label)
-      .input('attachmentData', payload)
-      .batch(
-        orderType === 'BC'
-          ? 'Commerce.sp_AddBirthRequestAttachment'
-          : 'Commerce.sp_AddMarriageRequestAttachment'
+    const uploadStoreProcedure =
+      orderType === 'BC'
+        ? 'Commerce.sp_AddBirthRequestAttachment'
+        : 'Commerce.sp_AddMarriageRequestAttachment';
+    // eslint-disable-next-line no-console
+    console.log(
+      'RegistryDb > uploadFileAttachment > uploadStoreProcedure: ',
+      uploadStoreProcedure
+    );
+
+    try {
+      const out: any = await this.pool
+        .request()
+        .input('sessionUID', uploadSessionId)
+        .input(
+          'contentType',
+          headers['content-type'] ||
+            mime.lookup(filename) ||
+            'application/octet-stream'
+        )
+        .input('fileName', filename)
+        .input('label', label)
+        .input('attachmentData', payload)
+        .execute(uploadStoreProcedure);
+
+      const result = out.recordset[0];
+
+      if (!result || out.returnValue !== 0) {
+        throw new Error(
+          `Did not get a successful result from SqlServer: ${out.returnValue}`
+        );
+      }
+
+      if (result.ErrorMessage) {
+        throw new Error(result.ErrorMessage);
+      }
+
+      return result.AttachmentKey.toString();
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'RegistryDb > uploadFileAttachment > uploadStoreProcedure: ',
+        uploadStoreProcedure
       );
 
-    const result = out.recordset[0];
+      // eslint-disable-next-line no-console
+      console.log('RegistryDb > uploadFileAttachment > error (out): ', error);
 
-    if (!result || out.returnValue !== 0) {
-      throw new Error(
-        `Did not get a successful result from SqlServer: ${out.returnValue}`
-      );
+      return 'error completing sql command';
     }
-
-    if (result.ErrorMessage) {
-      throw new Error(result.ErrorMessage);
-    }
-
-    return result.AttachmentKey.toString();
   }
 
   /**
