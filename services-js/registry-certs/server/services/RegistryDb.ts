@@ -1257,17 +1257,20 @@ export default class RegistryDb {
     //   headers['content-type']
     // );
 
-    // // eslint-disable-next-line no-console
-    // console.log(
-    //   'RegistryDb > uploadFileAttachment > mimetype: ',
-    //   mime.lookup(filename)
-    // );
+    // eslint-disable-next-line no-console
+    console.log(
+      'RegistryDb > uploadFileAttachment > mimetype: ',
+      mime.lookup(filename)
+    );
 
     try {
       const out: any = await this.pool
         .request()
         .input('sessionUID', uploadSessionId)
-        .input('contentType', 'application/octet-stream')
+        .input(
+          'contentType',
+          mime.lookup(filename) || 'application/octet-stream'
+        )
         .input('fileName', filename)
         .input('label', label)
         .input('attachmentData', payload)
