@@ -1267,10 +1267,7 @@ export default class RegistryDb {
       const out: any = await this.pool
         .request()
         .input('sessionUID', uploadSessionId)
-        .input(
-          'contentType',
-          mime.lookup(filename) || 'application/octet-stream'
-        )
+        .input('contentType', 'application/octet-stream')
         .input('fileName', filename)
         .input('label', label)
         .input('attachmentData', payload)
