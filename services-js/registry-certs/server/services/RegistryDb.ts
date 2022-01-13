@@ -4,7 +4,7 @@ import { promisify } from 'util';
 import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
 import { ConnectionPool, IProcedureResult } from 'mssql';
-// import mime from 'mime-types';
+import mime from 'mime-types';
 
 import {
   DatabaseConnectionOptions,
@@ -1258,16 +1258,20 @@ export default class RegistryDb {
     // );
 
     // eslint-disable-next-line no-console
-    // console.log(
-    //   'RegistryDb > uploadFileAttachment > mimetype: ',
-    //   mime.lookup(filename)
-    // );
+    console.log(
+      'RegistryDb > uploadFileAttachment > mimetype: ',
+      mime.lookup(filename)
+    );
 
     try {
+      const ctype = mime.lookup(filename);
       const out: any = await this.pool
         .request()
         .input('sessionUID', uploadSessionId)
-        // .input('contentType', 'application/octet-stream')
+        .input(
+          'contentType',
+          ctype && ctype !== false ? ctype : 'application/octet-stream'
+        )
         .input('fileName', filename)
         .input('label', label)
         .input('attachmentData', payload)
