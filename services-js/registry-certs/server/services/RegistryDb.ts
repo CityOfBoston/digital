@@ -1251,16 +1251,23 @@ export default class RegistryDb {
       uploadStoreProcedure
     );
 
+    // eslint-disable-next-line no-console
+    console.log(
+      `RegistryDb > uploadFileAttachment > headers['content-type']: `,
+      headers['content-type']
+    );
+
+    // eslint-disable-next-line no-console
+    console.log(
+      'RegistryDb > uploadFileAttachment > uploadStoreProcedure: ',
+      mime.lookup(filename)
+    );
+
     try {
       const out: any = await this.pool
         .request()
         .input('sessionUID', uploadSessionId)
-        .input(
-          'contentType',
-          headers['content-type'] ||
-            mime.lookup(filename) ||
-            'application/octet-stream'
-        )
+        .input('contentType', 'application/octet-stream')
         .input('fileName', filename)
         .input('label', label)
         .input('attachmentData', payload)
