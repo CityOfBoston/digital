@@ -1264,6 +1264,15 @@ export default class RegistryDb {
     );
 
     try {
+      // eslint-disable-next-line no-console
+      console.log('file: ', file);
+      // eslint-disable-next-line no-console
+      console.log('file.headers: ', file.headers);
+      // eslint-disable-next-line no-console
+      console.log('filename: ', typeof filename, filename);
+      // eslint-disable-next-line no-console
+      console.log('mime.lookup: ', mime.lookup(filename));
+
       const ctype = mime.lookup(filename);
       const contentType =
         ctype && ctype !== false ? ctype : 'application/octet-stream';
@@ -1275,7 +1284,9 @@ export default class RegistryDb {
         typeof contentType
       );
       // eslint-disable-next-line no-console
-      console.log('typeof payload: ', typeof payload);
+      console.log('typeof payload(attachmentData): ', typeof payload);
+      // eslint-disable-next-line no-console
+      console.log('payload(attachmentData): ', payload);
 
       const out: any = await this.pool
         .request()
