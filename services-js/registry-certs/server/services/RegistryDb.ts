@@ -1265,13 +1265,22 @@ export default class RegistryDb {
 
     try {
       const ctype = mime.lookup(filename);
+      const contentType =
+        ctype && ctype !== false ? ctype : 'application/octet-stream';
+
+      // eslint-disable-next-line no-console
+      console.log(
+        'RegistryDb > uploadFileAttachment > contentType (typeof): ',
+        contentType,
+        typeof contentType
+      );
+      // eslint-disable-next-line no-console
+      console.log('typeof payload: ', typeof payload);
+
       const out: any = await this.pool
         .request()
         .input('sessionUID', uploadSessionId)
-        .input(
-          'contentType',
-          ctype && ctype !== false ? ctype : 'application/octet-stream'
-        )
+        .input('contentType', contentType)
         .input('fileName', filename)
         .input('label', label)
         .input('attachmentData', payload)
