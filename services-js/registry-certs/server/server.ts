@@ -351,6 +351,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
     path: '/upload',
     options: {
       payload: {
+        output: 'stream',
         parse: true,
         allow: 'multipart/form-data',
         maxBytes: 10 * 1024 * 1024,
@@ -358,9 +359,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: 30000,
         // multipart: false,
-        // multipart: {
-        //   output: 'annotated',
-        // },
+        multipart: {
+          output: 'annotated',
+        },
       },
     },
     handler: async (req): Promise<UploadResponse> => {
@@ -370,6 +371,8 @@ export async function makeServer({ rollbar }: ServerArgs) {
         label,
         uploadSessionId,
       }: UploadPayload<AnnotatedFilePart> = req.payload as any;
+
+      // console.log('req: ', typeof req, req);
 
       if (type === 'DC') {
         throw Boom.badData(
@@ -382,13 +385,15 @@ export async function makeServer({ rollbar }: ServerArgs) {
       }
 
       // eslint-disable-next-line no-console
-      console.log('/upload > req.payload: ', req.payload);
+      // console.log('/upload > req.payload: ', req.payload);
       // eslint-disable-next-line no-console
-      console.log('/upload > file: ', typeof file, file);
+      console.log('/upload > file: ', typeof file, '\n', file);
       // eslint-disable-next-line no-console
       console.log('/upload > label: ', label);
       // eslint-disable-next-line no-console
       console.log('/upload > type: ', type);
+      // eslint-disable-next-line no-console
+      console.log('/upload > file.filename: ', file.filename);
 
       const db = registryDbFactory.registryDb();
 
@@ -397,6 +402,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
         uploadSessionId,
         label || null,
         file
+        // file.hapi.headers['content-type']
       );
 
       return {

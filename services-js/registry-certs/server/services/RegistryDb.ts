@@ -1294,7 +1294,7 @@ export default class RegistryDb {
         .input('contentType', 'image/jpeg')
         .input('fileName', 'temp name')
         .input('label', label)
-        .input('attachmentData', file)
+        .input('attachmentData', '')
         .execute(uploadStoreProcedure);
 
       const result = out.recordset[0];
