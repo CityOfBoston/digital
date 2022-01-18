@@ -1291,10 +1291,10 @@ export default class RegistryDb {
       const out: any = await this.pool
         .request()
         .input('sessionUID', uploadSessionId)
-        .input('contentType', contentType)
-        .input('fileName', filename)
+        .input('contentType', 'image/jpeg')
+        .input('fileName', 'temp name')
         .input('label', label)
-        .input('attachmentData', payload)
+        .input('attachmentData', file)
         .execute(uploadStoreProcedure);
 
       const result = out.recordset[0];
