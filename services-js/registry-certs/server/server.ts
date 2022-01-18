@@ -357,7 +357,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
         // We don't want to time out these uploads in particular. The socket
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: 30000,
-        multipart: false,
+        // multipart: false,
         // multipart: {
         //   output: 'annotated',
         // },
