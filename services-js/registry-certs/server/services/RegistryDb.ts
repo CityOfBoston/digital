@@ -5,6 +5,7 @@ import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
 import { ConnectionPool, IProcedureResult } from 'mssql';
 import mime from 'mime-types';
+import mssql from 'mssql';
 
 import {
   DatabaseConnectionOptions,
@@ -1294,7 +1295,8 @@ export default class RegistryDb {
         .input('contentType', 'image/jpeg')
         .input('fileName', 'temp name')
         .input('label', label)
-        .input('attachmentData', '')
+        // .input('attachmentData', payload)
+        .input('attachmentData', mssql.VarBinary(mssql.MAX), payload)
         .execute(uploadStoreProcedure);
 
       const result = out.recordset[0];
