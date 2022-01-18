@@ -387,13 +387,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
       // eslint-disable-next-line no-console
       // console.log('/upload > req.payload: ', req.payload);
       // eslint-disable-next-line no-console
-      console.log('/upload > file: ', typeof file, '\n', file);
-      // eslint-disable-next-line no-console
-      console.log('/upload > label: ', label);
-      // eslint-disable-next-line no-console
-      console.log('/upload > type: ', type);
-      // eslint-disable-next-line no-console
-      console.log('/upload > file.filename: ', file.filename);
+      // console.log('/upload > file: ', typeof file, '\n', file);
+      // // eslint-disable-next-line no-console
+      // console.log('/upload > label: ', label);
+      // // eslint-disable-next-line no-console
+      // console.log('/upload > type: ', type);
+      // // eslint-disable-next-line no-console
+      // console.log('/upload > file.filename: ', file.filename);
 
       const db = registryDbFactory.registryDb();
 

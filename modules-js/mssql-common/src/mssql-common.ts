@@ -10,6 +10,8 @@ export interface DatabaseConnectionOptions {
   database: string;
   encryption?: boolean;
   multiSubnetFailover?: boolean;
+  // dialect?: 'mssql';
+  packetSize?: number;
 }
 
 export async function createConnectionPool(
@@ -21,12 +23,14 @@ export async function createConnectionPool(
     database,
     encryption,
     multiSubnetFailover,
+    packetSize,
   }: DatabaseConnectionOptions,
   errorCb: (err: Error) => any
 ): Promise<ConnectionPool> {
   const encryptVal = typeof encryption === 'boolean' ? encryption : true;
   const multiSubnetFailoverVal =
     typeof multiSubnetFailover === 'boolean' ? multiSubnetFailover : false;
+  const packet_Size = typeof packetSize === 'number' ? packetSize : 16384;
   const opts: ConnectionPoolConfig = {
     user: username,
     password,
@@ -42,6 +46,8 @@ export async function createConnectionPool(
       encrypt: encryptVal,
       // @ts-ignore
       multiSubnetFailover: multiSubnetFailoverVal,
+      // @ts-ignore
+      packetSize: packet_Size,
     },
   };
 
