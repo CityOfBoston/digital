@@ -359,9 +359,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: 30000,
         // multipart: false,
-        multipart: {
-          output: 'annotated',
-        },
+        // multipart: {
+        //   output: 'annotated',
+        // },
       },
     },
     handler: async (req): Promise<UploadResponse> => {

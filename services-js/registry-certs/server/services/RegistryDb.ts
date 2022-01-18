@@ -1296,7 +1296,8 @@ export default class RegistryDb {
         .input('fileName', 'temp name')
         .input('label', label)
         // .input('attachmentData', payload)
-        .input('attachmentData', mssql.VarBinary(mssql.MAX), payload)
+        // .input('attachmentData', mssql.VarBinary(mssql.MAX), payload)
+        .input('attachmentData', mssql.VarBinary(mssql.MAX), file)
         .execute(uploadStoreProcedure);
 
       const result = out.recordset[0];
