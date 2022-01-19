@@ -358,7 +358,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
         // We don't want to time out these uploads in particular. The socket
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: 30000,
-        // multipart: false,
         multipart: {
           output: 'annotated',
         },
@@ -372,8 +371,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
         uploadSessionId,
       }: UploadPayload<AnnotatedFilePart> = req.payload as any;
 
-      // console.log('req: ', typeof req, req);
-
       if (type === 'DC') {
         throw Boom.badData(
           'Can only upload attachments for birth or marriage certificates'
@@ -384,17 +381,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
         throw Boom.badData('No uploadSessionId provided');
       }
 
-      // eslint-disable-next-line no-console
-      // console.log('/upload > req.payload: ', req.payload);
-      // eslint-disable-next-line no-console
-      // console.log('/upload > file: ', typeof file, '\n', file);
-      // // eslint-disable-next-line no-console
-      // console.log('/upload > label: ', label);
-      // // eslint-disable-next-line no-console
-      // console.log('/upload > type: ', type);
-      // // eslint-disable-next-line no-console
-      // console.log('/upload > file.filename: ', file.filename);
-
       const db = registryDbFactory.registryDb();
 
       const attachmentKey = await db.uploadFileAttachment(
@@ -402,7 +388,6 @@ export async function makeServer({ rollbar }: ServerArgs) {
         uploadSessionId,
         label || null,
         file
-        // file.hapi.headers['content-type']
       );
 
       return {

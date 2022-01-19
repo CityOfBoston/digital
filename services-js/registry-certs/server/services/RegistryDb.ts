@@ -1240,91 +1240,36 @@ export default class RegistryDb {
     label: string | null,
     file: AnnotatedFilePart
   ): Promise<string> {
-    const { filename, /* headers, */ payload } = file;
-
+    const { filename, headers, payload } = file;
     const uploadStoreProcedure =
       orderType === 'BC'
         ? 'Commerce.sp_AddBirthRequestAttachment'
         : 'Commerce.sp_AddMarriageRequestAttachment';
-    // eslint-disable-next-line no-console
-    console.log(
-      'RegistryDb > uploadFileAttachment > uploadStoreProcedure: ',
-      uploadStoreProcedure
-    );
+    const contentType =
+      headers['content-type'] ||
+      mime.lookup(filename) ||
+      'application/octet-stream';
+    const out: any = await this.pool
+      .request()
+      .input('sessionUID', uploadSessionId)
+      .input('contentType', contentType)
+      .input('fileName', filename)
+      .input('label', label)
+      .input('attachmentData', mssql.VarBinary(mssql.MAX), payload)
+      .execute(uploadStoreProcedure);
+    const result = out.recordset[0];
 
-    // // eslint-disable-next-line no-console
-    // console.log(
-    //   `RegistryDb > uploadFileAttachment > headers['content-type']: `,
-    //   headers['content-type']
-    // );
-
-    // eslint-disable-next-line no-console
-    console.log(
-      'RegistryDb > uploadFileAttachment > mimetype: ',
-      mime.lookup(filename)
-    );
-
-    try {
-      // eslint-disable-next-line no-console
-      console.log('file: ', file);
-      // eslint-disable-next-line no-console
-      console.log('file.headers: ', file.headers);
-      // eslint-disable-next-line no-console
-      console.log('filename: ', typeof filename, filename);
-      // eslint-disable-next-line no-console
-      console.log('mime.lookup: ', mime.lookup(filename));
-
-      const ctype = mime.lookup(filename);
-      const contentType =
-        ctype && ctype !== false ? ctype : 'application/octet-stream';
-
-      // eslint-disable-next-line no-console
-      console.log(
-        'RegistryDb > uploadFileAttachment > contentType (typeof): ',
-        contentType,
-        typeof contentType
+    if (!result || out.returnValue !== 0) {
+      throw new Error(
+        `Did not get a successful result from SqlServer: ${out.returnValue}`
       );
-      // eslint-disable-next-line no-console
-      console.log('typeof payload(attachmentData): ', typeof payload);
-      // eslint-disable-next-line no-console
-      console.log('payload(attachmentData): ', payload);
-
-      const out: any = await this.pool
-        .request()
-        .input('sessionUID', uploadSessionId)
-        .input('contentType', 'image/jpeg')
-        .input('fileName', 'temp name')
-        .input('label', label)
-        // .input('attachmentData', payload)
-        .input('attachmentData', mssql.VarBinary(mssql.MAX), payload)
-        // .input('attachmentData', mssql.VarBinary(mssql.MAX), file)
-        .execute(uploadStoreProcedure);
-
-      const result = out.recordset[0];
-
-      if (!result || out.returnValue !== 0) {
-        throw new Error(
-          `Did not get a successful result from SqlServer: ${out.returnValue}`
-        );
-      }
-
-      if (result.ErrorMessage) {
-        throw new Error(result.ErrorMessage);
-      }
-
-      return result.AttachmentKey.toString();
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'RegistryDb > uploadFileAttachment > uploadStoreProcedure: ',
-        uploadStoreProcedure
-      );
-
-      // eslint-disable-next-line no-console
-      console.log('RegistryDb > uploadFileAttachment > error (out): ', error);
-
-      return 'error completing sql command';
     }
+
+    if (result.ErrorMessage) {
+      throw new Error(result.ErrorMessage);
+    }
+
+    return result.AttachmentKey.toString();
   }
 
   /**
