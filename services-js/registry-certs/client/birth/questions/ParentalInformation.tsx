@@ -65,15 +65,15 @@ export default class ParentalInformation extends Component<Props> {
       handleStepBack,
     } = this.props;
 
-    // const needsVerification = birthCertificateRequest.mayBeRestricted;
+    const needsVerification = birthCertificateRequest.mayBeRestricted;
 
     return (
       <QuestionComponent
         handleProceed={handleProceed}
         handleStepBack={handleStepBack}
         allowProceed={ParentalInformation.isComplete(birthCertificateRequest)}
-        // nextButtonText={needsVerification ? 'Next' : 'Review request'}
-        nextButtonText={'Review request'}
+        nextButtonText={needsVerification ? 'Next' : 'Review request'}
+        // nextButtonText={'Review request'}
       >
         {this.renderQuestions()}
       </QuestionComponent>

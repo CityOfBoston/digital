@@ -5,6 +5,7 @@ import DataLoader from 'dataloader';
 import Rollbar from 'rollbar';
 import { ConnectionPool, IProcedureResult } from 'mssql';
 import mime from 'mime-types';
+import mssql from 'mssql';
 
 import {
   DatabaseConnectionOptions,
@@ -379,7 +380,7 @@ type RestrictedOrderType = 'BC' | 'MC' | 'MIC';
 export interface DeathCertificate {
   CertificateID: number;
   'Registered Number': string;
-  InOut: 'I' | '*' | '#';
+  InOut: 'I' | '*' | '#' | undefined | string;
   'Date of Death': string | null;
   'Decedent Name': string;
   'Last Name': string;
@@ -676,7 +677,7 @@ export default class RegistryDb {
     const keyStrings = splitKeys(MAX_ID_LOOKUP_LENGTH, keys);
 
     const idToOutputMap: {
-      [key: string]: DeathCertificate | null | Error;
+      [key: string]: DeathCertificate | null | Error | unknown;
     } = {};
 
     const allResults: Array<Array<DeathCertificate>> = await Promise.all(
@@ -1240,28 +1241,22 @@ export default class RegistryDb {
     file: AnnotatedFilePart
   ): Promise<string> {
     const { filename, headers, payload } = file;
-
-    const out: IProcedureResult<{
-      AttachmentKey: number;
-      ErrorMessage: string;
-    }> = await this.pool
+    const uploadStoreProcedure =
+      orderType === 'BC'
+        ? 'Commerce.sp_AddBirthRequestAttachment'
+        : 'Commerce.sp_AddMarriageRequestAttachment';
+    const contentType =
+      headers['content-type'] ||
+      mime.lookup(filename) ||
+      'application/octet-stream';
+    const out: any = await this.pool
       .request()
       .input('sessionUID', uploadSessionId)
-      .input(
-        'contentType',
-        headers['content-type'] ||
-          mime.lookup(filename) ||
-          'application/octet-stream'
-      )
+      .input('contentType', contentType)
       .input('fileName', filename)
       .input('label', label)
-      .input('attachmentData', payload)
-      .execute(
-        orderType === 'BC'
-          ? 'Commerce.sp_AddBirthRequestAttachment'
-          : 'Commerce.sp_AddMarriageRequestAttachment'
-      );
-
+      .input('attachmentData', mssql.VarBinary(mssql.MAX), payload)
+      .execute(uploadStoreProcedure);
     const result = out.recordset[0];
 
     if (!result || out.returnValue !== 0) {

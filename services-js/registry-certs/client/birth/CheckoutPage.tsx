@@ -120,7 +120,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
-    await new Promise(resolve => this.setState({ order }, resolve));
+    await new Promise((resolve: any) => this.setState({ order }, resolve));
   }
 
   componentWillReceiveProps(newProps: Props) {

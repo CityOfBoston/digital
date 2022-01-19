@@ -159,7 +159,7 @@ const cacheTag = 'latest';
     // await postTravisToSlack('error', e.message);
 
     if (oldTaskDefinitionArn) {
-      console.error(e.message);
+      console.error((e as Error).message);
       console.error(`😿 Rolling back deployment to ${oldTaskDefinitionArn}…`);
 
       try {
@@ -177,7 +177,9 @@ const cacheTag = 'latest';
           }
         );
       } catch (e) {
-        console.error(`🙍 Sigh. Even the rollback failed: ${e.message}`);
+        console.error(
+          `🙍 Sigh. Even the rollback failed: ${(e as Error).message}`
+        );
       }
       console.error();
 

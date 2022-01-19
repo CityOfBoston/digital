@@ -99,7 +99,7 @@ function sampleFile(status: Status = 'idle', progress: number = 0) {
 }
 
 function sampleFileUploadComplete(file: UploadableFile) {
-  return new Promise(resolve => {
+  return new Promise<void>(resolve => {
     file.upload('birth');
 
     const disposer = autorun(() => {

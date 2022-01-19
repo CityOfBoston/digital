@@ -64,9 +64,9 @@ export default class MarriageIntentionDao {
       //   console.log('DAO > handleOrder > orderResult: ', orderResult);
       // } catch (err) {
       //   // These errors will be network sorts of errors.
-      //   if ((window as any).Rollbar && !err._reportedException) {
+      //   if ((window as any).Rollbar && !(err as any)._reportedException) {
       //     (window as any).Rollbar.error(err);
-      //     err._reportedException = true;
+      //     (err as any)._reportedException = true;
       //   }
       //   // eslint-disable-next-line no-console
       //   console.log('DAO > handleOrder > !orderResult: ', err);

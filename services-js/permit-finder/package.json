@@ -43,7 +43,7 @@
     "autolinker": "^3.0.5",
     "aws-sdk": "^2.245.1",
     "boom": "^7.2.0",
-    "core-js": "^2.6.4",
+    "core-js": "^3.6.4",
     "csv-parser": "^2.3.0",
     "date-fns": "^1.29.0",
     "dotenv": "^5.0.1",
@@ -106,6 +106,6 @@
     "ts-node": "^6.0.5",
     "ts2gql": "CityOfBoston/ts2gql#4f10fcce",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   }
 }

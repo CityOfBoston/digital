@@ -115,10 +115,10 @@ export async function makeServer({ rollbar }: ServerArgs) {
     ? `https://${process.env.ASSET_HOST}/registry-certs`
     : undefined;
 
-  const encryption = process.env.ENCRYPT_DB_CONNECTION
+  let encryption = process.env.ENCRYPT_DB_CONNECTION
     ? toBoolean(process.env.ENCRYPT_DB_CONNECTION, true).value
     : true;
-  const multiSubnetFailover = process.env.USE_MULTISUBNETFAILOVER
+  let multiSubnetFailover = process.env.USE_MULTISUBNETFAILOVER
     ? toBoolean(process.env.USE_MULTISUBNETFAILOVER, false).value
     : false;
 
@@ -340,7 +340,7 @@ export async function makeServer({ rollbar }: ServerArgs) {
         );
         return '';
       } catch (e) {
-        rollbar.error(e, request.raw.req);
+        rollbar.error(e as any, request.raw.req);
         throw e;
       }
     },
@@ -351,12 +351,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
     path: '/upload',
     options: {
       payload: {
+        output: 'stream',
         parse: true,
         allow: 'multipart/form-data',
         maxBytes: 10 * 1024 * 1024,
         // We don't want to time out these uploads in particular. The socket
         // will timeout after 2 mins of inactivity, which is fine.
-        timeout: false,
+        timeout: 30000,
         multipart: {
           output: 'annotated',
         },

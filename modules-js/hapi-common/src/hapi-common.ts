@@ -341,7 +341,7 @@ export const rollbarErrorExtension = (
           reportGraphqlError(rollbar, e, request, queryString, variables);
         });
       } catch (e) {
-        rollbar.error(e);
+        rollbar.error(e as any);
       }
     },
   };

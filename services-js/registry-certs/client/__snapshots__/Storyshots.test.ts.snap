@@ -8937,7 +8937,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           onClick={[Function]}
           type="button"
         >
-          Review request
+          Next
         </button>
       </div>
     </div>
@@ -9684,7 +9684,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           onClick={[Function]}
           type="button"
         >
-          Review request
+          Next
         </button>
       </div>
     </div>
@@ -15782,19 +15782,19 @@ exports[`Storyshots Birth/QuestionsFlowPage 5. Identity verification 1`] = `
             className="emotion-3"
           >
             <progress
-              aria-valuemax={8}
+              aria-valuemax={9}
               aria-valuemin={1}
-              aria-valuenow={0}
-              aria-valuetext="Step 0 of 8"
-              max={8}
-              value={-1}
+              aria-valuenow={5}
+              aria-valuetext="Step 5 of 9"
+              max={9}
+              value={4}
             >
-              Step 0 of 8
+              Step 5 of 9
             </progress>
             <span
               aria-hidden="true"
             >
-              Step 0 of 8
+              Step 5 of 9
             </span>
           </div>
           <section
@@ -79796,19 +79796,19 @@ exports[`Storyshots Marriage/QuestionsFlowPage 6. Identity verification 1`] = `
             className="emotion-3"
           >
             <progress
-              aria-valuemax={9}
+              aria-valuemax={10}
               aria-valuemin={1}
-              aria-valuenow={0}
-              aria-valuetext="Step 0 of 9"
-              max={9}
-              value={-1}
+              aria-valuenow={6}
+              aria-valuetext="Step 6 of 10"
+              max={10}
+              value={5}
             >
-              Step 0 of 9
+              Step 6 of 10
             </progress>
             <span
               aria-hidden="true"
             >
-              Step 0 of 9
+              Step 6 of 10
             </span>
           </div>
           <section

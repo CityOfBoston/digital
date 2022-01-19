@@ -20,7 +20,7 @@
     ]
   },
   "dependencies": {
-    "core-js": "^2.6.4"
+    "core-js": "^3.19.3"
   },
   "devDependencies": {
     "@cityofboston/config-babel": "^0.0.0",
@@ -30,6 +30,6 @@
     "jest": "^24.8.0",
     "rimraf": "^2.6.2",
     "tsc-watch": "^1.0.26",
-    "typescript": "^3.4.5"
+    "typescript": "^4.4.2"
   }
 }

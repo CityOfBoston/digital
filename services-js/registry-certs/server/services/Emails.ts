@@ -52,7 +52,7 @@ export default class Emails {
       );
     } catch (e) {
       // If we can’t send the email, we don’t error out the request.
-      this.rollbar.error(e);
+      this.rollbar.error(e as any);
     }
   }
 

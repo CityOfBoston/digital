@@ -48,7 +48,7 @@ const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 export async function makeServer(port, rollbar: Rollbar) {
   let makeCommissionsDao: () => CommissionsDao;
-  let commissionsDbPool: ConnectionPool | null = null;
+  let commissionsDbPool: ConnectionPool | any = null;
 
   const postmarkClient = new PostmarkClient(
     process.env.POSTMARK_SERVER_API_TOKEN || 'fake-postmark-key'

@@ -99,9 +99,9 @@ export default class CheckoutDao {
         });
       }
     } catch (err) {
-      if ((window as any).Rollbar && !err._reportedException) {
+      if ((window as any).Rollbar && !(err as any)._reportedException) {
         (window as any).Rollbar.error(err);
-        err._reportedException = true;
+        (err as any)._reportedException = true;
       }
 
       throw err;
@@ -199,9 +199,9 @@ export default class CheckoutDao {
         orderResult = await orderPromise;
       } catch (err) {
         // These errors will be network sorts of errors.
-        if ((window as any).Rollbar && !err._reportedException) {
+        if ((window as any).Rollbar && !(err as any)._reportedException) {
           (window as any).Rollbar.error(err);
-          err._reportedException = true;
+          (err as any)._reportedException = true;
         }
 
         throw err;
