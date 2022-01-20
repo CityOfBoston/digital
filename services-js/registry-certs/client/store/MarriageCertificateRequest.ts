@@ -31,7 +31,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   parentsMarried2: '',
   altSpellings1: '',
   altSpellings2: '',
-  customerNotes: '',
+  // customerNotes: '',
   idImageFront: null,
   idImageBack: null,
   supportingDocuments: [],
@@ -125,7 +125,7 @@ export default class MarriageCertificateRequest {
         ? this.requestInformation.dateOfMarriageExact.toISOString()
         : null,
       dateOfMarriageUnsure: this.requestInformation.dateOfMarriageUnsure || '',
-      customerNotes: this.requestInformation.customerNotes || '',
+      // customerNotes: this.requestInformation.customerNotes || '',
 
       idImageBack: this.requestInformation.idImageBack
         ? this.requestInformation.idImageBack.record
