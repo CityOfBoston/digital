@@ -47648,24 +47648,6 @@ exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
     </table>
   </div>
   <div
-    className="txt"
-  >
-    <label
-      className="txt-l "
-      htmlFor="FeedbackForm-customerNotes"
-    >
-      Anything else you’d like us to know?
-    </label>
-    <textarea
-      aria-label=""
-      className="txt-f   "
-      id="FeedbackForm-customerNotes"
-      name="customerNotes"
-      onChange={[Function]}
-      rows={10}
-    />
-  </div>
-  <div
     className="g g--mr m-t700"
   >
     <div
@@ -81101,24 +81083,6 @@ exports[`Storyshots Marriage/ReviewRequestPage default page 1`] = `
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <div
-              className="txt"
-            >
-              <label
-                className="txt-l "
-                htmlFor="FeedbackForm-customerNotes"
-              >
-                Anything else you’d like us to know?
-              </label>
-              <textarea
-                aria-label=""
-                className="txt-f   "
-                id="FeedbackForm-customerNotes"
-                name="customerNotes"
-                onChange={[Function]}
-                rows={10}
-              />
             </div>
             <div
               className="g g--mr m-t700"

@@ -453,7 +453,6 @@ export interface DeathCertificateOrderItemInput {
 export interface MarriageCertificateOrderItemInput {
   altSpellings1: string;
   altSpellings2: string;
-  customerNotes: string;
   dateOfMarriageExact: string;
   dateOfMarriageUnsure: string;
   fullName1: string;

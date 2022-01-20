@@ -234,7 +234,7 @@ export type MarriageCertificateRequestInformation = {
   altSpellings2?: string;
   parentsMarried1: YesNoUnknownAnswer;
   parentsMarried2: YesNoUnknownAnswer;
-  customerNotes?: string;
+  // customerNotes?: string;
 
   // only required if parentsMarried[1, 2] !== true:
   idImageFront?: UploadableFile | null;

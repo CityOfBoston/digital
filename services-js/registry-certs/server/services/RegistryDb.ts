@@ -577,7 +577,7 @@ export interface MarriageCertificateRequestArgs {
   dateOfMarriageExact: string;
   dateOfMarriageUnsure: string;
   requestDetails: string;
-  customerNotes: string;
+  // customerNotes: string;
 }
 
 const MAX_ID_LOOKUP_LENGTH = 1000;

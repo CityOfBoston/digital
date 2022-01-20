@@ -111,7 +111,7 @@ export default async function submitMarriageCertificateOrder(
       altSpellings2,
       parentsMarried1,
       parentsMarried2,
-      customerNotes,
+      // customerNotes,
     },
   } = marriageCertificateRequest;
 
@@ -168,7 +168,7 @@ ${filedInBoston === 'unknown' ? '*Unsure if filed in Boston*' : ''}
       uploadSessionId,
       quantity,
       requestDetails,
-      customerNotes: customerNotes || '',
+      // customerNotes: customerNotes || '',
     },
     idempotencyKey,
   };
