@@ -2091,7 +2091,7 @@
     "@hapi/topo" "5.x.x"
     "@hapi/validate" "^1.1.0"
 
-"@hapi/hapi@>=20.1.1":
+"@hapi/hapi@>=20.1.5":
   version "20.2.1"
   resolved "https://registry.yarnpkg.com/@hapi/hapi/-/hapi-20.2.1.tgz#7482bc28757cb4671623a61bdb5ce920bffc8a2f"
   integrity sha512-OXAU+yWLwkMfPFic+KITo+XPp6Oxpgc9WUH+pxXWcTIuvWbgco5TC/jS8UDvz+NFF5IzRgF2CL6UV/KLdQYUSQ==
