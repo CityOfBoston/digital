@@ -43,6 +43,7 @@ install: skip
 jobs:
   include:
   - name: JavaScript Tests
+    if: type IN (pull_request)
     install:
       - if [ -z "$HAS_JS_CHANGES" ]; then travis_terminate 0; fi
       - yarn install --frozen-lockfile --ignore-scripts
@@ -59,6 +60,7 @@ jobs:
     - artifacts upload --target-paths travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID services-js/*/screenshots
 
   - name: Percy Snapshots
+    if: branch = zzzz
     install:
       - if [ -z "$HAS_JS_CHANGES" ]; then travis_terminate 0; fi
       - yarn install --frozen-lockfile --ignore-scripts
@@ -72,6 +74,7 @@ jobs:
       percy
 
   - name: JavaScript Template Tests
+    if: type IN (pull_request)
     install:
       - if [ -z "$HAS_TEMPLATE_CHANGES" ]; then travis_terminate 0; fi
       - yarn install --frozen-lockfile --ignore-scripts
@@ -82,16 +85,6 @@ jobs:
       --concurrency 1
       --stream
       --scope=templates.*
-      test
-  
-  - name: Ruby Tests
-    install:
-      - if [ -z "$HAS_RUBY_CHANGES" ]; then travis_terminate 0; fi
-    script: >-
-      npx lerna run
-      --since=$LERNA_SINCE
-      --stream
-      --scope=services-ruby.*
       test
 
   - stage: deploy
