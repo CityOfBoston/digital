@@ -56,6 +56,7 @@ class SearchPage extends Component<Props, State> {
 
     if (q) {
       page = parseInt(getParam(query.page, '1'), 10);
+      console.log('SearchPage > q: ', q);
 
       results = await deathCertificatesDao.search(q, page);
     }
