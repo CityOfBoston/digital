@@ -37,7 +37,7 @@
     "@types/hoek": "^4.1.3",
     "@types/jest": "24.x.x",
     "graphql-extensions": "^0.6.0",
-    "@hapi/hapi": ">=20.1.5",
+    "@hapi/hapi": ">=20.1.0",
     "jest": "^24.8.0",
     "rimraf": "^2.6.2",
     "rollbar": "^2.5.1",
