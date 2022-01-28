@@ -45,6 +45,9 @@ export default class DeathCertificatesDao {
 
     const { query, startYear, endYear } = this.parseQuery(fullQuery);
 
+    console.log('DeathCertificateDao > page: ', page);
+    console.log('DeathCertificateDao > query: ', query);
+
     const results = await searchDeathCertificates(
       this.fetchGraphql,
       query,
@@ -54,6 +57,11 @@ export default class DeathCertificatesDao {
     );
 
     this.cacheByPage[page] = results;
+
+    console.log(
+      'DeathCertificateDao > this.cacheByPage: ',
+      this.cacheByPage[page]
+    );
 
     results.results.forEach(cert => {
       this.loader.prime(cert.id, cert);
