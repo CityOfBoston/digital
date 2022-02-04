@@ -21,7 +21,7 @@ import {
   HeaderKeysOptions,
   rollbarPlugin,
   persistentQueryPlugin,
-  rollbarErrorExtension,
+  // rollbarErrorExtension,
   HapiGraphqlContextFunction,
 } from '@cityofboston/hapi-common';
 
@@ -227,19 +227,22 @@ export async function makeServer({ rollbar }: ServerArgs) {
   const apolloServer = new ApolloServer({
     schema,
     context: contextFunction,
-    extensions: [rollbarErrorExtension(rollbar)],
+    // extensions: [rollbarErrorExtension(rollbar)],
   });
 
-  await apolloServer.applyMiddleware({
-    app: server,
-    route: {
-      cors: true,
-      auth:
-        Object.keys(apiKeys).length || process.env.NODE_ENV == 'staging'
-          ? 'apiHeaderKeys'
-          : false,
-    },
-  });
+  const initMiddleware = async () => {
+    console.log('START Middleware');
+    await apolloServer.applyMiddleware({
+      app: server,
+      route: {
+        cors: true,
+        auth:
+          Object.keys(apiKeys).length || process.env.NODE_ENV == 'staging'
+            ? 'apiHeaderKeys'
+            : false,
+      },
+    });
+  };
 
   await server.register({
     plugin: persistentQueryPlugin,
@@ -409,13 +412,14 @@ export async function makeServer({ rollbar }: ServerArgs) {
   return {
     server,
     startup,
+    initMiddleware,
   };
 }
 
 export default async function startServer(args: ServerArgs) {
   await decryptEnv();
 
-  const { server, startup } = await makeServer(args);
+  const { server, startup, initMiddleware } = await makeServer(args);
 
   const shutdown = await startup();
   cleanup(exitCode => {
@@ -433,7 +437,9 @@ export default async function startServer(args: ServerArgs) {
     return false;
   });
 
-  await server.start();
+  await server.start().then(() => {
+    initMiddleware();
+  });
 
   console.log(`> Ready on http://localhost:${port}`);
 }
