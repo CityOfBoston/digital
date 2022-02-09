@@ -32,7 +32,7 @@ export default class DeathCertificatesDao {
   async search(
     fullQuery: string,
     page: number
-  ): Promise<DeathCertificateSearchResults> {
+  ): Promise<any> /*Promise<DeathCertificateSearchResults>*/ {
     if (fullQuery === this.cacheFullQuery) {
       const results = this.cacheByPage[page];
       if (results) {
@@ -48,26 +48,30 @@ export default class DeathCertificatesDao {
     console.log('DeathCertificateDao > page: ', page);
     console.log('DeathCertificateDao > query: ', query);
 
-    const results = await searchDeathCertificates(
-      this.fetchGraphql,
-      query,
-      page,
-      startYear,
-      endYear
-    );
+    try {
+      const results = await searchDeathCertificates(
+        this.fetchGraphql,
+        query,
+        page,
+        startYear,
+        endYear
+      );
 
-    this.cacheByPage[page] = results;
+      this.cacheByPage[page] = results;
 
-    console.log(
-      'DeathCertificateDao > this.cacheByPage: ',
-      this.cacheByPage[page]
-    );
+      console.log(
+        'DeathCertificateDao > this.cacheByPage: ',
+        this.cacheByPage[page]
+      );
 
-    results.results.forEach(cert => {
-      this.loader.prime(cert.id, cert);
-    });
+      results.results.forEach(cert => {
+        this.loader.prime(cert.id, cert);
+      });
 
-    return results;
+      return results;
+    } catch (error) {
+      console.log('Error talking to GraphQL endpoint');
+    }
   }
 
   async lookupOrder(
