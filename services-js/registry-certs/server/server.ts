@@ -437,9 +437,11 @@ export default async function startServer(args: ServerArgs) {
     return false;
   });
 
-  await server.start().then(() => {
-    initMiddleware();
-  });
+  initMiddleware();
+  await server.start();
+  // await server.start().then(() => {
+  //   initMiddleware();
+  // });
 
   console.log(`> Ready on http://localhost:${port}`);
 }
