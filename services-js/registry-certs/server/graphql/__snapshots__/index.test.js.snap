@@ -2,18 +2,18 @@
 
 exports[`schema is generated 1`] = `
 GraphQLSchema {
-  "__allowedLegacyNames": Array [],
   "__validationErrors": undefined,
   "_directives": Array [
-    "@skip",
     "@include",
+    "@skip",
     "@deprecated",
+    "@specifiedBy",
   ],
-  "_implementations": Object {},
+  "_implementationsMap": Object {},
   "_mutationType": "Mutation",
-  "_possibleTypeMap": Object {},
   "_queryType": "Query",
-  "_subscriptionType": null,
+  "_subTypeMap": Object {},
+  "_subscriptionType": undefined,
   "_typeMap": Object {
     "BirthCertificateOrderItemInput": "BirthCertificateOrderItemInput",
     "Boolean": "Boolean",
@@ -49,31 +49,32 @@ GraphQLSchema {
     "__TypeKind": "__TypeKind",
   },
   "astNode": Object {
+    "description": undefined,
     "directives": Array [],
     "kind": "SchemaDefinition",
     "loc": Object {
-      "end": 6280,
-      "start": 6234,
+      "end": 6281,
+      "start": 6235,
     },
     "operationTypes": Array [
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 6263,
-          "start": 6245,
+          "end": 6264,
+          "start": 6246,
         },
         "operation": "mutation",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 6263,
-            "start": 6255,
+            "end": 6264,
+            "start": 6256,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 6263,
-              "start": 6255,
+              "end": 6264,
+              "start": 6256,
             },
             "value": "Mutation",
           },
@@ -82,21 +83,21 @@ GraphQLSchema {
       Object {
         "kind": "OperationTypeDefinition",
         "loc": Object {
-          "end": 6278,
-          "start": 6266,
+          "end": 6279,
+          "start": 6267,
         },
         "operation": "query",
         "type": Object {
           "kind": "NamedType",
           "loc": Object {
-            "end": 6278,
-            "start": 6273,
+            "end": 6279,
+            "start": 6274,
           },
           "name": Object {
             "kind": "Name",
             "loc": Object {
-              "end": 6278,
-              "start": 6273,
+              "end": 6279,
+              "start": 6274,
             },
             "value": "Query",
           },
@@ -104,6 +105,8 @@ GraphQLSchema {
       },
     ],
   },
-  "extensionASTNodes": undefined,
+  "description": undefined,
+  "extensionASTNodes": Array [],
+  "extensions": undefined,
 }
 `;
