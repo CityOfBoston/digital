@@ -25,7 +25,7 @@
     "postdeploy": "ts-node --project ./tsnode.config.json ./scripts/post-deploy",
     "clear-babel-cache": "rm -rf node_modules/.cache/babel-loader",
     "generate-graphql-schema": "mkdir -p graphql && ts2gql server/graphql/index.ts > graphql/schema.graphql",
-    "generate-graphql-types": "npx apollo codegen:generate --includes=\"client/queries/*.ts\" --localSchemaFile=graphql/schema.graphql --target=typescript --outputFlat --no-addTypename client/queries/graphql-types.ts",
+    "generate-graphql-types": "npx apollo client:codegen --includes=\"client/queries/*.ts\" --localSchemaFile=graphql/schema.graphql --target=typescript --outputFlat --no-addTypename client/queries/graphql-types.ts",
     "generate-fixtures": "ts-node --project ./tsnode.config.json ./scripts/generate-fixtures"
   },
   "jest": {

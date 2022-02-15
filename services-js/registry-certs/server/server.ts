@@ -228,10 +228,11 @@ export async function makeServer({ rollbar }: ServerArgs) {
     schema,
     context: contextFunction,
     // extensions: [rollbarErrorExtension(rollbar)],
+    // plugins: [rollbarErrorExtension(rollbar)]
   });
 
-  const initMiddleware = async () => {
-    console.log('START Middleware');
+  try {
+    await apolloServer.start();
     await apolloServer.applyMiddleware({
       app: server,
       route: {
@@ -242,7 +243,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
             : false,
       },
     });
-  };
+  } catch (error) {
+    console.log('Middleware Error: ', error);
+  }
 
   await server.register({
     plugin: persistentQueryPlugin,
@@ -412,14 +415,13 @@ export async function makeServer({ rollbar }: ServerArgs) {
   return {
     server,
     startup,
-    initMiddleware,
   };
 }
 
 export default async function startServer(args: ServerArgs) {
   await decryptEnv();
 
-  const { server, startup, initMiddleware } = await makeServer(args);
+  const { server, startup } = await makeServer(args);
 
   const shutdown = await startup();
   cleanup(exitCode => {
@@ -437,11 +439,7 @@ export default async function startServer(args: ServerArgs) {
     return false;
   });
 
-  initMiddleware();
   await server.start();
-  // await server.start().then(() => {
-  //   initMiddleware();
-  // });
 
   console.log(`> Ready on http://localhost:${port}`);
 }
