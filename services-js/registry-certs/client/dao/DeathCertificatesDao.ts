@@ -59,10 +59,11 @@ export default class DeathCertificatesDao {
 
       this.cacheByPage[page] = results;
 
-      console.log(
-        'DeathCertificateDao > this.cacheByPage: ',
-        this.cacheByPage[page]
-      );
+      // eslint-disable-next-line no-console
+      // console.log(
+      //   'DeathCertificateDao > this.cacheByPage: ',
+      //   this.cacheByPage[page]
+      // );
 
       results.results.forEach(cert => {
         this.loader.prime(cert.id, cert);
