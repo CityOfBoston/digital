@@ -57,7 +57,7 @@ const dateResolvers = {
         return null;
       }
     },
-    serialize(value: Date) {
+    serialize(value: any) {
       return value.toISOString();
     },
   }),
