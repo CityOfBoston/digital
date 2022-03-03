@@ -47,7 +47,7 @@
     "csv-parser": "^2.3.0",
     "date-fns": "^1.29.0",
     "dotenv": "^5.0.1",
-    "graphql": "^14.3.0",
+    "graphql": "^15.5.0",
     "hapi": "^17.5.2",
     "hapi-dev-errors": "^3.0.1",
     "inert": "^5.1.0",
