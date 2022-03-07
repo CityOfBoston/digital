@@ -32,9 +32,6 @@
       "<rootDir>/scripts/"
     ]
   },
-  "resolutions": {
-    "graphql": "0.13.2"
-  },
   "dependencies": {
     "@babel/runtime": "^7.6.0",
     "@cityofboston/deploy-tools": "^0.0.0",
@@ -46,7 +43,7 @@
     "@cityofboston/srv-decrypt-env": "^0.0.0",
     "@emotion/core": "^10.0.10",
     "apollo-boost": "^0.4.4",
-    "apollo-server-hapi": "^2.5.0",
+    "apollo-server-hapi": "^3.6.3",
     "boom": "^7.2.0",
     "catbox-redis": "^4.2.2",
     "core-js": "^3.3.0",
@@ -56,7 +53,7 @@
     "emotion": "^10.0.9",
     "emotion-server": "^10.0.9",
     "formik": "^1.4.2",
-    "graphql": "^15.5.0",
+    "graphql": "^16.3.0",
     "hapi": "^17.5.2",
     "hapi-accept-language2": "^2.0.3",
     "hapi-cors": "^1.0.3",
