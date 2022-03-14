@@ -308,6 +308,7 @@ export default function Index(props: Props) {
           />
         </div>
       );
+
     default:
       return (
         <div css={CONTAINER_STYLING}>

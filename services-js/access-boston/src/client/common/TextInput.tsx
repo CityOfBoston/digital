@@ -6,6 +6,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   error?: string | boolean;
   info?: ReactNode;
+  requiredlabelasterisk?: boolean | null;
   /**
    * This function can be used to customize how the input element and error
    * message are rendered. For example, putting the error message next to the
@@ -42,7 +43,14 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
  * TODO(finh): Merge this with the react-fleet TextInput.
  */
 export default function TextInput(props: Props) {
-  const { error, required, label, info, hideErrorMessage } = props;
+  const {
+    error,
+    required,
+    label,
+    info,
+    hideErrorMessage,
+    requiredlabelasterisk,
+  } = props;
   const id = props.id || `input-${hash(label)}`;
 
   const inputProps = Object.assign({ id, type: 'text' }, props, {
@@ -57,6 +65,7 @@ export default function TextInput(props: Props) {
   delete inputProps.info;
   delete inputProps.hideErrorMessage;
   delete inputProps.renderInputFunc;
+  delete inputProps.requiredlabelasterisk;
 
   const inputEl = <input {...inputProps} />;
   const errorEl = (
@@ -75,6 +84,7 @@ export default function TextInput(props: Props) {
           <span className="t--req" aria-hidden="true">
             {' '}
             Required
+            {requiredlabelasterisk && requiredlabelasterisk === true && '*'}
           </span>
         )}
       </label>

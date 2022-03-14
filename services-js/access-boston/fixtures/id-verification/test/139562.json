@@ -1,0 +1,19 @@
+{
+  "totalResults": 1,
+  "startIndex": 1,
+  "Resources": [
+    {
+      "urn:ietf:params:scim:schemas:sailpoint:1.0:User": {
+        "ssn": "0000",
+        "identity_type": "EMPLOYEE"
+      },
+      "displayName": "Will Scott",
+      "name": {
+        "formatted": "Will Scott",
+        "familyName": "Scott",
+        "givenName": "Will"
+      },
+      "userName": "139562"
+    }
+  ]
+}

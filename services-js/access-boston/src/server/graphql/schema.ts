@@ -165,6 +165,8 @@ const queryRootResolvers: QueryRootResolvers = {
         mgmt_groups = groups.filter(
           entry => entry.indexOf('SG_AB_GRPMGMT_') > -1
         );
+
+        console.log('schema.ts > mgmt_groups: ', mgmt_groups);
       }
 
       return {
