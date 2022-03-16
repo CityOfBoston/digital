@@ -8848,36 +8848,6 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           Record may have an access restriction
         </h2>
-        <div
-          style={
-            Object {
-              "borderBottomColor": "red",
-              "borderBottomStyle": "solid",
-              "borderBottomWidth": "1px",
-              "borderTopColor": "red",
-              "borderTopStyle": "solid",
-              "borderTopWidth": "1px",
-              "marginBottom": "1em",
-              "marginTop": "1em",
-              "paddingTop": "1em",
-            }
-          }
-        >
-          <h2
-            className="h3 tt-u"
-          >
-            Maintenance
-          </h2>
-          <p
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            Document upload is temporarily offline. You will be required to provide documentation via email. The Registry staff will reach out to you after the transactions is complete.
-          </p>
-        </div>
         <p>
           If their parents weren’t married at the time of the birth, the record is restricted and can only be requested by the people listed on the record.
         </p>
@@ -9597,36 +9567,6 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
         >
           Record may have an access restriction
         </h2>
-        <div
-          style={
-            Object {
-              "borderBottomColor": "red",
-              "borderBottomStyle": "solid",
-              "borderBottomWidth": "1px",
-              "borderTopColor": "red",
-              "borderTopStyle": "solid",
-              "borderTopWidth": "1px",
-              "marginBottom": "1em",
-              "marginTop": "1em",
-              "paddingTop": "1em",
-            }
-          }
-        >
-          <h2
-            className="h3 tt-u"
-          >
-            Maintenance
-          </h2>
-          <p
-            style={
-              Object {
-                "fontWeight": "bold",
-              }
-            }
-          >
-            Document upload is temporarily offline. You will be required to provide documentation via email. The Registry staff will reach out to you after the transactions is complete.
-          </p>
-        </div>
         <p>
           If your parents weren’t married at the time of your birth, your record may have an access restriction.
         </p>
