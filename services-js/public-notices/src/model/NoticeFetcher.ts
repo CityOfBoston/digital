@@ -51,10 +51,28 @@ export default class NoticeFetcher {
       const resp = await fetch(`${this.options.url}?${Date.now()}`);
 
       if (resp.ok) {
-        this.options.callback(
-          (await resp.json()).slice(0, this.options.numNotices)
-        );
-        this.failureCount = 0;
+        let resp_json: any = [];
+
+        try {
+          resp_json = (await resp.json()) || [];
+          // eslint-disable-next-line no-console
+          console.log('resp_json: ', resp_json);
+
+          if (typeof resp_json === 'object' && resp_json.length > 0) {
+            this.options.callback(resp_json.slice(0, this.options.numNotices));
+          } else {
+            // eslint-disable-next-line no-console
+            console.log('Error parsing Results');
+            throw new Error(
+              `JSON response is not a valid array: ${resp.status}`
+            );
+          }
+        } catch (error) {
+          console.log('resp_json error: ', error);
+          throw new Error(
+            `Unexpected Error on NoticeFetcher callback: ${resp.status}`
+          );
+        }
       } else {
         throw new Error(`Unexpected HTTP response: ${resp.status}`);
       }
