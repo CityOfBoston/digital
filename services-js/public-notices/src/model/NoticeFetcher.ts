@@ -55,33 +55,21 @@ export default class NoticeFetcher {
 
         try {
           resp_json = (await resp.json()) || [];
-          // eslint-disable-next-line no-console
-          console.log('resp_json: ', resp_json);
 
           if (typeof resp_json === 'object' && resp_json.length > 0) {
             this.options.callback(resp_json.slice(0, this.options.numNotices));
             this.failureCount = 0;
-          } else {
-            // eslint-disable-next-line no-console
-            console.log(
-              'Error parsing Results ... resp is not an array or empty'
-            );
-            throw new Error(
-              `JSON response is not a valid array: ${resp.status}`
-            );
           }
         } catch (error) {
           console.log('resp_json error: ', error);
-          throw new Error(
-            `Unexpected Error on NoticeFetcher callback: ${resp.status}`
-          );
         }
       } else {
         throw new Error(`Unexpected HTTP response: ${resp.status}`);
       }
     } catch (e) {
       this.failureCount++;
-      window.Rollbar && window.Rollbar.error(e);
+      console.log('!resp.ok: ', e);
+      // window.Rollbar && window.Rollbar.error(e);
     }
 
     const nextFetchTime =
