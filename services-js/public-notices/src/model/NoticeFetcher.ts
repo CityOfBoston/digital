@@ -60,9 +60,12 @@ export default class NoticeFetcher {
 
           if (typeof resp_json === 'object' && resp_json.length > 0) {
             this.options.callback(resp_json.slice(0, this.options.numNotices));
+            this.failureCount = 0;
           } else {
             // eslint-disable-next-line no-console
-            console.log('Error parsing Results');
+            console.log(
+              'Error parsing Results ... resp is not an array or empty'
+            );
             throw new Error(
               `JSON response is not a valid array: ${resp.status}`
             );
