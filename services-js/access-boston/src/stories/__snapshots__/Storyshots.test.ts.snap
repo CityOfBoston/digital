@@ -3009,19 +3009,19 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
       className="css-v8ihoq"
     >
       <progress
-        aria-valuemax={0}
+        aria-valuemax={4}
         aria-valuemin={1}
         aria-valuenow={3}
-        aria-valuetext="Step 3 of 0"
-        max={0}
+        aria-valuetext="Step 3 of 4"
+        max={4}
         value={3}
       >
-        Step 3 of 0
+        Step 3 of 4
       </progress>
       <span
         aria-hidden="true"
       >
-        Step 3 of 0
+        Step 3 of 4
       </span>
     </div>
   </div>

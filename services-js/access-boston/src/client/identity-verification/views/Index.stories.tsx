@@ -68,7 +68,7 @@ storiesOf('Confirm-Identity', module)
   .add('Review', () => (
     <PageWrapper
       progress={{
-        totalSteps: 0,
+        totalSteps: 4,
         currentStep: 3,
         currentStepCompleted: true,
       }}
