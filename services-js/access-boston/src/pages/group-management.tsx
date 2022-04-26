@@ -41,6 +41,8 @@ export default class GroupManagement extends React.Component<Props> {
   render() {
     const { account } = this.props;
 
+    console.log('account > groups: ', account);
+
     return (
       <>
         <Head>
