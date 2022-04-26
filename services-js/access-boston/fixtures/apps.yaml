@@ -1,7 +1,7 @@
 notice:
   label: 'Notice'
-  pretext: 'Beacon, the new HR self-service portal, is now live!'
-  text: 'Look for the lighthouse icon below.'
+  pretext: ''
+  text: 'BAIS cutover is scheduled for 5/19 to 5/22. The Human Capitol Management (HCM), Financials (FN) and Employee Self-Service (ESS) applications will not be available'
 categories:
   - title: Applications
     show_request_access_link: false
