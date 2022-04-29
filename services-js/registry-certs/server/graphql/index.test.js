@@ -1,6 +1,6 @@
 // @flow
-
-import schema from './index';
+// graphql-tools/schema
+import schema from './index.ts';
 
 describe('schema', () => {
   it('is generated', () => {

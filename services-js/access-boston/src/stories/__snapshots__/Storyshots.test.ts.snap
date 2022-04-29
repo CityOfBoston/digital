@@ -6580,48 +6580,6 @@ exports[`Storyshots IndexPage change password success 1`] = `
               ServiceNow - Lightkeeper
             </span>
           </a>
-          <a
-            className="m-t200 g--3 g--3--sl lwi"
-            href="https://boston.cloud.tanium.com"
-            id="app-icon-Tanium"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="https://assets.boston.gov/icons/experiential_icons/secure.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Tanium
-            </span>
-          </a>
-          <a
-            className="m-t200 g--3 g--3--sl lwi"
-            href="/identity-verification"
-            id="app-icon-Identity Verification"
-            target="_self"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="https://assets.boston.gov/icons/accessboston/identity_verification.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Identity Verification
-            </span>
-          </a>
         </div>
       </section>
       <div
@@ -7618,48 +7576,6 @@ exports[`Storyshots IndexPage default 1`] = `
               className="lwi-t"
             >
               ServiceNow - Lightkeeper
-            </span>
-          </a>
-          <a
-            className="m-t200 g--3 g--3--sl lwi"
-            href="https://boston.cloud.tanium.com"
-            id="app-icon-Tanium"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="https://assets.boston.gov/icons/experiential_icons/secure.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Tanium
-            </span>
-          </a>
-          <a
-            className="m-t200 g--3 g--3--sl lwi"
-            href="/identity-verification"
-            id="app-icon-Identity Verification"
-            target="_self"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="https://assets.boston.gov/icons/accessboston/identity_verification.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Identity Verification
             </span>
           </a>
         </div>
@@ -8712,48 +8628,6 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
               className="lwi-t"
             >
               ServiceNow - Lightkeeper
-            </span>
-          </a>
-          <a
-            className="m-t200 g--3 g--3--sl lwi"
-            href="https://boston.cloud.tanium.com"
-            id="app-icon-Tanium"
-            target="_blank"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="https://assets.boston.gov/icons/experiential_icons/secure.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Tanium
-            </span>
-          </a>
-          <a
-            className="m-t200 g--3 g--3--sl lwi"
-            href="/identity-verification"
-            id="app-icon-Identity Verification"
-            target="_self"
-          >
-            <span
-              className="lwi-ic"
-            >
-              <img
-                alt=""
-                className="lwi-i css-149l0yi"
-                src="https://assets.boston.gov/icons/accessboston/identity_verification.svg"
-              />
-            </span>
-            <span
-              className="lwi-t"
-            >
-              Identity Verification
             </span>
           </a>
         </div>
