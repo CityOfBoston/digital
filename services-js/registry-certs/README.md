@@ -64,6 +64,17 @@ Next.js’s hot-reloading dev mode is not supported in IE11. You will need to ru
 
 Don’t forget to re-compile the JS when you change it.
 
+## URLs
+
+### Localhost
+http://localhost:3000/birth
+
+### Staging
+https://registry-certs.digital-staging.boston.gov/birth
+
+### PROD
+https://registry.boston.gov/birth
+
 ## Deploys
 
 * 2020.06.16: Restart deploy 1
