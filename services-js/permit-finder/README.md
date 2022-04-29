@@ -18,10 +18,19 @@ The Level DB is created in a temporary directory (see the service configuration
 in Terraform where a separate volume is mounted over /tmp to get the DB access
 out of the container’s filesystem).
 
+## URLs
+
+### Localhost
+http://localhost:3000/
+
+### Staging
+DEV: https://permit-finder.dev.digital-staging.boston.gov/
+TEST: http://permit-finder.test.digital-staging.boston.gov/
+
+### PROD
+https://permit-finder.boston.gov/
+
 ### Deploys
 
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
-
-### Deploys
-
 - 2021.03.26: Post Security Patch test deploys

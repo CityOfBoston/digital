@@ -87,6 +87,18 @@ We also need to generate keys.
     `http://localhost:3000/metadata-forgot.xml` and send them to the IAM team.
 
 
+## URLs
+
+### Localhost
+http://localhost:3000/
+
+### Staging
+DEV: https://access-boston.dev.digital-staging.boston.gov/
+TEST: http://access-test.boston.gov/
+
+### PROD
+https://access-boston.boston.gov/
+
 ### Tech Debt:
 - 2021.10.22: Bumping node, next, typescript, etc module up
   - Removing the following files, TODO: Resolve issues later
@@ -121,4 +133,3 @@ We also need to generate keys.
 - 2021.12.13: PROD deploy - Beacon tile and ServiceNow Rebranding
 - 2022.02.26: PROD deploy - Remove 'Boston Gives Back' icon/link from Dashboard
 - 2022.02.28: PROD deploy - New Tile, CyberArk
-- 2022.04.27: PROD deploy - Pre-BAIS Cutover AB Dashboard Notice
