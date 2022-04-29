@@ -1,4 +1,4 @@
-FROM node:10.24.0-alpine
+FROM node:14.19.1-alpine
 
 ENV WORKSPACE=permit-finder
 
