@@ -38,7 +38,7 @@ export default class IdentityVerification extends React.Component<Props> {
         </Head>
 
         <AppWrapper>
-          <Index />
+          <Index groups={account.groups} />
         </AppWrapper>
       </>
     );

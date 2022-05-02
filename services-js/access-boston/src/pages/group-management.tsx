@@ -1,11 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 
-// import fetch from 'node-fetch';
-
-// import ApolloClient from 'apollo-boost';
-// import { ApolloProvider } from '@apollo/react-hooks';
-
 import { PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
@@ -19,20 +14,13 @@ interface Props {
   account: Account;
 }
 
-// const client = new ApolloClient({
-//   uri: 'http://localhost:7000/graphql',
-//   fetch,
-// } as any);
-
 export default class GroupManagement extends React.Component<Props> {
   static getInitialProps: GetInitialProps<Props> = async (
     _ctx,
     { fetchGraphql }: GetInitialPropsDependencies
   ): Promise<Props> => {
     const account = await fetchAccount(fetchGraphql);
-
     // requireRegistration(account);
-
     return {
       account,
     };
@@ -40,9 +28,6 @@ export default class GroupManagement extends React.Component<Props> {
 
   render() {
     const { account } = this.props;
-
-    console.log('account > groups: ', account);
-
     return (
       <>
         <Head>
@@ -51,9 +36,7 @@ export default class GroupManagement extends React.Component<Props> {
         </Head>
 
         <AppWrapper account={account}>
-          {/*<ApolloProvider client={client as any}>*/}
           <Index groups={account.groups} />
-          {/*</ApolloProvider>*/}
         </AppWrapper>
       </>
     );

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/core';
-import { useReducer, useState } from 'react';
+import { useReducer, useState, useEffect } from 'react';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
@@ -18,12 +18,28 @@ import QuitView from './quit/QuitView';
 import { getViews, getSteps } from '../../storage/IdentityVerificationRequest';
 import { reducer as stateReducer, newInitState } from '../state/app';
 
-export default function Index() {
+interface Props {
+  groups: Array<string> | null;
+}
+
+export default function Index(props: Props) {
+  const { groups } = props;
   const [state, dispatchState] = useReducer(stateReducer, newInitState);
   const [ssn, updateSnn] = useState('');
   const [dob, updateDob] = useState('');
   const fetchedSteps: Array<string> = getSteps();
   const fetchedViews: Array<string> = getViews();
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    if (
+      !groups ||
+      typeof groups !== 'object' ||
+      groups.length < 0 ||
+      groups.indexOf('SG_AB_CONFIRMID') === -1
+    )
+      window.location.href = '/';
+  });
 
   const changeView = (newView: any) =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
