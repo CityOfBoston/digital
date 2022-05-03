@@ -9,6 +9,7 @@ import QuestionComponent from '../../../../client/common/QuestionComponent';
 interface Props {
   handleProceed: () => void;
   resetState: () => void;
+  appTitle: string;
 }
 
 export default function InitialView(props: Props) {
@@ -27,7 +28,7 @@ export default function InitialView(props: Props) {
           />
         </div>
 
-        <SectionHeader title="Identity Verification Process" />
+        <SectionHeader title={`${props.appTitle}`} />
         <p>
           Welcome to Access Boston, the City of Boston's ID Verification
           Service.

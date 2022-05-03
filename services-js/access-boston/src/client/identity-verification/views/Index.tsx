@@ -1,13 +1,12 @@
 /** @jsx jsx */
 
-import { css, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import { useReducer, useState, useEffect } from 'react';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
 
 // VIEWS (Components)
-import InitialView from './initialView/InitialView';
 import EnterIdView from './enterId/EnterIdView';
 import ValidateView from './validate/ValidateView';
 import ReviewView from './review/ReviewView';
@@ -16,7 +15,7 @@ import FailureView from './failure/FailureView';
 import QuitView from './quit/QuitView';
 
 import { getViews, getSteps } from '../../storage/IdentityVerificationRequest';
-import { reducer as stateReducer, newInitState } from '../state/app';
+import { reducer as stateReducer, newInitState, AppTitle } from '../state/app';
 
 interface Props {
   groups: Array<string> | null;
@@ -37,8 +36,9 @@ export default function Index(props: Props) {
       typeof groups !== 'object' ||
       groups.length < 0 ||
       groups.indexOf('SG_AB_CONFIRMID') === -1
-    )
-      window.location.href = '/';
+    ) {
+      if (window) window.location.href = '/';
+    }
   });
 
   const changeView = (newView: any) =>
@@ -121,33 +121,27 @@ export default function Index(props: Props) {
   };
 
   const defaultView = (
-    <div css={INTRO_STYLING}>
-      <InitialView handleProceed={advanceQuestion} resetState={resetState} />
-    </div>
+    <PageWrapper
+      progress={{
+        totalSteps: fetchedSteps.length,
+        currentStep: 1,
+        currentStepCompleted: true,
+      }}
+      classString={'b-c'}
+    >
+      <div>
+        <EnterIdView
+          handleProceed={advanceOnFetchEmployee}
+          resetState={resetState}
+          appTitle={AppTitle}
+        />
+      </div>
+    </PageWrapper>
   );
 
   switch (fetchedViews[state.view]) {
-    case 'initial':
-      return defaultView;
     case 'enterId':
-      return (
-        <PageWrapper
-          progress={{
-            totalSteps: fetchedSteps.length,
-            currentStep: 1,
-            currentStepCompleted: true,
-          }}
-          classString={'b-c'}
-        >
-          <div>
-            <EnterIdView
-              handleProceed={advanceOnFetchEmployee}
-              handleStepBack={stepBack}
-              resetState={resetState}
-            />
-          </div>
-        </PageWrapper>
-      );
+      return defaultView;
     case 'validate':
       return (
         <PageWrapper
@@ -171,6 +165,7 @@ export default function Index(props: Props) {
               dob={dob}
               updateSnn={updateSnn}
               updateDob={updateDob}
+              appTitle={AppTitle}
             />
           </div>
         </PageWrapper>
@@ -196,6 +191,7 @@ export default function Index(props: Props) {
               handleQuit={() =>
                 changeView(fetchedViews[fetchedViews.length - 1])
               }
+              appTitle={AppTitle}
             />
           </div>
         </PageWrapper>
@@ -211,14 +207,14 @@ export default function Index(props: Props) {
           classString={'b-c'}
         >
           <div>
-            <SuccessView handleProceed={resetState} />
+            <SuccessView handleProceed={resetState} appTitle={AppTitle} />
           </div>
         </PageWrapper>
       );
     case 'failure':
       return (
         <PageWrapper classString={'b-c'}>
-          <FailureView handleProceed={resetState} />
+          <FailureView handleProceed={resetState} appTitle={AppTitle} />
         </PageWrapper>
       );
     case 'quit':
@@ -228,6 +224,7 @@ export default function Index(props: Props) {
             handleProceed={() => changeView(fetchedViews[1])}
             handleReset={resetState}
             handleQuit={() => changeView(fetchedViews[0])}
+            appTitle={AppTitle}
           />
         </PageWrapper>
       );
@@ -235,8 +232,3 @@ export default function Index(props: Props) {
       return defaultView;
   }
 }
-
-const INTRO_STYLING = css({
-  width: '90%',
-  margin: 'auto',
-});

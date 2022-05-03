@@ -13,6 +13,7 @@ interface Props {
   handleProceed: any;
   handleReset: any;
   handleQuit: any;
+  appTitle: string;
 }
 
 export default function SuccessView(props: Props) {
@@ -35,7 +36,7 @@ export default function SuccessView(props: Props) {
           />
         </div>
 
-        <SectionHeader title="Quit Identity Verification Process" />
+        <SectionHeader title={`Quit ${props.appTitle}`} />
         <p css={PARAGRAPH_STYLING}>
           Are you sure you want to quit the Identify Verification Process?
         </p>

@@ -17,6 +17,7 @@ interface Props {
   state: any;
   ssn: string;
   dob: string;
+  appTitle: string;
 }
 
 export default function ReviewView(props: Props) {
@@ -46,7 +47,7 @@ export default function ReviewView(props: Props) {
     >
       <Section css={SECTION_STYLING}>
         <SectionHeader
-          title="Identity Verification Process"
+          title={`${props.appTitle}`}
           css={SECTIONHEADER_STYLING}
         />
         <div css={SUBHEADER_STYLING}>Review Details</div>

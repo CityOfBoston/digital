@@ -14,12 +14,12 @@ import TextInput from '../../../common/TextInput';
 
 interface Props {
   handleProceed: any;
-  handleStepBack: () => void;
   resetState: () => void;
+  appTitle: string;
 }
 
 export default function EnterIdView(props: Props) {
-  const { handleProceed, handleStepBack } = props;
+  const { handleProceed } = props;
   const [query, setQuery] = useState('');
   const [value, setValue] = useState('');
 
@@ -43,13 +43,12 @@ export default function EnterIdView(props: Props) {
   return (
     <QuestionComponent
       handleProceed={handle_proceed}
-      handleStepBack={handleStepBack}
       allowProceed={isComplete()}
       nextButtonText={'Next Step'}
     >
       <Section css={SECTION_STYLING}>
         <SectionHeader
-          title="Identity Verification Process"
+          title={`${props.appTitle}`}
           css={SECTIONHEADER_STYLING}
         />
         <div css={SUBHEADER_STYLING}>Instructions</div>

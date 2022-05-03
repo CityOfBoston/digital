@@ -15,7 +15,6 @@ export const getSteps = () => {
 };
 
 const VIEWS: View[] = [
-  'initial',
   'enterId',
   'validate',
   'review',

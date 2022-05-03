@@ -8,6 +8,7 @@ import QuestionComponent from '../../../../client/common/QuestionComponent';
 
 interface Props {
   handleProceed: () => void;
+  appTitle: string;
 }
 
 export default function SuccessView(props: Props) {
@@ -18,14 +19,7 @@ export default function SuccessView(props: Props) {
       nextButtonText={'Restart Verification'}
     >
       <Section css={CONTENT_STYLING}>
-        <div css={LOGO_STYLING}>
-          <img
-            src={'https://assets.boston.gov/icons/dept_icons/access_boston.svg'}
-            alt="Access Boston"
-          />
-        </div>
-
-        <SectionHeader title="Identity Verification Process" />
+        <SectionHeader title={`${props.appTitle}`} />
         <p css={ERROR_CONTENT_STYLING}>
           The identity verification process was unsuccessful.
         </p>
@@ -45,17 +39,6 @@ export default function SuccessView(props: Props) {
     </QuestionComponent>
   );
 }
-
-const LOGO_STYLING = css({
-  display: 'flex',
-  justifyContent: 'center',
-  maxHeight: '150px',
-  marginBottom: '2.25em',
-
-  img: {
-    height: '130px',
-  },
-});
 
 const CONTENT_STYLING = css({
   p: {

@@ -5,7 +5,6 @@ export type IdentityVerificationStep =
   | 'success';
 
 export type View =
-  | 'initial'
   | 'enterId'
   | 'validate'
   | 'review'

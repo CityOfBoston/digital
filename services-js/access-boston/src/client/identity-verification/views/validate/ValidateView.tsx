@@ -24,6 +24,7 @@ interface Props {
   dob: string;
   updateSnn: any;
   updateDob: any;
+  appTitle: string;
 }
 
 export default function ValidateView(props: Props) {
@@ -86,7 +87,7 @@ export default function ValidateView(props: Props) {
     >
       <Section css={SECTION_STYLING}>
         <SectionHeader
-          title="Identity Verification Process"
+          title={`${props.appTitle}`}
           css={SECTIONHEADER_STYLING}
         />
         <div css={SUBHEADER_STYLING}>Validate Employee ID</div>

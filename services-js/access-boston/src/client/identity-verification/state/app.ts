@@ -9,6 +9,8 @@ import { getViews } from '../../storage/IdentityVerificationRequest';
 
 import { isDateObj, formatDate } from '../helpers';
 
+export const AppTitle: string = 'Confirm ID';
+
 export type ActionTypes =
   | 'APP/CHANGE_VIEW'
   | 'APP/RESET_STATE'

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import PageWrapper from '../../PageWrapper';
-import InitialView from './initialView/InitialView';
+// import InitialView from './initialView/InitialView';
 import EnterIdView from './enterId/EnterIdView';
 import ValidataView from './validate/ValidateView';
 import ReviewView from './review/ReviewView';
@@ -10,12 +10,9 @@ import SuccessView from './success/SuccessView';
 import FailureView from './failure/FailureView';
 import QuitView from './quit/QuitView';
 
+import { AppTitle } from '../state/app';
+
 storiesOf('Confirm-Identity', module)
-  .add('Intro', () => (
-    <PageWrapper classString={'b-c'}>
-      <InitialView handleProceed={() => {}} resetState={() => {}} />
-    </PageWrapper>
-  ))
   .add('EnterID', () => (
     <PageWrapper
       classString={'b-c'}
@@ -28,8 +25,8 @@ storiesOf('Confirm-Identity', module)
       <div>
         <EnterIdView
           handleProceed={() => {}}
-          handleStepBack={() => {}}
           resetState={() => {}}
+          appTitle={AppTitle}
         />
       </div>
     </PageWrapper>
@@ -61,6 +58,7 @@ storiesOf('Confirm-Identity', module)
           dob={'1/1/1989'}
           updateSnn={() => {}}
           updateDob={() => {}}
+          appTitle={AppTitle}
         />
       </div>
     </PageWrapper>
@@ -90,6 +88,7 @@ storiesOf('Confirm-Identity', module)
           ssn={'1111'}
           dob={'1/1/1989'}
           handleQuit={() => {}}
+          appTitle={AppTitle}
         />
       </div>
     </PageWrapper>
@@ -104,13 +103,13 @@ storiesOf('Confirm-Identity', module)
       classString={'b-c'}
     >
       <div>
-        <SuccessView handleProceed={() => {}} />
+        <SuccessView handleProceed={() => {}} appTitle={AppTitle} />
       </div>
     </PageWrapper>
   ))
   .add('Failure', () => (
     <PageWrapper classString={'b-c'}>
-      <FailureView handleProceed={() => {}} />
+      <FailureView handleProceed={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   ))
   .add('Quit', () => (
@@ -119,6 +118,7 @@ storiesOf('Confirm-Identity', module)
         handleProceed={() => {}}
         handleReset={() => {}}
         handleQuit={() => {}}
+        appTitle={AppTitle}
       />
     </PageWrapper>
   ));

@@ -2649,9 +2649,9 @@ exports[`Storyshots Confirm-Identity EnterID 1`] = `
             >
               <h2
                 className="sh-title"
-                id="sh-2274324769"
+                id="sh-2981345306"
               >
-                Identity Verification Process
+                Confirm ID
               </h2>
             </div>
             <div
@@ -2716,35 +2716,7 @@ exports[`Storyshots Confirm-Identity EnterID 1`] = `
       >
         <div
           className="t--info g--6 m-b500"
-        >
-          <button
-            className="lnk css-1u4e7t7-BackButton"
-            onClick={[Function]}
-            type="button"
-          >
-            <span
-              style={
-                Object {
-                  "fontStyle": "italic",
-                  "whiteSpace": "nowrap",
-                }
-              }
-            >
-              <span
-                aria-hidden="true"
-                style={
-                  Object {
-                    "fontStyle": "normal",
-                  }
-                }
-              >
-                ←
-              </span>
-               
-              Back
-            </span>
-          </button>
-        </div>
+        />
         <div
           className="g--6 ta-r m-b500"
         >
@@ -2781,21 +2753,13 @@ exports[`Storyshots Confirm-Identity Failure 1`] = `
           className="b css-1k15zfx-Section"
         >
           <div
-            className="css-g0lb8v-SuccessView"
-          >
-            <img
-              alt="Access Boston"
-              src="https://assets.boston.gov/icons/dept_icons/access_boston.svg"
-            />
-          </div>
-          <div
             className="sh m-b300 "
           >
             <h2
               className="sh-title"
-              id="sh-2274324769"
+              id="sh-2981345306"
             >
-              Identity Verification Process
+              Confirm ID
             </h2>
           </div>
           <p
@@ -2851,73 +2815,6 @@ exports[`Storyshots Confirm-Identity Failure 1`] = `
 </div>
 `;
 
-exports[`Storyshots Confirm-Identity Intro 1`] = `
-<div
-  aria-live="polite"
-  className="b-c"
->
-  <div
-    className="css-wa7tyq-QuestionComponent"
-  >
-    <div
-      className="css-1kdixb6-QuestionComponent"
-    >
-      <section
-        className="css-3mpqab-Section"
-      >
-        <div
-          className="b css-1k15zfx-Section"
-        >
-          <div
-            className="css-16r2ato-InitialView"
-          >
-            <img
-              alt="Access Boston"
-              src="https://assets.boston.gov/icons/dept_icons/access_boston.svg"
-            />
-          </div>
-          <div
-            className="sh m-b300 "
-          >
-            <h2
-              className="sh-title"
-              id="sh-2274324769"
-            >
-              Identity Verification Process
-            </h2>
-          </div>
-          <p>
-            Welcome to Access Boston, the City of Boston's ID Verification Service.
-          </p>
-          <p>
-            Please try to have the person go through the "Forgot Password" function before performing the "Identity Verification" process. Using this process means that not only will their password be reset, but any devices they had registered for Multi-Factor Authentication will be cleared from their account. At the end of this process, they will have to re-do the full Access Boston registration process.
-          </p>
-        </div>
-      </section>
-    </div>
-    <div
-      className="g g--mr css-1gcduy8-QuestionComponent"
-    >
-      <div
-        className="t--info g--6 m-b500"
-      />
-      <div
-        className="g--6 ta-r m-b500"
-      >
-        <button
-          className="btn btn--b-sm"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          Begin Verification
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Confirm-Identity Quit 1`] = `
 <div
   aria-live="polite"
@@ -2948,9 +2845,9 @@ exports[`Storyshots Confirm-Identity Quit 1`] = `
           >
             <h2
               className="sh-title"
-              id="sh-2136777080"
+              id="sh-767317923"
             >
-              Quit Identity Verification Process
+              Quit Confirm ID
             </h2>
           </div>
           <p
@@ -3043,9 +2940,9 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
             >
               <h2
                 className="sh-title"
-                id="sh-2274324769"
+                id="sh-2981345306"
               >
-                Identity Verification Process
+                Confirm ID
               </h2>
             </div>
             <div
@@ -3335,21 +3232,13 @@ exports[`Storyshots Confirm-Identity Success 1`] = `
             className="b css-1k15zfx-Section"
           >
             <div
-              className="css-g0lb8v-SuccessView"
-            >
-              <img
-                alt="Access Boston"
-                src="https://assets.boston.gov/icons/dept_icons/access_boston.svg"
-              />
-            </div>
-            <div
               className="sh m-b300 "
             >
               <h2
                 className="sh-title"
-                id="sh-2274324769"
+                id="sh-2981345306"
               >
-                Identity Verification Process
+                Confirm ID
               </h2>
             </div>
             <p
@@ -3433,9 +3322,9 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
             >
               <h2
                 className="sh-title"
-                id="sh-2274324769"
+                id="sh-2981345306"
               >
-                Identity Verification Process
+                Confirm ID
               </h2>
             </div>
             <div
@@ -7681,7 +7570,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
           <a
             className="m-t200 g--3 g--3--sl lwi"
             href="/identity-verification"
-            id="app-icon-Confirm Identity"
+            id="app-icon-Confirm ID"
             target="_blank"
           >
             <span
@@ -7696,7 +7585,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
             <span
               className="lwi-t"
             >
-              Confirm Identity
+              Confirm ID
             </span>
           </a>
         </div>
@@ -8721,7 +8610,7 @@ exports[`Storyshots IndexPage default 1`] = `
           <a
             className="m-t200 g--3 g--3--sl lwi"
             href="/identity-verification"
-            id="app-icon-Confirm Identity"
+            id="app-icon-Confirm ID"
             target="_blank"
           >
             <span
@@ -8736,7 +8625,7 @@ exports[`Storyshots IndexPage default 1`] = `
             <span
               className="lwi-t"
             >
-              Confirm Identity
+              Confirm ID
             </span>
           </a>
         </div>
@@ -9815,7 +9704,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           <a
             className="m-t200 g--3 g--3--sl lwi"
             href="/identity-verification"
-            id="app-icon-Confirm Identity"
+            id="app-icon-Confirm ID"
             target="_blank"
           >
             <span
@@ -9830,7 +9719,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
             <span
               className="lwi-t"
             >
-              Confirm Identity
+              Confirm ID
             </span>
           </a>
         </div>
