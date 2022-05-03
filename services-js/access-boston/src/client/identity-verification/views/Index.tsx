@@ -41,6 +41,10 @@ export default function Index(props: Props) {
     }
   });
 
+  const closeTab = () => {
+    if (window) window.close();
+  };
+
   const changeView = (newView: any) =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
 
@@ -134,6 +138,7 @@ export default function Index(props: Props) {
           handleProceed={advanceOnFetchEmployee}
           resetState={resetState}
           appTitle={AppTitle}
+          handleQuit={closeTab}
         />
       </div>
     </PageWrapper>
@@ -157,9 +162,7 @@ export default function Index(props: Props) {
               handleProceed={advanceQuestion}
               handleStepBack={stepBack}
               resetState={resetState}
-              handleQuit={() =>
-                changeView(fetchedViews[fetchedViews.length - 1])
-              }
+              handleQuit={closeTab}
               state={state}
               ssn={ssn}
               dob={dob}
@@ -188,9 +191,7 @@ export default function Index(props: Props) {
               state={state}
               ssn={ssn}
               dob={dob}
-              handleQuit={() =>
-                changeView(fetchedViews[fetchedViews.length - 1])
-              }
+              handleQuit={closeTab}
               appTitle={AppTitle}
             />
           </div>
@@ -223,7 +224,7 @@ export default function Index(props: Props) {
           <QuitView
             handleProceed={() => changeView(fetchedViews[1])}
             handleReset={resetState}
-            handleQuit={() => changeView(fetchedViews[0])}
+            handleQuit={closeTab}
             appTitle={AppTitle}
           />
         </PageWrapper>

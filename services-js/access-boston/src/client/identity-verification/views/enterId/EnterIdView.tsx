@@ -3,8 +3,6 @@
 import { css, jsx } from '@emotion/core';
 import { useEffect, useState } from 'react';
 
-// import { View } from '../types';
-
 import { SectionHeader } from '@cityofboston/react-fleet';
 import Section from '../../components/Section';
 
@@ -16,10 +14,11 @@ interface Props {
   handleProceed: any;
   resetState: () => void;
   appTitle: string;
+  handleQuit: any;
 }
 
 export default function EnterIdView(props: Props) {
-  const { handleProceed } = props;
+  const { handleProceed, handleQuit } = props;
   const [query, setQuery] = useState('');
   const [value, setValue] = useState('');
 
@@ -45,6 +44,8 @@ export default function EnterIdView(props: Props) {
       handleProceed={handle_proceed}
       allowProceed={isComplete()}
       nextButtonText={'Next Step'}
+      handleQuit={handleQuit}
+      quitBtn={true}
     >
       <Section css={SECTION_STYLING}>
         <SectionHeader

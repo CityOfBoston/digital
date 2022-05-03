@@ -27,6 +27,7 @@ storiesOf('Confirm-Identity', module)
           handleProceed={() => {}}
           resetState={() => {}}
           appTitle={AppTitle}
+          handleQuit={() => {}}
         />
       </div>
     </PageWrapper>

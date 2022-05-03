@@ -40,7 +40,7 @@ export default function ReviewView(props: Props) {
       handleStepBack={handleStepBack}
       handleReset={() => console.log('handleReset.')}
       allowProceed={isComplete()}
-      nextButtonText={'Verify User'}
+      nextButtonText={'Submit'}
       squareStyleBackBtn={true}
       handleQuit={handleQuit}
       quitBtn={true}
@@ -53,7 +53,7 @@ export default function ReviewView(props: Props) {
         <div css={SUBHEADER_STYLING}>Review Details</div>
 
         <div css={VALIDATE_STYLING}>
-          Please confirm the entered values with the person to be confirmed.
+          Please review the details below with the person to confirm.
         </div>
 
         <div css={TEXTINPUT_STYLING}>

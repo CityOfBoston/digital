@@ -74,6 +74,23 @@ export default function ValidateView(props: Props) {
   const contractorLabel = 'Data of Birth (MM/DD/YYYY)';
   const verifyInputLabel =
     state.employeeType === 'EMPLOYEE' ? employeeLabel : contractorLabel;
+  const instructionsElem = () => {
+    if (state.employeeType === 'EMPLOYEE') {
+      return (
+        <>
+          Confirm the name displayed matches the one the caller is providing,
+          then enter the last 4 digits of their SSN.
+        </>
+      );
+    } else {
+      return (
+        <>
+          Confirm the name displayed matches the one the caller is providing,
+          then enter their Date of Birth.
+        </>
+      );
+    }
+  };
 
   return (
     <QuestionComponent
@@ -90,12 +107,9 @@ export default function ValidateView(props: Props) {
           title={`${props.appTitle}`}
           css={SECTIONHEADER_STYLING}
         />
-        <div css={SUBHEADER_STYLING}>Validate Employee ID</div>
+        <div css={SUBHEADER_STYLING}>Validate</div>
 
-        <div css={VALIDATE_STYLING}>
-          Please validate the Employee ID, First Name, Last Name, and enter the
-          last four digits of SSN.
-        </div>
+        <div css={VALIDATE_STYLING}>{instructionsElem()}</div>
 
         <div css={TEXTINPUT_STYLING}>
           <TextInput
