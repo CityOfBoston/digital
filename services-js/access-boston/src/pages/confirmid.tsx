@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
 import AppWrapper from '../client/common/AppWrapper';
-import Index from '../client/identity-verification/views/Index';
+import Index from '../client/confirmid/views/Index';
 
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
@@ -27,8 +27,6 @@ export default class IdentityVerification extends React.Component<Props> {
 
   render() {
     const { account } = this.props;
-
-    console.log('account > groups: ', account);
 
     return (
       <>

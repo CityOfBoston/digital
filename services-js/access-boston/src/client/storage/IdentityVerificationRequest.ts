@@ -1,7 +1,4 @@
-import {
-  View,
-  IdentityVerificationStep,
-} from '../../client/identity-verification/types';
+import { View, IdentityVerificationStep } from '../../client/confirmid/types';
 
 const STEPS: IdentityVerificationStep[] = [
   'enterId',

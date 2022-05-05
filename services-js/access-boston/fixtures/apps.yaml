@@ -97,7 +97,7 @@ categories:
         groups: 
           - SG_AB_TANIUM
       - title: Confirm ID
-        url: /identity-verification
+        url: /confirmid
         target: _blank
         icon: https://assets.boston.gov/icons/accessboston/identity_verification.svg
         groups:
