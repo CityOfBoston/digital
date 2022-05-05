@@ -208,7 +208,7 @@ export default function Index(props: Props) {
           classString={'b-c'}
         >
           <div>
-            <SuccessView handleProceed={resetState} appTitle={AppTitle} />
+            <SuccessView handleProceed={closeTab} appTitle={AppTitle} />
           </div>
         </PageWrapper>
       );

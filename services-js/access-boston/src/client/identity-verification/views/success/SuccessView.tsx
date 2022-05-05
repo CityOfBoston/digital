@@ -2,8 +2,6 @@
 
 import { css, jsx } from '@emotion/core';
 
-// import { View } from '../types';
-
 import { SectionHeader } from '@cityofboston/react-fleet';
 import Section from '../../components/Section';
 
