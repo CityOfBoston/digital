@@ -48,6 +48,18 @@ export default function Index(props: Props) {
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
 
+  useEffect(() => {
+    // Update the document title using the browser API
+    if (
+      !groups ||
+      typeof groups !== 'object' ||
+      groups.length < 0 ||
+      groups.filter((str: string) => str.includes('_GRPMGMT_')) < 1
+    ) {
+      if (window) window.location.href = '/';
+    }
+  });
+
   const changeView = (newView: View): void =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
 
