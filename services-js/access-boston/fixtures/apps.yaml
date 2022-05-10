@@ -1,7 +1,7 @@
-notice:
-  label: 'Notice'
-  pretext: 'Beacon, the new HR self-service portal, is now live!'
-  text: 'Look for the lighthouse icon below.'
+# notice:
+#   label: 'Notice'
+#   pretext: 'Beacon, the new HR self-service portal, is now live!'
+#   text: 'Look for the lighthouse icon below.'
 categories:
   - title: Applications
     show_request_access_link: false
@@ -91,6 +91,17 @@ categories:
         icon: https://assets.boston.gov/icons/accessboston/lantern.svg
         groups:
           - SG_AB_SNOWADMIN
+      - title: Tanium
+        url: https://boston.cloud.tanium.com
+        icon: https://assets.boston.gov/icons/experiential_icons/secure.svg
+        groups: 
+          - SG_AB_TANIUM
+      - title: Confirm ID
+        url: /confirmid
+        target: _blank
+        icon: https://assets.boston.gov/icons/accessboston/identity_verification.svg
+        groups:
+          - SG_AB_CONFIRMID
 
   - title: Forms / Links
     apps:

@@ -179,6 +179,13 @@
 					"title": "Manage My Device(s)",
 					"url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
 					"mfa_device_required": true
+				},
+				{
+					"title": "Identity Verification",
+					"url": "/identity-verification",
+					"groups": [
+						"SG_AB_AGILEPOINT"
+					]
 				}
 			]
 		},

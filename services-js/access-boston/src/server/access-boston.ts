@@ -4,6 +4,8 @@ import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
 import fetch from 'node-fetch';
+import Boom from 'boom';
+// import { fetch as crossFetch } from 'cross-fetch';
 
 import { Server as HapiServer, ResponseObject, Lifecycle } from 'hapi';
 import Inert from 'inert';
@@ -55,6 +57,19 @@ import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
 
 require('dotenv').config();
+
+interface ID_VERIFICATION {
+  method: string;
+  protocol: string;
+  baseurl: string;
+  port: string;
+  path: string;
+  filter: string;
+  username: string;
+  pwd: string;
+  auth: string;
+  cookie?: string;
+}
 
 const readFile = promisify(fs.readFile);
 
@@ -356,6 +371,60 @@ async function addVelocityTemplates(server: HapiServer) {
       const asts = parse(template);
 
       return new Compile(asts, { escape: false }).render(pingData);
+    },
+  });
+
+  server.route({
+    path: '/id-verification',
+    method: ['GET'],
+    options: {
+      auth: false,
+      plugins: {
+        crumb: false,
+      },
+    },
+    handler: async req => {
+      if (req.query['id']) {
+        const idver: ID_VERIFICATION = {
+          method: process.env.ID_VERIFICATION_HTTP_METHOD as string,
+          protocol: process.env.ID_VERIFICATION_PROTOCOL as string,
+          baseurl: process.env.ID_VERIFICATION_BASEURL as string,
+          port: process.env.ID_VERIFICATION_PORT as string,
+          path: process.env.ID_VERIFICATION_PATH as string,
+          filter: process.env.ID_VERIFICATION_FILTER as string,
+          username: process.env.ID_VERIFICATION_USERNAME as string,
+          pwd: process.env.ID_VERIFICATION_PWD as string,
+          auth: process.env.ID_VERIFICATION_AUTH as string,
+          cookie: process.env.ID_VERIFICATION_COOKIE
+            ? (process.env.ID_VERIFICATION_COOKIE as string)
+            : ('' as string),
+        };
+        const endpoint = `${idver.protocol}${idver.baseurl}:${idver.port}${
+          idver.path
+        }${idver.filter}"${req.query['id']}"` as string;
+
+        const fetchQ = async () => {
+          return await fetch(endpoint, {
+            method: idver.method,
+            redirect: 'follow',
+            headers: {
+              Authorization: idver.auth,
+              // Cookie: idver.cookie,
+            },
+          })
+            .then(response => response.json())
+            .catch(error => console.log('error', error));
+        };
+        const respObj: any = await fetchQ();
+
+        if (!respObj) {
+          throw Boom.notFound(`No data is available for »${req.query['id']}«`);
+        }
+
+        return respObj;
+      } else {
+        throw Boom.notFound(`No data is available for »${req.query['id']}«`);
+      }
     },
   });
 

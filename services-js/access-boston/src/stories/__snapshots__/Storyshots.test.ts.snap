@@ -2603,6 +2603,980 @@ exports[`Storyshots Common/AppWrapper default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Confirm-Identity EnterID 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-16poxox"
+  >
+    <div
+      className="css-v8ihoq"
+    >
+      <progress
+        aria-valuemax={4}
+        aria-valuemin={1}
+        aria-valuenow={1}
+        aria-valuetext="Step 1 of 4"
+        max={4}
+        value={1}
+      >
+        Step 1 of 4
+      </progress>
+      <span
+        aria-hidden="true"
+      >
+        Step 1 of 4
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      className="css-wa7tyq-QuestionComponent"
+    >
+      <div
+        className="css-1kdixb6-QuestionComponent"
+      >
+        <section
+          className="css-3mpqab-Section"
+        >
+          <div
+            className="b css-1k15zfx-Section"
+          >
+            <div
+              className="sh m-b300 css-m347gw-EnterIdView"
+            >
+              <h2
+                className="sh-title"
+                id="sh-2981345306"
+              >
+                Confirm ID
+              </h2>
+            </div>
+            <div
+              className="css-apapgx-EnterIdView"
+            >
+              Instructions
+            </div>
+            <div
+              className="css-144632q-EnterIdView"
+            >
+              Please enter the Employee ID or User ID number of the person to be verified.
+            </div>
+            <div
+              className="css-1cvd75b-EnterIdView"
+            >
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2305005876"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Employee/User ID
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                    *
+                  </span>
+                </label>
+                <input
+                  className=" txt-f "
+                  id="input-2305005876"
+                  onChange={[Function]}
+                  required={true}
+                  type="text"
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        className="g g--mr css-1gcduy8-QuestionComponent"
+      >
+        <div
+          className="g--1 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Quit
+          </button>
+        </div>
+        <div
+          className="g--6 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            disabled={true}
+            onClick={[Function]}
+            type="button"
+          >
+            Next Step
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Confirm-Identity Failure 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-wa7tyq-QuestionComponent"
+  >
+    <div
+      className="css-1kdixb6-QuestionComponent"
+    >
+      <section
+        className="css-3mpqab-Section"
+      >
+        <div
+          className="b css-1k15zfx-Section"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-2981345306"
+            >
+              Confirm ID
+            </h2>
+          </div>
+          <p
+            className="css-1iavleh-SuccessView"
+          >
+            The identity verification process was unsuccessful.
+          </p>
+          <p
+            className="css-dyp1sz-SuccessView"
+          >
+            If the person is an 
+            <span
+              className="css-1mk0zw7-SuccessView"
+            >
+              Employee
+            </span>
+            , please ask them to reach out to their Human Resources representative to confirm that their data is correct.
+          </p>
+          <p
+            className="css-dyp1sz-SuccessView"
+          >
+            If the person has a 
+            <span
+              className="css-1mk0zw7-SuccessView"
+            >
+              Sponsored
+            </span>
+             account, please ask them to reach out to their Sponsor to confirm that their data is correct.
+          </p>
+        </div>
+      </section>
+    </div>
+    <div
+      className="g g--mr css-1gcduy8-QuestionComponent"
+    >
+      <div
+        className="t--info g--6 m-b500"
+      />
+      <div
+        className="g--6 ta-r m-b500"
+      >
+        <button
+          className="btn btn--b-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Restart Verification
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Confirm-Identity Quit 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-wa7tyq-QuestionComponent"
+  >
+    <div
+      className="css-1kdixb6-QuestionComponent"
+    >
+      <section
+        className="css-3mpqab-Section"
+      >
+        <div
+          className="b css-1k15zfx-Section"
+        >
+          <div
+            className="css-g0lb8v-SuccessView"
+          >
+            <img
+              alt="Access Boston"
+              src="https://assets.boston.gov/icons/dept_icons/access_boston.svg"
+            />
+          </div>
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-767317923"
+            >
+              Quit Confirm ID
+            </h2>
+          </div>
+          <p
+            className="css-m690qw-SuccessView"
+          >
+            Are you sure you want to quit the Identify Verification Process?
+          </p>
+          <p
+            className="css-m690qw-SuccessView"
+          >
+            All unsaved changes will be lost and the process will have to be restarted.
+          </p>
+        </div>
+      </section>
+    </div>
+    <div
+      className="g g--mr css-1gcduy8-QuestionComponent"
+    >
+      <div
+        className="g--1 ta-r m-b500"
+      >
+        <button
+          className="btn btn--b-sm"
+          onClick={[Function]}
+          type="button"
+        >
+          Quit
+        </button>
+      </div>
+      <div
+        className="g--6 ta-r m-b500"
+      >
+        <button
+          className="btn btn--b-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Go Back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Confirm-Identity Review 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-16poxox"
+  >
+    <div
+      className="css-v8ihoq"
+    >
+      <progress
+        aria-valuemax={4}
+        aria-valuemin={1}
+        aria-valuenow={3}
+        aria-valuetext="Step 3 of 4"
+        max={4}
+        value={3}
+      >
+        Step 3 of 4
+      </progress>
+      <span
+        aria-hidden="true"
+      >
+        Step 3 of 4
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      className="css-wa7tyq-QuestionComponent"
+    >
+      <div
+        className="css-1kdixb6-QuestionComponent"
+      >
+        <section
+          className="css-3mpqab-Section"
+        >
+          <div
+            className="b css-1k15zfx-Section"
+          >
+            <div
+              className="sh m-b300 css-vfdnuw-ReviewView"
+            >
+              <h2
+                className="sh-title"
+                id="sh-2981345306"
+              >
+                Confirm ID
+              </h2>
+            </div>
+            <div
+              className="css-1yme8n4-ReviewView"
+            >
+              Review Details
+            </div>
+            <div
+              className="css-1basu4p-ReviewView"
+            >
+              Please review the details below with the person to confirm.
+            </div>
+            <div
+              className="css-5k6b59-ReviewView"
+            >
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2305005876"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Employee/User ID
+                </label>
+                <input
+                  className=" txt-f "
+                  disabled={true}
+                  id="input-2305005876"
+                  type="text"
+                  value="40000093"
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2048906072"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  First Name
+                </label>
+                <input
+                  className=" txt-f "
+                  disabled={true}
+                  id="input-2048906072"
+                  type="text"
+                  value="Steve"
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-1103291528"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Last Name
+                </label>
+                <input
+                  className=" txt-f "
+                  disabled={true}
+                  id="input-1103291528"
+                  type="text"
+                  value="Martin"
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <fieldset
+                className="css-svo1gv"
+              >
+                <div>
+                  <legend
+                    style={
+                      Object {
+                        "display": "none",
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    Data of Birth (MM/DD/YYYY)
+                  </legend>
+                  <div
+                    className="disabled css-1wyga37"
+                  >
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-month"
+                      >
+                        Month
+                      </label>
+                      <input
+                        className="txt-f"
+                        disabled={true}
+                        id="dob-month"
+                        max="12"
+                        maxLength={2}
+                        min="1"
+                        name="month"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="MM"
+                        type="number"
+                        value="1"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-day"
+                      >
+                        Day
+                      </label>
+                      <input
+                        className="txt-f"
+                        disabled={true}
+                        id="dob-day"
+                        max="31"
+                        maxLength={2}
+                        min="1"
+                        name="day"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="DD"
+                        type="number"
+                        value="1"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-year"
+                      >
+                        Year
+                      </label>
+                      <input
+                        className="txt-f"
+                        disabled={true}
+                        id="dob-year"
+                        max={2022}
+                        maxLength={4}
+                        min="1000"
+                        name="year"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="YYYY"
+                        type="number"
+                        value="1989"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        className="g g--mr css-1gcduy8-QuestionComponent"
+      >
+        <div
+          className="g--1 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Quit
+          </button>
+        </div>
+        <div
+          className="g--3 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Go Back
+          </button>
+        </div>
+        <div
+          className="g--8 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Confirm-Identity Success 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-16poxox"
+  >
+    <div
+      className="css-v8ihoq"
+    >
+      <progress
+        aria-valuemax={4}
+        aria-valuemin={1}
+        aria-valuenow={4}
+        aria-valuetext="Step 4 of 4"
+        max={4}
+        value={4}
+      >
+        Step 4 of 4
+      </progress>
+      <span
+        aria-hidden="true"
+      >
+        Step 4 of 4
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      className="css-wa7tyq-QuestionComponent"
+    >
+      <div
+        className="css-1kdixb6-QuestionComponent"
+      >
+        <section
+          className="css-3mpqab-Section"
+        >
+          <div
+            className="b css-1k15zfx-Section"
+          >
+            <div
+              className="sh m-b300 "
+            >
+              <h2
+                className="sh-title"
+                id="sh-2981345306"
+              >
+                Confirm ID
+              </h2>
+            </div>
+            <p
+              className="css-1snvr1t-SuccessView"
+            >
+              The identity verification process was successful.
+            </p>
+            <p>
+              Please proceed with password reset activities.
+            </p>
+          </div>
+        </section>
+      </div>
+      <div
+        className="g g--mr css-1gcduy8-QuestionComponent"
+      >
+        <div
+          className="t--info g--6 m-b500"
+        />
+        <div
+          className="g--6 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Go to Homepage
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Confirm-Identity Validate 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-16poxox"
+  >
+    <div
+      className="css-v8ihoq"
+    >
+      <progress
+        aria-valuemax={4}
+        aria-valuemin={1}
+        aria-valuenow={2}
+        aria-valuetext="Step 2 of 4"
+        max={4}
+        value={2}
+      >
+        Step 2 of 4
+      </progress>
+      <span
+        aria-hidden="true"
+      >
+        Step 2 of 4
+      </span>
+    </div>
+  </div>
+  <div>
+    <div
+      className="css-wa7tyq-QuestionComponent"
+    >
+      <div
+        className="css-1kdixb6-QuestionComponent"
+      >
+        <section
+          className="css-3mpqab-Section"
+        >
+          <div
+            className="b css-1k15zfx-Section"
+          >
+            <div
+              className="sh m-b300 css-ryohru-ValidateView"
+            >
+              <h2
+                className="sh-title"
+                id="sh-2981345306"
+              >
+                Confirm ID
+              </h2>
+            </div>
+            <div
+              className="css-jrym7l-ValidateView"
+            >
+              Validate
+            </div>
+            <div
+              className="css-19jjkjk-ValidateView"
+            >
+              Confirm the name displayed matches the one the caller is providing, then enter their Date of Birth.
+            </div>
+            <div
+              className="css-11scpej-ValidateView"
+            >
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2305005876"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Employee/User ID
+                </label>
+                <input
+                  className=" txt-f "
+                  disabled={true}
+                  id="input-2305005876"
+                  type="text"
+                  value="40000093"
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-2048906072"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  First Name
+                </label>
+                <input
+                  className=" txt-f "
+                  disabled={true}
+                  id="input-2048906072"
+                  type="text"
+                  value="Steve"
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <div
+                className="txt"
+                style={
+                  Object {
+                    "marginBottom": "0.5rem",
+                  }
+                }
+              >
+                <label
+                  className="txt-l"
+                  htmlFor="input-1103291528"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
+                >
+                  Last Name
+                </label>
+                <input
+                  className=" txt-f "
+                  disabled={true}
+                  id="input-1103291528"
+                  type="text"
+                  value="Martin"
+                />
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
+              </div>
+              <fieldset
+                className="css-svo1gv"
+              >
+                <div>
+                  <legend
+                    style={
+                      Object {
+                        "display": "none",
+                        "width": "100%",
+                      }
+                    }
+                  >
+                    Data of Birth (MM/DD/YYYY)
+                  </legend>
+                  <div
+                    className=" css-1wyga37"
+                  >
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-month"
+                      >
+                        Month
+                      </label>
+                      <input
+                        className="txt-f"
+                        id="dob-month"
+                        max="12"
+                        maxLength={2}
+                        min="1"
+                        name="month"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="MM"
+                        type="number"
+                        value=""
+                      />
+                    </div>
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-day"
+                      >
+                        Day
+                      </label>
+                      <input
+                        className="txt-f"
+                        id="dob-day"
+                        max="31"
+                        maxLength={2}
+                        min="1"
+                        name="day"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="DD"
+                        type="number"
+                        value=""
+                      />
+                    </div>
+                    <div>
+                      <label
+                        className="txt-l"
+                        htmlFor="dob-year"
+                      >
+                        Year
+                      </label>
+                      <input
+                        className="txt-f"
+                        id="dob-year"
+                        max={2022}
+                        maxLength={4}
+                        min="1000"
+                        name="year"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="YYYY"
+                        type="number"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div
+        className="g g--mr css-1gcduy8-QuestionComponent"
+      >
+        <div
+          className="g--1 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Quit
+          </button>
+        </div>
+        <div
+          className="g--3 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            onClick={[Function]}
+            type="button"
+          >
+            Go Back
+          </button>
+        </div>
+        <div
+          className="g--8 ta-r m-b500"
+        >
+          <button
+            className="btn btn--b-sm"
+            disabled={true}
+            onClick={[Function]}
+            type="button"
+          >
+            Next Step
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots DonePage default 1`] = `
 <div
   className="css-1m320nk-AppWrapper"
@@ -6580,6 +7554,48 @@ exports[`Storyshots IndexPage change password success 1`] = `
               ServiceNow - Lightkeeper
             </span>
           </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.cloud.tanium.com"
+            id="app-icon-Tanium"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/experiential_icons/secure.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Tanium
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="/confirmid"
+            id="app-icon-Confirm ID"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/identity_verification.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Confirm ID
+            </span>
+          </a>
         </div>
       </section>
       <div
@@ -7576,6 +8592,48 @@ exports[`Storyshots IndexPage default 1`] = `
               className="lwi-t"
             >
               ServiceNow - Lightkeeper
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.cloud.tanium.com"
+            id="app-icon-Tanium"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/experiential_icons/secure.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Tanium
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="/confirmid"
+            id="app-icon-Confirm ID"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/identity_verification.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Confirm ID
             </span>
           </a>
         </div>
@@ -8628,6 +9686,48 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
               className="lwi-t"
             >
               ServiceNow - Lightkeeper
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.cloud.tanium.com"
+            id="app-icon-Tanium"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/experiential_icons/secure.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Tanium
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="/confirmid"
+            id="app-icon-Confirm ID"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/identity_verification.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Confirm ID
             </span>
           </a>
         </div>

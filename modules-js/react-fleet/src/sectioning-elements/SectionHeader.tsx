@@ -20,7 +20,7 @@ export default class SectionHeader extends React.Component<Props> {
 
   render() {
     const { title, yellow, subheader, id, className } = this.props;
-    const classes = ['sh', 'm-b300'];
+    let classes = ['sh', 'm-b300'];
 
     if (yellow) {
       classes.push('sh--y');
