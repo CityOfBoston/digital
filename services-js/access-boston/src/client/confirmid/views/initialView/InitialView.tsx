@@ -16,7 +16,7 @@ export default function InitialView(props: Props) {
   return (
     <QuestionComponent
       handleProceed={props.handleProceed}
-      handleReset={() => console.log('handleReset.')}
+      handleReset={() => {}}
       allowProceed={true}
       nextButtonText={'Begin Verification'}
     >

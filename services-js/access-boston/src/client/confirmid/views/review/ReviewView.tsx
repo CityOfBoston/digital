@@ -38,7 +38,7 @@ export default function ReviewView(props: Props) {
     <QuestionComponent
       handleProceed={handleProceed}
       handleStepBack={handleStepBack}
-      handleReset={() => console.log('handleReset.')}
+      handleReset={() => {}}
       allowProceed={isComplete()}
       nextButtonText={'Submit'}
       squareStyleBackBtn={true}
