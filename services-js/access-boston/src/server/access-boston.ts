@@ -48,8 +48,6 @@ import graphqlSchema, { Context } from './graphql/schema';
 
 import IdentityIq from './services/IdentityIq';
 import IdentityIqFake from './services/IdentityIqFake';
-// import IdVerification from './services/IdVerification';
-// import IdVerificationFake from './services/IdVerificationFake';
 import AppsRegistry, { makeAppsRegistry } from '../lib/AppsRegistry';
 
 import { addLoginAuth } from './login-auth';
@@ -70,6 +68,7 @@ interface ID_VERIFICATION {
   username: string;
   pwd: string;
   auth: string;
+  cookie?: string;
 }
 
 const readFile = promisify(fs.readFile);
@@ -396,6 +395,9 @@ async function addVelocityTemplates(server: HapiServer) {
           username: process.env.ID_VERIFICATION_USERNAME as string,
           pwd: process.env.ID_VERIFICATION_PWD as string,
           auth: process.env.ID_VERIFICATION_AUTH as string,
+          cookie: process.env.ID_VERIFICATION_COOKIE
+            ? (process.env.ID_VERIFICATION_COOKIE as string)
+            : ('' as string),
         };
         const endpoint = `${idver.protocol}${idver.baseurl}:${idver.port}${
           idver.path
