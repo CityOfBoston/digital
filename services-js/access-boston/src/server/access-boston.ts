@@ -382,6 +382,7 @@ async function addVelocityTemplates(server: HapiServer) {
       plugins: {
         crumb: false,
       },
+      timeout: { server: 1500 },
     },
     handler: async req => {
       if (req.query['id']) {
@@ -436,6 +437,7 @@ async function addVelocityTemplates(server: HapiServer) {
       plugins: {
         crumb: false,
       },
+      timeout: { server: 15000 },
     },
     handler: async _req => {
       const fetchQ = async this_req => {

@@ -49,6 +49,7 @@ const ldapClient = ldap.createClient({
   url: env.LDAP_URL,
   reconnect: true,
   tlsOptions,
+  timeout: 15000,
 });
 
 type Credentials = {
