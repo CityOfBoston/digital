@@ -162,8 +162,10 @@ const queryRootResolvers: QueryRootResolvers = {
       } = loginSession;
       let mgmt_groups: Array<string> = [];
       if (typeof groups === 'object' && groups.length > 0) {
-        mgmt_groups = groups.filter(entry => entry.indexOf('SG_AB_') > -1);
-        // console.log('schema.ts > mgmt_groups: ', mgmt_groups);
+        // mgmt_groups = groups.filter(entry => entry.indexOf('SG_AB_') > -1);
+        mgmt_groups = groups.filter(
+          entry => entry.indexOf('SG_AB_GRPMGMT_') > -1
+        );
       }
 
       return {
