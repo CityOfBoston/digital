@@ -26,7 +26,7 @@ export default class IdentityVerification extends React.Component<Props> {
   };
 
   render() {
-    const { account } = this.props;
+    // const { account } = this.props;
 
     return (
       <>
@@ -36,7 +36,8 @@ export default class IdentityVerification extends React.Component<Props> {
         </Head>
 
         <AppWrapper>
-          <Index groups={account.groups} />
+          {/* <Index groups={account.groups} /> */}
+          <Index />
         </AppWrapper>
       </>
     );

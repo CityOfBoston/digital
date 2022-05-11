@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { jsx } from '@emotion/core';
-import { useReducer, useState, useEffect } from 'react';
+import { useReducer, useState /*, useEffect */ } from 'react';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
@@ -17,29 +17,29 @@ import QuitView from './quit/QuitView';
 import { getViews, getSteps } from '../../storage/IdentityVerificationRequest';
 import { reducer as stateReducer, newInitState, AppTitle } from '../state/app';
 
-interface Props {
-  groups: Array<string> | null;
-}
+// interface Props {
+//   groups: Array<string> | null;
+// }
 
-export default function Index(props: Props) {
-  const { groups } = props;
+export default function Index() {
+  // const { groups } = props;
   const [state, dispatchState] = useReducer(stateReducer, newInitState);
   const [ssn, updateSnn] = useState('');
   const [dob, updateDob] = useState('');
   const fetchedSteps: Array<string> = getSteps();
   const fetchedViews: Array<string> = getViews();
 
-  useEffect(() => {
-    // Update the document title using the browser API
-    if (
-      !groups ||
-      typeof groups !== 'object' ||
-      groups.length < 0 ||
-      groups.indexOf('SG_AB_CONFIRMID') === -1
-    ) {
-      if (window) window.location.href = '/';
-    }
-  });
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   if (
+  //     !groups ||
+  //     typeof groups !== 'object' ||
+  //     groups.length < 0 ||
+  //     groups.indexOf('SG_AB_CONFIRMID') === -1
+  //   ) {
+  //     if (window) window.location.href = '/';
+  //   }
+  // });
 
   const closeTab = () => {
     if (window) window.close();
