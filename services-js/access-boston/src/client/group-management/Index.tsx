@@ -48,17 +48,35 @@ export default function Index(props: Props) {
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   // Update the document title using the browser API
-  //   if (
-  //     !groups ||
-  //     typeof groups !== 'object' ||
-  //     groups.length < 0 ||
-  //     groups.filter((str: string) => str.includes('_GRPMGMT_')) < 1
-  //   ) {
-  //     if (window) window.location.href = '/';
-  //   }
-  // });
+  // Once a selection is made, populate the list and update suggestions.
+  useEffect(() => {
+    const { mode, selected } = state;
+    if (mode === 'group') {
+      if (selected.cn) handleFetchGroupMembers(selected, groups);
+    } else {
+      if (selected.cn) handleFetchPersonsGroups(selected, groups);
+    }
+
+    setApiUrl();
+
+    if (!state.ous || state.ous.length === 0) {
+      setOus();
+    }
+
+    if (!state.adminMinGroups || state.adminMinGroups.length === 0) {
+      getAdminMinGroups();
+    }
+
+    // Update the document title using the browser API
+    //   if (
+    //     !groups ||
+    //     typeof groups !== 'object' ||
+    //     groups.length < 0 ||
+    //     groups.filter((str: string) => str.includes('_GRPMGMT_')) < 1
+    //   ) {
+    //     if (window) window.location.href = '/';
+    //   }
+  }, [state.selected]);
 
   const changeView = (newView: View): void =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
@@ -117,6 +135,8 @@ export default function Index(props: Props) {
   const setApiUrl = async () => {
     const apiURL =
       process.env.GROUP_MANAGEMENT_API_URL || (await fetchDataURL());
+
+    console.log('apiURL: ', apiURL);
     if (state.api === '') {
       dispatchState({
         type: 'APP/SET_API',
@@ -126,6 +146,7 @@ export default function Index(props: Props) {
   };
 
   const setOus = async () => {
+    console.log('RUNNING: setOus');
     fetchOurContainers(groups).then(result => {
       dispatchState({
         type: 'APP/SET_OUS',
@@ -133,10 +154,6 @@ export default function Index(props: Props) {
       });
     });
   };
-
-  if (!state.ous || state.ous.length === 0) {
-    setOus();
-  }
 
   const getAdminMinGroups = async () => {
     fetchMinimumUserGroups(groups).then(result => {
@@ -155,16 +172,14 @@ export default function Index(props: Props) {
         return remappedObj;
       });
 
+      console.log('SET_ADMIN_MIN_GROUPS: ');
+
       dispatchState({
         type: 'APP/SET_ADMIN_MIN_GROUPS',
         dns: ret,
       });
     });
   };
-
-  if (!state.adminMinGroups || state.adminMinGroups.length === 0) {
-    getAdminMinGroups();
-  }
 
   const handleFetchGroupMembers = (
     selected: Group,
@@ -209,17 +224,6 @@ export default function Index(props: Props) {
     }
   };
 
-  setApiUrl();
-  // Once a selection is made, populate the list and update suggestions.
-  useEffect(() => {
-    const { mode, selected } = state;
-    if (mode === 'group') {
-      if (selected.cn) handleFetchGroupMembers(selected, groups);
-    } else {
-      if (selected.cn) handleFetchPersonsGroups(selected, groups);
-    }
-  }, [state.selected]);
-
   const handleToggleItem = (item: Group | Person) => {
     if (item.action && item.action === 'new') {
       dispatchList({ type: 'LIST/DELETE_ITEM', item });
@@ -247,9 +251,11 @@ export default function Index(props: Props) {
       : state.selected.groups;
   }
 
+  let RenderComponent = <></>;
+
   switch (state.view) {
     case 'management':
-      return (
+      RenderComponent = (
         <div css={CONTAINER_STYLING}>
           <ManagementView
             mode={state.mode}
@@ -292,9 +298,24 @@ export default function Index(props: Props) {
           />
         </div>
       );
+      break;
+
+    case 'confirmation':
+      RenderComponent = (
+        <div css={CONFIRMATION_CONTAINER_STYLING}>
+          <ReviewConfirmationView
+            mode={state.mode}
+            selected={state.selected}
+            changeView={changeView}
+            resetAll={resetAll}
+            items={list}
+          />
+        </div>
+      );
+      break;
 
     case 'review':
-      return (
+      RenderComponent = (
         <div css={CONTAINER_STYLING}>
           <ReviewChangesView
             mode={state.mode}
@@ -307,22 +328,10 @@ export default function Index(props: Props) {
           />
         </div>
       );
-
-    case 'confirmation':
-      return (
-        <div css={CONFIRMATION_CONTAINER_STYLING}>
-          <ReviewConfirmationView
-            mode={state.mode}
-            selected={state.selected}
-            changeView={changeView}
-            resetAll={resetAll}
-            items={list}
-          />
-        </div>
-      );
+      break;
 
     default:
-      return (
+      RenderComponent = (
         <div css={CONTAINER_STYLING}>
           <InitialView
             mode={state.mode}
@@ -344,6 +353,8 @@ export default function Index(props: Props) {
         </div>
       );
   }
+
+  return RenderComponent;
 }
 
 const CONTAINER_STYLING: any = {

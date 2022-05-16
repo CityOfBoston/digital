@@ -7963,7 +7963,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
                 className="p-a300"
                 href="/group-management"
                 id="app-link-Group Management"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -9003,7 +9003,7 @@ exports[`Storyshots IndexPage default 1`] = `
                 className="p-a300"
                 href="/group-management"
                 id="app-link-Group Management"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -10097,7 +10097,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                 className="p-a300"
                 href="/group-management"
                 id="app-link-Group Management"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
