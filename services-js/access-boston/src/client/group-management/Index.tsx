@@ -136,8 +136,8 @@ export default function Index(props: Props) {
     const apiURL =
       process.env.GROUP_MANAGEMENT_API_URL || (await fetchDataURL());
 
-    console.log('apiURL: ', apiURL);
     if (state.api === '') {
+      console.log('apiURL (set URL): ', apiURL);
       dispatchState({
         type: 'APP/SET_API',
         api: apiURL,

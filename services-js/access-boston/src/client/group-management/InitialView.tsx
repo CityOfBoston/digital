@@ -43,7 +43,7 @@ export default function InitialView(props: Props) {
   const showMinGroupDisplay =
     adminMinGroups &&
     adminMinGroups.length > 0 &&
-    adminMinGroups.length < 4 &&
+    adminMinGroups.length < 11 &&
     mode === 'group';
 
   return (
