@@ -327,6 +327,13 @@ function passwordErrorToFormErrors(error: string | null) {
     return {};
   }
 
+  if (
+    typeof error === 'string' &&
+    error.includes('sailpoint.connector.ConnectorException')
+  ) {
+    return {};
+  }
+
   switch (error) {
     case 'NEW_PASSWORDS_DONT_MATCH':
       return { confirmPassword: 'Password confirmation didn’t match' };
