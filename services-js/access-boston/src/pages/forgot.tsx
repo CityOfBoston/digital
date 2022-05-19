@@ -331,10 +331,6 @@ function passwordErrorToFormErrors(error: string | null) {
     typeof error === 'string' &&
     error.includes('sailpoint.connector.ConnectorException')
   ) {
-    this.setState({
-      showSuccessMessage: true,
-      showSubmittingModal: false,
-    });
     return {};
   }
 
