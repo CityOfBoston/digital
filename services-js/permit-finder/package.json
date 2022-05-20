@@ -43,7 +43,7 @@
     "autolinker": "^3.0.5",
     "aws-sdk": "^2.245.1",
     "boom": "^7.2.0",
-    "core-js": "^3.6.4",
+    "core-js": "3.19.3",
     "csv-parser": "^2.3.0",
     "date-fns": "^1.29.0",
     "dotenv": "^5.0.1",

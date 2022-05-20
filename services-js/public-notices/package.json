@@ -28,7 +28,7 @@
     "@cityofboston/react-fleet": "^0.0.0",
     "@cityofboston/storybook-common": "^0.0.0",
     "@emotion/core": "^10.0.10",
-    "core-js": "^2.6.4",
+    "core-js": "3.19.3",
     "date-fns": "^1.29.0",
     "dotenv": "^5.0.0",
     "emotion": "^10.0.9",
