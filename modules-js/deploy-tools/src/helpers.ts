@@ -84,13 +84,17 @@ export async function dockerAwsLogin() {
  * a filtered subtree of files. (Glob patterns cause all the files end up in the
  * destination directory, not their subdirectories.)
  */
-export async function makePackageJsonTar(workspaceDir) {
-  const packages = (shell.exec(
-    `find ../.. -name 'package.json' -not -path "*/node_modules/*"`,
-    {
-      silent: true,
-    }
-  ).stdout as string).split('\n');
+export async function makePackageJsonTar(
+  workspaceDir: string,
+  shellPath: string | undefined
+) {
+  const shellCmd = `find ./ -name 'package.json' -not -path "*/node_modules/*"`;
+  // const shellCmd = `find ${
+  //   shellPath && shellPath.length > 0 ? shellPath : `../..`
+  // } -name 'package.json' -not -path "*/node_modules/*"`;
+  const packages = (shell.exec(shellPath ? shellCmd : shellCmd, {
+    silent: true,
+  }).stdout as string).split('\n');
   packages.pop();
 
   await tar.create(

@@ -79,7 +79,7 @@ const cacheTag = 'latest';
 
   if (!isolatedDocker) {
     console.error('🎁 Creating package-json.tar…');
-    await makePackageJsonTar(workspaceDir);
+    await makePackageJsonTar(workspaceDir, '');
     console.error();
   }
 
