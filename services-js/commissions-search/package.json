@@ -24,7 +24,7 @@
   "devDependencies": {
     "@cityofboston/react-fleet": "^0.0.0",
     "prop-types": "^15.6.2",
-    "shelljs": "^0.8.2"
+    "shelljs": "0.8.5"
   },
   "homepage": "/commissions-search",
   "browserslist": [

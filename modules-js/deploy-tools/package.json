@@ -44,7 +44,7 @@
     "minimist": "^1.2.0",
     "node-fetch": "^2.0.0",
     "recursive-readdir": "^2.2.2",
-    "shelljs": "^0.8.2",
+    "shelljs": "0.8.5",
     "tar": "^4.4.3"
   },
   "devDependencies": {

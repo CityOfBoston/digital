@@ -88,7 +88,7 @@ export async function makePackageJsonTar(
   workspaceDir: string,
   shellPath: string | undefined
 ) {
-  const shellCmd = `find ./ -name 'package.json' -not -path "*/node_modules/*"`;
+  const shellCmd = `find ../.. -name 'package.json' -not -path "*/node_modules/*"`;
   // const shellCmd = `find ${
   //   shellPath && shellPath.length > 0 ? shellPath : `../..`
   // } -name 'package.json' -not -path "*/node_modules/*"`;
