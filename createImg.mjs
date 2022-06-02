@@ -5,7 +5,7 @@ import { makePackageJsonTar } from '../digital/createTar.mjs';
 // import { buildImage } from './modules-js/deploy-tools/src/helpers';
 
 const dockerfilePath = path.resolve('./services-js/access-boston/deploy/Dockerfile');
-const workspaceDir = path.resolve('./');
+const workspaceDir = path.resolve('./services-js/access-boston');
 const repository = `access-boston`;
 const cacheTag = 'latest';
 const variant = `test`;
