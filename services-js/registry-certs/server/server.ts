@@ -21,7 +21,7 @@ import {
   HeaderKeysOptions,
   rollbarPlugin,
   persistentQueryPlugin,
-  rollbarErrorExtension,
+  // rollbarErrorExtension,
   HapiGraphqlContextFunction,
 } from '@cityofboston/hapi-common';
 
@@ -227,19 +227,25 @@ export async function makeServer({ rollbar }: ServerArgs) {
   const apolloServer = new ApolloServer({
     schema,
     context: contextFunction,
-    extensions: [rollbarErrorExtension(rollbar)],
+    // extensions: [rollbarErrorExtension(rollbar)],
+    // plugins: [rollbarErrorExtension(rollbar)]
   });
 
-  await apolloServer.applyMiddleware({
-    app: server,
-    route: {
-      cors: true,
-      auth:
-        Object.keys(apiKeys).length || process.env.NODE_ENV == 'staging'
-          ? 'apiHeaderKeys'
-          : false,
-    },
-  });
+  try {
+    await apolloServer.start();
+    await apolloServer.applyMiddleware({
+      app: server,
+      route: {
+        cors: true,
+        auth:
+          Object.keys(apiKeys).length || process.env.NODE_ENV == 'staging'
+            ? 'apiHeaderKeys'
+            : false,
+      },
+    });
+  } catch (error) {
+    console.log('Middleware Error: ', error);
+  }
 
   await server.register({
     plugin: persistentQueryPlugin,

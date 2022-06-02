@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { GraphQLScalarType, Kind } from 'graphql';
-import { makeExecutableSchema } from 'apollo-server-hapi';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import Stripe from 'stripe';
 import Rollbar from 'rollbar';
 
@@ -57,7 +57,7 @@ const dateResolvers = {
         return null;
       }
     },
-    serialize(value: Date) {
+    serialize(value: any) {
       return value.toISOString();
     },
   }),
@@ -71,5 +71,5 @@ export default makeExecutableSchema({
     ...deathResolvers,
     ...dateResolvers,
   } as any,
-  allowUndefinedInResolve: false,
+  // allowUndefinedInResolve: false,
 });

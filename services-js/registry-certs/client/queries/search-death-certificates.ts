@@ -58,5 +58,13 @@ export default async function searchDeathCertificates(
     QUERY,
     queryVariables
   );
+  // eslint-disable-next-line no-console
+  // console.log(
+  //   'search-death-certificates > searchDeathCertificates: ',
+  //   response.deathCertificates.search,
+  //   response.deathCertificates,
+  //   response
+  // );
+
   return response.deathCertificates.search;
 }
