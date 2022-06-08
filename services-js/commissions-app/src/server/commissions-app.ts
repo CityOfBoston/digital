@@ -41,6 +41,8 @@ import CommissionsDaoFake from './dao/CommissionsDaoFake';
 import { ConnectionPool } from 'mssql';
 import { applyFormSchema, ApplyFormValues } from '../lib/validationSchema';
 
+import { toBoolean } from '../lib/helpers';
+
 import Email from './services/Email';
 
 const PATH_PREFIX = '/commissions';
@@ -93,6 +95,13 @@ export async function makeServer(port, rollbar: Rollbar) {
       throw new Error('Must specify COMMISSIONS_DB_SERVER');
     }
 
+    let encryption = process.env.ENCRYPT_DB_CONNECTION
+      ? toBoolean(process.env.ENCRYPT_DB_CONNECTION, true).value
+      : true;
+    let multiSubnetFailover = process.env.USE_MULTISUBNETFAILOVER
+      ? toBoolean(process.env.USE_MULTISUBNETFAILOVER, false).value
+      : false;
+
     commissionsDbPool = await createConnectionPool(
       {
         username,
@@ -100,6 +109,8 @@ export async function makeServer(port, rollbar: Rollbar) {
         database,
         domain,
         server: serverName,
+        encryption,
+        multiSubnetFailover,
       },
       err => {
         console.error(err);
