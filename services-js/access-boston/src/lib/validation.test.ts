@@ -72,4 +72,12 @@ describe('testNotCityEmailAddress', () => {
   test('cityofboston.gov', () => {
     expect(testNotCityEmailAddress('test@cityofboston.gov')).toBe(false);
   });
+
+  test('bostonems.org', () => {
+    expect(testNotCityEmailAddress('test@bostonems.org')).toBe(false);
+  });
+
+  test('bphc.org', () => {
+    expect(testNotCityEmailAddress('test@bphc.org')).toBe(false);
+  });
 });

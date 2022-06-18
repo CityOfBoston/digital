@@ -100,6 +100,8 @@ const CITY_DOMAINS = [
   'cityofboston.gov',
   'ci.boston.ma.us',
   'boston.k12.ma.us',
+  'bphc.org',
+  'bostonems.org',
 ];
 
 const CITY_DOMAIN_REGEXPS = CITY_DOMAINS.map(
