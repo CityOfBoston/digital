@@ -1,4 +1,3 @@
-/* eslint react/no-danger: 0 */
 import React from 'react';
 import Document, {
   Head,
@@ -64,9 +63,10 @@ export default class extends Document<Props> {
             type="image/vnd.microsoft.icon"
           />
 
-          {process.env.NOFOLLOW && process.env.NOFOLLOW === 'true' && (
-            <meta name="robots" content="noindex" />
-          )}
+          {(process.env.NOFOLLOW && process.env.NOFOLLOW === 'true') ||
+            (this.props.__NEXT_DATA__.page === '/marriageintention' && (
+              <meta name="robots" content="noindex, nofollow" />
+            ))}
 
           {process.env.GTM_CONTAINER_ID && (
             <script
