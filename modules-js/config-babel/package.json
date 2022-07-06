@@ -14,7 +14,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.6.0",
     "babel-plugin-require-context-hook": "^1.0.0",
-    "next": ">=11.1.0"
+    "next": ">=9.0.6"
   },
   "devDependencies": {
     "core-js": "^3.19.3"
