@@ -38,14 +38,14 @@ ADD yarn.lock lerna.json .yarnrc /app/
 # which will fail because we don’t have the source code at this point.
 #
 # TODO(finh): Scope this down to $WORKSPACE when yarn has that capability.
-RUN yarn install --production=true --frozen-lockfile --ignore-scripts
+RUN yarn install --frozen-lockfile --ignore-scripts
 
 ADD . /app/
 
 RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
 
 # remove development dependencies
-# RUN npm prune --production
+RUN npm prune --production
 
 # This does the building of our repo’s packages, which couldn’t happen during
 # the initial install because we didn’t have source. The scope keeps us from
