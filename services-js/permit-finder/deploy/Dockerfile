@@ -1,4 +1,4 @@
-FROM node:10.24.0-alpine
+FROM node:14.19.1-alpine
 
 ENV WORKSPACE=permit-finder
 
@@ -43,9 +43,6 @@ RUN yarn install --frozen-lockfile --ignore-scripts
 ADD . /app/
 
 RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
-
-# remove development dependencies
-RUN npm prune --production
 
 # This does the building of our repo’s packages, which couldn’t happen during
 # the initial install because we didn’t have source. The scope keeps us from
