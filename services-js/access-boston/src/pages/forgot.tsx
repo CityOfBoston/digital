@@ -255,28 +255,17 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
         )}
         {showModalError === 'NETWORK' && (
           <>
-            <div className="t--intro t--err">There was a network problem</div>
+            <div className="t--intro t--err">
+              There might have been a network problem
+            </div>
             <div className="t--info m-v300">
-              Your password was probably not changed. If this keeps happening,
-              please get in touch:
+              Please try the new password, it should still work. If it doesn’t,
+              please get in touch
             </div>
 
             <HelpContactInfo />
 
-            <div className="ta-r">
-              <button
-                type="button"
-                className="btn"
-                onClick={() =>
-                  this.setState({
-                    showSubmittingModal: false,
-                    showModalError: null,
-                  })
-                }
-              >
-                Try Again
-              </button>
-            </div>
+            {/* {this.renderTryAgainBtn()} */}
           </>
         )}
         {showModalError === 'SESSION' && (
@@ -287,18 +276,24 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               reset your password.
             </div>
 
-            <div className="ta-r">
-              <button
-                type="button"
-                className="btn"
-                onClick={() => (window.location.href = '/forgot')}
-              >
-                Log In
-              </button>
-            </div>
+            {this.renderTryAgainBtn()}
           </>
         )}
       </StatusModal>
+    );
+  }
+
+  private renderTryAgainBtn() {
+    return (
+      <div className="ta-r">
+        <button
+          type="button"
+          className="btn"
+          onClick={() => (window.location.href = '/forgot')}
+        >
+          Log In
+        </button>
+      </div>
     );
   }
 
