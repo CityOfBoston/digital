@@ -4237,12 +4237,12 @@ Array [
         <div
           className="t--intro t--err"
         >
-          There was a network problem
+          There might have been a network problem
         </div>
         <div
           className="t--info m-v300"
         >
-          Your password was probably not changed. If this keeps happening, please get in touch:
+          Please try the new password, it should still work. If it doesn’t, please get in touch
         </div>
         <ul
           className="ul t--s300 lh--400"
@@ -4266,17 +4266,6 @@ Array [
             </a>
           </li>
         </ul>
-        <div
-          className="ta-r"
-        >
-          <button
-            className="btn"
-            onClick={[Function]}
-            type="button"
-          >
-            Try Again
-          </button>
-        </div>
       </div>
     </div>
   </div>,
