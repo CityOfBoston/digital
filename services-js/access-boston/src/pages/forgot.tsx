@@ -266,6 +266,20 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
             <HelpContactInfo />
 
             {/* {this.renderTryAgainBtn()} */}
+            {/* <div className="ta-r">
+              <button
+                type="button"
+                className="btn"
+                onClick={() =>
+                  this.setState({
+                    showSubmittingModal: false,
+                    showModalError: null,
+                  })
+                }
+              >
+                Try Again
+              </button>
+            </div> */}
           </>
         )}
         {showModalError === 'SESSION' && (
@@ -276,24 +290,18 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               reset your password.
             </div>
 
-            {this.renderTryAgainBtn()}
+            <div className="ta-r">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => (window.location.href = '/forgot')}
+              >
+                Log In
+              </button>
+            </div>
           </>
         )}
       </StatusModal>
-    );
-  }
-
-  private renderTryAgainBtn() {
-    return (
-      <div className="ta-r">
-        <button
-          type="button"
-          className="btn"
-          onClick={() => (window.location.href = '/forgot')}
-        >
-          Log In
-        </button>
-      </div>
     );
   }
 
