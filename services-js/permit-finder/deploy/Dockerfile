@@ -4,24 +4,6 @@ ENV WORKSPACE=permit-finder
 
 WORKDIR /app
 
-RUN apk add --no-cache git openssl 
-
-# Install python/pip
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-
-# Install the AWS CLI
-RUN apk add --update curl unzip git \
-  # RUN apk add --update python3 python3-dev curl unzip git \
-  && cd /tmp \
-  && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
-  && unzip awscli-bundle.zip \
-  && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
-  && rm awscli-bundle.zip \
-  && rm -rf awscli-bundle
-
 # To prevent "Error: could not get uid/gid"
 RUN npm config set unsafe-perm true
 
@@ -61,6 +43,18 @@ ENV NODE_ENV=production
 ENV USE_SSL=1
 
 WORKDIR /app/services-js/$WORKSPACE
+
+RUN apk add --no-cache git openssl \
+  && apk add --update --no-cache python3 curl unzip \
+  && ln -sf python3 /usr/bin/python \
+  && python3 -m ensurepip \
+  && pip3 install --no-cache --upgrade pip setuptools \
+  && cd /tmp \
+  && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
+  && unzip awscli-bundle.zip \
+  && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
+  && rm awscli-bundle.zip \
+  && rm -rf awscli-bundle
 
 COPY --from=build_phase /app /app
 
