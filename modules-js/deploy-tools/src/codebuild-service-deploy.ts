@@ -20,7 +20,7 @@ import {
   parseBranch,
   runNpmScript,
   runScopedLernaScript,
-  runCommandInContainer,
+  // runCommandInContainer,
 } from './helpers';
 
 const args = parseArgs(process.argv, { boolean: true });
@@ -111,12 +111,12 @@ const cacheTag = 'latest';
     return;
   }
 
-  if (packageJson.scripts && packageJson.scripts.postdeploy) {
-    console.error('');
+  // if (packageJson.scripts && packageJson.scripts.postdeploy) {
+  //   console.error('');
 
-    console.error('🏹 Running postdeploy script in the container…');
-    await runCommandInContainer(versionedTag, 'npm run postdeploy');
-  }
+  //   console.error('🏹 Running postdeploy script in the container…');
+  //   await runCommandInContainer(versionedTag, 'npm run postdeploy');
+  // }
 
   console.error('');
 
