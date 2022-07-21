@@ -33,6 +33,9 @@ RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$
 RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare-deploy
 
 # RUN scripts/cacheBuster.sh permit-finder
+RUN echo "build_phase"
+RUN ls -l
+RUN ts-node --project ./tsnode.config.json ./scripts/post-deploy
 
 FROM node:14.19.1-alpine as deploy_phase
 
@@ -57,6 +60,9 @@ RUN apk add --no-cache git openssl \
   && rm -rf awscli-bundle
 
 COPY --from=build_phase /app /app
+
+RUN ls -l
+RUN echo "deploy_phase"
 
 ENTRYPOINT ["/app/scripts/service-entrypoint.sh"]
 CMD ["yarn", "start"]
