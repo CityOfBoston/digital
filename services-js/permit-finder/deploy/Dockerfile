@@ -46,9 +46,7 @@ RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
 RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare 
 RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare-deploy
 
-# RUN scripts/cacheBuster.sh permit-finder
-RUN ls -l
-RUN ls -l scripts/
+# RUN ls -l scripts/
 # RUN bash scripts/cacheBuster.sh permit-finder
 # RUN yarn run cacheBuster 
 
