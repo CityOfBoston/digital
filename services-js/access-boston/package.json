@@ -24,7 +24,7 @@
     "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy deploy/Dockerfile",
     "postdeploy": "ts-node --project ./tsnode.config.json ./scripts/post-deploy && yarn run cacheBuster",
     "update-storyshots": "jest -u",
-    "cacheBuster": "source /app/scripts/cacheBuster.sh permit-finder"
+    "cacheBuster": "source /app/scripts/cacheBuster.sh access-boston"
   },
   "jest": {
     "testPathIgnorePatterns": [
