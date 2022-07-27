@@ -50,7 +50,7 @@ EXPOSE 3000
 
 ENV WORKSPACE=commissions-app
 ENV NODE_ENV=production
-ENV USE_SSL 1
+ENV USE_SSL=1
 
 WORKDIR /app/services-js/$WORKSPACE
 
