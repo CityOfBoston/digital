@@ -13,7 +13,8 @@
     "build": "tsc",
     "prepare": "yarn run build",
     "start": "node build/server",
-    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile",
+    "postdeploy": "source /app/scripts/cacheBuster.sh group-mgmt"
   },
   "jest": {
     "testPathIgnorePatterns": [

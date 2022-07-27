@@ -51,8 +51,8 @@ FROM node:14.19.1-alpine as deploy_phase
 EXPOSE 3000
 
 ENV WORKSPACE=access-boston
-ENV NODE_ENV production
-ENV USE_SSL 1
+ENV NODE_ENV=production
+ENV USE_SSL=1
 
 WORKDIR /app/services-js/$WORKSPACE
 
