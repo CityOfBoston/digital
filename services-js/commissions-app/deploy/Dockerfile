@@ -1,19 +1,16 @@
-FROM node:14.19.1-alpine
+FROM node:14.19.1-alpine as build_phase
 
 ENV WORKSPACE=commissions-app
 
 WORKDIR /app
 
-RUN apk add --no-cache git openssl
-
 # Install python/pip
 ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-
-# Install the AWS CLI
-RUN apk add --update curl unzip git \
+RUN apk add --no-cache git openssl bash \
+  && apk add --update --no-cache python3 curl unzip \
+  && ln -sf python3 /usr/bin/python \
+  && python3 -m ensurepip \
+  && pip3 install --no-cache --upgrade pip setuptools \
   && cd /tmp \
   && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
   && unzip awscli-bundle.zip \
@@ -45,14 +42,31 @@ RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
 # This does the building of our repo’s packages, which couldn’t happen during
 # the initial install because we didn’t have source. The scope keeps us from
 # building unnecessary packages.
-RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare 
+RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare
+
+FROM node:14.19.1-alpine as deploy_phase
 
 EXPOSE 3000
 
-ENV NODE_ENV production
+ENV WORKSPACE=commissions-app
+ENV NODE_ENV=production
 ENV USE_SSL 1
 
 WORKDIR /app/services-js/$WORKSPACE
+
+RUN apk add --no-cache git openssl \
+  && apk add --update --no-cache python3 curl unzip \
+  && ln -sf python3 /usr/bin/python \
+  && python3 -m ensurepip \
+  && pip3 install --no-cache --upgrade pip setuptools \
+  && cd /tmp \
+  && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
+  && unzip awscli-bundle.zip \
+  && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
+  && rm awscli-bundle.zip \
+  && rm -rf awscli-bundle
+
+COPY --from=build_phase /app /app
 
 ENTRYPOINT ["/app/scripts/service-entrypoint.sh"]
 CMD ["yarn", "start"]
