@@ -1,7 +1,7 @@
 notice:
   label: 'Notice'
   pretext: ''
-  text: 'Make your Access Boston even more secure by setting up the PingID app (faster and easier to use than codes via text, email or phone)! Directions are [here](https://www.boston.gov/access-boston-portal-help#pingid-app-instructions)'
+  text: 'Make your Access Boston account even more secure by setting up the PingID app. It is faster and easier to use than getting codes via text, email or phone! Directions are [here](https://www.boston.gov/access-boston-portal-help#pingid-app-instructions)'
 categories:
   - title: Applications
     show_request_access_link: false
