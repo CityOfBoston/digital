@@ -5,6 +5,7 @@ import { css, jsx } from '@emotion/core';
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Markdown from 'markdown-to-jsx';
 
 // import { css } from 'emotion';
 
@@ -143,7 +144,7 @@ export default class IndexPage extends React.Component<Props> {
                     {notice.pretext.length > 0 && (
                       <span>{notice.pretext} </span>
                     )}
-                    {notice.text}
+                    {<Markdown>{notice.text}</Markdown>}
                   </div>
                 )}
                 <SectionHeader title={title} />

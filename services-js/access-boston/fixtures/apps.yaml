@@ -1,7 +1,7 @@
-# notice:
-#   label: 'Notice'
-#   pretext: 'Beacon, the new HR self-service portal, is now live!'
-#   text: 'Look for the lighthouse icon below.'
+notice:
+  label: 'Notice'
+  pretext: ''
+  text: 'Make your Access Boston account even more secure by setting up the PingID app. It is faster and easier to use than getting codes via text, email or phone! Directions are [here](https://www.boston.gov/access-boston-portal-help#pingid-app-instructions)'
 categories:
   - title: Applications
     show_request_access_link: false
@@ -94,7 +94,7 @@ categories:
       - title: Tanium
         url: https://boston.cloud.tanium.com
         icon: https://assets.boston.gov/icons/experiential_icons/secure.svg
-        groups: 
+        groups:
           - SG_AB_TANIUM
       - title: Confirm ID
         url: /confirmid
@@ -149,7 +149,7 @@ categories:
         groups:
           - SG_AB_SERVICEDESK_USERS
       - title: Edit Group
-        url: "#"
+        url: '#'
         groups:
           - SG_AB_HCMSECURITY
       - title: Group Management
