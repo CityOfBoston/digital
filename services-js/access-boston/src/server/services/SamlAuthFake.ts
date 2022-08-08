@@ -51,7 +51,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
         'SG_AB_SERVICEDESK_USERS',
         'SG_AB_BLDGMAINTREQ',
         'SG_AB_CONFIRMID',
-        // 'SG_AB_GRPMGMT_CIVIS',
+        'SG_AB_GRPMGMT_CIVIS',
         // 'SG_AB_GRPMGMT_EBUILDER',
         // 'SG_AB_GRPMGMT_AUDITING',
         // 'SG_AB_GRPMGMT_TANIUM',

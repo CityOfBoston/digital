@@ -48,18 +48,6 @@ export default function Index(props: Props) {
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    // Update the document title using the browser API
-    if (
-      !groups ||
-      typeof groups !== 'object' ||
-      groups.length < 0 ||
-      groups.filter((str: string) => str.includes('_GRPMGMT_')) < 1
-    ) {
-      if (window) window.location.href = '/';
-    }
-  });
-
   const changeView = (newView: View): void =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
 
@@ -134,10 +122,6 @@ export default function Index(props: Props) {
     });
   };
 
-  if (!state.ous || state.ous.length === 0) {
-    setOus();
-  }
-
   const getAdminMinGroups = async () => {
     fetchMinimumUserGroups(groups).then(result => {
       let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
@@ -161,10 +145,6 @@ export default function Index(props: Props) {
       });
     });
   };
-
-  if (!state.adminMinGroups || state.adminMinGroups.length === 0) {
-    getAdminMinGroups();
-  }
 
   const handleFetchGroupMembers = (
     selected: Group,
@@ -209,14 +189,33 @@ export default function Index(props: Props) {
     }
   };
 
-  setApiUrl();
-  // Once a selection is made, populate the list and update suggestions.
   useEffect(() => {
     const { mode, selected } = state;
     if (mode === 'group') {
       if (selected.cn) handleFetchGroupMembers(selected, groups);
     } else {
       if (selected.cn) handleFetchPersonsGroups(selected, groups);
+    }
+
+    // Update the document title using the browser API
+    if (
+      !groups ||
+      typeof groups !== 'object' ||
+      groups.length < 0 ||
+      groups.filter((str: string) => str.includes('_GRPMGMT_')) < 1
+    ) {
+      if (window) window.location.href = '/';
+    } else {
+      if (!state.ous || state.ous.length === 0) {
+        setOus();
+      }
+
+      if (!state.adminMinGroups || state.adminMinGroups.length === 0) {
+        getAdminMinGroups();
+      }
+
+      // Once a selection is made, populate the list and update suggestions.
+      setApiUrl();
     }
   }, [state.selected]);
 
