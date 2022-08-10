@@ -13,7 +13,8 @@
     "prepare": "yarn run build",
     "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile",
     "tunnel": "npx ngrok http 8000",
-    "test-deploy": "ts-node ./scripts/test-deploy.ts"
+    "test-deploy": "ts-node ./scripts/test-deploy.ts",
+    "postdeploy": "source /app/scripts/cacheBuster.sh internal-slack-bot"
   },
   "license": "CC0-1.0",
   "jest": {

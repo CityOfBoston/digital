@@ -123,8 +123,8 @@ export async function buildImage(
   tags: string[] = []
 ) {
   const command = `docker build \
-    --pull \
-    -f ${dockerfilePath} \
+  --pull \
+  -f ${dockerfilePath} \
     ${cacheFromImage ? `--cache-from ${cacheFromImage}` : ''} \
     ${tags.map(t => `-t ${t}`).join(' ')} \
     ${dir}`;

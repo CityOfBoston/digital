@@ -13,7 +13,8 @@
     "build": "tsc",
     "start": "node build/server",
     "prepare": "yarn run build",
-    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile"
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile",
+    "postdeploy": "source /app/scripts/cacheBuster.sh payment-webhooks"
   },
   "license": "CC0-1.0",
   "jest": {
