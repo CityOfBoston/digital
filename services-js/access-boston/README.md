@@ -133,3 +133,4 @@ https://access-boston.boston.gov/
 - 2021.12.13: PROD deploy - Beacon tile and ServiceNow Rebranding
 - 2022.02.26: PROD deploy - Remove 'Boston Gives Back' icon/link from Dashboard
 - 2022.02.28: PROD deploy - New Tile, CyberArk
+- 2022.08.11: PROD deploy - Push-through Docker Image Sizing Fix

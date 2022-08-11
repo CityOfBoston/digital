@@ -326,3 +326,4 @@ https://group-mgmt.boston.gov/
 ### Deploys
 
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
+- 2022.08.11: PROD deploy - Push-through Docker Image Sizing Fix
