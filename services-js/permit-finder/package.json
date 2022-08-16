@@ -68,7 +68,7 @@
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
-    "@cityofboston/config-babel": "^0.0.0",
+    "babel-config": "CityOfBoston/config-babel#main",
     "@cityofboston/config-typescript": "^0.0.0",
     "@cityofboston/graphql-typescript": "^0.0.0",
     "@cityofboston/react-fleet": "^0.0.0",
