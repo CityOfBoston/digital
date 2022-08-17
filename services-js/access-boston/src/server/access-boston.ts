@@ -443,7 +443,6 @@ async function addVelocityTemplates(server: HapiServer) {
       const fetchQ = async this_req => {
         const query = this_req.payload.query;
         const variables = this_req.payload.variables;
-
         return await fetch(
           `${process.env.GROUP_MANAGEMENT_API_URL}` as string,
           {
