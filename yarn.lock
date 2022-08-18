@@ -24397,6 +24397,12 @@ stealthy-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
+storybook-common@CityOfBoston/storybook-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/storybook-common/tar.gz/b90783306c4bc6954f5b4190b2bd44b114cd90ae"
+  dependencies:
+    core-js "^3.19.3"
+
 stream-array@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/stream-array/-/stream-array-1.1.2.tgz#9e5f7345f2137c30ee3b498b9114e80b52bb7eb5"
