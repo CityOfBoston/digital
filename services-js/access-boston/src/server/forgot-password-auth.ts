@@ -147,6 +147,8 @@ export async function addForgotPasswordAuth(
         createdTime: Date.now(),
       });
 
+      console.log('forgot-password-auth > assertResult: ', assertResult);
+
       return h.redirect(forgotPath);
     },
   });

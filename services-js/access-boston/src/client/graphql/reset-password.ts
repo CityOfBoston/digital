@@ -32,5 +32,7 @@ export default async function resetPassword(
     token,
   };
 
+  console.log('resetPassword > args(cast as ResetPasswordVariables): ', args);
+
   return ((await fetchGraphql(QUERY, args)) as ResetPassword).resetPassword;
 }

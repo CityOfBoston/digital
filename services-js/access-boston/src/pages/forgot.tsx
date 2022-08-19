@@ -121,6 +121,13 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
       newPassword: '',
       confirmPassword: '',
     };
+
+    console.log(
+      'forgot.tsx > account && initialValues: ',
+      account,
+      initialValues
+    );
+
     return (
       <>
         <Head>
