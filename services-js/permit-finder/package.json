@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.6.0",
-    "@cityofboston/deploy-tools": "^0.0.0",
+    "deploy-tools": "CityOfBoston/deploy-tools#main",
     "@cityofboston/hapi-common": "^0.0.0",
     "@cityofboston/hapi-next": "^0.0.0",
     "@cityofboston/next-client-common": "^0.0.0",
