@@ -7,7 +7,7 @@ import { ApplyFormValues } from '../lib/validationSchema';
 import { Commission } from './graphql/fetch-commissions';
 
 import {
-  // FileInput,
+  FileInput,
   SectionHeader,
   Textarea,
   TextInput,
@@ -177,7 +177,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
           <a href={mailtoStr}>boardsandcommissions@boston.gov</a>.
         </p>
 
-        {/* <FileInput
+        <FileInput
           name="coverLetter"
           title="Cover Letter"
           fileTypes={['application/pdf']}
@@ -191,7 +191,7 @@ export default function ApplicationForm(props: Props): JSX.Element {
           fileTypes={['application/pdf']}
           sizeLimit={{ amount: 5, unit: 'MB' }}
           handleChange={setFieldValue}
-        /> */}
+        />
       </section>
 
       <hr className="hr hr--sq" aria-hidden style={{ marginTop: '3rem' }} />
