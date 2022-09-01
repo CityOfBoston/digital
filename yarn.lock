@@ -13672,6 +13672,17 @@ hapi-accept-language2@^2.0.3:
   dependencies:
     accept-language-parser "^1.4.1"
 
+hapi-common@CityOfBoston/hapi-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/hapi-common/tar.gz/5cae1a1cfa566ef695a34a9727471cabddcfb7e5"
+  dependencies:
+    boom "^7.2.0"
+    core-js "^3.19.3"
+    good "^8.1.1"
+    good-console "^7.1.0"
+    good-squeeze "^5.1.0"
+    hoek "5.x.x"
+
 hapi-cors@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/hapi-cors/-/hapi-cors-1.0.3.tgz#47db547d9d6b3ae52bbeec34b2b6cfc82c5a8892"
@@ -13686,6 +13697,16 @@ hapi-dev-errors@^3.0.1:
     hoek "~5.0.3"
     youch "~2.0.8"
     youch-terminal "~1.0.0"
+
+hapi-next@CityOfBoston/hapi-next#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/hapi-next/tar.gz/0ef6e608832e9e739516138622cbc0c7cc2bbbb0"
+  dependencies:
+    compression "^1.6.2"
+    core-js "^3.19.3"
+    next ">=11.1.0"
+    react "16.8.5"
+    react-dom "16.8.5"
 
 hapi@^17.5.2:
   version "17.5.2"
@@ -19035,6 +19056,13 @@ netmask@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/netmask/-/netmask-1.0.6.tgz#20297e89d86f6f6400f250d9f4f6b4c1945fcd35"
 
+next-client-common@CityOfBoston/next-client-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/next-client-common/tar.gz/9db41ecaafe02d1a249d857186f47458f52abd18"
+  dependencies:
+    core-js "^3.19.3"
+    isomorphic-fetch "^2.2.1"
+
 next-cookies@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/next-cookies/-/next-cookies-1.0.2.tgz#1a504781824a7a7c5d948f0bbb99a7caeba6151b"
@@ -20579,6 +20607,12 @@ percy-client@^3.0.0:
     request "^2.87.0"
     request-promise "^4.2.2"
     walk "^2.3.14"
+
+percy-common@CityOfBoston/percy-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/percy-common/tar.gz/45f22018c8e78c22e0c92cbd2096a4fb232ab391"
+  dependencies:
+    core-js "^3.19.3"
 
 performance-now@^2.1.0:
   version "2.1.0"
@@ -24324,6 +24358,13 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
+
+srv-decrypt-env@CityOfBoston/srv-decrypt-env#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/srv-decrypt-env/tar.gz/5eb5e67b89dcd17307f7ee1b9a46562221b2b774"
+  dependencies:
+    aws-sdk "^2.236.1"
+    core-js "^3.19.3"
 
 sshpk@^1.7.0:
   version "1.16.1"
