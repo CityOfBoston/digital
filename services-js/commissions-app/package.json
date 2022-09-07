@@ -47,7 +47,7 @@
     "@emotion/core": "^10.0.10",
     "@types/yup": "^0.26.0",
     "apollo-server-hapi": "^2.5.0",
-    "boom": "^7.2.0",
+    "@hapi/boom": "^10.0.0",
     "core-js": "3.19.3",
     "dataloader": "^1.4.0",
     "dotenv": "^5.0.1",
