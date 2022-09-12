@@ -1,27 +1,9 @@
 {
   "projects": {
-    "access-boston": {
-      "schemaPath": "./services-js/access-boston/graphql/schema.graphql",
-      "includes": [
-        "./services-js/access-boston/**/*.{graphql,ts,tsx,js,jsx}"
-      ]
-    },
     "permit-finder": {
       "schemaPath": "./services-js/permit-finder/graphql/schema.graphql",
       "includes": [
         "./services-js/permit-finder/**/*.{graphql,ts,tsx,js,jsx}"
-      ]
-    },
-    "commissions-app": {
-      "schemaPath": "./services-js/commissions-app/graphql/schema.graphql",
-      "includes": [
-        "./services-js/commissions-app/**/*.{graphql,ts,tsx,js,jsx}"
-      ]
-    },
-    "registry-certs": {
-      "schemaPath": "./services-js/registry-certs/graphql/schema.graphql",
-      "includes": [
-        "./services-js/registry-certs/**/*.{graphql,ts,tsx,js,jsx}"
       ]
     }
   }
