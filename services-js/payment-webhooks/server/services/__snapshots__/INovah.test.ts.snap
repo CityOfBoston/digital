@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`INovahFactory login handles wrong password error 1`] = `[Error: The password was wrong]`;
