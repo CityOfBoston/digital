@@ -131,6 +131,11 @@ export async function makeServer(port, rollbar: Rollbar) {
           request: ['handler'],
         }
       : {},
+    state: {
+      // parse: false, // parse and store in request.state
+      // failAction: 'ignore', // may also be 'ignore' or 'log'
+      strictHeader: false,
+    },
   };
 
   if (process.env.USE_SSL) {
