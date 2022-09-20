@@ -80,6 +80,11 @@ export async function makeServer({ rollbar }: ServerArgs) {
           },
         }
       : {}),
+    state: {
+      // parse: false, // parse and store in request.state
+      // failAction: 'ignore', // may also be 'ignore' or 'log'
+      strictHeader: false,
+    },
   };
 
   const server = new Hapi.Server(serverOptions);
