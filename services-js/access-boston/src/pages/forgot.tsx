@@ -1,3 +1,7 @@
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+
 import React from 'react';
 import Head from 'next/head';
 import { Formik, FormikProps, FormikActions } from 'formik';
@@ -24,6 +28,11 @@ import HelpContactInfo from '../client/common/HelpContactInfo';
 
 import AppWrapper from '../client/common/AppWrapper';
 
+import {
+  SHOWPASSWORD_WRAPPER_STYLING,
+  SHOWPASSWORD_STYLING,
+} from './passwordStyling';
+
 interface InitialProps {
   account: Account;
 }
@@ -40,6 +49,7 @@ interface State {
   showSubmittingModal: boolean;
   showSuccessMessage: boolean;
   showModalError: ModalError | null;
+  showPassword: boolean;
 }
 
 interface FormValues {
@@ -66,6 +76,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
       showSubmittingModal: !!props.testSubmittingModal,
       showSuccessMessage: !!props.testSuccessMessage,
       showModalError: props.testModalError || null,
+      showPassword: false,
     };
   }
 
@@ -175,6 +186,12 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
+    const showPasswordAttr = this.state.showPassword ? 'text' : 'password';
+    const setShowPassword = (boolVal: boolean) => {
+      this.setState({
+        showPassword: boolVal,
+      });
+    };
 
     return (
       <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
@@ -213,6 +230,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.newPassword}
               {...commonPasswordProps}
+              type={showPasswordAttr}
             />
 
             <TextInput
@@ -222,7 +240,23 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.confirmPassword}
               {...commonPasswordProps}
+              type={showPasswordAttr}
             />
+
+            <div css={SHOWPASSWORD_WRAPPER_STYLING}>
+              <div
+                // className="txt-l m-b200"
+                css={SHOWPASSWORD_STYLING}
+                onMouseDown={() => {
+                  setShowPassword(true);
+                }}
+                onMouseUp={() => {
+                  setShowPassword(false);
+                }}
+              >
+                Show Password
+              </div>
+            </div>
 
             <div className="ta-r">
               <button

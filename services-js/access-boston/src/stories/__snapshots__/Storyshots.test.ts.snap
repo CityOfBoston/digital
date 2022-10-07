@@ -399,6 +399,17 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                  
               </div>
             </div>
+            <div
+              className="css-1l4w6pd"
+            >
+              <div
+                className="css-neebv0"
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+              >
+                Show Password
+              </div>
+            </div>
             <div>
               <button
                 className="btn btn--b"
@@ -795,6 +806,17 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                  
               </div>
             </div>
+            <div
+              className="css-1l4w6pd"
+            >
+              <div
+                className="css-neebv0"
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+              >
+                Show Password
+              </div>
+            </div>
             <div>
               <button
                 className="btn btn--b"
@@ -1185,6 +1207,17 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                  
               </div>
             </div>
+            <div
+              className="css-1l4w6pd"
+            >
+              <div
+                className="css-neebv0"
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+              >
+                Show Password
+              </div>
+            </div>
             <div>
               <button
                 className="btn btn--b"
@@ -1554,6 +1587,17 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                 className="t--info t--err m-v100"
               >
                  
+              </div>
+            </div>
+            <div
+              className="css-1l4w6pd"
+            >
+              <div
+                className="css-neebv0"
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+              >
+                Show Password
               </div>
             </div>
             <div>
@@ -1993,6 +2037,17 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                  
               </div>
             </div>
+            <div
+              className="css-1l4w6pd"
+            >
+              <div
+                className="css-neebv0"
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+              >
+                Show Password
+              </div>
+            </div>
             <div>
               <button
                 className="btn btn--b"
@@ -2406,6 +2461,17 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                 className="t--info t--err m-v100"
               >
                  
+              </div>
+            </div>
+            <div
+              className="css-1l4w6pd"
+            >
+              <div
+                className="css-neebv0"
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+              >
+                Show Password
               </div>
             </div>
             <div>
@@ -3895,6 +3961,17 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
               </div>
             </div>
             <div
+              className="css-1l4w6pd"
+            >
+              <div
+                className="css-neebv0"
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+              >
+                Show Password
+              </div>
+            </div>
+            <div
               className="ta-r"
             >
               <button
@@ -4169,6 +4246,17 @@ Array [
                   className="t--info t--err m-v100"
                 >
                    
+                </div>
+              </div>
+              <div
+                className="css-1l4w6pd"
+              >
+                <div
+                  className="css-neebv0"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show Password
                 </div>
               </div>
               <div
@@ -4491,6 +4579,17 @@ Array [
                   className="t--info t--err m-v100"
                 >
                    
+                </div>
+              </div>
+              <div
+                className="css-1l4w6pd"
+              >
+                <div
+                  className="css-neebv0"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show Password
                 </div>
               </div>
               <div

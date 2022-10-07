@@ -1,3 +1,7 @@
+/** @jsx jsx */
+
+import { jsx } from '@emotion/core';
+
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -29,6 +33,11 @@ import HelpContactInfo from '../client/common/HelpContactInfo';
 
 import AppWrapper from '../client/common/AppWrapper';
 
+import {
+  SHOWPASSWORD_WRAPPER_STYLING,
+  SHOWPASSWORD_STYLING,
+} from './passwordStyling';
+
 interface InitialProps {
   account: Account;
 }
@@ -41,12 +50,10 @@ interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   hasTemporaryPassword?: boolean;
 }
 
-type ShowPasswordValue = 'password' | 'text';
-
 interface State {
   showSubmittingModal: boolean;
   showModalError: ModalError | null;
-  showPassword: ShowPasswordValue | null;
+  showPassword: boolean;
 }
 
 interface FormValues {
@@ -80,7 +87,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
       showModalError: props.testModalError || null,
-      showPassword: 'password',
+      showPassword: false,
     };
   }
 
@@ -229,6 +236,12 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
+    const showPasswordAttr = this.state.showPassword ? 'text' : 'password';
+    const setShowPassword = (boolVal: boolean) => {
+      this.setState({
+        showPassword: boolVal,
+      });
+    };
 
     return (
       <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
@@ -260,10 +273,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           </div>
 
           <div className="g--6">
-            <button type={'button'} onClick={e => console.log('e: ', e)}>
-              Show Password
-            </button>
-
             <TextInput
               label={
                 hasTemporaryPassword ? 'Temporary Password' : 'Current Password'
@@ -273,7 +282,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="current-password"
               value={values.password}
               {...commonPasswordProps}
-              type={'password'}
+              type={showPasswordAttr}
             />
 
             <TextInput
@@ -283,6 +292,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.newPassword}
               {...commonPasswordProps}
+              type={showPasswordAttr}
             />
 
             <TextInput
@@ -292,7 +302,22 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.confirmPassword}
               {...commonPasswordProps}
+              type={showPasswordAttr}
             />
+
+            <div css={SHOWPASSWORD_WRAPPER_STYLING}>
+              <div
+                css={SHOWPASSWORD_STYLING}
+                onMouseDown={() => {
+                  setShowPassword(true);
+                }}
+                onMouseUp={() => {
+                  setShowPassword(false);
+                }}
+              >
+                Show Password
+              </div>
+            </div>
 
             <div>
               <button
