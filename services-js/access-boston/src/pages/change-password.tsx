@@ -41,9 +41,12 @@ interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
   hasTemporaryPassword?: boolean;
 }
 
+type ShowPasswordValue = 'password' | 'text';
+
 interface State {
   showSubmittingModal: boolean;
   showModalError: ModalError | null;
+  showPassword: ShowPasswordValue | null;
 }
 
 interface FormValues {
@@ -77,6 +80,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
       showModalError: props.testModalError || null,
+      showPassword: 'password',
     };
   }
 
@@ -256,6 +260,10 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           </div>
 
           <div className="g--6">
+            <button type={'button'} onClick={e => console.log('e: ', e)}>
+              Show Password
+            </button>
+
             <TextInput
               label={
                 hasTemporaryPassword ? 'Temporary Password' : 'Current Password'
@@ -265,6 +273,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="current-password"
               value={values.password}
               {...commonPasswordProps}
+              type={'password'}
             />
 
             <TextInput
