@@ -19,3 +19,5 @@ export const SHOWPASSWORD_STYLING = css({
   fontSize: '16px',
   fontWeight: 'bold',
 });
+
+export default SHOWPASSWORD_WRAPPER_STYLING;
