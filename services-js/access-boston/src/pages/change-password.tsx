@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
 import React from 'react';
 import Head from 'next/head';
@@ -33,10 +33,10 @@ import HelpContactInfo from '../client/common/HelpContactInfo';
 
 import AppWrapper from '../client/common/AppWrapper';
 
-import {
-  SHOWPASSWORD_WRAPPER_STYLING,
-  SHOWPASSWORD_STYLING,
-} from './passwordStyling';
+// import {
+//   SHOWPASSWORD_WRAPPER_STYLING,
+//   SHOWPASSWORD_STYLING,
+// } from './passwordStyling';
 
 interface InitialProps {
   account: Account;
@@ -424,3 +424,22 @@ function changePasswordErrorToFormErrors(error: string | null) {
       };
   }
 }
+
+export const SHOWPASSWORD_WRAPPER_STYLING = css({
+  display: 'flex',
+  justifyContent: 'center',
+});
+
+export const SHOWPASSWORD_STYLING = css({
+  textAlign: 'center',
+  marginTop: '0',
+  marginBottom: '1.25em',
+  borderBottom: '2px solid red',
+  cursor: 'pointer',
+  letterSpacing: '1px',
+  textTransform: 'uppercase',
+  color: '#091f2f',
+  fontFamily: 'Montserrat,Arial,sans-serif',
+  fontSize: '16px',
+  fontWeight: 'bold',
+});
