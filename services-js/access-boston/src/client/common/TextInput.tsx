@@ -1,6 +1,8 @@
-import React, { InputHTMLAttributes, ReactNode } from 'react';
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { InputHTMLAttributes, ReactNode } from 'react';
 import hash from 'string-hash';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -27,6 +29,8 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
   id?: string;
   type?: string;
+  showPassword?: boolean;
+  showPassFun?: any;
 }
 
 /**
@@ -50,6 +54,8 @@ export default function TextInput(props: Props) {
     info,
     hideErrorMessage,
     requiredlabelasterisk,
+    showPassword,
+    showPassFun,
   } = props;
   const id = props.id || `input-${hash(label)}`;
 
@@ -66,8 +72,23 @@ export default function TextInput(props: Props) {
   delete inputProps.hideErrorMessage;
   delete inputProps.renderInputFunc;
   delete inputProps.requiredlabelasterisk;
+  delete inputProps.showPassword;
+  delete inputProps.showPassFun;
 
-  const inputEl = <input {...inputProps} />;
+  const showPassEl = (
+    <button
+      css={SHOWPASS_BUTTON}
+      onMouseDown={() => {
+        showPassFun(true);
+      }}
+      onMouseUp={() => {
+        showPassFun(false);
+      }}
+    >
+      Show
+    </button>
+  );
+  const inputEl = <input {...inputProps} css={INPUT_ELEM} />;
   const errorEl = (
     <div className="t--info t--err m-v100">
       {/* The &nbsp; is to keep space for the error so the form doesn't jump when one is added. */}
@@ -77,19 +98,25 @@ export default function TextInput(props: Props) {
 
   return (
     <div className="txt" style={{ marginBottom: '0.5rem' }}>
-      <label htmlFor={id} className="txt-l" style={{ marginTop: 0 }}>
-        {label}
+      <div style={{ display: 'flex' }}>
+        <label htmlFor={id} className="txt-l" style={{ marginTop: 0 }}>
+          {label}
 
-        {required && (
-          <span className="t--req" aria-hidden="true">
-            {' '}
-            Required
-            {requiredlabelasterisk && requiredlabelasterisk === true && '*'}
-          </span>
-        )}
-      </label>
+          {required && (
+            <span className="t--req" aria-hidden="true">
+              {' '}
+              Required
+              {requiredlabelasterisk && requiredlabelasterisk === true && '*'}
+            </span>
+          )}
+        </label>
+      </div>
 
-      {renderInputFunc({ inputEl, errorEl })}
+      <div style={{ display: 'flex' }}>
+        {renderInputFunc({ inputEl, errorEl })}
+
+        {showPassword && showPassFun && showPassEl}
+      </div>
 
       {info && <div className="t--subinfo m-t100">{info}</div>}
 
@@ -97,11 +124,6 @@ export default function TextInput(props: Props) {
     </div>
   );
 }
-
-const ERROR_NEXT_TO_INPUT_CELL_STYLE = css({
-  display: 'flex',
-  alignItems: 'center',
-});
 
 export const renderErrorNextToInput = ({ inputEl, errorEl }) => (
   <>
@@ -111,3 +133,23 @@ export const renderErrorNextToInput = ({ inputEl, errorEl }) => (
     </div>
   </>
 );
+
+const ERROR_NEXT_TO_INPUT_CELL_STYLE = css({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+const INPUT_ELEM = css({
+  width: '80%',
+});
+
+const SHOWPASS_BUTTON = css({
+  width: '20%',
+  background: 'none',
+  color: 'red',
+
+  '&:hover': {
+    color: '#efefef',
+    textDecoration: 'underline',
+  },
+});

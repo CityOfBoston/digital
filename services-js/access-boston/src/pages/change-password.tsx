@@ -53,7 +53,7 @@ interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
 interface State {
   showSubmittingModal: boolean;
   showModalError: ModalError | null;
-  showPassword: boolean;
+  showPassword0: boolean;
 }
 
 interface FormValues {
@@ -87,7 +87,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
       showModalError: props.testModalError || null,
-      showPassword: false,
+      showPassword0: false,
     };
   }
 
@@ -236,10 +236,10 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
-    const showPasswordAttr = this.state.showPassword ? 'text' : 'password';
-    const setShowPassword = (boolVal: boolean) => {
+    const showPasswordAttr0 = this.state.showPassword0 ? 'text' : 'password';
+    const setShowPassword0 = (boolVal: boolean) => {
       this.setState({
-        showPassword: boolVal,
+        showPassword0: boolVal,
       });
     };
 
@@ -282,7 +282,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="current-password"
               value={values.password}
               {...commonPasswordProps}
-              type={showPasswordAttr}
+              type={showPasswordAttr0}
+              showPassword={true}
+              showPassFun={setShowPassword0}
             />
 
             <TextInput
@@ -292,7 +294,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.newPassword}
               {...commonPasswordProps}
-              type={showPasswordAttr}
             />
 
             <TextInput
@@ -302,22 +303,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.confirmPassword}
               {...commonPasswordProps}
-              type={showPasswordAttr}
             />
-
-            <div css={SHOWPASSWORD_WRAPPER_STYLING}>
-              <div
-                css={SHOWPASSWORD_STYLING}
-                onMouseDown={() => {
-                  setShowPassword(true);
-                }}
-                onMouseUp={() => {
-                  setShowPassword(false);
-                }}
-              >
-                Show Password
-              </div>
-            </div>
 
             <div>
               <button

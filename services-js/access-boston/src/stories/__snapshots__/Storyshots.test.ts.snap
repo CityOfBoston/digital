@@ -266,39 +266,62 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2099349523"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Current Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2099349523"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="current-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2099349523"
-                name="password"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Current Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="current-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2099349523"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <button
+                  className="css-vpeeqe-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -313,39 +336,55 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -360,54 +399,59 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
                  
-              </div>
-            </div>
-            <div
-              className="css-1l4w6pd"
-            >
-              <div
-                className="css-neebv0"
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-              >
-                Show Password
               </div>
             </div>
             <div>
@@ -673,39 +717,62 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2099349523"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Current Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2099349523"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="current-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2099349523"
-                name="password"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Current Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="current-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2099349523"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <button
+                  className="css-vpeeqe-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -720,39 +787,55 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -767,54 +850,59 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
                  
-              </div>
-            </div>
-            <div
-              className="css-1l4w6pd"
-            >
-              <div
-                className="css-neebv0"
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-              >
-                Show Password
               </div>
             </div>
             <div>
@@ -1074,39 +1162,62 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2413787969"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Temporary Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2413787969"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="current-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2413787969"
-                name="password"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Temporary Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="current-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2413787969"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <button
+                  className="css-vpeeqe-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -1121,39 +1232,55 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -1168,54 +1295,59 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
                  
-              </div>
-            </div>
-            <div
-              className="css-1l4w6pd"
-            >
-              <div
-                className="css-neebv0"
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-              >
-                Show Password
               </div>
             </div>
             <div>
@@ -1456,39 +1588,62 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2099349523"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Current Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2099349523"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="current-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2099349523"
-                name="password"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Current Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="current-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2099349523"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <button
+                  className="css-vpeeqe-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -1503,39 +1658,55 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -1550,54 +1721,59 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
                  
-              </div>
-            </div>
-            <div
-              className="css-1l4w6pd"
-            >
-              <div
-                className="css-neebv0"
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-              >
-                Show Password
               </div>
             </div>
             <div>
@@ -1904,39 +2080,62 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2099349523"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Current Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2099349523"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="current-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2099349523"
-                name="password"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Current Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="current-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2099349523"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <button
+                  className="css-vpeeqe-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -1951,39 +2150,55 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -1998,54 +2213,59 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
                  
-              </div>
-            </div>
-            <div
-              className="css-1l4w6pd"
-            >
-              <div
-                className="css-neebv0"
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-              >
-                Show Password
               </div>
             </div>
             <div>
@@ -2330,39 +2550,62 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2099349523"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Current Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2099349523"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="current-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2099349523"
-                name="password"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Current Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="current-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2099349523"
+                  name="password"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+                <button
+                  className="css-vpeeqe-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -2377,39 +2620,55 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -2424,54 +2683,59 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
                  
-              </div>
-            </div>
-            <div
-              className="css-1l4w6pd"
-            >
-              <div
-                className="css-neebv0"
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-              >
-                Show Password
               </div>
             </div>
             <div>
@@ -2741,32 +3005,48 @@ exports[`Storyshots Confirm-Identity EnterID 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-2305005876"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Employee/User ID
-                  <span
-                    aria-hidden="true"
-                    className="t--req"
+                  <label
+                    className="txt-l"
+                    htmlFor="input-2305005876"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
                   >
-                     
-                    Required
-                    *
-                  </span>
-                </label>
-                <input
-                  className=" txt-f "
-                  id="input-2305005876"
-                  onChange={[Function]}
-                  required={true}
-                  type="text"
-                />
+                    Employee/User ID
+                    <span
+                      aria-hidden="true"
+                      className="t--req"
+                    >
+                       
+                      Required
+                      *
+                    </span>
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    id="input-2305005876"
+                    onChange={[Function]}
+                    required={true}
+                    type="text"
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -3040,24 +3320,40 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-2305005876"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Employee/User ID
-                </label>
-                <input
-                  className=" txt-f "
-                  disabled={true}
-                  id="input-2305005876"
-                  type="text"
-                  value="40000093"
-                />
+                  <label
+                    className="txt-l"
+                    htmlFor="input-2305005876"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
+                  >
+                    Employee/User ID
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    disabled={true}
+                    id="input-2305005876"
+                    type="text"
+                    value="40000093"
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -3072,24 +3368,40 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-2048906072"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  First Name
-                </label>
-                <input
-                  className=" txt-f "
-                  disabled={true}
-                  id="input-2048906072"
-                  type="text"
-                  value="Steve"
-                />
+                  <label
+                    className="txt-l"
+                    htmlFor="input-2048906072"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
+                  >
+                    First Name
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    disabled={true}
+                    id="input-2048906072"
+                    type="text"
+                    value="Steve"
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -3104,24 +3416,40 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-1103291528"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Last Name
-                </label>
-                <input
-                  className=" txt-f "
-                  disabled={true}
-                  id="input-1103291528"
-                  type="text"
-                  value="Martin"
-                />
+                  <label
+                    className="txt-l"
+                    htmlFor="input-1103291528"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
+                  >
+                    Last Name
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    disabled={true}
+                    id="input-1103291528"
+                    type="text"
+                    value="Martin"
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -3422,24 +3750,40 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-2305005876"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Employee/User ID
-                </label>
-                <input
-                  className=" txt-f "
-                  disabled={true}
-                  id="input-2305005876"
-                  type="text"
-                  value="40000093"
-                />
+                  <label
+                    className="txt-l"
+                    htmlFor="input-2305005876"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
+                  >
+                    Employee/User ID
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    disabled={true}
+                    id="input-2305005876"
+                    type="text"
+                    value="40000093"
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -3454,24 +3798,40 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-2048906072"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  First Name
-                </label>
-                <input
-                  className=" txt-f "
-                  disabled={true}
-                  id="input-2048906072"
-                  type="text"
-                  value="Steve"
-                />
+                  <label
+                    className="txt-l"
+                    htmlFor="input-2048906072"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
+                  >
+                    First Name
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    disabled={true}
+                    id="input-2048906072"
+                    type="text"
+                    value="Steve"
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -3486,24 +3846,40 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-1103291528"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Last Name
-                </label>
-                <input
-                  className=" txt-f "
-                  disabled={true}
-                  id="input-1103291528"
-                  type="text"
-                  value="Martin"
-                />
+                  <label
+                    className="txt-l"
+                    htmlFor="input-1103291528"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
+                  >
+                    Last Name
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    disabled={true}
+                    id="input-1103291528"
+                    type="text"
+                    value="Martin"
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -3874,39 +4250,55 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-529028998"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                New Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-529028998"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-529028998"
-                name="newPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  New Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-529028998"
+                  name="newPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -3921,39 +4313,55 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                 }
               }
             >
-              <label
-                className="txt-l"
-                htmlFor="input-2475388040"
+              <div
                 style={
                   Object {
-                    "marginTop": 0,
+                    "display": "flex",
                   }
                 }
               >
-                Confirm Password
-                <span
-                  aria-hidden="true"
-                  className="t--req"
+                <label
+                  className="txt-l"
+                  htmlFor="input-2475388040"
+                  style={
+                    Object {
+                      "marginTop": 0,
+                    }
+                  }
                 >
-                   
-                  Required
-                </span>
-              </label>
-              <input
-                autoCapitalize="off"
-                autoComplete="new-password"
-                autoCorrect="off"
-                autoFocus={false}
-                className=" txt-f "
-                id="input-2475388040"
-                name="confirmPassword"
-                onBlur={[Function]}
-                onChange={[Function]}
-                required={true}
-                spellCheck={false}
-                type="password"
-                value=""
-              />
+                  Confirm Password
+                  <span
+                    aria-hidden="true"
+                    className="t--req"
+                  >
+                     
+                    Required
+                  </span>
+                </label>
+              </div>
+              <div
+                style={
+                  Object {
+                    "display": "flex",
+                  }
+                }
+              >
+                <input
+                  autoCapitalize="off"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoFocus={false}
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-2475388040"
+                  name="confirmPassword"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  required={true}
+                  spellCheck={false}
+                  type="password"
+                  value=""
+                />
+              </div>
               <div
                 className="t--info t--err m-v100"
               >
@@ -4162,39 +4570,55 @@ Array [
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-529028998"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  New Password
-                  <span
-                    aria-hidden="true"
-                    className="t--req"
+                  <label
+                    className="txt-l"
+                    htmlFor="input-529028998"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
                   >
-                     
-                    Required
-                  </span>
-                </label>
-                <input
-                  autoCapitalize="off"
-                  autoComplete="new-password"
-                  autoCorrect="off"
-                  autoFocus={false}
-                  className=" txt-f "
-                  id="input-529028998"
-                  name="newPassword"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  required={true}
-                  spellCheck={false}
-                  type="password"
-                  value=""
-                />
+                    New Password
+                    <span
+                      aria-hidden="true"
+                      className="t--req"
+                    >
+                       
+                      Required
+                    </span>
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    autoCapitalize="off"
+                    autoComplete="new-password"
+                    autoCorrect="off"
+                    autoFocus={false}
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    id="input-529028998"
+                    name="newPassword"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    spellCheck={false}
+                    type="password"
+                    value=""
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -4209,39 +4633,55 @@ Array [
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-2475388040"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Confirm Password
-                  <span
-                    aria-hidden="true"
-                    className="t--req"
+                  <label
+                    className="txt-l"
+                    htmlFor="input-2475388040"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
                   >
-                     
-                    Required
-                  </span>
-                </label>
-                <input
-                  autoCapitalize="off"
-                  autoComplete="new-password"
-                  autoCorrect="off"
-                  autoFocus={false}
-                  className=" txt-f "
-                  id="input-2475388040"
-                  name="confirmPassword"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  required={true}
-                  spellCheck={false}
-                  type="password"
-                  value=""
-                />
+                    Confirm Password
+                    <span
+                      aria-hidden="true"
+                      className="t--req"
+                    >
+                       
+                      Required
+                    </span>
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    autoCapitalize="off"
+                    autoComplete="new-password"
+                    autoCorrect="off"
+                    autoFocus={false}
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    id="input-2475388040"
+                    name="confirmPassword"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    spellCheck={false}
+                    type="password"
+                    value=""
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -4495,39 +4935,55 @@ Array [
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-529028998"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  New Password
-                  <span
-                    aria-hidden="true"
-                    className="t--req"
+                  <label
+                    className="txt-l"
+                    htmlFor="input-529028998"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
                   >
-                     
-                    Required
-                  </span>
-                </label>
-                <input
-                  autoCapitalize="off"
-                  autoComplete="new-password"
-                  autoCorrect="off"
-                  autoFocus={false}
-                  className=" txt-f "
-                  id="input-529028998"
-                  name="newPassword"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  required={true}
-                  spellCheck={false}
-                  type="password"
-                  value=""
-                />
+                    New Password
+                    <span
+                      aria-hidden="true"
+                      className="t--req"
+                    >
+                       
+                      Required
+                    </span>
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    autoCapitalize="off"
+                    autoComplete="new-password"
+                    autoCorrect="off"
+                    autoFocus={false}
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    id="input-529028998"
+                    name="newPassword"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    spellCheck={false}
+                    type="password"
+                    value=""
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -4542,39 +4998,55 @@ Array [
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-2475388040"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Confirm Password
-                  <span
-                    aria-hidden="true"
-                    className="t--req"
+                  <label
+                    className="txt-l"
+                    htmlFor="input-2475388040"
+                    style={
+                      Object {
+                        "marginTop": 0,
+                      }
+                    }
                   >
-                     
-                    Required
-                  </span>
-                </label>
-                <input
-                  autoCapitalize="off"
-                  autoComplete="new-password"
-                  autoCorrect="off"
-                  autoFocus={false}
-                  className=" txt-f "
-                  id="input-2475388040"
-                  name="confirmPassword"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  required={true}
-                  spellCheck={false}
-                  type="password"
-                  value=""
-                />
+                    Confirm Password
+                    <span
+                      aria-hidden="true"
+                      className="t--req"
+                    >
+                       
+                      Required
+                    </span>
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <input
+                    autoCapitalize="off"
+                    autoComplete="new-password"
+                    autoCorrect="off"
+                    autoFocus={false}
+                    className=" txt-f  css-1rqmmmp-TextInput"
+                    id="input-2475388040"
+                    name="confirmPassword"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    required={true}
+                    spellCheck={false}
+                    type="password"
+                    value=""
+                  />
+                </div>
                 <div
                   className="t--info t--err m-v100"
                 >
@@ -10827,49 +11299,65 @@ exports[`Storyshots RegisterMfaPage default 1`] = `
             }
           }
         >
-          <label
-            className="txt-l"
-            htmlFor="input-1267882554"
+          <div
             style={
               Object {
-                "marginTop": 0,
+                "display": "flex",
               }
             }
           >
-            Phone Number
-            <span
-              aria-hidden="true"
-              className="t--req"
+            <label
+              className="txt-l"
+              htmlFor="input-1267882554"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
             >
-               
-              Required
-            </span>
-          </label>
+              Phone Number
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
+            </label>
+          </div>
           <div
-            className="g"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-1267882554"
-                name="phoneNumber"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="(XXX) XXX-XXXX"
-                required={true}
-                type="tel"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
+              className="g"
             >
               <div
-                className="t--info t--err m-v100"
+                className="g--6"
               >
-                 
+                <input
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-1267882554"
+                  name="phoneNumber"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="(XXX) XXX-XXXX"
+                  required={true}
+                  type="tel"
+                  value=""
+                />
+              </div>
+              <div
+                className="g--6 [object Object]"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
               </div>
             </div>
           </div>
@@ -11108,49 +11596,65 @@ exports[`Storyshots RegisterMfaPage email 1`] = `
             }
           }
         >
-          <label
-            className="txt-l"
-            htmlFor="input-3734019359"
+          <div
             style={
               Object {
-                "marginTop": 0,
+                "display": "flex",
               }
             }
           >
-            Email address
-            <span
-              aria-hidden="true"
-              className="t--req"
+            <label
+              className="txt-l"
+              htmlFor="input-3734019359"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
             >
-               
-              Required
-            </span>
-          </label>
+              Email address
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
+            </label>
+          </div>
           <div
-            className="g"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-3734019359"
-                name="email"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="you@example.com"
-                required={true}
-                type="email"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
+              className="g"
             >
               <div
-                className="t--info t--err m-v100"
+                className="g--6"
               >
-                 
+                <input
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-3734019359"
+                  name="email"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="you@example.com"
+                  required={true}
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div
+                className="g--6 [object Object]"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
               </div>
             </div>
           </div>
@@ -11337,49 +11841,65 @@ exports[`Storyshots RegisterMfaPage modal open 1`] = `
             }
           }
         >
-          <label
-            className="txt-l"
-            htmlFor="input-1267882554"
+          <div
             style={
               Object {
-                "marginTop": 0,
+                "display": "flex",
               }
             }
           >
-            Phone Number
-            <span
-              aria-hidden="true"
-              className="t--req"
+            <label
+              className="txt-l"
+              htmlFor="input-1267882554"
+              style={
+                Object {
+                  "marginTop": 0,
+                }
+              }
             >
-               
-              Required
-            </span>
-          </label>
+              Phone Number
+              <span
+                aria-hidden="true"
+                className="t--req"
+              >
+                 
+                Required
+              </span>
+            </label>
+          </div>
           <div
-            className="g"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <div
-              className="g--6"
-            >
-              <input
-                className=" txt-f "
-                id="input-1267882554"
-                name="phoneNumber"
-                onBlur={[Function]}
-                onChange={[Function]}
-                placeholder="(XXX) XXX-XXXX"
-                required={true}
-                type="tel"
-                value=""
-              />
-            </div>
-            <div
-              className="g--6 css-70qvj9"
+              className="g"
             >
               <div
-                className="t--info t--err m-v100"
+                className="g--6"
               >
-                 
+                <input
+                  className=" txt-f  css-1rqmmmp-TextInput"
+                  id="input-1267882554"
+                  name="phoneNumber"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="(XXX) XXX-XXXX"
+                  required={true}
+                  type="tel"
+                  value=""
+                />
+              </div>
+              <div
+                className="g--6 [object Object]"
+              >
+                <div
+                  className="t--info t--err m-v100"
+                >
+                   
+                </div>
               </div>
             </div>
           </div>
@@ -11500,45 +12020,61 @@ exports[`Storyshots RegisterMfaPage modal open 1`] = `
                   }
                 }
               >
-                <label
-                  className="txt-l"
-                  htmlFor="input-3102479774"
+                <div
                   style={
                     Object {
-                      "marginTop": 0,
+                      "display": "flex",
                     }
                   }
                 >
-                  Security code
-                </label>
-                <div
-                  className="css-70qvj9"
-                >
-                  <input
-                    autoFocus={true}
-                    className="css-15p77ot txt-f "
-                    id="input-3102479774"
-                    maxLength={6}
-                    name="code"
-                    onChange={[Function]}
-                    pattern="[0-9]*"
-                    size={6}
-                    type="text"
-                    value=""
-                  />
-                  <button
-                    className="btn"
-                    disabled={true}
+                  <label
+                    className="txt-l"
+                    htmlFor="input-3102479774"
                     style={
                       Object {
-                        "marginLeft": "1em",
-                        "whiteSpace": "nowrap",
+                        "marginTop": 0,
                       }
                     }
-                    type="submit"
                   >
-                    Activate
-                  </button>
+                    Security code
+                  </label>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "display": "flex",
+                    }
+                  }
+                >
+                  <div
+                    className="css-70qvj9"
+                  >
+                    <input
+                      autoFocus={true}
+                      className="css-15p77ot txt-f  css-1rqmmmp-TextInput"
+                      id="input-3102479774"
+                      maxLength={6}
+                      name="code"
+                      onChange={[Function]}
+                      pattern="[0-9]*"
+                      size={6}
+                      type="text"
+                      value=""
+                    />
+                    <button
+                      className="btn"
+                      disabled={true}
+                      style={
+                        Object {
+                          "marginLeft": "1em",
+                          "whiteSpace": "nowrap",
+                        }
+                      }
+                      type="submit"
+                    >
+                      Activate
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -11666,49 +12202,65 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
         }
       }
     >
-      <label
-        className="txt-l"
-        htmlFor="input-1267882554"
+      <div
         style={
           Object {
-            "marginTop": 0,
+            "display": "flex",
           }
         }
       >
-        Phone Number
-        <span
-          aria-hidden="true"
-          className="t--req"
+        <label
+          className="txt-l"
+          htmlFor="input-1267882554"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
         >
-           
-          Required
-        </span>
-      </label>
+          Phone Number
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+      </div>
       <div
-        className="g"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
       >
         <div
-          className="g--6"
-        >
-          <input
-            className=" txt-f "
-            id="input-1267882554"
-            name="phoneNumber"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="(XXX) XXX-XXXX"
-            required={true}
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          className="g--6 css-70qvj9"
+          className="g"
         >
           <div
-            className="t--info t--err m-v100"
+            className="g--6"
           >
-             
+            <input
+              className=" txt-f  css-1rqmmmp-TextInput"
+              id="input-1267882554"
+              name="phoneNumber"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="(XXX) XXX-XXXX"
+              required={true}
+              type="tel"
+              value=""
+            />
+          </div>
+          <div
+            className="g--6 [object Object]"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+               
+            </div>
           </div>
         </div>
       </div>
@@ -11848,49 +12400,65 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
         }
       }
     >
-      <label
-        className="txt-l"
-        htmlFor="input-3734019359"
+      <div
         style={
           Object {
-            "marginTop": 0,
+            "display": "flex",
           }
         }
       >
-        Email address
-        <span
-          aria-hidden="true"
-          className="t--req"
+        <label
+          className="txt-l"
+          htmlFor="input-3734019359"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
         >
-           
-          Required
-        </span>
-      </label>
+          Email address
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+      </div>
       <div
-        className="g"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
       >
         <div
-          className="g--6"
-        >
-          <input
-            className=" txt-f txt-f--err"
-            id="input-3734019359"
-            name="email"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="you@example.com"
-            required={true}
-            type="email"
-            value="notanemail.com"
-          />
-        </div>
-        <div
-          className="g--6 css-70qvj9"
+          className="g"
         >
           <div
-            className="t--info t--err m-v100"
+            className="g--6"
           >
-            This doesn’t look like an email address.
+            <input
+              className=" txt-f txt-f--err css-1rqmmmp-TextInput"
+              id="input-3734019359"
+              name="email"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="you@example.com"
+              required={true}
+              type="email"
+              value="notanemail.com"
+            />
+          </div>
+          <div
+            className="g--6 [object Object]"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+              This doesn’t look like an email address.
+            </div>
           </div>
         </div>
       </div>
@@ -11973,49 +12541,65 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
         }
       }
     >
-      <label
-        className="txt-l"
-        htmlFor="input-1267882554"
+      <div
         style={
           Object {
-            "marginTop": 0,
+            "display": "flex",
           }
         }
       >
-        Phone Number
-        <span
-          aria-hidden="true"
-          className="t--req"
+        <label
+          className="txt-l"
+          htmlFor="input-1267882554"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
         >
-           
-          Required
-        </span>
-      </label>
+          Phone Number
+          <span
+            aria-hidden="true"
+            className="t--req"
+          >
+             
+            Required
+          </span>
+        </label>
+      </div>
       <div
-        className="g"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
       >
         <div
-          className="g--6"
-        >
-          <input
-            className=" txt-f "
-            id="input-1267882554"
-            name="phoneNumber"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="(XXX) XXX-XXXX"
-            required={true}
-            type="tel"
-            value=""
-          />
-        </div>
-        <div
-          className="g--6 css-70qvj9"
+          className="g"
         >
           <div
-            className="t--info t--err m-v100"
+            className="g--6"
           >
-             
+            <input
+              className=" txt-f  css-1rqmmmp-TextInput"
+              id="input-1267882554"
+              name="phoneNumber"
+              onBlur={[Function]}
+              onChange={[Function]}
+              placeholder="(XXX) XXX-XXXX"
+              required={true}
+              type="tel"
+              value=""
+            />
+          </div>
+          <div
+            className="g--6 [object Object]"
+          >
+            <div
+              className="t--info t--err m-v100"
+            >
+               
+            </div>
           </div>
         </div>
       </div>
@@ -12139,45 +12723,61 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal checking the code 1`
               }
             }
           >
-            <label
-              className="txt-l"
-              htmlFor="input-3102479774"
+            <div
               style={
                 Object {
-                  "marginTop": 0,
+                  "display": "flex",
                 }
               }
             >
-              Security code
-            </label>
-            <div
-              className="css-70qvj9"
-            >
-              <input
-                autoFocus={true}
-                className="css-15p77ot txt-f "
-                id="input-3102479774"
-                maxLength={6}
-                name="code"
-                onChange={[Function]}
-                pattern="[0-9]*"
-                size={6}
-                type="text"
-                value="133789"
-              />
-              <button
-                className="btn"
-                disabled={true}
+              <label
+                className="txt-l"
+                htmlFor="input-3102479774"
                 style={
                   Object {
-                    "marginLeft": "1em",
-                    "whiteSpace": "nowrap",
+                    "marginTop": 0,
                   }
                 }
-                type="submit"
               >
-                Checking…
-              </button>
+                Security code
+              </label>
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                className="css-70qvj9"
+              >
+                <input
+                  autoFocus={true}
+                  className="css-15p77ot txt-f  css-1rqmmmp-TextInput"
+                  id="input-3102479774"
+                  maxLength={6}
+                  name="code"
+                  onChange={[Function]}
+                  pattern="[0-9]*"
+                  size={6}
+                  type="text"
+                  value="133789"
+                />
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "marginLeft": "1em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                  type="submit"
+                >
+                  Checking…
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -12244,45 +12844,61 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal incorrect code 1`] =
               }
             }
           >
-            <label
-              className="txt-l"
-              htmlFor="input-3102479774"
+            <div
               style={
                 Object {
-                  "marginTop": 0,
+                  "display": "flex",
                 }
               }
             >
-              Security code
-            </label>
-            <div
-              className="css-70qvj9"
-            >
-              <input
-                autoFocus={true}
-                className="css-15p77ot txt-f "
-                id="input-3102479774"
-                maxLength={6}
-                name="code"
-                onChange={[Function]}
-                pattern="[0-9]*"
-                size={6}
-                type="text"
-                value=""
-              />
-              <button
-                className="btn"
-                disabled={true}
+              <label
+                className="txt-l"
+                htmlFor="input-3102479774"
                 style={
                   Object {
-                    "marginLeft": "1em",
-                    "whiteSpace": "nowrap",
+                    "marginTop": 0,
                   }
                 }
-                type="submit"
               >
-                Activate
-              </button>
+                Security code
+              </label>
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                className="css-70qvj9"
+              >
+                <input
+                  autoFocus={true}
+                  className="css-15p77ot txt-f  css-1rqmmmp-TextInput"
+                  id="input-3102479774"
+                  maxLength={6}
+                  name="code"
+                  onChange={[Function]}
+                  pattern="[0-9]*"
+                  size={6}
+                  type="text"
+                  value=""
+                />
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "marginLeft": "1em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                  type="submit"
+                >
+                  Activate
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -12423,45 +13039,61 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for SMS code
               }
             }
           >
-            <label
-              className="txt-l"
-              htmlFor="input-3102479774"
+            <div
               style={
                 Object {
-                  "marginTop": 0,
+                  "display": "flex",
                 }
               }
             >
-              Security code
-            </label>
-            <div
-              className="css-70qvj9"
-            >
-              <input
-                autoFocus={true}
-                className="css-15p77ot txt-f "
-                id="input-3102479774"
-                maxLength={6}
-                name="code"
-                onChange={[Function]}
-                pattern="[0-9]*"
-                size={6}
-                type="text"
-                value=""
-              />
-              <button
-                className="btn"
-                disabled={true}
+              <label
+                className="txt-l"
+                htmlFor="input-3102479774"
                 style={
                   Object {
-                    "marginLeft": "1em",
-                    "whiteSpace": "nowrap",
+                    "marginTop": 0,
                   }
                 }
-                type="submit"
               >
-                Activate
-              </button>
+                Security code
+              </label>
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                className="css-70qvj9"
+              >
+                <input
+                  autoFocus={true}
+                  className="css-15p77ot txt-f  css-1rqmmmp-TextInput"
+                  id="input-3102479774"
+                  maxLength={6}
+                  name="code"
+                  onChange={[Function]}
+                  pattern="[0-9]*"
+                  size={6}
+                  type="text"
+                  value=""
+                />
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "marginLeft": "1em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                  type="submit"
+                >
+                  Activate
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -12528,45 +13160,61 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for email co
               }
             }
           >
-            <label
-              className="txt-l"
-              htmlFor="input-3102479774"
+            <div
               style={
                 Object {
-                  "marginTop": 0,
+                  "display": "flex",
                 }
               }
             >
-              Security code
-            </label>
-            <div
-              className="css-70qvj9"
-            >
-              <input
-                autoFocus={true}
-                className="css-15p77ot txt-f "
-                id="input-3102479774"
-                maxLength={6}
-                name="code"
-                onChange={[Function]}
-                pattern="[0-9]*"
-                size={6}
-                type="text"
-                value="133789"
-              />
-              <button
-                className="btn"
-                disabled={false}
+              <label
+                className="txt-l"
+                htmlFor="input-3102479774"
                 style={
                   Object {
-                    "marginLeft": "1em",
-                    "whiteSpace": "nowrap",
+                    "marginTop": 0,
                   }
                 }
-                type="submit"
               >
-                Activate
-              </button>
+                Security code
+              </label>
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                className="css-70qvj9"
+              >
+                <input
+                  autoFocus={true}
+                  className="css-15p77ot txt-f  css-1rqmmmp-TextInput"
+                  id="input-3102479774"
+                  maxLength={6}
+                  name="code"
+                  onChange={[Function]}
+                  pattern="[0-9]*"
+                  size={6}
+                  type="text"
+                  value="133789"
+                />
+                <button
+                  className="btn"
+                  disabled={false}
+                  style={
+                    Object {
+                      "marginLeft": "1em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                  type="submit"
+                >
+                  Activate
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -12634,45 +13282,61 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
               }
             }
           >
-            <label
-              className="txt-l"
-              htmlFor="input-3102479774"
+            <div
               style={
                 Object {
-                  "marginTop": 0,
+                  "display": "flex",
                 }
               }
             >
-              Security code
-            </label>
-            <div
-              className="css-70qvj9"
-            >
-              <input
-                autoFocus={true}
-                className="css-15p77ot txt-f "
-                id="input-3102479774"
-                maxLength={6}
-                name="code"
-                onChange={[Function]}
-                pattern="[0-9]*"
-                size={6}
-                type="text"
-                value=""
-              />
-              <button
-                className="btn"
-                disabled={true}
+              <label
+                className="txt-l"
+                htmlFor="input-3102479774"
                 style={
                   Object {
-                    "marginLeft": "1em",
-                    "whiteSpace": "nowrap",
+                    "marginTop": 0,
                   }
                 }
-                type="submit"
               >
-                Activate
-              </button>
+                Security code
+              </label>
+            </div>
+            <div
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
+            >
+              <div
+                className="css-70qvj9"
+              >
+                <input
+                  autoFocus={true}
+                  className="css-15p77ot txt-f  css-1rqmmmp-TextInput"
+                  id="input-3102479774"
+                  maxLength={6}
+                  name="code"
+                  onChange={[Function]}
+                  pattern="[0-9]*"
+                  size={6}
+                  type="text"
+                  value=""
+                />
+                <button
+                  className="btn"
+                  disabled={true}
+                  style={
+                    Object {
+                      "marginLeft": "1em",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                  type="submit"
+                >
+                  Activate
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -13113,22 +13777,38 @@ Array [
       }
     }
   >
-    <label
-      className="txt-l"
-      htmlFor="input-240483872"
+    <div
       style={
         Object {
-          "marginTop": 0,
+          "display": "flex",
         }
       }
     >
-      Normal Input
-    </label>
-    <input
-      className=" txt-f "
-      id="input-240483872"
-      type="text"
-    />
+      <label
+        className="txt-l"
+        htmlFor="input-240483872"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
+      >
+        Normal Input
+      </label>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className=" txt-f  css-1rqmmmp-TextInput"
+        id="input-240483872"
+        type="text"
+      />
+    </div>
     <div
       className="t--info t--err m-v100"
     >
@@ -13143,22 +13823,38 @@ Array [
       }
     }
   >
-    <label
-      className="txt-l"
-      htmlFor="input-104712524"
+    <div
       style={
         Object {
-          "marginTop": 0,
+          "display": "flex",
         }
       }
     >
-      Normal Input with Info
-    </label>
-    <input
-      className=" txt-f "
-      id="input-104712524"
-      type="text"
-    />
+      <label
+        className="txt-l"
+        htmlFor="input-104712524"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
+      >
+        Normal Input with Info
+      </label>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className=" txt-f  css-1rqmmmp-TextInput"
+        id="input-104712524"
+        type="text"
+      />
+    </div>
     <div
       className="t--subinfo m-t100"
     >
@@ -13178,30 +13874,46 @@ Array [
       }
     }
   >
-    <label
-      className="txt-l"
-      htmlFor="input-1357588218"
+    <div
       style={
         Object {
-          "marginTop": 0,
+          "display": "flex",
         }
       }
     >
-      Required Input
-      <span
-        aria-hidden="true"
-        className="t--req"
+      <label
+        className="txt-l"
+        htmlFor="input-1357588218"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
       >
-         
-        Required
-      </span>
-    </label>
-    <input
-      className=" txt-f "
-      id="input-1357588218"
-      required={true}
-      type="text"
-    />
+        Required Input
+        <span
+          aria-hidden="true"
+          className="t--req"
+        >
+           
+          Required
+        </span>
+      </label>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className=" txt-f  css-1rqmmmp-TextInput"
+        id="input-1357588218"
+        required={true}
+        type="text"
+      />
+    </div>
     <div
       className="t--info t--err m-v100"
     >
@@ -13216,23 +13928,39 @@ Array [
       }
     }
   >
-    <label
-      className="txt-l"
-      htmlFor="input-423803610"
+    <div
       style={
         Object {
-          "marginTop": 0,
+          "display": "flex",
         }
       }
     >
-      Password
-    </label>
-    <input
-      className=" txt-f "
-      id="input-423803610"
-      type="password"
-      value="password"
-    />
+      <label
+        className="txt-l"
+        htmlFor="input-423803610"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
+      >
+        Password
+      </label>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className=" txt-f  css-1rqmmmp-TextInput"
+        id="input-423803610"
+        type="password"
+        value="password"
+      />
+    </div>
     <div
       className="t--info t--err m-v100"
     >
@@ -13247,22 +13975,38 @@ Array [
       }
     }
   >
-    <label
-      className="txt-l"
-      htmlFor="input-2348632648"
+    <div
       style={
         Object {
-          "marginTop": 0,
+          "display": "flex",
         }
       }
     >
-      String error
-    </label>
-    <input
-      className=" txt-f txt-f--err"
-      id="input-2348632648"
-      type="text"
-    />
+      <label
+        className="txt-l"
+        htmlFor="input-2348632648"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
+      >
+        String error
+      </label>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className=" txt-f txt-f--err css-1rqmmmp-TextInput"
+        id="input-2348632648"
+        type="text"
+      />
+    </div>
     <div
       className="t--info t--err m-v100"
     >
@@ -13277,22 +14021,38 @@ Array [
       }
     }
   >
-    <label
-      className="txt-l"
-      htmlFor="input-3077581017"
+    <div
       style={
         Object {
-          "marginTop": 0,
+          "display": "flex",
         }
       }
     >
-      Boolean error
-    </label>
-    <input
-      className=" txt-f txt-f--err"
-      id="input-3077581017"
-      type="text"
-    />
+      <label
+        className="txt-l"
+        htmlFor="input-3077581017"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
+      >
+        Boolean error
+      </label>
+    </div>
+    <div
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <input
+        className=" txt-f txt-f--err css-1rqmmmp-TextInput"
+        id="input-3077581017"
+        type="text"
+      />
+    </div>
     <div
       className="t--info t--err m-v100"
     >
@@ -13307,36 +14067,52 @@ Array [
       }
     }
   >
-    <label
-      className="txt-l"
-      htmlFor="input-3965547479"
+    <div
       style={
         Object {
-          "marginTop": 0,
+          "display": "flex",
         }
       }
     >
-      Error next to input
-    </label>
+      <label
+        className="txt-l"
+        htmlFor="input-3965547479"
+        style={
+          Object {
+            "marginTop": 0,
+          }
+        }
+      >
+        Error next to input
+      </label>
+    </div>
     <div
-      className="g"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <div
-        className="g--6"
-      >
-        <input
-          className=" txt-f txt-f--err"
-          id="input-3965547479"
-          type="text"
-        />
-      </div>
-      <div
-        className="g--6 css-70qvj9"
+        className="g"
       >
         <div
-          className="t--info t--err m-v100"
+          className="g--6"
         >
-          Error is over here
+          <input
+            className=" txt-f txt-f--err css-1rqmmmp-TextInput"
+            id="input-3965547479"
+            type="text"
+          />
+        </div>
+        <div
+          className="g--6 [object Object]"
+        >
+          <div
+            className="t--info t--err m-v100"
+          >
+            Error is over here
+          </div>
         </div>
       </div>
     </div>
