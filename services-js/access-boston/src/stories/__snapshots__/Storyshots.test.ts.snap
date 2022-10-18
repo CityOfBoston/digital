@@ -315,7 +315,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-vpeeqe-TextInput"
+                  className="css-1hslgwn-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -384,6 +384,13 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -447,6 +454,13 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -766,7 +780,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-vpeeqe-TextInput"
+                  className="css-1hslgwn-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -835,6 +849,13 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -898,6 +919,13 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -1211,7 +1239,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-vpeeqe-TextInput"
+                  className="css-1hslgwn-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1280,6 +1308,13 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -1343,6 +1378,13 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -1637,7 +1679,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-vpeeqe-TextInput"
+                  className="css-1hslgwn-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1706,6 +1748,13 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -1769,6 +1818,13 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -2129,7 +2185,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-vpeeqe-TextInput"
+                  className="css-1hslgwn-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2198,6 +2254,13 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -2261,6 +2324,13 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -2599,7 +2669,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-vpeeqe-TextInput"
+                  className="css-1hslgwn-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2668,6 +2738,13 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -2731,6 +2808,13 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -4298,6 +4382,13 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
@@ -4361,22 +4452,18 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   type="password"
                   value=""
                 />
+                <button
+                  className="css-1hslgwn-TextInput"
+                  onMouseDown={[Function]}
+                  onMouseUp={[Function]}
+                >
+                  Show
+                </button>
               </div>
               <div
                 className="t--info t--err m-v100"
               >
                  
-              </div>
-            </div>
-            <div
-              className="css-1l4w6pd"
-            >
-              <div
-                className="css-neebv0"
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-              >
-                Show Password
               </div>
             </div>
             <div
@@ -4618,6 +4705,13 @@ Array [
                     type="password"
                     value=""
                   />
+                  <button
+                    className="css-1hslgwn-TextInput"
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                  >
+                    Show
+                  </button>
                 </div>
                 <div
                   className="t--info t--err m-v100"
@@ -4681,22 +4775,18 @@ Array [
                     type="password"
                     value=""
                   />
+                  <button
+                    className="css-1hslgwn-TextInput"
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                  >
+                    Show
+                  </button>
                 </div>
                 <div
                   className="t--info t--err m-v100"
                 >
                    
-                </div>
-              </div>
-              <div
-                className="css-1l4w6pd"
-              >
-                <div
-                  className="css-neebv0"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  Show Password
                 </div>
               </div>
               <div
@@ -4983,6 +5073,13 @@ Array [
                     type="password"
                     value=""
                   />
+                  <button
+                    className="css-1hslgwn-TextInput"
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                  >
+                    Show
+                  </button>
                 </div>
                 <div
                   className="t--info t--err m-v100"
@@ -5046,22 +5143,18 @@ Array [
                     type="password"
                     value=""
                   />
+                  <button
+                    className="css-1hslgwn-TextInput"
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                  >
+                    Show
+                  </button>
                 </div>
                 <div
                   className="t--info t--err m-v100"
                 >
                    
-                </div>
-              </div>
-              <div
-                className="css-1l4w6pd"
-              >
-                <div
-                  className="css-neebv0"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
-                >
-                  Show Password
                 </div>
               </div>
               <div
