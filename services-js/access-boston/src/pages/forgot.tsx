@@ -29,11 +29,6 @@ import HelpContactInfo from '../client/common/HelpContactInfo';
 
 import AppWrapper from '../client/common/AppWrapper';
 
-// import {
-//   SHOWPASSWORD_WRAPPER_STYLING,
-//   SHOWPASSWORD_STYLING,
-// } from './passwordStyling';
-
 interface InitialProps {
   account: Account;
 }
@@ -50,7 +45,8 @@ interface State {
   showSubmittingModal: boolean;
   showSuccessMessage: boolean;
   showModalError: ModalError | null;
-  showPassword: boolean;
+  showPassword0: boolean;
+  showPassword1: boolean;
 }
 
 interface FormValues {
@@ -77,7 +73,8 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
       showSubmittingModal: !!props.testSubmittingModal,
       showSuccessMessage: !!props.testSuccessMessage,
       showModalError: props.testModalError || null,
-      showPassword: false,
+      showPassword0: false,
+      showPassword1: false,
     };
   }
 
@@ -187,10 +184,14 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
-    const showPasswordAttr = this.state.showPassword ? 'text' : 'password';
-    const setShowPassword = (boolVal: boolean) => {
+    const setShowPassword0 = (boolVal: boolean) => {
       this.setState({
-        showPassword: boolVal,
+        showPassword0: boolVal,
+      });
+    };
+    const setShowPassword1 = (boolVal: boolean) => {
+      this.setState({
+        showPassword1: boolVal,
       });
     };
 
@@ -231,7 +232,9 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.newPassword}
               {...commonPasswordProps}
-              type={showPasswordAttr}
+              type={this.state.showPassword0 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword0}
             />
 
             <TextInput
@@ -241,23 +244,10 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.confirmPassword}
               {...commonPasswordProps}
-              type={showPasswordAttr}
+              type={this.state.showPassword1 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword1}
             />
-
-            <div css={SHOWPASSWORD_WRAPPER_STYLING}>
-              <div
-                // className="txt-l m-b200"
-                css={SHOWPASSWORD_STYLING}
-                onMouseDown={() => {
-                  setShowPassword(true);
-                }}
-                onMouseUp={() => {
-                  setShowPassword(false);
-                }}
-              >
-                Show Password
-              </div>
-            </div>
 
             <div className="ta-r">
               <button

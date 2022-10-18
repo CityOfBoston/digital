@@ -33,11 +33,6 @@ import HelpContactInfo from '../client/common/HelpContactInfo';
 
 import AppWrapper from '../client/common/AppWrapper';
 
-// import {
-//   SHOWPASSWORD_WRAPPER_STYLING,
-//   SHOWPASSWORD_STYLING,
-// } from './passwordStyling';
-
 interface InitialProps {
   account: Account;
 }
@@ -54,6 +49,8 @@ interface State {
   showSubmittingModal: boolean;
   showModalError: ModalError | null;
   showPassword0: boolean;
+  showPassword1: boolean;
+  showPassword2: boolean;
 }
 
 interface FormValues {
@@ -88,6 +85,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
       showSubmittingModal: !!props.testSubmittingModal,
       showModalError: props.testModalError || null,
       showPassword0: false,
+      showPassword1: false,
+      showPassword2: false,
     };
   }
 
@@ -236,10 +235,19 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
-    const showPasswordAttr0 = this.state.showPassword0 ? 'text' : 'password';
     const setShowPassword0 = (boolVal: boolean) => {
       this.setState({
         showPassword0: boolVal,
+      });
+    };
+    const setShowPassword1 = (boolVal: boolean) => {
+      this.setState({
+        showPassword1: boolVal,
+      });
+    };
+    const setShowPassword2 = (boolVal: boolean) => {
+      this.setState({
+        showPassword2: boolVal,
       });
     };
 
@@ -282,7 +290,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="current-password"
               value={values.password}
               {...commonPasswordProps}
-              type={showPasswordAttr0}
+              type={this.state.showPassword0 ? 'text' : 'password'}
               showPassword={true}
               showPassFun={setShowPassword0}
             />
@@ -294,6 +302,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.newPassword}
               {...commonPasswordProps}
+              type={this.state.showPassword1 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword1}
             />
 
             <TextInput
@@ -303,6 +314,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.confirmPassword}
               {...commonPasswordProps}
+              type={this.state.showPassword2 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword2}
             />
 
             <div>

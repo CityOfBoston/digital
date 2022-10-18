@@ -146,10 +146,13 @@ const INPUT_ELEM = css({
 const SHOWPASS_BUTTON = css({
   width: '20%',
   background: 'none',
-  color: 'red',
+  borderWidth: '3px',
+  borderLeft: '0',
+  color: '#091f2f',
+  fontSize: '120%',
 
   '&:hover': {
-    color: '#efefef',
     textDecoration: 'underline',
+    cursor: 'pointer',
   },
 });
