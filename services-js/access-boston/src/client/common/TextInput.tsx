@@ -148,8 +148,11 @@ const SHOWPASS_BUTTON = css({
   background: 'none',
   borderWidth: '3px',
   borderLeft: '0',
+  borderColor: '#091f2f',
   color: '#091f2f',
-  fontSize: '120%',
+  fontFamily: 'Montserrat, Arial, sans-serif',
+  fontSize: 'calc(14px + 2 * ((100vw - 480px) / 960))',
+  fontWeight: 'bold',
 
   '&:hover': {
     textDecoration: 'underline',

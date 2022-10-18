@@ -315,7 +315,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -385,7 +385,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -455,7 +455,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -780,7 +780,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -850,7 +850,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -920,7 +920,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1239,7 +1239,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1309,7 +1309,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1379,7 +1379,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1679,7 +1679,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1749,7 +1749,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -1819,7 +1819,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2185,7 +2185,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2255,7 +2255,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2325,7 +2325,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2669,7 +2669,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2739,7 +2739,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -2809,7 +2809,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -4383,7 +4383,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -4453,7 +4453,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-1hslgwn-TextInput"
+                  className="css-i8m3ij-TextInput"
                   onMouseDown={[Function]}
                   onMouseUp={[Function]}
                 >
@@ -4706,7 +4706,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-1hslgwn-TextInput"
+                    className="css-i8m3ij-TextInput"
                     onMouseDown={[Function]}
                     onMouseUp={[Function]}
                   >
@@ -4776,7 +4776,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-1hslgwn-TextInput"
+                    className="css-i8m3ij-TextInput"
                     onMouseDown={[Function]}
                     onMouseUp={[Function]}
                   >
@@ -5074,7 +5074,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-1hslgwn-TextInput"
+                    className="css-i8m3ij-TextInput"
                     onMouseDown={[Function]}
                     onMouseUp={[Function]}
                   >
@@ -5144,7 +5144,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-1hslgwn-TextInput"
+                    className="css-i8m3ij-TextInput"
                     onMouseDown={[Function]}
                     onMouseUp={[Function]}
                   >

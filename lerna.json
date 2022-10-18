@@ -1,6 +1,7 @@
 {
-  "lerna": "3.0.0-beta",
   "version": "independent",
   "npmClient": "yarn",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useNx": false
 }

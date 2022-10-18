@@ -439,7 +439,7 @@ export const SHOWPASSWORD_STYLING = css({
   letterSpacing: '1px',
   textTransform: 'uppercase',
   color: '#091f2f',
-  fontFamily: 'Montserrat,Arial,sans-serif',
-  fontSize: '16px',
+  fontFamily: 'Montserrat, Arial, sans-serif',
+  fontSize: 'calc(14px + 2 * ((100vw - 480px) / 960))',
   fontWeight: 'bold',
 });
