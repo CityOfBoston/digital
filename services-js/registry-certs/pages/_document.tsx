@@ -53,8 +53,6 @@ export default class extends Document<Props> {
       __NEXT_DATA__: { buildId },
     } = this.props;
 
-    console.log('__NEXT_DATA__: ', this.props.__NEXT_DATA__);
-
     return (
       <html lang="en" className="js flexbox">
         <Head>
