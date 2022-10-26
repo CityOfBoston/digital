@@ -153,6 +153,7 @@ const SHOWPASS_BUTTON = css({
   fontFamily: 'Montserrat, Arial, sans-serif',
   fontSize: 'calc(14px + 2 * ((100vw - 480px) / 960))',
   fontWeight: 'bold',
+  textTransform: 'uppercase',
 
   '&:hover': {
     textDecoration: 'underline',

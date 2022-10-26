@@ -117,7 +117,25 @@ is not recommended as it may interfere with expected server behavior.
                                 $templateMessages.getMessage($messageKeyPrefix, "passwordTitle")
                             </label>
 
-                            <input id="password" type="password" size="36" name="$pass" value="" autocomplete="current-password" onKeyPress="return postOnReturn(event)" class="txt-f" />
+                            <div style="display: flex;">
+                                <input
+                                    type="password"
+                                    class="txt-f"
+                                    id="password"
+                                    name="$pass"
+                                    size="36"
+                                    value=""
+                                    autocomplete="current-password"
+                                    onKeyPress="return postOnReturn(event)"
+                                />
+                                
+                                <button
+                                    class="showButton"
+                                    onmousedown="togglePassShow('password')"
+                                >
+                                    SHOW
+                                </button>
+                            </div>
 
                             <div class="t--subinfo t--err m-t100 place-bottom" id="password-text">
                                 $templateMessages.getMessage($messageKeyPrefix, "missingField")
@@ -202,6 +220,16 @@ is not recommended as it may interfere with expected server behavior.
     </main>
 
 <script type="text/javascript">
+
+    function togglePassShow(elemId) {
+        var elemObj = document.getElementById(elemId);
+        
+        if (elemObj.type === 'password') {
+            elemObj.type = 'text';
+        } else {
+            elemObj.type = 'password';
+        }
+    }
 
 	function postForgotPassword() {
 
@@ -329,6 +357,20 @@ is not recommended as it may interfere with expected server behavior.
         }
     }
 </script>
+
+<style>
+    .showButton {
+        width: '20%';
+        background: 'none';
+        border-width: '3px';
+        border-left: '0';
+        border-color: '#091f2f';
+        color: '#091f2f';
+        font-family: 'Montserrat, Arial, sans-serif';
+        font-size: 'calc(14px + 2 * ((100vw - 480px) / 960))';
+        font-weight: 'bold';
+    }
+</style>
 
 </body>
 </html>
