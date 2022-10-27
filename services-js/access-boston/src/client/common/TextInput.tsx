@@ -78,11 +78,11 @@ export default function TextInput(props: Props) {
   const showPassEl = (
     <button
       css={SHOWPASS_BUTTON}
-      onMouseDown={() => {
-        showPassFun(true);
-      }}
-      onMouseUp={() => {
-        showPassFun(false);
+      onMouseDown={() => showPassFun(true)}
+      onMouseUp={() => showPassFun(false)}
+      onClick={e => {
+        e.preventDefault();
+        return false;
       }}
     >
       Show

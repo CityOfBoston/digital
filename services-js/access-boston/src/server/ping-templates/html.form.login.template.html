@@ -131,6 +131,7 @@ is not recommended as it may interfere with expected server behavior.
                                 
                                 <button
                                     class="showButton"
+                                    id="showPassButtonElem"
                                     onmousedown="togglePassShow('password')"
                                 >
                                     SHOW
@@ -220,7 +221,6 @@ is not recommended as it may interfere with expected server behavior.
     </main>
 
 <script type="text/javascript">
-
     function togglePassShow(elemId) {
         var elemObj = document.getElementById(elemId);
         
@@ -230,6 +230,13 @@ is not recommended as it may interfere with expected server behavior.
             elemObj.type = 'password';
         }
     }
+
+    var hasTouchStartEvent = 'ontouchstart' in document.createElement( 'div' );
+
+    document.getElementById('showPassButtonElem').addEventListener( hasTouchStartEvent ? 'touchstart' : 'mousedown', function( e ) {
+        console.log( e.touches ? 'TouchEvent - togglePassShow' : 'MouseEvent - togglePassShow' );
+        togglePassShow('password');
+    }, false );
 
 	function postForgotPassword() {
 
@@ -369,6 +376,11 @@ is not recommended as it may interfere with expected server behavior.
         font-family: 'Montserrat, Arial, sans-serif';
         font-size: 'calc(14px + 2 * ((100vw - 480px) / 960))';
         font-weight: 'bold';
+        text-transform: uppercase;
+    }
+    .showButton:hover {
+        text-decoration: underline;
+        cursor: pointer;
     }
 </style>
 
