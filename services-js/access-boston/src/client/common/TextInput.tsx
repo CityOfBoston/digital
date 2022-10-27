@@ -84,6 +84,8 @@ export default function TextInput(props: Props) {
         e.preventDefault();
         return false;
       }}
+      onTouchStart={() => showPassFun(true)}
+      onTouchEnd={() => showPassFun(false)}
     >
       Show
     </button>
