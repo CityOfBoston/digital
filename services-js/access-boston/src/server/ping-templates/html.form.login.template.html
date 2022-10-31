@@ -132,10 +132,6 @@ is not recommended as it may interfere with expected server behavior.
                                 <button
                                     class="showButton"
                                     id="showPassButtonElem"
-                                    onmousedown="togglePassShow('password')"
-                                    onmouseup="togglePassShow('password')"
-                                    ontouchstart="togglePassShow('password')"
-                                    ontouchend="togglePassShow('password')"
                                 >
                                     SHOW
                                 </button>
@@ -227,19 +223,22 @@ is not recommended as it may interfere with expected server behavior.
     function togglePassShow(elemId) {
         var elemObj = document.getElementById(elemId);
         
-        if (elemObj.type === 'password') {
-            elemObj.type = 'text';
-        } else {
-            elemObj.type = 'password';
+        if (elemObj && elemObj.type) {
+            if (elemObj.type === 'password') {
+                elemObj.type = 'text';
+            } else {
+                elemObj.type = 'password';
+            }
         }
     }
 
-    var hasTouchStartEvent = 'ontouchstart' in document.createElement( 'div' );
-
-    document.getElementById('showPassButtonElem').addEventListener( hasTouchStartEvent ? 'touchstart' : 'mousedown', function( e ) {
-        console.log( e.touches ? 'TouchEvent - togglePassShow' : 'MouseEvent - togglePassShow' );
-        togglePassShow('password');
-    }, false );
+    var showPassButton = document.getElementById('showPassButtonElem');
+    
+    showPassButton.addEventListener('mousedown', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('mouseup', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('touchstart', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('touchend', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('click', function(e) { e.preventDefault(); }, false);
 
 	function postForgotPassword() {
 
@@ -370,15 +369,16 @@ is not recommended as it may interfere with expected server behavior.
 
 <style>
     .showButton {
-        width: '20%';
-        background: 'none';
-        border-width: '3px';
-        border-left: '0';
-        border-color: '#091f2f';
-        color: '#091f2f';
-        font-family: 'Montserrat, Arial, sans-serif';
-        font-size: 'calc(14px + 2 * ((100vw - 480px) / 960))';
-        font-weight: 'bold';
+        width: 20%;
+        background: none;
+        border-width: 3px;
+        border-left: 0;
+        border-color: #091f2f;
+        border-top-color: #091f2f;
+        color: #091f2f;
+        font-family: Montserrat, Arial, sans-serif;
+        font-size: 1em;
+        font-weight: bold;
         text-transform: uppercase;
     }
     .showButton:hover {

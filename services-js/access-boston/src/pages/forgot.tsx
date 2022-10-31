@@ -184,14 +184,26 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
-    const setShowPassword0 = (boolVal: boolean) => {
+    const setShowPassword0 = (evt: { type: string }) => {
+      let passBool: boolean = true;
+
+      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
+        passBool = false;
+      }
+
       this.setState({
-        showPassword0: boolVal,
+        showPassword0: passBool,
       });
     };
-    const setShowPassword1 = (boolVal: boolean) => {
+    const setShowPassword1 = (evt: { type: string }) => {
+      let passBool: boolean = true;
+
+      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
+        passBool = false;
+      }
+
       this.setState({
-        showPassword1: boolVal,
+        showPassword1: passBool,
       });
     };
 

@@ -315,9 +315,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -385,9 +383,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -455,9 +451,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -780,9 +774,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -850,9 +842,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -920,9 +910,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -1239,9 +1227,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -1309,9 +1295,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -1379,9 +1363,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -1679,9 +1661,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -1749,9 +1729,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -1819,9 +1797,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -2185,9 +2161,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -2255,9 +2229,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -2325,9 +2297,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -2669,9 +2639,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -2739,9 +2707,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -2809,9 +2775,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -4383,9 +4347,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -4453,9 +4415,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-llo8nq-TextInput"
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
+                  className="css-1nf64u0-TextInput"
                 >
                   Show
                 </button>
@@ -4706,9 +4666,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-llo8nq-TextInput"
-                    onMouseDown={[Function]}
-                    onMouseUp={[Function]}
+                    className="css-1nf64u0-TextInput"
                   >
                     Show
                   </button>
@@ -4776,9 +4734,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-llo8nq-TextInput"
-                    onMouseDown={[Function]}
-                    onMouseUp={[Function]}
+                    className="css-1nf64u0-TextInput"
                   >
                     Show
                   </button>
@@ -5074,9 +5030,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-llo8nq-TextInput"
-                    onMouseDown={[Function]}
-                    onMouseUp={[Function]}
+                    className="css-1nf64u0-TextInput"
                   >
                     Show
                   </button>
@@ -5144,9 +5098,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-llo8nq-TextInput"
-                    onMouseDown={[Function]}
-                    onMouseUp={[Function]}
+                    className="css-1nf64u0-TextInput"
                   >
                     Show
                   </button>

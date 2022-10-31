@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { InputHTMLAttributes, ReactNode } from 'react';
+import { InputHTMLAttributes, ReactNode, useEffect, useRef } from 'react';
 import hash from 'string-hash';
 import { css } from '@emotion/core';
 
@@ -75,18 +75,36 @@ export default function TextInput(props: Props) {
   delete inputProps.showPassword;
   delete inputProps.showPassFun;
 
+  const showPassRef = useRef(null);
+
+  useEffect(() => {
+    const elem: any = showPassRef.current;
+    const preventDefault = event => event.preventDefault();
+
+    if (elem) {
+      // Prevent Default
+      elem.addEventListener('click', preventDefault);
+
+      // SHOWPASSWORD EVENTs
+      elem.addEventListener('mousedown', showPassFun);
+      elem.addEventListener('mouseup', showPassFun);
+      elem.addEventListener('touchstart', showPassFun);
+      elem.addEventListener('touchend', showPassFun);
+    }
+
+    return () => {
+      if (elem) {
+        elem.removeEventListener('click', preventDefault);
+        elem.removeEventListener('mousedown', showPassFun);
+        elem.removeEventListener('mouseup', showPassFun);
+        elem.removeEventListener('touchstart', showPassFun);
+        elem.removeEventListener('touchend', showPassFun);
+      }
+    };
+  }, []);
+
   const showPassEl = (
-    <button
-      css={SHOWPASS_BUTTON}
-      onMouseDown={() => showPassFun(true)}
-      onMouseUp={() => showPassFun(false)}
-      onClick={e => {
-        e.preventDefault();
-        return false;
-      }}
-      onTouchStart={() => showPassFun(true)}
-      onTouchEnd={() => showPassFun(false)}
-    >
+    <button css={SHOWPASS_BUTTON} ref={showPassRef}>
       Show
     </button>
   );
@@ -151,6 +169,7 @@ const SHOWPASS_BUTTON = css({
   borderWidth: '3px',
   borderLeft: '0',
   borderColor: '#091f2f',
+  borderTopColor: '#091f2f',
   color: '#091f2f',
   fontFamily: 'Montserrat, Arial, sans-serif',
   fontSize: 'calc(14px + 2 * ((100vw - 480px) / 960))',
