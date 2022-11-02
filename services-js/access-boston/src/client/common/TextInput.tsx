@@ -164,7 +164,6 @@ const INPUT_ELEM = css({
 });
 
 const SHOWPASS_BUTTON = css({
-  width: '20%',
   background: 'none',
   borderWidth: '3px',
   borderLeft: '0',
