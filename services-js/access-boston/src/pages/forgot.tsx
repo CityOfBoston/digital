@@ -1,3 +1,8 @@
+/** @jsx jsx */
+
+// import { jsx, css } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
+
 import React from 'react';
 import Head from 'next/head';
 import { Formik, FormikProps, FormikActions } from 'formik';
@@ -40,6 +45,8 @@ interface State {
   showSubmittingModal: boolean;
   showSuccessMessage: boolean;
   showModalError: ModalError | null;
+  showPassword0: boolean;
+  showPassword1: boolean;
 }
 
 interface FormValues {
@@ -66,6 +73,8 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
       showSubmittingModal: !!props.testSubmittingModal,
       showSuccessMessage: !!props.testSuccessMessage,
       showModalError: props.testModalError || null,
+      showPassword0: false,
+      showPassword1: false,
     };
   }
 
@@ -175,6 +184,28 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
+    const setShowPassword0 = (evt: { type: string }) => {
+      let passBool: boolean = true;
+
+      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
+        passBool = false;
+      }
+
+      this.setState({
+        showPassword0: passBool,
+      });
+    };
+    const setShowPassword1 = (evt: { type: string }) => {
+      let passBool: boolean = true;
+
+      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
+        passBool = false;
+      }
+
+      this.setState({
+        showPassword1: passBool,
+      });
+    };
 
     return (
       <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
@@ -213,6 +244,9 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.newPassword}
               {...commonPasswordProps}
+              type={this.state.showPassword0 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword0}
             />
 
             <TextInput
@@ -222,6 +256,9 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.confirmPassword}
               {...commonPasswordProps}
+              type={this.state.showPassword1 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword1}
             />
 
             <div className="ta-r">
@@ -344,3 +381,22 @@ function passwordErrorToFormErrors(error: string | null) {
       return { newPassword: error };
   }
 }
+
+export const SHOWPASSWORD_WRAPPER_STYLING = css({
+  display: 'flex',
+  justifyContent: 'center',
+});
+
+export const SHOWPASSWORD_STYLING = css({
+  textAlign: 'center',
+  marginTop: '0',
+  marginBottom: '1.25em',
+  borderBottom: '2px solid red',
+  cursor: 'pointer',
+  letterSpacing: '1px',
+  textTransform: 'uppercase',
+  color: '#091f2f',
+  fontFamily: 'Montserrat,Arial,sans-serif',
+  fontSize: '16px',
+  fontWeight: 'bold',
+});

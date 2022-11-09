@@ -1,3 +1,7 @@
+/** @jsx jsx */
+
+import { jsx, css } from '@emotion/core';
+
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -44,6 +48,9 @@ interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
 interface State {
   showSubmittingModal: boolean;
   showModalError: ModalError | null;
+  showPassword0: boolean;
+  showPassword1: boolean;
+  showPassword2: boolean;
 }
 
 interface FormValues {
@@ -77,6 +84,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
       showModalError: props.testModalError || null,
+      showPassword0: false,
+      showPassword1: false,
+      showPassword2: false,
     };
   }
 
@@ -225,6 +235,39 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
+    const setShowPassword0 = (evt: { type: string }) => {
+      let passBool: boolean = true;
+
+      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
+        passBool = false;
+      }
+
+      this.setState({
+        showPassword0: passBool,
+      });
+    };
+    const setShowPassword1 = (evt: { type: string }) => {
+      let passBool: boolean = true;
+
+      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
+        passBool = false;
+      }
+
+      this.setState({
+        showPassword1: passBool,
+      });
+    };
+    const setShowPassword2 = (evt: { type: string }) => {
+      let passBool: boolean = true;
+
+      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
+        passBool = false;
+      }
+
+      this.setState({
+        showPassword2: passBool,
+      });
+    };
 
     return (
       <form action="" method="POST" className="m-v500" onSubmit={handleSubmit}>
@@ -265,6 +308,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="current-password"
               value={values.password}
               {...commonPasswordProps}
+              type={this.state.showPassword0 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword0}
             />
 
             <TextInput
@@ -274,6 +320,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.newPassword}
               {...commonPasswordProps}
+              type={this.state.showPassword1 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword1}
             />
 
             <TextInput
@@ -283,6 +332,9 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
               autoComplete="new-password"
               value={values.confirmPassword}
               {...commonPasswordProps}
+              type={this.state.showPassword2 ? 'text' : 'password'}
+              showPassword={true}
+              showPassFun={setShowPassword2}
             />
 
             <div>
@@ -390,3 +442,22 @@ function changePasswordErrorToFormErrors(error: string | null) {
       };
   }
 }
+
+export const SHOWPASSWORD_WRAPPER_STYLING = css({
+  display: 'flex',
+  justifyContent: 'center',
+});
+
+export const SHOWPASSWORD_STYLING = css({
+  textAlign: 'center',
+  marginTop: '0',
+  marginBottom: '1.25em',
+  borderBottom: '2px solid red',
+  cursor: 'pointer',
+  letterSpacing: '1px',
+  textTransform: 'uppercase',
+  color: '#091f2f',
+  fontFamily: 'Montserrat, Arial, sans-serif',
+  fontSize: 'calc(14px + 2 * ((100vw - 480px) / 960))',
+  fontWeight: 'bold',
+});

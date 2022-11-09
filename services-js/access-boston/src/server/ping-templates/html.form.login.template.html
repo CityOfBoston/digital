@@ -117,7 +117,20 @@ is not recommended as it may interfere with expected server behavior.
                                 $templateMessages.getMessage($messageKeyPrefix, "passwordTitle")
                             </label>
 
-                            <input id="password" type="password" size="36" name="$pass" value="" autocomplete="current-password" onKeyPress="return postOnReturn(event)" class="txt-f" />
+                            <div style="display: flex;">
+                                <input
+                                    type="password"
+                                    class="txt-f"
+                                    id="password"
+                                    name="$pass"
+                                    size="36"
+                                    value=""
+                                    autocomplete="current-password"
+                                    onKeyPress="return postOnReturn(event)"
+                                />
+                                
+                                <button class="showButton" id="showPassButtonElem">SHOW</button>
+                            </div>
 
                             <div class="t--subinfo t--err m-t100 place-bottom" id="password-text">
                                 $templateMessages.getMessage($messageKeyPrefix, "missingField")
@@ -202,6 +215,25 @@ is not recommended as it may interfere with expected server behavior.
     </main>
 
 <script type="text/javascript">
+    function togglePassShow(elemId) {
+        var elemObj = document.getElementById(elemId);
+        
+        if (elemObj && elemObj.type) {
+            if (elemObj.type === 'password') {
+                elemObj.type = 'text';
+            } else {
+                elemObj.type = 'password';
+            }
+        }
+    }
+
+    var showPassButton = document.getElementById('showPassButtonElem');
+    
+    showPassButton.addEventListener('mousedown', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('mouseup', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('touchstart', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('touchend', function(e) { togglePassShow('password'); }, false);
+    showPassButton.addEventListener('click', function(e) { e.preventDefault(); }, false);
 
 	function postForgotPassword() {
 
@@ -329,6 +361,25 @@ is not recommended as it may interfere with expected server behavior.
         }
     }
 </script>
+
+<style>
+    .showButton {
+        background: none;
+        border-width: 3px;
+        border-left: 0;
+        border-color: #091f2f;
+        border-top-color: #091f2f;
+        color: #091f2f;
+        font-family: Montserrat, Arial, sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .showButton:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
 
 </body>
 </html>
