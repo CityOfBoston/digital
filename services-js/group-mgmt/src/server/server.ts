@@ -318,19 +318,20 @@ const convertDnsToGroupDNs = async (
   dns: Array<string>,
   mode: string = 'filtered'
 ) => {
-  if (dns.length > 0) {
-    const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
-    const promises = CNs.map(async value => {
-      const filterParams: FilterOptions = new FilterOptionsClass({
-        filterType: 'group',
-        field: 'cn',
-        value,
-        allowInactive: false,
-      });
-      const group: any = await searchWrapper(['all'], filterParams);
-      let retObj: any = {};
-      let groupRetObj: any = {};
+  const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
+  const promises = CNs.map(async value => {
+    const filterParams: FilterOptions = new FilterOptionsClass({
+      filterType: 'group',
+      field: 'cn',
+      value,
+      allowInactive: false,
+    });
 
+    const group: any = await searchWrapper(['all'], filterParams);
+    let retObj: any = {};
+    let groupRetObj: any = {};
+
+    if (group.length > 0) {
       if (mode && mode === 'group') {
         const newGroup: Group = new GroupClass({});
         groupRetObj = group.length > 0 && group[0].dn ? group[0] : newGroup;
@@ -347,19 +348,20 @@ const convertDnsToGroupDNs = async (
         };
       }
       return retObj;
-    });
-    const results = await Promise.all(promises);
+    }
+  });
 
-    return results.filter(entry => {
-      if (entry.dn) {
-        return entry.dn !== '';
-      } else {
-        return entry.group.dn !== '';
-      }
-    });
-  } else {
-    return [];
-  }
+  const results = await (await Promise.all(promises)).filter(
+    obj => typeof obj !== 'undefined'
+  );
+
+  return results.filter(entry => {
+    if (entry.dn) {
+      return entry.dn !== '';
+    } else {
+      return entry.group.dn !== '';
+    }
+  });
 };
 
 const getGroupChildren = async (parentDn: string = '') => {

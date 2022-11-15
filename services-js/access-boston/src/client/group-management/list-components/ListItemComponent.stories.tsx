@@ -26,12 +26,15 @@ function Wrapper(props) {
       item={{ ...person, ...props }}
       handleChange={() => setChecked(!checked)}
       isChecked={checked}
+      viewOnly={false}
     />
   );
 }
 
 storiesOf('GroupManagementPage/ListComponents/ListItemComponent', module)
   .add('default', () => <Wrapper isAvailable={true} />)
-  .add('no link', () => <ListItemComponent item={person} view="review" />)
+  .add('no link', () => (
+    <ListItemComponent item={person} view="review" viewOnly={false} />
+  ))
   .add('not modifiable', () => <Wrapper isAvailable={false} />)
   .add('newly added', () => <Wrapper isAvailable={true} status="add" />);

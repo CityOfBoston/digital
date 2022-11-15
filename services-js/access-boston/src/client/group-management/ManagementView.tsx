@@ -20,6 +20,7 @@ interface Props {
   searchComponent: ReactNode;
   editableList: ReactNode;
   resetAll: () => void;
+  viewOnly: boolean;
 }
 
 /**
@@ -29,7 +30,7 @@ interface Props {
  *
  */
 export default function ManagementView(props: Props) {
-  const { mode, selected, list } = props;
+  const { mode, selected, list, viewOnly } = props;
   const addedItems =
     list.filter(item => item.status === 'add' || item.action === 'new') || [];
   const removedItems =
@@ -40,13 +41,15 @@ export default function ManagementView(props: Props) {
     <>
       <SelectedComponent mode={mode} selected={selected} />
 
-      {props.searchComponent}
+      {viewOnly === false && props.searchComponent}
 
       <Section isGray stretch>
         <SectionHeader
           title={`Current ${mode === 'person' ? 'groups' : 'members'}`}
         />
+
         {props.editableList}
+
         <div css={BUTTON_CONTAINER_STYLING}>
           <button
             type="button"
@@ -58,7 +61,8 @@ export default function ManagementView(props: Props) {
           >
             Back
           </button>
-          {!props.loading && list.length > 0 && (
+
+          {!props.loading && list.length > 0 && !viewOnly && (
             <button
               type="button"
               className="btn"

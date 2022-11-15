@@ -62,6 +62,7 @@ export function Wrapper(props) {
         changeView={() => {}}
         list={list}
         loading={loading}
+        viewOnly={false}
         searchComponent={
           <SearchComponent
             mode={searchMode}
