@@ -231,11 +231,6 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   >
                     A number
                   </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
                 </ul>
               </li>
               <li
@@ -690,11 +685,6 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   >
                     A number
                   </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
                 </ul>
               </li>
               <li
@@ -1143,11 +1133,6 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   >
                     A number
                   </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
                 </ul>
               </li>
               <li
@@ -1576,11 +1561,6 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -2077,11 +2057,6 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   >
                     A number
                   </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
                 </ul>
               </li>
               <li
@@ -2554,11 +2529,6 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -4263,11 +4233,6 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   >
                     A number
                   </li>
-                  <li
-                    className=""
-                  >
-                    A special character
-                  </li>
                 </ul>
               </li>
               <li
@@ -4581,11 +4546,6 @@ Array [
                       className=""
                     >
                       A number
-                    </li>
-                    <li
-                      className=""
-                    >
-                      A special character
                     </li>
                   </ul>
                 </li>
@@ -4945,11 +4905,6 @@ Array [
                       className=""
                     >
                       A number
-                    </li>
-                    <li
-                      className=""
-                    >
-                      A special character
                     </li>
                   </ul>
                 </li>
@@ -10926,11 +10881,6 @@ Array [
         >
           A number
         </li>
-        <li
-          className=""
-        >
-          A special character
-        </li>
       </ul>
     </li>
     <li
@@ -10978,7 +10928,7 @@ Array [
       Be at least 10 characters long
     </li>
     <li
-      className="css-5qhwje"
+      className=""
     >
       Use at least 3 of these:
       <ul
@@ -10998,11 +10948,6 @@ Array [
           className="css-5qhwje"
         >
           A number
-        </li>
-        <li
-          className="css-5qhwje"
-        >
-          A special character
         </li>
       </ul>
     </li>
@@ -11072,11 +11017,6 @@ Array [
         >
           A number
         </li>
-        <li
-          className=""
-        >
-          A special character
-        </li>
       </ul>
     </li>
     <li
@@ -11145,11 +11085,6 @@ Array [
         >
           A number
         </li>
-        <li
-          className=""
-        >
-          A special character
-        </li>
       </ul>
     </li>
     <li
@@ -11217,11 +11152,6 @@ Array [
           className=""
         >
           A number
-        </li>
-        <li
-          className=""
-        >
-          A special character
         </li>
       </ul>
     </li>
