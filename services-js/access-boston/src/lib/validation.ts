@@ -10,11 +10,15 @@ export function analyzePassword(password: string) {
   const hasUppercase = !!password.match(/[A-Z]/);
   const hasNumber = !!password.match(/\d/);
   // We clear out spaces from the symbol check so that it doesn't fire for them.
-  const hasSymbol = !!password.replace(/\s/g, '').match(/[\W_]/);
+  // const hasSymbol = !!password.replace(/\s/g, '').match(/[\W_]/);
 
   const complexEnough =
-    [hasLowercase, hasUppercase, hasNumber, hasSymbol].filter(b => b).length >=
-    3;
+    [
+      hasLowercase,
+      hasUppercase,
+      hasNumber,
+      // hasSymbol
+    ].filter(b => b).length >= 3;
 
   const tooLong = password.length > 32;
   const hasSpaces = !!password.match(/\s/);
@@ -25,7 +29,7 @@ export function analyzePassword(password: string) {
     hasLowercase,
     hasUppercase,
     hasNumber,
-    hasSymbol,
+    // hasSymbol,
     tooLong,
     hasSpaces,
   };

@@ -55,7 +55,7 @@ export default function PasswordPolicy({
     hasLowercase,
     hasUppercase,
     hasNumber,
-    hasSymbol,
+    // hasSymbol,
     hasSpaces,
     tooLong,
   } = analyzePassword(password);
@@ -83,9 +83,9 @@ export default function PasswordPolicy({
               An uppercase letter
             </li>
             <li className={hasNumber ? OK_PASSWORD_ROW : ''}>A number</li>
-            <li className={hasSymbol ? OK_PASSWORD_ROW : ''}>
+            {/* <li className={hasSymbol ? OK_PASSWORD_ROW : ''}>
               A special character
-            </li>
+            </li> */}
           </ul>
         </li>
 
