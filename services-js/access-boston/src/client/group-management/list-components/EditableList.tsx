@@ -27,6 +27,7 @@ interface Props {
   pageCount: number;
   pageSize: number;
   changePage: (currentPage: number) => any;
+  viewOnly?: boolean;
 }
 
 /**
@@ -42,7 +43,14 @@ interface Props {
  * editableList reflects the current state of the user’s intended edits.
  */
 export default function EditableList(props: Props) {
-  const { pageCount, currentPage, changePage, pageSize } = props;
+  const {
+    pageCount,
+    currentPage,
+    changePage,
+    pageSize,
+    items,
+    viewOnly,
+  } = props;
   const handleClick = (item: Group | Person): void => {
     if (props.handleClick) props.handleClick(item);
   };
@@ -61,6 +69,13 @@ export default function EditableList(props: Props) {
     }
   };
 
+  const filteredItems = items.filter(
+    i =>
+      i.displayName &&
+      typeof i.displayName === 'string' &&
+      i.displayName.length > 0
+  );
+
   const noResultsText =
     props.mode === 'group'
       ? 'This group has no members'
@@ -76,15 +91,18 @@ export default function EditableList(props: Props) {
     return (
       <>
         <ul css={LIST_STYLING}>
-          {props.items && props.items.length > 0 ? (
-            props.items.map(item => (
+          {filteredItems && filteredItems.length > 0 ? (
+            filteredItems.map((item, index) => (
               <ListItemComponent
-                key={item.displayName}
+                key={`${item.displayName}__${index}`}
                 view="management"
                 handleChange={() => props.handleChange(item)}
                 handleClick={handleClick}
                 isChecked={item.status !== 'remove'}
                 item={item}
+                viewOnly={
+                  viewOnly && typeof viewOnly === 'boolean' ? viewOnly : false
+                }
               />
             ))
           ) : (
@@ -92,10 +110,10 @@ export default function EditableList(props: Props) {
           )}
         </ul>
 
-        {props.pageCount > 1 && (
+        {pageCount > 1 && (
           <>
             <Pagination
-              items={props.items}
+              items={items}
               currentPage={currentPage}
               pageCount={pageCount}
               pageSize={pageSize}

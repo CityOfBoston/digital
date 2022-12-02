@@ -28,6 +28,7 @@ interface Props {
   searchComponent: ReactNode;
   adminMinGroups?: [];
   handleAdminGroupClick: (item: any) => void;
+  viewOnly?: boolean;
 }
 
 /**
@@ -35,7 +36,7 @@ interface Props {
  * the option to perform an initial search by person, or by group.
  */
 export default function InitialView(props: Props) {
-  const { mode, changeMode, adminMinGroups } = props;
+  const { mode, changeMode, adminMinGroups, viewOnly } = props;
   const handleModeChange = (event: ChangeEvent<HTMLInputElement>) => {
     changeMode(event.target.value as Mode);
   };
@@ -44,35 +45,38 @@ export default function InitialView(props: Props) {
     adminMinGroups &&
     adminMinGroups.length > 0 &&
     adminMinGroups.length < 4 &&
-    mode === 'group';
+    mode === 'group' &&
+    viewOnly === false;
 
   return (
     <>
-      <Section isGray>
-        <SectionHeader title="Do you want..." />
+      {!viewOnly && (
+        <Section isGray>
+          <SectionHeader title="Do you want..." />
 
-        <div role="radiogroup" css={SELECTION_CONTAINER_STYLING}>
-          <SearchTypeOption
-            searchTypeName="group"
-            currentSelection={mode}
-            handleChange={handleModeChange}
-          >
-            <span>
-              <Icon type="group" size="large" />
-            </span>
-          </SearchTypeOption>
+          <div role="radiogroup" css={SELECTION_CONTAINER_STYLING}>
+            <SearchTypeOption
+              searchTypeName="group"
+              currentSelection={mode}
+              handleChange={handleModeChange}
+            >
+              <span>
+                <Icon type="group" size="large" />
+              </span>
+            </SearchTypeOption>
 
-          <SearchTypeOption
-            searchTypeName="person"
-            currentSelection={mode}
-            handleChange={handleModeChange}
-          >
-            <span>
-              <Icon type="person" size="large" />
-            </span>
-          </SearchTypeOption>
-        </div>
-      </Section>
+            <SearchTypeOption
+              searchTypeName="person"
+              currentSelection={mode}
+              handleChange={handleModeChange}
+            >
+              <span>
+                <Icon type="person" size="large" />
+              </span>
+            </SearchTypeOption>
+          </div>
+        </Section>
+      )}
 
       {showMinGroupDisplay ? (
         <MinGroupDisplay

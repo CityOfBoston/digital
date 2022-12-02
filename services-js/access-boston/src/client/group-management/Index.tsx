@@ -47,6 +47,10 @@ export default function Index(props: Props) {
   const [state, dispatchState] = useReducer(stateReducer, initialState);
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
+  const viewOnly =
+    groups.includes('SG_AB_GRPMGMT_SERVICEDESKVIEWONLY') &&
+    groups.filter((str: string | string[]) => str.includes('_GRPMGMT_'))
+      .length === 1;
 
   const changeView = (newView: View): void =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
@@ -191,7 +195,7 @@ export default function Index(props: Props) {
 
   useEffect(() => {
     const { mode, selected } = state;
-    if (mode === 'group') {
+    if (!viewOnly && mode === 'group') {
       if (selected.cn) handleFetchGroupMembers(selected, groups);
     } else {
       if (selected.cn) handleFetchPersonsGroups(selected, groups);
@@ -251,11 +255,12 @@ export default function Index(props: Props) {
       return (
         <div css={CONTAINER_STYLING}>
           <ManagementView
-            mode={state.mode}
+            mode={viewOnly ? 'person' : state.mode}
             selected={state.selected}
             changeView={changeView}
             list={list}
             loading={loading}
+            viewOnly={viewOnly && viewOnly === true ? true : false}
             searchComponent={
               <SearchComponent
                 mode={inverseMode()}
@@ -275,7 +280,7 @@ export default function Index(props: Props) {
             }
             editableList={
               <EditableList
-                mode={state.mode}
+                mode={viewOnly ? 'person' : state.mode}
                 items={list}
                 loading={loading}
                 handleChange={handleToggleItem}
@@ -285,6 +290,7 @@ export default function Index(props: Props) {
                 pageCount={state.pageCount}
                 pageSize={state.pageSize}
                 changePage={changePage}
+                viewOnly={viewOnly && viewOnly === true ? true : false}
               />
             }
             resetAll={resetAll}
@@ -296,7 +302,7 @@ export default function Index(props: Props) {
       return (
         <div css={CONTAINER_STYLING}>
           <ReviewChangesView
-            mode={state.mode}
+            mode={viewOnly ? 'person' : state.mode}
             selected={state.selected}
             changeView={changeView}
             resetAll={resetAll}
@@ -311,7 +317,7 @@ export default function Index(props: Props) {
       return (
         <div css={CONFIRMATION_CONTAINER_STYLING}>
           <ReviewConfirmationView
-            mode={state.mode}
+            mode={viewOnly ? 'person' : state.mode}
             selected={state.selected}
             changeView={changeView}
             resetAll={resetAll}
@@ -324,16 +330,21 @@ export default function Index(props: Props) {
       return (
         <div css={CONTAINER_STYLING}>
           <InitialView
-            mode={state.mode}
+            mode={viewOnly && viewOnly === true ? 'person' : state.mode}
             changeMode={changeMode}
             adminMinGroups={state.adminMinGroups}
             handleAdminGroupClick={handleAdminListItemClick}
+            viewOnly={viewOnly && viewOnly === true ? true : false}
             searchComponent={
               <SearchComponent
-                mode={state.mode}
+                mode={viewOnly ? 'person' : state.mode}
                 view="initial"
                 handleFetch={
-                  state.mode === 'group' ? fetchGroupSearch : fetchPersonSearch
+                  viewOnly && viewOnly === true
+                    ? fetchPersonSearch
+                    : state.mode === 'group'
+                    ? fetchGroupSearch
+                    : fetchPersonSearch
                 }
                 handleSelectClick={handleInitialSelection}
                 dns={groups}

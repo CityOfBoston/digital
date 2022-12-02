@@ -23,6 +23,7 @@ interface Props {
   isChecked?: boolean;
   handleChange?: () => void;
   handleClick?: (item: Group | Person) => void;
+  viewOnly: boolean;
 }
 
 /**
@@ -36,6 +37,7 @@ export default function ListItemComponent(props: Props) {
     isChecked,
     item: { cn, displayName, isAvailable, status },
     view,
+    viewOnly,
   } = props;
 
   const displayText = displayName || cn;
@@ -44,7 +46,7 @@ export default function ListItemComponent(props: Props) {
     : null;
 
   const displayElement = () => {
-    if (isAvailable && view === 'management') {
+    if (isAvailable && view === 'management' && viewOnly === false) {
       return (
         <span>
           <button
@@ -75,7 +77,7 @@ export default function ListItemComponent(props: Props) {
       >
         <input
           type="checkbox"
-          disabled={!isAvailable}
+          disabled={!isAvailable || viewOnly === true}
           onChange={handleChange}
           checked={isChecked}
           id={`item-${displayText}`}

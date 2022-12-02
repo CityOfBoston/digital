@@ -46,7 +46,12 @@ export default function ReviewList(props: Props) {
 
       <ul css={LIST_STYLING} aria-labelledby={id}>
         {props.items.map(item => (
-          <ListItemComponent key={item.cn} view="review" item={item} />
+          <ListItemComponent
+            key={item.cn}
+            view="review"
+            item={item}
+            viewOnly={false}
+          />
         ))}
       </ul>
     </>
