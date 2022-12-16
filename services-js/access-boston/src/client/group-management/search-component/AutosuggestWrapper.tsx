@@ -59,7 +59,6 @@ export default class AutosuggestWrapper extends Component<Props> {
         alreadyAdded = ` - ${isSelection_Duplication.warningLabel}`;
       }
     }
-
     const retVal = `${suggestion.displayName || suggestion.cn}${alreadyAdded}`;
     return `${retVal}`;
   };
