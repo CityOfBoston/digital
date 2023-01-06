@@ -1,159 +1,150 @@
 <!DOCTYPE html>
-<!-- #*
+#*
 The server renders this HTML page in an end-user's browser when
-needed authentication identifier to further determine
-next authentication method(s)
+needed authentication credentials may be obtained via HTTP Basic
+Authentication or an HTML form.
 
 Velocity variables (identified by the $ character) are generated
 at runtime by the server.
 
 The following variables are available on this page, but not used by default:
 
-$utils                 - The utility method to display JSON String arrays
-$escape                - The utility class that can be used to escape String variables
-$HttpServletResponse   - The details of HTTP response
-$HttpServletRequest    - The details of HTTP request
-$TrackingId            - The user's session tracking ID
-$PingFedBaseURL        - The URL containing full hostname and port on which the PingFederate deployment runs on
-$CurrentPingFedBaseURL - The base URL used in the current request
-$locale                - The user's country and language
-$templateMessages      - The set of messages that is used to localize messages based on the user's locale
+$entityId       - The entity ID (connection ID) of the SP Connection used in this SSO transaction
+$connectionName - The name of the SP Connection used in this SSO transaction
+$client_id      - The ID of the OAuth client used in this transaction
+$spAdapterId    - The SP Adapter ID used in this transaction
 
-$entityId              - The entity ID (connection ID) of the SP Connection used in this SSO transaction
-$connectionName        - The name of the SP Connection used in this SSO transaction
-$client_id             - The ID of the OAuth client used in this transaction
-$spAdapterId           - The SP Adapter ID used in this transaction
-$baseUrl               - The base URL of PingFederate instance
-$adapterId             - The IdP Adapter ID used in this transaction
-$oidcUiLocales         - The OIDC ui_locales
-$extendedProperties    - The extended properties defined on either the connection or OAuth client
+It is recommended to sanitize the values that are displayed using $escape.escape() for example $escape.escape($client_id).
 
 Change text or formatting as needed. Modifying Velocity statements
 is not recommended as it may interfere with expected server behavior.
 
-It is recommended to sanitize the values that are displayed using $escape.escape(), for example $escape.escape($client_id).
+*#
 
-*# -->
+<!-- template name: html.form.login.template.html -->
 
-<!-- template name: identifier.first.template.html -->
+#set( $messageKeyPrefix = "authentication.identifier.template." )
 
-<!-- #set( $messageKeyPrefix = "authentication.identifier.template." ) -->
-
-<html lang="$locale.getLanguage()" dir="ltr">
+<html lang="$locale.getLanguage()" dir="$orientation">
 <head>
-    <!-- #if ($existing_identifiers.size() > 0)
-    <title>$templateMessages.getMessage($messageKeyPrefix, "selectTitle")</title>
+    #if ($existing_identifiers.size() > 0)
+        <title>$templateMessages.getMessage($messageKeyPrefix, "selectTitle")</title>
     #else
-    <title>$templateMessages.getMessage($messageKeyPrefix, "inputTitle")</title>
-    #end -->
+        <title>$templateMessages.getMessage($messageKeyPrefix, "inputTitle")</title>
+    #end
+
     <base href="$CurrentPingFedBaseURL"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-    <!-- <style>
-        #postButton {
-            #if ($existing_identifiers.size() > 0)
-            display:none;
-            #end
-        }
-    </style> -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
+
+    <meta charset="utf-8" />
+    <meta name="robots" content="none" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
+    <link rel="stylesheet" type="text/css" href="$assetPath/css/cob-main.css" />
 </head>
 
 <body onload="setFocus();">
+    <header class="p-a200 page-header">
+        <h1>Access Boston Test</h1>
+    </header>
 
-<div class="ping-container ping-signin login-template">
-
-    <!--
-    if there is a logo present in the 'company-logo' container,
-    then 'has-logo' class should be added to 'ping-header' container.
-    -->
-    <div class="ping-header">
-        <span class="company-logo"><!-- client company logo here --></span>
-        <text id="company-logo-div-text">
-            <!-- #if ($existing_identifiers.size() > 0)
-            $templateMessages.getMessage($messageKeyPrefix, "selectTitle")
-            #else
-            $templateMessages.getMessage($messageKeyPrefix, "inputTitle")
-            #end -->
-        </text>
-    </div>
-    <!-- .ping-header -->
-    <div class="ping-body-container">
-
-        <br/>
-        <form method="POST" action="$resume_url" autocomplete="off">
-            #if ($existing_identifiers.size() > 0)
-            <ul id="existingAccountsSelectionList" class="identifier-first__account-list">
-                #foreach( $existing in $existing_identifiers )
-                <li class="identifier-first__account-item" onclick="selectIdentifier('$escape.forJavaScript($existing)')">
-                    <div class="identifier-first__account-name" title="$escape.escape($existing)">$escape.escape($existing)</div>
-                    <div class="identifier-first__remove-account" onclick="removeIdentifier('$escape.forJavaScript($existing)')">
-                    </div>
-                </li>
-                #end
-                <li class="identifier-first__account-item identifier-first__add-account">
-                    <a onclick="showIdentifierInputBox()">
-                        $templateMessages.getMessage($messageKeyPrefix, "manualInput")
-                    </a>
-                </li>
-            </ul>
-            #end
-
-
-            #if ($existing_identifiers.size() > 0)
-            <div id="identifierInputLabel" class="ping-input-label" style="display:none">
-            #else
-            <div id="identifierInputLabel" class="ping-input-label">
-            #end
-                $templateMessages.getMessage($messageKeyPrefix, "usernameTitle")
-            </div>
-
-            <div class="ping-input-container">
-                #if ($existing_identifiers.size() > 0)
-                <input id="identifierInput" style="display:none" type="text" size="36" name="$identifier" value=""
-                       autocorrect="off" autocapitalize="off" onKeyPress="return postOnReturn(event)"/>
-                #else
-                <input id="identifierInput" type="text" size="36" name="$identifier" value="" autocorrect="off"
-                       autocapitalize="off" onKeyPress="return postOnReturn(event)"/>
-                #end
-                <div class="place-bottom type-alert tooltip-text" id="username-text">
-                    <div class="icon">!</div>
-                    $templateMessages.getMessage($messageKeyPrefix, "missingField")
+    <main class="b">
+        <div class="b-c b-c--hsm">
+            <form method="POST" action="$resume_url" autocomplete="off">
+                <div class="sh m-b300">
+                    <h2 class="sh-title">Forgot Password</h2>
                 </div>
-            </div>
 
-            <div id="postButton" class="ping-buttons">
-                <a onclick="postOk();" class="ping-button normal allow"
-                   title="$templateMessages.getMessage($messageKeyPrefix, " signInButtonTitle")">
-                $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
-                </a>
-            </div><!-- .ping-buttons -->
+                <!-- main container -->
+                <div class="g">
+                    <!-- first column -->
+                    <div class="form-fields g--6">
+                        #if ($existing_identifiers.size() > 0)
+                        <ul id="existingAccountsSelectionList" class="identifier-first__account-list">
+                            #foreach( $existing in $existing_identifiers )
+                            <li class="identifier-first__account-item" onclick="selectIdentifier('$escape.forJavaScript($existing)')">
+                                <div class="identifier-first__account-name" title="$escape.escape($existing)">$escape.escape($existing)</div>
+                                <div class="identifier-first__remove-account" onclick="removeIdentifier('$escape.forJavaScript($existing)')">
+                                </div>
+                            </li>
+                            #end
+                            <li class="identifier-first__account-item identifier-first__add-account">
+                                <a onclick="showIdentifierInputBox()">
+                                    $templateMessages.getMessage($messageKeyPrefix, "manualInput")
+                                </a>
+                            </li>
+                        </ul>
+                        #end
 
-            #if ($allow_cancel)
-            <br>
-            <a onclick="postCancel()">$templateMessages.getMessage($messageKeyPrefix, "cancel")</a>
-            #end
+                        
+                        #if ($existing_identifiers.size() > 0)
+                        <div id="identifierInputLabel" class="ping-input-label" style="display:none">
+                        #else
+                        <div id="identifierInputLabel" class="ping-input-label">
+                        #end
+                            $templateMessages.getMessage($messageKeyPrefix, "usernameTitle")
+                        </div>
 
-            <input type="hidden" name="$clear_identifier" id="$clear_identifier" value=""/>
-            <input type="hidden" name="$cancel" value="false"/>
-        </form>
-    </div><!-- .ping-body-container -->
+                        <!-- main fields -->
+                        <div class="txt m-b200">
+                            #if ($existing_identifiers.size() > 0)
+                                <input
+                                    id="identifierInput"
+                                    type="text"
+                                    size="36"
+                                    name="$identifier"
+                                    value=""
+                                    autocorrect="off"
+                                    autocapitalize="off"
+                                    onKeyPress="return postOnReturn(event)"
+                                    class="txt-f"
+                                    style="display:none"
+                                />
+                            #else
+                                <input
+                                    id="identifierInput"
+                                    type="text"
+                                    size="36"
+                                    name="$identifier"
+                                    value=""
+                                    autocorrect="off"
+                                    autocapitalize="off"
+                                    onKeyPress="return postOnReturn(event)"
+                                    class="txt-f"
+                                />
+                            #end
 
-    <div class="ping-footer-container">
-        <div class="ping-footer">
-            <div class="ping-credits"></div>
-            <div class="ping-copyright">$templateMessages.getMessage("global.footerMessage")</div>
+                            <div class="place-bottom type-alert tooltip-text" id="username-text">
+                                <div class="icon">!</div>
+                                $templateMessages.getMessage($messageKeyPrefix, "missingField")
+                            </div>
+                        </div>
+
+                        <div class="ping-buttons login m-b400" style="text-align:center">
+                            <input type="hidden" name="$ok" value="" />
+                            <input type="hidden" name="$cancel" value="" />
+
+                            <button
+                                type="button"
+                                onclick="postOk();"
+                                class="btn"
+                                title="$templateMessages.getMessage($messageKeyPrefix, " signInButtonTitle")"
+                            >
+                                $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
+                            </button>
+                        </div>
+	  
+                    </div><!-- end first column -->
+                </div><!-- end container -->
+
+                <input type="hidden" name="$clear_identifier" id="$clear_identifier" value="" />
+                <input type="hidden" name="$cancel" value="false" />
+            </form>
         </div>
-        <!-- .ping-footer -->
-    </div>
-    <!-- .ping-footer-container -->
-
-</div><!-- .ping-container -->
+    </main>
 
 <script type="text/javascript">
-
     function removeIdentifier(existingIdentifier) {
         document.forms[0]['$clear_identifier'].value = existingIdentifier;
         document.forms[0]['$identifier'].value = '';
@@ -194,14 +185,12 @@ It is recommended to sanitize the values that are displayed using $escape.escape
         }
     }
 
-    function postCancel()
-    {
+    function postCancel() {
         document.forms[0]['$cancel'].value = 'true';
         submitForm()
     }
 
-    function submitForm()
-    {
+    function submitForm() {
         document.forms[0].submit();
     }
 
@@ -261,7 +250,6 @@ It is recommended to sanitize the values that are displayed using $escape.escape
             setMobile((width <= 480));
         }
     }
-
 </script>
 
 </body>
