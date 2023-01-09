@@ -61,6 +61,11 @@ It is recommended to sanitize the values that are displayed using $escape.escape
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/main.css"/> -->
     <link rel="stylesheet" type="text/css" href="https://patterns.boston.gov/css/public.css" />
     <link rel="stylesheet" type="text/css" href="https://sso-test.boston.gov/assets/css/cob-main.css" />
+    <style>
+        .txt-l__spacing {
+            margin: 1em 0 0.25em 0;
+        }
+    </style>
 </head>
 
 <body onload="setFocus();">
@@ -73,16 +78,16 @@ It is recommended to sanitize the values that are displayed using $escape.escape
         if there is a logo present in the 'company-logo' container,
         then 'has-logo' class should be added to 'ping-header' container.
         -->
-        <div class="ping-header">
-            <span class="company-logo"><!-- client company logo here --></span>
+        <!-- <div class="ping-header">
+            <span class="company-logo"></span>
             <text id="company-logo-div-text">
                 #if ($existing_identifiers.size() > 0)
-                $templateMessages.getMessage($messageKeyPrefix, "selectTitle")
+                    $templateMessages.getMessage($messageKeyPrefix, "selectTitle")
                 #else
-                $templateMessages.getMessage($messageKeyPrefix, "inputTitle")
+                    $templateMessages.getMessage($messageKeyPrefix, "inputTitle")
                 #end
             </text>
-        </div>
+        </div> -->
         <!-- .ping-header -->
         
         <div class="b-c b-c--hsm">
@@ -90,80 +95,93 @@ It is recommended to sanitize the values that are displayed using $escape.escape
                 <div class="sh m-b300">
                     <h2 class="sh-title">Forgot Password</h2>
                 </div>
-                
-                #if ($existing_identifiers.size() > 0)
-                <ul id="existingAccountsSelectionList" class="identifier-first__account-list">
-                    #foreach( $existing in $existing_identifiers )
-                    <li class="identifier-first__account-item" onclick="selectIdentifier('$escape.forJavaScript($existing)')">
-                        <div class="identifier-first__account-name" title="$escape.escape($existing)">$escape.escape($existing)</div>
-                        <div class="identifier-first__remove-account" onclick="removeIdentifier('$escape.forJavaScript($existing)')">
+
+                <div class="g">
+                    <div class="g--6">
+                        #if ($existing_identifiers.size() > 0)
+                            <ul id="existingAccountsSelectionList" class="identifier-first__account-list">
+                                #foreach( $existing in $existing_identifiers )
+                                <li class="identifier-first__account-item" onclick="selectIdentifier('$escape.forJavaScript($existing)')">
+                                    <div class="identifier-first__account-name" title="$escape.escape($existing)">$escape.escape($existing)</div>
+                                    <div class="identifier-first__remove-account" onclick="removeIdentifier('$escape.forJavaScript($existing)')">
+                                    </div>
+                                </li>
+                                #end
+                                <li class="identifier-first__account-item identifier-first__add-account">
+                                    <a onclick="showIdentifierInputBox()">
+                                        $templateMessages.getMessage($messageKeyPrefix, "manualInput")
+                                    </a>
+                                </li>
+                            </ul>
+                        #end
+
+                        #if ($existing_identifiers.size() > 0)
+                        <label id="identifierInputLabel" class="txt-l txt-l__spacing" style="display:none">
+                        #else
+                        <label id="identifierInputLabel" class="txt-l txt-l__spacing">
+                        #end
+                            $templateMessages.getMessage($messageKeyPrefix, "usernameTitle")
+                        </label>
+
+                        <div class="ping-input-container txt m-b200">
+                            #if ($existing_identifiers.size() > 0)
+                                <input
+                                    id="identifierInput"
+                                    style="display:none"
+                                    type="text"
+                                    size="36"
+                                    name="$identifier"
+                                    value=""
+                                    class="txt-f"
+                                    autocorrect="off"
+                                    autocapitalize="off"
+                                    onKeyPress="return postOnReturn(event)"
+                                />
+                            #else
+                                <input
+                                    id="identifierInput"
+                                    type="text"
+                                    size="36"
+                                    name="$identifier"
+                                    value=""
+                                    class="txt-f"
+                                    autocorrect="off"
+                                    autocapitalize="off"
+                                    onKeyPress="return postOnReturn(event)"
+                                />
+                            #end
+                            
+                            <div class="place-bottom type-alert tooltip-text" id="username-text">
+                                <div class="icon">!</div>
+                                $templateMessages.getMessage($messageKeyPrefix, "missingField")
+                            </div>
                         </div>
-                    </li>
-                    #end
-                    <li class="identifier-first__account-item identifier-first__add-account">
-                        <a onclick="showIdentifierInputBox()">
-                            $templateMessages.getMessage($messageKeyPrefix, "manualInput")
-                        </a>
-                    </li>
-                </ul>
-                #end
 
-                #if ($existing_identifiers.size() > 0)
-                <div id="identifierInputLabel" class="ping-input-label" style="display:none">
-                #else
-                <div id="identifierInputLabel" class="ping-input-label">
-                #end
-                    $templateMessages.getMessage($messageKeyPrefix, "usernameTitle")
-                </div>
+                        <div id="postButton" class="ping-buttons">
+                            <button
+                                onclick="postOk();"
+                                class="btn"
+                                title="Sign On"
+                            >
+                                Sign On
+                            </button>
+                        </div><!-- .ping-buttons -->
 
-                <div class="ping-input-container txt m-b200">
-                    #if ($existing_identifiers.size() > 0)
-                        <input
-                            id="identifierInput"
-                            style="display:none"
-                            type="text"
-                            size="36"
-                            name="$identifier"
-                            value=""
-                            autocorrect="off"
-                            autocapitalize="off"
-                            onKeyPress="return postOnReturn(event)"
-                        />
-                    #else
-                        <input
-                            id="identifierInput"
-                            type="text"
-                            size="36"
-                            name="$identifier"
-                            value=""
-                            autocorrect="off"
-                            autocapitalize="off"
-                            onKeyPress="return postOnReturn(event)"
-                        />
-                    #end
-                    
-                    <div class="place-bottom type-alert tooltip-text" id="username-text">
-                        <div class="icon">!</div>
-                        $templateMessages.getMessage($messageKeyPrefix, "missingField")
+                        #if ($allow_cancel)
+                            <br>
+                            <button
+                                onclick="postCancel()"
+                                class="btn"
+                                title="Cancel"
+                            >
+                                $templateMessages.getMessage($messageKeyPrefix, "cancel")
+                            </button>
+                        #end
+                    </div>
+                    <div class="g--6">
+                        <!-- PUT CITY HALL / Contact Info here -->
                     </div>
                 </div>
-
-                <div id="postButton" class="ping-buttons">
-                    <button
-                        onclick="postOk();"
-                        class="btn"
-                        title="$templateMessages.getMessage($messageKeyPrefix, " signInButtonTitle")"
-                    >
-                        $templateMessages.getMessage($messageKeyPrefix, "signInButtonTitle")
-                    </button>
-                </div><!-- .ping-buttons -->
-
-                #if ($allow_cancel)
-                    <br>
-                    <a onclick="postCancel()">
-                        $templateMessages.getMessage($messageKeyPrefix, "cancel")
-                    </a>
-                #end
 
                 <input type="hidden" name="$clear_identifier" id="$clear_identifier" value=""/>
                 <input type="hidden" name="$cancel" value="false"/>
