@@ -2611,7 +2611,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
       type="text"
     />
     <div
-      className="t--subinfo t--err m-b100"
+      className="t--subinfo t--err m-b100 m-t100"
     >
        
     </div>
@@ -2652,7 +2652,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
       type="text"
     />
     <div
-      className="t--subinfo t--err m-b100"
+      className="t--subinfo t--err m-b100 m-t100"
     >
       Value is not correct
     </div>
@@ -2681,7 +2681,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
       type="text"
     />
     <div
-      className="t--subinfo t--err m-b100"
+      className="t--subinfo t--err m-b100 m-t100"
     >
        
     </div>
@@ -2729,7 +2729,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       type="text"
     />
     <div
-      className="t--subinfo t--err m-b100"
+      className="t--subinfo t--err m-b100 m-t100"
     >
        
     </div>
@@ -2759,7 +2759,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       type="text"
     />
     <div
-      className="t--subinfo t--err m-b100"
+      className="t--subinfo t--err m-b100 m-t100"
     >
        
     </div>
@@ -2791,7 +2791,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
         value="password"
       />
       <div
-        className="t--subinfo t--err m-b100"
+        className="t--subinfo t--err m-b100 m-t100"
       >
          
       </div>
@@ -2832,7 +2832,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       type="text"
     />
     <div
-      className="t--subinfo t--err m-b100"
+      className="t--subinfo t--err m-b100 m-t100"
     >
        
     </div>
@@ -2862,7 +2862,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       type="text"
     />
     <div
-      className="t--subinfo t--err m-b100"
+      className="t--subinfo t--err m-b100 m-t100"
     >
        
     </div>

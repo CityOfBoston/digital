@@ -189,6 +189,7 @@ export default class ContactInfo extends Component<Props> {
                   onChange={this.handleChange}
                   optionalDescription={''}
                   required={true}
+                  error={email === emailConfirm ? '' : 'Email does not match'}
                 />
               </div>
             </div>
