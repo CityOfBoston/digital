@@ -83,7 +83,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -117,7 +117,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -160,7 +160,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -206,7 +206,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -241,7 +241,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -287,7 +287,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -332,7 +332,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -374,7 +374,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -411,7 +411,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -453,7 +453,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -495,7 +495,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -548,7 +548,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -583,7 +583,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -1036,7 +1036,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
               First name is required
             </div>
@@ -1070,7 +1070,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -1113,7 +1113,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
             Last name is required
           </div>
@@ -1159,7 +1159,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -1194,7 +1194,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -1240,7 +1240,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -1285,7 +1285,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -1327,7 +1327,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -1364,7 +1364,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -1406,7 +1406,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -1448,7 +1448,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -1501,7 +1501,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -1536,7 +1536,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -1989,7 +1989,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
               value="Gwen"
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -2023,7 +2023,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -2066,7 +2066,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             value="Stacy"
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -2112,7 +2112,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             value="123 Fake St."
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -2147,7 +2147,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -2193,7 +2193,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             value="New York"
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -2238,7 +2238,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
               value="NY"
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -2280,7 +2280,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
               value="01110"
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -2317,7 +2317,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           value="(212) 555-1234"
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -2359,7 +2359,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           value="ghosty@spiders.net"
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -2401,7 +2401,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           value="ghosty@spiders.net"
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -2454,7 +2454,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           value="High School"
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -2489,7 +2489,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           value="Midtown High School"
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -2977,7 +2977,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -3011,7 +3011,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -3054,7 +3054,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -3100,7 +3100,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -3135,7 +3135,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -3181,7 +3181,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -3226,7 +3226,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -3268,7 +3268,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -3305,7 +3305,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -3347,7 +3347,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -3389,7 +3389,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -3442,7 +3442,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -3477,7 +3477,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -3971,7 +3971,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -4005,7 +4005,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -4048,7 +4048,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -4094,7 +4094,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -4129,7 +4129,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -4175,7 +4175,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -4220,7 +4220,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -4262,7 +4262,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -4299,7 +4299,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -4341,7 +4341,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -4383,7 +4383,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -4436,7 +4436,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -4471,7 +4471,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           value=""
         />
         <div
-          className="t--subinfo t--err m-b100"
+          className="t--subinfo t--err m-b100 m-t100"
         >
            
         </div>
@@ -5101,7 +5101,7 @@ Array [
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -5135,7 +5135,7 @@ Array [
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -5178,7 +5178,7 @@ Array [
                       value=""
                     />
                     <div
-                      className="t--subinfo t--err m-b100"
+                      className="t--subinfo t--err m-b100 m-t100"
                     >
                        
                     </div>
@@ -5224,7 +5224,7 @@ Array [
                       value=""
                     />
                     <div
-                      className="t--subinfo t--err m-b100"
+                      className="t--subinfo t--err m-b100 m-t100"
                     >
                        
                     </div>
@@ -5259,7 +5259,7 @@ Array [
                       value=""
                     />
                     <div
-                      className="t--subinfo t--err m-b100"
+                      className="t--subinfo t--err m-b100 m-t100"
                     >
                        
                     </div>
@@ -5305,7 +5305,7 @@ Array [
                       value=""
                     />
                     <div
-                      className="t--subinfo t--err m-b100"
+                      className="t--subinfo t--err m-b100 m-t100"
                     >
                        
                     </div>
@@ -5350,7 +5350,7 @@ Array [
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -5392,7 +5392,7 @@ Array [
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -5429,7 +5429,7 @@ Array [
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
@@ -5471,7 +5471,7 @@ Array [
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
@@ -5513,7 +5513,7 @@ Array [
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
@@ -5566,7 +5566,7 @@ Array [
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
@@ -5601,7 +5601,7 @@ Array [
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
