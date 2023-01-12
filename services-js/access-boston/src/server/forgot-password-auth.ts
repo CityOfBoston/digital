@@ -129,29 +129,23 @@ export async function addForgotPasswordAuth(
       },
     },
     handler: async (request, h) => {
-      console.log('request.payload: ', request.payload);
+      const assertResult = await samlAuth.handlePostAssert(
+        request.payload as any
+      );
 
-      try {
-        const assertResult = await samlAuth.handlePostAssert(
-          request.payload as any
+      if (assertResult.type !== 'login') {
+        throw new Error(
+          `Unexpected assert result in POST handler: ${assertResult.type}`
         );
-
-        if (assertResult.type !== 'login') {
-          throw new Error(
-            `Unexpected assert result in POST handler: ${assertResult.type}`
-          );
-        }
-
-        setSessionAuth(request, {
-          type: 'forgotPassword',
-          sessionVersion: CURRENT_SESSION_VERSION,
-          userId: assertResult.nameId,
-          resetPasswordToken: assertResult.userAccessToken,
-          createdTime: Date.now(),
-        });
-      } catch (error) {
-        console.log('Error w/Payload: ', error);
       }
+
+      setSessionAuth(request, {
+        type: 'forgotPassword',
+        sessionVersion: CURRENT_SESSION_VERSION,
+        userId: assertResult.nameId,
+        resetPasswordToken: assertResult.userAccessToken,
+        createdTime: Date.now(),
+      });
 
       return h.redirect(forgotPath);
     },
