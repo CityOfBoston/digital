@@ -3312,6 +3312,35 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                 >
                   <label
                     className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
                     htmlFor="contactPhone"
                   >
                     Phone Number
@@ -33195,6 +33224,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
                 >
                   <label
                     className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value="squirrel.girl@avengers.org"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
                     htmlFor="contactPhone"
                   >
                     Phone Number
@@ -34249,6 +34307,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
+                  htmlFor="confirmContactEmail"
+                >
+                  Confirm Email Address
+                   
+                  <span
+                    aria-hidden={true}
+                    className="t--req"
+                  >
+                    Required
+                  </span>
+                </label>
+                <input
+                  aria-required="true"
+                  autoComplete="email"
+                  className="txt-f txt-f--100 "
+                  id="confirmContactEmail"
+                  name="confirmContactEmail"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Email address"
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l txt-l--sm"
                   htmlFor="contactPhone"
                 >
                   Phone Number
@@ -35282,6 +35369,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
               >
                 <label
                   className="txt-l txt-l--sm"
+                  htmlFor="confirmContactEmail"
+                >
+                  Confirm Email Address
+                   
+                  <span
+                    aria-hidden={true}
+                    className="t--req"
+                  >
+                    Required
+                  </span>
+                </label>
+                <input
+                  aria-required="true"
+                  autoComplete="email"
+                  className="txt-f txt-f--100 "
+                  id="confirmContactEmail"
+                  name="confirmContactEmail"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Email address"
+                  type="email"
+                  value="squirrel.girl@avengers.org"
+                />
+              </div>
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l txt-l--sm"
                   htmlFor="contactPhone"
                 >
                   Phone Number
@@ -36303,6 +36419,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
                   className="txt-f txt-f--100 "
                   id="contactEmail"
                   name="contactEmail"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Email address"
+                  type="email"
+                  value="squirrel.girl@avengers.org"
+                />
+              </div>
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l txt-l--sm"
+                  htmlFor="confirmContactEmail"
+                >
+                  Confirm Email Address
+                   
+                  <span
+                    aria-hidden={true}
+                    className="t--req"
+                  >
+                    Required
+                  </span>
+                </label>
+                <input
+                  aria-required="true"
+                  autoComplete="email"
+                  className="txt-f txt-f--100 "
+                  id="confirmContactEmail"
+                  name="confirmContactEmail"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Email address"
@@ -37420,6 +37565,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
                     className="txt-f txt-f--100 "
                     id="contactEmail"
                     name="contactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value="squirrel.girl@avengers.org"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Email address"
@@ -65937,6 +66111,35 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
                     className="txt-f txt-f--100 "
                     id="contactEmail"
                     name="contactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Email address"

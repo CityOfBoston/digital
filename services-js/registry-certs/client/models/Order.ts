@@ -14,6 +14,7 @@ export interface OrderInfo {
 
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
 
   shippingName: string;
@@ -61,6 +62,7 @@ export default class Order {
 
       contactName: '',
       contactEmail: '',
+      confirmContactEmail: '',
       contactPhone: '',
 
       shippingName: '',

@@ -121,6 +121,7 @@ export interface Mutation extends ResolvableWith<{}> {
   submitDeathCertificateOrder(args: {
     contactName: string;
     contactEmail: string;
+    confirmContactEmail: string;
     contactPhone: string;
 
     shippingName: string;
@@ -218,6 +219,7 @@ export interface Mutation extends ResolvableWith<{}> {
   submitBirthCertificateOrder(args: {
     contactName: string;
     contactEmail: string;
+    confirmContactEmail: string;
     contactPhone: string;
 
     shippingName: string;
@@ -246,6 +248,7 @@ export interface Mutation extends ResolvableWith<{}> {
   submitMarriageCertificateOrder(args: {
     contactName: string;
     contactEmail: string;
+    confirmContactEmail: string;
     contactPhone: string;
 
     shippingName: string;
@@ -299,6 +302,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const {
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
 
       shippingName,
@@ -355,6 +359,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       orderDate,
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
       shippingName,
       shippingCompany: shippingCompanyName,
@@ -575,6 +580,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const {
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
 
       shippingName,
@@ -622,6 +628,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       orderDate,
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
       shippingName,
       shippingCompany: shippingCompanyName,
@@ -703,6 +710,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const {
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
 
       shippingName,
@@ -750,6 +758,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       orderDate,
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
       shippingName,
       shippingCompany: shippingCompanyName,
@@ -966,6 +975,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
 function validateAddresses(args: {
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
 
   shippingName: string;
@@ -989,6 +999,7 @@ function validateAddresses(args: {
   const {
     contactName,
     contactEmail,
+    confirmContactEmail,
     contactPhone,
 
     shippingName,
@@ -1010,6 +1021,7 @@ function validateAddresses(args: {
   const shippingValidator = makeShippingValidator({
     contactName,
     contactEmail,
+    confirmContactEmail,
     contactPhone,
     shippingName,
     shippingCompanyName,

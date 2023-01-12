@@ -40,6 +40,7 @@ function makeOrder(overrides: Partial<OrderInfo> = {}) {
 
     contactName: 'Squirrel Girl',
     contactEmail: 'squirrel.girl@avengers.org',
+    confirmContactEmail: 'squirrel.girl@avengers.org',
     contactPhone: '(555) 123-9999',
 
     shippingName: 'Doreen Green',

@@ -153,6 +153,9 @@ export default class OrderProvider {
 
       contactName: storeContactAndShipping ? info.contactName : '',
       contactEmail: storeContactAndShipping ? info.contactEmail : '',
+      confirmContactEmail: storeContactAndShipping
+        ? info.confirmContactEmail
+        : '',
       contactPhone: storeContactAndShipping ? info.contactPhone : '',
 
       shippingName: storeContactAndShipping ? info.shippingName : '',

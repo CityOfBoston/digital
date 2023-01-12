@@ -6,6 +6,7 @@ import './custom-validations';
 interface ShippingFields {
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
 
   shippingName: string;
@@ -20,6 +21,7 @@ interface ShippingFields {
 const RULES = {
   contactName: 'required|string',
   contactEmail: 'required|email',
+  confirmContactEmail: 'required|email',
   contactPhone: 'required|telephone',
 
   shippingName: 'required|string',
@@ -34,6 +36,7 @@ const RULES = {
 const NAMES = {
   contactName: 'full name',
   contactEmail: 'email address',
+  confirmContactEmail: 'confirm email address',
   contactPhone: 'phone number',
 
   shippingName: 'full name',
