@@ -21,7 +21,7 @@ interface ShippingFields {
 const RULES = {
   contactName: 'required|string',
   contactEmail: 'required|email',
-  confirmContactEmail: 'required|email',
+  confirmContactEmail: 'required|email|same:contactEmail',
   contactPhone: 'required|telephone',
 
   shippingName: 'required|string',
