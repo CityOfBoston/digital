@@ -42,6 +42,10 @@ export async function addForgotPasswordAuth(
 
     validate: request => {
       const auth = getSessionAuth(request);
+      // eslint-disable-next-line no-console
+      console.log('addForgotPasswordAuth>request: ', request);
+      // eslint-disable-next-line no-console
+      console.log('addForgotPasswordAuth>request>auth: ', auth);
 
       if (
         auth &&
@@ -130,18 +134,22 @@ export async function addForgotPasswordAuth(
     },
     handler: async (request, h) => {
       // eslint-disable-next-line no-console
-      console.log('request.payload: ', request.payload);
+      console.log(
+        'route>FORGOT_ASSERT_PATH>request.payload: ',
+        request.payload
+      );
 
       const assertResult = await samlAuth.handlePostAssert(
         request.payload as any
       );
 
       // eslint-disable-next-line no-console
-      console.log('assertResult: ', assertResult);
-      // eslint-disable-next-line no-console
       console.log('assertResult.type: ', assertResult.type);
 
       if (assertResult.type !== 'login') {
+        // eslint-disable-next-line no-console
+        console.log('assertResult.type !== login', assertResult.type);
+
         throw new Error(
           `Unexpected assert result in POST handler: ${assertResult.type}`
         );
@@ -156,6 +164,8 @@ export async function addForgotPasswordAuth(
         'assertResult.userAccessToken: ',
         assertResult.userAccessToken
       );
+      // eslint-disable-next-line no-console
+      console.log('assertResult: ', assertResult);
 
       setSessionAuth(request, {
         type: 'forgotPassword',
