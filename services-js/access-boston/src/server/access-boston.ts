@@ -105,13 +105,13 @@ export async function makeServer(port, rollbar: Rollbar) {
         }
       : undefined,
 
-    debug:
-      // eslint-disable-next-line
-      dev || true
-        ? {
-            request: ['error'],
-          }
-        : {},
+    // debug:
+    //   // eslint-disable-next-line
+    //   dev || true
+    //     ? {
+    //         request: ['error'],
+    //       }
+    //     : {},
   };
 
   if (process.env.USE_SSL) {

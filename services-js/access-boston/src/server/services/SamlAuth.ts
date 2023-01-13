@@ -281,9 +281,12 @@ export default class SamlAuth {
     saml: SamlAssertion
   ): Promise<SamlAssertResult> {
     // eslint-disable-next-line no-console
-    console.debug('SAML RESPONSE', JSON.stringify(saml, null, 2));
+    // console.debug('SAML RESPONSE', JSON.stringify(saml, null, 2));
     // eslint-disable-next-line no-console
-    // console.log('SAML RESPONSE', JSON.stringify(saml, null, 2));
+    console.log(
+      'processSamlAssertion > SAML RESPONSE',
+      JSON.stringify(saml, null, 2)
+    );
 
     switch (saml.type) {
       case 'authn_response': {
