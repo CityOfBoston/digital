@@ -82,8 +82,8 @@ export function setSessionAuth(request: HapiRequest, auth: SessionAuth) {
       SESSION_AUTH_KEY
     );
     console.log('request.yar.set (ERROR > auth): ', auth);
-    console.log('request.yar.set (ERROR > request): ', request);
-    request.yar.set(SESSION_AUTH_KEY, auth);
+    // console.log('request.yar.set (ERROR > request): ', request);
+    // request.yar.set(SESSION_AUTH_KEY, auth);
   }
 }
 
@@ -99,7 +99,11 @@ export function getSessionAuth(
   keepAlive: boolean = false
 ): SessionAuth | undefined {
   // eslint-disable-next-line no-console
-  console.log('START > getSessionAuth > request: ', request);
+  console.log('START > getSessionAuth > request.auth: ', request.auth);
+  console.log(
+    'START > getSessionAuth > request.yar.get(SESSION_AUTH_KEY): ',
+    request.yar.get(SESSION_AUTH_KEY)
+  );
   if (keepAlive) {
     request.yar.touch();
   }
@@ -118,11 +122,12 @@ export function getSessionAuth(
     // We assume that in most cases this should mean that they just get bounced
     // through Ping without needing to re-authenticate, since their SAML session
     // should still be active.
+    console.log('request.yar.clear RAN!!!!!');
     request.yar.clear(SESSION_AUTH_KEY);
     return undefined;
   }
   // eslint-disable-next-line no-console
-  console.log('END > getSessionAuth > sessionAuth: ', sessionAuth);
+  // console.log('END > getSessionAuth > sessionAuth: ', sessionAuth);
 
   return sessionAuth;
 }
