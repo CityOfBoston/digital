@@ -129,15 +129,33 @@ export async function addForgotPasswordAuth(
       },
     },
     handler: async (request, h) => {
+      // eslint-disable-next-line no-console
+      console.log('request.payload: ', request.payload);
+
       const assertResult = await samlAuth.handlePostAssert(
         request.payload as any
       );
+
+      // eslint-disable-next-line no-console
+      console.log('assertResult: ', assertResult);
+      // eslint-disable-next-line no-console
+      console.log('assertResult.type: ', assertResult.type);
 
       if (assertResult.type !== 'login') {
         throw new Error(
           `Unexpected assert result in POST handler: ${assertResult.type}`
         );
       }
+
+      // eslint-disable-next-line no-console
+      console.log('CURRENT_SESSION_VERSION: ', CURRENT_SESSION_VERSION);
+      // eslint-disable-next-line no-console
+      console.log('assertResult.nameId: ', assertResult.nameId);
+      // eslint-disable-next-line no-console
+      console.log(
+        'assertResult.userAccessToken: ',
+        assertResult.userAccessToken
+      );
 
       setSessionAuth(request, {
         type: 'forgotPassword',
@@ -146,6 +164,8 @@ export async function addForgotPasswordAuth(
         resetPasswordToken: assertResult.userAccessToken,
         createdTime: Date.now(),
       });
+      // eslint-disable-next-line no-console
+      console.log('forgotPath (to redirect): ', forgotPath);
 
       return h.redirect(forgotPath);
     },

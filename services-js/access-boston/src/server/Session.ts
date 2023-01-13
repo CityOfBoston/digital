@@ -70,7 +70,15 @@ export type SessionAuth = LoginAuth | ForgotPasswordAuth;
  * request.auth.credentials object.
  */
 export function setSessionAuth(request: HapiRequest, auth: SessionAuth) {
-  request.yar.set(SESSION_AUTH_KEY, auth);
+  // eslint-disable-next-line no-console
+  console.log('setSessionAuth.auth.type: ', auth.type);
+  try {
+    request.yar.set(SESSION_AUTH_KEY, auth);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log('request.yar.set (ERROR): ', error);
+    request.yar.set(SESSION_AUTH_KEY, auth);
+  }
 }
 
 /**
@@ -84,6 +92,8 @@ export function getSessionAuth(
   request: HapiRequest,
   keepAlive: boolean = false
 ): SessionAuth | undefined {
+  // eslint-disable-next-line no-console
+  console.log('START > getSessionAuth');
   if (keepAlive) {
     request.yar.touch();
   }
@@ -105,6 +115,8 @@ export function getSessionAuth(
     request.yar.clear(SESSION_AUTH_KEY);
     return undefined;
   }
+  // eslint-disable-next-line no-console
+  console.log('END > getSessionAuth > sessionAuth: ', sessionAuth);
 
   return sessionAuth;
 }
