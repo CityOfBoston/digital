@@ -100,10 +100,10 @@ export function getSessionAuth(
 ): SessionAuth | undefined {
   // eslint-disable-next-line no-console
   console.log('START > getSessionAuth > request.auth: ', request.auth);
-  console.log(
-    'START > getSessionAuth > request.yar.get(SESSION_AUTH_KEY): ',
-    request.yar.get(SESSION_AUTH_KEY)
-  );
+  // console.log(
+  //   'START > getSessionAuth > request.yar.get(SESSION_AUTH_KEY): ',
+  //   request.yar.get(SESSION_AUTH_KEY)
+  // );
   if (keepAlive) {
     request.yar.touch();
   }
