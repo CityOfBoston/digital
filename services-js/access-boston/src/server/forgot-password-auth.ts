@@ -43,7 +43,7 @@ export async function addForgotPasswordAuth(
     validate: request => {
       const auth = getSessionAuth(request);
       // eslint-disable-next-line no-console
-      console.log('addForgotPasswordAuth>request: ', request);
+      // console.log('addForgotPasswordAuth>request: ', request);
       // eslint-disable-next-line no-console
       console.log('addForgotPasswordAuth>request>auth: ', auth);
 
