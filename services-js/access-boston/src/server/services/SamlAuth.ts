@@ -291,7 +291,7 @@ export default class SamlAuth {
         const { attributes } = user;
 
         // eslint-disable-next-line no-console
-        // console.log('processSamlAssertion: ', attributes, user, saml);
+        console.log('processSamlAssertion: ', attributes, user, saml);
 
         return {
           type: 'login',
@@ -333,6 +333,8 @@ export default class SamlAuth {
     body: SamlRequestPostBody | SamlResponsePostBody
   ): Promise<SamlAssertResult> {
     return new Promise((resolve, reject) => {
+      // eslint-disable-next-line no-console
+      console.log('handlePostAssert > body: ', body);
       this.serviceProvider.post_assert(
         this.identityProvider,
         { request_body: body },
@@ -346,8 +348,12 @@ export default class SamlAuth {
           }
 
           try {
+            // eslint-disable-next-line no-console
+            console.log('handlePostAssert > SamlAssertion resolve: ', saml);
             resolve(this.processSamlAssertion(saml));
           } catch (e) {
+            // eslint-disable-next-line no-console
+            console.log('handlePostAssert > SamlAssertion reject(e): ', e);
             reject(e);
           }
         }
