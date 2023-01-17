@@ -72,6 +72,8 @@ export type SessionAuth = LoginAuth | ForgotPasswordAuth;
 export function setSessionAuth(request: HapiRequest, auth: SessionAuth) {
   // eslint-disable-next-line no-console
   console.log('setSessionAuth.auth.type: ', auth.type);
+  // eslint-disable-next-line no-console
+  console.log('setSessionAuth>SESSION_AUTH_KEY: ', SESSION_AUTH_KEY);
   try {
     request.yar.set(SESSION_AUTH_KEY, auth);
   } catch (error) {
