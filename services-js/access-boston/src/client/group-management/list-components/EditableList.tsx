@@ -50,7 +50,6 @@ export default function EditableList(props: Props) {
     pageSize,
     items,
     viewOnly,
-    mode,
   } = props;
   const handleClick = (item: Group | Person): void => {
     if (props.handleClick) props.handleClick(item);
@@ -70,30 +69,12 @@ export default function EditableList(props: Props) {
     }
   };
 
-  let filteredItems = items.filter(
+  const filteredItems = items.filter(
     i =>
       i.displayName &&
       typeof i.displayName === 'string' &&
       i.displayName.length > 0
   );
-
-  if (mode && mode === 'group' && filteredItems.length > 0 && !props.loading) {
-    filteredItems = filteredItems.sort(
-      (a: any, b: any) =>
-        b['isAvailable'] - a['isAvailable'] ||
-        a['sn'].localeCompare(b['sn']) ||
-        a.cn - b.cn
-    );
-  }
-
-  if (mode && mode === 'person' && filteredItems.length > 0 && !props.loading) {
-    filteredItems = filteredItems.sort(
-      (a: any, b: any) =>
-        b['isAvailable'] - a['isAvailable'] ||
-        a['displayName'].localeCompare(b['displayName']) ||
-        a.cn - b.cn
-    );
-  }
 
   const noResultsText =
     props.mode === 'group'
@@ -122,7 +103,6 @@ export default function EditableList(props: Props) {
                 viewOnly={
                   viewOnly && typeof viewOnly === 'boolean' ? viewOnly : false
                 }
-                mode={mode}
               />
             ))
           ) : (
