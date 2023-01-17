@@ -51,7 +51,6 @@ export default function ReviewList(props: Props) {
             view="review"
             item={item}
             viewOnly={false}
-            mode={mode}
           />
         ))}
       </ul>

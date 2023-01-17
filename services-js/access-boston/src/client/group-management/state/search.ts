@@ -27,7 +27,6 @@ interface Action {
   searchText?: string;
   selection?: Group | Person;
   selectionValue?: string;
-  mode?: string;
 }
 
 export const initialState = {
@@ -36,7 +35,6 @@ export const initialState = {
   searchText: '',
   selection: {} as Person,
   selectionValue: '',
-  mode: '',
 };
 
 export const reducer = (state, action: Partial<Action>) => {
@@ -50,20 +48,10 @@ export const reducer = (state, action: Partial<Action>) => {
     case 'SEARCH/UPDATE_SEARCH_TEXT':
       return { ...state, searchText: action.searchText, searchStatus: 'idle' };
 
-    case 'SEARCH/UPDATE_SUGGESTIONS': {
-      let result = action.searchResults || [];
-      if (action.mode && action.mode === 'person') {
-        result = result.sort(
-          (a: any, b: any) =>
-            // a['sn'] - b['sn']
-            a['sn'].localeCompare(b['sn']) ||
-            a['givenName'].localeCompare(b['givenName'])
-        );
-      }
-
+    case 'SEARCH/UPDATE_SUGGESTIONS':
       return {
         ...state,
-        searchResults: result,
+        searchResults: action.searchResults,
         searchStatus:
           state.searchText.indexOf('Already Added') > -1
             ? 'duplicate'
@@ -71,7 +59,6 @@ export const reducer = (state, action: Partial<Action>) => {
             ? 'idle'
             : 'noResults',
       };
-    }
 
     case 'SEARCH/CLEAR_SUGGESTIONS':
       return {
