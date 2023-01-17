@@ -37,6 +37,8 @@ export async function addForgotPasswordAuth(
   server: HapiServer,
   { forgotPath }: Paths
 ) {
+  // eslint-disable-next-line no-console
+  console.log('IN:addForgotPasswordAuth:START');
   const authStrategyOptions: BrowserAuthOptions = {
     redirectTo: FORGOT_REDIRECT_PATH,
 
@@ -87,6 +89,9 @@ export async function addForgotPasswordAuth(
       },
       ''
     );
+
+    // eslint-disable-next-line no-console
+    console.log('IN:addForgotPasswordAuth: samlAuth: ', samlAuth);
   } else {
     samlAuth = new SamlAuthFake({
       loginFormUrl: FAKE_FORGOT_LOGIN_FORM_PATH,
