@@ -335,6 +335,7 @@ export default class SamlAuth {
   handlePostAssert(
     body: SamlRequestPostBody | SamlResponsePostBody
   ): Promise<SamlAssertResult> {
+    console.log('INSIDE: handlePostAssert before PROMISE Response/Return');
     return new Promise((resolve, reject) => {
       // eslint-disable-next-line no-console
       console.log('handlePostAssert > body: ', body);
@@ -344,7 +345,8 @@ export default class SamlAuth {
         (err, saml: SamlAssertion) => {
           if (err) {
             // eslint-disable-next-line no-console
-            console.debug('SAML assert error', body);
+            console.debug('SAML assert error(err):', err);
+            console.debug('SAML assert error(saml):', saml);
 
             reject(err);
             return;

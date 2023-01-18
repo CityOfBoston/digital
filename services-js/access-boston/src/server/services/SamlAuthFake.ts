@@ -71,7 +71,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       cobAgency: 'CH',
     };
     // eslint-disable-next-line no-console
-    // console.log('SamlAuthFake > handlePostAssert > result: ', result);
+    console.log('SamlAuthFake > handlePostAssert > result: ', result);
     return Promise.resolve(result);
   }
 

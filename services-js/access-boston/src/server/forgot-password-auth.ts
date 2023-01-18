@@ -138,12 +138,23 @@ export async function addForgotPasswordAuth(
       },
     },
     handler: async (request, h) => {
+      if (!request.payload || request.payload === null) {
+        console.log('request.payload NULL');
+        console.log('request', request);
+      }
       // eslint-disable-next-line no-console
       console.log(
-        'route>FORGOT_ASSERT_PATH>request.payload: ',
+        'route>FORGOT_ASSERT_PATH>request.headers/payload: ',
+        request.headers,
         request.payload
       );
 
+      // eslint-disable-next-line no-console
+      console.log(
+        'CALLING > samlAuth.handlePostAssert > res:assertResult ',
+        request.payload
+      );
+      console.log('What is samlAuth?: ', samlAuth);
       const assertResult = await samlAuth.handlePostAssert(
         request.payload as any
       );

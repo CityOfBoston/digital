@@ -58,6 +58,8 @@ export default class MyDocument extends Document<Props> {
 
   render() {
     const { userAgent, rollbarAccessToken, rollbarEnvironment } = this.props;
+    const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+    const assetsPath = dev ? '../../statics/assets/' : '/assets/';
 
     return (
       <html lang="en-US">
@@ -80,7 +82,7 @@ export default class MyDocument extends Document<Props> {
 
           <link
             rel="shortcut icon"
-            href="/assets/favicon.ico"
+            href={`${assetsPath}favicon.ico`}
             type="image/vnd.microsoft.icon"
           />
 
