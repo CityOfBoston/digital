@@ -173,7 +173,10 @@ export default class ShippingContent extends React.Component<Props> {
     };
 
     const renderError = (fieldName: keyof ShippingInfo) => {
-      const error = errorForField(fieldName);
+      let error = errorForField(fieldName);
+      if (error && fieldName === 'confirmContactEmail') {
+        error = 'The email address fields must match.';
+      }
       return (
         error && (
           <div className="t--info t--err m-t200" id={`${fieldName}-error`}>
