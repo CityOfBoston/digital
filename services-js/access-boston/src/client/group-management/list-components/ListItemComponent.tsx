@@ -24,6 +24,7 @@ interface Props {
   handleChange?: () => void;
   handleClick?: (item: Group | Person) => void;
   viewOnly: boolean;
+  mode?: string;
 }
 
 /**
@@ -35,12 +36,17 @@ export default function ListItemComponent(props: Props) {
     handleChange,
     handleClick,
     isChecked,
+    item,
     item: { cn, displayName, isAvailable, status },
     view,
     viewOnly,
+    mode,
   } = props;
 
-  const displayText = displayName || cn;
+  let displayText = displayName || cn;
+  if (mode && mode === 'group' && item['givenName'] && item['sn']) {
+    displayText = `${item['givenName']} ${item['sn']}`;
+  }
   const clickHandler = handleClick
     ? { onClick: () => handleClick(props.item) }
     : null;

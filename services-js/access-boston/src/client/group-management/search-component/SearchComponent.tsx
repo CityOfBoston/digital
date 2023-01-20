@@ -65,7 +65,12 @@ export default function SearchComponent(props: Props) {
   const debouncedValue = useDebounce(searchText, fetchDelay);
 
   const updateSuggestions = (result: Array<Group | Person>): void => {
-    dispatch({ type: 'SEARCH/UPDATE_SUGGESTIONS', searchResults: result });
+    let res = result;
+    dispatch({
+      type: 'SEARCH/UPDATE_SUGGESTIONS',
+      searchResults: res,
+      mode: mode,
+    });
   };
 
   // Note: remember that this is also fired when a user uses the keyboard
