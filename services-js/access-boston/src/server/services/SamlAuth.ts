@@ -280,21 +280,10 @@ export default class SamlAuth {
   private async processSamlAssertion(
     saml: SamlAssertion
   ): Promise<SamlAssertResult> {
-    // eslint-disable-next-line no-console
-    // console.debug('SAML RESPONSE', JSON.stringify(saml, null, 2));
-    // eslint-disable-next-line no-console
-    console.log(
-      'processSamlAssertion > SAML RESPONSE',
-      JSON.stringify(saml, null, 2)
-    );
-
     switch (saml.type) {
       case 'authn_response': {
         const { user } = saml;
         const { attributes } = user;
-
-        // eslint-disable-next-line no-console
-        console.log('processSamlAssertion: ', attributes, user, saml);
 
         return {
           type: 'login',
@@ -335,10 +324,7 @@ export default class SamlAuth {
   handlePostAssert(
     body: SamlRequestPostBody | SamlResponsePostBody
   ): Promise<SamlAssertResult> {
-    console.log('INSIDE: handlePostAssert before PROMISE Response/Return');
     return new Promise((resolve, reject) => {
-      // eslint-disable-next-line no-console
-      console.log('handlePostAssert > body: ', body);
       this.serviceProvider.post_assert(
         this.identityProvider,
         { request_body: body },
@@ -346,19 +332,15 @@ export default class SamlAuth {
           if (err) {
             // eslint-disable-next-line no-console
             console.debug('SAML assert error(err):', err);
-            console.debug('SAML assert error(saml):', saml);
+            console.log('SAML assert error(err):', err);
 
             reject(err);
             return;
           }
 
           try {
-            // eslint-disable-next-line no-console
-            console.log('handlePostAssert > SamlAssertion resolve: ', saml);
             resolve(this.processSamlAssertion(saml));
           } catch (e) {
-            // eslint-disable-next-line no-console
-            console.log('handlePostAssert > SamlAssertion reject(e): ', e);
             reject(e);
           }
         }

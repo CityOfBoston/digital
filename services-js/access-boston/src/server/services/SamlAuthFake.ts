@@ -70,8 +70,6 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       userMfaRegistrationDate: '04/17/2019',
       cobAgency: 'CH',
     };
-    // eslint-disable-next-line no-console
-    console.log('SamlAuthFake > handlePostAssert > result: ', result);
     return Promise.resolve(result);
   }
 

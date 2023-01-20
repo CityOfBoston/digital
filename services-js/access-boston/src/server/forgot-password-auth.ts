@@ -37,18 +37,11 @@ export async function addForgotPasswordAuth(
   server: HapiServer,
   { forgotPath }: Paths
 ) {
-  // eslint-disable-next-line no-console
-  console.log('IN:addForgotPasswordAuth:START');
   const authStrategyOptions: BrowserAuthOptions = {
     redirectTo: FORGOT_REDIRECT_PATH,
 
     validate: request => {
       const auth = getSessionAuth(request);
-      // eslint-disable-next-line no-console
-      // console.log('addForgotPasswordAuth>request: ', request);
-      // eslint-disable-next-line no-console
-      console.log('addForgotPasswordAuth>request>auth: ', auth);
-
       if (
         auth &&
         auth.type === 'forgotPassword' &&
@@ -89,9 +82,6 @@ export async function addForgotPasswordAuth(
       },
       ''
     );
-
-    // eslint-disable-next-line no-console
-    console.log('IN:addForgotPasswordAuth: samlAuth: ', samlAuth);
   } else {
     samlAuth = new SamlAuthFake({
       loginFormUrl: FAKE_FORGOT_LOGIN_FORM_PATH,
@@ -138,50 +128,15 @@ export async function addForgotPasswordAuth(
       },
     },
     handler: async (request, h) => {
-      if (!request.payload || request.payload === null) {
-        console.log('request.payload NULL');
-        console.log('request', request);
-      }
-      // eslint-disable-next-line no-console
-      console.log(
-        'route>FORGOT_ASSERT_PATH>request.headers/payload: ',
-        request.headers,
-        request.payload
-      );
-
-      // eslint-disable-next-line no-console
-      console.log(
-        'CALLING > samlAuth.handlePostAssert > res:assertResult ',
-        request.payload
-      );
-      console.log('What is samlAuth?: ', samlAuth);
       const assertResult = await samlAuth.handlePostAssert(
         request.payload as any
       );
 
-      // eslint-disable-next-line no-console
-      console.log('assertResult.type: ', assertResult.type);
-
       if (assertResult.type !== 'login') {
-        // eslint-disable-next-line no-console
-        console.log('assertResult.type !== login', assertResult.type);
-
         throw new Error(
           `Unexpected assert result in POST handler: ${assertResult.type}`
         );
       }
-
-      // eslint-disable-next-line no-console
-      console.log('CURRENT_SESSION_VERSION: ', CURRENT_SESSION_VERSION);
-      // eslint-disable-next-line no-console
-      console.log('assertResult.nameId: ', assertResult.nameId);
-      // eslint-disable-next-line no-console
-      console.log(
-        'assertResult.userAccessToken: ',
-        assertResult.userAccessToken
-      );
-      // eslint-disable-next-line no-console
-      console.log('assertResult: ', assertResult);
 
       setSessionAuth(request, {
         type: 'forgotPassword',
@@ -190,8 +145,6 @@ export async function addForgotPasswordAuth(
         resetPasswordToken: assertResult.userAccessToken,
         createdTime: Date.now(),
       });
-      // eslint-disable-next-line no-console
-      console.log('forgotPath (to redirect): ', forgotPath);
 
       return h.redirect(forgotPath);
     },
