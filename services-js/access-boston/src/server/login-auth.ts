@@ -170,8 +170,6 @@ export async function addLoginAuth(
       const assertResult = await samlAuth.handlePostAssert(
         request.payload as any
       );
-      // eslint-disable-next-line no-console
-      // console.log('login-auth assertResult: ', assertResult);
 
       if (assertResult.type === 'login') {
         const {
