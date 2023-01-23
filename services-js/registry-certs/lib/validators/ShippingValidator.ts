@@ -6,7 +6,7 @@ import './custom-validations';
 interface ShippingFields {
   contactName: string;
   contactEmail: string;
-  confirmContactEmail: string;
+  // confirmContactEmail: string;
   contactPhone: string;
 
   shippingName: string;

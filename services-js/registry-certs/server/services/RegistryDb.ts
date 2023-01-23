@@ -411,7 +411,7 @@ export interface AddOrderOptions {
   orderDate: Date;
   contactName: string;
   contactEmail: string;
-  confirmContactEmail: string;
+  // confirmContactEmail: string;
   contactPhone: string;
   shippingName: string;
   shippingCompany: string;
