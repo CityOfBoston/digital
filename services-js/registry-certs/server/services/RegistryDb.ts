@@ -760,7 +760,9 @@ export default class RegistryDb {
       .execute('Commerce.sp_AddOrder');
 
     const { recordset } = resp;
-    console.log('confirmContactEmail: ', confirmContactEmail);
+    console.log(
+      `Fields not Saved(DB): confirmContactEmail: confirmContactEmail: ${confirmContactEmail}`
+    );
 
     if (!recordset || recordset.length === 0) {
       throw new Error('Recordset for creating an order came back empty');
