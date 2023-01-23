@@ -411,7 +411,7 @@ export interface AddOrderOptions {
   orderDate: Date;
   contactName: string;
   contactEmail: string;
-  // confirmContactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
   shippingName: string;
   shippingCompany: string;
@@ -713,6 +713,7 @@ export default class RegistryDb {
       orderDate,
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
       shippingName,
       shippingCompany,
@@ -759,6 +760,7 @@ export default class RegistryDb {
       .execute('Commerce.sp_AddOrder');
 
     const { recordset } = resp;
+    console.log('confirmContactEmail: ', confirmContactEmail);
 
     if (!recordset || recordset.length === 0) {
       throw new Error('Recordset for creating an order came back empty');

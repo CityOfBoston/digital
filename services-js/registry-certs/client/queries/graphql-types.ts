@@ -253,6 +253,7 @@ export interface SubmitDeathCertificateOrder {
 export interface SubmitDeathCertificateOrderVariables {
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
   shippingName: string;
   shippingCompanyName: string;
