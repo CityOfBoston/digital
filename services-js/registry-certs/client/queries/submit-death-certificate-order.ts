@@ -12,6 +12,7 @@ const QUERY = gql`
   mutation SubmitDeathCertificateOrder(
     $contactName: String!
     $contactEmail: String!
+    $confirmContactEmail: String!
     $contactPhone: String!
     $shippingName: String!
     $shippingCompanyName: String!
@@ -34,6 +35,7 @@ const QUERY = gql`
     submitDeathCertificateOrder(
       contactName: $contactName
       contactEmail: $contactEmail
+      confirmContactEmail: $confirmContactEmail
       contactPhone: $contactPhone
       shippingName: $shippingName
       shippingCompanyName: $shippingCompanyName
@@ -73,6 +75,7 @@ export default async function submitDeathCertificateOrder(
     info: {
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
       shippingName,
       shippingCompanyName,
@@ -108,6 +111,7 @@ export default async function submitDeathCertificateOrder(
   const queryVariables: SubmitDeathCertificateOrderVariables = {
     contactName,
     contactEmail,
+    confirmContactEmail,
     contactPhone,
     shippingName,
     shippingCompanyName,

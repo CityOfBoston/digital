@@ -14,6 +14,7 @@ const QUERY = gql`
   mutation SubmitMarriageCertificateOrder(
     $contactName: String!
     $contactEmail: String!
+    $confirmContactEmail: String!
     $contactPhone: String!
     $shippingName: String!
     $shippingCompanyName: String!
@@ -36,6 +37,7 @@ const QUERY = gql`
     submitMarriageCertificateOrder(
       contactName: $contactName
       contactEmail: $contactEmail
+      confirmContactEmail: $confirmContactEmail
       contactPhone: $contactPhone
       shippingName: $shippingName
       shippingCompanyName: $shippingCompanyName
@@ -75,6 +77,7 @@ export default async function submitMarriageCertificateOrder(
     info: {
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
       shippingName,
       shippingCompanyName,
@@ -138,6 +141,7 @@ ${filedInBoston === 'unknown' ? '*Unsure if filed in Boston*' : ''}
   const queryVariables: SubmitMarriageCertificateOrderVariables = {
     contactName,
     contactEmail,
+    confirmContactEmail,
     contactPhone,
     shippingName,
     shippingCompanyName,

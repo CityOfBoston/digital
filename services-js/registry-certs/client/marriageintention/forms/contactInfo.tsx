@@ -32,7 +32,12 @@ export default class ContactInfo extends Component<Props> {
     requestInformation,
     isEmailValid,
   }: MarriageIntentionCertificateRequest): boolean {
-    const { email, dayPhone, appointmentDate } = requestInformation;
+    const {
+      email,
+      emailConfirm,
+      dayPhone,
+      appointmentDate,
+    } = requestInformation;
 
     let dayPhoneLen: number = 0;
     const matchPhone: any = dayPhone.match(/\d+/gi);
@@ -44,6 +49,9 @@ export default class ContactInfo extends Component<Props> {
     return !!(
       email &&
       isEmailValid(email) &&
+      emailConfirm &&
+      isEmailValid(emailConfirm) &&
+      email === emailConfirm &&
       dayPhone &&
       dayPhoneLen > 9 &&
       appointmentDate
@@ -116,6 +124,7 @@ export default class ContactInfo extends Component<Props> {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
       email,
+      emailConfirm,
       dayPhone,
       appointmentDate,
     } = marriageIntentionCertificateRequest.requestInformation;
@@ -159,16 +168,30 @@ export default class ContactInfo extends Component<Props> {
                   }
                   onKeyDown={this.processOnKeyDown}
                   placeholder={'(___) ___-____'}
+                  required={true}
                 />
               </div>
 
-              <TextInput
-                label="EMail Address"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-                optionalDescription={''}
-              />
+              <div>
+                <TextInput
+                  label="EMail Address"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+                  optionalDescription={''}
+                  required={true}
+                />
+
+                <TextInput
+                  label="Confirm EMail Address"
+                  name="emailConfirm"
+                  value={emailConfirm}
+                  onChange={this.handleChange}
+                  optionalDescription={''}
+                  required={true}
+                  error={email === emailConfirm ? '' : 'Email does not match'}
+                />
+              </div>
             </div>
             <div
               css={NAME_FIELDS_BASIC_CONTAINER_STYLING}

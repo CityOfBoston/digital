@@ -10,6 +10,7 @@ jest.mock('../services/RegistryDb');
 const DEFAULT_ORDER = {
   contactName: 'Nancy Whitehead',
   contactEmail: 'nancy@mew.io',
+  confirmContactEmail: 'nancy@mew.io',
   contactPhone: '(555) 123-4567',
 
   shippingName: 'Squirrel Girl',

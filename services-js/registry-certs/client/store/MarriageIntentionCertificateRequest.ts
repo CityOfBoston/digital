@@ -89,6 +89,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerB_lastMarriageStatus: '',
 
   email: '',
+  emailConfirm: '',
   dayPhone: '',
   dayPhoneUnformattedStr: '',
   appointmentDate: null,
@@ -236,6 +237,7 @@ export default class MarriageIntentionCertificateRequest {
         .partnerB_lastMarriageStatus,
 
       email: this.requestInformation.email,
+      emailConfirm: this.requestInformation.emailConfirm,
       dayPhone: this.requestInformation.dayPhone,
       dayPhoneUnformattedStr: this.requestInformation.dayPhoneUnformattedStr,
       appointmentDate: this.requestInformation.appointmentDate
@@ -345,6 +347,7 @@ export default class MarriageIntentionCertificateRequest {
         obj.requestInformation.partnerB_lastMarriageStatus,
 
       email: obj.requestInformation.email,
+      emailConfirm: obj.requestInformation.emailConfirm,
       dayPhone: obj.requestInformation.dayPhone,
       dayPhoneUnformattedStr: obj.requestInformation.dayPhoneUnformattedStr,
       appointmentDate: obj.requestInformation.appointmentDate

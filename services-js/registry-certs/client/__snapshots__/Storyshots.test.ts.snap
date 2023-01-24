@@ -3312,6 +3312,35 @@ exports[`Storyshots Birth/CheckoutPage shipping 1`] = `
                 >
                   <label
                     className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
                     htmlFor="contactPhone"
                   >
                     Phone Number
@@ -7872,7 +7901,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -7914,7 +7943,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -7961,7 +7990,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -8003,7 +8032,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -8563,7 +8592,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -8605,7 +8634,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -8652,7 +8681,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -8694,7 +8723,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -9282,7 +9311,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -9324,7 +9353,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -9371,7 +9400,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -9413,7 +9442,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
                 value=""
               />
               <div
-                className="t--subinfo t--err m-b100"
+                className="t--subinfo t--err m-b100 m-t100"
               >
                  
               </div>
@@ -9874,7 +9903,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -9906,7 +9935,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -9942,7 +9971,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -10368,7 +10397,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -10400,7 +10429,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -10436,7 +10465,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
               value=""
             />
             <div
-              className="t--subinfo t--err m-b100"
+              className="t--subinfo t--err m-b100 m-t100"
             >
                
             </div>
@@ -13895,7 +13924,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                       value=""
                     />
                     <div
-                      className="t--subinfo t--err m-b100"
+                      className="t--subinfo t--err m-b100 m-t100"
                     >
                        
                     </div>
@@ -13927,7 +13956,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                       value=""
                     />
                     <div
-                      className="t--subinfo t--err m-b100"
+                      className="t--subinfo t--err m-b100 m-t100"
                     >
                        
                     </div>
@@ -13963,7 +13992,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 3. Personal information 1`] = `
                       value=""
                     />
                     <div
-                      className="t--subinfo t--err m-b100"
+                      className="t--subinfo t--err m-b100 m-t100"
                     >
                        
                     </div>
@@ -14868,7 +14897,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -14910,7 +14939,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -14957,7 +14986,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -14999,7 +15028,7 @@ exports[`Storyshots Birth/QuestionsFlowPage 4. Parental information 1`] = `
                         value=""
                       />
                       <div
-                        className="t--subinfo t--err m-b100"
+                        className="t--subinfo t--err m-b100 m-t100"
                       >
                          
                       </div>
@@ -33195,6 +33224,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent birth certificate
                 >
                   <label
                     className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value="squirrel.girl@avengers.org"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
                     htmlFor="contactPhone"
                   >
                     Phone Number
@@ -34249,6 +34307,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent default 1`] = `
               >
                 <label
                   className="txt-l txt-l--sm"
+                  htmlFor="confirmContactEmail"
+                >
+                  Confirm Email Address
+                   
+                  <span
+                    aria-hidden={true}
+                    className="t--req"
+                  >
+                    Required
+                  </span>
+                </label>
+                <input
+                  aria-required="true"
+                  autoComplete="email"
+                  className="txt-f txt-f--100 "
+                  id="confirmContactEmail"
+                  name="confirmContactEmail"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Email address"
+                  type="email"
+                  value=""
+                />
+              </div>
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l txt-l--sm"
                   htmlFor="contactPhone"
                 >
                   Phone Number
@@ -35282,6 +35369,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent email error 1`] =
               >
                 <label
                   className="txt-l txt-l--sm"
+                  htmlFor="confirmContactEmail"
+                >
+                  Confirm Email Address
+                   
+                  <span
+                    aria-hidden={true}
+                    className="t--req"
+                  >
+                    Required
+                  </span>
+                </label>
+                <input
+                  aria-required="true"
+                  autoComplete="email"
+                  className="txt-f txt-f--100 "
+                  id="confirmContactEmail"
+                  name="confirmContactEmail"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Email address"
+                  type="email"
+                  value="squirrel.girl@avengers.org"
+                />
+              </div>
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l txt-l--sm"
                   htmlFor="contactPhone"
                 >
                   Phone Number
@@ -36303,6 +36419,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent existing address 
                   className="txt-f txt-f--100 "
                   id="contactEmail"
                   name="contactEmail"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Email address"
+                  type="email"
+                  value="squirrel.girl@avengers.org"
+                />
+              </div>
+              <div
+                className="txt"
+              >
+                <label
+                  className="txt-l txt-l--sm"
+                  htmlFor="confirmContactEmail"
+                >
+                  Confirm Email Address
+                   
+                  <span
+                    aria-hidden={true}
+                    className="t--req"
+                  >
+                    Required
+                  </span>
+                </label>
+                <input
+                  aria-required="true"
+                  autoComplete="email"
+                  className="txt-f txt-f--100 "
+                  id="confirmContactEmail"
+                  name="confirmContactEmail"
                   onBlur={[Function]}
                   onChange={[Function]}
                   placeholder="Email address"
@@ -37420,6 +37565,35 @@ exports[`Storyshots Common Components/Checkout/ShippingContent marriage certific
                     className="txt-f txt-f--100 "
                     id="contactEmail"
                     name="contactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value="squirrel.girl@avengers.org"
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
                     onBlur={[Function]}
                     onChange={[Function]}
                     placeholder="Email address"
@@ -65949,6 +66123,35 @@ exports[`Storyshots Marriage/CheckoutPage shipping 1`] = `
                 >
                   <label
                     className="txt-l txt-l--sm"
+                    htmlFor="confirmContactEmail"
+                  >
+                    Confirm Email Address
+                     
+                    <span
+                      aria-hidden={true}
+                      className="t--req"
+                    >
+                      Required
+                    </span>
+                  </label>
+                  <input
+                    aria-required="true"
+                    autoComplete="email"
+                    className="txt-f txt-f--100 "
+                    id="confirmContactEmail"
+                    name="confirmContactEmail"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    placeholder="Email address"
+                    type="email"
+                    value=""
+                  />
+                </div>
+                <div
+                  className="txt"
+                >
+                  <label
+                    className="txt-l txt-l--sm"
                     htmlFor="contactPhone"
                   >
                     Phone Number
@@ -71990,7 +72193,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -72024,7 +72227,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -72652,7 +72855,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -72686,7 +72889,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -73314,7 +73517,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -73348,7 +73551,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
             value=""
           />
           <div
-            className="t--subinfo t--err m-b100"
+            className="t--subinfo t--err m-b100 m-t100"
           >
              
           </div>
@@ -77842,7 +78045,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
@@ -77876,7 +78079,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 4. Person on record (1) 1`] = `
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
@@ -78883,7 +79086,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>
@@ -78917,7 +79120,7 @@ exports[`Storyshots Marriage/QuestionsFlowPage 5. Person on record (2) 1`] = `
                     value=""
                   />
                   <div
-                    className="t--subinfo t--err m-b100"
+                    className="t--subinfo t--err m-b100 m-t100"
                   >
                      
                   </div>

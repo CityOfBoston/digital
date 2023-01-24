@@ -112,7 +112,7 @@ export default function TextInput(props: Props): JSX.Element {
 
   const spacer = () => {
     return (
-      <div className="t--subinfo t--err m-b100">
+      <div className="t--subinfo t--err m-b100 m-t100">
         {/* The &nbsp; is to keep space for the error so the form doesn’t jump when one is added. */}
         {props.error && typeof props.error === 'string' ? (
           props.error

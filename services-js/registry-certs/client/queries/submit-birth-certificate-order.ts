@@ -12,6 +12,7 @@ const QUERY = gql`
   mutation SubmitBirthCertificateOrder(
     $contactName: String!
     $contactEmail: String!
+    $confirmContactEmail: String!
     $contactPhone: String!
     $shippingName: String!
     $shippingCompanyName: String!
@@ -34,6 +35,7 @@ const QUERY = gql`
     submitBirthCertificateOrder(
       contactName: $contactName
       contactEmail: $contactEmail
+      confirmContactEmail: $confirmContactEmail
       contactPhone: $contactPhone
       shippingName: $shippingName
       shippingCompanyName: $shippingCompanyName
@@ -73,6 +75,7 @@ export default async function submitBirthCertificateOrder(
     info: {
       contactName,
       contactEmail,
+      confirmContactEmail,
       contactPhone,
       shippingName,
       shippingCompanyName,
@@ -144,6 +147,7 @@ Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
   const queryVariables: SubmitBirthCertificateOrderVariables = {
     contactName,
     contactEmail,
+    confirmContactEmail,
     contactPhone,
     shippingName,
     shippingCompanyName,

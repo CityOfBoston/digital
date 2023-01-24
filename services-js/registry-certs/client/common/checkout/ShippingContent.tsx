@@ -44,6 +44,7 @@ export interface ShippingInfo {
 
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
 
   shippingName: string;
@@ -69,6 +70,7 @@ export default class ShippingContent extends React.Component<Props> {
     this.initialValues = {
       contactName: info.contactName,
       contactEmail: info.contactEmail,
+      confirmContactEmail: info.confirmContactEmail,
       contactPhone: info.contactPhone,
 
       shippingName: info.shippingName,
@@ -171,7 +173,10 @@ export default class ShippingContent extends React.Component<Props> {
     };
 
     const renderError = (fieldName: keyof ShippingInfo) => {
-      const error = errorForField(fieldName);
+      let error = errorForField(fieldName);
+      if (error && fieldName === 'confirmContactEmail') {
+        error = 'The email address fields must match.';
+      }
       return (
         error && (
           <div className="t--info t--err m-t200" id={`${fieldName}-error`}>
@@ -240,6 +245,31 @@ export default class ShippingContent extends React.Component<Props> {
             />
 
             {renderError('contactEmail')}
+          </div>
+
+          <div className="txt">
+            <label htmlFor="confirmContactEmail" className="txt-l txt-l--sm">
+              Confirm Email Address{' '}
+              <span className="t--req" aria-hidden>
+                Required
+              </span>
+            </label>
+            <input
+              id="confirmContactEmail"
+              name="confirmContactEmail"
+              type="email"
+              placeholder="Email address"
+              autoComplete="email"
+              aria-required="true"
+              {...errorAttributes('confirmContactEmail')}
+              {...fieldListeners()}
+              className={`txt-f txt-f--100 ${renderErrorClassName(
+                'confirmContactEmail'
+              )}`}
+              value={values.confirmContactEmail}
+            />
+
+            {renderError('confirmContactEmail')}
           </div>
 
           <div className="txt">

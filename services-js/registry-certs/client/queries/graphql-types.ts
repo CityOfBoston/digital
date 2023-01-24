@@ -203,6 +203,7 @@ export interface SubmitBirthCertificateOrder {
 export interface SubmitBirthCertificateOrderVariables {
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
   shippingName: string;
   shippingCompanyName: string;
@@ -253,6 +254,7 @@ export interface SubmitDeathCertificateOrder {
 export interface SubmitDeathCertificateOrderVariables {
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
   shippingName: string;
   shippingCompanyName: string;
@@ -303,6 +305,7 @@ export interface SubmitMarriageCertificateOrder {
 export interface SubmitMarriageCertificateOrderVariables {
   contactName: string;
   contactEmail: string;
+  confirmContactEmail: string;
   contactPhone: string;
   shippingName: string;
   shippingCompanyName: string;
