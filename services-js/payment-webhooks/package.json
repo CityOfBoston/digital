@@ -35,7 +35,7 @@
     "@hapi/hapi": ">=20.1.0",
     "node-cleanup": "^2.1.2",
     "node-fetch": "^2.0.0",
-    "rollbar": "^2.10.0",
+    "rollbar": "^2.24.0",
     "soap": "^0.20.0",
     "stripe": "^5.4.0"
   },
