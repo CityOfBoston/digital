@@ -40,7 +40,7 @@
     "@hapi/hapi": ">=20.1.5",
     "jest": "^24.8.0",
     "rimraf": "^2.6.2",
-    "rollbar": "^2.5.1",
+    "rollbar": "^2.26.1",
     "tsc-watch": "^1.0.26",
     "typescript": "^4.4.2"
   }
