@@ -66,7 +66,7 @@
     "postmark": "^1.6.1",
     "react": "16.8.5",
     "react-dom": "16.8.5",
-    "rollbar": "^2.5.1",
+    "rollbar": "^2.10.0",
     "word-wrap": "^1.2.3",
     "yup": "0.27.0"
   },

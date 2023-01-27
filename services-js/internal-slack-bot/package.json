@@ -41,7 +41,7 @@
     "ngrok": "^3.1.0",
     "node-cleanup": "^2.1.2",
     "node-fetch": "^2.0.0",
-    "rollbar": "^2.5.1"
+    "rollbar": "^2.10.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",

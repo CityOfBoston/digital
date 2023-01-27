@@ -92,7 +92,7 @@
     "react-dom": "16.8.5",
     "react-input-mask": "^1.2.2",
     "react-proxy": "https://github.com/finneganh/react-proxy/releases/download/fix-get-calling/react-proxy-3.0.0-alpha.1.tgz",
-    "rollbar": "^2.5.1",
+    "rollbar": "^2.10.0",
     "stripe": "^5.3.0",
     "url-search-params": "^0.10.0",
     "uuid": "^3.3.2",
