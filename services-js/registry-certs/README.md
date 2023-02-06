@@ -84,6 +84,8 @@ https://registry.boston.gov/birth
 * 2021.03.26: Post Security Patch test deploys
 * 2021.03.30: Reset AWS container to use the current code base (we changed the task repo on AWS)
 * 2021.10.28: Added `nofollow` to staging sites
+* 2023.02.06: Add email validation
+* 2023.02.06: Upgrade Webservices Rollbar to the latest version
 
 ## Useful CMDs
 
