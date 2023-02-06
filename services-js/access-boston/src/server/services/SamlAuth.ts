@@ -331,8 +331,12 @@ export default class SamlAuth {
         (err, saml: SamlAssertion) => {
           if (err) {
             // eslint-disable-next-line no-console
-            console.debug('SAML assert error(err):', err);
-            console.log('SAML assert error(err):', err);
+            console.debug(
+              '(DEBUG) handlePostAssert: SAML assert error(err):',
+              err
+            );
+            // eslint-disable-next-line no-console
+            console.log('(LOG) handlePostAssert: SAML assert error(err):', err);
 
             reject(err);
             return;
@@ -358,7 +362,18 @@ export default class SamlAuth {
         (err, saml: SamlAssertion) => {
           if (err) {
             // eslint-disable-next-line no-console
-            console.debug('SAML assert error', query);
+            console.debug(
+              '(DEBUG) handleGetAssert: SAML assert error(err/query)',
+              err,
+              query
+            );
+            // eslint-disable-next-line no-console
+            console.log(
+              '(LOG) handleGetAssert: SAML assert error(err/query):',
+              err,
+              query
+            );
+
             reject(err);
             return;
           }
