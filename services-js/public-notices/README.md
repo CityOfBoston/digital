@@ -39,4 +39,6 @@ https://apps.boston.gov/public-notices/
 ### Deploys
 
 - 2020.09.30: Security Patch - Remove hardcoded ssl pass in deploy script
-- 2022.03.30: [STAGING] Debugging parsing JSON error (rollbar) 
+- 2022.03.30: [STAGING] Debugging parsing JSON error (rollbar)
+- 2023.02.06: Add email validation
+- 2023.02.06: Upgrade Webservices Rollbar to the latest version
