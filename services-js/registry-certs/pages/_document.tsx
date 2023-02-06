@@ -52,6 +52,8 @@ export default class extends Document<Props> {
       rollbarVersion,
       __NEXT_DATA__: { buildId },
     } = this.props;
+    const dev = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+    const assetsPath = dev ? '../../statics/assets/' : '/assets/';
 
     return (
       <html lang="en" className="js flexbox">
@@ -59,7 +61,7 @@ export default class extends Document<Props> {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             rel="shortcut icon"
-            href="/assets/favicon.ico"
+            href={`${assetsPath}favicon.ico`}
             type="image/vnd.microsoft.icon"
           />
 
