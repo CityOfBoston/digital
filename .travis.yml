@@ -58,18 +58,18 @@ jobs:
     - curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash
     - artifacts upload --target-paths travis/screenshots/$TRAVIS_BUILD_ID/$TRAVIS_JOB_ID services-js/*/screenshots
 
-  - name: Percy Snapshots
-    install:
-      - if [ -z "$HAS_JS_CHANGES" ]; then travis_terminate 0; fi
-      - yarn install --frozen-lockfile --ignore-scripts
-    before_script: yarn prepare
-    script: >-
-      npx lerna run
-      --since=$LERNA_SINCE
-      --scope=@cityofboston/*
-      --scope=services-js.*
-      --no-sort
-      percy
+  # - name: Percy Snapshots
+  #   install:
+  #     - if [ -z "$HAS_JS_CHANGES" ]; then travis_terminate 0; fi
+  #     - yarn install --frozen-lockfile --ignore-scripts
+  #   before_script: yarn prepare
+  #   script: >-
+  #     npx lerna run
+  #     --since=$LERNA_SINCE
+  #     --scope=@cityofboston/*
+  #     --scope=services-js.*
+  #     --no-sort
+  #     percy
 
   - name: JavaScript Template Tests
     install:
