@@ -35,3 +35,4 @@ https://permit-finder.boston.gov/
 - 2020.09.30: Security Patch: Remove hardcoded ssl pass in deploy script
 - 2021.03.26: Post Security Patch test deploys
 - 2022.08.11: PROD deploy - Push-through Docker Image Sizing Fix
+- 2023.02.13: Remove Percy and Ruby test from Travis/etc builds
