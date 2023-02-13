@@ -1,18 +1,18 @@
 # Technical Implementations
 
 ## Rollbar
-Rollbar is a error-logging service we use through our web-apps to view, debug errors in realtime. The implementation is pretty easy and support a large number of languages. There are two types of implementations for Rollbar, `browser` and `server`.
+Rollbar is an error-logging service we use through our web apps to view and debug errors in real-time. The implementation is pretty easy and supports a large number of languages. There are two types of implementations for Rollbar, `browser` and `server`.
 
 ### General Needs
-Implenting Rollbar generally requires the inclusion of the respective rollbar module (browser/server) and then initializing the rollbar object with account credentials.
+Implementing Rollbar generally requires the inclusion of the respective rollbar module (browser/server) and then initializing the rollbar object with account credentials.
 
 - Access Token
 - Browser Token
 - Environment (Staging/Production)
-- Payload (data to be analysed)
+- Payload (data to be analyzed)
 
 #### Browser Setup [DOC](https://docs.rollbar.com/docs/browser-js)
-Browser implentation tracks a users actions through the Application/Webpage (DOM) and reports a significant amount of steps prior to the error occurs; displaying the output (DOM/text) the user sees when the error is trickered. In our WebApps we include the rollbar in the module that constructs the page's HTML structure, ie. `services-js/[service-name]/pages/_document.tsx`. A browser implementation looks like this:
+Browser implementation tracks a user's actions through the Application/Webpage (DOM) and reports a significant amount of steps before the error occurs; displaying the output (DOM/text) the user sees when the error is triggered. In our WebApps we include the rollbar in the module that constructs the page's HTML structure, ie. `services-js/[service-name]/pages/_document.tsx`. A browser implementation looks like this:
 
 ```html
 <script>
@@ -57,7 +57,7 @@ try {
 }
 ```
 
-Our code base abstract the server (Hapi.js) implentation on a top layer module at `modules-js/hapi-common/src/hapi-common.ts`, here it expands the reporting tool to handle 404 errors as well among other things. Although reporting an error only requires the error message/payload, `rollbar.error(error)` going forward we should be more verbose in the errors we log; `rollbar.error(e, request.raw.req)`
+Our code base abstracts the server (Hapi.js) implementation on a top layer module at `modules-js/hapi-common/src/hapi-common.ts`, here it expands the reporting tool to handle 404 errors as well among other things. Although reporting an error only requires the error message/payload, `rollbar.error(error)` going forward we should be more verbose in the errors we log; `rollbar.error(e, request.raw.req)`
 
 ##### Ex.
 ```javascript
@@ -89,7 +89,8 @@ rollbar.error(e, request, {level: "info"}, callback);
 ```
 
 #### Single Page Application (SPA)
-Our WebApp are what is considered `Single Page Apps`, meaning that it all runs off of the same front end code even when the URL subpage and parameters change. Since we include rollbar at the top of the Application it is available through the browser's `window` DOM object or by including it as a module in specific sections. DOM `window` is sufficient for our needs so the example below covers how to raise an error from within the app.
+Our web apps are `Single Page Apps`, SPAs, meaning that it all runs off of the same front-end code even when the URL subpage and parameters change. Since we include Rollbar at the top of the Application it is available through the browser's `window` DOM object or by including it as a module in specific sections. DOM `window` is sufficient for our needs so the example below covers how to raise an error from within the app.
+
 ```javascript
 try {
   someCode();
@@ -101,7 +102,7 @@ try {
 ```
 
 ### PHP and Drupal
-Rollbar has an implemention for PHP, like others its stragiht-forward to implement, but it is missing a documented implementation for Drupal. There is a Rollbar module on [Drupal.org](https://www.drupal.org/project/rollbar) that is install with `composer` but this will require more insight/research.
+Rollbar has an implementation for PHP, like others it's straightforward to implement, but it is missing a documented implementation for Drupal. There is a Rollbar module on [Drupal.org](https://www.drupal.org/project/rollbar) that is installed with `composer` but this will require more insight/research.
 
 #### PHP Implementation
 
@@ -124,7 +125,7 @@ $config = array(
     'access_token' => 'POST_SERVER_ITEM_ACCESS_TOKEN',
     // optional - environment name. any string will do.
     'environment' => 'production',
-    // optional - path to directory your code is in. used for linking stack traces.
+    // optional - directory path your code is in. used for linking stack traces.
     'root' => '/Users/brian/www/myapp'
     // optional - the code version. e.g. git commit SHA or release tag
     'code_version' => '27f47021038a159c5aa9bbb9f98ce47e55914404'
@@ -158,11 +159,11 @@ Rollbar::log(Level::INFO, 'testing info level')
 ```
 
 ### Set up your Rollbar account, configure projects
-Above we went through how to setup rollbar in the codebase, however we also need to setup things up in the Rollbar dashboard as well.
+Above we went through how to set up Rollbar in the codebase, however, we also need to set up a project for each implementation in the Rollbar dashboard.
 
-1. Login into account
+1. Login into the account
 2. Create New Project
 3. Invite team members
-4. Setup Notifications - Determine if your using Slack or email, etc
-5. Integrate with Source Control Provider - We have a couple of app (DBConnector) that hosted in AWS, for this we'll need to set it up using this [doc](https://tpalmer.medium.com/rollbar-deployment-updates-from-aws-codepipeline-de4ead283cea)
-6. Setup Versions and Deploy controls - Setup a way to notify rollbar of an AWS deploy (Lambda)
+4. Setup Notifications - Determine if you are using Slack or email, etc
+5. Integrate with Source Control Provider - We have a couple of apps (DBConnector) that are hosted in AWS, for this we'll need to set it up using this [doc](https://tpalmer.medium.com/rollbar-deployment-updates-from-aws-codepipeline-de4ead283cea)
+6. Setup Versions and Deploy controls - Setup a way to notify Rollbar of an AWS deployment (Lambda)
