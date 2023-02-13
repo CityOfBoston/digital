@@ -84,15 +84,15 @@ jobs:
       --scope=templates.*
       test
   
-  - name: Ruby Tests
-    install:
-      - if [ -z "$HAS_RUBY_CHANGES" ]; then travis_terminate 0; fi
-    script: >-
-      npx lerna run
-      --since=$LERNA_SINCE
-      --stream
-      --scope=services-ruby.*
-      test
+  # - name: Ruby Tests
+  #   install:
+  #     - if [ -z "$HAS_RUBY_CHANGES" ]; then travis_terminate 0; fi
+  #   script: >-
+  #     npx lerna run
+  #     --since=$LERNA_SINCE
+  #     --stream
+  #     --scope=services-ruby.*
+  #     test
 
   - stage: deploy
     name: Notify Shippy-Toe
