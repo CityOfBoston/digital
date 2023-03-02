@@ -36,3 +36,4 @@ https://permit-finder.boston.gov/
 - 2021.03.26: Post Security Patch test deploys
 - 2022.08.11: PROD deploy - Push-through Docker Image Sizing Fix
 - 2023.02.13: Remove Percy and Ruby test from Travis/etc builds
+- 2023.03.02: DIG-1879 Update Rollbar Browser Version
