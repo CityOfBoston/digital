@@ -2,18 +2,19 @@
 
 ## Deploy Pipeline Overview
 For this repository, the deploy pipeline follows these steps:
+- a branch is made off `develop`.
+- when ready, a developer then merges their work back into the `develop` branch, this triggers a deploy in travis.
+- travis reports build status to slack 
+- a developer then selects the apps to deploy using slack, and an AWS CodeBuild process builds containers and deploys to AWS using branches `develop/service-name` and `production/service-name`.
 
 ## Lead Developer: Tag and release `Production` branch
-After the final step of the deployment pipeline, the lead developer must tag and release the production branch so that the 
-Project Manager/s can complete their Release Notes.
-
-Once the code is added to the WebApp production branch then:
+After an app/service is deployed to production, and once verified, the lead developer must tag and release the `production/service-name` branch so that the Project Manager/s can complete their Release Notes.
 1. goto the [release section](https://github.com/CityOfBoston/digital/releases) of the repository,
-2. note the last release number, 
+2. note the last release number, (format _service-name:vYYYY.n_ where YYYY is the year and n is an incrementing integer)
 3. click the "Draft a New Release" button
-4. click on "Choose a Tag" and create a new tag which follows the release numbering pattern
+4. click on "Choose a Tag" and create a new tag which follows the release numbering pattern _service-name:vYYYY.n_)
 5. ensure the Target is the webapps `production/xxxx` branch
-6. give the release a title.  This will be the same as the tag
+6. give the release a title.  This will be the same as the tag in step 4 above.
 7. in the Description, copy and paste in the template below, then click the `Generate release notes` button to append the commits to be bottom of the textbox. Update the "Jira Tickets` section with all tickets that have been addressed in this release.
 8. click "Set as the latest release",
 9. click the `Save draft` button.
