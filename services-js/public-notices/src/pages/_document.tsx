@@ -52,6 +52,11 @@ export default class extends Document<Props> {
       rollbarEnvironment,
     } = config.publicRuntimeConfig;
 
+    const $triggerRollbar = () => {
+      window.Rollbar &&
+        window.Rollbar.error(`Manual Rollbar error trigger: ${Date.now()}`);
+    };
+
     return (
       <html lang="en" className="js flexbox">
         <Head>
@@ -105,6 +110,8 @@ export default class extends Document<Props> {
 
         <body>
           <Main />
+
+          <button onClick={$triggerRollbar}>Hit Rollbar!</button>
 
           <NextScript />
         </body>
