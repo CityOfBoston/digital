@@ -69,6 +69,7 @@ export default class NoticeFetcher {
     } catch (e) {
       if (this.failureCount === 0) {
         console.log('!resp.ok: ', e);
+        (window as any).rollbar;
         window.Rollbar && window.Rollbar.error(e);
       }
 
