@@ -27,7 +27,7 @@ http://localhost:3000/
 https://permit-finder.digital-staging.boston.gov/
 
 ### PROD
-https://permit-finder.boston.gov/
+https://permitfinder.boston.gov/
 
 ### Deploys
 
