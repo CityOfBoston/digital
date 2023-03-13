@@ -24,8 +24,7 @@ out of the container’s filesystem).
 http://localhost:3000/
 
 ### Staging
-DEV: https://permit-finder.dev.digital-staging.boston.gov/
-TEST: http://permit-finder.test.digital-staging.boston.gov/
+https://permit-finder.digital-staging.boston.gov/
 
 ### PROD
 https://permit-finder.boston.gov/
