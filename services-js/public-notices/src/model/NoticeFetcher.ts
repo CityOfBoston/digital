@@ -67,9 +67,13 @@ export default class NoticeFetcher {
         throw new Error(`Unexpected HTTP response: ${resp.status}`);
       }
     } catch (e) {
+      if (this.failureCount === 0) {
+        console.log('!resp.ok: ', e);
+        (window as any).rollbar;
+        window.Rollbar && window.Rollbar.error(e);
+      }
+
       this.failureCount++;
-      console.log('!resp.ok: ', e);
-      // window.Rollbar && window.Rollbar.error(e);
     }
 
     const nextFetchTime =
