@@ -9,7 +9,7 @@ import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCe
 
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 
-import PostConfirmationEmail from '../helpers/postConfirmationEmail';
+// import PostConfirmationEmail from '../helpers/postConfirmationEmail';
 
 import {
   SECTION_HEADING_STYLING,
@@ -24,21 +24,23 @@ interface Props {
 
 @observer
 export default class Instructions extends Component<Props> {
+  componentDidMount() {
+    // PostConfirmationEmail({
+    //   email: 'phillip.kelly@boston.gov',
+    //   from: 'marriage@boston.gov',
+    //   subject: 'Marriage Intention Application',
+    //   message: `Thank you for submitting your marriage intention application.
+    //     Have questions? Contact us at 617-635-4175 or marriage@boston.gov`,
+    //   fullName: `Testing PostConfirmEmail - FullName`,
+    // });
+    // console.log('PostConfirmationEmail: SENT');
+  }
+
   public static isComplete(): boolean {
     return true;
   }
 
   public render() {
-    PostConfirmationEmail({
-      email: 'phillip.kelly@boston.gov',
-      from: 'marriage@boston.gov',
-      subject: 'Marriage Intention Application',
-      message: `Thank you for submitting your marriage intention application.
-        Have questions? Contact us at 617-635-4175 or marriage@boston.gov`,
-      fullName: `Testing PostConfirmEmail - FullName`,
-    });
-    console.log('PostConfirmationEmail: SENDT');
-
     return (
       <QuestionComponent
         handleProceed={this.props.handleProceed}
