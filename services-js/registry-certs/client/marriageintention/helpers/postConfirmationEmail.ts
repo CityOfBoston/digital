@@ -11,6 +11,7 @@ async function PostConfirmationEmail(data: {
   const { email, from, subject, message, fullName } = data;
   // eslint-disable-next-line no-console
   // console.log('PostConfirmationEmail > data: ', data);
+  console.log('process.env: ', process.env);
 
   try {
     let dataObj = qs.stringify({
