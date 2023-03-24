@@ -60,6 +60,13 @@ interface FormValues {
   confirmPassword: string;
 }
 
+declare global {
+  interface Window {
+    Rollbar: any;
+  }
+}
+// let Rollbar = window.Rollbar;
+
 function successUrl(account): string {
   return account.needsMfaDevice
     ? `/mfa?message=${FlashMessage.CHANGE_PASSWORD_SUCCESS}`
@@ -108,6 +115,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
       switch (status) {
         case 'ERROR':
+          window.Rollbar && window.Rollbar.error(error);
           if (error === 'NO_SESSION') {
             this.setState({ showModalError: 'SESSION' });
           } else {
@@ -233,8 +241,12 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // field gets touched we hide those (this is unlikely, though, if JavaScript
     // is off.) Otherwise, we show validation errors only if the form has been
     // touched.
-    const lookupFormError = (key: keyof FormValues) =>
-      touched[key] && (errors[key] as any);
+    const lookupFormError = (key: keyof FormValues) => {
+      // window.Rollbar && window.Rollbar.error(errors[key]);
+      console.log('errors[key]: ', typeof errors[key], errors[key]);
+      return touched[key] && (errors[key] as any);
+    };
+
     const setShowPassword0 = (evt: { type: string }) => {
       let passBool: boolean = true;
 
