@@ -60,11 +60,11 @@ interface FormValues {
   confirmPassword: string;
 }
 
-declare global {
-  interface Window {
-    Rollbar: any;
-  }
-}
+// declare global {
+//   interface Window {
+//     Rollbar: any;
+//   }
+// }
 // let Rollbar = window.Rollbar;
 
 function successUrl(account): string {
@@ -115,7 +115,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
       switch (status) {
         case 'ERROR':
-          window.Rollbar && window.Rollbar.error(error);
+          // window.Rollbar && window.Rollbar.error(error);
           if (error === 'NO_SESSION') {
             this.setState({ showModalError: 'SESSION' });
           } else {
@@ -243,7 +243,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) => {
       // window.Rollbar && window.Rollbar.error(errors[key]);
-      console.log('errors[key]: ', typeof errors[key], errors[key]);
+      // console.log('errors[key]: ', typeof errors[key], errors[key]);
       return touched[key] && (errors[key] as any);
     };
 
