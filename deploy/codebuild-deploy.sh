@@ -15,4 +15,5 @@ export SERVICE_NAME="${BASH_REMATCH[2]}"
 #
 # The "*" in the scope is there to handle that package names are prefixed with
 # their directory so we can filter them with Lerna.
+npm config set user 0
 npx lerna@5.5.1 run --npm-client=npm --stream --scope "*.$SERVICE_NAME" codebuild-deploy
