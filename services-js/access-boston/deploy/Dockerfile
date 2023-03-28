@@ -19,8 +19,8 @@ RUN apk add --no-cache git openssl bash \
   && rm -rf awscli-bundle
 
 # To prevent “Error: could not get uid/gid”
-RUN npm config set user 0
-RUN npm config set unsafe-perm true
+# RUN npm config set user 0
+# RUN npm config set unsafe-perm true
 
 # Need to upgrade yarn to at least 1.6
 RUN yarn global add yarn@^1.6.0
