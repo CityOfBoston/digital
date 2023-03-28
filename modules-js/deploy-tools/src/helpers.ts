@@ -122,7 +122,7 @@ export async function buildImage(
   cacheFromImage: string | null,
   tags: string[] = []
 ) {
-  const command = `echo $(whoami) && docker build \
+  const command = `usermod -aG docker root && docker build \
   --pull \
   -f ${dockerfilePath} \
     ${cacheFromImage ? `--cache-from ${cacheFromImage}` : ''} \
