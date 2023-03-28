@@ -122,7 +122,7 @@ export async function buildImage(
   cacheFromImage: string | null,
   tags: string[] = []
 ) {
-  const command = `usermod -aG docker root && docker build \
+  const command = `chmod 666 /var/run/docker.sock && docker build \
   --pull \
   -f ${dockerfilePath} \
     ${cacheFromImage ? `--cache-from ${cacheFromImage}` : ''} \
