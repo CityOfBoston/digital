@@ -2,7 +2,7 @@ FROM node:14.19.1-alpine as build_phase
 
 ENV WORKSPACE=access-boston
 
-USER app
+# USER app
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ RUN apk add --no-cache git openssl bash \
 # To prevent “Error: could not get uid/gid”
 # RUN npm config set user 0
 RUN npm config set unsafe-perm true
-RUN export DOCKER_HOST=tcp://localhost:2375
+# RUN export DOCKER_HOST=tcp://localhost:2375
 
 RUN echo "build_phase"
 RUN echo $(whoami)
