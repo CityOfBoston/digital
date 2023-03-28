@@ -15,10 +15,8 @@ export SERVICE_NAME="${BASH_REMATCH[2]}"
 #
 # The "*" in the scope is there to handle that package names are prefixed with
 # their directory so we can filter them with Lerna.
-echo "PRE(set user): $(whoami)"
-npm config set user 0
-npm config set unsafe-perm true
-chmod 666 /run/docker.sock || systemctl status docker --no-pager || echo "BROKEN !!!"
+npm cache clean --force
+npm rebuild
 echo "PRE: LERNA"
 npx lerna@5.5.1 run --npm-client=npm --stream --scope "*.$SERVICE_NAME" codebuild-deploy
 echo "POST: LERNA"
