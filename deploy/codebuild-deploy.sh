@@ -18,7 +18,7 @@ export SERVICE_NAME="${BASH_REMATCH[2]}"
 echo "PRE(set user): $(whoami)"
 npm config set user 0
 npm config set unsafe-perm true
-chmod 666 /var/run/docker.sock || usermod -aG docker root || echo "BROKEN !!!"
+chmod 666 /run/docker.sock || systemctl status docker --no-pager || echo "BROKEN !!!"
 echo "PRE: LERNA"
 npx lerna@5.5.1 run --npm-client=npm --stream --scope "*.$SERVICE_NAME" codebuild-deploy
 echo "POST: LERNA"
