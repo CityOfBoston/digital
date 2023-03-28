@@ -23,6 +23,7 @@ RUN apk add --no-cache git openssl bash \
 # To prevent “Error: could not get uid/gid”
 # RUN npm config set user 0
 RUN npm config set unsafe-perm true
+RUN export DOCKER_HOST=tcp://localhost:2375
 
 # Need to upgrade yarn to at least 1.6
 RUN yarn global add yarn@^1.6.0
@@ -58,6 +59,8 @@ ENV NODE_ENV=production
 ENV USE_SSL=1
 
 WORKDIR /app/services-js/$WORKSPACE
+
+RUN export DOCKER_HOST=tcp://localhost:2375
 
 RUN apk add --no-cache git openssl \
   && apk add --update --no-cache python3 curl unzip \
