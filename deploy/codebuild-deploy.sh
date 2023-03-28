@@ -17,6 +17,7 @@ export SERVICE_NAME="${BASH_REMATCH[2]}"
 # their directory so we can filter them with Lerna.
 npm cache clean --force
 npm rebuild
+npm install -g npm@latest
 echo "PRE: LERNA"
 npx lerna@5.5.1 run --npm-client=npm --stream --scope "*.$SERVICE_NAME" codebuild-deploy
 echo "POST: LERNA"
