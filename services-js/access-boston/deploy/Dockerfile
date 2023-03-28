@@ -25,6 +25,10 @@ RUN apk add --no-cache git openssl bash \
 RUN npm config set unsafe-perm true
 RUN export DOCKER_HOST=tcp://localhost:2375
 
+RUN echo "build_phase"
+RUN echo $(whoami)
+RUN echo "PRE: Change DOCKER HOST"
+
 # Need to upgrade yarn to at least 1.6
 RUN yarn global add yarn@^1.6.0
 
@@ -59,8 +63,10 @@ ENV NODE_ENV=production
 ENV USE_SSL=1
 
 WORKDIR /app/services-js/$WORKSPACE
-
+RUN echo "deploy_phase"
+RUN echo $(whoami)
 RUN export DOCKER_HOST=tcp://localhost:2375
+RUN echo "POST: Change DOCKER HOST"
 
 RUN apk add --no-cache git openssl \
   && apk add --update --no-cache python3 curl unzip \
