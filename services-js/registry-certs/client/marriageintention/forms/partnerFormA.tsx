@@ -35,7 +35,7 @@ import {
 } from './styling';
 
 import {
-  SEX_CHECKBOX,
+  // SEX_CHECKBOX,
   BOOL_RADIOGROUP,
   COUNTRIES,
   PARTNERSHIP_TYPE_DISSOLVED,
@@ -69,7 +69,7 @@ export default class PartnerForm extends Component<Props> {
       partnerA_surName,
       partnerA_dob,
       partnerA_age,
-      partnerA_sex,
+      // partnerA_sex,
       partnerA_occupation,
       partnerA_residenceAddress,
       partnerA_residenceCountry,
@@ -135,7 +135,7 @@ export default class PartnerForm extends Component<Props> {
       partnerA_surName &&
       partnerA_dob &&
       partnerA_age &&
-      partnerA_sex &&
+      // partnerA_sex &&
       partnerA_bloodRelation &&
       bloodRelReq &&
       partnerA_parentsMarriedAtBirth &&
@@ -444,7 +444,7 @@ export default class PartnerForm extends Component<Props> {
 
           {this.partnershipType()}
           {this.parents()}
-          {this.sex()}
+          {/* {this.sex()} */}
           {this.parentsMarried()}
           {this.bloodRelation()}
         </FieldsetComponent>
@@ -809,35 +809,35 @@ export default class PartnerForm extends Component<Props> {
     );
   }
 
-  sex() {
-    const { marriageIntentionCertificateRequest } = this.props;
-    const {
-      partnerA_sex,
-    } = marriageIntentionCertificateRequest.requestInformation;
+  // sex() {
+  //   const { marriageIntentionCertificateRequest } = this.props;
+  //   const {
+  //     partnerA_sex,
+  //   } = marriageIntentionCertificateRequest.requestInformation;
 
-    return (
-      <div css={SECTION_WRAPPER_STYLING}>
-        <div
-          css={[NAME_FIELDS_BASIC_CONTAINER_STYLING, HEADER_SPACING_STYLING]}
-        >
-          <h2 css={SECTION_HEADING_STYLING}>Sex</h2>
+  //   return (
+  //     <div css={SECTION_WRAPPER_STYLING}>
+  //       <div
+  //         css={[NAME_FIELDS_BASIC_CONTAINER_STYLING, HEADER_SPACING_STYLING]}
+  //       >
+  //         <h2 css={SECTION_HEADING_STYLING}>Sex</h2>
 
-          <div css={RADIOGROUP_CONTAINER_STYLING}>
-            <div css={ONE_AND_HALF_MARGINBOTTOM}>
-              <RadioGroup
-                items={SEX_CHECKBOX}
-                name="partnerA_sex"
-                groupLabel=""
-                checkedValue={partnerA_sex}
-                handleItemChange={this.handleChange}
-                hideLabel
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  //         <div css={RADIOGROUP_CONTAINER_STYLING}>
+  //           <div css={ONE_AND_HALF_MARGINBOTTOM}>
+  //             <RadioGroup
+  //               items={SEX_CHECKBOX}
+  //               name="partnerA_sex"
+  //               groupLabel=""
+  //               checkedValue={partnerA_sex}
+  //               handleItemChange={this.handleChange}
+  //               hideLabel
+  //             />
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   birthPlace() {
     const { marriageIntentionCertificateRequest } = this.props;
