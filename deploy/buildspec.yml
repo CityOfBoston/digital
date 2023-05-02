@@ -7,7 +7,7 @@ phases:
       - echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USERNAME --password-stdin
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 14
     commands:
       - node -v
       - npm config set scripts-prepend-node-path true
