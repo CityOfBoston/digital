@@ -1,6 +1,7 @@
 FROM node:14.19.1-alpine as build_phase
 
 ENV WORKSPACE=registry-certs
+ENV NODE_ENV development
 
 WORKDIR /app
 
@@ -35,9 +36,9 @@ RUN yarn global add yarn@^1.6.0
 #
 # TODO(finh): Scope this down to $WORKSPACE when yarn has that capability.
 # RUN yarn install --frozen-lockfile --ignore-scripts
-RUN yarn install
-
 ADD . /app/
+#RUN rm -rf ./yarn.lock && rm -rf /app/services-js/$WORKSPACE/yarn.lock
+RUN yarn install --production=false --frozen-lockfile --ignore-scripts
 
 WORKDIR /app/services-js/$WORKSPACE
 RUN yarn run build
@@ -46,9 +47,15 @@ RUN yarn run build
 RUN BUILD_ID=$(cat /app/services-js/registry-certs/build/.next/BUILD_ID) && \
 aws s3 cp --recursive /app/services-js/registry-certs/build/.next/static/${BUILD_ID} s3://cob-digital-apps-staging-static/registry-certs/_next/static/
 
+ENV BUILD_ID $BUILD_ID
+
+ADD ~/.aws /root/.aws
+
 RUN aws s3 cp s3://cob-digital-apps-staging-config/registry-certs/.env . && \
 aws s3 cp s3://cob-digital-apps-staging-config/registry-certs/server.key . && \
 aws s3 cp s3://cob-digital-apps-staging-config/registry-certs/server.crt .
+
+#WORKDIR /app/services-js/$WORKSPACE
 
 ADD ../../scripts/service-entrypoint.sh /app/scripts/
 
@@ -57,9 +64,9 @@ ADD ../../scripts/service-entrypoint.sh /app/scripts/
 
 FROM node:14.19.1-alpine as deploy_phase
 
-# ENV WORKSPACE registry-certs
+ENV WORKSPACE registry-certs
 ENV NODE_ENV production
-ENV USE_SSL 1
+#ENV USE_SSL 1
 
 COPY --from=build_phase /app /app
 
