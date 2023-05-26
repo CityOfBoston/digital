@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    # image: 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/registry-certs:latest
+    build:
+      context: .
+    container_name: registry-certs
+    command: sh -c "yarn start"
+    # entrypoint: /app/scripts/service-entrypoint.sh
+    # entrypoint: service-entrypoint.sh
+    ports:
+      - 3000:3000
+    working_dir: /app/services-js/registry-certs
+    volumes:
+      - /Users/phillipkelly/.aws:/root/.aws
+      - /Users/phillipkelly/src/WORK/COB/COB6/digital:/app/
+    environment:
+      AWS_S3_CONFIG_URL: s3://cob-digital-apps-staging-config/registry-certs
+      DEPLOY_VARIANT: default
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_REGION: us-east-1
+      PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      NODE_VERSION: 14.19.1
+      YARN_VERSION: 1.22.17
+      WORKSPACE: registry-certs
+      NODE_ENV: production
+      USE_SSL: 1
+    network_mode: bridge
+    # 41d215a20ad8
