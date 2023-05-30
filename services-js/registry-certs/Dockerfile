@@ -37,27 +37,32 @@ RUN yarn global add yarn@^1.6.0
 # TODO(finh): Scope this down to $WORKSPACE when yarn has that capability.
 # RUN yarn install --frozen-lockfile --ignore-scripts
 ADD . /app/
-#RUN rm -rf /app/yarn.lock && rm -rf /app/services-js/$WORKSPACE/yarn.lock
-RUN yarn install # --production=false --frozen-lockfile --ignore-scripts
-
-WORKDIR /app/services-js/$WORKSPACE
-RUN yarn run build
-
 # TODO: Copy ./next files to S3 || think of a better way to do this :shrug
 ADD ./.aws /root/.aws
-
-RUN BUILD_ID=$(cat /app/services-js/registry-certs/build/.next/BUILD_ID) && \
-aws s3 cp --recursive /app/services-js/registry-certs/build/.next/static/${BUILD_ID} s3://cob-digital-apps-staging-static/registry-certs/_next/static/
-
-ENV BUILD_ID $BUILD_ID
+ADD ./scripts/service-entrypoint.sh /app/scripts/
 
 RUN aws s3 cp s3://cob-digital-apps-staging-config/registry-certs/.env . && \
 aws s3 cp s3://cob-digital-apps-staging-config/registry-certs/server.key . && \
 aws s3 cp s3://cob-digital-apps-staging-config/registry-certs/server.crt .
 
+RUN cd /app/services-js/$WORKSPACE && \
+    yarn install --ignore-scripts  #--frozen-lockfile
+
+RUN cd /app && \
+    yarn install
+
+RUN cd /app/services-js/$WORKSPACE && \
+  yarn run build
+
+RUN BUILD_ID=$(cat /app/services-js/registry-certs/build/.next/BUILD_ID) && \
+aws s3 cp --recursive /app/services-js/registry-certs/build/.next/static/${BUILD_ID} s3://cob-digital-apps-staging-static/registry-certs/_next/static/
+
+ENV BUILD_ID $BUILD_ID
+RUN echo $BUILD_ID
+
 #WORKDIR /app/services-js/$WORKSPACE
 
-ADD ../../scripts/service-entrypoint.sh /app/scripts/
+#RUN rm -rf /app/yarn.lock && rm -rf /app/services-js/$WORKSPACE/yarn.lock
 
 # RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare 
 # RUN npx lerna run --stream --include-filtered-dependencies --scope services-js.$WORKSPACE prepare-deploy 
