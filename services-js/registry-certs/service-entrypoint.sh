@@ -11,6 +11,7 @@ if [ -z "$AWS_S3_CONFIG_URL" ]; then
   echo >&2 'error: missing AWS_S3_CONFIG_URL environment variable'
 else
   echo "TESTING > service-entrypoint.sh"
+
   # aws s3 sync $AWS_S3_CONFIG_URL .
   # if [ -z "$DEPLOY_VARIANT" ]; then
   #   echo >&2 'DEPLOY_VARIANT not set'
