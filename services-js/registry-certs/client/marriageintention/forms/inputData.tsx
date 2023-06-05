@@ -16,6 +16,14 @@ export const SUFFIX_OPTIONS = [
     value: 'III',
   },
   {
+    label: 'IV',
+    value: 'IV',
+  },
+  {
+    label: 'V',
+    value: 'V',
+  },
+  {
     label: 'VI',
     value: 'VI',
   },

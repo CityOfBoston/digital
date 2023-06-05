@@ -33,7 +33,7 @@ interface Props {
   dob: string;
   age: string;
   occupation: string;
-  sex: string;
+  // sex: string;
   address: string;
   birthCity: string;
   birthState: string;
@@ -58,11 +58,14 @@ export default class PartnerView extends Component<Props> {
   }
 
   public render() {
-    const { marriageIntentionCertificateRequest, suffix } = this.props;
-    const genderObj = marriageIntentionCertificateRequest.getGenderLabel(
-      this.props.sex
-    );
-    const genderLabel = genderObj && genderObj.value ? genderObj.label : 'N/A';
+    const {
+      // marriageIntentionCertificateRequest,
+      suffix,
+    } = this.props;
+    // const genderObj = marriageIntentionCertificateRequest.getGenderLabel(
+    //   this.props.sex
+    // );
+    // const genderLabel = genderObj && genderObj.value ? genderObj.label : 'N/A';
 
     const partnerShipTypeObj = PARTNERSHIP_TYPE.find(
       entry => entry.value === this.props.partnerShipType
@@ -138,10 +141,10 @@ export default class PartnerView extends Component<Props> {
               {this.props.age}
             </div>
 
-            <div css={COLUMNS_STYLING}>
+            {/* <div css={COLUMNS_STYLING}>
               <label>Sex: </label>
               {genderLabel}
-            </div>
+            </div> */}
 
             <div css={COLUMNS_STYLING}>
               <label>Occupation: </label>

@@ -996,8 +996,8 @@ export default class RegistryDb {
       .input('ABloodDescr', ABloodDescr.toLocaleUpperCase())
       .input('ABirthplace', A_Birthplace)
       .input('ABirthState', A_BirthState)
-      .input('ASexNum', ASexNum.split('|')[0] + 1)
-      .input('ASex', ASex.split('|')[1])
+      .input('ASexNum', ASexNum.split('|')[0] + 1 || 0)
+      .input('ASex', ASex.split('|')[1] || '')
 
       .input('BApplicantFName', BFName)
       .input('BApplicantLName', BLName)
@@ -1023,8 +1023,8 @@ export default class RegistryDb {
       .input('BBloodDescr', BBloodDescr.toLocaleUpperCase())
       .input('BBirthplace', B_Birthplace)
       .input('BBirthState', B_BirthState)
-      .input('BSexNum', BSexNum.split('|')[0] + 1)
-      .input('BSex', BSex.split('|')[1])
+      .input('BSexNum', BSexNum.split('|')[0] + 1 || 0)
+      .input('BSex', BSex.split('|')[1] || '')
       .execute('MarriageRegistry.dbo.sp_digital_insert_marriage_intention');
 
     const { recordset } = resp;
