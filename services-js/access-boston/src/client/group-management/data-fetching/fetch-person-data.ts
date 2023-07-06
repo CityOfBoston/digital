@@ -3,13 +3,12 @@ import { toPerson } from '../state/data-helpers';
 import { Group, Person } from '../types';
 
 const PERSON_DATA = `
-  dn
   cn
+  distinguishedName
   displayname
   givenname
   sn
-  mail
-  ismemberof
+  memberOf
 `;
 
 const FETCH_PERSON = `

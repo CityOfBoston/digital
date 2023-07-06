@@ -55,13 +55,13 @@ export const convertToBool = (val: String, base: boolean): boolean => {
  *      {
  *      dn: 'cn',
  *      CN: 'cn',
- *      isMemberof: 'ismemberof',
+ *      memberOf: 'memberOf',
  *      nsAccountLock: 'nsaccountlock',
  *     },
  *      {
  *        dn: '',
  *        cn: '100992',
- *        ismemberof: [],
+ *        memberOf: [],
  *        nsaccountlock: 'FALSE',
  *        isSponsor: 'TRUE',
  *      },
@@ -69,7 +69,7 @@ export const convertToBool = (val: String, base: boolean): boolean => {
  *     return {
  *       dn: '',
  *       cn: '100992',
- *       ismemberof: [],
+ *       memberOf: [],
  *       nsaccountlock: 'FALSE',
  *       isSponsor: 'TRUE',
  *     }
@@ -98,20 +98,20 @@ export const renameObjectKeys = (keysMap: object, obj) => {
  *      {
  *        dn: '',
  *        cn: '',
- *        ismemberof: [],
+ *        memberOf: [],
  *        nsaccountlock: '',
  *      },
  *      {
  *        dn: '',
  *        CN: '100992',
- *        isMemberof: [],
+ *        memberOf: [],
  *        nsAccountLock: 'FALSE',
  *      },
  *     );
  *     return {
  *      dn: 'cn',
  *      CN: 'cn',
- *      isMemberof: 'ismemberof',
+ *      memberOf: 'memberOf',
  *      nsAccountLock: 'nsaccountlock',
  *     }
  */
@@ -208,6 +208,7 @@ export const chunkArray = (arr: Array<[]> = [], size: Number): object => {
 export const filterObj = (obj: object, keys: Array<string>): object => {
   let retObj = {};
   for (let i = 0; i < keys.length; i++) {
+    // eslint-disable-next-line no-prototype-builtins
     if (obj.hasOwnProperty(keys[i])) {
       const thisKey: string = keys[i];
       retObj[thisKey] = obj[thisKey];

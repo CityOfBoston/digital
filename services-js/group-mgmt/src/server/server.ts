@@ -66,12 +66,24 @@ const port = parseInt(process.env.PORT || env.LDAP_PORT, 10);
 
 const bindLdapClient = (_force: Boolean = false) => {
   if (env.LDAP_BIN_DN !== 'cn=admin,dc=boston,dc=cob' || _force) {
+    // console.log(`LDAP_BIN_DN OR _force ... PASSWORD BIND`);
     ldapClient.bind(env.LDAP_BIN_DN, env.LDAP_PASSWORD, function(err) {
       if (err) {
         console.log('ldapClient.bind err: ', err);
       }
     });
+  } else {
+    console.log(`ELSE > ${env.LDAP_BIN_DN} !== 'cn=admin,dc=boston,dc=cob'`);
   }
+  // console.log(
+  //   `_force????: `,
+  //   env.LDAP_BIN_DN !== 'cn=admin,dc=boston,dc=cob' || _force
+  // );
+  // console.log(`
+  //   LDAP_URL: ${env.LDAP_URL},
+  //   LDAP_BASE_DN: ${env.LDAP_BASE_DN},
+  //   LDAP_BIN_DN: ${env.LDAP_BIN_DN}
+  // `);
 };
 
 const search_promise = (err, res) => {
@@ -95,7 +107,7 @@ const search_promise = (err, res) => {
       }
 
       if (
-        currEntry.objectclass.indexOf('groupOfUniqueNames') > -1 ||
+        currEntry.objectclass.indexOf('group') > -1 ||
         currEntry.objectclass.indexOf('container') > -1
       ) {
         currEntry['onlyActiveMembers'] = true;
@@ -157,8 +169,7 @@ const setAttributes = (attr = [''], type = 'group') => {
 
 const getFilterValue = (filter: FilterOptions) => {
   const searchFilterStr = (type: String) => {
-    const objClass =
-      type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
+    const objClass = type === 'group' ? 'group' : 'organizationalPerson';
     if (type === 'group') {
       return `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
     } else {
@@ -453,12 +464,12 @@ const resolvers = {
           }
         }
         const memberCheck =
-          typeof opts.uniquemember === 'object' && opts.uniquemember.length > 0;
-        const members = memberCheck ? opts.uniquemember : [opts.uniquemember];
+          typeof opts.member === 'object' && opts.member.length > 0;
+        const members = memberCheck ? opts.member : [opts.member];
         const changeOpts = new ldap.Change({
           operation: opts.operation,
           modification: {
-            uniquemember: members,
+            member: members,
           },
         });
         bindLdapClient(true);
@@ -539,6 +550,9 @@ const resolvers = {
         allowInactive: args.allowInactive ? args.allowInactive : false,
         by: args.by ? args.by : '',
       });
+      console.log(
+        `personSearch > filterParams: ${JSON.stringify(filterParams)}`
+      );
       const persons = await searchWrapper(['all'], filterParams);
       return persons;
     },
@@ -605,16 +619,16 @@ const resolvers = {
         dns,
       });
 
+      console.log(`groupSearch: ${JSON.stringify(filterParams)}`);
+
       let groups: any = await searchWrapper(['all'], filterParams);
-      groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
+      console.log(`dn_list: ${JSON.stringify(dn_list)}`);
+      // groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
       if (args.activemembers && args.activemembers === true) {
         await groups.forEach(async group => {
-          if (
-            typeof group.uniquemember === 'object' &&
-            group.uniquemember.length > 0
-          ) {
+          if (typeof group.member === 'object' && group.member.length > 0) {
             const activemembers: Array<[]> = [];
-            group.uniquemember.forEach(async (memberSt: any) => {
+            group.member.forEach(async (memberSt: any) => {
               const value =
                 memberSt.indexOf('=') > -1 ? memberSt.split('=')[1] : memberSt;
               const in_active = await isMemberActive(value);

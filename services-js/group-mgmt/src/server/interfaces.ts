@@ -11,8 +11,8 @@ export interface controls {
   controls: String;
 }
 
-export interface uniquemember {
-  uniquemember: String;
+export interface member {
+  member: String;
 }
 
 export interface objectclass {
@@ -21,15 +21,15 @@ export interface objectclass {
 
 export interface Member {
   cn: String;
-  dn: String;
+  distinguishedName: String;
 }
 
-export interface ismemberOfObjectArray {
+export interface memberOfObjectArray {
   group: Member;
 }
 
 export interface isMember {
-  groups: Array<[ismemberOfObjectArray]>;
+  groups: Array<[memberOfObjectArray]>;
 }
 
 export interface Error {
@@ -128,115 +128,83 @@ export class objectClassArray {
 }
 
 export interface Group {
-  dn?: string;
+  distinguishedName?: string;
   cn?: string;
-  controls?: Array<[controls]>;
-  uniquemember: Array<[uniquemember]> | [string];
-  owner?: Array<[string]>;
-  actualdn?: string;
-  entrydn?: string;
-  objectclass?: Array<[objectclass]>;
+  member: Array<[member]> | [string];
   displayname?: string;
-  ou?: string;
+  objectclass?: Array<[objectclass]>;
 }
 
 export class GroupClass implements Group {
-  dn: string = '';
+  distinguishedName: string = '';
   cn: string = '';
-  controls: Array<[controls]> = [];
-  uniquemember: Array<[uniquemember]> = [];
-  owner: Array<[string]> = [];
-  actualdn: string = '';
-  entrydn: string = '';
-  objectclass?: Array<[objectclass]> = [];
+  member: Array<[member]> = [];
   displayname?: string = '';
-  ou?: string = '';
+  objectclass?: Array<[objectclass]> = [];
 
   constructor(opts: {
-    dn?: any;
+    distinguishedName?: any;
     cn?: any;
-    controls?: any;
-    uniquemember?: any;
-    owner?: any;
-    actualdn?: any;
-    entrydn?: any;
-    objectclass?: any;
+    member?: any;
     displayname?: any;
-    ou?: any;
+    objectclass?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     const members = convertOptionalArray(
-      typeof opts.uniquemember !== 'undefined'
-        ? getOnlyActiveMembers(opts.uniquemember)
+      typeof opts.member !== 'undefined'
+        ? getOnlyActiveMembers(opts.member)
         : []
     );
-    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
-    const owner = convertOptionalArray(opts.owner ? opts.owner : []);
     const objectclass = convertOptionalArray(
       opts.objectclass ? opts.objectclass : []
     );
 
-    (this.dn = opts.dn ? opts.dn : ''),
+    (this.distinguishedName = opts.distinguishedName
+      ? opts.distinguishedName
+      : ''),
       (this.cn = opts.cn ? opts.cn : ''),
-      (this.controls = controls),
-      (this.uniquemember = opts.uniquemember ? members : []),
-      (this.owner = owner),
-      (this.actualdn = opts.actualdn ? opts.actualdn : ''),
-      (this.entrydn = opts.entrydn ? opts.entrydn : ''),
+      (this.member = opts.member ? members : []),
       (this.displayname = opts.displayname ? opts.displayname : ''),
-      (this.ou = opts.ou ? opts.ou : ''),
       (this.objectclass = objectclass);
   }
 }
 
 export interface Person {
-  dn: string;
+  distinguishedName: string;
   cn: string;
-  controls?: Array<[controls]>;
-  ismemberof?: Array<[String]>;
-  mail?: string;
+  memberOf?: Array<[String]>;
   sn?: string;
   givenname?: string;
   displayname?: string;
-  uid?: any;
   inactive?: Boolean;
   nsaccountlock?: string;
   objectclass?: Array<[string]>;
 }
 
 export class PersonClass implements Person {
-  dn: string = '';
+  distinguishedName: string = '';
   cn: string = '';
-  mail: string = '';
   sn: string = '';
-  controls: Array<[controls]> = [];
-  ismemberof: Array<[String]> = [];
+  memberOf: Array<[String]> = [];
   givenname: string = '';
   displayname: string = '';
   inactive: Boolean = false;
   nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
-  uid: string | number = '';
 
   constructor(opts: {
-    dn?: any;
+    distinguishedName?: any;
     cn?: any;
-    mail?: any;
     sn?: any;
-    controls?: any;
-    ismemberof?: any;
+    memberOf?: any;
     givenname?: any;
     displayname?: any;
     inactive?: any;
     nsAccountLock?: any;
     objectclass?: any;
-    uid?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
-    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
-    const ismemberof = convertOptionalArray(
-      opts.ismemberof ? opts.ismemberof : []
-    );
+    const memberOf = convertOptionalArray(opts.memberOf ? opts.memberOf : []);
     const objectclass = convertOptionalArray(
       opts.objectclass ? opts.objectclass : []
     );
@@ -247,18 +215,17 @@ export class PersonClass implements Person {
       return arrayGroup;
     };
     const members = convertOptionalArray(
-      typeof opts.ismemberof !== 'undefined' ? parseMembers(ismemberof) : []
+      typeof opts.memberOf !== 'undefined' ? parseMembers(memberOf) : []
     );
 
-    (this.dn = opts.dn ? opts.dn : ''),
+    (this.distinguishedName = opts.distinguishedName
+      ? opts.distinguishedName
+      : ''),
       (this.cn = opts.cn ? opts.cn : ''),
-      (this.mail = opts.mail ? opts.mail.trim() : ''),
       (this.sn = opts.sn ? opts.sn : ''),
-      (this.controls = controls),
-      (this.ismemberof = members),
+      (this.memberOf = members),
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
-      (this.uid = opts.uid ? opts.uid : ''),
       (this.inactive = convertToBool(opts.nsAccountLock, false)),
       (this.objectclass = objectclass);
   }
@@ -303,7 +270,7 @@ export interface filterParams {
 }
 
 export interface group {
-  dn: string;
+  distinguishedName: string;
   cn: string;
 }
 
@@ -315,10 +282,8 @@ export interface DNs {
 
 export const LdapFilters = {
   groups: {
-    default:
-      '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))',
-    pre:
-      '(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(',
+    default: '(|(objectClass=group))',
+    pre: '(&(|(objectClass=group))(',
     post: '))',
   },
   person: {
@@ -330,7 +295,7 @@ export const LdapFilters = {
 };
 
 export const CustomAttributes = {
-  default: ['dn', 'cn'],
+  default: ['distinguishedName', 'cn'],
   all: [],
 };
 

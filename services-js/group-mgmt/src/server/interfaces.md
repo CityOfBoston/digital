@@ -37,13 +37,19 @@ Person
 - objectclass []
 
   Person - New Server
-  - name []
+  - name [] Peter Till (102323)
   - sAMAccountName []
   - sAMAAccountType []
   - memberOf []
 
 
 
+- objecClass=CN=Group,CN=Schema,CN=Configuration,DC=iamdir-test,DC=boston,DC=gov
+- cn=BPS Account Unlock
+- displayName=BPS Account Unlock
+- member
+  - CN=030107,OU=Active,DC=iamdir-test,DC=boston,DC=gov
+  - CN=033923,OU=Active,DC=iamdir-test,DC=boston,DC=gov
 
 
 

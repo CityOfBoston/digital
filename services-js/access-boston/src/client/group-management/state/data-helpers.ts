@@ -9,7 +9,7 @@ import {
 import { chunkArray } from '../fixtures/helpers';
 
 /**
- * Individual members are stored in the uniqueMembers array of a group
+ * Individual members are stored in the `member` array of a group
  * as a string:
  *
  * "cn=132367,cn=Internal Users,dc=boston,dc=cob",
@@ -28,10 +28,10 @@ export function getCommonName(text: string): string {
 }
 
 /**
- * Given an array of uniqueMembers, return array of person CN strings.
+ * Given an array of `member`, return array of person CN strings.
  */
-export function getAllCns(uniqueMember: string[]): string[] {
-  return uniqueMember.reduce(
+export function getAllCns(member: string[]): string[] {
+  return member.reduce(
     (acc, member) => {
       const result = getCommonName(member);
 
@@ -59,20 +59,20 @@ export function toGroup(
   let inDomain = true;
 
   if (_ous.length > 0) {
-    inDomain = isDomainNameInOUs(dataObject.dn, _ous);
+    inDomain = isDomainNameInOUs(dataObject.distinguishedName, _ous);
     if (!inDomain) {
       isAvailable = false;
     }
   }
 
   const chunkedResults =
-    dataObject.uniquemember && dataObject.uniquemember.length > 0
-      ? chunkArray(dataObject.uniquemember, pageSize)
+    dataObject.member && dataObject.member.length > 0
+      ? chunkArray(dataObject.member, pageSize)
       : [[]];
 
   const retObj = {
     ...commonAttributes(dataObject),
-    members: dataObject.uniquemember || [],
+    members: dataObject.member || [],
     isAvailable,
     chunked: chunkedResults,
   };
@@ -87,18 +87,17 @@ export function toGroup(
  */
 export function toPerson(dataObject): Person {
   const chunkedResults =
-    dataObject.ismemberof && dataObject.ismemberof.length > 0
-      ? chunkArray(dataObject.ismemberof, pageSize)
+    dataObject.memberOf && dataObject.memberOf.length > 0
+      ? chunkArray(dataObject.memberOf, pageSize)
       : [[]];
   // console.log('toPerson > dataObject: ');
   // console.log('chunked: ', chunkedResults,'\n------------');
   const retObj = {
     ...commonAttributes(dataObject),
-    groups: dataObject.ismemberof || [],
+    groups: dataObject.memberOf || [],
     chunked: chunkedResults,
     givenName: dataObject.givenname || '',
     sn: dataObject.sn || '',
-    mail: dataObject.mail || '',
     isAvailable: !dataObject.inactive,
   };
   // console.log('toGroup > retObj: ', retObj, '\n------------');
@@ -110,15 +109,18 @@ function commonAttributes(dataObject): CommonAttributes {
   // console.log('CommonAttributes dataObj: ', dataObject);
   return {
     cn: dataObject.cn,
-    dn: dataObject.dn || '',
+    distinguishedName: dataObject.distinguishedName || '',
     displayName: dataObject.displayname || dataObject.cn,
     status: 'current' as ItemStatus,
     action: '' as Action,
   };
 }
 
-export const isDomainNameInOUs = (dn: string, dns: Array<string>) => {
-  let splitDN: any = dn.split(',');
+export const isDomainNameInOUs = (
+  distinguishedName: string,
+  dns: Array<string>
+) => {
+  let splitDN: any = distinguishedName.split(',');
   splitDN.shift();
   splitDN = splitDN
     .toString()

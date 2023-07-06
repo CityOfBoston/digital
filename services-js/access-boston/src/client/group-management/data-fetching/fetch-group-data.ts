@@ -3,10 +3,10 @@ import { toGroup } from '../state/data-helpers';
 import { Group, Person } from '../types';
 
 const GROUP_DATA = `
-  dn
+  distinguishedName
   cn
   displayname
-  uniquemember
+  member
 `;
 
 const FETCH_GROUP = `
@@ -41,15 +41,15 @@ const OU_CONTAINERS = `
 
 const UPDATE_GROUP = `
   mutation updateGroup(
-    $dn: String!
+    $distinguishedName: String!
     $operation: String!
-    $uniquemember: String!
+    $member: String!
     $dns: [String]
   ) {
     updateGroupMembers(
-      dn: $dn
+      distinguishedName: $dn
       operation: $operation
-      uniquemember: $uniquemember
+      member: $member
       dns: $dns
     ) {code message}
   }
@@ -59,15 +59,15 @@ const UPDATE_GROUP = `
  * Updates a Group object with a single entry.
  */
 export async function updateGroup(
-  dn: string,
+  distinguishedName: string,
   operation: string,
-  uniquemember: string,
+  member: string,
   dns: String[] = []
 ): Promise<any> {
   return await fetchGraphql(UPDATE_GROUP, {
-    dn,
+    distinguishedName,
     operation,
-    uniquemember,
+    member,
     dns,
   });
 }
@@ -88,6 +88,11 @@ export async function fetchOurContainers(
   ous: string[],
   _api: any = undefined
 ): Promise<any> {
+  console.log(
+    'fetchOurContainers > fetchGraphql > OU_CONTAINERS|ous: ',
+    OU_CONTAINERS,
+    ous
+  );
   const retVal = await fetchGraphql(OU_CONTAINERS, { ous });
   return retVal;
 }
@@ -96,6 +101,7 @@ export async function fetchOurContainers(
  * Returns an array of OU containers.
  */
 export async function fetchMinimumUserGroups(dns: string[]): Promise<any> {
+  console.log('fetchMinimumUserGroups > OU_MINIMUM_GROUPS(dns): ', dns);
   const results = await fetchGraphql(OU_MINIMUM_GROUPS, { dns });
   return results;
 }
@@ -152,8 +158,8 @@ export async function fetchPersonsGroups(
           console.log('error: ', error);
         }
         const retgroup: Group = {
-          dn: '',
           cn: '',
+          distinguishedName: '',
           displayName: '',
           members: [],
           status: 'current',

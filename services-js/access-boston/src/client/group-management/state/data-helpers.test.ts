@@ -1,6 +1,6 @@
 import { getAllCns, getCommonName, toGroup, toPerson } from './data-helpers';
 
-const uniqueMembers = [
+const member = [
   '',
   'cn=132367,cn=Internal Users,dc=boston,dc=cob',
   'cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob',
@@ -14,13 +14,13 @@ import allGroups from '../fixtures/groups.json';
 
 describe('getCommonName', () => {
   it('extracts a numerical cn', () => {
-    const result = getCommonName(uniqueMembers[1]);
+    const result = getCommonName(member[1]);
 
     expect(result).toBe('132367');
   });
 
   it('extracts an alphabetical cn', () => {
-    const result = getCommonName(uniqueMembers[3]);
+    const result = getCommonName(member[3]);
 
     expect(result).toBe('Laguna Loire');
   });
@@ -58,7 +58,7 @@ describe('toPerson', () => {
 
 describe('getAllCns', () => {
   it('returns an array of person cn strings', () => {
-    const result = getAllCns(uniqueMembers);
+    const result = getAllCns(member);
 
     expect(result).toEqual(['132367', 'Ignis Scientia', 'Laguna Loire']);
   });

@@ -13,7 +13,7 @@ export const currentPage = startPage;
 export const pageCount = 1;
 
 export interface CommonAttributes {
-  dn: string;
+  distinguishedName: string;
   cn: string;
   displayName: string;
 
@@ -39,5 +39,4 @@ export interface Person extends CommonAttributes {
   chunked?: any;
   givenName: string;
   sn: string;
-  mail: string;
 }

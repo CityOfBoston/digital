@@ -53,8 +53,8 @@ export default function ReviewChangesView(props: Props) {
       const promises = changesArr.map(entry => {
         const _mode = mode === 'person';
         const updateParams: any = {
-          dn: _mode ? entry.dn : selected.dn,
-          cn: _mode ? selected.dn : entry.dn,
+          dn: _mode ? entry.distinguishedName : selected.distinguishedName,
+          cn: _mode ? selected.distinguishedName : entry.distinguishedName,
         };
         const operation =
           entry.status === 'current' || entry.status === 'remove'

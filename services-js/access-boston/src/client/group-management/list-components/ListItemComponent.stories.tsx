@@ -6,13 +6,12 @@ import { Person } from '../types';
 import ListItemComponent from './ListItemComponent';
 
 const person: Person = {
-  displayName: 'Bob Roberts',
   cn: '010',
-  dn: '',
+  distinguishedName: '',
+  displayName: 'Bob Roberts',
   status: 'current',
   givenName: 'Bob',
   sn: 'Roberts',
-  mail: 'bob.roberts@boton.gov',
   groups: [],
   action: '',
 };

@@ -1,27 +1,19 @@
 export const typeDefs = `
   type Group {
-    dn: String
     cn: String
-    controls: [String!]!
-    uniquemember: [String!]!
-    owner: [String!]!
-    actualdn: String
-    entrydn: String
-    objectclass: [String]
+    distinguishedName: String
     displayname: String
-    ou: String
+    member: [String!]!
+    objectclass: [String]
   }
 
   type Person {
     cn: String
-    dn: String
-    mail: String
+    distinguishedName: String
     sn: String
     givenname: String
     displayname: String
-    uid: String
-    controls: [String!]!
-    ismemberof: [String!]!
+    memberOf: [String!]!
     inactive: Boolean
     nsaccountlock: String
     objectclass: [String]
@@ -55,7 +47,7 @@ export const typeDefs = `
   }
 
   type group {
-    dn: String
+    distinguishedName: String
     cn: String
   }
 
@@ -79,10 +71,10 @@ export const typeDefs = `
   # Defines all available mutations.
   type Mutation {
     updateGroupMembers(
-      dn: String!
+      distinguishedName: String!
 			dns: [String]
 			operation: String!
-			uniquemember: String!
+			member: String!
     ): Response
   }
 

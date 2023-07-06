@@ -118,7 +118,9 @@ export default function Index(props: Props) {
   };
 
   const setOus = async () => {
+    console.log('setOus > groups: ', groups);
     fetchOurContainers(groups).then(result => {
+      console.log('setOus > fetchOurContainers > result: ', result);
       dispatchState({
         type: 'APP/SET_OUS',
         ous: result.convertOUsToContainers,
@@ -127,10 +129,14 @@ export default function Index(props: Props) {
   };
 
   const getAdminMinGroups = async () => {
+    console.log('getAdminMinGroups >>>>>||||<<<<<');
+    console.log('groups: ', groups);
     fetchMinimumUserGroups(groups).then(result => {
+      console.log('result: ', result);
       let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
+        console.log('entry');
         let remappedObj = renameObjectKeys(
-          { uniquemember: 'members', memberof: 'members' },
+          { member: 'members', memberof: 'members' },
           entry
         );
         remappedObj['chunked'] =

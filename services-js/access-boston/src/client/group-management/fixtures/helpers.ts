@@ -58,13 +58,13 @@ export const chunkArray = (arr: Array<any> = [], size: Number): object => {
  *      {
  *       dn: 'cn',
  *       CN: 'cn',
- *       isMemberof: 'ismemberof',
+ *       memberOf: 'memberOf',
  *       nsAccountLock: 'nsaccountlock',
  *      },
  *      {
  *        dn: '',
  *        cn: '100992',
- *        ismemberof: [],
+ *        memberOf: [],
  *        nsaccountlock: 'FALSE',
  *        isSponsor: 'TRUE',
  *      },
@@ -72,7 +72,7 @@ export const chunkArray = (arr: Array<any> = [], size: Number): object => {
  *     returns {
  *       dn: '',
  *       cn: '100992',
- *       ismemberof: [],
+ *       memberOf: [],
  *       nsaccountlock: 'FALSE',
  *       isSponsor: 'TRUE',
  *     }
