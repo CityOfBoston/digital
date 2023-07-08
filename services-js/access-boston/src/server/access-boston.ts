@@ -218,7 +218,7 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   await addGraphQl(server, appsRegistry, identityIq, pingId, rollbar);
 
-  await addVelocityTemplates(server);
+  await addVelocityTemplates(server, rollbar);
 
   // We don't turn on Next for test mode because it hangs Jest.
   if (process.env.NODE_ENV !== 'test') {
@@ -305,7 +305,8 @@ async function addGraphQl(
   });
 }
 
-async function addVelocityTemplates(server: HapiServer) {
+async function addVelocityTemplates(server: HapiServer, rollbar?: Rollbar) {
+  const erReporting = rollbar;
   server.route({
     path: '/ping/login',
     method: 'GET',
@@ -443,13 +444,6 @@ async function addVelocityTemplates(server: HapiServer) {
       const fetchQ = async this_req => {
         const query = this_req.payload.query;
         const variables = this_req.payload.variables;
-        // console.log(
-        //   `AB > GROUP_MANAGEMENT_API_URL: ${
-        //     process.env.GROUP_MANAGEMENT_API_URL
-        //   }`
-        // );
-        // const bodyVal = JSON.stringify({ query, variables });
-        // console.log(`body {}: ${bodyVal}`);
         return await fetch(
           `${process.env.GROUP_MANAGEMENT_API_URL}` as string,
           {
@@ -465,7 +459,13 @@ async function addVelocityTemplates(server: HapiServer) {
           }
         )
           .then(response => response.json())
-          .then(response => response);
+          .then(response => response)
+          .catch(error => {
+            console.log(error);
+            console.error(error);
+            // if (erReporting && erReporting !== undefined) rollbar.error(error);
+            console.log('erReporting', erReporting);
+          });
       };
 
       return await fetchQ(_req);

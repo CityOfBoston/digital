@@ -56,10 +56,19 @@ export default function ReviewChangesView(props: Props) {
           dn: _mode ? entry.distinguishedName : selected.distinguishedName,
           cn: _mode ? selected.distinguishedName : entry.distinguishedName,
         };
+        console.log(
+          `ReviewChangesView>updateParams: ${JSON.stringify(updateParams)}`,
+          updateParams
+        );
         const operation =
           entry.status === 'current' || entry.status === 'remove'
             ? 'delete'
             : entry.status;
+        console.log(
+          `ReviewChangesView>operation: ${JSON.stringify(operation)}`,
+          operation
+        );
+        console.log(`ReviewChangesView>dns: ${JSON.stringify(dns)}`, dns);
         return updateGroup(updateParams.dn, operation, updateParams.cn, dns);
       });
       await Promise.all(promises).then(() => {
