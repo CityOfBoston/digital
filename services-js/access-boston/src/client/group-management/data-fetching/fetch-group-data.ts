@@ -41,13 +41,13 @@ const OU_CONTAINERS = `
 
 const UPDATE_GROUP = `
   mutation updateGroup(
-    $distinguishedName: String!
+    $dn: String!
     $operation: String!
     $member: String!
     $dns: [String]
   ) {
     updateGroupMembers(
-      distinguishedName: $dn
+      dn: $dn
       operation: $operation
       member: $member
       dns: $dns
@@ -64,8 +64,9 @@ export async function updateGroup(
   member: string,
   dns: String[] = []
 ): Promise<any> {
+  const dn = distinguishedName;
   return await fetchGraphql(UPDATE_GROUP, {
-    distinguishedName,
+    dn,
     operation,
     member,
     dns,

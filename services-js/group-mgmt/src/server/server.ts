@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint no-console: 0 */
 import Hapi from 'hapi';
 import Inert from 'inert';
@@ -24,11 +25,12 @@ import {
   remapObjKeys,
   returnBool,
   abstractDN,
-  isDNInOUs,
+  // isDNInOUs,
 } from '../lib/helpers';
 import { typeDefs } from './graphql/typeDefs';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import { Source } from './graphql';
+import assert from 'assert';
 
 require('dotenv').config();
 const env = new LDAPEnvClass(process.env);
@@ -66,7 +68,6 @@ const port = parseInt(process.env.PORT || env.LDAP_PORT, 10);
 
 const bindLdapClient = (_force: Boolean = false) => {
   if (env.LDAP_BIN_DN !== 'cn=admin,dc=boston,dc=cob' || _force) {
-    // console.log(`LDAP_BIN_DN OR _force ... PASSWORD BIND`);
     ldapClient.bind(env.LDAP_BIN_DN, env.LDAP_PASSWORD, function(err) {
       if (err) {
         console.log('ldapClient.bind err: ', err);
@@ -75,15 +76,6 @@ const bindLdapClient = (_force: Boolean = false) => {
   } else {
     console.log(`ELSE > ${env.LDAP_BIN_DN} !== 'cn=admin,dc=boston,dc=cob'`);
   }
-  // console.log(
-  //   `_force????: `,
-  //   env.LDAP_BIN_DN !== 'cn=admin,dc=boston,dc=cob' || _force
-  // );
-  // console.log(`
-  //   LDAP_URL: ${env.LDAP_URL},
-  //   LDAP_BASE_DN: ${env.LDAP_BASE_DN},
-  //   LDAP_BIN_DN: ${env.LDAP_BIN_DN}
-  // `);
 };
 
 const search_promise = (err, res) => {
@@ -451,48 +443,60 @@ export async function makeServer() {
 const resolvers = {
   Mutation: {
     async updateGroupMembers() {
-      try {
-        const opts = arguments[1];
-        let dns: any = [];
-        let dn_list: any = [];
+      console.log('Resolvers > updateGroupMembers (args): ', arguments[1]);
 
-        if (opts.dns && opts.dns.length > 0) {
-          dns = await convertDnsToGroupDNs(opts.dns);
-          dn_list = dns.map(entry => entry.group.dn);
-          if (!isDNInOUs(opts.dn, dn_list)) {
-            return new ResponseClass({});
-          }
-        }
-        console.log(`updateGroupMembers>opts: ${JSON.stringify(opts)}`, opts);
+      try {
+        const opts = {
+          dn: arguments[1].distinguishedName,
+          dns: arguments[1].dns,
+          member: arguments[1].member,
+          operation: arguments[1].operation,
+        };
+        // let dns: any = [];
+        // let dn_list: any = [];
+
+        // if (opts.dns && opts.dns.length > 0) {
+        //   dns = await convertDnsToGroupDNs(opts.dns);
+        //   dn_list = dns.map(entry => entry.group.dn);
+
+        //   TODO: Re-enable to only allow Group Owners to edit their groups
+        //   if (!isDNInOUs(opts.dn, dn_list)) {
+        //     console.log('TEST 3e');
+        //     return new ResponseClass({});
+        //   }
+        // }
         const memberCheck =
           typeof opts.member === 'object' && opts.member.length > 0;
-        console.log(
-          `updateGroupMembers>memberCheck: ${JSON.stringify(memberCheck)}`,
-          memberCheck
-        );
         const members = memberCheck ? opts.member : [opts.member];
-        console.log(
-          `updateGroupMembers>members: ${JSON.stringify(members)}`,
-          members
-        );
         const changeOpts = new ldap.Change({
           operation: opts.operation,
           modification: {
             member: members,
           },
         });
-        console.log(
-          `updateGroupMembers>changeOpts: ${JSON.stringify(changeOpts)}`,
-          changeOpts
-        );
-        bindLdapClient(true);
-        // req, res, next
-        ldapClient.modify(opts.dn, changeOpts, async () => {});
-      } catch (err) {
-        console.log('Mutation > updateGroupMembers > err: ', err);
-      }
 
-      return new ResponseClass({});
+        bindLdapClient(true);
+        // // req, res, next
+        ldapClient.modify(opts.dn, changeOpts, error => {
+          console.log('TRANSACTION COMPLETED');
+          assert.ifError(error);
+          // if (error) {
+          //   return new ResponseClass({
+          //     message: '400',
+          //     code: 400,
+          //     body: { error: '400', data: '' },
+          //   });
+          // }
+        });
+
+        return new ResponseClass({});
+      } catch (err) {
+        return new ResponseClass({
+          message: '400',
+          code: 400,
+          body: { error: '400', data: '' },
+        });
+      }
     },
   },
   Query: {
@@ -529,11 +533,7 @@ const resolvers = {
       const dn_list = dns.map(entry => entry.group.dn);
       return dn_list;
     },
-    async isPersonInactive(parent: any, args: any) {
-      if (parent) {
-        console.log('parent: personSearch');
-      }
-
+    async isPersonInactive(_parent: any, args: any) {
       const retArr: Array<[]> = [];
       const promises = await args.people.map(async (cn: any) => {
         const value = cn.indexOf('=') > -1 ? abstractDN(cn)['cn'][0] : cn;
@@ -563,9 +563,6 @@ const resolvers = {
         allowInactive: args.allowInactive ? args.allowInactive : false,
         by: args.by ? args.by : '',
       });
-      console.log(
-        `personSearch > filterParams: ${JSON.stringify(filterParams)}`
-      );
       const persons = await searchWrapper(['all'], filterParams);
       return persons;
     },
@@ -588,11 +585,8 @@ const resolvers = {
       const person: any = await searchWrapper(['all'], filterParams);
       return person;
     },
-    async group(parent: any, args: { cn: string; dns: Array<string> }) {
+    async group(_parent: any, args: { cn: string; dns: Array<string> }) {
       let dns: any = [];
-      if (parent) {
-        console.log('Query > group > parent: group');
-      }
       if (args.dns) {
         dns = await convertDnsToGroupDNs(args.dns);
       }
@@ -632,11 +626,8 @@ const resolvers = {
         dns,
       });
 
-      console.log(`groupSearch: ${JSON.stringify(filterParams)}`);
-
       let groups: any = await searchWrapper(['all'], filterParams);
-      console.log(`dn_list: ${JSON.stringify(dn_list)}`);
-      // groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
+      groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
       if (args.activemembers && args.activemembers === true) {
         await groups.forEach(async group => {
           if (typeof group.member === 'object' && group.member.length > 0) {
