@@ -50,6 +50,8 @@ Person
 - member
   - CN=030107,OU=Active,DC=iamdir-test,DC=boston,DC=gov
   - CN=033923,OU=Active,DC=iamdir-test,DC=boston,DC=gov
+  - CN=000645,OU=Active,DC=iamdir-test,DC=boston,DC=gov
+  - CN=050741,OU=Active,DC=iamdir-test,DC=boston,DC=gov
 
 
 

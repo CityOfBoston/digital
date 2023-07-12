@@ -16,6 +16,12 @@ export async function fetchGraphql(
     }),
   })
     .then(response => response.json())
-    .then(response => response.data);
+    .then(response => response.data)
+    .catch(error => {
+      console.log('Error fetchGraphql: ', error);
+      console.error('Error fetchGraphql: ', error);
+
+      return {};
+    });
   return retFascade;
 }

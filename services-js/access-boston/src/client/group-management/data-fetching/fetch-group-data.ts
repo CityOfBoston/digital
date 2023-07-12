@@ -113,7 +113,22 @@ export async function fetchGroup(
   cn: string,
   _dns: String[] = []
 ): Promise<any> {
-  return await fetchGraphql(FETCH_GROUP, { cn });
+  let retObj: any = {};
+  try {
+    retObj = await fetchGraphql(FETCH_GROUP, { cn });
+  } catch (error) {
+    console.log('Error fetchGraphql: ', error);
+    console.error('Error fetchGraphql: ', error);
+  }
+
+  return retObj;
+
+  // .catch(error => {
+  //   console.log('Error fetchGraphql: ', error);
+  //   console.error('Error fetchGraphql: ', error);
+
+  //   return {};
+  // });
 }
 
 /**
@@ -148,15 +163,6 @@ export async function fetchPersonsGroups(
   return await Promise.all(
     person.chunked[_currentPage].map(groupCn =>
       fetchGroup(groupCn, dns).then(response => {
-        try {
-          if (response.group[0]) {
-            const retGroup = toGroup(response.group[0], dns, ous);
-            return retGroup;
-          }
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.log('error: ', error);
-        }
         const retgroup: Group = {
           cn: '',
           distinguishedName: '',
@@ -165,6 +171,33 @@ export async function fetchPersonsGroups(
           status: 'current',
           action: '',
         };
+
+        // if (response.)
+        // console.log('response.group[0]: ', response.group[0]);
+
+        try {
+          console.log(
+            'BEFORE ... response.group: ',
+            typeof response.group === undefined
+          );
+          if (!response.group)
+            console.log(`fetchPersonsGroups response.group`, response);
+
+          if (response.group && response.group[0]) {
+            const retGroup = toGroup(response.group[0], dns, ous);
+            return retGroup;
+          } else {
+            console.log(
+              'Error in fetchPersonsGroups, response is not a group: ',
+              response
+            );
+            return retgroup;
+          }
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log('Error in fetchPersonsGroups: ', error);
+        }
+
         return retgroup;
       })
     )

@@ -463,15 +463,28 @@ const resolvers = {
             return new ResponseClass({});
           }
         }
+        console.log(`updateGroupMembers>opts: ${JSON.stringify(opts)}`, opts);
         const memberCheck =
           typeof opts.member === 'object' && opts.member.length > 0;
+        console.log(
+          `updateGroupMembers>memberCheck: ${JSON.stringify(memberCheck)}`,
+          memberCheck
+        );
         const members = memberCheck ? opts.member : [opts.member];
+        console.log(
+          `updateGroupMembers>members: ${JSON.stringify(members)}`,
+          members
+        );
         const changeOpts = new ldap.Change({
           operation: opts.operation,
           modification: {
             member: members,
           },
         });
+        console.log(
+          `updateGroupMembers>changeOpts: ${JSON.stringify(changeOpts)}`,
+          changeOpts
+        );
         bindLdapClient(true);
         // req, res, next
         ldapClient.modify(opts.dn, changeOpts, async () => {});
