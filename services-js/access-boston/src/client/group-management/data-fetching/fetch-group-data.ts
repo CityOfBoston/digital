@@ -5,6 +5,7 @@ import { Group, Person } from '../types';
 const GROUP_DATA = `
   distinguishedName
   cn
+  name
   displayname
   member
 `;
@@ -168,6 +169,7 @@ export async function fetchPersonsGroups(
           cn: '',
           distinguishedName: '',
           displayName: '',
+          name: '',
           members: [],
           status: 'current',
           action: '',

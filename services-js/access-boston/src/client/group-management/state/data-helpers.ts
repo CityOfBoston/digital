@@ -2,10 +2,11 @@ import {
   CommonAttributes,
   Group,
   ItemStatus,
-  Person,
+  Person as RetPerson,
   pageSize,
   Action,
 } from '../types';
+// import { Person } from '../interfaces';
 import { chunkArray } from '../fixtures/helpers';
 
 /**
@@ -85,13 +86,16 @@ export function toGroup(
  * Accepts a person object from server response, and returns a usable
  * Person object.
  */
-export function toPerson(dataObject): Person {
+export function toPerson(dataObject): RetPerson {
   const chunkedResults =
-    dataObject.memberOf && dataObject.memberOf.length > 0
+    dataObject.memberOf &&
+    dataObject.memberOf !== undefined &&
+    typeof dataObject.memberOf === 'object' &&
+    dataObject.memberOf.length > 0
       ? chunkArray(dataObject.memberOf, pageSize)
       : [[]];
-  // console.log('toPerson > dataObject: ');
-  // console.log('chunked: ', chunkedResults,'\n------------');
+  console.log('toPerson > dataObject: ', dataObject);
+  console.log('chunked: ', chunkedResults, '\n------------');
   const retObj = {
     ...commonAttributes(dataObject),
     groups: dataObject.memberOf || [],
@@ -111,6 +115,7 @@ function commonAttributes(dataObject): CommonAttributes {
     cn: dataObject.cn,
     distinguishedName: dataObject.distinguishedName || '',
     displayName: dataObject.displayname || dataObject.cn,
+    name: dataObject.name || '',
     status: 'current' as ItemStatus,
     action: '' as Action,
   };

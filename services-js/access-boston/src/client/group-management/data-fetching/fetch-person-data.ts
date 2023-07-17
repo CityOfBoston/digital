@@ -65,17 +65,48 @@ export async function fetchGroupMembers(
   dns: String[] = [],
   _currentPage: number = 0
 ): Promise<Person[]> {
+  console.log('fetchGroupMembers>group: ', group);
   return await Promise.all(
     group.chunked[_currentPage].map(
       personCn => {
         // todo: remove .replace() when api data no longer includes cn=
         const cn = personCn.replace('cn=', '');
+        // console.log('fetchGroupMembers>personCn: ', cn);
 
         return fetchPerson(cn, dns)
           .then(response => {
-            return toPerson(response.person[0]);
+            if (
+              response &&
+              response !== undefined &&
+              typeof response !== undefined &&
+              typeof response !== 'undefined' &&
+              response.person &&
+              response.person.length > 0 &&
+              response.person[0].memberOf !== null &&
+              typeof response.person[0].memberOf !== undefined &&
+              typeof response.person[0].memberOf !== 'undefined'
+            ) {
+              console.log(
+                `fetchGroupMembers>fetchPerson: ${response}`,
+                response
+              );
+              return toPerson(response.person[0]);
+            } else {
+              console.log(
+                `(Error) fetchPerson - response incomplete`,
+                response
+              );
+              // console.error(`(Error) fetchPerson - response incomplete`);
+              return toPerson({ cn, inactive: true, chunked: [] });
+            }
           })
-          .catch(() => toPerson({ cn, inactive: true }));
+          .catch(error => {
+            console.log(
+              `fetchGroupMembers>fetchPerson>Catch: cn: ${cn}`,
+              error
+            );
+            return toPerson({ cn, inactive: true, chunked: [] });
+          });
       },
       [] as Person[]
     )

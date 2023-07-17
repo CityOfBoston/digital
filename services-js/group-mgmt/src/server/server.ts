@@ -25,7 +25,7 @@ import {
   remapObjKeys,
   returnBool,
   abstractDN,
-  // isDNInOUs,
+  isDNInOUs,
 } from '../lib/helpers';
 import { typeDefs } from './graphql/typeDefs';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
@@ -307,7 +307,7 @@ const searchWrapper = async (
       }
       ldapClient.search(base_dn, filterQryParams, function(err, res) {
         if (err) {
-          console.log('ldapsearch error: ', err);
+          console.log('ldapsearch error(on searchWrapper): ', err);
         }
         resolve(search_promise(err, res));
       });
@@ -452,19 +452,32 @@ const resolvers = {
           member: arguments[1].member,
           operation: arguments[1].operation,
         };
-        // let dns: any = [];
-        // let dn_list: any = [];
 
-        // if (opts.dns && opts.dns.length > 0) {
-        //   dns = await convertDnsToGroupDNs(opts.dns);
-        //   dn_list = dns.map(entry => entry.group.dn);
+        let dns: any = [];
+        let dn_list: any = [];
 
-        //   TODO: Re-enable to only allow Group Owners to edit their groups
-        //   if (!isDNInOUs(opts.dn, dn_list)) {
-        //     console.log('TEST 3e');
-        //     return new ResponseClass({});
-        //   }
-        // }
+        if (opts.dns && opts.dns.length > 0) {
+          dns = await convertDnsToGroupDNs(opts.dns);
+          dn_list = dns.map(entry => entry.group.dn);
+
+          // TODO: Re-enable to only allow Group Owners to edit their groups
+          const is_DNInOUs = isDNInOUs(opts.dn, dn_list);
+          console.log('is_DNInOUs: ', is_DNInOUs);
+          if (!is_DNInOUs) {
+            console.log('isDNInOUs WILL BLOCK THIS Transactions');
+            // return new ResponseClass({});
+            return new ResponseClass({
+              message: '400',
+              code: 400,
+              body: {
+                error:
+                  'Unauthorired Request: User is not a manager of this group',
+                data: '',
+              },
+            });
+          }
+        }
+
         const memberCheck =
           typeof opts.member === 'object' && opts.member.length > 0;
         const members = memberCheck ? opts.member : [opts.member];
@@ -480,13 +493,6 @@ const resolvers = {
         ldapClient.modify(opts.dn, changeOpts, error => {
           console.log('TRANSACTION COMPLETED');
           assert.ifError(error);
-          // if (error) {
-          //   return new ResponseClass({
-          //     message: '400',
-          //     code: 400,
-          //     body: { error: '400', data: '' },
-          //   });
-          // }
         });
 
         return new ResponseClass({});
@@ -648,6 +654,11 @@ const resolvers = {
       }
     },
   },
+  // Group: {
+  //   person (group: string) => {
+  //     return `Group: ${group}`;
+  //   }
+  // }
 };
 
 const isMemberActive = async (cn: String) => {

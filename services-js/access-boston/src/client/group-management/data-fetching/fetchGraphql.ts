@@ -5,23 +5,28 @@ export async function fetchGraphql(
   variables: any,
   _api: any = undefined
 ) {
-  const retFascade = await fetch('/fetchGraphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query,
-      variables,
-    }),
-  })
-    .then(response => response.json())
-    .then(response => response.data)
-    .catch(error => {
-      console.log('Error fetchGraphql: ', error);
-      console.error('Error fetchGraphql: ', error);
-
-      return {};
-    });
-  return retFascade;
+  try {
+    const retFascade = await fetch('/fetchGraphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        variables,
+      }),
+    })
+      .then(response => response.json())
+      .then(response => response.data)
+      .catch(error => {
+        console.log('Error fetchGraphql: ', error);
+        console.error('Error fetchGraphql: ', error);
+        return {};
+      });
+    return retFascade;
+  } catch (error) {
+    console.log('Error fetchGraphql: ', error);
+    // console.error('Error fetchGraphql: ', error);
+    return {};
+  }
 }

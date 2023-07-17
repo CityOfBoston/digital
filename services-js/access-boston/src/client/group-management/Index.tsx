@@ -119,10 +119,15 @@ export default function Index(props: Props) {
 
   const setOus = async () => {
     fetchOurContainers(groups).then(result => {
-      dispatchState({
-        type: 'APP/SET_OUS',
-        ous: result.convertOUsToContainers,
-      });
+      if (
+        result.convertOUsToContainers &&
+        result.convertOUsToContainers !== null
+      ) {
+        dispatchState({
+          type: 'APP/SET_OUS',
+          ous: result.convertOUsToContainers,
+        });
+      }
     });
   };
 

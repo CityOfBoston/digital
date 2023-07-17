@@ -1,6 +1,7 @@
 export const typeDefs = `
   type Group {
     cn: String
+    name: String
     distinguishedName: String
     displayname: String
     member: [String!]!
@@ -12,6 +13,7 @@ export const typeDefs = `
     distinguishedName: String
     sn: String
     givenname: String
+    name: String
     displayname: String
     memberOf: [String!]!
     inactive: Boolean
@@ -49,6 +51,7 @@ export const typeDefs = `
   type group {
     distinguishedName: String
     cn: String
+    name: String
   }
 
   type DNs {

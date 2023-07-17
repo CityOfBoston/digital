@@ -462,9 +462,10 @@ async function addVelocityTemplates(server: HapiServer, rollbar?: Rollbar) {
           .then(response => response)
           .catch(error => {
             console.log(error);
-            console.error(error);
+            // console.error(error);
             // if (erReporting && erReporting !== undefined) rollbar.error(error);
             console.log('erReporting', erReporting);
+            return {};
           });
       };
 

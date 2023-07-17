@@ -130,6 +130,7 @@ export class objectClassArray {
 export interface Group {
   distinguishedName?: string;
   cn?: string;
+  name?: string | '';
   member: Array<[member]> | [string];
   displayname?: string;
   objectclass?: Array<[objectclass]>;
@@ -138,6 +139,7 @@ export interface Group {
 export class GroupClass implements Group {
   distinguishedName: string = '';
   cn: string = '';
+  name?: string = '';
   member: Array<[member]> = [];
   displayname?: string = '';
   objectclass?: Array<[objectclass]> = [];
@@ -145,6 +147,7 @@ export class GroupClass implements Group {
   constructor(opts: {
     distinguishedName?: any;
     cn?: any;
+    name?: string | undefined;
     member?: any;
     displayname?: any;
     objectclass?: any;
@@ -163,6 +166,7 @@ export class GroupClass implements Group {
       ? opts.distinguishedName
       : ''),
       (this.cn = opts.cn ? opts.cn : ''),
+      (this.name = opts.name ? opts.name : ''),
       (this.member = opts.member ? members : []),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.objectclass = objectclass);
@@ -272,6 +276,7 @@ export interface filterParams {
 export interface group {
   distinguishedName: string;
   cn: string;
+  name: string;
 }
 
 export interface DNs {

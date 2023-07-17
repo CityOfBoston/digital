@@ -15,6 +15,7 @@ export const pageCount = 1;
 export interface CommonAttributes {
   distinguishedName: string;
   cn: string;
+  name: string;
   displayName: string;
 
   status: ItemStatus;
