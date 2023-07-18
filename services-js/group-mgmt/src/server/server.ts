@@ -391,7 +391,7 @@ const getGroupChildren = async (parentDn: string = '') => {
 export async function makeServer() {
   const serverOptions = {
     port,
-    ...(process.env.USE_SSL
+    ...(process.env.USE_SSL && process.env.USE_SSL === 'true'
       ? {
           tls: {
             key: fs.readFileSync('server.key'),

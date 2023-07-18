@@ -7,7 +7,11 @@ ENV NODE_ENV development
 WORKDIR /app
 
 #ENV PYTHONUNBUFFERED=1
-RUN apk add --no-cache git openssl
+RUN apk add --no-cache git openssl \
+   && apk add --update --no-cache python3 curl unzip \
+   && ln -sf python3 /usr/bin/python \
+   && python3 -m ensurepip \
+   && pip3 install --no-cache --upgrade pip setuptools
 
 # To prevent “Error: could not get uid/gid”
 RUN npm config set unsafe-perm true
