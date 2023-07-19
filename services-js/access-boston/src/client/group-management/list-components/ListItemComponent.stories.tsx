@@ -9,6 +9,7 @@ const person: Person = {
   cn: '010',
   distinguishedName: '',
   displayName: 'Bob Roberts',
+  name: '',
   status: 'current',
   givenName: 'Bob',
   sn: 'Roberts',

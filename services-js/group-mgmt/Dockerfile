@@ -78,7 +78,7 @@ CMD ["yarn", "start"]
 #           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/group-mgmt:latest -f ./Dockerfile -t local-test/group-mgmt:latest --secret id=aws,src=$HOME/.aws/credentials ../..
 #           -> this will create an image tagged local-test/group-mgmt:latest on the local machine
 #       [c] from a terminal, in the group-mgmt folder, run
-#           docker-compose up --no-build -d group-mgmt
+#           docker compose up --no-build -d group-mgmt
 #           -> this will create a container which should start on your local machine, with your cloned repo mounted into
 #               so that your changes are immediately effective in the browser.
 #           -> you should be able to see the webapp at https://127.0.0.1:300/marriageintention ..etc

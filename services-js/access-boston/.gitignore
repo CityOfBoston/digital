@@ -4,3 +4,6 @@ service-provider.crt
 service-provider.key
 /pingid.properties
 /apps.yaml
+
+.env
+2023.06.30.env
