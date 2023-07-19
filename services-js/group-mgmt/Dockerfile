@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1
 FROM node:14.19.1-alpine as build_phase
 
+# ARG S3_ENV_PATH='s3://cob-digital-apps-staging-config/group-mgmt/test'
+
 ENV WORKSPACE=group-mgmt
 ENV NODE_ENV development
 
@@ -59,10 +61,7 @@ WORKDIR /app/services-js/${WORKSPACE}
 RUN yarn run build
 
 #ADD ./.aws /root/.aws
-RUN --mount=type=secret,id=aws,target=/root/.aws/credentials \
-  BUILD_ID=$(cat /app/services-js/group-mgmt/build/.next/BUILD_ID) \
-    echo "OOPS"
-#RUN rm -rf /root/.aws
+RUN --mount=type=secret,id=aws,target=/root/.aws/credentials
 
 EXPOSE 3000
 
