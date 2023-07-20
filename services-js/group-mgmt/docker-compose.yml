@@ -4,7 +4,7 @@ services:
     image: local-test/group-mgmt:latest
     container_name: group-mgmt
     ports:
-      - 3000:3000
+      - 443:3000
     working_dir: /app/services-js/group-mgmt
     extra_hosts:
       - iamdir-test.boston.gov:10.241.111.31
@@ -20,5 +20,5 @@ services:
       YARN_VERSION: 1.22.17
       WORKSPACE: group-mgmt
       NODE_ENV: production
-      USE_SSL: 1
+      USE_SSL: true
     network_mode: bridge
