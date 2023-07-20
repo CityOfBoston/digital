@@ -29,6 +29,8 @@ ADD . /app/
 #ADD package-json.tar /app/
 #ADD yarn.lock lerna.json .yarnrc /app/
 
+RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
+
 RUN yarn install
 
 # This is the time consuming step +/-300secs
@@ -40,7 +42,7 @@ FROM node:14.19.1-alpine as deploy_phase
 
 ENV WORKSPACE access-boston
 ENV NODE_ENV development
-ENV USE_SSL 1
+ENV USE_SSL true
 
 COPY --from=build_phase /app /app
 
@@ -61,7 +63,7 @@ WORKDIR /app/services-js/${WORKSPACE}
 RUN yarn run build
 
 #ADD ./.aws /root/.aws
-RUN --mount=type=secret,id=aws,target=/root/.aws/credentials
+#RUN --mount=type=secret,id=aws,target=/root/.aws/credentials
 
 RUN --mount=type=secret,id=aws,target=/root/.aws/credentials \
   BUILD_ID=$(cat /app/services-js/access-boston/build/.next/BUILD_ID) && \

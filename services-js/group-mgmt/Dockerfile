@@ -8,7 +8,7 @@ ENV NODE_ENV development
 
 WORKDIR /app
 
-#ENV PYTHONUNBUFFERED=1
+ENV PYTHONUNBUFFERED=1
 RUN apk add --no-cache git openssl \
    && apk add --update --no-cache python3 curl unzip \
    && ln -sf python3 /usr/bin/python \
@@ -42,7 +42,7 @@ FROM node:14.19.1-alpine as deploy_phase
 
 ENV WORKSPACE group-mgmt
 ENV NODE_ENV development
-ENV USE_SSL 1
+ENV USE_SSL=true
 
 COPY --from=build_phase /app /app
 
@@ -63,7 +63,7 @@ WORKDIR /app/services-js/${WORKSPACE}
 RUN yarn run build
 
 #ADD ./.aws /root/.aws
-RUN --mount=type=secret,id=aws,target=/root/.aws/credentials
+#RUN --mount=type=secret,id=aws,target=/root/.aws/credentials
 
 EXPOSE 3000
 
