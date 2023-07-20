@@ -29,6 +29,8 @@ ADD . /app/
 #ADD package-json.tar /app/
 #ADD yarn.lock lerna.json .yarnrc /app/
 
+RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
+
 RUN yarn install
 
 # This is the time consuming step +/-300secs
