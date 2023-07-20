@@ -63,6 +63,16 @@ RUN yarn run build
 #ADD ./.aws /root/.aws
 RUN --mount=type=secret,id=aws,target=/root/.aws/credentials
 
+RUN --mount=type=secret,id=aws,target=/root/.aws/credentials \
+  BUILD_ID=$(cat /app/services-js/access-boston/build/.next/BUILD_ID) && \
+  aws s3 cp --recursive --acl public-read /app/services-js/access-boston/build/.next/static/${BUILD_ID} s3://cob-digital-apps-staging-static/access-boston/_next/static/${BUILD_ID}/ && \
+  aws s3 cp --recursive --acl public-read /app/services-js/access-boston/build/.next/static/chunks s3://cob-digital-apps-staging-static/access-boston/_next/static/chunks/ && \
+  aws s3 cp --recursive --acl public-read /app/services-js/access-boston/build/.next/static/runtime s3://cob-digital-apps-staging-static/access-boston/_next/static/runtime/ && \
+  aws s3 cp --recursive --acl public-read /app/services-js/access-boston/build/.next/static/${BUILD_ID} s3://cob-digital-apps-prod-static/access-boston/_next/static/${BUILD_ID}/ && \
+  aws s3 cp --recursive --acl public-read /app/services-js/access-boston/build/.next/static/chunks s3://cob-digital-apps-prod-static/access-boston/_next/static/chunks/ && \
+  aws s3 cp --recursive --acl public-read /app/services-js/access-boston/build/.next/static/runtime s3://cob-digital-apps-prod-static/access-boston/_next/static/runtime/ || \
+    echo "OOPS"
+
 EXPOSE 3000
 
 ENV NODE_ENV production

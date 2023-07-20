@@ -21,7 +21,7 @@
     "generate-graphql-schema": "mkdir -p graphql && ts2gql src/server/graphql/schema.ts > graphql/schema.graphql",
     "generate-graphql-types": "npx apollo codegen:generate --includes=\"src/client/graphql/**/*.ts\" --localSchemaFile=graphql/schema.graphql --target=typescript --outputFlat --no-addTypename src/client/graphql/queries.ts",
     "prepare-deploy": "build-storybook -s static",
-    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy deploy/Dockerfile",
+    "codebuild-deploy": "npx -p ../../deploy-tools.tgz codebuild-service-deploy Dockerfile",
     "postdeploy": "ts-node --project ./tsnode.config.json ./scripts/post-deploy && yarn run cacheBuster",
     "update-storyshots": "jest -u",
     "cacheBuster": "source /app/scripts/cacheBuster.sh access-boston"
