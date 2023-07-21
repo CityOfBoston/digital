@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
 import fetch from 'node-fetch';
+import { AbortController } from 'node-abort-controller';
 import Boom from 'boom';
 // import { fetch as crossFetch } from 'cross-fetch';
 
@@ -218,7 +219,7 @@ export async function makeServer(port, rollbar: Rollbar) {
 
   await addGraphQl(server, appsRegistry, identityIq, pingId, rollbar);
 
-  await addVelocityTemplates(server, rollbar);
+  await addVelocityTemplates(server);
 
   // We don't turn on Next for test mode because it hangs Jest.
   if (process.env.NODE_ENV !== 'test') {
@@ -305,8 +306,7 @@ async function addGraphQl(
   });
 }
 
-async function addVelocityTemplates(server: HapiServer, rollbar?: Rollbar) {
-  const erReporting = rollbar;
+async function addVelocityTemplates(server: HapiServer) {
   server.route({
     path: '/ping/login',
     method: 'GET',
@@ -441,32 +441,43 @@ async function addVelocityTemplates(server: HapiServer, rollbar?: Rollbar) {
       timeout: { server: 15000 },
     },
     handler: async _req => {
+      const controller = new AbortController();
+      const signal = controller.signal;
+
       const fetchQ = async this_req => {
         const query = this_req.payload.query;
         const variables = this_req.payload.variables;
-        return await fetch(
+        const requestInit = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            token: `${process.env.GROUP_MGMT_API_KEY}` as string,
+          },
+          body: JSON.stringify({
+            query,
+            variables,
+          }),
+          signal,
+        };
+        const timeout = setTimeout(() => {
+          controller.abort();
+        }, 3000);
+
+        const fetchData = await fetch(
           `${process.env.GROUP_MANAGEMENT_API_URL}` as string,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              token: `${process.env.GROUP_MGMT_API_KEY}` as string,
-            },
-            body: JSON.stringify({
-              query,
-              variables,
-            }),
-          }
+          requestInit
         )
           .then(response => response.json())
           .then(response => response)
           .catch(error => {
-            console.log(error);
-            // console.error(error);
-            // if (erReporting && erReporting !== undefined) rollbar.error(error);
-            console.log('erReporting', erReporting);
+            console.log('Error fetchGraphql: ', error);
+            console.error('Error fetchGraphql: ', error);
             return {};
           });
+
+        clearTimeout(timeout);
+
+        return await fetchData;
       };
 
       return await fetchQ(_req);

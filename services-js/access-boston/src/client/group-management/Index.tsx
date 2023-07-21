@@ -132,11 +132,10 @@ export default function Index(props: Props) {
   };
 
   const getAdminMinGroups = async () => {
-    console.log('getAdminMinGroups >>>>>||||<<<<<');
     fetchMinimumUserGroups(groups).then(result => {
-      console.log('result: ', result);
+      console.log('getAdminMinGroups > result: ', result);
       let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
-        console.log('entry');
+        console.log('getAdminMinGroups> result > entry');
         let remappedObj = renameObjectKeys(
           { member: 'members', memberof: 'members' },
           entry

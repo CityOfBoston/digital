@@ -443,7 +443,12 @@ export async function makeServer() {
 const resolvers = {
   Mutation: {
     async updateGroupMembers() {
-      console.log('Resolvers > updateGroupMembers (args): ', arguments[1]);
+      console.log(
+        'Resolvers > updateGroupMembers (args): ',
+        arguments[1],
+        'end of args',
+        '---'
+      );
 
       try {
         const opts = {
@@ -454,14 +459,17 @@ const resolvers = {
         };
 
         let dns: any = [];
-        let dn_list: any = [];
+        let dn_list: Array<string> = [];
 
         if (opts.dns && opts.dns.length > 0) {
           dns = await convertDnsToGroupDNs(opts.dns);
+          console.log('dns: ', dns);
           dn_list = dns.map(entry => entry.group.dn);
 
           // TODO: Re-enable to only allow Group Owners to edit their groups
           const is_DNInOUs = isDNInOUs(opts.dn, dn_list);
+          console.log('dn_list: ', dn_list);
+          console.log('opts: ', opts);
           console.log('is_DNInOUs: ', is_DNInOUs);
           if (!is_DNInOUs) {
             console.log('isDNInOUs WILL BLOCK THIS Transactions');

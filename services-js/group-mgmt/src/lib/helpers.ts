@@ -247,14 +247,18 @@ export const filteredObjKeys = (obj: {}, str: string): string[] =>
 
 export const isDNInOUs = (dn: string, dns: Array<string>) => {
   let splitDN: any = dn.split(',');
+  console.log('isDNInOUs > splitDN: ', splitDN);
   splitDN.shift();
+  console.log('isDNInOUs > splitDN.shift(): ', splitDN);
   splitDN = splitDN
     .toString()
     .trim()
     .toLowerCase();
+  console.log('isDNInOUs > splitDN normalize: ', splitDN);
   const retArr = dns.filter(
     entry => entry.trim().toLocaleLowerCase() === splitDN
   );
+  console.log('isDNInOUs > splitDN.filtered: ', retArr);
   return retArr.length > 0;
 };
 

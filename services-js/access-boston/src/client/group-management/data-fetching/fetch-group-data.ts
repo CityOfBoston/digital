@@ -199,9 +199,8 @@ export async function fetchPersonsGroups(
         } catch (error) {
           // eslint-disable-next-line no-console
           console.log('Error in fetchPersonsGroups: ', error);
+          return retgroup;
         }
-
-        return retgroup;
       })
     )
   );
