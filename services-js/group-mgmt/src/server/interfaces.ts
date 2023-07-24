@@ -235,6 +235,40 @@ export class PersonClass implements Person {
   }
 }
 
+export interface CommonAttributes {
+  distinguishedName: string;
+  cn: string;
+  displayname?: string;
+  objectclass?: Array<[string]>;
+}
+
+export class CommonAttributesClass implements CommonAttributes {
+  distinguishedName: string = '';
+  cn: string = '';
+  displayname: string = '';
+  objectclass: Array<[string]> = [];
+
+  constructor(opts: {
+    distinguishedName?: any;
+    cn?: any;
+    displayname?: any;
+    objectclass?: any;
+  }) {
+    opts = renameObjectKeys(remapObjKeys(this, opts), opts);
+
+    const objectclass = convertOptionalArray(
+      opts.objectclass ? opts.objectclass : []
+    );
+
+    (this.distinguishedName = opts.distinguishedName
+      ? opts.distinguishedName
+      : ''),
+      (this.cn = opts.cn ? opts.cn : ''),
+      (this.displayname = opts.displayname ? opts.displayname : ''),
+      (this.objectclass = objectclass);
+  }
+}
+
 export interface FilterOptions {
   filterType: string;
   field: string;
@@ -300,7 +334,7 @@ export const LdapFilters = {
 };
 
 export const CustomAttributes = {
-  default: ['distinguishedName', 'cn'],
+  default: ['distinguishedName', 'cn', 'displayname', 'objectclass'],
   all: [],
 };
 

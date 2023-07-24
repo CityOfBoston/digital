@@ -50,7 +50,7 @@ describe('toPerson', () => {
       groups: ['BPD_Districts'],
       givenName: 'Terra',
       sn: 'Howard',
-      mail: 'terra.howard@boston.gov',
+      // mail: 'terra.howard@boston.gov',
       displayName: 'Terra Howard',
     });
   });

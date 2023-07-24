@@ -1,6 +1,6 @@
 [
   {
-    "dn": "cn=000296,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=000296,cn=Internal Users,dc=boston,dc=cob",
     "memberOf": ["BPD_Districts"],
     "sn": "Howard",
     "givenname": "Terra",
@@ -10,7 +10,7 @@
     "nsaccountlock": "TRUE"
   },
   {
-    "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
     "memberOf": [
       "ANML02_LostFound",
       "BPD_Administrative",
@@ -25,7 +25,7 @@
     "nsaccountlock": "TRUE"
   },
   {
-    "dn": "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=Ignis Scientia,cn=Internal Users,dc=boston,dc=cob",
     "memberOf": ["ANML02_LostFound", "BPD_Districts", "BPD_Administrative"],
     "sn": "Scientia",
     "mail": "ignis.scientia@cityofboston.gov",
@@ -35,7 +35,7 @@
     "nsaccountlock": "TRUE"
   },
   {
-    "dn": "cn=Laguna Loire,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=Laguna Loire,cn=Internal Users,dc=boston,dc=cob",
     "memberOf": ["ANML02_LostFound", "BPD_Districts"],
     "sn": "Loire",
     "mail": "laguna.loire@cityofboston.gov",
@@ -45,7 +45,7 @@
     "nsaccountlock": "TRUE"
   },
   {
-    "dn": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=132367,cn=Internal Users,dc=boston,dc=cob",
     "memberOf": [],
     "sn": "Smith",
     "mail": "sam.smith@cityofboston.gov",
@@ -66,7 +66,7 @@
   
 
   {
-    "dn": "cn=010613,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=010613,cn=Internal Users,dc=boston,dc=cob",
     "cn": "010613",
     "givenname": "John",
     "sn": "Brennan",
@@ -87,7 +87,7 @@
   },
 
   {
-    "dn": "cn=010650,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=010650,cn=Internal Users,dc=boston,dc=cob",
     "cn": "010650",
     "givenname": "Kathleen",
     "sn": "Clancy",
@@ -109,7 +109,7 @@
   },
 
   {
-    "dn": "cn=010688,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=010688,cn=Internal Users,dc=boston,dc=cob",
     "cn": "010688",
     "givenname": "Michael",
     "sn": "Gavin",
@@ -131,7 +131,7 @@
   },
 
   {
-    "dn": "cn=010719,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=010719,cn=Internal Users,dc=boston,dc=cob",
     "cn": "010719",
     "givenname": "William",
     "sn": "Knecht",
@@ -155,7 +155,7 @@
   {
     "cn": "097210",
     "displayname": "Hill,Frank L.",
-    "dn": "cn=097210,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=097210,cn=Internal Users,dc=boston,dc=cob",
     "givenname": "Frank",
     "memberOf": ["sg_ab_icims", "sg_ab_ess", "sg_ab_manager", "sg_ab_mlp", "SG_AB_PSFN", "SG_AB_PSHCM"],
     "mail": "097210@boston.k12.ma.us",
@@ -165,7 +165,7 @@
   {
     "cn": "010537",
     "displayname": "Gallarelli,Joseph A",
-    "dn": "cn=010537,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=010537,cn=Internal Users,dc=boston,dc=cob",
     "givenname": "Joseph",
     "memberOf": [
       "sg_ab_icims",
@@ -184,7 +184,7 @@
   {
     "cn": "141860",
     "displayname": "Dierdre Connelly",
-    "dn": "cn=141860,cn=Internal Users,dc=boston,dc=cob",
+    "distinguishedName": "cn=141860,cn=Internal Users,dc=boston,dc=cob",
     "givenname": "Dierdre",
     "memberOf": ["AP OID Default", "sg_ab_icims", "sg_ab_ess", "sg_ab_sponsor", "sg_ab_mlp", "SG_AB_PSHCM"],
     "mail": "dierdre.connelly2@pd.boston.gov",

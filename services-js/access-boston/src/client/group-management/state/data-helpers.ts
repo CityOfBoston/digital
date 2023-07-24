@@ -94,8 +94,8 @@ export function toPerson(dataObject): RetPerson {
     dataObject.memberOf.length > 0
       ? chunkArray(dataObject.memberOf, pageSize)
       : [[]];
-  console.log('toPerson > dataObject: ', dataObject);
-  console.log('chunked: ', chunkedResults, '\n------------');
+  // console.log('toPerson > dataObject: ', dataObject);
+  // console.log('chunked: ', chunkedResults, '\n------------');
   const retObj = {
     ...commonAttributes(dataObject),
     groups: dataObject.memberOf || [],

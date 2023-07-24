@@ -6770,13 +6770,6 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
             Cloud Howell
              
           </h1>
-          <address>
-            <a
-              href="mailto:cloud.howell@cityofboston.gov"
-            >
-              cloud.howell@cityofboston.gov
-            </a>
-          </address>
         </div>
       </div>
     </div>
@@ -7674,13 +7667,6 @@ exports[`Storyshots GroupManagementPage/SelectedComponent person view 1`] = `
           Cloud Howell
            
         </h1>
-        <address>
-          <a
-            href="mailto:cloud.howell@cityofboston.gov"
-          >
-            cloud.howell@cityofboston.gov
-          </a>
-        </address>
       </div>
     </div>
   </div>
