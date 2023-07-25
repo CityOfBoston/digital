@@ -1,0 +1,24 @@
+version: '3'
+services:
+  group-mgmt:
+    image: local-test/group-mgmt:latest
+    container_name: group-mgmt
+    ports:
+      - 443:3000
+    working_dir: /app/services-js/group-mgmt
+    extra_hosts:
+      - iamdir-test.boston.gov:10.241.111.31
+    volumes:
+      - ~/.aws:/root/.aws
+    environment:
+      AWS_S3_CONFIG_URL: s3://cob-digital-apps-staging-config/group-mgmt
+      DEPLOY_VARIANT: test
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_REGION: us-east-1
+      PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      NODE_VERSION: 14.19.1
+      YARN_VERSION: 1.22.17
+      WORKSPACE: group-mgmt
+      NODE_ENV: production
+      USE_SSL: true
+    network_mode: bridge
