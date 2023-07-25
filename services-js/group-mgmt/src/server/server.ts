@@ -90,20 +90,20 @@ const search_promise = (err, res) => {
     res.on('searchEntry', entry => {
       let currEntry = entry.object || {};
       // console.log('search_promise > promise > entry:', entry);
-      console.log('search_promise > promise > entry.object:', entry.object);
-      console.log('search_promise > promise > currEntry:', currEntry);
+      // console.log('search_promise > promise > entry.object:', entry.object);
+      // console.log('search_promise > promise > currEntry:', currEntry);
       currEntry = renameObjectKeys(
         remapObjKeys(refInstance, currEntry),
         currEntry
       );
-      console.log(
-        'search_promise > promise > currEntry > renameObjectKeys:',
-        currEntry
-      );
-      console.log(
-        'search_promise > promise > currEntry:',
-        currEntry.objectclass
-      );
+      // console.log(
+      //   'search_promise > promise > currEntry > renameObjectKeys:',
+      //   currEntry
+      // );
+      // console.log(
+      //   'search_promise > promise > currEntry:',
+      //   currEntry.objectclass
+      // );
       if (currEntry.objectclass.indexOf('organizationalPerson') > -1) {
         const Person: Person = new PersonClass(currEntry);
         entries.push(Person);
@@ -113,17 +113,17 @@ const search_promise = (err, res) => {
         currEntry.objectclass.indexOf('group') > -1 ||
         currEntry.objectclass.indexOf('container') > -1
       ) {
-        console.log(
-          'search_promise > promise > currEntry(group|container):',
-          currEntry.objectclass.indexOf('group')
-        );
-        currEntry['onlyActiveMembers'] = true;
-        console.log(
-          'search_promise > promise > currEntry(onlyActiveMembers):',
-          currEntry
-        );
+        // console.log(
+        //   'search_promise > promise > currEntry(group|container):',
+        //   currEntry.objectclass.indexOf('group')
+        // );
+        // currEntry['onlyActiveMembers'] = true;
+        // console.log(
+        //   'search_promise > promise > currEntry(onlyActiveMembers):',
+        //   currEntry
+        // );
         const Group: Group = new GroupClass(currEntry);
-        console.log('search_promise > promise > currEntry(Group): ', Group);
+        // console.log('search_promise > promise > currEntry(Group): ', Group);
         entries.push(Group);
       }
 
@@ -343,18 +343,14 @@ const getDnsSearchResults = async (base_dn, filter, filterQryParams) => {
   return results;
 };
 
-const getFilteredResults = async (filter: FilterOptions, filterQryParams) => {
-  console.log(
-    `getFilteredResults > filter|filterQryParams: `,
-    filter,
-    filterQryParams
-  );
+export const getFilteredResults = async (
+  filter: FilterOptions,
+  filterQryParams
+) => {
   try {
     const promises = filter.dns.map(async value => {
-      console.log(`getFilteredResults > filter: `, filter);
-      console.log(`getFilteredResults > filterQryParams: `, filterQryParams);
       return await getDnsSearchResults(
-        value.toLowerCase(),
+        value[0].distinguishedName.toLowerCase(),
         filter,
         filterQryParams
       );
@@ -380,7 +376,6 @@ const searchWrapper = async (
     by: '',
   }
 ) => {
-  // console.log('FIRST!!!! attributes: ', attributes);
   const base_dn = env.LDAP_BASE_DN;
   const filterValue = getFilterValue(filter);
   const thisAttributes =
@@ -394,62 +389,22 @@ const searchWrapper = async (
   };
   let results: any;
 
-  // console.log(
-  //   'searchWrapper > attr math: ',
-  //   typeof attributes === 'object' && attributes.length > 1
-  // );
-  // console.log('searchWrapper > filter: ', filter);
-  // console.log('searchWrapper > filter.filterType: ', filter.filterType);
-  // console.log('searchWrapper > thisAttributes: ', thisAttributes);
-  // console.log(
-  //   'searchWrapper > setAttributes: ',
-  //   setAttributes(attributes, filter.filterType)
-  // );
-  // console.log('searchWrapper > filterQryParams: ', filterQryParams);
-
-  if (filter.dns.length > 0) {
-    // console.log(
-    //   'searchWrapper > filter.dns.length > 0: ',
-    //   filter.dns.length > 0,
-    //   filter
-    // );
-    try {
-      results = await getFilteredResults(filter, filterQryParams);
-      console.log('searchWrapper > filter.dns.length > 0 > results: ', results);
-    } catch (err) {
-      console.log('filteredResults > err: ', err);
+  results = new Promise(function(resolve, reject) {
+    bindLdapClient();
+    if (
+      filter.filterType === 'person' &&
+      filter.field === 'cn' &&
+      filter.value.length < 2
+    ) {
+      reject();
     }
-  } else {
-    console.log('searchWrapper > filter.dns.length > 0 else: ');
-    results = new Promise(function(resolve, reject) {
-      bindLdapClient();
-      if (
-        filter.filterType === 'person' &&
-        filter.field === 'cn' &&
-        filter.value.length < 2
-      ) {
-        console.log('searchWrapper > filter.dns.length > 0 else > if: ');
-        console.log(
-          `filter.filterType === 'person': `,
-          filter.filterType === 'person'
-        );
-        console.log(`filter.field === 'cn': `, filter.field === 'cn');
-        console.log(`filter.value === 'person': `, filter.value === 'person');
-        reject();
+    ldapClient.search(base_dn, filterQryParams, function(err, res) {
+      if (err) {
+        console.log('ldapsearch error(on searchWrapper): ', err);
       }
-      ldapClient.search(base_dn, filterQryParams, function(err, res) {
-        if (err) {
-          console.log('ldapsearch error(on searchWrapper): ', err);
-        }
-        console.log(
-          'ldap.search > resolve (base_dn|filterQryParams): ',
-          base_dn,
-          filterQryParams
-        );
-        resolve(search_promise(err, res));
-      });
+      resolve(search_promise(err, res));
     });
-  }
+  });
 
   return results;
 };
@@ -469,67 +424,47 @@ const convertDnsToGroupDNs = async (
   mode: string = 'filtered'
 ) => {
   const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
-  let promisedGroup: any = [];
+  const promises = CNs.map(async value => {
+    const filterParams: FilterOptions = new FilterOptionsClass({
+      filterType: 'group',
+      field: 'cn',
+      value,
+      allowInactive: false,
+    });
 
-  await Promise.all(
-    CNs.map(async value => {
-      const filterParams: FilterOptions = new FilterOptionsClass({
-        filterType: 'group',
-        field: 'cn',
-        value,
-        allowInactive: false,
-      });
+    const group: any = await searchWrapper(['all'], filterParams);
+    let retObj: any = {};
+    let groupRetObj: any = {};
 
-      promisedGroup.push({
-        group: await searchWrapper(['all'], filterParams),
-        filterParams,
-        value,
-      });
-    })
-  );
-  console.log('convertDnsToGroupDNs > promisedGroup: ', promisedGroup);
-
-  const results = promisedGroup
-    .map(elem => {
-      let retObj: any = {};
-      let groupRetObj: any = {};
-
-      if (elem.group.length > 0) {
-        if (mode && mode === 'group') {
-          const newGroup: Group = new GroupClass({});
-          groupRetObj =
-            elem.group.length > 0 && elem.group[0].distinguishedName
-              ? elem.group[0]
-              : newGroup;
-          retObj = groupRetObj;
-        } else {
-          groupRetObj =
-            elem.group.length > 0 && elem.group[0].distinguishedName
-              ? {
-                  distinguishedName: elem.group[0].distinguishedName,
-                  cn: elem.group[0].cn,
-                }
-              : { distinguishedName: '', cn: '' };
-          retObj = {
-            cn: elem.value,
-            filterParams: elem.filterParams,
-            group: groupRetObj,
-          };
-        }
-        return retObj;
+    if (group.length > 0) {
+      if (mode && mode === 'group') {
+        const newGroup: Group = new GroupClass({});
+        groupRetObj = group.length > 0 && group[0].dn ? group[0] : newGroup;
+        retObj = groupRetObj;
+      } else {
+        groupRetObj =
+          group.length > 0 && group[0].dn
+            ? { dn: group[0].dn, cn: group[0].cn }
+            : { dn: '', cn: '' };
+        retObj = {
+          cn: value,
+          filterParams,
+          group: groupRetObj,
+        };
       }
-    })
-    .filter(obj => typeof obj !== 'undefined');
+      return retObj;
+    }
+  });
 
-  // const results = await (await Promise.all(promises)).filter(
-  //   obj => typeof obj !== 'undefined'
-  // );
+  const results = await (await Promise.all(promises)).filter(
+    obj => typeof obj !== 'undefined'
+  );
 
   return results.filter(entry => {
-    if (entry.distinguishedName) {
-      return entry.distinguishedName !== '';
+    if (entry.dn) {
+      return entry.dn !== '';
     } else {
-      return entry.group.distinguishedName !== '';
+      return entry.group.dn !== '';
     }
   });
 };
@@ -538,22 +473,28 @@ const getGroupChildren = async (parentDn: string = '') => {
   const parentCN = abstractDN(parentDn)['cn'][0];
   const filterQryParams = {
     scope: 'sub',
-    attrs: '',
-    // filter: `(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(!(cn=${parentCN})))`,
-    filter: `(&(|(objectClass=group)(!(cn=*${parentCN}*)))`,
+    attrs: ['cn', 'distinguishedName'],
+    filter: `(&(|(objectClass=group))(!(cn=${parentCN})))`,
+    // filter: `(&(|(objectClass=group)(!(cn=*${parentCN}*)))`,
   };
-  const results = new Promise(function(resolve, reject) {
-    bindLdapClient();
-    ldapClient.search(parentDn, filterQryParams, function(err, res) {
-      if (err) {
-        console.log('ldapsearch error: ', err);
-        reject();
-      }
-      resolve(search_promise(err, res));
+  // console.log('getGroupChildren > parentCN: ', parentCN, parentDn);
+  // console.log('getGroupChildren > filterQryParams: ', filterQryParams);
+  try {
+    const results = new Promise(function(resolve, reject) {
+      bindLdapClient();
+      ldapClient.search(parentDn, filterQryParams, function(err, res) {
+        if (err) {
+          console.log('ldapsearch error: ', err);
+          reject();
+        }
+        resolve(search_promise(err, res));
+      });
     });
-  });
-
-  return await results;
+    return await results;
+  } catch (error) {
+    console.log(`getGroupChildren > error: `, error);
+    return [];
+  }
 };
 
 export async function makeServer() {
@@ -609,8 +550,6 @@ export async function makeServer() {
 }
 
 export const getGroupByCN = async (cn: string, dns: Array<string> = []) => {
-  console.log(`getGroupByCN > cn: `, cn);
-  console.log(`getGroupByCN > dns: `, dns);
   const value = cn;
   const filterParams: FilterOptions = new FilterOptionsClass({
     filterType: 'group',
@@ -697,30 +636,55 @@ const resolvers = {
   },
   Query: {
     async getMinimumUserGroups(_parent: any, args: { dns: Array<string> }) {
-      // const convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
-      // const maxMinimum = 9;
-      // let groups: any = [];
-      // let currDisplayCount = 0;
-      // while (currDisplayCount < maxMinimum) {
-      //   if (convertedDNs.length > 0) {
-      //     const thisArr = convertedDNs.shift();
-      //     const groupChildren: any = await getGroupChildren(thisArr.dn);
-      //     if (currDisplayCount < maxMinimum && groupChildren.length > 0) {
-      //       const remainingFromMax = maxMinimum - currDisplayCount;
-      //       if (groupChildren.length < remainingFromMax) {
-      //         groups = [...groups, ...groupChildren];
-      //       } else {
-      //         for (let i = remainingFromMax; i > 0; i--) {
-      //           groups.push(groupChildren[i]);
-      //         }
-      //       }
-      //     }
-      //   }
-      //   currDisplayCount++;
-      // }
-      // return groups;
-      console.log('args: ', args);
-      return [];
+      // let convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
+
+      let dns: any = [];
+      if (args.dns && args.dns.length > 0) {
+        if (args.dns.length > 1) {
+          await Promise.all(
+            args.dns.map(async cn => {
+              dns.push(await getGroupByCN(cn));
+            })
+          );
+        } else {
+          dns = await getGroupByCN(args.dns[0]);
+        }
+      }
+      // console.log('getMinimumUserGroups > dns: ', dns);
+      // console.log('getMinimumUserGroups > convertedDNs: ', convertedDNs);
+
+      const maxMinimum = 9;
+      let currDisplayCount = 0;
+      let groups: any = [];
+      while (currDisplayCount < maxMinimum) {
+        if (dns.length > 0) {
+          try {
+            const thisArr = dns.shift()[0];
+            console.log(`thisArr: `, thisArr);
+            const groupChildren: any = await getGroupChildren(
+              thisArr.distinguishedName
+            );
+            console.log('groupChildren: ', groupChildren);
+            if (currDisplayCount < maxMinimum && groupChildren.length > 0) {
+              const remainingFromMax = maxMinimum - currDisplayCount;
+              if (groupChildren.length < remainingFromMax) {
+                groups = [...groups, ...groupChildren];
+              } else {
+                for (let i = remainingFromMax; i > 0; i--) {
+                  groups.push(groupChildren[i]);
+                }
+              }
+            }
+          } catch (error) {
+            console.log('getMinimumUserGroups ERROR: ', error);
+          }
+        }
+        currDisplayCount++;
+      }
+      console.log('getMinimumUserGroups > dns > groups:', groups);
+      return groups;
+      // console.log('args: ', args);
+      // return [];
     },
     async getGroupChildren(_parent: any, args: { parentDn: string }) {
       return await getGroupChildren(args.parentDn);
@@ -785,72 +749,29 @@ const resolvers = {
       return person;
     },
     async group(_parent: any, args: { cn: string; dns: Array<string> }) {
-      // let dns: any = [];
-      // console.log('args.dns: ', args.dns, ' | ', !args.dns);
+      let dns: any = [];
       if (args.dns && args.dns.length > 0) {
-        console.log('query > group > args.dns???: ', args.dns);
-        let retVal: any = [];
-        let convertedGroups: any = [];
-        console.log('args.dns >>>: ', args.dns);
-
-        await Promise.all(
-          args.dns.map(async cn => {
-            // convertedGroups.push(await getGroupByCN(cn));
-            const group = await convertDnsToGroupDNs([cn]);
-            convertedGroups.push(group);
-            console.log('cn | group: ', cn, group);
-          })
-        );
-        console.log('convertedGroups AFTER Promise.all?: ', convertedGroups);
-
-        // console.log(
-        //   `group > getGroupByCN: `,
-        //   await getGroupByCN(args.cn, args.dns)
-        // );
-        // const dns_Arr = [...args.dns];
-        // console.log('dns_Arr >>>: ', dns_Arr);
-        // const dnsGroupArr: any = [];
-        // [1, 2, 3, 4].reduce((prev, curr, currIndex) => {
-        //   console.log(`prev: ${prev} | curr: ${curr} | index: ${currIndex}`);
-        // });
-        // await dns_Arr.reduce(async entry => {
-        //   console.log('entry > ', await entry);
-        //   dnsGroupArr.push(await entry);
-        // }, Promise.resolve());
-        // console.log('dnsGroupArr >>>: ', dnsGroupArr);
-        // dns = await getGroupByCN(args.cn, args.dns);
-        // dns = await convertDnsToGroupDNs(args.dns).then(async response => {
-        // console.log('dns:::: ', dns);
-        //   console.log('query > group > args: ', args);
-        //   console.log('query > group > args.dns: ', args.dns, dns);
-        //   console.log('response:', response);
-
-        //   // retVal = await getGroupByCN(args.cn, dns);
-        // });
-        // console.log('group > convertDnsToGroupDNs > dns: ', dns);
-        // const dsn2GroupDNs = await convertDns2GroupDNs(dns);
-        // console.log('dsn2GroupDNs: ', dsn2GroupDNs);
-
-        return await retVal;
-      } else {
-        // console.log('query > group > args: ', args);
-        // console.log('query > group > args.dns: ', args.dns, dns);
-
-        // const groups = await getGroupByCN(args.cn, dns);
-
-        // const value = args.cn;
-        // const filterParams: FilterOptions = new FilterOptionsClass({
-        //   filterType: 'group',
-        //   field: 'cn',
-        //   value,
-        //   dns,
-        // });
-        // const groups: any = await searchWrapper(['all'], filterParams);
-        // return groups;
-        return [];
+        if (args.dns.length > 1) {
+          await Promise.all(
+            args.dns.map(async cn => {
+              dns.push(await getGroupByCN(cn));
+            })
+          );
+        } else {
+          dns = await getGroupByCN(args.dns[0]);
+        }
       }
-
-      // return [];
+      // console.log('group > dns: ', dns);
+      const value = args.cn;
+      const filterParams: FilterOptions = new FilterOptionsClass({
+        filterType: 'group',
+        field: 'cn',
+        value,
+        dns,
+      });
+      const groups: any = await searchWrapper(['all'], filterParams);
+      // const groups: any = await getGroupByCN(value);
+      return groups;
     },
     async groupSearch(
       _parent: any,
@@ -876,12 +797,12 @@ const resolvers = {
         allowInactive: args.allowInactive ? args.allowInactive : false,
         dns,
       });
-      console.log('groupSearch > filterParams: ', filterParams);
+      // console.log('groupSearch > filterParams: ', filterParams);
 
       let groups: any = await searchWrapper(['all'], filterParams);
-      console.log('groupSearch > groups: ', groups);
+      // console.log('groupSearch > groups: ', groups);
       groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
-      console.log('groupSearch > groups(filter): ', groups);
+      // console.log('groupSearch > groups(filter): ', groups);
       if (args.activemembers && args.activemembers === true) {
         await groups.forEach(async group => {
           if (typeof group.member === 'object' && group.member.length > 0) {
