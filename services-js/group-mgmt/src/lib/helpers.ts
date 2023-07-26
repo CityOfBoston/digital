@@ -208,6 +208,7 @@ export const chunkArray = (arr: Array<[]> = [], size: Number): object => {
 export const filterObj = (obj: object, keys: Array<string>): object => {
   let retObj = {};
   for (let i = 0; i < keys.length; i++) {
+    // eslint-disable-next-line no-prototype-builtins
     if (obj.hasOwnProperty(keys[i])) {
       const thisKey: string = keys[i];
       retObj[thisKey] = obj[thisKey];

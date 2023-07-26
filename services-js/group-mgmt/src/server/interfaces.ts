@@ -20,8 +20,9 @@ export interface objectclass {
 }
 
 export interface Member {
-  cn: String;
+  distinguishedName?: String;
   dn: String;
+  cn: String;
 }
 
 export interface ismemberOfObjectArray {
@@ -141,6 +142,7 @@ export interface Group {
 }
 
 export class GroupClass implements Group {
+  distinguishedName?: string = '';
   dn: string = '';
   cn: string = '';
   controls: Array<[controls]> = [];
@@ -153,6 +155,7 @@ export class GroupClass implements Group {
   ou?: string = '';
 
   constructor(opts: {
+    distinguishedName?: any;
     dn?: any;
     cn?: any;
     controls?: any;
@@ -176,7 +179,10 @@ export class GroupClass implements Group {
       opts.objectclass ? opts.objectclass : []
     );
 
-    (this.dn = opts.dn ? opts.dn : ''),
+    (this.distinguishedName = opts.distinguishedName
+      ? opts.distinguishedName
+      : ''),
+      (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.controls = controls),
       (this.uniquemember = opts.uniquemember ? members : []),
@@ -190,6 +196,7 @@ export class GroupClass implements Group {
 }
 
 export interface Person {
+  distinguishedName?: string;
   dn: string;
   cn: string;
   controls?: Array<[controls]>;
@@ -205,6 +212,7 @@ export interface Person {
 }
 
 export class PersonClass implements Person {
+  distinguishedName?: string = '';
   dn: string = '';
   cn: string = '';
   mail: string = '';
@@ -219,6 +227,7 @@ export class PersonClass implements Person {
   uid: string | number = '';
 
   constructor(opts: {
+    distinguishedName?: any;
     dn?: any;
     cn?: any;
     mail?: any;
@@ -250,7 +259,10 @@ export class PersonClass implements Person {
       typeof opts.ismemberof !== 'undefined' ? parseMembers(ismemberof) : []
     );
 
-    (this.dn = opts.dn ? opts.dn : ''),
+    (this.distinguishedName = opts.distinguishedName
+      ? opts.distinguishedName
+      : ''),
+      (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.mail = opts.mail ? opts.mail.trim() : ''),
       (this.sn = opts.sn ? opts.sn : ''),
@@ -303,6 +315,7 @@ export interface filterParams {
 }
 
 export interface group {
+  distinguishedName?: string;
   dn: string;
   cn: string;
 }
@@ -330,7 +343,7 @@ export const LdapFilters = {
 };
 
 export const CustomAttributes = {
-  default: ['dn', 'cn'],
+  default: ['dn', 'distinguishedName', 'cn'],
   all: [],
 };
 

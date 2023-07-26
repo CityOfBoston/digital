@@ -1,5 +1,6 @@
 export const typeDefs = `
   type Group {
+    distinguishedName: String!
     dn: String
     cn: String
     controls: [String!]!
@@ -13,8 +14,9 @@ export const typeDefs = `
   }
 
   type Person {
-    cn: String
+    distinguishedName: String!
     dn: String
+    cn: String
     mail: String
     sn: String
     givenname: String
@@ -55,6 +57,7 @@ export const typeDefs = `
   }
 
   type group {
+    distinguishedName: String!
     dn: String
     cn: String
   }
@@ -79,6 +82,7 @@ export const typeDefs = `
   # Defines all available mutations.
   type Mutation {
     updateGroupMembers(
+      distinguishedName: String!
       dn: String!
 			dns: [String]
 			operation: String!

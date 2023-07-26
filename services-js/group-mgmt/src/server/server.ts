@@ -473,6 +473,7 @@ const resolvers = {
   },
   Query: {
     async getMinimumUserGroups(_parent: any, args: { dns: Array<string> }) {
+      console.log('getMinimumUserGroups > TOP');
       const convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
       const maxMinimum = 9;
       let groups: any = [];
@@ -482,6 +483,11 @@ const resolvers = {
         if (convertedDNs.length > 0) {
           const thisArr = convertedDNs.shift();
           const groupChildren: any = await getGroupChildren(thisArr.dn);
+          console.log(
+            'getMinimumUserGroups > getGroupChildren(thisArr.dn) > groupChildren: ',
+            thisArr.dn,
+            groupChildren
+          );
           if (currDisplayCount < maxMinimum && groupChildren.length > 0) {
             const remainingFromMax = maxMinimum - currDisplayCount;
             if (groupChildren.length < remainingFromMax) {
@@ -505,11 +511,7 @@ const resolvers = {
       const dn_list = dns.map(entry => entry.group.dn);
       return dn_list;
     },
-    async isPersonInactive(parent: any, args: any) {
-      if (parent) {
-        console.log('parent: personSearch');
-      }
-
+    async isPersonInactive(_parent: any, args: any) {
       const retArr: Array<[]> = [];
       const promises = await args.people.map(async (cn: any) => {
         const value = cn.indexOf('=') > -1 ? abstractDN(cn)['cn'][0] : cn;
