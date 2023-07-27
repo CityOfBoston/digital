@@ -9,17 +9,17 @@ import {
 
 // (COMMON) START | Base attributes
 export interface controls {
-  controls: String;
+  controls: string;
 }
 
 export interface objectclass {
-  objectclass: String;
+  objectclass: string;
 }
 
 export interface Member {
-  distinguishedName?: String;
-  dn: String;
-  cn: String;
+  distinguishedName?: string;
+  dn: string;
+  cn: string;
 }
 // (COMMON) END | Base attributes
 
@@ -27,11 +27,11 @@ export interface Member {
 
 // (GROUP) START | Base attributes
 export interface uniquemember {
-  uniquemember: String;
+  uniquemember: string;
 }
 
 export interface member {
-  member: String;
+  member: string;
 }
 // (GROUP) END | Base attributes
 
@@ -41,6 +41,9 @@ export interface member {
 export interface ismemberOfObjectArray {
   group: Member;
 }
+export interface memberOfObjectArray {
+  group: Member;
+}
 // (PERSON) END | Base attributes
 
 export interface isMember {
@@ -48,17 +51,17 @@ export interface isMember {
 }
 
 export interface Error {
-  resonse: String;
+  resonse: string;
 }
 
 export interface ResponseBody {
-  data: String;
+  data: string;
   error: Error;
 }
 
 export interface Response {
-  message: String;
-  code: String;
+  message: string;
+  code: string;
   body: ResponseBody;
 }
 
@@ -105,25 +108,25 @@ export class Api_Scopes implements ApiScopes {
 }
 
 export interface SearchOptions {
-  base?: String;
+  base?: string;
   scope?: Number;
-  filter?: String;
-  attrs?: String;
+  filter?: string;
+  attrs?: string;
   pagesize?: Number;
 }
 
 export class SearchOptionsClass implements SearchOptions {
-  base: String = '';
+  base: string = '';
   scope: Number = 2;
-  filter: String = '';
-  attrs: String = '';
+  filter: string = '';
+  attrs: string = '';
   pagesize: Number = 10;
 
   constructor(opts: {
     base?: any;
     scope?: Number;
-    filter?: String;
-    attrs?: String;
+    filter?: string;
+    attrs?: string;
     pagesize?: Number;
   }) {
     const Scopes = new Api_Scopes({});
@@ -143,46 +146,32 @@ export class objectClassArray {
 }
 
 export interface Group {
+  distinguishedName?: string;
   dn?: string;
   cn?: string;
-  controls?: Array<[controls]>;
   member?: Array<member>;
   uniquemember?: Array<[uniquemember]>;
-  owner?: Array<[string]>;
-  actualdn?: string;
-  entrydn?: string;
   objectclass?: Array<[objectclass]>;
   displayname?: string;
-  ou?: string;
 }
 
 export class GroupClass implements Group {
   distinguishedName?: string = '';
-  dn: string = '';
+  dn?: string = '';
   cn: string = '';
-  controls: Array<[controls]> = [];
   member?: Array<member> = [];
   uniquemember?: Array<[uniquemember]> = [];
-  owner: Array<[string]> = [];
-  actualdn: string = '';
-  entrydn: string = '';
   objectclass?: Array<[objectclass]> = [];
   displayname?: string = '';
-  ou?: string = '';
 
   constructor(opts: {
     distinguishedName?: any;
     dn?: any;
     cn?: any;
-    controls?: any;
     member?: any;
     uniquemember?: any;
-    owner?: any;
-    actualdn?: any;
-    entrydn?: any;
     objectclass?: any;
     displayname?: any;
-    ou?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     let uniquemembers: any = [];
@@ -208,8 +197,6 @@ export class GroupClass implements Group {
     }
     // -------------------------------------
 
-    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
-    const owner = convertOptionalArray(opts.owner ? opts.owner : []);
     const objectclass = convertOptionalArray(
       opts.objectclass ? opts.objectclass : []
     );
@@ -219,29 +206,42 @@ export class GroupClass implements Group {
       : ''),
       (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
-      (this.controls = controls),
       (this.member = opts.member ? members : []),
       (this.uniquemember = opts.uniquemember ? uniquemembers : []),
-      (this.owner = owner),
-      (this.actualdn = opts.actualdn ? opts.actualdn : ''),
-      (this.entrydn = opts.entrydn ? opts.entrydn : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
-      (this.ou = opts.ou ? opts.ou : ''),
       (this.objectclass = objectclass);
+
+    if (uniquemembers.length > 0 && members.length < 1) {
+      this.member = [...uniquemembers];
+    }
+    if (members.length > 0 && uniquemembers.length < 1) {
+      this.uniquemember = [...members];
+    }
+
+    if (opts.dn && opts.dn.length > 0 && !opts.distinguishedName) {
+      this.distinguishedName = opts.dn;
+    }
+
+    if (
+      opts.distinguishedName &&
+      opts.distinguishedName.length > 0 &&
+      !opts.dn
+    ) {
+      this.dn = opts.distinguishedName;
+    }
   }
 }
 
 export interface Person {
   distinguishedName?: string;
-  dn: string;
+  dn?: string;
   cn: string;
-  controls?: Array<[controls]>;
-  ismemberof?: Array<[String]>;
+  memberof?: Array<[string]>;
+  ismemberof?: Array<[string]>;
   mail?: string;
   sn?: string;
   givenname?: string;
   displayname?: string;
-  uid?: any;
   inactive?: Boolean;
   nsaccountlock?: string;
   objectclass?: Array<[string]>;
@@ -249,18 +249,17 @@ export interface Person {
 
 export class PersonClass implements Person {
   distinguishedName?: string = '';
-  dn: string = '';
+  dn?: string = '';
   cn: string = '';
   mail: string = '';
   sn: string = '';
-  controls: Array<[controls]> = [];
-  ismemberof: Array<[String]> = [];
+  memberof: Array<[string]> = [];
+  ismemberof: Array<[string]> = [];
   givenname: string = '';
   displayname: string = '';
   inactive: Boolean = false;
   nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
-  uid: string | number = '';
 
   constructor(opts: {
     distinguishedName?: any;
@@ -268,31 +267,59 @@ export class PersonClass implements Person {
     cn?: any;
     mail?: any;
     sn?: any;
-    controls?: any;
+    memberof?: any;
     ismemberof?: any;
     givenname?: any;
     displayname?: any;
     inactive?: any;
-    nsAccountLock?: any;
+    nsaccountlock?: any;
     objectclass?: any;
-    uid?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
-    const controls = convertOptionalArray(opts.controls ? opts.controls : []);
-    const ismemberof = convertOptionalArray(
-      opts.ismemberof ? opts.ismemberof : []
-    );
+    let ismemberof: any = [];
+    let memberof: any = [];
+    // const ismemberof = convertOptionalArray(
+    //   opts.ismemberof ? opts.ismemberof : []
+    // );
+
+    // Check if either of these (ismemberof || memberof) is present and set their values
+    if (
+      typeof opts.ismemberof !== 'undefined' &&
+      opts.ismemberof !== null &&
+      convertOptionalArray(opts.ismemberof).length > 0
+    ) {
+      ismemberof = convertOptionalArray(getOnlyActiveMembers(opts.ismemberof));
+    }
+
+    if (
+      typeof opts.memberof !== 'undefined' &&
+      opts.memberof !== null &&
+      convertOptionalArray(opts.memberof).length > 0
+    ) {
+      memberof = convertOptionalArray(getOnlyActiveMembers(opts.memberof));
+    }
+    // -------------------------------------
+
     const objectclass = convertOptionalArray(
       opts.objectclass ? opts.objectclass : []
     );
+
     const parseMembers = (membersArr: Array<[]> = []) => {
       const arrayGroup = membersArr.map(elem => {
-        return abstractDN(`${elem}`)['cn'][0];
+        const abstractedDN = abstractDN(`${elem}`)['cn'][0];
+        console.log('abstractedDN: ', abstractedDN);
+        return abstractedDN;
       });
+      console.log('parseMembers > arrayGroup: ', arrayGroup);
       return arrayGroup;
     };
-    const members = convertOptionalArray(
+
+    const members1 = convertOptionalArray(
       typeof opts.ismemberof !== 'undefined' ? parseMembers(ismemberof) : []
+    );
+
+    const members2 = convertOptionalArray(
+      typeof opts.memberof !== 'undefined' ? parseMembers(memberof) : []
     );
 
     (this.distinguishedName = opts.distinguishedName
@@ -302,13 +329,31 @@ export class PersonClass implements Person {
       (this.cn = opts.cn ? opts.cn : ''),
       (this.mail = opts.mail ? opts.mail.trim() : ''),
       (this.sn = opts.sn ? opts.sn : ''),
-      (this.controls = controls),
-      (this.ismemberof = members),
+      (this.ismemberof = members1),
+      (this.memberof = members2),
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
-      (this.uid = opts.uid ? opts.uid : ''),
-      (this.inactive = convertToBool(opts.nsAccountLock, false)),
+      (this.inactive = convertToBool(opts.nsaccountlock, false)),
       (this.objectclass = objectclass);
+
+    if (ismemberof.length > 0 && memberof.length < 1) {
+      this.memberof = [...ismemberof];
+    }
+    if (memberof.length > 0 && ismemberof.length < 1) {
+      this.ismemberof = [...memberof];
+    }
+
+    if (opts.dn && opts.dn.length > 0 && !opts.distinguishedName) {
+      this.distinguishedName = opts.dn;
+    }
+
+    if (
+      opts.distinguishedName &&
+      opts.distinguishedName.length > 0 &&
+      !opts.dn
+    ) {
+      this.dn = opts.distinguishedName;
+    }
   }
 }
 
@@ -373,7 +418,7 @@ export const LdapFilters = {
   person: {
     default: '(objectClass=organizationalPerson)',
     pre: '(&(objectClass=organizationalPerson)(',
-    inactive: '|(nsAccountLock=FALSE)(!(nsAccountLock=*)))(',
+    inactive: '|(nsaccountlock=FALSE)(!(nsaccountlock=*)))(',
     post: '*))',
   },
 };

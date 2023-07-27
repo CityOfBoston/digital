@@ -63,7 +63,7 @@ export const convertToBool = (val: String, base: boolean): boolean => {
  *      dn: 'cn',
  *      CN: 'cn',
  *      isMemberof: 'ismemberof',
- *      nsAccountLock: 'nsaccountlock',
+ *      nsaccountlock: 'nsaccountlock',
  *     },
  *      {
  *        dn: '',
@@ -112,14 +112,14 @@ export const renameObjectKeys = (keysMap: object, obj) => {
  *        dn: '',
  *        CN: '100992',
  *        isMemberof: [],
- *        nsAccountLock: 'FALSE',
+ *        nsaccountlock: 'FALSE',
  *      },
  *     );
  *     return {
  *      dn: 'cn',
  *      CN: 'cn',
  *      isMemberof: 'ismemberof',
- *      nsAccountLock: 'nsaccountlock',
+ *      nsaccountlock: 'nsaccountlock',
  *     }
  */
 export const remapObjKeys = (sourceObj: object, targetObj: object): object => {

@@ -3,14 +3,10 @@ export const typeDefs = `
     distinguishedName: String!
     dn: String
     cn: String
-    controls: [String!]!
+    member: [String]!
     uniquemember: [String!]!
-    owner: [String!]!
-    actualdn: String
-    entrydn: String
     objectclass: [String]
     displayname: String
-    ou: String
   }
 
   type Person {
@@ -21,8 +17,7 @@ export const typeDefs = `
     sn: String
     givenname: String
     displayname: String
-    uid: String
-    controls: [String!]!
+    memberof: [String!]!
     ismemberof: [String!]!
     inactive: Boolean
     nsaccountlock: String
