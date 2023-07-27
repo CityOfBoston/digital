@@ -1,3 +1,10 @@
+/**
+ *
+ * @param {string | Array} val
+ * @returns {Array} of strings
+ * @description Checks if value is an array, if not converter it to
+ * an array if its a single string
+ */
 export const convertOptionalArray = val => (Array.isArray(val) ? val : [val]);
 
 /**
@@ -258,19 +265,18 @@ export const isDNInOUs = (dn: string, dns: Array<string>) => {
   return retArr.length > 0;
 };
 
-export const getOnlyActiveMembers = (_arr: any) => {
-  const unparsedArr = typeof _arr === 'string' ? [_arr] : _arr;
+export const getOnlyActiveMembers = (arr: any) => {
+  const unparsedArr = typeof arr === 'string' ? [arr] : arr;
   const data = unparsedArr.filter((node: Array<[String]>) => node.length > 0);
   if (data.length > 0) {
-    const parsedCn = data.map((_str: String) => {
-      const abs = abstractDN(_str);
+    const parsedCn = data.map((str: String) => {
+      const abs = abstractDN(str);
       if (abs['cn']) {
         if (abs['cn'][0]) {
-          const retStr = `cn=${abs['cn'][0]}`;
-          return retStr;
+          return `cn=${abs['cn'][0]}`;
         }
       }
-      return _str;
+      return str;
     });
     return parsedCn;
   }

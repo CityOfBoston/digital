@@ -7,12 +7,9 @@ import {
   getOnlyActiveMembers,
 } from '../lib/helpers';
 
+// (COMMON) START | Base attributes
 export interface controls {
   controls: String;
-}
-
-export interface uniquemember {
-  uniquemember: String;
 }
 
 export interface objectclass {
@@ -24,10 +21,27 @@ export interface Member {
   dn: String;
   cn: String;
 }
+// (COMMON) END | Base attributes
 
+// -------------------------------------- #
+
+// (GROUP) START | Base attributes
+export interface uniquemember {
+  uniquemember: String;
+}
+
+export interface member {
+  member: String;
+}
+// (GROUP) END | Base attributes
+
+// -------------------------------------- #
+
+// (PERSON) START | Base attributes
 export interface ismemberOfObjectArray {
   group: Member;
 }
+// (PERSON) END | Base attributes
 
 export interface isMember {
   groups: Array<[ismemberOfObjectArray]>;
@@ -132,7 +146,8 @@ export interface Group {
   dn?: string;
   cn?: string;
   controls?: Array<[controls]>;
-  uniquemember: Array<[uniquemember]> | [string];
+  member?: Array<member>;
+  uniquemember?: Array<[uniquemember]>;
   owner?: Array<[string]>;
   actualdn?: string;
   entrydn?: string;
@@ -146,7 +161,8 @@ export class GroupClass implements Group {
   dn: string = '';
   cn: string = '';
   controls: Array<[controls]> = [];
-  uniquemember: Array<[uniquemember]> = [];
+  member?: Array<member> = [];
+  uniquemember?: Array<[uniquemember]> = [];
   owner: Array<[string]> = [];
   actualdn: string = '';
   entrydn: string = '';
@@ -159,6 +175,7 @@ export class GroupClass implements Group {
     dn?: any;
     cn?: any;
     controls?: any;
+    member?: any;
     uniquemember?: any;
     owner?: any;
     actualdn?: any;
@@ -168,11 +185,29 @@ export class GroupClass implements Group {
     ou?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
-    const members = convertOptionalArray(
-      typeof opts.uniquemember !== 'undefined'
-        ? getOnlyActiveMembers(opts.uniquemember)
-        : []
-    );
+    let uniquemembers: any = [];
+    let members: any = [];
+
+    // Check if either of these (uniquemembers || member) is present and set their values
+    if (
+      typeof opts.uniquemember !== 'undefined' &&
+      opts.uniquemember !== null &&
+      convertOptionalArray(opts.uniquemember).length > 0
+    ) {
+      uniquemembers = convertOptionalArray(
+        getOnlyActiveMembers(opts.uniquemember)
+      );
+    }
+
+    if (
+      typeof opts.member !== 'undefined' &&
+      opts.member !== null &&
+      convertOptionalArray(opts.member).length > 0
+    ) {
+      members = convertOptionalArray(getOnlyActiveMembers(opts.member));
+    }
+    // -------------------------------------
+
     const controls = convertOptionalArray(opts.controls ? opts.controls : []);
     const owner = convertOptionalArray(opts.owner ? opts.owner : []);
     const objectclass = convertOptionalArray(
@@ -185,7 +220,8 @@ export class GroupClass implements Group {
       (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.controls = controls),
-      (this.uniquemember = opts.uniquemember ? members : []),
+      (this.member = opts.member ? members : []),
+      (this.uniquemember = opts.uniquemember ? uniquemembers : []),
       (this.owner = owner),
       (this.actualdn = opts.actualdn ? opts.actualdn : ''),
       (this.entrydn = opts.entrydn ? opts.entrydn : ''),
