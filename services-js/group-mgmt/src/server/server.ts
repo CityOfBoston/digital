@@ -82,28 +82,69 @@ const search_promise = (err, res) => {
   return new Promise((resolve, reject) => {
     const entries: object[] = Array();
     const refInstance = new objectClassArray({});
+    // console.log('search_promise > Promise');
     res.on('searchEntry', entry => {
+      // console.log(
+      //   'search_promise > Promise > res.on > entry > entry.attributes.length: ',
+      //   entry.attributes.length
+      // );
+
+      // if (entry.attributes && entry.attributes.length > 0) {
+      //   entry.attributes.forEach(attribute => {
+      //     console.log(`attribute: ${attribute.type}`);
+      //     if (attribute.type === 'cn') {
+      //       console.log('attribute.type[cn]: ', attribute.type);
+      //       console.log('attribute.type[cn][_vals]: ', attribute['_vals']);
+      //     }
+      //     console.log('attribute._vals: ', JSON.stringify(attribute._vals));
+      //   });
+      // }
+      // console.log('entry: ', entry);
+
       let currEntry = entry.object || {};
+      const remapObj = remapObjKeys(refInstance, currEntry);
+      // console.log('res.on > remapObj: ', remapObj);
       currEntry = renameObjectKeys(
-        remapObjKeys(refInstance, currEntry),
+        // remapObjKeys(refInstance, currEntry),
+        remapObj,
         currEntry
       );
 
-      if (currEntry.objectclass.indexOf('organizationalPerson') > -1) {
+      // console.log('currEntry: ', currEntry);
+
+      // console.log(
+      //   `Object.keys(entry): `,
+      //   Object.keys(entry).map(key => key.toLocaleLowerCase())
+      // );
+
+      // console.log('currEntry.objectclass: ', currEntry.objectclass);
+      if (
+        currEntry.objectclass.indexOf('organizationalPerson') > -1 &&
+        currEntry.objectclass.indexOf('person') > -1
+      ) {
         const Person: Person = new PersonClass(currEntry);
+        // console.log(
+        //   `currEntry.objectclass.indexOf('organizationalPerson'): `,
+        //   currEntry.objectclass.indexOf('organizationalPerson')
+        // );
+        // console.log('\n', ' Person: ', Person);
         entries.push(Person);
       }
 
       if (
         currEntry.objectclass.indexOf('groupOfUniqueNames') > -1 ||
-        currEntry.objectclass.indexOf('container') > -1
+        currEntry.objectclass.indexOf('container') > -1 ||
+        currEntry.objectclass.indexOf('group') > -1
       ) {
         currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
 
-      if (currEntry.objectclass.indexOf('organizationalRole') > -1) {
+      if (
+        currEntry.objectclass.indexOf('organizationalRole') > -1 ||
+        currEntry.objectclass.indexOf('group') > -1
+      ) {
         currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
@@ -111,51 +152,87 @@ const search_promise = (err, res) => {
     });
 
     res.on('error', err => {
-      console.error('error: ' + err.message);
+      console.error('error: search_promise | ', err.message, ' | err:', err);
       reject();
     });
 
     res.on('end', () => {
+      // console.log('search_promise > Promise > res.end > entry: ', entries);
       resolve(entries);
     });
   });
 };
 
 const setAttributes = (attr = [''], type = 'group') => {
-  const attrSet: Array<string> = [];
-  attr.forEach(element => {
-    if (type === 'group') {
-      if (
-        Object.keys(new GroupClass({})).indexOf(element) > -1 &&
-        attrSet.indexOf(element) === -1
-      ) {
-        attrSet.push(element);
-      }
+  // console.log('setAttributes');
+  // console.log(`setAttributes > attr: ${attr} | type: ${type}`);
+  let attrSet: Array<string> = [];
+  if (attr.length === 1 && attr[0] === 'all') {
+    // console.log(
+    //   `setAttributes > attr && length > 0: ${attr.length === 1 &&
+    //     attr[0] === 'all'}`
+    // );
+    switch (type) {
+      case 'person':
+        attrSet = Object.keys(new PersonClass({}));
+        break;
+      default:
+        attrSet = Object.keys(new GroupClass({}));
+        break;
     }
-    if (type === 'person') {
-      if (
-        Object.keys(new PersonClass({})).indexOf(element) > -1 &&
-        attrSet.indexOf(element) === -1
-      ) {
-        attrSet.push(element);
+    // console.log('attrSet: ', attrSet);
+  } else {
+    attr.forEach(element => {
+      if (type === 'group') {
+        console.log(`setAttributes > type(group) > element: ${element}`);
+        console.log(
+          `setAttributes > is elem in GroupClass: ${Object.keys(
+            new GroupClass({})
+          )}`
+        );
+
+        if (
+          Object.keys(new GroupClass({})).indexOf(element) > -1 &&
+          attrSet.indexOf(element) === -1
+        ) {
+          attrSet.push(element);
+        }
       }
-    }
-  });
+      if (type === 'person') {
+        if (
+          Object.keys(new PersonClass({})).indexOf(element) > -1 &&
+          attrSet.indexOf(element) === -1
+        ) {
+          attrSet.push(element);
+        }
+      }
+    });
+  }
 
   if (attrSet.length > 0) {
+    // console.log('setAttributes > (attrSet.length > 0) RETURNED!', attrSet);
     return attrSet;
   }
 
   // Custom Attributes
   switch (attr[0]) {
     case 'all':
+      // console.log(
+      //   'setAttributes > switch(all) > CustomAttributes.all',
+      //   CustomAttributes.all
+      // );
       return CustomAttributes.all;
     default:
+      // console.log(
+      //   'setAttributes > switch(default) > CustomAttributes.all',
+      //   CustomAttributes.all
+      // );
       return CustomAttributes.default;
   }
 };
 
 const getFilterValue = (filter: FilterOptions) => {
+  // console.log('getFilterValue > filter: ', filter.filterType, filter);
   const searchFilterStr = (type: String) => {
     const objClass =
       type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
@@ -199,6 +276,7 @@ const getFilterValue = (filter: FilterOptions) => {
       if (filter.value.length === 0) {
         return `${LdapFilters.person.default}`;
       }
+
       if (filter.field === 'search') {
         return searchFilterStr(filter.filterType);
       }
@@ -208,16 +286,36 @@ const getFilterValue = (filter: FilterOptions) => {
       }`;
     case 'group':
       if (filter.value.length === 0) {
-        return `${LdapFilters.groups.default}`;
+        const retStr = `${LdapFilters.groups.default}`;
+        // console.log(
+        //   'getFilterValue > filter.filterType switch default: ',
+        //   retStr
+        // );
+        return retStr;
       }
       if (filter.field === 'cn') {
-        return `${LdapFilters.groups.pre}${filter.field}=${filter.value}${
-          LdapFilters.groups.post
-        }`;
+        const retStr = `${LdapFilters.groups.pre}${filter.field}=${
+          filter.value
+        }${LdapFilters.groups.post}`;
+
+        // console.log('getFilterValue > filter.filterType switch cn: ', retStr);
+        return retStr;
       }
       if (filter.field === 'search') {
-        return searchFilterStr(filter.filterType);
+        const retStr = searchFilterStr(filter.filterType);
+        // console.log(
+        //   'getFilterValue > filter.filterType switch search: ',
+        //   retStr
+        // );
+        return retStr;
       }
+
+      // console.log(
+      //   'getFilterValue > default: ',
+      //   `${LdapFilters.groups.pre}${filter.field}=${filter.value}${
+      //     LdapFilters.groups.post
+      //   }`
+      // );
 
       return `${LdapFilters.groups.pre}${filter.field}=${filter.value}${
         LdapFilters.groups.post
@@ -287,12 +385,14 @@ const searchWrapper = async (
   let results: any;
 
   if (filter.dns.length > 0) {
+    // console.log('searchWrapper > filter.dns.length: ', filter.dns.length);
     try {
       results = await getFilteredResults(filter, filterQryParams);
     } catch (err) {
       console.log('filteredResults > err: ', err);
     }
   } else {
+    // console.log('searchWrapper > filter.dns.length: ', filter.dns.length);
     results = new Promise(function(resolve, reject) {
       bindLdapClient();
       if (
@@ -300,14 +400,23 @@ const searchWrapper = async (
         filter.field === 'cn' &&
         filter.value.length < 2
       ) {
+        console.log('searchWrapper > promise > reject');
         reject();
       }
-      ldapClient.search(base_dn, filterQryParams, function(err, res) {
-        if (err) {
-          console.log('ldapsearch error: ', err);
+      // base_dn | cn=Groups,o=cobhdap
+      ldapClient.search(
+        // 'OU=Groups,DC=iamdir-test,DC=boston,DC=gov',
+        base_dn,
+        filterQryParams,
+        function(err, res) {
+          if (err) {
+            console.log('ldapsearch error: ', err);
+          }
+          // console.log('searchWrapper > ldapClient.search > base_dn: ', base_dn);
+          // console.log('searchWrapper > res: ', res);
+          resolve(search_promise(err, res));
         }
-        resolve(search_promise(err, res));
-      });
+      );
     });
   }
 
@@ -563,23 +672,28 @@ const resolvers = {
       const person: any = await searchWrapper(['all'], filterParams);
       return person;
     },
-    async group(parent: any, args: { cn: string; dns: Array<string> }) {
+    async group(_parent: any, args: { cn: string; dns: Array<string> }) {
+      // console.log('group >');
       let dns: any = [];
-      if (parent) {
-        console.log('Query > group > parent: group');
-      }
+
       if (args.dns) {
+        // console.log('group > args.dns1: ', args.dns);
         dns = await convertDnsToGroupDNs(args.dns);
+        // console.log('group > dns: ', dns);
       }
+      // console.log('group > args.dns2: ', args.dns);
 
       const value = args.cn;
+      // console.log('group > args.cn: ', args.cn);
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'cn',
         value,
         dns,
       });
+      // console.log('group > filterParams: ', filterParams);
       const groups: any = await searchWrapper(['all'], filterParams);
+      // console.log('group > groups: ', groups);
       return groups;
     },
     async groupSearch(

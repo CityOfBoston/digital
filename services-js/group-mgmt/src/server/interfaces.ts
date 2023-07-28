@@ -307,10 +307,10 @@ export class PersonClass implements Person {
     const parseMembers = (membersArr: Array<[]> = []) => {
       const arrayGroup = membersArr.map(elem => {
         const abstractedDN = abstractDN(`${elem}`)['cn'][0];
-        console.log('abstractedDN: ', abstractedDN);
+        // console.log('abstractedDN: ', abstractedDN);
         return abstractedDN;
       });
-      console.log('parseMembers > arrayGroup: ', arrayGroup);
+      // console.log('parseMembers > arrayGroup: ', arrayGroup);
       return arrayGroup;
     };
 
@@ -409,10 +409,14 @@ export interface DNs {
 
 export const LdapFilters = {
   groups: {
+    // default:
+    //   '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group))',
+    // pre: '(&(',
+    // post: '))',
     default:
-      '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))',
+      '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group))',
     pre:
-      '(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(',
+      '(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group))(',
     post: '))',
   },
   person: {
