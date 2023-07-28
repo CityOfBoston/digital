@@ -110,7 +110,7 @@ const search_promise = (err, res) => {
         currEntry
       );
 
-      // console.log('currEntry: ', currEntry);
+      console.log('currEntry: ', currEntry);
 
       // console.log(
       //   `Object.keys(entry): `,
@@ -146,6 +146,11 @@ const search_promise = (err, res) => {
         currEntry.objectclass.indexOf('group') > -1
       ) {
         currEntry['onlyActiveMembers'] = true;
+        const Group: Group = new GroupClass(currEntry);
+        entries.push(Group);
+      }
+
+      if (currEntry.objectclass.indexOf('organizationalUnit') > -1) {
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
@@ -210,34 +215,38 @@ const setAttributes = (attr = [''], type = 'group') => {
   }
 
   if (attrSet.length > 0) {
-    // console.log('setAttributes > (attrSet.length > 0) RETURNED!', attrSet);
+    console.log('setAttributes > (attrSet.length > 0) RETURNED!', attrSet);
     return attrSet;
   }
 
   // Custom Attributes
   switch (attr[0]) {
     case 'all':
-      // console.log(
-      //   'setAttributes > switch(all) > CustomAttributes.all',
-      //   CustomAttributes.all
-      // );
+      console.log(
+        'setAttributes > switch(all) > CustomAttributes.all',
+        CustomAttributes.all
+      );
       return CustomAttributes.all;
     default:
-      // console.log(
-      //   'setAttributes > switch(default) > CustomAttributes.all',
-      //   CustomAttributes.all
-      // );
+      console.log(
+        'setAttributes > switch(default) > CustomAttributes.all',
+        CustomAttributes.all
+      );
       return CustomAttributes.default;
   }
 };
 
 const getFilterValue = (filter: FilterOptions) => {
-  // console.log('getFilterValue > filter: ', filter.filterType, filter);
+  console.log('getFilterValue > filter: ', filter.filterType, filter);
   const searchFilterStr = (type: String) => {
     const objClass =
       type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
+
+    console.log('getFilterValue > searchFilterStr > objClass: ', objClass);
     if (type === 'group') {
-      return `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
+      const retVal = `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
+      console.log('getFilterValue > type=group > retVal: ', type, retVal);
+      return retVal;
     } else {
       if (filter.allowInactive === false) {
         const filterBy: string = filter.by ? filter.by : '';
@@ -270,11 +279,23 @@ const getFilterValue = (filter: FilterOptions) => {
   switch (filter.filterType) {
     case 'person':
       if (filter.allowInactive === false) {
-        return searchFilterStr(filter.filterType);
+        const retStr = searchFilterStr(filter.filterType);
+        console.log(
+          'getFilterValue > switch > person > allowInactive(false) | retStr: ',
+          filter.allowInactive,
+          retStr
+        );
+        return retStr;
       }
 
       if (filter.value.length === 0) {
-        return `${LdapFilters.person.default}`;
+        const retStr = `${LdapFilters.person.default}`;
+        // console.log(
+        //   'getFilterValue > switch > person > allowInactive(false) | retStr: ',
+        //   filter.allowInactive,
+        //   retStr
+        // );
+        return retStr;
       }
 
       if (filter.field === 'search') {
@@ -287,10 +308,10 @@ const getFilterValue = (filter: FilterOptions) => {
     case 'group':
       if (filter.value.length === 0) {
         const retStr = `${LdapFilters.groups.default}`;
-        // console.log(
-        //   'getFilterValue > filter.filterType switch default: ',
-        //   retStr
-        // );
+        console.log(
+          'getFilterValue > filter.filterType switch default: ',
+          retStr
+        );
         return retStr;
       }
       if (filter.field === 'cn') {
@@ -298,28 +319,27 @@ const getFilterValue = (filter: FilterOptions) => {
           filter.value
         }${LdapFilters.groups.post}`;
 
-        // console.log('getFilterValue > filter.filterType switch cn: ', retStr);
+        console.log('getFilterValue > filter.filterType switch cn: ', retStr);
         return retStr;
       }
       if (filter.field === 'search') {
         const retStr = searchFilterStr(filter.filterType);
-        // console.log(
-        //   'getFilterValue > filter.filterType switch search: ',
-        //   retStr
-        // );
+        console.log(
+          'getFilterValue > filter.filterType switch search: ',
+          retStr
+        );
         return retStr;
       }
 
-      // console.log(
-      //   'getFilterValue > default: ',
-      //   `${LdapFilters.groups.pre}${filter.field}=${filter.value}${
-      //     LdapFilters.groups.post
-      //   }`
-      // );
+      // eslint-disable-next-line no-case-declarations
+      let returnFilter: any = '';
+      returnFilter += `${LdapFilters.groups.pre}${filter.field}=*`;
+      returnFilter += `${filter.value}${LdapFilters.groups.post}`;
+      // `${LdapFilters.groups.pre}${filter.field}=${filter.value}${LdapFilters.groups.post}`;
 
-      return `${LdapFilters.groups.pre}${filter.field}=${filter.value}${
-        LdapFilters.groups.post
-      }`;
+      console.log('getFilterValue > returnFilter: ', returnFilter);
+
+      return returnFilter;
     default:
       return LdapFilters.groups.default;
   }
@@ -373,6 +393,7 @@ const searchWrapper = async (
 ) => {
   const base_dn = env.LDAP_BASE_DN;
   const filterValue = getFilterValue(filter);
+  console.log('searchWrapper > filterValue: ', filterValue);
   const thisAttributes =
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
@@ -383,11 +404,13 @@ const searchWrapper = async (
     filter: filterValue,
   };
   let results: any;
+  console.log(`searchWrapper >`, filterQryParams);
 
   if (filter.dns.length > 0) {
     // console.log('searchWrapper > filter.dns.length: ', filter.dns.length);
     try {
       results = await getFilteredResults(filter, filterQryParams);
+      console.log('searchWrapper > filteredResults > results: ', results);
     } catch (err) {
       console.log('filteredResults > err: ', err);
     }
@@ -404,15 +427,24 @@ const searchWrapper = async (
         reject();
       }
       // base_dn | cn=Groups,o=cobhdap
+      let baseDn = base_dn;
+      if (filter.field === 'ou') {
+        baseDn = `OU=Groups,${baseDn}`;
+        console.log('baseDn: ', baseDn);
+      }
       ldapClient.search(
         // 'OU=Groups,DC=iamdir-test,DC=boston,DC=gov',
-        base_dn,
+        baseDn,
         filterQryParams,
         function(err, res) {
           if (err) {
             console.log('ldapsearch error: ', err);
           }
-          // console.log('searchWrapper > ldapClient.search > base_dn: ', base_dn);
+          console.log(
+            'searchWrapper > ldapClient.search > base_dn: ',
+            base_dn,
+            baseDn
+          );
           // console.log('searchWrapper > res: ', res);
           resolve(search_promise(err, res));
         }
@@ -428,10 +460,11 @@ const convertDnsToGroupDNs = async (
   mode: string = 'filtered'
 ) => {
   const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
+  console.log('convertDnsToGroupDNs > CNs: ', CNs);
   const promises = CNs.map(async value => {
     const filterParams: FilterOptions = new FilterOptionsClass({
       filterType: 'group',
-      field: 'cn',
+      field: 'ou',
       value,
       allowInactive: false,
     });
