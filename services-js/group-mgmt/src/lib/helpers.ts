@@ -153,6 +153,7 @@ export const abstractDN = (dn: String = '') => {
       }
     }
   });
+  // console.log('abstractDN > dnObj: ', dnObj, Object.keys(dnObj));
 
   return dnObj;
 };

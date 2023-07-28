@@ -145,6 +145,38 @@ export class objectClassArray {
   }
 }
 
+export interface OrgUnit {
+  distinguishedName: string;
+  ou: string;
+  name: string;
+  objectCategory: string;
+  objectclass?: Array<[objectclass]>;
+}
+
+export class OrgUnitClass implements OrgUnit {
+  distinguishedName: string = '';
+  ou: string = '';
+  name: string = '';
+  objectCategory: string = '';
+  objectclass?: Array<[objectclass]> = [];
+
+  constructor(opts: {
+    distinguishedName: string;
+    ou: any;
+    name: any;
+    objectCategory: any;
+    objectclass: any;
+  }) {
+    (this.distinguishedName = opts.distinguishedName
+      ? opts.distinguishedName
+      : ''),
+      (this.ou = opts.ou ? opts.ou : ''),
+      (this.name = opts.name ? opts.name : ''),
+      (this.objectCategory = opts.objectCategory ? opts.objectCategory : ''),
+      (this.objectclass = opts.objectclass ? opts.objectclass : '');
+  }
+}
+
 export interface Group {
   distinguishedName?: string;
   dn?: string;
@@ -410,8 +442,9 @@ export interface DNs {
 export const LdapFilters = {
   groups: {
     // default:
-    //   '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group))',
-    // pre: '(&(',
+    //   '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))',
+    // pre:
+    //   '(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(',
     // post: '))',
     default:
       '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group)(objectClass=organizationalUnit))',

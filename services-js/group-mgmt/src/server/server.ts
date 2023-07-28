@@ -18,6 +18,7 @@ import {
   CustomAttributes,
   ResponseClass,
   LDAPEnvClass,
+  // OrgUnitClass,
 } from './interfaces';
 import {
   renameObjectKeys,
@@ -110,7 +111,7 @@ const search_promise = (err, res) => {
         currEntry
       );
 
-      console.log('currEntry: ', currEntry);
+      // console.log('currEntry: ', currEntry);
 
       // console.log(
       //   `Object.keys(entry): `,
@@ -133,16 +134,8 @@ const search_promise = (err, res) => {
 
       if (
         currEntry.objectclass.indexOf('groupOfUniqueNames') > -1 ||
-        currEntry.objectclass.indexOf('container') > -1 ||
-        currEntry.objectclass.indexOf('group') > -1
-      ) {
-        currEntry['onlyActiveMembers'] = true;
-        const Group: Group = new GroupClass(currEntry);
-        entries.push(Group);
-      }
-
-      if (
         currEntry.objectclass.indexOf('organizationalRole') > -1 ||
+        currEntry.objectclass.indexOf('container') > -1 ||
         currEntry.objectclass.indexOf('group') > -1
       ) {
         currEntry['onlyActiveMembers'] = true;
@@ -215,7 +208,7 @@ const setAttributes = (attr = [''], type = 'group') => {
   }
 
   if (attrSet.length > 0) {
-    console.log('setAttributes > (attrSet.length > 0) RETURNED!', attrSet);
+    // console.log('setAttributes > (attrSet.length > 0) RETURNED!', attrSet);
     return attrSet;
   }
 
@@ -237,15 +230,15 @@ const setAttributes = (attr = [''], type = 'group') => {
 };
 
 const getFilterValue = (filter: FilterOptions) => {
-  console.log('getFilterValue > filter: ', filter.filterType, filter);
+  // console.log('getFilterValue > filter: ', filter.filterType, filter);
   const searchFilterStr = (type: String) => {
     const objClass =
       type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
 
-    console.log('getFilterValue > searchFilterStr > objClass: ', objClass);
+    // console.log('getFilterValue > searchFilterStr > objClass: ', objClass);
     if (type === 'group') {
       const retVal = `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
-      console.log('getFilterValue > type=group > retVal: ', type, retVal);
+      // console.log('getFilterValue > type=group > retVal: ', type, retVal);
       return retVal;
     } else {
       if (filter.allowInactive === false) {
@@ -280,11 +273,11 @@ const getFilterValue = (filter: FilterOptions) => {
     case 'person':
       if (filter.allowInactive === false) {
         const retStr = searchFilterStr(filter.filterType);
-        console.log(
-          'getFilterValue > switch > person > allowInactive(false) | retStr: ',
-          filter.allowInactive,
-          retStr
-        );
+        // console.log(
+        //   'getFilterValue > switch > person > allowInactive(false) | retStr: ',
+        //   filter.allowInactive,
+        //   retStr
+        // );
         return retStr;
       }
 
@@ -308,10 +301,10 @@ const getFilterValue = (filter: FilterOptions) => {
     case 'group':
       if (filter.value.length === 0) {
         const retStr = `${LdapFilters.groups.default}`;
-        console.log(
-          'getFilterValue > filter.filterType switch default: ',
-          retStr
-        );
+        // console.log(
+        //   'getFilterValue > filter.filterType switch default: ',
+        //   retStr
+        // );
         return retStr;
       }
       if (filter.field === 'cn') {
@@ -319,15 +312,15 @@ const getFilterValue = (filter: FilterOptions) => {
           filter.value
         }${LdapFilters.groups.post}`;
 
-        console.log('getFilterValue > filter.filterType switch cn: ', retStr);
+        // console.log('getFilterValue > filter.filterType switch cn: ', retStr);
         return retStr;
       }
       if (filter.field === 'search') {
         const retStr = searchFilterStr(filter.filterType);
-        console.log(
-          'getFilterValue > filter.filterType switch search: ',
-          retStr
-        );
+        // console.log(
+        //   'getFilterValue > filter.filterType switch search: ',
+        //   retStr
+        // );
         return retStr;
       }
 
@@ -337,7 +330,7 @@ const getFilterValue = (filter: FilterOptions) => {
       returnFilter += `${filter.value}${LdapFilters.groups.post}`;
       // `${LdapFilters.groups.pre}${filter.field}=${filter.value}${LdapFilters.groups.post}`;
 
-      console.log('getFilterValue > returnFilter: ', returnFilter);
+      // console.log('getFilterValue > returnFilter: ', returnFilter);
 
       return returnFilter;
     default:
@@ -393,7 +386,7 @@ const searchWrapper = async (
 ) => {
   const base_dn = env.LDAP_BASE_DN;
   const filterValue = getFilterValue(filter);
-  console.log('searchWrapper > filterValue: ', filterValue);
+  // console.log('searchWrapper > filterValue: ', filterValue);
   const thisAttributes =
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
@@ -404,13 +397,13 @@ const searchWrapper = async (
     filter: filterValue,
   };
   let results: any;
-  console.log(`searchWrapper >`, filterQryParams);
+  // console.log(`searchWrapper >`, filterQryParams);
 
   if (filter.dns.length > 0) {
     // console.log('searchWrapper > filter.dns.length: ', filter.dns.length);
     try {
       results = await getFilteredResults(filter, filterQryParams);
-      console.log('searchWrapper > filteredResults > results: ', results);
+      // console.log('searchWrapper > filteredResults > results: ', results);
     } catch (err) {
       console.log('filteredResults > err: ', err);
     }
@@ -430,7 +423,7 @@ const searchWrapper = async (
       let baseDn = base_dn;
       if (filter.field === 'ou') {
         baseDn = `OU=Groups,${baseDn}`;
-        console.log('baseDn: ', baseDn);
+        // console.log('baseDn: ', baseDn);
       }
       ldapClient.search(
         // 'OU=Groups,DC=iamdir-test,DC=boston,DC=gov',
@@ -440,11 +433,11 @@ const searchWrapper = async (
           if (err) {
             console.log('ldapsearch error: ', err);
           }
-          console.log(
-            'searchWrapper > ldapClient.search > base_dn: ',
-            base_dn,
-            baseDn
-          );
+          // console.log(
+          //   'searchWrapper > ldapClient.search > base_dn: ',
+          //   base_dn,
+          //   baseDn
+          // );
           // console.log('searchWrapper > res: ', res);
           resolve(search_promise(err, res));
         }
@@ -507,24 +500,36 @@ const convertDnsToGroupDNs = async (
 };
 
 const getGroupChildren = async (parentDn: string = '') => {
-  const parentCN = abstractDN(parentDn)['cn'][0];
+  const $abstractDN = abstractDN(parentDn);
+  const parentCN = $abstractDN[Object.keys($abstractDN)[0]][0];
+  console.log('getGroupChildren > parentDn: ', parentDn);
+  console.log('getGroupChildren > parentCN: ', parentCN);
+
   const filterQryParams = {
     scope: 'sub',
     attrs: '',
-    filter: `(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(!(cn=${parentCN})))`,
+    // filter: `(&(|(objectClass=group)(objectClass=organizationalUnit))(!(${
+    //   Object.keys($abstractDN)[0]
+    // }=${parentCN})))`,
+    filter: `(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group)(objectClass=organizationalUnit))(!(ou=${parentCN})))`,
   };
+  // console.log('getGroupChildren > filterQryParams: ', filterQryParams);
   const results = new Promise(function(resolve, reject) {
     bindLdapClient();
+    // console.log('getGroupChildren > results(promise)');
     ldapClient.search(parentDn, filterQryParams, function(err, res) {
       if (err) {
         console.log('ldapsearch error: ', err);
         reject();
       }
+      // console.log('getGroupChildren > results(promise) > callback: ', res);
       resolve(search_promise(err, res));
     });
   });
 
-  return await results;
+  await results;
+  console.log('results.len: ', results);
+  return results;
 };
 
 export async function makeServer() {
@@ -582,6 +587,7 @@ export async function makeServer() {
 const resolvers = {
   Mutation: {
     async updateGroupMembers() {
+      console.log('updateGroupMembers: ', arguments[1]);
       try {
         const opts = arguments[1];
         let dns: any = [];
@@ -590,8 +596,19 @@ const resolvers = {
         if (opts.dns && opts.dns.length > 0) {
           dns = await convertDnsToGroupDNs(opts.dns);
           dn_list = dns.map(entry => entry.group.dn);
-          if (!isDNInOUs(opts.dn, dn_list)) {
-            return new ResponseClass({});
+          const is_DNInOUs = isDNInOUs(opts.dn, dn_list);
+          console.log('is_DNInOUs: ', is_DNInOUs);
+          if (!is_DNInOUs) {
+            // return new ResponseClass({});
+            return new ResponseClass({
+              message: '400',
+              code: 400,
+              body: {
+                error:
+                  'Unauthorired Request: User is not a manager of this group',
+                data: '',
+              },
+            });
           }
         }
         const memberCheck =
@@ -600,9 +617,14 @@ const resolvers = {
         const changeOpts = new ldap.Change({
           operation: opts.operation,
           modification: {
-            uniquemember: members,
+            member: members,
           },
         });
+
+        console.log('memberCheck: ', memberCheck);
+        console.log('members: ', members);
+        // console.log('changeOpts: ', changeOpts);
+
         bindLdapClient(true);
         // req, res, next
         ldapClient.modify(opts.dn, changeOpts, async () => {});
@@ -646,6 +668,7 @@ const resolvers = {
       return groups;
     },
     async getGroupChildren(_parent: any, args: { parentDn: string }) {
+      console.log('resolvers > getGroupChildren: args: ', args);
       return await getGroupChildren(args.parentDn);
     },
     async convertOUsToContainers(_parent, args: { ous: Array<string> }) {
@@ -715,9 +738,10 @@ const resolvers = {
         // console.log('group > dns: ', dns);
       }
       // console.log('group > args.dns2: ', args.dns);
+      // console.log('args.cn.indexOf: ', args.cn.indexOf('='));
+      // console.log('abstractDN(args.cn): ', abstractDN(args.cn));
 
-      const value = args.cn;
-      // console.log('group > args.cn: ', args.cn);
+      const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'cn',
@@ -745,7 +769,10 @@ const resolvers = {
         dn_list = dns.map(entry => entry.group.dn);
       }
 
-      const value = args.term;
+      const value =
+        args.term.indexOf('=') > -1
+          ? abstractDN(args.term)['cn'][0]
+          : args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'search',

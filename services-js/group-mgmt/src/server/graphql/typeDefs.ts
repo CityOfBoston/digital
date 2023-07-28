@@ -77,7 +77,6 @@ export const typeDefs = `
   # Defines all available mutations.
   type Mutation {
     updateGroupMembers(
-      distinguishedName: String!
       dn: String!
 			dns: [String]
 			operation: String!
