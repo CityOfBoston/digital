@@ -382,7 +382,7 @@ async function addVelocityTemplates(server: HapiServer) {
       plugins: {
         crumb: false,
       },
-      timeout: { server: 1500 },
+      timeout: { server: 15000 },
     },
     handler: async req => {
       if (req.query['id']) {
@@ -414,7 +414,9 @@ async function addVelocityTemplates(server: HapiServer) {
             },
           })
             .then(response => response.json())
-            .catch(error => console.log('error', error));
+            .catch(error =>
+              console.log('/id-verification endpoint Error:', error)
+            );
         };
         const respObj: any = await fetchQ();
 
