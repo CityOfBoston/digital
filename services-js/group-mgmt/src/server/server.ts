@@ -30,6 +30,7 @@ import {
 import { typeDefs } from './graphql/typeDefs';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import { Source } from './graphql';
+// import assert from 'assert';
 
 require('dotenv').config();
 const env = new LDAPEnvClass(process.env);
@@ -70,9 +71,19 @@ const bindLdapClient = (_force: Boolean = false) => {
     ldapClient.bind(env.LDAP_BIN_DN, env.LDAP_PASSWORD, function(err) {
       if (err) {
         console.log('ldapClient.bind err: ', err);
+        unbindLdapClient();
       }
     });
   }
+};
+
+export const unbindLdapClient = () => {
+  ldapClient.unbind(err => {
+    if (err) {
+      console.log('ldapClient.unBind err: ', err);
+    }
+    // assert.ifError(err);
+  });
 };
 
 const search_promise = (err, res) => {

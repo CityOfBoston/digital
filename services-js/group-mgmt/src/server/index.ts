@@ -6,7 +6,7 @@
 require('dotenv').config();
 import { filterObj, filteredObjKeys } from '../lib/helpers';
 
-try {
+const startUp = () => {
   const start = require('./server').default;
   console.log('start.server');
 
@@ -16,8 +16,13 @@ try {
   });
   const filtered_obj_keys = filteredObjKeys(process.env, 'LDAP_');
   const filtered_obj = filterObj(process.env, filtered_obj_keys);
-  console.log('process.env(LDAP): ', filtered_obj);
+  console.log('filterObj > process.env(LDAP): ', filtered_obj);
+};
+
+try {
+  startUp();
 } catch (e) {
   console.error(e);
-  process.exit(-1);
+  // process.exit(-1);
+  startUp();
 }
