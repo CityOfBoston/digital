@@ -83,7 +83,7 @@ CMD ["yarn", "start"]
 #           docker compose up --no-build -d group-mgmt
 #           -> this will create a container which should start on your local machine, with your cloned repo mounted into
 #               so that your changes are immediately effective in the browser.
-#           -> you should be able to see the webapp at https://127.0.0.1:300/marriageintention ..etc
+#           -> you should be able to see the graphql api at https://127.0.0.1:[PORT#(default 3000)]/graphql ..etc
 #       [d] In a terminal app, open a session in the container by running:
 #           docker exec -it group-mgmt /bin/sh
 #           -> This has effectively ssh'd you into the container as the defaul (root) user.

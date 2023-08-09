@@ -4,7 +4,7 @@ services:
     image: local-test/group-mgmt:latest
     container_name: group-mgmt
     ports:
-      - 443:3000
+      - 3000:3000
     working_dir: /app/services-js/group-mgmt
     extra_hosts:
       - iamdir-test.boston.gov:10.241.111.31
