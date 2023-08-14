@@ -77,7 +77,7 @@ CMD ["yarn", "start"]
 #   To use this file:
 #       [a] clone the digital repo
 #       [b] from a terminal, in the group-mgmt folder, run
-#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/group-mgmt:latest -f ./Dockerfile -t local-test/group-mgmt:latest --secret id=aws,src=$HOME/.aws/credentials ../..
+#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/group-mgmt:latest -f ./Dockerfile -t local-test/group-mgmt:latest --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
 #           -> this will create an image tagged local-test/group-mgmt:latest on the local machine
 #       [c] from a terminal, in the group-mgmt folder, run
 #           docker compose up --no-build -d group-mgmt
@@ -97,7 +97,7 @@ CMD ["yarn", "start"]
 #           docker stop group-mgmt
 #       [2.5] Re-login into ECR with this command --> aws ecr get-login-password --region us-east-1 --profile=cityofboston | docker login --username AWS --password-stdin 251803681989.dkr.ecr.us-east-1.amazonaws.com 
 #       [3] Rebuild the container and apps by running:
-#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/group-mgmt:latest -f ./Dockerfile -t 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/group-mgmt:deploy-new-stage --secret id=aws,src=$HOME/.aws/credentials ../..
+#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/group-mgmt:latest -f ./Dockerfile -t 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/group-mgmt:deploy-new-stage --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
 #           -> this is essentially the same command as in [b] above, just uses a different tag and ensures the /app folder
 #              is physically there and not mounted (using the docker-compose command in [c] above mounts the repo over
 #              whatever was added into the the image's /app folder during the docker build command)

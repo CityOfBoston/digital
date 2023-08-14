@@ -1,7 +1,8 @@
 version: '3'
 services:
   group-mgmt:
-    image: local-test/group-mgmt:latest
+    # image: local-test/group-mgmt:latest
+    image: 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/group-mgmt:deploy-new-stage
     container_name: group-mgmt
     ports:
       - 3000:3000
