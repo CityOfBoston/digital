@@ -47,12 +47,15 @@ if (
   };
 }
 
-const ldapClient = ldap.createClient({
-  url: env.LDAP_URL,
-  reconnect: true,
-  tlsOptions,
-  timeout: 15000,
-});
+const ldap_client = () => {
+  return ldap.createClient({
+    url: env.LDAP_URL,
+    reconnect: true,
+    tlsOptions,
+    timeout: 0,
+  });
+};
+let ldapClient = ldap_client();
 
 ldapClient.on('connect', _err => {
   // handle connection error
@@ -88,6 +91,8 @@ ldapClient.on('close', err => {
   // handle connection error
   console.log('Socket closed');
   console.log('ldapClient > close (err): ', err);
+  console.log('RECONNECTING ...');
+  ldapClient = ldap_client();
 });
 
 type Credentials = {
