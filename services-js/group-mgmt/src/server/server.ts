@@ -54,6 +54,42 @@ const ldapClient = ldap.createClient({
   timeout: 15000,
 });
 
+ldapClient.on('connect', _err => {
+  // handle connection error
+  console.log('Client connected (LDAP)');
+  // console.log('ldapClient > connect (_err): ', _err);
+});
+
+ldapClient.on('idle', err => {
+  // handle connection error
+  console.log('Idle timeout reached');
+  console.log('ldapClient > idle (err): ', err);
+});
+
+ldapClient.on('connectError', err => {
+  // handle connection error
+  console.log('Socket connection error');
+  console.log('ldapClient > connectError (err): ', err);
+});
+
+ldapClient.on('connectTimeout', err => {
+  // handle connection error
+  console.log('Server timeout');
+  console.log('ldapClient > connectTimeout (err): ', err);
+});
+
+ldapClient.on('destroy', err => {
+  // handle connection error
+  console.log('After client is disconnected');
+  console.log('ldapClient > destroy (err): ', err);
+});
+
+ldapClient.on('close', err => {
+  // handle connection error
+  console.log('Socket closed');
+  console.log('ldapClient > close (err): ', err);
+});
+
 type Credentials = {
   source: Source;
 };
@@ -897,6 +933,11 @@ export default async function startServer() {
   });
 
   await server.start();
+
+  process.on('uncaughtException', err => {
+    console.error(err.stack);
+    console.log('Node NOT Exiting...');
+  });
 
   console.log(`> Ready on http://localhost:${port}`);
 }
