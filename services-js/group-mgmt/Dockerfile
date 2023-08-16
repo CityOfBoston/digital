@@ -95,7 +95,7 @@ CMD ["yarn", "start"]
 #       [1] Check your code into github
 #       [2] Close down any shells into the container and stop the container:
 #           docker stop group-mgmt
-#       [2.5] Re-login into ECR with this command --> aws ecr get-login-password --region us-east-1 --profile=cityofboston | docker login --username AWS --password-stdin 251803681989.dkr.ecr.us-east-1.amazonaws.com 
+#       [2.5] Re-login into ECR with this command --> aws ecr get-login-password --region us-east-1 --profile=cityofboston | docker login --username AWS --password-stdin 251803681989.dkr.ecr.us-east-1.amazonaws.com
 #       [3] Rebuild the container and apps by running:
 #           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/group-mgmt:latest -f ./Dockerfile -t 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/group-mgmt:deploy-new-stage --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
 #           -> this is essentially the same command as in [b] above, just uses a different tag and ensures the /app folder

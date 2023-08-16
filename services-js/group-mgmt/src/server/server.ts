@@ -52,7 +52,9 @@ const ldap_client = () => {
     url: env.LDAP_URL,
     reconnect: true,
     tlsOptions,
-    timeout: 0,
+    // connectTimeout: 500,
+    // idleTimeout: 100,
+    timeout: Infinity,
   });
 };
 let ldapClient = ldap_client();
