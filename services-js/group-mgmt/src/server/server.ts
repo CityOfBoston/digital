@@ -99,7 +99,7 @@ ldapClient.on('close', err => {
 
 ldapClient.on('error', err => {
   // handle connection error
-  console.log('Socket closed');
+  console.log('Socket error');
   console.log('ldapClient > error (err): ', err);
   console.log('RECONNECTING ...');
   ldapClient = ldap_client();
@@ -961,6 +961,25 @@ export default async function startServer() {
   });
 
   await server.start();
+
+  server.events.on('start', () => {
+    console.log('Server started');
+  });
+
+  server.events.on('stop', () => {
+    console.log('Server stopped');
+  });
+
+  server.events.on('log', (event, tags) => {
+    if (tags.error) {
+      console.log(
+        // `Server error: ${event.error ? event.error.message : 'unknown'}`
+        `Server error: ${event.error ? event.error : 'unknown'}`,
+        `event.error: `,
+        event.error
+      );
+    }
+  });
 
   process.on('uncaughtException', err => {
     console.error(err.stack);
