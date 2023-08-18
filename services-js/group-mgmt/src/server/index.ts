@@ -5,6 +5,7 @@
 
 require('dotenv').config();
 import { filterObj, filteredObjKeys } from '../lib/helpers';
+// import { process } from 'node';
 
 const startUp = () => {
   const start = require('./server').default;
@@ -26,3 +27,14 @@ try {
   // process.exit(-1);
   startUp();
 }
+
+// import process from 'node';
+// import process from 'node:process';
+
+// process.on('uncaughtException', (error, origin) => {
+//   if (error && error.code === 'ECONNRESET') return;
+//   console.error('UNCAUGHT EXCEPTION');
+//   console.error(error);
+//   console.error(origin);
+//   process.exit(1);
+// });

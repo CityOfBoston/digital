@@ -52,8 +52,8 @@ const ldap_client = () => {
     url: env.LDAP_URL,
     reconnect: true,
     tlsOptions,
-    // connectTimeout: 500,
-    // idleTimeout: 100,
+    connectTimeout: 120000,
+    idleTimeout: 1000,
     timeout: Infinity,
   });
 };
@@ -95,6 +95,14 @@ ldapClient.on('close', err => {
   console.log('ldapClient > close (err): ', err);
   console.log('RECONNECTING ...');
   ldapClient = ldap_client();
+});
+
+ldapClient.on('error', err => {
+  // handle connection error
+  console.log('Socket closed');
+  console.log('ldapClient > error (err): ', err);
+  // console.log('RECONNECTING ...');
+  // ldapClient = ldap_client();
 });
 
 type Credentials = {
@@ -631,6 +639,19 @@ export async function makeServer() {
 
   server.route(adminOkRoute);
   await addGraphQl(server);
+
+  server.events.on('log', (event, tags) => {
+    if (tags.error) {
+      console.log(
+        // `Server error: ${event.error ? event.error.message : 'unknown'}`
+        `Hapi.Server error: ${event.error ? event.error : 'unknown'}`,
+        `tags: `,
+        tags,
+        `event: `,
+        event
+      );
+    }
+  });
 
   return {
     server,
