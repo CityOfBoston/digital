@@ -101,8 +101,8 @@ ldapClient.on('error', err => {
   // handle connection error
   console.log('Socket closed');
   console.log('ldapClient > error (err): ', err);
-  // console.log('RECONNECTING ...');
-  // ldapClient = ldap_client();
+  console.log('RECONNECTING ...');
+  ldapClient = ldap_client();
 });
 
 type Credentials = {
