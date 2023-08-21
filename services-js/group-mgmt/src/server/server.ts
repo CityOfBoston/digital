@@ -93,7 +93,7 @@ ldapClient.on('close', err => {
   // handle connection error
   console.log('Socket closed');
   console.log('ldapClient > close (err): ', err);
-  console.log('RECONNECTING ...');
+  console.log(`RECONNECTING (from 'close')...`);
   ldapClient = ldap_client();
 });
 
@@ -101,7 +101,7 @@ ldapClient.on('error', err => {
   // handle connection error
   console.log('Socket error');
   console.log('ldapClient > error (err): ', err);
-  console.log('RECONNECTING ...');
+  console.log(`RECONNECTING (from 'error')...`);
   ldapClient = ldap_client();
 });
 
@@ -640,15 +640,23 @@ export async function makeServer() {
   server.route(adminOkRoute);
   await addGraphQl(server);
 
+  server.events.on('start', () => {
+    console.log('Server started (makeServer)');
+  });
+
+  server.events.on('stop', () => {
+    console.log('Server stopped (makeServer)');
+    console.log(`RECONNECTING (from 'stop')...`);
+    ldapClient = ldap_client();
+  });
+
   server.events.on('log', (event, tags) => {
     if (tags.error) {
       console.log(
         // `Server error: ${event.error ? event.error.message : 'unknown'}`
-        `Hapi.Server error: ${event.error ? event.error : 'unknown'}`,
-        `tags: `,
-        tags,
-        `event: `,
-        event
+        `Server error: ${event.error ? event.error : 'unknown'}`,
+        `event.error  (makeServer): `,
+        event.error
       );
     }
   });
@@ -963,28 +971,44 @@ export default async function startServer() {
   await server.start();
 
   server.events.on('start', () => {
-    console.log('Server started');
+    console.log('Server started (startServer)');
   });
 
-  server.events.on('stop', () => {
-    console.log('Server stopped');
+  server.events.on('stop', async () => {
+    console.log('Server stopped (startServer)');
+    console.log(`RECONNECTING (from 'stop')...`);
+    ldapClient = ldap_client();
+    await server.start();
   });
 
-  server.events.on('log', (event, tags) => {
-    if (tags.error) {
-      console.log(
-        // `Server error: ${event.error ? event.error.message : 'unknown'}`
-        `Server error: ${event.error ? event.error : 'unknown'}`,
-        `event.error: `,
-        event.error
-      );
-    }
-  });
+  // server.events.on('log', (event, tags) => {
+  //   if (tags.error) {
+  //     console.log(
+  //       // `Server error: ${event.error ? event.error.message : 'unknown'}`
+  //       `Server error: ${event.error ? event.error : 'unknown'}`,
+  //       `event.error: `,
+  //       event.error
+  //     );
+  //   }
+  // });
 
-  process.on('uncaughtException', err => {
-    console.error(err.stack);
-    console.log('Node NOT Exiting...');
-  });
+  // process.on('uncaughtException', err => {
+  //   console.log('Node NOT Exiting...');
+  //   console.error(err.stack);
+  //   console.error('Node NOT Exiting...');
+  // });
 
   console.log(`> Ready on http://localhost:${port}`);
 }
+
+// const terminate = require('./terminate');
+
+// const exitHandler = terminate(server, {
+//   coredump: false,
+//   timeout: 500,
+// });
+
+// process.on('uncaughtException', exitHandler(1, 'Unexpected Error'));
+// process.on('unhandledRejection', exitHandler(1, 'Unhandled Promise'));
+// process.on('SIGTERM', exitHandler(0, 'SIGTERM'));
+// process.on('SIGINT', exitHandler(0, 'SIGINT'));
