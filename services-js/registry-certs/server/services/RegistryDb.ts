@@ -354,7 +354,7 @@ export const COUNTRIES = [
     shortLabel: 'Venezuela',
     value: 'VEN',
   },
-  { label: 'Viet Nam', value: 'VNM' },
+  { label: 'Vietnam', value: 'VNM' },
   {
     label: 'Wallis and Futuna Islands',
     shortLabel: 'Wallis',
