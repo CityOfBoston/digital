@@ -658,7 +658,15 @@ export async function makeServer() {
         ['cn', 'dn', 'displayname', 'objectclass'],
         filterParams
       );
-      console.log(`/admin/ok > groups QRY: `, groups);
+      let mapGrp = {};
+      if (groups.length > 0 && typeof groups[0] === 'object') {
+        ['cn', 'dn', 'displayname', 'objectclass'].forEach(key => {
+          if (key in groups[0]) {
+            mapGrp[key] = groups[0][key];
+          }
+        });
+      }
+      console.log(`/admin/ok > groups QRY: `, mapGrp);
       return 'ok';
     },
     options: {
