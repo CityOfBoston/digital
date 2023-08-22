@@ -62,51 +62,51 @@ const ldap_client = () => {
 };
 let ldapClient = ldap_client();
 
-ldapClient.on('connect', _err => {
-  // handle connection error
-  console.log('Client connected (LDAP)');
-  // console.log('ldapClient > connect (_err): ', _err);
-});
+// ldapClient.on('connect', _err => {
+//   // handle connection error
+//   console.log('Client connected (LDAP)');
+//   // console.log('ldapClient > connect (_err): ', _err);
+// });
 
-ldapClient.on('idle', err => {
-  // handle connection error
-  console.log('Idle timeout reached');
-  console.log('ldapClient > idle (err): ', err);
-});
+// ldapClient.on('idle', err => {
+//   // handle connection error
+//   console.log('Idle timeout reached');
+//   console.log('ldapClient > idle (err): ', err);
+// });
 
-ldapClient.on('connectError', err => {
-  // handle connection error
-  console.log('Socket connection error');
-  console.log('ldapClient > connectError (err): ', err);
-});
+// ldapClient.on('connectError', err => {
+//   // handle connection error
+//   console.log('Socket connection error');
+//   console.log('ldapClient > connectError (err): ', err);
+// });
 
-ldapClient.on('connectTimeout', err => {
-  // handle connection error
-  console.log('Server timeout');
-  console.log('ldapClient > connectTimeout (err): ', err);
-});
+// ldapClient.on('connectTimeout', err => {
+//   // handle connection error
+//   console.log('Server timeout');
+//   console.log('ldapClient > connectTimeout (err): ', err);
+// });
 
-ldapClient.on('destroy', err => {
-  // handle connection error
-  console.log('After client is disconnected');
-  console.log('ldapClient > destroy (err): ', err);
-});
+// ldapClient.on('destroy', err => {
+//   // handle connection error
+//   console.log('After client is disconnected');
+//   console.log('ldapClient > destroy (err): ', err);
+// });
 
-ldapClient.on('close', err => {
-  // handle connection error
-  console.log('Socket closed');
-  console.log('ldapClient > close (err): ', err);
-  console.log(`RECONNECTING (from 'close')...`);
-  ldapClient = ldap_client();
-});
+// ldapClient.on('close', err => {
+//   // handle connection error
+//   console.log('Socket closed');
+//   console.log('ldapClient > close (err): ', err);
+//   console.log(`RECONNECTING (from 'close')...`);
+//   ldapClient = ldap_client();
+// });
 
-ldapClient.on('error', err => {
-  // handle connection error
-  console.log('Socket error');
-  console.log('ldapClient > error (err): ', err);
-  console.log(`RECONNECTING (from 'error')...`);
-  ldapClient = ldap_client();
-});
+// ldapClient.on('error', err => {
+//   // handle connection error
+//   console.log('Socket error');
+//   console.log('ldapClient > error (err): ', err);
+//   console.log(`RECONNECTING (from 'error')...`);
+//   ldapClient = ldap_client();
+// });
 
 type Credentials = {
   source: Source;
@@ -681,22 +681,22 @@ export async function makeServer() {
     console.log('Server started (makeServer)');
   });
 
-  server.events.on('stop', () => {
-    console.log('Server stopped (makeServer)');
-    console.log(`RECONNECTING (from 'stop')...`);
-    ldapClient = ldap_client();
-  });
+  // server.events.on('stop', () => {
+  //   console.log('Server stopped (makeServer)');
+  //   console.log(`RECONNECTING (from 'stop')...`);
+  //   ldapClient = ldap_client();
+  // });
 
-  server.events.on('log', (event, tags) => {
-    if (tags.error) {
-      console.log(
-        // `Server error: ${event.error ? event.error.message : 'unknown'}`
-        `Server error: ${event.error ? event.error : 'unknown'}`,
-        `event.error  (makeServer): `,
-        event.error
-      );
-    }
-  });
+  // server.events.on('log', (event, tags) => {
+  //   if (tags.error) {
+  //     console.log(
+  //       // `Server error: ${event.error ? event.error.message : 'unknown'}`
+  //       `Server error: ${event.error ? event.error : 'unknown'}`,
+  //       `event.error  (makeServer): `,
+  //       event.error
+  //     );
+  //   }
+  // });
 
   return {
     server,
@@ -1007,16 +1007,16 @@ export default async function startServer() {
 
   await server.start();
 
-  server.events.on('start', () => {
-    console.log('Server started (startServer)');
-  });
+  // server.events.on('start', () => {
+  //   console.log('Server started (startServer)');
+  // });
 
-  server.events.on('stop', async () => {
-    console.log('Server stopped (startServer)');
-    console.log(`RECONNECTING (from 'stop')...`);
-    ldapClient = ldap_client();
-    await server.start();
-  });
+  // server.events.on('stop', async () => {
+  //   console.log('Server stopped (startServer)');
+  //   console.log(`RECONNECTING (from 'stop')...`);
+  //   ldapClient = ldap_client();
+  //   await server.start();
+  // });
 
   // server.events.on('log', (event, tags) => {
   //   if (tags.error) {
