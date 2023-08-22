@@ -666,7 +666,7 @@ export async function makeServer() {
           }
         });
       }
-      console.log(`/admin/ok > groups QRY: `, mapGrp);
+      console.log(`/admin/ok > groups QRY: `, mapGrp['displayname']);
       return 'ok';
     },
     options: {
