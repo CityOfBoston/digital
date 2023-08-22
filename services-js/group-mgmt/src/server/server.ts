@@ -3,7 +3,10 @@ import Hapi from 'hapi';
 import Inert from 'inert';
 import fs from 'fs';
 import cleanup from 'node-cleanup';
-import { loggingPlugin, adminOkRoute } from '@cityofboston/hapi-common';
+import {
+  loggingPlugin,
+  // adminOkRoute
+} from '@cityofboston/hapi-common';
 import { makeExecutableSchema, ApolloServer } from 'apollo-server-hapi';
 import ldap from 'ldapjs';
 import {
@@ -642,7 +645,7 @@ export async function makeServer() {
     method: 'GET',
     path: '/admin/ok',
     handler: async () => {
-      const value = 'bps';
+      const value = 'drupal';
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'search',
@@ -651,7 +654,10 @@ export async function makeServer() {
         dns: [],
       });
 
-      let groups: any = await searchWrapper(['all'], filterParams);
+      let groups: any = await searchWrapper(
+        ['cn', 'dn', 'displayname', 'objectclass'],
+        filterParams
+      );
       console.log(`/admin/ok > groups QRY: `, groups);
       return 'ok';
     },
