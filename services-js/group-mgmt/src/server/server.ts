@@ -637,7 +637,30 @@ export async function makeServer() {
     handler: () => 'ok',
   });
 
-  server.route(adminOkRoute);
+  // server.route(adminOkRoute);
+  server.route({
+    method: 'GET',
+    path: '/admin/ok',
+    handler: async () => {
+      const value = 'bps';
+      const filterParams: FilterOptions = new FilterOptionsClass({
+        filterType: 'group',
+        field: 'search',
+        value,
+        allowInactive: false,
+        dns: [],
+      });
+
+      let groups: any = await searchWrapper(['all'], filterParams);
+      console.log(`/admin/ok > groups QRY: `, groups);
+      return 'ok';
+    },
+    options: {
+      // mark this as a health check so that it doesn’t get logged
+      tags: ['health'],
+      auth: false,
+    },
+  });
   await addGraphQl(server);
 
   server.events.on('start', () => {
