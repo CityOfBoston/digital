@@ -3,10 +3,7 @@ import Hapi from 'hapi';
 import Inert from 'inert';
 import fs from 'fs';
 import cleanup from 'node-cleanup';
-import {
-  loggingPlugin,
-  // adminOkRoute
-} from '@cityofboston/hapi-common';
+import { loggingPlugin } from '@cityofboston/hapi-common';
 import { makeExecutableSchema, ApolloServer } from 'apollo-server-hapi';
 import ldap from 'ldapjs';
 import {
@@ -21,7 +18,6 @@ import {
   CustomAttributes,
   ResponseClass,
   LDAPEnvClass,
-  // OrgUnitClass,
 } from './interfaces';
 import {
   renameObjectKeys,
@@ -33,7 +29,6 @@ import {
 import { typeDefs } from './graphql/typeDefs';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
 import { Source } from './graphql';
-// import assert from 'assert';
 
 require('dotenv').config();
 const env = new LDAPEnvClass(process.env);
@@ -61,52 +56,6 @@ const ldap_client = () => {
   });
 };
 let ldapClient = ldap_client();
-
-// ldapClient.on('connect', _err => {
-//   // handle connection error
-//   console.log('Client connected (LDAP)');
-//   // console.log('ldapClient > connect (_err): ', _err);
-// });
-
-// ldapClient.on('idle', err => {
-//   // handle connection error
-//   console.log('Idle timeout reached');
-//   console.log('ldapClient > idle (err): ', err);
-// });
-
-// ldapClient.on('connectError', err => {
-//   // handle connection error
-//   console.log('Socket connection error');
-//   console.log('ldapClient > connectError (err): ', err);
-// });
-
-// ldapClient.on('connectTimeout', err => {
-//   // handle connection error
-//   console.log('Server timeout');
-//   console.log('ldapClient > connectTimeout (err): ', err);
-// });
-
-// ldapClient.on('destroy', err => {
-//   // handle connection error
-//   console.log('After client is disconnected');
-//   console.log('ldapClient > destroy (err): ', err);
-// });
-
-// ldapClient.on('close', err => {
-//   // handle connection error
-//   console.log('Socket closed');
-//   console.log('ldapClient > close (err): ', err);
-//   console.log(`RECONNECTING (from 'close')...`);
-//   ldapClient = ldap_client();
-// });
-
-// ldapClient.on('error', err => {
-//   // handle connection error
-//   console.log('Socket error');
-//   console.log('ldapClient > error (err): ', err);
-//   console.log(`RECONNECTING (from 'error')...`);
-//   ldapClient = ldap_client();
-// });
 
 type Credentials = {
   source: Source;
@@ -136,7 +85,6 @@ export const unbindLdapClient = () => {
     if (err) {
       console.log('ldapClient.unBind err: ', err);
     }
-    // assert.ifError(err);
   });
 };
 
@@ -148,52 +96,15 @@ const search_promise = (err, res) => {
   return new Promise((resolve, reject) => {
     const entries: object[] = Array();
     const refInstance = new objectClassArray({});
-    // console.log('search_promise > Promise');
     res.on('searchEntry', entry => {
-      // console.log(
-      //   'search_promise > Promise > res.on > entry > entry.attributes.length: ',
-      //   entry.attributes.length
-      // );
-
-      // if (entry.attributes && entry.attributes.length > 0) {
-      //   entry.attributes.forEach(attribute => {
-      //     console.log(`attribute: ${attribute.type}`);
-      //     if (attribute.type === 'cn') {
-      //       console.log('attribute.type[cn]: ', attribute.type);
-      //       console.log('attribute.type[cn][_vals]: ', attribute['_vals']);
-      //     }
-      //     console.log('attribute._vals: ', JSON.stringify(attribute._vals));
-      //   });
-      // }
-      // console.log('entry: ', entry);
-
       let currEntry = entry.object || {};
       const remapObj = remapObjKeys(refInstance, currEntry);
-      // console.log('res.on > remapObj: ', remapObj);
-      currEntry = renameObjectKeys(
-        // remapObjKeys(refInstance, currEntry),
-        remapObj,
-        currEntry
-      );
-
-      // console.log('currEntry: ', currEntry);
-
-      // console.log(
-      //   `Object.keys(entry): `,
-      //   Object.keys(entry).map(key => key.toLocaleLowerCase())
-      // );
-
-      // console.log('currEntry.objectclass: ', currEntry.objectclass);
+      currEntry = renameObjectKeys(remapObj, currEntry);
       if (
         currEntry.objectclass.indexOf('organizationalPerson') > -1 &&
         currEntry.objectclass.indexOf('person') > -1
       ) {
         const Person: Person = new PersonClass(currEntry);
-        // console.log(
-        //   `currEntry.objectclass.indexOf('organizationalPerson'): `,
-        //   currEntry.objectclass.indexOf('organizationalPerson')
-        // );
-        // console.log('\n', ' Person: ', Person);
         entries.push(Person);
       }
 
@@ -220,21 +131,14 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
-      // console.log('search_promise > Promise > res.end > entry: ', entries);
       resolve(entries);
     });
   });
 };
 
 const setAttributes = (attr = [''], type = 'group') => {
-  // console.log('setAttributes');
-  // console.log(`setAttributes > attr: ${attr} | type: ${type}`);
   let attrSet: Array<string> = [];
   if (attr.length === 1 && attr[0] === 'all') {
-    // console.log(
-    //   `setAttributes > attr && length > 0: ${attr.length === 1 &&
-    //     attr[0] === 'all'}`
-    // );
     switch (type) {
       case 'person':
         attrSet = Object.keys(new PersonClass({}));
@@ -273,7 +177,6 @@ const setAttributes = (attr = [''], type = 'group') => {
   }
 
   if (attrSet.length > 0) {
-    // console.log('setAttributes > (attrSet.length > 0) RETURNED!', attrSet);
     return attrSet;
   }
 
@@ -295,16 +198,11 @@ const setAttributes = (attr = [''], type = 'group') => {
 };
 
 const getFilterValue = (filter: FilterOptions) => {
-  // console.log('getFilterValue > filter: ', filter.filterType, filter);
   const searchFilterStr = (type: String) => {
     const objClass =
       type === 'group' ? 'groupOfUniqueNames' : 'organizationalPerson';
-
-    // console.log('getFilterValue > searchFilterStr > objClass: ', objClass);
     if (type === 'group') {
-      const retVal = `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
-      // console.log('getFilterValue > type=group > retVal: ', type, retVal);
-      return retVal;
+      return `${LdapFilters.groups.pre}cn=*${filter.value}*))`;
     } else {
       if (filter.allowInactive === false) {
         const filterBy: string = filter.by ? filter.by : '';
@@ -338,21 +236,11 @@ const getFilterValue = (filter: FilterOptions) => {
     case 'person':
       if (filter.allowInactive === false) {
         const retStr = searchFilterStr(filter.filterType);
-        // console.log(
-        //   'getFilterValue > switch > person > allowInactive(false) | retStr: ',
-        //   filter.allowInactive,
-        //   retStr
-        // );
         return retStr;
       }
 
       if (filter.value.length === 0) {
         const retStr = `${LdapFilters.person.default}`;
-        // console.log(
-        //   'getFilterValue > switch > person > allowInactive(false) | retStr: ',
-        //   filter.allowInactive,
-        //   retStr
-        // );
         return retStr;
       }
 
@@ -366,10 +254,6 @@ const getFilterValue = (filter: FilterOptions) => {
     case 'group':
       if (filter.value.length === 0) {
         const retStr = `${LdapFilters.groups.default}`;
-        // console.log(
-        //   'getFilterValue > filter.filterType switch default: ',
-        //   retStr
-        // );
         return retStr;
       }
       if (filter.field === 'cn') {
@@ -377,15 +261,10 @@ const getFilterValue = (filter: FilterOptions) => {
           filter.value
         }${LdapFilters.groups.post}`;
 
-        // console.log('getFilterValue > filter.filterType switch cn: ', retStr);
         return retStr;
       }
       if (filter.field === 'search') {
         const retStr = searchFilterStr(filter.filterType);
-        // console.log(
-        //   'getFilterValue > filter.filterType switch search: ',
-        //   retStr
-        // );
         return retStr;
       }
 
@@ -393,9 +272,6 @@ const getFilterValue = (filter: FilterOptions) => {
       let returnFilter: any = '';
       returnFilter += `${LdapFilters.groups.pre}${filter.field}=*`;
       returnFilter += `${filter.value}${LdapFilters.groups.post}`;
-      // `${LdapFilters.groups.pre}${filter.field}=${filter.value}${LdapFilters.groups.post}`;
-
-      // console.log('getFilterValue > returnFilter: ', returnFilter);
 
       return returnFilter;
     default:
@@ -451,7 +327,6 @@ const searchWrapper = async (
 ) => {
   const base_dn = env.LDAP_BASE_DN;
   const filterValue = getFilterValue(filter);
-  // console.log('searchWrapper > filterValue: ', filterValue);
   const thisAttributes =
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
@@ -462,18 +337,14 @@ const searchWrapper = async (
     filter: filterValue,
   };
   let results: any;
-  // console.log(`searchWrapper >`, filterQryParams);
 
   if (filter.dns.length > 0) {
-    // console.log('searchWrapper > filter.dns.length: ', filter.dns.length);
     try {
       results = await getFilteredResults(filter, filterQryParams);
-      // console.log('searchWrapper > filteredResults > results: ', results);
     } catch (err) {
       console.log('filteredResults > err: ', err);
     }
   } else {
-    // console.log('searchWrapper > filter.dns.length: ', filter.dns.length);
     results = new Promise(function(resolve, reject) {
       bindLdapClient();
       if (
@@ -484,29 +355,16 @@ const searchWrapper = async (
         console.log('searchWrapper > promise > reject');
         reject();
       }
-      // base_dn | cn=Groups,o=cobhdap
       let baseDn = base_dn;
       if (filter.field === 'ou') {
         baseDn = `OU=Groups,${baseDn}`;
-        // console.log('baseDn: ', baseDn);
       }
-      ldapClient.search(
-        // 'OU=Groups,DC=iamdir-test,DC=boston,DC=gov',
-        baseDn,
-        filterQryParams,
-        function(err, res) {
-          if (err) {
-            console.log('ldapsearch error: ', err);
-          }
-          // console.log(
-          //   'searchWrapper > ldapClient.search > base_dn: ',
-          //   base_dn,
-          //   baseDn
-          // );
-          // console.log('searchWrapper > res: ', res);
-          resolve(search_promise(err, res));
+      ldapClient.search(baseDn, filterQryParams, function(err, res) {
+        if (err) {
+          console.log('ldapsearch error: ', err);
         }
-      );
+        resolve(search_promise(err, res));
+      });
     });
   }
 
@@ -677,27 +535,6 @@ export async function makeServer() {
   });
   await addGraphQl(server);
 
-  server.events.on('start', () => {
-    console.log('Server started (makeServer)');
-  });
-
-  // server.events.on('stop', () => {
-  //   console.log('Server stopped (makeServer)');
-  //   console.log(`RECONNECTING (from 'stop')...`);
-  //   ldapClient = ldap_client();
-  // });
-
-  // server.events.on('log', (event, tags) => {
-  //   if (tags.error) {
-  //     console.log(
-  //       // `Server error: ${event.error ? event.error.message : 'unknown'}`
-  //       `Server error: ${event.error ? event.error : 'unknown'}`,
-  //       `event.error  (makeServer): `,
-  //       event.error
-  //     );
-  //   }
-  // });
-
   return {
     server,
     startup,
@@ -853,13 +690,8 @@ const resolvers = {
       let dns: any = [];
 
       if (args.dns) {
-        // console.log('group > args.dns1: ', args.dns);
         dns = await convertDnsToGroupDNs(args.dns);
-        // console.log('group > dns: ', dns);
       }
-      // console.log('group > args.dns2: ', args.dns);
-      // console.log('args.cn.indexOf: ', args.cn.indexOf('='));
-      // console.log('abstractDN(args.cn): ', abstractDN(args.cn));
 
       const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -868,9 +700,8 @@ const resolvers = {
         value,
         dns,
       });
-      // console.log('group > filterParams: ', filterParams);
       const groups: any = await searchWrapper(['all'], filterParams);
-      // console.log('group > groups: ', groups);
+
       return groups;
     },
     async groupSearch(
@@ -1007,45 +838,5 @@ export default async function startServer() {
 
   await server.start();
 
-  // server.events.on('start', () => {
-  //   console.log('Server started (startServer)');
-  // });
-
-  // server.events.on('stop', async () => {
-  //   console.log('Server stopped (startServer)');
-  //   console.log(`RECONNECTING (from 'stop')...`);
-  //   ldapClient = ldap_client();
-  //   await server.start();
-  // });
-
-  // server.events.on('log', (event, tags) => {
-  //   if (tags.error) {
-  //     console.log(
-  //       // `Server error: ${event.error ? event.error.message : 'unknown'}`
-  //       `Server error: ${event.error ? event.error : 'unknown'}`,
-  //       `event.error: `,
-  //       event.error
-  //     );
-  //   }
-  // });
-
-  // process.on('uncaughtException', err => {
-  //   console.log('Node NOT Exiting...');
-  //   console.error(err.stack);
-  //   console.error('Node NOT Exiting...');
-  // });
-
   console.log(`> Ready on http://localhost:${port}`);
 }
-
-// const terminate = require('./terminate');
-
-// const exitHandler = terminate(server, {
-//   coredump: false,
-//   timeout: 500,
-// });
-
-// process.on('uncaughtException', exitHandler(1, 'Unexpected Error'));
-// process.on('unhandledRejection', exitHandler(1, 'Unhandled Promise'));
-// process.on('SIGTERM', exitHandler(0, 'SIGTERM'));
-// process.on('SIGINT', exitHandler(0, 'SIGINT'));
