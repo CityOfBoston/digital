@@ -1,3 +1,10 @@
+/**
+ *
+ * @param {string | Array} val
+ * @returns {Array} of strings
+ * @description Checks if value is an array, if not converter it to
+ * an array if its a single string
+ */
 export const convertOptionalArray = val => (Array.isArray(val) ? val : [val]);
 
 /**
@@ -56,7 +63,7 @@ export const convertToBool = (val: String, base: boolean): boolean => {
  *      dn: 'cn',
  *      CN: 'cn',
  *      isMemberof: 'ismemberof',
- *      nsAccountLock: 'nsaccountlock',
+ *      nsaccountlock: 'nsaccountlock',
  *     },
  *      {
  *        dn: '',
@@ -105,14 +112,14 @@ export const renameObjectKeys = (keysMap: object, obj) => {
  *        dn: '',
  *        CN: '100992',
  *        isMemberof: [],
- *        nsAccountLock: 'FALSE',
+ *        nsaccountlock: 'FALSE',
  *      },
  *     );
  *     return {
  *      dn: 'cn',
  *      CN: 'cn',
  *      isMemberof: 'ismemberof',
- *      nsAccountLock: 'nsaccountlock',
+ *      nsaccountlock: 'nsaccountlock',
  *     }
  */
 export const remapObjKeys = (sourceObj: object, targetObj: object): object => {
@@ -146,6 +153,7 @@ export const abstractDN = (dn: String = '') => {
       }
     }
   });
+  // console.log('abstractDN > dnObj: ', dnObj, Object.keys(dnObj));
 
   return dnObj;
 };
@@ -208,6 +216,7 @@ export const chunkArray = (arr: Array<[]> = [], size: Number): object => {
 export const filterObj = (obj: object, keys: Array<string>): object => {
   let retObj = {};
   for (let i = 0; i < keys.length; i++) {
+    // eslint-disable-next-line no-prototype-builtins
     if (obj.hasOwnProperty(keys[i])) {
       const thisKey: string = keys[i];
       retObj[thisKey] = obj[thisKey];
@@ -257,19 +266,18 @@ export const isDNInOUs = (dn: string, dns: Array<string>) => {
   return retArr.length > 0;
 };
 
-export const getOnlyActiveMembers = (_arr: any) => {
-  const unparsedArr = typeof _arr === 'string' ? [_arr] : _arr;
+export const getOnlyActiveMembers = (arr: any) => {
+  const unparsedArr = typeof arr === 'string' ? [arr] : arr;
   const data = unparsedArr.filter((node: Array<[String]>) => node.length > 0);
   if (data.length > 0) {
-    const parsedCn = data.map((_str: String) => {
-      const abs = abstractDN(_str);
+    const parsedCn = data.map((str: String) => {
+      const abs = abstractDN(str);
       if (abs['cn']) {
         if (abs['cn'][0]) {
-          const retStr = `cn=${abs['cn'][0]}`;
-          return retStr;
+          return `cn=${abs['cn'][0]}`;
         }
       }
-      return _str;
+      return str;
     });
     return parsedCn;
   }
