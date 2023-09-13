@@ -2,8 +2,6 @@ version: '3'
 services:
   registry-certs:
     image: local-dev/registry-certs:latest
-#    build:
-#      context: .
     container_name: registry-certs
     ports:
       - 3000:3000
@@ -22,5 +20,5 @@ services:
       YARN_VERSION: 1.22.17
       WORKSPACE: registry-certs
       NODE_ENV: production
-      USE_SSL: 1
+      USE_SSL: true
     network_mode: bridge
