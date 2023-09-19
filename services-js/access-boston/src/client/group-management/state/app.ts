@@ -14,6 +14,8 @@ import {
   PageCount,
 } from '../types';
 
+// import { fetchGroupMembers } from '../data-fetching/fetch-person-data';
+
 export type ActionTypes =
   | 'APP/CHANGE_VIEW'
   | 'APP/CHANGE_MODE'
@@ -36,6 +38,7 @@ interface Action {
   currentPage?: CurrentPage;
   pageCount?: PageCount;
   dns?: [];
+  groupmembers?: Array<Person | Group>;
 }
 
 export const initialState = {
@@ -63,6 +66,11 @@ export const reducer = (state, action: Partial<Action>) => {
     ous: currUserOUs,
   };
 
+  const pageVal =
+    state.currentPage !== action.currentPage
+      ? action.currentPage
+      : state.currentPage;
+
   switch (action.type) {
     case 'APP/CHANGE_VIEW':
       return { ...state, view: action.view };
@@ -71,6 +79,19 @@ export const reducer = (state, action: Partial<Action>) => {
       return { ...state, mode: action.mode };
 
     case 'APP/SET_SELECTED':
+      // If action.selected is empty ... request group members
+      if (
+        action.selected &&
+        Object.keys(action.selected).length > 0 &&
+        action.groupmembers &&
+        typeof action.groupmembers === 'object' &&
+        action.groupmembers.length > 0
+      )
+        action.selected['groupmember'] = action.groupmembers;
+
+      // console.log(`action.selected: `, action.selected);
+      // console.log(`action: `, action, state);
+
       return { ...state, selected: action.selected };
 
     case 'APP/SET_OUS':
@@ -89,7 +110,14 @@ export const reducer = (state, action: Partial<Action>) => {
       return newInitState;
 
     case 'APP/CHANGE_PAGE':
-      return { ...state, currentPage: action.currentPage };
+      // let newCurrPage = state.currentPage;
+      // console.log(
+      //   `APP/CHANGE_PAGE > ${state.currentPage} | ${action.currentPage}`
+      // );
+      // console.log(`bool: ${state.currentPage === action.currentPage}`);
+      // console.log('state|action: ', state, '\n', action, '\n');
+      // console.log(`pageVal: ${pageVal}`);
+      return { ...state, currentPage: pageVal };
 
     case 'APP/CHANGE_PAGECOUNT':
       return { ...state, pageCount: action.pageCount };

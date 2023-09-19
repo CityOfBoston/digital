@@ -36,6 +36,9 @@ function Wrapper() {
           }
           handleSelectClick={() => {}}
           dns={[]}
+          currentPage={0}
+          pageSize={1}
+          changePageCount={() => {}}
         />
       }
     />

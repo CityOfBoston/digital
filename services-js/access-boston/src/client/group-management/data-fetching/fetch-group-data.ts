@@ -7,6 +7,8 @@ const GROUP_DATA = `
   cn
   displayname
   uniquemember
+  groupmember
+  member
 `;
 
 const FETCH_GROUP = `
@@ -117,13 +119,14 @@ export async function fetchGroupSearch(
   term: string,
   _selectedItem: any,
   dns: String[] = []
+  // autocomplete: boolean = false
 ): Promise<Group[]> {
   if (!dns) {
     dns = [];
   }
-  return await fetchGraphql(SEARCH_GROUPS, { term, dns }).then(response =>
-    response.groupSearch.map(group => toGroup(group))
-  );
+  return await fetchGraphql(SEARCH_GROUPS, { term, dns }).then(response => {
+    return response.groupSearch.map(group => toGroup(group));
+  });
 }
 
 /**
@@ -134,17 +137,17 @@ export async function fetchGroupSearch(
  */
 export async function fetchPersonsGroups(
   person: Person,
-  _currentUserAllowedGroups: string[],
-  dns: string[],
-  ous: string[],
-  _currentPage: number = 0
+  _dns: string[],
+  _ous: string[],
+  _currentPage: number = 0,
+  _currentUserAllowedGroups: string[]
 ): Promise<Group[]> {
   return await Promise.all(
     person.chunked[_currentPage].map(groupCn =>
-      fetchGroup(groupCn, dns).then(response => {
+      fetchGroup(groupCn, _dns).then(response => {
         try {
           if (response.group[0]) {
-            const retGroup = toGroup(response.group[0], dns, ous);
+            const retGroup = toGroup(response.group[0], _ous);
             return retGroup;
           }
         } catch (error) {
@@ -175,6 +178,8 @@ export async function fetchGroupSearchRemaining(
   person: Person,
   dns: String[]
 ): Promise<Group[]> {
-  const groups = await fetchGroupSearch(term, [], dns);
-  return groups.filter(group => !person.groups.includes(group.cn));
+  let groups = (await fetchGroupSearch(term, [], dns)).filter(
+    group => !person.groups.includes(group.cn)
+  );
+  return groups;
 }

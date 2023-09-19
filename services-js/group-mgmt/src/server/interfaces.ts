@@ -4,7 +4,7 @@ import {
   remapObjKeys,
   convertOptionalArray,
   abstractDN,
-  getOnlyActiveMembers,
+  getPrimaryCNames,
 } from '../lib/helpers';
 
 // (COMMON) START | Base attributes
@@ -26,12 +26,20 @@ export interface Member {
 // -------------------------------------- #
 
 // (GROUP) START | Base attributes
+export interface member {
+  member: string;
+}
+
 export interface uniquemember {
   uniquemember: string;
 }
 
-export interface member {
-  member: string;
+export interface groupmember {
+  groupmember: string;
+}
+
+export interface fetchgroupmember {
+  fetchgroupmember: boolean;
 }
 // (GROUP) END | Base attributes
 
@@ -182,7 +190,9 @@ export interface Group {
   dn?: string;
   cn?: string;
   member?: Array<member>;
-  uniquemember?: Array<[uniquemember]>;
+  uniquemember?: Array<uniquemember>;
+  groupmember?: Array<groupmember>;
+  fetchgroupmember?: boolean;
   objectclass?: Array<[objectclass]>;
   displayname?: string;
 }
@@ -192,7 +202,9 @@ export class GroupClass implements Group {
   dn?: string = '';
   cn: string = '';
   member?: Array<member> = [];
-  uniquemember?: Array<[uniquemember]> = [];
+  uniquemember?: Array<uniquemember> = [];
+  groupmember?: Array<groupmember> = [];
+  fetchgroupmember?: boolean | undefined = false;
   objectclass?: Array<[objectclass]> = [];
   displayname?: string = '';
 
@@ -202,22 +214,28 @@ export class GroupClass implements Group {
     cn?: any;
     member?: any;
     uniquemember?: any;
+    groupmember?: any;
+    fetchgroupmember?: false;
     objectclass?: any;
     displayname?: any;
   }) {
-    opts = renameObjectKeys(remapObjKeys(this, opts), opts);
-    let uniquemembers: any = [];
-    let members: any = [];
+    try {
+      opts = renameObjectKeys(remapObjKeys(this, opts), opts);
+    } catch (error) {
+      console.log('GROUP renameObjectKeys > null error: ', error);
+      console.log('GROUP renameObjectKeys > null: ', this, opts);
+    }
 
-    // Check if either of these (uniquemembers || member) is present and set their values
+    let members: any = [];
+    let uniquemembers: any = [];
+
+    // Check if either of these `member` is present and set their values
     if (
       typeof opts.uniquemember !== 'undefined' &&
       opts.uniquemember !== null &&
       convertOptionalArray(opts.uniquemember).length > 0
     ) {
-      uniquemembers = convertOptionalArray(
-        getOnlyActiveMembers(opts.uniquemember)
-      );
+      uniquemembers = getPrimaryCNames(convertOptionalArray(opts.uniquemember));
     }
 
     if (
@@ -225,8 +243,19 @@ export class GroupClass implements Group {
       opts.member !== null &&
       convertOptionalArray(opts.member).length > 0
     ) {
-      members = convertOptionalArray(getOnlyActiveMembers(opts.member));
+      members = getPrimaryCNames(convertOptionalArray(opts.member));
     }
+
+    // NOTICE: Account for member fields enumarated with the range of their total results, ie. 'member;range=0-1499'
+    let membersByRange = Object.keys(opts).filter(name =>
+      /member;range=|members;range=/.test(name)
+    );
+    if (membersByRange.length > 0) {
+      members = getPrimaryCNames(convertOptionalArray(opts[membersByRange[0]]));
+    }
+
+    // console.log('GROUP(members): ', members);
+    // console.log('GROUP: opts > ', opts);
     // -------------------------------------
 
     const objectclass = convertOptionalArray(
@@ -239,19 +268,36 @@ export class GroupClass implements Group {
       (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.member = opts.member ? members : []),
-      (this.uniquemember = opts.uniquemember ? uniquemembers : []),
+      (this.uniquemember = opts.uniquemember ? opts.uniquemember : []),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.objectclass = objectclass);
 
-    if (uniquemembers.length > 0 && members.length < 1) {
-      this.member = [...uniquemembers];
-    }
-    if (members.length > 0 && uniquemembers.length < 1) {
-      this.uniquemember = [...members];
-    }
-
     if (opts.dn && opts.dn.length > 0 && !opts.distinguishedName) {
       this.distinguishedName = opts.dn;
+    }
+
+    if (opts['uniquemember;range=0-*']) {
+      this.uniquemember = [...uniquemembers];
+    }
+    if (opts['uniquemember;range=0-1499']) {
+      this.uniquemember = [...uniquemembers];
+    }
+
+    if (opts['member;range=0-*']) {
+      this.member = [...members];
+      this.uniquemember = [...uniquemembers];
+    }
+    if (opts['member;range=0-1499']) {
+      this.member = [...members];
+      this.uniquemember = [...uniquemembers];
+    }
+
+    if (
+      opts.fetchgroupmember &&
+      typeof opts.fetchgroupmember &&
+      opts.fetchgroupmember === true
+    ) {
+      console.log('fetchgroupmember === ', opts.fetchgroupmember);
     }
 
     if (
@@ -277,6 +323,7 @@ export interface Person {
   inactive?: Boolean;
   nsaccountlock?: string;
   objectclass?: Array<[string]>;
+  cOBUserAgency?: string;
 }
 
 export class PersonClass implements Person {
@@ -292,6 +339,7 @@ export class PersonClass implements Person {
   inactive: Boolean = false;
   nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
+  cOBUserAgency: string = '';
 
   constructor(opts: {
     distinguishedName?: any;
@@ -306,13 +354,11 @@ export class PersonClass implements Person {
     inactive?: any;
     nsaccountlock?: any;
     objectclass?: any;
+    cOBUserAgency?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     let ismemberof: any = [];
     let memberof: any = [];
-    // const ismemberof = convertOptionalArray(
-    //   opts.ismemberof ? opts.ismemberof : []
-    // );
 
     // Check if either of these (ismemberof || memberof) is present and set their values
     if (
@@ -320,7 +366,7 @@ export class PersonClass implements Person {
       opts.ismemberof !== null &&
       convertOptionalArray(opts.ismemberof).length > 0
     ) {
-      ismemberof = convertOptionalArray(getOnlyActiveMembers(opts.ismemberof));
+      ismemberof = convertOptionalArray(getPrimaryCNames(opts.ismemberof));
     }
 
     if (
@@ -328,7 +374,7 @@ export class PersonClass implements Person {
       opts.memberof !== null &&
       convertOptionalArray(opts.memberof).length > 0
     ) {
-      memberof = convertOptionalArray(getOnlyActiveMembers(opts.memberof));
+      memberof = convertOptionalArray(getPrimaryCNames(opts.memberof));
     }
     // -------------------------------------
 
@@ -339,10 +385,8 @@ export class PersonClass implements Person {
     const parseMembers = (membersArr: Array<[]> = []) => {
       const arrayGroup = membersArr.map(elem => {
         const abstractedDN = abstractDN(`${elem}`)['cn'][0];
-        // console.log('abstractedDN: ', abstractedDN);
         return abstractedDN;
       });
-      // console.log('parseMembers > arrayGroup: ', arrayGroup);
       return arrayGroup;
     };
 
@@ -366,6 +410,7 @@ export class PersonClass implements Person {
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.inactive = convertToBool(opts.nsaccountlock, false)),
+      (this.cOBUserAgency = opts.cOBUserAgency ? opts.cOBUserAgency : ''),
       (this.objectclass = objectclass);
 
     if (ismemberof.length > 0 && memberof.length < 1) {
@@ -441,11 +486,6 @@ export interface DNs {
 
 export const LdapFilters = {
   groups: {
-    // default:
-    //   '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))',
-    // pre:
-    //   '(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(',
-    // post: '))',
     default:
       '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group)(objectClass=organizationalUnit))',
     pre:
@@ -487,6 +527,7 @@ export class LDAPEnvClass implements LDAP_ENV {
   LDAP_PORT: string = '';
   LDAP_CERT: string = '';
   GROUP_MGMT_API_KEYS: string = '';
+  LDAP_QRY_PAGESIZE: string = '1000';
 
   constructor(opts: {
     LDAP_URL?: any;
@@ -498,6 +539,7 @@ export class LDAPEnvClass implements LDAP_ENV {
     LDAP_PORT?: any;
     LDAP_CERT?: any;
     GROUP_MGMT_API_KEYS?: any;
+    LDAP_QRY_PAGESIZE?: any;
   }) {
     (this.LDAP_URL = opts.LDAP_URL || ''),
       (this.LDAP_BASE_DN = opts.LDAP_BASE_DN || ''),
@@ -507,6 +549,7 @@ export class LDAPEnvClass implements LDAP_ENV {
       (this.LDAP_PASSWORD = opts.LDAP_PASSWORD || ''),
       (this.LDAP_PORT = opts.LDAP_PORT || 3000),
       (this.LDAP_CERT = opts.LDAP_CERT || ''),
-      (this.GROUP_MGMT_API_KEYS = opts.GROUP_MGMT_API_KEYS || '');
+      (this.GROUP_MGMT_API_KEYS = opts.GROUP_MGMT_API_KEYS || ''),
+      (this.LDAP_QRY_PAGESIZE = opts.LDAP_QRY_PAGESIZE || '1000');
   }
 }

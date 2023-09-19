@@ -5,6 +5,7 @@ export const typeDefs = `
     cn: String
     member: [String]!
     uniquemember: [String!]!
+    groupmember: [String!]!
     objectclass: [String]
     displayname: String
   }
@@ -22,6 +23,7 @@ export const typeDefs = `
     inactive: Boolean
     nsaccountlock: String
     objectclass: [String]
+    cOBUserAgency: String
   }
 
   type Error {
@@ -66,8 +68,10 @@ export const typeDefs = `
   type Query {
     person(cn: String! dns: [String] by: String): [Person]
     personSearch(term: String! dns: [String] allowsInactive: Boolean by: String): [Person]!
-    group(cn: String! dns: [String]): [Group]
-    groupSearch(term: String! dns: [String] activemembers: Boolean allowsInactive: Boolean): [Group]!
+    getGroupMemberAttributes(filter: String): [Person]!
+    getPersonMemberAttributes(filter: String): [Group]!
+    group(cn: String! dns: [String] fetchgroupmember: Boolean): [Group]
+    groupSearch(term: String! dns: [String] activemembers: Boolean allowsInactive: Boolean fetchgroupmember: Boolean): [Group]!
     isPersonInactive(people: [String!]!): [String]!
     convertOUsToContainers(ous: [String]!): [String]!
     getMinimumUserGroups(dns: [String]!): [Group]!

@@ -6,8 +6,9 @@ export type ShowLabel = true | false;
 export type CurrentPage = number;
 export type PageCount = number;
 export type PagedResults = Array<Array<{}>>;
+export type Loading = true | false | undefined;
 
-export const pageSize = 100;
+export const pageSize = 150;
 export const startPage = 0;
 export const currentPage = startPage;
 export const pageCount = 1;
@@ -32,6 +33,7 @@ export interface CommonAttributes {
 export interface Group extends CommonAttributes {
   members: string[];
   chunked?: any;
+  groupmember?: any;
 }
 
 export interface Person extends CommonAttributes {
@@ -40,4 +42,5 @@ export interface Person extends CommonAttributes {
   givenName: string;
   sn: string;
   mail: string;
+  cOBUserAgency: string;
 }

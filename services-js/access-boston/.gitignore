@@ -4,3 +4,5 @@ service-provider.crt
 service-provider.key
 /pingid.properties
 /apps.yaml
+
+*.env

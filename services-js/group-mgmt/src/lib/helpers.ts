@@ -266,7 +266,16 @@ export const isDNInOUs = (dn: string, dns: Array<string>) => {
   return retArr.length > 0;
 };
 
-export const getOnlyActiveMembers = (arr: any) => {
+/**
+ * @name getPrimaryCNames
+ * @param {object} arr - String or Array of a Group/Person's `Common Name`(CN)
+ * @description Parse the `Primary` (First) part of an entries CN
+ * @return {Array} - Returns an array of CNs, parsed by their primary CN/Employee ID
+ *
+ * @example
+ */
+export const getPrimaryCNames = (arr: any): Array<[string]> => {
+  // console.log('getPrimaryCNames: START(arr): ', arr);
   const unparsedArr = typeof arr === 'string' ? [arr] : arr;
   const data = unparsedArr.filter((node: Array<[String]>) => node.length > 0);
   if (data.length > 0) {
@@ -279,8 +288,10 @@ export const getOnlyActiveMembers = (arr: any) => {
       }
       return str;
     });
+
     return parsedCn;
   }
+
   return [];
 };
 

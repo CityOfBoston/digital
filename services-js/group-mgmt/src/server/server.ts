@@ -88,6 +88,103 @@ export const unbindLdapClient = () => {
   });
 };
 
+const get_groupMembers = (
+  err: ldap.Error | null,
+  // res: ldap.SearchCallbackResponse,
+  res: any,
+  sort: { direction: string; field: string },
+  pageSize: number = 1000,
+  type: string = 'PERSON'
+  // _callback: any,
+  // _paging: boolean,
+  // _pagePause: boolean
+) => {
+  if (err) {
+    console.log('[err]: ', err);
+  }
+
+  return new Promise((resolve, reject) => {
+    // let count = 0;
+    let entries: object[] = Array();
+    const refInstance = new objectClassArray({});
+    // const callback = () => console.log(`getGroupMembers`);
+    const sortEntries = () => {
+      if (sort && sort.direction) {
+        switch (sort.direction) {
+          case 'desc':
+            entries = entries.sort((a, b) =>
+              a[sort.field].localeCompare(b[sort.field])
+            );
+            break;
+          default:
+            entries = entries.sort((a, b) =>
+              a[sort.field].localeCompare(b[sort.field])
+            );
+            break;
+        }
+      }
+    };
+
+    res.on('searchEntry', entry => {
+      let currEntry = entry.object || {};
+      const remapObj = remapObjKeys(refInstance, currEntry);
+      let Wrapper: Person | Group =
+        type && type === 'PERSON'
+          ? new PersonClass(renameObjectKeys(remapObj, currEntry))
+          : new GroupClass(renameObjectKeys(remapObj, currEntry));
+      // const Person: Person = new PersonClass(
+      //   renameObjectKeys(remapObj, currEntry)
+      // );
+      entries.push(Wrapper);
+    });
+
+    res.on('page', (_page: any, _cb: any) => {
+      // if (count < 1) {
+      //   // console.log('page: ', _cb);
+      //   // console.log('controls: ', res, res.controls);
+      //   // console.log('page:finished? 1 > ', res.finished);
+      //   callback.call('');
+      // }
+      // count++;
+
+      // if (_cb) {
+      //   console.log('_cb 1');
+      //   _cb.call();
+      // } else {
+      //   // search is finished, results in resultArray
+      //   console.log('_cb 2');
+      // }
+
+      // console.log('PAGING...', _page);
+      // console.log('PAGING...');
+
+      if (
+        pageSize &&
+        typeof pageSize === 'number' &&
+        pageSize > 0 &&
+        entries.length > pageSize - 1
+      ) {
+        sortEntries();
+        res.finished = true;
+        // console.log('page:finished? 2> ', res.finished);
+        console.log('AT CAPACITY: ', entries.length);
+        resolve(entries);
+      }
+    });
+
+    res.on('error', err => {
+      console.error('error: get_groupMembers | ', err.message, ' | err:', err);
+      reject();
+    });
+
+    res.on('end', () => {
+      sortEntries();
+      console.log('CAPACITY: ', entries.length);
+      resolve(entries);
+    });
+  });
+};
+
 const search_promise = (err, res) => {
   if (err) {
     console.log('[err]: ', err);
@@ -96,10 +193,20 @@ const search_promise = (err, res) => {
   return new Promise((resolve, reject) => {
     const entries: object[] = Array();
     const refInstance = new objectClassArray({});
+    // console.log('search_promise > searchEntry > res', res);
+
+    // let count = 0;
+
     res.on('searchEntry', entry => {
       let currEntry = entry.object || {};
       const remapObj = remapObjKeys(refInstance, currEntry);
       currEntry = renameObjectKeys(remapObj, currEntry);
+
+      // if (count === 0) {
+      //   count++;
+      //   console.log('search_promise > searchEntry > currEntry', currEntry);
+      // }
+
       if (
         currEntry.objectclass.indexOf('organizationalPerson') > -1 &&
         currEntry.objectclass.indexOf('person') > -1
@@ -131,6 +238,7 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
+      // console.log('search_promise > entries[0]: ', entries[0]);
       resolve(entries);
     });
   });
@@ -314,6 +422,44 @@ const getFilteredResults = async (filter: FilterOptions, filterQryParams) => {
   return res.filter((v, i) => res.indexOf(v) === i);
 };
 
+const searchGroupMemberAttributes = async (opts: {
+  baseDn: string;
+  filter: string;
+  sort: { direction: string; field: string };
+  pageSize: number;
+  type: string;
+}) => {
+  let results: any = [{ givenname: 'First Name', sn: 'Last Name' }];
+  if (!opts.type) opts.type = 'GROUP';
+  if (!opts.pageSize) opts.pageSize = 1000;
+
+  results = new Promise(function(resolve, reject) {
+    bindLdapClient();
+    // console.log('opts.filter: ', opts.filter);
+    const filterParams = {
+      scope: 'sub',
+      filter: opts.filter,
+      paged: {
+        pageSize: opts.pageSize,
+        pagePause: true,
+      },
+      attributes: ['*'],
+      // attributes: ['*', 'cOBUserAgency'],
+      // getPersonMemberAttributes
+    };
+
+    ldapClient.search(opts.baseDn, filterParams, function(err, res) {
+      if (err) {
+        console.log('ldapsearch error: ', err);
+        reject();
+      }
+      resolve(get_groupMembers(err, res, opts.sort, opts.pageSize, opts.type));
+    });
+  });
+
+  return results;
+};
+
 const searchWrapper = async (
   attributes = ['dn,cn'],
   filter: FilterOptions = {
@@ -331,9 +477,16 @@ const searchWrapper = async (
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
       : setAttributes(attributes, filter.filterType);
+
   const filterQryParams = {
     scope: 'sub',
-    attributes: thisAttributes,
+    attributes: [
+      ...thisAttributes,
+      'member;range=0-1499',
+      'member;range=0-*',
+      '',
+    ],
+    // attributes: [...thisAttributes],
     filter: filterValue,
   };
   let results: any;
@@ -355,10 +508,13 @@ const searchWrapper = async (
         console.log('searchWrapper > promise > reject');
         reject();
       }
+
       let baseDn = base_dn;
+
       if (filter.field === 'ou') {
         baseDn = `OU=Groups,${baseDn}`;
       }
+
       ldapClient.search(baseDn, filterQryParams, function(err, res) {
         if (err) {
           console.log('ldapsearch error: ', err);
@@ -376,7 +532,7 @@ const convertDnsToGroupDNs = async (
   mode: string = 'filtered'
 ) => {
   const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
-  console.log('convertDnsToGroupDNs > CNs: ', CNs);
+  // console.log('convertDnsToGroupDNs > CNs: ', CNs);
   const promises = CNs.map(async value => {
     const filterParams: FilterOptions = new FilterOptionsClass({
       filterType: 'group',
@@ -425,8 +581,8 @@ const convertDnsToGroupDNs = async (
 const getGroupChildren = async (parentDn: string = '') => {
   const $abstractDN = abstractDN(parentDn);
   const parentCN = $abstractDN[Object.keys($abstractDN)[0]][0];
-  console.log('getGroupChildren > parentDn: ', parentDn);
-  console.log('getGroupChildren > parentCN: ', parentCN);
+  // console.log('getGroupChildren > parentDn: ', parentDn);
+  // console.log('getGroupChildren > parentCN: ', parentCN);
 
   const filterQryParams = {
     scope: 'sub',
@@ -451,7 +607,7 @@ const getGroupChildren = async (parentDn: string = '') => {
   });
 
   await results;
-  console.log('results.len: ', results);
+  // console.log('results.len: ', results);
   return results;
 };
 
@@ -544,7 +700,7 @@ export async function makeServer() {
 const resolvers = {
   Mutation: {
     async updateGroupMembers() {
-      console.log('updateGroupMembers: ', arguments[1]);
+      // console.log('updateGroupMembers: ', arguments[1]);
       try {
         const opts = arguments[1];
         let dns: any = [];
@@ -594,7 +750,7 @@ const resolvers = {
   },
   Query: {
     async getMinimumUserGroups(_parent: any, args: { dns: Array<string> }) {
-      console.log('getMinimumUserGroups > TOP');
+      // console.log('getMinimumUserGroups > TOP: ', args);
       const convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
       const maxMinimum = 9;
       let groups: any = [];
@@ -604,11 +760,11 @@ const resolvers = {
         if (convertedDNs.length > 0) {
           const thisArr = convertedDNs.shift();
           const groupChildren: any = await getGroupChildren(thisArr.dn);
-          console.log(
-            'getMinimumUserGroups > getGroupChildren(thisArr.dn) > groupChildren: ',
-            thisArr.dn,
-            groupChildren
-          );
+          // console.log(
+          //   'getMinimumUserGroups > getGroupChildren(thisArr.dn) > groupChildren: ',
+          //   thisArr.dn,
+          //   groupChildren
+          // );
           if (currDisplayCount < maxMinimum && groupChildren.length > 0) {
             const remainingFromMax = maxMinimum - currDisplayCount;
             if (groupChildren.length < remainingFromMax) {
@@ -623,6 +779,7 @@ const resolvers = {
         currDisplayCount++;
       }
       return groups;
+      // return [];
     },
     async getGroupChildren(_parent: any, args: { parentDn: string }) {
       console.log('resolvers > getGroupChildren: args: ', args);
@@ -685,8 +842,10 @@ const resolvers = {
       const person: any = await searchWrapper(['all'], filterParams);
       return person;
     },
-    async group(_parent: any, args: { cn: string; dns: Array<string> }) {
-      // console.log('group >');
+    async group(
+      _parent: any,
+      args: { cn: string; dns: Array<string>; fetchgroupmember: boolean }
+    ) {
       let dns: any = [];
 
       if (args.dns) {
@@ -700,9 +859,8 @@ const resolvers = {
         value,
         dns,
       });
-      const groups: any = await searchWrapper(['all'], filterParams);
 
-      return groups;
+      return await searchWrapper(['all'], filterParams);
     },
     async groupSearch(
       _parent: any,
@@ -755,6 +913,26 @@ const resolvers = {
       } else {
         return groups;
       }
+    },
+    async getGroupMemberAttributes(_parent: any, args: any = []) {
+      const dn = `OU=Active,${env.LDAP_BASE_DN}`;
+      return await searchGroupMemberAttributes({
+        baseDn: dn,
+        filter: `(&(memberOf=${args.filter})(nsAccountLock=FALSE))`,
+        sort: { direction: 'desc', field: 'sn' },
+        pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
+        type: 'PERSON',
+      });
+    },
+    async getPersonMemberAttributes(_parent: any, args: any = []) {
+      const dn = `OU=Groups,${env.LDAP_BASE_DN}`;
+      return await searchGroupMemberAttributes({
+        baseDn: dn,
+        filter: `(&(member=${args.filter}))`,
+        sort: { direction: 'desc', field: 'cn' },
+        pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
+        type: 'GROUP',
+      });
     },
   },
 };

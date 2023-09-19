@@ -36,7 +36,7 @@ export function getItemObject(list: any[], cn: string): any {
  *        [ 11, 12, 13 ]
  *     ];
  */
-export const chunkArray = (arr: Array<any> = [], size: Number): object => {
+export const chunkArray = (arr: Array<any> = [], size: Number) => {
   let result: any = [];
   let castSize: any = size;
 
