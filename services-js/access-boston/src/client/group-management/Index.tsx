@@ -119,34 +119,38 @@ export default function Index(props: Props) {
 
   const setOus = async () => {
     fetchOurContainers(groups).then(result => {
-      dispatchState({
-        type: 'APP/SET_OUS',
-        ous: result.convertOUsToContainers,
-      });
+      console.log('convertOUsToContainers result: ', result);
+      if (result !== null) {
+        dispatchState({
+          type: 'APP/SET_OUS',
+          ous: result.convertOUsToContainers,
+        });
+      }
     });
   };
 
   const getAdminMinGroups = async () => {
     fetchMinimumUserGroups(groups).then(result => {
-      let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
-        let remappedObj = renameObjectKeys(
-          { uniquemember: 'members', memberof: 'members' },
-          entry
-        );
-        remappedObj['chunked'] =
-          remappedObj['members'] && remappedObj['members'].length > -1
-            ? chunkArray(remappedObj['members'], pageSize)
-            : [];
-        remappedObj['isAvailable'] = true;
-        remappedObj['status'] = 'current';
+      if (result !== null && result.getMinimumUserGroups !== null) {
+        let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
+          let remappedObj = renameObjectKeys(
+            { uniquemember: 'members', memberof: 'members' },
+            entry
+          );
+          remappedObj['chunked'] =
+            remappedObj['members'] && remappedObj['members'].length > -1
+              ? chunkArray(remappedObj['members'], pageSize)
+              : [];
+          remappedObj['isAvailable'] = true;
+          remappedObj['status'] = 'current';
+          return remappedObj;
+        });
 
-        return remappedObj;
-      });
-
-      dispatchState({
-        type: 'APP/SET_ADMIN_MIN_GROUPS',
-        dns: ret,
-      });
+        dispatchState({
+          type: 'APP/SET_ADMIN_MIN_GROUPS',
+          dns: ret,
+        });
+      }
     });
   };
 

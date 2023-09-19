@@ -357,7 +357,9 @@ const searchWrapper = async (
       }
       let baseDn = base_dn;
       if (filter.field === 'ou') {
+        // baseDn = `OU=Groups,${baseDn}`;
         baseDn = `OU=Groups,${baseDn}`;
+        // console.log(`ou=groups > baseDn: ${baseDn}`);
       }
       ldapClient.search(baseDn, filterQryParams, function(err, res) {
         if (err) {
@@ -594,7 +596,7 @@ const resolvers = {
   },
   Query: {
     async getMinimumUserGroups(_parent: any, args: { dns: Array<string> }) {
-      console.log('getMinimumUserGroups > TOP');
+      console.log('getMinimumUserGroups > TOP: ', args);
       const convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
       const maxMinimum = 9;
       let groups: any = [];
@@ -623,6 +625,7 @@ const resolvers = {
         currDisplayCount++;
       }
       return groups;
+      // return [];
     },
     async getGroupChildren(_parent: any, args: { parentDn: string }) {
       console.log('resolvers > getGroupChildren: args: ', args);
