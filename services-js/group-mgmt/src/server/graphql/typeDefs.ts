@@ -24,6 +24,11 @@ export const typeDefs = `
     objectclass: [String]
   }
 
+  type GroupMember {
+    sn: String
+    givenname: String
+  }
+
   type Error {
     resonse: String!
   }
@@ -66,6 +71,7 @@ export const typeDefs = `
   type Query {
     person(cn: String! dns: [String] by: String): [Person]
     personSearch(term: String! dns: [String] allowsInactive: Boolean by: String): [Person]!
+    getGroupMemberAttributes(baseDn: String distinguishedName: String): [GroupMember]!
     group(cn: String! dns: [String]): [Group]
     groupSearch(term: String! dns: [String] activemembers: Boolean allowsInactive: Boolean): [Group]!
     isPersonInactive(people: [String!]!): [String]!

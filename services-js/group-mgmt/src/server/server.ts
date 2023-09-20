@@ -314,6 +314,20 @@ const getFilteredResults = async (filter: FilterOptions, filterQryParams) => {
   return res.filter((v, i) => res.indexOf(v) === i);
 };
 
+const searchGroupMemberAttributes = async (
+  baseDn: string = 'OU=Active,DC=iamdir-test,DC=boston,DC=gov',
+  distinguishedName: string
+) => {
+  console.log('searchGroupMemberAttributes > baseDn: ', baseDn);
+  console.log(
+    'searchGroupMemberAttributes > distinguishedName: ',
+    distinguishedName
+  );
+
+  // return [''];
+  return { givenname: 'First Name', sn: 'Last Name' };
+};
+
 const searchWrapper = async (
   attributes = ['dn,cn'],
   filter: FilterOptions = {
@@ -361,6 +375,7 @@ const searchWrapper = async (
         baseDn = `OU=Groups,${baseDn}`;
         // console.log(`ou=groups > baseDn: ${baseDn}`);
       }
+      console.log('baseDn: ', baseDn);
       ldapClient.search(baseDn, filterQryParams, function(err, res) {
         if (err) {
           console.log('ldapsearch error: ', err);
@@ -668,6 +683,13 @@ const resolvers = {
       });
       const persons = await searchWrapper(['all'], filterParams);
       return persons;
+    },
+    async getGroupMemberAttributes(_parent: any, args: any = []) {
+      console.log('sdsd: args > ', args);
+      return await searchGroupMemberAttributes(
+        args.baseDn,
+        args.distinguishedName
+      );
     },
     async person(
       _parent: any,
