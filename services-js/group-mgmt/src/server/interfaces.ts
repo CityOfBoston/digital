@@ -367,7 +367,9 @@ export class PersonClass implements Person {
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.inactive = convertToBool(opts.nsaccountlock, false)),
-      (this.cOBUserAgency = opts.cOBUserAgency ? opts.cOBUserAgency : ''),
+      (this.cOBUserAgency = opts.cOBUserAgency
+        ? opts.cOBUserAgency
+        : 'cOBUserAgency'),
       (this.objectclass = objectclass);
 
     if (ismemberof.length > 0 && memberof.length < 1) {

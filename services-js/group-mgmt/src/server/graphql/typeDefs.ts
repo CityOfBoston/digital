@@ -73,7 +73,7 @@ export const typeDefs = `
   type Query {
     person(cn: String! dns: [String] by: String): [Person]
     personSearch(term: String! dns: [String] allowsInactive: Boolean by: String): [Person]!
-    getGroupMemberAttributes(baseDn: String searchFilter: String): [GroupMember]!
+    getGroupMemberAttributes(filter: String): [GroupMember]!
     group(cn: String! dns: [String]): [Group]
     groupSearch(term: String! dns: [String] activemembers: Boolean allowsInactive: Boolean): [Group]!
     isPersonInactive(people: [String!]!): [String]!

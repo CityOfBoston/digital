@@ -736,10 +736,7 @@ const resolvers = {
     },
     async getGroupMemberAttributes(_parent: any, args: any = []) {
       const dn = `OU=Active,${env.LDAP_BASE_DN}`;
-      return await searchGroupMemberAttributes(
-        dn,
-        `(memberOf=${args.searchFilter})`
-      );
+      return await searchGroupMemberAttributes(dn, `(memberOf=${args.filter})`);
     },
     async person(
       _parent: any,
