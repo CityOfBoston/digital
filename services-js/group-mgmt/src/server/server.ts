@@ -90,14 +90,15 @@ export const unbindLdapClient = () => {
 
 const get_groupMembers = (
   err: ldap.Error | null,
-  res: ldap.SearchCallbackResponse
+  res: ldap.SearchCallbackResponse,
+  sort: { direction: string; field: string }
 ) => {
   if (err) {
     console.log('[err]: ', err);
   }
 
   return new Promise((resolve, reject) => {
-    const entries: object[] = Array();
+    let entries: object[] = Array();
     const refInstance = new objectClassArray({});
 
     res.on('searchEntry', entry => {
@@ -106,7 +107,6 @@ const get_groupMembers = (
       const Person: Person = new PersonClass(
         renameObjectKeys(remapObj, currEntry)
       );
-      // console.log('res.on=searchEntry > entry|Person: ', entry);
       entries.push(Person);
     });
 
@@ -116,7 +116,20 @@ const get_groupMembers = (
     });
 
     res.on('end', () => {
-      // console.log('res.on=end > entries: ', [entries[0]]);
+      if (sort && sort.direction) {
+        switch (sort.direction) {
+          case 'desc':
+            entries = entries.sort((a, b) =>
+              a[sort.field].localeCompare(b[sort.field])
+            );
+            break;
+          default:
+            entries = entries.sort((a, b) =>
+              a[sort.field].localeCompare(b[sort.field])
+            );
+            break;
+        }
+      }
       resolve(entries);
     });
   });
@@ -350,19 +363,20 @@ const getFilteredResults = async (filter: FilterOptions, filterQryParams) => {
   return res.filter((v, i) => res.indexOf(v) === i);
 };
 
-const searchGroupMemberAttributes = async (
-  baseDn: string = 'OU=Active,DC=iamdir-test,DC=boston,DC=gov',
-  searchFilter: string
-) => {
+const searchGroupMemberAttributes = async (opts: {
+  baseDn: string;
+  filter: string;
+  sort: { direction: string; field: string };
+}) => {
   let results: any = [{ givenname: 'First Name', sn: 'Last Name' }];
 
   results = new Promise(function(resolve, reject) {
     bindLdapClient();
     ldapClient.search(
-      baseDn,
+      opts.baseDn,
       {
         scope: 'sub',
-        filter: searchFilter,
+        filter: opts.filter,
         attributes: ['*', 'cOBUserAgency'],
       },
       function(err, res) {
@@ -370,7 +384,7 @@ const searchGroupMemberAttributes = async (
           console.log('ldapsearch error: ', err);
           reject();
         }
-        resolve(get_groupMembers(err, res));
+        resolve(get_groupMembers(err, res, opts.sort));
       }
     );
   });
@@ -736,7 +750,11 @@ const resolvers = {
     },
     async getGroupMemberAttributes(_parent: any, args: any = []) {
       const dn = `OU=Active,${env.LDAP_BASE_DN}`;
-      return await searchGroupMemberAttributes(dn, `(memberOf=${args.filter})`);
+      return await searchGroupMemberAttributes({
+        baseDn: dn,
+        filter: `(memberOf=${args.filter})`,
+        sort: { direction: 'desc', field: 'sn' },
+      });
     },
     async person(
       _parent: any,
