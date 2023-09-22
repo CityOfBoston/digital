@@ -277,6 +277,7 @@ export interface Person {
   inactive?: Boolean;
   nsaccountlock?: string;
   objectclass?: Array<[string]>;
+  cOBUserAgency?: string;
 }
 
 export class PersonClass implements Person {
@@ -292,6 +293,7 @@ export class PersonClass implements Person {
   inactive: Boolean = false;
   nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
+  cOBUserAgency: string = '';
 
   constructor(opts: {
     distinguishedName?: any;
@@ -306,6 +308,7 @@ export class PersonClass implements Person {
     inactive?: any;
     nsaccountlock?: any;
     objectclass?: any;
+    cOBUserAgency?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     let ismemberof: any = [];
@@ -339,10 +342,8 @@ export class PersonClass implements Person {
     const parseMembers = (membersArr: Array<[]> = []) => {
       const arrayGroup = membersArr.map(elem => {
         const abstractedDN = abstractDN(`${elem}`)['cn'][0];
-        // console.log('abstractedDN: ', abstractedDN);
         return abstractedDN;
       });
-      // console.log('parseMembers > arrayGroup: ', arrayGroup);
       return arrayGroup;
     };
 
@@ -366,6 +367,7 @@ export class PersonClass implements Person {
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.inactive = convertToBool(opts.nsaccountlock, false)),
+      (this.cOBUserAgency = opts.cOBUserAgency ? opts.cOBUserAgency : ''),
       (this.objectclass = objectclass);
 
     if (ismemberof.length > 0 && memberof.length < 1) {

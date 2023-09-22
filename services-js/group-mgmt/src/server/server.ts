@@ -88,6 +88,40 @@ export const unbindLdapClient = () => {
   });
 };
 
+const get_groupMembers = (
+  err: ldap.Error | null,
+  res: ldap.SearchCallbackResponse
+) => {
+  if (err) {
+    console.log('[err]: ', err);
+  }
+
+  return new Promise((resolve, reject) => {
+    const entries: object[] = Array();
+    const refInstance = new objectClassArray({});
+
+    res.on('searchEntry', entry => {
+      let currEntry = entry.object || {};
+      const remapObj = remapObjKeys(refInstance, currEntry);
+      const Person: Person = new PersonClass(
+        renameObjectKeys(remapObj, currEntry)
+      );
+      // console.log('res.on=searchEntry > entry|Person: ', entry);
+      entries.push(Person);
+    });
+
+    res.on('error', err => {
+      console.error('error: get_groupMembers | ', err.message, ' | err:', err);
+      reject();
+    });
+
+    res.on('end', () => {
+      // console.log('res.on=end > entries: ', [entries[0]]);
+      resolve(entries);
+    });
+  });
+};
+
 const search_promise = (err, res) => {
   if (err) {
     console.log('[err]: ', err);
@@ -96,10 +130,12 @@ const search_promise = (err, res) => {
   return new Promise((resolve, reject) => {
     const entries: object[] = Array();
     const refInstance = new objectClassArray({});
+    console.log('search_promise > searchEntry > res', res);
     res.on('searchEntry', entry => {
       let currEntry = entry.object || {};
       const remapObj = remapObjKeys(refInstance, currEntry);
       currEntry = renameObjectKeys(remapObj, currEntry);
+      console.log('search_promise > searchEntry > currEntry', currEntry);
       if (
         currEntry.objectclass.indexOf('organizationalPerson') > -1 &&
         currEntry.objectclass.indexOf('person') > -1
@@ -316,16 +352,30 @@ const getFilteredResults = async (filter: FilterOptions, filterQryParams) => {
 
 const searchGroupMemberAttributes = async (
   baseDn: string = 'OU=Active,DC=iamdir-test,DC=boston,DC=gov',
-  distinguishedName: string
+  searchFilter: string
 ) => {
-  console.log('searchGroupMemberAttributes > baseDn: ', baseDn);
-  console.log(
-    'searchGroupMemberAttributes > distinguishedName: ',
-    distinguishedName
-  );
+  let results: any = [{ givenname: 'First Name', sn: 'Last Name' }];
 
-  // return [''];
-  return { givenname: 'First Name', sn: 'Last Name' };
+  results = new Promise(function(resolve, reject) {
+    bindLdapClient();
+    ldapClient.search(
+      baseDn,
+      {
+        scope: 'sub',
+        filter: searchFilter,
+        attributes: ['*', 'cOBUserAgency'],
+      },
+      function(err, res) {
+        if (err) {
+          console.log('ldapsearch error: ', err);
+          reject();
+        }
+        resolve(get_groupMembers(err, res));
+      }
+    );
+  });
+
+  return results;
 };
 
 const searchWrapper = async (
@@ -369,13 +419,13 @@ const searchWrapper = async (
         console.log('searchWrapper > promise > reject');
         reject();
       }
+
       let baseDn = base_dn;
+
       if (filter.field === 'ou') {
-        // baseDn = `OU=Groups,${baseDn}`;
         baseDn = `OU=Groups,${baseDn}`;
-        // console.log(`ou=groups > baseDn: ${baseDn}`);
       }
-      console.log('baseDn: ', baseDn);
+
       ldapClient.search(baseDn, filterQryParams, function(err, res) {
         if (err) {
           console.log('ldapsearch error: ', err);
@@ -685,10 +735,10 @@ const resolvers = {
       return persons;
     },
     async getGroupMemberAttributes(_parent: any, args: any = []) {
-      console.log('sdsd: args > ', args);
+      const dn = `OU=Active,${env.LDAP_BASE_DN}`;
       return await searchGroupMemberAttributes(
-        args.baseDn,
-        args.distinguishedName
+        dn,
+        `(memberOf=${args.searchFilter})`
       );
     },
     async person(
