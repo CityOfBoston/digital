@@ -4,7 +4,7 @@ import {
   remapObjKeys,
   convertOptionalArray,
   abstractDN,
-  getOnlyActiveMembers,
+  getPrimaryCNames,
 } from '../lib/helpers';
 
 // (COMMON) START | Base attributes
@@ -215,9 +215,7 @@ export class GroupClass implements Group {
       opts.uniquemember !== null &&
       convertOptionalArray(opts.uniquemember).length > 0
     ) {
-      uniquemembers = convertOptionalArray(
-        getOnlyActiveMembers(opts.uniquemember)
-      );
+      uniquemembers = convertOptionalArray(getPrimaryCNames(opts.uniquemember));
     }
 
     if (
@@ -225,7 +223,15 @@ export class GroupClass implements Group {
       opts.member !== null &&
       convertOptionalArray(opts.member).length > 0
     ) {
-      members = convertOptionalArray(getOnlyActiveMembers(opts.member));
+      members = convertOptionalArray(getPrimaryCNames(opts.member));
+    }
+
+    // NOTICE: Account for member fields enumarated with the range of their total results, ie. 'member;range=0-1499'
+    let membersByRange = Object.keys(opts).filter(name =>
+      /member;range=/.test(name)
+    );
+    if (membersByRange.length > 0) {
+      members = convertOptionalArray(getPrimaryCNames(opts[membersByRange[0]]));
     }
     // -------------------------------------
 
@@ -323,7 +329,7 @@ export class PersonClass implements Person {
       opts.ismemberof !== null &&
       convertOptionalArray(opts.ismemberof).length > 0
     ) {
-      ismemberof = convertOptionalArray(getOnlyActiveMembers(opts.ismemberof));
+      ismemberof = convertOptionalArray(getPrimaryCNames(opts.ismemberof));
     }
 
     if (
@@ -331,7 +337,7 @@ export class PersonClass implements Person {
       opts.memberof !== null &&
       convertOptionalArray(opts.memberof).length > 0
     ) {
-      memberof = convertOptionalArray(getOnlyActiveMembers(opts.memberof));
+      memberof = convertOptionalArray(getPrimaryCNames(opts.memberof));
     }
     // -------------------------------------
 
@@ -367,9 +373,7 @@ export class PersonClass implements Person {
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.inactive = convertToBool(opts.nsaccountlock, false)),
-      (this.cOBUserAgency = opts.cOBUserAgency
-        ? opts.cOBUserAgency
-        : 'cOBUserAgency'),
+      (this.cOBUserAgency = opts.cOBUserAgency ? opts.cOBUserAgency : ''),
       (this.objectclass = objectclass);
 
     if (ismemberof.length > 0 && memberof.length < 1) {
@@ -445,11 +449,6 @@ export interface DNs {
 
 export const LdapFilters = {
   groups: {
-    // default:
-    //   '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))',
-    // pre:
-    //   '(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(',
-    // post: '))',
     default:
       '(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group)(objectClass=organizationalUnit))',
     pre:

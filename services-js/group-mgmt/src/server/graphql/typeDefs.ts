@@ -22,12 +22,6 @@ export const typeDefs = `
     inactive: Boolean
     nsaccountlock: String
     objectclass: [String]
-  }
-
-  type GroupMember {
-    sn: String
-    givenname: String
-    displayname: String
     cOBUserAgency: String
   }
 
@@ -73,7 +67,7 @@ export const typeDefs = `
   type Query {
     person(cn: String! dns: [String] by: String): [Person]
     personSearch(term: String! dns: [String] allowsInactive: Boolean by: String): [Person]!
-    getGroupMemberAttributes(filter: String): [GroupMember]!
+    getGroupMemberAttributes(filter: String): [Person]!
     group(cn: String! dns: [String]): [Group]
     groupSearch(term: String! dns: [String] activemembers: Boolean allowsInactive: Boolean): [Group]!
     isPersonInactive(people: [String!]!): [String]!

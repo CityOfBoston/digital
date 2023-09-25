@@ -143,12 +143,24 @@ const search_promise = (err, res) => {
   return new Promise((resolve, reject) => {
     const entries: object[] = Array();
     const refInstance = new objectClassArray({});
-    console.log('search_promise > searchEntry > res', res);
+    // console.log('search_promise > searchEntry > res', res);
+
+    let count = 0;
+
     res.on('searchEntry', entry => {
       let currEntry = entry.object || {};
       const remapObj = remapObjKeys(refInstance, currEntry);
       currEntry = renameObjectKeys(remapObj, currEntry);
-      console.log('search_promise > searchEntry > currEntry', currEntry);
+
+      if (count === 0) {
+        count++;
+        console.log('search_promise > searchEntry > currEntry', currEntry);
+        // console.log(
+        //   'search_promise > searchEntry > currEntry',
+        //   currEntry.member
+        // );
+      }
+
       if (
         currEntry.objectclass.indexOf('organizationalPerson') > -1 &&
         currEntry.objectclass.indexOf('person') > -1
@@ -180,6 +192,7 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
+      // console.log('entries[0]: ', entries[0]);
       resolve(entries);
     });
   });
