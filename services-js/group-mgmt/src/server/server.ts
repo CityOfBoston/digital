@@ -145,21 +145,17 @@ const search_promise = (err, res) => {
     const refInstance = new objectClassArray({});
     // console.log('search_promise > searchEntry > res', res);
 
-    let count = 0;
+    // let count = 0;
 
     res.on('searchEntry', entry => {
       let currEntry = entry.object || {};
       const remapObj = remapObjKeys(refInstance, currEntry);
       currEntry = renameObjectKeys(remapObj, currEntry);
 
-      if (count === 0) {
-        count++;
-        console.log('search_promise > searchEntry > currEntry', currEntry);
-        // console.log(
-        //   'search_promise > searchEntry > currEntry',
-        //   currEntry.member
-        // );
-      }
+      // if (count === 0) {
+      //   count++;
+      //   console.log('search_promise > searchEntry > currEntry', currEntry);
+      // }
 
       if (
         currEntry.objectclass.indexOf('organizationalPerson') > -1 &&

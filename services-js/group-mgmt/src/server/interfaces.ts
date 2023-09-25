@@ -215,7 +215,7 @@ export class GroupClass implements Group {
       opts.uniquemember !== null &&
       convertOptionalArray(opts.uniquemember).length > 0
     ) {
-      uniquemembers = convertOptionalArray(getPrimaryCNames(opts.uniquemember));
+      uniquemembers = getPrimaryCNames(convertOptionalArray(opts.uniquemember));
     }
 
     if (
@@ -223,15 +223,17 @@ export class GroupClass implements Group {
       opts.member !== null &&
       convertOptionalArray(opts.member).length > 0
     ) {
-      members = convertOptionalArray(getPrimaryCNames(opts.member));
+      members = getPrimaryCNames(convertOptionalArray(opts.member));
     }
 
     // NOTICE: Account for member fields enumarated with the range of their total results, ie. 'member;range=0-1499'
     let membersByRange = Object.keys(opts).filter(name =>
-      /member;range=/.test(name)
+      /member;range=|members;range=|uniquemembers;range=|uniquemember;range=/.test(
+        name
+      )
     );
     if (membersByRange.length > 0) {
-      members = convertOptionalArray(getPrimaryCNames(opts[membersByRange[0]]));
+      members = getPrimaryCNames(convertOptionalArray(opts[membersByRange[0]]));
     }
     // -------------------------------------
 

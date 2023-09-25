@@ -268,14 +268,14 @@ export const isDNInOUs = (dn: string, dns: Array<string>) => {
 
 /**
  * @name getPrimaryCNames
- * @param {object} obj - String or Array of a Group/Person's `Common Name`(CN)
+ * @param {object} arr - String or Array of a Group/Person's `Common Name`(CN)
  * @description Parse the `Primary` (First) part of an entries CN
  * @return {Array} - Returns an array of CNs, parsed by their primary CN/Employee ID
  *
  * @example
  */
 export const getPrimaryCNames = (arr: any): Array<[string]> => {
-  console.log('getPrimaryCNames: START(arr): ', arr);
+  // console.log('getPrimaryCNames: START(arr): ', arr);
   const unparsedArr = typeof arr === 'string' ? [arr] : arr;
   const data = unparsedArr.filter((node: Array<[String]>) => node.length > 0);
   if (data.length > 0) {
@@ -288,10 +288,10 @@ export const getPrimaryCNames = (arr: any): Array<[string]> => {
       }
       return str;
     });
-    console.log('getPrimaryCNames: END 1 (parsedCn): ', parsedCn);
+
     return parsedCn;
   }
-  console.log('getPrimaryCNames: END 2');
+
   return [];
 };
 
