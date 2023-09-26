@@ -182,7 +182,6 @@ export interface Group {
   dn?: string;
   cn?: string;
   member?: Array<member>;
-  uniquemember?: Array<[uniquemember]>;
   objectclass?: Array<[objectclass]>;
   displayname?: string;
 }
@@ -192,7 +191,6 @@ export class GroupClass implements Group {
   dn?: string = '';
   cn: string = '';
   member?: Array<member> = [];
-  uniquemember?: Array<[uniquemember]> = [];
   objectclass?: Array<[objectclass]> = [];
   displayname?: string = '';
 
@@ -201,23 +199,13 @@ export class GroupClass implements Group {
     dn?: any;
     cn?: any;
     member?: any;
-    uniquemember?: any;
     objectclass?: any;
     displayname?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
-    let uniquemembers: any = [];
     let members: any = [];
 
-    // Check if either of these (uniquemembers || member) is present and set their values
-    if (
-      typeof opts.uniquemember !== 'undefined' &&
-      opts.uniquemember !== null &&
-      convertOptionalArray(opts.uniquemember).length > 0
-    ) {
-      uniquemembers = getPrimaryCNames(convertOptionalArray(opts.uniquemember));
-    }
-
+    // Check if either of these `member` is present and set their values
     if (
       typeof opts.member !== 'undefined' &&
       opts.member !== null &&
@@ -228,13 +216,14 @@ export class GroupClass implements Group {
 
     // NOTICE: Account for member fields enumarated with the range of their total results, ie. 'member;range=0-1499'
     let membersByRange = Object.keys(opts).filter(name =>
-      /member;range=|members;range=|uniquemembers;range=|uniquemember;range=/.test(
-        name
-      )
+      /member;range=|members;range=/.test(name)
     );
     if (membersByRange.length > 0) {
       members = getPrimaryCNames(convertOptionalArray(opts[membersByRange[0]]));
     }
+
+    // console.log('GROUP(members): ', members);
+    // console.log('GROUP: opts > ', opts);
     // -------------------------------------
 
     const objectclass = convertOptionalArray(
@@ -247,19 +236,18 @@ export class GroupClass implements Group {
       (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.member = opts.member ? members : []),
-      (this.uniquemember = opts.uniquemember ? uniquemembers : []),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.objectclass = objectclass);
 
-    if (uniquemembers.length > 0 && members.length < 1) {
-      this.member = [...uniquemembers];
-    }
-    if (members.length > 0 && uniquemembers.length < 1) {
-      this.uniquemember = [...members];
-    }
-
     if (opts.dn && opts.dn.length > 0 && !opts.distinguishedName) {
       this.distinguishedName = opts.dn;
+    }
+
+    if (opts['member;range=0-*']) {
+      this.member = [...members];
+    }
+    if (opts['member;range=0-1499']) {
+      this.member = [...members];
     }
 
     if (

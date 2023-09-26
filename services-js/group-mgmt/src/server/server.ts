@@ -381,21 +381,20 @@ const searchGroupMemberAttributes = async (opts: {
 
   results = new Promise(function(resolve, reject) {
     bindLdapClient();
-    ldapClient.search(
-      opts.baseDn,
-      {
-        scope: 'sub',
-        filter: opts.filter,
-        attributes: ['*', 'cOBUserAgency'],
-      },
-      function(err, res) {
-        if (err) {
-          console.log('ldapsearch error: ', err);
-          reject();
-        }
-        resolve(get_groupMembers(err, res, opts.sort));
+    const filterParams = {
+      scope: 'sub',
+      filter: opts.filter,
+      maxCount: 10,
+      attributes: ['*', 'cOBUserAgency'],
+    };
+
+    ldapClient.search(opts.baseDn, filterParams, function(err, res) {
+      if (err) {
+        console.log('ldapsearch error: ', err);
+        reject();
       }
-    );
+      resolve(get_groupMembers(err, res, opts.sort));
+    });
   });
 
   return results;
@@ -418,9 +417,11 @@ const searchWrapper = async (
     typeof attributes === 'object' && attributes.length > 1
       ? attributes
       : setAttributes(attributes, filter.filterType);
+
   const filterQryParams = {
     scope: 'sub',
-    attributes: thisAttributes,
+    // attributes: [...thisAttributes, 'member;range=0-14', 'member;range=0-*'],
+    attributes: [...thisAttributes],
     filter: filterValue,
   };
   let results: any;
