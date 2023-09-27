@@ -420,8 +420,13 @@ const searchWrapper = async (
 
   const filterQryParams = {
     scope: 'sub',
-    // attributes: [...thisAttributes, 'member;range=0-14', 'member;range=0-*'],
-    attributes: [...thisAttributes],
+    attributes: [
+      ...thisAttributes,
+      'member;range=0-14',
+      'member;range=0-*',
+      '',
+    ],
+    // attributes: [...thisAttributes],
     filter: filterValue,
   };
   let results: any;
