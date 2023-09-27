@@ -182,6 +182,7 @@ export interface Group {
   dn?: string;
   cn?: string;
   member?: Array<member>;
+  uniquemember?: Array<uniquemember>;
   objectclass?: Array<[objectclass]>;
   displayname?: string;
 }
@@ -191,6 +192,7 @@ export class GroupClass implements Group {
   dn?: string = '';
   cn: string = '';
   member?: Array<member> = [];
+  uniquemember?: Array<uniquemember> = [];
   objectclass?: Array<[objectclass]> = [];
   displayname?: string = '';
 
@@ -199,13 +201,29 @@ export class GroupClass implements Group {
     dn?: any;
     cn?: any;
     member?: any;
+    uniquemember?: any;
     objectclass?: any;
     displayname?: any;
   }) {
-    opts = renameObjectKeys(remapObjKeys(this, opts), opts);
+    try {
+      opts = renameObjectKeys(remapObjKeys(this, opts), opts);
+    } catch (error) {
+      console.log('GROUP renameObjectKeys > null error: ', error);
+      console.log('GROUP renameObjectKeys > null: ', this, opts);
+    }
+
     let members: any = [];
+    let uniquemembers: any = [];
 
     // Check if either of these `member` is present and set their values
+    if (
+      typeof opts.uniquemember !== 'undefined' &&
+      opts.uniquemember !== null &&
+      convertOptionalArray(opts.uniquemember).length > 0
+    ) {
+      uniquemembers = getPrimaryCNames(convertOptionalArray(opts.uniquemember));
+    }
+
     if (
       typeof opts.member !== 'undefined' &&
       opts.member !== null &&
@@ -236,6 +254,7 @@ export class GroupClass implements Group {
       (this.dn = opts.dn ? opts.dn : ''),
       (this.cn = opts.cn ? opts.cn : ''),
       (this.member = opts.member ? members : []),
+      (this.uniquemember = opts.uniquemember ? opts.uniquemember : []),
       (this.displayname = opts.displayname ? opts.displayname : ''),
       (this.objectclass = objectclass);
 
@@ -243,11 +262,20 @@ export class GroupClass implements Group {
       this.distinguishedName = opts.dn;
     }
 
+    if (opts['uniquemember;range=0-*']) {
+      this.uniquemember = [...uniquemembers];
+    }
+    if (opts['uniquemember;range=0-1499']) {
+      this.uniquemember = [...uniquemembers];
+    }
+
     if (opts['member;range=0-*']) {
       this.member = [...members];
+      this.uniquemember = [...uniquemembers];
     }
     if (opts['member;range=0-1499']) {
       this.member = [...members];
+      this.uniquemember = [...uniquemembers];
     }
 
     if (

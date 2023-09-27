@@ -472,7 +472,7 @@ const convertDnsToGroupDNs = async (
   mode: string = 'filtered'
 ) => {
   const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
-  console.log('convertDnsToGroupDNs > CNs: ', CNs);
+  // console.log('convertDnsToGroupDNs > CNs: ', CNs);
   const promises = CNs.map(async value => {
     const filterParams: FilterOptions = new FilterOptionsClass({
       filterType: 'group',
@@ -521,8 +521,8 @@ const convertDnsToGroupDNs = async (
 const getGroupChildren = async (parentDn: string = '') => {
   const $abstractDN = abstractDN(parentDn);
   const parentCN = $abstractDN[Object.keys($abstractDN)[0]][0];
-  console.log('getGroupChildren > parentDn: ', parentDn);
-  console.log('getGroupChildren > parentCN: ', parentCN);
+  // console.log('getGroupChildren > parentDn: ', parentDn);
+  // console.log('getGroupChildren > parentCN: ', parentCN);
 
   const filterQryParams = {
     scope: 'sub',
@@ -547,7 +547,7 @@ const getGroupChildren = async (parentDn: string = '') => {
   });
 
   await results;
-  console.log('results.len: ', results);
+  // console.log('results.len: ', results);
   return results;
 };
 
@@ -690,7 +690,7 @@ const resolvers = {
   },
   Query: {
     async getMinimumUserGroups(_parent: any, args: { dns: Array<string> }) {
-      console.log('getMinimumUserGroups > TOP: ', args);
+      // console.log('getMinimumUserGroups > TOP: ', args);
       const convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
       const maxMinimum = 9;
       let groups: any = [];
@@ -700,11 +700,11 @@ const resolvers = {
         if (convertedDNs.length > 0) {
           const thisArr = convertedDNs.shift();
           const groupChildren: any = await getGroupChildren(thisArr.dn);
-          console.log(
-            'getMinimumUserGroups > getGroupChildren(thisArr.dn) > groupChildren: ',
-            thisArr.dn,
-            groupChildren
-          );
+          // console.log(
+          //   'getMinimumUserGroups > getGroupChildren(thisArr.dn) > groupChildren: ',
+          //   thisArr.dn,
+          //   groupChildren
+          // );
           if (currDisplayCount < maxMinimum && groupChildren.length > 0) {
             const remainingFromMax = maxMinimum - currDisplayCount;
             if (groupChildren.length < remainingFromMax) {
