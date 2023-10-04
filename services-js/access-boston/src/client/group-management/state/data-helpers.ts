@@ -66,13 +66,13 @@ export function toGroup(
   }
 
   const chunkedResults =
-    dataObject.uniquemember && dataObject.uniquemember.length > 0
-      ? chunkArray(dataObject.uniquemember, pageSize)
+    dataObject.member && dataObject.member.length > 0
+      ? chunkArray(dataObject.member, pageSize)
       : [[]];
 
   const retObj = {
     ...commonAttributes(dataObject),
-    members: dataObject.uniquemember || [],
+    members: dataObject.member || [],
     isAvailable,
     chunked: chunkedResults,
   };

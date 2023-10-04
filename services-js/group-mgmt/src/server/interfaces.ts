@@ -26,12 +26,20 @@ export interface Member {
 // -------------------------------------- #
 
 // (GROUP) START | Base attributes
+export interface member {
+  member: string;
+}
+
 export interface uniquemember {
   uniquemember: string;
 }
 
-export interface member {
-  member: string;
+export interface groupmember {
+  groupmember: string;
+}
+
+export interface fetchgroupmember {
+  fetchgroupmember: boolean;
 }
 // (GROUP) END | Base attributes
 
@@ -183,6 +191,8 @@ export interface Group {
   cn?: string;
   member?: Array<member>;
   uniquemember?: Array<uniquemember>;
+  groupmember?: Array<groupmember>;
+  fetchgroupmember?: boolean;
   objectclass?: Array<[objectclass]>;
   displayname?: string;
 }
@@ -193,6 +203,8 @@ export class GroupClass implements Group {
   cn: string = '';
   member?: Array<member> = [];
   uniquemember?: Array<uniquemember> = [];
+  groupmember?: Array<groupmember> = [];
+  fetchgroupmember?: boolean | undefined = false;
   objectclass?: Array<[objectclass]> = [];
   displayname?: string = '';
 
@@ -202,6 +214,8 @@ export class GroupClass implements Group {
     cn?: any;
     member?: any;
     uniquemember?: any;
+    groupmember?: any;
+    fetchgroupmember?: false;
     objectclass?: any;
     displayname?: any;
   }) {
@@ -276,6 +290,14 @@ export class GroupClass implements Group {
     if (opts['member;range=0-1499']) {
       this.member = [...members];
       this.uniquemember = [...uniquemembers];
+    }
+
+    if (
+      opts.fetchgroupmember &&
+      typeof opts.fetchgroupmember &&
+      opts.fetchgroupmember === true
+    ) {
+      console.log('fetchgroupmember === ', opts.fetchgroupmember);
     }
 
     if (

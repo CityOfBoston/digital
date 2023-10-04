@@ -95,6 +95,10 @@ export default function EditableList(props: Props) {
     );
   }
 
+  if (filteredItems && filteredItems.length > 0 && props.loading) {
+    console.log('filteredItems: ', filteredItems);
+  }
+
   const noResultsText =
     props.mode === 'group'
       ? 'This group has no members'

@@ -90,32 +90,24 @@ export const unbindLdapClient = () => {
 
 const get_groupMembers = (
   err: ldap.Error | null,
-  res: ldap.SearchCallbackResponse,
-  sort: { direction: string; field: string }
+  // res: ldap.SearchCallbackResponse,
+  res: any,
+  sort: { direction: string; field: string },
+  pageSize: number = 1000
+  // _callback: any,
+  // _paging: boolean,
+  // _pagePause: boolean
 ) => {
   if (err) {
     console.log('[err]: ', err);
   }
 
   return new Promise((resolve, reject) => {
+    // let count = 0;
     let entries: object[] = Array();
     const refInstance = new objectClassArray({});
-
-    res.on('searchEntry', entry => {
-      let currEntry = entry.object || {};
-      const remapObj = remapObjKeys(refInstance, currEntry);
-      const Person: Person = new PersonClass(
-        renameObjectKeys(remapObj, currEntry)
-      );
-      entries.push(Person);
-    });
-
-    res.on('error', err => {
-      console.error('error: get_groupMembers | ', err.message, ' | err:', err);
-      reject();
-    });
-
-    res.on('end', () => {
+    // const callback = () => console.log(`getGroupMembers`);
+    const sortEntries = () => {
       if (sort && sort.direction) {
         switch (sort.direction) {
           case 'desc':
@@ -130,6 +122,58 @@ const get_groupMembers = (
             break;
         }
       }
+    };
+
+    res.on('searchEntry', entry => {
+      let currEntry = entry.object || {};
+      const remapObj = remapObjKeys(refInstance, currEntry);
+      const Person: Person = new PersonClass(
+        renameObjectKeys(remapObj, currEntry)
+      );
+      entries.push(Person);
+    });
+
+    res.on('page', (_page: any, _cb: any) => {
+      // if (count < 1) {
+      //   // console.log('page: ', _cb);
+      //   // console.log('controls: ', res, res.controls);
+      //   // console.log('page:finished? 1 > ', res.finished);
+      //   callback.call('');
+      // }
+      // count++;
+
+      // if (_cb) {
+      //   console.log('_cb 1');
+      //   _cb.call();
+      // } else {
+      //   // search is finished, results in resultArray
+      //   console.log('_cb 2');
+      // }
+
+      // console.log('PAGING...', _page);
+      // console.log('PAGING...');
+
+      if (
+        pageSize &&
+        typeof pageSize === 'number' &&
+        pageSize > 0 &&
+        entries.length > pageSize - 1
+      ) {
+        sortEntries();
+        res.finished = true;
+        // console.log('page:finished? 2> ', res.finished);
+        // console.log('AT CAPACITY: ', entries.length);
+        resolve(entries);
+      }
+    });
+
+    res.on('error', err => {
+      console.error('error: get_groupMembers | ', err.message, ' | err:', err);
+      reject();
+    });
+
+    res.on('end', () => {
+      sortEntries();
       resolve(entries);
     });
   });
@@ -188,7 +232,7 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
-      // console.log('entries[0]: ', entries[0]);
+      console.log('search_promise > entries[0]: ', entries[0]);
       resolve(entries);
     });
   });
@@ -376,15 +420,20 @@ const searchGroupMemberAttributes = async (opts: {
   baseDn: string;
   filter: string;
   sort: { direction: string; field: string };
+  pageSize: number;
 }) => {
   let results: any = [{ givenname: 'First Name', sn: 'Last Name' }];
 
   results = new Promise(function(resolve, reject) {
     bindLdapClient();
+    // console.log('opts.filter: ', opts.filter);
     const filterParams = {
       scope: 'sub',
       filter: opts.filter,
-      maxCount: 10,
+      paged: {
+        pageSize: opts.pageSize,
+        pagePause: true,
+      },
       attributes: ['*', 'cOBUserAgency'],
     };
 
@@ -422,7 +471,7 @@ const searchWrapper = async (
     scope: 'sub',
     attributes: [
       ...thisAttributes,
-      'member;range=0-14',
+      'member;range=0-1499',
       'member;range=0-*',
       '',
     ],
@@ -769,6 +818,7 @@ const resolvers = {
         baseDn: dn,
         filter: `(memberOf=${args.filter})`,
         sort: { direction: 'desc', field: 'sn' },
+        pageSize: 1000,
       });
     },
     async person(
@@ -790,8 +840,10 @@ const resolvers = {
       const person: any = await searchWrapper(['all'], filterParams);
       return person;
     },
-    async group(_parent: any, args: { cn: string; dns: Array<string> }) {
-      // console.log('group >');
+    async group(
+      _parent: any,
+      args: { cn: string; dns: Array<string>; fetchgroupmember: boolean }
+    ) {
       let dns: any = [];
 
       if (args.dns) {
@@ -805,9 +857,8 @@ const resolvers = {
         value,
         dns,
       });
-      const groups: any = await searchWrapper(['all'], filterParams);
 
-      return groups;
+      return await searchWrapper(['all'], filterParams);
     },
     async groupSearch(
       _parent: any,

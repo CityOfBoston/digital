@@ -134,7 +134,7 @@ export default function Index(props: Props) {
       if (result !== null && result.getMinimumUserGroups !== null) {
         let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
           let remappedObj = renameObjectKeys(
-            { uniquemember: 'members', memberof: 'members' },
+            { uniquemember: 'members', memberof: 'members', member: 'members' },
             entry
           );
           remappedObj['chunked'] =
