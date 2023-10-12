@@ -818,7 +818,7 @@ const resolvers = {
         baseDn: dn,
         filter: `(memberOf=${args.filter})`,
         sort: { direction: 'desc', field: 'sn' },
-        pageSize: 1000,
+        pageSize: env.LDAP_QRY_PAGESIZE || 1000,
       });
     },
     async person(

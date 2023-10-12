@@ -530,6 +530,7 @@ export class LDAPEnvClass implements LDAP_ENV {
   LDAP_PORT: string = '';
   LDAP_CERT: string = '';
   GROUP_MGMT_API_KEYS: string = '';
+  LDAP_QRY_PAGESIZE: number = 1000;
 
   constructor(opts: {
     LDAP_URL?: any;
@@ -541,6 +542,7 @@ export class LDAPEnvClass implements LDAP_ENV {
     LDAP_PORT?: any;
     LDAP_CERT?: any;
     GROUP_MGMT_API_KEYS?: any;
+    LDAP_QRY_PAGESIZE?: number;
   }) {
     (this.LDAP_URL = opts.LDAP_URL || ''),
       (this.LDAP_BASE_DN = opts.LDAP_BASE_DN || ''),
@@ -550,6 +552,7 @@ export class LDAPEnvClass implements LDAP_ENV {
       (this.LDAP_PASSWORD = opts.LDAP_PASSWORD || ''),
       (this.LDAP_PORT = opts.LDAP_PORT || 3000),
       (this.LDAP_CERT = opts.LDAP_CERT || ''),
-      (this.GROUP_MGMT_API_KEYS = opts.GROUP_MGMT_API_KEYS || '');
+      (this.GROUP_MGMT_API_KEYS = opts.GROUP_MGMT_API_KEYS || ''),
+      (this.LDAP_QRY_PAGESIZE = opts.LDAP_QRY_PAGESIZE || 1000);
   }
 }
