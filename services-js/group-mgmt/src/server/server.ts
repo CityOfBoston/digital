@@ -232,7 +232,7 @@ const search_promise = (err, res) => {
     });
 
     res.on('end', () => {
-      console.log('search_promise > entries[0]: ', entries[0]);
+      // console.log('search_promise > entries[0]: ', entries[0]);
       resolve(entries);
     });
   });
@@ -816,7 +816,7 @@ const resolvers = {
       const dn = `OU=Active,${env.LDAP_BASE_DN}`;
       return await searchGroupMemberAttributes({
         baseDn: dn,
-        filter: `(memberOf=${args.filter})`,
+        filter: `(&(memberOf=${args.filter})(nsAccountLock=FALSE))`,
         sort: { direction: 'desc', field: 'sn' },
         pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
       });
