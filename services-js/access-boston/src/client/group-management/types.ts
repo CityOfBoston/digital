@@ -32,6 +32,7 @@ export interface CommonAttributes {
 export interface Group extends CommonAttributes {
   members: string[];
   chunked?: any;
+  groupmember?: any;
 }
 
 export interface Person extends CommonAttributes {

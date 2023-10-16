@@ -162,7 +162,7 @@ const get_groupMembers = (
         sortEntries();
         res.finished = true;
         // console.log('page:finished? 2> ', res.finished);
-        // console.log('AT CAPACITY: ', entries.length);
+        console.log('AT CAPACITY: ', entries.length);
         resolve(entries);
       }
     });
@@ -174,6 +174,7 @@ const get_groupMembers = (
 
     res.on('end', () => {
       sortEntries();
+      console.log('CAPACITY: ', entries.length);
       resolve(entries);
     });
   });

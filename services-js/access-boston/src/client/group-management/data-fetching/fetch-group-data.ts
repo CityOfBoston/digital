@@ -7,6 +7,7 @@ const GROUP_DATA = `
   cn
   displayname
   uniquemember
+  groupmember
   member
 `;
 

@@ -13,7 +13,7 @@ import ManagementView from './ManagementView';
 import ReviewChangesView from './ReviewChangesView';
 import ReviewConfirmationView from './ReviewConfirmationView';
 
-import EditableList from './list-components/EditableList';
+// import EditableList from './list-components/EditableList';
 import SearchComponent from './search-component/SearchComponent';
 
 import {
@@ -67,39 +67,39 @@ export default function Index(props: Props) {
     dispatchList({ type: 'LIST/CLEAR_LIST' });
   };
 
-  const changePage = (currentPage: number): void => {
-    dispatchState({ type: 'APP/CHANGE_PAGE', currentPage });
-    const { mode, selected } = state;
-    if (mode === 'group') {
-      if (
-        selected.cn &&
-        selected.chunked[currentPage] &&
-        selected.chunked[currentPage].length > 0
-      )
-        handleFetchGroupMembers(selected, groups, currentPage);
-    } else {
-      if (
-        selected.cn &&
-        selected.chunked[currentPage] &&
-        selected.chunked[currentPage].length > 0
-      )
-        handleFetchPersonsGroups(selected, groups, currentPage);
-    }
-  };
+  // const changePage = (currentPage: number): void => {
+  //   dispatchState({ type: 'APP/CHANGE_PAGE', currentPage });
+  //   const { mode, selected } = state;
+  //   if (mode === 'group') {
+  //     if (
+  //       selected.cn &&
+  //       selected.chunked[currentPage] &&
+  //       selected.chunked[currentPage].length > 0
+  //     )
+  //       handleFetchGroupMembers(selected, groups, currentPage);
+  //   } else {
+  //     if (
+  //       selected.cn &&
+  //       selected.chunked[currentPage] &&
+  //       selected.chunked[currentPage].length > 0
+  //     )
+  //       handleFetchPersonsGroups(selected, groups, currentPage);
+  //   }
+  // };
 
-  const changePageCount = (pageCount: number): void => {
-    dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
-  };
+  // const changePageCount = (pageCount: number): void => {
+  //   dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
+  // };
 
   const handleInitialSelection = (selectedItem: any): void => {
     changeSelected(selectedItem);
     changeView('management');
   };
 
-  const handleClickListItem = (item: Group | Person): void => {
-    changeSelected(item);
-    changeMode(state.mode === 'group' ? 'person' : 'group');
-  };
+  // const handleClickListItem = (item: Group | Person): void => {
+  //   changeSelected(item);
+  //   changeMode(state.mode === 'group' ? 'person' : 'group');
+  // };
 
   const handleAdminListItemClick = (item: any): void => {
     changeSelected(item);
@@ -154,27 +154,56 @@ export default function Index(props: Props) {
     });
   };
 
-  const handleFetchGroupMembers = (
-    selected: Group,
-    dns: String[] = [],
-    _currentPage: number = 0
-  ): void => {
-    const { members, chunked } = selected;
-    const mask_chunked = chunked ? chunked : [];
-    changePageCount(mask_chunked.length);
+  // const handleFetchGroupMembers = (
+  //   selected: Group,
+  //   dns: String[] = [],
+  //   _currentPage: number = 0
+  // ): void => {
+  //   const { members, chunked } = selected;
+  //   const mask_chunked = chunked ? chunked : [];
+  //   changePageCount(mask_chunked.length);
 
-    if (members && members.length > 0) {
-      setLoading(true);
-      fetchGroupMembers(selected, dns, _currentPage).then(result => {
-        dispatchList({
-          type: 'LIST/LOAD_LIST',
-          list: result,
-        });
+  //   if (members && members.length > 0) {
+  //     setLoading(true);
+  //     fetchGroupMembers(selected, dns, _currentPage).then(result => {
+  //       dispatchList({
+  //         type: 'LIST/LOAD_LIST',
+  //         list: result,
+  //       });
 
-        setLoading(false);
-      });
-    }
+  //       setLoading(false);
+  //     });
+  //   }
+  // };
+
+  const handleFetch_GroupMembers = async (selected: Group): Promise<void> => {
+    // const { members, chunked } = selected;
+    // console.log('members | chunked: ', members, chunked);
+    const group_members = await fetchGroupMembers(selected.dn);
+    console.log(
+      'group_members: ',
+      typeof group_members,
+      Object.keys(group_members),
+      Object.keys(group_members)[0],
+      group_members[Object.keys(group_members)[0]].length,
+      group_members
+    );
+    // console.log('fetchGroupMembers: ', fetchGroupMembers);
+    // changePageCount(group_members.length);
+    state.pageCount = group_members[Object.keys(group_members)[0]].length;
   };
+  if (
+    state.mode === 'group' &&
+    state.selected &&
+    state.selected.cn &&
+    loading === false
+  ) {
+    // console.log('handleFetchGroupMembers: ', handleFetchGroupMembers);
+    console.log('state.selected.dn: ', state.selected.dn);
+    handleFetch_GroupMembers(state.selected);
+    console.log('state: ', state);
+    console.log('loading: ', loading);
+  }
 
   const handleFetchPersonsGroups = (
     selected: Person,
@@ -200,7 +229,7 @@ export default function Index(props: Props) {
   useEffect(() => {
     const { mode, selected } = state;
     if (!viewOnly && mode === 'group') {
-      if (selected.cn) handleFetchGroupMembers(selected, groups);
+      // if (selected.cn) handleFetchGroupMembers(selected, groups);
     } else {
       if (selected.cn) handleFetchPersonsGroups(selected, groups);
     }
@@ -227,13 +256,13 @@ export default function Index(props: Props) {
     }
   }, [state.selected]);
 
-  const handleToggleItem = (item: Group | Person) => {
-    if (item.action && item.action === 'new') {
-      dispatchList({ type: 'LIST/DELETE_ITEM', item });
-    } else {
-      dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
-    }
-  };
+  // const handleToggleItem = (item: Group | Person) => {
+  //   if (item.action && item.action === 'new') {
+  //     dispatchList({ type: 'LIST/DELETE_ITEM', item });
+  //   } else {
+  //     dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
+  //   }
+  // };
 
   const handleAddToList = (item: Group | Person) =>
     dispatchList({ type: 'LIST/ADD_ITEM', item });
@@ -282,21 +311,21 @@ export default function Index(props: Props) {
                 currentlist={list}
               />
             }
-            editableList={
-              <EditableList
-                mode={viewOnly ? 'person' : state.mode}
-                items={list}
-                loading={loading}
-                handleChange={handleToggleItem}
-                handleClick={handleClickListItem}
-                dns={groups}
-                currentPage={state.currentPage}
-                pageCount={state.pageCount}
-                pageSize={state.pageSize}
-                changePage={changePage}
-                viewOnly={viewOnly && viewOnly === true ? true : false}
-              />
-            }
+            // editableList={
+            //   <EditableList
+            //     mode={viewOnly ? 'person' : state.mode}
+            //     items={list}
+            //     loading={loading}
+            //     handleChange={handleToggleItem}
+            //     handleClick={handleClickListItem}
+            //     dns={groups}
+            //     currentPage={state.currentPage}
+            //     pageCount={state.pageCount}
+            //     pageSize={state.pageSize}
+            //     changePage={changePage}
+            //     viewOnly={viewOnly && viewOnly === true ? true : false}
+            //   />
+            // }
             resetAll={resetAll}
           />
         </div>

@@ -360,8 +360,8 @@ export class PersonClass implements Person {
     let ismemberof: any = [];
     let memberof: any = [];
     // console.log(
-    //   `opts (cOBUserAgency | nsaccountlock): ${opts.cOBUserAgency}, ${
-    //     opts.nsaccountlock
+    //   `opts (nsaccountlock | cOBUserAgency): ${opts.nsaccountlock}, ${
+    //     opts.cOBUserAgency
     //   }`
     // );
     // const ismemberof = convertOptionalArray(

@@ -28,6 +28,30 @@ const SEARCH_PEOPLE = `
   }
 `;
 
+const GROUP_MEMBER_DATA = `
+  distinguishedName
+  cn
+  displayname
+  givenname 
+  sn
+  cOBUserAgency
+`;
+
+const FETCH_GROUPMEMBERS = `
+  query getGroupMembers($filter: String) {
+    getGroupMemberAttributes(filter: $filter) {
+      ${GROUP_MEMBER_DATA}
+    }
+  }
+`;
+
+/**
+ * Returns Group Members.
+ */
+// export async function fetchGroupMembers(filter: string): Promise<any> {
+//   return await fetchGraphql(FETCH_GROUPMEMBERS, { filter });
+// }
+
 /**
  * Returns a single Person object.
  */
@@ -62,26 +86,28 @@ export async function fetchPersonSearch(
  * Inactive employees WILL be included in these results; see line 63.
  */
 export async function fetchGroupMembers(
-  group: Group,
-  dns: String[] = [],
-  _currentPage: number = 0
+  // group: Group,
+  // dns: String[] = [],
+  // _currentPage: number = 0
+  filter: String
 ): Promise<Person[]> {
   // console.log('fetchGroupMembers: .....');
-  return await Promise.all(
-    group.chunked[_currentPage].map(
-      personCn => {
-        // todo: remove .replace() when api data no longer includes cn=
-        const cn = personCn.replace('cn=', '');
+  // return await Promise.all(
+  //   group.chunked[_currentPage].map(
+  //     personCn => {
+  //       // todo: remove .replace() when api data no longer includes cn=
+  //       const cn = personCn.replace('cn=', '');
 
-        return fetchPerson(cn, dns)
-          .then(response => {
-            return toPerson(response.person[0]);
-          })
-          .catch(() => toPerson({ cn, inactive: true }));
-      },
-      [] as Person[]
-    )
-  );
+  //       return fetchPerson(cn, dns)
+  //         .then(response => {
+  //           return toPerson(response.person[0]);
+  //         })
+  //         .catch(() => toPerson({ cn, inactive: true }));
+  //     },
+  //     [] as Person[]
+  //   )
+  // );
+  return await fetchGraphql(FETCH_GROUPMEMBERS, { filter });
 }
 
 /**

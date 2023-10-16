@@ -73,6 +73,7 @@ export function toGroup(
   const retObj = {
     ...commonAttributes(dataObject),
     members: dataObject.member || [],
+    groupmember: [],
     isAvailable,
     chunked: chunkedResults,
   };
