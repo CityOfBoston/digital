@@ -101,6 +101,9 @@ export function toPerson(dataObject): Person {
     sn: dataObject.sn || '',
     mail: dataObject.mail || '',
     isAvailable: !dataObject.inactive,
+    cOBUserAgency: dataObject.cOBUserAgency,
+    dn: dataObject.dn,
+    displayName: dataObject.displayName,
   };
   // console.log('toGroup > retObj: ', retObj, '\n------------');
 
@@ -108,14 +111,22 @@ export function toPerson(dataObject): Person {
 }
 
 function commonAttributes(dataObject): CommonAttributes {
-  // console.log('CommonAttributes dataObj: ', dataObject);
-  return {
+  const displayName = dataObject.displayname || dataObject.cn;
+  const retObj = {
     cn: dataObject.cn,
     dn: dataObject.dn || '',
-    displayName: dataObject.displayname || dataObject.cn,
+    displayName,
     status: 'current' as ItemStatus,
     action: '' as Action,
   };
+  // console.log('CommonAttributes dataObj: ', dataObject);
+  // console.log('CommonAttributes dataObj.cn: ', dataObject.cn);
+  // console.log('CommonAttributes dataObj.displayname: ', dataObject.displayname);
+  // console.log('CommonAttributes dataObj.displayName: ', dataObject.displayName);
+  // console.log('CommonAttributes displayName: ', displayName);
+  // console.log('CommonAttributes retObj: ', retObj);
+  // console.log('---------');
+  return retObj;
 }
 
 export const isDomainNameInOUs = (dn: string, dns: Array<string>) => {

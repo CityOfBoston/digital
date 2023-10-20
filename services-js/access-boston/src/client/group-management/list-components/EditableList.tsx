@@ -99,6 +99,8 @@ export default function EditableList(props: Props) {
     console.log('filteredItems: ', filteredItems);
   }
 
+  console.log('EditableList ............... ');
+
   const noResultsText =
     props.mode === 'group'
       ? 'This group has no members'

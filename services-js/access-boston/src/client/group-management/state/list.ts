@@ -25,14 +25,16 @@ export const reducer = (list, action: Partial<Action>) => {
 
   switch (action.type) {
     case 'LIST/LOAD_LIST':
-      if (action.list) {
-        return action.list.map(item => ({
-          ...item,
-          status: 'current',
-        }));
-      } else {
-        return list;
-      }
+      // if (action.list) {
+      //   return action.list.map(item => ({
+      //     ...item,
+      //     status: 'current',
+      //   }));
+      // } else {
+      //   return list;
+      // }
+      console.log('list > action: ', action);
+      return action.list;
 
     case 'LIST/CLEAR_LIST':
       return [];

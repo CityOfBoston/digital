@@ -1,6 +1,7 @@
 import { fetchGraphql } from './fetchGraphql';
 import { toPerson } from '../state/data-helpers';
 import { Group, Person } from '../types';
+import { chunkArray } from '../fixtures/helpers';
 
 const PERSON_DATA = `
   dn
@@ -30,11 +31,13 @@ const SEARCH_PEOPLE = `
 
 const GROUP_MEMBER_DATA = `
   distinguishedName
+  dn
   cn
   displayname
   givenname 
   sn
   cOBUserAgency
+  mail
 `;
 
 const FETCH_GROUPMEMBERS = `
@@ -89,7 +92,8 @@ export async function fetchGroupMembers(
   // group: Group,
   // dns: String[] = [],
   // _currentPage: number = 0
-  filter: String
+  filter: String,
+  _pageSize: number = 100
 ): Promise<Person[]> {
   // console.log('fetchGroupMembers: .....');
   // return await Promise.all(
@@ -107,7 +111,21 @@ export async function fetchGroupMembers(
   //     [] as Person[]
   //   )
   // );
-  return await fetchGraphql(FETCH_GROUPMEMBERS, { filter });
+  let groups = await fetchGraphql(FETCH_GROUPMEMBERS, { filter });
+  groups = groups[Object.keys(groups)[0]];
+  let retGroups = groups.map((item: any) => {
+    return toPerson(item);
+  });
+  // retGroups = retGroups.filter(
+  //   i =>
+  //     i.displayname &&
+  //     typeof i.displayname === 'string' &&
+  //     i.displayname.length > 0
+  // );
+  console.log('fetchGroupMembers > toPerson > fetchGroups : ', retGroups);
+
+  return chunkArray(retGroups, _pageSize);
+  // return retGroups;
 }
 
 /**
