@@ -84,8 +84,8 @@ export const reducer = (state, action: Partial<Action>) => {
       )
         action.selected['groupmember'] = action.groupmembers;
 
-      console.log(`action.selected: `, action.selected);
-      console.log(`action: `, action, state);
+      // console.log(`action.selected: `, action.selected);
+      // console.log(`action: `, action, state);
 
       return { ...state, selected: action.selected };
 

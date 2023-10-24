@@ -116,12 +116,12 @@ export async function fetchGroupMembers(
   let retGroups = groups.map((item: any) => {
     return toPerson(item);
   });
-  // retGroups = retGroups.filter(
-  //   i =>
-  //     i.displayname &&
-  //     typeof i.displayname === 'string' &&
-  //     i.displayname.length > 0
-  // );
+  retGroups = retGroups.sort(
+    (a: any, b: any) =>
+      b['isAvailable'] - a['isAvailable'] ||
+      a['displayName'].localeCompare(b['displayName']) ||
+      a.cn - b.cn
+  );
   console.log('fetchGroupMembers > toPerson > fetchGroups : ', retGroups);
 
   return chunkArray(retGroups, _pageSize);

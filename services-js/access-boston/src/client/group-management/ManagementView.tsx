@@ -51,7 +51,6 @@ export default function ManagementView(props: Props) {
 
         {/* {props.editableList} */}
         {props.editView && (typeof props.editView && props.editView)}
-        <h1>Edit View HERE ...</h1>
 
         <div css={BUTTON_CONTAINER_STYLING}>
           <button

@@ -68,8 +68,8 @@ export default function Index(props: Props) {
       state.pageSize
     );
     changePageCount(groupmembers.length);
-    console.log(`pageCount: `, groupmembers.length);
-    console.log('state: ', state);
+    // console.log(`pageCount: `, groupmembers.length);
+    // console.log('state: ', state);
     dispatchState({
       type: 'APP/SET_SELECTED',
       selected: selectedItem,
@@ -144,7 +144,7 @@ export default function Index(props: Props) {
 
   const setOus = async () => {
     fetchOurContainers(groups).then(result => {
-      console.log('convertOUsToContainers result: ', result);
+      // console.log('convertOUsToContainers result: ', result);
       if (result !== null) {
         dispatchState({
           type: 'APP/SET_OUS',
@@ -201,58 +201,6 @@ export default function Index(props: Props) {
   //   }
   // };
 
-  // const handleFetch_GroupMembers = async (selected: Group): Promise<void> => {
-  //   // const { members, chunked } = selected;
-  //   // console.log('members | chunked: ', members, chunked);
-  //   const group_members = await fetchGroupMembers(selected.dn);
-  //   // console.log(
-  //   //   'group_members ... : ',
-  //   //   typeof group_members,
-  //   //   Object.keys(group_members),
-  //   //   Object.keys(group_members)[0],
-  //   //   group_members[Object.keys(group_members)[0]].length,
-  //   //   group_members
-  //   // );
-  //   // console.log('fetchGroupMembers: ', fetchGroupMembers);
-  //   // changePageCount(group_members.length);
-  //   if (group_members.length > 0) {
-  //     // state.pageCount = group_members.length;
-  //     // console.log(
-  //     //   'group_members[Object.keys(group_members)[0]]: ',
-  //     //   group_members
-  //     // );
-  //     // // state.selected['groupmember'] =
-  //     //   group_members[Object.keys(group_members)[0]];
-  //     // console.log('chunkArray ... ', chunkArray(group_members, pageSize));
-  //     state.selected['groupmember'] = chunkArray(group_members, pageSize);
-  //     // dispatchList({
-  //     //   type: 'LIST/LOAD_LIST',
-  //     //   list: state.selected['groupmember'],
-  //     // });
-
-  //     // fetchGroupMembers
-
-  //     console.log(
-  //       'state.selected: ',
-  //       state.selected,
-  //       state.selected['groupmember']
-  //     );
-  //   }
-  // };
-
-  // if (
-  //   state.mode === 'group' &&
-  //   state.selected &&
-  //   state.selected.cn &&
-  //   loading === false
-  // ) {
-  //   // console.log('handleFetchGroupMembers: ', handleFetchGroupMembers);
-  //   console.log('state.selected.dn: ', state.selected.dn);
-  //   handleFetch_GroupMembers(state.selected);
-  //   console.log('state: ', state);
-  //   console.log('loading: ', loading);
-  // }
-
   const handleFetchPersonsGroups = (
     selected: Person,
     dns: string[] = [],
@@ -278,6 +226,7 @@ export default function Index(props: Props) {
     const { mode, selected } = state;
     if (!viewOnly && mode === 'group') {
       // if (selected.cn) handleFetchGroupMembers(selected, groups);
+      // NOTE: ^ Not needed anymore, handled by improved group-member's fetch
     } else {
       if (selected.cn) handleFetchPersonsGroups(selected, groups);
     }
@@ -360,6 +309,9 @@ export default function Index(props: Props) {
                 mode={viewOnly ? 'person' : state.mode}
                 loading={loading}
                 items={state.selected.groupmember}
+                currentPage={state.currentPage}
+                viewOnly={viewOnly && viewOnly === true ? true : false}
+                handleChange={() => console.log(`handleChange checkbox`)}
               />
               // <EditableList
               //   mode={viewOnly ? 'person' : state.mode}

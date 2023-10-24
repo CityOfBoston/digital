@@ -93,6 +93,11 @@ export function toPerson(dataObject): Person {
       : [[]];
   // console.log('toPerson > dataObject: ');
   // console.log('chunked: ', chunkedResults,'\n------------');
+  const displayName = dataObject.displayName
+    ? dataObject.displayName
+    : dataObject.displayname
+    ? dataObject.displayname
+    : '';
   const retObj = {
     ...commonAttributes(dataObject),
     groups: dataObject.ismemberof || [],
@@ -103,7 +108,7 @@ export function toPerson(dataObject): Person {
     isAvailable: !dataObject.inactive,
     cOBUserAgency: dataObject.cOBUserAgency,
     dn: dataObject.dn,
-    displayName: dataObject.displayName,
+    displayName,
   };
   // console.log('toGroup > retObj: ', retObj, '\n------------');
 
@@ -120,9 +125,9 @@ function commonAttributes(dataObject): CommonAttributes {
     action: '' as Action,
   };
   // console.log('CommonAttributes dataObj: ', dataObject);
-  // console.log('CommonAttributes dataObj.cn: ', dataObject.cn);
   // console.log('CommonAttributes dataObj.displayname: ', dataObject.displayname);
   // console.log('CommonAttributes dataObj.displayName: ', dataObject.displayName);
+  // console.log('CommonAttributes dataObj.cn: ', dataObject.cn);
   // console.log('CommonAttributes displayName: ', displayName);
   // console.log('CommonAttributes retObj: ', retObj);
   // console.log('---------');

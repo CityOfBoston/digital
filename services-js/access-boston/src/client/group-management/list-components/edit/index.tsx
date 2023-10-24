@@ -4,22 +4,24 @@ import { jsx } from '@emotion/core';
 
 import { Group, Person, Mode, Loading } from '../../types';
 import Spinner from '../../Spinner';
-import { LOADER_STYLING, NO_RESULTS_STYLING } from './Styling__EditView';
-// import { LIST_STYLING } from '../styling';
+import { LOADER_STYLING, NO_RESULTS_STYLING } from './styling';
+import ListItemComponent from './list';
+import { LIST_STYLING } from '../styling';
 
 interface Props {
   mode: Mode;
   loading: Loading;
-  items: Array<Group | Person>;
-  currentPage?: number;
+  items: Array<Array<Group | Person>>;
+  currentPage: number;
   pageCount?: number;
   pageSize?: number;
-  // items: Array<Group | Person>;
+  viewOnly?: boolean;
+  handleChange: () => void;
   // handleChange: (item: Group | Person) => void;
+  // items: Array<Group | Person>;
   // handleClick: (item: Group | Person) => void;
   // dns?: [String];
   // changePage: (currentPage: number) => any;
-  // viewOnly?: boolean;
 }
 
 /**
@@ -35,52 +37,7 @@ interface Props {
  * editableList reflects the current state of the user’s intended edits.
  */
 export default function EditView(props: Props) {
-  const { mode, loading, items } = props;
-  let filteredItems = [];
-  console.log('filteredItems:items: ', items);
-
-  if (items && items.length > 0) {
-    items.filter(
-      i =>
-        i.displayName &&
-        typeof i.displayName === 'string' &&
-        i.displayName.length > 0
-    );
-
-    if (
-      mode &&
-      mode === 'group' &&
-      filteredItems.length > 0 &&
-      !props.loading
-    ) {
-      filteredItems = filteredItems.sort(
-        (a: any, b: any) =>
-          b['isAvailable'] - a['isAvailable'] ||
-          a['sn'].localeCompare(b['sn']) ||
-          a.cn - b.cn
-      );
-    }
-
-    if (
-      mode &&
-      mode === 'person' &&
-      filteredItems.length > 0 &&
-      !props.loading
-    ) {
-      filteredItems = filteredItems.sort(
-        (a: any, b: any) =>
-          b['isAvailable'] - a['isAvailable'] ||
-          a['displayName'].localeCompare(b['displayName']) ||
-          a.cn - b.cn
-      );
-    }
-
-    if (filteredItems && filteredItems.length > 0 && props.loading) {
-      console.log('filteredItems 2: ', filteredItems);
-    }
-    console.log('items!!!!: ', filteredItems);
-  }
-  // console.log('filteredItems: ', filteredItems);
+  const { mode, loading, items, viewOnly, handleChange } = props;
 
   const noResultsText =
     props.mode === 'group'
@@ -95,15 +52,29 @@ export default function EditView(props: Props) {
       </div>
     );
   } else {
-    console.log('list-components/edit > items: ', items);
+    // console.log('list-components/edit > items: ', items);
     return (
       <>
-        Edit View!
-        <ul>
-          {filteredItems && filteredItems.length > 0 ? (
-            <li>List ...</li>
+        <ul css={LIST_STYLING} key={`${props.mode}_list`}>
+          {items && typeof items === 'object' && items.length > 0 ? (
+            items[props.currentPage].map((item, index) => (
+              <ListItemComponent
+                mode={mode}
+                item={item}
+                key={`${item.displayName}__${index}`}
+                keyIndex={`${item.displayName}__${index}`}
+                view="management"
+                viewOnly={
+                  viewOnly && typeof viewOnly === 'boolean' ? viewOnly : false
+                }
+                isChecked={item.status !== 'remove'}
+                handleChange={handleChange}
+              />
+            ))
           ) : (
-            <div css={NO_RESULTS_STYLING}>{noResultsText}</div>
+            <li key={`${props.mode}_zero`} css={NO_RESULTS_STYLING}>
+              {noResultsText}
+            </li>
           )}
         </ul>
       </>
