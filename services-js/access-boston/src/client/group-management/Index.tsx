@@ -3,7 +3,7 @@
 import { jsx } from '@emotion/core';
 
 import { useEffect, useReducer, useState } from 'react';
-import { Group, Mode, Person, View } from './types';
+import { Group, Mode, Person, View, pageCount } from './types';
 
 import { reducer as stateReducer, initialState } from './state/app';
 import { reducer as listReducer } from './state/list';
@@ -60,6 +60,67 @@ export default function Index(props: Props) {
   const changeMode = (newMode: Mode): void =>
     dispatchState({ type: 'APP/CHANGE_MODE', mode: newMode });
 
+  const changePageCount = (pageCount: number): void => {
+    dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
+  };
+
+  const handleClickListItem = (item: Group | Person): void => {
+    changeSelected(item);
+    changeMode(state.mode === 'group' ? 'person' : 'group');
+  };
+
+  const handleToggleItem = (item: Group | Person) => {
+    console.log('handleToggleItem: ', item);
+    if (item.action && item.action === 'new') {
+      dispatchList({ type: 'LIST/DELETE_ITEM', item });
+    } else {
+      dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
+    }
+  };
+
+  // const handleFetchGroupMembers = (
+  //   selected: Group,
+  //   dns: String[] = [],
+  //   _currentPage: number = 0
+  // ): void => {
+  //   const { members, chunked } = selected;
+  //   const mask_chunked = chunked ? chunked : [];
+  //   changePageCount(mask_chunked.length);
+
+  //   if (members && members.length > 0) {
+  //     setLoading(true);
+  //     fetchGroupMembers(selected, dns, _currentPage).then(result => {
+  //       dispatchList({
+  //         type: 'LIST/LOAD_LIST',
+  //         list: result,
+  //       });
+
+  //       setLoading(false);
+  //     });
+  //   }
+  // };
+
+  const handleFetchPersonsGroups = (
+    selected: Person,
+    dns: string[] = [],
+    _currentPage: number = 0
+  ): void => {
+    const { groups } = selected;
+
+    if (groups && groups.length > 0) {
+      setLoading(true);
+      fetchPersonsGroups(selected, [], dns, state.ous, _currentPage).then(
+        result => {
+          dispatchList({
+            type: 'LIST/LOAD_LIST',
+            list: result,
+          });
+          setLoading(false);
+        }
+      );
+    }
+  };
+
   const changeSelected = async (
     selectedItem: Group | Person
   ): Promise<void> => {
@@ -82,44 +143,27 @@ export default function Index(props: Props) {
     dispatchList({ type: 'LIST/CLEAR_LIST' });
   };
 
-  // const changePage = (currentPage: number): void => {
-  //   dispatchState({ type: 'APP/CHANGE_PAGE', currentPage });
-  //   const { mode, selected } = state;
-  //   if (mode === 'group') {
-  //     if (
-  //       selected.cn &&
-  //       selected.chunked[currentPage] &&
-  //       selected.chunked[currentPage].length > 0
-  //     ) {
-  //       // handleFetchGroupMembers(selected, groups, currentPage);
-  //       handleFetch_GroupMembers(selected);
-  //     }
-  //   } else {
-  //     if (
-  //       selected.cn &&
-  //       selected.chunked[currentPage] &&
-  //       selected.chunked[currentPage].length > 0
-  //     )
-  //       handleFetchPersonsGroups(selected, groups, currentPage);
-  //   }
-  // };
-
-  const changePageCount = (pageCount: number): void => {
-    dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
+  const changePage = (currentPage: number): void => {
+    dispatchState({ type: 'APP/CHANGE_PAGE', currentPage });
+    // const { mode, selected } = state;
+    // if (mode === 'group') {
+    //   if (
+    //     selected.cn &&
+    //     selected.chunked[currentPage] &&
+    //     selected.chunked[currentPage].length > 0
+    //   ) {
+    //     // handleFetchGroupMembers(selected, groups, currentPage);
+    //     handleFetch_GroupMembers(selected);
+    //   }
+    // } else {
+    //   if (
+    //     selected.cn &&
+    //     selected.chunked[currentPage] &&
+    //     selected.chunked[currentPage].length > 0
+    //   )
+    //     handleFetchPersonsGroups(selected, groups, currentPage);
+    // }
   };
-
-  // const handleClickListItem = (item: Group | Person): void => {
-  //   changeSelected(item);
-  //   changeMode(state.mode === 'group' ? 'person' : 'group');
-  // };
-
-  // const handleToggleItem = (item: Group | Person) => {
-  //   if (item.action && item.action === 'new') {
-  //     dispatchList({ type: 'LIST/DELETE_ITEM', item });
-  //   } else {
-  //     dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
-  //   }
-  // };
 
   const handleInitialSelection = (selectedItem: any): void => {
     changeSelected(selectedItem);
@@ -179,49 +223,6 @@ export default function Index(props: Props) {
     });
   };
 
-  // const handleFetchGroupMembers = (
-  //   selected: Group,
-  //   dns: String[] = [],
-  //   _currentPage: number = 0
-  // ): void => {
-  //   const { members, chunked } = selected;
-  //   const mask_chunked = chunked ? chunked : [];
-  //   changePageCount(mask_chunked.length);
-
-  //   if (members && members.length > 0) {
-  //     setLoading(true);
-  //     fetchGroupMembers(selected, dns, _currentPage).then(result => {
-  //       dispatchList({
-  //         type: 'LIST/LOAD_LIST',
-  //         list: result,
-  //       });
-
-  //       setLoading(false);
-  //     });
-  //   }
-  // };
-
-  const handleFetchPersonsGroups = (
-    selected: Person,
-    dns: string[] = [],
-    _currentPage: number = 0
-  ): void => {
-    const { groups } = selected;
-
-    if (groups && groups.length > 0) {
-      setLoading(true);
-      fetchPersonsGroups(selected, [], dns, state.ous, _currentPage).then(
-        result => {
-          dispatchList({
-            type: 'LIST/LOAD_LIST',
-            list: result,
-          });
-          setLoading(false);
-        }
-      );
-    }
-  };
-
   useEffect(() => {
     const { mode, selected } = state;
     if (!viewOnly && mode === 'group') {
@@ -278,6 +279,23 @@ export default function Index(props: Props) {
       // console.log(`state.selected: `, state.selected);
       // console.log(`state.selected.chunked: `, state.selected.chunked);
       // console.log(`state.selected.groupmember: `, state.selected.groupmember);
+      if (
+        list &&
+        typeof list.length === 'number' &&
+        list.length > 0 &&
+        loading === false
+      ) {
+        console.log('list: ', list);
+      }
+
+      if (
+        state.selected.groupmember &&
+        typeof state.selected.groupmember.length === 'number' &&
+        state.selected.groupmember.length > 0 &&
+        loading === false
+      ) {
+        console.log('groupmember: ', state.selected.groupmember);
+      }
       return (
         <div css={CONTAINER_STYLING}>
           <ManagementView
@@ -308,22 +326,28 @@ export default function Index(props: Props) {
               <EditView
                 mode={viewOnly ? 'person' : state.mode}
                 loading={loading}
-                items={state.selected.groupmember}
+                pageCount={pageCount}
+                pageSize={state.pageSize}
                 currentPage={state.currentPage}
+                items={state.selected.groupmember}
                 viewOnly={viewOnly && viewOnly === true ? true : false}
-                handleChange={() => console.log(`handleChange checkbox`)}
+                changePage={changePage}
+                handleChange={handleToggleItem}
+                handleClick={handleClickListItem}
+                // handlePrevPage={() => console.log(`handlePrevPage`)}
+                // handlePageNumClick={() => console.log(`handlePageNumClick`)}
               />
               // <EditableList
               //   mode={viewOnly ? 'person' : state.mode}
               //   items={list}
               //   loading={loading}
-              //   handleChange={handleToggleItem}
-              //   handleClick={handleClickListItem}
               //   dns={groups}
               //   currentPage={state.currentPage}
               //   pageCount={state.pageCount}
               //   pageSize={state.pageSize}
               //   changePage={changePage}
+              //   handleChange={handleToggleItem}
+              //   handleClick={handleClickListItem}
               //   viewOnly={viewOnly && viewOnly === true ? true : false}
               // />
             }

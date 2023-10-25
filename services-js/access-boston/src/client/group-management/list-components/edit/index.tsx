@@ -2,26 +2,27 @@
 
 import { jsx } from '@emotion/core';
 
-import { Group, Person, Mode, Loading } from '../../types';
 import Spinner from '../../Spinner';
 import { LOADER_STYLING, NO_RESULTS_STYLING } from './styling';
-import ListItemComponent from './list';
+import { Group, Person, Mode, Loading } from '../../types';
 import { LIST_STYLING } from '../styling';
+import ListItemComponent from './list';
+import Pagination from '../../pagination-components/Pagination';
 
 interface Props {
   mode: Mode;
   loading: Loading;
   items: Array<Array<Group | Person>>;
   currentPage: number;
-  pageCount?: number;
-  pageSize?: number;
-  viewOnly?: boolean;
-  handleChange: () => void;
-  // handleChange: (item: Group | Person) => void;
+  pageCount: number;
+  pageSize: number;
+  viewOnly: boolean;
+  handleChange: (item: Group | Person) => void;
+  changePage: (currentPage: number) => any;
+  handleClick: (item: Group | Person) => void;
+  // handleChange: () => void;
   // items: Array<Group | Person>;
-  // handleClick: (item: Group | Person) => void;
   // dns?: [String];
-  // changePage: (currentPage: number) => any;
 }
 
 /**
@@ -37,7 +38,35 @@ interface Props {
  * editableList reflects the current state of the user’s intended edits.
  */
 export default function EditView(props: Props) {
-  const { mode, loading, items, viewOnly, handleChange } = props;
+  const {
+    mode,
+    items,
+    loading,
+    viewOnly,
+    pageCount,
+    pageSize,
+    currentPage,
+    changePage,
+  } = props;
+
+  const handleClick = (item: Group | Person): void => {
+    if (props.handleClick) props.handleClick(item);
+  };
+
+  const handlePageNumClick = (pageNum, changePage) => {
+    changePage(pageNum);
+  };
+
+  const handleNextPage = (currentPage, pageCount, changePage) => {
+    if (currentPage < pageCount - 1) {
+      changePage(currentPage + 1);
+    }
+  };
+  const handlePrevPage = (currentPage, changePage) => {
+    if (currentPage > 0) {
+      changePage(currentPage - 1);
+    }
+  };
 
   const noResultsText =
     props.mode === 'group'
@@ -68,7 +97,8 @@ export default function EditView(props: Props) {
                   viewOnly && typeof viewOnly === 'boolean' ? viewOnly : false
                 }
                 isChecked={item.status !== 'remove'}
-                handleChange={handleChange}
+                handleChange={() => props.handleChange(item)}
+                handleClick={handleClick}
               />
             ))
           ) : (
@@ -77,6 +107,18 @@ export default function EditView(props: Props) {
             </li>
           )}
         </ul>
+
+        {props.pageCount > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            changePage={changePage}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+            handlePageNumClick={handlePageNumClick}
+          />
+        )}
       </>
     );
   }

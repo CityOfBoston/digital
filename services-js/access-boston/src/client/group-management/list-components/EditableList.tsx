@@ -17,16 +17,16 @@ import Pagination from '../pagination-components/Pagination';
 import { LIST_STYLING } from './styling';
 
 interface Props {
-  mode: Mode;
   items: Array<Group | Person>;
-  loading?: boolean;
+  mode: Mode;
+  pageSize: number;
+  pageCount: number;
+  currentPage: number;
+  changePage: (currentPage: number) => any;
   handleChange: (item: Group | Person) => void;
   handleClick: (item: Group | Person) => void;
   dns?: [String];
-  currentPage: number;
-  pageCount: number;
-  pageSize: number;
-  changePage: (currentPage: number) => any;
+  loading?: boolean;
   viewOnly?: boolean;
 }
 
@@ -44,14 +44,15 @@ interface Props {
  */
 export default function EditableList(props: Props) {
   const {
+    mode,
+    items,
+    pageSize,
+    viewOnly,
     pageCount,
     currentPage,
     changePage,
-    pageSize,
-    items,
-    viewOnly,
-    mode,
   } = props;
+
   const handleClick = (item: Group | Person): void => {
     if (props.handleClick) props.handleClick(item);
   };
@@ -59,6 +60,7 @@ export default function EditableList(props: Props) {
   const handlePageNumClick = (pageNum, changePage) => {
     changePage(pageNum);
   };
+
   const handleNextPage = (currentPage, pageCount, changePage) => {
     if (currentPage < pageCount - 1) {
       changePage(currentPage + 1);
@@ -139,7 +141,6 @@ export default function EditableList(props: Props) {
         {pageCount > 1 && (
           <>
             <Pagination
-              items={items}
               currentPage={currentPage}
               pageCount={pageCount}
               pageSize={pageSize}

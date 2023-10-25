@@ -6,10 +6,8 @@ import {
   NORM_HOVER,
   PAGINATION,
 } from '../pagination-components/styling';
-import { Group, Person } from '../types';
 
 interface Props {
-  items: Array<Group | Person>;
   currentPage: number;
   pageCount: number;
   pageSize: number;

@@ -15,13 +15,13 @@ import {
 
 interface Props {
   item: Group | Person;
-  mode?: string;
-  keyIndex?: string | undefined;
+  mode: string;
+  keyIndex: string | undefined;
   view: View;
   viewOnly: boolean;
-  isChecked?: boolean;
-  handleChange?: () => void;
-  // handleClick?: (item: Group | Person) => void;
+  isChecked: boolean;
+  handleChange: () => void;
+  handleClick: (item: Group | Person) => void;
 }
 
 /**
