@@ -93,7 +93,7 @@ export async function fetchGroupMembers(
   // dns: String[] = [],
   // _currentPage: number = 0
   filter: String,
-  _pageSize: number = 100
+  pageSize: number = 100
 ): Promise<Person[]> {
   // console.log('fetchGroupMembers: .....');
   // return await Promise.all(
@@ -124,7 +124,7 @@ export async function fetchGroupMembers(
   );
   console.log('fetchGroupMembers > toPerson > fetchGroups : ', retGroups);
 
-  return chunkArray(retGroups, _pageSize);
+  return chunkArray(retGroups, pageSize);
   // return retGroups;
 }
 

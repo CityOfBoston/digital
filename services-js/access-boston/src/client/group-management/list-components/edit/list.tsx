@@ -38,9 +38,8 @@ export default function ListItemComponent(props: Props) {
     viewOnly,
     isChecked,
     handleChange,
-    // handleClick,
   } = props;
-  console.log(`ListItemComponent_${keyIndex}`);
+  // console.log(`ListItemComponent_${keyIndex}`);
 
   let displayText = displayName || cn;
   if (mode && mode === 'group' && item['givenName'] && item['sn']) {

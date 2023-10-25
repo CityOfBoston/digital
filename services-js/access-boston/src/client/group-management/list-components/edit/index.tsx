@@ -12,7 +12,7 @@ import Pagination from '../../pagination-components/Pagination';
 interface Props {
   mode: Mode;
   loading: Loading;
-  items: Array<Array<Group | Person>>;
+  items: Array<Array<Person | Group>>;
   currentPage: number;
   pageCount: number;
   pageSize: number;
@@ -81,7 +81,12 @@ export default function EditView(props: Props) {
       </div>
     );
   } else {
-    // console.log('list-components/edit > items: ', items);
+    if (items) console.log('list-components/edit > items: ', items);
+
+    if (items && typeof items === 'object' && items.length > 0) {
+      console.log('items[props.currentPage]: ', items[props.currentPage]);
+    }
+
     return (
       <>
         <ul css={LIST_STYLING} key={`${props.mode}_list`}>

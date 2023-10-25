@@ -124,17 +124,34 @@ export default function Index(props: Props) {
   const changeSelected = async (
     selectedItem: Group | Person
   ): Promise<void> => {
-    let groupmembers: any = await fetchGroupMembers(
-      selectedItem.dn,
-      state.pageSize
-    );
-    changePageCount(groupmembers.length);
-    // console.log(`pageCount: `, groupmembers.length);
-    // console.log('state: ', state);
+    const { mode } = state;
+    let members: any = [];
+
+    if (mode === 'group') {
+      members = await fetchGroupMembers(selectedItem.dn, state.pageSize);
+      changePageCount(members.length);
+      // console.log(`pageCount: `, members.length);
+      // console.log('state: ', state);
+    } else {
+      // code
+      members = [
+        [
+          {
+            dn: '',
+            cn: '',
+            displayName: '',
+            members: [],
+            status: 'current',
+            action: '',
+          },
+        ],
+      ];
+    }
+
     dispatchState({
       type: 'APP/SET_SELECTED',
       selected: selectedItem,
-      groupmembers,
+      groupmembers: members,
     });
   };
 
@@ -228,7 +245,9 @@ export default function Index(props: Props) {
     if (!viewOnly && mode === 'group') {
       // if (selected.cn) handleFetchGroupMembers(selected, groups);
       // NOTE: ^ Not needed anymore, handled by improved group-member's fetch
+      if (!loading) console.log('useEffect - GROUP', mode);
     } else {
+      if (!loading) console.log('useEffect - PERSON', mode);
       if (selected.cn) handleFetchPersonsGroups(selected, groups);
     }
 
@@ -286,6 +305,7 @@ export default function Index(props: Props) {
         loading === false
       ) {
         console.log('list: ', list);
+        console.log('selected: ', state.selected);
       }
 
       if (
