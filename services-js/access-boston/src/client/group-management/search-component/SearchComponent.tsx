@@ -1,15 +1,11 @@
 /** @jsx jsx */
 
-import { css, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
 import { MouseEvent, ReactNode, useEffect, useReducer } from 'react';
-
-import {
-  FREEDOM_RED_DARK,
-  OPTIMISTIC_BLUE_DARK,
-  SANS,
-  SectionHeader,
-} from '@cityofboston/react-fleet';
+import { SectionHeader } from '@cityofboston/react-fleet';
+import { FIELD_CONTAINER_STYLING, INPUTS_STYLING } from './styling';
+import { textCopy } from './copy';
 
 import { useDebounce } from '../../utility';
 
@@ -30,7 +26,8 @@ interface Props {
   handleFetch: (
     value: string,
     item, //?: Group | Person;
-    dns
+    dns,
+    autocomplete
   ) => Promise<Group[] | Person[]>;
   handleSelectClick: (selection: any) => void;
   currentStatus?: Status; // solely for Storybook
@@ -115,14 +112,25 @@ export default function SearchComponent(props: Props) {
 
     if (view === 'initial') {
       props
-        .handleFetch(searchText, null, dns)
-        .then(result => updateSuggestions(result))
+        .handleFetch(searchText, null, dns, true)
+        .then(result => {
+          console.log(
+            'SearchComponent > handleFetch ... fetch>success: ',
+            result
+          );
+          return updateSuggestions(result);
+        })
         .catch(() =>
           dispatch({ type: 'SEARCH/UPDATE_STATUS', searchStatus: 'fetchError' })
         );
     } else {
       props
-        .handleFetch(searchText, props.selectedItem as Person | Group, dns)
+        .handleFetch(
+          searchText,
+          props.selectedItem as Person | Group,
+          dns,
+          true
+        )
         .then(result => updateSuggestions(result));
     }
   };
@@ -265,79 +273,3 @@ export default function SearchComponent(props: Props) {
     </Section>
   );
 }
-
-const textCopy = {
-  initial: {
-    person: {
-      title: 'Person search',
-      label: 'Find a person',
-      button: 'Select',
-      clear: 'Clear',
-    },
-    group: {
-      title: 'Group search',
-      label: 'Find a group',
-      button: 'Select',
-      clear: 'Clear',
-    },
-  },
-  management: {
-    person: {
-      title: 'Add a new member',
-      label: 'Find a person to add',
-      button: 'Add member',
-      clear: 'Clear',
-    },
-    group: {
-      title: 'Add to a group',
-      label: 'Find a group to add',
-      button: 'Add group',
-      clear: 'Clear',
-    },
-  },
-};
-
-const FIELD_CONTAINER_STYLING = css({
-  position: 'relative',
-
-  '.status': {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    right: '1rem',
-
-    display: 'flex',
-
-    fontFamily: SANS,
-  },
-
-  '.no-results': {
-    color: FREEDOM_RED_DARK,
-  },
-
-  '.working': {
-    color: OPTIMISTIC_BLUE_DARK,
-  },
-});
-
-const INPUTS_STYLING = css({
-  display: 'flex',
-
-  '> div': {
-    width: '100%',
-  },
-
-  button: {
-    marginLeft: '0.5em',
-    flexShrink: 0,
-  },
-
-  'input[type="search"]': {
-    '&::-webkit-search-cancel-button': {
-      WebkitAppearance: 'none',
-    },
-    '&::-webkit-calendar-picker-indicator': {
-      display: 'none',
-    },
-  },
-});

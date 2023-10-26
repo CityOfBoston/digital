@@ -138,7 +138,14 @@ export async function fetchPersonSearchRemaining(
   group: Group,
   dns: String[]
 ): Promise<Person[]> {
-  const people = await fetchPersonSearch(term, dns);
+  const people = await (await fetchPersonSearch(term, dns)).filter(
+    person => !group.members.includes(person.cn)
+  );
 
-  return people.filter(person => !group.members.includes(person.cn));
+  console.log(
+    'fetch-person-data > fetchPersonSearchRemaining > fetchPersonSearch > people: ',
+    people
+  );
+
+  return people;
 }

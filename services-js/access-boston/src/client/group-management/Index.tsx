@@ -477,6 +477,7 @@ export default function Index(props: Props) {
       );
 
     default:
+      // console.log('View: DEFAULT');
       return (
         <div css={CONTAINER_STYLING}>
           <InitialView

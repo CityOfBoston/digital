@@ -69,6 +69,7 @@ export const typeDefs = `
     person(cn: String! dns: [String] by: String): [Person]
     personSearch(term: String! dns: [String] allowsInactive: Boolean by: String): [Person]!
     getGroupMemberAttributes(filter: String): [Person]!
+    getPersonMemberAttributes(filter: String): [Group]!
     group(cn: String! dns: [String] fetchgroupmember: Boolean): [Group]
     groupSearch(term: String! dns: [String] activemembers: Boolean allowsInactive: Boolean fetchgroupmember: Boolean): [Group]!
     isPersonInactive(people: [String!]!): [String]!

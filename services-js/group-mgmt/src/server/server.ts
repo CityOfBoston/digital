@@ -93,7 +93,8 @@ const get_groupMembers = (
   // res: ldap.SearchCallbackResponse,
   res: any,
   sort: { direction: string; field: string },
-  pageSize: number = 1000
+  pageSize: number = 1000,
+  type: string = 'PERSON'
   // _callback: any,
   // _paging: boolean,
   // _pagePause: boolean
@@ -127,10 +128,14 @@ const get_groupMembers = (
     res.on('searchEntry', entry => {
       let currEntry = entry.object || {};
       const remapObj = remapObjKeys(refInstance, currEntry);
-      const Person: Person = new PersonClass(
-        renameObjectKeys(remapObj, currEntry)
-      );
-      entries.push(Person);
+      let Wrapper: Person | Group =
+        type && type === 'PERSON'
+          ? new PersonClass(renameObjectKeys(remapObj, currEntry))
+          : new GroupClass(renameObjectKeys(remapObj, currEntry));
+      // const Person: Person = new PersonClass(
+      //   renameObjectKeys(remapObj, currEntry)
+      // );
+      entries.push(Wrapper);
     });
 
     res.on('page', (_page: any, _cb: any) => {
@@ -422,8 +427,11 @@ const searchGroupMemberAttributes = async (opts: {
   filter: string;
   sort: { direction: string; field: string };
   pageSize: number;
+  type: string;
 }) => {
   let results: any = [{ givenname: 'First Name', sn: 'Last Name' }];
+  if (!opts.type) opts.type = 'GROUP';
+  if (!opts.pageSize) opts.pageSize = 1000;
 
   results = new Promise(function(resolve, reject) {
     bindLdapClient();
@@ -435,7 +443,9 @@ const searchGroupMemberAttributes = async (opts: {
         pageSize: opts.pageSize,
         pagePause: true,
       },
-      attributes: ['*', 'cOBUserAgency'],
+      attributes: ['*'],
+      // attributes: ['*', 'cOBUserAgency'],
+      // getPersonMemberAttributes
     };
 
     ldapClient.search(opts.baseDn, filterParams, function(err, res) {
@@ -443,7 +453,7 @@ const searchGroupMemberAttributes = async (opts: {
         console.log('ldapsearch error: ', err);
         reject();
       }
-      resolve(get_groupMembers(err, res, opts.sort));
+      resolve(get_groupMembers(err, res, opts.sort, opts.pageSize, opts.type));
     });
   });
 
@@ -813,15 +823,6 @@ const resolvers = {
       const persons = await searchWrapper(['all'], filterParams);
       return persons;
     },
-    async getGroupMemberAttributes(_parent: any, args: any = []) {
-      const dn = `OU=Active,${env.LDAP_BASE_DN}`;
-      return await searchGroupMemberAttributes({
-        baseDn: dn,
-        filter: `(&(memberOf=${args.filter})(nsAccountLock=FALSE))`,
-        sort: { direction: 'desc', field: 'sn' },
-        pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
-      });
-    },
     async person(
       _parent: any,
       args: {
@@ -912,6 +913,26 @@ const resolvers = {
       } else {
         return groups;
       }
+    },
+    async getGroupMemberAttributes(_parent: any, args: any = []) {
+      const dn = `OU=Active,${env.LDAP_BASE_DN}`;
+      return await searchGroupMemberAttributes({
+        baseDn: dn,
+        filter: `(&(memberOf=${args.filter})(nsAccountLock=FALSE))`,
+        sort: { direction: 'desc', field: 'sn' },
+        pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
+        type: 'PERSON',
+      });
+    },
+    async getPersonMemberAttributes(_parent: any, args: any = []) {
+      const dn = `OU=Groups,${env.LDAP_BASE_DN}`;
+      return await searchGroupMemberAttributes({
+        baseDn: dn,
+        filter: `(&(member=${args.filter}))`,
+        sort: { direction: 'desc', field: 'cn' },
+        pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
+        type: 'GROUP',
+      });
     },
   },
 };

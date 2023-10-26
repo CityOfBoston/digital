@@ -118,14 +118,24 @@ export async function fetchGroup(
 export async function fetchGroupSearch(
   term: string,
   _selectedItem: any,
-  dns: String[] = []
+  dns: String[] = [],
+  autocomplete: boolean = false
 ): Promise<Group[]> {
   if (!dns) {
     dns = [];
   }
-  return await fetchGraphql(SEARCH_GROUPS, { term, dns }).then(response =>
-    response.groupSearch.map(group => toGroup(group))
-  );
+  return await fetchGraphql(SEARCH_GROUPS, { term, dns }).then(response => {
+    console.log(
+      'fetch-group-data > fetchGroupSearch > fetchGraphql > response: ',
+      response
+    );
+    if (autocomplete && autocomplete === true) {
+      console.log(
+        'fetch-group-data > fetchGroupSearch > fetchGraphql > from autocomplete ... fetch rest of data'
+      );
+    }
+    return response.groupSearch.map(group => toGroup(group));
+  });
 }
 
 /**
@@ -180,6 +190,12 @@ export async function fetchGroupSearchRemaining(
   person: Person,
   dns: String[]
 ): Promise<Group[]> {
-  const groups = await fetchGroupSearch(term, [], dns);
-  return groups.filter(group => !person.groups.includes(group.cn));
+  let groups = (await fetchGroupSearch(term, [], dns)).filter(
+    group => !person.groups.includes(group.cn)
+  );
+  console.log(
+    'fetch-group-data > fetchGroupSearchRemaining > fetchGroupSearch > groups: ',
+    groups
+  );
+  return groups;
 }
