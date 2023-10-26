@@ -55,7 +55,9 @@ export function toGroup(
   _ous: Array<string> = []
 ): Group {
   let isAvailable =
-    dataObject.canModify !== undefined ? dataObject.canModify : true;
+    dataObject.canModify && typeof dataObject.canModify === 'boolean'
+      ? dataObject.canModify
+      : true;
   let inDomain = true;
 
   if (_ous.length > 0) {
@@ -64,6 +66,28 @@ export function toGroup(
       isAvailable = false;
     }
   }
+
+  // let memberof = [];
+  // if (
+  //   dataObject.member &&
+  //   dataObject.member.length > 0 &&
+  //   typeof dataObject.member[0] === 'string'
+  // ) {
+  //   memberof = dataObject.member.map(member => {
+  //     return {
+  //       dn: member,
+  //       cn: member,
+  //       displayName: member.replace('_', ' '),
+  //       members: [],
+  //       status: 'current',
+  //       action: '',
+  //     };
+  //   });
+  //   console.log('dataObject.member: ', dataObject.member);
+  //   console.log('dataObject: ', dataObject);
+  //   console.log('memberof: ', memberof);
+  // }
+  console.log('toGroup>dataObject: ', dataObject);
 
   const chunkedResults =
     dataObject.member && dataObject.member.length > 0
@@ -106,7 +130,7 @@ export function toPerson(dataObject): Person {
     sn: dataObject.sn || '',
     mail: dataObject.mail || '',
     isAvailable: !dataObject.inactive,
-    cOBUserAgency: dataObject.cOBUserAgency,
+    cOBUserAgency: dataObject.cOBUserAgency ? dataObject.cOBUserAgency : '',
     dn: dataObject.dn,
     displayName,
   };

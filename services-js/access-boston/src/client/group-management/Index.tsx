@@ -20,7 +20,7 @@ import EditView from './list-components/edit';
 import {
   fetchGroupSearch,
   fetchGroupSearchRemaining,
-  fetchPersonsGroups,
+  // fetchPersonsGroups,
   fetchOurContainers,
   fetchDataURL,
   fetchMinimumUserGroups,
@@ -49,6 +49,7 @@ export default function Index(props: Props) {
   const [state, dispatchState] = useReducer(stateReducer, initialState);
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
+  // const [selected.chunked, setChunked] = useState<Array<string | object>>([{}]);
   const viewOnly =
     groups.includes('SG_AB_GRPMGMT_SERVICEDESKVIEWONLY') &&
     groups.filter((str: string | string[]) => str.includes('_GRPMGMT_'))
@@ -102,23 +103,73 @@ export default function Index(props: Props) {
 
   const handleFetchPersonsGroups = (
     selected: Person,
-    dns: string[] = [],
+    _dns: string[] = [],
     _currentPage: number = 0
   ): void => {
     const { groups } = selected;
+    setLoading(true);
+    // console.log(
+    //   'handleFetchPersonsGroups({selected: Person}, ... ) ',
+    //   selected
+    // );
+    // console.log('state: ', state);
+    // console.log('handleFetchPersonsGroups(groups, ... ) ', groups);
+    // console.log('handleFetchPersonsGroups(selected, ... ) ', selected);
+    let newChunk: Array<Group> = [];
 
-    if (groups && groups.length > 0) {
-      setLoading(true);
-      fetchPersonsGroups(selected, [], dns, state.ous, _currentPage).then(
-        result => {
-          dispatchList({
-            type: 'LIST/LOAD_LIST',
-            list: result,
-          });
-          setLoading(false);
-        }
-      );
+    if (groups.length > 0 && typeof groups[0] === 'string') {
+      newChunk = groups.map(entry => {
+        return {
+          cn: entry,
+          dn: entry,
+          displayName: entry,
+          member: [],
+          uniquemember: [],
+          groupmember: [],
+          members: [],
+          status: 'current',
+          action: '',
+        };
+      });
     }
+
+    if (newChunk.length > 0 && typeof newChunk[0] !== 'undefined') {
+      state.selected.groups = chunkArray(newChunk, pageSize);
+      // this.setState({
+      //   chunked: newChunk,
+      // });
+      // setChunked(newChunk);
+      // dispatchState()
+      // dispatchState({
+      //   type: 'APP/SET_SELECTED',
+      //   selected: { ...state.selected, chuncked: newChunk },
+      //   groupmembers: state.selected.groupmembers,
+      // });
+      console.log('newChunk state: ', state);
+      // setLoading(false);
+    }
+
+    // fetchPersonsGroups(selected).then(result => {
+    //   console.log('result: ', result);
+    //   dispatchList({
+    //     type: 'LIST/LOAD_LIST',
+    //     list: result,
+    //   });
+    //   setLoading(false);
+    // });
+
+    // if (groups && groups.length > 0) {
+    //   setLoading(true);
+    //   fetchPersonsGroups(selected, _dns, state.ous, _currentPage, []).then(
+    //     result => {
+    //       dispatchList({
+    //         type: 'LIST/LOAD_LIST',
+    //         list: result,
+    //       });
+    //       setLoading(false);
+    //     }
+    //   );
+    // }
   };
 
   const changeSelected = async (
@@ -291,6 +342,12 @@ export default function Index(props: Props) {
       ? state.selected.members
       : state.selected.groups;
   }
+  const items =
+    state.mode === 'person'
+      ? state.selected.groups
+      : state.selected.groupmember;
+  // const items = state.selected.groupmember;
+  // console.log('state: ', state);
 
   switch (state.view) {
     case 'management':
@@ -299,23 +356,38 @@ export default function Index(props: Props) {
       // console.log(`state.selected.chunked: `, state.selected.chunked);
       // console.log(`state.selected.groupmember: `, state.selected.groupmember);
       if (
-        list &&
-        typeof list.length === 'number' &&
-        list.length > 0 &&
+        // list &&
+        // typeof list.length === 'number' &&
+        // list.length > 0 &&
+        state.mode === 'person' &&
         loading === false
       ) {
-        console.log('list: ', list);
-        console.log('selected: ', state.selected);
+        // console.log('list: ', list);
+        // console.log('selected: ', state.selected);
+        console.log('!loading > state: ', state);
+        console.log(
+          'groupmember | groups: ',
+          state.selected.groupmember,
+          state.selected.groups,
+          '----\n'
+        );
       }
 
-      if (
-        state.selected.groupmember &&
-        typeof state.selected.groupmember.length === 'number' &&
-        state.selected.groupmember.length > 0 &&
-        loading === false
-      ) {
-        console.log('groupmember: ', state.selected.groupmember);
-      }
+      // if (
+      //   // state.selected.groupmember &&
+      //   // typeof state.selected.groupmember.length === 'number' &&
+      //   // state.selected.groupmember.length > 0 &&
+      //   loading === false
+      // ) {
+      //   // console.log('groupmember: ', state.selected.groupmember);
+      //   console.log('!loading > state: ', state);
+      // }
+      // const editViewItems =
+      //   state.mode === 'person' ? state.selected.groups : state.selected.groupmember;
+      // console.log('state.mode: ', state.mode);
+      // console.log('state.selected.groups: ', state.selected.groups);
+      // console.log('state.selected.groupmember: ', state.selected.groupmember);
+
       return (
         <div css={CONTAINER_STYLING}>
           <ManagementView
@@ -349,7 +421,7 @@ export default function Index(props: Props) {
                 pageCount={pageCount}
                 pageSize={state.pageSize}
                 currentPage={state.currentPage}
-                items={state.selected.groupmember}
+                items={items}
                 viewOnly={viewOnly && viewOnly === true ? true : false}
                 changePage={changePage}
                 handleChange={handleToggleItem}

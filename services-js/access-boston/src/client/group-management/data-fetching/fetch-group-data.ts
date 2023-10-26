@@ -136,17 +136,20 @@ export async function fetchGroupSearch(
  */
 export async function fetchPersonsGroups(
   person: Person,
-  _currentUserAllowedGroups: string[],
-  dns: string[],
-  ous: string[],
-  _currentPage: number = 0
+  _dns: string[],
+  _ous: string[],
+  _currentPage: number = 0,
+  _currentUserAllowedGroups: string[]
 ): Promise<Group[]> {
+  console.log('INSIDE fetchPersonsGroups: ', person);
   return await Promise.all(
     person.chunked[_currentPage].map(groupCn =>
-      fetchGroup(groupCn, dns).then(response => {
+      fetchGroup(groupCn, _dns).then(response => {
+        console.log('INSIDE fetchPersonsGroups response: ', response);
         try {
           if (response.group[0]) {
-            const retGroup = toGroup(response.group[0], dns, ous);
+            const retGroup = toGroup(response.group[0], _dns, _ous);
+            console.log('INSIDE fetchPersonsGroups retGroup: ', retGroup);
             return retGroup;
           }
         } catch (error) {
