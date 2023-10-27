@@ -3,6 +3,7 @@
 import { jsx } from '@emotion/core';
 
 import { useEffect, useReducer, useState } from 'react';
+// import { useEffect, useReducer } from 'react';
 import { Group, Mode, Person, View, pageCount } from './types';
 
 import { reducer as stateReducer, initialState } from './state/app';
@@ -26,7 +27,7 @@ import {
   fetchMinimumUserGroups,
 } from './data-fetching/fetch-group-data';
 import {
-  fetchGroupMembers,
+  // fetchGroupMembers,
   fetchPersonSearch,
   fetchPersonSearchRemaining,
 } from './data-fetching/fetch-person-data';
@@ -61,9 +62,9 @@ export default function Index(props: Props) {
   const changeMode = (newMode: Mode): void =>
     dispatchState({ type: 'APP/CHANGE_MODE', mode: newMode });
 
-  const changePageCount = (pageCount: number): void => {
-    dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
-  };
+  // const changePageCount = (pageCount: number): void => {
+  //   dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
+  // };
 
   const handleClickListItem = (item: Group | Person): void => {
     changeSelected(item);
@@ -101,109 +102,81 @@ export default function Index(props: Props) {
   //   }
   // };
 
-  const handleFetchPersonsGroups = (
-    selected: Person,
-    _dns: string[] = [],
-    _currentPage: number = 0
-  ): void => {
-    const { groups } = selected;
-    setLoading(true);
-    // console.log(
-    //   'handleFetchPersonsGroups({selected: Person}, ... ) ',
-    //   selected
-    // );
-    // console.log('state: ', state);
-    // console.log('handleFetchPersonsGroups(groups, ... ) ', groups);
-    // console.log('handleFetchPersonsGroups(selected, ... ) ', selected);
-    let newChunk: Array<Group> = [];
+  // const handleFetchPersonsGroups = (
+  //   selected: Person,
+  //   _dns: string[] = [],
+  //   _currentPage: number = 0
+  // ): void => {
+  //   const { groups } = selected;
+  //   setLoading(true);
+  //   // console.log(
+  //   //   'handleFetchPersonsGroups({selected: Person}, ... ) ',
+  //   //   selected
+  //   // );
+  //   // console.log('state: ', state);
+  //   // console.log('handleFetchPersonsGroups(groups, ... ) ', groups);
+  //   // console.log('handleFetchPersonsGroups(selected, ... ) ', selected);
+  //   let newChunk: Array<Group> = [];
 
-    if (groups.length > 0 && typeof groups[0] === 'string') {
-      newChunk = groups.map(entry => {
-        return {
-          cn: entry,
-          dn: entry,
-          displayName: entry,
-          member: [],
-          uniquemember: [],
-          groupmember: [],
-          members: [],
-          status: 'current',
-          action: '',
-        };
-      });
-    }
+  //   if (groups.length > 0 && typeof groups[0] === 'string') {
+  //     newChunk = groups.map(entry => {
+  //       return {
+  //         cn: entry,
+  //         dn: entry,
+  //         displayName: entry,
+  //         member: [],
+  //         uniquemember: [],
+  //         groupmember: [],
+  //         members: [],
+  //         status: 'current',
+  //         action: '',
+  //       };
+  //     });
+  //   }
 
-    if (newChunk.length > 0 && typeof newChunk[0] !== 'undefined') {
-      state.selected.groups = chunkArray(newChunk, pageSize);
-      // this.setState({
-      //   chunked: newChunk,
-      // });
-      // setChunked(newChunk);
-      // dispatchState()
-      // dispatchState({
-      //   type: 'APP/SET_SELECTED',
-      //   selected: { ...state.selected, chuncked: newChunk },
-      //   groupmembers: state.selected.groupmembers,
-      // });
-      console.log('newChunk state: ', state);
-      // setLoading(false);
-    }
+  //   if (newChunk.length > 0 && typeof newChunk[0] !== 'undefined') {
+  //     state.selected.groups = chunkArray(newChunk, pageSize);
+  //     // this.setState({
+  //     //   chunked: newChunk,
+  //     // });
+  //     // setChunked(newChunk);
+  //     // dispatchState()
+  //     // dispatchState({
+  //     //   type: 'APP/SET_SELECTED',
+  //     //   selected: { ...state.selected, chuncked: newChunk },
+  //     //   groupmembers: state.selected.groupmembers,
+  //     // });
+  //     console.log('newChunk state: ', state);
+  //     // setLoading(false);
+  //   }
 
-    // fetchPersonsGroups(selected).then(result => {
-    //   console.log('result: ', result);
-    //   dispatchList({
-    //     type: 'LIST/LOAD_LIST',
-    //     list: result,
-    //   });
-    //   setLoading(false);
-    // });
+  //   // fetchPersonsGroups(selected).then(result => {
+  //   //   console.log('result: ', result);
+  //   //   dispatchList({
+  //   //     type: 'LIST/LOAD_LIST',
+  //   //     list: result,
+  //   //   });
+  //   //   setLoading(false);
+  //   // });
 
-    // if (groups && groups.length > 0) {
-    //   setLoading(true);
-    //   fetchPersonsGroups(selected, _dns, state.ous, _currentPage, []).then(
-    //     result => {
-    //       dispatchList({
-    //         type: 'LIST/LOAD_LIST',
-    //         list: result,
-    //       });
-    //       setLoading(false);
-    //     }
-    //   );
-    // }
-  };
+  //   // if (groups && groups.length > 0) {
+  //   //   setLoading(true);
+  //   //   fetchPersonsGroups(selected, _dns, state.ous, _currentPage, []).then(
+  //   //     result => {
+  //   //       dispatchList({
+  //   //         type: 'LIST/LOAD_LIST',
+  //   //         list: result,
+  //   //       });
+  //   //       setLoading(false);
+  //   //     }
+  //   //   );
+  //   // }
+  // };
 
   const changeSelected = async (
     selectedItem: Group | Person
   ): Promise<void> => {
-    const { mode } = state;
-    let members: any = [];
-
-    if (mode === 'group') {
-      members = await fetchGroupMembers(selectedItem.dn, state.pageSize);
-      changePageCount(members.length);
-      // console.log(`pageCount: `, members.length);
-      // console.log('state: ', state);
-    } else {
-      // code
-      members = [
-        [
-          {
-            dn: '',
-            cn: '',
-            displayName: '',
-            members: [],
-            status: 'current',
-            action: '',
-          },
-        ],
-      ];
-    }
-
-    dispatchState({
-      type: 'APP/SET_SELECTED',
-      selected: selectedItem,
-      groupmembers: members,
-    });
+    dispatchState({ type: 'APP/SET_SELECTED', selected: selectedItem });
   };
 
   const resetAll = (): void => {
@@ -292,15 +265,15 @@ export default function Index(props: Props) {
   };
 
   useEffect(() => {
-    const { mode, selected } = state;
-    if (!viewOnly && mode === 'group') {
-      // if (selected.cn) handleFetchGroupMembers(selected, groups);
-      // NOTE: ^ Not needed anymore, handled by improved group-member's fetch
-      if (!loading) console.log('useEffect - GROUP', mode);
-    } else {
-      if (!loading) console.log('useEffect - PERSON', mode);
-      if (selected.cn) handleFetchPersonsGroups(selected, groups);
-    }
+    // const { mode, selected } = state;
+    // if (!viewOnly && mode === 'group') {
+    //   // if (selected.cn) handleFetchGroupMembers(selected, groups);
+    //   // NOTE: ^ Not needed anymore, handled by improved group-member's fetch
+    //   if (!loading) console.log('useEffect - GROUP', mode);
+    // } else {
+    //   if (!loading) console.log('useEffect - PERSON', mode);
+    //   if (selected.cn) handleFetchPersonsGroups(selected, groups);
+    // }
 
     // Update the document title using the browser API
     if (
@@ -342,10 +315,7 @@ export default function Index(props: Props) {
       ? state.selected.members
       : state.selected.groups;
   }
-  const items =
-    state.mode === 'person'
-      ? state.selected.groups
-      : state.selected.groupmember;
+  const items = state.selected.groupmember;
   // const items = state.selected.groupmember;
   // console.log('state: ', state);
 
@@ -355,23 +325,23 @@ export default function Index(props: Props) {
       // console.log(`state.selected: `, state.selected);
       // console.log(`state.selected.chunked: `, state.selected.chunked);
       // console.log(`state.selected.groupmember: `, state.selected.groupmember);
-      if (
-        // list &&
-        // typeof list.length === 'number' &&
-        // list.length > 0 &&
-        state.mode === 'person' &&
-        loading === false
-      ) {
-        // console.log('list: ', list);
-        // console.log('selected: ', state.selected);
-        console.log('!loading > state: ', state);
-        console.log(
-          'groupmember | groups: ',
-          state.selected.groupmember,
-          state.selected.groups,
-          '----\n'
-        );
-      }
+      // if (
+      //   // list &&
+      //   // typeof list.length === 'number' &&
+      //   // list.length > 0 &&
+      //   state.mode === 'person' &&
+      //   loading === false
+      // ) {
+      //   // console.log('list: ', list);
+      //   // console.log('selected: ', state.selected);
+      //   console.log('!loading > state: ', state);
+      //   console.log(
+      //     'groupmember | groups: ',
+      //     state.selected.groupmember,
+      //     state.selected.groups,
+      //     '----\n'
+      //   );
+      // }
 
       // if (
       //   // state.selected.groupmember &&
@@ -412,6 +382,9 @@ export default function Index(props: Props) {
                 dns={groups}
                 cnArray={cnEntries}
                 currentlist={list}
+                pageSize={state.pageSize}
+                dispatchState={dispatchState}
+                setLoading={setLoading}
               />
             }
             editView={
@@ -499,6 +472,10 @@ export default function Index(props: Props) {
                 }
                 handleSelectClick={handleInitialSelection}
                 dns={groups}
+                pageSize={state.pageSize}
+                dispatchState={dispatchState}
+                setLoading={setLoading}
+                // appState={state}
               />
             }
           />

@@ -118,22 +118,22 @@ export async function fetchGroup(
 export async function fetchGroupSearch(
   term: string,
   _selectedItem: any,
-  dns: String[] = [],
-  autocomplete: boolean = false
+  dns: String[] = []
+  // autocomplete: boolean = false
 ): Promise<Group[]> {
   if (!dns) {
     dns = [];
   }
   return await fetchGraphql(SEARCH_GROUPS, { term, dns }).then(response => {
-    console.log(
-      'fetch-group-data > fetchGroupSearch > fetchGraphql > response: ',
-      response
-    );
-    if (autocomplete && autocomplete === true) {
-      console.log(
-        'fetch-group-data > fetchGroupSearch > fetchGraphql > from autocomplete ... fetch rest of data'
-      );
-    }
+    // console.log(
+    //   'fetch-group-data > fetchGroupSearch > fetchGraphql > response: ',
+    //   response
+    // );
+    // if (autocomplete && autocomplete === true) {
+    //   console.log(
+    //     'fetch-group-data > fetchGroupSearch > fetchGraphql > from autocomplete ... fetch rest of data'
+    //   );
+    // }
     return response.groupSearch.map(group => toGroup(group));
   });
 }

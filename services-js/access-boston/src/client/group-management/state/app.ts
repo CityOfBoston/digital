@@ -38,7 +38,7 @@ interface Action {
   currentPage?: CurrentPage;
   pageCount?: PageCount;
   dns?: [];
-  groupmembers?: Array<Person>;
+  groupmembers?: Array<Person | Group>;
 }
 
 export const initialState = {

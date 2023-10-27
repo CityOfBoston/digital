@@ -87,7 +87,7 @@ export function toGroup(
   //   console.log('dataObject: ', dataObject);
   //   console.log('memberof: ', memberof);
   // }
-  console.log('toGroup>dataObject: ', dataObject);
+  // console.log('toGroup>dataObject: ', dataObject);
 
   const chunkedResults =
     dataObject.member && dataObject.member.length > 0

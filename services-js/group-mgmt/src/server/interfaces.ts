@@ -359,14 +359,6 @@ export class PersonClass implements Person {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     let ismemberof: any = [];
     let memberof: any = [];
-    // console.log(
-    //   `opts (nsaccountlock | cOBUserAgency): ${opts.nsaccountlock}, ${
-    //     opts.cOBUserAgency
-    //   }`
-    // );
-    // const ismemberof = convertOptionalArray(
-    //   opts.ismemberof ? opts.ismemberof : []
-    // );
 
     // Check if either of these (ismemberof || memberof) is present and set their values
     if (
