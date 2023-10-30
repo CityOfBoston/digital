@@ -53,7 +53,7 @@ const FETCH_GROUPMEMBERS = `
 `;
 
 const FETCH_PERSONMEMBERS = `
-  query getGroupMembers($filter: String) {
+  query getPersonMembers($filter: String) {
     getPersonMemberAttributes(filter: $filter) {
       ${PERSON_MEMBER_ATTR}
     }
@@ -131,6 +131,7 @@ export async function fetchPersonGroups(
 ): Promise<Person[]> {
   let persons = await fetchGraphql(FETCH_PERSONMEMBERS, { filter });
   persons = persons[Object.keys(persons)[0]];
+  // console.log('FETCH_PERSONMEMBERS: ', FETCH_PERSONMEMBERS);
 
   let retObj = persons.map((item: any) => toGroup(item));
   retObj = retObj.sort(

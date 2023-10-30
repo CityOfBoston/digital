@@ -141,9 +141,12 @@ export function toPerson(dataObject): Person {
 
 function commonAttributes(dataObject): CommonAttributes {
   const displayName = dataObject.displayname || dataObject.cn;
+  const dn: string = dataObject.distinguishedName
+    ? dataObject.distinguishedName
+    : dataObject.dn || '';
   const retObj = {
     cn: dataObject.cn,
-    dn: dataObject.dn || '',
+    dn,
     displayName,
     status: 'current' as ItemStatus,
     action: '' as Action,

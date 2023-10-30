@@ -16,6 +16,7 @@ import {
   fetchGroupMembers,
   fetchPersonGroups,
 } from '../data-fetching/fetch-person-data';
+// import { reducer as listReducer } from '../state/list';
 
 interface Props {
   mode: Mode;
@@ -32,9 +33,11 @@ interface Props {
   dns: String[];
   cnArray?: Array<string>;
   currentlist?: Array<any>;
+  currentPage: number;
   pageSize: number;
-  dispatchState?: any;
   setLoading?: any;
+  dispatchState?: any;
+  dispatchList?: any;
 }
 
 /**
@@ -57,24 +60,21 @@ export default function SearchComponent(props: Props) {
   );
 
   const {
-    currentStatus,
     mode,
     view,
     dns,
     cnArray,
-    currentlist,
     pageSize,
-    setLoading,
-    // dispatchState,
-    // appState,
+    // setLoading,
+    currentPage,
+    currentlist,
+    currentStatus,
   } = props;
   const { searchStatus, searchText, searchResults, selection } = searchState;
 
   // Associate label with search field.
   const inputId = `search-${view}-${mode}`;
-
   const debouncedValue = useDebounce(searchText, fetchDelay);
-
   const updateSuggestions = (result: Array<Group | Person>): void => {
     let res = result;
     dispatchSearchState({
@@ -105,15 +105,20 @@ export default function SearchComponent(props: Props) {
 
       if (!isDup.duplication) {
         selection.action = 'new';
-        setLoading(true);
 
         let members: any = [];
         const dataFetched = () => {
           selection.groupmember = members;
-          console.log('selection (updated): ', selection);
-          setLoading(false);
-          props.handleSelectClick(selection);
-          // dispatchSearchState({ type: 'SEARCH/SUBMIT_SELECTION' });
+          if (view !== 'management') {
+            props.handleSelectClick(selection);
+            props.dispatchList({
+              type: 'LIST/LOAD_LIST',
+              list: selection.groupmember[currentPage],
+            });
+          } else {
+            props.handleSelectClick(selection);
+            props.dispatchState({ type: 'SEARCH/SUBMIT_SELECTION' });
+          }
         };
 
         if (mode === 'group') {
@@ -162,10 +167,6 @@ export default function SearchComponent(props: Props) {
       props
         .handleFetch(searchText, null, dns)
         .then(result => {
-          // console.log(
-          //   'SearchComponent > handleFetch ... fetch>success: ',
-          //   result
-          // );
           return updateSuggestions(result);
         })
         .catch(() =>

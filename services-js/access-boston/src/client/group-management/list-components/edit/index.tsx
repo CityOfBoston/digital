@@ -12,17 +12,14 @@ import Pagination from '../../pagination-components/Pagination';
 interface Props {
   mode: Mode;
   loading: Loading;
-  items: Array<Array<Person | Group>>;
+  list: Array<Person | Group>;
   currentPage: number;
   pageCount: number;
   pageSize: number;
   viewOnly: boolean;
-  handleChange: (item: Group | Person) => void;
   changePage: (currentPage: number) => any;
+  handleChange: (item: Group | Person) => void;
   handleClick: (item: Group | Person) => void;
-  // handleChange: () => void;
-  // items: Array<Group | Person>;
-  // dns?: [String];
 }
 
 /**
@@ -40,13 +37,13 @@ interface Props {
 export default function EditView(props: Props) {
   const {
     mode,
-    items,
     loading,
     viewOnly,
     pageCount,
     pageSize,
     currentPage,
     changePage,
+    list,
   } = props;
 
   const handleClick = (item: Group | Person): void => {
@@ -81,31 +78,29 @@ export default function EditView(props: Props) {
       </div>
     );
   } else {
-    if (items) console.log('list-components/edit > items: ', items);
-
-    if (items && typeof items === 'object' && items.length > 0) {
-      console.log('items[props.currentPage]: ', items[props.currentPage]);
-    }
+    console.log('list: ', list, '\n');
 
     return (
       <>
         <ul css={LIST_STYLING} key={`${props.mode}_list`}>
-          {items && typeof items === 'object' && items.length > 0 ? (
-            items[props.currentPage].map((item, index) => (
-              <ListItemComponent
-                mode={mode}
-                item={item}
-                key={`${item.displayName}__${index}`}
-                keyIndex={`${item.displayName}__${index}`}
-                view="management"
-                viewOnly={
-                  viewOnly && typeof viewOnly === 'boolean' ? viewOnly : false
-                }
-                isChecked={item.status !== 'remove'}
-                handleChange={() => props.handleChange(item)}
-                handleClick={handleClick}
-              />
-            ))
+          {list && typeof list === 'object' && list.length > 0 ? (
+            list.map((item: Group | Person, index: number) => {
+              return (
+                <ListItemComponent
+                  mode={mode}
+                  item={item}
+                  key={`${item.displayName}__${index}`}
+                  keyIndex={`${item.displayName}__${index}`}
+                  view="management"
+                  viewOnly={
+                    viewOnly && typeof viewOnly === 'boolean' ? viewOnly : false
+                  }
+                  isChecked={item.status !== 'remove'}
+                  handleChange={() => props.handleChange(item)}
+                  handleClick={handleClick}
+                />
+              );
+            })
           ) : (
             <li key={`${props.mode}_zero`} css={NO_RESULTS_STYLING}>
               {noResultsText}

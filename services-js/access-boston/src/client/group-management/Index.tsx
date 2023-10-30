@@ -72,10 +72,18 @@ export default function Index(props: Props) {
   };
 
   const handleToggleItem = (item: Group | Person) => {
-    console.log('handleToggleItem: ', item);
+    // console.log('handleToggleItem > list: ', list);
     if (item.action && item.action === 'new') {
+      console.log(
+        `handleToggleItem > LIST/DELETE_ITEM > type: ${typeof item}`,
+        item
+      );
       dispatchList({ type: 'LIST/DELETE_ITEM', item });
     } else {
+      // console.log(
+      //   `handleToggleItem > LIST/TOGGLE_ITEM_STATUS > type: ${typeof item}`,
+      //   item
+      // );
       dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
     }
   };
@@ -315,7 +323,7 @@ export default function Index(props: Props) {
       ? state.selected.members
       : state.selected.groups;
   }
-  const items = state.selected.groupmember;
+  // const items = state.selected.groupmember;
   // const items = state.selected.groupmember;
   // console.log('state: ', state);
 
@@ -383,8 +391,10 @@ export default function Index(props: Props) {
                 cnArray={cnEntries}
                 currentlist={list}
                 pageSize={state.pageSize}
-                dispatchState={dispatchState}
                 setLoading={setLoading}
+                dispatchState={dispatchState}
+                dispatchList={dispatchList}
+                currentPage={state.currentPage}
               />
             }
             editView={
@@ -394,11 +404,11 @@ export default function Index(props: Props) {
                 pageCount={pageCount}
                 pageSize={state.pageSize}
                 currentPage={state.currentPage}
-                items={items}
                 viewOnly={viewOnly && viewOnly === true ? true : false}
                 changePage={changePage}
                 handleChange={handleToggleItem}
                 handleClick={handleClickListItem}
+                list={list}
                 // handlePrevPage={() => console.log(`handlePrevPage`)}
                 // handlePageNumClick={() => console.log(`handlePageNumClick`)}
               />
@@ -450,7 +460,6 @@ export default function Index(props: Props) {
       );
 
     default:
-      // console.log('View: DEFAULT');
       return (
         <div css={CONTAINER_STYLING}>
           <InitialView
@@ -473,9 +482,10 @@ export default function Index(props: Props) {
                 handleSelectClick={handleInitialSelection}
                 dns={groups}
                 pageSize={state.pageSize}
-                dispatchState={dispatchState}
                 setLoading={setLoading}
-                // appState={state}
+                dispatchState={dispatchState}
+                dispatchList={dispatchList}
+                currentPage={state.currentPage}
               />
             }
           />
