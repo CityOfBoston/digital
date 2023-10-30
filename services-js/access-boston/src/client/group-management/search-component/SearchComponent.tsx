@@ -38,6 +38,7 @@ interface Props {
   setLoading?: any;
   dispatchState?: any;
   dispatchList?: any;
+  changePageCount: (pageCount: number) => void;
 }
 
 /**
@@ -69,6 +70,7 @@ export default function SearchComponent(props: Props) {
     currentPage,
     currentlist,
     currentStatus,
+    changePageCount,
   } = props;
   const { searchStatus, searchText, searchResults, selection } = searchState;
 
@@ -109,6 +111,8 @@ export default function SearchComponent(props: Props) {
         let members: any = [];
         const dataFetched = () => {
           selection.groupmember = members;
+          // console.log(`members: ${members.length}`);
+          changePageCount(members.length);
           if (view !== 'management') {
             props.handleSelectClick(selection);
             props.dispatchList({

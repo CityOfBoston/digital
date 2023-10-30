@@ -4,7 +4,7 @@ import { jsx } from '@emotion/core';
 
 import { useEffect, useReducer, useState } from 'react';
 // import { useEffect, useReducer } from 'react';
-import { Group, Mode, Person, View, pageCount } from './types';
+import { Group, Mode, Person, View } from './types';
 
 import { reducer as stateReducer, initialState } from './state/app';
 import { reducer as listReducer } from './state/list';
@@ -62,9 +62,10 @@ export default function Index(props: Props) {
   const changeMode = (newMode: Mode): void =>
     dispatchState({ type: 'APP/CHANGE_MODE', mode: newMode });
 
-  // const changePageCount = (pageCount: number): void => {
-  //   dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
-  // };
+  const changePageCount = (pageCount: number): void => {
+    console.log(`changePageCount > pageCount: ${pageCount}`);
+    dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
+  };
 
   const handleClickListItem = (item: Group | Person): void => {
     changeSelected(item);
@@ -395,13 +396,14 @@ export default function Index(props: Props) {
                 dispatchState={dispatchState}
                 dispatchList={dispatchList}
                 currentPage={state.currentPage}
+                changePageCount={changePageCount}
               />
             }
             editView={
               <EditView
                 mode={viewOnly ? 'person' : state.mode}
                 loading={loading}
-                pageCount={pageCount}
+                pageCount={state.pageCount}
                 pageSize={state.pageSize}
                 currentPage={state.currentPage}
                 viewOnly={viewOnly && viewOnly === true ? true : false}
@@ -486,6 +488,7 @@ export default function Index(props: Props) {
                 dispatchState={dispatchState}
                 dispatchList={dispatchList}
                 currentPage={state.currentPage}
+                changePageCount={changePageCount}
               />
             }
           />

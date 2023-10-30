@@ -78,8 +78,7 @@ export default function EditView(props: Props) {
       </div>
     );
   } else {
-    console.log('list: ', list, '\n');
-
+    console.log(`props.pageCount: ${props.pageCount}`);
     return (
       <>
         <ul css={LIST_STYLING} key={`${props.mode}_list`}>

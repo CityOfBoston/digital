@@ -8,7 +8,7 @@ export type PageCount = number;
 export type PagedResults = Array<Array<{}>>;
 export type Loading = true | false | undefined;
 
-export const pageSize = 5;
+export const pageSize = 3;
 export const startPage = 0;
 export const currentPage = startPage;
 export const pageCount = 1;
