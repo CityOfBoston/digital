@@ -66,6 +66,11 @@ export const reducer = (state, action: Partial<Action>) => {
     ous: currUserOUs,
   };
 
+  const pageVal =
+    state.currentPage !== action.currentPage
+      ? action.currentPage
+      : state.currentPage;
+
   switch (action.type) {
     case 'APP/CHANGE_VIEW':
       return { ...state, view: action.view };
@@ -106,13 +111,13 @@ export const reducer = (state, action: Partial<Action>) => {
 
     case 'APP/CHANGE_PAGE':
       // let newCurrPage = state.currentPage;
-      return {
-        ...state,
-        currentPage:
-          state.currentPage !== action.currentPage
-            ? action.currentPage
-            : state.currentPage,
-      };
+      // console.log(
+      //   `APP/CHANGE_PAGE > ${state.currentPage} | ${action.currentPage}`
+      // );
+      // console.log(`bool: ${state.currentPage === action.currentPage}`);
+      // console.log('state|action: ', state, '\n', action, '\n');
+      // console.log(`pageVal: ${pageVal}`);
+      return { ...state, currentPage: pageVal };
 
     case 'APP/CHANGE_PAGECOUNT':
       return { ...state, pageCount: action.pageCount };

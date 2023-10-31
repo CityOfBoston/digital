@@ -131,14 +131,12 @@ export async function fetchPersonGroups(
 ): Promise<Person[]> {
   let persons = await fetchGraphql(FETCH_PERSONMEMBERS, { filter });
   persons = persons[Object.keys(persons)[0]];
-  // console.log('FETCH_PERSONMEMBERS: ', FETCH_PERSONMEMBERS);
 
   let retObj = persons.map((item: any) => toGroup(item));
   retObj = retObj.sort(
     (a: any, b: any) =>
       a['displayName'].localeCompare(b['displayName']) || a.cn - b.cn
   );
-  console.log('fetchPersonGroupMembers > toGroup > retObj : ', retObj);
 
   return chunkArray(retObj, pageSize);
 }
@@ -155,11 +153,6 @@ export async function fetchPersonSearchRemaining(
 ): Promise<Person[]> {
   const people = await (await fetchPersonSearch(term, dns)).filter(
     person => !group.members.includes(person.cn)
-  );
-
-  console.log(
-    'fetch-person-data > fetchPersonSearchRemaining > fetchPersonSearch > people: ',
-    people
   );
 
   return people;

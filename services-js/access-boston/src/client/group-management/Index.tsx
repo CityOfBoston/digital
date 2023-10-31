@@ -3,7 +3,6 @@
 import { jsx } from '@emotion/core';
 
 import { useEffect, useReducer, useState } from 'react';
-// import { useEffect, useReducer } from 'react';
 import { Group, Mode, Person, View } from './types';
 
 import { reducer as stateReducer, initialState } from './state/app';
@@ -13,27 +12,22 @@ import InitialView from './InitialView';
 import ManagementView from './ManagementView';
 import ReviewChangesView from './ReviewChangesView';
 import ReviewConfirmationView from './ReviewConfirmationView';
-
-// import EditableList from './list-components/EditableList';
 import SearchComponent from './search-component/SearchComponent';
 import EditView from './list-components/edit';
 
 import {
   fetchGroupSearch,
   fetchGroupSearchRemaining,
-  // fetchPersonsGroups,
   fetchOurContainers,
   fetchDataURL,
   fetchMinimumUserGroups,
 } from './data-fetching/fetch-group-data';
 import {
-  // fetchGroupMembers,
   fetchPersonSearch,
   fetchPersonSearchRemaining,
 } from './data-fetching/fetch-person-data';
 import { renameObjectKeys, chunkArray } from './fixtures/helpers';
 import { pageSize } from './types';
-// import { toPerson } from './state/data-helpers';
 
 interface Props {
   groups: any;
@@ -50,7 +44,6 @@ export default function Index(props: Props) {
   const [state, dispatchState] = useReducer(stateReducer, initialState);
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
-  // const [selected.chunked, setChunked] = useState<Array<string | object>>([{}]);
   const viewOnly =
     groups.includes('SG_AB_GRPMGMT_SERVICEDESKVIEWONLY') &&
     groups.filter((str: string | string[]) => str.includes('_GRPMGMT_'))
@@ -63,7 +56,6 @@ export default function Index(props: Props) {
     dispatchState({ type: 'APP/CHANGE_MODE', mode: newMode });
 
   const changePageCount = (pageCount: number): void => {
-    console.log(`changePageCount > pageCount: ${pageCount}`);
     dispatchState({ type: 'APP/CHANGE_PAGECOUNT', pageCount });
   };
 
@@ -73,114 +65,12 @@ export default function Index(props: Props) {
   };
 
   const handleToggleItem = (item: Group | Person) => {
-    // console.log('handleToggleItem > list: ', list);
     if (item.action && item.action === 'new') {
-      console.log(
-        `handleToggleItem > LIST/DELETE_ITEM > type: ${typeof item}`,
-        item
-      );
       dispatchList({ type: 'LIST/DELETE_ITEM', item });
     } else {
-      // console.log(
-      //   `handleToggleItem > LIST/TOGGLE_ITEM_STATUS > type: ${typeof item}`,
-      //   item
-      // );
       dispatchList({ type: 'LIST/TOGGLE_ITEM_STATUS', item });
     }
   };
-
-  // const handleFetchGroupMembers = (
-  //   selected: Group,
-  //   dns: String[] = [],
-  //   _currentPage: number = 0
-  // ): void => {
-  //   const { members, chunked } = selected;
-  //   const mask_chunked = chunked ? chunked : [];
-  //   changePageCount(mask_chunked.length);
-
-  //   if (members && members.length > 0) {
-  //     setLoading(true);
-  //     fetchGroupMembers(selected, dns, _currentPage).then(result => {
-  //       dispatchList({
-  //         type: 'LIST/LOAD_LIST',
-  //         list: result,
-  //       });
-
-  //       setLoading(false);
-  //     });
-  //   }
-  // };
-
-  // const handleFetchPersonsGroups = (
-  //   selected: Person,
-  //   _dns: string[] = [],
-  //   _currentPage: number = 0
-  // ): void => {
-  //   const { groups } = selected;
-  //   setLoading(true);
-  //   // console.log(
-  //   //   'handleFetchPersonsGroups({selected: Person}, ... ) ',
-  //   //   selected
-  //   // );
-  //   // console.log('state: ', state);
-  //   // console.log('handleFetchPersonsGroups(groups, ... ) ', groups);
-  //   // console.log('handleFetchPersonsGroups(selected, ... ) ', selected);
-  //   let newChunk: Array<Group> = [];
-
-  //   if (groups.length > 0 && typeof groups[0] === 'string') {
-  //     newChunk = groups.map(entry => {
-  //       return {
-  //         cn: entry,
-  //         dn: entry,
-  //         displayName: entry,
-  //         member: [],
-  //         uniquemember: [],
-  //         groupmember: [],
-  //         members: [],
-  //         status: 'current',
-  //         action: '',
-  //       };
-  //     });
-  //   }
-
-  //   if (newChunk.length > 0 && typeof newChunk[0] !== 'undefined') {
-  //     state.selected.groups = chunkArray(newChunk, pageSize);
-  //     // this.setState({
-  //     //   chunked: newChunk,
-  //     // });
-  //     // setChunked(newChunk);
-  //     // dispatchState()
-  //     // dispatchState({
-  //     //   type: 'APP/SET_SELECTED',
-  //     //   selected: { ...state.selected, chuncked: newChunk },
-  //     //   groupmembers: state.selected.groupmembers,
-  //     // });
-  //     console.log('newChunk state: ', state);
-  //     // setLoading(false);
-  //   }
-
-  //   // fetchPersonsGroups(selected).then(result => {
-  //   //   console.log('result: ', result);
-  //   //   dispatchList({
-  //   //     type: 'LIST/LOAD_LIST',
-  //   //     list: result,
-  //   //   });
-  //   //   setLoading(false);
-  //   // });
-
-  //   // if (groups && groups.length > 0) {
-  //   //   setLoading(true);
-  //   //   fetchPersonsGroups(selected, _dns, state.ous, _currentPage, []).then(
-  //   //     result => {
-  //   //       dispatchList({
-  //   //         type: 'LIST/LOAD_LIST',
-  //   //         list: result,
-  //   //       });
-  //   //       setLoading(false);
-  //   //     }
-  //   //   );
-  //   // }
-  // };
 
   const changeSelected = async (
     selectedItem: Group | Person
@@ -195,24 +85,10 @@ export default function Index(props: Props) {
 
   const changePage = (currentPage: number): void => {
     dispatchState({ type: 'APP/CHANGE_PAGE', currentPage });
-    // const { mode, selected } = state;
-    // if (mode === 'group') {
-    //   if (
-    //     selected.cn &&
-    //     selected.chunked[currentPage] &&
-    //     selected.chunked[currentPage].length > 0
-    //   ) {
-    //     // handleFetchGroupMembers(selected, groups, currentPage);
-    //     handleFetch_GroupMembers(selected);
-    //   }
-    // } else {
-    //   if (
-    //     selected.cn &&
-    //     selected.chunked[currentPage] &&
-    //     selected.chunked[currentPage].length > 0
-    //   )
-    //     handleFetchPersonsGroups(selected, groups, currentPage);
-    // }
+    dispatchList({
+      type: 'LIST/LOAD_LIST',
+      list: state.selected.groupmember[currentPage],
+    });
   };
 
   const handleInitialSelection = (selectedItem: any): void => {
@@ -238,7 +114,6 @@ export default function Index(props: Props) {
 
   const setOus = async () => {
     fetchOurContainers(groups).then(result => {
-      // console.log('convertOUsToContainers result: ', result);
       if (result !== null) {
         dispatchState({
           type: 'APP/SET_OUS',
@@ -274,16 +149,6 @@ export default function Index(props: Props) {
   };
 
   useEffect(() => {
-    // const { mode, selected } = state;
-    // if (!viewOnly && mode === 'group') {
-    //   // if (selected.cn) handleFetchGroupMembers(selected, groups);
-    //   // NOTE: ^ Not needed anymore, handled by improved group-member's fetch
-    //   if (!loading) console.log('useEffect - GROUP', mode);
-    // } else {
-    //   if (!loading) console.log('useEffect - PERSON', mode);
-    //   if (selected.cn) handleFetchPersonsGroups(selected, groups);
-    // }
-
     // Update the document title using the browser API
     if (
       !groups ||
@@ -324,49 +189,9 @@ export default function Index(props: Props) {
       ? state.selected.members
       : state.selected.groups;
   }
-  // const items = state.selected.groupmember;
-  // const items = state.selected.groupmember;
-  // console.log('state: ', state);
 
   switch (state.view) {
     case 'management':
-      // console.log(`state.view (inside swith): ${state.view}`);
-      // console.log(`state.selected: `, state.selected);
-      // console.log(`state.selected.chunked: `, state.selected.chunked);
-      // console.log(`state.selected.groupmember: `, state.selected.groupmember);
-      // if (
-      //   // list &&
-      //   // typeof list.length === 'number' &&
-      //   // list.length > 0 &&
-      //   state.mode === 'person' &&
-      //   loading === false
-      // ) {
-      //   // console.log('list: ', list);
-      //   // console.log('selected: ', state.selected);
-      //   console.log('!loading > state: ', state);
-      //   console.log(
-      //     'groupmember | groups: ',
-      //     state.selected.groupmember,
-      //     state.selected.groups,
-      //     '----\n'
-      //   );
-      // }
-
-      // if (
-      //   // state.selected.groupmember &&
-      //   // typeof state.selected.groupmember.length === 'number' &&
-      //   // state.selected.groupmember.length > 0 &&
-      //   loading === false
-      // ) {
-      //   // console.log('groupmember: ', state.selected.groupmember);
-      //   console.log('!loading > state: ', state);
-      // }
-      // const editViewItems =
-      //   state.mode === 'person' ? state.selected.groups : state.selected.groupmember;
-      // console.log('state.mode: ', state.mode);
-      // console.log('state.selected.groups: ', state.selected.groups);
-      // console.log('state.selected.groupmember: ', state.selected.groupmember);
-
       return (
         <div css={CONTAINER_STYLING}>
           <ManagementView
@@ -411,22 +236,7 @@ export default function Index(props: Props) {
                 handleChange={handleToggleItem}
                 handleClick={handleClickListItem}
                 list={list}
-                // handlePrevPage={() => console.log(`handlePrevPage`)}
-                // handlePageNumClick={() => console.log(`handlePageNumClick`)}
               />
-              // <EditableList
-              //   mode={viewOnly ? 'person' : state.mode}
-              //   items={list}
-              //   loading={loading}
-              //   dns={groups}
-              //   currentPage={state.currentPage}
-              //   pageCount={state.pageCount}
-              //   pageSize={state.pageSize}
-              //   changePage={changePage}
-              //   handleChange={handleToggleItem}
-              //   handleClick={handleClickListItem}
-              //   viewOnly={viewOnly && viewOnly === true ? true : false}
-              // />
             }
             resetAll={resetAll}
           />

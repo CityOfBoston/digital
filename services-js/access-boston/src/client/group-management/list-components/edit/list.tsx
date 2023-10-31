@@ -39,11 +39,11 @@ export default function ListItemComponent(props: Props) {
     isChecked,
     handleChange,
   } = props;
-  // console.log(`ListItemComponent_${keyIndex}`);
 
   let displayText = displayName || cn;
   if (mode && mode === 'group' && item['givenName'] && item['sn']) {
-    displayText = `${item['givenName']} ${item['sn']}`;
+    const cobAgency = ` | ${item['cOBUserAgency']}`;
+    displayText = `${item['givenName']} ${item['sn']}${cobAgency}`;
   }
   const displayElement = () => {
     if (isAvailable && view === 'management' && viewOnly === false) {
@@ -85,7 +85,6 @@ export default function ListItemComponent(props: Props) {
         <label htmlFor={`item-${displayText}`}>{displayElement()}</label>
       </li>
     );
-    // return <li key={`checkboxed`}>{displayText}</li>;
   } else {
     return (
       <li

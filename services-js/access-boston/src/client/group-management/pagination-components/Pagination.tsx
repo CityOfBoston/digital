@@ -11,14 +11,9 @@ interface Props {
   currentPage: number;
   pageCount: number;
   pageSize: number;
-  changePage: (currentPage: number) => any;
-  handleNextPage: (
-    currentPage: number,
-    pageCount: number,
-    changePage: any
-  ) => any;
-  handlePrevPage: (currentPage: number, changePage: any) => any;
-  handlePageNumClick: (pageNum: number, changePage: any) => any;
+  changePage: (currentPage: number) => void;
+  handleNextPage: (currentPage: number, pageCount: number) => void;
+  handlePrevPage: (currentPage: number) => void;
 }
 
 export default function Pagination(props: Props) {
@@ -35,11 +30,11 @@ export default function Pagination(props: Props) {
   };
 
   const next = () => {
-    handleNextPage(currentPage, pageCount, changePage);
+    handleNextPage(currentPage, pageCount);
   };
 
   const prev = () => {
-    handlePrevPage(currentPage, changePage);
+    handlePrevPage(currentPage);
   };
 
   const lastPage = pageCount - 1;
@@ -120,9 +115,7 @@ export default function Pagination(props: Props) {
             css={HOVER_STYLES}
             onClick={prev}
           >
-            <span className="pg-li-i-h" onClick={prev}>
-              previous
-            </span>
+            <span className="pg-li-i-h">previous</span>
           </a>
         )}
       </li>

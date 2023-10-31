@@ -25,7 +25,6 @@ export const reducer = (list, action: Partial<Action>) => {
 
   switch (action.type) {
     case 'LIST/LOAD_LIST':
-      // console.log('list > action: ', action);
       if (action.list) {
         return action.list.map(item => ({
           ...item,
@@ -34,7 +33,6 @@ export const reducer = (list, action: Partial<Action>) => {
       } else {
         return list;
       }
-    // return action.list;
 
     case 'LIST/CLEAR_LIST':
       return [];
@@ -66,36 +64,12 @@ export const reducer = (list, action: Partial<Action>) => {
       });
 
     case 'LIST/TOGGLE_ITEM_STATUS':
-      // console.log('TOGGLE_ITEM_STATUS > list: ', list);
-      // console.log('TOGGLE_ITEM_STATUS > action: ', action);
-      // if (
-      //   typeof action.item !== 'undefined' &&
-      //   typeof action.item.cn !== 'undefined'
-      // ) {
-      //   const ret = list.filter(item => {
-      //     const thisState = {
-      //       type: action.type,
-      //       item: {
-      //         item: {
-      //           cn: '',
-      //         },
-      //       },
-      //     };
-      //     console.log('thisState: ', thisState);
-      //     // return item.cn === thisState.item.cn;
-      //     return {};
-      //   });
-      //   console.log(ret);
-      // }
-
       return list.map(item => {
         if (action.item && item.cn === action.item.cn) {
-          // console.log('item pre-mod: ', item.status);
           item = {
             ...item,
             status: item.status === 'remove' ? 'current' : 'remove',
           };
-          console.log('item post-mod: ', item.status, item);
           return item;
         } else {
           return item;

@@ -111,7 +111,6 @@ export default function SearchComponent(props: Props) {
         let members: any = [];
         const dataFetched = () => {
           selection.groupmember = members;
-          // console.log(`members: ${members.length}`);
           changePageCount(members.length);
           if (view !== 'management') {
             props.handleSelectClick(selection);
@@ -153,7 +152,6 @@ export default function SearchComponent(props: Props) {
     selection: Group | Person,
     selectionValue: string
   ): void => {
-    // console.log('SearchComponent > handleSelection > handleSelection > selection: ', selectionValue, selection);
     dispatchSearchState({
       type: 'SEARCH/UPDATE_SELECTION',
       selection,

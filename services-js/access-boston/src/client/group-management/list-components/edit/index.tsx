@@ -50,16 +50,17 @@ export default function EditView(props: Props) {
     if (props.handleClick) props.handleClick(item);
   };
 
-  const handlePageNumClick = (pageNum, changePage) => {
-    changePage(pageNum);
-  };
-
-  const handleNextPage = (currentPage, pageCount, changePage) => {
+  const handleNextPage = (currentPage: number, pageCount: number) => {
+    console.log(
+      `editView > handleNextPage (currentPage | pageCount): ${currentPage} | ${pageCount}`
+    );
     if (currentPage < pageCount - 1) {
       changePage(currentPage + 1);
     }
   };
-  const handlePrevPage = (currentPage, changePage) => {
+
+  const handlePrevPage = (currentPage: number) => {
+    console.log(`editView > handlePrevPage (currentPage): ${currentPage}`);
     if (currentPage > 0) {
       changePage(currentPage - 1);
     }
@@ -78,7 +79,6 @@ export default function EditView(props: Props) {
       </div>
     );
   } else {
-    console.log(`props.pageCount: ${props.pageCount}`);
     return (
       <>
         <ul css={LIST_STYLING} key={`${props.mode}_list`}>
@@ -115,7 +115,6 @@ export default function EditView(props: Props) {
             changePage={changePage}
             handleNextPage={handleNextPage}
             handlePrevPage={handlePrevPage}
-            handlePageNumClick={handlePageNumClick}
           />
         )}
       </>
