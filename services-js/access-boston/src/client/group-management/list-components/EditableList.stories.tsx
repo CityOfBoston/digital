@@ -8,8 +8,7 @@ import { reducer } from '../state/list';
 
 import { fetchGroupMembers } from '../fixtures/mock-fetch-person-data';
 import { fetchPersonsGroups } from '../fixtures/mock-fetch-group-data';
-
-import EditableList from './EditableList';
+import EditView from './edit';
 
 export function EditableListWrapper(props) {
   const [list, dispatch] = useReducer(reducer, []);
@@ -36,7 +35,7 @@ export function EditableListWrapper(props) {
   }, []);
 
   return (
-    <EditableList
+    <EditView
       {...props}
       items={list}
       loading={props.loading}
@@ -52,26 +51,30 @@ storiesOf('GroupManagementPage/ListComponents/EditableList', module)
     <EditableListWrapper mode="person" loading={true} />
   ))
   .add('no results, person view', () => (
-    <EditableList
+    <EditView
       mode="person"
-      items={[]}
       handleChange={() => {}}
       handleClick={() => {}}
       currentPage={0}
       pageCount={1}
       pageSize={100}
       changePage={() => {}}
+      list={[]}
+      loading={false}
+      viewOnly={false}
     />
   ))
   .add('no results, group view', () => (
-    <EditableList
+    <EditView
       mode="group"
-      items={[]}
       handleChange={() => {}}
       handleClick={() => {}}
       currentPage={0}
       pageCount={1}
       pageSize={100}
       changePage={() => {}}
+      list={[]}
+      loading={false}
+      viewOnly={false}
     />
   ));

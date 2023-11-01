@@ -61,12 +61,16 @@ export default function EditableList(props: Props) {
     changePage(pageNum);
   };
 
-  const handleNextPage = (currentPage, pageCount, changePage) => {
+  const handleNextPage = (
+    currentPage: number,
+    pageCount: number,
+    changePage: any
+  ) => {
     if (currentPage < pageCount - 1) {
       changePage(currentPage + 1);
     }
   };
-  const handlePrevPage = (currentPage, changePage) => {
+  const handlePrevPage = (currentPage: any, changePage: any) => {
     if (currentPage > 0) {
       changePage(currentPage - 1);
     }
@@ -100,8 +104,6 @@ export default function EditableList(props: Props) {
   if (filteredItems && filteredItems.length > 0 && props.loading) {
     console.log('filteredItems: ', filteredItems);
   }
-
-  console.log('EditableList ............... ');
 
   const noResultsText =
     props.mode === 'group'
@@ -145,8 +147,8 @@ export default function EditableList(props: Props) {
               pageCount={pageCount}
               pageSize={pageSize}
               changePage={changePage}
-              handleNextPage={handleNextPage}
-              handlePrevPage={handlePrevPage}
+              nextPage={handleNextPage}
+              prevPage={handlePrevPage}
               handlePageNumClick={handlePageNumClick}
             />
           </>

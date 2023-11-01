@@ -51,9 +51,9 @@ export default function EditView(props: Props) {
   };
 
   const handleNextPage = (currentPage: number, pageCount: number) => {
-    console.log(
-      `editView > handleNextPage (currentPage | pageCount): ${currentPage} | ${pageCount}`
-    );
+    // console.log(
+    //   `editView > handleNextPage (currentPage | pageCount): ${currentPage} | ${pageCount}`
+    // );
     if (currentPage < pageCount - 1) {
       changePage(currentPage + 1);
     }
@@ -113,8 +113,8 @@ export default function EditView(props: Props) {
             pageCount={pageCount}
             pageSize={pageSize}
             changePage={changePage}
-            handleNextPage={handleNextPage}
-            handlePrevPage={handlePrevPage}
+            nextPage={handleNextPage}
+            prevPage={handlePrevPage}
           />
         )}
       </>

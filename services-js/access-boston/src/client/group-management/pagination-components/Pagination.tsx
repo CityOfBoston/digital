@@ -12,29 +12,23 @@ interface Props {
   pageCount: number;
   pageSize: number;
   changePage: (currentPage: number) => void;
-  handleNextPage: (currentPage: number, pageCount: number) => void;
-  handlePrevPage: (currentPage: number) => void;
+  nextPage: (currentPage: number, pageCount: number, changePage: any) => void;
+  prevPage: (currentPage: number, changePage: any) => void;
 }
 
 export default function Pagination(props: Props) {
-  const {
-    currentPage,
-    pageCount,
-    changePage,
-    handleNextPage,
-    handlePrevPage,
-  } = props;
+  const { currentPage, pageCount, changePage, nextPage, prevPage } = props;
 
   const goToPage = (pageNum: number) => {
     changePage(pageNum);
   };
 
   const next = () => {
-    handleNextPage(currentPage, pageCount);
+    nextPage(currentPage, pageCount);
   };
 
   const prev = () => {
-    handlePrevPage(currentPage);
+    prevPage(currentPage);
   };
 
   const lastPage = pageCount - 1;
