@@ -10,6 +10,10 @@ import {
 export const FIELD_CONTAINER_STYLING = css({
   position: 'relative',
 
+  li: {
+    marginBottom: 0,
+  },
+
   '.status': {
     position: 'absolute',
     top: '50%',

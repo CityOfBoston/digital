@@ -250,8 +250,10 @@ export default function SearchComponent(props: Props) {
 
   const defaultSearchText = (_newText: any = 0) => {
     if (_newText && typeof _newText === 'string') {
+      // console.log(`defaultSearchText() > _newText: ${_newText}`);
       return _newText;
     } else {
+      // console.log(`defaultSearchText() > !_newText:`, _newText, searchText);
       return searchText;
     }
   };
@@ -315,6 +317,7 @@ export default function SearchComponent(props: Props) {
                 onSuggestionSelected={handleSelection}
                 cnArray={cnArray}
                 isSelectionDuplication={isSelectionDuplication}
+                mode={mode}
               />
 
               {statusIndicator()}

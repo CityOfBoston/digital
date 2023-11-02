@@ -33,6 +33,7 @@ interface Props {
     duplication: any;
     warningLabel: string;
   };
+  mode?: string;
 }
 
 /**
@@ -46,8 +47,9 @@ export default class AutosuggestWrapper extends Component<Props> {
   // When suggestion is clicked, Autosuggest needs to populate the input
   // based on the clicked suggestion. Teach Autosuggest how to calculate the
   // input value for every given suggestion.
+
   getSuggestionValue = (suggestion: Group | Person): string => {
-    const { cnArray, isSelectionDuplication } = this.props;
+    const { cnArray, isSelectionDuplication, mode } = this.props;
     let alreadyAdded = '';
 
     if (cnArray && cnArray.length > 0 && isSelectionDuplication) {
@@ -59,8 +61,38 @@ export default class AutosuggestWrapper extends Component<Props> {
         alreadyAdded = ` - ${isSelection_Duplication.warningLabel}`;
       }
     }
-    const retVal = `${suggestion.displayName || suggestion.cn}${alreadyAdded}`;
-    return `${retVal}`;
+    return `${this.getName(suggestion, mode, alreadyAdded)}`;
+  };
+
+  getName = (suggestion, mode, alreadyAdded) => {
+    const givenName =
+      suggestion['givenName'] && suggestion['givenName'].length > 0
+        ? suggestion['givenName']
+        : ``;
+    const sn =
+      suggestion['sn'] && suggestion['sn'].length > 0
+        ? ` ${suggestion['sn']}`
+        : ``;
+    const cOBUserAgency =
+      suggestion['cOBUserAgency'] && suggestion['cOBUserAgency'].length > 0
+        ? ` | ${suggestion['cOBUserAgency']}`
+        : ``;
+    const personName =
+      mode === 'person' &&
+      (suggestion.displayName.split(' ')[0] !== suggestion['givenName'] ||
+        suggestion.displayName.length === 0)
+        ? `${givenName}${sn}${cOBUserAgency}`
+        : `${suggestion.displayName}`;
+    const nameStr = `${
+      alreadyAdded.length > 0 ? alreadyAdded + ` ` : ``
+    }${personName}`;
+
+    const retStr =
+      mode === 'person'
+        ? `${nameStr}`
+        : `${suggestion.displayName || suggestion.cn}`;
+    // console.log(`retStr: ${retStr}`, suggestion);
+    return retStr;
   };
 
   // input handler
@@ -84,27 +116,32 @@ export default class AutosuggestWrapper extends Component<Props> {
 
   renderSuggestion = suggestion => {
     const { cn, displayName } = suggestion;
-    const { cnArray, isSelectionDuplication } = this.props;
+    const { cnArray, isSelectionDuplication, mode } = this.props;
+    const cutoff = 12;
+    const trimmedCn = cn.length > cutoff ? `${cn.substring(0, cutoff)}...` : cn;
+    const nameLabel = this.getName(suggestion, mode, '');
     let warningLabel = '';
 
     if (cnArray && cnArray.length > 0 && isSelectionDuplication) {
       const isSelection_Duplication = isSelectionDuplication(cnArray, cn);
       warningLabel = isSelection_Duplication.warningLabel;
     }
+
     if (displayName) {
       return (
         <div css={SUGGESTION_STYLING}>
-          <span>{displayName}</span>
+          <span>{nameLabel}</span>
           <span css={RENDER_SUGGESTIONS_WARNING_LABEL}>{warningLabel}</span>
-          {warningLabel === '' && displayName !== cn && <span>{cn}</span>}
+          {warningLabel === '' && <span>{trimmedCn}</span>}
         </div>
       );
     } else {
       return (
-        <>
-          {cn}
+        <div css={SUGGESTION_STYLING}>
+          <span>{nameLabel}</span>
           <span css={RENDER_SUGGESTIONS_WARNING_LABEL}>{warningLabel}</span>
-        </>
+          <span>{trimmedCn}</span>
+        </div>
       );
     }
   };

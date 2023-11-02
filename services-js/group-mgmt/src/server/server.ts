@@ -700,7 +700,7 @@ export async function makeServer() {
 const resolvers = {
   Mutation: {
     async updateGroupMembers() {
-      console.log('updateGroupMembers: ', arguments[1]);
+      // console.log('updateGroupMembers: ', arguments[1]);
       try {
         const opts = arguments[1];
         let dns: any = [];

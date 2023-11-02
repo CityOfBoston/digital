@@ -24,11 +24,11 @@ export default function Pagination(props: Props) {
   };
 
   const next = () => {
-    nextPage(currentPage, pageCount);
+    nextPage(currentPage, pageCount, changePage);
   };
 
   const prev = () => {
-    prevPage(currentPage);
+    prevPage(currentPage, changePage);
   };
 
   const lastPage = pageCount - 1;
