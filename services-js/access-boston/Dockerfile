@@ -87,13 +87,13 @@ CMD ["yarn", "start"]
 #   To use this file:
 #       [a] clone the digital repo
 #       [b] from a terminal, in the access-boston folder, run
-#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/access-boston:latest -f ./Dockerfile -t local-test/access-boston:latest --secret id=aws,src=$HOME/.aws/credentials ../..
+#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/access-boston:latest -f ./Dockerfile -t local-test/access-boston:latest --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
 #           -> this will create an image tagged local-test/access-boston:latest on the local machine
 #       [c] from a terminal, in the access-boston folder, run
 #           docker compose up --no-build -d access-boston
 #           -> this will create a container which should start on your local machine, with your cloned repo mounted into
 #               so that your changes are immediately effective in the browser.
-#           -> you should be able to see the webapp at https://127.0.0.1:300/group-mgmt ..etc
+#           -> you should be able to see the webapp at https://127.0.0.1:3000/group-mgmt ..etc
 #       [d] In a terminal app, open a session in the container by running:
 #           docker exec -it access-boston /bin/sh
 #           -> This has effectively ssh'd you into the container as the defaul (root) user.

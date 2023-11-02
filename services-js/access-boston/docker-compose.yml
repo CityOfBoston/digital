@@ -4,7 +4,7 @@ services:
     image: local-test/access-boston:latest
     container_name: access-boston
     ports:
-      - 4000:3000
+      - 3000:3000
     working_dir: /app/services-js/access-boston
     extra_hosts:
       - group-mgmt-test.digital-staging.boston.gov:172.17.0.3
