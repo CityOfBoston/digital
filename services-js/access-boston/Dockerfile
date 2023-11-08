@@ -107,12 +107,12 @@ CMD ["yarn", "start"]
 #           docker stop access-boston
 #       [2.5] Re-login into ECR with this command --> aws ecr get-login-password --region us-east-1 --profile=cityofboston | docker login --username AWS --password-stdin 251803681989.dkr.ecr.us-east-1.amazonaws.com 
 #       [3] Rebuild the container and apps by running:
-#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/access-boston:latest -f ./Dockerfile -t 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/access-boston:deploy-new-stage --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
+#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-test/access-boston:latest -f ./Dockerfile -t 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/access-boston:deploy-new-stage-test --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
 #           -> this is essentially the same command as in [b] above, just uses a different tag and ensures the /app folder
 #              is physically there and not mounted (using the docker-compose command in [c] above mounts the repo over
 #              whatever was added into the the image's /app folder during the docker build command)
 #       [4] Push the image to AWS by running
-#           docker push 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/access-boston:deploy-new-stage
+#           docker push 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/access-boston:deploy-new-stage-test
 #           -> the deploy should start once the image is transferred/uploaded
 #
 #   WHEN YOU ARE READY TO DEPLOY TO PROD:
