@@ -7,7 +7,7 @@ const LAUNCHED_WORKFLOW_SCHEMA =
   'urn:ietf:params:scim:schemas:sailpoint:1.0:LaunchedWorkflow';
 
 const CHANGE_PASSWORD_WORKFLOW = 'CoB-Workflow-ChangePasswordRESTOnly';
-const RESET_PASSWORD_WORKFLOW = 'CoB-Workflow-ForgortPassword';
+const RESET_PASSWORD_WORKFLOW = 'CoB-Workflow-ForgotPassword';
 const REGISTER_USER_WORKFLOW = 'CoB-Workflow-MFARegistration';
 
 export interface WorkflowResponse {
