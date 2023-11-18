@@ -30,7 +30,8 @@ interface Props {
   ) => Promise<Group[] | Person[]>;
   handleSelectClick: (selection: any) => void;
   currentStatus?: Status; // solely for Storybook
-  dns: String[];
+  dns: string[];
+  ous?: string[];
   cnArray?: Array<string>;
   currentlist?: Array<any>;
   currentPage: number;
@@ -64,6 +65,7 @@ export default function SearchComponent(props: Props) {
     mode,
     view,
     dns,
+    ous,
     cnArray,
     pageSize,
     // setLoading,
@@ -130,7 +132,7 @@ export default function SearchComponent(props: Props) {
             dataFetched();
           });
         } else {
-          await fetchPersonGroups(selection.dn, pageSize).then(result => {
+          await fetchPersonGroups(selection.dn, pageSize, ous).then(result => {
             members = result;
             dataFetched();
           });

@@ -65,6 +65,7 @@ export default function ListItemComponent(props: Props) {
       return <span key={`label_${keyIndex}`}>{displayText}</span>;
     }
   };
+  // console.log(`isAvailable: ${isAvailable}`);
 
   if (handleChange) {
     return (

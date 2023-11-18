@@ -125,15 +125,6 @@ export async function fetchGroupSearch(
     dns = [];
   }
   return await fetchGraphql(SEARCH_GROUPS, { term, dns }).then(response => {
-    // console.log(
-    //   'fetch-group-data > fetchGroupSearch > fetchGraphql > response: ',
-    //   response
-    // );
-    // if (autocomplete && autocomplete === true) {
-    //   console.log(
-    //     'fetch-group-data > fetchGroupSearch > fetchGraphql > from autocomplete ... fetch rest of data'
-    //   );
-    // }
     return response.groupSearch.map(group => toGroup(group));
   });
 }
@@ -151,15 +142,12 @@ export async function fetchPersonsGroups(
   _currentPage: number = 0,
   _currentUserAllowedGroups: string[]
 ): Promise<Group[]> {
-  console.log('INSIDE fetchPersonsGroups: ', person);
   return await Promise.all(
     person.chunked[_currentPage].map(groupCn =>
       fetchGroup(groupCn, _dns).then(response => {
-        console.log('INSIDE fetchPersonsGroups response: ', response);
         try {
           if (response.group[0]) {
-            const retGroup = toGroup(response.group[0], _dns, _ous);
-            console.log('INSIDE fetchPersonsGroups retGroup: ', retGroup);
+            const retGroup = toGroup(response.group[0], _ous);
             return retGroup;
           }
         } catch (error) {
@@ -192,10 +180,6 @@ export async function fetchGroupSearchRemaining(
 ): Promise<Group[]> {
   let groups = (await fetchGroupSearch(term, [], dns)).filter(
     group => !person.groups.includes(group.cn)
-  );
-  console.log(
-    'fetch-group-data > fetchGroupSearchRemaining > fetchGroupSearch > groups: ',
-    groups
   );
   return groups;
 }

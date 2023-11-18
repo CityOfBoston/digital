@@ -125,8 +125,11 @@ export default function Index(props: Props) {
 
   const getAdminMinGroups = async () => {
     fetchMinimumUserGroups(groups).then(result => {
+      // console.log('fetchMinimumUserGroups');
       if (result !== null && result.getMinimumUserGroups !== null) {
+        // console.log('fetchMinimumUserGroups > results');
         let ret = result.getMinimumUserGroups.map((entry: Group | Person) => {
+          // console.log('fetchMinimumUserGroups > results > map(entry): ', entry);
           let remappedObj = renameObjectKeys(
             { uniquemember: 'members', memberof: 'members', member: 'members' },
             entry
@@ -189,6 +192,7 @@ export default function Index(props: Props) {
       ? state.selected.members
       : state.selected.groups;
   }
+  // console.log('state: ', state);
 
   switch (state.view) {
     case 'management':
@@ -214,6 +218,7 @@ export default function Index(props: Props) {
                 handleSelectClick={handleAddToList}
                 selectedItem={state.selected}
                 dns={groups}
+                ous={state.ous}
                 cnArray={cnEntries}
                 currentlist={list}
                 pageSize={state.pageSize}
@@ -293,6 +298,7 @@ export default function Index(props: Props) {
                 }
                 handleSelectClick={handleInitialSelection}
                 dns={groups}
+                ous={state.ous}
                 pageSize={state.pageSize}
                 setLoading={setLoading}
                 dispatchState={dispatchState}

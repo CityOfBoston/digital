@@ -126,13 +126,15 @@ export async function fetchGroupMembers(
  * Inactive employees WILL be included in these results; see line 63.
  */
 export async function fetchPersonGroups(
-  filter: String,
-  pageSize: number = 100
+  filter: string,
+  pageSize: number = 100,
+  ous: string[] = []
 ): Promise<Person[]> {
   let persons = await fetchGraphql(FETCH_PERSONMEMBERS, { filter });
   persons = persons[Object.keys(persons)[0]];
 
-  let retObj = persons.map((item: any) => toGroup(item));
+  let retObj = persons.map((item: any) => toGroup(item, ous));
+  // console.log('fetchPersonGroups > retObj: ', retObj);
   retObj = retObj.sort(
     (a: any, b: any) =>
       a['displayName'].localeCompare(b['displayName']) || a.cn - b.cn
