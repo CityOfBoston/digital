@@ -43,7 +43,9 @@ export default function ListItemComponent(props: Props) {
   let displayText = displayName || cn;
   if (mode && mode === 'group' && item['givenName'] && item['sn']) {
     const cobAgency =
-      item['cOBUserAgency'] !== '-NA-' && item['cOBUserAgency'] !== 'CH'
+      item['cOBUserAgency'] &&
+      item['cOBUserAgency'] !== '-NA-' &&
+      item['cOBUserAgency'] !== 'CH'
         ? ` | ${item['cOBUserAgency']}`
         : ``;
     displayText = `${item['givenName']} ${item['sn']}${cobAgency}`;

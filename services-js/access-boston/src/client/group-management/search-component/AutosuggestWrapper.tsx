@@ -58,7 +58,7 @@ export default class AutosuggestWrapper extends Component<Props> {
         suggestion.cn
       );
       if (isSelection_Duplication.duplication) {
-        alreadyAdded = ` - ${isSelection_Duplication.warningLabel}`;
+        alreadyAdded = `${isSelection_Duplication.warningLabel}`;
       }
     }
     return `${this.getName(suggestion, mode, alreadyAdded)}`;
