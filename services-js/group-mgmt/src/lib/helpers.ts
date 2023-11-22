@@ -53,6 +53,27 @@ export const convertToBool = (val: String, base: boolean): boolean => {
 };
 
 /**
+ * @param {number} pos (512) Value matching Booleab `TRUE`
+ * @param {number} neg (514) Value matching Booleab `FALSE`
+ * @param {string} val Value to be converted
+ * @return {boolean} Converts possible values into Boolean response
+ * @description Convert custom Boolean value (512 | 514), any other value return false;
+ *
+ * @example
+ *    numbericPairToBool(512, 514, "512") = TRUE
+ */
+export const numbericPairToBool = (
+  pos: number,
+  neg: number,
+  val: string
+): boolean => {
+  if (Number.isNaN(val)) return false;
+  if (pos === parseInt(val)) return true;
+  if (neg === parseInt(val)) return false;
+  return false;
+};
+
+/**
  * @param {object} keysMap - Object, key/value Object with renamed keys
  * @param {object} targetObj - Object whose keys you want to rename
  * @description Rename object keys using the keyMap object
@@ -73,7 +94,8 @@ export const convertToBool = (val: String, base: boolean): boolean => {
  *        isSponsor: 'TRUE',
  *      },
  *     );
- *     return {
+ *
+ *     returns {
  *       dn: '',
  *       cn: '100992',
  *       ismemberof: [],

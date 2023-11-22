@@ -5493,7 +5493,9 @@ exports[`Storyshots GroupManagementPage default 1`] = `
               Group search
             </h2>
           </div>
-          <form>
+          <form
+            name="Search Component - Group"
+          >
             <div
               role="search"
             >
@@ -5760,7 +5762,9 @@ exports[`Storyshots GroupManagementPage/Index default 1`] = `
           Group search
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Group"
+      >
         <div
           role="search"
         >
@@ -5986,7 +5990,9 @@ Array [
           Group search
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Group"
+      >
         <div
           role="search"
         >
@@ -6198,7 +6204,9 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
           Add a new member
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Person"
+      >
         <div
           role="search"
         >
@@ -6401,7 +6409,9 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
           Add a new member
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Person"
+      >
         <div
           role="search"
         >
@@ -6592,7 +6602,9 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
           Add to a group
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Group"
+      >
         <div
           role="search"
         >
@@ -6713,7 +6725,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent group add 1`] = `
         Add to a group
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -6804,7 +6818,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent group search 1`] = `
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -6895,7 +6911,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent no results 1`] = `
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -6986,7 +7004,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent person add 1`] = `
         Add a new member
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Person"
+    >
       <div
         role="search"
       >
@@ -7077,7 +7097,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent person search 1`] = `
         Person search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Person"
+    >
       <div
         role="search"
       >
@@ -7168,7 +7190,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent searching 1`] = `
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -7259,7 +7283,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent server error/could not r
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >

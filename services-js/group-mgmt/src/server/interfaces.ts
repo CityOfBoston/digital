@@ -1,11 +1,16 @@
 import {
   renameObjectKeys,
-  convertToBool,
   remapObjKeys,
   convertOptionalArray,
   abstractDN,
   getPrimaryCNames,
+  numbericPairToBool,
 } from '../lib/helpers';
+
+export const userAcctControl = {
+  true: 512,
+  false: 514,
+};
 
 // (COMMON) START | Base attributes
 export interface controls {
@@ -324,6 +329,7 @@ export interface Person {
   nsaccountlock?: string;
   objectclass?: Array<[string]>;
   cOBUserAgency?: string;
+  userAccountControl?: boolean;
 }
 
 export class PersonClass implements Person {
@@ -340,6 +346,7 @@ export class PersonClass implements Person {
   nsaccountlock: string = '';
   objectclass: Array<[string]> = [];
   cOBUserAgency: string = '';
+  userAccountControl: boolean = false;
 
   constructor(opts: {
     distinguishedName?: any;
@@ -355,6 +362,7 @@ export class PersonClass implements Person {
     nsaccountlock?: any;
     objectclass?: any;
     cOBUserAgency?: any;
+    userAccountControl?: any;
   }) {
     opts = renameObjectKeys(remapObjKeys(this, opts), opts);
     let ismemberof: any = [];
@@ -409,7 +417,11 @@ export class PersonClass implements Person {
       (this.memberof = members2),
       (this.givenname = opts.givenname ? opts.givenname : ''),
       (this.displayname = opts.displayname ? opts.displayname : ''),
-      (this.inactive = convertToBool(opts.nsaccountlock, false)),
+      (this.inactive = !numbericPairToBool(
+        userAcctControl.true,
+        userAcctControl.false,
+        opts.userAccountControl
+      )),
       (this.cOBUserAgency = opts.cOBUserAgency ? opts.cOBUserAgency : ''),
       (this.objectclass = objectclass);
 
@@ -495,7 +507,7 @@ export const LdapFilters = {
   person: {
     default: '(objectClass=organizationalPerson)',
     pre: '(&(objectClass=organizationalPerson)(',
-    inactive: '|(nsaccountlock=FALSE)(!(nsaccountlock=*)))(',
+    inactive: `|(userAccountControl=${userAcctControl.true}))(`,
     post: '*))',
   },
 };

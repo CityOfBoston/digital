@@ -300,7 +300,9 @@ export default function SearchComponent(props: Props) {
     <Section>
       <SectionHeader title={textCopy[view][mode].title} />
 
-      <form>
+      <form
+        name={`Search Component - ${mode[0].toUpperCase() + mode.substring(1)}`}
+      >
         <div role="search">
           <label htmlFor={inputId} className="txt-l">
             {textCopy[view][mode].label}
