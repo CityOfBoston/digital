@@ -78,7 +78,7 @@ CMD ["yarn", "start"]
 #   To use this file:
 #       [a] clone the digital repo
 #       [b] from a terminal, in the registry-certs folder, run
-#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-dev/registry-certs:latest -f ./Dockerfile -t local-dev/registry-certs:latest --secret id=aws,src=$HOME/.aws/credentials ../..
+#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-dev/registry-certs:latest -f ./Dockerfile -t local-dev/registry-certs:latest --secret id=aws,src=$HOME/.aws/credentials --platform linux/arm64 ../..
 #           -> this will create an image tagged local-dev/registry-certs:latest on the local machine
 #       [c] from a terminal, in the registry-certs folder, run
 #           docker-compose up --no-build -d registry-certs
@@ -96,8 +96,9 @@ CMD ["yarn", "start"]
 #       [1] Check your code into github
 #       [2] Close down any shells into the container and stop the container:
 #           docker stop registry-certs
+#       [2.5] Re-login into ECR with this command --> aws ecr get-login-password --region us-east-1 --profile=cityofboston | docker login --username AWS --password-stdin 251803681989.dkr.ecr.us-east-1.amazonaws.com
 #       [3] Rebuild the container and apps by running:
-#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-dev/registry-certs:latest -f ./Dockerfile -t 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/registry-certs:deploy-new-stage --secret id=aws,src=$HOME/.aws/credentials ../..
+#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-dev/registry-certs:latest -f ./Dockerfile -t 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/registry-certs:deploy-new-stage --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
 #           -> this is essentially the same command as in [b] above, just uses a different tag and ensures the /app folder
 #              is physically there and not mounted (using the docker-compose command in [c] above mounts the repo over
 #              whatever was added into the the image's /app folder during the docker build command)
