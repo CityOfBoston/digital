@@ -1,17 +1,24 @@
 version: '3'
 services:
   access-boston:
+    # EXTRA_HOSTS=group-mgmt-test.digital-staging.boston.gov:172.17.0.3
+    # COMPOSE_PORTS=3001:3001
+    # AWS_S3_CONFIG_URL=s3://cob-digital-apps-staging-config/access-boston
+    # image: arm64/local-test/access-boston:latest
     image: local-test/access-boston:latest
     container_name: access-boston
     ports:
-      - 3000:3000
+      - 3001:3001
+      # - ${COMPOSE_PORTS}
     working_dir: /app/services-js/access-boston
     extra_hosts:
       - group-mgmt-test.digital-staging.boston.gov:172.17.0.3
+      # - ${EXTRA_HOSTS}
     volumes:
       - ~/.aws:/root/.aws
     environment:
       AWS_S3_CONFIG_URL: s3://cob-digital-apps-staging-config/access-boston
+      # AWS_S3_CONFIG_URL: ${AWS_S3_CONFIG_URL}
       DEPLOY_VARIANT: test
       AWS_DEFAULT_REGION: us-east-1
       AWS_REGION: us-east-1

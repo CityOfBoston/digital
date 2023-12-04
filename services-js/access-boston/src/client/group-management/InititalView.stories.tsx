@@ -41,6 +41,9 @@ function Wrapper() {
           changePageCount={() => {}}
         />
       }
+      pageSize={150}
+      dispatchList={() => {}}
+      changePageCount={() => {}}
     />
   );
 }

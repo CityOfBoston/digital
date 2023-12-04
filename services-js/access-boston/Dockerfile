@@ -117,7 +117,7 @@ CMD ["yarn", "start"]
 #
 #   WHEN YOU ARE READY TO DEPLOY TO PROD:
 #       [1] Tag the image you pushed to stage with a production tag:
-#           docker tag 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/access-boston:deploy-new-stage 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-prod/access-boston:deploy-new-prod
+#           docker tag 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/access-boston:deploy-new-stage-test 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-prod/access-boston:deploy-new-prod
 #       [2] Push the image to AWS by running
 #           docker push 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-prod/access-boston:deploy-new-prod
 #           -> the deploy should start once the image is transferred/uploaded

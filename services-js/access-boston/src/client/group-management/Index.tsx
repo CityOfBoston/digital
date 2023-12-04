@@ -192,7 +192,6 @@ export default function Index(props: Props) {
       ? state.selected.members
       : state.selected.groups;
   }
-  // console.log('state: ', state);
 
   switch (state.view) {
     case 'management':
@@ -307,6 +306,9 @@ export default function Index(props: Props) {
                 changePageCount={changePageCount}
               />
             }
+            pageSize={state.pageSize}
+            dispatchList={dispatchList}
+            changePageCount={changePageCount}
           />
         </div>
       );

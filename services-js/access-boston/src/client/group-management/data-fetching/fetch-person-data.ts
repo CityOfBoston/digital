@@ -112,6 +112,7 @@ export async function fetchGroupMembers(
   retGroups = retGroups.sort(
     (a: any, b: any) =>
       b['isAvailable'] - a['isAvailable'] ||
+      a['sn'].localeCompare(b['sn']) ||
       a['displayName'].localeCompare(b['displayName']) ||
       a.cn - b.cn
   );

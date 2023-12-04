@@ -16,7 +16,6 @@ import {
   fetchGroupMembers,
   fetchPersonGroups,
 } from '../data-fetching/fetch-person-data';
-// import { reducer as listReducer } from '../state/list';
 
 interface Props {
   mode: Mode;
@@ -110,8 +109,7 @@ export default function SearchComponent(props: Props) {
       if (!isDup.duplication) {
         selection.action = 'new';
 
-        let members: any = [];
-        const dataFetched = () => {
+        const dataFetched = members => {
           selection.groupmember = members;
           changePageCount(members.length);
           if (view !== 'management') {
@@ -127,15 +125,13 @@ export default function SearchComponent(props: Props) {
         };
 
         if (mode === 'group') {
-          await fetchGroupMembers(selection.dn, pageSize).then(result => {
-            members = result;
-            dataFetched();
-          });
+          await fetchGroupMembers(selection.dn, pageSize).then(result =>
+            dataFetched(result)
+          );
         } else {
-          await fetchPersonGroups(selection.dn, pageSize, ous).then(result => {
-            members = result;
-            dataFetched();
-          });
+          await fetchPersonGroups(selection.dn, pageSize, ous).then(result =>
+            dataFetched(result)
+          );
         }
       } else {
         handleChange('');

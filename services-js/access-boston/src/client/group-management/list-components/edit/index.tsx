@@ -60,7 +60,6 @@ export default function EditView(props: Props) {
   };
 
   const handlePrevPage = (currentPage: number) => {
-    console.log(`editView > handlePrevPage (currentPage): ${currentPage}`);
     if (currentPage > 0) {
       changePage(currentPage - 1);
     }
