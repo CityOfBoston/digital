@@ -10090,17 +10090,23 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
         <h2
           className="h3 tt-u"
         >
-          We might not have the birth certificate yet
+          Birth Certificate is Being Processed
         </h2>
         <p>
-          <strong>
-            We recommend waiting at least two weeks before you request a birth certificate.
-          </strong>
+          Birth information takes up to two weeks to arrive from a hospital to the City of Boston. Please submit an order after
            
-          It generally takes two weeks for us to receive paperwork from the hospital.
-        </p>
-        <p>
-          If you order too early, we can only hold your request for seven days while we wait for the hospital record. If we don’t receive the record in time, your request will be canceled automatically and your card will not be charged. You’ll have to resubmit your request.
+          12/12/2023
+          . We apologize for the inconvenience. If you
+           
+          have any questions or concerns, please
+           
+          <a
+            href="https://www.boston.gov/still-have-questions-registry"
+            target="_blank"
+          >
+            contact us online
+          </a>
+          , by phone at 617-635-4175, or visit City Hall in person Monday Friday, from 9 a.m. - 4 p.m.
         </p>
       </div>
     </div>

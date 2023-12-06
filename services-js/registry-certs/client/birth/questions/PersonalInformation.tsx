@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
 import { ChangeEvent, Component, MouseEvent, ReactChild } from 'react';
 import { observer } from 'mobx-react';
@@ -36,7 +36,12 @@ export default class PersonalInformation extends Component<Props> {
   }: BirthCertificateRequest): boolean {
     const { firstName, lastName, birthDate } = requestInformation;
 
-    return !!(firstName && lastName && birthDate);
+    return !!(
+      firstName &&
+      lastName &&
+      birthDate &&
+      !isDateWithinPastFourteenDays(birthDate)
+    );
   }
 
   private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -128,7 +133,7 @@ export default class PersonalInformation extends Component<Props> {
         </div>
 
         {birthDate &&
-          (isDateWithinPastTenDays(birthDate) ||
+          (isDateWithinPastFourteenDays(birthDate) ||
             this.props.showRecentBirthWarning) &&
           this.renderRecentBirthWarningText()}
       </QuestionComponent>
@@ -136,33 +141,50 @@ export default class PersonalInformation extends Component<Props> {
   }
 
   private renderRecentBirthWarningText(): ReactChild {
+    const { birthCertificateRequest } = this.props;
+    const { birthDate } = birthCertificateRequest.requestInformation;
     return (
       <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
-        <h2 className="h3 tt-u">We might not have the birth certificate yet</h2>
-
+        <h2 className="h3 tt-u">Birth Certificate is Being Processed</h2>
         <p>
-          <strong>
-            We recommend waiting at least two weeks before you request a birth
-            certificate.
-          </strong>{' '}
-          It generally takes two weeks for us to receive paperwork from the
-          hospital.
-        </p>
-
-        <p>
-          If you order too early, we can only hold your request for seven days
-          while we wait for the hospital record. If we don’t receive the record
-          in time, your request will be canceled automatically and your card
-          will not be charged. You’ll have to resubmit your request.
+          Birth information takes up to two weeks to arrive from a hospital to
+          the City of Boston. Please submit an order after{' '}
+          <span css={PICKUP_DATE_STYLE}>{getPickUpDate(birthDate)}</span>. We
+          apologize for the inconvenience. If you have any questions or
+          concerns, please{' '}
+          <a
+            href="https://www.boston.gov/still-have-questions-registry"
+            target="_blank"
+          >
+            contact us online
+          </a>
+          , by phone at 617-635-4175, or visit City Hall in person Monday
+          Friday, from 9 a.m. - 4 p.m.
         </p>
       </div>
     );
   }
 }
 
-function isDateWithinPastTenDays(date: Date): boolean {
+function isDateWithinPastFourteenDays(date: Date): boolean {
   const dayInMs = 8.64e7;
-  const tenDaysAgo = new Date(Date.now() - 10 * dayInMs);
+  const daysAgo = new Date(Date.now() - 14 * dayInMs);
 
-  return tenDaysAgo < date;
+  return daysAgo < date;
 }
+
+function getPickUpDate(date: Date | null | undefined): string {
+  if (date && typeof date === 'object' && typeof date.getDate === 'function') {
+    const pickUpDate = new Date(
+      new Date(Date.now() - 14 * 8.64e7).setDate(date.getDate() + 14)
+    );
+    return `${pickUpDate.getMonth() +
+      1}/${pickUpDate.getDate()}/${pickUpDate.getFullYear()}`;
+  } else {
+    return '';
+  }
+}
+
+const PICKUP_DATE_STYLE = css({
+  fontWeight: 'bold',
+});
