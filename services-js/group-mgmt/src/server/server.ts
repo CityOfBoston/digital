@@ -3,7 +3,7 @@ import Hapi from 'hapi';
 import Inert from 'inert';
 import fs from 'fs';
 import cleanup from 'node-cleanup';
-import { loggingPlugin, adminOkRoute } from '@cityofboston/hapi-common';
+import { loggingPlugin } from '@cityofboston/hapi-common';
 import { makeExecutableSchema, ApolloServer } from 'apollo-server-hapi';
 import ldap from 'ldapjs';
 import {
@@ -45,12 +45,17 @@ if (
   };
 }
 
-const ldapClient = ldap.createClient({
-  url: env.LDAP_URL,
-  reconnect: true,
-  tlsOptions,
-  timeout: 15000,
-});
+const ldap_client = () => {
+  return ldap.createClient({
+    url: env.LDAP_URL,
+    reconnect: true,
+    tlsOptions,
+    connectTimeout: 120000,
+    idleTimeout: 1000,
+    timeout: Infinity,
+  });
+};
+let ldapClient = ldap_client();
 
 type Credentials = {
   source: Source;
@@ -69,9 +74,18 @@ const bindLdapClient = (_force: Boolean = false) => {
     ldapClient.bind(env.LDAP_BIN_DN, env.LDAP_PASSWORD, function(err) {
       if (err) {
         console.log('ldapClient.bind err: ', err);
+        unbindLdapClient();
       }
     });
   }
+};
+
+export const unbindLdapClient = () => {
+  ldapClient.unbind(err => {
+    if (err) {
+      console.log('ldapClient.unBind err: ', err);
+    }
+  });
 };
 
 const search_promise = (err, res) => {
@@ -84,34 +98,35 @@ const search_promise = (err, res) => {
     const refInstance = new objectClassArray({});
     res.on('searchEntry', entry => {
       let currEntry = entry.object || {};
-      currEntry = renameObjectKeys(
-        remapObjKeys(refInstance, currEntry),
-        currEntry
-      );
-
-      if (currEntry.objectclass.indexOf('organizationalPerson') > -1) {
+      const remapObj = remapObjKeys(refInstance, currEntry);
+      currEntry = renameObjectKeys(remapObj, currEntry);
+      if (
+        currEntry.objectclass.indexOf('organizationalPerson') > -1 &&
+        currEntry.objectclass.indexOf('person') > -1
+      ) {
         const Person: Person = new PersonClass(currEntry);
         entries.push(Person);
       }
 
       if (
         currEntry.objectclass.indexOf('groupOfUniqueNames') > -1 ||
-        currEntry.objectclass.indexOf('container') > -1
+        currEntry.objectclass.indexOf('organizationalRole') > -1 ||
+        currEntry.objectclass.indexOf('container') > -1 ||
+        currEntry.objectclass.indexOf('group') > -1
       ) {
         currEntry['onlyActiveMembers'] = true;
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
 
-      if (currEntry.objectclass.indexOf('organizationalRole') > -1) {
-        currEntry['onlyActiveMembers'] = true;
+      if (currEntry.objectclass.indexOf('organizationalUnit') > -1) {
         const Group: Group = new GroupClass(currEntry);
         entries.push(Group);
       }
     });
 
     res.on('error', err => {
-      console.error('error: ' + err.message);
+      console.error('error: search_promise | ', err.message, ' | err:', err);
       reject();
     });
 
@@ -122,25 +137,44 @@ const search_promise = (err, res) => {
 };
 
 const setAttributes = (attr = [''], type = 'group') => {
-  const attrSet: Array<string> = [];
-  attr.forEach(element => {
-    if (type === 'group') {
-      if (
-        Object.keys(new GroupClass({})).indexOf(element) > -1 &&
-        attrSet.indexOf(element) === -1
-      ) {
-        attrSet.push(element);
-      }
+  let attrSet: Array<string> = [];
+  if (attr.length === 1 && attr[0] === 'all') {
+    switch (type) {
+      case 'person':
+        attrSet = Object.keys(new PersonClass({}));
+        break;
+      default:
+        attrSet = Object.keys(new GroupClass({}));
+        break;
     }
-    if (type === 'person') {
-      if (
-        Object.keys(new PersonClass({})).indexOf(element) > -1 &&
-        attrSet.indexOf(element) === -1
-      ) {
-        attrSet.push(element);
+    // console.log('attrSet: ', attrSet);
+  } else {
+    attr.forEach(element => {
+      if (type === 'group') {
+        console.log(`setAttributes > type(group) > element: ${element}`);
+        console.log(
+          `setAttributes > is elem in GroupClass: ${Object.keys(
+            new GroupClass({})
+          )}`
+        );
+
+        if (
+          Object.keys(new GroupClass({})).indexOf(element) > -1 &&
+          attrSet.indexOf(element) === -1
+        ) {
+          attrSet.push(element);
+        }
       }
-    }
-  });
+      if (type === 'person') {
+        if (
+          Object.keys(new PersonClass({})).indexOf(element) > -1 &&
+          attrSet.indexOf(element) === -1
+        ) {
+          attrSet.push(element);
+        }
+      }
+    });
+  }
 
   if (attrSet.length > 0) {
     return attrSet;
@@ -149,8 +183,16 @@ const setAttributes = (attr = [''], type = 'group') => {
   // Custom Attributes
   switch (attr[0]) {
     case 'all':
+      console.log(
+        'setAttributes > switch(all) > CustomAttributes.all',
+        CustomAttributes.all
+      );
       return CustomAttributes.all;
     default:
+      console.log(
+        'setAttributes > switch(default) > CustomAttributes.all',
+        CustomAttributes.all
+      );
       return CustomAttributes.default;
   }
 };
@@ -193,12 +235,15 @@ const getFilterValue = (filter: FilterOptions) => {
   switch (filter.filterType) {
     case 'person':
       if (filter.allowInactive === false) {
-        return searchFilterStr(filter.filterType);
+        const retStr = searchFilterStr(filter.filterType);
+        return retStr;
       }
 
       if (filter.value.length === 0) {
-        return `${LdapFilters.person.default}`;
+        const retStr = `${LdapFilters.person.default}`;
+        return retStr;
       }
+
       if (filter.field === 'search') {
         return searchFilterStr(filter.filterType);
       }
@@ -208,20 +253,27 @@ const getFilterValue = (filter: FilterOptions) => {
       }`;
     case 'group':
       if (filter.value.length === 0) {
-        return `${LdapFilters.groups.default}`;
+        const retStr = `${LdapFilters.groups.default}`;
+        return retStr;
       }
       if (filter.field === 'cn') {
-        return `${LdapFilters.groups.pre}${filter.field}=${filter.value}${
-          LdapFilters.groups.post
-        }`;
+        const retStr = `${LdapFilters.groups.pre}${filter.field}=${
+          filter.value
+        }${LdapFilters.groups.post}`;
+
+        return retStr;
       }
       if (filter.field === 'search') {
-        return searchFilterStr(filter.filterType);
+        const retStr = searchFilterStr(filter.filterType);
+        return retStr;
       }
 
-      return `${LdapFilters.groups.pre}${filter.field}=${filter.value}${
-        LdapFilters.groups.post
-      }`;
+      // eslint-disable-next-line no-case-declarations
+      let returnFilter: any = '';
+      returnFilter += `${LdapFilters.groups.pre}${filter.field}=*`;
+      returnFilter += `${filter.value}${LdapFilters.groups.post}`;
+
+      return returnFilter;
     default:
       return LdapFilters.groups.default;
   }
@@ -300,9 +352,14 @@ const searchWrapper = async (
         filter.field === 'cn' &&
         filter.value.length < 2
       ) {
+        console.log('searchWrapper > promise > reject');
         reject();
       }
-      ldapClient.search(base_dn, filterQryParams, function(err, res) {
+      let baseDn = base_dn;
+      if (filter.field === 'ou') {
+        baseDn = `OU=Groups,${baseDn}`;
+      }
+      ldapClient.search(baseDn, filterQryParams, function(err, res) {
         if (err) {
           console.log('ldapsearch error: ', err);
         }
@@ -319,10 +376,11 @@ const convertDnsToGroupDNs = async (
   mode: string = 'filtered'
 ) => {
   const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
+  console.log('convertDnsToGroupDNs > CNs: ', CNs);
   const promises = CNs.map(async value => {
     const filterParams: FilterOptions = new FilterOptionsClass({
       filterType: 'group',
-      field: 'cn',
+      field: 'ou',
       value,
       allowInactive: false,
     });
@@ -365,24 +423,36 @@ const convertDnsToGroupDNs = async (
 };
 
 const getGroupChildren = async (parentDn: string = '') => {
-  const parentCN = abstractDN(parentDn)['cn'][0];
+  const $abstractDN = abstractDN(parentDn);
+  const parentCN = $abstractDN[Object.keys($abstractDN)[0]][0];
+  console.log('getGroupChildren > parentDn: ', parentDn);
+  console.log('getGroupChildren > parentCN: ', parentCN);
+
   const filterQryParams = {
     scope: 'sub',
     attrs: '',
-    filter: `(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole))(!(cn=${parentCN})))`,
+    // filter: `(&(|(objectClass=group)(objectClass=organizationalUnit))(!(${
+    //   Object.keys($abstractDN)[0]
+    // }=${parentCN})))`,
+    filter: `(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group)(objectClass=organizationalUnit))(!(ou=${parentCN})))`,
   };
+  // console.log('getGroupChildren > filterQryParams: ', filterQryParams);
   const results = new Promise(function(resolve, reject) {
     bindLdapClient();
+    // console.log('getGroupChildren > results(promise)');
     ldapClient.search(parentDn, filterQryParams, function(err, res) {
       if (err) {
         console.log('ldapsearch error: ', err);
         reject();
       }
+      // console.log('getGroupChildren > results(promise) > callback: ', res);
       resolve(search_promise(err, res));
     });
   });
 
-  return await results;
+  await results;
+  console.log('results.len: ', results);
+  return results;
 };
 
 export async function makeServer() {
@@ -428,7 +498,41 @@ export async function makeServer() {
     handler: () => 'ok',
   });
 
-  server.route(adminOkRoute);
+  // server.route(adminOkRoute);
+  server.route({
+    method: 'GET',
+    path: '/admin/ok',
+    handler: async () => {
+      const value = 'drupal';
+      const filterParams: FilterOptions = new FilterOptionsClass({
+        filterType: 'group',
+        field: 'search',
+        value,
+        allowInactive: false,
+        dns: [],
+      });
+
+      let groups: any = await searchWrapper(
+        ['cn', 'dn', 'displayname', 'objectclass'],
+        filterParams
+      );
+      let mapGrp = {};
+      if (groups.length > 0 && typeof groups[0] === 'object') {
+        ['cn', 'dn', 'displayname', 'objectclass'].forEach(key => {
+          if (key in groups[0]) {
+            mapGrp[key] = groups[0][key];
+          }
+        });
+      }
+      console.log(`/admin/ok > groups QRY: `, mapGrp['displayname']);
+      return 'ok';
+    },
+    options: {
+      // mark this as a health check so that it doesn’t get logged
+      tags: ['health'],
+      auth: false,
+    },
+  });
   await addGraphQl(server);
 
   return {
@@ -440,6 +544,7 @@ export async function makeServer() {
 const resolvers = {
   Mutation: {
     async updateGroupMembers() {
+      console.log('updateGroupMembers: ', arguments[1]);
       try {
         const opts = arguments[1];
         let dns: any = [];
@@ -448,8 +553,19 @@ const resolvers = {
         if (opts.dns && opts.dns.length > 0) {
           dns = await convertDnsToGroupDNs(opts.dns);
           dn_list = dns.map(entry => entry.group.dn);
-          if (!isDNInOUs(opts.dn, dn_list)) {
-            return new ResponseClass({});
+          const is_DNInOUs = isDNInOUs(opts.dn, dn_list);
+          console.log('is_DNInOUs: ', is_DNInOUs);
+          if (!is_DNInOUs) {
+            // return new ResponseClass({});
+            return new ResponseClass({
+              message: '400',
+              code: 400,
+              body: {
+                error:
+                  'Unauthorired Request: User is not a manager of this group',
+                data: '',
+              },
+            });
           }
         }
         const memberCheck =
@@ -458,9 +574,14 @@ const resolvers = {
         const changeOpts = new ldap.Change({
           operation: opts.operation,
           modification: {
-            uniquemember: members,
+            member: members,
           },
         });
+
+        console.log('memberCheck: ', memberCheck);
+        console.log('members: ', members);
+        // console.log('changeOpts: ', changeOpts);
+
         bindLdapClient(true);
         // req, res, next
         ldapClient.modify(opts.dn, changeOpts, async () => {});
@@ -473,6 +594,7 @@ const resolvers = {
   },
   Query: {
     async getMinimumUserGroups(_parent: any, args: { dns: Array<string> }) {
+      console.log('getMinimumUserGroups > TOP');
       const convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
       const maxMinimum = 9;
       let groups: any = [];
@@ -482,6 +604,11 @@ const resolvers = {
         if (convertedDNs.length > 0) {
           const thisArr = convertedDNs.shift();
           const groupChildren: any = await getGroupChildren(thisArr.dn);
+          console.log(
+            'getMinimumUserGroups > getGroupChildren(thisArr.dn) > groupChildren: ',
+            thisArr.dn,
+            groupChildren
+          );
           if (currDisplayCount < maxMinimum && groupChildren.length > 0) {
             const remainingFromMax = maxMinimum - currDisplayCount;
             if (groupChildren.length < remainingFromMax) {
@@ -498,6 +625,7 @@ const resolvers = {
       return groups;
     },
     async getGroupChildren(_parent: any, args: { parentDn: string }) {
+      console.log('resolvers > getGroupChildren: args: ', args);
       return await getGroupChildren(args.parentDn);
     },
     async convertOUsToContainers(_parent, args: { ous: Array<string> }) {
@@ -505,11 +633,7 @@ const resolvers = {
       const dn_list = dns.map(entry => entry.group.dn);
       return dn_list;
     },
-    async isPersonInactive(parent: any, args: any) {
-      if (parent) {
-        console.log('parent: personSearch');
-      }
-
+    async isPersonInactive(_parent: any, args: any) {
       const retArr: Array<[]> = [];
       const promises = await args.people.map(async (cn: any) => {
         const value = cn.indexOf('=') > -1 ? abstractDN(cn)['cn'][0] : cn;
@@ -561,16 +685,15 @@ const resolvers = {
       const person: any = await searchWrapper(['all'], filterParams);
       return person;
     },
-    async group(parent: any, args: { cn: string; dns: Array<string> }) {
+    async group(_parent: any, args: { cn: string; dns: Array<string> }) {
+      // console.log('group >');
       let dns: any = [];
-      if (parent) {
-        console.log('Query > group > parent: group');
-      }
+
       if (args.dns) {
         dns = await convertDnsToGroupDNs(args.dns);
       }
 
-      const value = args.cn;
+      const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'cn',
@@ -578,6 +701,7 @@ const resolvers = {
         dns,
       });
       const groups: any = await searchWrapper(['all'], filterParams);
+
       return groups;
     },
     async groupSearch(
@@ -596,7 +720,10 @@ const resolvers = {
         dn_list = dns.map(entry => entry.group.dn);
       }
 
-      const value = args.term;
+      const value =
+        args.term.indexOf('=') > -1
+          ? abstractDN(args.term)['cn'][0]
+          : args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'group',
         field: 'search',

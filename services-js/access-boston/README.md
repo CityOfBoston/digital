@@ -93,8 +93,10 @@ We also need to generate keys.
 http://localhost:3000/
 
 ### Staging
-DEV: https://access-boston.dev.digital-staging.boston.gov/
-TEST: http://access-test.boston.gov/
+DEV:
+ - https://access-boston-dev.digital-staging.boston.gov/
+TEST: 
+ - http://access-test.boston.gov/
 
 ### PROD
 https://access-boston.boston.gov/

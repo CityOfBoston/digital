@@ -153,7 +153,7 @@ export default class MarriageIntentionCertificateRequest {
         : null,
       partnerA_age: this.requestInformation.partnerA_age,
       partnerA_occupation: this.requestInformation.partnerA_occupation,
-      partnerA_sex: this.requestInformation.partnerA_sex || null,
+      partnerA_sex: this.requestInformation.partnerA_sex || '',
       partnerA_bloodRelation:
         this.requestInformation.partnerA_bloodRelation || null,
       partnerA_bloodRelationDesc: this.requestInformation
@@ -201,7 +201,7 @@ export default class MarriageIntentionCertificateRequest {
         : null,
       partnerB_age: this.requestInformation.partnerB_age,
       partnerB_occupation: this.requestInformation.partnerB_occupation,
-      partnerB_sex: this.requestInformation.partnerB_sex || null,
+      partnerB_sex: this.requestInformation.partnerB_sex || '',
       partnerB_bloodRelation:
         this.requestInformation.partnerB_bloodRelation || null,
       partnerB_bloodRelationDesc: this.requestInformation
@@ -269,7 +269,7 @@ export default class MarriageIntentionCertificateRequest {
         : null,
       partnerA_age: obj.requestInformation.partnerA_age,
       partnerA_occupation: obj.requestInformation.partnerA_occupation,
-      partnerA_sex: obj.requestInformation.partnerA_sex || null,
+      partnerA_sex: obj.requestInformation.partnerA_sex || '',
       partnerA_bloodRelation:
         obj.requestInformation.partnerA_bloodRelation || null,
       partnerA_bloodRelationDesc:
@@ -314,7 +314,7 @@ export default class MarriageIntentionCertificateRequest {
         : null,
       partnerB_age: obj.requestInformation.partnerB_age,
       partnerB_occupation: obj.requestInformation.partnerB_occupation,
-      partnerB_sex: obj.requestInformation.partnerB_sex || null,
+      partnerB_sex: obj.requestInformation.partnerB_sex || '',
       partnerB_bloodRelation:
         obj.requestInformation.partnerB_bloodRelation || null,
       partnerB_bloodRelationDesc:

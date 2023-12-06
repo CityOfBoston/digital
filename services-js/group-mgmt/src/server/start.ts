@@ -5,7 +5,7 @@
 
 require('dotenv').config();
 
-try {
+const startUp = () => {
   const start = require('../group-mgmt').default;
   console.log('start.server');
 
@@ -14,7 +14,12 @@ try {
     process.exit(1);
   });
   console.log('process.env: ', process.env);
+};
+
+try {
+  startUp();
 } catch (e) {
   console.error(e);
-  process.exit(-1);
+  // process.exit(-1);
+  startUp();
 }

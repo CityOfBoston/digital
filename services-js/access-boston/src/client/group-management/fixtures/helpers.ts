@@ -59,7 +59,7 @@ export const chunkArray = (arr: Array<any> = [], size: Number): object => {
  *       dn: 'cn',
  *       CN: 'cn',
  *       isMemberof: 'ismemberof',
- *       nsAccountLock: 'nsaccountlock',
+ *       nsaccountlock: 'nsaccountlock',
  *      },
  *      {
  *        dn: '',

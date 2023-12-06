@@ -1,26 +1,23 @@
 export const typeDefs = `
   type Group {
+    distinguishedName: String!
     dn: String
     cn: String
-    controls: [String!]!
+    member: [String]!
     uniquemember: [String!]!
-    owner: [String!]!
-    actualdn: String
-    entrydn: String
     objectclass: [String]
     displayname: String
-    ou: String
   }
 
   type Person {
-    cn: String
+    distinguishedName: String!
     dn: String
+    cn: String
     mail: String
     sn: String
     givenname: String
     displayname: String
-    uid: String
-    controls: [String!]!
+    memberof: [String!]!
     ismemberof: [String!]!
     inactive: Boolean
     nsaccountlock: String
@@ -55,6 +52,7 @@ export const typeDefs = `
   }
 
   type group {
+    distinguishedName: String!
     dn: String
     cn: String
   }

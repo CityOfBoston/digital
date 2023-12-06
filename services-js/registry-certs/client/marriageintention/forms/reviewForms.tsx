@@ -147,7 +147,7 @@ export default class ReviewForms extends Component<Props> {
             dob={this.formatDate(requestInformation.partnerA_dob)}
             age={requestInformation.partnerA_age}
             occupation={requestInformation.partnerA_occupation}
-            sex={requestInformation.partnerA_sex}
+            // sex={requestInformation.partnerA_sex}
             address={`
               ${requestInformation.partnerA_residenceAddress},
               ${requestInformation.partnerA_residenceCity}
@@ -200,7 +200,7 @@ export default class ReviewForms extends Component<Props> {
             dob={this.formatDate(requestInformation.partnerB_dob)}
             age={requestInformation.partnerB_age}
             occupation={requestInformation.partnerB_occupation}
-            sex={requestInformation.partnerB_sex}
+            // sex={requestInformation.partnerB_sex}
             address={`
               ${requestInformation.partnerB_residenceAddress},
               ${requestInformation.partnerB_residenceCity}

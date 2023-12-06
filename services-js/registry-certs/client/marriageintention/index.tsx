@@ -209,7 +209,14 @@ export default class IndexPage extends React.Component<Props, State> {
   ) => {
     // eslint-disable-next-line no-console
     // console.log('ReviewForm > submitRequest', this);
-    const { marriageIntentionDao } = this.props;
+
+    // DIG-2105
+    // console.log('submitRequest: ', modifiedRequest);
+    const {
+      // currentStep,
+      // marriageIntentionCertificateRequest,
+      marriageIntentionDao,
+    } = this.props;
 
     try {
       // let formCompleted: any = null;
@@ -217,9 +224,11 @@ export default class IndexPage extends React.Component<Props, State> {
       // eslint-disable-next-line no-console
       // console.log('index > submitRequest > modifiedRequest: ', modifiedRequest);
 
+      // DIG-2105
       await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
         modifiedRequest
       );
+
       // formCompleted = await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
       //   modifiedRequest
       // );
@@ -229,7 +238,14 @@ export default class IndexPage extends React.Component<Props, State> {
       //   formCompleted
       // );
 
+      // DIG-2105
       this.advanceQuestion(modifiedRequest);
+
+      // DIG-2105
+      // const newSteps = marriageIntentionCertificateRequest.steps;
+      // const currentIndex = newSteps.indexOf(currentStep);
+      // const nextStep = newSteps[currentIndex + 1];
+      // Router.push(`/marriageintention?step=${nextStep}`);
     } catch (e) {
       if ((window as any).Rollbar) {
         (window as any).Rollbar.error(e);
@@ -268,60 +284,85 @@ export default class IndexPage extends React.Component<Props, State> {
     switch (currentStep) {
       case 'instructions':
         questionsEl = (
-          <Instructions
-            marriageIntentionCertificateRequest={
-              localMarriageIntentionCertificateRequest
-            }
-            handleProceed={this.advanceQuestion.bind(
-              this,
-              localMarriageIntentionCertificateRequest
-            )}
-            handleUserReset={this.handleUserReset}
-          />
+          <>
+            <Instructions
+              marriageIntentionCertificateRequest={
+                localMarriageIntentionCertificateRequest
+              }
+              handleProceed={this.advanceQuestion.bind(
+                this,
+                localMarriageIntentionCertificateRequest
+              )}
+              handleUserReset={this.handleUserReset}
+            />
+
+            {emailContentBlock()}
+          </>
         );
+
+        // DIG-2105
+        // questionsEl = (
+        //   <Receipt
+        //     marriageIntentionCertificateRequest={
+        //       localMarriageIntentionCertificateRequest
+        //     }
+        //   />
+        // );
         break;
       case 'contactInfo':
         questionsEl = (
-          <ContactInfo
-            marriageIntentionCertificateRequest={
-              localMarriageIntentionCertificateRequest
-            }
-            handleProceed={this.advanceQuestion.bind(
-              this,
-              localMarriageIntentionCertificateRequest
-            )}
-            handleStepBack={this.stepBackOneQuestion}
-          />
+          <>
+            <ContactInfo
+              marriageIntentionCertificateRequest={
+                localMarriageIntentionCertificateRequest
+              }
+              handleProceed={this.advanceQuestion.bind(
+                this,
+                localMarriageIntentionCertificateRequest
+              )}
+              handleStepBack={this.stepBackOneQuestion}
+            />
+
+            {emailContentBlock()}
+          </>
         );
         break;
       case 'partnerFormA':
         questionsEl = (
-          <PartnerFormA
-            marriageIntentionCertificateRequest={
-              localMarriageIntentionCertificateRequest
-            }
-            handleProceed={this.advanceQuestion.bind(
-              this,
-              localMarriageIntentionCertificateRequest
-            )}
-            handleStepBack={this.stepBackOneQuestion}
-            partnerLabel={'A'}
-          />
+          <>
+            <PartnerFormA
+              marriageIntentionCertificateRequest={
+                localMarriageIntentionCertificateRequest
+              }
+              handleProceed={this.advanceQuestion.bind(
+                this,
+                localMarriageIntentionCertificateRequest
+              )}
+              handleStepBack={this.stepBackOneQuestion}
+              partnerLabel={'A'}
+            />
+
+            {emailContentBlock()}
+          </>
         );
         break;
       case 'partnerFormB':
         questionsEl = (
-          <PartnerFormB
-            marriageIntentionCertificateRequest={
-              localMarriageIntentionCertificateRequest
-            }
-            handleProceed={this.advanceQuestion.bind(
-              this,
-              localMarriageIntentionCertificateRequest
-            )}
-            handleStepBack={this.stepBackOneQuestion}
-            partnerLabel={'B'}
-          />
+          <>
+            <PartnerFormB
+              marriageIntentionCertificateRequest={
+                localMarriageIntentionCertificateRequest
+              }
+              handleProceed={this.advanceQuestion.bind(
+                this,
+                localMarriageIntentionCertificateRequest
+              )}
+              handleStepBack={this.stepBackOneQuestion}
+              partnerLabel={'B'}
+            />
+
+            {emailContentBlock()}
+          </>
         );
         break;
       case 'reviewForms':
@@ -331,16 +372,20 @@ export default class IndexPage extends React.Component<Props, State> {
         //   localMarriageIntentionCertificateRequest
         // );
         questionsEl = (
-          <ReviewForms
-            marriageIntentionCertificateRequest={
-              localMarriageIntentionCertificateRequest
-            }
-            handleProceed={this.submitRequest.bind(
-              this,
-              localMarriageIntentionCertificateRequest
-            )}
-            handleStepBack={this.stepBackOneQuestion}
-          />
+          <>
+            <ReviewForms
+              marriageIntentionCertificateRequest={
+                localMarriageIntentionCertificateRequest
+              }
+              handleProceed={this.submitRequest.bind(
+                this,
+                localMarriageIntentionCertificateRequest
+              )}
+              handleStepBack={this.stepBackOneQuestion}
+            />
+
+            {emailContentBlock()}
+          </>
         );
         break;
       case 'reviewRequest':
@@ -354,16 +399,20 @@ export default class IndexPage extends React.Component<Props, State> {
         break;
       default:
         questionsEl = (
-          <Instructions
-            marriageIntentionCertificateRequest={
-              localMarriageIntentionCertificateRequest
-            }
-            handleProceed={this.advanceQuestion.bind(
-              this,
-              localMarriageIntentionCertificateRequest
-            )}
-            handleUserReset={this.handleUserReset}
-          />
+          <>
+            <Instructions
+              marriageIntentionCertificateRequest={
+                localMarriageIntentionCertificateRequest
+              }
+              handleProceed={this.advanceQuestion.bind(
+                this,
+                localMarriageIntentionCertificateRequest
+              )}
+              handleUserReset={this.handleUserReset}
+            />
+
+            {emailContentBlock()}
+          </>
         );
         break;
     }
@@ -389,20 +438,27 @@ export default class IndexPage extends React.Component<Props, State> {
 
           {questionsEl}
 
-          <div className="m-v700">
-            Questions? Email the Registry Department at{' '}
-            <a
-              href="mailto:marriage@boston.gov"
-              onClick={ContactForm.makeMailtoClickHandler(
-                'marriage-cert-feedback-form'
-              )}
-            >
-              marriage@boston.gov
-            </a>
-            .
-          </div>
+          {/* DIG-2105 */}
+          {/* {emailContentBlock()} */}
         </div>
       </PageWrapper>
     );
   }
 }
+
+const emailContentBlock = () => {
+  return (
+    <div className="m-v700">
+      Questions? Email the Registry Department at{' '}
+      <a
+        href="mailto:marriage@boston.gov"
+        onClick={ContactForm.makeMailtoClickHandler(
+          'marriage-cert-feedback-form'
+        )}
+      >
+        marriage@boston.gov
+      </a>
+      .
+    </div>
+  );
+};
