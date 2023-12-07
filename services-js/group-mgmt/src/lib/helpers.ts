@@ -53,6 +53,27 @@ export const convertToBool = (val: String, base: boolean): boolean => {
 };
 
 /**
+ * @param {number} pos (512) Value matching Booleab `TRUE`
+ * @param {number} neg (514) Value matching Booleab `FALSE`
+ * @param {string} val Value to be converted
+ * @return {boolean} Converts possible values into Boolean response
+ * @description Convert custom Boolean value (512 | 514), any other value return false;
+ *
+ * @example
+ *    numbericPairToBool(512, 514, "512") = TRUE
+ */
+export const numbericPairToBool = (
+  pos: number,
+  neg: number,
+  val: string
+): boolean => {
+  if (Number.isNaN(val)) return false;
+  if (pos === parseInt(val)) return true;
+  if (neg === parseInt(val)) return false;
+  return false;
+};
+
+/**
  * @param {object} keysMap - Object, key/value Object with renamed keys
  * @param {object} targetObj - Object whose keys you want to rename
  * @description Rename object keys using the keyMap object
@@ -73,7 +94,8 @@ export const convertToBool = (val: String, base: boolean): boolean => {
  *        isSponsor: 'TRUE',
  *      },
  *     );
- *     return {
+ *
+ *     returns {
  *       dn: '',
  *       cn: '100992',
  *       ismemberof: [],
@@ -266,7 +288,16 @@ export const isDNInOUs = (dn: string, dns: Array<string>) => {
   return retArr.length > 0;
 };
 
-export const getOnlyActiveMembers = (arr: any) => {
+/**
+ * @name getPrimaryCNames
+ * @param {object} arr - String or Array of a Group/Person's `Common Name`(CN)
+ * @description Parse the `Primary` (First) part of an entries CN
+ * @return {Array} - Returns an array of CNs, parsed by their primary CN/Employee ID
+ *
+ * @example
+ */
+export const getPrimaryCNames = (arr: any): Array<[string]> => {
+  // console.log('getPrimaryCNames: START(arr): ', arr);
   const unparsedArr = typeof arr === 'string' ? [arr] : arr;
   const data = unparsedArr.filter((node: Array<[String]>) => node.length > 0);
   if (data.length > 0) {
@@ -279,8 +310,10 @@ export const getOnlyActiveMembers = (arr: any) => {
       }
       return str;
     });
+
     return parsedCn;
   }
+
   return [];
 };
 

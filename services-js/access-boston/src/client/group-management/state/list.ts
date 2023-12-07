@@ -66,10 +66,11 @@ export const reducer = (list, action: Partial<Action>) => {
     case 'LIST/TOGGLE_ITEM_STATUS':
       return list.map(item => {
         if (action.item && item.cn === action.item.cn) {
-          return {
+          item = {
             ...item,
             status: item.status === 'remove' ? 'current' : 'remove',
           };
+          return item;
         } else {
           return item;
         }

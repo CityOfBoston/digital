@@ -40,13 +40,13 @@ export default function ListItemComponent(props: Props) {
     item: { cn, displayName, isAvailable, status },
     view,
     viewOnly,
-    mode,
   } = props;
 
   let displayText = displayName || cn;
-  if (mode && mode === 'group' && item['givenName'] && item['sn']) {
+  if (item['givenName'] && item['sn']) {
     displayText = `${item['givenName']} ${item['sn']}`;
   }
+
   const clickHandler = handleClick
     ? { onClick: () => handleClick(props.item) }
     : null;

@@ -1,6 +1,7 @@
 import { fetchGraphql } from './fetchGraphql';
-import { toPerson } from '../state/data-helpers';
+import { toPerson, toGroup } from '../state/data-helpers';
 import { Group, Person } from '../types';
+import { chunkArray } from '../fixtures/helpers';
 
 const PERSON_DATA = `
   dn
@@ -27,6 +28,44 @@ const SEARCH_PEOPLE = `
     }
   }
 `;
+
+const GROUP_MEMBER_ATTR = `
+  distinguishedName
+  dn
+  cn
+  displayname
+  givenname 
+  sn
+  cOBUserAgency
+  mail
+`;
+
+const PERSON_MEMBER_ATTR = `
+  cn distinguishedName displayname
+`;
+
+const FETCH_GROUPMEMBERS = `
+  query getGroupMembers($filter: String) {
+    getGroupMemberAttributes(filter: $filter) {
+      ${GROUP_MEMBER_ATTR}
+    }
+  }
+`;
+
+const FETCH_PERSONMEMBERS = `
+  query getPersonMembers($filter: String) {
+    getPersonMemberAttributes(filter: $filter) {
+      ${PERSON_MEMBER_ATTR}
+    }
+  }
+`;
+
+/**
+ * Returns Group Members.
+ */
+// export async function fetchGroupMembers(filter: string): Promise<any> {
+//   return await fetchGraphql(FETCH_GROUPMEMBERS, { filter });
+// }
 
 /**
  * Returns a single Person object.
@@ -62,25 +101,47 @@ export async function fetchPersonSearch(
  * Inactive employees WILL be included in these results; see line 63.
  */
 export async function fetchGroupMembers(
-  group: Group,
-  dns: String[] = [],
-  _currentPage: number = 0
+  filter: String,
+  pageSize: number = 100
 ): Promise<Person[]> {
-  return await Promise.all(
-    group.chunked[_currentPage].map(
-      personCn => {
-        // todo: remove .replace() when api data no longer includes cn=
-        const cn = personCn.replace('cn=', '');
-
-        return fetchPerson(cn, dns)
-          .then(response => {
-            return toPerson(response.person[0]);
-          })
-          .catch(() => toPerson({ cn, inactive: true }));
-      },
-      [] as Person[]
-    )
+  let groups = await fetchGraphql(FETCH_GROUPMEMBERS, { filter });
+  groups = groups[Object.keys(groups)[0]];
+  let retGroups = groups.map((item: any) => {
+    return toPerson(item);
+  });
+  retGroups = retGroups.sort(
+    (a: any, b: any) =>
+      b['isAvailable'] - a['isAvailable'] ||
+      a['sn'].localeCompare(b['sn']) ||
+      a['displayName'].localeCompare(b['displayName']) ||
+      a.cn - b.cn
   );
+
+  return chunkArray(retGroups, pageSize);
+}
+
+/**
+ * Returns a promise resolving to an array of People representing all
+ * members of a specific group.
+ *
+ * Inactive employees WILL be included in these results; see line 63.
+ */
+export async function fetchPersonGroups(
+  filter: string,
+  pageSize: number = 100,
+  ous: string[] = []
+): Promise<Person[]> {
+  let persons = await fetchGraphql(FETCH_PERSONMEMBERS, { filter });
+  persons = persons[Object.keys(persons)[0]];
+
+  let retObj = persons.map((item: any) => toGroup(item, ous));
+  // console.log('fetchPersonGroups > retObj: ', retObj);
+  retObj = retObj.sort(
+    (a: any, b: any) =>
+      a['displayName'].localeCompare(b['displayName']) || a.cn - b.cn
+  );
+
+  return chunkArray(retObj, pageSize);
 }
 
 /**
@@ -93,7 +154,9 @@ export async function fetchPersonSearchRemaining(
   group: Group,
   dns: String[]
 ): Promise<Person[]> {
-  const people = await fetchPersonSearch(term, dns);
+  const people = await (await fetchPersonSearch(term, dns)).filter(
+    person => !group.members.includes(person.cn)
+  );
 
-  return people.filter(person => !group.members.includes(person.cn));
+  return people;
 }

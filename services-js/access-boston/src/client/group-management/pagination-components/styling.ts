@@ -47,9 +47,9 @@ export const PAGINATION = css({
     borderLeftColor: CHARLES_BLUE,
   },
 
-  '.prev-next:hover': {
-    backgroundColor: FREEDOM_RED_DARK,
-  },
+  // '.prev-next:hover': {
+  //   backgroundColor: FREEDOM_RED_DARK,
+  // },
 
   '.prev-next a:hover': {
     backgroundColor: FREEDOM_RED_DARK,

@@ -19,7 +19,6 @@ import { Mode } from './types';
 import Section from './Section';
 
 import Icon from './Icon';
-// import { Group, Person } from '../group-management/types';
 import MinGroupDisplay from './MinGroupDisplay';
 
 interface Props {
@@ -29,6 +28,9 @@ interface Props {
   adminMinGroups?: [];
   handleAdminGroupClick: (item: any) => void;
   viewOnly?: boolean;
+  pageSize: number;
+  dispatchList: any;
+  changePageCount: any;
 }
 
 /**
@@ -82,6 +84,9 @@ export default function InitialView(props: Props) {
         <MinGroupDisplay
           groups={admin_groups}
           handleAdminGroupClick={props.handleAdminGroupClick}
+          pageSize={props.pageSize}
+          dispatchList={props.dispatchList}
+          changePageCount={props.changePageCount}
         />
       ) : (
         <>{props.searchComponent}</>

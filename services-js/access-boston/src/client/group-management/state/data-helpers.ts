@@ -49,34 +49,32 @@ export function getAllCns(uniqueMember: string[]): string[] {
  * Accepts a group object from server response, and returns a usable
  * Group object.
  */
-export function toGroup(
-  dataObject,
-  _dns: Array<string> = [],
-  _ous: Array<string> = []
-): Group {
+export function toGroup(dataObject, ous: Array<string> = []): Group {
   let isAvailable =
-    dataObject.canModify !== undefined ? dataObject.canModify : true;
+    dataObject.canModify && typeof dataObject.canModify === 'boolean'
+      ? dataObject.canModify
+      : true;
   let inDomain = true;
 
-  if (_ous.length > 0) {
-    inDomain = isDomainNameInOUs(dataObject.dn, _ous);
+  if (ous.length > 0) {
+    inDomain = isDomainNameInOUs(dataObject.distinguishedName, ous);
     if (!inDomain) {
       isAvailable = false;
     }
   }
 
   const chunkedResults =
-    dataObject.uniquemember && dataObject.uniquemember.length > 0
-      ? chunkArray(dataObject.uniquemember, pageSize)
+    dataObject.member && dataObject.member.length > 0
+      ? chunkArray(dataObject.member, pageSize)
       : [[]];
 
   const retObj = {
     ...commonAttributes(dataObject),
-    members: dataObject.uniquemember || [],
+    members: dataObject.member || [],
+    groupmember: [],
     isAvailable,
     chunked: chunkedResults,
   };
-  // console.log('toGroup > retObj: ', retObj, '\n------------');
 
   return retObj;
 }
@@ -92,6 +90,11 @@ export function toPerson(dataObject): Person {
       : [[]];
   // console.log('toPerson > dataObject: ');
   // console.log('chunked: ', chunkedResults,'\n------------');
+  const displayName = dataObject.displayName
+    ? dataObject.displayName
+    : dataObject.displayname
+    ? dataObject.displayname
+    : '';
   const retObj = {
     ...commonAttributes(dataObject),
     groups: dataObject.ismemberof || [],
@@ -100,6 +103,9 @@ export function toPerson(dataObject): Person {
     sn: dataObject.sn || '',
     mail: dataObject.mail || '',
     isAvailable: !dataObject.inactive,
+    cOBUserAgency: dataObject.cOBUserAgency ? dataObject.cOBUserAgency : '',
+    dn: dataObject.dn,
+    displayName,
   };
   // console.log('toGroup > retObj: ', retObj, '\n------------');
 
@@ -107,14 +113,25 @@ export function toPerson(dataObject): Person {
 }
 
 function commonAttributes(dataObject): CommonAttributes {
-  // console.log('CommonAttributes dataObj: ', dataObject);
-  return {
+  const displayName = dataObject.displayname || dataObject.cn;
+  const dn: string = dataObject.distinguishedName
+    ? dataObject.distinguishedName
+    : dataObject.dn || '';
+  const retObj = {
     cn: dataObject.cn,
-    dn: dataObject.dn || '',
-    displayName: dataObject.displayname || dataObject.cn,
+    dn,
+    displayName,
     status: 'current' as ItemStatus,
     action: '' as Action,
   };
+  // console.log('CommonAttributes dataObj: ', dataObject);
+  // console.log('CommonAttributes dataObj.displayname: ', dataObject.displayname);
+  // console.log('CommonAttributes dataObj.displayName: ', dataObject.displayName);
+  // console.log('CommonAttributes dataObj.cn: ', dataObject.cn);
+  // console.log('CommonAttributes displayName: ', displayName);
+  // console.log('CommonAttributes retObj: ', retObj);
+  // console.log('---------');
+  return retObj;
 }
 
 export const isDomainNameInOUs = (dn: string, dns: Array<string>) => {

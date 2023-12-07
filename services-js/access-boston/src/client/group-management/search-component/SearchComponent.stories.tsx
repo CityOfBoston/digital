@@ -30,6 +30,9 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       //@ts-ignore
       selectedItem={mockGroup}
       dns={[]}
+      currentPage={0}
+      pageSize={1}
+      changePageCount={() => {}}
     />
   ))
   .add('group add', () => (
@@ -41,6 +44,9 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       //@ts-ignore
       selectedItem={mockPerson}
       dns={[]}
+      currentPage={0}
+      pageSize={1}
+      changePageCount={() => {}}
     />
   ))
   .add('person search', () => (
@@ -50,6 +56,9 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleFetch={fetchPersonSearch}
       handleSelectClick={() => {}}
       dns={[]}
+      currentPage={0}
+      pageSize={1}
+      changePageCount={() => {}}
     />
   ))
   .add('group search', () => (
@@ -59,6 +68,9 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleFetch={fetchGroupSearch}
       handleSelectClick={() => {}}
       dns={[]}
+      currentPage={0}
+      pageSize={1}
+      changePageCount={() => {}}
     />
   ))
   .add('searching', () => (
@@ -69,6 +81,9 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleSelectClick={() => {}}
       currentStatus="searching"
       dns={[]}
+      currentPage={0}
+      pageSize={1}
+      changePageCount={() => {}}
     />
   ))
   .add('no results', () => (
@@ -79,6 +94,9 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleSelectClick={() => {}}
       currentStatus="noResults"
       dns={[]}
+      currentPage={0}
+      pageSize={1}
+      changePageCount={() => {}}
     />
   ))
   .add('server error/could not reach server', () => (
@@ -89,5 +107,8 @@ storiesOf('GroupManagementPage/SearchComponent', module)
       handleSelectClick={() => {}}
       currentStatus="fetchError"
       dns={[]}
+      currentPage={0}
+      pageSize={1}
+      changePageCount={() => {}}
     />
   ));
