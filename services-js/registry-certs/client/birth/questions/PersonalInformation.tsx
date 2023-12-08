@@ -12,6 +12,8 @@ import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 
+import { getPickUpDate } from '../../../lib/helpers';
+
 import {
   NAME_FIELDS_CONTAINER_STYLING,
   SUPPORTING_TEXT_CLASSNAME,
@@ -169,20 +171,7 @@ export default class PersonalInformation extends Component<Props> {
 function isDateWithinPastFourteenDays(date: Date): boolean {
   const dayInMs = 8.64e7;
   const daysAgo = new Date(Date.now() - 14 * dayInMs);
-
   return daysAgo < date;
-}
-
-function getPickUpDate(date: Date | null | undefined): string {
-  if (date && typeof date === 'object' && typeof date.getDate === 'function') {
-    const pickUpDate = new Date(
-      new Date(Date.now() - 14 * 8.64e7).setDate(date.getDate() + 14)
-    );
-    return `${pickUpDate.getMonth() +
-      1}/${pickUpDate.getDate()}/${pickUpDate.getFullYear()}`;
-  } else {
-    return '';
-  }
 }
 
 const PICKUP_DATE_STYLE = css({

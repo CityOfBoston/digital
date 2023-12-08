@@ -7,13 +7,25 @@ ENV NODE_ENV development
 WORKDIR /app
 
 #ENV PYTHONUNBUFFERED=1
-RUN apk add --no-cache git openssl
+# RUN apk add --no-cache git openssl
+ENV PYTHONUNBUFFERED=1
+RUN apk add --no-cache git openssl \
+   && apk add --update --no-cache python3 curl unzip \
+   && ln -sf python3 /usr/bin/python \
+   && python3 -m ensurepip \
+   && pip3 install --no-cache --upgrade pip setuptools \
+   && cd /tmp \
+   && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
+   && unzip awscli-bundle.zip \
+   && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
+   && rm awscli-bundle.zip \
+   && rm -rf awscli-bundle
 
 # To prevent “Error: could not get uid/gid”
 RUN npm config set unsafe-perm true
 
 # Need to upgrade yarn to at least 1.6
-RUN yarn global add yarn@^1.6.0
+RUN yarn global add yarn@^1.22.19
 
 ADD . /app/
 
@@ -52,6 +64,7 @@ RUN apk add --no-cache git openssl \
    && rm -rf awscli-bundle
 
 WORKDIR /app/services-js/${WORKSPACE}
+RUN yarn global add yarn@^1.22.19
 RUN yarn run build
 
 #ADD ./.aws /root/.aws
