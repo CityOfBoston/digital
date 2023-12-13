@@ -42,12 +42,10 @@ import {
   PARTNERSHIP_TYPE,
   MARRIAGE_COUNT,
   US_STATES,
-  // LAST_MARRIAGE_STATUS,
+  LAST_MARRIAGE_STATUS,
   BOSTON_NEIGHBORHOODS,
   SUFFIX_OPTIONS,
 } from './inputData';
-
-import { lastMarriageStatus, nameFields } from './partnerFormUI';
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
@@ -416,14 +414,6 @@ export default class PartnerForm extends Component<Props> {
     const { marriageIntentionCertificateRequest, partnerLabel } = this.props;
     const {
       partnerA_marriageNumb,
-      partnerA_lastMarriageStatus,
-
-      partnerA_firstName,
-      partnerA_lastName,
-      partnerA_middleName,
-      partnerA_surName,
-      partnerA_occupation,
-      partnerA_suffix,
     } = marriageIntentionCertificateRequest.requestInformation;
     const marriageNumb = MARRIAGE_COUNT.find(
       entry => entry.value === partnerA_marriageNumb
@@ -443,29 +433,18 @@ export default class PartnerForm extends Component<Props> {
             <h2 css={SECTION_HEADING_STYLING}>Person {partnerLabel}</h2>
           }
         >
-          {nameFields(
-            this.handleChange,
-            this.handleResidenceStateChange,
-            partnerA_firstName,
-            partnerA_lastName,
-            partnerA_middleName,
-            partnerA_surName,
-            partnerA_occupation,
-            partnerA_suffix
-          )}
+          {this.nameFields()}
           {this.dateOfBirth()}
           {this.birthPlace()}
           {this.residence()}
 
           {marriageNumb &&
             marriageNumb.value !== MARRIAGE_COUNT[0].value &&
-            lastMarriageStatus({
-              handleChange: this.handleChange,
-              partnerA_lastMarriageStatus: partnerA_lastMarriageStatus,
-            })}
+            this.lastMarriageStatus()}
 
           {this.partnershipType()}
           {this.parents()}
+          {/* {this.sex()} */}
           {this.parentsMarried()}
           {this.bloodRelation()}
         </FieldsetComponent>
@@ -475,6 +454,44 @@ export default class PartnerForm extends Component<Props> {
 
   // UI ELEMENTS
   // -----------
+
+  lastMarriageStatus() {
+    const { marriageIntentionCertificateRequest } = this.props;
+    const {
+      partnerA_lastMarriageStatus,
+    } = marriageIntentionCertificateRequest.requestInformation;
+
+    return (
+      <div css={SECTION_WRAPPER_STYLING}>
+        <div
+          css={[
+            NAME_FIELDS_BASIC_CONTAINER_STYLING,
+            HEADER_SPACING_STYLING,
+            BOTTOM_SPACING_STYLING,
+          ]}
+        >
+          <h2 css={SECTION_HEADING_STYLING}>
+            If Applicable, Status of Last Marriage
+          </h2>
+
+          <div css={RADIOGROUP_CONTAINER_STYLING}>
+            <RadioGroup
+              items={LAST_MARRIAGE_STATUS}
+              name="partnerA_lastMarriageStatus"
+              checkedValue={partnerA_lastMarriageStatus}
+              handleItemChange={this.handleChange}
+              groupLabel=""
+              hideLabel
+            />
+
+            <label className="notice">
+              If void, please provide clerk with evidence.
+            </label>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   residenceState() {
     const { marriageIntentionCertificateRequest } = this.props;

@@ -97,6 +97,14 @@ export type MarriageIntentionStep =
   | 'reviewForms'
   | 'reviewRequest';
 
+export type MarriageIntentionStepLabels =
+  | 'Getting Started'
+  | 'Person 1'
+  | 'Person 2'
+  | 'Contact Info'
+  | 'Review'
+  | 'Submit';
+
 export type IntentionQuestion = 'introStart';
 
 // Marriage-specific

@@ -13,6 +13,7 @@ export function NarrowWrapper(props: { children: Children }): JSX.Element {
 const CENTER_STYLING = { margin: '2rem auto' };
 
 const NARROW_STYLING = {
-  maxWidth: '600px',
+  // maxWidth: '600px',
+  maxWidth: '768px',
   ...CENTER_STYLING,
 };

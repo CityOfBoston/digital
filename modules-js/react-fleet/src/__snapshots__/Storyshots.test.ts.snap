@@ -1620,7 +1620,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
           id="future-year"
           max="9999"
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1770,7 +1770,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           id="story-year"
           max="9999"
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1920,7 +1920,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           id="story-year"
           max={2040}
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -2070,7 +2070,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           id="story-year"
           max={2040}
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -2218,7 +2218,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
         <input
           className="txt-f"
           id="past-year"
-          max={2023}
+          max={2024}
           maxLength={4}
           min="1000"
           name="year"
@@ -2368,7 +2368,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
         <input
           className="txt-f"
           id="initial-year"
-          max={2023}
+          max={2024}
           maxLength={4}
           min="1000"
           name="year"
@@ -4655,6 +4655,1628 @@ exports[`Storyshots ProgressBar with task name 1`] = `
     >
       Step 3 of 5: Shipping information
     </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 1: Getting Started (default) 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed:hover,
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.focused {
+  color: white;
+  cursor: pointer;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  box-shadow: inset 0 0 0px 1px #fff;
+}
+
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.completed .current,
+.emotion-0 .progressbar .nav a.completed .focused .current {
+  color: #000;
+  background: #fff;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted,
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  color: #000;
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  cursor: default;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 1 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Getting Started
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 2: Person 1 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed:hover,
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.focused {
+  color: white;
+  cursor: pointer;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  box-shadow: inset 0 0 0px 1px #fff;
+}
+
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.completed .current,
+.emotion-0 .progressbar .nav a.completed .focused .current {
+  color: #000;
+  background: #fff;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted,
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  color: #000;
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  cursor: default;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed  "
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 2 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Person 1
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 3: Person 2 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed:hover,
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.focused {
+  color: white;
+  cursor: pointer;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  box-shadow: inset 0 0 0px 1px #fff;
+}
+
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.completed .current,
+.emotion-0 .progressbar .nav a.completed .focused .current {
+  color: #000;
+  background: #fff;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted,
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  color: #000;
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  cursor: default;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed  "
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed  "
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 3 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Person 2
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 4: Contact Info - Nav one step back 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed:hover,
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.focused {
+  color: white;
+  cursor: pointer;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  box-shadow: inset 0 0 0px 1px #fff;
+}
+
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.completed .current,
+.emotion-0 .progressbar .nav a.completed .focused .current {
+  color: #000;
+  background: #fff;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted,
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  color: #000;
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  cursor: default;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed  "
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed  "
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed focused "
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed  current"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 3 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Person 2
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 4: Contact Info 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed:hover,
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.focused {
+  color: white;
+  cursor: pointer;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  box-shadow: inset 0 0 0px 1px #fff;
+}
+
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.completed .current,
+.emotion-0 .progressbar .nav a.completed .focused .current {
+  color: #000;
+  background: #fff;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted,
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  color: #000;
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  cursor: default;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed  "
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed  "
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed  "
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 4 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Contact Info
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 5: Review 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed:hover,
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.focused {
+  color: white;
+  cursor: pointer;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  box-shadow: inset 0 0 0px 1px #fff;
+}
+
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.completed .current,
+.emotion-0 .progressbar .nav a.completed .focused .current {
+  color: #000;
+  background: #fff;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted,
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  color: #000;
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  cursor: default;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed  "
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed  "
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed  "
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed  "
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted  "
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 5 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Review
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 6: Submit 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed:hover,
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.focused {
+  color: white;
+  cursor: pointer;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  box-shadow: inset 0 0 0px 1px #fff;
+}
+
+.emotion-0 .progressbar .nav a.current,
+.emotion-0 .progressbar .nav a.completed .current,
+.emotion-0 .progressbar .nav a.completed .focused .current {
+  color: #000;
+  background: #fff;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted,
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  color: #000;
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover {
+  cursor: default;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed   done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed   done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed   done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed   done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="completed   done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="completed focused current done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 6 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Submit
+        </span>
+      </div>
+    </div>
   </div>
 </div>
 `;
