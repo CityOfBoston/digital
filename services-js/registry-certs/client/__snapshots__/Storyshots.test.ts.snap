@@ -9662,16 +9662,16 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
 `;
 
 exports[`Storyshots Birth/Question Components/PersonalInformation birth too recent 1`] = `
-.emotion-6 fieldset + fieldset {
+.emotion-7 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-6 fieldset + fieldset {
+  .emotion-7 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-6 fieldset + fieldset .lnk {
+  .emotion-7 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
@@ -9715,33 +9715,33 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   font-size: 1rem;
 }
 
-.emotion-8 {
+.emotion-9 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-8 {
+  .emotion-9 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-8 > div {
+  .emotion-9 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-8 > div.ta-r > button {
+  .emotion-9 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-8 .lnk {
+  .emotion-9 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-7 {
+.emotion-8 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
@@ -9834,12 +9834,16 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   cursor: not-allowed;
 }
 
+.emotion-6 {
+  font-weight: bold;
+}
+
 <div>
   <div
     className="b-c b-c--hsm"
   >
     <div
-      className="emotion-6"
+      className="emotion-7"
     >
       <fieldset
         className=" emotion-2"
@@ -10027,7 +10031,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
                   onFocus={[Function]}
                   placeholder="MM"
                   type="number"
-                  value="4"
+                  value="5"
                 />
               </div>
               <div>
@@ -10049,7 +10053,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
                   onFocus={[Function]}
                   placeholder="DD"
                   type="number"
-                  value="28"
+                  value="12"
                 />
               </div>
               <div>
@@ -10095,10 +10099,12 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
         <p>
           Birth information takes up to two weeks to arrive from a hospital to the City of Boston. Please submit an order after
            
-          12/12/2023
-          . We apologize for the inconvenience. If you
-           
-          have any questions or concerns, please
+          <span
+            className="emotion-6"
+          >
+            5/12/1990
+          </span>
+          . We apologize for the inconvenience. If you have any questions or concerns, please
            
           <a
             href="https://www.boston.gov/still-have-questions-registry"
@@ -10111,13 +10117,13 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
       </div>
     </div>
     <div
-      className="g g--mr emotion-8"
+      className="g g--mr emotion-9"
     >
       <div
         className="t--info g--6 m-b500"
       >
         <button
-          className="lnk emotion-7"
+          className="lnk emotion-8"
           onClick={[Function]}
           type="button"
         >
