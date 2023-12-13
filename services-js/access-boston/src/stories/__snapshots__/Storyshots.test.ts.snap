@@ -5493,7 +5493,9 @@ exports[`Storyshots GroupManagementPage default 1`] = `
               Group search
             </h2>
           </div>
-          <form>
+          <form
+            name="Search Component - Group"
+          >
             <div
               role="search"
             >
@@ -5507,7 +5509,7 @@ exports[`Storyshots GroupManagementPage default 1`] = `
                 className="css-1f7lh8s-SearchComponent"
               >
                 <div
-                  className="css-1ay776l-SearchComponent"
+                  className="css-1cpl1g5-SearchComponent"
                 >
                   <div
                     aria-expanded={false}
@@ -5760,7 +5762,9 @@ exports[`Storyshots GroupManagementPage/Index default 1`] = `
           Group search
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Group"
+      >
         <div
           role="search"
         >
@@ -5774,7 +5778,7 @@ exports[`Storyshots GroupManagementPage/Index default 1`] = `
             className="css-1f7lh8s-SearchComponent"
           >
             <div
-              className="css-1ay776l-SearchComponent"
+              className="css-1cpl1g5-SearchComponent"
             >
               <div
                 aria-expanded={false}
@@ -5986,7 +5990,9 @@ Array [
           Group search
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Group"
+      >
         <div
           role="search"
         >
@@ -6000,7 +6006,7 @@ Array [
             className="css-1f7lh8s-SearchComponent"
           >
             <div
-              className="css-1ay776l-SearchComponent"
+              className="css-1cpl1g5-SearchComponent"
             >
               <div
                 aria-expanded={false}
@@ -6059,171 +6065,6 @@ Array [
     </div>
   </section>,
 ]
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/EditableList editable group view 1`] = `
-<ul
-  className="css-1rublkn-EditableList"
->
-  <div
-    className="css-5oqrzk-EditableList"
-  >
-    This group has no members
-  </div>
-</ul>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/EditableList editable person view 1`] = `
-<ul
-  className="css-1rublkn-EditableList"
->
-  <div
-    className="css-5oqrzk-EditableList"
-  >
-    This person hasn’t been added to any groups
-  </div>
-</ul>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/EditableList loading view 1`] = `
-<div
-  className="css-11sriyu-EditableList"
->
-  <span
-    className="css-8rq5tq"
-    style={
-      Object {
-        "width": "3rem",
-      }
-    }
-  >
-    <svg
-      aria-hidden="true"
-      className="spinner"
-      focusable="false"
-      height="3rem"
-      viewBox="0 0 66 66"
-      width="3rem"
-    >
-      <circle
-        className="path"
-        cx="33"
-        cy="33"
-        fill="none"
-        r="30"
-        strokeLinecap="round"
-        strokeWidth="6"
-      />
-    </svg>
-  </span>
-</div>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/EditableList no results, group view 1`] = `
-<ul
-  className="css-1rublkn-EditableList"
->
-  <div
-    className="css-5oqrzk-EditableList"
-  >
-    This group has no members
-  </div>
-</ul>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/EditableList no results, person view 1`] = `
-<ul
-  className="css-1rublkn-EditableList"
->
-  <div
-    className="css-5oqrzk-EditableList"
-  >
-    This person hasn’t been added to any groups
-  </div>
-</ul>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/ListItemComponent default 1`] = `
-<li
-  className=" checked css-12n556j-ListItemComponent"
->
-  <input
-    checked={true}
-    disabled={false}
-    id="item-Bob Roberts"
-    onChange={[Function]}
-    type="checkbox"
-  />
-  <label
-    htmlFor="item-Bob Roberts"
-  >
-    <span>
-      <button
-        className="css-7jli5u"
-        type="button"
-      >
-        Bob Roberts
-      </button>
-    </span>
-  </label>
-</li>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/ListItemComponent newly added 1`] = `
-<li
-  className=" checked css-1ju3knf-ListItemComponent"
->
-  <input
-    checked={true}
-    disabled={false}
-    id="item-Bob Roberts"
-    onChange={[Function]}
-    type="checkbox"
-  />
-  <label
-    htmlFor="item-Bob Roberts"
-  >
-    <span>
-      <button
-        className="css-7jli5u"
-        type="button"
-      >
-        Bob Roberts
-      </button>
-    </span>
-  </label>
-</li>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/ListItemComponent no link 1`] = `
-<li
-  className="css-9on9ni-ListItemComponent"
->
-  <span>
-    Bob Roberts
-  </span>
-</li>
-`;
-
-exports[`Storyshots GroupManagementPage/ListComponents/ListItemComponent not modifiable 1`] = `
-<li
-  className="disabled checked css-12n556j-ListItemComponent"
->
-  <input
-    checked={true}
-    disabled={true}
-    id="item-Bob Roberts"
-    onChange={[Function]}
-    type="checkbox"
-  />
-  <label
-    htmlFor="item-Bob Roberts"
-  >
-    <span>
-      Bob Roberts
-    </span>
-  </label>
-</li>
 `;
 
 exports[`Storyshots GroupManagementPage/ListComponents/ReviewList groups added 1`] = `
@@ -6363,7 +6204,9 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
           Add a new member
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Person"
+      >
         <div
           role="search"
         >
@@ -6377,7 +6220,7 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
             className="css-1f7lh8s-SearchComponent"
           >
             <div
-              className="css-1ay776l-SearchComponent"
+              className="css-1cpl1g5-SearchComponent"
             >
               <div
                 aria-expanded={false}
@@ -6451,15 +6294,6 @@ exports[`Storyshots GroupManagementPage/ManagementView group view 1`] = `
           Current members
         </h2>
       </div>
-      <ul
-        className="css-1rublkn-EditableList"
-      >
-        <div
-          className="css-5oqrzk-EditableList"
-        >
-          This group has no members
-        </div>
-      </ul>
       <div
         className="css-9n2gef-ManagementView"
       >
@@ -6575,7 +6409,9 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
           Add a new member
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Person"
+      >
         <div
           role="search"
         >
@@ -6589,7 +6425,7 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
             className="css-1f7lh8s-SearchComponent"
           >
             <div
-              className="css-1ay776l-SearchComponent"
+              className="css-1cpl1g5-SearchComponent"
             >
               <div
                 aria-expanded={false}
@@ -6662,37 +6498,6 @@ exports[`Storyshots GroupManagementPage/ManagementView loading view 1`] = `
         >
           Current members
         </h2>
-      </div>
-      <div
-        className="css-11sriyu-EditableList"
-      >
-        <span
-          className="css-8rq5tq"
-          style={
-            Object {
-              "width": "3rem",
-            }
-          }
-        >
-          <svg
-            aria-hidden="true"
-            className="spinner"
-            focusable="false"
-            height="3rem"
-            viewBox="0 0 66 66"
-            width="3rem"
-          >
-            <circle
-              className="path"
-              cx="33"
-              cy="33"
-              fill="none"
-              r="30"
-              strokeLinecap="round"
-              strokeWidth="6"
-            />
-          </svg>
-        </span>
       </div>
       <div
         className="css-9n2gef-ManagementView"
@@ -6797,7 +6602,9 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
           Add to a group
         </h2>
       </div>
-      <form>
+      <form
+        name="Search Component - Group"
+      >
         <div
           role="search"
         >
@@ -6811,7 +6618,7 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
             className="css-1f7lh8s-SearchComponent"
           >
             <div
-              className="css-1ay776l-SearchComponent"
+              className="css-1cpl1g5-SearchComponent"
             >
               <div
                 aria-expanded={false}
@@ -6885,15 +6692,6 @@ exports[`Storyshots GroupManagementPage/ManagementView person view 1`] = `
           Current groups
         </h2>
       </div>
-      <ul
-        className="css-1rublkn-EditableList"
-      >
-        <div
-          className="css-5oqrzk-EditableList"
-        >
-          This person hasn’t been added to any groups
-        </div>
-      </ul>
       <div
         className="css-9n2gef-ManagementView"
       >
@@ -6927,7 +6725,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent group add 1`] = `
         Add to a group
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -6941,7 +6741,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent group add 1`] = `
           className="css-1f7lh8s-SearchComponent"
         >
           <div
-            className="css-1ay776l-SearchComponent"
+            className="css-1cpl1g5-SearchComponent"
           >
             <div
               aria-expanded={false}
@@ -7018,7 +6818,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent group search 1`] = `
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -7032,7 +6834,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent group search 1`] = `
           className="css-1f7lh8s-SearchComponent"
         >
           <div
-            className="css-1ay776l-SearchComponent"
+            className="css-1cpl1g5-SearchComponent"
           >
             <div
               aria-expanded={false}
@@ -7109,7 +6911,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent no results 1`] = `
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -7123,7 +6927,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent no results 1`] = `
           className="css-1f7lh8s-SearchComponent"
         >
           <div
-            className="css-1ay776l-SearchComponent"
+            className="css-1cpl1g5-SearchComponent"
           >
             <div
               aria-expanded={false}
@@ -7200,7 +7004,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent person add 1`] = `
         Add a new member
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Person"
+    >
       <div
         role="search"
       >
@@ -7214,7 +7020,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent person add 1`] = `
           className="css-1f7lh8s-SearchComponent"
         >
           <div
-            className="css-1ay776l-SearchComponent"
+            className="css-1cpl1g5-SearchComponent"
           >
             <div
               aria-expanded={false}
@@ -7291,7 +7097,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent person search 1`] = `
         Person search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Person"
+    >
       <div
         role="search"
       >
@@ -7305,7 +7113,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent person search 1`] = `
           className="css-1f7lh8s-SearchComponent"
         >
           <div
-            className="css-1ay776l-SearchComponent"
+            className="css-1cpl1g5-SearchComponent"
           >
             <div
               aria-expanded={false}
@@ -7382,7 +7190,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent searching 1`] = `
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -7396,7 +7206,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent searching 1`] = `
           className="css-1f7lh8s-SearchComponent"
         >
           <div
-            className="css-1ay776l-SearchComponent"
+            className="css-1cpl1g5-SearchComponent"
           >
             <div
               aria-expanded={false}
@@ -7473,7 +7283,9 @@ exports[`Storyshots GroupManagementPage/SearchComponent server error/could not r
         Group search
       </h2>
     </div>
-    <form>
+    <form
+      name="Search Component - Group"
+    >
       <div
         role="search"
       >
@@ -7487,7 +7299,7 @@ exports[`Storyshots GroupManagementPage/SearchComponent server error/could not r
           className="css-1f7lh8s-SearchComponent"
         >
           <div
-            className="css-1ay776l-SearchComponent"
+            className="css-1cpl1g5-SearchComponent"
           >
             <div
               aria-expanded={false}
@@ -8568,7 +8380,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
                 className="p-a300"
                 href="/group-management"
                 id="app-link-Group Management"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -9608,7 +9420,7 @@ exports[`Storyshots IndexPage default 1`] = `
                 className="p-a300"
                 href="/group-management"
                 id="app-link-Group Management"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -10702,7 +10514,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                 className="p-a300"
                 href="/group-management"
                 id="app-link-Group Management"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"

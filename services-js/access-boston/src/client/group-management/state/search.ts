@@ -30,7 +30,7 @@ interface Action {
   mode?: string;
 }
 
-export const initialState = {
+export const initialSearchState = {
   searchResults: [],
   searchStatus: 'idle',
   searchText: '',
@@ -39,7 +39,7 @@ export const initialState = {
   mode: '',
 };
 
-export const reducer = (state, action: Partial<Action>) => {
+export const searchReducer = (state, action: Partial<Action>) => {
   //@ts-ignore todo
   // console.info(action.type);
 
@@ -94,7 +94,7 @@ export const reducer = (state, action: Partial<Action>) => {
       return { ...state, searchText: '', searchResults: [] };
 
     case 'SEARCH/RESET_STATE':
-      return initialState;
+      return initialSearchState;
 
     default:
       return state;

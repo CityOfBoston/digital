@@ -4,11 +4,15 @@ import { css, jsx } from '@emotion/core';
 import { SectionHeader } from '@cityofboston/react-fleet';
 import Section from './Section';
 import ListLinksComponent from './list-components/ListLinksComponent';
-import { Group } from './types';
+import { Group, Person } from './types';
+import { fetchGroupMembers } from './data-fetching/fetch-person-data';
 
 interface Props {
   groups: [];
   handleAdminGroupClick: (item: any) => void;
+  pageSize: number;
+  dispatchList?: any;
+  changePageCount: (pageCount: number) => void;
 }
 
 /**
@@ -16,7 +20,21 @@ interface Props {
  * Less than 3
  */
 export default function MinGroupDisplay(props: Props) {
-  const { groups, handleAdminGroupClick } = props;
+  const { groups, changePageCount } = props;
+  const handleClick = async (item: Group) => {
+    const dataFetched = (members: Person[]) => {
+      item['groupmember'] = members;
+      changePageCount(members.length);
+      props.handleAdminGroupClick(item);
+      props.dispatchList({
+        type: 'LIST/LOAD_LIST',
+        list: item.groupmember[0],
+      });
+    };
+    await fetchGroupMembers(item.dn, props.pageSize).then(result =>
+      dataFetched(result)
+    );
+  };
   return (
     <>
       <Section>
@@ -25,7 +43,7 @@ export default function MinGroupDisplay(props: Props) {
           {groups.map((item: Group) => (
             <ListLinksComponent
               key={`list_key_${item.cn}`}
-              handleClick={handleAdminGroupClick}
+              handleClick={() => handleClick(item)}
               item={item}
             />
           ))}

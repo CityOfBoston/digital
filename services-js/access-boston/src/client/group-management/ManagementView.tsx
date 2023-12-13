@@ -18,7 +18,8 @@ interface Props {
   loading?: boolean;
   changeView: (view: View) => void;
   searchComponent: ReactNode;
-  editableList: ReactNode;
+  editableList?: ReactNode;
+  editView?: ReactNode;
   resetAll: () => void;
   viewOnly: boolean;
 }
@@ -48,7 +49,8 @@ export default function ManagementView(props: Props) {
           title={`Current ${mode === 'person' ? 'groups' : 'members'}`}
         />
 
-        {props.editableList}
+        {/* {props.editableList} */}
+        {props.editView && (typeof props.editView && props.editView)}
 
         <div css={BUTTON_CONTAINER_STYLING}>
           <button

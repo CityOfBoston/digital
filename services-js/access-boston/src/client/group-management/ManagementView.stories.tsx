@@ -22,7 +22,7 @@ import allPeople from './fixtures/people.json';
 
 import ManagementView from './ManagementView';
 import SearchComponent from './search-component/SearchComponent';
-import EditableList from './list-components/EditableList';
+import EditView from './list-components/edit';
 
 const groups = allGroups.map(group => toGroup(group));
 const people = allPeople.map(person => toPerson(person));
@@ -75,10 +75,13 @@ export function Wrapper(props) {
             handleSelectClick={() => {}}
             selectedItem={selected}
             dns={[]}
+            currentPage={0}
+            pageSize={1}
+            changePageCount={() => {}}
           />
         }
         editableList={
-          <EditableList
+          <EditView
             {...props}
             items={list}
             loading={loading}

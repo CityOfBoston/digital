@@ -1,22 +1,21 @@
 version: '3'
 services:
   group-mgmt:
-    # image: linux-arm64/local-test/group-mgmt:latest
     image: local-test/group-mgmt:latest
-    # image: local-test/linux/arm64__group-mgmt:latest
-    # image: 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-staging/group-mgmt:deploy-new-stage
-    # container_name: group-mgmt
+    # image: arm64/local-test/group-mgmt:latest
     container_name: group-mgmt
     ports:
       - 3000:3000
+      # - ${COMPOSE_PORTS}
     working_dir: /app/services-js/group-mgmt
     extra_hosts:
       - iamdir-test.boston.gov:10.241.111.31
+      # - ${EXTRA_HOSTS}
     volumes:
       - ~/.aws:/root/.aws
-      # - /Users/phillipkelly/src/WORK/COB/COB6/digital/services-js/group-mgmt
     environment:
       AWS_S3_CONFIG_URL: s3://cob-digital-apps-staging-config/group-mgmt
+      # AWS_S3_CONFIG_URL: ${AWS_S3_CONFIG_URL}
       DEPLOY_VARIANT: test
       AWS_DEFAULT_REGION: us-east-1
       AWS_REGION: us-east-1

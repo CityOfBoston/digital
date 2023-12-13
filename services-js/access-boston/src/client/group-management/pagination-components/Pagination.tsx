@@ -6,42 +6,29 @@ import {
   NORM_HOVER,
   PAGINATION,
 } from '../pagination-components/styling';
-import { Group, Person } from '../types';
 
 interface Props {
-  items: Array<Group | Person>;
   currentPage: number;
   pageCount: number;
   pageSize: number;
-  changePage: (currentPage: number) => any;
-  handleNextPage: (
-    currentPage: number,
-    pageCount: number,
-    changePage: any
-  ) => any;
-  handlePrevPage: (currentPage: number, changePage: any) => any;
-  handlePageNumClick: (pageNum: number, changePage: any) => any;
+  changePage: (currentPage: number) => void;
+  nextPage: (currentPage: number, pageCount: number, changePage: any) => void;
+  prevPage: (currentPage: number, changePage: any) => void;
 }
 
 export default function Pagination(props: Props) {
-  const {
-    currentPage,
-    pageCount,
-    changePage,
-    handleNextPage,
-    handlePrevPage,
-  } = props;
+  const { currentPage, pageCount, changePage, nextPage, prevPage } = props;
 
   const goToPage = (pageNum: number) => {
     changePage(pageNum);
   };
 
   const next = () => {
-    handleNextPage(currentPage, pageCount, changePage);
+    nextPage(currentPage, pageCount, changePage);
   };
 
   const prev = () => {
-    handlePrevPage(currentPage, changePage);
+    prevPage(currentPage, changePage);
   };
 
   const lastPage = pageCount - 1;
@@ -122,9 +109,7 @@ export default function Pagination(props: Props) {
             css={HOVER_STYLES}
             onClick={prev}
           >
-            <span className="pg-li-i-h" onClick={prev}>
-              previous
-            </span>
+            <span className="pg-li-i-h">previous</span>
           </a>
         )}
       </li>
