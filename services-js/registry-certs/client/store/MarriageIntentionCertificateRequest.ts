@@ -8,6 +8,7 @@ import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import {
   MarriageIntentionCertificateRequestInformation,
   MarriageIntentionStep,
+  MarriageIntentionStepLabels,
   JSONObject,
   JSONValue,
 } from '../types';
@@ -101,6 +102,15 @@ export const QUESTION_STEPS: MarriageIntentionStep[] = [
   'partnerFormB',
   'contactInfo',
   'reviewForms',
+];
+
+export const LABEL_STEPS: MarriageIntentionStepLabels[] = [
+  'Getting Started',
+  'Person 1',
+  'Person 2',
+  'Contact Info',
+  'Review',
+  'Submit',
 ];
 
 export const CHECKOUT_STEPS: MarriageIntentionStep[] = ['reviewRequest'];
@@ -393,27 +403,12 @@ export default class MarriageIntentionCertificateRequest {
 
   @computed
   public get steps(): MarriageIntentionStep[] {
-    return [
-      ...QUESTION_STEPS,
-      // ...(this.needsIdentityVerification ? VERIFY_IDENTIFICATION_STEPS : []),
-      ...CHECKOUT_STEPS,
-    ];
+    return [...QUESTION_STEPS, ...CHECKOUT_STEPS];
   }
 
   @computed
-  public get needsIdentityVerification(): boolean {
-    // const {
-    //   partnerA_firstName,
-    //   partnerA_lastName,
-    //   partnerA_surName,
-    // } = this.requestInformation;
-
-    // const firstName = partnerA_firstName && partnerA_firstName !== '';
-    // const lastName = partnerA_lastName && partnerA_lastName !== '';
-    // return !!(partnerA_firstName && partnerA_firstName !== '');
-
-    // return !!(partnerA_firstName && partnerA_lastName && partnerA_surName);
-    return true;
+  public get labels(): MarriageIntentionStepLabels[] {
+    return [...LABEL_STEPS];
   }
 
   // A user’s answer may span several fields:
@@ -467,25 +462,9 @@ export default class MarriageIntentionCertificateRequest {
   @computed
   public get completedQuestionSteps() {
     const steps = {
-      // partnerFormA: false,
-      // partnerFormB: false,
       partnerFormA: true,
       partnerFormB: true,
-      // verifyIdentification: true,
     };
-
-    // const {
-    //   partnerA,
-    //   partnerB,
-    // } = this.requestInformation;
-
-    // if (partnerA.firstName && partnerA.lastName && partnerA.surName) {
-    //   steps.partnerFormA = true;
-    // }
-
-    // if (partnerB.firstName && partnerB.lastName && partnerB.surName) {
-    //   steps.partnerFormB = true;
-    // }
 
     return steps;
   }

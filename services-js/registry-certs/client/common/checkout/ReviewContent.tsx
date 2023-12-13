@@ -20,7 +20,7 @@ import CostSummary from '../CostSummary';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import { SubmissionError } from '../../dao/CheckoutDao';
 import CheckoutPageLayout from './CheckoutPageLayout';
-import { Progress } from '../../PageWrapper';
+import { ProgressProps } from '../../../lib/interfaces';
 import RenderOrderDetails from './OrderDetails';
 
 export type Props = {
@@ -36,12 +36,12 @@ export type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
-      progress: Progress;
+      progress: ProgressProps;
     }
   | {
       certificateType: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
-      progress: Progress;
+      progress: ProgressProps;
     });
 
 export interface State {
