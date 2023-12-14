@@ -7,19 +7,7 @@ ENV NODE_ENV development
 WORKDIR /app
 
 #ENV PYTHONUNBUFFERED=1
-# RUN apk add --no-cache git openssl
-ENV PYTHONUNBUFFERED=1
-RUN apk add --no-cache git openssl \
-   && apk add --update --no-cache python3 curl unzip \
-   && ln -sf python3 /usr/bin/python \
-   && python3 -m ensurepip \
-   && pip3 install --no-cache --upgrade pip setuptools \
-   && cd /tmp \
-   && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
-   && unzip awscli-bundle.zip \
-   && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
-   && rm awscli-bundle.zip \
-   && rm -rf awscli-bundle
+RUN apk add --no-cache git openssl
 
 # To prevent “Error: could not get uid/gid”
 RUN npm config set unsafe-perm true
@@ -90,18 +78,22 @@ CMD ["yarn", "start"]
 # NOTES:
 #   To use this file:
 #       [a] clone the digital repo
-#       [b] from a terminal, in the registry-certs folder, run
-#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-dev/registry-certs:latest -f ./Dockerfile -t local-dev/registry-certs:latest --secret id=aws,src=$HOME/.aws/credentials --platform linux/arm64 ../..
+#       [b] cd into the service's directory ... 
+#           ```cd services-js/registry-certs```
+#       [c] prune docker to clear out any cache/muck/etc ... 
+#           ```docker builder prune --all```
+#       [d] from a terminal, in the registry-certs folder, run
+#           DOCKER_BUILDKIT=1 docker build --pull --cache-from local-dev/registry-certs:latest -f ./Dockerfile -t local-dev/registry-certs:latest --secret id=aws,src=$HOME/.aws/credentials --platform linux/amd64 ../..
 #           -> this will create an image tagged local-dev/registry-certs:latest on the local machine
-#       [c] from a terminal, in the registry-certs folder, run
+#       [e] from a terminal, in the registry-certs folder, run
 #           docker-compose up --no-build -d registry-certs
 #           -> this will create a container which should start on your local machine, with your cloned repo mounted into
 #               so that your changes are immediately effective in the browser.
 #           -> you should be able to see the webapp at https://127.0.0.1:300/marriageintention ..etc
-#       [d] In a terminal app, open a session in the container by running:
+#       [f] In a terminal app, open a session in the container by running:
 #           docker exec -it registry-certs /bin/sh
 #           -> This has effectively ssh'd you into the container as the defaul (root) user.
-#       [e] In the container session, you can start the yarn watcher
+#       [g] In the container session, you can start the yarn watcher
 #           yarn dev
 #           -> this will watch the /app folder (which is a mounted copy from your local computer) and recompile as changes
 #               are made.  Thus, you can code and test simultaneously (slight delay as the rebuilds occur)
@@ -125,3 +117,9 @@ CMD ["yarn", "start"]
 #       [2] Push the image to AWS by running
 #           docker push 251803681989.dkr.ecr.us-east-1.amazonaws.com/cob-digital-apps-prod/registry-certs:deploy-new-prod
 #           -> the deploy should start once the image is transferred/uploaded
+# 
+#   TROUBLESHOOTING / DEBUGING
+#       [1] Build issue encountered when on M1 trying to build `linux/amd64` ... processed stalled on the `RUN yarn build` step in the `deploy_phase`. Encountered this issue on Docker Desktop v4.25.x, issue fixed when upgrading Docker Desktop to v4.26.0.
+#           [a] On Mac's (M1) be sure to enable the following in Settings
+#               [i] In `General` [x] `Use Virtualization framework`
+#               [ii] In `General` [x] `Use Rosetta for x86/amd64 emulation on Apple Silicon`
