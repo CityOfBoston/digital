@@ -3,6 +3,8 @@ services:
   registry-certs:
     image: local-dev/registry-certs:latest
     container_name: registry-certs
+    # platform: linux/amd64,linux/arm64,linux/arm/v7
+    platform: linux/amd64
     ports:
       - 3000:3000
     working_dir: /app/services-js/registry-certs
@@ -17,6 +19,7 @@ services:
       AWS_REGION: us-east-1
       PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
       NODE_VERSION: 14.19.1
+      NPM_VERSION: 6.14.16
       YARN_VERSION: 1.22.17
       WORKSPACE: registry-certs
       NODE_ENV: production
