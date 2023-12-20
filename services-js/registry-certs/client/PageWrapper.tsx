@@ -4,25 +4,15 @@ import { css, jsx } from '@emotion/core';
 
 import { Component, ReactNode } from 'react';
 
-import {
-  ProgressBar,
-  // MEDIA_LARGE,
-  // MEDIA_SMALL,
-  MEDIA_X_LARGE,
-} from '@cityofboston/react-fleet';
+import { ProgressBar, MEDIA_X_LARGE } from '@cityofboston/react-fleet';
 
 import PageLayout from './PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../lib/breadcrumbs';
 
-type CertificateRequestType = 'birth' | 'marriage' | 'intention';
+import { Progress } from '../lib/interfaces';
 
-export interface Progress {
-  totalSteps: number;
-  currentStep: number;
-  currentStepCompleted: boolean;
-  offset?: number | undefined;
-}
+type CertificateRequestType = 'birth' | 'marriage' | 'intention';
 
 interface Props {
   certificateType: CertificateRequestType;
