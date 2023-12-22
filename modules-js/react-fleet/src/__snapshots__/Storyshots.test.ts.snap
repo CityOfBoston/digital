@@ -4659,6 +4659,216 @@ exports[`Storyshots ProgressBar with task name 1`] = `
 </div>
 `;
 
+exports[`Storyshots ProgressBarUI default 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-family: Lora,serif;
+  color: #000;
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0em;
+  min-width: 80px;
+  color: black;
+  cursor: pointer;
+  background: #fff;
+  min-width: 120px;
+  font-size: 0.85em;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a:hover,
+.emotion-0 .progressbar .nav a.completed {
+  color: white;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className=""
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className=""
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className=""
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className=""
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 1 of 6
+        </span>
+        <span
+          className="mobile"
+        >
+          : 
+          Person 1
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots UI|Footer custom attributes 1`] = `
 <footer
   className="ft br br-a300"

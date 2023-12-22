@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
+import { useState } from 'react';
 
 import {
   // CHARLES_BLUE,
   BLACK,
   WHITE,
   OPTIMISTIC_BLUE_DARK,
+  // MEDIA_SMALL_MAX,
 } from '../utilities/constants';
 
 import { stepObj } from '../utilities/interfaces';
@@ -13,78 +15,159 @@ import { stepObj } from '../utilities/interfaces';
 interface Props {
   steps: Array<stepObj>;
   totalSteps?: number;
-  currentStep?: number;
+  currentStep: number;
   currentStepCompleted?: boolean;
   stepName?: string;
   offset?: number | undefined;
 }
 
 export default function ProgressBarUI(props: Props): JSX.Element {
-  const {
-    steps,
-    // totalSteps,
-    // currentStep,
-    // offset
-  } = props;
-  console.log('ProgressBarUI > props: ', props);
-
+  const { steps, currentStep } = props;
+  const [focused, setFocus] = useState<number>(currentStep);
   const stepClick = (): void => {
     console.log(`Step Click: #`);
   };
 
-  const stepElem = (step: stepObj, key) => {
+  // console.log('ProgressBarUI > props: ', props);
+  // console.log('ProgressBarUI > state(focused): ', focused);
+
+  const stepElem = (step: stepObj, key: number) => {
     const completed = step.completed ? `completed` : ``;
+    // console.log('stepElem (index): ', key);
     const elem = (
-      <a onClick={stepClick} key={key} className={`${completed}`}>
+      <a
+        onClick={stepClick}
+        key={key}
+        className={`${completed}`}
+        title={`${step.label}`}
+        aria-label={`${step.label}`}
+        onTouchMove={() => setFocus(key)}
+        onMouseEnter={() => setFocus(key)}
+      >
         {step.label}
-        {/* <span class="arrow" /> */}
+        <span className="arrow" />
       </a>
     );
     return elem;
   };
 
+  const progressText = () => {
+    return <span>{`Step ${currentStep} of ${steps.length}`}</span>;
+  };
+
+  const mobileText = () => {
+    return (
+      <span className="mobile">
+        {`: `}
+        {steps[focused].label}
+      </span>
+    );
+  };
+
   return (
     <div css={PROGRESSBAR_STYLE}>
-      {steps && steps.map((step, index) => stepElem(step, index))}
+      <div className="progressbar">
+        <div className="nav">
+          {steps && steps.map((step, index) => stepElem(step, index))}
+        </div>
+        <div className="progress-text">
+          {progressText()}
+          {mobileText()}
+        </div>
+      </div>
     </div>
   );
 }
 
 const BORDER_WIDTH = '1px';
-const PROGRESSBAR_STYLE = css({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  textAlign: 'center',
-  lineHeight: 'normal',
-  fontStyle: 'normal',
-  fontFamily: 'Lora',
-  fontSize: '0.5em',
-  color: BLACK,
+const PROGRESSBAR_STYLE = css`
+  display: grid;
+  margin: auto;
+  // max-width: 46rem;
+  // background: orange;
 
-  a: {
-    borderWidth: BORDER_WIDTH,
-    borderColor: BLACK,
-    borderStyle: 'solid',
-    borderLeftWidth: '0',
-    padding: '0.85em 1.5em',
-    minWidth: '100px',
-    color: BLACK,
-    cursor: 'pointer',
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3; 1fr);
 
-    '&:first-child': {
-      color: 'green',
-      borderLeftWidth: BORDER_WIDTH,
-    },
+  .progressbar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
-    '&:hover': {
-      color: WHITE,
-      background: OPTIMISTIC_BLUE_DARK,
-    },
+    .nav {
+      display: table;
+      flex-flow: row wrap;
+      align-items: center;
+      text-align: center;
+      line-height: normal;
+      font-style: normal;
+      font-family: Lora, serif;
+      color: ${BLACK};
+      // background: green;
 
-    '&.completed': {
-      color: WHITE,
-      background: OPTIMISTIC_BLUE_DARK,
-    },
-  },
-});
+      a {
+        display: table-cell;
+        border-width: ${BORDER_WIDTH};
+        border-color: black;
+        border-style: solid;
+        border-left-width: 0;
+        padding: 0.85em 0em;
+        min-width: 80px;
+        color: black;
+        cursor: pointer;
+        background: ${WHITE};
+
+        min-width: 120px;
+        font-size: 0.85em;
+
+        &:last-child {
+          grid-column-start: 2;
+        }
+
+        &:first-child {
+          border-left-width: ${BORDER_WIDTH};
+        }
+
+        &:hover,
+        &.completed {
+          color: white;
+          background: ${OPTIMISTIC_BLUE_DARK};
+        }
+      }
+    }
+
+    .progress-text {
+      justify-content: flex-end;
+      font-style: italic;
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+
+      .mobile {
+        // display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    max-width: 25.875em;
+
+    .progressbar {
+      .nav {
+        a {
+          overflow: hidden;
+          min-width: 10px;
+          padding: 0.5em 0;
+          text-indent: -500px;
+          line-height: 0;
+        }
+      }
+
+      .progress-text {
+        .mobile {
+          display: inline-block;
+        }
+      }
+    }
+  }
+`;
