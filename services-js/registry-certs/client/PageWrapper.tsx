@@ -54,6 +54,7 @@ export default class PageWrapper extends Component<Props> {
     if (offset && typeof offset === 'number') {
       modProgress.offset = offset;
     }
+    console.log('progress: ', progress);
 
     return (
       <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS[certificateType]}>

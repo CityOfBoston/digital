@@ -19,38 +19,26 @@ import { stepObj } from '../utilities/interfaces';
 const taskList: Array<stepObj> = [
   {
     label: 'Getting Started',
-    name: 'getting-started',
-    uri: '?step=0',
     completed: true,
   },
   {
     label: 'Person 1',
-    name: 'name',
-    uri: '/uri',
     completed: true,
   },
   {
     label: 'Person 2',
-    name: 'name',
-    uri: '/uri',
     completed: false,
   },
   {
     label: 'Contact Info',
-    name: 'name',
-    uri: '/uri',
     completed: false,
   },
   {
     label: 'Review',
-    name: 'name',
-    uri: '/uri',
     completed: false,
   },
   {
     label: 'Submit',
-    name: 'name',
-    uri: '/uri',
     completed: false,
   },
 ];
@@ -88,6 +76,9 @@ storiesOf('ProgressBarUI', module)
     <ProgressBarUI
       steps={taskList}
       totalSteps={taskList.length}
-      currentStep={1}
+      currentStep={0}
+      offset={1}
+      showStepName={true}
+      // currentStepCompleted={this.state.completed}
     />
   ));

@@ -17,28 +17,25 @@ interface Props {
   totalSteps?: number;
   currentStep: number;
   currentStepCompleted?: boolean;
-  stepName?: string;
-  offset?: number | undefined;
+  showStepName?: boolean;
+  offset?: number;
 }
 
 export default function ProgressBarUI(props: Props): JSX.Element {
-  const { steps, currentStep } = props;
+  const { steps, currentStep, showStepName, offset } = props;
   const [focused, setFocus] = useState<number>(currentStep);
   const stepClick = (): void => {
     console.log(`Step Click: #`);
   };
 
-  // console.log('ProgressBarUI > props: ', props);
-  // console.log('ProgressBarUI > state(focused): ', focused);
-
   const stepElem = (step: stepObj, key: number) => {
     const completed = step.completed ? `completed` : ``;
-    // console.log('stepElem (index): ', key);
+    const currentCss = currentStep === key ? `current` : ``;
     const elem = (
       <a
         onClick={stepClick}
         key={key}
-        className={`${completed}`}
+        className={`${completed} ${currentCss}`}
         title={`${step.label}`}
         aria-label={`${step.label}`}
         onTouchMove={() => setFocus(key)}
@@ -51,8 +48,10 @@ export default function ProgressBarUI(props: Props): JSX.Element {
     return elem;
   };
 
+  const currStepCount =
+    offset && typeof offset === 'number' ? currentStep + offset : currentStep;
   const progressText = () => {
-    return <span>{`Step ${currentStep} of ${steps.length}`}</span>;
+    return <span>{`Step ${currStepCount} of ${steps.length}`}</span>;
   };
 
   const mobileText = () => {
@@ -72,7 +71,7 @@ export default function ProgressBarUI(props: Props): JSX.Element {
         </div>
         <div className="progress-text">
           {progressText()}
-          {mobileText()}
+          {showStepName && mobileText()}
         </div>
       </div>
     </div>
@@ -130,9 +129,14 @@ const PROGRESSBAR_STYLE = css`
         }
 
         &:hover,
-        &.completed {
+        &.completed,
+        &.current {
           color: white;
           background: ${OPTIMISTIC_BLUE_DARK};
+        }
+
+        &.current {
+          box-shadow: inset 0 0 0px 1px #fff;
         }
       }
     }
@@ -143,9 +147,9 @@ const PROGRESSBAR_STYLE = css`
       font-size: 0.75rem;
       margin-top: 0.5rem;
 
-      .mobile {
-        // display: none;
-      }
+      // .mobile {
+      //   display: none;
+      // }
     }
   }
 
