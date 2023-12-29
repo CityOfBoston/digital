@@ -131,6 +131,7 @@ export default class PersonalInformation extends Component<Props> {
             onlyAllowPast={true}
             earliestDate={EARLIEST_DATE}
             handleDate={this.handleDateChange}
+            modDateTime={true}
           />
         </div>
 
@@ -145,15 +146,15 @@ export default class PersonalInformation extends Component<Props> {
   private renderRecentBirthWarningText(): ReactChild {
     const { birthCertificateRequest } = this.props;
     const { birthDate } = birthCertificateRequest.requestInformation;
+    const pickUpDate = getPickUpDate(birthDate);
     return (
       <div className={NOTE_BOX_CLASSNAME} style={{ paddingBottom: 0 }}>
         <h2 className="h3 tt-u">Birth Certificate is Being Processed</h2>
         <p>
           Birth information takes up to two weeks to arrive from a hospital to
           the City of Boston. Please submit an order after{' '}
-          <span css={PICKUP_DATE_STYLE}>{getPickUpDate(birthDate)}</span>. We
-          apologize for the inconvenience. If you have any questions or
-          concerns, please{' '}
+          <span css={PICKUP_DATE_STYLE}>{pickUpDate}</span>. We apologize for
+          the inconvenience. If you have any questions or concerns, please{' '}
           <a
             href="https://www.boston.gov/still-have-questions-registry"
             target="_blank"

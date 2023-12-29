@@ -36,4 +36,9 @@ describe('getPickUpDate', () => {
     const expect12152023: Date = new Date('Mon Dec 01 2023');
     expect(getPickUpDate(expect12152023)).toBe('12/15/2023');
   });
+
+  it('Registry Cert Pickup Date - 12/18/2023 + 14 days = 01/01/2024', () => {
+    const expect01012024: Date = new Date('Mon Dec 18 2023');
+    expect(getPickUpDate(expect01012024)).toBe('1/1/2024');
+  });
 });

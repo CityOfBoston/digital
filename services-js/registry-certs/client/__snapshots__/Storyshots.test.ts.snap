@@ -39192,7 +39192,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
     style={
       Object {
         "margin": "2rem auto",
-        "maxWidth": "600px",
+        "maxWidth": "768px",
       }
     }
   >
@@ -39405,7 +39405,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
     style={
       Object {
         "margin": "2rem auto",
-        "maxWidth": "600px",
+        "maxWidth": "768px",
       }
     }
   >
@@ -39618,7 +39618,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
     style={
       Object {
         "margin": "2rem auto",
-        "maxWidth": "600px",
+        "maxWidth": "768px",
       }
     }
   >
@@ -39784,7 +39784,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent default 1`] 
     style={
       Object {
         "margin": "2rem auto",
-        "maxWidth": "600px",
+        "maxWidth": "768px",
       }
     }
   >
@@ -39887,7 +39887,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent with values 
     style={
       Object {
         "margin": "2rem auto",
-        "maxWidth": "600px",
+        "maxWidth": "768px",
       }
     }
   >
@@ -41699,7 +41699,7 @@ exports[`Storyshots Common Components/Question Components/AltSpellings default 1
     style={
       Object {
         "margin": "2rem auto",
-        "maxWidth": "600px",
+        "maxWidth": "768px",
       }
     }
   >
@@ -41848,7 +41848,7 @@ exports[`Storyshots Common Components/Question Components/AltSpellings with exis
     style={
       Object {
         "margin": "2rem auto",
-        "maxWidth": "600px",
+        "maxWidth": "768px",
       }
     }
   >
