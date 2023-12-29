@@ -24,6 +24,7 @@ interface Props {
   handleDate: (newDate: Date | null) => void;
   resetDate?: boolean;
   disabled?: boolean;
+  modDateTime?: boolean;
 }
 
 interface State {
@@ -145,7 +146,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       // date. This lets us show the date constraints while they’re editing.
       lastValidityError = this.state.lastValidityError;
     } else {
-      date = fieldsToDate(fields);
+      date = fieldsToDate(fields, this.props.modDateTime);
       lastValidityError = this.isDateValid(date);
 
       if (lastValidityError) {
@@ -181,7 +182,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       // don’t disturb inputs if people temporarily make invalid dates while
       // editing.
       if (!inputCompleteError(fields)) {
-        const date = fieldsToDate(fields);
+        const date = fieldsToDate(fields, this.props.modDateTime);
         fields = dateToFields(date);
       }
 
@@ -577,8 +578,19 @@ export function dateValidError(
   return errorString;
 }
 
-function fieldsToDate({ year, month, day }: Fields): Date {
-  return new Date(Date.UTC(+year, +month - 1, +day));
+function fieldsToDate(
+  { year, month, day }: Fields,
+  modDateTime?: boolean | null
+): Date {
+  let retDate = new Date(Date.UTC(+year, +month - 1, +day));
+
+  if (modDateTime && modDateTime === true) {
+    retDate = new Date(
+      new Date(Date.UTC(+year, +month - 1, 1 + +day)).setHours(0, 0, 0, 0)
+    );
+  }
+
+  return retDate;
 }
 
 function dateToFields(date: Date): Fields {
