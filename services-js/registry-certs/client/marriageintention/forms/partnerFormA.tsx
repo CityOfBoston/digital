@@ -809,36 +809,6 @@ export default class PartnerForm extends Component<Props> {
     );
   }
 
-  // sex() {
-  //   const { marriageIntentionCertificateRequest } = this.props;
-  //   const {
-  //     partnerA_sex,
-  //   } = marriageIntentionCertificateRequest.requestInformation;
-
-  //   return (
-  //     <div css={SECTION_WRAPPER_STYLING}>
-  //       <div
-  //         css={[NAME_FIELDS_BASIC_CONTAINER_STYLING, HEADER_SPACING_STYLING]}
-  //       >
-  //         <h2 css={SECTION_HEADING_STYLING}>Sex</h2>
-
-  //         <div css={RADIOGROUP_CONTAINER_STYLING}>
-  //           <div css={ONE_AND_HALF_MARGINBOTTOM}>
-  //             <RadioGroup
-  //               items={SEX_CHECKBOX}
-  //               name="partnerA_sex"
-  //               groupLabel=""
-  //               checkedValue={partnerA_sex}
-  //               handleItemChange={this.handleChange}
-  //               hideLabel
-  //             />
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   birthPlace() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {

@@ -23,7 +23,7 @@ import { makeStateSelectOptions } from '../utility/form-elements';
 import { runInitialValidation } from './formik-util';
 import CheckoutPageLayout from './CheckoutPageLayout';
 
-import { Progress } from '../../PageWrapper';
+import { ProgressProps } from '../../../lib/interfaces';
 import { BackButtonContent } from '../question-components/BackButton';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 import RenderOrderDetails from './OrderDetails';
@@ -45,12 +45,12 @@ type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
-      progress: Progress;
+      progress: ProgressProps;
     }
   | {
       certificateType: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
-      progress: Progress;
+      progress: ProgressProps;
     });
 
 interface State {

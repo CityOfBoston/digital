@@ -277,6 +277,7 @@ export default class IndexPage extends React.Component<Props, State> {
   render() {
     const { currentStep } = this.props;
     const { localMarriageIntentionCertificateRequest } = this.state;
+    console.log('props: ', this.props);
 
     let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
@@ -417,7 +418,9 @@ export default class IndexPage extends React.Component<Props, State> {
         break;
     }
 
-    const { steps } = localMarriageIntentionCertificateRequest;
+    const { steps, labels } = localMarriageIntentionCertificateRequest;
+    console.log('steps: ', steps);
+    console.log('labels: ', labels);
 
     return (
       <PageWrapper

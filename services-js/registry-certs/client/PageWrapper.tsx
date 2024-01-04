@@ -4,19 +4,23 @@ import { css, jsx } from '@emotion/core';
 
 import { Component, ReactNode } from 'react';
 
-import { ProgressBar, MEDIA_X_LARGE } from '@cityofboston/react-fleet';
+import {
+  ProgressBar,
+  // ProgressBarUI,
+  MEDIA_X_LARGE,
+} from '@cityofboston/react-fleet';
 
 import PageLayout from './PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../lib/breadcrumbs';
 
-import { Progress } from '../lib/interfaces';
+import { ProgressProps } from '../lib/interfaces';
 
 type CertificateRequestType = 'birth' | 'marriage' | 'intention';
 
 interface Props {
   certificateType: CertificateRequestType;
-  progress?: Progress;
+  progress?: ProgressProps;
   footer?: ReactNode;
   classString?: string;
   mainHeadline?: string;
@@ -54,7 +58,6 @@ export default class PageWrapper extends Component<Props> {
     if (offset && typeof offset === 'number') {
       modProgress.offset = offset;
     }
-    console.log('progress: ', progress);
 
     return (
       <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS[certificateType]}>
@@ -64,6 +67,7 @@ export default class PageWrapper extends Component<Props> {
           </h1>
 
           {progress && <ProgressBar {...modProgress} />}
+          {/* {progress && <ProgressBarUI />} */}
 
           <section className="m-t500">{children}</section>
         </div>

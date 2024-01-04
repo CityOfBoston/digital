@@ -2,46 +2,51 @@
 import { css, jsx } from '@emotion/core';
 import { useState } from 'react';
 
-import {
-  // CHARLES_BLUE,
-  BLACK,
-  WHITE,
-  OPTIMISTIC_BLUE_DARK,
-  // MEDIA_SMALL_MAX,
-} from '../utilities/constants';
-
-import { stepObj } from '../utilities/interfaces';
+import { BLACK, WHITE, OPTIMISTIC_BLUE_DARK } from '../utilities/constants';
 
 interface Props {
-  steps: Array<stepObj>;
+  steps: Array<string>;
   totalSteps?: number;
   currentStep: number;
   currentStepCompleted?: boolean;
   showStepName?: boolean;
   offset?: number;
+  completed?: Array<number>;
+  clickHandler?: any;
 }
 
-export default function ProgressBarUI(props: Props): JSX.Element {
-  const { steps, currentStep, showStepName, offset } = props;
+export default function ProgressNav(props: Props): JSX.Element {
+  const {
+    steps,
+    currentStep,
+    showStepName,
+    offset,
+    completed,
+    clickHandler,
+  } = props;
   const [focused, setFocus] = useState<number>(currentStep);
-  const stepClick = (): void => {
-    console.log(`Step Click: #`);
-  };
 
-  const stepElem = (step: stepObj, key: number) => {
-    const completed = step.completed ? `completed` : ``;
+  const stepElem = (step: string, key: number, completed: any) => {
+    const completedCss =
+      completed && completed.indexOf(key) > -1 ? `completed` : ``;
     const currentCss = currentStep === key ? `current` : ``;
+    const set_Focus =
+      completed && completed.indexOf(key) > -1 ? () => setFocus(key) : () => {};
     const elem = (
       <a
-        onClick={stepClick}
         key={key}
-        className={`${completed} ${currentCss}`}
-        title={`${step.label}`}
-        aria-label={`${step.label}`}
-        onTouchMove={() => setFocus(key)}
-        onMouseEnter={() => setFocus(key)}
+        title={`${step}`}
+        onClick={
+          completed && completed.indexOf(key) > -1
+            ? () => clickHandler(key)
+            : () => {}
+        }
+        aria-label={`${step}`}
+        className={`${completedCss} ${currentCss}`}
+        onTouchMove={set_Focus}
+        onMouseEnter={set_Focus}
       >
-        {step.label}
+        {step}
         <span className="arrow" />
       </a>
     );
@@ -57,8 +62,7 @@ export default function ProgressBarUI(props: Props): JSX.Element {
   const mobileText = () => {
     return (
       <span className="mobile">
-        {`: `}
-        {steps[focused].label}
+        {`: `} {steps[focused]}
       </span>
     );
   };
@@ -67,7 +71,8 @@ export default function ProgressBarUI(props: Props): JSX.Element {
     <div css={PROGRESSBAR_STYLE}>
       <div className="progressbar">
         <div className="nav">
-          {steps && steps.map((step, index) => stepElem(step, index))}
+          {steps &&
+            steps.map((step, index) => stepElem(step, index, completed))}
         </div>
         <div className="progress-text">
           {progressText()}
@@ -114,7 +119,6 @@ const PROGRESSBAR_STYLE = css`
         padding: 0.85em 0em;
         min-width: 80px;
         color: black;
-        cursor: pointer;
         background: ${WHITE};
 
         min-width: 120px;
@@ -128,14 +132,16 @@ const PROGRESSBAR_STYLE = css`
           border-left-width: ${BORDER_WIDTH};
         }
 
-        &:hover,
         &.completed,
+        &.completed:hover,
         &.current {
           color: white;
+          cursor: pointer;
           background: ${OPTIMISTIC_BLUE_DARK};
         }
 
-        &.current {
+        &.current,
+        &.completed:hover {
           box-shadow: inset 0 0 0px 1px #fff;
         }
       }
