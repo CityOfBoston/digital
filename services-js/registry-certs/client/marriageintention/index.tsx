@@ -57,6 +57,7 @@ interface State {
    * doesn’t receive prevProps.)
    */
   currentStep: MarriageIntentionStep;
+  completedSteps: Set<number>;
 }
 
 /**
@@ -128,6 +129,7 @@ export default class IndexPage extends React.Component<Props, State> {
       globalMarriageIntentionCertificateRequest:
         props.marriageIntentionCertificateRequest,
       currentStep: props.currentStep,
+      completedSteps: new Set([0]),
     };
   }
 
@@ -150,6 +152,12 @@ export default class IndexPage extends React.Component<Props, State> {
   ) => {
     const { currentStep, marriageIntentionCertificateRequest } = this.props;
 
+    const {
+      localMarriageIntentionCertificateRequest,
+      completedSteps,
+    } = this.state;
+    const { steps } = localMarriageIntentionCertificateRequest;
+
     if (marriageIntentionCertificateRequest !== modifiedRequest) {
       marriageIntentionCertificateRequest.updateFrom(modifiedRequest);
     }
@@ -166,6 +174,14 @@ export default class IndexPage extends React.Component<Props, State> {
     this.gaEventActionAndLabel();
 
     const nextStep = newSteps[currentIndex + 1];
+    this.setState({
+      completedSteps: new Set([...completedSteps, steps.indexOf(nextStep)]),
+    });
+    console.log(
+      'state.completedSteps: ',
+      completedSteps,
+      Array.from(completedSteps)
+    );
     Router.push(`/marriageintention?step=${nextStep}`);
   };
 
@@ -207,45 +223,17 @@ export default class IndexPage extends React.Component<Props, State> {
   private submitRequest = async (
     modifiedRequest: MarriageIntentionCertificateRequest
   ) => {
-    // eslint-disable-next-line no-console
-    // console.log('ReviewForm > submitRequest', this);
-
     // DIG-2105
-    // console.log('submitRequest: ', modifiedRequest);
-    const {
-      // currentStep,
-      // marriageIntentionCertificateRequest,
-      marriageIntentionDao,
-    } = this.props;
+    const { marriageIntentionDao } = this.props;
 
     try {
-      // let formCompleted: any = null;
-
-      // eslint-disable-next-line no-console
-      // console.log('index > submitRequest > modifiedRequest: ', modifiedRequest);
-
       // DIG-2105
       await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
         modifiedRequest
       );
 
-      // formCompleted = await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
-      //   modifiedRequest
-      // );
-      // eslint-disable-next-line no-console
-      // console.log(
-      //   'ReviewForm > submitRequest > formCompleted: ',
-      //   formCompleted
-      // );
-
       // DIG-2105
       this.advanceQuestion(modifiedRequest);
-
-      // DIG-2105
-      // const newSteps = marriageIntentionCertificateRequest.steps;
-      // const currentIndex = newSteps.indexOf(currentStep);
-      // const nextStep = newSteps[currentIndex + 1];
-      // Router.push(`/marriageintention?step=${nextStep}`);
     } catch (e) {
       if ((window as any).Rollbar) {
         (window as any).Rollbar.error(e);
@@ -276,8 +264,12 @@ export default class IndexPage extends React.Component<Props, State> {
 
   render() {
     const { currentStep } = this.props;
-    const { localMarriageIntentionCertificateRequest } = this.state;
-    console.log('props: ', this.props);
+    const {
+      localMarriageIntentionCertificateRequest,
+      completedSteps,
+    } = this.state;
+    const { steps, labels } = localMarriageIntentionCertificateRequest;
+    // console.log('props: ', this.props);
 
     let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
@@ -300,15 +292,6 @@ export default class IndexPage extends React.Component<Props, State> {
             {emailContentBlock()}
           </>
         );
-
-        // DIG-2105
-        // questionsEl = (
-        //   <Receipt
-        //     marriageIntentionCertificateRequest={
-        //       localMarriageIntentionCertificateRequest
-        //     }
-        //   />
-        // );
         break;
       case 'contactInfo':
         questionsEl = (
@@ -367,11 +350,6 @@ export default class IndexPage extends React.Component<Props, State> {
         );
         break;
       case 'reviewForms':
-        // eslint-disable-next-line no-console
-        // console.log(
-        //   'index>switch>reviewForms: ',
-        //   localMarriageIntentionCertificateRequest
-        // );
         questionsEl = (
           <>
             <ReviewForms
@@ -418,9 +396,16 @@ export default class IndexPage extends React.Component<Props, State> {
         break;
     }
 
-    const { steps, labels } = localMarriageIntentionCertificateRequest;
-    console.log('steps: ', steps);
-    console.log('labels: ', labels);
+    console.log(`ProgressNav: label: ${labels[steps.indexOf(currentStep)]}`);
+    // <ProgressNav
+    //   steps={taskList}
+    //   totalSteps={taskList.length}
+    //   currentStep={0}
+    //   showStepName={true}
+    //   offset={1}
+    //   completed={[0]}
+    //   clickHandler={clickHandler}
+    // />
 
     return (
       <PageWrapper
@@ -430,6 +415,18 @@ export default class IndexPage extends React.Component<Props, State> {
           currentStep: steps.indexOf(currentStep) + 1,
           currentStepCompleted: isStepComplete,
           offset: -1,
+        }}
+        progressNav={{
+          steps: labels,
+          totalSteps: steps.length,
+          currentStep: steps.indexOf(currentStep) + 1,
+          showStepName: true,
+          offset: 0,
+          completed: Array.from(completedSteps),
+          clickHandler: () =>
+            console.log(
+              `ProgressNav Click: ${labels[steps.indexOf(currentStep)]}`
+            ),
         }}
         classString={'b-c'}
         mainHeadline={'Marriage Intention Application'}

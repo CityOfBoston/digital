@@ -20,6 +20,7 @@ export {
 } from './form-elements/inputs/MemorableDateInput';
 export { default as Menu } from './components/Menu';
 export { default as ProgressBar } from './components/ProgressBar';
+export { default as ProgressNav } from './components/ProgressNav';
 export { default as Radio, RadioGroup } from './form-elements/inputs/Radio';
 export { default as SelectDropdown } from './form-elements/SelectDropdown';
 export { default as SectionHeader } from './sectioning-elements/SectionHeader';

@@ -13,6 +13,7 @@ interface Props {
   offset?: number;
   completed?: Array<number>;
   clickHandler?: any;
+  lastCompletedStepIndex?: number;
 }
 
 export default function ProgressNav(props: Props): JSX.Element {
