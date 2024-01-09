@@ -26,6 +26,8 @@ export default function ProgressNav(props: Props): JSX.Element {
     clickHandler,
   } = props;
   const [focused, setFocus] = useState<number>(currentStep);
+  // const setFocus = key => console.log(`setFocus(${key})`);
+  // const focused = currentStep;
 
   const stepElem = (step: string, key: number, completed: any) => {
     const completedCss =
@@ -57,7 +59,7 @@ export default function ProgressNav(props: Props): JSX.Element {
   const currStepCount =
     offset && typeof offset === 'number' ? currentStep + offset : currentStep;
   const progressText = () => {
-    return <span>{`Step ${currStepCount} of ${steps.length}`}</span>;
+    return <span>{`Step ${currStepCount + 1} of ${steps.length}`}</span>;
   };
 
   const mobileText = () => {
@@ -89,7 +91,6 @@ const PROGRESSBAR_STYLE = css`
   display: grid;
   margin: auto;
   // max-width: 46rem;
-  // background: orange;
 
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr;
@@ -151,7 +152,7 @@ const PROGRESSBAR_STYLE = css`
     .progress-text {
       justify-content: flex-end;
       font-style: italic;
-      font-size: 0.75rem;
+      font-size: 1rem;
       margin-top: 0.5rem;
 
       // .mobile {

@@ -262,6 +262,14 @@ export default class IndexPage extends React.Component<Props, State> {
     Router.push(`/marriageintention?step=${steps[newIndex]}`);
   };
 
+  private progressNavClick = (i: string | number) => {
+    const {
+      marriageIntentionCertificateRequest: { steps, labels },
+    } = this.props;
+    console.log(`ProgressNav Click: label ${labels[i]} | step ${steps[i]}`);
+    Router.push(`/marriageintention?step=${steps[i]}`);
+  };
+
   render() {
     const { currentStep } = this.props;
     const {
@@ -397,15 +405,6 @@ export default class IndexPage extends React.Component<Props, State> {
     }
 
     console.log(`ProgressNav: label: ${labels[steps.indexOf(currentStep)]}`);
-    // <ProgressNav
-    //   steps={taskList}
-    //   totalSteps={taskList.length}
-    //   currentStep={0}
-    //   showStepName={true}
-    //   offset={1}
-    //   completed={[0]}
-    //   clickHandler={clickHandler}
-    // />
 
     return (
       <PageWrapper
@@ -419,14 +418,11 @@ export default class IndexPage extends React.Component<Props, State> {
         progressNav={{
           steps: labels,
           totalSteps: steps.length,
-          currentStep: steps.indexOf(currentStep) + 1,
+          currentStep: steps.indexOf(currentStep),
           showStepName: true,
           offset: 0,
           completed: Array.from(completedSteps),
-          clickHandler: () =>
-            console.log(
-              `ProgressNav Click: ${labels[steps.indexOf(currentStep)]}`
-            ),
+          clickHandler: this.progressNavClick,
         }}
         classString={'b-c'}
         mainHeadline={'Marriage Intention Application'}

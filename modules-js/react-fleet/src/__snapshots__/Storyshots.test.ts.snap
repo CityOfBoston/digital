@@ -4739,7 +4739,7 @@ exports[`Storyshots ProgressNav Step 1: Getting Started (default) 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -4861,7 +4861,7 @@ exports[`Storyshots ProgressNav Step 1: Getting Started (default) 1`] = `
         className="progress-text"
       >
         <span>
-          Step 1 of 6
+          Step 2 of 6
         </span>
         <span
           className="mobile"
@@ -4956,7 +4956,7 @@ exports[`Storyshots ProgressNav Step 2: Person 1 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -5078,7 +5078,7 @@ exports[`Storyshots ProgressNav Step 2: Person 1 1`] = `
         className="progress-text"
       >
         <span>
-          Step 2 of 6
+          Step 3 of 6
         </span>
         <span
           className="mobile"
@@ -5173,7 +5173,7 @@ exports[`Storyshots ProgressNav Step 3: Person 2 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -5295,7 +5295,7 @@ exports[`Storyshots ProgressNav Step 3: Person 2 1`] = `
         className="progress-text"
       >
         <span>
-          Step 3 of 6
+          Step 4 of 6
         </span>
         <span
           className="mobile"
@@ -5390,7 +5390,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -5512,7 +5512,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info 1`] = `
         className="progress-text"
       >
         <span>
-          Step 4 of 6
+          Step 5 of 6
         </span>
         <span
           className="mobile"
@@ -5607,7 +5607,7 @@ exports[`Storyshots ProgressNav Step 4: Review 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -5729,7 +5729,7 @@ exports[`Storyshots ProgressNav Step 4: Review 1`] = `
         className="progress-text"
       >
         <span>
-          Step 5 of 6
+          Step 6 of 6
         </span>
         <span
           className="mobile"
@@ -5824,7 +5824,7 @@ exports[`Storyshots ProgressNav Step 5: Submit 1`] = `
   -ms-flex-pack: end;
   justify-content: flex-end;
   font-style: italic;
-  font-size: 0.75rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
 }
 
@@ -5946,7 +5946,7 @@ exports[`Storyshots ProgressNav Step 5: Submit 1`] = `
         className="progress-text"
       >
         <span>
-          Step 6 of 6
+          Step 7 of 6
         </span>
         <span
           className="mobile"
