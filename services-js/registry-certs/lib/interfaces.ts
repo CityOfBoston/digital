@@ -13,5 +13,6 @@ export interface ProgressNavProps {
   showStepName?: boolean;
   offset?: number;
   completed?: Array<number>;
-  clickHandler?: any;
+  clickHandler?: ((e: any) => void) | undefined;
+  blockStepBackAfterLastNav?: boolean;
 }

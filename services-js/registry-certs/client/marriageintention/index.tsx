@@ -177,11 +177,6 @@ export default class IndexPage extends React.Component<Props, State> {
     this.setState({
       completedSteps: new Set([...completedSteps, steps.indexOf(nextStep)]),
     });
-    console.log(
-      'state.completedSteps: ',
-      completedSteps,
-      Array.from(completedSteps)
-    );
     Router.push(`/marriageintention?step=${nextStep}`);
   };
 
@@ -212,8 +207,6 @@ export default class IndexPage extends React.Component<Props, State> {
   };
 
   gaAnswerQuestion = (action: string, label: string): void => {
-    // eslint-disable-next-line no-console
-    // console.log(`gaAnswerQuestion: , action: ${action} | label: ${label}`);
     this.props.siteAnalytics.sendEvent(action, {
       category: 'MarriageIntention',
       label,
@@ -264,9 +257,8 @@ export default class IndexPage extends React.Component<Props, State> {
 
   private progressNavClick = (i: string | number) => {
     const {
-      marriageIntentionCertificateRequest: { steps, labels },
+      marriageIntentionCertificateRequest: { steps },
     } = this.props;
-    console.log(`ProgressNav Click: label ${labels[i]} | step ${steps[i]}`);
     Router.push(`/marriageintention?step=${steps[i]}`);
   };
 
@@ -277,7 +269,6 @@ export default class IndexPage extends React.Component<Props, State> {
       completedSteps,
     } = this.state;
     const { steps, labels } = localMarriageIntentionCertificateRequest;
-    // console.log('props: ', this.props);
 
     let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
@@ -404,8 +395,6 @@ export default class IndexPage extends React.Component<Props, State> {
         break;
     }
 
-    console.log(`ProgressNav: label: ${labels[steps.indexOf(currentStep)]}`);
-
     return (
       <PageWrapper
         certificateType="intention"
@@ -423,6 +412,7 @@ export default class IndexPage extends React.Component<Props, State> {
           offset: 0,
           completed: Array.from(completedSteps),
           clickHandler: this.progressNavClick,
+          blockStepBackAfterLastNav: true,
         }}
         classString={'b-c'}
         mainHeadline={'Marriage Intention Application'}

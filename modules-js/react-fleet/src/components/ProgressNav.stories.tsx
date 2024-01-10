@@ -14,6 +14,7 @@ interface Props {
   offset?: number;
   completed?: Array<number>;
   clickHandler?: any;
+  blockStepBackAfterLastNav?: boolean;
 }
 
 interface State {
@@ -60,9 +61,10 @@ storiesOf('ProgressNav', module)
       totalSteps={taskList.length}
       currentStep={0}
       showStepName={true}
-      offset={1}
+      offset={0}
       completed={[0]}
       clickHandler={clickHandler}
+      blockStepBackAfterLastNav={true}
     />
   ))
   .add('Step 2: Person 1', () => (
@@ -71,9 +73,10 @@ storiesOf('ProgressNav', module)
       currentStep={1}
       totalSteps={taskList.length}
       showStepName={true}
-      offset={1}
+      offset={0}
       completed={[0, 1]}
       clickHandler={clickHandler}
+      blockStepBackAfterLastNav={true}
     />
   ))
   .add('Step 3: Person 2', () => (
@@ -82,9 +85,10 @@ storiesOf('ProgressNav', module)
       currentStep={2}
       totalSteps={taskList.length}
       showStepName={true}
-      offset={1}
+      offset={0}
       completed={[0, 1, 2]}
       clickHandler={clickHandler}
+      blockStepBackAfterLastNav={true}
     />
   ))
   .add('Step 4: Contact Info', () => (
@@ -93,30 +97,32 @@ storiesOf('ProgressNav', module)
       currentStep={3}
       totalSteps={taskList.length}
       showStepName={true}
-      offset={1}
+      offset={0}
       completed={[0, 1, 2, 3]}
       clickHandler={clickHandler}
+      blockStepBackAfterLastNav={true}
     />
   ))
-  .add('Step 4: Review', () => (
+  .add('Step 5: Review', () => (
     <InteractiveStep
       steps={taskList}
       currentStep={4}
       totalSteps={taskList.length}
       showStepName={true}
-      offset={1}
+      offset={0}
       completed={[0, 1, 2, 3, 4]}
       clickHandler={clickHandler}
     />
   ))
-  .add('Step 5: Submit', () => (
+  .add('Step 6: Submit', () => (
     <InteractiveStep
       steps={taskList}
       currentStep={5}
       totalSteps={taskList.length}
       showStepName={true}
-      offset={1}
+      offset={0}
       completed={[0, 1, 2, 3, 4, 5]}
       clickHandler={clickHandler}
+      blockStepBackAfterLastNav={true}
     />
   ));

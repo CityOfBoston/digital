@@ -14,6 +14,7 @@ interface Props {
   completed?: Array<number>;
   clickHandler?: any;
   lastCompletedStepIndex?: number;
+  blockStepBackAfterLastNav?: boolean;
 }
 
 export default function ProgressNav(props: Props): JSX.Element {
@@ -24,6 +25,7 @@ export default function ProgressNav(props: Props): JSX.Element {
     offset,
     completed,
     clickHandler,
+    blockStepBackAfterLastNav,
   } = props;
   const [focused, setFocus] = useState<number>(currentStep);
   // const setFocus = key => console.log(`setFocus(${key})`);
@@ -35,13 +37,23 @@ export default function ProgressNav(props: Props): JSX.Element {
     const currentCss = currentStep === key ? `current` : ``;
     const set_Focus =
       completed && completed.indexOf(key) > -1 ? () => setFocus(key) : () => {};
+    // const clickConsoleStd = () => void console.log(`Clicked ${steps[key]}`);
+    // const evalOffset = offset && typeof offset === 'boolean' ? offset : 0;
+    const evalCurrStep = steps.length - 1;
     const elem = (
       <a
         key={key}
         title={`${step}`}
         onClick={
-          completed && completed.indexOf(key) > -1
-            ? () => clickHandler(key)
+          completed && completed.indexOf(key) > -1 && currentStep < evalCurrStep
+            ? () => {
+                {
+                  clickHandler(key);
+                  console.log(
+                    `blockStepBackAfterLastNav | currentStep: ${blockStepBackAfterLastNav} - step: ${currentStep} - key: ${key}`
+                  );
+                }
+              }
             : () => {}
         }
         aria-label={`${step}`}
@@ -52,6 +64,10 @@ export default function ProgressNav(props: Props): JSX.Element {
         {step}
         <span className="arrow" />
       </a>
+    );
+    console.log(
+      `blockStepBackAfterLastNav | currentStep: ${blockStepBackAfterLastNav} - ${currentStep} - ${currentStep -
+        1}`
     );
     return elem;
   };
