@@ -103,6 +103,18 @@ storiesOf('ProgressNav', module)
       blockStepBackAfterLastNav={true}
     />
   ))
+  .add('Step 4: Contact Info - Nav one step back', () => (
+    <InteractiveStep
+      steps={taskList}
+      currentStep={2}
+      totalSteps={taskList.length}
+      showStepName={true}
+      offset={0}
+      completed={[0, 1, 2, 3]}
+      clickHandler={clickHandler}
+      blockStepBackAfterLastNav={true}
+    />
+  ))
   .add('Step 5: Review', () => (
     <InteractiveStep
       steps={taskList}

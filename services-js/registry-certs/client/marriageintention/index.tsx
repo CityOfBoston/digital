@@ -270,7 +270,7 @@ export default class IndexPage extends React.Component<Props, State> {
     } = this.state;
     const { steps, labels } = localMarriageIntentionCertificateRequest;
 
-    let isStepComplete: boolean = false;
+    // let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
 
     switch (currentStep) {
@@ -398,21 +398,22 @@ export default class IndexPage extends React.Component<Props, State> {
     return (
       <PageWrapper
         certificateType="intention"
-        progress={{
-          totalSteps: steps.length,
-          currentStep: steps.indexOf(currentStep) + 1,
-          currentStepCompleted: isStepComplete,
-          offset: -1,
-        }}
+        // progress={{
+        //   totalSteps: steps.length,
+        //   currentStep: steps.indexOf(currentStep) + 1,
+        //   currentStepCompleted: isStepComplete,
+        //   offset: -1,
+        // }}
         progressNav={{
           steps: labels,
           totalSteps: steps.length,
           currentStep: steps.indexOf(currentStep),
-          showStepName: true,
+          showStepName: false,
           offset: 0,
           completed: Array.from(completedSteps),
           clickHandler: this.progressNavClick,
           blockStepBackAfterLastNav: true,
+          // disableOnEnd: true,
         }}
         classString={'b-c'}
         mainHeadline={'Marriage Intention Application'}

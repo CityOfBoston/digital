@@ -2,7 +2,12 @@
 import { css, jsx } from '@emotion/core';
 import { useState } from 'react';
 
-import { BLACK, WHITE, OPTIMISTIC_BLUE_DARK } from '../utilities/constants';
+import {
+  BLACK,
+  WHITE,
+  OPTIMISTIC_BLUE_DARK,
+  GRAY_200,
+} from '../utilities/constants';
 
 interface Props {
   steps: Array<string>;
@@ -15,6 +20,7 @@ interface Props {
   clickHandler?: any;
   lastCompletedStepIndex?: number;
   blockStepBackAfterLastNav?: boolean;
+  disableOnEnd?: boolean;
 }
 
 export default function ProgressNav(props: Props): JSX.Element {
@@ -26,50 +32,52 @@ export default function ProgressNav(props: Props): JSX.Element {
     completed,
     clickHandler,
     blockStepBackAfterLastNav,
+    disableOnEnd,
+    totalSteps,
   } = props;
   const [focused, setFocus] = useState<number>(currentStep);
-  // const setFocus = key => console.log(`setFocus(${key})`);
-  // const focused = currentStep;
-
-  const stepElem = (step: string, key: number, completed: any) => {
+  const stepElem = (step: string, key: number, index: any) => {
     const completedCss =
-      completed && completed.indexOf(key) > -1 ? `completed` : ``;
-    const currentCss = currentStep === key ? `current` : ``;
+      index && index.indexOf(key) > -1 ? `completed` : `uncompleted`;
+    const focusedCss = currentStep === key ? ` focused` : ` `;
+    const formDone = completed && completed.length === totalSteps;
+    const doneCss = formDone ? ` done` : ``;
+    const disableCss =
+      disableOnEnd && disableOnEnd === true ? ` disabled` : ` `;
+    const currentCss = key === index[index.length - 1] ? `current` : ``;
     const set_Focus =
-      completed && completed.indexOf(key) > -1 ? () => setFocus(key) : () => {};
-    // const clickConsoleStd = () => void console.log(`Clicked ${steps[key]}`);
-    // const evalOffset = offset && typeof offset === 'boolean' ? offset : 0;
+      index && index.indexOf(key) > -1 && !formDone
+        ? () => setFocus(key)
+        : () => {};
     const evalCurrStep = steps.length - 1;
-    const elem = (
-      <a
-        key={key}
-        title={`${step}`}
-        onClick={
-          completed && completed.indexOf(key) > -1 && currentStep < evalCurrStep
-            ? () => {
-                {
-                  clickHandler(key);
-                  console.log(
-                    `blockStepBackAfterLastNav | currentStep: ${blockStepBackAfterLastNav} - step: ${currentStep} - key: ${key}`
-                  );
-                }
-              }
-            : () => {}
-        }
-        aria-label={`${step}`}
-        className={`${completedCss} ${currentCss}`}
-        onTouchMove={set_Focus}
-        onMouseEnter={set_Focus}
-      >
+    const blockStepBack =
+      typeof blockStepBackAfterLastNav === 'undefined' ||
+      (blockStepBackAfterLastNav && blockStepBackAfterLastNav === true);
+    const on_Click =
+      index &&
+      index.indexOf(key) > -1 &&
+      currentStep < evalCurrStep &&
+      blockStepBack
+        ? () => clickHandler(key)
+        : e => e.preventDefault();
+    let linkParam = {
+      key: key,
+      title: `${step}`,
+      onClick: on_Click,
+      'aria-label': `${step}`,
+      className: `${completedCss}${focusedCss}${disableCss}${currentCss}${doneCss}`,
+    };
+    if (formDone) {
+      linkParam['onTouchMove'] = set_Focus;
+      linkParam['onMouseEnter'] = set_Focus;
+    }
+    const $link = (
+      <a {...Object.assign({}, linkParam)}>
         {step}
         <span className="arrow" />
       </a>
     );
-    console.log(
-      `blockStepBackAfterLastNav | currentStep: ${blockStepBackAfterLastNav} - ${currentStep} - ${currentStep -
-        1}`
-    );
-    return elem;
+    return $link;
   };
 
   const currStepCount =
@@ -79,8 +87,10 @@ export default function ProgressNav(props: Props): JSX.Element {
   };
 
   const mobileText = () => {
+    const showStepNameCss =
+      showStepName && showStepName === true ? `` : `mobile`;
     return (
-      <span className="mobile">
+      <span className={`${showStepNameCss}`}>
         {`: `} {steps[focused]}
       </span>
     );
@@ -95,7 +105,7 @@ export default function ProgressNav(props: Props): JSX.Element {
         </div>
         <div className="progress-text">
           {progressText()}
-          {showStepName && mobileText()}
+          {mobileText()}
         </div>
       </div>
     </div>
@@ -106,6 +116,7 @@ const BORDER_WIDTH = '1px';
 const PROGRESSBAR_STYLE = css`
   display: grid;
   margin: auto;
+  margin-top: 0.75rem;
   // max-width: 46rem;
 
   grid-auto-columns: 1fr;
@@ -152,15 +163,35 @@ const PROGRESSBAR_STYLE = css`
 
         &.completed,
         &.completed:hover,
-        &.current {
+        &.current,
+        &.focused {
           color: white;
           cursor: pointer;
           background: ${OPTIMISTIC_BLUE_DARK};
         }
 
-        &.current,
+        &.focused,
         &.completed:hover {
           box-shadow: inset 0 0 0px 1px #fff;
+        }
+
+        &.current,
+        &.completed .current,
+        &.completed .focused .current {
+          color: ${BLACK};
+          background: ${WHITE};
+        }
+
+        &.uncompleted,
+        &.done,
+        &.done:hover {
+          color: ${BLACK};
+          background: ${GRAY_200};
+        }
+
+        &.done,
+        &.done:hover {
+          cursor: default;
         }
       }
     }
@@ -170,10 +201,12 @@ const PROGRESSBAR_STYLE = css`
       font-style: italic;
       font-size: 1rem;
       margin-top: 0.5rem;
+      // background-color: purple;
 
-      // .mobile {
-      //   display: none;
-      // }
+      .mobile {
+        // background-color: red;
+        display: none;
+      }
     }
   }
 
