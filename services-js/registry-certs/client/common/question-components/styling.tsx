@@ -295,3 +295,47 @@ export const OVERRIDE_SELECT_DISPLAY_STYLING = css({
 
 export const NOTE_BOX_CLASSNAME = 'm-v500 p-a300 br br-a200 br--r lh--300';
 export const SUPPORTING_TEXT_CLASSNAME = 'lh--400 t--s400 m-b500';
+
+export const MARRIAGEINTENTION = css({
+  h1: {
+    paddingBottom: '0.25rem',
+    marginBottom: '0',
+    textTransform: 'uppercase',
+    fontFamily: `${SANS} !important`,
+    fontWeight: 700,
+    fontSize: '2rem',
+    fontStyle: 'normal',
+    color: CHARLES_BLUE,
+  },
+
+  h2: {
+    paddingBottom: '0.25rem',
+    marginBottom: '0',
+    textTransform: 'uppercase',
+    borderBottom: THICK_BORDER_STYLE,
+    fontFamily: `${SANS} !important`,
+    fontWeight: 700,
+    fontSize: '1.5rem',
+    fontStyle: 'normal',
+    color: CHARLES_BLUE,
+  },
+
+  '.getting-started': {
+    fontSize: '1rem',
+    marginBottom: '1.5rem',
+
+    '.emphasis': {
+      fontStyle: 'bold',
+      fontWeight: 700,
+    },
+
+    ul: {
+      marginBottom: '1rem',
+
+      li: {
+        listStyle: 'initial',
+        margin: '0.25rem 0 0.25rem 1.75rem',
+      },
+    },
+  },
+});
