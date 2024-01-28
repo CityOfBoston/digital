@@ -8,6 +8,7 @@ import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import MarriageIntentionDao from '../../dao/MarriageIntentionDao';
 
 import IndexPage from '../index';
+// import PartnerView from '../forms/partnerView';
 
 function makeMarriageIntentionCertificateRequest(
   answers: Partial<MarriageIntentionCertificateRequestInformation> = {}
@@ -26,6 +27,7 @@ storiesOf('Marriage Intention/Form Pages', module)
       siteAnalytics={new GaSiteAnalytics()}
       marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
       marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0])}
     />
   ))
   .add('Step 2. Person 1', () => (
@@ -34,6 +36,7 @@ storiesOf('Marriage Intention/Form Pages', module)
       siteAnalytics={new GaSiteAnalytics()}
       marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
       marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1])}
     />
   ))
   .add('Step 3. Person 2', () => (
@@ -42,6 +45,7 @@ storiesOf('Marriage Intention/Form Pages', module)
       siteAnalytics={new GaSiteAnalytics()}
       marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
       marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2])}
     />
   ))
   .add('Step 4. Contact Info', () => (
@@ -50,21 +54,30 @@ storiesOf('Marriage Intention/Form Pages', module)
       siteAnalytics={new GaSiteAnalytics()}
       marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
       marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2, 3])}
     />
   ))
-  .add('Step 5. Review', () => (
-    <IndexPage
-      currentStep="reviewForms"
-      siteAnalytics={new GaSiteAnalytics()}
-      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
-      marriageIntentionDao={new MarriageIntentionDao(null as any)}
-    />
-  ))
+  // .add('Step 5. Review', () => (
+  //   <IndexPage
+  //     currentStep="reviewForms"
+  //     siteAnalytics={new GaSiteAnalytics()}
+  //     marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+  //     marriageIntentionDao={new MarriageIntentionDao(null as any)}
+  //     completedSteps={new Set([0, 1, 2, 3, 4])}
+  //   />
+  // ))
+  // .add('Step 5. Review/View Form Data', () => (
+  //   const {
+  //     requestInformation,
+  //   } = marriageIntentionCertificateRequest;
+
+  // ))
   .add('Step 6. Submit', () => (
     <IndexPage
       currentStep="reviewRequest"
       siteAnalytics={new GaSiteAnalytics()}
       marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
       marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2, 3, 4, 5])}
     />
   ));
