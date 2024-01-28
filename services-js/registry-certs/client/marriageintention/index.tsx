@@ -398,12 +398,6 @@ export default class IndexPage extends React.Component<Props, State> {
     return (
       <PageWrapper
         certificateType="intention"
-        // progress={{
-        //   totalSteps: steps.length,
-        //   currentStep: steps.indexOf(currentStep) + 1,
-        //   currentStepCompleted: isStepComplete,
-        //   offset: -1,
-        // }}
         progressNav={{
           steps: labels,
           totalSteps: steps.length,
@@ -413,7 +407,6 @@ export default class IndexPage extends React.Component<Props, State> {
           completed: Array.from(completedSteps),
           clickHandler: this.progressNavClick,
           blockStepBackAfterLastNav: true,
-          // disableOnEnd: true,
         }}
         classString={'b-c'}
         mainHeadline={'Marriage Intention Application'}
@@ -424,9 +417,6 @@ export default class IndexPage extends React.Component<Props, State> {
           </Head>
 
           {questionsEl}
-
-          {/* DIG-2105 */}
-          {/* {emailContentBlock()} */}
         </div>
       </PageWrapper>
     );
