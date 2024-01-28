@@ -12,14 +12,14 @@ import AnswerIcon from '../icons/AnswerIcon';
 import {
   BirthQuestion,
   MarriageQuestion,
-  YesNoUnknownAnswer,
+  yesNoUnknownAnswer,
 } from '../../types';
 
 import { RADIOGROUP_STYLING } from './styling';
 
 interface Props {
   questionName: BirthQuestion | MarriageQuestion;
-  questionValue: YesNoUnknownAnswer;
+  questionValue: yesNoUnknownAnswer;
 
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -29,7 +29,7 @@ interface Props {
  */
 export default function YesNoUnsureComponent(props: Props): JSX.Element {
   function radioItem(
-    itemValue: YesNoUnknownAnswer,
+    itemValue: yesNoUnknownAnswer,
     itemText: string
   ): ReactChild {
     // map values to the icons to use

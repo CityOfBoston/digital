@@ -38,6 +38,7 @@ interface Props
       | 'marriageIntentionCertificateRequest'
       | 'siteAnalytics'
       | 'marriageIntentionDao'
+      | 'completedSteps'
     > {}
 
 interface State {
@@ -129,7 +130,7 @@ export default class IndexPage extends React.Component<Props, State> {
       globalMarriageIntentionCertificateRequest:
         props.marriageIntentionCertificateRequest,
       currentStep: props.currentStep,
-      completedSteps: new Set([0]),
+      completedSteps: this.props.completedSteps || new Set([0]),
     };
   }
 
@@ -398,12 +399,6 @@ export default class IndexPage extends React.Component<Props, State> {
     return (
       <PageWrapper
         certificateType="intention"
-        // progress={{
-        //   totalSteps: steps.length,
-        //   currentStep: steps.indexOf(currentStep) + 1,
-        //   currentStepCompleted: isStepComplete,
-        //   offset: -1,
-        // }}
         progressNav={{
           steps: labels,
           totalSteps: steps.length,
@@ -413,7 +408,6 @@ export default class IndexPage extends React.Component<Props, State> {
           completed: Array.from(completedSteps),
           clickHandler: this.progressNavClick,
           blockStepBackAfterLastNav: true,
-          // disableOnEnd: true,
         }}
         classString={'b-c'}
         mainHeadline={'Marriage Intention Application'}
@@ -424,9 +418,6 @@ export default class IndexPage extends React.Component<Props, State> {
           </Head>
 
           {questionsEl}
-
-          {/* DIG-2105 */}
-          {/* {emailContentBlock()} */}
         </div>
       </PageWrapper>
     );

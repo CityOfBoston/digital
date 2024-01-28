@@ -58,14 +58,7 @@ export default class PartnerView extends Component<Props> {
   }
 
   public render() {
-    const {
-      // marriageIntentionCertificateRequest,
-      suffix,
-    } = this.props;
-    // const genderObj = marriageIntentionCertificateRequest.getGenderLabel(
-    //   this.props.sex
-    // );
-    // const genderLabel = genderObj && genderObj.value ? genderObj.label : 'N/A';
+    const { suffix } = this.props;
 
     const partnerShipTypeObj = PARTNERSHIP_TYPE.find(
       entry => entry.value === this.props.partnerShipType
@@ -78,14 +71,17 @@ export default class PartnerView extends Component<Props> {
     const lastMarriageStatusObj = LAST_MARRIAGE_STATUS.find(
       entry => entry.value === this.props.lastMarriageStatus
     );
+
     const lastMarriageStatus =
       lastMarriageStatusObj && lastMarriageStatusObj.value
         ? lastMarriageStatusObj.label
         : '';
+
     const lastName =
       suffix && suffix !== 'N/A'
         ? `${this.props.lastName} ${suffix}`
         : `${this.props.lastName}`;
+
     return (
       <div>
         <div css={SECTION_WRAPPER_STYLING}>
@@ -140,11 +136,6 @@ export default class PartnerView extends Component<Props> {
               <label>Age: </label>
               {this.props.age}
             </div>
-
-            {/* <div css={COLUMNS_STYLING}>
-              <label>Sex: </label>
-              {genderLabel}
-            </div> */}
 
             <div css={COLUMNS_STYLING}>
               <label>Occupation: </label>
