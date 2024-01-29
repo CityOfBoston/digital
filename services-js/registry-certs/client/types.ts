@@ -36,7 +36,7 @@ export type Relation =
   | 'other'
   | '';
 
-export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
+export type yesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
 
 // Death-specific
 export interface DeathCertificate
@@ -134,13 +134,13 @@ export type MarriageStep =
 export type BirthCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
-  bornInBoston: YesNoUnknownAnswer;
-  parentsLivedInBoston?: YesNoUnknownAnswer;
+  bornInBoston: yesNoUnknownAnswer;
+  parentsLivedInBoston?: yesNoUnknownAnswer;
   firstName: string;
   lastName: string;
   altSpelling: string;
   birthDate?: Date | null;
-  parentsMarried: YesNoUnknownAnswer;
+  parentsMarried: yesNoUnknownAnswer;
   parent1FirstName: string;
   parent1LastName: string;
   parent2FirstName: string;
@@ -232,7 +232,7 @@ export type MarriageIntentionCertificateRequestInformation = {
 export type MarriageCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
-  filedInBoston: YesNoUnknownAnswer;
+  filedInBoston: yesNoUnknownAnswer;
   dateOfMarriageExact?: Date | null;
   dateOfMarriageUnsure?: string;
   fullName1: string;
@@ -241,8 +241,8 @@ export type MarriageCertificateRequestInformation = {
   maidenName2?: string;
   altSpellings1?: string;
   altSpellings2?: string;
-  parentsMarried1: YesNoUnknownAnswer;
-  parentsMarried2: YesNoUnknownAnswer;
+  parentsMarried1: yesNoUnknownAnswer;
+  parentsMarried2: yesNoUnknownAnswer;
   // customerNotes?: string;
 
   // only required if parentsMarried[1, 2] !== true:

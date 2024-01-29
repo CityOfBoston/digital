@@ -73833,6 +73833,332 @@ Array [
 ]
 `;
 
+exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Person (1) View 1`] = `
+.emotion-31 {
+  margin-bottom: 2.5em;
+}
+
+.emotion-0 {
+  padding-bottom: 0.25rem;
+  margin-bottom: 0;
+  font-family: Lora,Georgia,serif !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #091f2f;
+  border-bottom: 4px solid #091f2f;
+  margin-bottom: 0.5em;
+}
+
+.emotion-0.secondary {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-width: 3px;
+}
+
+.emotion-0.secondary em {
+  font-size: 1rem;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-3 {
+    clear: both;
+    min-height: 1px;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-1 {
+    width: 49%;
+    float: left;
+    margin-right: 1%;
+    margin-bottom: 0.5em;
+  }
+}
+
+.emotion-11 {
+  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-11 {
+    clear: both;
+    min-height: 1px;
+    overflow: hidden;
+  }
+}
+
+.emotion-11 h2 {
+  font-size: 1.25em;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-12 {
+  margin-bottom: 0.5em;
+}
+
+.emotion-30 {
+  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-30 {
+    clear: both;
+    min-height: 1px;
+    overflow: hidden;
+  }
+}
+
+.emotion-30 h2 {
+  font-size: 1.5rem;
+}
+
+.emotion-30 h4 {
+  font-size: 1.25rem;
+}
+
+.emotion-30 h2 {
+  font-size: 1.25em;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div>
+  <div
+    className="emotion-31"
+  >
+    <h2
+      className="emotion-0"
+      style={
+        Object {
+          "fontSize": "2rem",
+          "textDecoration": "none",
+        }
+      }
+    >
+      Person 
+      A
+    </h2>
+    <div
+      className="emotion-3"
+    >
+      <div
+        className="emotion-1"
+      >
+        <label>
+          First Name: 
+        </label>
+        Phillip
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Middle Name: 
+        </label>
+        Benton
+      </div>
+    </div>
+    <div
+      className="emotion-3"
+    >
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Last Name: 
+        </label>
+        Kelly
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Last Name / Surname: 
+        </label>
+        Kelly
+      </div>
+    </div>
+    <div
+      className="emotion-11"
+    >
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Date of Birth: 
+        </label>
+        Sep 23, 1982
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Age: 
+        </label>
+        41
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Occupation: 
+        </label>
+        Developer
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Address: 
+        </label>
+        
+          100 Howard Ave. Apt 2,
+          Boston
+          MA 
+          02125 
+           USA
+        
+      </div>
+    </div>
+    <div
+      className="emotion-11"
+    >
+      <h2
+        className="emotion-12"
+      >
+        Birthplace
+      </h2>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          City: 
+        </label>
+        La Ceiba
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Country: 
+        </label>
+         HONDURAS
+      </div>
+    </div>
+    <div
+      className="emotion-11"
+    >
+      <h2
+        className="emotion-12"
+      >
+        Parents
+      </h2>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Parent 1/Mother: 
+        </label>
+        Mother F. Mother L.
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Parent 2/Father: 
+        </label>
+        Father F. Father L.
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Were your parents married at the time of your birth?:
+        </label>
+         No
+      </div>
+    </div>
+    <div
+      className="emotion-30"
+    >
+      <h2
+        className="emotion-12"
+      >
+        Marriage
+      </h2>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Marriage Number: 
+        </label>
+        2nd
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Last Marriage Status: 
+        </label>
+        Void or annulled by court order
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Last Marriage Resolution: 
+        </label>
+        Yes
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Current Partnership Type: 
+        </label>
+        Domestic Partnership
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Civil Union Or Domestic Partnership Dissolved: 
+        </label>
+        Yes
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Partnership State: 
+        </label>
+        Boston, USA
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Blood Relation to Partner?: 
+        </label>
+        Yes
+      </div>
+      <div
+        className="emotion-1"
+      >
+        <label>
+          Describe Blood Relation: 
+        </label>
+        Third Cousin's Removed
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Marriage Intention/Form Pages Step 6. Submit 1`] = `
 Array [
   <a

@@ -396,12 +396,6 @@ export default class IndexPage extends React.Component<Props, State> {
         break;
     }
 
-    console.log(`PageWrapper > currentStep: ${currentStep}`);
-    console.log(`PageWrapper > currentStep(mod): `, steps.indexOf(currentStep));
-    console.log(`PageWrapper > steps: - `, steps);
-    console.log(`PageWrapper > labels: `, labels);
-    console.log(`PageWrapper > totalSteps: `, labels.length);
-
     return (
       <PageWrapper
         certificateType="intention"

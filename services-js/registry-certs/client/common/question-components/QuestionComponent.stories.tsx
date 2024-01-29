@@ -6,7 +6,7 @@ import { Component } from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { YesNoUnknownAnswer } from '../../types';
+import { yesNoUnknownAnswer } from '../../types';
 
 import QuestionComponent from './QuestionComponent';
 import FieldsetComponent from './FieldsetComponent';
@@ -16,7 +16,7 @@ import { SECTION_HEADING_STYLING } from './styling';
 
 interface Props {}
 interface State {
-  answer: YesNoUnknownAnswer;
+  answer: yesNoUnknownAnswer;
 }
 
 class PlaceholderQuestion extends Component<Props, State> {
