@@ -31,7 +31,7 @@ import {
   formatDate,
   getStateFullName,
   getCountryFullName,
-  YesNoAnswer,
+  yesNoAnswer,
 } from '../helpers/formUtils';
 
 interface Props {
@@ -51,27 +51,6 @@ export default class ReviewForms extends Component<Props> {
     };
   }
 
-  // private adjustForTimezone(date: Date): Date {
-  //   var timeOffsetInMS: number = date.getTimezoneOffset() * 60000;
-  //   date.setTime(date.getTime() + timeOffsetInMS);
-  //   return date;
-  // }
-
-  // private formatDate(_dateObj): any {
-  //   const dateObj = new Date(this.adjustForTimezone(_dateObj));
-  //   const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
-  //     dateObj
-  //   );
-  //   const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(
-  //     dateObj
-  //   );
-  //   const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(
-  //     dateObj
-  //   );
-
-  //   return `${month} ${day}, ${year}`;
-  // }
-
   public render() {
     const {
       requestInformation,
@@ -81,41 +60,21 @@ export default class ReviewForms extends Component<Props> {
       requestInformation.appointmentDate
     )}`;
 
-    // const YesNoAnswer = (val: any) => {
-    //   return parseInt(val) === 1 ? 'Yes' : 'No';
-    // };
-
     const partnerA_parentA = `${requestInformation.partnerA_parentA_Name}/${
       requestInformation.partnerA_parentA_Surname
     }`;
+
     const partnerA_parentB = `${requestInformation.partnerA_parentB_Name}/${
       requestInformation.partnerA_parentB_Surname
     }`;
+
     const partnerB_parentA = `${requestInformation.partnerB_parentA_Name}/${
       requestInformation.partnerB_parentA_Surname
     }`;
+
     const partnerB_parentB = `${requestInformation.partnerB_parentB_Name}/${
       requestInformation.partnerB_parentB_Surname
     }`;
-
-    // const getCountryFullName = (Name: string) => {
-    //   const countryObj = COUNTRIES.find(entry => entry.value === Name);
-    //   let retVal = '';
-
-    //   if (countryObj && countryObj.label) {
-    //     retVal = ` ${countryObj.label.toLocaleUpperCase()}`;
-    //     if (countryObj.shortLabel)
-    //       retVal = ` ${countryObj.shortLabel.toLocaleUpperCase()}`;
-    //   }
-
-    //   return retVal;
-    // };
-    // const getStateFullName = (Name: string) => {
-    //   const countryObj = US_STATES.find(entry => entry.value === Name);
-    //   return countryObj && countryObj.label && countryObj.label !== '--'
-    //     ? countryObj.label
-    //     : '';
-    // };
 
     return (
       <QuestionComponent
@@ -182,10 +141,10 @@ export default class ReviewForms extends Component<Props> {
             `}
             parentA={partnerA_parentA}
             parentB={partnerA_parentB}
-            parentsMarriedAtBirth={YesNoAnswer(
+            parentsMarriedAtBirth={yesNoAnswer(
               requestInformation.partnerA_parentsMarriedAtBirth
             )}
-            bloodRelation={YesNoAnswer(
+            bloodRelation={yesNoAnswer(
               requestInformation.partnerA_bloodRelation
             )}
             bloodRelationDesc={`
@@ -235,10 +194,10 @@ export default class ReviewForms extends Component<Props> {
             `}
             parentA={partnerB_parentA}
             parentB={partnerB_parentB}
-            parentsMarriedAtBirth={YesNoAnswer(
+            parentsMarriedAtBirth={yesNoAnswer(
               requestInformation.partnerB_parentsMarriedAtBirth
             )}
-            bloodRelation={YesNoAnswer(
+            bloodRelation={yesNoAnswer(
               requestInformation.partnerB_bloodRelation
             )}
             bloodRelationDesc={`

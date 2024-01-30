@@ -75,7 +75,7 @@ export const getStateFullName = (name: string) => {
  * @returns {string} Yes|No
  * @example yesNoUnknownAnswer('1') = 'Yes'
  */
-export const YesNoAnswer = (
+export const yesNoAnswer = (
   val: '1' | '2' | 1 | 2 | string | boolean
 ): string => {
   if (!val) return ``;

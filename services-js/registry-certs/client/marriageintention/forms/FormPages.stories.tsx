@@ -13,7 +13,7 @@ import {
   formatDate,
   getStateFullName,
   getCountryFullName,
-  YesNoAnswer,
+  yesNoAnswer,
 } from '../helpers/formUtils';
 
 function makeMarriageIntentionCertificateRequest(
@@ -63,7 +63,16 @@ storiesOf('Marriage Intention/Form Pages', module)
       completedSteps={new Set([0, 1, 2, 3])}
     />
   ))
-  .add('Step 5. Review/Person (A) View', () => {
+  .add('Step 5. Review/Full Form', () => (
+    <IndexPage
+      currentStep="reviewForms"
+      siteAnalytics={new GaSiteAnalytics()}
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+      marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2, 3])}
+    />
+  ))
+  .add('Step 5. Review/Person Info View', () => {
     const marriageIntentionCertificateRequest = makeMarriageIntentionCertificateRequest();
 
     return (
@@ -96,48 +105,8 @@ storiesOf('Marriage Intention/Form Pages', module)
         partnerShipDissolve={`Yes`}
         parentA={`Mother F. Mother L.`}
         parentB={`Father F. Father L.`}
-        parentsMarriedAtBirth={YesNoAnswer('0')}
-        bloodRelation={YesNoAnswer(`1`)}
-        bloodRelationDesc={`Third Cousin's Removed`}
-        partnershipState={`Boston, USA`}
-      />
-    );
-  })
-  .add('Step 5. Review/Person (B) View', () => {
-    const marriageIntentionCertificateRequest = makeMarriageIntentionCertificateRequest();
-
-    return (
-      <PartnerView
-        marriageIntentionCertificateRequest={
-          marriageIntentionCertificateRequest
-        }
-        partyLabel={'B'}
-        firstName={`Phillip`}
-        lastName={`Kelly`}
-        suffix={``}
-        middleName={`Benton`}
-        surName={`Kelly`}
-        dob={formatDate(new Date(`1982-09-23T00:00:00.000Z`))}
-        age={`41`}
-        occupation={`Developer`}
-        address={`
-          ${`100 Howard Ave. Apt 2`},
-          ${`Boston`}
-          ${getStateFullName(`MA`)} 
-          ${`02125`} 
-          ${getCountryFullName(`USA`)}
-        `}
-        birthCity={`La Ceiba`}
-        birthState={getStateFullName(`Atlantida`)}
-        birthCountry={getCountryFullName(`HND`)}
-        marriageNumb={`2nd`}
-        lastMarriageStatus={`CRT`}
-        partnerShipType={`DOM`}
-        partnerShipDissolve={`Yes`}
-        parentA={`Mother F. Mother L.`}
-        parentB={`Father F. Father L.`}
-        parentsMarriedAtBirth={YesNoAnswer('0')}
-        bloodRelation={YesNoAnswer(`1`)}
+        parentsMarriedAtBirth={yesNoAnswer('0')}
+        bloodRelation={yesNoAnswer(`1`)}
         bloodRelationDesc={`Third Cousin's Removed`}
         partnershipState={`Boston, USA`}
       />
