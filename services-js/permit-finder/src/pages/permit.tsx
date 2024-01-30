@@ -239,7 +239,14 @@ export default class PermitPage extends React.Component<Props, State> {
           </div>
 
           {latestStep && latestStep.description && (
-            <p className="t--s500 lh--300">{latestStep.description}</p>
+            <p
+              className="t--s500 lh--300"
+              dangerouslySetInnerHTML={{
+                __html: Autolinker.link(latestStep.description, {
+                  className: 'autolinked',
+                }),
+              }}
+            />
           )}
 
           <ul
