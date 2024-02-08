@@ -88,7 +88,7 @@ export default class ReviewForms extends Component<Props> {
             marriageIntentionCertificateRequest={
               this.props.marriageIntentionCertificateRequest
             }
-            partyLabel={'A'}
+            partnerLabel={'A'}
             firstName={requestInformation.partnerA_firstName}
             lastName={requestInformation.partnerA_lastName}
             suffix={requestInformation.partnerA_suffix}
@@ -134,6 +134,7 @@ export default class ReviewForms extends Component<Props> {
               ${requestInformation.partnerA_bloodRelationDesc}
             `}
             partnershipState={requestInformation.partnerA_partnershipState}
+            stepStr={`partnerFormA`}
           />
 
           {/* PARTY B */}
@@ -141,7 +142,7 @@ export default class ReviewForms extends Component<Props> {
             marriageIntentionCertificateRequest={
               this.props.marriageIntentionCertificateRequest
             }
-            partyLabel={'B'}
+            partnerLabel={'B'}
             firstName={requestInformation.partnerB_firstName}
             lastName={requestInformation.partnerB_lastName}
             suffix={requestInformation.partnerB_suffix}
@@ -187,11 +188,15 @@ export default class ReviewForms extends Component<Props> {
               ${requestInformation.partnerB_bloodRelationDesc}
             `}
             partnershipState={requestInformation.partnerB_partnershipState}
+            stepStr={`partnerFormB`}
           />
 
           <ContactUX
             appointmentDateTime={appointmentDateTime}
-            requestInformation={requestInformation}
+            requestInformation={{
+              email: requestInformation.email,
+              dayPhone: requestInformation.dayPhone,
+            }}
           />
         </div>
       </QuestionComponent>
