@@ -37,14 +37,25 @@ export default function ProgressNav(props: Props): JSX.Element {
   } = props;
   const [focused, setFocus] = useState<number>(currentStep);
   const stepElem = (step: string, key: number, index: any) => {
-    const completedCss =
-      index && index.indexOf(key) > -1 ? `completed` : `uncompleted`;
-    const focusedCss = currentStep === key ? ` focused` : ` `;
     const formDone = completed && completed.length === totalSteps;
-    const doneCss = formDone ? ` done` : ``;
-    const disableCss =
-      disableOnEnd && disableOnEnd === true ? ` disabled` : ` `;
-    const currentCss = key === index[index.length - 1] ? `current` : ``;
+    let cssObj = {
+      completedCss:
+        index && index.indexOf(key) > -1 ? `completed` : `uncompleted`,
+      focusedCss: currentStep === key ? `focused` : ``,
+      doneCss: formDone ? `done` : ``,
+      disableCss: disableOnEnd && disableOnEnd === true ? `disabled` : ``,
+      currentCss: key === index[index.length - 1] ? `current` : ``,
+    };
+
+    // Filter out object key/value with empty strings eq. ``
+    Object.keys(cssObj).forEach(k => cssObj[k] == '' && delete cssObj[k]);
+
+    // Output obj values as string of classNames
+    let cssArrToString: string = Object.keys(cssObj)
+      .map(obj => cssObj[obj])
+      .toString()
+      .replace(/,/g, ' ');
+
     const set_Focus =
       index && index.indexOf(key) > -1 && !formDone
         ? () => setFocus(key)
@@ -59,13 +70,13 @@ export default function ProgressNav(props: Props): JSX.Element {
       currentStep < evalCurrStep &&
       blockStepBack
         ? () => clickHandler(key)
-        : e => e.preventDefault();
+        : (e: { preventDefault: () => void }) => e.preventDefault();
     let linkParam = {
       key: key,
       title: `${step}`,
       onClick: on_Click,
       'aria-label': `${step}`,
-      className: `${completedCss}${focusedCss}${disableCss}${currentCss}${doneCss}`,
+      className: `${cssArrToString}`,
     };
     if (formDone) {
       linkParam['onTouchMove'] = set_Focus;
@@ -135,9 +146,9 @@ const PROGRESSBAR_STYLE = css`
       text-align: center;
       line-height: normal;
       font-style: normal;
+      font-weight: bold;
       font-family: Lora, serif;
-      color: ${BLACK};
-      // background: green;
+      color: '#58585B';
 
       a {
         display: table-cell;
@@ -162,36 +173,40 @@ const PROGRESSBAR_STYLE = css`
         }
 
         &.completed,
-        &.completed:hover,
-        &.current,
-        &.focused {
-          color: white;
+        &.completed.current {
           cursor: pointer;
+          color: ${WHITE};
           background: ${OPTIMISTIC_BLUE_DARK};
         }
 
-        &.focused,
-        &.completed:hover {
-          box-shadow: inset 0 0 0px 1px #fff;
-        }
-
-        &.current,
-        &.completed .current,
-        &.completed .focused .current {
-          color: ${BLACK};
-          background: ${WHITE};
-        }
-
-        &.uncompleted,
-        &.done,
-        &.done:hover {
-          color: ${BLACK};
+        &.uncompleted {
           background: ${GRAY_200};
         }
 
+        &.completed.focused.current {
+          color: ${BLACK};
+          cursor: pointer;
+          background: #f2f2f2;
+        }
+
+        &.completed.focused,
+        &.completed:hover {
+          color: ${BLACK};
+          cursor: pointer;
+          background: #b0d9ff;
+        }
+
         &.done,
-        &.done:hover {
+        &.done:hover,
+        &.completed.focused.done.current {
+          color: ${BLACK};
           cursor: default;
+          background: #f2f2f2;
+        }
+
+        &.completed.current {
+          color: ${BLACK};
+          background: #f2f2f2;
         }
       }
     }
@@ -201,10 +216,8 @@ const PROGRESSBAR_STYLE = css`
       font-style: italic;
       font-size: 1rem;
       margin-top: 0.5rem;
-      // background-color: purple;
 
       .mobile {
-        // background-color: red;
         display: none;
       }
     }
