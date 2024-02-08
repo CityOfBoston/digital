@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { MEDIA_MEDIUM } from '@cityofboston/react-fleet';
 
 export const MI_REVIEW_STYLING = css({
-  fontSize: '1.35em',
+  fontSize: '0.9378em',
 
   label: {
     fontWeight: 'bold',
@@ -24,7 +24,6 @@ export const PAIRED_COLUMNS_STYLING = css({
     clear: 'both',
     minHeight: '1px',
     overflow: 'hidden',
-    // background: 'yellow',
   },
 });
 

@@ -73853,6 +73853,169 @@ Array [
 ]
 `;
 
+exports[`Storyshots Marriage Intention/Form Pages Step 5. Review - Contact [Section] 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 1em 0;
+  color: #fff;
+}
+
+.emotion-0 .wrapper-title {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-0 .wrapper-title h1,
+.emotion-0 .wrapper-title h2 {
+  color: #091f2f;
+  font-size: 1.5625em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Montserrat,Arial,sans-serif;
+  line-height: 1.875em;
+}
+
+.emotion-0 .wrapper-title h2 {
+  font-size: 1.125;
+}
+
+.emotion-0 .wrapper-btn .btn {
+  color: #091f2f;
+  background: #fff;
+  border: 2px solid #091f2f;
+}
+
+.emotion-0 .wrapper-btn .btn:hover {
+  color: #fff;
+  background: #1871bd;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .wrapper-title h1 {
+    line-height: 1.25em;
+  }
+}
+
+.emotion-1 .section-wrapper {
+  font-size: 0.9375em;
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 1em;
+}
+
+.emotion-1 .section-wrapper h2 {
+  font-size: 1.125em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.emotion-1 .section-wrapper .field-value-pair .field {
+  color: #091f2f;
+  font-size: 0.9375em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-1 .section-wrapper .field-value-pair .value {
+  font-weight: normal;
+}
+
+<div>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="wrapper-title"
+    >
+      <h1>
+        Contact Information
+      </h1>
+    </div>
+    <div
+      className="wrapper-btn"
+    >
+      <button
+        className="btn btn--b-sm"
+        onClick={[Function]}
+        type="button"
+      >
+        Edit This Page
+      </button>
+    </div>
+  </div>
+  <div
+    className="emotion-1"
+  >
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Personal Information
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Email
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          phillip.kelly@boston.gov
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Phone #
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          (617) 000-1111
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Appointment Date
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Sep 23, 1982
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Full Form 1`] = `
 Array [
   <a
@@ -73929,47 +74092,47 @@ Array [
   color: #d22d23;
 }
 
-.emotion-74 fieldset + fieldset {
+.emotion-12 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-74 fieldset + fieldset {
+  .emotion-12 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-74 fieldset + fieldset .lnk {
+  .emotion-12 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-76 {
+.emotion-14 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-76 {
+  .emotion-14 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-76 > div {
+  .emotion-14 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-76 > div.ta-r > button {
+  .emotion-14 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-76 .lnk {
+  .emotion-14 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-75 {
+.emotion-13 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
@@ -74115,186 +74278,124 @@ Array [
   }
 }
 
-.emotion-77 {
+.emotion-15 {
   padding: 0px;
 }
 
-.emotion-35 {
-  margin-bottom: 2.5em;
-}
-
-@media screen and (min-width:768px) {
-  .emotion-71 {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.emotion-71 > div {
-  text-align: left;
-}
-
-@media screen and (min-width:768px) {
-  .emotion-71 > div {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-  }
-}
-
-.emotion-71 > .RADIOGROUP label {
-  display: block;
-}
-
-.emotion-71 h3 {
-  font-family: Montserrat,Arial,sans-serif !important;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.emotion-71 .notice {
-  font-size: 0.7em;
-  clear: both;
-  min-height: 1px;
-  overflow: hidden;
-  display: block;
-  margin: 1% 0 1.5%;
-  line-height: 1.5em;
-}
-
-.emotion-71 .css-content-psedo:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
-.emotion-73 {
+.emotion-11 {
   font-size: 1.5em;
   line-height: 1.5em;
   margin-top: 1em;
-  font-size: 1.35em;
+  font-size: 0.9378em;
 }
 
-.emotion-73 h2 {
+.emotion-11 h2 {
   font-size: 1.5rem;
 }
 
-.emotion-73 h4 {
+.emotion-11 h4 {
   font-size: 1.25rem;
 }
 
-.emotion-73 label {
+.emotion-11 label {
   font-weight: bold;
 }
 
 .emotion-4 {
-  padding-bottom: 0.25rem;
-  margin-bottom: 0;
-  font-family: Lora,Georgia,serif !important;
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 0.9378rem;
+  margin-bottom: 2em;
+  line-height: 1.4em;
   color: #091f2f;
-  border-bottom: 4px solid #091f2f;
-  font-size: 2.5rem;
-  margin-bottom: 1em;
+  font-family: Lora;
 }
 
-.emotion-4.secondary {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  border-width: 3px;
-}
-
-.emotion-4.secondary em {
-  font-size: 1rem;
+.emotion-4 H1 {
+  font-weight: 700;
+  font-size: 1.88em;
+  text-transform: uppercase;
+  font-family: Montserrat !important;
+  line-height: 1.21em;
+  margin-bottom: 0em;
 }
 
 .emotion-5 {
-  padding-bottom: 0.25rem;
-  margin-bottom: 0;
-  font-family: Lora,Georgia,serif !important;
-  font-weight: 700;
-  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 1em 0;
+  color: #fff;
+}
+
+.emotion-5 .wrapper-title {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-5 .wrapper-title h1,
+.emotion-5 .wrapper-title h2 {
   color: #091f2f;
-  border-bottom: 4px solid #091f2f;
-  margin-bottom: 0.5em;
+  font-size: 1.5625em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Montserrat,Arial,sans-serif;
+  line-height: 1.875em;
 }
 
-.emotion-5.secondary {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  border-width: 3px;
+.emotion-5 .wrapper-title h2 {
+  font-size: 1.125;
 }
 
-.emotion-5.secondary em {
-  font-size: 1rem;
+.emotion-5 .wrapper-btn .btn {
+  color: #091f2f;
+  background: #fff;
+  border: 2px solid #091f2f;
 }
 
-@media screen and (min-width:768px) {
-  .emotion-8 {
-    clear: both;
-    min-height: 1px;
-    overflow: hidden;
+.emotion-5 .wrapper-btn .btn:hover {
+  color: #fff;
+  background: #1871bd;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-5 .wrapper-title h1 {
+    line-height: 1.25em;
   }
 }
 
-@media screen and (min-width:768px) {
-  .emotion-6 {
-    width: 49%;
-    float: left;
-    margin-right: 1%;
-    margin-bottom: 0.5em;
-  }
-}
-
-.emotion-16 {
-  margin-bottom: 0.5em;
+.emotion-6 .section-wrapper {
+  font-size: 0.9375em;
+  font-family: Montserrat,Arial,sans-serif;
   margin-bottom: 1em;
 }
 
-@media screen and (min-width:768px) {
-  .emotion-16 {
-    clear: both;
-    min-height: 1px;
-    overflow: hidden;
-  }
-}
-
-.emotion-16 h2 {
-  font-size: 1.25em;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-17 {
+.emotion-6 .section-wrapper h2 {
+  font-size: 1.125em;
+  font-weight: bold;
+  text-transform: uppercase;
   margin-bottom: 0.5em;
 }
 
-.emotion-34 {
-  margin-bottom: 0.5em;
-  margin-bottom: 1em;
+.emotion-6 .section-wrapper .field-value-pair .field {
+  color: #091f2f;
+  font-size: 0.9375em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-@media screen and (min-width:768px) {
-  .emotion-34 {
-    clear: both;
-    min-height: 1px;
-    overflow: hidden;
-  }
-}
-
-.emotion-34 h2 {
-  font-size: 1.5rem;
-}
-
-.emotion-34 h4 {
-  font-size: 1.25rem;
-}
-
-.emotion-34 h2 {
-  font-size: 1.25em;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+.emotion-6 .section-wrapper .field-value-pair .value {
+  font-weight: normal;
 }
 
 <div
@@ -74575,523 +74676,680 @@ Array [
             className="m-t500"
           >
             <div
-              className="b-c b-c--nbp emotion-77"
+              className="b-c b-c--nbp emotion-15"
             >
               <div
-                className="emotion-74"
+                className="emotion-12"
               >
                 <div
-                  className="emotion-73"
+                  className="emotion-11"
                 >
-                  <p>
-                    Please review the details below. If you notice any errors, click the "back" button at the bottom of your screen and correct your information before submitting this application.
-                  </p>
-                  <h1
-                    className="emotion-4"
-                  >
-                    Review Information
-                  </h1>
-                  <div>
-                    <div
-                      className="emotion-35"
-                    >
-                      <h2
-                        className="emotion-5"
-                        style={
-                          Object {
-                            "fontSize": "2rem",
-                            "textDecoration": "none",
-                          }
-                        }
-                      >
-                        Person 
-                        A
-                      </h2>
-                      <div
-                        className="emotion-8"
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            First Name: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Middle Name: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-8"
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Name: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Name / Surname: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-16"
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Date of Birth: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Age: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Occupation: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Address: 
-                          </label>
-                          
-              ,
-              
-               
-               
-              
-            
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-16"
-                      >
-                        <h2
-                          className="emotion-17"
-                        >
-                          Birthplace
-                        </h2>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            City: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Country: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-16"
-                      >
-                        <h2
-                          className="emotion-17"
-                        >
-                          Parents
-                        </h2>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Parent 1/Mother: 
-                          </label>
-                          /
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Parent 2/Father: 
-                          </label>
-                          /
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Were your parents married at the time of your birth?:
-                          </label>
-                           
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-34"
-                      >
-                        <h2
-                          className="emotion-17"
-                        >
-                          Marriage
-                        </h2>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Marriage Number: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Marriage Status: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Marriage Resolution: 
-                          </label>
-                          
-              
-            
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Current Partnership Type: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Civil Union Or Domestic Partnership Dissolved: 
-                          </label>
-                          
-              
-            
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Partnership State: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Blood Relation to Partner?: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      className="emotion-35"
-                    >
-                      <h2
-                        className="emotion-5"
-                        style={
-                          Object {
-                            "fontSize": "2rem",
-                            "textDecoration": "none",
-                          }
-                        }
-                      >
-                        Person 
-                        B
-                      </h2>
-                      <div
-                        className="emotion-8"
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            First Name: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Middle Name: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-8"
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Name: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Name / Surname: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-16"
-                      >
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Date of Birth: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Age: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Occupation: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Address: 
-                          </label>
-                          
-              ,
-              
-               
-               
-              
-            
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-16"
-                      >
-                        <h2
-                          className="emotion-17"
-                        >
-                          Birthplace
-                        </h2>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            City: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Country: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-16"
-                      >
-                        <h2
-                          className="emotion-17"
-                        >
-                          Parents
-                        </h2>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Parent 1/Mother: 
-                          </label>
-                          /
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Parent 2/Father: 
-                          </label>
-                          /
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Were your parents married at the time of your birth?:
-                          </label>
-                           
-                        </div>
-                      </div>
-                      <div
-                        className="emotion-34"
-                      >
-                        <h2
-                          className="emotion-17"
-                        >
-                          Marriage
-                        </h2>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Marriage Number: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Marriage Status: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Last Marriage Resolution: 
-                          </label>
-                          
-              
-            
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Current Partnership Type: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Civil Union Or Domestic Partnership Dissolved: 
-                          </label>
-                          
-              
-            
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Partnership State: 
-                          </label>
-                          
-                        </div>
-                        <div
-                          className="emotion-6"
-                        >
-                          <label>
-                            Blood Relation to Partner?: 
-                          </label>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h1
-                    className="emotion-4"
-                  >
-                    Contact Information
-                  </h1>
                   <div
-                    className="emotion-35"
+                    className="emotion-4"
                   >
+                    <h1>
+                      Review Information
+                    </h1>
+                    <p>
+                      <label>
+                        Before you submit your application, please check your responses.
+                      </label>
+                       
+                      you need to make any changes, you can go back and edit the previous pages. Please make sure your information is accurate. During your appointment, we will review and finalize the information you share here and make sure everything’s set before it is printed onto your marriage intention form.
+                    </p>
+                  </div>
+                  <div>
                     <div
-                      className="emotion-8"
+                      className="emotion-5"
                     >
                       <div
-                        className="emotion-6"
+                        className="wrapper-title"
                       >
-                        <label>
-                          Email: 
-                        </label>
-                        
+                        <h1>
+                          Person A
+                        </h1>
                       </div>
                       <div
-                        className="emotion-6"
+                        className="wrapper-btn"
                       >
-                        <label>
-                          Phone #: 
-                        </label>
-                        
+                        <button
+                          className="btn btn--b-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Edit This Page
+                        </button>
                       </div>
                     </div>
                     <div
-                      className="emotion-71"
+                      className="emotion-6"
                     >
-                      <label>
-                        Appointment Date: 
-                      </label>
-                      
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Personal Information
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Legal Name
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                             
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Last Name to be Used After Marriage
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Occupation
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Date and Place of Birth
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Date of Birth
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            BirthPlace
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            , 
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Residence
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Address
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+              ,
+              
+               
+               
+              
+            
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Marriage
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, Blood Relation To Current Partner
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Marriage Number
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, Status of Last Marriage
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, Status of Civil Union or Domestic Partnership
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+              
+            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, State of Civil Union or Domestic Partnership
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Parents
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Parent 1
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            /
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Parent 2
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            /
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Status of Marriage at Time of Birth
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      className="emotion-5"
+                    >
+                      <div
+                        className="wrapper-title"
+                      >
+                        <h1>
+                          Person B
+                        </h1>
+                      </div>
+                      <div
+                        className="wrapper-btn"
+                      >
+                        <button
+                          className="btn btn--b-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Edit This Page
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      className="emotion-6"
+                    >
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Personal Information
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Legal Name
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                             
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Last Name to be Used After Marriage
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Occupation
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Date and Place of Birth
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Date of Birth
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            BirthPlace
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            , 
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Residence
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Address
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+              ,
+              
+               
+               
+              
+            
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Marriage
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, Blood Relation To Current Partner
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Marriage Number
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, Status of Last Marriage
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, Status of Civil Union or Domestic Partnership
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+              
+            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            If Applicable, State of Civil Union or Domestic Partnership
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Parents
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Parent 1
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            /
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Parent 2
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            /
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Status of Marriage at Time of Birth
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      className="emotion-5"
+                    >
+                      <div
+                        className="wrapper-title"
+                      >
+                        <h1>
+                          Contact Information
+                        </h1>
+                      </div>
+                      <div
+                        className="wrapper-btn"
+                      >
+                        <button
+                          className="btn btn--b-sm"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Edit This Page
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      className="emotion-6"
+                    >
+                      <div
+                        className="section-wrapper"
+                      >
+                        <h2>
+                          Personal Information
+                        </h2>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Email
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Phone #
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                        <div
+                          className="field-value-pair"
+                        >
+                          <label
+                            className="field"
+                          >
+                            Appointment Date
+                            : 
+                          </label>
+                          <span
+                            className="value"
+                          >
+                            
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div
-                className="g g--mr emotion-76"
+                className="g g--mr emotion-14"
               >
                 <div
                   className="t--info g--6 m-b500"
                 >
                   <button
-                    className="lnk emotion-75"
+                    className="lnk emotion-13"
                     onClick={[Function]}
                     type="button"
                   >
@@ -75201,325 +75459,376 @@ Array [
 `;
 
 exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Person Info View 1`] = `
-.emotion-31 {
-  margin-bottom: 2.5em;
-}
-
 .emotion-0 {
-  padding-bottom: 0.25rem;
-  margin-bottom: 0;
-  font-family: Lora,Georgia,serif !important;
-  font-weight: 700;
-  font-size: 1.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 1em 0;
+  color: #fff;
+}
+
+.emotion-0 .wrapper-title {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-0 .wrapper-title h1,
+.emotion-0 .wrapper-title h2 {
   color: #091f2f;
-  border-bottom: 4px solid #091f2f;
-  margin-bottom: 0.5em;
+  font-size: 1.5625em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Montserrat,Arial,sans-serif;
+  line-height: 1.875em;
 }
 
-.emotion-0.secondary {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  border-width: 3px;
+.emotion-0 .wrapper-title h2 {
+  font-size: 1.125;
 }
 
-.emotion-0.secondary em {
-  font-size: 1rem;
+.emotion-0 .wrapper-btn .btn {
+  color: #091f2f;
+  background: #fff;
+  border: 2px solid #091f2f;
 }
 
-@media screen and (min-width:768px) {
-  .emotion-3 {
-    clear: both;
-    min-height: 1px;
-    overflow: hidden;
+.emotion-0 .wrapper-btn .btn:hover {
+  color: #fff;
+  background: #1871bd;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .wrapper-title h1 {
+    line-height: 1.25em;
   }
 }
 
-@media screen and (min-width:768px) {
-  .emotion-1 {
-    width: 49%;
-    float: left;
-    margin-right: 1%;
-    margin-bottom: 0.5em;
-  }
-}
-
-.emotion-11 {
-  margin-bottom: 0.5em;
+.emotion-1 .section-wrapper {
+  font-size: 0.9375em;
+  font-family: Montserrat,Arial,sans-serif;
   margin-bottom: 1em;
 }
 
-@media screen and (min-width:768px) {
-  .emotion-11 {
-    clear: both;
-    min-height: 1px;
-    overflow: hidden;
-  }
-}
-
-.emotion-11 h2 {
-  font-size: 1.25em;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-12 {
+.emotion-1 .section-wrapper h2 {
+  font-size: 1.125em;
+  font-weight: bold;
+  text-transform: uppercase;
   margin-bottom: 0.5em;
 }
 
-.emotion-30 {
-  margin-bottom: 0.5em;
-  margin-bottom: 1em;
+.emotion-1 .section-wrapper .field-value-pair .field {
+  color: #091f2f;
+  font-size: 0.9375em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-@media screen and (min-width:768px) {
-  .emotion-30 {
-    clear: both;
-    min-height: 1px;
-    overflow: hidden;
-  }
-}
-
-.emotion-30 h2 {
-  font-size: 1.5rem;
-}
-
-.emotion-30 h4 {
-  font-size: 1.25rem;
-}
-
-.emotion-30 h2 {
-  font-size: 1.25em;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
+.emotion-1 .section-wrapper .field-value-pair .value {
+  font-weight: normal;
 }
 
 <div>
   <div
-    className="emotion-31"
+    className="emotion-0"
   >
-    <h2
-      className="emotion-0"
-      style={
-        Object {
-          "fontSize": "2rem",
-          "textDecoration": "none",
-        }
-      }
-    >
-      Person 
-      A
-    </h2>
     <div
-      className="emotion-3"
+      className="wrapper-title"
     >
-      <div
-        className="emotion-1"
+      <h1>
+        Person A
+      </h1>
+    </div>
+    <div
+      className="wrapper-btn"
+    >
+      <button
+        className="btn btn--b-sm"
+        onClick={[Function]}
+        type="button"
       >
-        <label>
-          First Name: 
+        Edit This Page
+      </button>
+    </div>
+  </div>
+  <div
+    className="emotion-1"
+  >
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Personal Information
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Legal Name
+          : 
         </label>
-        Phillip
+        <span
+          className="value"
+        >
+          Phillip Kelly
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Middle Name: 
+        <label
+          className="field"
+        >
+          Last Name to be Used After Marriage
+          : 
         </label>
-        Benton
+        <span
+          className="value"
+        >
+          Kelly
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Occupation
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Developer
+        </span>
       </div>
     </div>
     <div
-      className="emotion-3"
+      className="section-wrapper"
     >
+      <h2>
+        Date and Place of Birth
+      </h2>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Last Name: 
+        <label
+          className="field"
+        >
+          Date of Birth
+          : 
         </label>
-        Kelly
+        <span
+          className="value"
+        >
+          Sep 23, 1982
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Last Name / Surname: 
+        <label
+          className="field"
+        >
+          BirthPlace
+          : 
         </label>
-        Kelly
+        <span
+          className="value"
+        >
+          La Ceiba,  HONDURAS
+        </span>
       </div>
     </div>
     <div
-      className="emotion-11"
+      className="section-wrapper"
     >
+      <h2>
+        Residence
+      </h2>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Date of Birth: 
+        <label
+          className="field"
+        >
+          Address
+          : 
         </label>
-        Sep 23, 1982
-      </div>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          Age: 
-        </label>
-        41
-      </div>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          Occupation: 
-        </label>
-        Developer
-      </div>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          Address: 
-        </label>
-        
+        <span
+          className="value"
+        >
+          
           100 Howard Ave. Apt 2,
           Boston
           MA 
           02125 
            USA
         
+        </span>
       </div>
     </div>
     <div
-      className="emotion-11"
+      className="section-wrapper"
     >
-      <h2
-        className="emotion-12"
-      >
-        Birthplace
-      </h2>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          City: 
-        </label>
-        La Ceiba
-      </div>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          Country: 
-        </label>
-         HONDURAS
-      </div>
-    </div>
-    <div
-      className="emotion-11"
-    >
-      <h2
-        className="emotion-12"
-      >
-        Parents
-      </h2>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          Parent 1/Mother: 
-        </label>
-        Mother F. Mother L.
-      </div>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          Parent 2/Father: 
-        </label>
-        Father F. Father L.
-      </div>
-      <div
-        className="emotion-1"
-      >
-        <label>
-          Were your parents married at the time of your birth?:
-        </label>
-         No
-      </div>
-    </div>
-    <div
-      className="emotion-30"
-    >
-      <h2
-        className="emotion-12"
-      >
+      <h2>
         Marriage
       </h2>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Marriage Number: 
+        <label
+          className="field"
+        >
+          If Applicable, Blood Relation To Current Partner
+          : 
         </label>
-        2nd
+        <span
+          className="value"
+        >
+          Yes
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Last Marriage Status: 
+        <label
+          className="field"
+        >
+          Blood Relation Description
+          : 
         </label>
-        Void or annulled by court order
+        <span
+          className="value"
+        >
+          Third Cousin's Removed
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Last Marriage Resolution: 
+        <label
+          className="field"
+        >
+          Marriage Number
+          : 
         </label>
-        Yes
+        <span
+          className="value"
+        >
+          2nd
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Current Partnership Type: 
+        <label
+          className="field"
+        >
+          If Applicable, Status of Last Marriage
+          : 
         </label>
-        Domestic Partnership
+        <span
+          className="value"
+        >
+          Void or annulled by court order
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Civil Union Or Domestic Partnership Dissolved: 
+        <label
+          className="field"
+        >
+          If Applicable, Status of Civil Union or Domestic Partnership
+          : 
         </label>
-        Yes
+        <span
+          className="value"
+        >
+          Yes
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Partnership State: 
+        <label
+          className="field"
+        >
+          If Applicable, State of Civil Union or Domestic Partnership
+          : 
         </label>
-        Boston, USA
+        <span
+          className="value"
+        >
+          Domestic Partnership
+        </span>
+      </div>
+    </div>
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Parents
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Parent 1
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Mother F. Mother L.
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Blood Relation to Partner?: 
+        <label
+          className="field"
+        >
+          Parent 2
+          : 
         </label>
-        Yes
+        <span
+          className="value"
+        >
+          Father F. Father L.
+        </span>
       </div>
       <div
-        className="emotion-1"
+        className="field-value-pair"
       >
-        <label>
-          Describe Blood Relation: 
+        <label
+          className="field"
+        >
+          Status of Marriage at Time of Birth
+          : 
         </label>
-        Third Cousin's Removed
+        <span
+          className="value"
+        >
+          No
+        </span>
       </div>
     </div>
   </div>

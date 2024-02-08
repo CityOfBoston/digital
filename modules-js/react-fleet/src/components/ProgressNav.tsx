@@ -128,7 +128,6 @@ const PROGRESSBAR_STYLE = css`
   display: grid;
   margin: auto;
   margin-top: 0.75rem;
-  // max-width: 46rem;
 
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr;

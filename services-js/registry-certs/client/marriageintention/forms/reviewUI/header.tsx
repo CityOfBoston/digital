@@ -2,25 +2,25 @@
 
 import { jsx } from '@emotion/core';
 import { Component } from 'react';
-
-import { SECTION_HEADING_STYLING } from '../../../common/question-components/styling';
-
-import { MAIN_HEADING_STYLING } from '../styling';
+import { REVIEW_INTRO_HEADER_STYLING } from './reviewStying';
 
 export default class HeaderUX extends Component {
   public render() {
     return (
-      <>
-        <p>
-          Please review the details below. If you notice any errors, click the
-          "back" button at the bottom of your screen and correct your
-          information before submitting this application.
-        </p>
+      <div css={[REVIEW_INTRO_HEADER_STYLING]}>
+        <h1>Review Information</h1>
 
-        <h1 css={[SECTION_HEADING_STYLING, MAIN_HEADING_STYLING]}>
-          Review Information
-        </h1>
-      </>
+        <p>
+          <label>
+            Before you submit your application, please check your responses.
+          </label>{' '}
+          you need to make any changes, you can go back and edit the previous
+          pages. Please make sure your information is accurate. During your
+          appointment, we will review and finalize the information you share
+          here and make sure everything’s set before it is printed onto your
+          marriage intention form.
+        </p>
+      </div>
     );
   }
 }

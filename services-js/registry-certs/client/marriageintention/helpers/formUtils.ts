@@ -83,3 +83,20 @@ export const yesNoAnswer = (
   if (typeof val === 'number') return val === 1 ? 'Yes' : 'No';
   return parseInt(val) === 1 ? 'Yes' : 'No';
 };
+
+/**
+ * @name formatPhoneNumber
+ * @description Format Phone number in US standard + country code
+ * @param phoneStr Phone # as a string
+ * @returns {string}
+ * @example formatPhoneNumber("16174450011") = "1 (617) 445-0011"
+ */
+export const formatPhoneNumber = (phoneStr: string): string => {
+  const cleaned = ('' + phoneStr).replace(/\D/g, '');
+  const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    const intlCode = match[1] ? '+1 ' : '';
+    return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('');
+  }
+  return '';
+};
