@@ -3578,7 +3578,7 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                         className="txt-f"
                         disabled={true}
                         id="dob-year"
-                        max={2023}
+                        max={2024}
                         maxLength={4}
                         min="1000"
                         name="year"
@@ -4005,7 +4005,7 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                       <input
                         className="txt-f"
                         id="dob-year"
-                        max={2023}
+                        max={2024}
                         maxLength={4}
                         min="1000"
                         name="year"

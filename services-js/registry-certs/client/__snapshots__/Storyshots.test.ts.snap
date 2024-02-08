@@ -63101,8 +63101,9 @@ Array [
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-3 .progressbar .nav a {
@@ -63128,36 +63129,40 @@ Array [
 }
 
 .emotion-3 .progressbar .nav a.completed,
-.emotion-3 .progressbar .nav a.completed:hover,
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.focused {
-  color: white;
+.emotion-3 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-3 .progressbar .nav a.focused,
-.emotion-3 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.completed .current,
-.emotion-3 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-3 .progressbar .nav a.uncompleted,
-.emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-3 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-3 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused,
+.emotion-3 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
+.emotion-3 .progressbar .nav a.done:hover,
+.emotion-3 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-3 .progressbar .progress-text {
@@ -63442,7 +63447,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 1"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Person 1"
                 >
@@ -63453,7 +63458,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 2"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Person 2"
                 >
@@ -63464,7 +63469,7 @@ Array [
                 </a>
                 <a
                   aria-label="Contact Info"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Contact Info"
                 >
@@ -63475,7 +63480,7 @@ Array [
                 </a>
                 <a
                   aria-label="Review"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Review"
                 >
@@ -63486,7 +63491,7 @@ Array [
                 </a>
                 <a
                   aria-label="Submit"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Submit"
                 >
@@ -63947,8 +63952,9 @@ Array [
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-3 .progressbar .nav a {
@@ -63974,36 +63980,40 @@ Array [
 }
 
 .emotion-3 .progressbar .nav a.completed,
-.emotion-3 .progressbar .nav a.completed:hover,
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.focused {
-  color: white;
+.emotion-3 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-3 .progressbar .nav a.focused,
-.emotion-3 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.completed .current,
-.emotion-3 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-3 .progressbar .nav a.uncompleted,
-.emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-3 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-3 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused,
+.emotion-3 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
+.emotion-3 .progressbar .nav a.done:hover,
+.emotion-3 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-3 .progressbar .progress-text {
@@ -64575,7 +64585,7 @@ Array [
               >
                 <a
                   aria-label="Getting Started"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Getting Started"
                 >
@@ -64597,7 +64607,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 2"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Person 2"
                 >
@@ -64608,7 +64618,7 @@ Array [
                 </a>
                 <a
                   aria-label="Contact Info"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Contact Info"
                 >
@@ -64619,7 +64629,7 @@ Array [
                 </a>
                 <a
                   aria-label="Review"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Review"
                 >
@@ -64630,7 +64640,7 @@ Array [
                 </a>
                 <a
                   aria-label="Submit"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Submit"
                 >
@@ -68431,8 +68441,9 @@ Array [
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-3 .progressbar .nav a {
@@ -68458,36 +68469,40 @@ Array [
 }
 
 .emotion-3 .progressbar .nav a.completed,
-.emotion-3 .progressbar .nav a.completed:hover,
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.focused {
-  color: white;
+.emotion-3 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-3 .progressbar .nav a.focused,
-.emotion-3 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.completed .current,
-.emotion-3 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-3 .progressbar .nav a.uncompleted,
-.emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-3 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-3 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused,
+.emotion-3 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
+.emotion-3 .progressbar .nav a.done:hover,
+.emotion-3 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-3 .progressbar .progress-text {
@@ -69059,7 +69074,7 @@ Array [
               >
                 <a
                   aria-label="Getting Started"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Getting Started"
                 >
@@ -69070,7 +69085,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 1"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Person 1"
                 >
@@ -69092,7 +69107,7 @@ Array [
                 </a>
                 <a
                   aria-label="Contact Info"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Contact Info"
                 >
@@ -69103,7 +69118,7 @@ Array [
                 </a>
                 <a
                   aria-label="Review"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Review"
                 >
@@ -69114,7 +69129,7 @@ Array [
                 </a>
                 <a
                   aria-label="Submit"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Submit"
                 >
@@ -72915,8 +72930,9 @@ Array [
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-3 .progressbar .nav a {
@@ -72942,36 +72958,40 @@ Array [
 }
 
 .emotion-3 .progressbar .nav a.completed,
-.emotion-3 .progressbar .nav a.completed:hover,
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.focused {
-  color: white;
+.emotion-3 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-3 .progressbar .nav a.focused,
-.emotion-3 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.completed .current,
-.emotion-3 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-3 .progressbar .nav a.uncompleted,
-.emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-3 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-3 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused,
+.emotion-3 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
+.emotion-3 .progressbar .nav a.done:hover,
+.emotion-3 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-3 .progressbar .progress-text {
@@ -73364,7 +73384,7 @@ Array [
               >
                 <a
                   aria-label="Getting Started"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Getting Started"
                 >
@@ -73375,7 +73395,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 1"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Person 1"
                 >
@@ -73386,7 +73406,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 2"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Person 2"
                 >
@@ -73408,7 +73428,7 @@ Array [
                 </a>
                 <a
                   aria-label="Review"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Review"
                 >
@@ -73419,7 +73439,7 @@ Array [
                 </a>
                 <a
                   aria-label="Submit"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Submit"
                 >
@@ -73999,8 +74019,9 @@ Array [
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-3 .progressbar .nav a {
@@ -74026,36 +74047,40 @@ Array [
 }
 
 .emotion-3 .progressbar .nav a.completed,
-.emotion-3 .progressbar .nav a.completed:hover,
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.focused {
-  color: white;
+.emotion-3 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-3 .progressbar .nav a.focused,
-.emotion-3 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.completed .current,
-.emotion-3 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-3 .progressbar .nav a.uncompleted,
-.emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-3 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-3 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused,
+.emotion-3 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
+.emotion-3 .progressbar .nav a.done:hover,
+.emotion-3 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-3 .progressbar .progress-text {
@@ -74465,7 +74490,7 @@ Array [
               >
                 <a
                   aria-label="Getting Started"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Getting Started"
                 >
@@ -74476,7 +74501,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 1"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Person 1"
                 >
@@ -74487,7 +74512,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 2"
-                  className="completed  "
+                  className="completed"
                   onClick={[Function]}
                   title="Person 2"
                 >
@@ -74498,7 +74523,7 @@ Array [
                 </a>
                 <a
                   aria-label="Contact Info"
-                  className="completed  current"
+                  className="completed current"
                   onClick={[Function]}
                   title="Contact Info"
                 >
@@ -74509,7 +74534,7 @@ Array [
                 </a>
                 <a
                   aria-label="Review"
-                  className="uncompleted focused "
+                  className="uncompleted focused"
                   onClick={[Function]}
                   title="Review"
                 >
@@ -74520,7 +74545,7 @@ Array [
                 </a>
                 <a
                   aria-label="Submit"
-                  className="uncompleted  "
+                  className="uncompleted"
                   onClick={[Function]}
                   title="Submit"
                 >
@@ -75675,8 +75700,9 @@ Array [
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-3 .progressbar .nav a {
@@ -75702,36 +75728,40 @@ Array [
 }
 
 .emotion-3 .progressbar .nav a.completed,
-.emotion-3 .progressbar .nav a.completed:hover,
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.focused {
-  color: white;
+.emotion-3 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-3 .progressbar .nav a.focused,
-.emotion-3 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-3 .progressbar .nav a.current,
-.emotion-3 .progressbar .nav a.completed .current,
-.emotion-3 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-3 .progressbar .nav a.uncompleted,
-.emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-3 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-3 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused,
+.emotion-3 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover {
+.emotion-3 .progressbar .nav a.done:hover,
+.emotion-3 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-3 .progressbar .progress-text {
@@ -75985,7 +76015,7 @@ Array [
               >
                 <a
                   aria-label="Getting Started"
-                  className="completed   done"
+                  className="completed done"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                   onTouchMove={[Function]}
@@ -75998,7 +76028,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 1"
-                  className="completed   done"
+                  className="completed done"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                   onTouchMove={[Function]}
@@ -76011,7 +76041,7 @@ Array [
                 </a>
                 <a
                   aria-label="Person 2"
-                  className="completed   done"
+                  className="completed done"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                   onTouchMove={[Function]}
@@ -76024,7 +76054,7 @@ Array [
                 </a>
                 <a
                   aria-label="Contact Info"
-                  className="completed   done"
+                  className="completed done"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                   onTouchMove={[Function]}
@@ -76037,7 +76067,7 @@ Array [
                 </a>
                 <a
                   aria-label="Review"
-                  className="completed   done"
+                  className="completed done"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                   onTouchMove={[Function]}
@@ -76050,7 +76080,7 @@ Array [
                 </a>
                 <a
                   aria-label="Submit"
-                  className="completed focused current done"
+                  className="completed focused done current"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                   onTouchMove={[Function]}
@@ -76221,8 +76251,9 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-0 .progressbar .nav a {
@@ -76248,36 +76279,40 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
 }
 
 .emotion-0 .progressbar .nav a.completed,
-.emotion-0 .progressbar .nav a.completed:hover,
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.focused {
-  color: white;
+.emotion-0 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-0 .progressbar .nav a.focused,
-.emotion-0 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.completed .current,
-.emotion-0 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-0 .progressbar .nav a.uncompleted,
-.emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-0 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-0 .progressbar .progress-text {
@@ -76342,7 +76377,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
         </a>
         <a
           aria-label="Person 1"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Person 1"
         >
@@ -76353,7 +76388,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
         </a>
         <a
           aria-label="Person 2"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Person 2"
         >
@@ -76364,7 +76399,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
         </a>
         <a
           aria-label="Contact Info"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Contact Info"
         >
@@ -76375,7 +76410,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
         </a>
         <a
           aria-label="Review"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Review"
         >
@@ -76386,7 +76421,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
         </a>
         <a
           aria-label="Submit"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Submit"
         >
@@ -76451,8 +76486,9 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-0 .progressbar .nav a {
@@ -76478,36 +76514,40 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
 }
 
 .emotion-0 .progressbar .nav a.completed,
-.emotion-0 .progressbar .nav a.completed:hover,
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.focused {
-  color: white;
+.emotion-0 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-0 .progressbar .nav a.focused,
-.emotion-0 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.completed .current,
-.emotion-0 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-0 .progressbar .nav a.uncompleted,
-.emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-0 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-0 .progressbar .progress-text {
@@ -76561,7 +76601,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
       >
         <a
           aria-label="Getting Started"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Getting Started"
         >
@@ -76583,7 +76623,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
         </a>
         <a
           aria-label="Person 2"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Person 2"
         >
@@ -76594,7 +76634,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
         </a>
         <a
           aria-label="Contact Info"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Contact Info"
         >
@@ -76605,7 +76645,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
         </a>
         <a
           aria-label="Review"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Review"
         >
@@ -76616,7 +76656,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
         </a>
         <a
           aria-label="Submit"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Submit"
         >
@@ -76681,8 +76721,9 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-0 .progressbar .nav a {
@@ -76708,36 +76749,40 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
 }
 
 .emotion-0 .progressbar .nav a.completed,
-.emotion-0 .progressbar .nav a.completed:hover,
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.focused {
-  color: white;
+.emotion-0 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-0 .progressbar .nav a.focused,
-.emotion-0 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.completed .current,
-.emotion-0 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-0 .progressbar .nav a.uncompleted,
-.emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-0 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-0 .progressbar .progress-text {
@@ -76791,7 +76836,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
       >
         <a
           aria-label="Getting Started"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Getting Started"
         >
@@ -76802,7 +76847,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
         </a>
         <a
           aria-label="Person 1"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Person 1"
         >
@@ -76824,7 +76869,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
         </a>
         <a
           aria-label="Contact Info"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Contact Info"
         >
@@ -76835,7 +76880,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
         </a>
         <a
           aria-label="Review"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Review"
         >
@@ -76846,7 +76891,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
         </a>
         <a
           aria-label="Submit"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Submit"
         >
@@ -76911,8 +76956,9 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-0 .progressbar .nav a {
@@ -76938,36 +76984,40 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
 }
 
 .emotion-0 .progressbar .nav a.completed,
-.emotion-0 .progressbar .nav a.completed:hover,
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.focused {
-  color: white;
+.emotion-0 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-0 .progressbar .nav a.focused,
-.emotion-0 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.completed .current,
-.emotion-0 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-0 .progressbar .nav a.uncompleted,
-.emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-0 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-0 .progressbar .progress-text {
@@ -77021,7 +77071,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
       >
         <a
           aria-label="Getting Started"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Getting Started"
         >
@@ -77032,7 +77082,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
         </a>
         <a
           aria-label="Person 1"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Person 1"
         >
@@ -77043,7 +77093,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
         </a>
         <a
           aria-label="Person 2"
-          className="completed focused "
+          className="completed focused"
           onClick={[Function]}
           title="Person 2"
         >
@@ -77054,7 +77104,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
         </a>
         <a
           aria-label="Contact Info"
-          className="completed  current"
+          className="completed current"
           onClick={[Function]}
           title="Contact Info"
         >
@@ -77065,7 +77115,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
         </a>
         <a
           aria-label="Review"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Review"
         >
@@ -77076,7 +77126,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
         </a>
         <a
           aria-label="Submit"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Submit"
         >
@@ -77141,8 +77191,9 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-0 .progressbar .nav a {
@@ -77168,36 +77219,40 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
 }
 
 .emotion-0 .progressbar .nav a.completed,
-.emotion-0 .progressbar .nav a.completed:hover,
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.focused {
-  color: white;
+.emotion-0 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-0 .progressbar .nav a.focused,
-.emotion-0 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.completed .current,
-.emotion-0 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-0 .progressbar .nav a.uncompleted,
-.emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-0 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-0 .progressbar .progress-text {
@@ -77251,7 +77306,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
       >
         <a
           aria-label="Getting Started"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Getting Started"
         >
@@ -77262,7 +77317,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
         </a>
         <a
           aria-label="Person 1"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Person 1"
         >
@@ -77273,7 +77328,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
         </a>
         <a
           aria-label="Person 2"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Person 2"
         >
@@ -77295,7 +77350,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
         </a>
         <a
           aria-label="Review"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Review"
         >
@@ -77306,7 +77361,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
         </a>
         <a
           aria-label="Submit"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Submit"
         >
@@ -77371,8 +77426,9 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-0 .progressbar .nav a {
@@ -77398,36 +77454,40 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
 }
 
 .emotion-0 .progressbar .nav a.completed,
-.emotion-0 .progressbar .nav a.completed:hover,
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.focused {
-  color: white;
+.emotion-0 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-0 .progressbar .nav a.focused,
-.emotion-0 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.completed .current,
-.emotion-0 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-0 .progressbar .nav a.uncompleted,
-.emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-0 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-0 .progressbar .progress-text {
@@ -77481,7 +77541,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
       >
         <a
           aria-label="Getting Started"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Getting Started"
         >
@@ -77492,7 +77552,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
         </a>
         <a
           aria-label="Person 1"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Person 1"
         >
@@ -77503,7 +77563,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
         </a>
         <a
           aria-label="Person 2"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Person 2"
         >
@@ -77514,7 +77574,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
         </a>
         <a
           aria-label="Contact Info"
-          className="completed  "
+          className="completed"
           onClick={[Function]}
           title="Contact Info"
         >
@@ -77536,7 +77596,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
         </a>
         <a
           aria-label="Submit"
-          className="uncompleted  "
+          className="uncompleted"
           onClick={[Function]}
           title="Submit"
         >
@@ -77601,8 +77661,9 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
   text-align: center;
   line-height: normal;
   font-style: normal;
+  font-weight: bold;
   font-family: Lora,serif;
-  color: #000;
+  color: '#58585B';
 }
 
 .emotion-0 .progressbar .nav a {
@@ -77628,36 +77689,40 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
 }
 
 .emotion-0 .progressbar .nav a.completed,
-.emotion-0 .progressbar .nav a.completed:hover,
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.focused {
-  color: white;
+.emotion-0 .progressbar .nav a.completed.current {
   cursor: pointer;
+  color: #fff;
   background: #1871bd;
 }
 
-.emotion-0 .progressbar .nav a.focused,
-.emotion-0 .progressbar .nav a.completed:hover {
-  box-shadow: inset 0 0 0px 1px #fff;
-}
-
-.emotion-0 .progressbar .nav a.current,
-.emotion-0 .progressbar .nav a.completed .current,
-.emotion-0 .progressbar .nav a.completed .focused .current {
-  color: #000;
-  background: #fff;
-}
-
-.emotion-0 .progressbar .nav a.uncompleted,
-.emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
-  color: #000;
+.emotion-0 .progressbar .nav a.uncompleted {
   background: #C8C8C8;
 }
 
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
 .emotion-0 .progressbar .nav a.done,
-.emotion-0 .progressbar .nav a.done:hover {
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
   cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
 }
 
 .emotion-0 .progressbar .progress-text {
@@ -77711,7 +77776,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
       >
         <a
           aria-label="Getting Started"
-          className="completed   done"
+          className="completed done"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onTouchMove={[Function]}
@@ -77724,7 +77789,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
         </a>
         <a
           aria-label="Person 1"
-          className="completed   done"
+          className="completed done"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onTouchMove={[Function]}
@@ -77737,7 +77802,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
         </a>
         <a
           aria-label="Person 2"
-          className="completed   done"
+          className="completed done"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onTouchMove={[Function]}
@@ -77750,7 +77815,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
         </a>
         <a
           aria-label="Contact Info"
-          className="completed   done"
+          className="completed done"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onTouchMove={[Function]}
@@ -77763,7 +77828,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
         </a>
         <a
           aria-label="Review"
-          className="completed   done"
+          className="completed done"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onTouchMove={[Function]}
@@ -77776,7 +77841,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
         </a>
         <a
           aria-label="Submit"
-          className="completed focused current done"
+          className="completed focused done current"
           onClick={[Function]}
           onMouseEnter={[Function]}
           onTouchMove={[Function]}
