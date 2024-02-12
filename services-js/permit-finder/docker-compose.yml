@@ -1,0 +1,26 @@
+version: '3'
+services:
+  permit-finder:
+    image: local-test/permit-finder:latest
+    container_name: permit-finder
+    ports:
+      - 3001:3001
+      # - ${COMPOSE_PORTS}
+    working_dir: /app/services-js/permit-finder
+    extra_hosts:
+      - group-mgmt-test.digital-staging.boston.gov:172.17.0.3
+      # - ${EXTRA_HOSTS}
+    volumes:
+      - ~/.aws:/root/.aws
+    environment:
+      AWS_S3_CONFIG_URL: s3://cob-digital-apps-staging-config/permit-finder
+      DEPLOY_VARIANT: test
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_REGION: us-east-1
+      PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      NODE_VERSION: 14.19.1
+      YARN_VERSION: 1.22.17
+      WORKSPACE: permit-finder
+      NODE_ENV: production
+      USE_SSL: true
+    network_mode: bridge

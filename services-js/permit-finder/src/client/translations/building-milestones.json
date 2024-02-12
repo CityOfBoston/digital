@@ -250,5 +250,26 @@
     "Description": "",
     "ExpectedDuration": "",
     "ContactInstructions": ""
+  },
+  {
+    "Milestones": "MoreInfo",
+    "DisplayStatus": "Intake & Payment",
+    "Description": "More information is needed to complete permit and plan intake. Please log in to the permitting portal (https://onlinepermitsandlicenses.boston.gov/isdpermits/) to view comments from the reviewer and update your application. ",
+    "ExpectedDuration": "Please get back to us soon so we can complete intake.",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "PZ MoreInfo",
+    "DisplayStatus": "Project Review",
+    "Description": "More information is needed to complete the plan review. Please log in to the permitting portal (https://onlinepermitsandlicenses.boston.gov/isdpermits/) to view comments from your assigned plans examiner and provide the requested items. ",
+    "ExpectedDuration": "Please get back to us soon so we can complete plan review.",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "Refusal",
+    "DisplayStatus": "Project Review",
+    "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes. Please log in to the permitting portal (https://onlinepermitsandlicenses.boston.gov/isdpermits/) to view the refusal letter from the plans examiner. You can revise and resubmit plans or submit an appeal to proceed. To learn more about the Zoning Board of Appeals process, please visit https://www.boston.gov/departments/inspectional-services/zoning-board-appeal.",
+    "ExpectedDuration": "Please take action to proceed.",
+    "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
   }
 ]

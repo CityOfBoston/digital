@@ -38,6 +38,14 @@ describe('lookupPermit', () => {
                   "MilestoneStartDate": "2012-10-19 14:12:44.877000",
                   "PermitNumber": "X49106288",
                 },
+                Object {
+                  "AverageDurationOfMilestone": "3457551",
+                  "CityContactName": "JON R ACEVEDO",
+                  "MilestoneEndDate": "2019-05-17 16:03:07.027000",
+                  "MilestoneName": "Refusal",
+                  "MilestoneStartDate": "2012-10-19 14:12:44.877000",
+                  "PermitNumber": "X49106288",
+                },
               ],
               "reviews": Array [
                 Object {
