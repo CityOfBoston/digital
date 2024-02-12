@@ -6903,6 +6903,21 @@ babel-code-frame@^6.22.0, babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
+babel-config@CityOfBoston/config-babel#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/config-babel/tar.gz/efc690277c78102d4534126c9f6ebb0007daa5f6"
+  dependencies:
+    "@babel/core" "^7.6.0"
+    "@babel/plugin-proposal-class-properties" "^7.5.5"
+    "@babel/plugin-proposal-decorators" "^7.6.0"
+    "@babel/plugin-proposal-private-methods" "^7.7.4"
+    "@babel/plugin-transform-runtime" "^7.6.0"
+    "@babel/preset-env" "^7.6.0"
+    "@babel/preset-react" "^7.0.0"
+    "@babel/preset-typescript" "^7.6.0"
+    babel-plugin-require-context-hook "^1.0.0"
+    next ">=11.1.0"
+
 babel-core@7.0.0-bridge.0, babel-core@^7.0.0-0:
   version "7.0.0-bridge.0"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
@@ -10751,6 +10766,27 @@ depd@^1.1.2, depd@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
 
+deploy-tools@CityOfBoston/deploy-tools#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/deploy-tools/tar.gz/f34b59102a9d3898a09ccc1e4fce814e1306fcd4"
+  dependencies:
+    "@lerna/filter-options" "^3.13.0"
+    "@lerna/package-graph" "^3.13.0"
+    "@lerna/project" "^3.13.0"
+    "@slack/client" "^4.3.1"
+    aws-sdk "^2.245.1"
+    date-fns "^1.29.0"
+    dotenv "^5.0.0"
+    form-data "^2.3.3"
+    https-proxy-agent "^2.0.0"
+    ignore "^5.0.4"
+    mime-types "^2.1.20"
+    minimist "^1.2.0"
+    node-fetch "^2.0.0"
+    recursive-readdir "^2.2.2"
+    shelljs "^0.8.2"
+    tar "^4.4.3"
+
 deprecated-decorator@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/deprecated-decorator/-/deprecated-decorator-0.1.6.tgz#00966317b7a12fe92f3cc831f7583af329b86c37"
@@ -13721,6 +13757,12 @@ graphql-tools@^4.0.5:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
+graphql-typescript@CityOfBoston/graphql-typescript#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/graphql-typescript/tar.gz/2779706f858aa4a891215b98a29d1c6e14797bb1"
+  dependencies:
+    core-js "^3.19.3"
+
 graphql-upload@^8.0.2:
   version "8.0.6"
   resolved "https://registry.yarnpkg.com/graphql-upload/-/graphql-upload-8.0.6.tgz#90fb6246962d953b64d9ddabd6472d8e8b116ee0"
@@ -13990,6 +14032,17 @@ hapi-accept-language2@^2.0.3:
   dependencies:
     accept-language-parser "^1.4.1"
 
+hapi-common@CityOfBoston/hapi-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/hapi-common/tar.gz/5cae1a1cfa566ef695a34a9727471cabddcfb7e5"
+  dependencies:
+    boom "^7.2.0"
+    core-js "^3.19.3"
+    good "^8.1.1"
+    good-console "^7.1.0"
+    good-squeeze "^5.1.0"
+    hoek "5.x.x"
+
 hapi-cors@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/hapi-cors/-/hapi-cors-1.0.3.tgz#47db547d9d6b3ae52bbeec34b2b6cfc82c5a8892"
@@ -14004,6 +14057,16 @@ hapi-dev-errors@^3.0.1:
     hoek "~5.0.3"
     youch "~2.0.8"
     youch-terminal "~1.0.0"
+
+hapi-next@CityOfBoston/hapi-next#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/hapi-next/tar.gz/0ef6e608832e9e739516138622cbc0c7cc2bbbb0"
+  dependencies:
+    compression "^1.6.2"
+    core-js "^3.19.3"
+    next ">=11.1.0"
+    react "16.8.5"
+    react-dom "16.8.5"
 
 hapi@^17.5.2:
   version "17.5.2"
@@ -19461,6 +19524,13 @@ netmask@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/netmask/-/netmask-1.0.6.tgz#20297e89d86f6f6400f250d9f4f6b4c1945fcd35"
 
+next-client-common@CityOfBoston/next-client-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/next-client-common/tar.gz/9db41ecaafe02d1a249d857186f47458f52abd18"
+  dependencies:
+    core-js "^3.19.3"
+    isomorphic-fetch "^2.2.1"
+
 next-cookies@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/next-cookies/-/next-cookies-1.0.2.tgz#1a504781824a7a7c5d948f0bbb99a7caeba6151b"
@@ -21135,6 +21205,12 @@ percy-client@^3.0.0:
     request-promise "^4.2.2"
     walk "^2.3.14"
 
+percy-common@CityOfBoston/percy-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/percy-common/tar.gz/45f22018c8e78c22e0c92cbd2096a4fb232ab391"
+  dependencies:
+    core-js "^3.19.3"
+
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
@@ -22769,6 +22845,12 @@ react-fast-compare@^2.0.1, react-fast-compare@^2.0.2:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
+
+react-fleet@CityOfBoston/react-fleet:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/react-fleet/tar.gz/843f704776381042328956784dc5517c80952f30"
+  dependencies:
+    core-js "^3.19.3"
 
 react-focus-lock@^1.17.7:
   version "1.18.3"
@@ -24878,6 +24960,13 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
+srv-decrypt-env@CityOfBoston/srv-decrypt-env#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/srv-decrypt-env/tar.gz/5eb5e67b89dcd17307f7ee1b9a46562221b2b774"
+  dependencies:
+    aws-sdk "^2.236.1"
+    core-js "^3.19.3"
+
 sshpk@^1.7.0:
   version "1.16.1"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.16.1.tgz#fb661c0bef29b39db40769ee39fa70093d6f6877"
@@ -24987,6 +25076,12 @@ stealthy-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
+
+storybook-common@CityOfBoston/storybook-common#main:
+  version "0.0.0"
+  resolved "https://codeload.github.com/CityOfBoston/storybook-common/tar.gz/b90783306c4bc6954f5b4190b2bd44b114cd90ae"
+  dependencies:
+    core-js "^3.19.3"
 
 stream-array@^1.0.1:
   version "1.1.2"
