@@ -293,6 +293,41 @@ export const OVERRIDE_SELECT_DISPLAY_STYLING = css({
   },
 });
 
+export const CONTAINER_STYLING = css({
+  'fieldset + fieldset': {
+    marginTop: '2rem',
+
+    [MEDIA_SMALL]: {
+      marginTop: '4rem',
+
+      '.lnk': {
+        paddingLeft: 0,
+      },
+    },
+  },
+});
+
+export const BUTTON_CONTAINER_STYLING = css({
+  textAlign: 'center',
+
+  [MEDIA_SMALL]: {
+    marginTop: '2.5rem',
+    textAlign: 'left',
+
+    '> div': {
+      display: 'flex',
+
+      '&.ta-r > button': {
+        marginLeft: 'auto',
+      },
+    },
+
+    '.lnk': {
+      paddingLeft: 0,
+    },
+  },
+});
+
 export const NOTE_BOX_CLASSNAME = 'm-v500 p-a300 br br-a200 br--r lh--300';
 export const SUPPORTING_TEXT_CLASSNAME = 'lh--400 t--s400 m-b500';
 

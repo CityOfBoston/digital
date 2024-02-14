@@ -15,6 +15,7 @@ import {
   getCountryFullName,
   yesNoAnswer,
 } from '../helpers/formUtils';
+import ContactUX from './reviewUI/contact';
 
 function makeMarriageIntentionCertificateRequest(
   answers: Partial<MarriageIntentionCertificateRequestInformation> = {}
@@ -80,7 +81,7 @@ storiesOf('Marriage Intention/Form Pages', module)
         marriageIntentionCertificateRequest={
           marriageIntentionCertificateRequest
         }
-        partyLabel={'A'}
+        partnerLabel={'A'}
         firstName={`Phillip`}
         lastName={`Kelly`}
         suffix={``}
@@ -109,6 +110,18 @@ storiesOf('Marriage Intention/Form Pages', module)
         bloodRelation={yesNoAnswer(`1`)}
         bloodRelationDesc={`Third Cousin's Removed`}
         partnershipState={`Boston, USA`}
+        stepStr={`partnerFormA`}
+      />
+    );
+  })
+  .add('Step 5. Review - Contact [Section]', () => {
+    return (
+      <ContactUX
+        appointmentDateTime={formatDate(new Date(`1982-09-23T00:00:00.000Z`))}
+        requestInformation={{
+          email: 'phillip.kelly@boston.gov',
+          dayPhone: '6170001111',
+        }}
       />
     );
   })
