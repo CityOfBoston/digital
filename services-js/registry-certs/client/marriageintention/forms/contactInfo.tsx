@@ -1,11 +1,16 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
 import { ChangeEvent, Component, MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
-import { TextInput, MemorableDateInput } from '@cityofboston/react-fleet';
+import {
+  TextInput,
+  MemorableDateInput,
+  SANS,
+  CHARLES_BLUE,
+} from '@cityofboston/react-fleet';
 
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 
@@ -15,10 +20,15 @@ import FieldsetComponent from '../../common/question-components/FieldsetComponen
 import {
   MARRIAGE_INTENTION_FORM_STYLING,
   PAIRED_INPUT_STYLING,
-  SECTION_HEADING_STYLING,
+  // SECTION_HEADING_STYLING,
   NAME_FIELDS_CONTAINER_STYLING,
   NAME_FIELDS_BASIC_CONTAINER_STYLING,
 } from '../../common/question-components/styling';
+
+import {
+  CONTACTFORM_HEADER_STYLING,
+  CONTACTFORM_CONTACT_FIELD_STYLING,
+} from './contactUI/contactFormStyling';
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
@@ -143,9 +153,8 @@ export default class ContactInfo extends Component<Props> {
         nextButtonText={'NEXT'}
       >
         <FieldsetComponent
-          legendText={
-            <h2 css={SECTION_HEADING_STYLING}>Contact Information</h2>
-          }
+          legendText={<h2 css={[CONTACTFORM_HEADER_STYLING]}>Contact Info</h2>}
+          description={`Please share the best email and phone number to get in contact with you. This will be used to contact you about your appointment.`}
         >
           <div css={MARRIAGE_INTENTION_FORM_STYLING}>
             <div
@@ -155,7 +164,28 @@ export default class ContactInfo extends Component<Props> {
                 NAME_FIELDS_BASIC_CONTAINER_STYLING,
               ]}
             >
-              <div>
+              <div css={CONTACTFORM_CONTACT_FIELD_STYLING}>
+                <TextInput
+                  label="EMail Address"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+                  optionalDescription={''}
+                  required={true}
+                  className={'contact-fields'}
+                />
+
+                <TextInput
+                  label="Confirm EMail Address"
+                  name="emailConfirm"
+                  value={emailConfirm}
+                  onChange={this.handleChange}
+                  optionalDescription={''}
+                  required={true}
+                  error={email === emailConfirm ? '' : 'Email does not match'}
+                  className={'contact-fields'}
+                />
+
                 <TextInput
                   label="Phone Number"
                   name="dayPhone"
@@ -169,27 +199,7 @@ export default class ContactInfo extends Component<Props> {
                   onKeyDown={this.processOnKeyDown}
                   placeholder={'(___) ___-____'}
                   required={true}
-                />
-              </div>
-
-              <div>
-                <TextInput
-                  label="EMail Address"
-                  name="email"
-                  value={email}
-                  onChange={this.handleChange}
-                  optionalDescription={''}
-                  required={true}
-                />
-
-                <TextInput
-                  label="Confirm EMail Address"
-                  name="emailConfirm"
-                  value={emailConfirm}
-                  onChange={this.handleChange}
-                  optionalDescription={''}
-                  required={true}
-                  error={email === emailConfirm ? '' : 'Email does not match'}
+                  className={'contact-fields'}
                 />
               </div>
             </div>
@@ -200,10 +210,13 @@ export default class ContactInfo extends Component<Props> {
               <MemorableDateInput
                 legend={
                   <h2
-                    css={SECTION_HEADING_STYLING}
+                    css={[
+                      // SECTION_HEADING_STYLING,
+                      APPT_HEADER_STYLING,
+                    ]}
                     style={{ marginBottom: '1.5rem' }}
                   >
-                    What is your appointment date?
+                    Appointment Date
                   </h2>
                 }
                 initialDate={appointmentDate || undefined}
@@ -220,3 +233,16 @@ export default class ContactInfo extends Component<Props> {
     );
   }
 }
+
+export const THICK_BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
+const APPT_HEADER_STYLING = css(`
+  padding-bottom: 0.25rem;
+  marginBottom: 0;
+  font-weight: 700;
+  color: ${CHARLES_BLUE};
+  border-bottom: ${THICK_BORDER_STYLE};
+
+  text-transform: uppercase;
+  font-family: ${SANS};
+  font-size: 1.125rem !important;
+`);

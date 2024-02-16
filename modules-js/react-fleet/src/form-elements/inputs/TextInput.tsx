@@ -85,6 +85,7 @@ export default function TextInput(props: Props): JSX.Element {
       return label;
     }
   };
+  console.log('optionalDescription: ', props.optionalDescription);
 
   const optionalDescriptionElem = optionalDescription => {
     const cont = 'notice css-content-psedo';
@@ -127,7 +128,8 @@ export default function TextInput(props: Props): JSX.Element {
     <div className={props.className} style={props.style}>
       {!props.labelBelowInput && labelElem()}
       {props.labelBelowInput && spacer()}
-      {typeof props.optionalDescription !== 'undefined' &&
+      {props.optionalDescription &&
+        props.optionalDescription.length > 0 &&
         optionalDescriptionElem(props.optionalDescription)}
 
       <input
