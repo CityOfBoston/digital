@@ -41,6 +41,8 @@ type Props = {
   optionalDescription?: string;
 
   required?: boolean;
+  softRequired?: boolean;
+  toolTip?: { icon: string; msg: string };
   inputMode?: string;
   maxLength?: number;
   minLength?: number;
@@ -63,7 +65,11 @@ type Props = {
       label: string | React.ReactChild;
     });
 
+import { ToolTip } from '../ToolTip';
+
 export default function TextInput(props: Props): JSX.Element {
+  const { toolTip } = props;
+
   const id = props.id || `input-${hash(props.label)}`;
 
   const classNames = {
@@ -75,7 +81,7 @@ export default function TextInput(props: Props): JSX.Element {
 
   const labelText = (label): React.ReactChild => {
     if (typeof label === 'string') {
-      let styleObj = { marginRight: '0.5em' };
+      let styleObj = { marginRight: '0.5em', display: 'flex' };
       if (!props.disableLabelNoWrap) {
         styleObj['whiteSpace'] = 'nowrap';
       }
@@ -85,16 +91,48 @@ export default function TextInput(props: Props): JSX.Element {
       return label;
     }
   };
-  console.log('optionalDescription: ', props.optionalDescription);
 
   const optionalDescriptionElem = optionalDescription => {
     const cont = 'notice css-content-psedo';
     return <label className={cont}>{optionalDescription}</label>;
   };
 
+  const requireStr = () => {
+    const { softRequired } = props;
+    let retStr = `Required`;
+    if (typeof softRequired === 'boolean' && softRequired === false) {
+      retStr = `Optional`;
+    }
+
+    return retStr;
+  };
+
+  let cssObj_labelReq = { 't--req': 't--req' };
+
+  if (typeof props.softRequired === 'boolean' && props.softRequired === false) {
+    cssObj_labelReq['t--opt'] = 't--opt';
+  }
+
+  // Filter out object key/value with empty strings eq. ``
+  Object.keys(cssObj_labelReq).forEach(
+    k => cssObj_labelReq[k] == '' && delete cssObj_labelReq[k]
+  );
+
+  // Output obj values as string of classNames
+  let cssArrToString: string = Object.keys(cssObj_labelReq)
+    .map(obj => cssObj_labelReq[obj])
+    .toString()
+    .replace(/,/g, ' ');
+
   const labelElem = () => {
-    const modLabelStyle = { marginTop: '1em', marginBottom: '2em' };
-    const optStyles = props.labelBelowInput ? modLabelStyle : {};
+    const modLabelStyle = {
+      marginTop: '1em',
+      marginBottom: '2em',
+      display: 'flex',
+    };
+    const optStyles = props.labelBelowInput
+      ? modLabelStyle
+      : { display: 'flex' };
 
     return (
       <label htmlFor={id} className={classNames.label} style={optStyles}>
@@ -102,9 +140,16 @@ export default function TextInput(props: Props): JSX.Element {
 
         {/* Because “required” attribute is set on <input> element, */}
         {/* hide this from screen readers to cut down on repetition. */}
-        {props.required && (
-          <span className="t--req" aria-hidden="true">
-            Required
+        {((typeof props.required === 'boolean' && props.required === true) ||
+          (typeof props.softRequired === 'boolean' &&
+            props.softRequired === true)) && (
+          <span
+            className={`${cssArrToString}`}
+            aria-hidden="true"
+            style={{ display: 'flex', flexGrow: 1 }}
+          >
+            {requireStr()}
+            {toolTip && ToolTip({ icon: `${toolTip.icon}`, msg: toolTip.msg })}
           </span>
         )}
       </label>

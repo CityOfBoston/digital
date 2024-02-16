@@ -1,4 +1,4 @@
-import { COUNTRIES, US_STATES } from '../forms/inputData';
+import { COUNTRIES, US_STATES } from '../../../utils/data';
 
 /**
  * @name adjustForTimezone

@@ -50,11 +50,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-firstName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -65,6 +70,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -92,11 +103,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-middleName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -127,11 +143,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-lastName"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -142,6 +163,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -173,11 +200,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-streetAddress"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -188,6 +220,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -215,11 +253,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-unit"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -254,11 +297,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-city"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -269,6 +317,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -299,11 +353,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-state"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -314,6 +373,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -341,11 +406,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-zip"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -356,6 +426,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -385,11 +461,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-phone"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -420,11 +501,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-email"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -435,6 +521,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -462,11 +554,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-confirmEmail"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -477,6 +574,12 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -522,11 +625,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-degreeAttained"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -557,11 +665,16 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-educationalInstitution"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -1003,11 +1116,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-firstName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -1018,6 +1136,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -1045,11 +1169,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-middleName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -1080,11 +1209,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-lastName"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -1095,6 +1229,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -1126,11 +1266,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-streetAddress"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -1141,6 +1286,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -1168,11 +1319,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-unit"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -1207,11 +1363,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-city"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -1222,6 +1383,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -1252,11 +1419,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-state"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -1267,6 +1439,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -1294,11 +1472,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-zip"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -1309,6 +1492,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -1338,11 +1527,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-phone"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -1373,11 +1567,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-email"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -1388,6 +1587,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -1415,11 +1620,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-confirmEmail"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -1430,6 +1640,12 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -1475,11 +1691,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-degreeAttained"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -1510,11 +1731,16 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-educationalInstitution"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -1956,11 +2182,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-firstName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -1971,6 +2202,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -1998,11 +2235,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-middleName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -2033,11 +2275,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-lastName"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -2048,6 +2295,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -2079,11 +2332,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-streetAddress"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -2094,6 +2352,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -2121,11 +2385,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-unit"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -2160,11 +2429,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-city"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -2175,6 +2449,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -2205,11 +2485,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-state"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -2220,6 +2505,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -2247,11 +2538,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-zip"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -2262,6 +2558,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -2291,11 +2593,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-phone"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -2326,11 +2633,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-email"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -2341,6 +2653,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -2368,11 +2686,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-confirmEmail"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -2383,6 +2706,12 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -2428,11 +2757,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-degreeAttained"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -2463,11 +2797,16 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-educationalInstitution"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -2944,11 +3283,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-firstName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -2959,6 +3303,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -2986,11 +3336,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-middleName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -3021,11 +3376,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-lastName"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -3036,6 +3396,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -3067,11 +3433,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-streetAddress"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -3082,6 +3453,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -3109,11 +3486,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-unit"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -3148,11 +3530,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-city"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -3163,6 +3550,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -3193,11 +3586,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-state"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -3208,6 +3606,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -3235,11 +3639,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-zip"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -3250,6 +3659,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -3279,11 +3694,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-phone"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -3314,11 +3734,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-email"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -3329,6 +3754,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -3356,11 +3787,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-confirmEmail"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -3371,6 +3807,12 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -3416,11 +3858,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-degreeAttained"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -3451,11 +3898,16 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-educationalInstitution"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -3938,11 +4390,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-firstName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -3953,6 +4410,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -3980,11 +4443,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-middleName"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -4015,11 +4483,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-lastName"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -4030,6 +4503,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -4061,11 +4540,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-streetAddress"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -4076,6 +4560,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -4103,11 +4593,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-unit"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -4142,11 +4637,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           <label
             className="txt-l txt-l--sm"
             htmlFor="ApplicationForm-city"
-            style={Object {}}
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
           >
             <span
               style={
                 Object {
+                  "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
                 }
@@ -4157,6 +4657,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             <span
               aria-hidden="true"
               className="t--req"
+              style={
+                Object {
+                  "display": "flex",
+                  "flexGrow": 1,
+                }
+              }
             >
               Required
             </span>
@@ -4187,11 +4693,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-state"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -4202,6 +4713,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -4229,11 +4746,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             <label
               className="txt-l txt-l--sm"
               htmlFor="ApplicationForm-zip"
-              style={Object {}}
+              style={
+                Object {
+                  "display": "flex",
+                }
+              }
             >
               <span
                 style={
                   Object {
+                    "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
                   }
@@ -4244,6 +4766,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
               <span
                 aria-hidden="true"
                 className="t--req"
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexGrow": 1,
+                  }
+                }
               >
                 Required
               </span>
@@ -4273,11 +4801,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-phone"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -4308,11 +4841,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-email"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -4323,6 +4861,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -4350,11 +4894,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-confirmEmail"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -4365,6 +4914,12 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           <span
             aria-hidden="true"
             className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
           >
             Required
           </span>
@@ -4410,11 +4965,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-degreeAttained"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -4445,11 +5005,16 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         <label
           className="txt-l txt-l--sm"
           htmlFor="ApplicationForm-educationalInstitution"
-          style={Object {}}
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
         >
           <span
             style={
               Object {
+                "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
               }
@@ -5068,11 +5633,16 @@ Array [
                       <label
                         className="txt-l txt-l--sm"
                         htmlFor="ApplicationForm-firstName"
-                        style={Object {}}
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
                       >
                         <span
                           style={
                             Object {
+                              "display": "flex",
                               "marginRight": "0.5em",
                               "whiteSpace": "nowrap",
                             }
@@ -5083,6 +5653,12 @@ Array [
                         <span
                           aria-hidden="true"
                           className="t--req"
+                          style={
+                            Object {
+                              "display": "flex",
+                              "flexGrow": 1,
+                            }
+                          }
                         >
                           Required
                         </span>
@@ -5110,11 +5686,16 @@ Array [
                       <label
                         className="txt-l txt-l--sm"
                         htmlFor="ApplicationForm-middleName"
-                        style={Object {}}
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
                       >
                         <span
                           style={
                             Object {
+                              "display": "flex",
                               "marginRight": "0.5em",
                               "whiteSpace": "nowrap",
                             }
@@ -5145,11 +5726,16 @@ Array [
                     <label
                       className="txt-l txt-l--sm"
                       htmlFor="ApplicationForm-lastName"
-                      style={Object {}}
+                      style={
+                        Object {
+                          "display": "flex",
+                        }
+                      }
                     >
                       <span
                         style={
                           Object {
+                            "display": "flex",
                             "marginRight": "0.5em",
                             "whiteSpace": "nowrap",
                           }
@@ -5160,6 +5746,12 @@ Array [
                       <span
                         aria-hidden="true"
                         className="t--req"
+                        style={
+                          Object {
+                            "display": "flex",
+                            "flexGrow": 1,
+                          }
+                        }
                       >
                         Required
                       </span>
@@ -5191,11 +5783,16 @@ Array [
                     <label
                       className="txt-l txt-l--sm"
                       htmlFor="ApplicationForm-streetAddress"
-                      style={Object {}}
+                      style={
+                        Object {
+                          "display": "flex",
+                        }
+                      }
                     >
                       <span
                         style={
                           Object {
+                            "display": "flex",
                             "marginRight": "0.5em",
                             "whiteSpace": "nowrap",
                           }
@@ -5206,6 +5803,12 @@ Array [
                       <span
                         aria-hidden="true"
                         className="t--req"
+                        style={
+                          Object {
+                            "display": "flex",
+                            "flexGrow": 1,
+                          }
+                        }
                       >
                         Required
                       </span>
@@ -5233,11 +5836,16 @@ Array [
                     <label
                       className="txt-l txt-l--sm"
                       htmlFor="ApplicationForm-unit"
-                      style={Object {}}
+                      style={
+                        Object {
+                          "display": "flex",
+                        }
+                      }
                     >
                       <span
                         style={
                           Object {
+                            "display": "flex",
                             "marginRight": "0.5em",
                             "whiteSpace": "nowrap",
                           }
@@ -5272,11 +5880,16 @@ Array [
                     <label
                       className="txt-l txt-l--sm"
                       htmlFor="ApplicationForm-city"
-                      style={Object {}}
+                      style={
+                        Object {
+                          "display": "flex",
+                        }
+                      }
                     >
                       <span
                         style={
                           Object {
+                            "display": "flex",
                             "marginRight": "0.5em",
                             "whiteSpace": "nowrap",
                           }
@@ -5287,6 +5900,12 @@ Array [
                       <span
                         aria-hidden="true"
                         className="t--req"
+                        style={
+                          Object {
+                            "display": "flex",
+                            "flexGrow": 1,
+                          }
+                        }
                       >
                         Required
                       </span>
@@ -5317,11 +5936,16 @@ Array [
                       <label
                         className="txt-l txt-l--sm"
                         htmlFor="ApplicationForm-state"
-                        style={Object {}}
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
                       >
                         <span
                           style={
                             Object {
+                              "display": "flex",
                               "marginRight": "0.5em",
                               "whiteSpace": "nowrap",
                             }
@@ -5332,6 +5956,12 @@ Array [
                         <span
                           aria-hidden="true"
                           className="t--req"
+                          style={
+                            Object {
+                              "display": "flex",
+                              "flexGrow": 1,
+                            }
+                          }
                         >
                           Required
                         </span>
@@ -5359,11 +5989,16 @@ Array [
                       <label
                         className="txt-l txt-l--sm"
                         htmlFor="ApplicationForm-zip"
-                        style={Object {}}
+                        style={
+                          Object {
+                            "display": "flex",
+                          }
+                        }
                       >
                         <span
                           style={
                             Object {
+                              "display": "flex",
                               "marginRight": "0.5em",
                               "whiteSpace": "nowrap",
                             }
@@ -5374,6 +6009,12 @@ Array [
                         <span
                           aria-hidden="true"
                           className="t--req"
+                          style={
+                            Object {
+                              "display": "flex",
+                              "flexGrow": 1,
+                            }
+                          }
                         >
                           Required
                         </span>
@@ -5403,11 +6044,16 @@ Array [
                   <label
                     className="txt-l txt-l--sm"
                     htmlFor="ApplicationForm-phone"
-                    style={Object {}}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
                   >
                     <span
                       style={
                         Object {
+                          "display": "flex",
                           "marginRight": "0.5em",
                           "whiteSpace": "nowrap",
                         }
@@ -5438,11 +6084,16 @@ Array [
                   <label
                     className="txt-l txt-l--sm"
                     htmlFor="ApplicationForm-email"
-                    style={Object {}}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
                   >
                     <span
                       style={
                         Object {
+                          "display": "flex",
                           "marginRight": "0.5em",
                           "whiteSpace": "nowrap",
                         }
@@ -5453,6 +6104,12 @@ Array [
                     <span
                       aria-hidden="true"
                       className="t--req"
+                      style={
+                        Object {
+                          "display": "flex",
+                          "flexGrow": 1,
+                        }
+                      }
                     >
                       Required
                     </span>
@@ -5480,11 +6137,16 @@ Array [
                   <label
                     className="txt-l txt-l--sm"
                     htmlFor="ApplicationForm-confirmEmail"
-                    style={Object {}}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
                   >
                     <span
                       style={
                         Object {
+                          "display": "flex",
                           "marginRight": "0.5em",
                           "whiteSpace": "nowrap",
                         }
@@ -5495,6 +6157,12 @@ Array [
                     <span
                       aria-hidden="true"
                       className="t--req"
+                      style={
+                        Object {
+                          "display": "flex",
+                          "flexGrow": 1,
+                        }
+                      }
                     >
                       Required
                     </span>
@@ -5540,11 +6208,16 @@ Array [
                   <label
                     className="txt-l txt-l--sm"
                     htmlFor="ApplicationForm-degreeAttained"
-                    style={Object {}}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
                   >
                     <span
                       style={
                         Object {
+                          "display": "flex",
                           "marginRight": "0.5em",
                           "whiteSpace": "nowrap",
                         }
@@ -5575,11 +6248,16 @@ Array [
                   <label
                     className="txt-l txt-l--sm"
                     htmlFor="ApplicationForm-educationalInstitution"
-                    style={Object {}}
+                    style={
+                      Object {
+                        "display": "flex",
+                      }
+                    }
                   >
                     <span
                       style={
                         Object {
+                          "display": "flex",
                           "marginRight": "0.5em",
                           "whiteSpace": "nowrap",
                         }

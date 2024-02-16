@@ -88,7 +88,7 @@ export default class ReviewForms extends Component<Props> {
             marriageIntentionCertificateRequest={
               this.props.marriageIntentionCertificateRequest
             }
-            partnerLabel={'A'}
+            partnerLabel={'1'}
             firstName={requestInformation.partnerA_firstName}
             lastName={requestInformation.partnerA_lastName}
             suffix={requestInformation.partnerA_suffix}
@@ -142,7 +142,7 @@ export default class ReviewForms extends Component<Props> {
             marriageIntentionCertificateRequest={
               this.props.marriageIntentionCertificateRequest
             }
-            partnerLabel={'B'}
+            partnerLabel={'2'}
             firstName={requestInformation.partnerB_firstName}
             lastName={requestInformation.partnerB_lastName}
             suffix={requestInformation.partnerB_suffix}

@@ -15,7 +15,6 @@ import {
 import RegistryDbFake from './RegistryDbFake';
 import { AnnotatedFilePart, PACKAGE_SRC_ROOT } from '../util';
 
-// import { COUNTRIES } from '../../client/marriageintention/forms/inputData';
 export const COUNTRIES = [
   {
     label: 'United States of America',

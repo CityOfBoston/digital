@@ -170,7 +170,7 @@ export default class ContactInfo extends Component<Props> {
                   name="email"
                   value={email}
                   onChange={this.handleChange}
-                  optionalDescription={''}
+                  // optionalDescription={''}
                   required={true}
                   className={'contact-fields'}
                 />
@@ -180,7 +180,7 @@ export default class ContactInfo extends Component<Props> {
                   name="emailConfirm"
                   value={emailConfirm}
                   onChange={this.handleChange}
-                  optionalDescription={''}
+                  // optionalDescription={''}
                   required={true}
                   error={email === emailConfirm ? '' : 'Email does not match'}
                   className={'contact-fields'}
