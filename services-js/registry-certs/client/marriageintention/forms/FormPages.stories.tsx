@@ -70,7 +70,7 @@ storiesOf('Marriage Intention/Form Pages', module)
       siteAnalytics={new GaSiteAnalytics()}
       marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
       marriageIntentionDao={new MarriageIntentionDao(null as any)}
-      completedSteps={new Set([0, 1, 2, 3])}
+      completedSteps={new Set([0, 1, 2, 3, 4])}
     />
   ))
   .add('Step 5. Review/Person Info View', () => {

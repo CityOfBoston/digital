@@ -5,6 +5,7 @@ import {
   WHITE,
   SANS,
   MEDIA_SMALL_MAX,
+  DEFAULT_TEXT,
 } from '@cityofboston/react-fleet';
 
 export const REVIEW_INTRO_HEADER_STYLING = css({
@@ -37,7 +38,7 @@ export const REVIEW_CONTROL_STYLING = css(`
     
     h1, h2 {
       color: ${CHARLES_BLUE};
-      font-size: 1.5625em;
+      font-size: 1.5625rem;
       font-weight: 700;
       text-transform: uppercase;
       font-family: ${SANS};
@@ -45,7 +46,7 @@ export const REVIEW_CONTROL_STYLING = css(`
     }
 
     h2 {
-      font-size: 1.125;
+      font-size: 1.125rem;
     }
   }
 
@@ -73,12 +74,13 @@ export const REVIEW_CONTROL_STYLING = css(`
 
 export const REVIEW_FORM_STYLING = css(`
   .section-wrapper {
-    font-size: 0.9375em;
+    font-size: 0.9375rem;
     font-family: ${SANS};
     margin-bottom: 1em;
 
     h2 {
-      font-size: 1.125em;
+      color: ${CHARLES_BLUE};
+      font-size: 1.125rem;
       font-weight: bold;
       text-transform: uppercase;
       margin-bottom: 0.5em;
@@ -86,8 +88,8 @@ export const REVIEW_FORM_STYLING = css(`
 
     .field-value-pair {
       .field {
-        color: ${CHARLES_BLUE};
-        font-size: 0.9375em;
+        color: ${DEFAULT_TEXT};
+        font-size: 0.9375rem;
         font-weight: 700;
         text-transform: uppercase;
       }

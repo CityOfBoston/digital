@@ -4028,6 +4028,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
   color: #091f2f;
 }
 
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -4461,6 +4470,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -5051,6 +5069,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
   color: #091f2f;
 }
 
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -5617,6 +5644,15 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -6373,6 +6409,15 @@ exports[`Storyshots Birth/Question Components/ForWhom default 1`] = `
   color: #091f2f;
 }
 
+.emotion-6 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -6739,6 +6784,15 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-6 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -7554,6 +7608,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   color: #091f2f;
 }
 
+.emotion-7 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -7810,6 +7873,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-3 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 <div
@@ -8243,6 +8315,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   color: #091f2f;
 }
 
+.emotion-7 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -8499,6 +8580,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-3 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 <div
@@ -8960,6 +9050,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   color: #091f2f;
 }
 
+.emotion-7 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -9216,6 +9315,15 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-3 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 <div
@@ -9673,6 +9781,15 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-2 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -10179,6 +10296,15 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
   color: #091f2f;
 }
 
+.emotion-2 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -10656,6 +10782,15 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-16 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -11390,6 +11525,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-10 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
@@ -12686,6 +12830,15 @@ Array [
   color: #091f2f;
 }
 
+.emotion-12 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -13500,6 +13653,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-6 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
@@ -14350,6 +14512,15 @@ Array [
   color: #091f2f;
 }
 
+.emotion-11 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -14606,6 +14777,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-7 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 <div
@@ -15430,6 +15610,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-20 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
@@ -42238,6 +42427,15 @@ Array [
   color: #091f2f;
 }
 
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -42633,6 +42831,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -43063,6 +43270,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -44317,6 +44533,15 @@ Array [
   color: #091f2f;
 }
 
+.emotion-4 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -44926,6 +45151,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-6 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -45693,6 +45927,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-6 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -46469,6 +46712,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-9 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -63796,6 +64048,15 @@ Array [
   color: #091f2f;
 }
 
+.emotion-50 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -68285,6 +68546,15 @@ Array [
   color: #091f2f;
 }
 
+.emotion-50 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -72741,102 +73011,91 @@ Array [
   color: #d22d23;
 }
 
-.emotion-15 fieldset + fieldset {
+.emotion-14 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-15 fieldset + fieldset {
+  .emotion-14 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-15 fieldset + fieldset .lnk {
+  .emotion-14 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-14 {
+.emotion-13 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-14 legend {
+.emotion-13 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-14 h2 {
+.emotion-13 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
 }
 
-.emotion-4 {
-  padding-bottom: 0.25rem;
-  margin-bottom: 0;
-  font-family: Lora,Georgia,serif !important;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #091f2f;
-  border-bottom: 4px solid #091f2f;
+.emotion-13 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
-.emotion-4.secondary {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  border-width: 3px;
-}
-
-.emotion-4.secondary em {
-  font-size: 1rem;
-}
-
-.emotion-17 {
+.emotion-16 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-17 {
+  .emotion-16 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-17 > div {
+  .emotion-16 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-17 > div.ta-r > button {
+  .emotion-16 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-17 .lnk {
+  .emotion-16 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-16 {
+.emotion-15 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
 
-.emotion-11 {
+.emotion-10 {
   border: none;
   padding: 0;
   margin: 0;
 }
 
-.emotion-11 legend {
+.emotion-10 legend {
   padding-left: 0;
   font-size: 120%;
 }
 
-.emotion-10 {
+.emotion-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -72849,39 +73108,39 @@ Array [
   transition: opacity 0.1s;
 }
 
-.emotion-10 > div {
+.emotion-9 > div {
   -webkit-flex: 0 0 24%;
   -ms-flex: 0 0 24%;
   flex: 0 0 24%;
 }
 
-.emotion-10 > div:last-of-type {
+.emotion-9 > div:last-of-type {
   -webkit-flex: 0 0 50%;
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
 }
 
-.emotion-10 input {
+.emotion-9 input {
   -moz-appearance: textfield;
 }
 
-.emotion-10 input::-webkit-inner-spin-button {
+.emotion-9 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.emotion-10 input::-ms-clear {
+.emotion-9 input::-ms-clear {
   display: none;
 }
 
-.emotion-10 label {
+.emotion-9 label {
   margin-top: 0.5rem;
 }
 
-.emotion-10.disabled {
+.emotion-9.disabled {
   opacity: 0.4;
 }
 
-.emotion-10.disabled * {
+.emotion-9.disabled * {
   cursor: not-allowed;
 }
 
@@ -73026,7 +73285,7 @@ Array [
   }
 }
 
-.emotion-18 {
+.emotion-17 {
   padding: 0px;
 }
 
@@ -73041,18 +73300,18 @@ Array [
 }
 
 @media screen and (min-width:768px) {
-  .emotion-12 {
+  .emotion-11 {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-.emotion-12 > div {
+.emotion-11 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-12 > div {
+  .emotion-11 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -73060,17 +73319,17 @@ Array [
   }
 }
 
-.emotion-12 > .RADIOGROUP label {
+.emotion-11 > .RADIOGROUP label {
   display: block;
 }
 
-.emotion-12 h3 {
+.emotion-11 h3 {
   font-family: Montserrat,Arial,sans-serif !important;
   font-weight: 700;
   font-size: 1rem;
 }
 
-.emotion-12 .notice {
+.emotion-11 .notice {
   font-size: 0.7em;
   clear: both;
   min-height: 1px;
@@ -73080,7 +73339,7 @@ Array [
   line-height: 1.5em;
 }
 
-.emotion-12 .emotion-5:after {
+.emotion-11 .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -73100,16 +73359,26 @@ Array [
   opacity: 0;
 }
 
-.emotion-13 h2 {
+.emotion-4 {
+  color: #091f2f;
+  font-weight: 700;
+  font-size: 1.125em;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  border-bottom: 4px solid #091f2f;
+  padding-bottom: 0.25em;
+}
+
+.emotion-12 h2 {
   font-size: 1.5rem;
 }
 
-.emotion-13 h4 {
+.emotion-12 h4 {
   font-size: 1.25rem;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-8 {
+  .emotion-7 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -73123,12 +73392,12 @@ Array [
   }
 }
 
-.emotion-8 > div {
+.emotion-7 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-8 > div {
+  .emotion-7 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -73137,28 +73406,28 @@ Array [
 }
 
 @media screen and (min-width:768px) {
-  .emotion-8 > div {
+  .emotion-7 > div {
     width: 50%;
   }
 
-  .emotion-8 .txt-f {
+  .emotion-7 .txt-f {
     width: 90%;
   }
 }
 
 @media screen and (min-width:768px) {
-  .emotion-8 {
+  .emotion-7 {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-.emotion-8 > div {
+.emotion-7 > div {
   text-align: left;
 }
 
 @media screen and (min-width:768px) {
-  .emotion-8 > div {
+  .emotion-7 > div {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
@@ -73166,17 +73435,17 @@ Array [
   }
 }
 
-.emotion-8 > .RADIOGROUP label {
+.emotion-7 > .RADIOGROUP label {
   display: block;
 }
 
-.emotion-8 h3 {
+.emotion-7 h3 {
   font-family: Montserrat,Arial,sans-serif !important;
   font-weight: 700;
   font-size: 1rem;
 }
 
-.emotion-8 .notice {
+.emotion-7 .notice {
   font-size: 0.7em;
   clear: both;
   min-height: 1px;
@@ -73186,9 +73455,47 @@ Array [
   line-height: 1.5em;
 }
 
-.emotion-8 .emotion-5:after {
+.emotion-7 .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
+}
+
+.emotion-6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-6 .contact-fields {
+  width: calc(50% - 10px);
+  margin-bottom: 10px;
+}
+
+.emotion-6 .contact-fields label:first-child {
+  margin-top: 1em;
+}
+
+.emotion-6 .contact-fields input.txt-f {
+  width: 100%;
+}
+
+.emotion-8 {
+  padding-bottom: 0.25rem;
+  marginBottom: 0;
+  font-weight: 700;
+  color: #091f2f;
+  border-bottom: 4px solid #091f2f;
+  text-transform: uppercase;
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 1.125rem !important;
 }
 
 <div
@@ -73469,29 +73776,122 @@ Array [
             className="m-t500"
           >
             <div
-              className="b-c b-c--nbp emotion-18"
+              className="b-c b-c--nbp emotion-17"
             >
               <div
-                className="emotion-15"
+                className="emotion-14"
               >
                 <fieldset
-                  className=" emotion-14"
+                  className=" emotion-13"
                 >
                   <legend>
                     <h2
                       className="emotion-4"
                     >
-                      Contact Information
+                      Contact Info
                     </h2>
                   </legend>
                   <div
-                    className="emotion-13"
+                    className="desc"
+                  >
+                    Please share the best email and phone number to get in contact with you. This will be used to contact you about your appointment.
+                  </div>
+                  <div
+                    className="emotion-12"
                   >
                     <div
-                      className="emotion-8"
+                      className="emotion-7"
                     >
-                      <div>
-                        <div>
+                      <div
+                        className="emotion-6"
+                      >
+                        <div
+                          className="contact-fields"
+                        >
+                          <label
+                            className="txt-l "
+                            htmlFor="input-2778663327"
+                            style={Object {}}
+                          >
+                            <span
+                              style={
+                                Object {
+                                  "marginRight": "0.5em",
+                                  "whiteSpace": "nowrap",
+                                }
+                              }
+                            >
+                              EMail Address
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              className="t--req"
+                            >
+                              Required
+                            </span>
+                          </label>
+                          
+                          <input
+                            aria-label=""
+                            className="txt-f  "
+                            id="input-2778663327"
+                            name="email"
+                            onChange={[Function]}
+                            required={true}
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            className="t--subinfo t--err m-b100 m-t100"
+                          >
+                             
+                          </div>
+                        </div>
+                        <div
+                          className="contact-fields"
+                        >
+                          <label
+                            className="txt-l "
+                            htmlFor="input-1813726221"
+                            style={Object {}}
+                          >
+                            <span
+                              style={
+                                Object {
+                                  "marginRight": "0.5em",
+                                  "whiteSpace": "nowrap",
+                                }
+                              }
+                            >
+                              Confirm EMail Address
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              className="t--req"
+                            >
+                              Required
+                            </span>
+                          </label>
+                          
+                          <input
+                            aria-label=""
+                            className="txt-f  "
+                            id="input-1813726221"
+                            name="emailConfirm"
+                            onChange={[Function]}
+                            required={true}
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            className="t--subinfo t--err m-b100 m-t100"
+                          >
+                             
+                          </div>
+                        </div>
+                        <div
+                          className="contact-fields"
+                        >
                           <label
                             className="txt-l "
                             htmlFor="input-1267882554"
@@ -73540,99 +73940,9 @@ Array [
                           </div>
                         </div>
                       </div>
-                      <div>
-                        <div>
-                          <label
-                            className="txt-l "
-                            htmlFor="input-2778663327"
-                            style={Object {}}
-                          >
-                            <span
-                              style={
-                                Object {
-                                  "marginRight": "0.5em",
-                                  "whiteSpace": "nowrap",
-                                }
-                              }
-                            >
-                              EMail Address
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              className="t--req"
-                            >
-                              Required
-                            </span>
-                          </label>
-                          <label
-                            className="notice emotion-5"
-                          >
-                            
-                          </label>
-                          <input
-                            aria-label=""
-                            className="txt-f  "
-                            id="input-2778663327"
-                            name="email"
-                            onChange={[Function]}
-                            required={true}
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            className="t--subinfo t--err m-b100 m-t100"
-                          >
-                             
-                          </div>
-                        </div>
-                        <div>
-                          <label
-                            className="txt-l "
-                            htmlFor="input-1813726221"
-                            style={Object {}}
-                          >
-                            <span
-                              style={
-                                Object {
-                                  "marginRight": "0.5em",
-                                  "whiteSpace": "nowrap",
-                                }
-                              }
-                            >
-                              Confirm EMail Address
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              className="t--req"
-                            >
-                              Required
-                            </span>
-                          </label>
-                          <label
-                            className="notice emotion-5"
-                          >
-                            
-                          </label>
-                          <input
-                            aria-label=""
-                            className="txt-f  "
-                            id="input-1813726221"
-                            name="emailConfirm"
-                            onChange={[Function]}
-                            required={true}
-                            type="text"
-                            value=""
-                          />
-                          <div
-                            className="t--subinfo t--err m-b100 m-t100"
-                          >
-                             
-                          </div>
-                        </div>
-                      </div>
                     </div>
                     <div
-                      className="emotion-12"
+                      className="emotion-11"
                       style={
                         Object {
                           "paddingTop": "1.5rem",
@@ -73640,7 +73950,7 @@ Array [
                       }
                     >
                       <fieldset
-                        className="emotion-11"
+                        className="emotion-10"
                       >
                         <div>
                           <legend
@@ -73651,18 +73961,18 @@ Array [
                             }
                           >
                             <h2
-                              className="emotion-4"
+                              className="emotion-8"
                               style={
                                 Object {
                                   "marginBottom": "1.5rem",
                                 }
                               }
                             >
-                              What is your appointment date?
+                              Appointment Date
                             </h2>
                           </legend>
                           <div
-                            className=" emotion-10"
+                            className=" emotion-9"
                           >
                             <div>
                               <label
@@ -73738,13 +74048,13 @@ Array [
                 </fieldset>
               </div>
               <div
-                className="g g--mr emotion-17"
+                className="g g--mr emotion-16"
               >
                 <div
                   className="t--info g--6 m-b500"
                 >
                   <button
-                    className="lnk emotion-16"
+                    className="lnk emotion-15"
                     onClick={[Function]}
                     type="button"
                   >
@@ -73882,7 +74192,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 5. Review - Contact [Sect
 .emotion-0 .wrapper-title h1,
 .emotion-0 .wrapper-title h2 {
   color: #091f2f;
-  font-size: 1.5625em;
+  font-size: 1.5625rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: Montserrat,Arial,sans-serif;
@@ -73890,7 +74200,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 5. Review - Contact [Sect
 }
 
 .emotion-0 .wrapper-title h2 {
-  font-size: 1.125;
+  font-size: 1.125rem;
 }
 
 .emotion-0 .wrapper-btn .btn {
@@ -73911,21 +74221,22 @@ exports[`Storyshots Marriage Intention/Form Pages Step 5. Review - Contact [Sect
 }
 
 .emotion-1 .section-wrapper {
-  font-size: 0.9375em;
+  font-size: 0.9375rem;
   font-family: Montserrat,Arial,sans-serif;
   margin-bottom: 1em;
 }
 
 .emotion-1 .section-wrapper h2 {
-  font-size: 1.125em;
+  color: #091f2f;
+  font-size: 1.125rem;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 0.5em;
 }
 
 .emotion-1 .section-wrapper .field-value-pair .field {
-  color: #091f2f;
-  font-size: 0.9375em;
+  color: #58585b;
+  font-size: 0.9375rem;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -74346,7 +74657,7 @@ Array [
 .emotion-5 .wrapper-title h1,
 .emotion-5 .wrapper-title h2 {
   color: #091f2f;
-  font-size: 1.5625em;
+  font-size: 1.5625rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: Montserrat,Arial,sans-serif;
@@ -74354,7 +74665,7 @@ Array [
 }
 
 .emotion-5 .wrapper-title h2 {
-  font-size: 1.125;
+  font-size: 1.125rem;
 }
 
 .emotion-5 .wrapper-btn .btn {
@@ -74375,21 +74686,22 @@ Array [
 }
 
 .emotion-6 .section-wrapper {
-  font-size: 0.9375em;
+  font-size: 0.9375rem;
   font-family: Montserrat,Arial,sans-serif;
   margin-bottom: 1em;
 }
 
 .emotion-6 .section-wrapper h2 {
-  font-size: 1.125em;
+  color: #091f2f;
+  font-size: 1.125rem;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 0.5em;
 }
 
 .emotion-6 .section-wrapper .field-value-pair .field {
-  color: #091f2f;
-  font-size: 0.9375em;
+  color: #58585b;
+  font-size: 0.9375rem;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -74624,7 +74936,7 @@ Array [
                 </a>
                 <a
                   aria-label="Contact Info"
-                  className="completed current"
+                  className="completed"
                   onClick={[Function]}
                   title="Contact Info"
                 >
@@ -74635,7 +74947,7 @@ Array [
                 </a>
                 <a
                   aria-label="Review"
-                  className="uncompleted focused"
+                  className="completed focused current"
                   onClick={[Function]}
                   title="Review"
                 >
@@ -74695,7 +75007,7 @@ Array [
                         Before you submit your application, please check your responses.
                       </label>
                        
-                      you need to make any changes, you can go back and edit the previous pages. Please make sure your information is accurate. During your appointment, we will review and finalize the information you share here and make sure everything’s set before it is printed onto your marriage intention form.
+                      If you need to make any changes, you can go back and edit the previous pages. Please make sure your information is accurate. During your appointment, we will review and finalize the information you share here and make sure everything’s set before it is printed onto your marriage intention form.
                     </p>
                   </div>
                   <div>
@@ -75487,7 +75799,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Person Info Vie
 .emotion-0 .wrapper-title h1,
 .emotion-0 .wrapper-title h2 {
   color: #091f2f;
-  font-size: 1.5625em;
+  font-size: 1.5625rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: Montserrat,Arial,sans-serif;
@@ -75495,7 +75807,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Person Info Vie
 }
 
 .emotion-0 .wrapper-title h2 {
-  font-size: 1.125;
+  font-size: 1.125rem;
 }
 
 .emotion-0 .wrapper-btn .btn {
@@ -75516,21 +75828,22 @@ exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Person Info Vie
 }
 
 .emotion-1 .section-wrapper {
-  font-size: 0.9375em;
+  font-size: 0.9375rem;
   font-family: Montserrat,Arial,sans-serif;
   margin-bottom: 1em;
 }
 
 .emotion-1 .section-wrapper h2 {
-  font-size: 1.125em;
+  color: #091f2f;
+  font-size: 1.125rem;
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 0.5em;
 }
 
 .emotion-1 .section-wrapper .field-value-pair .field {
-  color: #091f2f;
-  font-size: 0.9375em;
+  color: #58585b;
+  font-size: 0.9375rem;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -75942,6 +76255,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
@@ -84991,6 +85313,15 @@ exports[`Storyshots Marriage/Question Components/FiledInBoston default 1`] = `
   color: #091f2f;
 }
 
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -85430,6 +85761,15 @@ exports[`Storyshots Marriage/Question Components/FiledInBoston user has selected
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -85895,6 +86235,15 @@ exports[`Storyshots Marriage/Question Components/FiledInBoston user is not sure 
   color: #091f2f;
 }
 
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -86356,6 +86705,15 @@ exports[`Storyshots Marriage/Question Components/ForWhom default 1`] = `
   color: #091f2f;
 }
 
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -86769,6 +87127,15 @@ exports[`Storyshots Marriage/Question Components/ForWhom someone else’s 1`] = 
   color: #091f2f;
 }
 
+.emotion-8 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -87180,6 +87547,15 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-5 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -87847,6 +88223,15 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
   color: #091f2f;
 }
 
+.emotion-5 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-0 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -88505,6 +88890,15 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-5 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -89177,6 +89571,15 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-16 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-0 {
@@ -89900,6 +90303,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-12 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
@@ -91239,6 +91651,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-12 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
@@ -92821,6 +93242,15 @@ Array [
   color: #091f2f;
 }
 
+.emotion-9 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
+}
+
 .emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
@@ -93860,6 +94290,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-9 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
@@ -94913,6 +95352,15 @@ Array [
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
+}
+
+.emotion-20 .desc {
+  margin: 0.5rem 0 0.75rem;
+  font-family: Lora,Georgia,serif;
+  font-size: 0.9375em;
+  font-weight: 100;
+  color: #58585b;
+  line-height: 1.2em;
 }
 
 .emotion-4 {
