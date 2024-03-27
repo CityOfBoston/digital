@@ -3,13 +3,14 @@
 import { jsx } from '@emotion/core';
 
 import { ChangeEvent, Component, MouseEvent } from 'react';
+
 import { observer } from 'mobx-react';
 
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
-import QuestionComponent from '../../common/question-components/QuestionComponent';
-import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 
-import { SECTION_HEADING_STYLING } from '../../common/question-components/styling';
+import QuestionComponent from '../../common/question-components/QuestionComponent';
+
+import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 
 import {
   PARTNERSHIP_TYPE,
@@ -18,22 +19,28 @@ import {
 } from './inputData';
 
 import {
-  lastMarriageStatus,
   nameFields,
-  dateOfBirth,
-  birthPlace,
+  marriageBlock,
+  datePlaceOfBirth,
   residence,
-  bloodRelation,
-  parentsMarried,
   parents,
-  partnershipType,
+  PARTNERFORM_HEADER_STYLING,
 } from './partnerFormUI';
+
+import {
+  handleChange$,
+  handleUseSurnameChange$,
+  handleAdditionalParentChange$,
+  handleBloodRelDescChange$,
+  handleBloodRelChange$,
+} from './eventHandlers';
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
   partnerLabel: string;
+  partnerNum?: number | string;
 }
 
 @observer
@@ -48,31 +55,37 @@ export default class PartnerForm extends Component<Props> {
     const {
       partnerB_firstName,
       partnerB_lastName,
-      partnerB_surName,
       partnerB_dob,
       partnerB_age,
+      partnerB_surName,
+      partnerB_useSurname,
       partnerB_occupation,
-      partnerB_residenceAddress,
-      partnerB_residenceCountry,
       partnerB_bloodRelation,
       partnerB_bloodRelationDesc,
+      partnerB_birthCity,
+      partnerB_birthState,
+      partnerB_birthCountry,
+      partnerB_residenceAddress,
+      partnerB_residenceCountry,
       partnerB_parentsMarriedAtBirth,
       partnerB_parentA_Name,
       partnerB_parentA_Surname,
       partnerB_parentB_Name,
       partnerB_parentB_Surname,
-      partnerB_birthCity,
-      partnerB_birthState,
-      partnerB_birthCountry,
       partnerB_partnershipType,
       partnerB_partnershipTypeDissolved,
       partnerB_partnershipState,
 
       partnerB_marriageNumb,
+      partnerB_marriedBefore,
       partnerB_lastMarriageStatus,
+      partnerB_additionalParent,
     } = requestInformation;
 
     let bloodRelReq = true;
+    let useSurnameReq = true;
+    let additionalParentsReq = true;
+    let marriedBeforeReq = true;
     let partnerB_partnership_dissolved = true;
     let partnerB_lastMarriageStatusReq = true;
     let partnerB_birthStateZip = true;
@@ -87,18 +100,56 @@ export default class PartnerForm extends Component<Props> {
     const bloodRelDescReq =
       partnerB_bloodRelation && partnerB_bloodRelation == '1' ? true : false;
 
-    if (partnerB_birthCountry === 'USA') {
-      partnerB_birthStateZip = partnerB_birthState.length > 0 ? true : false;
-    }
-
     if (bloodRelDescReq && partnerB_bloodRelationDesc.length < 1) {
       bloodRelReq = false;
     }
 
-    const marriageNumb = MARRIAGE_COUNT.find(
-      entry => entry.value === partnerB_marriageNumb
-    );
-    if (marriageNumb && marriageNumb.value !== MARRIAGE_COUNT[0].value) {
+    const surNameTextReq =
+      partnerB_useSurname && partnerB_useSurname === '1' ? true : false;
+
+    if (
+      (surNameTextReq && partnerB_surName.length < 1) ||
+      partnerB_useSurname == ''
+    ) {
+      useSurnameReq = false;
+    }
+
+    const addParentsReq =
+      partnerB_additionalParent && partnerB_additionalParent == '1'
+        ? true
+        : false;
+
+    if (
+      (addParentsReq &&
+        (partnerB_parentB_Name.length < 1 ||
+          partnerB_parentB_Surname.length < 1)) ||
+      partnerB_additionalParent == ''
+    ) {
+      additionalParentsReq = false;
+    }
+
+    if (partnerB_birthCountry === 'USA') {
+      partnerB_birthStateZip = partnerB_birthState.length > 0 ? true : false;
+    }
+
+    const marriedBefore = partnerB_marriedBefore === '1' ? true : false;
+
+    if (partnerB_marriedBefore === '') marriedBeforeReq = false;
+    if (marriedBefore && partnerB_marriageNumb === '') marriedBeforeReq = false;
+
+    const getMarriageNumb = (): { label: string; value: string } => {
+      let retOb = MARRIAGE_COUNT.find(
+        entry => entry.value == partnerB_marriageNumb
+      );
+
+      if (!retOb) retOb = { label: '', value: '' };
+
+      return retOb;
+    };
+
+    const marriageNumb: { label: string; value: string } = getMarriageNumb();
+
+    if (marriageNumb && marriageNumb.value !== '') {
       if (partnerB_lastMarriageStatus === '') {
         partnerB_lastMarriageStatusReq = false;
       }
@@ -110,73 +161,94 @@ export default class PartnerForm extends Component<Props> {
       }
     }
 
-    return !!(
+    const is_Complete = !!(
       partnerB_firstName &&
       partnerB_lastName &&
-      partnerB_surName &&
       partnerB_dob &&
       partnerB_age &&
+      partnerB_occupation &&
       partnerB_bloodRelation &&
-      bloodRelReq &&
-      partnerB_parentsMarriedAtBirth &&
-      partnerB_parentA_Name &&
-      partnerB_parentA_Surname &&
-      partnerB_parentB_Name &&
-      partnerB_parentB_Surname &&
       partnerB_birthCity &&
       partnerB_birthCountry &&
-      partnerB_partnershipType &&
-      partnerB_partnership_dissolved &&
-      partnerB_marriageNumb &&
-      partnerB_lastMarriageStatusReq &&
       partnerB_residenceAddress &&
       partnerB_residenceCountry &&
-      partnerB_occupation &&
+      partnerB_parentsMarriedAtBirth &&
+      partnerB_partnershipType &&
+      partnerB_parentA_Name &&
+      partnerB_parentA_Surname &&
+      partnerB_partnership_dissolved &&
+      partnerB_lastMarriageStatusReq &&
       partnershipState &&
-      partnerB_birthStateZip
+      partnerB_birthStateZip &&
+      bloodRelReq &&
+      additionalParentsReq &&
+      marriedBeforeReq &&
+      useSurnameReq
     );
+
+    return is_Complete;
   }
 
   private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        [event.target.name]: event.target.value,
-      },
-      ''
-    );
+    handleChange$({
+      e: event,
+      certObj: this.props.marriageIntentionCertificateRequest,
+    });
+  };
+
+  private handleUseSurnameChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
+    handleUseSurnameChange$({
+      e: event,
+      inputName: 'partnerB_useSurname',
+      textInput: 'partnerB_surName',
+      certObj: this.props.marriageIntentionCertificateRequest,
+    });
+  };
+
+  private handleAdditionalParentChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
+    handleAdditionalParentChange$({
+      e: event,
+      additionalParent: 'partnerB_additionalParent',
+      parentB_Name: 'partnerB_parentB_Name',
+      parentB_Surname: 'partnerB_parentB_Surname',
+      certObj: this.props.marriageIntentionCertificateRequest,
+    });
   };
 
   private handleBloodRelDescChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerA_bloodRelationDesc']: event.target.value,
-      },
-      ''
-    );
-
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerB_bloodRelationDesc']: event.target.value,
-      },
-      ''
-    );
+    handleBloodRelDescChange$({
+      e: event,
+      partnerA: 'partnerB_bloodRelationDesc',
+      partnerB: 'partnerA_bloodRelationDesc',
+      certObj: this.props.marriageIntentionCertificateRequest,
+    });
   };
 
   private handleBloodRelChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerA_bloodRelation']: event.target.value,
-      },
-      ''
-    );
+    handleBloodRelChange$({
+      e: event,
+      partnerA: 'partnerB_bloodRelation',
+      partnerB: 'partnerA_bloodRelation',
+      partnerADesc: 'partnerB_bloodRelationDesc',
+      partnerBDesc: 'partnerA_bloodRelationDesc',
+      certObj: this.props.marriageIntentionCertificateRequest,
+    });
+  };
 
+  private handleMarriedBeforeChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ): void => {
     this.props.marriageIntentionCertificateRequest.answerQuestion(
       {
-        ['partnerB_bloodRelation']: event.target.value,
+        ['partnerB_marriedBefore']: event.target.value,
       },
       ''
     );
@@ -184,14 +256,7 @@ export default class PartnerForm extends Component<Props> {
     if (event.target.value === '0') {
       this.props.marriageIntentionCertificateRequest.answerQuestion(
         {
-          ['partnerA_bloodRelationDesc']: '',
-        },
-        ''
-      );
-
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerB_bloodRelationDesc']: '',
+          ['partnerB_marriageNumb']: '',
         },
         ''
       );
@@ -391,7 +456,12 @@ export default class PartnerForm extends Component<Props> {
 
   // RENDER ALL UI
   public render() {
-    const { marriageIntentionCertificateRequest, partnerLabel } = this.props;
+    const {
+      marriageIntentionCertificateRequest,
+      partnerLabel,
+      partnerNum,
+    } = this.props;
+
     const {
       partnerB_marriageNumb,
       partnerB_lastMarriageStatus,
@@ -399,10 +469,10 @@ export default class PartnerForm extends Component<Props> {
       partnerB_lastName,
       partnerB_middleName,
       partnerB_surName,
+      partnerB_useSurname,
       partnerB_occupation,
       partnerB_suffix,
       partnerB_dob,
-      partnerB_age,
       partnerB_birthCountry,
       partnerB_birthCity,
       partnerB_birthState,
@@ -421,10 +491,11 @@ export default class PartnerForm extends Component<Props> {
       partnerB_partnershipType,
       partnerB_partnershipState,
       partnerB_partnershipTypeDissolved,
+      partnerB_marriedBefore,
+      partnerB_additionalParent,
     } = marriageIntentionCertificateRequest.requestInformation;
-    const marriageNumb = MARRIAGE_COUNT.find(
-      entry => entry.value === partnerB_marriageNumb
-    );
+
+    const partner_num = partnerNum ? partnerNum : partnerLabel;
 
     return (
       <QuestionComponent
@@ -437,39 +508,37 @@ export default class PartnerForm extends Component<Props> {
       >
         <FieldsetComponent
           legendText={
-            <h2 css={SECTION_HEADING_STYLING}>Person {partnerLabel}</h2>
+            <h2 css={PARTNERFORM_HEADER_STYLING}>Person {partner_num}</h2>
           }
         >
           {nameFields({
             partnerFlag: partnerLabel,
             handleChange: this.handleChange,
             handleResidenceStateChange: this.handleResidenceStateChange,
+            handleUseSurnameChange: this.handleUseSurnameChange,
             firstName: partnerB_firstName,
             lastName: partnerB_lastName,
             middleName: partnerB_middleName,
             surName: partnerB_surName,
+            useSurname: partnerB_useSurname,
             occupation: partnerB_occupation,
             suffix: partnerB_suffix,
           })}
-          {dateOfBirth({
+
+          {datePlaceOfBirth({
+            partnerFlag: partnerLabel,
             partnerDOB: partnerB_dob,
-            partnerAge: partnerB_age,
-            partnerFlag: partnerLabel,
-            handleChange: this.handleChange,
-            handleBirthDateChange: this.handleBirthDateChange,
-          })}
-          {birthPlace({
-            partnerFlag: partnerLabel,
-            birthCityStr: partnerB_birthCity,
             birthCountryStr: partnerB_birthCountry,
             birthStateStr: partnerB_birthState,
+            birthCityStr: partnerB_birthCity,
             handleChange: this.handleChange,
             handleBirthplaceCountryChange: this.handleBirthplaceCountryChange,
             checkBirthCityForNeighborhood: this.checkBirthCityForNeighborhood,
+            handleBirthDateChange: this.handleBirthDateChange,
           })}
+
           {residence({
             partnerFlag: partnerLabel,
-            marriageNumb: partnerB_marriageNumb,
             residenceZipStr: partnerB_residenceZip,
             residenceCityStr: partnerB_residenceCity,
             residenceStateStr: partnerB_residenceState,
@@ -482,40 +551,34 @@ export default class PartnerForm extends Component<Props> {
             handleResidenceCountryChange: this.handleResidenceCountryChange,
           })}
 
-          {marriageNumb &&
-            marriageNumb.value !== MARRIAGE_COUNT[0].value &&
-            lastMarriageStatus({
-              partnerFlag: partnerLabel,
-              handleChange: this.handleChange,
-              lastMarriageStatus: partnerB_lastMarriageStatus,
-            })}
-
-          {partnershipType({
+          {marriageBlock({
             partnerFlag: partnerLabel,
+            bloodRelation: partnerB_bloodRelation,
+            bloodRelationDesc: partnerB_bloodRelationDesc,
+            marriedBefore: partnerB_marriedBefore,
+            marriageNumb: partnerB_marriageNumb,
+            lastMarriageStatus: partnerB_lastMarriageStatus,
+
             partnershipType: partnerB_partnershipType,
             partnershipState: partnerB_partnershipState,
             partnershipTypeDissolved: partnerB_partnershipTypeDissolved,
+
             handleChange: this.handleChange,
+            handleBloodRelChange: this.handleBloodRelChange,
+            handleBloodRelDescChange: this.handleBloodRelDescChange,
+            handleMarriedBeforeChange: this.handleMarriedBeforeChange,
           })}
+
           {parents({
             partnerFlag: partnerLabel,
             parentA_Name: partnerB_parentA_Name,
             parentA_Surname: partnerB_parentA_Surname,
             parentB_Name: partnerB_parentB_Name,
             parentB_Surname: partnerB_parentB_Surname,
-            handleChange: this.handleChange,
-          })}
-          {parentsMarried({
-            partnerFlag: partnerLabel,
+            additionalParent: partnerB_additionalParent,
             parentsMarriedAtBirth: partnerB_parentsMarriedAtBirth,
             handleChange: this.handleChange,
-          })}
-          {bloodRelation({
-            partnerFlag: partnerLabel,
-            bloodRelation: partnerB_bloodRelation,
-            bloodRelationDesc: partnerB_bloodRelationDesc,
-            handleBloodRelChange: this.handleBloodRelChange,
-            handleBloodRelDescChange: this.handleBloodRelDescChange,
+            handleAdditionalParentChange: this.handleAdditionalParentChange,
           })}
         </FieldsetComponent>
       </QuestionComponent>

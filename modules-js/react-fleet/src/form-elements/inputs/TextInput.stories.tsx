@@ -65,3 +65,60 @@ storiesOf('Form Elements|Inputs/TextInput', module)
       <TextInput label="Boolean error" error />
     </>
   ));
+
+storiesOf('Form Elements|Inputs/TextInput', module)
+  .addDecorator(withKnobs)
+  .addDecorator(story => <NarrowWrapper>{story()}</NarrowWrapper>)
+  .add('w/Tool Tip: Short & Long', () => {
+    return (
+      <>
+        <TextInput
+          label={text('Label text', 'Standard text input')}
+          placeholder={text('Placeholder text', '')}
+          small={boolean('Small variant', false)}
+          required={boolean('Required', false)}
+          disabled={boolean('Disabled', false)}
+          error={boolean('Error', false)}
+          softRequired={true}
+          toolTip={{
+            icon: '?',
+            msg: 'This information is collected.',
+          }}
+          // labelBelowInput={true}
+          // optionalDescription={`Optional Description`}
+        />
+
+        <TextInput
+          label={text('Label text', 'Standard text input')}
+          placeholder={text('Placeholder text', '')}
+          small={boolean('Small variant', false)}
+          required={boolean('Required', false)}
+          disabled={boolean('Disabled', false)}
+          error={boolean('Error', false)}
+          softRequired={true}
+          toolTip={{
+            icon: '?',
+            msg:
+              'Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.',
+          }}
+          labelBelowInput={true}
+          // optionalDescription={`Optional Description`}
+        />
+
+        <TextInput
+          label={text('Label text', 'Standard text input')}
+          placeholder={text('Placeholder text', '')}
+          small={boolean('Small variant', false)}
+          required={boolean('Required', true)}
+          disabled={boolean('Disabled', false)}
+          error={boolean('Error', false)}
+          toolTip={{
+            icon: '?',
+            msg:
+              'Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.',
+          }}
+          // optionalDescription={`Optional Description`}
+        />
+      </>
+    );
+  });

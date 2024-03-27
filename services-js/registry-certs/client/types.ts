@@ -160,6 +160,7 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerA_lastName: string;
   partnerA_middleName: string;
   partnerA_surName: string;
+  partnerA_useSurname: string;
   partnerA_dob?: Date | null;
   partnerA_age: string;
   partnerA_occupation: string;
@@ -186,6 +187,8 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerA_residenceZip: string;
   partnerA_marriageNumb: string;
   partnerA_lastMarriageStatus: string;
+  partnerA_marriedBefore: string;
+  partnerA_additionalParent: string;
 
   partnerB_fullName: string;
   partnerB_firstMiddleName: string;
@@ -194,6 +197,7 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerB_lastName: string;
   partnerB_middleName: string;
   partnerB_surName: string;
+  partnerB_useSurname: string;
   partnerB_dob?: Date | null;
   partnerB_age: string;
   partnerB_occupation: string;
@@ -220,6 +224,8 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerB_residenceZip: string;
   partnerB_marriageNumb: string;
   partnerB_lastMarriageStatus: string;
+  partnerB_marriedBefore: string;
+  partnerB_additionalParent: string;
 
   email: string;
   emailConfirm: string;

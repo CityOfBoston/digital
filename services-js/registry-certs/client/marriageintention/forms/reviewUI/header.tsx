@@ -8,7 +8,7 @@ export default class HeaderUX extends Component {
   public render() {
     return (
       <div css={[REVIEW_INTRO_HEADER_STYLING]}>
-        <h1>Review Information</h1>
+        <h1>Review Your Information</h1>
 
         <p>
           <label>

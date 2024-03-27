@@ -7,6 +7,7 @@ import {
   WHITE,
   OPTIMISTIC_BLUE_DARK,
   GRAY_200,
+  SANS,
 } from '../utilities/constants';
 
 interface Props {
@@ -131,22 +132,23 @@ const PROGRESSBAR_STYLE = css`
 
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr;
-  grid-template-columns: repeat(3; 1fr);
+  // grid-template-columns: repeat(3; 1fr);
 
   .progressbar {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: stretch;
 
     .nav {
       display: table;
-      flex-flow: row wrap;
-      align-items: center;
+      table-layout: fixed;
       text-align: center;
       line-height: normal;
       font-style: normal;
       font-weight: bold;
-      font-family: Lora, serif;
+      font-family: ${SANS};
+      text-transform: uppercase;
       color: '#58585B';
 
       a {
@@ -155,12 +157,10 @@ const PROGRESSBAR_STYLE = css`
         border-color: black;
         border-style: solid;
         border-left-width: 0;
-        padding: 0.85em 0em;
-        min-width: 80px;
+        padding: 0.85em 0.5em;
         color: black;
         background: ${WHITE};
-
-        min-width: 120px;
+        width: 2%;
         font-size: 0.85em;
 
         &:last-child {
@@ -239,6 +239,17 @@ const PROGRESSBAR_STYLE = css`
       .progress-text {
         .mobile {
           display: inline-block;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 541px) and (max-width: 1024px) {
+    .progressbar {
+      .nav {
+        a {
+          padding: 0.85em 0;
+          font-size: 0.55rem;
         }
       }
     }

@@ -24,7 +24,7 @@ interface Props {
  */
 export default function FieldsetComponent(props: Props): JSX.Element {
   const { legendText, className, description } = props;
-  console.log('desc: ', description);
+
   return (
     <fieldset className={className || ''} css={FIELDSET_STYLING}>
       <legend>{legendText}</legend>

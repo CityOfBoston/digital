@@ -274,24 +274,26 @@ export default class IndexPage extends React.Component<Props, State> {
     // let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
 
+    const $defaultUI = (
+      <>
+        <Instructions
+          marriageIntentionCertificateRequest={
+            localMarriageIntentionCertificateRequest
+          }
+          handleProceed={this.advanceQuestion.bind(
+            this,
+            localMarriageIntentionCertificateRequest
+          )}
+          handleUserReset={this.handleUserReset}
+        />
+
+        {emailContentBlock()}
+      </>
+    );
+
     switch (currentStep) {
       case 'instructions':
-        questionsEl = (
-          <>
-            <Instructions
-              marriageIntentionCertificateRequest={
-                localMarriageIntentionCertificateRequest
-              }
-              handleProceed={this.advanceQuestion.bind(
-                this,
-                localMarriageIntentionCertificateRequest
-              )}
-              handleUserReset={this.handleUserReset}
-            />
-
-            {emailContentBlock()}
-          </>
-        );
+        questionsEl = $defaultUI;
         break;
       case 'contactInfo':
         questionsEl = (
@@ -324,6 +326,7 @@ export default class IndexPage extends React.Component<Props, State> {
               )}
               handleStepBack={this.stepBackOneQuestion}
               partnerLabel={'A'}
+              partnerNum={1}
             />
 
             {emailContentBlock()}
@@ -343,6 +346,7 @@ export default class IndexPage extends React.Component<Props, State> {
               )}
               handleStepBack={this.stepBackOneQuestion}
               partnerLabel={'B'}
+              partnerNum={2}
             />
 
             {emailContentBlock()}
@@ -377,22 +381,7 @@ export default class IndexPage extends React.Component<Props, State> {
         );
         break;
       default:
-        questionsEl = (
-          <>
-            <Instructions
-              marriageIntentionCertificateRequest={
-                localMarriageIntentionCertificateRequest
-              }
-              handleProceed={this.advanceQuestion.bind(
-                this,
-                localMarriageIntentionCertificateRequest
-              )}
-              handleUserReset={this.handleUserReset}
-            />
-
-            {emailContentBlock()}
-          </>
-        );
+        questionsEl = $defaultUI;
         break;
     }
 

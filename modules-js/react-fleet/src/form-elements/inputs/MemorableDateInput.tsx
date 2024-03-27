@@ -10,6 +10,12 @@ type Fields = {
   day: string;
 };
 
+type InputsRequired = {
+  day?: 'soft' | 'hard' | 'optional';
+  month?: 'soft' | 'hard' | 'optional';
+  year?: 'soft' | 'hard' | 'optional';
+};
+
 interface Props {
   componentId?: string;
   initialDate?: Date;
@@ -25,6 +31,9 @@ interface Props {
   resetDate?: boolean;
   disabled?: boolean;
   modDateTime?: boolean;
+  className?: string;
+  cssObj?: any;
+  requires?: InputsRequired;
 }
 
 interface State {
@@ -245,6 +254,78 @@ export default class MemorableDateInput extends React.Component<Props, State> {
   }
 
   public render() {
+    const requires = this.props.requires ? this.props.requires : {};
+
+    const checkRequires = (): {
+      required: true | false;
+      fields?: Array<string>;
+      reqType?: InputsRequired;
+    } => {
+      if (Object.keys(requires).length < 1) {
+        return { required: false };
+      } else {
+        return {
+          required: true,
+          fields: Object.keys(requires),
+          reqType: requires,
+        };
+      }
+    };
+    const requiredFields = checkRequires();
+
+    const labelElem = (labelStr: string) => {
+      let reqElem = () => {
+        const reqType = requiredFields.reqType
+          ? requiredFields.reqType[labelStr]
+          : { labelStr: '' };
+
+        let cssObj_labelReq = { 't--req': 't--req' };
+
+        if (reqType === 'optional') {
+          cssObj_labelReq['t--opt'] = 't--opt';
+        }
+
+        // Output obj values as string of classNames
+        let cssArrToString: string = Object.keys(cssObj_labelReq)
+          .map(obj => cssObj_labelReq[obj])
+          .toString()
+          .replace(/,/g, ' ');
+
+        // if (requiredFields.reqType[labelStr]) {}
+        const requireStr = () => {
+          let retStr = `Required`;
+
+          if (reqType === 'optional') {
+            retStr = `Optional`;
+          }
+
+          return retStr;
+        };
+        const optStyles = { marginLeft: '0.35em' };
+
+        return (
+          <>
+            <span
+              className={`${cssArrToString}`}
+              aria-hidden="true"
+              style={optStyles}
+            >
+              {requireStr()}
+            </span>
+          </>
+        );
+      };
+
+      return (
+        <>
+          <label htmlFor={`${this.componentId}-${labelStr}`} className="txt-l">
+            {labelStr.charAt(0).toUpperCase() + labelStr.slice(1)}
+            {reqElem()}
+          </label>
+        </>
+      );
+    };
+
     const inputAttributes = {
       type: 'number',
       className: 'txt-f',
@@ -253,7 +334,21 @@ export default class MemorableDateInput extends React.Component<Props, State> {
       onFocus: this.handleFocus,
     };
 
-    const { legend } = this.props;
+    let dayAttributes = { ...inputAttributes };
+    let monthAttributes = { ...inputAttributes };
+    let yearAttributes = { ...inputAttributes };
+
+    if (requiredFields.required === true) {
+      for (const [key, value] of Object.entries(requires)) {
+        if (value === 'hard' && key === 'day') dayAttributes['required'] = true;
+        if (value === 'hard' && key === 'month')
+          monthAttributes['required'] = true;
+        if (value === 'hard' && key === 'year')
+          yearAttributes['required'] = true;
+      }
+    }
+
+    const { legend, cssObj } = this.props;
 
     const error = this.currentError();
 
@@ -271,7 +366,7 @@ export default class MemorableDateInput extends React.Component<Props, State> {
 
     const content = () => {
       return (
-        <div>
+        <div css={cssObj}>
           {legend && legendElem()}
 
           <div
@@ -279,11 +374,9 @@ export default class MemorableDateInput extends React.Component<Props, State> {
             className={this.props.disabled ? 'disabled' : ''}
           >
             <div>
-              <label htmlFor={`${this.componentId}-month`} className="txt-l">
-                Month
-              </label>
+              {labelElem(`month`)}
               <input
-                {...inputAttributes}
+                {...monthAttributes}
                 id={`${this.componentId}-month`}
                 name="month"
                 min="1"
@@ -296,11 +389,9 @@ export default class MemorableDateInput extends React.Component<Props, State> {
             </div>
 
             <div>
-              <label htmlFor={`${this.componentId}-day`} className="txt-l">
-                Day
-              </label>
+              {labelElem(`day`)}
               <input
-                {...inputAttributes}
+                {...dayAttributes}
                 id={`${this.componentId}-day`}
                 name="day"
                 min="1"
@@ -313,12 +404,9 @@ export default class MemorableDateInput extends React.Component<Props, State> {
             </div>
 
             <div>
-              <label htmlFor={`${this.componentId}-year`} className="txt-l">
-                Year
-              </label>
-
+              {labelElem(`year`)}
               <input
-                {...inputAttributes}
+                {...yearAttributes}
                 id={`${this.componentId}-year`}
                 name="year"
                 min={this.earliest ? this.earliest.getUTCFullYear() : '1000'}

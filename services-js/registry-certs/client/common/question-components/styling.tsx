@@ -7,8 +7,9 @@ import {
   MEDIA_LARGE,
   MEDIA_MEDIUM,
   MEDIA_SMALL,
-  SERIF,
+  // SERIF,
   SANS,
+  DEFAULT_TEXT,
 } from '@cityofboston/react-fleet';
 
 export const THICK_BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
@@ -22,7 +23,7 @@ export const FOCUS_STYLE = css({
 export const SECTION_HEADING_STYLING = css({
   paddingBottom: '0.25rem',
   marginBottom: '0',
-  fontFamily: `${SERIF} !important`,
+  fontFamily: `${SANS}`,
   fontWeight: 700,
   fontSize: '1.5rem',
   color: CHARLES_BLUE,
@@ -179,13 +180,13 @@ export const NAME_FIELDS_BASIC_CONTAINER_STYLING = css({
   },
 
   '.notice': {
-    fontSize: '0.7em',
+    fontSize: '0.8125em',
 
     clear: 'both',
     minHeight: '1px',
     overflow: 'hidden',
     display: 'block',
-    margin: '1% 0 1.5%',
+    margin: '0.25em 0 0.75em 0',
     lineHeight: '1.5em',
   },
 
@@ -197,14 +198,32 @@ export const NAME_FIELDS_BASIC_CONTAINER_STYLING = css({
   },
 });
 
+export const SELECTINPUT_WRAPPER_STYLING = css(`
+  margin-bottom: 2em;
+`);
+
 export const RADIOGROUP_CONTAINER_STYLING = css({
   flexDirection: 'column',
-  paddingTop: '1em',
+  marginBottom: '1em',
 
   '> label': {
     display: 'flex',
     marginLeft: 0,
     marginBottom: '1em',
+  },
+
+  '.radio-group__label': {
+    label: {
+      '.ra-l': {
+        fontSize: '0.8125rem',
+      },
+    },
+
+    '.txt-l': {
+      fontSize: '0.875em',
+      marginBottom: '0.75em',
+      marginTop: 0,
+    },
   },
 
   [MEDIA_MEDIUM]: {
@@ -228,17 +247,39 @@ export const HEADER_SPACING_2_STYLING = css({
   marginTop: '2em',
 });
 
-export const SECTION_WRAPPER_STYLING = css({
-  marginBottom: '2.5em',
-});
+export const SECTION_WRAPPER_STYLING = css(`
+  margin-bottom: 3em;
+  background: none;
+
+  label {
+    margin-top: 0em;
+  }
+
+  .spacingTop {
+    margin-top: 1.5em;
+  }
+
+  label.inputHeading {
+    font-size: 0.875em;
+    text-transform: uppercase;
+
+    .t--req {
+      margin-left: 0.5rem;
+    }
+  }
+
+  .t--opt {
+    color: ${DEFAULT_TEXT} !important;
+  }
+`);
 
 export const HEADER_PADDING_TOP_STYLING = css({
   paddingBottom: '2em',
 });
 
-export const BOTTOM_SPACING_STYLING = css({
-  marginBottom: '2.5em',
-});
+export const BOTTOM_SPACING_STYLING = css(`
+  margin-bottom: 2.25em;
+`);
 
 export const PAIRED_INPUT_STYLING = css({
   [MEDIA_MEDIUM]: {
@@ -262,11 +303,11 @@ export const MARRIAGE_INTENTION_FORM_STYLING = css({
   },
 });
 
-export const MARRIAGE_INTENTION_INTRO_STYLING = css({
-  fontSize: '1.5em',
-  lineHeight: '1.5em',
-  marginTop: '1em',
-});
+export const MARRIAGE_INTENTION_INTRO_STYLING = css(`
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-top: 1em;
+`);
 
 export const MARRIAGE_INTENTION_INTRO_BODY_STYLING = css({
   lineHeight: '1.25em',
