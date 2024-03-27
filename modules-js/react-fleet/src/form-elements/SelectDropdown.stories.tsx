@@ -74,5 +74,45 @@ storiesOf('Form Elements|SelectDropdown', module)
         hideBlankOption
         options={PARTNERSHIP_TYPE}
       />
+
+      <br />
+
+      <SelectDropdown
+        label="Required Dropdown w/Tool Tip"
+        options={['Finch', 'Nuthatch', 'Sparrow']}
+        required
+        toolTip={{
+          icon: '?',
+          msg:
+            'If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.',
+        }}
+      />
+
+      <br />
+
+      <SelectDropdown
+        label="Soft-Required Dropdown"
+        options={['Finch', 'Nuthatch', 'Sparrow']}
+        softRequired={true}
+        toolTip={{
+          icon: '?',
+          msg:
+            'If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.',
+        }}
+      />
+
+      <br />
+
+      <SelectDropdown
+        label="Required Dropdown w/Tool Tip, max-width set"
+        options={['Finch', 'Nuthatch', 'Sparrow']}
+        required
+        disableLabelNoWrap
+        toolTip={{
+          icon: '?',
+          msg:
+            'If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.',
+        }}
+      />
     </>
   ));

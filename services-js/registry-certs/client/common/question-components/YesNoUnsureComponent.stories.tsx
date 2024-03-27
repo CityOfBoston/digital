@@ -2,14 +2,14 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { YesNoUnknownAnswer } from '../../types';
+import { yesNoUnknownAnswer } from '../../types';
 
 import YesNoUnsureComponent from './YesNoUnsureComponent';
 
 interface Props {}
 
 interface State {
-  answer: YesNoUnknownAnswer;
+  answer: yesNoUnknownAnswer;
 }
 
 class YesNoUnsureComponentStories extends React.Component<Props, State> {

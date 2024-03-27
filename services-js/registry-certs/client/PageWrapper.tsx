@@ -6,8 +6,7 @@ import { Component, ReactNode } from 'react';
 
 import {
   ProgressBar,
-  // MEDIA_LARGE,
-  // MEDIA_SMALL,
+  ProgressNav,
   MEDIA_X_LARGE,
 } from '@cityofboston/react-fleet';
 
@@ -15,22 +14,18 @@ import PageLayout from './PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../lib/breadcrumbs';
 
-type CertificateRequestType = 'birth' | 'marriage' | 'intention';
+import { ProgressProps, ProgressNavProps } from '../lib/interfaces';
 
-export interface Progress {
-  totalSteps: number;
-  currentStep: number;
-  currentStepCompleted: boolean;
-  offset?: number | undefined;
-}
+type CertificateRequestType = 'birth' | 'marriage' | 'intention';
 
 interface Props {
   certificateType: CertificateRequestType;
-  progress?: Progress;
+  progress?: ProgressProps;
   footer?: ReactNode;
   classString?: string;
   mainHeadline?: string;
   offset?: number;
+  progressNav?: ProgressNavProps;
 }
 
 /**
@@ -48,6 +43,7 @@ export default class PageWrapper extends Component<Props> {
       classString,
       mainHeadline,
       offset,
+      progressNav,
     } = this.props;
     const sec2ndClassStr = footer ? 'b-c--nbp' : '';
     const classStr =
@@ -73,6 +69,7 @@ export default class PageWrapper extends Component<Props> {
           </h1>
 
           {progress && <ProgressBar {...modProgress} />}
+          {progressNav && <ProgressNav {...Object.assign({}, progressNav)} />}
 
           <section className="m-t500">{children}</section>
         </div>

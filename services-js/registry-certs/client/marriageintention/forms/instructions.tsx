@@ -9,10 +9,7 @@ import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCe
 
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 
-import {
-  SECTION_HEADING_STYLING,
-  MARRIAGE_INTENTION_INTRO_BODY_STYLING,
-} from '../../common/question-components/styling';
+import { MARRIAGEINTENTION } from '../../common/question-components/styling';
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
@@ -22,6 +19,60 @@ interface Props {
 
 @observer
 export default class Instructions extends Component<Props> {
+  private $instructionsV2 = () => {
+    return (
+      <div css={MARRIAGEINTENTION}>
+        <h1>Before You Get Started</h1>
+        <div className={`getting-started`}>
+          <p>
+            <span className={`emphasis`}>
+              The information you provide in this application will help us
+              complete the marriage intention form, which is a legal document
+              that is important for the marriage license.
+            </span>{' '}
+            During your appointment, we will review and finalize the information
+            you share here and make sure everything's set before it is printed
+            onto your marriage intention form.
+          </p>
+          <p>
+            It should take about <span className={`emphasis`}>15 minutes</span>{' '}
+            to finish this application if you have all the information below. We
+            recommend that you and your partner fill this out together.
+          </p>
+        </div>
+
+        <h2>What We Need From You and Your Partner</h2>
+        <div className={`getting-started`}>
+          <ul>
+            <li>Legal names and last names you'll use after marriage</li>
+            <li>Birthdates and birthplaces</li>
+            <li>Residential addresses</li>
+            <li>
+              If you've been married before, how many times and the status of
+              your last marriage
+            </li>
+            <li>
+              If you've been in a civil union or domestic partnership before,
+              its location and status
+            </li>
+            <li>
+              Parents' names (including their family names) and whether they
+              were married when you were born
+            </li>
+          </ul>
+        </div>
+
+        <h2>Documents That Might Be Helpful</h2>
+        <div className={`getting-started`}>
+          <ul>
+            <li>A government-issued ID</li>
+            <li>A birth certificate</li>
+          </ul>
+        </div>
+      </div>
+    );
+  };
+
   public static isComplete(): boolean {
     return true;
   }
@@ -34,44 +85,7 @@ export default class Instructions extends Component<Props> {
         allowProceed={Instructions.isComplete()}
         nextButtonText={'START'}
       >
-        <h1 css={SECTION_HEADING_STYLING}>How to get started</h1>
-        <div css={MARRIAGE_INTENTION_INTRO_BODY_STYLING}>
-          <p>
-            After completing this form, you’ll review and finalize your
-            paperwork with the Registry Department at your appointment. Both you
-            and your partner must come to this appointment. You will need to
-            provide us:
-          </p>
-          <ul>
-            <li>your social security numbers (if you have them)</li>
-            <li>your IDs, and</li>
-            <li>payment for a $50 application fee.</li>
-          </ul>
-          <p>
-            We accept cash, credit, or a money order made payable to the "City
-            of Boston".{' '}
-            <a href="https://www.boston.gov/departments/registry/how-get-married-boston">
-              Visit our website
-            </a>{' '}
-            for more information about marriage requirements.
-          </p>
-          <p>
-            After you finalize your paperwork at your appointment, we will issue
-            your marriage license and put in the mail three days later. It will
-            be sent to the address listed under Person A. Your license will
-            expire 60 days from the date of your appointment.
-          </p>
-
-          <p>Please Note:</p>
-          <ul>
-            <li>Both persons must be over age 18 and be free to marry.</li>
-            <li>
-              You must have a valid marriage license and be married in
-              Massachusetts by a person eligible to perform weddings in
-              Massachusetts.
-            </li>
-          </ul>
-        </div>
+        {this.$instructionsV2()}
       </QuestionComponent>
     );
   }

@@ -429,7 +429,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     { registryDb }
   ): Promise<OrderResult> => {
     console.log('mutation > submitMarriageIntentionCertificateOrder:');
-    // console.log(rollbar, stripe, emails, registryDb);
     const {
       Email,
       DayPhone,

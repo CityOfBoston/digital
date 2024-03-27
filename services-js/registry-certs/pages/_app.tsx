@@ -88,6 +88,7 @@ export interface PageDependencies extends GetInitialPropsDependencies {
   routerListener: RouterListener;
   orderProvider: OrderProvider;
   siteAnalytics: GaSiteAnalytics;
+  completedSteps: Set<number> | null;
 }
 
 // It’s important to cache the dependencies passed to getInitialProps because
@@ -180,6 +181,7 @@ export default class RegistryCertsApp extends App {
       stripe,
       checkoutDao: new CheckoutDao(fetchGraphql, stripe),
       marriageIntentionDao: new MarriageIntentionDao(fetchGraphql),
+      completedSteps: null,
       routerListener: new RouterListener(),
       screenReaderSupport: new ScreenReaderSupport(),
       siteAnalytics,

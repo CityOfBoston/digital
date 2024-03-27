@@ -1264,9 +1264,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "You’ve got your permit and may begin working.  Please contact the Building Inspection unit to schedule an inspection and keep your project on track!",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -1789,9 +1792,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -2322,9 +2328,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            Congratulations! Once you get your permit and make sure all fees are paid you will be ready to get to work. Please make sure your permit is posted in a visable location to make sure your commmunity knows your work is allowed.
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Congratulations! Once you get your permit and make sure all fees are paid you will be ready to get to work. Please make sure your permit is posted in a visable location to make sure your commmunity knows your work is allowed.",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -3374,9 +3383,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "You’re almost there.  We need one final check to make sure your space is safe to use.  Staff is in the process of evaluating your certificate of occupancy.",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -3893,9 +3905,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            Your project plan is under review by a plans examiner familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Your project plan is under review by a plans examiner familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -4436,9 +4451,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -5418,9 +5436,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            Your application requires an on-site inspection to be processed further. 
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Your application requires an on-site inspection to be processed further. ",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -5867,9 +5888,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Thanks for your application!  Staff is reviewing your application to ensure that all fees are properly calculated and we have the information needed to start processing it.",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -6334,9 +6358,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Congratulations! Once your permit is paid for and you get your fire prevention permit, you’re ready to start your project and get to work.",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >
@@ -7244,9 +7271,12 @@ Array [
           </div>
           <p
             className="t--s500 lh--300"
-          >
-            Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. 
-          </p>
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Your permit application is under review by a team of fire prevention professionals at BFD. Review time varies based on permit type. Asbestos Removal, Bag Smoke Detectors, Construction-Demolition-Renovation, Cutting-Burning-Welding, Tank Removal, Temporary Dumpster and Smoke/CO Inspection are generally completed in 2–4 days. Other requests are generally completed in 10–15 days. ",
+              }
+            }
+          />
           <ul
             className="m-b700 css-12jt1a3"
           >

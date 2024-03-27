@@ -12,7 +12,8 @@ import { CertificateType } from '../../types';
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
 import PageLayout from '../../PageLayout';
-import PageWrapper, { Progress } from '../../PageWrapper';
+import PageWrapper from '../../PageWrapper';
+import { ProgressProps } from '../../../lib/interfaces';
 
 import { SECTION_HEADING_STYLING } from '../question-components/styling';
 
@@ -21,7 +22,7 @@ type Props = {
   title?: string;
   children?: ReactNode;
   footer?: ReactNode;
-  progress?: Progress;
+  progress?: ProgressProps;
 };
 
 /**

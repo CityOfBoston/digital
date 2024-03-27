@@ -58,4 +58,29 @@ storiesOf('Form Elements|Inputs/Radio', module)
       name="time-of-day"
       groupLabel="Time of Day"
     />
+  ))
+  .add('Radio Group, Labels, Tool Tip', () => (
+    <RadioGroup
+      items={radioGroupAltLabels}
+      name="time-of-day"
+      groupLabel="Time of Day"
+      toolTip={{
+        icon: '?',
+        msg:
+          'This information is collected as required by the Massachusetts State Marriage Intention Form.',
+      }}
+    />
+  ))
+  .add('Radio Group, Labels, SoftRequired, Tool Tip', () => (
+    <RadioGroup
+      items={radioGroupAltLabels}
+      name="time-of-day"
+      groupLabel="Time of Day"
+      softRequired={true}
+      toolTip={{
+        icon: 'i',
+        msg:
+          'This information is collected as required by the Massachusetts State Marriage Intention Form.',
+      }}
+    />
   ));

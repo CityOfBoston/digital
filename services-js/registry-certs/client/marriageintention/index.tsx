@@ -38,6 +38,7 @@ interface Props
       | 'marriageIntentionCertificateRequest'
       | 'siteAnalytics'
       | 'marriageIntentionDao'
+      | 'completedSteps'
     > {}
 
 interface State {
@@ -57,6 +58,7 @@ interface State {
    * doesn’t receive prevProps.)
    */
   currentStep: MarriageIntentionStep;
+  completedSteps: Set<number>;
 }
 
 /**
@@ -128,6 +130,7 @@ export default class IndexPage extends React.Component<Props, State> {
       globalMarriageIntentionCertificateRequest:
         props.marriageIntentionCertificateRequest,
       currentStep: props.currentStep,
+      completedSteps: this.props.completedSteps || new Set([0]),
     };
   }
 
@@ -150,6 +153,12 @@ export default class IndexPage extends React.Component<Props, State> {
   ) => {
     const { currentStep, marriageIntentionCertificateRequest } = this.props;
 
+    const {
+      localMarriageIntentionCertificateRequest,
+      completedSteps,
+    } = this.state;
+    const { steps } = localMarriageIntentionCertificateRequest;
+
     if (marriageIntentionCertificateRequest !== modifiedRequest) {
       marriageIntentionCertificateRequest.updateFrom(modifiedRequest);
     }
@@ -166,6 +175,9 @@ export default class IndexPage extends React.Component<Props, State> {
     this.gaEventActionAndLabel();
 
     const nextStep = newSteps[currentIndex + 1];
+    this.setState({
+      completedSteps: new Set([...completedSteps, steps.indexOf(nextStep)]),
+    });
     Router.push(`/marriageintention?step=${nextStep}`);
   };
 
@@ -196,8 +208,6 @@ export default class IndexPage extends React.Component<Props, State> {
   };
 
   gaAnswerQuestion = (action: string, label: string): void => {
-    // eslint-disable-next-line no-console
-    // console.log(`gaAnswerQuestion: , action: ${action} | label: ${label}`);
     this.props.siteAnalytics.sendEvent(action, {
       category: 'MarriageIntention',
       label,
@@ -207,45 +217,17 @@ export default class IndexPage extends React.Component<Props, State> {
   private submitRequest = async (
     modifiedRequest: MarriageIntentionCertificateRequest
   ) => {
-    // eslint-disable-next-line no-console
-    // console.log('ReviewForm > submitRequest', this);
-
     // DIG-2105
-    // console.log('submitRequest: ', modifiedRequest);
-    const {
-      // currentStep,
-      // marriageIntentionCertificateRequest,
-      marriageIntentionDao,
-    } = this.props;
+    const { marriageIntentionDao } = this.props;
 
     try {
-      // let formCompleted: any = null;
-
-      // eslint-disable-next-line no-console
-      // console.log('index > submitRequest > modifiedRequest: ', modifiedRequest);
-
       // DIG-2105
       await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
         modifiedRequest
       );
 
-      // formCompleted = await marriageIntentionDao.submitMarriageIntentionCertificateRequest(
-      //   modifiedRequest
-      // );
-      // eslint-disable-next-line no-console
-      // console.log(
-      //   'ReviewForm > submitRequest > formCompleted: ',
-      //   formCompleted
-      // );
-
       // DIG-2105
       this.advanceQuestion(modifiedRequest);
-
-      // DIG-2105
-      // const newSteps = marriageIntentionCertificateRequest.steps;
-      // const currentIndex = newSteps.indexOf(currentStep);
-      // const nextStep = newSteps[currentIndex + 1];
-      // Router.push(`/marriageintention?step=${nextStep}`);
     } catch (e) {
       if ((window as any).Rollbar) {
         (window as any).Rollbar.error(e);
@@ -274,40 +256,44 @@ export default class IndexPage extends React.Component<Props, State> {
     Router.push(`/marriageintention?step=${steps[newIndex]}`);
   };
 
+  private progressNavClick = (i: string | number) => {
+    const {
+      marriageIntentionCertificateRequest: { steps },
+    } = this.props;
+    Router.push(`/marriageintention?step=${steps[i]}`);
+  };
+
   render() {
     const { currentStep } = this.props;
-    const { localMarriageIntentionCertificateRequest } = this.state;
+    const {
+      localMarriageIntentionCertificateRequest,
+      completedSteps,
+    } = this.state;
+    const { steps, labels } = localMarriageIntentionCertificateRequest;
 
-    let isStepComplete: boolean = false;
+    // let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
+
+    const $defaultUI = (
+      <>
+        <Instructions
+          marriageIntentionCertificateRequest={
+            localMarriageIntentionCertificateRequest
+          }
+          handleProceed={this.advanceQuestion.bind(
+            this,
+            localMarriageIntentionCertificateRequest
+          )}
+          handleUserReset={this.handleUserReset}
+        />
+
+        {emailContentBlock()}
+      </>
+    );
 
     switch (currentStep) {
       case 'instructions':
-        questionsEl = (
-          <>
-            <Instructions
-              marriageIntentionCertificateRequest={
-                localMarriageIntentionCertificateRequest
-              }
-              handleProceed={this.advanceQuestion.bind(
-                this,
-                localMarriageIntentionCertificateRequest
-              )}
-              handleUserReset={this.handleUserReset}
-            />
-
-            {emailContentBlock()}
-          </>
-        );
-
-        // DIG-2105
-        // questionsEl = (
-        //   <Receipt
-        //     marriageIntentionCertificateRequest={
-        //       localMarriageIntentionCertificateRequest
-        //     }
-        //   />
-        // );
+        questionsEl = $defaultUI;
         break;
       case 'contactInfo':
         questionsEl = (
@@ -340,6 +326,7 @@ export default class IndexPage extends React.Component<Props, State> {
               )}
               handleStepBack={this.stepBackOneQuestion}
               partnerLabel={'A'}
+              partnerNum={1}
             />
 
             {emailContentBlock()}
@@ -359,6 +346,7 @@ export default class IndexPage extends React.Component<Props, State> {
               )}
               handleStepBack={this.stepBackOneQuestion}
               partnerLabel={'B'}
+              partnerNum={2}
             />
 
             {emailContentBlock()}
@@ -366,11 +354,6 @@ export default class IndexPage extends React.Component<Props, State> {
         );
         break;
       case 'reviewForms':
-        // eslint-disable-next-line no-console
-        // console.log(
-        //   'index>switch>reviewForms: ',
-        //   localMarriageIntentionCertificateRequest
-        // );
         questionsEl = (
           <>
             <ReviewForms
@@ -398,35 +381,22 @@ export default class IndexPage extends React.Component<Props, State> {
         );
         break;
       default:
-        questionsEl = (
-          <>
-            <Instructions
-              marriageIntentionCertificateRequest={
-                localMarriageIntentionCertificateRequest
-              }
-              handleProceed={this.advanceQuestion.bind(
-                this,
-                localMarriageIntentionCertificateRequest
-              )}
-              handleUserReset={this.handleUserReset}
-            />
-
-            {emailContentBlock()}
-          </>
-        );
+        questionsEl = $defaultUI;
         break;
     }
-
-    const { steps } = localMarriageIntentionCertificateRequest;
 
     return (
       <PageWrapper
         certificateType="intention"
-        progress={{
+        progressNav={{
+          steps: labels,
           totalSteps: steps.length,
-          currentStep: steps.indexOf(currentStep) + 1,
-          currentStepCompleted: isStepComplete,
-          offset: -1,
+          currentStep: steps.indexOf(currentStep),
+          showStepName: false,
+          offset: 0,
+          completed: Array.from(completedSteps),
+          clickHandler: this.progressNavClick,
+          blockStepBackAfterLastNav: true,
         }}
         classString={'b-c'}
         mainHeadline={'Marriage Intention Application'}
@@ -437,9 +407,6 @@ export default class IndexPage extends React.Component<Props, State> {
           </Head>
 
           {questionsEl}
-
-          {/* DIG-2105 */}
-          {/* {emailContentBlock()} */}
         </div>
       </PageWrapper>
     );
