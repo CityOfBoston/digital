@@ -97,6 +97,7 @@ const MEMORABLEDATEINPUT_STYLING = css(`
 
 export const nameFields = (data: {
   partnerFlag: string;
+  formPageComplete?: string | null;
   handleChange: ((e: any) => void) | undefined;
   handleResidenceStateChange: ((e: any) => void) | undefined;
   handleUseSurnameChange: ((e: any) => void) | undefined;
@@ -110,6 +111,7 @@ export const nameFields = (data: {
 }) => {
   const {
     partnerFlag,
+    formPageComplete,
     firstName,
     lastName,
     middleName,
@@ -121,7 +123,6 @@ export const nameFields = (data: {
     handleResidenceStateChange,
     handleUseSurnameChange,
   } = data;
-  // const partnerNameStr = `partner${partnerFlag}_useSurname`;
   const $CSS_SECTION_WRAPPER = css(`margin-bottom: 1.5em;`);
 
   return (
@@ -149,6 +150,12 @@ export const nameFields = (data: {
         disableLabelNoWrap={true}
         maxLength={100}
         softRequired={true}
+        required
+        error={
+          formPageComplete && formPageComplete === '1' && firstName === ''
+            ? 'Please enter your `First Name`'
+            : ''
+        }
       />
 
       <TextInput
@@ -171,6 +178,13 @@ export const nameFields = (data: {
         onChange={handleChange}
         disableLabelNoWrap={true}
         maxLength={100}
+        softRequired={true}
+        required
+        error={
+          formPageComplete && formPageComplete === '1' && lastName === ''
+            ? 'Please enter your `Last Name`'
+            : ''
+        }
       />
 
       <div css={RADIOGROUP_CONTAINER_STYLING}>
@@ -208,12 +222,18 @@ export const nameFields = (data: {
             disableLabelNoWrap={true}
             optionalDescription={`You can keep your current last name or use a new last name.`}
             maxLength={50}
-            softRequired={true}
             toolTip={{
               icon: '?',
               msg:
                 'Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.',
             }}
+            softRequired={true}
+            required
+            error={
+              formPageComplete && formPageComplete === '1' && surName === ''
+                ? `Please enter the 'Last Name' you'll use`
+                : ''
+            }
           />
         </div>
       )}

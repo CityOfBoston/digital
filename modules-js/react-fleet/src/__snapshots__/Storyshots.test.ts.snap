@@ -3331,6 +3331,178 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
 </div>
 `;
 
+exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-2715199497"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Default (non-active, unvalidated or required
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  "
+      disabled={false}
+      id="input-2715199497"
+      placeholder=""
+      required={false}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-3647184142"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        State - Focus - Click into field
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  "
+      disabled={false}
+      id="input-3647184142"
+      placeholder=""
+      required={false}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-680647510"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        State - Required
+      </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  "
+      disabled={false}
+      id="input-680647510"
+      placeholder=""
+      required={true}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-2490219431"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        State - Error
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  txt-f--err"
+      disabled={false}
+      id="input-2490219431"
+      placeholder=""
+      required={false}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
 <div
   style={
@@ -3661,7 +3833,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       disabled={false}
       id="input-362326901"
       placeholder=""
@@ -3682,7 +3854,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
     </div>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       disabled={false}
       id="input-362326901"
       placeholder=""

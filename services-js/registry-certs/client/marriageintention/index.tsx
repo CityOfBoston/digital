@@ -27,6 +27,8 @@ import ReviewForms from './forms/reviewForms';
 import ContactInfo from './forms/contactInfo';
 import Receipt from './forms/receipt';
 
+// import { handleFormPageComplete$ } from '../marriageintention/forms/eventHandlers';
+
 interface InitialProps {
   currentStep: MarriageIntentionStep;
 }
@@ -150,6 +152,7 @@ export default class IndexPage extends React.Component<Props, State> {
 
   private advanceQuestion = (
     modifiedRequest: MarriageIntentionCertificateRequest
+    // partnerFlag?: string
   ) => {
     const { currentStep, marriageIntentionCertificateRequest } = this.props;
 
@@ -178,6 +181,15 @@ export default class IndexPage extends React.Component<Props, State> {
     this.setState({
       completedSteps: new Set([...completedSteps, steps.indexOf(nextStep)]),
     });
+
+    // if (partnerFlag && partnerFlag.length > 0) {
+    //   handleFormPageComplete$({
+    //     partnerFlag,
+    //     val: true,
+    //     certObj: modifiedRequest,
+    //   });
+    // }
+
     Router.push(`/marriageintention?step=${nextStep}`);
   };
 

@@ -76,7 +76,7 @@ export default function TextInput(props: Props): JSX.Element {
     label: `txt-l ${props.small ? 'txt-l--sm' : ''}`,
     input: `txt-f ${props.small ? 'txt-f--sm' : ''} ${
       props.error ? 'txt-f--err' : ''
-    }`,
+    }${props.softRequired ? ' txt-f--sr' : ''}`,
   };
 
   const labelText = (label): React.ReactChild => {

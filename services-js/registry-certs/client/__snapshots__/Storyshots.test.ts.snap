@@ -65831,7 +65831,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
       </label>
       <input
         aria-label=""
-        className="txt-f  "
+        className="txt-f   txt-f--sr"
         id="input-1547104625"
         maxLength={100}
         name="partnerA_birthCity"
@@ -67871,7 +67871,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
       </label>
       <input
         aria-label=""
-        className="txt-f  "
+        className="txt-f   txt-f--sr"
         id="input-1547104625"
         maxLength={100}
         name="partnerA_birthCity"
@@ -70687,11 +70687,12 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       id="input-2048906072"
       maxLength={100}
       name="partner1_firstName"
       onChange={[Function]}
+      required={true}
       type="text"
       value="Peter"
     />
@@ -70763,14 +70764,27 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       >
         Last Name
       </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+      </span>
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       id="input-1103291528"
       maxLength={100}
       name="partner1_lastName"
       onChange={[Function]}
+      required={true}
       type="text"
       value="Pan"
     />
@@ -71005,7 +71019,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       id="input-2786084594"
       maxLength={100}
       name="partner1_occupation"
@@ -71405,11 +71419,12 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       id="input-2048906072"
       maxLength={100}
       name="partner1_firstName"
       onChange={[Function]}
+      required={true}
       type="text"
       value="Peter"
     />
@@ -71481,14 +71496,27 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       >
         Last Name
       </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+      </span>
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       id="input-1103291528"
       maxLength={100}
       name="partner1_lastName"
       onChange={[Function]}
+      required={true}
       type="text"
       value="Pan"
     />
@@ -71635,11 +71663,12 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       </label>
       <input
         aria-label=""
-        className="txt-f  "
+        className="txt-f   txt-f--sr"
         id="input-546901997"
         maxLength={50}
         name="partner1_surName"
         onChange={[Function]}
+        required={true}
         type="text"
         value="Neverland"
       />
@@ -71793,7 +71822,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   txt-f--sr"
       id="input-2786084594"
       maxLength={100}
       name="partner1_occupation"
@@ -73729,7 +73758,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   txt-f--sr"
           id="input-2580217931"
           maxLength={100}
           name="partnerA_residenceCity"
@@ -73784,7 +73813,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   txt-f--sr"
           id="input-770365431"
           maxLength={100}
           name="partnerA_residenceAddress"
@@ -73835,7 +73864,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   txt-f--sr"
           id="input-2413436367"
           maxLength={10}
           minLength={5}
@@ -75226,11 +75255,12 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   txt-f--sr"
                         id="input-2048906072"
                         maxLength={100}
                         name="partnerA_firstName"
                         onChange={[Function]}
+                        required={true}
                         type="text"
                         value=""
                       />
@@ -75302,14 +75332,27 @@ Array [
                         >
                           Last Name
                         </span>
+                        <span
+                          aria-hidden="true"
+                          className="t--req"
+                          style={
+                            Object {
+                              "display": "flex",
+                              "flexGrow": 1,
+                            }
+                          }
+                        >
+                          Required
+                        </span>
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   txt-f--sr"
                         id="input-1103291528"
                         maxLength={100}
                         name="partnerA_lastName"
                         onChange={[Function]}
+                        required={true}
                         type="text"
                         value=""
                       />
@@ -75542,7 +75585,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   txt-f--sr"
                         id="input-2786084594"
                         maxLength={100}
                         name="partnerA_occupation"
@@ -78546,7 +78589,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   txt-f--sr"
                           id="input-507056287"
                           maxLength={38}
                           name="partnerA_parentA_Name"
@@ -78600,7 +78643,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   txt-f--sr"
                           id="input-4196106810"
                           maxLength={38}
                           name="partnerA_parentA_Surname"
@@ -80267,11 +80310,12 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   txt-f--sr"
                         id="input-2048906072"
                         maxLength={100}
                         name="partnerB_firstName"
                         onChange={[Function]}
+                        required={true}
                         type="text"
                         value=""
                       />
@@ -80343,14 +80387,27 @@ Array [
                         >
                           Last Name
                         </span>
+                        <span
+                          aria-hidden="true"
+                          className="t--req"
+                          style={
+                            Object {
+                              "display": "flex",
+                              "flexGrow": 1,
+                            }
+                          }
+                        >
+                          Required
+                        </span>
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   txt-f--sr"
                         id="input-1103291528"
                         maxLength={100}
                         name="partnerB_lastName"
                         onChange={[Function]}
+                        required={true}
                         type="text"
                         value=""
                       />
@@ -80583,7 +80640,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   txt-f--sr"
                         id="input-2786084594"
                         maxLength={100}
                         name="partnerB_occupation"
@@ -83587,7 +83644,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   txt-f--sr"
                           id="input-507056287"
                           maxLength={38}
                           name="partnerB_parentA_Name"
@@ -83641,7 +83698,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   txt-f--sr"
                           id="input-4196106810"
                           maxLength={38}
                           name="partnerB_parentA_Surname"

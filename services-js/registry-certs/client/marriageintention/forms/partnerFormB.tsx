@@ -33,6 +33,7 @@ import {
   handleAdditionalParentChange$,
   handleBloodRelDescChange$,
   handleBloodRelChange$,
+  handleFormPageComplete$,
 } from './eventHandlers';
 
 interface Props {
@@ -81,6 +82,12 @@ export default class PartnerForm extends Component<Props> {
       partnerB_lastMarriageStatus,
       partnerB_additionalParent,
     } = requestInformation;
+
+    console.log(
+      `partnerFormB ... `,
+      requestInformation.partnerA_formPageComplete,
+      requestInformation.partnerB_formPageComplete
+    );
 
     let bloodRelReq = true;
     let useSurnameReq = true;
@@ -185,6 +192,14 @@ export default class PartnerForm extends Component<Props> {
       marriedBeforeReq &&
       useSurnameReq
     );
+
+    if (is_Complete) {
+      handleFormPageComplete$({
+        partnerFlag: 'A',
+        val: '1',
+        certObj: arguments[0],
+      });
+    }
 
     return is_Complete;
   }
@@ -493,6 +508,7 @@ export default class PartnerForm extends Component<Props> {
       partnerB_partnershipTypeDissolved,
       partnerB_marriedBefore,
       partnerB_additionalParent,
+      partnerB_formPageComplete,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     const partner_num = partnerNum ? partnerNum : partnerLabel;
@@ -513,6 +529,7 @@ export default class PartnerForm extends Component<Props> {
         >
           {nameFields({
             partnerFlag: partnerLabel,
+            formPageComplete: partnerB_formPageComplete,
             handleChange: this.handleChange,
             handleResidenceStateChange: this.handleResidenceStateChange,
             handleUseSurnameChange: this.handleUseSurnameChange,

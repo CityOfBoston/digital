@@ -57,6 +57,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerA_lastMarriageStatus: '',
   partnerA_marriedBefore: '',
   partnerA_additionalParent: '',
+  partnerA_formPageComplete: '',
 
   partnerB_fullName: '',
   partnerB_firstMiddleName: '',
@@ -94,6 +95,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerB_lastMarriageStatus: '',
   partnerB_marriedBefore: '',
   partnerB_additionalParent: '',
+  partnerB_formPageComplete: '',
 
   email: '',
   emailConfirm: '',
@@ -207,6 +209,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_marriedBefore: this.requestInformation.partnerA_marriedBefore,
       partnerA_additionalParent: this.requestInformation
         .partnerA_additionalParent,
+      partnerA_formPageComplete: this.requestInformation
+        .partnerA_formPageComplete,
 
       partnerB_fullName: this.requestInformation.partnerB_fullName,
       partnerB_firstMiddleName: this.requestInformation
@@ -259,6 +263,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_marriedBefore: this.requestInformation.partnerB_marriedBefore,
       partnerB_additionalParent: this.requestInformation
         .partnerB_additionalParent,
+      partnerB_formPageComplete: this.requestInformation
+        .partnerB_formPageComplete,
 
       email: this.requestInformation.email,
       emailConfirm: this.requestInformation.emailConfirm,
@@ -328,6 +334,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_marriedBefore: obj.requestInformation.partnerA_marriedBefore,
       partnerA_additionalParent:
         obj.requestInformation.partnerA_additionalParent,
+      partnerA_formPageComplete:
+        obj.requestInformation.partnerA_formPageComplete,
 
       partnerB_fullName: this.requestInformation.partnerB_fullName,
       partnerB_firstMiddleName: this.requestInformation
@@ -377,6 +385,8 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_marriedBefore: obj.requestInformation.partnerB_marriedBefore,
       partnerB_additionalParent:
         obj.requestInformation.partnerB_additionalParent,
+      partnerB_formPageComplete:
+        obj.requestInformation.partnerB_formPageComplete,
 
       email: obj.requestInformation.email,
       emailConfirm: obj.requestInformation.emailConfirm,
