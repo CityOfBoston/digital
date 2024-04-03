@@ -144,6 +144,7 @@ storiesOf('Form Elements|Inputs/TextInput', module)
           required={boolean('Required', false)}
           disabled={boolean('Disabled', false)}
           error={boolean('Error', false)}
+          focused={true}
         />
 
         <TextInput
@@ -159,9 +160,9 @@ storiesOf('Form Elements|Inputs/TextInput', module)
           label={text('Label text', 'State - Error')}
           placeholder={text('Placeholder text', '')}
           small={boolean('Small variant', false)}
-          required={boolean('Required', false)}
+          required={boolean('Required', true)}
           disabled={boolean('Disabled', false)}
-          error={boolean('Error', true)}
+          error={`Error Message ...`}
         />
       </>
     );

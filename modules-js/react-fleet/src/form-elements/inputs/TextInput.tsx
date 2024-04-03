@@ -41,11 +41,13 @@ type Props = {
   optionalDescription?: string;
 
   required?: boolean;
-  softRequired?: boolean;
-  toolTip?: { icon: string; msg: string };
   inputMode?: string;
   maxLength?: number;
   minLength?: number;
+
+  softRequired?: boolean;
+  toolTip?: { icon: string; msg: string };
+  focused?: boolean;
 
   value?: string;
   disabled?: boolean;
@@ -68,15 +70,17 @@ type Props = {
 import { ToolTip } from '../ToolTip';
 
 export default function TextInput(props: Props): JSX.Element {
-  const { toolTip } = props;
+  const { toolTip, focused } = props;
 
   const id = props.id || `input-${hash(props.label)}`;
 
   const classNames = {
     label: `txt-l ${props.small ? 'txt-l--sm' : ''}`,
-    input: `txt-f ${props.small ? 'txt-f--sm' : ''} ${
+    input: `txt-f ${props.small ? ' txt-f--sm' : ''} ${
       props.error ? 'txt-f--err' : ''
-    }${props.softRequired ? ' txt-f--sr' : ''}`,
+    } ${focused ? ' txt-f--focused' : ''}${
+      props.softRequired ? ' txt-f--sr' : ''
+    }`,
   };
 
   const labelText = (label): React.ReactChild => {
