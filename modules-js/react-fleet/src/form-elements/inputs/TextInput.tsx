@@ -79,7 +79,12 @@ export default function TextInput(props: Props): JSX.Element {
     input: `txt-f ${props.small ? ' txt-f--sm' : ''} ${
       props.error ? 'txt-f--err' : ''
     } ${focused ? ' txt-f--focused' : ''}${
-      props.softRequired ? ' txt-f--sr' : ''
+      props.softRequired &&
+      props.error &&
+      typeof props.error === 'string' &&
+      props.error.length > 0
+        ? ' txt-f--sr'
+        : ''
     }`,
   };
 

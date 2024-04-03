@@ -267,6 +267,11 @@ export const nameFields = (data: {
           msg:
             'This information is collected as required by the Massachusetts State Marriage Intention Form.',
         }}
+        error={
+          formPageComplete && formPageComplete === '1' && occupation === ''
+            ? 'Please enter your `Occupation`'
+            : ''
+        }
       />
     </div>
   );
@@ -274,6 +279,7 @@ export const nameFields = (data: {
 
 export const datePlaceOfBirth = (data: {
   partnerFlag: string;
+  formPageComplete?: string | null;
   partnerDOB: Date | null | undefined;
   birthCityStr: string;
   birthCountryStr: string;
@@ -284,26 +290,29 @@ export const datePlaceOfBirth = (data: {
   handleBirthDateChange: (newDate: Date | null) => void;
 }) => {
   const {
+    formPageComplete,
     partnerFlag,
     partnerDOB,
-    handleBirthDateChange,
     birthCityStr,
     birthCountryStr,
     birthStateStr,
     handleChange,
+    handleBirthDateChange,
     handleBirthplaceCountryChange,
     checkBirthCityForNeighborhood,
   } = data;
 
   const birthCity = (data: {
+    formPageComplete?: string | null;
     partnerFlag: string;
-    birthCity: string;
+    birthCityStr: string;
     handleChange: ((e: any) => void) | undefined;
     checkBirthCityForNeighborhood: ((e: any) => void) | undefined;
   }) => {
     const {
+      formPageComplete,
       partnerFlag,
-      birthCity,
+      birthCityStr,
       handleChange,
       checkBirthCityForNeighborhood,
     } = data;
@@ -313,7 +322,7 @@ export const datePlaceOfBirth = (data: {
         <TextInput
           label="Birthplace City/Town"
           name={`partner${partnerFlag}_birthCity`}
-          value={birthCity}
+          value={birthCityStr}
           onChange={handleChange}
           disableLabelNoWrap={true}
           onBlur={checkBirthCityForNeighborhood}
@@ -322,12 +331,19 @@ export const datePlaceOfBirth = (data: {
           }
           maxLength={100}
           softRequired={true}
+          error={
+            formPageComplete &&
+            formPageComplete === '1' &&
+            birthCityStr.length === 0
+              ? `Please enter your 'Birth City/Town'`
+              : ''
+          }
         />
       </div>
     );
   };
 
-  const birthStateZip = (data: {
+  const birthStateAndZip = (data: {
     partnerFlag: string;
     birthStateStr: string;
     handleChange: ((e: any) => void) | undefined;
@@ -359,13 +375,7 @@ export const datePlaceOfBirth = (data: {
 
   return (
     <div css={[SECTION_WRAPPER_STYLING, NAME_FIELDS_BASIC_CONTAINER_STYLING]}>
-      <h1
-        css={[
-          PARTNERFORM_SECTION_HEADING_STYLING,
-          // SECTION_HEADING_STYLING
-          BOTTOM_BORDER,
-        ]}
-      >
+      <h1 css={[PARTNERFORM_SECTION_HEADING_STYLING, BOTTOM_BORDER]}>
         Date and Place of Birth
       </h1>
 
@@ -395,11 +405,18 @@ export const datePlaceOfBirth = (data: {
           onChange={handleBirthplaceCountryChange}
           onBlur={checkBirthCityForNeighborhood}
           softRequired={true}
+          error={
+            formPageComplete &&
+            formPageComplete === '1' &&
+            birthCountryStr === ''
+              ? 'Please select your `Birthplace Country`'
+              : ''
+          }
         />
       </div>
 
       {birthCountryStr === 'USA' &&
-        birthStateZip({
+        birthStateAndZip({
           partnerFlag,
           birthStateStr: birthStateStr,
           handleChange,
@@ -407,8 +424,9 @@ export const datePlaceOfBirth = (data: {
         })}
       {birthCountryStr &&
         birthCity({
+          formPageComplete,
           partnerFlag,
-          birthCity: birthCityStr,
+          birthCityStr: birthCityStr,
           handleChange,
           checkBirthCityForNeighborhood,
         })}
@@ -417,6 +435,7 @@ export const datePlaceOfBirth = (data: {
 };
 
 export const residence = (data: {
+  formPageComplete?: string | null;
   partnerFlag: string;
   residenceZipStr: string;
   residenceCityStr: string;
@@ -430,6 +449,7 @@ export const residence = (data: {
   handleResidenceCountryChange: ((e: any) => void) | undefined;
 }) => {
   const {
+    formPageComplete,
     partnerFlag,
     residenceZipStr,
     residenceCityStr,
@@ -461,6 +481,13 @@ export const residence = (data: {
           maxLength={10}
           minLength={5}
           softRequired={true}
+          error={
+            formPageComplete &&
+            formPageComplete === '1' &&
+            residenceZipStr === ''
+              ? `Please enter your 'Residence Zip Code'`
+              : ''
+          }
         />
       </div>
     );
@@ -474,7 +501,7 @@ export const residence = (data: {
     const { partnerFlag, residenceStateStr, handleResidenceStateChange } = data;
 
     return (
-      <div>
+      <>
         <div
           css={[
             NAME_FIELDS_CONTAINER_STYLING,
@@ -490,9 +517,16 @@ export const residence = (data: {
             value={residenceStateStr}
             onChange={handleResidenceStateChange}
             softRequired={true}
+            error={
+              formPageComplete &&
+              formPageComplete === '1' &&
+              residenceStateStr === ''
+                ? 'Please select your `Residence Address`'
+                : ''
+            }
           />
         </div>
-      </div>
+      </>
     );
   };
 
@@ -525,6 +559,13 @@ export const residence = (data: {
           }
           maxLength={100}
           softRequired={true}
+          error={
+            formPageComplete &&
+            formPageComplete === '1' &&
+            residenceCityStr === ''
+              ? `Please enter your City/Town of Residence'`
+              : ''
+          }
         />
 
         <TextInput
@@ -538,6 +579,13 @@ export const residence = (data: {
           }
           maxLength={100}
           softRequired={true}
+          error={
+            formPageComplete &&
+            formPageComplete === '1' &&
+            residenceAddressStr === ''
+              ? 'Please enter your `Residence Address`'
+              : ''
+          }
         />
       </div>
     );
@@ -577,6 +625,13 @@ export const residence = (data: {
               msg:
                 'If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.',
             }}
+            error={
+              formPageComplete &&
+              formPageComplete === '1' &&
+              residenceCountryStr === ''
+                ? 'Please select your `Residence Address`'
+                : ''
+            }
           />
         </div>
 
@@ -609,6 +664,7 @@ export const findMarriageNumb = (val: string) =>
   MARRIAGE_COUNT.find(entry => entry.value === val);
 
 export const marriageBlock = (data: {
+  formPageComplete?: string | null;
   partnerFlag: string;
   bloodRelation: string;
   bloodRelationDesc: string;
@@ -626,6 +682,7 @@ export const marriageBlock = (data: {
   handleMarriedBeforeChange: ((e: any) => void) | undefined;
 }) => {
   const {
+    formPageComplete,
     partnerFlag,
     bloodRelation,
     bloodRelationDesc,
@@ -664,6 +721,11 @@ export const marriageBlock = (data: {
             msg:
               'This information is collected as required by Massachusetts State Law Chapter 46 Section 1.',
           }}
+          error={
+            formPageComplete && formPageComplete === '1' && marriageNumb === ''
+              ? 'Please select your `Marriage Number`'
+              : ''
+          }
         />
       </div>
     );
@@ -729,6 +791,7 @@ export const marriageBlock = (data: {
         })}
 
       {$partnershipType({
+        formPageComplete,
         partnerFlag,
         partnershipType,
         partnershipState,
@@ -771,6 +834,7 @@ export const $lastMarriageStatus = (data: {
 };
 
 export const $partnershipType = (data: {
+  formPageComplete?: string | null;
   partnerFlag: string;
   partnershipType: string;
   partnershipState: string;
@@ -778,6 +842,7 @@ export const $partnershipType = (data: {
   handleChange: ((e: any) => void) | undefined;
 }) => {
   const {
+    formPageComplete,
     partnerFlag,
     partnershipType,
     partnershipState,
@@ -816,6 +881,7 @@ export const $partnershipType = (data: {
       {partnershipType &&
         (partnershipType === 'CIV' || partnershipType === 'DOM') &&
         $dissolved({
+          formPageComplete,
           partnerFlag,
           partnershipState,
           partnershipTypeDissolved,
@@ -826,12 +892,14 @@ export const $partnershipType = (data: {
 };
 
 const $dissolved = (data: {
+  formPageComplete?: string | null;
   partnerFlag: string;
   partnershipState: string;
   partnershipTypeDissolved: string;
   handleChange: ((e: any) => void) | undefined;
 }) => {
   const {
+    formPageComplete,
     partnerFlag,
     partnershipTypeDissolved,
     partnershipState,
@@ -866,6 +934,14 @@ const $dissolved = (data: {
         onChange={handleChange}
         disableLabelNoWrap={true}
         maxLength={100}
+        softRequired={true}
+        error={
+          formPageComplete &&
+          formPageComplete === '1' &&
+          partnershipState === ''
+            ? `Please enter your 'Patnershipt's State/Country'`
+            : ''
+        }
       />
     </div>
   );
@@ -927,6 +1003,7 @@ export const parentsMarried = (data: {
 };
 
 export const parents = (data: {
+  formPageComplete?: string | null;
   partnerFlag: string;
   parentA_Name: string;
   parentA_Surname: string;
@@ -938,6 +1015,7 @@ export const parents = (data: {
   handleAdditionalParentChange: ((e: any) => void) | undefined;
 }) => {
   const {
+    formPageComplete,
     partnerFlag,
     parentA_Name,
     parentA_Surname,
@@ -980,6 +1058,11 @@ export const parents = (data: {
           disableLabelNoWrap={true}
           maxLength={38}
           softRequired={true}
+          error={
+            formPageComplete && formPageComplete === '1' && parentA_Name === ''
+              ? `Please enter your 'Parent 1 - Names'`
+              : ''
+          }
         />
 
         <TextInput
@@ -993,6 +1076,13 @@ export const parents = (data: {
             'This information might be found on your birth certificate.'
           }
           softRequired={true}
+          error={
+            formPageComplete &&
+            formPageComplete === '1' &&
+            parentA_Surname === ''
+              ? `Please enter your 'Parent 1 - Family Name at birth or adoption'`
+              : ''
+          }
         />
 
         <div css={RADIOGROUP_CONTAINER_STYLING}>

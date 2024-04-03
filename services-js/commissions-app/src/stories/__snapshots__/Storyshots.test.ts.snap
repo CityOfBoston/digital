@@ -82,7 +82,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-firstName"
               maxLength={25}
               name="firstName"
@@ -123,7 +123,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-middleName"
               maxLength={50}
               name="middleName"
@@ -175,7 +175,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-lastName"
             maxLength={50}
             name="lastName"
@@ -232,7 +232,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-streetAddress"
             maxLength={50}
             name="streetAddress"
@@ -273,7 +273,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-unit"
             maxLength={50}
             name="unit"
@@ -329,7 +329,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-city"
             maxLength={50}
             name="city"
@@ -385,7 +385,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-state"
               maxLength={50}
               name="state"
@@ -438,7 +438,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-zip"
               maxLength={5}
               name="zip"
@@ -481,7 +481,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-phone"
           maxLength={50}
           name="phone"
@@ -533,7 +533,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-email"
           maxLength={50}
           name="email"
@@ -586,7 +586,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-confirmEmail"
           maxLength={50}
           name="confirmEmail"
@@ -645,7 +645,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-degreeAttained"
           maxLength={100}
           name="degreeAttained"
@@ -685,7 +685,7 @@ exports[`Storyshots ApplicationForm blank 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-educationalInstitution"
           maxLength={100}
           name="educationalInstitution"
@@ -1148,7 +1148,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm txt-f--err"
+              className="txt-f  txt-f--sm txt-f--err "
               id="ApplicationForm-firstName"
               maxLength={25}
               name="firstName"
@@ -1189,7 +1189,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-middleName"
               maxLength={50}
               name="middleName"
@@ -1241,7 +1241,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm txt-f--err"
+            className="txt-f  txt-f--sm txt-f--err "
             id="ApplicationForm-lastName"
             maxLength={50}
             name="lastName"
@@ -1298,7 +1298,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-streetAddress"
             maxLength={50}
             name="streetAddress"
@@ -1339,7 +1339,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-unit"
             maxLength={50}
             name="unit"
@@ -1395,7 +1395,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-city"
             maxLength={50}
             name="city"
@@ -1451,7 +1451,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-state"
               maxLength={50}
               name="state"
@@ -1504,7 +1504,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-zip"
               maxLength={5}
               name="zip"
@@ -1547,7 +1547,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-phone"
           maxLength={50}
           name="phone"
@@ -1599,7 +1599,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-email"
           maxLength={50}
           name="email"
@@ -1652,7 +1652,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-confirmEmail"
           maxLength={50}
           name="confirmEmail"
@@ -1711,7 +1711,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-degreeAttained"
           maxLength={100}
           name="degreeAttained"
@@ -1751,7 +1751,7 @@ exports[`Storyshots ApplicationForm errors 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-educationalInstitution"
           maxLength={100}
           name="educationalInstitution"
@@ -2214,7 +2214,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-firstName"
               maxLength={25}
               name="firstName"
@@ -2255,7 +2255,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-middleName"
               maxLength={50}
               name="middleName"
@@ -2307,7 +2307,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-lastName"
             maxLength={50}
             name="lastName"
@@ -2364,7 +2364,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-streetAddress"
             maxLength={50}
             name="streetAddress"
@@ -2405,7 +2405,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-unit"
             maxLength={50}
             name="unit"
@@ -2461,7 +2461,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-city"
             maxLength={50}
             name="city"
@@ -2517,7 +2517,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-state"
               maxLength={50}
               name="state"
@@ -2570,7 +2570,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-zip"
               maxLength={5}
               name="zip"
@@ -2613,7 +2613,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-phone"
           maxLength={50}
           name="phone"
@@ -2665,7 +2665,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-email"
           maxLength={50}
           name="email"
@@ -2718,7 +2718,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-confirmEmail"
           maxLength={50}
           name="confirmEmail"
@@ -2777,7 +2777,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-degreeAttained"
           maxLength={100}
           name="degreeAttained"
@@ -2817,7 +2817,7 @@ exports[`Storyshots ApplicationForm filled in 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-educationalInstitution"
           maxLength={100}
           name="educationalInstitution"
@@ -3315,7 +3315,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-firstName"
               maxLength={25}
               name="firstName"
@@ -3356,7 +3356,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-middleName"
               maxLength={50}
               name="middleName"
@@ -3408,7 +3408,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-lastName"
             maxLength={50}
             name="lastName"
@@ -3465,7 +3465,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-streetAddress"
             maxLength={50}
             name="streetAddress"
@@ -3506,7 +3506,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-unit"
             maxLength={50}
             name="unit"
@@ -3562,7 +3562,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-city"
             maxLength={50}
             name="city"
@@ -3618,7 +3618,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-state"
               maxLength={50}
               name="state"
@@ -3671,7 +3671,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-zip"
               maxLength={5}
               name="zip"
@@ -3714,7 +3714,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-phone"
           maxLength={50}
           name="phone"
@@ -3766,7 +3766,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-email"
           maxLength={50}
           name="email"
@@ -3819,7 +3819,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-confirmEmail"
           maxLength={50}
           name="confirmEmail"
@@ -3878,7 +3878,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-degreeAttained"
           maxLength={100}
           name="degreeAttained"
@@ -3918,7 +3918,7 @@ exports[`Storyshots ApplicationForm submission error 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-educationalInstitution"
           maxLength={100}
           name="educationalInstitution"
@@ -4422,7 +4422,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-firstName"
               maxLength={25}
               name="firstName"
@@ -4463,7 +4463,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-middleName"
               maxLength={50}
               name="middleName"
@@ -4515,7 +4515,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-lastName"
             maxLength={50}
             name="lastName"
@@ -4572,7 +4572,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-streetAddress"
             maxLength={50}
             name="streetAddress"
@@ -4613,7 +4613,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-unit"
             maxLength={50}
             name="unit"
@@ -4669,7 +4669,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
           </label>
           <input
             aria-label=""
-            className="txt-f txt-f--sm "
+            className="txt-f  txt-f--sm  "
             id="ApplicationForm-city"
             maxLength={50}
             name="city"
@@ -4725,7 +4725,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-state"
               maxLength={50}
               name="state"
@@ -4778,7 +4778,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
             </label>
             <input
               aria-label=""
-              className="txt-f txt-f--sm "
+              className="txt-f  txt-f--sm  "
               id="ApplicationForm-zip"
               maxLength={5}
               name="zip"
@@ -4821,7 +4821,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-phone"
           maxLength={50}
           name="phone"
@@ -4873,7 +4873,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-email"
           maxLength={50}
           name="email"
@@ -4926,7 +4926,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-confirmEmail"
           maxLength={50}
           name="confirmEmail"
@@ -4985,7 +4985,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-degreeAttained"
           maxLength={100}
           name="degreeAttained"
@@ -5025,7 +5025,7 @@ exports[`Storyshots ApplicationForm submitting 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f txt-f--sm "
+          className="txt-f  txt-f--sm  "
           id="ApplicationForm-educationalInstitution"
           maxLength={100}
           name="educationalInstitution"
@@ -5665,7 +5665,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f txt-f--sm "
+                        className="txt-f  txt-f--sm  "
                         id="ApplicationForm-firstName"
                         maxLength={25}
                         name="firstName"
@@ -5706,7 +5706,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f txt-f--sm "
+                        className="txt-f  txt-f--sm  "
                         id="ApplicationForm-middleName"
                         maxLength={50}
                         name="middleName"
@@ -5758,7 +5758,7 @@ Array [
                     </label>
                     <input
                       aria-label=""
-                      className="txt-f txt-f--sm "
+                      className="txt-f  txt-f--sm  "
                       id="ApplicationForm-lastName"
                       maxLength={50}
                       name="lastName"
@@ -5815,7 +5815,7 @@ Array [
                     </label>
                     <input
                       aria-label=""
-                      className="txt-f txt-f--sm "
+                      className="txt-f  txt-f--sm  "
                       id="ApplicationForm-streetAddress"
                       maxLength={50}
                       name="streetAddress"
@@ -5856,7 +5856,7 @@ Array [
                     </label>
                     <input
                       aria-label=""
-                      className="txt-f txt-f--sm "
+                      className="txt-f  txt-f--sm  "
                       id="ApplicationForm-unit"
                       maxLength={50}
                       name="unit"
@@ -5912,7 +5912,7 @@ Array [
                     </label>
                     <input
                       aria-label=""
-                      className="txt-f txt-f--sm "
+                      className="txt-f  txt-f--sm  "
                       id="ApplicationForm-city"
                       maxLength={50}
                       name="city"
@@ -5968,7 +5968,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f txt-f--sm "
+                        className="txt-f  txt-f--sm  "
                         id="ApplicationForm-state"
                         maxLength={50}
                         name="state"
@@ -6021,7 +6021,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f txt-f--sm "
+                        className="txt-f  txt-f--sm  "
                         id="ApplicationForm-zip"
                         maxLength={5}
                         name="zip"
@@ -6064,7 +6064,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f txt-f--sm "
+                    className="txt-f  txt-f--sm  "
                     id="ApplicationForm-phone"
                     maxLength={50}
                     name="phone"
@@ -6116,7 +6116,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f txt-f--sm "
+                    className="txt-f  txt-f--sm  "
                     id="ApplicationForm-email"
                     maxLength={50}
                     name="email"
@@ -6169,7 +6169,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f txt-f--sm "
+                    className="txt-f  txt-f--sm  "
                     id="ApplicationForm-confirmEmail"
                     maxLength={50}
                     name="confirmEmail"
@@ -6228,7 +6228,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f txt-f--sm "
+                    className="txt-f  txt-f--sm  "
                     id="ApplicationForm-degreeAttained"
                     maxLength={100}
                     name="degreeAttained"
@@ -6268,7 +6268,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f txt-f--sm "
+                    className="txt-f  txt-f--sm  "
                     id="ApplicationForm-educationalInstitution"
                     maxLength={100}
                     name="educationalInstitution"

@@ -6,18 +6,6 @@ export const handleFormPageComplete$ = (data: {
   val: string;
   certObj: MarriageIntentionCertificateRequest;
 }): void => {
-  // const currValue: boolean =
-  //   data.certObj.requestInformation[
-  //     `partner${data.partnerFlag}_formPageComplete`
-  //   ];
-
-  // console.log(`partnerFlag: ${data.partnerFlag}`, data.certObj.answerQuestion);
-  // console.log(
-  //   `handleFormPageComplete$ > partner${
-  //     data.partnerFlag
-  //   }_formPageComplete: ${currValue} > ${!currValue}`
-  // );
-
   data.certObj.answerQuestion(
     {
       [`partner${data.partnerFlag}_formPageComplete`]: data.val,
@@ -31,7 +19,7 @@ export const handleChange$ = (data: {
   certObj: MarriageIntentionCertificateRequest;
 }) => {
   const { e, certObj } = data;
-  console.log(`certObj: `, certObj);
+
   certObj.answerQuestion(
     {
       [e.target.name]: e.target.value,

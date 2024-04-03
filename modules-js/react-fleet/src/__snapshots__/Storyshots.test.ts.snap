@@ -3845,7 +3845,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
     </label>
     <input
       aria-label=""
-      className="txt-f    txt-f--sr"
+      className="txt-f   "
       disabled={false}
       id="input-362326901"
       placeholder=""
@@ -3866,7 +3866,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
     </div>
     <input
       aria-label=""
-      className="txt-f    txt-f--sr"
+      className="txt-f   "
       disabled={false}
       id="input-362326901"
       placeholder=""

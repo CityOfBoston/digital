@@ -526,8 +526,8 @@ export default class PartnerForm extends Component<Props> {
           }
         >
           {nameFields({
-            partnerFlag: partnerLabel,
             formPageComplete: partnerA_formPageComplete,
+            partnerFlag: partnerLabel,
             handleChange: this.handleChange,
             handleResidenceStateChange: this.handleResidenceStateChange,
             handleUseSurnameChange: this.handleUseSurnameChange,
@@ -541,6 +541,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {datePlaceOfBirth({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             partnerDOB: partnerA_dob,
             birthCountryStr: partnerA_birthCountry,
@@ -553,6 +554,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {residence({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             residenceZipStr: partnerA_residenceZip,
             residenceCityStr: partnerA_residenceCity,
@@ -567,6 +569,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {marriageBlock({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             bloodRelation: partnerA_bloodRelation,
             bloodRelationDesc: partnerA_bloodRelationDesc,
@@ -585,6 +588,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {parents({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             parentA_Name: partnerA_parentA_Name,
             parentA_Surname: partnerA_parentA_Surname,
