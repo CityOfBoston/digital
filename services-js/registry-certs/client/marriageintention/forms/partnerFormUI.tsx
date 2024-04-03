@@ -150,7 +150,6 @@ export const nameFields = (data: {
         disableLabelNoWrap={true}
         maxLength={100}
         softRequired={true}
-        required
         error={
           formPageComplete && formPageComplete === '1' && firstName === ''
             ? 'Please enter your `First Name`'
@@ -179,7 +178,6 @@ export const nameFields = (data: {
         disableLabelNoWrap={true}
         maxLength={100}
         softRequired={true}
-        required
         error={
           formPageComplete && formPageComplete === '1' && lastName === ''
             ? 'Please enter your `Last Name`'

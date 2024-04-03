@@ -70692,7 +70692,6 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       maxLength={100}
       name="partner1_firstName"
       onChange={[Function]}
-      required={true}
       type="text"
       value="Peter"
     />
@@ -70784,7 +70783,6 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       maxLength={100}
       name="partner1_lastName"
       onChange={[Function]}
-      required={true}
       type="text"
       value="Pan"
     />
@@ -71424,7 +71422,6 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       maxLength={100}
       name="partner1_firstName"
       onChange={[Function]}
-      required={true}
       type="text"
       value="Peter"
     />
@@ -71516,7 +71513,6 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       maxLength={100}
       name="partner1_lastName"
       onChange={[Function]}
-      required={true}
       type="text"
       value="Pan"
     />
@@ -75260,7 +75256,6 @@ Array [
                         maxLength={100}
                         name="partnerA_firstName"
                         onChange={[Function]}
-                        required={true}
                         type="text"
                         value=""
                       />
@@ -75352,7 +75347,6 @@ Array [
                         maxLength={100}
                         name="partnerA_lastName"
                         onChange={[Function]}
-                        required={true}
                         type="text"
                         value=""
                       />
@@ -80315,7 +80309,6 @@ Array [
                         maxLength={100}
                         name="partnerB_firstName"
                         onChange={[Function]}
-                        required={true}
                         type="text"
                         value=""
                       />
@@ -80407,7 +80400,6 @@ Array [
                         maxLength={100}
                         name="partnerB_lastName"
                         onChange={[Function]}
-                        required={true}
                         type="text"
                         value=""
                       />

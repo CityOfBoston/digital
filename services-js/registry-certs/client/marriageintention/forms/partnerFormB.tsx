@@ -83,12 +83,6 @@ export default class PartnerForm extends Component<Props> {
       partnerB_additionalParent,
     } = requestInformation;
 
-    console.log(
-      `partnerFormB ... `,
-      requestInformation.partnerA_formPageComplete,
-      requestInformation.partnerB_formPageComplete
-    );
-
     let bloodRelReq = true;
     let useSurnameReq = true;
     let additionalParentsReq = true;
@@ -192,14 +186,6 @@ export default class PartnerForm extends Component<Props> {
       marriedBeforeReq &&
       useSurnameReq
     );
-
-    if (is_Complete) {
-      handleFormPageComplete$({
-        partnerFlag: 'A',
-        val: '1',
-        certObj: arguments[0],
-      });
-    }
 
     return is_Complete;
   }
@@ -469,6 +455,15 @@ export default class PartnerForm extends Component<Props> {
     return false;
   };
 
+  private advanceForm = (certObj: any) => {
+    handleFormPageComplete$({
+      partnerFlag: 'B',
+      val: '1',
+      certObj,
+    });
+    this.props.handleProceed(certObj);
+  };
+
   // RENDER ALL UI
   public render() {
     const {
@@ -515,7 +510,10 @@ export default class PartnerForm extends Component<Props> {
 
     return (
       <QuestionComponent
-        handleProceed={this.props.handleProceed}
+        handleProceed={this.advanceForm.bind(
+          this,
+          marriageIntentionCertificateRequest
+        )}
         handleStepBack={this.props.handleStepBack}
         allowProceed={PartnerForm.isComplete(
           marriageIntentionCertificateRequest
