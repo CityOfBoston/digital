@@ -189,7 +189,7 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerA_lastMarriageStatus: string;
   partnerA_marriedBefore: string;
   partnerA_additionalParent: string;
-  partnerA_formPageComplete: string;
+  partnerA_formPageComplete: '' | '1' | null;
 
   partnerB_fullName: string;
   partnerB_firstMiddleName: string;
@@ -227,7 +227,7 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerB_lastMarriageStatus: string;
   partnerB_marriedBefore: string;
   partnerB_additionalParent: string;
-  partnerB_formPageComplete: string;
+  partnerB_formPageComplete: '' | '1' | null;
 
   email: string;
   emailConfirm: string;

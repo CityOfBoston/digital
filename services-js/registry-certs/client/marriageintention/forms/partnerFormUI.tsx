@@ -97,10 +97,17 @@ const MEMORABLEDATEINPUT_STYLING = css(`
 
 export const nameFields = (data: {
   partnerFlag: string;
-  formPageComplete?: string | null;
+  formPageComplete?: '' | '1' | null;
   handleChange: ((e: any) => void) | undefined;
   handleResidenceStateChange: ((e: any) => void) | undefined;
   handleUseSurnameChange: ((e: any) => void) | undefined;
+  formErrors?: (data: {
+    action: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    section: string;
+  }) => any | undefined;
+  refs?: React.RefObject<HTMLSpanElement> | null;
+  errorElemSrc?: object;
   firstName: string;
   lastName: string;
   middleName: string;
@@ -122,8 +129,62 @@ export const nameFields = (data: {
     handleChange,
     handleResidenceStateChange,
     handleUseSurnameChange,
+    formErrors,
+    refs,
+    errorElemSrc,
   } = data;
   const $CSS_SECTION_WRAPPER = css(`margin-bottom: 1.5em;`);
+  let errors = new Set();
+
+  const errorVal_firstName =
+    formPageComplete && formPageComplete === '1' && firstName === ''
+      ? 'Please enter your `First Name`'
+      : '';
+  if (errorVal_firstName.length > 0)
+    errors.add(`partner${partnerFlag}_firstName`);
+
+  const errorVal_lastName =
+    formPageComplete && formPageComplete === '1' && lastName === ''
+      ? 'Please enter your `Last Name`'
+      : '';
+  if (errorVal_lastName.length > 0)
+    errors.add(`partner${partnerFlag}_lastName`);
+
+  const errorVal_surName =
+    formPageComplete &&
+    formPageComplete === '1' &&
+    useSurname === '1' &&
+    surName === ''
+      ? `Please enter the 'Last Name' you'll use`
+      : '';
+  if (errorVal_surName.length > 0) errors.add(`partner${partnerFlag}_surName`);
+
+  const errorVal_occupation =
+    formPageComplete && formPageComplete === '1' && occupation === ''
+      ? 'Please enter your `Occupation`'
+      : '';
+  if (errorVal_occupation.length > 0)
+    errors.add(`partner${partnerFlag}_occupation`);
+
+  if (formErrors && formPageComplete === '1') {
+    if (
+      refs &&
+      errorElemSrc &&
+      !errorElemSrc['nameFields'] &&
+      errors.size > 0
+    ) {
+      formErrors({
+        action: 'add',
+        ref: refs,
+        section: 'nameFields',
+      });
+    } else {
+      formErrors({
+        action: 'delete',
+        section: 'nameFields',
+      });
+    }
+  }
 
   return (
     <div
@@ -142,6 +203,7 @@ export const nameFields = (data: {
         </div>
       </h1>
 
+      {refs && <span ref={refs} />}
       <TextInput
         label="First Name"
         name={`partner${partnerFlag}_firstName`}
@@ -150,11 +212,7 @@ export const nameFields = (data: {
         disableLabelNoWrap={true}
         maxLength={100}
         softRequired={true}
-        error={
-          formPageComplete && formPageComplete === '1' && firstName === ''
-            ? 'Please enter your `First Name`'
-            : ''
-        }
+        error={errorVal_firstName}
       />
 
       <TextInput
@@ -178,11 +236,7 @@ export const nameFields = (data: {
         disableLabelNoWrap={true}
         maxLength={100}
         softRequired={true}
-        error={
-          formPageComplete && formPageComplete === '1' && lastName === ''
-            ? 'Please enter your `Last Name`'
-            : ''
-        }
+        error={errorVal_lastName}
       />
 
       <div css={RADIOGROUP_CONTAINER_STYLING}>
@@ -227,11 +281,7 @@ export const nameFields = (data: {
             }}
             softRequired={true}
             required
-            error={
-              formPageComplete && formPageComplete === '1' && surName === ''
-                ? `Please enter the 'Last Name' you'll use`
-                : ''
-            }
+            error={errorVal_surName}
           />
         </div>
       )}
@@ -267,11 +317,7 @@ export const nameFields = (data: {
           msg:
             'This information is collected as required by the Massachusetts State Marriage Intention Form.',
         }}
-        error={
-          formPageComplete && formPageComplete === '1' && occupation === ''
-            ? 'Please enter your `Occupation`'
-            : ''
-        }
+        error={errorVal_occupation}
       />
     </div>
   );
@@ -279,7 +325,7 @@ export const nameFields = (data: {
 
 export const datePlaceOfBirth = (data: {
   partnerFlag: string;
-  formPageComplete?: string | null;
+  formPageComplete?: '' | '1' | null;
   partnerDOB: Date | null | undefined;
   birthCityStr: string;
   birthCountryStr: string;
@@ -288,6 +334,13 @@ export const datePlaceOfBirth = (data: {
   handleBirthplaceCountryChange: ((e: any) => void) | undefined;
   checkBirthCityForNeighborhood: ((e: any) => void) | undefined;
   handleBirthDateChange: (newDate: Date | null) => void;
+  formErrors?: (data: {
+    action: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    section: string;
+  }) => any | undefined;
+  refs?: React.RefObject<HTMLSpanElement> | null;
+  errorElemSrc?: object;
 }) => {
   const {
     formPageComplete,
@@ -300,17 +353,47 @@ export const datePlaceOfBirth = (data: {
     handleBirthDateChange,
     handleBirthplaceCountryChange,
     checkBirthCityForNeighborhood,
+    formErrors,
+    refs,
+    errorElemSrc,
   } = data;
 
+  let errors = new Set();
+
+  const errorVal_birthCity =
+    formPageComplete && formPageComplete === '1' && birthCityStr.length === 0
+      ? `Please enter your 'Birth City/Town'`
+      : '';
+  if (errorVal_birthCity.length > 0) errors.add('');
+
+  if (formErrors && formPageComplete === '1') {
+    if (
+      refs &&
+      errorElemSrc &&
+      !errorElemSrc['datePlaceBirth'] &&
+      errors.size > 0
+    ) {
+      formErrors({
+        action: 'add',
+        ref: refs,
+        section: 'datePlaceOfBirth',
+      });
+    } else {
+      formErrors({
+        action: 'delete',
+        section: 'datePlaceOfBirth',
+      });
+    }
+  }
+
   const birthCity = (data: {
-    formPageComplete?: string | null;
+    formPageComplete?: '' | '1' | null;
     partnerFlag: string;
     birthCityStr: string;
     handleChange: ((e: any) => void) | undefined;
     checkBirthCityForNeighborhood: ((e: any) => void) | undefined;
   }) => {
     const {
-      formPageComplete,
       partnerFlag,
       birthCityStr,
       handleChange,
@@ -331,13 +414,7 @@ export const datePlaceOfBirth = (data: {
           }
           maxLength={100}
           softRequired={true}
-          error={
-            formPageComplete &&
-            formPageComplete === '1' &&
-            birthCityStr.length === 0
-              ? `Please enter your 'Birth City/Town'`
-              : ''
-          }
+          error={errorVal_birthCity}
         />
       </div>
     );
@@ -378,6 +455,8 @@ export const datePlaceOfBirth = (data: {
       <h1 css={[PARTNERFORM_SECTION_HEADING_STYLING, BOTTOM_BORDER]}>
         Date and Place of Birth
       </h1>
+
+      {refs && <span ref={refs} />}
 
       <MemorableDateInput
         hideLengend={true}
@@ -435,7 +514,7 @@ export const datePlaceOfBirth = (data: {
 };
 
 export const residence = (data: {
-  formPageComplete?: string | null;
+  formPageComplete?: '' | '1' | null;
   partnerFlag: string;
   residenceZipStr: string;
   residenceCityStr: string;
@@ -447,6 +526,13 @@ export const residence = (data: {
   replaceBosNeighborhoods: ((e: any) => void) | undefined;
   handleResidenceStateChange: ((e: any) => void) | undefined;
   handleResidenceCountryChange: ((e: any) => void) | undefined;
+  formErrors?: (data: {
+    action: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    section: string;
+  }) => any | undefined;
+  refs?: React.RefObject<HTMLSpanElement> | null;
+  errorElemSrc?: object;
 }) => {
   const {
     formPageComplete,
@@ -461,7 +547,55 @@ export const residence = (data: {
     replaceBosNeighborhoods,
     handleResidenceStateChange,
     handleResidenceCountryChange,
+    formErrors,
+    errorElemSrc,
+    refs,
   } = data;
+
+  let errors = new Set();
+
+  const errorVal_Zipcode =
+    formPageComplete && formPageComplete === '1' && residenceZipStr === ''
+      ? `Please enter your 'Residence Zip Code'`
+      : '';
+  if (errorVal_Zipcode.length > 0) errors.add('');
+
+  const errorVal_residenceAddress =
+    formPageComplete && formPageComplete === '1' && residenceAddressStr === ''
+      ? 'Please enter your `Residence Address`'
+      : '';
+  if (errorVal_residenceAddress.length > 0) errors.add('');
+
+  const errorVal_residenceCity =
+    formPageComplete && formPageComplete === '1' && residenceCityStr === ''
+      ? `Please enter your City/Town of Residence'`
+      : '';
+  if (errorVal_residenceCity.length > 0) errors.add('');
+
+  const errorVal_residenceState =
+    formPageComplete && formPageComplete === '1' && residenceStateStr === ''
+      ? 'Please select your `State of Residence`'
+      : '';
+
+  const errorVal_residenceCountry =
+    formPageComplete && formPageComplete === '1' && residenceCountryStr === ''
+      ? 'Please select your `Country of Residence`'
+      : '';
+
+  if (formErrors && formPageComplete === '1') {
+    if (refs && errorElemSrc && !errorElemSrc['residence'] && errors.size > 0) {
+      formErrors({
+        action: 'add',
+        ref: refs,
+        section: 'residence',
+      });
+    } else {
+      formErrors({
+        action: 'delete',
+        section: 'residence',
+      });
+    }
+  }
 
   const residenceZip = (data: {
     partnerFlag: string;
@@ -481,13 +615,7 @@ export const residence = (data: {
           maxLength={10}
           minLength={5}
           softRequired={true}
-          error={
-            formPageComplete &&
-            formPageComplete === '1' &&
-            residenceZipStr === ''
-              ? `Please enter your 'Residence Zip Code'`
-              : ''
-          }
+          error={errorVal_Zipcode}
         />
       </div>
     );
@@ -517,13 +645,7 @@ export const residence = (data: {
             value={residenceStateStr}
             onChange={handleResidenceStateChange}
             softRequired={true}
-            error={
-              formPageComplete &&
-              formPageComplete === '1' &&
-              residenceStateStr === ''
-                ? 'Please select your `Residence Address`'
-                : ''
-            }
+            error={errorVal_residenceState}
           />
         </div>
       </>
@@ -559,13 +681,7 @@ export const residence = (data: {
           }
           maxLength={100}
           softRequired={true}
-          error={
-            formPageComplete &&
-            formPageComplete === '1' &&
-            residenceCityStr === ''
-              ? `Please enter your City/Town of Residence'`
-              : ''
-          }
+          error={errorVal_residenceCity}
         />
 
         <TextInput
@@ -579,13 +695,7 @@ export const residence = (data: {
           }
           maxLength={100}
           softRequired={true}
-          error={
-            formPageComplete &&
-            formPageComplete === '1' &&
-            residenceAddressStr === ''
-              ? 'Please enter your `Residence Address`'
-              : ''
-          }
+          error={errorVal_residenceAddress}
         />
       </div>
     );
@@ -612,6 +722,8 @@ export const residence = (data: {
             SELECTINPUT_WRAPPER_STYLING,
           ]}
         >
+          {refs && <span ref={refs} />}
+
           <SelectDropdown
             label="Country of Residence"
             options={COUNTRIES}
@@ -625,13 +737,7 @@ export const residence = (data: {
               msg:
                 'If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.',
             }}
-            error={
-              formPageComplete &&
-              formPageComplete === '1' &&
-              residenceCountryStr === ''
-                ? 'Please select your `Residence Address`'
-                : ''
-            }
+            error={errorVal_residenceCountry}
           />
         </div>
 
@@ -660,11 +766,8 @@ export const residence = (data: {
   );
 };
 
-export const findMarriageNumb = (val: string) =>
-  MARRIAGE_COUNT.find(entry => entry.value === val);
-
 export const marriageBlock = (data: {
-  formPageComplete?: string | null;
+  formPageComplete?: '' | '1' | null;
   partnerFlag: string;
   bloodRelation: string;
   bloodRelationDesc: string;
@@ -680,6 +783,13 @@ export const marriageBlock = (data: {
   handleBloodRelChange: ((e: any) => void) | undefined;
   handleBloodRelDescChange: ((e: any) => void) | undefined;
   handleMarriedBeforeChange: ((e: any) => void) | undefined;
+  formErrors?: (data: {
+    action: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    section: string;
+  }) => any | undefined;
+  refs?: React.RefObject<HTMLSpanElement> | null;
+  errorElemSrc?: object;
 }) => {
   const {
     formPageComplete,
@@ -698,7 +808,75 @@ export const marriageBlock = (data: {
     handleBloodRelChange,
     handleBloodRelDescChange,
     handleMarriedBeforeChange,
+    formErrors,
+    errorElemSrc,
+    refs,
   } = data;
+  let errors = new Set();
+  let errorMgs: Array<string> = [];
+
+  const errorVal_bloodRelationDesc =
+    formPageComplete &&
+    formPageComplete === '1' &&
+    bloodRelation === '1' &&
+    bloodRelationDesc === ''
+      ? 'Please describe your `Blood Relation to your partner.`'
+      : '';
+  if (errorVal_bloodRelationDesc.length > 0) {
+    errorMgs.push(errorVal_bloodRelationDesc);
+    errors.add('');
+  }
+
+  const errorVal_marriageNumb =
+    formPageComplete &&
+    formPageComplete === '1' &&
+    marriedBefore === '1' &&
+    marriageNumb === ''
+      ? 'Please select your `Marriage Number`'
+      : '';
+  if (errorVal_marriageNumb.length > 0) {
+    errorMgs.push(errorVal_marriageNumb);
+    errors.add('');
+  }
+
+  const errorVal_partnershipState =
+    formPageComplete &&
+    formPageComplete === '1' &&
+    (partnershipType === 'CIV' || partnershipType === 'DOM') &&
+    partnershipState === ''
+      ? `Please enter your 'Parnership's State/Country'`
+      : '';
+  if (errorVal_partnershipState.length > 0) {
+    errorMgs.push(errorVal_partnershipState);
+    errors.add('');
+  }
+
+  const errorVal_partnershipTypeDissolved =
+    formPageComplete &&
+    formPageComplete === '1' &&
+    (partnershipType === 'CIV' || partnershipType === 'DOM') &&
+    partnershipTypeDissolved === ''
+      ? `Please select if your Parnership or Civil Union has been Dissolved`
+      : '';
+  if (errorVal_partnershipTypeDissolved.length > 0) {
+    errorMgs.push(errorVal_partnershipTypeDissolved);
+    errors.add('');
+  }
+
+  if (formErrors && formPageComplete === '1') {
+    if (refs && errorElemSrc && errors.size > 0) {
+      formErrors({
+        action: 'add',
+        ref: refs,
+        section: 'marriageBlock',
+      });
+    } else {
+      formErrors({
+        action: 'delete',
+        section: 'marriageBlock',
+      });
+    }
+  }
 
   const marrigeNumInput = (marriageNumb: string) => {
     return (
@@ -721,11 +899,7 @@ export const marriageBlock = (data: {
             msg:
               'This information is collected as required by Massachusetts State Law Chapter 46 Section 1.',
           }}
-          error={
-            formPageComplete && formPageComplete === '1' && marriageNumb === ''
-              ? 'Please select your `Marriage Number`'
-              : ''
-          }
+          error={errorVal_marriageNumb}
         />
       </div>
     );
@@ -737,6 +911,8 @@ export const marriageBlock = (data: {
         Marriage
         <div className="notice" />
       </h1>
+
+      {refs && <span ref={refs} />}
 
       <div css={RADIOGROUP_CONTAINER_STYLING}>
         <div css={ONE_AND_HALF_MARGINBOTTOM}>
@@ -761,6 +937,7 @@ export const marriageBlock = (data: {
       {bloodRelation === '1' &&
         bloodRelDesc({
           partnerFlag,
+          errorStr: errorVal_bloodRelationDesc,
           bloodRelationDesc,
           handleBloodRelDescChange,
         })}
@@ -791,168 +968,29 @@ export const marriageBlock = (data: {
         })}
 
       {$partnershipType({
-        formPageComplete,
         partnerFlag,
         partnershipType,
         partnershipState,
         partnershipTypeDissolved,
+        errorVal_partnershipState,
         handleChange,
       })}
     </div>
   );
 };
 
-export const $lastMarriageStatus = (data: {
-  partnerFlag: string;
-  handleChange: ((e: any) => void) | undefined;
-  lastMarriageStatus: string;
-}) => {
-  const { partnerFlag, handleChange, lastMarriageStatus } = data;
-  return (
-    <div css={SECTION_WRAPPER_STYLING}>
-      <div css={[NAME_FIELDS_BASIC_CONTAINER_STYLING]}>
-        <div css={RADIOGROUP_CONTAINER_STYLING}>
-          <div css={ONE_AND_HALF_MARGINBOTTOM}>
-            <RadioGroup
-              items={LAST_MARRIAGE_STATUS}
-              name={`partner${partnerFlag}_lastMarriageStatus`}
-              checkedValue={lastMarriageStatus}
-              groupLabel="If Applicable, Status of Last Marriage"
-              handleItemChange={handleChange}
-              className={`radio-group__label`}
-              softRequired={true}
-            />
-
-            <label className="notice">
-              If void, please provide clerk with evidence.
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const $partnershipType = (data: {
-  formPageComplete?: string | null;
-  partnerFlag: string;
-  partnershipType: string;
-  partnershipState: string;
-  partnershipTypeDissolved: string;
-  handleChange: ((e: any) => void) | undefined;
-}) => {
-  const {
-    formPageComplete,
-    partnerFlag,
-    partnershipType,
-    partnershipState,
-    partnershipTypeDissolved,
-    handleChange,
-  } = data;
-
-  return (
-    <div css={SECTION_WRAPPER_STYLING}>
-      <div
-        css={[
-          NAME_FIELDS_BASIC_CONTAINER_STYLING,
-          HEADER_SPACING_STYLING,
-          BOTTOM_SPACING_STYLING,
-        ]}
-      >
-        <div css={RADIOGROUP_CONTAINER_STYLING}>
-          <RadioGroup
-            items={PARTNERSHIP_TYPE2}
-            name={`partner${partnerFlag}_partnershipType`}
-            checkedValue={partnershipType}
-            handleItemChange={handleChange}
-            groupLabel="Were you ever a member of a civil union or domestic partnership?"
-            className={`radio-group__label`}
-            hideLabel={false}
-            softRequired={true}
-            toolTip={{
-              icon: '?',
-              msg:
-                'This information is collected as required by the Massachusetts State Marriage Intention Form.',
-            }}
-          />
-        </div>
-      </div>
-
-      {partnershipType &&
-        (partnershipType === 'CIV' || partnershipType === 'DOM') &&
-        $dissolved({
-          formPageComplete,
-          partnerFlag,
-          partnershipState,
-          partnershipTypeDissolved,
-          handleChange,
-        })}
-    </div>
-  );
-};
-
-const $dissolved = (data: {
-  formPageComplete?: string | null;
-  partnerFlag: string;
-  partnershipState: string;
-  partnershipTypeDissolved: string;
-  handleChange: ((e: any) => void) | undefined;
-}) => {
-  const {
-    formPageComplete,
-    partnerFlag,
-    partnershipTypeDissolved,
-    partnershipState,
-    handleChange,
-  } = data;
-
-  return (
-    <div
-      css={[
-        NAME_FIELDS_BASIC_CONTAINER_STYLING,
-        HEADER_SPACING_STYLING,
-        BOTTOM_SPACING_STYLING,
-      ]}
-    >
-      <div css={RADIOGROUP_CONTAINER_STYLING}>
-        <RadioGroup
-          items={PARTNERSHIP_TYPE_DISSOLVED}
-          name={`partner${partnerFlag}_partnershipTypeDissolved`}
-          checkedValue={partnershipTypeDissolved}
-          handleItemChange={handleChange}
-          groupLabel="Civil Union Or Domestic Partnership: Dissolved"
-          className={`radio-group__label`}
-          softRequired={true}
-          hideLabel={false}
-        />
-      </div>
-
-      <TextInput
-        label="Partnership State/Country"
-        name={`partner${partnerFlag}_partnershipState`}
-        value={partnershipState}
-        onChange={handleChange}
-        disableLabelNoWrap={true}
-        maxLength={100}
-        softRequired={true}
-        error={
-          formPageComplete &&
-          formPageComplete === '1' &&
-          partnershipState === ''
-            ? `Please enter your 'Patnershipt's State/Country'`
-            : ''
-        }
-      />
-    </div>
-  );
-};
-
 export const bloodRelDesc = (data: {
   partnerFlag: string;
+  errorStr: string;
   bloodRelationDesc: string;
   handleBloodRelDescChange: ((e: any) => void) | undefined;
 }) => {
-  const { partnerFlag, bloodRelationDesc, handleBloodRelDescChange } = data;
+  const {
+    partnerFlag,
+    errorStr,
+    bloodRelationDesc,
+    handleBloodRelDescChange,
+  } = data;
 
   return (
     <div css={NAME_FIELDS_BASIC_CONTAINER_STYLING}>
@@ -963,7 +1001,187 @@ export const bloodRelDesc = (data: {
         onChange={handleBloodRelDescChange}
         disableLabelNoWrap={true}
         maxLength={100}
+        softRequired={true}
+        error={errorStr}
       />
+    </div>
+  );
+};
+
+export const parents = (data: {
+  formPageComplete?: '' | '1' | null;
+  partnerFlag: string;
+  parentA_Name: string;
+  parentA_Surname: string;
+  parentB_Name: string;
+  parentB_Surname: string;
+  additionalParent: string;
+  parentsMarriedAtBirth: string;
+  handleChange: ((e: any) => void) | undefined;
+  handleAdditionalParentChange: ((e: any) => void) | undefined;
+  formErrors?: (data: {
+    action: string;
+    ref?: React.RefObject<HTMLSpanElement>;
+    section: string;
+  }) => any | undefined;
+  refs?: React.RefObject<HTMLSpanElement> | null;
+  errorElemSrc?: object;
+}) => {
+  const {
+    formPageComplete,
+    partnerFlag,
+    parentA_Name,
+    parentA_Surname,
+    parentB_Name,
+    parentB_Surname,
+    additionalParent,
+    parentsMarriedAtBirth,
+    handleChange,
+    handleAdditionalParentChange,
+    formErrors,
+    errorElemSrc,
+    refs,
+  } = data;
+  let errors = new Set();
+  let errorMgs: Array<string> = [];
+
+  const errorVal_parentA_Name =
+    formPageComplete && formPageComplete === '1' && parentA_Name === ''
+      ? `Please enter your 'Parent 1 - Names'`
+      : '';
+  if (errorVal_parentA_Name.length > 0) {
+    errorMgs.push(errorVal_parentA_Name);
+    errors.add('');
+  }
+
+  const errorVal_parentA_Surname =
+    formPageComplete && formPageComplete === '1' && parentA_Surname === ''
+      ? `Please enter your 'Parent 1 - Family Name at birth or adoption'`
+      : '';
+  if (errorVal_parentA_Surname.length > 0) {
+    errorMgs.push(errorVal_parentA_Surname);
+    errors.add('');
+  }
+
+  const errorVal_parentB_Name =
+    formPageComplete &&
+    formPageComplete === '1' &&
+    additionalParent === '1' &&
+    parentB_Name === ''
+      ? `Please enter your 'Parent 2 - Names'`
+      : '';
+  if (errorVal_parentB_Name.length > 0) {
+    errorMgs.push(errorVal_parentB_Name);
+    errors.add('');
+  }
+
+  const errorVal_parentB_Surname =
+    formPageComplete &&
+    formPageComplete === '1' &&
+    additionalParent === '1' &&
+    parentB_Surname === ''
+      ? `Please enter your 'Parent 2 - Family Name at birth or adoption'`
+      : '';
+  if (errorVal_parentB_Surname.length > 0) {
+    errorMgs.push(errorVal_parentB_Surname);
+    errors.add('');
+  }
+
+  if (formErrors && formPageComplete === '1') {
+    if (refs && errorElemSrc && errors.size > 0) {
+      formErrors({
+        action: 'add',
+        ref: refs,
+        section: 'parents',
+      });
+    } else {
+      formErrors({
+        action: 'delete',
+        section: 'parents',
+      });
+    }
+  }
+
+  return (
+    <div css={SECTION_WRAPPER_STYLING}>
+      <h1 css={[PARTNERFORM_SECTION_HEADING_STYLING]}>
+        Parents
+        <div className="notice">
+          Please enter the full names of your parent(s) as they appear on your
+          birth certificate. It’s important to note that marriage licenses
+          contain details about your parents and are accessible as public
+          records, but they cannot be searched for by the general public.
+          {ToolTip({
+            icon: '?',
+            msg:
+              'This information is collected as required by Massachusetts State Law Chapter 46 Section 1. Marriage licenses include parental details and are public records, but not publicly searchable.',
+          })}
+        </div>
+      </h1>
+
+      {refs && <span ref={refs} />}
+
+      <div
+        css={[
+          MARRIAGE_INTENTION_FORM_STYLING,
+          TWO_AND_HALF_MARGINBOTTOM,
+          NAME_FIELDS_BASIC_CONTAINER_STYLING,
+        ]}
+      >
+        <TextInput
+          label="Parent 1 - First Middle Last Name"
+          name={`partner${partnerFlag}_parentA_Name`}
+          value={parentA_Name}
+          onChange={handleChange}
+          disableLabelNoWrap={true}
+          maxLength={38}
+          softRequired={true}
+          error={errorVal_parentA_Name}
+        />
+
+        <TextInput
+          label="Parent 1 - Family Name/Last Name At the time of their birth or adoption"
+          name={`partner${partnerFlag}_parentA_Surname`}
+          value={parentA_Surname}
+          onChange={handleChange}
+          disableLabelNoWrap={true}
+          maxLength={38}
+          optionalDescription={
+            'This information might be found on your birth certificate.'
+          }
+          softRequired={true}
+          error={errorVal_parentA_Surname}
+        />
+
+        <div css={RADIOGROUP_CONTAINER_STYLING}>
+          <RadioGroup
+            items={BOOL_RADIOGROUP}
+            name={`partner${partnerFlag}_additionalParent`}
+            checkedValue={additionalParent}
+            handleItemChange={handleAdditionalParentChange}
+            groupLabel="Do you have a second parent?"
+            className={`radio-group__label`}
+            softRequired={true}
+            hideLabel={false}
+          />
+        </div>
+
+        {additionalParent === '1' &&
+          $additionalParent({
+            partnerFlag,
+            parentB_Name,
+            parentB_Surname,
+            errorVal_parentB_Name,
+            errorVal_parentB_Surname,
+            handleChange,
+          })}
+
+        {parentsMarried({
+          partnerFlag,
+          parentsMarriedAtBirth,
+          handleChange,
+        })}
+      </div>
     </div>
   );
 };
@@ -1002,116 +1220,141 @@ export const parentsMarried = (data: {
   );
 };
 
-export const parents = (data: {
-  formPageComplete?: string | null;
+export const $lastMarriageStatus = (data: {
   partnerFlag: string;
-  parentA_Name: string;
-  parentA_Surname: string;
-  parentB_Name: string;
-  parentB_Surname: string;
-  additionalParent: string;
-  parentsMarriedAtBirth: string;
   handleChange: ((e: any) => void) | undefined;
-  handleAdditionalParentChange: ((e: any) => void) | undefined;
+  lastMarriageStatus: string;
 }) => {
-  const {
-    formPageComplete,
-    partnerFlag,
-    parentA_Name,
-    parentA_Surname,
-    parentB_Name,
-    parentB_Surname,
-    additionalParent,
-    parentsMarriedAtBirth,
-    handleChange,
-    handleAdditionalParentChange,
-  } = data;
+  const { partnerFlag, handleChange, lastMarriageStatus } = data;
   return (
     <div css={SECTION_WRAPPER_STYLING}>
-      <h1 css={[PARTNERFORM_SECTION_HEADING_STYLING]}>
-        Parents
-        <div className="notice">
-          Please enter the full names of your parent(s) as they appear on your
-          birth certificate. It’s important to note that marriage licenses
-          contain details about your parents and are accessible as public
-          records, but they cannot be searched for by the general public.
-          {ToolTip({
-            icon: '?',
-            msg:
-              'This information is collected as required by Massachusetts State Law Chapter 46 Section 1. Marriage licenses include parental details and are public records, but not publicly searchable.',
-          })}
-        </div>
-      </h1>
+      <div css={[NAME_FIELDS_BASIC_CONTAINER_STYLING]}>
+        <div css={RADIOGROUP_CONTAINER_STYLING}>
+          <div css={ONE_AND_HALF_MARGINBOTTOM}>
+            <RadioGroup
+              items={LAST_MARRIAGE_STATUS}
+              name={`partner${partnerFlag}_lastMarriageStatus`}
+              checkedValue={lastMarriageStatus}
+              groupLabel="If Applicable, Status of Last Marriage"
+              handleItemChange={handleChange}
+              className={`radio-group__label`}
+              softRequired={true}
+            />
 
+            <label className="notice">
+              If void, please provide clerk with evidence.
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const $partnershipType = (data: {
+  partnerFlag: string;
+  partnershipType: string;
+  partnershipState: string;
+  partnershipTypeDissolved: string;
+  errorVal_partnershipState: string;
+  handleChange: ((e: any) => void) | undefined;
+}) => {
+  const {
+    partnerFlag,
+    partnershipType,
+    partnershipState,
+    partnershipTypeDissolved,
+    errorVal_partnershipState,
+    handleChange,
+  } = data;
+
+  return (
+    <div css={SECTION_WRAPPER_STYLING}>
       <div
         css={[
-          MARRIAGE_INTENTION_FORM_STYLING,
-          TWO_AND_HALF_MARGINBOTTOM,
           NAME_FIELDS_BASIC_CONTAINER_STYLING,
+          HEADER_SPACING_STYLING,
+          BOTTOM_SPACING_STYLING,
         ]}
       >
-        <TextInput
-          label="Parent 1 - First Middle Last Name"
-          name={`partner${partnerFlag}_parentA_Name`}
-          value={parentA_Name}
-          onChange={handleChange}
-          disableLabelNoWrap={true}
-          maxLength={38}
-          softRequired={true}
-          error={
-            formPageComplete && formPageComplete === '1' && parentA_Name === ''
-              ? `Please enter your 'Parent 1 - Names'`
-              : ''
-          }
-        />
-
-        <TextInput
-          label="Parent 1 - Family Name/Last Name At the time of their birth or adoption"
-          name={`partner${partnerFlag}_parentA_Surname`}
-          value={parentA_Surname}
-          onChange={handleChange}
-          disableLabelNoWrap={true}
-          maxLength={38}
-          optionalDescription={
-            'This information might be found on your birth certificate.'
-          }
-          softRequired={true}
-          error={
-            formPageComplete &&
-            formPageComplete === '1' &&
-            parentA_Surname === ''
-              ? `Please enter your 'Parent 1 - Family Name at birth or adoption'`
-              : ''
-          }
-        />
-
         <div css={RADIOGROUP_CONTAINER_STYLING}>
           <RadioGroup
-            items={BOOL_RADIOGROUP}
-            name={`partner${partnerFlag}_additionalParent`}
-            checkedValue={additionalParent}
-            handleItemChange={handleAdditionalParentChange}
-            groupLabel="Do you have a second parent?"
+            items={PARTNERSHIP_TYPE2}
+            name={`partner${partnerFlag}_partnershipType`}
+            checkedValue={partnershipType}
+            handleItemChange={handleChange}
+            groupLabel="Were you ever a member of a civil union or domestic partnership?"
             className={`radio-group__label`}
-            softRequired={true}
             hideLabel={false}
+            softRequired={true}
+            toolTip={{
+              icon: '?',
+              msg:
+                'This information is collected as required by the Massachusetts State Marriage Intention Form.',
+            }}
           />
         </div>
+      </div>
 
-        {additionalParent === '1' &&
-          $additionalParent({
-            partnerFlag,
-            parentB_Name,
-            parentB_Surname,
-            handleChange,
-          })}
-
-        {parentsMarried({
+      {partnershipType &&
+        (partnershipType === 'CIV' || partnershipType === 'DOM') &&
+        $dissolved({
           partnerFlag,
-          parentsMarriedAtBirth,
+          partnershipState,
+          partnershipTypeDissolved,
+          errorVal_partnershipState,
           handleChange,
         })}
+    </div>
+  );
+};
+
+const $dissolved = (data: {
+  partnerFlag: string;
+  partnershipState: string;
+  partnershipTypeDissolved: string;
+  errorVal_partnershipState: string;
+  handleChange: ((e: any) => void) | undefined;
+}) => {
+  const {
+    partnerFlag,
+    partnershipTypeDissolved,
+    partnershipState,
+    errorVal_partnershipState,
+    handleChange,
+  } = data;
+
+  return (
+    <div
+      css={[
+        NAME_FIELDS_BASIC_CONTAINER_STYLING,
+        HEADER_SPACING_STYLING,
+        BOTTOM_SPACING_STYLING,
+      ]}
+    >
+      <div css={RADIOGROUP_CONTAINER_STYLING}>
+        <RadioGroup
+          items={PARTNERSHIP_TYPE_DISSOLVED}
+          name={`partner${partnerFlag}_partnershipTypeDissolved`}
+          checkedValue={partnershipTypeDissolved}
+          handleItemChange={handleChange}
+          groupLabel="Civil Union Or Domestic Partnership: Dissolved"
+          className={`radio-group__label`}
+          softRequired={true}
+          hideLabel={false}
+        />
       </div>
+
+      <TextInput
+        label="Partnership State/Country"
+        name={`partner${partnerFlag}_partnershipState`}
+        value={partnershipState}
+        onChange={handleChange}
+        disableLabelNoWrap={true}
+        maxLength={100}
+        softRequired={true}
+        error={errorVal_partnershipState}
+      />
     </div>
   );
 };
@@ -1120,9 +1363,18 @@ export const $additionalParent = (data: {
   partnerFlag: string;
   parentB_Name: string;
   parentB_Surname: string;
+  errorVal_parentB_Name: string;
+  errorVal_parentB_Surname: string;
   handleChange: ((e: any) => void) | undefined;
 }) => {
-  const { partnerFlag, parentB_Name, parentB_Surname, handleChange } = data;
+  const {
+    partnerFlag,
+    parentB_Name,
+    parentB_Surname,
+    errorVal_parentB_Name,
+    errorVal_parentB_Surname,
+    handleChange,
+  } = data;
   return (
     <>
       <TextInput
@@ -1132,6 +1384,8 @@ export const $additionalParent = (data: {
         onChange={handleChange}
         disableLabelNoWrap={true}
         maxLength={38}
+        softRequired={true}
+        error={errorVal_parentB_Name}
       />
 
       <TextInput
@@ -1144,7 +1398,12 @@ export const $additionalParent = (data: {
         optionalDescription={
           "This should be your parent's last name at the time of their birth or adoption."
         }
+        softRequired={true}
+        error={errorVal_parentB_Surname}
       />
     </>
   );
 };
+
+export const findMarriageNumb = (val: string) =>
+  MARRIAGE_COUNT.find(entry => entry.value === val);
