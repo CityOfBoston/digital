@@ -121,4 +121,49 @@ storiesOf('Form Elements|Inputs/TextInput', module)
         />
       </>
     );
+  })
+  .add('interactive states', () => {
+    return (
+      <>
+        <TextInput
+          label={text(
+            'Label text',
+            'Default (non-active, unvalidated or required'
+          )}
+          placeholder={text('Placeholder text', '')}
+          small={boolean('Small variant', false)}
+          required={boolean('Required', false)}
+          disabled={boolean('Disabled', false)}
+          error={boolean('Error', false)}
+        />
+
+        <TextInput
+          label={text('Label text', 'State - Focus - Click into field')}
+          placeholder={text('Placeholder text', '')}
+          small={boolean('Small variant', false)}
+          required={boolean('Required', false)}
+          disabled={boolean('Disabled', false)}
+          error={boolean('Error', false)}
+          focused={true}
+        />
+
+        <TextInput
+          label={text('Label text', 'State - Required')}
+          placeholder={text('Placeholder text', '')}
+          small={boolean('Small variant', false)}
+          required={boolean('Required', true)}
+          disabled={boolean('Disabled', false)}
+          error={boolean('Error', false)}
+        />
+
+        <TextInput
+          label={text('Label text', 'State - Error')}
+          placeholder={text('Placeholder text', '')}
+          small={boolean('Small variant', false)}
+          required={boolean('Required', true)}
+          disabled={boolean('Disabled', false)}
+          error={`Error Message ...`}
+        />
+      </>
+    );
   });

@@ -7955,7 +7955,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-2048906072"
               name="parent1FirstName"
               onChange={[Function]}
@@ -8001,7 +8001,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-5381"
               name="parent1LastName"
               onChange={[Function]}
@@ -8053,7 +8053,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-2048906072"
               name="parent2FirstName"
               onChange={[Function]}
@@ -8099,7 +8099,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-5381"
               name="parent2LastName"
               onChange={[Function]}
@@ -8680,7 +8680,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-2048906072"
               name="parent1FirstName"
               onChange={[Function]}
@@ -8726,7 +8726,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-5381"
               name="parent1LastName"
               onChange={[Function]}
@@ -8778,7 +8778,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-2048906072"
               name="parent2FirstName"
               onChange={[Function]}
@@ -8824,7 +8824,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-5381"
               name="parent2LastName"
               onChange={[Function]}
@@ -9433,7 +9433,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-2048906072"
               name="parent1FirstName"
               onChange={[Function]}
@@ -9479,7 +9479,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-5381"
               name="parent1LastName"
               onChange={[Function]}
@@ -9531,7 +9531,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-2048906072"
               name="parent2FirstName"
               onChange={[Function]}
@@ -9577,7 +9577,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             </label>
             <input
               aria-label=""
-              className="txt-f  "
+              className="txt-f   "
               id="input-5381"
               name="parent2LastName"
               onChange={[Function]}
@@ -10054,7 +10054,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
           </label>
           <input
             aria-label=""
-            className="txt-f  "
+            className="txt-f   "
             id="input-2048906072"
             name="firstName"
             onChange={[Function]}
@@ -10091,7 +10091,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
           </label>
           <input
             aria-label=""
-            className="txt-f  "
+            className="txt-f   "
             id="input-1103291528"
             name="lastName"
             onChange={[Function]}
@@ -10132,7 +10132,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
           </label>
           <input
             aria-label=""
-            className="txt-f  "
+            className="txt-f   "
             id="input-2099238988"
             name="altSpelling"
             onChange={[Function]}
@@ -10611,7 +10611,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
           </label>
           <input
             aria-label=""
-            className="txt-f  "
+            className="txt-f   "
             id="input-2048906072"
             name="firstName"
             onChange={[Function]}
@@ -10648,7 +10648,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
           </label>
           <input
             aria-label=""
-            className="txt-f  "
+            className="txt-f   "
             id="input-1103291528"
             name="lastName"
             onChange={[Function]}
@@ -10689,7 +10689,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
           </label>
           <input
             aria-label=""
-            className="txt-f  "
+            className="txt-f   "
             id="input-2099238988"
             name="altSpelling"
             onChange={[Function]}
@@ -14219,7 +14219,7 @@ Array [
                     </label>
                     <input
                       aria-label=""
-                      className="txt-f  "
+                      className="txt-f   "
                       id="input-2048906072"
                       name="firstName"
                       onChange={[Function]}
@@ -14256,7 +14256,7 @@ Array [
                     </label>
                     <input
                       aria-label=""
-                      className="txt-f  "
+                      className="txt-f   "
                       id="input-1103291528"
                       name="lastName"
                       onChange={[Function]}
@@ -14297,7 +14297,7 @@ Array [
                     </label>
                     <input
                       aria-label=""
-                      className="txt-f  "
+                      className="txt-f   "
                       id="input-2099238988"
                       name="altSpelling"
                       onChange={[Function]}
@@ -15258,7 +15258,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2048906072"
                         name="parent1FirstName"
                         onChange={[Function]}
@@ -15304,7 +15304,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-5381"
                         name="parent1LastName"
                         onChange={[Function]}
@@ -15356,7 +15356,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2048906072"
                         name="parent2FirstName"
                         onChange={[Function]}
@@ -15402,7 +15402,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-5381"
                         name="parent2LastName"
                         onChange={[Function]}
@@ -65831,7 +65831,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
       </label>
       <input
         aria-label=""
-        className="txt-f  "
+        className="txt-f   "
         id="input-1547104625"
         maxLength={100}
         name="partnerA_birthCity"
@@ -67871,7 +67871,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
       </label>
       <input
         aria-label=""
-        className="txt-f  "
+        className="txt-f   "
         id="input-1547104625"
         maxLength={100}
         name="partnerA_birthCity"
@@ -70331,10 +70331,22 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Marriage, D
           >
             Partnership State/Country
           </span>
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "display": "flex",
+                "flexGrow": 1,
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-234553913"
           maxLength={100}
           name="partnerA_partnershipState"
@@ -70687,7 +70699,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-2048906072"
       maxLength={100}
       name="partner1_firstName"
@@ -70729,7 +70741,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-2852212527"
       maxLength={50}
       name="partner1_middleName"
@@ -70763,10 +70775,22 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       >
         Last Name
       </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+      </span>
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-1103291528"
       maxLength={100}
       name="partner1_lastName"
@@ -71005,7 +71029,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-2786084594"
       maxLength={100}
       name="partner1_occupation"
@@ -71405,7 +71429,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-2048906072"
       maxLength={100}
       name="partner1_firstName"
@@ -71447,7 +71471,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-2852212527"
       maxLength={50}
       name="partner1_middleName"
@@ -71481,10 +71505,22 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       >
         Last Name
       </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+      </span>
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-1103291528"
       maxLength={100}
       name="partner1_lastName"
@@ -71635,11 +71671,12 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
       </label>
       <input
         aria-label=""
-        className="txt-f  "
+        className="txt-f   "
         id="input-546901997"
         maxLength={50}
         name="partner1_surName"
         onChange={[Function]}
+        required={true}
         type="text"
         value="Neverland"
       />
@@ -71793,7 +71830,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-2786084594"
       maxLength={100}
       name="partner1_occupation"
@@ -73376,315 +73413,313 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
         </div>
       </div>
     </div>
-    <div>
-      <div
-        className="emotion-3"
-      >
-        <div>
-          <label
-            className="txt-l "
-            htmlFor="select-496160159"
+    <div
+      className="emotion-3"
+    >
+      <div>
+        <label
+          className="txt-l "
+          htmlFor="select-496160159"
+          style={
+            Object {
+              "display": "flex",
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "display": "flex",
+                "marginRight": "0.5em",
+                "whiteSpace": "nowrap",
+              }
+            }
+          >
+            State of Residence
+          </span>
+          <span
+            className="t--req"
             style={
               Object {
                 "display": "flex",
               }
             }
           >
-            <span
-              style={
-                Object {
-                  "display": "flex",
-                  "marginRight": "0.5em",
-                  "whiteSpace": "nowrap",
-                }
-              }
-            >
-              State of Residence
-            </span>
-            <span
-              className="t--req"
-              style={
-                Object {
-                  "display": "flex",
-                }
-              }
-            >
-              Required
-            </span>
-          </label>
-          <div
-            className="sel-c  "
+            Required
+          </span>
+        </label>
+        <div
+          className="sel-c  "
+        >
+          <select
+            aria-label=""
+            className="sel-f  "
+            id="select-496160159"
+            name="partnerA_residenceState"
+            onChange={[Function]}
+            value="MA"
           >
-            <select
-              aria-label=""
-              className="sel-f  "
-              id="select-496160159"
-              name="partnerA_residenceState"
-              onChange={[Function]}
+            <option
+              value=""
+            >
+              --
+            </option>
+            <option
+              value="AL"
+            >
+              AL
+            </option>
+            <option
+              value="AK"
+            >
+              AK
+            </option>
+            <option
+              value="AZ"
+            >
+              AZ
+            </option>
+            <option
+              value="AR"
+            >
+              AR
+            </option>
+            <option
+              value="CA"
+            >
+              CA
+            </option>
+            <option
+              value="CO"
+            >
+              CO
+            </option>
+            <option
+              value="CT"
+            >
+              CT
+            </option>
+            <option
+              value="DE"
+            >
+              DE
+            </option>
+            <option
+              value="DC"
+            >
+              DC
+            </option>
+            <option
+              value="FL"
+            >
+              FL
+            </option>
+            <option
+              value="GA"
+            >
+              GA
+            </option>
+            <option
+              value="HI"
+            >
+              HI
+            </option>
+            <option
+              value="ID"
+            >
+              ID
+            </option>
+            <option
+              value="IL"
+            >
+              IL
+            </option>
+            <option
+              value="IN"
+            >
+              IN
+            </option>
+            <option
+              value="IA"
+            >
+              IA
+            </option>
+            <option
+              value="KS"
+            >
+              KS
+            </option>
+            <option
+              value="KY"
+            >
+              KY
+            </option>
+            <option
+              value="LA"
+            >
+              LA
+            </option>
+            <option
+              value="ME"
+            >
+              ME
+            </option>
+            <option
+              value="MD"
+            >
+              MD
+            </option>
+            <option
               value="MA"
             >
-              <option
-                value=""
-              >
-                --
-              </option>
-              <option
-                value="AL"
-              >
-                AL
-              </option>
-              <option
-                value="AK"
-              >
-                AK
-              </option>
-              <option
-                value="AZ"
-              >
-                AZ
-              </option>
-              <option
-                value="AR"
-              >
-                AR
-              </option>
-              <option
-                value="CA"
-              >
-                CA
-              </option>
-              <option
-                value="CO"
-              >
-                CO
-              </option>
-              <option
-                value="CT"
-              >
-                CT
-              </option>
-              <option
-                value="DE"
-              >
-                DE
-              </option>
-              <option
-                value="DC"
-              >
-                DC
-              </option>
-              <option
-                value="FL"
-              >
-                FL
-              </option>
-              <option
-                value="GA"
-              >
-                GA
-              </option>
-              <option
-                value="HI"
-              >
-                HI
-              </option>
-              <option
-                value="ID"
-              >
-                ID
-              </option>
-              <option
-                value="IL"
-              >
-                IL
-              </option>
-              <option
-                value="IN"
-              >
-                IN
-              </option>
-              <option
-                value="IA"
-              >
-                IA
-              </option>
-              <option
-                value="KS"
-              >
-                KS
-              </option>
-              <option
-                value="KY"
-              >
-                KY
-              </option>
-              <option
-                value="LA"
-              >
-                LA
-              </option>
-              <option
-                value="ME"
-              >
-                ME
-              </option>
-              <option
-                value="MD"
-              >
-                MD
-              </option>
-              <option
-                value="MA"
-              >
-                MA
-              </option>
-              <option
-                value="MI"
-              >
-                MI
-              </option>
-              <option
-                value="MN"
-              >
-                MN
-              </option>
-              <option
-                value="MS"
-              >
-                MS
-              </option>
-              <option
-                value="MO"
-              >
-                MO
-              </option>
-              <option
-                value="MT"
-              >
-                MT
-              </option>
-              <option
-                value="NE"
-              >
-                NE
-              </option>
-              <option
-                value="NV"
-              >
-                NV
-              </option>
-              <option
-                value="NH"
-              >
-                NH
-              </option>
-              <option
-                value="NJ"
-              >
-                NJ
-              </option>
-              <option
-                value="NM"
-              >
-                NM
-              </option>
-              <option
-                value="NY"
-              >
-                NY
-              </option>
-              <option
-                value="NC"
-              >
-                NC
-              </option>
-              <option
-                value="ND"
-              >
-                ND
-              </option>
-              <option
-                value="OH"
-              >
-                OH
-              </option>
-              <option
-                value="OK"
-              >
-                OK
-              </option>
-              <option
-                value="OR"
-              >
-                OR
-              </option>
-              <option
-                value="PA"
-              >
-                PA
-              </option>
-              <option
-                value="RI"
-              >
-                RI
-              </option>
-              <option
-                value="SC"
-              >
-                SC
-              </option>
-              <option
-                value="SD"
-              >
-                SD
-              </option>
-              <option
-                value="TN"
-              >
-                TN
-              </option>
-              <option
-                value="TX"
-              >
-                TX
-              </option>
-              <option
-                value="UT"
-              >
-                UT
-              </option>
-              <option
-                value="VT"
-              >
-                VT
-              </option>
-              <option
-                value="VA"
-              >
-                VA
-              </option>
-              <option
-                value="WA"
-              >
-                WA
-              </option>
-              <option
-                value="WV"
-              >
-                WV
-              </option>
-              <option
-                value="WI"
-              >
-                WI
-              </option>
-              <option
-                value="WY"
-              >
-                WY
-              </option>
-            </select>
-          </div>
+              MA
+            </option>
+            <option
+              value="MI"
+            >
+              MI
+            </option>
+            <option
+              value="MN"
+            >
+              MN
+            </option>
+            <option
+              value="MS"
+            >
+              MS
+            </option>
+            <option
+              value="MO"
+            >
+              MO
+            </option>
+            <option
+              value="MT"
+            >
+              MT
+            </option>
+            <option
+              value="NE"
+            >
+              NE
+            </option>
+            <option
+              value="NV"
+            >
+              NV
+            </option>
+            <option
+              value="NH"
+            >
+              NH
+            </option>
+            <option
+              value="NJ"
+            >
+              NJ
+            </option>
+            <option
+              value="NM"
+            >
+              NM
+            </option>
+            <option
+              value="NY"
+            >
+              NY
+            </option>
+            <option
+              value="NC"
+            >
+              NC
+            </option>
+            <option
+              value="ND"
+            >
+              ND
+            </option>
+            <option
+              value="OH"
+            >
+              OH
+            </option>
+            <option
+              value="OK"
+            >
+              OK
+            </option>
+            <option
+              value="OR"
+            >
+              OR
+            </option>
+            <option
+              value="PA"
+            >
+              PA
+            </option>
+            <option
+              value="RI"
+            >
+              RI
+            </option>
+            <option
+              value="SC"
+            >
+              SC
+            </option>
+            <option
+              value="SD"
+            >
+              SD
+            </option>
+            <option
+              value="TN"
+            >
+              TN
+            </option>
+            <option
+              value="TX"
+            >
+              TX
+            </option>
+            <option
+              value="UT"
+            >
+              UT
+            </option>
+            <option
+              value="VT"
+            >
+              VT
+            </option>
+            <option
+              value="VA"
+            >
+              VA
+            </option>
+            <option
+              value="WA"
+            >
+              WA
+            </option>
+            <option
+              value="WV"
+            >
+              WV
+            </option>
+            <option
+              value="WI"
+            >
+              WI
+            </option>
+            <option
+              value="WY"
+            >
+              WY
+            </option>
+          </select>
         </div>
       </div>
     </div>
@@ -73729,7 +73764,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-2580217931"
           maxLength={100}
           name="partnerA_residenceCity"
@@ -73784,7 +73819,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-770365431"
           maxLength={100}
           name="partnerA_residenceAddress"
@@ -73835,7 +73870,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-2413436367"
           maxLength={10}
           minLength={5}
@@ -75226,7 +75261,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2048906072"
                         maxLength={100}
                         name="partnerA_firstName"
@@ -75268,7 +75303,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2852212527"
                         maxLength={50}
                         name="partnerA_middleName"
@@ -75302,10 +75337,22 @@ Array [
                         >
                           Last Name
                         </span>
+                        <span
+                          aria-hidden="true"
+                          className="t--req"
+                          style={
+                            Object {
+                              "display": "flex",
+                              "flexGrow": 1,
+                            }
+                          }
+                        >
+                          Required
+                        </span>
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-1103291528"
                         maxLength={100}
                         name="partnerA_lastName"
@@ -75542,7 +75589,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2786084594"
                         maxLength={100}
                         name="partnerA_occupation"
@@ -78546,7 +78593,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   "
                           id="input-507056287"
                           maxLength={38}
                           name="partnerA_parentA_Name"
@@ -78600,7 +78647,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   "
                           id="input-4196106810"
                           maxLength={38}
                           name="partnerA_parentA_Surname"
@@ -80267,7 +80314,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2048906072"
                         maxLength={100}
                         name="partnerB_firstName"
@@ -80309,7 +80356,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2852212527"
                         maxLength={50}
                         name="partnerB_middleName"
@@ -80343,10 +80390,22 @@ Array [
                         >
                           Last Name
                         </span>
+                        <span
+                          aria-hidden="true"
+                          className="t--req"
+                          style={
+                            Object {
+                              "display": "flex",
+                              "flexGrow": 1,
+                            }
+                          }
+                        >
+                          Required
+                        </span>
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-1103291528"
                         maxLength={100}
                         name="partnerB_lastName"
@@ -80583,7 +80642,7 @@ Array [
                       </label>
                       <input
                         aria-label=""
-                        className="txt-f  "
+                        className="txt-f   "
                         id="input-2786084594"
                         maxLength={100}
                         name="partnerB_occupation"
@@ -83587,7 +83646,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   "
                           id="input-507056287"
                           maxLength={38}
                           name="partnerB_parentA_Name"
@@ -83641,7 +83700,7 @@ Array [
                         </label>
                         <input
                           aria-label=""
-                          className="txt-f  "
+                          className="txt-f   "
                           id="input-4196106810"
                           maxLength={38}
                           name="partnerB_parentA_Surname"
@@ -84851,7 +84910,7 @@ Array [
                           </label>
                           <input
                             aria-label=""
-                            className="txt-f  "
+                            className="txt-f   "
                             id="input-2778663327"
                             name="email"
                             onChange={[Function]}
@@ -84903,7 +84962,7 @@ Array [
                           </label>
                           <input
                             aria-label=""
-                            className="txt-f  "
+                            className="txt-f   "
                             id="input-1813726221"
                             name="emailConfirm"
                             onChange={[Function]}
@@ -84960,7 +85019,7 @@ Array [
                           </label>
                           <input
                             aria-label=""
-                            className="txt-f  "
+                            className="txt-f   "
                             id="input-1267882554"
                             maxLength={14}
                             minLength={10}
@@ -99130,7 +99189,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-1103008209"
           name="fullName1"
           onChange={[Function]}
@@ -99168,7 +99227,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-5381"
           name="maidenName1"
           onChange={[Function]}
@@ -99808,7 +99867,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-1103008209"
           name="fullName2"
           onChange={[Function]}
@@ -99846,7 +99905,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-5381"
           name="maidenName2"
           onChange={[Function]}
@@ -100486,7 +100545,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-1103008209"
           name="fullName1"
           onChange={[Function]}
@@ -100524,7 +100583,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
         </label>
         <input
           aria-label=""
-          className="txt-f  "
+          className="txt-f   "
           id="input-5381"
           name="maidenName1"
           onChange={[Function]}
@@ -105056,7 +105115,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f  "
+                    className="txt-f   "
                     id="input-1103008209"
                     name="fullName1"
                     onChange={[Function]}
@@ -105094,7 +105153,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f  "
+                    className="txt-f   "
                     id="input-5381"
                     name="maidenName1"
                     onChange={[Function]}
@@ -106115,7 +106174,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f  "
+                    className="txt-f   "
                     id="input-1103008209"
                     name="fullName2"
                     onChange={[Function]}
@@ -106153,7 +106212,7 @@ Array [
                   </label>
                   <input
                     aria-label=""
-                    className="txt-f  "
+                    className="txt-f   "
                     id="input-5381"
                     name="maidenName2"
                     onChange={[Function]}

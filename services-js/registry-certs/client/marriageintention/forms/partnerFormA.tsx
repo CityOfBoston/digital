@@ -33,6 +33,7 @@ import {
   handleAdditionalParentChange$,
   handleBloodRelDescChange$,
   handleBloodRelChange$,
+  handleFormPageComplete$,
 } from './eventHandlers';
 
 interface Props {
@@ -53,8 +54,8 @@ export default class PartnerForm extends Component<Props> {
     requestInformation,
   }: MarriageIntentionCertificateRequest): boolean {
     const {
-      partnerA_firstName,
       partnerA_lastName,
+      partnerA_firstName,
       partnerA_dob,
       partnerA_age,
       partnerA_surName,
@@ -162,8 +163,8 @@ export default class PartnerForm extends Component<Props> {
     }
 
     const is_Complete = !!(
-      partnerA_firstName &&
       partnerA_lastName &&
+      partnerA_firstName &&
       partnerA_dob &&
       partnerA_age &&
       partnerA_occupation &&
@@ -454,6 +455,15 @@ export default class PartnerForm extends Component<Props> {
     return false;
   };
 
+  private advanceForm = (certObj: any) => {
+    handleFormPageComplete$({
+      partnerFlag: 'A',
+      val: '1',
+      certObj,
+    });
+    this.props.handleProceed(certObj);
+  };
+
   // RENDER ALL UI
   public render() {
     const {
@@ -493,13 +503,17 @@ export default class PartnerForm extends Component<Props> {
       partnerA_partnershipTypeDissolved,
       partnerA_marriedBefore,
       partnerA_additionalParent,
+      partnerA_formPageComplete,
     } = marriageIntentionCertificateRequest.requestInformation;
 
     const partner_num = partnerNum ? partnerNum : partnerLabel;
 
     return (
       <QuestionComponent
-        handleProceed={this.props.handleProceed}
+        handleProceed={this.advanceForm.bind(
+          this,
+          marriageIntentionCertificateRequest
+        )}
         handleStepBack={this.props.handleStepBack}
         allowProceed={PartnerForm.isComplete(
           marriageIntentionCertificateRequest
@@ -512,6 +526,7 @@ export default class PartnerForm extends Component<Props> {
           }
         >
           {nameFields({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             handleChange: this.handleChange,
             handleResidenceStateChange: this.handleResidenceStateChange,
@@ -526,6 +541,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {datePlaceOfBirth({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             partnerDOB: partnerA_dob,
             birthCountryStr: partnerA_birthCountry,
@@ -538,6 +554,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {residence({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             residenceZipStr: partnerA_residenceZip,
             residenceCityStr: partnerA_residenceCity,
@@ -552,6 +569,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {marriageBlock({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             bloodRelation: partnerA_bloodRelation,
             bloodRelationDesc: partnerA_bloodRelationDesc,
@@ -570,6 +588,7 @@ export default class PartnerForm extends Component<Props> {
           })}
 
           {parents({
+            formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
             parentA_Name: partnerA_parentA_Name,
             parentA_Surname: partnerA_parentA_Surname,

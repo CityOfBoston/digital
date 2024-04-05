@@ -1,11 +1,25 @@
 import { ChangeEvent } from 'react';
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 
+export const handleFormPageComplete$ = (data: {
+  partnerFlag: string;
+  val: string;
+  certObj: MarriageIntentionCertificateRequest;
+}): void => {
+  data.certObj.answerQuestion(
+    {
+      [`partner${data.partnerFlag}_formPageComplete`]: data.val,
+    },
+    ''
+  );
+};
+
 export const handleChange$ = (data: {
   e: ChangeEvent<HTMLInputElement>;
   certObj: MarriageIntentionCertificateRequest;
 }) => {
   const { e, certObj } = data;
+
   certObj.answerQuestion(
     {
       [e.target.name]: e.target.value,
