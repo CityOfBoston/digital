@@ -1620,7 +1620,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
           id="future-year"
           max="9999"
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1770,7 +1770,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           id="story-year"
           max="9999"
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -1920,7 +1920,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           id="story-year"
           max={2040}
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -2070,7 +2070,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           id="story-year"
           max={2040}
           maxLength={4}
-          min={2023}
+          min={2024}
           name="year"
           onBlur={[Function]}
           onChange={[Function]}
@@ -2218,7 +2218,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
         <input
           className="txt-f"
           id="past-year"
-          max={2023}
+          max={2024}
           maxLength={4}
           min="1000"
           name="year"
@@ -2368,7 +2368,7 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
         <input
           className="txt-f"
           id="initial-year"
-          max={2023}
+          max={2024}
           maxLength={4}
           min="1000"
           name="year"
@@ -2580,7 +2580,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -2624,7 +2624,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -2694,7 +2694,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -2875,7 +2875,7 @@ exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -2928,7 +2928,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -4450,7 +4450,7 @@ exports[`Storyshots ProgressBar default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -4511,7 +4511,7 @@ exports[`Storyshots ProgressBar first step (interactive demo) 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -4572,7 +4572,7 @@ exports[`Storyshots ProgressBar last step (interactive demo) 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -4633,7 +4633,7 @@ exports[`Storyshots ProgressBar with task name 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
