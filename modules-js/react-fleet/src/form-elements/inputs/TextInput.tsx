@@ -41,13 +41,12 @@ type Props = {
   optionalDescription?: string;
 
   required?: boolean;
-  inputMode?: string;
-  maxLength?: number;
-  minLength?: number;
-
   softRequired?: boolean;
   toolTip?: { icon: string; msg: string };
   focused?: boolean;
+  inputMode?: string;
+  maxLength?: number;
+  minLength?: number;
 
   value?: string;
   disabled?: boolean;
@@ -76,7 +75,7 @@ export default function TextInput(props: Props): JSX.Element {
 
   const classNames = {
     label: `txt-l ${props.small ? 'txt-l--sm' : ''}`,
-    input: `txt-f ${props.small ? ' txt-f--sm' : ''} ${
+    input: `txt-f ${props.small ? 'txt-f--sm' : ''} ${
       props.error ? 'txt-f--err' : ''
     } ${focused ? ' txt-f--focused' : ''}${
       props.softRequired &&

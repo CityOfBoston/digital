@@ -12,11 +12,7 @@ import QuestionComponent from '../../common/question-components/QuestionComponen
 
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 
-import {
-  PARTNERSHIP_TYPE,
-  MARRIAGE_COUNT,
-  BOSTON_NEIGHBORHOODS,
-} from './inputData';
+import { BOSTON_NEIGHBORHOODS } from './inputData';
 
 import {
   nameFields,
@@ -36,12 +32,27 @@ import {
   handleFormPageComplete$,
 } from './eventHandlers';
 
+import { isPartnerFormPageComplete } from '../../marriageintention/helpers/formUtils';
+
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
-  partnerLabel: string;
+  formErrors: (data: {
+    action: string;
+    ref?: React.RefObject<HTMLSpanElement> | null;
+    section: string;
+  }) => any | undefined;
+  refObjs: {
+    nameFieldsRef: React.RefObject<HTMLSpanElement>;
+    residenceRef: React.RefObject<HTMLSpanElement>;
+    marriageRef: React.RefObject<HTMLSpanElement>;
+    datePlaceOfBirthRef: React.RefObject<HTMLSpanElement>;
+    parentsRef: React.RefObject<HTMLSpanElement>;
+  };
+  errorElemSrc: object;
   partnerNum?: number | string;
+  partnerLabel: string;
 }
 
 @observer
@@ -53,141 +64,7 @@ export default class PartnerForm extends Component<Props> {
   public static isComplete({
     requestInformation,
   }: MarriageIntentionCertificateRequest): boolean {
-    const {
-      partnerA_lastName,
-      partnerA_firstName,
-      partnerA_dob,
-      partnerA_age,
-      partnerA_surName,
-      partnerA_useSurname,
-      partnerA_occupation,
-      partnerA_bloodRelation,
-      partnerA_bloodRelationDesc,
-      partnerA_birthCity,
-      partnerA_birthState,
-      partnerA_birthCountry,
-      partnerA_residenceAddress,
-      partnerA_residenceCountry,
-      partnerA_parentsMarriedAtBirth,
-      partnerA_parentA_Name,
-      partnerA_parentA_Surname,
-      partnerA_parentB_Name,
-      partnerA_parentB_Surname,
-      partnerA_partnershipType,
-      partnerA_partnershipTypeDissolved,
-      partnerA_partnershipState,
-
-      partnerA_marriageNumb,
-      partnerA_marriedBefore,
-      partnerA_lastMarriageStatus,
-      partnerA_additionalParent,
-    } = requestInformation;
-
-    let bloodRelReq = true;
-    let useSurnameReq = true;
-    let additionalParentsReq = true;
-    let marriedBeforeReq = true;
-    let partnerA_partnership_dissolved = true;
-    let partnerA_lastMarriageStatusReq = true;
-    let partnerA_birthStateZip = true;
-    let partnershipState = true;
-    if (
-      partnerA_partnershipType !== PARTNERSHIP_TYPE[0].value &&
-      partnerA_partnershipState.length < 2
-    ) {
-      partnershipState = false;
-    }
-
-    const bloodRelDescReq =
-      partnerA_bloodRelation && partnerA_bloodRelation == '1' ? true : false;
-
-    if (bloodRelDescReq && partnerA_bloodRelationDesc.length < 1) {
-      bloodRelReq = false;
-    }
-
-    const surNameTextReq =
-      partnerA_useSurname && partnerA_useSurname === '1' ? true : false;
-
-    if (
-      (surNameTextReq && partnerA_surName.length < 1) ||
-      partnerA_useSurname == ''
-    ) {
-      useSurnameReq = false;
-    }
-
-    const addParentsReq =
-      partnerA_additionalParent && partnerA_additionalParent == '1'
-        ? true
-        : false;
-
-    if (
-      (addParentsReq &&
-        (partnerA_parentB_Name.length < 1 ||
-          partnerA_parentB_Surname.length < 1)) ||
-      partnerA_additionalParent == ''
-    ) {
-      additionalParentsReq = false;
-    }
-
-    if (partnerA_birthCountry === 'USA') {
-      partnerA_birthStateZip = partnerA_birthState.length > 0 ? true : false;
-    }
-
-    const marriedBefore = partnerA_marriedBefore === '1' ? true : false;
-
-    if (partnerA_marriedBefore === '') marriedBeforeReq = false;
-    if (marriedBefore && partnerA_marriageNumb === '') marriedBeforeReq = false;
-
-    const getMarriageNumb = (): { label: string; value: string } => {
-      let retOb = MARRIAGE_COUNT.find(
-        entry => entry.value == partnerA_marriageNumb
-      );
-
-      if (!retOb) retOb = { label: '', value: '' };
-
-      return retOb;
-    };
-
-    const marriageNumb: { label: string; value: string } = getMarriageNumb();
-
-    if (marriageNumb && marriageNumb.value !== '') {
-      if (partnerA_lastMarriageStatus === '') {
-        partnerA_lastMarriageStatusReq = false;
-      }
-    }
-
-    if (partnerA_partnershipType !== PARTNERSHIP_TYPE[0].value) {
-      if (partnerA_partnershipTypeDissolved === '') {
-        partnerA_partnership_dissolved = false;
-      }
-    }
-
-    const is_Complete = !!(
-      partnerA_lastName &&
-      partnerA_firstName &&
-      partnerA_dob &&
-      partnerA_age &&
-      partnerA_occupation &&
-      partnerA_bloodRelation &&
-      partnerA_birthCity &&
-      partnerA_birthCountry &&
-      partnerA_residenceAddress &&
-      partnerA_residenceCountry &&
-      partnerA_parentsMarriedAtBirth &&
-      partnerA_partnershipType &&
-      partnerA_parentA_Name &&
-      partnerA_parentA_Surname &&
-      partnerA_partnership_dissolved &&
-      partnerA_lastMarriageStatusReq &&
-      partnershipState &&
-      partnerA_birthStateZip &&
-      bloodRelReq &&
-      additionalParentsReq &&
-      marriedBeforeReq &&
-      useSurnameReq
-    );
-
-    return is_Complete;
+    return isPartnerFormPageComplete('A', requestInformation);
   }
 
   private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -508,6 +385,8 @@ export default class PartnerForm extends Component<Props> {
 
     const partner_num = partnerNum ? partnerNum : partnerLabel;
 
+    // console.log(`this.props.refObjs: `, this.props.refObjs, this.props);
+
     return (
       <QuestionComponent
         handleProceed={this.advanceForm.bind(
@@ -531,6 +410,10 @@ export default class PartnerForm extends Component<Props> {
             handleChange: this.handleChange,
             handleResidenceStateChange: this.handleResidenceStateChange,
             handleUseSurnameChange: this.handleUseSurnameChange,
+            formErrors: this.props.formErrors,
+            errorElemSrc: this.props.errorElemSrc,
+            refs: this.props.refObjs.nameFieldsRef,
+
             firstName: partnerA_firstName,
             lastName: partnerA_lastName,
             middleName: partnerA_middleName,
@@ -551,6 +434,9 @@ export default class PartnerForm extends Component<Props> {
             handleBirthplaceCountryChange: this.handleBirthplaceCountryChange,
             checkBirthCityForNeighborhood: this.checkBirthCityForNeighborhood,
             handleBirthDateChange: this.handleBirthDateChange,
+            formErrors: this.props.formErrors,
+            errorElemSrc: this.props.errorElemSrc,
+            refs: this.props.refObjs.datePlaceOfBirthRef,
           })}
 
           {residence({
@@ -566,6 +452,9 @@ export default class PartnerForm extends Component<Props> {
             replaceBosNeighborhoods: this.replaceBosNeighborhoods,
             handleResidenceStateChange: this.handleResidenceStateChange,
             handleResidenceCountryChange: this.handleResidenceCountryChange,
+            formErrors: this.props.formErrors,
+            errorElemSrc: this.props.errorElemSrc,
+            refs: this.props.refObjs.residenceRef,
           })}
 
           {marriageBlock({
@@ -585,6 +474,9 @@ export default class PartnerForm extends Component<Props> {
             handleBloodRelChange: this.handleBloodRelChange,
             handleBloodRelDescChange: this.handleBloodRelDescChange,
             handleMarriedBeforeChange: this.handleMarriedBeforeChange,
+            formErrors: this.props.formErrors,
+            errorElemSrc: this.props.errorElemSrc,
+            refs: this.props.refObjs.marriageRef,
           })}
 
           {parents({
@@ -598,6 +490,9 @@ export default class PartnerForm extends Component<Props> {
             parentsMarriedAtBirth: partnerA_parentsMarriedAtBirth,
             handleChange: this.handleChange,
             handleAdditionalParentChange: this.handleAdditionalParentChange,
+            formErrors: this.props.formErrors,
+            errorElemSrc: this.props.errorElemSrc,
+            refs: this.props.refObjs.parentsRef,
           })}
         </FieldsetComponent>
       </QuestionComponent>

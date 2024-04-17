@@ -27,7 +27,7 @@ import ReviewForms from './forms/reviewForms';
 import ContactInfo from './forms/contactInfo';
 import Receipt from './forms/receipt';
 
-// import { handleFormPageComplete$ } from '../marriageintention/forms/eventHandlers';
+import { isPartnerFormPageComplete } from '../marriageintention/helpers/formUtils';
 
 interface InitialProps {
   currentStep: MarriageIntentionStep;
@@ -61,6 +61,8 @@ interface State {
    */
   currentStep: MarriageIntentionStep;
   completedSteps: Set<number>;
+  allowProceed: boolean;
+  errorElemSrc: object;
 }
 
 /**
@@ -123,17 +125,45 @@ export default class IndexPage extends React.Component<Props, State> {
       return null;
     }
   };
+  // REFs Def
+  partnerA_nameFieldsRef: React.RefObject<HTMLSpanElement>;
+  partnerA_residenceRef: React.RefObject<HTMLSpanElement>;
+  partnerA_marriageRef: React.RefObject<HTMLSpanElement>;
+  partnerA_datePlaceOfBirthRef: React.RefObject<HTMLSpanElement>;
+  partnerA_parentsRef: React.RefObject<HTMLSpanElement>;
+
+  partnerB_nameFieldsRef: React.RefObject<HTMLSpanElement>;
+  partnerB_residenceRef: React.RefObject<HTMLSpanElement>;
+  partnerB_marriageRef: React.RefObject<HTMLSpanElement>;
+  partnerB_datePlaceOfBirthRef: React.RefObject<HTMLSpanElement>;
+  partnerB_parentsRef: React.RefObject<HTMLSpanElement>;
 
   constructor(props: Props) {
     super(props);
 
+    // STATE
     this.state = {
       localMarriageIntentionCertificateRequest: props.marriageIntentionCertificateRequest.clone(),
       globalMarriageIntentionCertificateRequest:
         props.marriageIntentionCertificateRequest,
       currentStep: props.currentStep,
       completedSteps: this.props.completedSteps || new Set([0]),
+      allowProceed: true,
+      errorElemSrc: {},
     };
+
+    // REFs Inits
+    this.partnerA_nameFieldsRef = React.createRef();
+    this.partnerA_residenceRef = React.createRef();
+    this.partnerA_marriageRef = React.createRef();
+    this.partnerA_datePlaceOfBirthRef = React.createRef();
+    this.partnerA_parentsRef = React.createRef();
+
+    this.partnerB_nameFieldsRef = React.createRef();
+    this.partnerB_residenceRef = React.createRef();
+    this.partnerB_marriageRef = React.createRef();
+    this.partnerB_datePlaceOfBirthRef = React.createRef();
+    this.partnerB_parentsRef = React.createRef();
   }
 
   componentDidMount() {
@@ -149,49 +179,6 @@ export default class IndexPage extends React.Component<Props, State> {
       }
     }
   }
-
-  private advanceQuestion = (
-    modifiedRequest: MarriageIntentionCertificateRequest
-    // partnerFlag?: string
-  ) => {
-    const { currentStep, marriageIntentionCertificateRequest } = this.props;
-
-    const {
-      localMarriageIntentionCertificateRequest,
-      completedSteps,
-    } = this.state;
-    const { steps } = localMarriageIntentionCertificateRequest;
-
-    if (marriageIntentionCertificateRequest !== modifiedRequest) {
-      marriageIntentionCertificateRequest.updateFrom(modifiedRequest);
-    }
-
-    // Have to do this after updateFrom because the answers to questions can
-    // affect the steps.
-    const newSteps = marriageIntentionCertificateRequest.steps;
-    const currentIndex = newSteps.indexOf(currentStep);
-
-    if (currentIndex < 0) {
-      throw new Error(`Step ${currentStep} not found in new steps`);
-    }
-
-    this.gaEventActionAndLabel();
-
-    const nextStep = newSteps[currentIndex + 1];
-    this.setState({
-      completedSteps: new Set([...completedSteps, steps.indexOf(nextStep)]),
-    });
-
-    // if (partnerFlag && partnerFlag.length > 0) {
-    //   handleFormPageComplete$({
-    //     partnerFlag,
-    //     val: true,
-    //     certObj: modifiedRequest,
-    //   });
-    // }
-
-    Router.push(`/marriageintention?step=${nextStep}`);
-  };
 
   // Determine correct GA Action and Label for the events to be sent during
   // each step in the questions flow.
@@ -255,6 +242,40 @@ export default class IndexPage extends React.Component<Props, State> {
     this.props.marriageIntentionCertificateRequest.clearCertificateRequest();
   };
 
+  private advanceQuestion = (
+    modifiedRequest: MarriageIntentionCertificateRequest
+  ) => {
+    const { currentStep, marriageIntentionCertificateRequest } = this.props;
+
+    const {
+      localMarriageIntentionCertificateRequest,
+      completedSteps,
+    } = this.state;
+    const { steps } = localMarriageIntentionCertificateRequest;
+
+    if (marriageIntentionCertificateRequest !== modifiedRequest) {
+      marriageIntentionCertificateRequest.updateFrom(modifiedRequest);
+    }
+
+    // Have to do this after updateFrom because the answers to questions can
+    // affect the steps.
+    const newSteps = marriageIntentionCertificateRequest.steps;
+    const currentIndex = newSteps.indexOf(currentStep);
+
+    if (currentIndex < 0) {
+      throw new Error(`Step ${currentStep} not found in new steps`);
+    }
+
+    this.gaEventActionAndLabel();
+
+    const nextStep = newSteps[currentIndex + 1];
+    this.setState({
+      completedSteps: new Set([...completedSteps, steps.indexOf(nextStep)]),
+    });
+
+    Router.push(`/marriageintention?step=${nextStep}`);
+  };
+
   private stepBackOneQuestion = (): void => {
     const {
       marriageIntentionCertificateRequest: { steps },
@@ -268,12 +289,75 @@ export default class IndexPage extends React.Component<Props, State> {
     Router.push(`/marriageintention?step=${steps[newIndex]}`);
   };
 
-  private progressNavClick = (i: string | number) => {
+  private formErrors = (data: {
+    action: string;
+    ref?: React.RefObject<HTMLSpanElement> | null;
+    section: string;
+  }) => {
+    const { action, ref, section } = data;
+    if (action === 'add') {
+      this.state.errorElemSrc[section] = ref;
+    } else {
+      delete this.state.errorElemSrc[section];
+    }
+  };
+
+  private progressNavClick = (i: number) => {
     const {
       marriageIntentionCertificateRequest: { steps },
+      currentStep,
     } = this.props;
-    Router.push(`/marriageintention?step=${steps[i]}`);
+    const direction = i < steps.indexOf(currentStep) ? '-' : '+';
+    let partnerFlag = '';
+
+    if (currentStep === 'partnerFormA') partnerFlag = 'A';
+    if (currentStep === 'partnerFormB') partnerFlag = 'B';
+
+    if (partnerFlag.length > 0 && direction === '+') {
+      const isCompleteRet = this.isComplete(
+        partnerFlag,
+        this.state.localMarriageIntentionCertificateRequest
+      );
+      if (
+        isCompleteRet &&
+        Object.entries(this.state.errorElemSrc).length === 0
+      ) {
+        this.setState({
+          errorElemSrc: {},
+        });
+        Router.push(`/marriageintention?step=${steps[i]}`);
+      } else {
+        if (this.state.errorElemSrc['nameFields']) {
+          this.scrollToElem(this.state.errorElemSrc['nameFields']);
+        } else if (this.state.errorElemSrc['datePlaceOfBirth']) {
+          this.scrollToElem(this.state.errorElemSrc['datePlaceOfBirth']);
+        } else if (this.state.errorElemSrc['residence']) {
+          this.scrollToElem(this.state.errorElemSrc['residence']);
+        } else if (this.state.errorElemSrc['marriageBlock']) {
+          this.scrollToElem(this.state.errorElemSrc['marriageBlock']);
+        } else if (this.state.errorElemSrc['parents']) {
+          this.scrollToElem(this.state.errorElemSrc['parents']);
+        }
+      }
+    } else {
+      Router.push(`/marriageintention?step=${steps[i]}`);
+    }
   };
+
+  private scrollToElem = (ref: HTMLSpanElement) => {
+    window.scrollTo({
+      top: ref['current'].offsetTop,
+      behavior: 'smooth',
+    });
+  };
+
+  private isComplete(
+    partnerFlag: string,
+    { requestInformation }: MarriageIntentionCertificateRequest
+  ): boolean {
+    const advance = isPartnerFormPageComplete(partnerFlag, requestInformation);
+    return advance;
+  }
 
   render() {
     const { currentStep } = this.props;
@@ -283,7 +367,6 @@ export default class IndexPage extends React.Component<Props, State> {
     } = this.state;
     const { steps, labels } = localMarriageIntentionCertificateRequest;
 
-    // let isStepComplete: boolean = false;
     let questionsEl: React.ReactNode = null;
 
     const $defaultUI = (
@@ -339,6 +422,15 @@ export default class IndexPage extends React.Component<Props, State> {
               handleStepBack={this.stepBackOneQuestion}
               partnerLabel={'A'}
               partnerNum={1}
+              formErrors={this.formErrors}
+              refObjs={{
+                nameFieldsRef: this.partnerA_nameFieldsRef,
+                residenceRef: this.partnerA_residenceRef,
+                marriageRef: this.partnerA_marriageRef,
+                datePlaceOfBirthRef: this.partnerA_datePlaceOfBirthRef,
+                parentsRef: this.partnerA_parentsRef,
+              }}
+              errorElemSrc={this.state.errorElemSrc}
             />
 
             {emailContentBlock()}
@@ -359,6 +451,15 @@ export default class IndexPage extends React.Component<Props, State> {
               handleStepBack={this.stepBackOneQuestion}
               partnerLabel={'B'}
               partnerNum={2}
+              formErrors={this.formErrors}
+              refObjs={{
+                nameFieldsRef: this.partnerB_nameFieldsRef,
+                residenceRef: this.partnerB_residenceRef,
+                marriageRef: this.partnerB_marriageRef,
+                datePlaceOfBirthRef: this.partnerB_datePlaceOfBirthRef,
+                parentsRef: this.partnerA_parentsRef,
+              }}
+              errorElemSrc={this.state.errorElemSrc}
             />
 
             {emailContentBlock()}

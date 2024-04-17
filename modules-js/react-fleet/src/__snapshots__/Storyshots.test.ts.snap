@@ -3712,7 +3712,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     </label>
     <input
       aria-label=""
-      className="txt-f  txt-f--sm  "
+      className="txt-f txt-f--sm  "
       id="input-472033325"
       placeholder="Placeholder Text"
       type="text"

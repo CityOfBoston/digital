@@ -75226,6 +75226,7 @@ Array [
                         Please enter your legal name as it appears on official documents. You cannot list a new middle name. If you wish to change your last name, you can indicate this after providing your legal name.
                       </div>
                     </h1>
+                    <span />
                     <div>
                       <label
                         className="txt-l "
@@ -75612,6 +75613,7 @@ Array [
                     >
                       Date and Place of Birth
                     </h1>
+                    <span />
                     <fieldset
                       className="emotion-17"
                     >
@@ -77006,6 +77008,7 @@ Array [
                       <div
                         className="emotion-11"
                       >
+                        <span />
                         <div>
                           <label
                             className="txt-l "
@@ -78279,6 +78282,7 @@ Array [
                         className="notice"
                       />
                     </h1>
+                    <span />
                     <div
                       className="emotion-9"
                     >
@@ -78555,6 +78559,7 @@ Array [
                         </span>
                       </div>
                     </h1>
+                    <span />
                     <div
                       className="emotion-45"
                     >
@@ -80279,6 +80284,7 @@ Array [
                         Please enter your legal name as it appears on official documents. You cannot list a new middle name. If you wish to change your last name, you can indicate this after providing your legal name.
                       </div>
                     </h1>
+                    <span />
                     <div>
                       <label
                         className="txt-l "
@@ -80665,6 +80671,7 @@ Array [
                     >
                       Date and Place of Birth
                     </h1>
+                    <span />
                     <fieldset
                       className="emotion-17"
                     >
@@ -82059,6 +82066,7 @@ Array [
                       <div
                         className="emotion-11"
                       >
+                        <span />
                         <div>
                           <label
                             className="txt-l "
@@ -83332,6 +83340,7 @@ Array [
                         className="notice"
                       />
                     </h1>
+                    <span />
                     <div
                       className="emotion-9"
                     >
@@ -83608,6 +83617,7 @@ Array [
                         </span>
                       </div>
                     </h1>
+                    <span />
                     <div
                       className="emotion-45"
                     >

@@ -65,6 +65,9 @@ interface RadioGroupProps {
   softRequired?: boolean;
   toolTip?: { icon: string; msg: string };
 
+  required?: boolean;
+  error?: string;
+
   handleItemChange?(e: ChangeEvent<HTMLInputElement>): void;
   handleItemBlur?(e: FocusEvent<HTMLInputElement>): void;
 }
