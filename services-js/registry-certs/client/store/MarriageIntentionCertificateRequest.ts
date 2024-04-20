@@ -273,7 +273,6 @@ export default class MarriageIntentionCertificateRequest {
       appointmentDate: this.requestInformation.appointmentDate
         ? this.requestInformation.appointmentDate.toISOString()
         : null,
-      // appointmentTime: this.requestInformation.appointmentTime,
     };
 
     return {
@@ -395,7 +394,6 @@ export default class MarriageIntentionCertificateRequest {
       appointmentDate: obj.requestInformation.appointmentDate
         ? obj.requestInformation.appointmentDate.toISOString()
         : null,
-      // appointmentTime: obj.requestInformation.appointmentTime,
     };
   }
 

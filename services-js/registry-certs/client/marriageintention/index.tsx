@@ -20,6 +20,8 @@ import PageWrapper from '../PageWrapper';
 import { INTENTION } from './styling';
 
 import { ContactForm } from '@cityofboston/react-fleet';
+import StatusModal from '../StatusModal';
+
 import Instructions from './forms/instructions';
 import PartnerFormA from './forms/partnerFormA';
 import PartnerFormB from './forms/partnerFormB';
@@ -63,6 +65,9 @@ interface State {
   completedSteps: Set<number>;
   allowProceed: boolean;
   errorElemSrc: object;
+  backTrackingDisclaimer: boolean;
+  showDisclaimer: boolean;
+  contactFormComplete: boolean;
 }
 
 /**
@@ -150,6 +155,9 @@ export default class IndexPage extends React.Component<Props, State> {
       completedSteps: this.props.completedSteps || new Set([0]),
       allowProceed: true,
       errorElemSrc: {},
+      backTrackingDisclaimer: false,
+      showDisclaimer: false,
+      contactFormComplete: false,
     };
 
     // REFs Inits
@@ -302,45 +310,96 @@ export default class IndexPage extends React.Component<Props, State> {
     }
   };
 
+  private toggleDisclaimerModal = (val?: boolean): any => {
+    console.log(
+      `Ran: toggleDisclaimerModal: ${this.state.showDisclaimer}`,
+      this.state.showDisclaimer
+    );
+    this.setState({ showDisclaimer: val ? val : !this.state.showDisclaimer });
+  };
+
+  private disclaimerModalConfirmed = (dest?: string) => {
+    const {
+      marriageIntentionCertificateRequest: { steps },
+      currentStep,
+    } = this.props;
+
+    this.setState({
+      backTrackingDisclaimer: true,
+      showDisclaimer: false,
+    });
+    console.log(`dest?: `, dest);
+
+    const posDest = ['partnerFormA', 'partnerFormB', 'contactInfo'];
+
+    if (steps.indexOf(currentStep) > 0) {
+      console.log(`steps.indexOf(currentStep): `, steps.indexOf(currentStep));
+      if (dest && typeof dest === 'string') {
+        if (posDest.indexOf(dest) > -1) {
+          Router.push(`/marriageintention?step=${dest}`);
+        } else {
+          Router.push(`/marriageintention?step=${steps[currentStep] - 1}`);
+        }
+      } else {
+        Router.push(`/marriageintention?step=${steps[currentStep] - 1}`);
+      }
+    }
+  };
+
   private progressNavClick = (i: number) => {
     const {
       marriageIntentionCertificateRequest: { steps },
       currentStep,
     } = this.props;
+    const { showDisclaimer, backTrackingDisclaimer } = this.state;
     const direction = i < steps.indexOf(currentStep) ? '-' : '+';
     let partnerFlag = '';
 
     if (currentStep === 'partnerFormA') partnerFlag = 'A';
     if (currentStep === 'partnerFormB') partnerFlag = 'B';
 
-    if (partnerFlag.length > 0 && direction === '+') {
-      const isCompleteRet = this.isComplete(
-        partnerFlag,
-        this.state.localMarriageIntentionCertificateRequest
-      );
-      if (
-        isCompleteRet &&
-        Object.entries(this.state.errorElemSrc).length === 0
-      ) {
-        this.setState({
-          errorElemSrc: {},
-        });
-        Router.push(`/marriageintention?step=${steps[i]}`);
-      } else {
-        if (this.state.errorElemSrc['nameFields']) {
-          this.scrollToElem(this.state.errorElemSrc['nameFields']);
-        } else if (this.state.errorElemSrc['datePlaceOfBirth']) {
-          this.scrollToElem(this.state.errorElemSrc['datePlaceOfBirth']);
-        } else if (this.state.errorElemSrc['residence']) {
-          this.scrollToElem(this.state.errorElemSrc['residence']);
-        } else if (this.state.errorElemSrc['marriageBlock']) {
-          this.scrollToElem(this.state.errorElemSrc['marriageBlock']);
-        } else if (this.state.errorElemSrc['parents']) {
-          this.scrollToElem(this.state.errorElemSrc['parents']);
-        }
-      }
+    console.log(
+      `backTrackingDisclaimer: ${backTrackingDisclaimer} |showDisclaimer: ${showDisclaimer}`
+    );
+
+    const isDisclaimerable =
+      currentStep === 'contactInfo' ||
+      currentStep === 'partnerFormA' ||
+      currentStep === 'partnerFormB'
+        ? true
+        : false;
+
+    if (isDisclaimerable && backTrackingDisclaimer === false) {
+      this.toggleDisclaimerModal(true);
+      // this.toggleDisclaimerModal();
     } else {
-      Router.push(`/marriageintention?step=${steps[i]}`);
+      if (partnerFlag.length > 0 && direction === '+') {
+        const isCompleteRet = this.isComplete(
+          partnerFlag,
+          this.state.localMarriageIntentionCertificateRequest
+        );
+
+        if (
+          isCompleteRet &&
+          Object.entries(this.state.errorElemSrc).length === 0
+        ) {
+          Router.push(`/marriageintention?step=${steps[i]}`);
+        } else {
+          if (this.state.errorElemSrc['nameFields']) {
+            this.scrollToElem(this.state.errorElemSrc['nameFields']);
+          } else if (this.state.errorElemSrc['datePlaceOfBirth']) {
+            this.scrollToElem(this.state.errorElemSrc['datePlaceOfBirth']);
+          } else if (this.state.errorElemSrc['residence']) {
+            this.scrollToElem(this.state.errorElemSrc['residence']);
+          } else if (this.state.errorElemSrc['marriageBlock']) {
+            this.scrollToElem(this.state.errorElemSrc['marriageBlock']);
+          } else if (this.state.errorElemSrc['parents']) {
+            this.scrollToElem(this.state.errorElemSrc['parents']);
+          }
+        }
+      } else {
+        Router.push(`/marriageintention?step=${steps[i]}`);
+      }
     }
   };
 
@@ -364,6 +423,7 @@ export default class IndexPage extends React.Component<Props, State> {
     const {
       localMarriageIntentionCertificateRequest,
       completedSteps,
+      backTrackingDisclaimer,
     } = this.state;
     const { steps, labels } = localMarriageIntentionCertificateRequest;
 
@@ -431,6 +491,9 @@ export default class IndexPage extends React.Component<Props, State> {
                 parentsRef: this.partnerA_parentsRef,
               }}
               errorElemSrc={this.state.errorElemSrc}
+              disclaimerModalConfirmed={this.disclaimerModalConfirmed}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
+              backTrackingDisclaimer={backTrackingDisclaimer}
             />
 
             {emailContentBlock()}
@@ -460,6 +523,10 @@ export default class IndexPage extends React.Component<Props, State> {
                 parentsRef: this.partnerA_parentsRef,
               }}
               errorElemSrc={this.state.errorElemSrc}
+              backTrackingDisclaimer={this.state.backTrackingDisclaimer}
+              showDisclaimer={this.state.showDisclaimer}
+              disclaimerModalHandler={this.disclaimerModalConfirmed}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
             />
 
             {emailContentBlock()}
@@ -520,6 +587,21 @@ export default class IndexPage extends React.Component<Props, State> {
           </Head>
 
           {questionsEl}
+
+          {this.state.showDisclaimer && (
+            <StatusModal
+              header={`Save & Continue`}
+              hideTopBorderDecoration={true}
+              closeModalHandler={this.toggleDisclaimerModal}
+              confirmHandler={this.disclaimerModalConfirmed}
+              confirmBtnText={`Confirm`}
+            >
+              <p className="t--s500">
+                If you edit your information you must click the `Save and
+                Continue` button save your changes
+              </p>
+            </StatusModal>
+          )}
         </div>
       </PageWrapper>
     );

@@ -53,6 +53,10 @@ interface Props {
   errorElemSrc: object;
   partnerLabel: string;
   partnerNum?: number | string;
+  showDisclaimer?: boolean;
+  backTrackingDisclaimer?: boolean;
+  disclaimerModalHandler: () => void;
+  toggleDisclaimerModal: (val?: boolean) => {};
 }
 
 @observer
@@ -341,6 +345,15 @@ export default class PartnerForm extends Component<Props> {
     this.props.handleProceed(certObj);
   };
 
+  private handleStepBack = (ev: MouseEvent) => {
+    if (this.props.backTrackingDisclaimer === false) {
+      this.props.toggleDisclaimerModal();
+      // this.props.handleStepBack(ev);
+    } else {
+      this.props.handleStepBack(ev);
+    }
+  };
+
   // RENDER ALL UI
   public render() {
     const {
@@ -391,11 +404,15 @@ export default class PartnerForm extends Component<Props> {
           this,
           marriageIntentionCertificateRequest
         )}
-        handleStepBack={this.props.handleStepBack}
         allowProceed={PartnerForm.isComplete(
           marriageIntentionCertificateRequest
         )}
-        nextButtonText={'NEXT'}
+        handleStepBack={this.handleStepBack}
+        nextButtonText={
+          partnerB_formPageComplete && partnerB_formPageComplete === '1'
+            ? 'Save & Continue'
+            : 'NEXT'
+        }
       >
         <FieldsetComponent
           legendText={
