@@ -53,8 +53,7 @@ interface Props {
   errorElemSrc: object;
   partnerNum?: number | string;
   partnerLabel: string;
-  disclaimerModalConfirmed: (dest?: string) => void | undefined;
-  toggleDisclaimerModal?: (val?: boolean) => {};
+  toggleDisclaimerModal: (val: boolean) => void;
   backTrackingDisclaimer: boolean;
 }
 

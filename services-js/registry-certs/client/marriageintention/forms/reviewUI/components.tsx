@@ -17,10 +17,18 @@ export const $ReviewControlHeader = (params: {
   title: string;
   btnStr: string;
   routeStep: string;
+  toggleDisclaimerModal: (val: boolean) => void;
+  backTrackingDisclaimer: boolean;
 }) => {
   const { title, btnStr, routeStep } = params;
   const stepBack = () => {
-    Router.push(`/marriageintention?step=${routeStep}`);
+    const { toggleDisclaimerModal, backTrackingDisclaimer } = params;
+
+    if (backTrackingDisclaimer === false && toggleDisclaimerModal) {
+      toggleDisclaimerModal(true);
+    } else {
+      Router.push(`/marriageintention?step=${routeStep}`);
+    }
   };
 
   return (

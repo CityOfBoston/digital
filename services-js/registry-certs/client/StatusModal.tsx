@@ -9,7 +9,7 @@ interface Props {
   confirmBtnText?: string;
   error?: boolean;
   hideTopBorderDecoration?: boolean;
-  closeModalHandler?: (val?: boolean) => {};
+  closeModalHandler?: (val: boolean) => void;
   confirmHandler?: (dest: string) => void | undefined;
 }
 

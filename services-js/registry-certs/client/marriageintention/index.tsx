@@ -310,12 +310,8 @@ export default class IndexPage extends React.Component<Props, State> {
     }
   };
 
-  private toggleDisclaimerModal = (val?: boolean): any => {
-    console.log(
-      `Ran: toggleDisclaimerModal: ${this.state.showDisclaimer}`,
-      this.state.showDisclaimer
-    );
-    this.setState({ showDisclaimer: val ? val : !this.state.showDisclaimer });
+  private toggleDisclaimerModal = (val: boolean): void => {
+    this.setState({ showDisclaimer: val });
   };
 
   private disclaimerModalConfirmed = (dest?: string) => {
@@ -330,10 +326,14 @@ export default class IndexPage extends React.Component<Props, State> {
     });
     console.log(`dest?: `, dest);
 
-    const posDest = ['partnerFormA', 'partnerFormB', 'contactInfo'];
+    const posDest = [
+      'partnerFormA',
+      'partnerFormB',
+      'contactInfo',
+      'reviewForms',
+    ];
 
     if (steps.indexOf(currentStep) > 0) {
-      console.log(`steps.indexOf(currentStep): `, steps.indexOf(currentStep));
       if (dest && typeof dest === 'string') {
         if (posDest.indexOf(dest) > -1) {
           Router.push(`/marriageintention?step=${dest}`);
@@ -365,13 +365,13 @@ export default class IndexPage extends React.Component<Props, State> {
     const isDisclaimerable =
       currentStep === 'contactInfo' ||
       currentStep === 'partnerFormA' ||
-      currentStep === 'partnerFormB'
+      currentStep === 'partnerFormB' ||
+      currentStep === 'reviewForms'
         ? true
         : false;
 
     if (isDisclaimerable && backTrackingDisclaimer === false) {
       this.toggleDisclaimerModal(true);
-      // this.toggleDisclaimerModal();
     } else {
       if (partnerFlag.length > 0 && direction === '+') {
         const isCompleteRet = this.isComplete(
@@ -462,6 +462,8 @@ export default class IndexPage extends React.Component<Props, State> {
                 localMarriageIntentionCertificateRequest
               )}
               handleStepBack={this.stepBackOneQuestion}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
+              backTrackingDisclaimer={backTrackingDisclaimer}
             />
 
             {emailContentBlock()}
@@ -491,7 +493,6 @@ export default class IndexPage extends React.Component<Props, State> {
                 parentsRef: this.partnerA_parentsRef,
               }}
               errorElemSrc={this.state.errorElemSrc}
-              disclaimerModalConfirmed={this.disclaimerModalConfirmed}
               toggleDisclaimerModal={this.toggleDisclaimerModal}
               backTrackingDisclaimer={backTrackingDisclaimer}
             />
@@ -524,8 +525,6 @@ export default class IndexPage extends React.Component<Props, State> {
               }}
               errorElemSrc={this.state.errorElemSrc}
               backTrackingDisclaimer={this.state.backTrackingDisclaimer}
-              showDisclaimer={this.state.showDisclaimer}
-              disclaimerModalHandler={this.disclaimerModalConfirmed}
               toggleDisclaimerModal={this.toggleDisclaimerModal}
             />
 
@@ -545,6 +544,8 @@ export default class IndexPage extends React.Component<Props, State> {
                 localMarriageIntentionCertificateRequest
               )}
               handleStepBack={this.stepBackOneQuestion}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
+              backTrackingDisclaimer={backTrackingDisclaimer}
             />
 
             {emailContentBlock()}

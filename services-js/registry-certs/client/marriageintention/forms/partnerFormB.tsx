@@ -36,8 +36,8 @@ import { isPartnerFormPageComplete } from '../../marriageintention/helpers/formU
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
-  handleProceed: (ev: MouseEvent) => void;
-  handleStepBack: (ev: MouseEvent) => void;
+  handleProceed: (ev: MouseEvent | TouchEvent) => void;
+  handleStepBack: (ev: MouseEvent | TouchEvent) => void;
   formErrors: (data: {
     action: string;
     ref?: React.RefObject<HTMLSpanElement> | null;
@@ -53,10 +53,8 @@ interface Props {
   errorElemSrc: object;
   partnerLabel: string;
   partnerNum?: number | string;
-  showDisclaimer?: boolean;
-  backTrackingDisclaimer?: boolean;
-  disclaimerModalHandler: () => void;
-  toggleDisclaimerModal: (val?: boolean) => {};
+  backTrackingDisclaimer: boolean;
+  toggleDisclaimerModal: (val: boolean) => void;
 }
 
 @observer
@@ -345,10 +343,11 @@ export default class PartnerForm extends Component<Props> {
     this.props.handleProceed(certObj);
   };
 
-  private handleStepBack = (ev: MouseEvent) => {
-    if (this.props.backTrackingDisclaimer === false) {
-      this.props.toggleDisclaimerModal();
-      // this.props.handleStepBack(ev);
+  private handleStepBack = (ev: MouseEvent | TouchEvent) => {
+    const { toggleDisclaimerModal, backTrackingDisclaimer } = this.props;
+
+    if (backTrackingDisclaimer === false && toggleDisclaimerModal) {
+      toggleDisclaimerModal(true);
     } else {
       this.props.handleStepBack(ev);
     }

@@ -328,6 +328,9 @@ storiesOf('Marriage Intention/Form Pages', module)
   ))
   .add('Step 5. Review/Person Info View', () => {
     const marriageIntentionCertificateRequest = makeMarriageIntentionCertificateRequest();
+    const bckMethod = (val: boolean): any => {
+      (() => console.log(`val: ${val}`))();
+    };
 
     return (
       <PartnerView
@@ -364,10 +367,16 @@ storiesOf('Marriage Intention/Form Pages', module)
         bloodRelationDesc={`Third Cousin's Removed`}
         partnershipState={`Boston, USA`}
         stepStr={`partnerFormA`}
+        backTrackingDisclaimer={false}
+        toggleDisclaimerModal={bckMethod}
       />
     );
   })
   .add('Step 5. Review - Contact [Section]', () => {
+    const bckMethod = (val: boolean): any => {
+      (() => console.log(`val: ${val}`))();
+    };
+
     return (
       <ContactUX
         appointmentDateTime={formatDate(new Date(`1982-09-23T00:00:00.000Z`))}
@@ -375,6 +384,8 @@ storiesOf('Marriage Intention/Form Pages', module)
           email: 'phillip.kelly@boston.gov',
           dayPhone: '6170001111',
         }}
+        backTrackingDisclaimer={true}
+        toggleDisclaimerModal={bckMethod}
       />
     );
   })
