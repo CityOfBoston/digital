@@ -268,10 +268,13 @@ export default class IndexPage extends React.Component<Props, State> {
     // Have to do this after updateFrom because the answers to questions can
     // affect the steps.
     const newSteps = marriageIntentionCertificateRequest.steps;
-    const currentIndex = newSteps.indexOf(currentStep);
+    let currentIndex = newSteps.indexOf(currentStep);
 
     if (currentIndex < 0) {
+      console.error(`Step ${currentStep} not found in new steps`);
+      console.error(`currentIndex: ${currentIndex}`);
       throw new Error(`Step ${currentStep} not found in new steps`);
+      // currentIndex = 0;
     }
 
     this.gaEventActionAndLabel();
@@ -324,7 +327,6 @@ export default class IndexPage extends React.Component<Props, State> {
       backTrackingDisclaimer: true,
       showDisclaimer: false,
     });
-    console.log(`dest?: `, dest);
 
     const posDest = [
       'partnerFormA',
@@ -333,16 +335,19 @@ export default class IndexPage extends React.Component<Props, State> {
       'reviewForms',
     ];
 
-    if (steps.indexOf(currentStep) > 0) {
-      if (dest && typeof dest === 'string') {
-        if (posDest.indexOf(dest) > -1) {
-          Router.push(`/marriageintention?step=${dest}`);
-        } else {
-          Router.push(`/marriageintention?step=${steps[currentStep] - 1}`);
-        }
-      } else {
-        Router.push(`/marriageintention?step=${steps[currentStep] - 1}`);
+    if (
+      steps.indexOf(currentStep) > 0 &&
+      steps.indexOf(currentStep) <= steps.length
+    ) {
+      let destStep = `${steps[steps.indexOf(currentStep) - 1]}`;
+
+      if (dest && typeof dest === 'string' && posDest.indexOf(dest) > -1) {
+        destStep = `${dest}`;
       }
+
+      Router.push(`/marriageintention?step=${destStep}`);
+    } else {
+      Router.push(`/marriageintention?step=${steps[0]}`);
     }
   };
 
@@ -351,16 +356,12 @@ export default class IndexPage extends React.Component<Props, State> {
       marriageIntentionCertificateRequest: { steps },
       currentStep,
     } = this.props;
-    const { showDisclaimer, backTrackingDisclaimer } = this.state;
+    const { backTrackingDisclaimer } = this.state;
     const direction = i < steps.indexOf(currentStep) ? '-' : '+';
     let partnerFlag = '';
 
     if (currentStep === 'partnerFormA') partnerFlag = 'A';
     if (currentStep === 'partnerFormB') partnerFlag = 'B';
-
-    console.log(
-      `backTrackingDisclaimer: ${backTrackingDisclaimer} |showDisclaimer: ${showDisclaimer}`
-    );
 
     const isDisclaimerable =
       currentStep === 'contactInfo' ||
