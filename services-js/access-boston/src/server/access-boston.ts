@@ -131,7 +131,8 @@ export async function makeServer(port, rollbar: Rollbar) {
           path.resolve(__dirname, '../../fixtures/apps.yaml'),
           'utf-8'
         ),
-        process.env.NODE_ENV !== 'test'
+        // process.env.NODE_ENV !== 'test'
+        false // true = Show all Apps/Links || false = Show only Apps/Links the account has access to
       ));
   const identityIq: IdentityIq =
     process.env.NODE_ENV === 'production' || process.env.IDENTITYIQ_URL

@@ -160,15 +160,25 @@ const queryRootResolvers: QueryRootResolvers = {
         groups,
         email,
       } = loginSession;
+
       let mgmt_groups: Array<string> = [];
+      const logLoggedSession = Object.fromEntries(
+        Object.entries(loginSession).filter(([key]) =>
+          ['cobAgency', 'groups'].includes(key)
+        )
+      );
+      console.log(`loginSession: `, {
+        ...logLoggedSession,
+        userId: loginAuth.userId,
+      });
+
       if (typeof groups === 'object' && groups.length > 0) {
-        // mgmt_groups = groups.filter(entry => entry.indexOf('SG_AB_') > -1);
         mgmt_groups = groups.filter(
           entry => entry.indexOf('SG_AB_GRPMGMT_') > -1
         );
       }
 
-      return {
+      const accountObj = {
         employeeId: userId,
         firstName: firstName || null,
         lastName: lastName || null,
@@ -180,6 +190,8 @@ const queryRootResolvers: QueryRootResolvers = {
         groups: mgmt_groups,
         email: email,
       };
+
+      return accountObj;
     } else if (forgotPasswordAuth) {
       return {
         employeeId: forgotPasswordAuth.userId,

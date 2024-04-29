@@ -8013,6 +8013,48 @@ exports[`Storyshots IndexPage change password success 1`] = `
               Confirm ID
             </span>
           </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.gov"
+            id="app-icon-BPDA Salesforce"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/salesforce_white.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BPDA Salesforce
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.gov"
+            id="app-icon-Office365"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/O365.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Office365
+            </span>
+          </a>
         </div>
       </section>
       <div
@@ -8173,6 +8215,66 @@ exports[`Storyshots IndexPage change password success 1`] = `
                   }
                 >
                   Request FN Access
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://miro.com/"
+                id="app-link-Miro"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Miro
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://bpda.app.box.com/folder/173776757244"
+                id="app-link-RMA Resources"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  RMA Resources
                 </span>
                 <span
                   style={
@@ -9053,6 +9155,48 @@ exports[`Storyshots IndexPage default 1`] = `
               Confirm ID
             </span>
           </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.gov"
+            id="app-icon-BPDA Salesforce"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/salesforce_white.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BPDA Salesforce
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.gov"
+            id="app-icon-Office365"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/O365.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Office365
+            </span>
+          </a>
         </div>
       </section>
       <div
@@ -9213,6 +9357,66 @@ exports[`Storyshots IndexPage default 1`] = `
                   }
                 >
                   Request FN Access
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://miro.com/"
+                id="app-link-Miro"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Miro
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://bpda.app.box.com/folder/173776757244"
+                id="app-link-RMA Resources"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  RMA Resources
                 </span>
                 <span
                   style={
@@ -10147,6 +10351,48 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
               Confirm ID
             </span>
           </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.gov"
+            id="app-icon-BPDA Salesforce"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/salesforce_white.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              BPDA Salesforce
+            </span>
+          </a>
+          <a
+            className="m-t200 g--3 g--3--sl lwi"
+            href="https://boston.gov"
+            id="app-icon-Office365"
+            target="_blank"
+          >
+            <span
+              className="lwi-ic"
+            >
+              <img
+                alt=""
+                className="lwi-i css-149l0yi"
+                src="https://assets.boston.gov/icons/accessboston/O365.svg"
+              />
+            </span>
+            <span
+              className="lwi-t"
+            >
+              Office365
+            </span>
+          </a>
         </div>
       </section>
       <div
@@ -10307,6 +10553,66 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                   }
                 >
                   Request FN Access
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://miro.com/"
+                id="app-link-Miro"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Miro
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://bpda.app.box.com/folder/173776757244"
+                id="app-link-RMA Resources"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  RMA Resources
                 </span>
                 <span
                   style={

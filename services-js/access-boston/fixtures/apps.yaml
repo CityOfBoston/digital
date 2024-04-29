@@ -102,6 +102,18 @@ categories:
         icon: https://assets.boston.gov/icons/accessboston/identity_verification.svg
         groups:
           - SG_AB_CONFIRMID
+      - title: BPDA Salesforce
+        url: https://boston.gov
+        icon: https://assets.boston.gov/icons/accessboston/salesforce_white.svg
+        groups:
+          - SG_AB_BPDASALESFORCE
+        agencies:
+          - BPDA
+      - title: Office365
+        url: https://boston.gov
+        icon: https://assets.boston.gov/icons/accessboston/O365.svg
+        agencies:
+          - BPDA
 
   - title: Forms / Links
     apps:
@@ -109,6 +121,8 @@ categories:
         url: https://identity.boston.gov/identityiq/createSponsor.jsf
         groups:
           - SG_AB_SPONSOR
+        agencies:
+          - BPDA
       - title: FleetHub
         url: http://boston.getlocalmotion.com/
         agencies:
@@ -119,16 +133,26 @@ categories:
           - BPD
           - BFD
           - CH
+          - BPDA
       - title: Building Maintenance
         url: https://eamtst.cityhall.boston.cob:5443/WebMaint/
         agencies:
           - CH
+          - BPDA
         groups:
           - SG_AB_BLDGMAINTREQ
       - title: Request FN Access
         url: https://identity.boston.gov/identityiq/requestPsfn.jsf
         groups:
           - SG_AB_FN_LIASONS_USERS
+      - title: Miro
+        url: https://miro.com/
+        agencies:
+          - BPDA
+      - title: RMA Resources
+        url: https://bpda.app.box.com/folder/173776757244
+        agencies:
+          - BPDA
 
   - title: Account Tools
     apps:
