@@ -59,7 +59,7 @@ export interface LoginSession {
   mfaEmail: string | null;
   mfaPhoneNumber: string | null;
 
-  cobAgency: string | null;
+  cOBUserAgency: string | null;
 }
 
 export type SessionAuth = LoginAuth | ForgotPasswordAuth;

@@ -75,7 +75,7 @@ export interface SamlLoginResult {
   userAccessToken: string;
   /** Format is MM/DD/YYYY */
   userMfaRegistrationDate: string | null;
-  cobAgency: string | null;
+  cOBUserAgency: string | null;
 }
 
 export interface SamlLogoutRequestResult {
@@ -302,7 +302,7 @@ export default class SamlAuth {
             (attributes.userMFARegistrationDate &&
               attributes.userMFARegistrationDate[0]) ||
             null,
-          cobAgency:
+          cOBUserAgency:
             (attributes.cobUserAgency && attributes.cobUserAgency[0]) || null,
         };
       }

@@ -124,7 +124,7 @@ export default class AppsRegistry {
   appsForGroups(
     userGroups: string[],
     hasMfaDevice: boolean,
-    cobAgency: string | null
+    cOBUserAgency: string | null
   ): AppsCategory[] {
     return (
       this.allCategories
@@ -142,7 +142,7 @@ export default class AppsRegistry {
               : false;
 
             const agencyRequirementMet = agencies
-              ? agencies && (cobAgency && agencies.includes(cobAgency))
+              ? agencies && (cOBUserAgency && agencies.includes(cOBUserAgency))
               : false;
 
             const isGroupOrAgencies =

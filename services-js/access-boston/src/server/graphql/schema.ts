@@ -164,7 +164,7 @@ const queryRootResolvers: QueryRootResolvers = {
       let mgmt_groups: Array<string> = [];
       const logLoggedSession = Object.fromEntries(
         Object.entries(loginSession).filter(([key]) =>
-          ['cobAgency', 'groups'].includes(key)
+          ['cOBUserAgency', 'groups'].includes(key)
         )
       );
       console.log(`loginSession: `, {
@@ -228,7 +228,7 @@ const queryRootResolvers: QueryRootResolvers = {
         .appsForGroups(
           loginSession.groups,
           loginSession.hasMfaDevice,
-          loginSession.cobAgency || null
+          loginSession.cOBUserAgency || null
         )
         .map(({ apps, icons, showRequestAccessLink, title }) => {
           const retObj = {
