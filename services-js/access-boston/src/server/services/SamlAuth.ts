@@ -285,6 +285,12 @@ export default class SamlAuth {
         const { user } = saml;
         const { attributes } = user;
 
+        console.log(
+          `SamlAuth (attributes.cobUserAgency): `,
+          attributes.cobUserAgency
+        );
+        console.log(`SamlAuth (attributes): `, attributes);
+
         return {
           type: 'login',
           nameId: user.name_id,
@@ -343,6 +349,7 @@ export default class SamlAuth {
           }
 
           try {
+            console.log(`SamlAuth > handlePostAssert > processSamlAssertion`);
             resolve(this.processSamlAssertion(saml));
           } catch (e) {
             reject(e);
