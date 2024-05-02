@@ -159,6 +159,10 @@ export const NAME_FIELDS_BASIC_CONTAINER_STYLING = css({
     marginRight: 'auto',
   },
 
+  '.ra-l': {
+    fontSize: '0.9375em',
+  },
+
   '> div': {
     textAlign: 'left',
 
@@ -373,6 +377,8 @@ export const NOTE_BOX_CLASSNAME = 'm-v500 p-a300 br br-a200 br--r lh--300';
 export const SUPPORTING_TEXT_CLASSNAME = 'lh--400 t--s400 m-b500';
 
 export const MARRIAGEINTENTION = css({
+  lineHeight: '1.38em',
+
   h1: {
     paddingBottom: '0.25rem',
     marginBottom: '0',

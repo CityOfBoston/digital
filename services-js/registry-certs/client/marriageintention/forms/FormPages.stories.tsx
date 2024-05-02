@@ -144,7 +144,7 @@ export const handleChange = (event): void => {
   );
 };
 
-storiesOf('Marriage Intention/Form Pages', module)
+storiesOf('Marriage Intention/Form', module)
   .add('Step 1. Instructions', () => (
     <IndexPage
       currentStep="instructions"
@@ -163,6 +163,44 @@ storiesOf('Marriage Intention/Form Pages', module)
       completedSteps={new Set([0, 1])}
     />
   ))
+  .add('Step 3. Person 2', () => (
+    <IndexPage
+      currentStep="partnerFormB"
+      siteAnalytics={new GaSiteAnalytics()}
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+      marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2])}
+    />
+  ))
+  .add('Step 4. Contact Info', () => (
+    <IndexPage
+      currentStep="contactInfo"
+      siteAnalytics={new GaSiteAnalytics()}
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+      marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2, 3])}
+    />
+  ))
+  .add('Step 5. Review/Full Form', () => (
+    <IndexPage
+      currentStep="reviewForms"
+      siteAnalytics={new GaSiteAnalytics()}
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+      marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2, 3, 4])}
+    />
+  ))
+  .add('Step 6. Submit', () => (
+    <IndexPage
+      currentStep="reviewRequest"
+      siteAnalytics={new GaSiteAnalytics()}
+      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
+      marriageIntentionDao={new MarriageIntentionDao(null as any)}
+      completedSteps={new Set([0, 1, 2, 3, 4, 5])}
+    />
+  ));
+
+storiesOf('Marriage Intention/Form Components', module)
   .add('Step 2. Person 1 - Naming Fields, no surname', () => {
     return (
       <>
@@ -299,33 +337,6 @@ storiesOf('Marriage Intention/Form Pages', module)
       </>
     );
   })
-  .add('Step 3. Person 2', () => (
-    <IndexPage
-      currentStep="partnerFormB"
-      siteAnalytics={new GaSiteAnalytics()}
-      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
-      marriageIntentionDao={new MarriageIntentionDao(null as any)}
-      completedSteps={new Set([0, 1, 2])}
-    />
-  ))
-  .add('Step 4. Contact Info', () => (
-    <IndexPage
-      currentStep="contactInfo"
-      siteAnalytics={new GaSiteAnalytics()}
-      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
-      marriageIntentionDao={new MarriageIntentionDao(null as any)}
-      completedSteps={new Set([0, 1, 2, 3])}
-    />
-  ))
-  .add('Step 5. Review/Full Form', () => (
-    <IndexPage
-      currentStep="reviewForms"
-      siteAnalytics={new GaSiteAnalytics()}
-      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
-      marriageIntentionDao={new MarriageIntentionDao(null as any)}
-      completedSteps={new Set([0, 1, 2, 3, 4])}
-    />
-  ))
   .add('Step 5. Review/Person Info View', () => {
     const marriageIntentionCertificateRequest = makeMarriageIntentionCertificateRequest();
     const bckMethod = (val: boolean): any => {
@@ -338,24 +349,24 @@ storiesOf('Marriage Intention/Form Pages', module)
           marriageIntentionCertificateRequest
         }
         partnerLabel={'A'}
-        firstName={`Phillip`}
-        lastName={`Kelly`}
+        firstName={`Thomas`}
+        lastName={`Menino`}
         suffix={``}
-        middleName={`Benton`}
-        surName={`Kelly`}
-        dob={formatDate(new Date(`1982-09-23T00:00:00.000Z`))}
-        age={`41`}
-        occupation={`Developer`}
+        middleName={`Michael`}
+        surName={`Menino`}
+        dob={formatDate(new Date(`1933-01-01T00:00:00.000Z`))}
+        age={`91`}
+        occupation={`Mayor`}
         address={`
-          ${`100 Howard Ave. Apt 2`},
+          ${`1 City Hall Plaza`},
           ${`Boston`}
           ${getStateFullName(`MA`)} 
-          ${`02125`} 
+          ${`02201-1020`} 
           ${getCountryFullName(`USA`)}
         `}
-        birthCity={`La Ceiba`}
-        birthState={getStateFullName(`Atlantida`)}
-        birthCountry={getCountryFullName(`HND`)}
+        birthCity={`Boston`}
+        birthState={getStateFullName(`MA`)}
+        birthCountry={getCountryFullName(`USA`)}
         marriageNumb={`2nd`}
         lastMarriageStatus={`CRT`}
         partnerShipType={`DOM`}
@@ -389,15 +400,6 @@ storiesOf('Marriage Intention/Form Pages', module)
       />
     );
   })
-  .add('Step 6. Submit', () => (
-    <IndexPage
-      currentStep="reviewRequest"
-      siteAnalytics={new GaSiteAnalytics()}
-      marriageIntentionCertificateRequest={makeMarriageIntentionCertificateRequest()}
-      marriageIntentionDao={new MarriageIntentionDao(null as any)}
-      completedSteps={new Set([0, 1, 2, 3, 4, 5])}
-    />
-  ))
   .add('Tool-Tip', () => {
     const spacing = css(`margin-top: 4em;`);
     const elem = ToolTip({

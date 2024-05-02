@@ -1,6 +1,21 @@
 import { css } from '@emotion/core';
 
-import { MEDIA_MEDIUM } from '@cityofboston/react-fleet';
+import { MEDIA_MEDIUM, SANS } from '@cityofboston/react-fleet';
+
+export const INSTRUCTIONS_NOTE = css(`
+  background: #FFE5A0;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.35em 0.75em;
+  // font-family: 'Montserrat';
+  font-family: ${SANS};
+  font-size: 0.95em;
+
+  .note {
+    font-weight: bold;
+    padding-right: 0.25em;
+  }
+`);
 
 export const MI_REVIEW_STYLING = css({
   fontSize: '0.9378em',

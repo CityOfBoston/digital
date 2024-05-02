@@ -6162,6 +6162,7 @@ exports[`Storyshots ProgressNav Step 1: Getting Started (default) 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -6398,6 +6399,7 @@ exports[`Storyshots ProgressNav Step 2: Person 1 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -6634,6 +6636,7 @@ exports[`Storyshots ProgressNav Step 3: Person 2 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -6870,6 +6873,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info - Nav one step back 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -7106,6 +7110,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -7342,6 +7347,7 @@ exports[`Storyshots ProgressNav Step 5: Review 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -7578,6 +7584,7 @@ exports[`Storyshots ProgressNav Step 6: Submit 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {

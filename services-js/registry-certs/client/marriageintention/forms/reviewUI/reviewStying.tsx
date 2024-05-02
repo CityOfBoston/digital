@@ -76,7 +76,7 @@ export const REVIEW_FORM_STYLING = css(`
   .section-wrapper {
     font-size: 0.9375rem;
     font-family: ${SANS};
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 
     h2 {
       color: ${CHARLES_BLUE};
@@ -87,14 +87,22 @@ export const REVIEW_FORM_STYLING = css(`
     }
 
     .field-value-pair {
+      display: flex;
+      margin-bottom: 1em;
+
+      label { font-weight: normal; }
+
       .field {
+        display: inline-block;
+        width: 60%;
         color: ${DEFAULT_TEXT};
         font-size: 0.9375rem;
-        font-weight: 700;
         text-transform: uppercase;
       }
 
       .value {
+        display: inline-block;
+        width: 40%;
         font-weight: normal;
       }
     }
