@@ -69,6 +69,11 @@ export default class Instructions extends Component<Props> {
             <li>A birth certificate</li>
           </ul>
         </div>
+
+        <div>
+          * If you edit your information you must click save and continue to
+          save your changes
+        </div>
       </div>
     );
   };

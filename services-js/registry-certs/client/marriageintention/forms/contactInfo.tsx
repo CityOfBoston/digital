@@ -33,7 +33,9 @@ import {
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
   handleProceed: (ev: MouseEvent) => void;
-  handleStepBack: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent | TouchEvent) => void;
+  toggleDisclaimerModal: (val: boolean) => void;
+  backTrackingDisclaimer: boolean;
 }
 
 @observer
@@ -130,6 +132,16 @@ export default class ContactInfo extends Component<Props> {
     );
   };
 
+  private handleStepBack = (ev: MouseEvent | TouchEvent) => {
+    const { toggleDisclaimerModal, backTrackingDisclaimer } = this.props;
+
+    if (backTrackingDisclaimer === false && toggleDisclaimerModal) {
+      toggleDisclaimerModal(true);
+    } else {
+      this.props.handleStepBack(ev);
+    }
+  };
+
   public render() {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
@@ -146,7 +158,7 @@ export default class ContactInfo extends Component<Props> {
     return (
       <QuestionComponent
         handleProceed={this.props.handleProceed}
-        handleStepBack={this.props.handleStepBack}
+        handleStepBack={this.handleStepBack}
         allowProceed={ContactInfo.isComplete(
           marriageIntentionCertificateRequest
         )}

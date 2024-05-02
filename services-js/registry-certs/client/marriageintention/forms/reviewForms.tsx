@@ -27,8 +27,10 @@ import HeaderUX from './reviewUI/header';
 
 interface Props {
   handleProceed: (ev: MouseEvent) => void;
-  handleStepBack: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent | TouchEvent) => void;
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
+  toggleDisclaimerModal: (val: boolean) => void;
+  backTrackingDisclaimer: boolean;
 }
 
 @observer
@@ -41,6 +43,16 @@ export default class ReviewForms extends Component<Props> {
         props.marriageIntentionCertificateRequest,
     };
   }
+
+  private handleStepBack = (ev: MouseEvent | TouchEvent) => {
+    const { toggleDisclaimerModal, backTrackingDisclaimer } = this.props;
+
+    if (backTrackingDisclaimer === false && toggleDisclaimerModal) {
+      toggleDisclaimerModal(true);
+    } else {
+      this.props.handleStepBack(ev);
+    }
+  };
 
   public render() {
     const {
@@ -70,7 +82,7 @@ export default class ReviewForms extends Component<Props> {
     return (
       <QuestionComponent
         handleProceed={this.props.handleProceed}
-        handleStepBack={this.props.handleStepBack}
+        handleStepBack={this.handleStepBack}
         allowProceed={true}
         nextButtonText={'Submit'}
       >
@@ -135,6 +147,8 @@ export default class ReviewForms extends Component<Props> {
             `}
             partnershipState={requestInformation.partnerA_partnershipState}
             stepStr={`partnerFormA`}
+            toggleDisclaimerModal={this.props.toggleDisclaimerModal}
+            backTrackingDisclaimer={this.props.backTrackingDisclaimer}
           />
 
           {/* PARTY B */}
@@ -189,6 +203,8 @@ export default class ReviewForms extends Component<Props> {
             `}
             partnershipState={requestInformation.partnerB_partnershipState}
             stepStr={`partnerFormB`}
+            toggleDisclaimerModal={this.props.toggleDisclaimerModal}
+            backTrackingDisclaimer={this.props.backTrackingDisclaimer}
           />
 
           <ContactUX
@@ -197,6 +213,8 @@ export default class ReviewForms extends Component<Props> {
               email: requestInformation.email,
               dayPhone: requestInformation.dayPhone,
             }}
+            toggleDisclaimerModal={this.props.toggleDisclaimerModal}
+            backTrackingDisclaimer={this.props.backTrackingDisclaimer}
           />
         </div>
       </QuestionComponent>

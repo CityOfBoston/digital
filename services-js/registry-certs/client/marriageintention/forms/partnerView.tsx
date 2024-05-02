@@ -26,7 +26,6 @@ interface Props {
   dob: string;
   age: string;
   occupation: string;
-  // sex: string;
   address: string;
   birthCity: string;
   birthState: string;
@@ -43,6 +42,8 @@ interface Props {
   suffix: string;
   partnershipState: string;
   stepStr: string;
+  toggleDisclaimerModal: (val: boolean) => void;
+  backTrackingDisclaimer: boolean;
 }
 
 @observer
@@ -98,6 +99,8 @@ export default class PartnerView extends Component<Props> {
           title: `Person ${this.props.partnerLabel}`,
           btnStr: `Edit This Page`,
           routeStep: `${stepStr}`,
+          backTrackingDisclaimer: this.props.backTrackingDisclaimer,
+          toggleDisclaimerModal: this.props.toggleDisclaimerModal,
         })}
 
         <div css={REVIEW_FORM_STYLING}>

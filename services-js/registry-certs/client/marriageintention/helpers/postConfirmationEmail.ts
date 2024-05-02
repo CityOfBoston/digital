@@ -9,8 +9,6 @@ async function PostConfirmationEmail(data: {
   fullName: string;
 }) {
   const { email, from, subject, message, fullName } = data;
-  // eslint-disable-next-line no-console
-  // console.log('PostConfirmationEmail > data: ', data);
 
   try {
     let dataObj = qs.stringify({
@@ -33,16 +31,16 @@ async function PostConfirmationEmail(data: {
     return await axios(config)
       .then(response => {
         // eslint-disable-next-line no-console
-        // console.log(JSON.stringify(response.data));
+        // console.error(JSON.stringify(response.data));
         return response.data;
       })
       .catch(error => {
         // eslint-disable-next-line no-console
-        console.log(error);
+        console.error(error);
       });
   } catch (e) {
     // eslint-disable-next-line no-console
-    console.log('RESPONSE 200 >', e);
+    console.error('RESPONSE 200 >', e);
     return e;
   }
 }

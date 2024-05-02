@@ -14,6 +14,8 @@ interface Props {
     email: string;
     dayPhone: string;
   };
+  toggleDisclaimerModal: (val: boolean) => void;
+  backTrackingDisclaimer: boolean;
 }
 
 @observer
@@ -31,6 +33,8 @@ export default class ContactUX extends Component<Props> {
           title: `Contact Information`,
           btnStr: `Edit This Page`,
           routeStep: `contactInfo`,
+          backTrackingDisclaimer: this.props.backTrackingDisclaimer,
+          toggleDisclaimerModal: this.props.toggleDisclaimerModal,
         })}
 
         <div css={REVIEW_FORM_STYLING}>

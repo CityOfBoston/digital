@@ -10,13 +10,15 @@ import { css, jsx } from '@emotion/core';
 
 interface Props {
   children?: ReactNode | ReactNodeArray;
-  message: string;
+  message?: string;
   /** If true, the message is rendered in red. */
   error?: boolean;
   /** If true, shows a waiting cursor. */
   waiting?: boolean;
   /** If provided, adds a "Close" button that calls this function when clicked. */
   onClose?: (ev: MouseEvent) => void;
+  hideTopBorderDecoration?: boolean;
+  absoluteCloseBtn?: (ev: MouseEvent | TouchEvent) => void;
 }
 
 const MODAL_STYLE = css({
@@ -58,19 +60,40 @@ export default class StatusModal extends React.Component<Props> {
   }
 
   render(): React.ReactNode {
-    const { children, message, error, waiting, onClose } = this.props;
+    const {
+      children,
+      message,
+      error,
+      waiting,
+      onClose,
+      hideTopBorderDecoration,
+      absoluteCloseBtn,
+    } = this.props;
 
     const alertHolder = document.getElementById(StatusModal.ALERT_CONTAINER_ID);
 
+    const topBorderDecorationCss = !hideTopBorderDecoration
+      ? ` br br-t400`
+      : '';
+
     const alertContent = (
       <div className="md" css={waiting && WAITING_MODAL_STYLE}>
-        <div className="md-c br br-t400" css={MODAL_STYLE}>
+        <div className={`md-c${topBorderDecorationCss}`} css={MODAL_STYLE}>
+          {absoluteCloseBtn && (
+            <button className="md-cb" type="button" onClick={onClose} autoFocus>
+              Close
+            </button>
+          )}
           <div className="md-b p-a300">
-            <div className={`t--intro ${error ? 't--err' : ''}`}>{message}</div>
+            {message && (
+              <div className={`t--intro ${error ? 't--err' : ''}`}>
+                {message}
+              </div>
+            )}
 
             {children}
 
-            {onClose && (
+            {onClose && !absoluteCloseBtn && (
               <div className="m-t300 ta-r">
                 <button
                   className="btn btn--sm btn--100"

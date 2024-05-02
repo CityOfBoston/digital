@@ -20,6 +20,8 @@ import PageWrapper from '../PageWrapper';
 import { INTENTION } from './styling';
 
 import { ContactForm } from '@cityofboston/react-fleet';
+import StatusModal from '../StatusModal';
+
 import Instructions from './forms/instructions';
 import PartnerFormA from './forms/partnerFormA';
 import PartnerFormB from './forms/partnerFormB';
@@ -63,6 +65,9 @@ interface State {
   completedSteps: Set<number>;
   allowProceed: boolean;
   errorElemSrc: object;
+  backTrackingDisclaimer: boolean;
+  showDisclaimer: boolean;
+  contactFormComplete: boolean;
 }
 
 /**
@@ -150,6 +155,9 @@ export default class IndexPage extends React.Component<Props, State> {
       completedSteps: this.props.completedSteps || new Set([0]),
       allowProceed: true,
       errorElemSrc: {},
+      backTrackingDisclaimer: false,
+      showDisclaimer: false,
+      contactFormComplete: false,
     };
 
     // REFs Inits
@@ -260,10 +268,13 @@ export default class IndexPage extends React.Component<Props, State> {
     // Have to do this after updateFrom because the answers to questions can
     // affect the steps.
     const newSteps = marriageIntentionCertificateRequest.steps;
-    const currentIndex = newSteps.indexOf(currentStep);
+    let currentIndex = newSteps.indexOf(currentStep);
 
     if (currentIndex < 0) {
+      console.error(`Step ${currentStep} not found in new steps`);
+      console.error(`currentIndex: ${currentIndex}`);
       throw new Error(`Step ${currentStep} not found in new steps`);
+      // currentIndex = 0;
     }
 
     this.gaEventActionAndLabel();
@@ -302,45 +313,94 @@ export default class IndexPage extends React.Component<Props, State> {
     }
   };
 
+  private toggleDisclaimerModal = (val: boolean): void => {
+    this.setState({ showDisclaimer: val });
+  };
+
+  private disclaimerModalConfirmed = (dest?: string) => {
+    const {
+      marriageIntentionCertificateRequest: { steps },
+      currentStep,
+    } = this.props;
+
+    this.setState({
+      backTrackingDisclaimer: true,
+      showDisclaimer: false,
+    });
+
+    const posDest = [
+      'partnerFormA',
+      'partnerFormB',
+      'contactInfo',
+      'reviewForms',
+    ];
+
+    if (
+      steps.indexOf(currentStep) > 0 &&
+      steps.indexOf(currentStep) <= steps.length
+    ) {
+      let destStep = `${steps[steps.indexOf(currentStep) - 1]}`;
+
+      if (dest && typeof dest === 'string' && posDest.indexOf(dest) > -1) {
+        destStep = `${dest}`;
+      }
+
+      Router.push(`/marriageintention?step=${destStep}`);
+    } else {
+      Router.push(`/marriageintention?step=${steps[0]}`);
+    }
+  };
+
   private progressNavClick = (i: number) => {
     const {
       marriageIntentionCertificateRequest: { steps },
       currentStep,
     } = this.props;
+    const { backTrackingDisclaimer } = this.state;
     const direction = i < steps.indexOf(currentStep) ? '-' : '+';
     let partnerFlag = '';
 
     if (currentStep === 'partnerFormA') partnerFlag = 'A';
     if (currentStep === 'partnerFormB') partnerFlag = 'B';
 
-    if (partnerFlag.length > 0 && direction === '+') {
-      const isCompleteRet = this.isComplete(
-        partnerFlag,
-        this.state.localMarriageIntentionCertificateRequest
-      );
-      if (
-        isCompleteRet &&
-        Object.entries(this.state.errorElemSrc).length === 0
-      ) {
-        this.setState({
-          errorElemSrc: {},
-        });
-        Router.push(`/marriageintention?step=${steps[i]}`);
-      } else {
-        if (this.state.errorElemSrc['nameFields']) {
-          this.scrollToElem(this.state.errorElemSrc['nameFields']);
-        } else if (this.state.errorElemSrc['datePlaceOfBirth']) {
-          this.scrollToElem(this.state.errorElemSrc['datePlaceOfBirth']);
-        } else if (this.state.errorElemSrc['residence']) {
-          this.scrollToElem(this.state.errorElemSrc['residence']);
-        } else if (this.state.errorElemSrc['marriageBlock']) {
-          this.scrollToElem(this.state.errorElemSrc['marriageBlock']);
-        } else if (this.state.errorElemSrc['parents']) {
-          this.scrollToElem(this.state.errorElemSrc['parents']);
-        }
-      }
+    const isDisclaimerable =
+      currentStep === 'contactInfo' ||
+      currentStep === 'partnerFormA' ||
+      currentStep === 'partnerFormB' ||
+      currentStep === 'reviewForms'
+        ? true
+        : false;
+
+    if (isDisclaimerable && backTrackingDisclaimer === false) {
+      this.toggleDisclaimerModal(true);
     } else {
-      Router.push(`/marriageintention?step=${steps[i]}`);
+      if (partnerFlag.length > 0 && direction === '+') {
+        const isCompleteRet = this.isComplete(
+          partnerFlag,
+          this.state.localMarriageIntentionCertificateRequest
+        );
+
+        if (
+          isCompleteRet &&
+          Object.entries(this.state.errorElemSrc).length === 0
+        ) {
+          Router.push(`/marriageintention?step=${steps[i]}`);
+        } else {
+          if (this.state.errorElemSrc['nameFields']) {
+            this.scrollToElem(this.state.errorElemSrc['nameFields']);
+          } else if (this.state.errorElemSrc['datePlaceOfBirth']) {
+            this.scrollToElem(this.state.errorElemSrc['datePlaceOfBirth']);
+          } else if (this.state.errorElemSrc['residence']) {
+            this.scrollToElem(this.state.errorElemSrc['residence']);
+          } else if (this.state.errorElemSrc['marriageBlock']) {
+            this.scrollToElem(this.state.errorElemSrc['marriageBlock']);
+          } else if (this.state.errorElemSrc['parents']) {
+            this.scrollToElem(this.state.errorElemSrc['parents']);
+          }
+        }
+      } else {
+        Router.push(`/marriageintention?step=${steps[i]}`);
+      }
     }
   };
 
@@ -364,6 +424,7 @@ export default class IndexPage extends React.Component<Props, State> {
     const {
       localMarriageIntentionCertificateRequest,
       completedSteps,
+      backTrackingDisclaimer,
     } = this.state;
     const { steps, labels } = localMarriageIntentionCertificateRequest;
 
@@ -402,6 +463,8 @@ export default class IndexPage extends React.Component<Props, State> {
                 localMarriageIntentionCertificateRequest
               )}
               handleStepBack={this.stepBackOneQuestion}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
+              backTrackingDisclaimer={backTrackingDisclaimer}
             />
 
             {emailContentBlock()}
@@ -431,6 +494,8 @@ export default class IndexPage extends React.Component<Props, State> {
                 parentsRef: this.partnerA_parentsRef,
               }}
               errorElemSrc={this.state.errorElemSrc}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
+              backTrackingDisclaimer={backTrackingDisclaimer}
             />
 
             {emailContentBlock()}
@@ -460,6 +525,8 @@ export default class IndexPage extends React.Component<Props, State> {
                 parentsRef: this.partnerA_parentsRef,
               }}
               errorElemSrc={this.state.errorElemSrc}
+              backTrackingDisclaimer={this.state.backTrackingDisclaimer}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
             />
 
             {emailContentBlock()}
@@ -478,6 +545,8 @@ export default class IndexPage extends React.Component<Props, State> {
                 localMarriageIntentionCertificateRequest
               )}
               handleStepBack={this.stepBackOneQuestion}
+              toggleDisclaimerModal={this.toggleDisclaimerModal}
+              backTrackingDisclaimer={backTrackingDisclaimer}
             />
 
             {emailContentBlock()}
@@ -520,6 +589,21 @@ export default class IndexPage extends React.Component<Props, State> {
           </Head>
 
           {questionsEl}
+
+          {this.state.showDisclaimer && (
+            <StatusModal
+              header={`Save & Continue`}
+              hideTopBorderDecoration={true}
+              closeModalHandler={this.toggleDisclaimerModal}
+              confirmHandler={this.disclaimerModalConfirmed}
+              confirmBtnText={`Confirm`}
+            >
+              <p className="t--s500">
+                If you edit your information you must click the `Save and
+                Continue` button save your changes
+              </p>
+            </StatusModal>
+          )}
         </div>
       </PageWrapper>
     );

@@ -36,8 +36,8 @@ import { isPartnerFormPageComplete } from '../../marriageintention/helpers/formU
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
-  handleProceed: (ev: MouseEvent) => void;
-  handleStepBack: (ev: MouseEvent) => void;
+  handleProceed: (ev: MouseEvent | TouchEvent) => void;
+  handleStepBack: (ev: MouseEvent | TouchEvent) => void;
   formErrors: (data: {
     action: string;
     ref?: React.RefObject<HTMLSpanElement> | null;
@@ -53,6 +53,8 @@ interface Props {
   errorElemSrc: object;
   partnerLabel: string;
   partnerNum?: number | string;
+  backTrackingDisclaimer: boolean;
+  toggleDisclaimerModal: (val: boolean) => void;
 }
 
 @observer
@@ -341,6 +343,16 @@ export default class PartnerForm extends Component<Props> {
     this.props.handleProceed(certObj);
   };
 
+  private handleStepBack = (ev: MouseEvent | TouchEvent) => {
+    const { toggleDisclaimerModal, backTrackingDisclaimer } = this.props;
+
+    if (backTrackingDisclaimer === false && toggleDisclaimerModal) {
+      toggleDisclaimerModal(true);
+    } else {
+      this.props.handleStepBack(ev);
+    }
+  };
+
   // RENDER ALL UI
   public render() {
     const {
@@ -391,11 +403,15 @@ export default class PartnerForm extends Component<Props> {
           this,
           marriageIntentionCertificateRequest
         )}
-        handleStepBack={this.props.handleStepBack}
         allowProceed={PartnerForm.isComplete(
           marriageIntentionCertificateRequest
         )}
-        nextButtonText={'NEXT'}
+        handleStepBack={this.handleStepBack}
+        nextButtonText={
+          partnerB_formPageComplete && partnerB_formPageComplete === '1'
+            ? 'Save & Continue'
+            : 'NEXT'
+        }
       >
         <FieldsetComponent
           legendText={

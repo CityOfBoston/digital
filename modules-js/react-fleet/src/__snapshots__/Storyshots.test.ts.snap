@@ -5831,6 +5831,46 @@ exports[`Storyshots Notifications|Modals/StatusModal error with close 1`] = `
 </div>
 `;
 
+exports[`Storyshots Notifications|Modals/StatusModal hide top border decoration 1`] = `
+.emotion-0 {
+  padding-top: 0;
+  max-width: 500px;
+  top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+<div
+  className="md"
+>
+  <div
+    className="md-c emotion-0"
+  >
+    <button
+      autoFocus={true}
+      className="md-cb"
+      type="button"
+    >
+      Close
+    </button>
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro t--err"
+      >
+        Something went wrong!
+      </div>
+      <p
+        className="t--s400"
+      >
+        If you edit your information you must click save and continue to save your changes
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots ProgressBar default 1`] = `
 .emotion-0 progress {
   margin: 1rem 0 0.25rem;
