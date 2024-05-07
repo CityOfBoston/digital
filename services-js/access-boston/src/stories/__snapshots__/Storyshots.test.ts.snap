@@ -11211,7 +11211,7 @@ exports[`Storyshots RegisterMfaPage default 1`] = `
         className="hr hr--sq"
       />
       <form
-        className="m-v500"
+        className="m-v500 css-wgwnsn-DeviceVerificationForm"
         onSubmit={[Function]}
       >
         <div
@@ -11513,7 +11513,7 @@ exports[`Storyshots RegisterMfaPage email 1`] = `
         className="hr hr--sq"
       />
       <form
-        className="m-v500"
+        className="m-v500 css-wgwnsn-DeviceVerificationForm"
         onSubmit={[Function]}
       >
         <div
@@ -11564,7 +11564,7 @@ exports[`Storyshots RegisterMfaPage email 1`] = `
                 className="g--6"
               >
                 <input
-                  className=" txt-f  css-1rqmmmp-TextInput"
+                  className="txt-email txt-f  css-1rqmmmp-TextInput"
                   id="input-3734019359"
                   name="email"
                   onBlur={[Function]}
@@ -11758,7 +11758,7 @@ exports[`Storyshots RegisterMfaPage modal open 1`] = `
         className="hr hr--sq"
       />
       <form
-        className="m-v500"
+        className="m-v500 css-wgwnsn-DeviceVerificationForm"
         onSubmit={[Function]}
       >
         <div
@@ -12124,7 +12124,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
     className="hr hr--sq"
   />
   <form
-    className="m-v500"
+    className="m-v500 css-wgwnsn-DeviceVerificationForm"
     onSubmit={[Function]}
   >
     <div
@@ -12327,7 +12327,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
     className="hr hr--sq"
   />
   <form
-    className="m-v500"
+    className="m-v500 css-wgwnsn-DeviceVerificationForm"
     onSubmit={[Function]}
   >
     <div
@@ -12378,7 +12378,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm email with error 1`] 
             className="g--6"
           >
             <input
-              className=" txt-f txt-f--err css-1rqmmmp-TextInput"
+              className="txt-email txt-f txt-f--err css-1rqmmmp-TextInput"
               id="input-3734019359"
               name="email"
               onBlur={[Function]}
@@ -12468,7 +12468,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
     className="hr hr--sq"
   />
   <form
-    className="m-v500"
+    className="m-v500 css-wgwnsn-DeviceVerificationForm"
     onSubmit={[Function]}
   >
     <div

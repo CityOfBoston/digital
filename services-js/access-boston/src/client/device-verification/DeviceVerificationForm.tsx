@@ -1,4 +1,7 @@
-import React from 'react';
+/** @jsx jsx */
+
+import { jsx, css } from '@emotion/core';
+
 import { FormikProps } from 'formik';
 import Link from 'next/link';
 
@@ -79,7 +82,7 @@ export default function DeviceVerificationForm(props: Props) {
 
         <hr className="hr hr--sq" aria-hidden />
 
-        <form className="m-v500" onSubmit={handleSubmit}>
+        <form className="m-v500" onSubmit={handleSubmit} css={FIELD_STYLING}>
           {phoneOrEmail === 'phone' && (
             <>
               <TextInput
@@ -142,6 +145,7 @@ export default function DeviceVerificationForm(props: Props) {
                 info="Choose a personal address, not a City of Boston one."
                 renderInputFunc={renderErrorNextToInput}
                 hideErrorMessage
+                className={`txt-email`}
               />
 
               <div className="t--subinfo m-v500">
@@ -181,3 +185,25 @@ export default function DeviceVerificationForm(props: Props) {
     </>
   );
 }
+
+export const FIELD_STYLING = css(`
+  input.txt-f {
+    min-width: 10.8rem;
+  }
+
+  input.txt-email {
+    min-width: 18rem;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 540px) {
+    input.txt-f {
+      min-width: 10.7rem;
+    }
+  
+    input.txt-email {
+      min-width: 12rem;
+      width: 100%;
+    }
+  }
+`);

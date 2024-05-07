@@ -3207,7 +3207,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -3256,7 +3256,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -3520,7 +3520,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -3990,7 +3990,7 @@ exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -4110,7 +4110,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -5906,7 +5906,7 @@ exports[`Storyshots ProgressBar default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -5967,7 +5967,7 @@ exports[`Storyshots ProgressBar first step (interactive demo) 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -6028,7 +6028,7 @@ exports[`Storyshots ProgressBar last step (interactive demo) 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
@@ -6089,7 +6089,7 @@ exports[`Storyshots ProgressBar with task name 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "768px",
+      "maxWidth": "600px",
     }
   }
 >
