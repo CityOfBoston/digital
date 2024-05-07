@@ -162,6 +162,7 @@ const PROGRESSBAR_STYLE = css`
         background: ${WHITE};
         width: 2%;
         font-size: 0.85em;
+        vertical-align: middle;
 
         &:last-child {
           grid-column-start: 2;

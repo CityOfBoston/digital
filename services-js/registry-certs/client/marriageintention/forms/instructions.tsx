@@ -10,6 +10,8 @@ import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCe
 import QuestionComponent from '../../common/question-components/QuestionComponent';
 
 import { MARRIAGEINTENTION } from '../../common/question-components/styling';
+// import { INSTRUCTIONS_NOTE } from '../styling';
+import { INSTRUCTIONS_NOTE } from './styling';
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
@@ -70,9 +72,10 @@ export default class Instructions extends Component<Props> {
           </ul>
         </div>
 
-        <div>
-          * If you edit your information you must click save and continue to
-          save your changes
+        <div css={INSTRUCTIONS_NOTE}>
+          <span className="note">Note:</span>
+          If you edit your information, you must click the "save and continue"
+          button to save your changes.
         </div>
       </div>
     );

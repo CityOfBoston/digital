@@ -63408,758 +63408,7 @@ marriage@boston.gov.
 </pre>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 1. Instructions 1`] = `
-Array [
-  <a
-    className="btn a11y--h a11y--f"
-    href="#content-start"
-    onClick={[Function]}
-    style={
-      Object {
-        "margin": 4,
-      }
-    }
-    tabIndex={1}
-  >
-    Jump to content
-  </a>,
-  <input
-    aria-label="Open Boston.gov menu"
-    className="brg-tr"
-    id="brg-tr"
-    onKeyDown={[Function]}
-    type="checkbox"
-  />,
-  <nav
-    aria-label="Boston.gov menu"
-    className="nv-m"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-  <div class=\\"nv-m-h\\">
-      <div class=\\"nv-m-h-ic\\">
-        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
-          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
-        </a>
-      </div>
-      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
-  </div>
-  <div class=\\"nv-m-c\\">
-    
-
-<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
-<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
-<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
-</ul></li>
-<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
-<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
-<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
-</ul></li>
-</ul>  </div>
-",
-      }
-    }
-  />,
-  .emotion-1 {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.emotion-0 {
-  color: #d22d23;
-}
-
-.emotion-5 fieldset + fieldset {
-  margin-top: 2rem;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-5 fieldset + fieldset {
-    margin-top: 4rem;
-  }
-
-  .emotion-5 fieldset + fieldset .lnk {
-    padding-left: 0;
-  }
-}
-
-.emotion-6 {
-  text-align: center;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-6 {
-    margin-top: 2.5rem;
-    text-align: left;
-  }
-
-  .emotion-6 > div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-  }
-
-  .emotion-6 > div.ta-r > button {
-    margin-left: auto;
-  }
-
-  .emotion-6 .lnk {
-    padding-left: 0;
-  }
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
-}
-
-.emotion-3 {
-  display: grid;
-  margin: auto;
-  margin-top: 0.75rem;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-}
-
-.emotion-3 .progressbar {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
-}
-
-.emotion-3 .progressbar .nav {
-  display: table;
-  table-layout: fixed;
-  text-align: center;
-  line-height: normal;
-  font-style: normal;
-  font-weight: bold;
-  font-family: Montserrat,Arial,sans-serif;
-  text-transform: uppercase;
-  color: '#58585B';
-}
-
-.emotion-3 .progressbar .nav a {
-  display: table-cell;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  border-left-width: 0;
-  padding: 0.85em 0.5em;
-  color: black;
-  background: #fff;
-  width: 2%;
-  font-size: 0.85em;
-}
-
-.emotion-3 .progressbar .nav a:last-child {
-  grid-column-start: 2;
-}
-
-.emotion-3 .progressbar .nav a:first-child {
-  border-left-width: 1px;
-}
-
-.emotion-3 .progressbar .nav a.completed,
-.emotion-3 .progressbar .nav a.completed.current {
-  cursor: pointer;
-  color: #fff;
-  background: #1871bd;
-}
-
-.emotion-3 .progressbar .nav a.uncompleted {
-  background: #C8C8C8;
-}
-
-.emotion-3 .progressbar .nav a.completed.focused.current {
-  color: #000;
-  cursor: pointer;
-  background: #f2f2f2;
-}
-
-.emotion-3 .progressbar .nav a.completed.focused,
-.emotion-3 .progressbar .nav a.completed:hover {
-  color: #000;
-  cursor: pointer;
-  background: #b0d9ff;
-}
-
-.emotion-3 .progressbar .nav a.done,
-.emotion-3 .progressbar .nav a.done:hover,
-.emotion-3 .progressbar .nav a.completed.focused.done.current {
-  color: #000;
-  cursor: default;
-  background: #f2f2f2;
-}
-
-.emotion-3 .progressbar .nav a.completed.current {
-  color: #000;
-  background: #f2f2f2;
-}
-
-.emotion-3 .progressbar .progress-text {
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  font-style: italic;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
-
-.emotion-3 .progressbar .progress-text .mobile {
-  display: none;
-}
-
-@media screen and (max-width:540px) {
-  .emotion-3 {
-    max-width: 25.875em;
-  }
-
-  .emotion-3 .progressbar .nav a {
-    overflow: hidden;
-    min-width: 10px;
-    padding: 0.5em 0;
-    text-indent: -500px;
-    line-height: 0;
-  }
-
-  .emotion-3 .progressbar .progress-text .mobile {
-    display: inline-block;
-  }
-}
-
-@media (min-width:541px) and (max-width:1024px) {
-  .emotion-3 .progressbar .nav a {
-    padding: 0.85em 0;
-    font-size: 0.55rem;
-  }
-}
-
-.emotion-7 {
-  padding: 0px;
-}
-
-.emotion-4 h1 {
-  padding-bottom: 0.25rem;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  font-family: Montserrat,Arial,sans-serif !important;
-  font-weight: 700;
-  font-size: 2rem;
-  font-style: normal;
-  color: #091f2f;
-}
-
-.emotion-4 h2 {
-  padding-bottom: 0.25rem;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  border-bottom: 4px solid #091f2f;
-  font-family: Montserrat,Arial,sans-serif !important;
-  font-weight: 700;
-  font-size: 1.5rem;
-  font-style: normal;
-  color: #091f2f;
-}
-
-.emotion-4 .getting-started {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.emotion-4 .getting-started .emphasis {
-  font-style: bold;
-  font-weight: 700;
-}
-
-.emotion-4 .getting-started ul {
-  margin-bottom: 1rem;
-}
-
-.emotion-4 .getting-started ul li {
-  list-style: initial;
-  margin: 0.25rem 0 0.25rem 1.75rem;
-}
-
-<div
-    className="mn--full-ie"
-  >
-    <div
-      className="mn mn--full "
-    >
-      <input
-        aria-hidden="true"
-        className="s-tr"
-        id="s-tr"
-        type="checkbox"
-      />
-      <header
-        className="h"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "
-  <label for=\\"brg-tr\\" class=\\"brg-b\\">
-    <div class=\\"brg\\">
-      <span class=\\"brg-c\\">
-        <span class=\\"brg-c-i\\"></span>
-      </span>
-      <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
-    </div>
-  </label>
-
-  <div class=\\"lo lo--abs\\">
-    <div class=\\"lo-l\\">
-      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
-        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
-      </a>
-      <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Michelle Wu</a></span>
-    </div>
-  </div>
-  <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
-  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\" />
-</a>
-
-<nav class=\\"nv-h\\">
-  <ul class=\\"nv-h-l\\">
-    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
-    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
-    <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
-    <li class=\\"tr nv-h-l-i\\">
-      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
-      <ul class=\\"tr-dd\\">
-        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
-        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
-      </ul>
-    </li>
-    <li class=\\"nv-h-l-i\\">
-      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
-        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
-      </label>
-    </li>
-  </ul>
-</nav>
-
-<div class=\\"h-s\\">
-  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
-    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
-    <div class=\\"sf-i\\">
-      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
-      <button class=\\"sf-i-b\\">Search</button>
-    </div>
-  </form>
-</div>
-  ",
-          }
-        }
-        role="banner"
-      />
-      <div
-        className="p-t300"
-      >
-        <nav
-          aria-label="Breadcrumbs"
-          className="brc p-a300 emotion-1"
-        >
-          <ul
-            className="brc-l"
-          >
-            <li
-              className="brc-l-i"
-            >
-              <a
-                href="https://www.boston.gov/"
-              >
-                Home
-              </a>
-              <span
-                aria-hidden="true"
-                className="brc-s"
-                style={
-                  Object {
-                    "cursor": "default",
-                  }
-                }
-              >
-                 
-                ›
-                 
-              </span>
-            </li>
-            <li
-              className="brc-l-i"
-            >
-              <a
-                href="https://www.boston.gov/departments"
-              >
-                Departments
-              </a>
-              <span
-                aria-hidden="true"
-                className="brc-s"
-                style={
-                  Object {
-                    "cursor": "default",
-                  }
-                }
-              >
-                 
-                ›
-                 
-              </span>
-            </li>
-            <li
-              className="brc-l-i"
-            >
-              <a
-                href="https://www.boston.gov/departments/registry"
-              >
-                Registry: Birth, death, and marriage and marriage intention
-              </a>
-              <span
-                aria-hidden="true"
-                className="brc-s"
-                style={
-                  Object {
-                    "cursor": "default",
-                  }
-                }
-              >
-                 
-                ›
-                 
-              </span>
-            </li>
-            <li
-              className="brc-l-i"
-            >
-              <a
-                aria-current="page"
-                className="emotion-0"
-                href="/marriageintention"
-              >
-                Marriage Intention
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div
-        className="a11y--content-start"
-        id="content-start"
-      />
-      <main
-        className="b-ff"
-      >
-        <div
-          aria-live="polite"
-          className="b-c"
-        >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Marriage Intention Application
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <div
-              className="progressbar"
-            >
-              <div
-                className="nav"
-              >
-                <a
-                  aria-label="Getting Started"
-                  className="completed focused current"
-                  onClick={[Function]}
-                  title="Getting Started"
-                >
-                  Getting Started
-                  <span
-                    className="arrow"
-                  />
-                </a>
-                <a
-                  aria-label="Person 1"
-                  className="uncompleted"
-                  onClick={[Function]}
-                  title="Person 1"
-                >
-                  Person 1
-                  <span
-                    className="arrow"
-                  />
-                </a>
-                <a
-                  aria-label="Person 2"
-                  className="uncompleted"
-                  onClick={[Function]}
-                  title="Person 2"
-                >
-                  Person 2
-                  <span
-                    className="arrow"
-                  />
-                </a>
-                <a
-                  aria-label="Contact Info"
-                  className="uncompleted"
-                  onClick={[Function]}
-                  title="Contact Info"
-                >
-                  Contact Info
-                  <span
-                    className="arrow"
-                  />
-                </a>
-                <a
-                  aria-label="Review"
-                  className="uncompleted"
-                  onClick={[Function]}
-                  title="Review"
-                >
-                  Review
-                  <span
-                    className="arrow"
-                  />
-                </a>
-                <a
-                  aria-label="Submit"
-                  className="uncompleted"
-                  onClick={[Function]}
-                  title="Submit"
-                >
-                  Submit
-                  <span
-                    className="arrow"
-                  />
-                </a>
-              </div>
-              <div
-                className="progress-text"
-              >
-                <span>
-                  Step 1 of 6
-                </span>
-                <span
-                  className="mobile"
-                >
-                  : 
-                   
-                  Getting Started
-                </span>
-              </div>
-            </div>
-          </div>
-          <section
-            className="m-t500"
-          >
-            <div
-              className="b-c b-c--nbp emotion-7"
-            >
-              <div
-                className="emotion-5"
-              >
-                <div
-                  className="emotion-4"
-                >
-                  <h1>
-                    Before You Get Started
-                  </h1>
-                  <div
-                    className="getting-started"
-                  >
-                    <p>
-                      <span
-                        className="emphasis"
-                      >
-                        The information you provide in this application will help us complete the marriage intention form, which is a legal document that is important for the marriage license.
-                      </span>
-                       
-                      During your appointment, we will review and finalize the information you share here and make sure everything's set before it is printed onto your marriage intention form.
-                    </p>
-                    <p>
-                      It should take about 
-                      <span
-                        className="emphasis"
-                      >
-                        15 minutes
-                      </span>
-                       
-                      to finish this application if you have all the information below. We recommend that you and your partner fill this out together.
-                    </p>
-                  </div>
-                  <h2>
-                    What We Need From You and Your Partner
-                  </h2>
-                  <div
-                    className="getting-started"
-                  >
-                    <ul>
-                      <li>
-                        Legal names and last names you'll use after marriage
-                      </li>
-                      <li>
-                        Birthdates and birthplaces
-                      </li>
-                      <li>
-                        Residential addresses
-                      </li>
-                      <li>
-                        If you've been married before, how many times and the status of your last marriage
-                      </li>
-                      <li>
-                        If you've been in a civil union or domestic partnership before, its location and status
-                      </li>
-                      <li>
-                        Parents' names (including their family names) and whether they were married when you were born
-                      </li>
-                    </ul>
-                  </div>
-                  <h2>
-                    Documents That Might Be Helpful
-                  </h2>
-                  <div
-                    className="getting-started"
-                  >
-                    <ul>
-                      <li>
-                        A government-issued ID
-                      </li>
-                      <li>
-                        A birth certificate
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    * If you edit your information you must click save and continue to save your changes
-                  </div>
-                </div>
-              </div>
-              <div
-                className="g g--mr emotion-6"
-              >
-                <div
-                  className="t--info g--6 m-b500"
-                />
-                <div
-                  className="g--6 ta-r m-b500"
-                >
-                  <button
-                    className="btn btn--b-sm"
-                    disabled={false}
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    START
-                  </button>
-                </div>
-              </div>
-              <div
-                className="m-v700"
-              >
-                Questions? Email the Registry Department at
-                 
-                <a
-                  href="mailto:marriage@boston.gov"
-                  onClick={[Function]}
-                >
-                  marriage@boston.gov
-                </a>
-                .
-              </div>
-            </div>
-          </section>
-        </div>
-      </main>
-    </div>
-  </div>,
-  <footer
-    className="ft"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-<div class=\\"ft-c ft-ite\\">
-  <ul class=\\"ft-ll ft-ite-links\\">
-    <li class=\\"ft-ll-i\\">
-      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
-        BOS:311 - Report an issue
-      </a>
-    </li>
-
-    <li class=\\"ft-ll-i\\">
-      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
-    </li>
-    <li class=\\"ft-ll-i\\">
-      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
-    </li>
-    <li class=\\"ft-ll-i\\">
-      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
-    </li>
-    <li class=\\"ft-ll-i\\">
-      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
-    </li>
-  </ul>
-
-  <ul class=\\"ft-ll ft-ite-311\\">
-    <li class=\\"ft-ll-i\\">
-      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
-        <span class=\\"ft-ll-311\\">BOS:311</span>
-        <span class=\\"tablet--hidden\\"> - </span>
-        Report an issue
-      </a>
-    </li>
-  </ul>
-</div>
-",
-      }
-    }
-    style={
-      Object {
-        "position": "relative",
-        "zIndex": 2,
-      }
-    }
-  />,
-]
-`;
-
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date & Place, w/Country(CAN) 1`] = `
+exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth Date & Place, w/Country(CAN) 1`] = `
 .emotion-3 {
   border: none;
   padding: 0;
@@ -64220,7 +63469,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
   cursor: not-allowed;
 }
 
-.css-1d92czb .emotion-5:after {
+.css-1aiow01 .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -64234,6 +63483,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-4 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-4 > div {
@@ -64311,6 +63564,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
   }
 }
 
+.emotion-6 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-6 > div {
   text-align: left;
 }
@@ -64386,27 +63643,37 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
   margin-bottom: 2.25em;
 }
 
-.css-lbsctu .emotion-5:after {
+.css-vfjwkx .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-3y8lfr .emotion-5:after {
+.css-wvkemw .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-sifr7p .emotion-5:after {
+.css-1ahsdhq .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-zx7u86 .emotion-5:after {
+.css-1nb9jwk .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-17tc7bx .emotion-5:after {
+.css-12yp9t2 .emotion-5:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-1ttcwo2 .emotion-5:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-99cy70 .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -65853,7 +65120,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
 </div>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date & Place, w/Country(USA) 1`] = `
+exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth Date & Place, w/Country(USA) 1`] = `
 .emotion-3 {
   border: none;
   padding: 0;
@@ -65914,7 +65181,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
   cursor: not-allowed;
 }
 
-.css-1d92czb .emotion-7:after {
+.css-1aiow01 .emotion-7:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -65928,6 +65195,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-4 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-4 > div {
@@ -66005,6 +65276,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
   }
 }
 
+.emotion-8 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-8 > div {
   text-align: left;
 }
@@ -66080,27 +65355,37 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
   margin-bottom: 2.25em;
 }
 
-.css-lbsctu .emotion-7:after {
+.css-vfjwkx .emotion-7:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-3y8lfr .emotion-7:after {
+.css-wvkemw .emotion-7:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-sifr7p .emotion-7:after {
+.css-1ahsdhq .emotion-7:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-zx7u86 .emotion-7:after {
+.css-1nb9jwk .emotion-7:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-17tc7bx .emotion-7:after {
+.css-12yp9t2 .emotion-7:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-1ttcwo2 .emotion-7:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-99cy70 .emotion-7:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -67893,7 +67178,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
 </div>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date & Place, wo/Country 1`] = `
+exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth Date & Place, wo/Country 1`] = `
 .emotion-3 {
   border: none;
   padding: 0;
@@ -67963,6 +67248,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-4 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-4 > div {
@@ -68038,6 +67327,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-5 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-5 > div {
@@ -69501,7 +68794,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Birth Date 
 </div>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Marriage, Default 1`] = `
+exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marriage, Default 1`] = `
 .emotion-0 {
   color: #091f2f;
   font-weight: 700;
@@ -69670,6 +68963,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Marriage, D
   }
 }
 
+.emotion-16 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-16 > div {
   text-align: left;
 }
@@ -69746,6 +69043,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Marriage, D
   }
 }
 
+.emotion-12 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-12 > div {
   text-align: left;
 }
@@ -69789,6 +69090,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Marriage, D
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-8 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-8 > div {
@@ -70368,7 +69673,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Marriage, D
 </div>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fields, no surname 1`] = `
+exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming Fields, no surname 1`] = `
 .emotion-8 {
   margin-bottom: 3em;
   background: none;
@@ -70401,6 +69706,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-8 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-8 > div {
@@ -70587,6 +69896,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
   }
 }
 
+.emotion-6 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-6 > div {
   text-align: left;
 }
@@ -70629,27 +69942,37 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
   display: block;
 }
 
-.css-1btkjiq .emotion-1:after {
+.css-1jy3mvz .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-lbsctu .emotion-1:after {
+.css-vfjwkx .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-3y8lfr .emotion-1:after {
+.css-wvkemw .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-sifr7p .emotion-1:after {
+.css-1ahsdhq .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-zx7u86 .emotion-1:after {
+.css-1nb9jwk .emotion-1:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-12yp9t2 .emotion-1:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-1ttcwo2 .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -71049,7 +70372,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
 </div>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fields, w/surname 1`] = `
+exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming Fields, w/surname 1`] = `
 .emotion-11 {
   margin-bottom: 3em;
   background: none;
@@ -71082,6 +70405,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-11 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-11 > div {
@@ -71268,6 +70595,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
   }
 }
 
+.emotion-9 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-9 > div {
   text-align: left;
 }
@@ -71310,27 +70641,37 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
   display: block;
 }
 
-.css-1btkjiq .emotion-1:after {
+.css-1jy3mvz .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-lbsctu .emotion-1:after {
+.css-vfjwkx .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-3y8lfr .emotion-1:after {
+.css-wvkemw .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-sifr7p .emotion-1:after {
+.css-1ahsdhq .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-zx7u86 .emotion-1:after {
+.css-1nb9jwk .emotion-1:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-12yp9t2 .emotion-1:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-1ttcwo2 .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -71340,6 +70681,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-7 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-7 > div {
@@ -71850,8 +71195,8 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Naming Fiel
 </div>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, City Hall 1`] = `
-.css-1d92czb .emotion-4:after {
+exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Residende, City Hall 1`] = `
+.css-1aiow01 .emotion-4:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -71960,6 +71305,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
   }
 }
 
+.emotion-2 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-2 > div {
   text-align: left;
 }
@@ -72002,7 +71351,7 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
   display: block;
 }
 
-.css-1btkjiq .emotion-4:after {
+.css-1jy3mvz .emotion-4:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -72044,6 +71393,10 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
   }
 }
 
+.emotion-6 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-6 > div {
   text-align: left;
 }
@@ -72082,22 +71435,32 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
   opacity: 0;
 }
 
-.css-3y8lfr .emotion-4:after {
+.css-wvkemw .emotion-4:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-sifr7p .emotion-4:after {
+.css-1ahsdhq .emotion-4:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-zx7u86 .emotion-4:after {
+.css-1nb9jwk .emotion-4:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-17tc7bx .emotion-4:after {
+.css-12yp9t2 .emotion-4:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-1ttcwo2 .emotion-4:after {
+  content: '&nbsp;';
+  opacity: 0;
+}
+
+.css-99cy70 .emotion-4:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -73893,7 +73256,1457 @@ exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 - Residende, 
 </div>
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 2. Person 1 1`] = `
+exports[`Storyshots Marriage Intention/Form Components Step 5. Review - Contact [Section] 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 1em 0;
+  color: #fff;
+}
+
+.emotion-0 .wrapper-title {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-0 .wrapper-title h1,
+.emotion-0 .wrapper-title h2 {
+  color: #091f2f;
+  font-size: 1.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Montserrat,Arial,sans-serif;
+  line-height: 1.875em;
+}
+
+.emotion-0 .wrapper-title h2 {
+  font-size: 1.125rem;
+}
+
+.emotion-0 .wrapper-btn .btn {
+  color: #091f2f;
+  background: #fff;
+  border: 2px solid #091f2f;
+}
+
+.emotion-0 .wrapper-btn .btn:hover {
+  color: #fff;
+  background: #1871bd;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .wrapper-title h1 {
+    line-height: 1.25em;
+  }
+}
+
+.emotion-1 .section-wrapper {
+  font-size: 0.9375rem;
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 2em;
+}
+
+.emotion-1 .section-wrapper h2 {
+  color: #091f2f;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.emotion-1 .section-wrapper .field-value-pair {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.emotion-1 .section-wrapper .field-value-pair label {
+  font-weight: normal;
+}
+
+.emotion-1 .section-wrapper .field-value-pair .field {
+  display: inline-block;
+  width: 60%;
+  color: #58585b;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+}
+
+.emotion-1 .section-wrapper .field-value-pair .value {
+  display: inline-block;
+  width: 40%;
+  font-weight: normal;
+}
+
+<div>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="wrapper-title"
+    >
+      <h1>
+        Contact Information
+      </h1>
+    </div>
+    <div
+      className="wrapper-btn"
+    >
+      <button
+        className="btn btn--b-sm"
+        onClick={[Function]}
+        type="button"
+      >
+        Edit This Page
+      </button>
+    </div>
+  </div>
+  <div
+    className="emotion-1"
+  >
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Personal Information
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Email
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          phillip.kelly@boston.gov
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Phone #
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          (617) 000-1111
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Appointment Date
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Sep 23, 1982
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Marriage Intention/Form Components Step 5. Review/Person Info View 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 1em 0;
+  color: #fff;
+}
+
+.emotion-0 .wrapper-title {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-0 .wrapper-title h1,
+.emotion-0 .wrapper-title h2 {
+  color: #091f2f;
+  font-size: 1.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: Montserrat,Arial,sans-serif;
+  line-height: 1.875em;
+}
+
+.emotion-0 .wrapper-title h2 {
+  font-size: 1.125rem;
+}
+
+.emotion-0 .wrapper-btn .btn {
+  color: #091f2f;
+  background: #fff;
+  border: 2px solid #091f2f;
+}
+
+.emotion-0 .wrapper-btn .btn:hover {
+  color: #fff;
+  background: #1871bd;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .wrapper-title h1 {
+    line-height: 1.25em;
+  }
+}
+
+.emotion-1 .section-wrapper {
+  font-size: 0.9375rem;
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 2em;
+}
+
+.emotion-1 .section-wrapper h2 {
+  color: #091f2f;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+}
+
+.emotion-1 .section-wrapper .field-value-pair {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.emotion-1 .section-wrapper .field-value-pair label {
+  font-weight: normal;
+}
+
+.emotion-1 .section-wrapper .field-value-pair .field {
+  display: inline-block;
+  width: 60%;
+  color: #58585b;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+}
+
+.emotion-1 .section-wrapper .field-value-pair .value {
+  display: inline-block;
+  width: 40%;
+  font-weight: normal;
+}
+
+<div>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="wrapper-title"
+    >
+      <h1>
+        Person A
+      </h1>
+    </div>
+    <div
+      className="wrapper-btn"
+    >
+      <button
+        className="btn btn--b-sm"
+        onClick={[Function]}
+        type="button"
+      >
+        Edit This Page
+      </button>
+    </div>
+  </div>
+  <div
+    className="emotion-1"
+  >
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Personal Information
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Legal Name
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Thomas Menino
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Last Name to be Used After Marriage
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Menino
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Occupation
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Mayor
+        </span>
+      </div>
+    </div>
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Date and Place of Birth
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Date of Birth
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Jan 01, 1933
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          BirthPlace
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Boston,  USA
+        </span>
+      </div>
+    </div>
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Residence
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Address
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          
+          1 City Hall Plaza,
+          Boston
+          MA 
+          02201-1020 
+           USA
+        
+        </span>
+      </div>
+    </div>
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Marriage
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          If Applicable, Blood Relation To Current Partner
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Yes
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Blood Relation Description
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Third Cousin's Removed
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Marriage Number
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          2nd
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          If Applicable, Status of Last Marriage
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Void or annulled by court order
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          If Applicable, Status of Civil Union or Domestic Partnership
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Yes
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          If Applicable, State of Civil Union or Domestic Partnership
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Domestic Partnership
+        </span>
+      </div>
+    </div>
+    <div
+      className="section-wrapper"
+    >
+      <h2>
+        Parents
+      </h2>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Parent 1
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Mother F. Mother L.
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Parent 2
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          Father F. Father L.
+        </span>
+      </div>
+      <div
+        className="field-value-pair"
+      >
+        <label
+          className="field"
+        >
+          Status of Marriage at Time of Birth
+          : 
+        </label>
+        <span
+          className="value"
+        >
+          No
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Marriage Intention/Form Components Tool-Tip 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  position: relative;
+}
+
+.emotion-0 .icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  background: #1871bd;
+  margin: 5px 0px 0 5px;
+  padding: 5.4px 0 0 3.00px;
+  line-height: 0px;
+  font-size: 8px;
+  color: white;
+}
+
+.emotion-0 .icon::before {
+  content: '?';
+}
+
+.emotion-0 .tt--info {
+  text-transform: lowercase;
+  padding-left: 3.5px;
+}
+
+.emotion-0 .tt--info::before {
+  content: 'i';
+}
+
+.emotion-0 .msg {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  visibility: hidden;
+  z-index: 2;
+  padding: 0.25em 0.5em;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
+  font-weight: 300;
+  font-style: italic;
+  text-transform: initial;
+  background-color: #f3f3f3;
+  min-width: 150px;
+  position: absolute;
+  margin-left: 20px;
+  top: calc(-30% + 1px);
+}
+
+.emotion-0 .icon:hover + .msg {
+  visibility: visible;
+}
+
+.emotion-2 {
+  margin-top: 4em;
+}
+
+<div>
+  <div>
+    <span
+      className="tool-tip__wrapper emotion-0"
+    >
+      <div
+        className="icon"
+      />
+      <div
+        className="msg"
+      >
+        This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
+      </div>
+    </span>
+  </div>
+  <div
+    className="emotion-2"
+  >
+    <span
+      className="tool-tip__wrapper emotion-0"
+    >
+      <div
+        className="icon"
+      />
+      <div
+        className="msg"
+      >
+        This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
+      </div>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Marriage Intention/Form Step 1. Instructions 1`] = `
+Array [
+  <a
+    className="btn a11y--h a11y--f"
+    href="#content-start"
+    onClick={[Function]}
+    style={
+      Object {
+        "margin": 4,
+      }
+    }
+    tabIndex={1}
+  >
+    Jump to content
+  </a>,
+  <input
+    aria-label="Open Boston.gov menu"
+    className="brg-tr"
+    id="brg-tr"
+    onKeyDown={[Function]}
+    type="checkbox"
+  />,
+  <nav
+    aria-label="Boston.gov menu"
+    className="nv-m"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+  <div class=\\"nv-m-h\\">
+      <div class=\\"nv-m-h-ic\\">
+        <a href=\\"https://www.boston.gov/\\" title=\\"Go to home page\\">
+          <img src=\\"https://patterns.boston.gov/images/b-dark.svg\\" title=\\"B\\" aria-hidden=\\"true\\" class=\\"nv-m-h-i\\">
+        </a>
+      </div>
+      <div id=\\"nv-m-h-t\\" class=\\"nv-m-h-t\\">&#xA0;</div>
+  </div>
+  <div class=\\"nv-m-c\\">
+    
+
+<ul class=\\"nv-m-c-l\\"><li class=\\"nv-m-c-l-i is-l first leaf menu-mlid-763366 nv-m-c-a--y\\"><a href=\\"http://www.cityofboston.gov/311/\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p three-one-one\\">Help / 311</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-210101\\"><a href=\\"https://www.boston.gov/homepage\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Home</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171721\\"><a href=\\"https://www.boston.gov/guides\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Guides to Boston</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-171726\\"><a href=\\"https://www.boston.gov/departments\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Departments</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-1675906\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Public Notices</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354776\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Pay and apply</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-2354781\\"><a href=\\"https://www.boston.gov/career-center\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Work for the City</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-885866\\"><a href=\\"https://www.boston.gov/events\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Events</a></li>
+<li class=\\"nv-m-c-l-i is-l leaf menu-mlid-202946\\"><a href=\\"https://www.boston.gov/news\\" class=\\"nv-m-c-a nv-m-c-a--p\\">News</a></li>
+<li class=\\"nv-m-c-l-i is-e expanded menu-mlid-171731\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Places</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-2354766\\"><a href=\\"https://www.boston.gov/cemeteries\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Cemeteries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354751\\"><a href=\\"https://www.boston.gov/community-centers\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Community centers</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-184086\\"><a href=\\"https://www.boston.gov/departments/landmarks-commission#historic-districts\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Historic Districts</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171801\\"><a href=\\"http://www.bpl.org/general/branch.htm\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Libraries</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354771\\"><a href=\\"https://www.boston.gov/neighborhoods\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Neighborhoods</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-2354761\\"><a href=\\"https://www.boston.gov/parks-and-playgrounds\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Parks and playgrounds</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-652731\\"><a href=\\"http://www.bostonpublicschools.org/Page/628\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Schools</a></li>
+</ul></li>
+<li class=\\"nv-m-c-l-i is-e last expanded menu-mlid-171741\\"><a href=\\"https://www.boston.gov/#\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p nolink\\">Government</a><ul class=\\"nv-m-c-l-l\\"><li class=\\"nv-m-c-bc nv-m-c-b--h\\"><button class=\\"nv-m-c-b\\">Back</button></li><li class=\\"nv-m-c-l-l-i is-l first leaf menu-mlid-171851\\"><a href=\\"https://www.boston.gov/departments/mayors-office\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">The Mayor&apos;s Office</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171856\\"><a href=\\"https://www.boston.gov/departments/city-council\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Council</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171861\\"><a href=\\"https://www.boston.gov/departments/city-clerk\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City Clerk</a></li>
+<li class=\\"nv-m-c-l-l-i is-l leaf menu-mlid-171866\\"><a href=\\"https://www.boston.gov/departments/election\\" title=\\"\\" class=\\"nv-m-c-a nv-m-c-a--p\\">Elections</a></li>
+<li class=\\"nv-m-c-l-l-i is-l last leaf menu-mlid-178041\\"><a href=\\"https://www.boston.gov/departments/311/city-boston-government\\" class=\\"nv-m-c-a nv-m-c-a--p\\">City government</a></li>
+</ul></li>
+</ul>  </div>
+",
+      }
+    }
+  />,
+  .emotion-1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-0 {
+  color: #d22d23;
+}
+
+.emotion-6 fieldset + fieldset {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-6 fieldset + fieldset {
+    margin-top: 4rem;
+  }
+
+  .emotion-6 fieldset + fieldset .lnk {
+    padding-left: 0;
+  }
+}
+
+.emotion-7 {
+  text-align: center;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-7 {
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+
+  .emotion-7 > div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .emotion-7 > div.ta-r > button {
+    margin-left: auto;
+  }
+
+  .emotion-7 .lnk {
+    padding-left: 0;
+  }
+}
+
+.emotion-2 {
+  padding-right: 0;
+}
+
+@media screen and (min-width:980px) {
+  .emotion-2 {
+    font-size: 34px;
+  }
+}
+
+.emotion-3 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-3 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-3 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-3 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-3 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-3 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-3 .progressbar .nav a.completed,
+.emotion-3 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-3 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.focused,
+.emotion-3 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-3 .progressbar .nav a.done,
+.emotion-3 .progressbar .nav a.done:hover,
+.emotion-3 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-3 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-3 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-3 {
+    max-width: 25.875em;
+  }
+
+  .emotion-3 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-3 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-3 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+.emotion-8 {
+  padding: 0px;
+}
+
+.emotion-5 {
+  line-height: 1.38em;
+}
+
+.emotion-5 h1 {
+  padding-bottom: 0.25rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-family: Montserrat,Arial,sans-serif !important;
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: normal;
+  color: #091f2f;
+}
+
+.emotion-5 h2 {
+  padding-bottom: 0.25rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  border-bottom: 4px solid #091f2f;
+  font-family: Montserrat,Arial,sans-serif !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-style: normal;
+  color: #091f2f;
+}
+
+.emotion-5 .getting-started {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-5 .getting-started .emphasis {
+  font-style: bold;
+  font-weight: 700;
+}
+
+.emotion-5 .getting-started ul {
+  margin-bottom: 1rem;
+}
+
+.emotion-5 .getting-started ul li {
+  list-style: initial;
+  margin: 0.25rem 0 0.25rem 1.75rem;
+}
+
+.emotion-4 {
+  background: #FFE5A0;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.35em 0.75em;
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 0.95em;
+}
+
+.emotion-4 .note {
+  font-weight: bold;
+  padding-right: 0.25em;
+}
+
+<div
+    className="mn--full-ie"
+  >
+    <div
+      className="mn mn--full "
+    >
+      <input
+        aria-hidden="true"
+        className="s-tr"
+        id="s-tr"
+        type="checkbox"
+      />
+      <header
+        className="h"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "
+  <label for=\\"brg-tr\\" class=\\"brg-b\\">
+    <div class=\\"brg\\">
+      <span class=\\"brg-c\\">
+        <span class=\\"brg-c-i\\"></span>
+      </span>
+      <span class=\\"brg-t\\"><span class=\\"a11y--h\\">Toggle </span>Menu</span>
+    </div>
+  </label>
+
+  <div class=\\"lo lo--abs\\">
+    <div class=\\"lo-l\\">
+      <a href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\">
+        <img src=\\"https://patterns.boston.gov/images/public/logo.svg\\" alt=\\"Home | Boston.gov\\" class=\\"lo-i\\">
+      </a>
+      <span class=\\"lo-t\\"><a href=\\"https://www.boston.gov/mayor\\">Mayor Michelle Wu</a></span>
+    </div>
+  </div>
+  <a id=\\"seal\\" href=\\"https://www.boston.gov/\\" title=\\"Home | Boston.gov\\" rel=\\"home\\" class=\\"s\\">
+  <img src=\\"https://patterns.boston.gov/images/public/seal.svg\\" alt=\\"Home | Boston.gov\\" class=\\"s-i\\" />
+</a>
+
+<nav class=\\"nv-h\\">
+  <ul class=\\"nv-h-l\\">
+    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/pay-and-apply\\" title=\\"Pay and apply\\" class=\\"nv-h-l-a\\">Pay and apply</a></li>
+    <li class=\\"nv-h-l-i\\"><a href=\\"https://www.boston.gov/public-notices\\" title=\\"Public notices\\" class=\\"nv-h-l-a\\">Public notices</a></li>
+    <li class=\\"nv-h-l-i\\"><a href=\\"mailto:feedback@boston.gov\\" title=\\"Feedback\\" class=\\"nv-h-l-a\\" onClick=\\"document.getElementById(&quot;contactForm&quot;).show(); return false;\\">Feedback</a></li>
+    <li class=\\"tr nv-h-l-i\\">
+      <a href=\\"https://www.boston.gov/#translate\\" title=\\"Translate\\" class=\\"nv-h-l-a nv-h-l-a--k--s tr-link\\">Translate</a>
+      <ul class=\\"tr-dd\\">
+        <li><span class=\\"notranslate tr-dd-link tr-dd-link--message\\">Loading...</span></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"ht\\">Krey&#xF2;l Ayisyen</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"pt\\">Portugese</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"es\\">Espa&#xF1;ol</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link\\" data-ln=\\"vi\\">Ti&#x1EBF;ng Vi&#x1EC7;t</a></li>
+        <li><a href=\\"https://www.boston.gov/#\\" class=\\"notranslate tr-dd-link tr-dd-link--hidden\\" data-ln=\\"en\\">English</a></li>
+      </ul>
+    </li>
+    <li class=\\"nv-h-l-i\\">
+      <label for=\\"s-tr\\" title=\\"Search\\" class=\\"nv-h-l-a nv-h-l-a--k nv-h-l-a-ic\\" id=\\"searchIcon\\">
+        <svg id=\\"Layer_2\\" aria-label=\\"Search\\" xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 40 41\\"><title>Search</title><path class=\\"nv-h-l-a-i\\" d=\\"M24.2.6C15.8.6 9 7.4 9 15.8c0 3.7 1.4 7.2 3.6 9.8L1.2 37c-.8.8-.8 2 0 2.8.4.4.9.6 1.4.6s1-.2 1.4-.6l11.5-11.5C18 30 21 31 24.2 31c8.4 0 15.2-6.8 15.2-15.2C39.4 7.4 32.6.6 24.2.6zm0 26.5c-6.2 0-11.2-5-11.2-11.2S18 4.6 24.2 4.6s11.2 5 11.2 11.2-5 11.3-11.2 11.3z\\"/></svg>
+      </label>
+    </li>
+  </ul>
+</nav>
+
+<div class=\\"h-s\\">
+  <form class=\\"sf\\" action=\\"https://www.boston.gov/search\\" accept-charset=\\"UTF-8\\" method=\\"get\\">
+    <input name=\\"utf8\\" type=\\"hidden\\" value=\\"&#x2713;\\">
+    <div class=\\"sf-i\\">
+      <input type=\\"text\\" name=\\"query\\" id=\\"query\\" value=\\"\\" placeholder=\\"Search&#x2026;\\" class=\\"sf-i-f\\" autocomplete=\\"off\\" aria-label=\\"Search\\">
+      <button class=\\"sf-i-b\\">Search</button>
+    </div>
+  </form>
+</div>
+  ",
+          }
+        }
+        role="banner"
+      />
+      <div
+        className="p-t300"
+      >
+        <nav
+          aria-label="Breadcrumbs"
+          className="brc p-a300 emotion-1"
+        >
+          <ul
+            className="brc-l"
+          >
+            <li
+              className="brc-l-i"
+            >
+              <a
+                href="https://www.boston.gov/"
+              >
+                Home
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
+                }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
+            >
+              <a
+                href="https://www.boston.gov/departments"
+              >
+                Departments
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
+                }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
+            >
+              <a
+                href="https://www.boston.gov/departments/registry"
+              >
+                Registry: Birth, death, and marriage and marriage intention
+              </a>
+              <span
+                aria-hidden="true"
+                className="brc-s"
+                style={
+                  Object {
+                    "cursor": "default",
+                  }
+                }
+              >
+                 
+                ›
+                 
+              </span>
+            </li>
+            <li
+              className="brc-l-i"
+            >
+              <a
+                aria-current="page"
+                className="emotion-0"
+                href="/marriageintention"
+              >
+                Marriage Intention
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div
+        className="a11y--content-start"
+        id="content-start"
+      />
+      <main
+        className="b-ff"
+      >
+        <div
+          aria-live="polite"
+          className="b-c"
+        >
+          <h1
+            className="sh-title emotion-2"
+          >
+            Marriage Intention Application
+          </h1>
+          <div
+            className="emotion-3"
+          >
+            <div
+              className="progressbar"
+            >
+              <div
+                className="nav"
+              >
+                <a
+                  aria-label="Getting Started"
+                  className="completed focused current"
+                  onClick={[Function]}
+                  title="Getting Started"
+                >
+                  Getting Started
+                  <span
+                    className="arrow"
+                  />
+                </a>
+                <a
+                  aria-label="Person 1"
+                  className="uncompleted"
+                  onClick={[Function]}
+                  title="Person 1"
+                >
+                  Person 1
+                  <span
+                    className="arrow"
+                  />
+                </a>
+                <a
+                  aria-label="Person 2"
+                  className="uncompleted"
+                  onClick={[Function]}
+                  title="Person 2"
+                >
+                  Person 2
+                  <span
+                    className="arrow"
+                  />
+                </a>
+                <a
+                  aria-label="Contact Info"
+                  className="uncompleted"
+                  onClick={[Function]}
+                  title="Contact Info"
+                >
+                  Contact Info
+                  <span
+                    className="arrow"
+                  />
+                </a>
+                <a
+                  aria-label="Review"
+                  className="uncompleted"
+                  onClick={[Function]}
+                  title="Review"
+                >
+                  Review
+                  <span
+                    className="arrow"
+                  />
+                </a>
+                <a
+                  aria-label="Submit"
+                  className="uncompleted"
+                  onClick={[Function]}
+                  title="Submit"
+                >
+                  Submit
+                  <span
+                    className="arrow"
+                  />
+                </a>
+              </div>
+              <div
+                className="progress-text"
+              >
+                <span>
+                  Step 1 of 6
+                </span>
+                <span
+                  className="mobile"
+                >
+                  : 
+                   
+                  Getting Started
+                </span>
+              </div>
+            </div>
+          </div>
+          <section
+            className="m-t500"
+          >
+            <div
+              className="b-c b-c--nbp emotion-8"
+            >
+              <div
+                className="emotion-6"
+              >
+                <div
+                  className="emotion-5"
+                >
+                  <h1>
+                    Before You Get Started
+                  </h1>
+                  <div
+                    className="getting-started"
+                  >
+                    <p>
+                      <span
+                        className="emphasis"
+                      >
+                        The information you provide in this application will help us complete the marriage intention form, which is a legal document that is important for the marriage license.
+                      </span>
+                       
+                      During your appointment, we will review and finalize the information you share here and make sure everything's set before it is printed onto your marriage intention form.
+                    </p>
+                    <p>
+                      It should take about 
+                      <span
+                        className="emphasis"
+                      >
+                        15 minutes
+                      </span>
+                       
+                      to finish this application if you have all the information below. We recommend that you and your partner fill this out together.
+                    </p>
+                  </div>
+                  <h2>
+                    What We Need From You and Your Partner
+                  </h2>
+                  <div
+                    className="getting-started"
+                  >
+                    <ul>
+                      <li>
+                        Legal names and last names you'll use after marriage
+                      </li>
+                      <li>
+                        Birthdates and birthplaces
+                      </li>
+                      <li>
+                        Residential addresses
+                      </li>
+                      <li>
+                        If you've been married before, how many times and the status of your last marriage
+                      </li>
+                      <li>
+                        If you've been in a civil union or domestic partnership before, its location and status
+                      </li>
+                      <li>
+                        Parents' names (including their family names) and whether they were married when you were born
+                      </li>
+                    </ul>
+                  </div>
+                  <h2>
+                    Documents That Might Be Helpful
+                  </h2>
+                  <div
+                    className="getting-started"
+                  >
+                    <ul>
+                      <li>
+                        A government-issued ID
+                      </li>
+                      <li>
+                        A birth certificate
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    className="emotion-4"
+                  >
+                    <span
+                      className="note"
+                    >
+                      Note:
+                    </span>
+                    If you edit your information, you must click the "save and continue" button to save your changes.
+                  </div>
+                </div>
+              </div>
+              <div
+                className="g g--mr emotion-7"
+              >
+                <div
+                  className="t--info g--6 m-b500"
+                />
+                <div
+                  className="g--6 ta-r m-b500"
+                >
+                  <button
+                    className="btn btn--b-sm"
+                    disabled={false}
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    START
+                  </button>
+                </div>
+              </div>
+              <div
+                className="m-v700"
+              >
+                Questions? Email the Registry Department at
+                 
+                <a
+                  href="mailto:marriage@boston.gov"
+                  onClick={[Function]}
+                >
+                  marriage@boston.gov
+                </a>
+                .
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>,
+  <footer
+    className="ft"
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "
+<div class=\\"ft-c ft-ite\\">
+  <ul class=\\"ft-ll ft-ite-links\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        BOS:311 - Report an issue
+      </a>
+    </li>
+
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/innovation-and-technology/privacy-and-security-statement\\" target=\\"_blank\\" title=\\"\\" class=\\"ft-ll-a\\">Privacy Policy</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/mayors-office/contact-boston-city-hall\\" title=\\"\\" class=\\"ft-ll-a\\">Contact us</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/digital-team/city-boston-alerts-and-notifications\\" title=\\"\\" class=\\"ft-ll-a\\">Alerts and notifications</a>
+    </li>
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"https://www.boston.gov/departments/public-records\\" title=\\"\\" class=\\"ft-ll-a\\">Public records requests</a>
+    </li>
+  </ul>
+
+  <ul class=\\"ft-ll ft-ite-311\\">
+    <li class=\\"ft-ll-i\\">
+      <a href=\\"http://www.cityofboston.gov/311/\\" class=\\"ft-ll-a lnk--yellow\\">
+        <span class=\\"ft-ll-311\\">BOS:311</span>
+        <span class=\\"tablet--hidden\\"> - </span>
+        Report an issue
+      </a>
+    </li>
+  </ul>
+</div>
+",
+      }
+    }
+    style={
+      Object {
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  />,
+]
+`;
+
+exports[`Storyshots Marriage Intention/Form Step 2. Person 1 1`] = `
 Array [
   <a
     className="btn a11y--h a11y--f"
@@ -74158,6 +74971,7 @@ Array [
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-3 .progressbar .nav a:last-child {
@@ -74293,6 +75107,10 @@ Array [
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-13 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-13 > div {
@@ -74479,6 +75297,10 @@ Array [
   }
 }
 
+.emotion-11 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-11 > div {
   text-align: left;
 }
@@ -74552,6 +75374,10 @@ Array [
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-19 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-19 > div {
@@ -74666,6 +75492,10 @@ Array [
   }
 }
 
+.emotion-23 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-23 > div {
   text-align: left;
 }
@@ -74714,6 +75544,10 @@ Array [
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-33 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-33 > div {
@@ -74835,6 +75669,10 @@ Array [
   }
 }
 
+.emotion-45 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-45 > div {
   text-align: left;
 }
@@ -74882,6 +75720,10 @@ Array [
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-43 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-43 > div {
@@ -78941,7 +79783,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 3. Person 2 1`] = `
+exports[`Storyshots Marriage Intention/Form Step 3. Person 2 1`] = `
 Array [
   <a
     className="btn a11y--h a11y--f"
@@ -79206,6 +80048,7 @@ Array [
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-3 .progressbar .nav a:last-child {
@@ -79341,6 +80184,10 @@ Array [
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-13 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-13 > div {
@@ -79527,6 +80374,10 @@ Array [
   }
 }
 
+.emotion-11 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-11 > div {
   text-align: left;
 }
@@ -79600,6 +80451,10 @@ Array [
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-19 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-19 > div {
@@ -79714,6 +80569,10 @@ Array [
   }
 }
 
+.emotion-23 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-23 > div {
   text-align: left;
 }
@@ -79762,6 +80621,10 @@ Array [
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.emotion-33 .ra-l {
+  font-size: 0.9375em;
 }
 
 .emotion-33 > div {
@@ -79883,6 +80746,10 @@ Array [
   }
 }
 
+.emotion-45 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-45 > div {
   text-align: left;
 }
@@ -79932,6 +80799,10 @@ Array [
   }
 }
 
+.emotion-43 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-43 > div {
   text-align: left;
 }
@@ -79966,16 +80837,6 @@ Array [
 }
 
 .emotion-43 .emotion-6:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
-.css-17tc7bx .emotion-6:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
-.css-1nn14tl .emotion-6:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -83999,7 +84860,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 4. Contact Info 1`] = `
+exports[`Storyshots Marriage Intention/Form Step 4. Contact Info 1`] = `
 Array [
   <a
     className="btn a11y--h a11y--f"
@@ -84264,6 +85125,7 @@ Array [
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-3 .progressbar .nav a:last-child {
@@ -84354,87 +85216,37 @@ Array [
   padding: 0px;
 }
 
-.css-1d92czb .emotion-5:after {
+.css-1aiow01 .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-1ndjemn .emotion-5:after {
+.css-1b8rdz8 .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-1btkjiq .emotion-5:after {
+.css-1jy3mvz .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-lbsctu .emotion-5:after {
+.css-vfjwkx .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-3y8lfr .emotion-5:after {
+.css-wvkemw .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-sifr7p .emotion-5:after {
+.css-1ahsdhq .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
 
-.css-zx7u86 .emotion-5:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
-.css-17tc7bx .emotion-5:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
-@media screen and (min-width:768px) {
-  .emotion-11 {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.emotion-11 > div {
-  text-align: left;
-}
-
-@media screen and (min-width:768px) {
-  .emotion-11 > div {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-  }
-}
-
-.emotion-11 > .RADIOGROUP label {
-  display: block;
-}
-
-.emotion-11 h3 {
-  font-family: Montserrat,Arial,sans-serif !important;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.emotion-11 .notice {
-  font-size: 0.8125em;
-  clear: both;
-  min-height: 1px;
-  overflow: hidden;
-  display: block;
-  margin: 0.25em 0 0.75em 0;
-  line-height: 1.5em;
-}
-
-.emotion-11 .emotion-5:after {
+.css-1nb9jwk .emotion-5:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -84502,6 +85314,10 @@ Array [
   }
 }
 
+.emotion-7 .ra-l {
+  font-size: 0.9375em;
+}
+
 .emotion-7 > div {
   text-align: left;
 }
@@ -84565,6 +85381,55 @@ Array [
 
 .emotion-6 .contact-fields input.txt-f {
   width: 100%;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-11 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.emotion-11 .ra-l {
+  font-size: 0.9375em;
+}
+
+.emotion-11 > div {
+  text-align: left;
+}
+
+@media screen and (min-width:768px) {
+  .emotion-11 > div {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+}
+
+.emotion-11 > .RADIOGROUP label {
+  display: block;
+}
+
+.emotion-11 h3 {
+  font-family: Montserrat,Arial,sans-serif !important;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.emotion-11 .notice {
+  font-size: 0.8125em;
+  clear: both;
+  min-height: 1px;
+  overflow: hidden;
+  display: block;
+  margin: 0.25em 0 0.75em 0;
+  line-height: 1.5em;
+}
+
+.emotion-11 .emotion-5:after {
+  content: '&nbsp;';
+  opacity: 0;
 }
 
 .emotion-8 {
@@ -85307,171 +86172,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 5. Review - Contact [Section] 1`] = `
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin: 1em 0;
-  color: #fff;
-}
-
-.emotion-0 .wrapper-title {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
-
-.emotion-0 .wrapper-title h1,
-.emotion-0 .wrapper-title h2 {
-  color: #091f2f;
-  font-size: 1.5625rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: Montserrat,Arial,sans-serif;
-  line-height: 1.875em;
-}
-
-.emotion-0 .wrapper-title h2 {
-  font-size: 1.125rem;
-}
-
-.emotion-0 .wrapper-btn .btn {
-  color: #091f2f;
-  background: #fff;
-  border: 2px solid #091f2f;
-}
-
-.emotion-0 .wrapper-btn .btn:hover {
-  color: #fff;
-  background: #1871bd;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-0 .wrapper-title h1 {
-    line-height: 1.25em;
-  }
-}
-
-.emotion-1 .section-wrapper {
-  font-size: 0.9375rem;
-  font-family: Montserrat,Arial,sans-serif;
-  margin-bottom: 1em;
-}
-
-.emotion-1 .section-wrapper h2 {
-  color: #091f2f;
-  font-size: 1.125rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-}
-
-.emotion-1 .section-wrapper .field-value-pair .field {
-  color: #58585b;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.emotion-1 .section-wrapper .field-value-pair .value {
-  font-weight: normal;
-}
-
-<div>
-  <div
-    className="emotion-0"
-  >
-    <div
-      className="wrapper-title"
-    >
-      <h1>
-        Contact Information
-      </h1>
-    </div>
-    <div
-      className="wrapper-btn"
-    >
-      <button
-        className="btn btn--b-sm"
-        onClick={[Function]}
-        type="button"
-      >
-        Edit This Page
-      </button>
-    </div>
-  </div>
-  <div
-    className="emotion-1"
-  >
-    <div
-      className="section-wrapper"
-    >
-      <h2>
-        Personal Information
-      </h2>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Email
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          phillip.kelly@boston.gov
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Phone #
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          (617) 000-1111
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Appointment Date
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Sep 23, 1982
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Full Form 1`] = `
+exports[`Storyshots Marriage Intention/Form Step 5. Review/Full Form 1`] = `
 Array [
   <a
     className="btn a11y--h a11y--f"
@@ -85648,6 +86349,7 @@ Array [
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-3 .progressbar .nav a:last-child {
@@ -85833,7 +86535,7 @@ Array [
 .emotion-6 .section-wrapper {
   font-size: 0.9375rem;
   font-family: Montserrat,Arial,sans-serif;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 .emotion-6 .section-wrapper h2 {
@@ -85844,14 +86546,29 @@ Array [
   margin-bottom: 0.5em;
 }
 
+.emotion-6 .section-wrapper .field-value-pair {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.emotion-6 .section-wrapper .field-value-pair label {
+  font-weight: normal;
+}
+
 .emotion-6 .section-wrapper .field-value-pair .field {
+  display: inline-block;
+  width: 60%;
   color: #58585b;
   font-size: 0.9375rem;
-  font-weight: 700;
   text-transform: uppercase;
 }
 
 .emotion-6 .section-wrapper .field-value-pair .value {
+  display: inline-block;
+  width: 40%;
   font-weight: normal;
 }
 
@@ -86915,385 +87632,7 @@ Array [
 ]
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Step 5. Review/Person Info View 1`] = `
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin: 1em 0;
-  color: #fff;
-}
-
-.emotion-0 .wrapper-title {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
-
-.emotion-0 .wrapper-title h1,
-.emotion-0 .wrapper-title h2 {
-  color: #091f2f;
-  font-size: 1.5625rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: Montserrat,Arial,sans-serif;
-  line-height: 1.875em;
-}
-
-.emotion-0 .wrapper-title h2 {
-  font-size: 1.125rem;
-}
-
-.emotion-0 .wrapper-btn .btn {
-  color: #091f2f;
-  background: #fff;
-  border: 2px solid #091f2f;
-}
-
-.emotion-0 .wrapper-btn .btn:hover {
-  color: #fff;
-  background: #1871bd;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-0 .wrapper-title h1 {
-    line-height: 1.25em;
-  }
-}
-
-.emotion-1 .section-wrapper {
-  font-size: 0.9375rem;
-  font-family: Montserrat,Arial,sans-serif;
-  margin-bottom: 1em;
-}
-
-.emotion-1 .section-wrapper h2 {
-  color: #091f2f;
-  font-size: 1.125rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 0.5em;
-}
-
-.emotion-1 .section-wrapper .field-value-pair .field {
-  color: #58585b;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.emotion-1 .section-wrapper .field-value-pair .value {
-  font-weight: normal;
-}
-
-<div>
-  <div
-    className="emotion-0"
-  >
-    <div
-      className="wrapper-title"
-    >
-      <h1>
-        Person A
-      </h1>
-    </div>
-    <div
-      className="wrapper-btn"
-    >
-      <button
-        className="btn btn--b-sm"
-        onClick={[Function]}
-        type="button"
-      >
-        Edit This Page
-      </button>
-    </div>
-  </div>
-  <div
-    className="emotion-1"
-  >
-    <div
-      className="section-wrapper"
-    >
-      <h2>
-        Personal Information
-      </h2>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Legal Name
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Phillip Kelly
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Last Name to be Used After Marriage
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Kelly
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Occupation
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Developer
-        </span>
-      </div>
-    </div>
-    <div
-      className="section-wrapper"
-    >
-      <h2>
-        Date and Place of Birth
-      </h2>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Date of Birth
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Sep 23, 1982
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          BirthPlace
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          La Ceiba,  HONDURAS
-        </span>
-      </div>
-    </div>
-    <div
-      className="section-wrapper"
-    >
-      <h2>
-        Residence
-      </h2>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Address
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          
-          100 Howard Ave. Apt 2,
-          Boston
-          MA 
-          02125 
-           USA
-        
-        </span>
-      </div>
-    </div>
-    <div
-      className="section-wrapper"
-    >
-      <h2>
-        Marriage
-      </h2>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          If Applicable, Blood Relation To Current Partner
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Yes
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Blood Relation Description
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Third Cousin's Removed
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Marriage Number
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          2nd
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          If Applicable, Status of Last Marriage
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Void or annulled by court order
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          If Applicable, Status of Civil Union or Domestic Partnership
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Yes
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          If Applicable, State of Civil Union or Domestic Partnership
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Domestic Partnership
-        </span>
-      </div>
-    </div>
-    <div
-      className="section-wrapper"
-    >
-      <h2>
-        Parents
-      </h2>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Parent 1
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Mother F. Mother L.
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Parent 2
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Father F. Father L.
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Status of Marriage at Time of Birth
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          No
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Storyshots Marriage Intention/Form Pages Step 6. Submit 1`] = `
+exports[`Storyshots Marriage Intention/Form Step 6. Submit 1`] = `
 Array [
   <a
     className="btn a11y--h a11y--f"
@@ -87487,6 +87826,7 @@ Array [
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-3 .progressbar .nav a:last-child {
@@ -87992,107 +88332,6 @@ Array [
 ]
 `;
 
-exports[`Storyshots Marriage Intention/Form Pages Tool-Tip 1`] = `
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
-}
-
-.emotion-0 .icon {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
-}
-
-.emotion-0 .icon::before {
-  content: '?';
-}
-
-.emotion-0 .tt--info {
-  text-transform: lowercase;
-  padding-left: 3.5px;
-}
-
-.emotion-0 .tt--info::before {
-  content: 'i';
-}
-
-.emotion-0 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
-  padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
-  font-weight: 300;
-  font-style: italic;
-  text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
-}
-
-.emotion-0 .icon:hover + .msg {
-  visibility: visible;
-}
-
-.emotion-2 {
-  margin-top: 4em;
-}
-
-<div>
-  <div>
-    <span
-      className="tool-tip__wrapper emotion-0"
-    >
-      <div
-        className="icon"
-      />
-      <div
-        className="msg"
-      >
-        This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
-      </div>
-    </span>
-  </div>
-  <div
-    className="emotion-2"
-  >
-    <span
-      className="tool-tip__wrapper emotion-0"
-    >
-      <div
-        className="icon"
-      />
-      <div
-        className="msg"
-      >
-        This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
-      </div>
-    </span>
-  </div>
-</div>
-`;
-
 exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (default) 1`] = `
 .emotion-0 {
   display: grid;
@@ -88140,6 +88379,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -88376,6 +88616,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -88612,6 +88853,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -88848,6 +89090,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -89084,6 +89327,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -89320,6 +89564,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
@@ -89556,6 +89801,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
   background: #fff;
   width: 2%;
   font-size: 0.85em;
+  vertical-align: middle;
 }
 
 .emotion-0 .progressbar .nav a:last-child {
