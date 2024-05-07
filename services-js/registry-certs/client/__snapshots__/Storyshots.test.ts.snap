@@ -9989,330 +9989,376 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   font-weight: bold;
 }
 
-<div>
+<div
+  className="b-c b-c--hsm"
+>
   <div
-    className="b-c b-c--hsm"
+    className="emotion-7"
   >
-    <div
-      className="emotion-7"
+    <fieldset
+      className=" emotion-2"
     >
-      <fieldset
-        className=" emotion-2"
-      >
-        <legend>
-          <h2
-            className="emotion-0"
-          >
-            What was 
-            their
-             name at birth?
-          </h2>
-        </legend>
-        <p
-          className="lh--400 t--s400 m-b500"
-        >
-          If 
-          they
-           changed 
-          their
-           
-          name at some point, please use the name 
-          they
-           
-          were given at birth. If 
-          they
-           were adopted, use
-           
-          their
-           post-adoption name. Please note, we do not need 
-          their
-           middle name to process your request.
-        </p>
-        <div
-          className="emotion-1"
-        >
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-2048906072"
-              style={Object {}}
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                First Name
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              id="input-2048906072"
-              name="firstName"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-            <div
-              className="t--subinfo t--err m-b100 m-t100"
-            >
-               
-            </div>
-          </div>
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-1103291528"
-              style={Object {}}
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                Last Name
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              id="input-1103291528"
-              name="lastName"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-            <div
-              className="t--subinfo t--err m-b100 m-t100"
-            >
-               
-            </div>
-          </div>
-        </div>
-        <div
-          className="m-t700"
-        >
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-2099238988"
-              style={Object {}}
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                Alternative spelling
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              id="input-2099238988"
-              name="altSpelling"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-            <div
-              className="t--subinfo t--err m-b100 m-t100"
-            >
-               
-            </div>
-          </div>
-        </div>
-      </fieldset>
-      <div
-        className="m-v700"
-      >
-        <fieldset
-          className="emotion-5"
-        >
-          <div>
-            <legend
-              style={
-                Object {
-                  "width": "100%",
-                }
-              }
-            >
-              <h2
-                className="emotion-0"
-                style={
-                  Object {
-                    "marginBottom": "1.5rem",
-                  }
-                }
-              >
-                When were 
-                they
-                 born?
-              </h2>
-            </legend>
-            <div
-              className=" emotion-4"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dob-month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f"
-                  id="dob-month"
-                  max="12"
-                  maxLength={2}
-                  min="1"
-                  name="month"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value="5"
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dob-day"
-                >
-                  Day
-                </label>
-                <input
-                  className="txt-f"
-                  id="dob-day"
-                  max="31"
-                  maxLength={2}
-                  min="1"
-                  name="day"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="DD"
-                  type="number"
-                  value="12"
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dob-year"
-                >
-                  Year
-                </label>
-                <input
-                  className="txt-f"
-                  id="dob-year"
-                  max={2023}
-                  maxLength={4}
-                  min={1870}
-                  name="year"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value="1990"
-                />
-              </div>
-            </div>
-            
-          </div>
-        </fieldset>
-      </div>
-      <div
-        className="m-v500 p-a300 br br-a200 br--r lh--300"
-        style={
-          Object {
-            "paddingBottom": 0,
-          }
-        }
-      >
+      <legend>
         <h2
-          className="h3 tt-u"
+          className="emotion-0"
         >
-          Birth Certificate is Being Processed
+          What was 
+          their
+           name at birth?
         </h2>
-        <p>
-          Birth information takes up to two weeks to arrive from a hospital to the City of Boston. Please submit an order after
-           
-          <span
-            className="emotion-6"
-          >
-            5/12/1990
-          </span>
-          . We apologize for the inconvenience. If you have any questions or concerns, please
-           
-          <a
-            href="https://www.boston.gov/still-have-questions-registry"
-            target="_blank"
-          >
-            contact us online
-          </a>
-          , by phone at 617-635-4175, or visit City Hall in person Monday Friday, from 9 a.m. - 4 p.m.
-        </p>
-      </div>
-    </div>
-    <div
-      className="g g--mr emotion-9"
-    >
-      <div
-        className="t--info g--6 m-b500"
+      </legend>
+      <p
+        className="lh--400 t--s400 m-b500"
       >
-        <button
-          className="lnk emotion-8"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
+        If 
+        they
+         changed 
+        their
+         
+        name at some point, please use the name 
+        they
+         
+        were given at birth. If 
+        they
+         were adopted, use
+         
+        their
+         post-adoption name. Please note, we do not need 
+        their
+         middle name to process your request.
+      </p>
+      <div
+        className="emotion-1"
+      >
+        <div>
+          <label
+            className="txt-l "
+            htmlFor="input-2048906072"
             style={
               Object {
-                "fontStyle": "italic",
-                "whiteSpace": "nowrap",
+                "display": "flex",
               }
             }
           >
             <span
-              aria-hidden="true"
               style={
                 Object {
-                  "fontStyle": "normal",
+                  "display": "flex",
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
                 }
               }
             >
-              ←
+              First Name
             </span>
-             
-            Back
-          </span>
-        </button>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f   "
+            id="input-2048906072"
+            name="firstName"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100 m-t100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l "
+            htmlFor="input-1103291528"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              style={
+                Object {
+                  "display": "flex",
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f   "
+            id="input-1103291528"
+            name="lastName"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100 m-t100"
+          >
+             
+          </div>
+        </div>
       </div>
       <div
-        className="g--6 ta-r m-b500"
+        className="m-t700"
       >
-        <button
-          className="btn btn--b-sm"
-          disabled={true}
-          onClick={[Function]}
-          type="button"
-        >
-          Next question
-        </button>
+        <div>
+          <label
+            className="txt-l "
+            htmlFor="input-2099238988"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              style={
+                Object {
+                  "display": "flex",
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Alternative spelling
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f   "
+            id="input-2099238988"
+            name="altSpelling"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100 m-t100"
+          >
+             
+          </div>
+        </div>
       </div>
+    </fieldset>
+    <div
+      className="m-v700"
+    >
+      <fieldset
+        className="emotion-5"
+      >
+        <div>
+          <legend
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          >
+            <h2
+              className="emotion-0"
+              style={
+                Object {
+                  "marginBottom": "1.5rem",
+                }
+              }
+            >
+              When were 
+              they
+               born?
+            </h2>
+          </legend>
+          <div
+            className=" emotion-4"
+          >
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dob-month"
+              >
+                Month
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dob-month"
+                max="12"
+                maxLength={2}
+                min="1"
+                name="month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value="5"
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dob-day"
+              >
+                Day
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dob-day"
+                max="31"
+                maxLength={2}
+                min="1"
+                name="day"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="DD"
+                type="number"
+                value="12"
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dob-year"
+              >
+                Year
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dob-year"
+                max={2024}
+                maxLength={4}
+                min={1870}
+                name="year"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value="1990"
+              />
+            </div>
+          </div>
+          
+        </div>
+      </fieldset>
+    </div>
+    <div
+      className="m-v500 p-a300 br br-a200 br--r lh--300"
+      style={
+        Object {
+          "paddingBottom": 0,
+        }
+      }
+    >
+      <h2
+        className="h3 tt-u"
+      >
+        Birth Certificate is Being Processed
+      </h2>
+      <p>
+        Birth information takes up to two weeks to arrive from a hospital to the City of Boston. Please submit an order after
+         
+        <span
+          className="emotion-6"
+        >
+          5/12/1990
+        </span>
+        . We apologize for the inconvenience. If you have any questions or concerns, please
+         
+        <a
+          href="https://www.boston.gov/still-have-questions-registry"
+          target="_blank"
+        >
+          contact us online
+        </a>
+        , by phone at 617-635-4175, or visit City Hall in person Monday Friday, from 9 a.m. - 4 p.m.
+      </p>
+    </div>
+  </div>
+  <div
+    className="g g--mr emotion-9"
+  >
+    <div
+      className="t--info g--6 m-b500"
+    >
+      <button
+        className="lnk emotion-8"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <span
+            aria-hidden="true"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            ←
+          </span>
+           
+          Back
+        </span>
+      </button>
+    </div>
+    <div
+      className="g--6 ta-r m-b500"
+    >
+      <button
+        className="btn btn--b-sm"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Next question
+      </button>
     </div>
   </div>
 </div>
@@ -10500,297 +10546,343 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
   cursor: not-allowed;
 }
 
-<div>
+<div
+  className="b-c b-c--hsm"
+>
   <div
-    className="b-c b-c--hsm"
+    className="emotion-6"
   >
-    <div
-      className="emotion-6"
+    <fieldset
+      className=" emotion-2"
     >
-      <fieldset
-        className=" emotion-2"
+      <legend>
+        <h2
+          className="emotion-0"
+        >
+          What was 
+          their
+           name at birth?
+        </h2>
+      </legend>
+      <p
+        className="lh--400 t--s400 m-b500"
       >
-        <legend>
-          <h2
-            className="emotion-0"
-          >
-            What was 
-            their
-             name at birth?
-          </h2>
-        </legend>
-        <p
-          className="lh--400 t--s400 m-b500"
-        >
-          If 
-          they
-           changed 
-          their
-           
-          name at some point, please use the name 
-          they
-           
-          were given at birth. If 
-          they
-           were adopted, use
-           
-          their
-           post-adoption name. Please note, we do not need 
-          their
-           middle name to process your request.
-        </p>
-        <div
-          className="emotion-1"
-        >
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-2048906072"
-              style={Object {}}
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                First Name
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              id="input-2048906072"
-              name="firstName"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-            <div
-              className="t--subinfo t--err m-b100 m-t100"
-            >
-               
-            </div>
-          </div>
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-1103291528"
-              style={Object {}}
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                Last Name
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              id="input-1103291528"
-              name="lastName"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-            <div
-              className="t--subinfo t--err m-b100 m-t100"
-            >
-               
-            </div>
-          </div>
-        </div>
-        <div
-          className="m-t700"
-        >
-          <div>
-            <label
-              className="txt-l "
-              htmlFor="input-2099238988"
-              style={Object {}}
-            >
-              <span
-                style={
-                  Object {
-                    "marginRight": "0.5em",
-                    "whiteSpace": "nowrap",
-                  }
-                }
-              >
-                Alternative spelling
-              </span>
-            </label>
-            <input
-              aria-label=""
-              className="txt-f  "
-              id="input-2099238988"
-              name="altSpelling"
-              onChange={[Function]}
-              type="text"
-              value=""
-            />
-            <div
-              className="t--subinfo t--err m-b100 m-t100"
-            >
-               
-            </div>
-          </div>
-        </div>
-      </fieldset>
+        If 
+        they
+         changed 
+        their
+         
+        name at some point, please use the name 
+        they
+         
+        were given at birth. If 
+        they
+         were adopted, use
+         
+        their
+         post-adoption name. Please note, we do not need 
+        their
+         middle name to process your request.
+      </p>
       <div
-        className="m-v700"
+        className="emotion-1"
       >
-        <fieldset
-          className="emotion-5"
-        >
-          <div>
-            <legend
-              style={
-                Object {
-                  "width": "100%",
-                }
-              }
-            >
-              <h2
-                className="emotion-0"
-                style={
-                  Object {
-                    "marginBottom": "1.5rem",
-                  }
-                }
-              >
-                When were 
-                they
-                 born?
-              </h2>
-            </legend>
-            <div
-              className=" emotion-4"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dob-month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f"
-                  id="dob-month"
-                  max="12"
-                  maxLength={2}
-                  min="1"
-                  name="month"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value=""
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dob-day"
-                >
-                  Day
-                </label>
-                <input
-                  className="txt-f"
-                  id="dob-day"
-                  max="31"
-                  maxLength={2}
-                  min="1"
-                  name="day"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="DD"
-                  type="number"
-                  value=""
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dob-year"
-                >
-                  Year
-                </label>
-                <input
-                  className="txt-f"
-                  id="dob-year"
-                  max={2023}
-                  maxLength={4}
-                  min={1870}
-                  name="year"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value=""
-                />
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-    <div
-      className="g g--mr emotion-8"
-    >
-      <div
-        className="t--info g--6 m-b500"
-      >
-        <button
-          className="lnk emotion-7"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
+        <div>
+          <label
+            className="txt-l "
+            htmlFor="input-2048906072"
             style={
               Object {
-                "fontStyle": "italic",
-                "whiteSpace": "nowrap",
+                "display": "flex",
               }
             }
           >
             <span
-              aria-hidden="true"
               style={
                 Object {
-                  "fontStyle": "normal",
+                  "display": "flex",
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
                 }
               }
             >
-              ←
+              First Name
             </span>
-             
-            Back
-          </span>
-        </button>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f   "
+            id="input-2048906072"
+            name="firstName"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100 m-t100"
+          >
+             
+          </div>
+        </div>
+        <div>
+          <label
+            className="txt-l "
+            htmlFor="input-1103291528"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              style={
+                Object {
+                  "display": "flex",
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Last Name
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f   "
+            id="input-1103291528"
+            name="lastName"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100 m-t100"
+          >
+             
+          </div>
+        </div>
       </div>
       <div
-        className="g--6 ta-r m-b500"
+        className="m-t700"
       >
-        <button
-          className="btn btn--b-sm"
-          disabled={true}
-          onClick={[Function]}
-          type="button"
-        >
-          Next question
-        </button>
+        <div>
+          <label
+            className="txt-l "
+            htmlFor="input-2099238988"
+            style={
+              Object {
+                "display": "flex",
+              }
+            }
+          >
+            <span
+              style={
+                Object {
+                  "display": "flex",
+                  "marginRight": "0.5em",
+                  "whiteSpace": "nowrap",
+                }
+              }
+            >
+              Alternative spelling
+            </span>
+          </label>
+          <input
+            aria-label=""
+            className="txt-f   "
+            id="input-2099238988"
+            name="altSpelling"
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+          <div
+            className="t--subinfo t--err m-b100 m-t100"
+          >
+             
+          </div>
+        </div>
       </div>
+    </fieldset>
+    <div
+      className="m-v700"
+    >
+      <fieldset
+        className="emotion-5"
+      >
+        <div>
+          <legend
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          >
+            <h2
+              className="emotion-0"
+              style={
+                Object {
+                  "marginBottom": "1.5rem",
+                }
+              }
+            >
+              When were 
+              they
+               born?
+            </h2>
+          </legend>
+          <div
+            className=" emotion-4"
+          >
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dob-month"
+              >
+                Month
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dob-month"
+                max="12"
+                maxLength={2}
+                min="1"
+                name="month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dob-day"
+              >
+                Day
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dob-day"
+                max="31"
+                maxLength={2}
+                min="1"
+                name="day"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="DD"
+                type="number"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dob-year"
+              >
+                Year
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dob-year"
+                max={2024}
+                maxLength={4}
+                min={1870}
+                name="year"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div
+    className="g g--mr emotion-8"
+  >
+    <div
+      className="t--info g--6 m-b500"
+    >
+      <button
+        className="lnk emotion-7"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
+        >
+          <span
+            aria-hidden="true"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            ←
+          </span>
+           
+          Back
+        </span>
+      </button>
+    </div>
+    <div
+      className="g--6 ta-r m-b500"
+    >
+      <button
+        className="btn btn--b-sm"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Next question
+      </button>
     </div>
   </div>
 </div>
@@ -39464,130 +39556,128 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
   display: none;
 }
 
-<div>
-  <div
-    style={
-      Object {
-        "margin": "2rem auto",
-        "maxWidth": "768px",
-      }
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
+  }
+>
+  <div
+    className=" emotion-2"
   >
     <div
-      className=" emotion-2"
+      className="date-component"
     >
       <div
-        className="date-component"
+        aria-label="date 1"
+        className="emotion-0"
+        role="group"
       >
-        <div
-          aria-label="date 1"
-          className="emotion-0"
-          role="group"
-        >
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date1month"
-            >
-              Month
-            </label>
-            <input
-              className="txt-f "
-              id="date1month"
-              max="12"
-              min="1"
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="MM"
-              type="number"
-              value=""
-            />
-          </div>
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date1year"
-            >
-              Year
-            </label>
-            <input
-              className="year-field txt-f "
-              id="date1year"
-              max={2023}
-              min={1870}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="YYYY"
-              type="number"
-              value=""
-            />
-          </div>
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date1month"
+          >
+            Month
+          </label>
+          <input
+            className="txt-f "
+            id="date1month"
+            max="12"
+            min="1"
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="MM"
+            type="number"
+            value=""
+          />
         </div>
-        <div
-          className="t--err"
-        >
-           
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date1year"
+          >
+            Year
+          </label>
+          <input
+            className="year-field txt-f "
+            id="date1year"
+            max={2024}
+            min={1870}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="YYYY"
+            type="number"
+            value=""
+          />
         </div>
       </div>
       <div
-        className="to"
+        className="t--err"
       >
-        to
+         
+      </div>
+    </div>
+    <div
+      className="to"
+    >
+      to
+    </div>
+    <div
+      className="date-component"
+    >
+      <div
+        aria-label="date 2"
+        className="emotion-0"
+        role="group"
+      >
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date2month"
+          >
+            Month
+          </label>
+          <input
+            className="txt-f "
+            id="date2month"
+            max="12"
+            min="1"
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="MM"
+            type="number"
+            value=""
+          />
+        </div>
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date2year"
+          >
+            Year
+          </label>
+          <input
+            className="year-field txt-f "
+            id="date2year"
+            max={2024}
+            min={1870}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="YYYY"
+            type="number"
+            value=""
+          />
+        </div>
       </div>
       <div
-        className="date-component"
+        className="t--err"
       >
-        <div
-          aria-label="date 2"
-          className="emotion-0"
-          role="group"
-        >
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date2month"
-            >
-              Month
-            </label>
-            <input
-              className="txt-f "
-              id="date2month"
-              max="12"
-              min="1"
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="MM"
-              type="number"
-              value=""
-            />
-          </div>
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date2year"
-            >
-              Year
-            </label>
-            <input
-              className="year-field txt-f "
-              id="date2year"
-              max={2023}
-              min={1870}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="YYYY"
-              type="number"
-              value=""
-            />
-          </div>
-        </div>
-        <div
-          className="t--err"
-        >
-           
-        </div>
+         
       </div>
     </div>
   </div>
@@ -39677,130 +39767,128 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
   display: none;
 }
 
-<div>
-  <div
-    style={
-      Object {
-        "margin": "2rem auto",
-        "maxWidth": "768px",
-      }
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
+  }
+>
+  <div
+    className=" emotion-2"
   >
     <div
-      className=" emotion-2"
+      className="date-component"
     >
       <div
-        className="date-component"
+        aria-label="date 1"
+        className="emotion-0"
+        role="group"
       >
-        <div
-          aria-label="date 1"
-          className="emotion-0"
-          role="group"
-        >
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date1month"
-            >
-              Month
-            </label>
-            <input
-              className="txt-f "
-              id="date1month"
-              max="12"
-              min="1"
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="MM"
-              type="number"
-              value=""
-            />
-          </div>
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date1year"
-            >
-              Year
-            </label>
-            <input
-              className="year-field txt-f "
-              id="date1year"
-              max={2023}
-              min={1870}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="YYYY"
-              type="number"
-              value=""
-            />
-          </div>
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date1month"
+          >
+            Month
+          </label>
+          <input
+            className="txt-f "
+            id="date1month"
+            max="12"
+            min="1"
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="MM"
+            type="number"
+            value=""
+          />
         </div>
-        <div
-          className="t--err"
-        >
-           
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date1year"
+          >
+            Year
+          </label>
+          <input
+            className="year-field txt-f "
+            id="date1year"
+            max={2024}
+            min={1870}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="YYYY"
+            type="number"
+            value=""
+          />
         </div>
       </div>
       <div
-        className="to"
+        className="t--err"
       >
-        to
+         
+      </div>
+    </div>
+    <div
+      className="to"
+    >
+      to
+    </div>
+    <div
+      className="date-component"
+    >
+      <div
+        aria-label="date 2"
+        className="emotion-0"
+        role="group"
+      >
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date2month"
+          >
+            Month
+          </label>
+          <input
+            className="txt-f "
+            id="date2month"
+            max="12"
+            min="1"
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="MM"
+            type="number"
+            value=""
+          />
+        </div>
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date2year"
+          >
+            Year
+          </label>
+          <input
+            className="year-field txt-f "
+            id="date2year"
+            max={2024}
+            min={1870}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="YYYY"
+            type="number"
+            value=""
+          />
+        </div>
       </div>
       <div
-        className="date-component"
+        className="t--err"
       >
-        <div
-          aria-label="date 2"
-          className="emotion-0"
-          role="group"
-        >
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date2month"
-            >
-              Month
-            </label>
-            <input
-              className="txt-f "
-              id="date2month"
-              max="12"
-              min="1"
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="MM"
-              type="number"
-              value=""
-            />
-          </div>
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date2year"
-            >
-              Year
-            </label>
-            <input
-              className="year-field txt-f "
-              id="date2year"
-              max={2023}
-              min={1870}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="YYYY"
-              type="number"
-              value=""
-            />
-          </div>
-        </div>
-        <div
-          className="t--err"
-        >
-           
-        </div>
+         
       </div>
     </div>
   </div>
@@ -39890,130 +39978,128 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
   display: none;
 }
 
-<div>
-  <div
-    style={
-      Object {
-        "margin": "2rem auto",
-        "maxWidth": "768px",
-      }
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
+  }
+>
+  <div
+    className=" emotion-2"
   >
     <div
-      className=" emotion-2"
+      className="date-component"
     >
       <div
-        className="date-component"
+        aria-label="date 1"
+        className="emotion-0"
+        role="group"
       >
-        <div
-          aria-label="date 1"
-          className="emotion-0"
-          role="group"
-        >
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date1month"
-            >
-              Month
-            </label>
-            <input
-              className="txt-f "
-              id="date1month"
-              max="12"
-              min="1"
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="MM"
-              type="number"
-              value=""
-            />
-          </div>
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date1year"
-            >
-              Year
-            </label>
-            <input
-              className="year-field txt-f "
-              id="date1year"
-              max={2023}
-              min={1870}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="YYYY"
-              type="number"
-              value=""
-            />
-          </div>
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date1month"
+          >
+            Month
+          </label>
+          <input
+            className="txt-f "
+            id="date1month"
+            max="12"
+            min="1"
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="MM"
+            type="number"
+            value=""
+          />
         </div>
-        <div
-          className="t--err"
-        >
-           
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date1year"
+          >
+            Year
+          </label>
+          <input
+            className="year-field txt-f "
+            id="date1year"
+            max={2024}
+            min={1870}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="YYYY"
+            type="number"
+            value=""
+          />
         </div>
       </div>
       <div
-        className="to"
+        className="t--err"
       >
-        to
+         
+      </div>
+    </div>
+    <div
+      className="to"
+    >
+      to
+    </div>
+    <div
+      className="date-component"
+    >
+      <div
+        aria-label="date 2"
+        className="emotion-0"
+        role="group"
+      >
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date2month"
+          >
+            Month
+          </label>
+          <input
+            className="txt-f "
+            id="date2month"
+            max="12"
+            min="1"
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="MM"
+            type="number"
+            value=""
+          />
+        </div>
+        <div>
+          <label
+            className="txt-l"
+            htmlFor="date2year"
+          >
+            Year
+          </label>
+          <input
+            className="year-field txt-f "
+            id="date2year"
+            max={2024}
+            min={1870}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            placeholder="YYYY"
+            type="number"
+            value=""
+          />
+        </div>
       </div>
       <div
-        className="date-component"
+        className="t--err"
       >
-        <div
-          aria-label="date 2"
-          className="emotion-0"
-          role="group"
-        >
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date2month"
-            >
-              Month
-            </label>
-            <input
-              className="txt-f "
-              id="date2month"
-              max="12"
-              min="1"
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="MM"
-              type="number"
-              value=""
-            />
-          </div>
-          <div>
-            <label
-              className="txt-l"
-              htmlFor="date2year"
-            >
-              Year
-            </label>
-            <input
-              className="year-field txt-f "
-              id="date2year"
-              max={2023}
-              min={1870}
-              onBlur={[Function]}
-              onChange={[Function]}
-              onFocus={[Function]}
-              placeholder="YYYY"
-              type="number"
-              value=""
-            />
-          </div>
-        </div>
-        <div
-          className="t--err"
-        >
-           
-        </div>
+         
       </div>
     </div>
   </div>
@@ -40056,68 +40142,66 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent default 1`] 
   display: none;
 }
 
-<div>
-  <div
-    style={
-      Object {
-        "margin": "2rem auto",
-        "maxWidth": "768px",
-      }
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
+  }
+>
+  <div
+    className="date-component"
   >
     <div
-      className="date-component"
+      aria-label="date 1"
+      className="emotion-0"
+      role="group"
     >
-      <div
-        aria-label="date 1"
-        className="emotion-0"
-        role="group"
-      >
-        <div>
-          <label
-            className="txt-l"
-            htmlFor="date1month"
-          >
-            Month
-          </label>
-          <input
-            className="txt-f "
-            id="date1month"
-            max="12"
-            min="1"
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="MM"
-            type="number"
-            value=""
-          />
-        </div>
-        <div>
-          <label
-            className="txt-l"
-            htmlFor="date1year"
-          >
-            Year
-          </label>
-          <input
-            className="year-field txt-f "
-            id="date1year"
-            max={2023}
-            min={1870}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="YYYY"
-            type="number"
-            value=""
-          />
-        </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="date1month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f "
+          id="date1month"
+          max="12"
+          min="1"
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
       </div>
-      <div
-        className="t--err"
-      >
-         
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="date1year"
+        >
+          Year
+        </label>
+        <input
+          className="year-field txt-f "
+          id="date1year"
+          max={2024}
+          min={1870}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
       </div>
+    </div>
+    <div
+      className="t--err"
+    >
+       
     </div>
   </div>
 </div>
@@ -40159,68 +40243,66 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent with values 
   display: none;
 }
 
-<div>
-  <div
-    style={
-      Object {
-        "margin": "2rem auto",
-        "maxWidth": "768px",
-      }
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
+  }
+>
+  <div
+    className="date-component"
   >
     <div
-      className="date-component"
+      aria-label="date 2"
+      className="emotion-0"
+      role="group"
     >
-      <div
-        aria-label="date 2"
-        className="emotion-0"
-        role="group"
-      >
-        <div>
-          <label
-            className="txt-l"
-            htmlFor="date2month"
-          >
-            Month
-          </label>
-          <input
-            className="txt-f "
-            id="date2month"
-            max="12"
-            min="1"
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="MM"
-            type="number"
-            value=""
-          />
-        </div>
-        <div>
-          <label
-            className="txt-l"
-            htmlFor="date2year"
-          >
-            Year
-          </label>
-          <input
-            className="year-field txt-f "
-            id="date2year"
-            max={2023}
-            min={1870}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="YYYY"
-            type="number"
-            value=""
-          />
-        </div>
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="date2month"
+        >
+          Month
+        </label>
+        <input
+          className="txt-f "
+          id="date2month"
+          max="12"
+          min="1"
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="MM"
+          type="number"
+          value=""
+        />
       </div>
-      <div
-        className="t--err"
-      >
-         
+      <div>
+        <label
+          className="txt-l"
+          htmlFor="date2year"
+        >
+          Year
+        </label>
+        <input
+          className="year-field txt-f "
+          id="date2year"
+          max={2024}
+          min={1870}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="YYYY"
+          type="number"
+          value=""
+        />
       </div>
+    </div>
+    <div
+      className="t--err"
+    >
+       
     </div>
   </div>
 </div>
@@ -41939,95 +42021,93 @@ exports[`Storyshots Common Components/Question Components/AltSpellings default 1
   stroke: #fff;
 }
 
-<div>
-  <div
-    style={
-      Object {
-        "margin": "2rem auto",
-        "maxWidth": "768px",
-      }
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
+  }
+>
+  <h3
+    className="txt-l"
+    id="altSpellings"
   >
-    <h3
-      className="txt-l"
-      id="altSpellings"
-    >
-      Alternate spellings 
-      <span
-        style={
-          Object {
-            "fontSize": "90%",
-          }
+    Alternate spellings 
+    <span
+      style={
+        Object {
+          "fontSize": "90%",
         }
-      >
-        (if any)
-      </span>
-    </h3>
-    <ul
-      aria-labelledby="altSpellings"
-      className="emotion-0"
+      }
     >
-      <li
-        style={
-          Object {
-            "marginBottom": "1em",
-          }
+      (if any)
+    </span>
+  </h3>
+  <ul
+    aria-labelledby="altSpellings"
+    className="emotion-0"
+  >
+    <li
+      style={
+        Object {
+          "marginBottom": "1em",
         }
-      >
-        <input
-          aria-label="Spelling option 1"
-          className="txt-f"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="text"
-          value=""
-        />
-      </li>
-    </ul>
-    <button
-      className="emotion-2"
-      disabled={true}
-      onClick={[Function]}
-      type="button"
+      }
     >
-      <svg
-        aria-hidden="true"
-        className="emotion-1"
-        focusable="false"
-        viewBox="0 0 10 10"
-      >
-        <circle
-          cx="5"
-          cy="5"
-          r="4"
-          stroke="none"
+      <input
+        aria-label="Spelling option 1"
+        className="txt-f"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </li>
+  </ul>
+  <button
+    className="emotion-2"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="emotion-1"
+      focusable="false"
+      viewBox="0 0 10 10"
+    >
+      <circle
+        cx="5"
+        cy="5"
+        r="4"
+        stroke="none"
+      />
+      <g>
+        <line
+          fill="none"
+          strokeLinecap="round"
+          strokeWidth="1"
+          x1="5"
+          x2="5"
+          y1="2.5"
+          y2="7.5"
         />
-        <g>
-          <line
-            fill="none"
-            strokeLinecap="round"
-            strokeWidth="1"
-            x1="5"
-            x2="5"
-            y1="2.5"
-            y2="7.5"
-          />
-          <line
-            fill="none"
-            strokeLinecap="round"
-            strokeWidth="1"
-            x1="2.5"
-            x2="7.5"
-            y1="5"
-            y2="5"
-          />
-        </g>
-      </svg>
-      <span>
-        Add another option
-      </span>
-    </button>
-  </div>
+        <line
+          fill="none"
+          strokeLinecap="round"
+          strokeWidth="1"
+          x1="2.5"
+          x2="7.5"
+          y1="5"
+          y2="5"
+        />
+      </g>
+    </svg>
+    <span>
+      Add another option
+    </span>
+  </button>
 </div>
 `;
 
@@ -42088,95 +42168,93 @@ exports[`Storyshots Common Components/Question Components/AltSpellings with exis
   stroke: #fff;
 }
 
-<div>
-  <div
-    style={
-      Object {
-        "margin": "2rem auto",
-        "maxWidth": "768px",
-      }
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
+  }
+>
+  <h3
+    className="txt-l"
+    id="altSpellings"
   >
-    <h3
-      className="txt-l"
-      id="altSpellings"
-    >
-      Alternate spellings 
-      <span
-        style={
-          Object {
-            "fontSize": "90%",
-          }
+    Alternate spellings 
+    <span
+      style={
+        Object {
+          "fontSize": "90%",
         }
-      >
-        (if any)
-      </span>
-    </h3>
-    <ul
-      aria-labelledby="altSpellings"
-      className="emotion-0"
+      }
     >
-      <li
-        style={
-          Object {
-            "marginBottom": "1em",
-          }
+      (if any)
+    </span>
+  </h3>
+  <ul
+    aria-labelledby="altSpellings"
+    className="emotion-0"
+  >
+    <li
+      style={
+        Object {
+          "marginBottom": "1em",
         }
-      >
-        <input
-          aria-label="Spelling option 1"
-          className="txt-f"
-          onBlur={[Function]}
-          onChange={[Function]}
-          type="text"
-          value=""
-        />
-      </li>
-    </ul>
-    <button
-      className="emotion-2"
-      disabled={true}
-      onClick={[Function]}
-      type="button"
+      }
     >
-      <svg
-        aria-hidden="true"
-        className="emotion-1"
-        focusable="false"
-        viewBox="0 0 10 10"
-      >
-        <circle
-          cx="5"
-          cy="5"
-          r="4"
-          stroke="none"
+      <input
+        aria-label="Spelling option 1"
+        className="txt-f"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </li>
+  </ul>
+  <button
+    className="emotion-2"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      className="emotion-1"
+      focusable="false"
+      viewBox="0 0 10 10"
+    >
+      <circle
+        cx="5"
+        cy="5"
+        r="4"
+        stroke="none"
+      />
+      <g>
+        <line
+          fill="none"
+          strokeLinecap="round"
+          strokeWidth="1"
+          x1="5"
+          x2="5"
+          y1="2.5"
+          y2="7.5"
         />
-        <g>
-          <line
-            fill="none"
-            strokeLinecap="round"
-            strokeWidth="1"
-            x1="5"
-            x2="5"
-            y1="2.5"
-            y2="7.5"
-          />
-          <line
-            fill="none"
-            strokeLinecap="round"
-            strokeWidth="1"
-            x1="2.5"
-            x2="7.5"
-            y1="5"
-            y2="5"
-          />
-        </g>
-      </svg>
-      <span>
-        Add another option
-      </span>
-    </button>
-  </div>
+        <line
+          fill="none"
+          strokeLinecap="round"
+          strokeWidth="1"
+          x1="2.5"
+          x2="7.5"
+          y1="5"
+          y2="5"
+        />
+      </g>
+    </svg>
+    <span>
+      Add another option
+    </span>
+  </button>
 </div>
 `;
 
@@ -94360,283 +94438,281 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
   }
 }
 
-<div>
+<div
+  className="b-c b-c--hsm"
+>
   <div
-    className="b-c b-c--hsm"
+    className="emotion-10"
   >
+    <h2
+      className="emotion-0"
+      id="exactDateQuestion"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
+        }
+      }
+    >
+      Do you know the exact date of the marriage?
+    </h2>
     <div
-      className="emotion-10"
+      aria-labelledby="exactDateQuestion"
+      className="emotion-5"
+      role="radiogroup"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
+        }
+      }
+    >
+      <label
+        className=" inactive emotion-2"
+      >
+        <svg
+          aria-hidden="true"
+          className="checkMark emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
+          />
+          <path
+            d="M50.937,26.2,30.069,47.068,21,38.791"
+            transform="translate(-5.591 -6.213)"
+          />
+        </svg>
+        <input
+          checked={false}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="yes"
+        />
+        <span>
+          yes
+        </span>
+      </label>
+      <label
+        className="selected  emotion-2"
+      >
+        <svg
+          aria-hidden="true"
+          className="xSymbol emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
+          />
+          <g
+            transform="translate(19.107 19.107)"
+          >
+            <line
+              x2="22.629"
+              y2="22.629"
+            />
+            <line
+              x2="22.629"
+              y1="22.629"
+            />
+          </g>
+        </svg>
+        <input
+          checked={true}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="no"
+        />
+        <span>
+          no
+        </span>
+      </label>
+    </div>
+    <div
+      className="m-v700"
     >
       <h2
         className="emotion-0"
-        id="exactDateQuestion"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
-        }
       >
-        Do you know the exact date of the marriage?
+        Please enter a date range.
       </h2>
+      <p>
+        The two dates should be within a five year period.
+      </p>
       <div
-        aria-labelledby="exactDateQuestion"
-        className="emotion-5"
-        role="radiogroup"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
-        }
+        className=" emotion-9"
       >
-        <label
-          className=" inactive emotion-2"
-        >
-          <svg
-            aria-hidden="true"
-            className="checkMark emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <path
-              d="M50.937,26.2,30.069,47.068,21,38.791"
-              transform="translate(-5.591 -6.213)"
-            />
-          </svg>
-          <input
-            checked={false}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="yes"
-          />
-          <span>
-            yes
-          </span>
-        </label>
-        <label
-          className="selected  emotion-2"
-        >
-          <svg
-            aria-hidden="true"
-            className="xSymbol emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <g
-              transform="translate(19.107 19.107)"
-            >
-              <line
-                x2="22.629"
-                y2="22.629"
-              />
-              <line
-                x2="22.629"
-                y1="22.629"
-              />
-            </g>
-          </svg>
-          <input
-            checked={true}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="no"
-          />
-          <span>
-            no
-          </span>
-        </label>
-      </div>
-      <div
-        className="m-v700"
-      >
-        <h2
-          className="emotion-0"
-        >
-          Please enter a date range.
-        </h2>
-        <p>
-          The two dates should be within a five year period.
-        </p>
         <div
-          className=" emotion-9"
+          className="date-component"
         >
           <div
-            className="date-component"
+            aria-label="date 1"
+            className="emotion-7"
+            role="group"
           >
-            <div
-              aria-label="date 1"
-              className="emotion-7"
-              role="group"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date1month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f "
-                  id="date1month"
-                  max="12"
-                  min="1"
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value=""
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date1year"
-                >
-                  Year
-                </label>
-                <input
-                  className="year-field txt-f "
-                  id="date1year"
-                  max={2023}
-                  min={1870}
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value=""
-                />
-              </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date1month"
+              >
+                Month
+              </label>
+              <input
+                className="txt-f "
+                id="date1month"
+                max="12"
+                min="1"
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value=""
+              />
             </div>
-            <div
-              className="t--err"
-            >
-               
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date1year"
+              >
+                Year
+              </label>
+              <input
+                className="year-field txt-f "
+                id="date1year"
+                max={2024}
+                min={1870}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value=""
+              />
             </div>
           </div>
           <div
-            className="to"
+            className="t--err"
           >
-            to
+             
+          </div>
+        </div>
+        <div
+          className="to"
+        >
+          to
+        </div>
+        <div
+          className="date-component"
+        >
+          <div
+            aria-label="date 2"
+            className="emotion-7"
+            role="group"
+          >
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date2month"
+              >
+                Month
+              </label>
+              <input
+                className="txt-f "
+                id="date2month"
+                max="12"
+                min="1"
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date2year"
+              >
+                Year
+              </label>
+              <input
+                className="year-field txt-f "
+                id="date2year"
+                max={2024}
+                min={1870}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value=""
+              />
+            </div>
           </div>
           <div
-            className="date-component"
+            className="t--err"
           >
-            <div
-              aria-label="date 2"
-              className="emotion-7"
-              role="group"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date2month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f "
-                  id="date2month"
-                  max="12"
-                  min="1"
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value=""
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date2year"
-                >
-                  Year
-                </label>
-                <input
-                  className="year-field txt-f "
-                  id="date2year"
-                  max={2023}
-                  min={1870}
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value=""
-                />
-              </div>
-            </div>
-            <div
-              className="t--err"
-            >
-               
-            </div>
+             
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="g g--mr emotion-12"
+  >
     <div
-      className="g g--mr emotion-12"
+      className="t--info g--6 m-b500"
     >
-      <div
-        className="t--info g--6 m-b500"
+      <button
+        className="lnk emotion-11"
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="lnk emotion-11"
-          onClick={[Function]}
-          type="button"
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
         >
           <span
+            aria-hidden="true"
             style={
               Object {
-                "fontStyle": "italic",
-                "whiteSpace": "nowrap",
+                "fontStyle": "normal",
               }
             }
           >
-            <span
-              aria-hidden="true"
-              style={
-                Object {
-                  "fontStyle": "normal",
-                }
-              }
-            >
-              ←
-            </span>
-             
-            Back
+            ←
           </span>
-        </button>
-      </div>
-      <div
-        className="g--6 ta-r m-b500"
+           
+          Back
+        </span>
+      </button>
+    </div>
+    <div
+      className="g--6 ta-r m-b500"
+    >
+      <button
+        className="btn btn--b-sm"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="btn btn--b-sm"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          Next question
-        </button>
-      </div>
+        Next question
+      </button>
     </div>
   </div>
 </div>
@@ -95305,253 +95381,284 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage knows exact date
   }
 }
 
-<div>
+<div
+  className="b-c b-c--hsm"
+>
   <div
-    className="b-c b-c--hsm"
+    className="emotion-9"
   >
-    <div
-      className="emotion-9"
+    <h2
+      className="emotion-0"
+      id="exactDateQuestion"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
+        }
+      }
     >
-      <h2
-        className="emotion-0"
-        id="exactDateQuestion"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
+      Do you know the exact date of the marriage?
+    </h2>
+    <div
+      aria-labelledby="exactDateQuestion"
+      className="emotion-5"
+      role="radiogroup"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
         }
+      }
+    >
+      <label
+        className="selected  emotion-2"
       >
-        Do you know the exact date of the marriage?
-      </h2>
-      <div
-        aria-labelledby="exactDateQuestion"
-        className="emotion-5"
-        role="radiogroup"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
-        }
-      >
-        <label
-          className="selected  emotion-2"
+        <svg
+          aria-hidden="true"
+          className="checkMark emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            aria-hidden="true"
-            className="checkMark emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <path
-              d="M50.937,26.2,30.069,47.068,21,38.791"
-              transform="translate(-5.591 -6.213)"
-            />
-          </svg>
-          <input
-            checked={true}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="yes"
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
           />
-          <span>
-            yes
-          </span>
-        </label>
-        <label
-          className=" inactive emotion-2"
-        >
-          <svg
-            aria-hidden="true"
-            className="xSymbol emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <g
-              transform="translate(19.107 19.107)"
-            >
-              <line
-                x2="22.629"
-                y2="22.629"
-              />
-              <line
-                x2="22.629"
-                y1="22.629"
-              />
-            </g>
-          </svg>
-          <input
-            checked={false}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="no"
+          <path
+            d="M50.937,26.2,30.069,47.068,21,38.791"
+            transform="translate(-5.591 -6.213)"
           />
-          <span>
-            no
-          </span>
-        </label>
-      </div>
-      <div
-        className="m-v700"
+        </svg>
+        <input
+          checked={true}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="yes"
+        />
+        <span>
+          yes
+        </span>
+      </label>
+      <label
+        className=" inactive emotion-2"
       >
-        <fieldset
-          className="emotion-8"
+        <svg
+          aria-hidden="true"
+          className="xSymbol emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div>
-            <legend
-              style={
-                Object {
-                  "width": "100%",
-                }
-              }
-            >
-              <h2
-                className="emotion-0"
-                style={
-                  Object {
-                    "marginBottom": "1.5rem",
-                  }
-                }
-              >
-                What was the date of the marriage?
-              </h2>
-            </legend>
-            <div
-              className=" emotion-7"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dateOfMarriageStart-month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f"
-                  id="dateOfMarriageStart-month"
-                  max="12"
-                  maxLength={2}
-                  min="1"
-                  name="month"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value="4"
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dateOfMarriageStart-day"
-                >
-                  Day
-                </label>
-                <input
-                  className="txt-f"
-                  id="dateOfMarriageStart-day"
-                  max="31"
-                  maxLength={2}
-                  min="1"
-                  name="day"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="DD"
-                  type="number"
-                  value="23"
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dateOfMarriageStart-year"
-                >
-                  Year
-                </label>
-                <input
-                  className="txt-f"
-                  id="dateOfMarriageStart-year"
-                  max={2023}
-                  maxLength={4}
-                  min={1870}
-                  name="year"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value="2008"
-                />
-              </div>
-            </div>
-            
-          </div>
-        </fieldset>
-      </div>
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
+          />
+          <g
+            transform="translate(19.107 19.107)"
+          >
+            <line
+              x2="22.629"
+              y2="22.629"
+            />
+            <line
+              x2="22.629"
+              y1="22.629"
+            />
+          </g>
+        </svg>
+        <input
+          checked={false}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="no"
+        />
+        <span>
+          no
+        </span>
+      </label>
     </div>
     <div
-      className="g g--mr emotion-11"
+      className="m-v700"
     >
-      <div
-        className="t--info g--6 m-b500"
+      <fieldset
+        className="emotion-8"
       >
-        <button
-          className="lnk emotion-10"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
+        <div>
+          <legend
             style={
               Object {
-                "fontStyle": "italic",
-                "whiteSpace": "nowrap",
+                "width": "100%",
               }
             }
           >
-            <span
-              aria-hidden="true"
+            <h2
+              className="emotion-0"
               style={
                 Object {
-                  "fontStyle": "normal",
+                  "marginBottom": "1.5rem",
                 }
               }
             >
-              ←
-            </span>
-             
-            Back
-          </span>
-        </button>
-      </div>
-      <div
-        className="g--6 ta-r m-b500"
+              What was the date of the marriage?
+            </h2>
+          </legend>
+          <div
+            className=" emotion-7"
+          >
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dateOfMarriageStart-month"
+              >
+                Month
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dateOfMarriageStart-month"
+                max="12"
+                maxLength={2}
+                min="1"
+                name="month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value="4"
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dateOfMarriageStart-day"
+              >
+                Day
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dateOfMarriageStart-day"
+                max="31"
+                maxLength={2}
+                min="1"
+                name="day"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="DD"
+                type="number"
+                value="23"
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dateOfMarriageStart-year"
+              >
+                Year
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dateOfMarriageStart-year"
+                max={2024}
+                maxLength={4}
+                min={1870}
+                name="year"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value="2008"
+              />
+            </div>
+          </div>
+          
+        </div>
+      </fieldset>
+    </div>
+  </div>
+  <div
+    className="g g--mr emotion-11"
+  >
+    <div
+      className="t--info g--6 m-b500"
+    >
+      <button
+        className="lnk emotion-10"
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="btn btn--b-sm"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
         >
-          Next question
-        </button>
-      </div>
+          <span
+            aria-hidden="true"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            ←
+          </span>
+           
+          Back
+        </span>
+      </button>
+    </div>
+    <div
+      className="g--6 ta-r m-b500"
+    >
+      <button
+        className="btn btn--b-sm"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Next question
+      </button>
     </div>
   </div>
 </div>
@@ -95843,277 +95950,308 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
   }
 }
 
-<div>
+<div
+  className="b-c b-c--hsm"
+>
   <div
-    className="b-c b-c--hsm"
+    className="emotion-9"
   >
-    <div
-      className="emotion-9"
+    <h2
+      className="emotion-0"
+      id="exactDateQuestion"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
+        }
+      }
     >
-      <h2
-        className="emotion-0"
-        id="exactDateQuestion"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
+      Do you know the exact date of the marriage?
+    </h2>
+    <div
+      aria-labelledby="exactDateQuestion"
+      className="emotion-5"
+      role="radiogroup"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
         }
+      }
+    >
+      <label
+        className="selected  emotion-2"
       >
-        Do you know the exact date of the marriage?
-      </h2>
-      <div
-        aria-labelledby="exactDateQuestion"
-        className="emotion-5"
-        role="radiogroup"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
-        }
-      >
-        <label
-          className="selected  emotion-2"
+        <svg
+          aria-hidden="true"
+          className="checkMark emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            aria-hidden="true"
-            className="checkMark emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <path
-              d="M50.937,26.2,30.069,47.068,21,38.791"
-              transform="translate(-5.591 -6.213)"
-            />
-          </svg>
-          <input
-            checked={true}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="yes"
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
           />
-          <span>
-            yes
-          </span>
-        </label>
-        <label
-          className=" inactive emotion-2"
-        >
-          <svg
-            aria-hidden="true"
-            className="xSymbol emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <g
-              transform="translate(19.107 19.107)"
-            >
-              <line
-                x2="22.629"
-                y2="22.629"
-              />
-              <line
-                x2="22.629"
-                y1="22.629"
-              />
-            </g>
-          </svg>
-          <input
-            checked={false}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="no"
+          <path
+            d="M50.937,26.2,30.069,47.068,21,38.791"
+            transform="translate(-5.591 -6.213)"
           />
-          <span>
-            no
-          </span>
-        </label>
-      </div>
-      <div
-        className="m-v700"
+        </svg>
+        <input
+          checked={true}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="yes"
+        />
+        <span>
+          yes
+        </span>
+      </label>
+      <label
+        className=" inactive emotion-2"
       >
-        <fieldset
-          className="emotion-8"
+        <svg
+          aria-hidden="true"
+          className="xSymbol emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div>
-            <legend
-              style={
-                Object {
-                  "width": "100%",
-                }
-              }
-            >
-              <h2
-                className="emotion-0"
-                style={
-                  Object {
-                    "marginBottom": "1.5rem",
-                  }
-                }
-              >
-                What was the date of the marriage?
-              </h2>
-            </legend>
-            <div
-              className=" emotion-7"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dateOfMarriageStart-month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f"
-                  id="dateOfMarriageStart-month"
-                  max="12"
-                  maxLength={2}
-                  min="1"
-                  name="month"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value="4"
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dateOfMarriageStart-day"
-                >
-                  Day
-                </label>
-                <input
-                  className="txt-f"
-                  id="dateOfMarriageStart-day"
-                  max="31"
-                  maxLength={2}
-                  min="1"
-                  name="day"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="DD"
-                  type="number"
-                  value="23"
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="dateOfMarriageStart-year"
-                >
-                  Year
-                </label>
-                <input
-                  className="txt-f"
-                  id="dateOfMarriageStart-year"
-                  max={2023}
-                  maxLength={4}
-                  min={1870}
-                  name="year"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value="2008"
-                />
-              </div>
-            </div>
-            
-          </div>
-        </fieldset>
-      </div>
-      <div
-        className="m-v500 p-a300 br br-a200 br--r lh--300"
-        style={
-          Object {
-            "paddingBottom": 0,
-          }
-        }
-      >
-        <h2
-          className="h3 tt-u"
-        >
-          We might not have the marriage certificate yet
-        </h2>
-        <p>
-          <strong>
-            We recommend waiting at least two weeks before you request a marriage certificate.
-          </strong>
-           
-          Once a marriage license has been filed, it generally takes two weeks for the marriage certificate to be issued.
-        </p>
-        <p>
-          If you order too early, we can only hold your request for seven days while we wait for the marriage certificate. If we don’t receive the record in time, your request will be canceled automatically and your card will not be charged. You’ll have to resubmit your request.
-        </p>
-      </div>
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
+          />
+          <g
+            transform="translate(19.107 19.107)"
+          >
+            <line
+              x2="22.629"
+              y2="22.629"
+            />
+            <line
+              x2="22.629"
+              y1="22.629"
+            />
+          </g>
+        </svg>
+        <input
+          checked={false}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="no"
+        />
+        <span>
+          no
+        </span>
+      </label>
     </div>
     <div
-      className="g g--mr emotion-11"
+      className="m-v700"
     >
-      <div
-        className="t--info g--6 m-b500"
+      <fieldset
+        className="emotion-8"
       >
-        <button
-          className="lnk emotion-10"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
+        <div>
+          <legend
             style={
               Object {
-                "fontStyle": "italic",
-                "whiteSpace": "nowrap",
+                "width": "100%",
               }
             }
           >
-            <span
-              aria-hidden="true"
+            <h2
+              className="emotion-0"
               style={
                 Object {
-                  "fontStyle": "normal",
+                  "marginBottom": "1.5rem",
                 }
               }
             >
-              ←
-            </span>
-             
-            Back
-          </span>
-        </button>
-      </div>
-      <div
-        className="g--6 ta-r m-b500"
+              What was the date of the marriage?
+            </h2>
+          </legend>
+          <div
+            className=" emotion-7"
+          >
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dateOfMarriageStart-month"
+              >
+                Month
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dateOfMarriageStart-month"
+                max="12"
+                maxLength={2}
+                min="1"
+                name="month"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value="4"
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dateOfMarriageStart-day"
+              >
+                Day
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dateOfMarriageStart-day"
+                max="31"
+                maxLength={2}
+                min="1"
+                name="day"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="DD"
+                type="number"
+                value="23"
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="dateOfMarriageStart-year"
+              >
+                Year
+                <span
+                  aria-hidden="true"
+                  className="t--req"
+                  style={
+                    Object {
+                      "marginLeft": "0.35em",
+                    }
+                  }
+                >
+                  Required
+                </span>
+              </label>
+              <input
+                className="txt-f"
+                id="dateOfMarriageStart-year"
+                max={2024}
+                maxLength={4}
+                min={1870}
+                name="year"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value="2008"
+              />
+            </div>
+          </div>
+          
+        </div>
+      </fieldset>
+    </div>
+    <div
+      className="m-v500 p-a300 br br-a200 br--r lh--300"
+      style={
+        Object {
+          "paddingBottom": 0,
+        }
+      }
+    >
+      <h2
+        className="h3 tt-u"
       >
-        <button
-          className="btn btn--b-sm"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
+        We might not have the marriage certificate yet
+      </h2>
+      <p>
+        <strong>
+          We recommend waiting at least two weeks before you request a marriage certificate.
+        </strong>
+         
+        Once a marriage license has been filed, it generally takes two weeks for the marriage certificate to be issued.
+      </p>
+      <p>
+        If you order too early, we can only hold your request for seven days while we wait for the marriage certificate. If we don’t receive the record in time, your request will be canceled automatically and your card will not be charged. You’ll have to resubmit your request.
+      </p>
+    </div>
+  </div>
+  <div
+    className="g g--mr emotion-11"
+  >
+    <div
+      className="t--info g--6 m-b500"
+    >
+      <button
+        className="lnk emotion-10"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
         >
-          Next question
-        </button>
-      </div>
+          <span
+            aria-hidden="true"
+            style={
+              Object {
+                "fontStyle": "normal",
+              }
+            }
+          >
+            ←
+          </span>
+           
+          Back
+        </span>
+      </button>
+    </div>
+    <div
+      className="g--6 ta-r m-b500"
+    >
+      <button
+        className="btn btn--b-sm"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        Next question
+      </button>
     </div>
   </div>
 </div>
@@ -96427,283 +96565,281 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
   }
 }
 
-<div>
+<div
+  className="b-c b-c--hsm"
+>
   <div
-    className="b-c b-c--hsm"
+    className="emotion-10"
   >
+    <h2
+      className="emotion-0"
+      id="exactDateQuestion"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
+        }
+      }
+    >
+      Do you know the exact date of the marriage?
+    </h2>
     <div
-      className="emotion-10"
+      aria-labelledby="exactDateQuestion"
+      className="emotion-5"
+      role="radiogroup"
+      style={
+        Object {
+          "marginBottom": "1.5rem",
+        }
+      }
+    >
+      <label
+        className=" inactive emotion-2"
+      >
+        <svg
+          aria-hidden="true"
+          className="checkMark emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
+          />
+          <path
+            d="M50.937,26.2,30.069,47.068,21,38.791"
+            transform="translate(-5.591 -6.213)"
+          />
+        </svg>
+        <input
+          checked={false}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="yes"
+        />
+        <span>
+          yes
+        </span>
+      </label>
+      <label
+        className="selected  emotion-2"
+      >
+        <svg
+          aria-hidden="true"
+          className="xSymbol emotion-1"
+          focusable="false"
+          viewBox="-2.5 -2.5 66 66"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <ellipse
+            cx="30.377"
+            cy="30.377"
+            rx="30.377"
+            ry="30.377"
+          />
+          <g
+            transform="translate(19.107 19.107)"
+          >
+            <line
+              x2="22.629"
+              y2="22.629"
+            />
+            <line
+              x2="22.629"
+              y1="22.629"
+            />
+          </g>
+        </svg>
+        <input
+          checked={true}
+          name="dateOfMarriage"
+          onChange={[Function]}
+          type="radio"
+          value="no"
+        />
+        <span>
+          no
+        </span>
+      </label>
+    </div>
+    <div
+      className="m-v700"
     >
       <h2
         className="emotion-0"
-        id="exactDateQuestion"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
-        }
       >
-        Do you know the exact date of the marriage?
+        Please enter a date range.
       </h2>
+      <p>
+        The two dates should be within a five year period.
+      </p>
       <div
-        aria-labelledby="exactDateQuestion"
-        className="emotion-5"
-        role="radiogroup"
-        style={
-          Object {
-            "marginBottom": "1.5rem",
-          }
-        }
+        className=" emotion-9"
       >
-        <label
-          className=" inactive emotion-2"
-        >
-          <svg
-            aria-hidden="true"
-            className="checkMark emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <path
-              d="M50.937,26.2,30.069,47.068,21,38.791"
-              transform="translate(-5.591 -6.213)"
-            />
-          </svg>
-          <input
-            checked={false}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="yes"
-          />
-          <span>
-            yes
-          </span>
-        </label>
-        <label
-          className="selected  emotion-2"
-        >
-          <svg
-            aria-hidden="true"
-            className="xSymbol emotion-1"
-            focusable="false"
-            viewBox="-2.5 -2.5 66 66"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <ellipse
-              cx="30.377"
-              cy="30.377"
-              rx="30.377"
-              ry="30.377"
-            />
-            <g
-              transform="translate(19.107 19.107)"
-            >
-              <line
-                x2="22.629"
-                y2="22.629"
-              />
-              <line
-                x2="22.629"
-                y1="22.629"
-              />
-            </g>
-          </svg>
-          <input
-            checked={true}
-            name="dateOfMarriage"
-            onChange={[Function]}
-            type="radio"
-            value="no"
-          />
-          <span>
-            no
-          </span>
-        </label>
-      </div>
-      <div
-        className="m-v700"
-      >
-        <h2
-          className="emotion-0"
-        >
-          Please enter a date range.
-        </h2>
-        <p>
-          The two dates should be within a five year period.
-        </p>
         <div
-          className=" emotion-9"
+          className="date-component"
         >
           <div
-            className="date-component"
+            aria-label="date 1"
+            className="emotion-7"
+            role="group"
           >
-            <div
-              aria-label="date 1"
-              className="emotion-7"
-              role="group"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date1month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f "
-                  id="date1month"
-                  max="12"
-                  min="1"
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value=""
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date1year"
-                >
-                  Year
-                </label>
-                <input
-                  className="year-field txt-f "
-                  id="date1year"
-                  max={2023}
-                  min={1870}
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value=""
-                />
-              </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date1month"
+              >
+                Month
+              </label>
+              <input
+                className="txt-f "
+                id="date1month"
+                max="12"
+                min="1"
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value=""
+              />
             </div>
-            <div
-              className="t--err"
-            >
-               
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date1year"
+              >
+                Year
+              </label>
+              <input
+                className="year-field txt-f "
+                id="date1year"
+                max={2024}
+                min={1870}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value=""
+              />
             </div>
           </div>
           <div
-            className="to"
+            className="t--err"
           >
-            to
+             
+          </div>
+        </div>
+        <div
+          className="to"
+        >
+          to
+        </div>
+        <div
+          className="date-component"
+        >
+          <div
+            aria-label="date 2"
+            className="emotion-7"
+            role="group"
+          >
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date2month"
+              >
+                Month
+              </label>
+              <input
+                className="txt-f "
+                id="date2month"
+                max="12"
+                min="1"
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="MM"
+                type="number"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                className="txt-l"
+                htmlFor="date2year"
+              >
+                Year
+              </label>
+              <input
+                className="year-field txt-f "
+                id="date2year"
+                max={2024}
+                min={1870}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="YYYY"
+                type="number"
+                value=""
+              />
+            </div>
           </div>
           <div
-            className="date-component"
+            className="t--err"
           >
-            <div
-              aria-label="date 2"
-              className="emotion-7"
-              role="group"
-            >
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date2month"
-                >
-                  Month
-                </label>
-                <input
-                  className="txt-f "
-                  id="date2month"
-                  max="12"
-                  min="1"
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="MM"
-                  type="number"
-                  value=""
-                />
-              </div>
-              <div>
-                <label
-                  className="txt-l"
-                  htmlFor="date2year"
-                >
-                  Year
-                </label>
-                <input
-                  className="year-field txt-f "
-                  id="date2year"
-                  max={2023}
-                  min={1870}
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onFocus={[Function]}
-                  placeholder="YYYY"
-                  type="number"
-                  value=""
-                />
-              </div>
-            </div>
-            <div
-              className="t--err"
-            >
-               
-            </div>
+             
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="g g--mr emotion-12"
+  >
     <div
-      className="g g--mr emotion-12"
+      className="t--info g--6 m-b500"
     >
-      <div
-        className="t--info g--6 m-b500"
+      <button
+        className="lnk emotion-11"
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="lnk emotion-11"
-          onClick={[Function]}
-          type="button"
+        <span
+          style={
+            Object {
+              "fontStyle": "italic",
+              "whiteSpace": "nowrap",
+            }
+          }
         >
           <span
+            aria-hidden="true"
             style={
               Object {
-                "fontStyle": "italic",
-                "whiteSpace": "nowrap",
+                "fontStyle": "normal",
               }
             }
           >
-            <span
-              aria-hidden="true"
-              style={
-                Object {
-                  "fontStyle": "normal",
-                }
-              }
-            >
-              ←
-            </span>
-             
-            Back
+            ←
           </span>
-        </button>
-      </div>
-      <div
-        className="g--6 ta-r m-b500"
+           
+          Back
+        </span>
+      </button>
+    </div>
+    <div
+      className="g--6 ta-r m-b500"
+    >
+      <button
+        className="btn btn--b-sm"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
       >
-        <button
-          className="btn btn--b-sm"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          Next question
-        </button>
-      </div>
+        Next question
+      </button>
     </div>
   </div>
 </div>
