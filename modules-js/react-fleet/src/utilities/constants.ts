@@ -40,6 +40,7 @@ export const MONTSERRAT_SRC =
 export const SANS = 'Montserrat, Arial, sans-serif';
 export const SERIF = 'Lora, Georgia, serif';
 
+export const MEDIA_X_SMALL = '@media screen and (max-width: 330px)';
 export const MEDIA_SMALL = '@media screen and (min-width: 480px)';
 export const MEDIA_SMALL_MAX = '@media screen and (max-width: 480px)';
 export const MEDIA_MEDIUM = '@media screen and (min-width: 768px)';

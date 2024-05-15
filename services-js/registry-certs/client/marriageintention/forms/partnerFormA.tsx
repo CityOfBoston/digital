@@ -16,10 +16,10 @@ import { BOSTON_NEIGHBORHOODS } from './inputData';
 
 import {
   nameFields,
-  datePlaceOfBirth,
   residence,
   marriageBlock,
   parents,
+  datePlaceOfBirth,
   PARTNERFORM_HEADER_STYLING,
 } from './partnerFormUI';
 
@@ -76,7 +76,7 @@ export default class PartnerForm extends Component<Props> {
     });
   };
 
-  private handleUseSurnameChange = (
+  public handleUseSurnameChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     handleUseSurnameChange$({
@@ -87,7 +87,7 @@ export default class PartnerForm extends Component<Props> {
     });
   };
 
-  private handleAdditionalParentChange = (
+  public handleAdditionalParentChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     handleAdditionalParentChange$({
@@ -99,7 +99,7 @@ export default class PartnerForm extends Component<Props> {
     });
   };
 
-  private handleBloodRelDescChange = (
+  public handleBloodRelDescChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     handleBloodRelDescChange$({
@@ -110,7 +110,7 @@ export default class PartnerForm extends Component<Props> {
     });
   };
 
-  private handleBloodRelChange = (
+  public handleBloodRelChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     handleBloodRelChange$({
@@ -123,7 +123,7 @@ export default class PartnerForm extends Component<Props> {
     });
   };
 
-  private handleMarriedBeforeChange = (
+  public handleMarriedBeforeChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     this.props.marriageIntentionCertificateRequest.answerQuestion(
@@ -143,7 +143,7 @@ export default class PartnerForm extends Component<Props> {
     }
   };
 
-  private handleBirthDateChange = (newDate): void => {
+  public handleBirthDateChange = (newDate): void => {
     const isDate = this.isDateObj(newDate);
     let age = '';
     if (isDate) {
@@ -158,7 +158,7 @@ export default class PartnerForm extends Component<Props> {
     );
   };
 
-  private handleBirthplaceCountryChange = (
+  public handleBirthplaceCountryChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     this.props.marriageIntentionCertificateRequest.answerQuestion(
@@ -178,7 +178,7 @@ export default class PartnerForm extends Component<Props> {
     }
   };
 
-  private handleResidenceCountryChange = (
+  public handleResidenceCountryChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     this.props.marriageIntentionCertificateRequest.answerQuestion(
@@ -205,9 +205,7 @@ export default class PartnerForm extends Component<Props> {
     }
   };
 
-  private handleZipCodeChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
+  public handleZipCodeChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const val = event.target.value
       .replace(/[^0-9]/g, '')
       .replace(/(\..*)\./g, '$1');
@@ -220,7 +218,7 @@ export default class PartnerForm extends Component<Props> {
     );
   };
 
-  private handleResidenceStateChange = (
+  public handleResidenceStateChange = (
     event: ChangeEvent<HTMLInputElement>
   ): void => {
     const { marriageIntentionCertificateRequest } = this.props;
@@ -281,7 +279,7 @@ export default class PartnerForm extends Component<Props> {
     }
   };
 
-  private checkBirthCityForNeighborhood = (): void => {
+  public checkBirthCityForNeighborhood = (): void => {
     const { marriageIntentionCertificateRequest } = this.props;
     const {
       partnerA_birthCountry,

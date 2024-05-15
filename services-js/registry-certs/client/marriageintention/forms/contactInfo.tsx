@@ -217,15 +217,12 @@ export default class ContactInfo extends Component<Props> {
             </div>
             <div
               css={NAME_FIELDS_BASIC_CONTAINER_STYLING}
-              style={{ paddingTop: '1.5rem' }}
+              style={{ paddingTop: '1.5rem', marginBottom: '1em' }}
             >
               <MemorableDateInput
                 legend={
                   <h2
-                    css={[
-                      // SECTION_HEADING_STYLING,
-                      APPT_HEADER_STYLING,
-                    ]}
+                    css={[APPT_HEADER_STYLING]}
                     style={{ marginBottom: '1.5rem' }}
                   >
                     Appointment Date

@@ -5,6 +5,7 @@ import {
   WHITE,
   SANS,
   MEDIA_SMALL_MAX,
+  MEDIA_SMALL,
   DEFAULT_TEXT,
 } from '@cityofboston/react-fleet';
 
@@ -30,15 +31,16 @@ export const REVIEW_CONTROL_STYLING = css(`
   overflow: hidden;
   align-items: center;
   align-items: center;
+  justify-content: space-between;
   margin: 1em 0;
   color: #fff;
 
   .wrapper-title {
-    flex-grow: 1;
+    // flex-grow: 1;
     
     h1, h2 {
       color: ${CHARLES_BLUE};
-      font-size: 1.5625rem;
+      font-size: 1.0rem;
       font-weight: 700;
       text-transform: uppercase;
       font-family: ${SANS};
@@ -63,10 +65,29 @@ export const REVIEW_CONTROL_STYLING = css(`
     }
   }
 
+  ${MEDIA_SMALL} {
+    .wrapper-title {
+      flex-grow: 1;
+
+      h1, h2 {
+        color: ${CHARLES_BLUE};
+        font-size: 1.5625rem;
+        line-height: 1.875em;
+      }
+    }
+  }
+
   ${MEDIA_SMALL_MAX} {
     .wrapper-title {
       h1 {
         line-height: 1.25em;
+      }
+    }
+
+    .wrapper-btn {
+      .btn {
+        font-size: 12px;
+        padding: 1em;
       }
     }
   }

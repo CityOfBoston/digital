@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { SANS, CHARLES_BLUE } from '@cityofboston/react-fleet';
+import { SANS, CHARLES_BLUE, MEDIA_SMALL } from '@cityofboston/react-fleet';
 import { THICK_BORDER_STYLE } from '../../styling/../../common/question-components/styling';
 
 export const CONTACTFORM_HEADER_STYLING = css(`
@@ -13,14 +13,8 @@ export const CONTACTFORM_HEADER_STYLING = css(`
 `);
 
 export const CONTACTFORM_CONTACT_FIELD_STYLING = css(`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
   .contact-fields {
-    width: calc(50% - 10px); 
     margin-bottom: 10px;
-    // background: green;
 
     label:first-child {
       margin-top: 1em;
@@ -28,6 +22,16 @@ export const CONTACTFORM_CONTACT_FIELD_STYLING = css(`
 
     input.txt-f {
       width: 100%;
+    }
+  }
+
+  ${MEDIA_SMALL} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .contact-fields {
+      width: calc(50% - 10px);
     }
   }
 `);

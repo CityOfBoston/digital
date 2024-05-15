@@ -354,6 +354,7 @@ export const CONTAINER_STYLING = css({
 
 export const BUTTON_CONTAINER_STYLING = css({
   textAlign: 'center',
+  // marginTop: '1.25em',
 
   [MEDIA_SMALL]: {
     marginTop: '2.5rem',
@@ -378,6 +379,7 @@ export const SUPPORTING_TEXT_CLASSNAME = 'lh--400 t--s400 m-b500';
 
 export const MARRIAGEINTENTION = css({
   lineHeight: '1.38em',
+  marginBottom: '1em',
 
   h1: {
     paddingBottom: '0.25rem',
@@ -388,6 +390,7 @@ export const MARRIAGEINTENTION = css({
     fontSize: '2rem',
     fontStyle: 'normal',
     color: CHARLES_BLUE,
+    lineHeight: '1em',
   },
 
   h2: {
@@ -400,11 +403,11 @@ export const MARRIAGEINTENTION = css({
     fontSize: '1.5rem',
     fontStyle: 'normal',
     color: CHARLES_BLUE,
+    lineHeight: '1em',
   },
 
   '.getting-started': {
     fontSize: '1rem',
-    marginBottom: '1.5rem',
 
     '.emphasis': {
       fontStyle: 'bold',

@@ -9949,16 +9949,18 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   transition: opacity 0.1s;
 }
 
-.emotion-4 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-4 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-4 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-4 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-4 input {
@@ -9983,6 +9985,12 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
 
 .emotion-4.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-4 {
+    display: block;
+  }
 }
 
 .emotion-6 {
@@ -10510,16 +10518,18 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
   transition: opacity 0.1s;
 }
 
-.emotion-4 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-4 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-4 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-4 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-4 input {
@@ -10544,6 +10554,12 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
 
 .emotion-4.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-4 {
+    display: block;
+  }
 }
 
 <div
@@ -13917,16 +13933,18 @@ Array [
   transition: opacity 0.1s;
 }
 
-.emotion-8 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-8 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-8 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-8 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-8 input {
@@ -13951,6 +13969,12 @@ Array [
 
 .emotion-8.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-8 {
+    display: block;
+  }
 }
 
 <div
@@ -63433,16 +63457,18 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
   transition: opacity 0.1s;
 }
 
-.emotion-1 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-1 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-1 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-1 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-1 input {
@@ -63467,6 +63493,12 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
 
 .emotion-1.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-1 {
+    display: block;
+  }
 }
 
 .css-1aiow01 .emotion-5:after {
@@ -65145,16 +65177,18 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
   transition: opacity 0.1s;
 }
 
-.emotion-1 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-1 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-1 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-1 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-1 input {
@@ -65179,6 +65213,12 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
 
 .emotion-1.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-1 {
+    display: block;
+  }
 }
 
 .css-1aiow01 .emotion-7:after {
@@ -67203,16 +67243,18 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
   transition: opacity 0.1s;
 }
 
-.emotion-1 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-1 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-1 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-1 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-1 input {
@@ -67237,6 +67279,12 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
 
 .emotion-1.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-1 {
+    display: block;
+  }
 }
 
 .emotion-4 {
@@ -73271,21 +73319,18 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review - Contact 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin: 1em 0;
   color: #fff;
-}
-
-.emotion-0 .wrapper-title {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
 }
 
 .emotion-0 .wrapper-title h1,
 .emotion-0 .wrapper-title h2 {
   color: #091f2f;
-  font-size: 1.5625rem;
+  font-size: 1.0rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: Montserrat,Arial,sans-serif;
@@ -73307,9 +73352,30 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review - Contact 
   background: #1871bd;
 }
 
+@media screen and (min-width:480px) {
+  .emotion-0 .wrapper-title {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  .emotion-0 .wrapper-title h1,
+  .emotion-0 .wrapper-title h2 {
+    color: #091f2f;
+    font-size: 1.5625rem;
+    line-height: 1.875em;
+  }
+}
+
 @media screen and (max-width:480px) {
   .emotion-0 .wrapper-title h1 {
     line-height: 1.25em;
+  }
+
+  .emotion-0 .wrapper-btn .btn {
+    font-size: 12px;
+    padding: 1em;
   }
 }
 
@@ -73450,21 +73516,18 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review/Person Inf
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin: 1em 0;
   color: #fff;
-}
-
-.emotion-0 .wrapper-title {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
 }
 
 .emotion-0 .wrapper-title h1,
 .emotion-0 .wrapper-title h2 {
   color: #091f2f;
-  font-size: 1.5625rem;
+  font-size: 1.0rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: Montserrat,Arial,sans-serif;
@@ -73486,9 +73549,30 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review/Person Inf
   background: #1871bd;
 }
 
+@media screen and (min-width:480px) {
+  .emotion-0 .wrapper-title {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  .emotion-0 .wrapper-title h1,
+  .emotion-0 .wrapper-title h2 {
+    color: #091f2f;
+    font-size: 1.5625rem;
+    line-height: 1.875em;
+  }
+}
+
 @media screen and (max-width:480px) {
   .emotion-0 .wrapper-title h1 {
     line-height: 1.25em;
+  }
+
+  .emotion-0 .wrapper-btn .btn {
+    font-size: 12px;
+    padding: 1em;
   }
 }
 
@@ -74194,6 +74278,7 @@ Array [
 
 .emotion-5 {
   line-height: 1.38em;
+  margin-bottom: 1em;
 }
 
 .emotion-5 h1 {
@@ -74205,6 +74290,7 @@ Array [
   font-size: 2rem;
   font-style: normal;
   color: #091f2f;
+  line-height: 1em;
 }
 
 .emotion-5 h2 {
@@ -74217,11 +74303,11 @@ Array [
   font-size: 1.5rem;
   font-style: normal;
   color: #091f2f;
+  line-height: 1em;
 }
 
 .emotion-5 .getting-started {
   font-size: 1rem;
-  margin-bottom: 1.5rem;
 }
 
 .emotion-5 .getting-started .emphasis {
@@ -74614,7 +74700,7 @@ Array [
                     >
                       Note:
                     </span>
-                    If you edit your information, you must click the "save and continue" button to save your changes.
+                    If you edit your information, you must click the \`Save and Continue\` button to save your changes.
                   </div>
                 </div>
               </div>
@@ -74879,16 +74965,18 @@ Array [
   transition: opacity 0.1s;
 }
 
-.emotion-15 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-15 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-15 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-15 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-15 input {
@@ -74913,6 +75001,12 @@ Array [
 
 .emotion-15.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-15 {
+    display: block;
+  }
 }
 
 .emotion-2 {
@@ -79956,16 +80050,18 @@ Array [
   transition: opacity 0.1s;
 }
 
-.emotion-15 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-15 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-15 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-15 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-15 input {
@@ -79990,6 +80086,12 @@ Array [
 
 .emotion-15.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-15 {
+    display: block;
+  }
 }
 
 .emotion-2 {
@@ -85033,16 +85135,18 @@ Array [
   transition: opacity 0.1s;
 }
 
-.emotion-9 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-9 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-9 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-9 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-9 input {
@@ -85067,6 +85171,12 @@ Array [
 
 .emotion-9.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-9 {
+    display: block;
+  }
 }
 
 .emotion-2 {
@@ -85356,22 +85466,7 @@ Array [
   opacity: 0;
 }
 
-.emotion-6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
 .emotion-6 .contact-fields {
-  width: calc(50% - 10px);
   margin-bottom: 10px;
 }
 
@@ -85381,6 +85476,26 @@ Array [
 
 .emotion-6 .contact-fields input.txt-f {
   width: 100%;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-6 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+
+  .emotion-6 .contact-fields {
+    width: calc(50% - 10px);
+  }
 }
 
 @media screen and (min-width:768px) {
@@ -85921,6 +86036,7 @@ Array [
                       className="emotion-11"
                       style={
                         Object {
+                          "marginBottom": "1em",
                           "paddingTop": "1.5rem",
                         }
                       }
@@ -86490,21 +86606,18 @@ Array [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   margin: 1em 0;
   color: #fff;
-}
-
-.emotion-5 .wrapper-title {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
 }
 
 .emotion-5 .wrapper-title h1,
 .emotion-5 .wrapper-title h2 {
   color: #091f2f;
-  font-size: 1.5625rem;
+  font-size: 1.0rem;
   font-weight: 700;
   text-transform: uppercase;
   font-family: Montserrat,Arial,sans-serif;
@@ -86526,9 +86639,30 @@ Array [
   background: #1871bd;
 }
 
+@media screen and (min-width:480px) {
+  .emotion-5 .wrapper-title {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
+
+  .emotion-5 .wrapper-title h1,
+  .emotion-5 .wrapper-title h2 {
+    color: #091f2f;
+    font-size: 1.5625rem;
+    line-height: 1.875em;
+  }
+}
+
 @media screen and (max-width:480px) {
   .emotion-5 .wrapper-title h1 {
     line-height: 1.25em;
+  }
+
+  .emotion-5 .wrapper-btn .btn {
+    font-size: 12px;
+    padding: 1em;
   }
 }
 
@@ -95310,16 +95444,18 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage knows exact date
   transition: opacity 0.1s;
 }
 
-.emotion-7 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-7 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-7 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-7 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-7 input {
@@ -95344,6 +95480,12 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage knows exact date
 
 .emotion-7.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-7 {
+    display: block;
+  }
 }
 
 .emotion-5 {
@@ -95879,16 +96021,18 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
   transition: opacity 0.1s;
 }
 
-.emotion-7 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-7 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-7 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-7 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-7 input {
@@ -95913,6 +96057,12 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
 
 .emotion-7.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-7 {
+    display: block;
+  }
 }
 
 .emotion-5 {

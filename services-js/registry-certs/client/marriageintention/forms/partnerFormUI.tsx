@@ -39,7 +39,9 @@ import {
   PARTNERSHIP_TYPE_DISSOLVED,
   PARTNERSHIP_TYPE2,
 } from './inputData';
+
 import { COUNTRIES, US_STATES } from '../../../utils/data';
+
 import { ToolTip } from '@cityofboston/react-fleet';
 
 export const PARTNERFORM_HEADER_STYLING = css(`
@@ -204,6 +206,7 @@ export const nameFields = (data: {
       </h1>
 
       {refs && <span ref={refs} />}
+
       <TextInput
         label="First Name"
         name={`partner${partnerFlag}_firstName`}
