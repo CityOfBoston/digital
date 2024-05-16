@@ -4,6 +4,8 @@ import React from 'react';
 
 import { css, jsx } from '@emotion/core';
 
+import { MEDIA_SMALL, MEDIA_SMALL_MAX } from '../../utilities/constants';
+
 type Fields = {
   year: string;
   month: string;
@@ -705,11 +707,13 @@ const FIELDS_CONTAINER_STYLING = css({
   justifyContent: 'space-between',
   transition: 'opacity 0.1s',
 
-  '> div': {
-    flex: '0 0 24%',
+  [MEDIA_SMALL]: {
+    '> div': {
+      flex: '0 0 24%',
 
-    '&:last-of-type': {
-      flex: '0 0 50%',
+      '&:last-of-type': {
+        flex: '0 0 50%',
+      },
     },
   },
 
@@ -735,5 +739,9 @@ const FIELDS_CONTAINER_STYLING = css({
     '*': {
       cursor: 'not-allowed',
     },
+  },
+
+  [MEDIA_SMALL_MAX]: {
+    display: 'block',
   },
 });

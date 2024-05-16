@@ -3519,7 +3519,7 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                     Data of Birth (MM/DD/YYYY)
                   </legend>
                   <div
-                    className="disabled css-1wyga37"
+                    className="disabled css-zu1hcp"
                   >
                     <div>
                       <label
@@ -3982,7 +3982,7 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                     Data of Birth (MM/DD/YYYY)
                   </legend>
                   <div
-                    className=" css-1wyga37"
+                    className=" css-zu1hcp"
                   >
                     <div>
                       <label

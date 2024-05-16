@@ -32,8 +32,8 @@ storiesOf('Notifications|Modals/StatusModal', module)
       absoluteCloseBtn={action('close')}
     >
       <p className="t--s400">
-        If you edit your information you must click save and continue to save
-        your changes
+        If you edit your information, you must click the `Save and Continue`
+        button to save your changes.
       </p>
     </StatusModal>
   ));

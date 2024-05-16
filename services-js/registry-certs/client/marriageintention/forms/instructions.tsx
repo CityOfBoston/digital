@@ -74,7 +74,7 @@ export default class Instructions extends Component<Props> {
 
         <div css={INSTRUCTIONS_NOTE}>
           <span className="note">Note:</span>
-          If you edit your information, you must click the "save and continue"
+          If you edit your information, you must click the `Save and Continue`
           button to save your changes.
         </div>
       </div>

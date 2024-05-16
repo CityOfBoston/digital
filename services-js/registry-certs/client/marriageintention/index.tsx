@@ -599,8 +599,8 @@ export default class IndexPage extends React.Component<Props, State> {
               confirmBtnText={`Confirm`}
             >
               <p className="t--s500">
-                If you edit your information you must click the `Save and
-                Continue` button to save your changes
+                If you edit your information, you must click the `Save and
+                Continue` button to save your changes.
               </p>
             </StatusModal>
           )}

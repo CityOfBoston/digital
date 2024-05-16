@@ -905,16 +905,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -939,6 +941,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -1088,16 +1096,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1122,6 +1132,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -1271,16 +1287,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1305,6 +1323,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -1459,16 +1483,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1493,6 +1519,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -1642,16 +1674,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1676,6 +1710,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -1825,16 +1865,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1859,6 +1901,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -2008,16 +2056,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -2042,6 +2092,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -2191,16 +2247,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -2225,6 +2283,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -2374,16 +2438,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -2408,6 +2474,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -2557,16 +2629,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -2591,6 +2665,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
 
 .emotion-0.disabled * {
   cursor: not-allowed;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
 }
 
 <fieldset
@@ -5864,7 +5944,7 @@ exports[`Storyshots Notifications|Modals/StatusModal hide top border decoration 
       <p
         className="t--s400"
       >
-        If you edit your information you must click save and continue to save your changes
+        If you edit your information, you must click the \`Save and Continue\` button to save your changes.
       </p>
     </div>
   </div>
