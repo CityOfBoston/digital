@@ -1,5 +1,10 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+
 import React from 'react';
 import hash from 'string-hash';
+
+import { CHARLES_BLUE } from '../utilities/constants';
 
 interface Options {
   label: string;
@@ -66,7 +71,11 @@ export default function SelectDropdown(props: Props): JSX.Element {
   const opts = (_options: any) => {
     if (typeof _options[0] === 'object') {
       return _options.map((option: { value: any; label: React.ReactNode }) => (
-        <option key={`${id}_${option.value}`} value={option.value}>
+        <option
+          key={`${id}_${option.value}`}
+          value={option.value}
+          css={OPT_STYLING}
+        >
           {option.label}
         </option>
       ));
@@ -181,3 +190,7 @@ export default function SelectDropdown(props: Props): JSX.Element {
     </div>
   );
 }
+
+const OPT_STYLING = css(`
+  color: ${CHARLES_BLUE};
+`);
