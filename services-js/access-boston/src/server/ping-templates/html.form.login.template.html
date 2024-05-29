@@ -375,9 +375,46 @@ is not recommended as it may interfere with expected server behavior.
         font-weight: bold;
         text-transform: uppercase;
     }
+
     .showButton:hover {
         text-decoration: underline;
         cursor: pointer;
+    }
+
+    /* DIG-4457: Remove bold tag and inline style */
+    .footer-table {
+        width: 95%;
+        margin: auto;
+    }
+    .footer-table td {
+        color: dodgerblue;
+        padding-left: 0.25em;
+        text-align: right;
+        vertical-align: top;
+        padding-bottom: 0.5em;
+    }
+    .footer-table td:first-child {
+        font-size: 14px;
+        color: #58585b;
+        padding-left: 0;
+        text-align: left;
+        width: 60%;
+        font-weight: bold;
+    }
+
+    /* DIG-4457: Following Edits need to be made on assets/css/cob-main.css */
+    /* DIG-4457: Following Edits need to be made on $assetPath/css/main.css */
+
+    .contact-heading {
+        text-align: center;
+    }
+
+    @media (min-width: 840px) {
+        .image-aside {
+            display: block;
+            /* margin-right: -0.75rem; */
+            margin-right: 0;
+        }
     }
 </style>
 
