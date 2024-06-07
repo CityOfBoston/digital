@@ -4125,6 +4125,10 @@ exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
 
 exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
 .emotion-0 {
+  color: #091f2f;
+}
+
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4136,7 +4140,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
   position: relative;
 }
 
-.emotion-0 .icon {
+.emotion-3 .icon {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -4149,20 +4153,20 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
   color: white;
 }
 
-.emotion-0 .icon::before {
+.emotion-3 .icon::before {
   content: '?';
 }
 
-.emotion-0 .tt--info {
+.emotion-3 .tt--info {
   text-transform: lowercase;
   padding-left: 3.5px;
 }
 
-.emotion-0 .tt--info::before {
+.emotion-3 .tt--info::before {
   content: 'i';
 }
 
-.emotion-0 .msg {
+.emotion-3 .msg {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -4182,7 +4186,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
   top: calc(-30% + 1px);
 }
 
-.emotion-0 .icon:hover + .msg {
+.emotion-3 .icon:hover + .msg {
   visibility: visible;
 }
 
@@ -4389,16 +4393,19 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
         required={true}
       >
         <option
+          className="emotion-0"
           value="Does Not Apply"
         >
           Does Not Apply
         </option>
         <option
+          className="emotion-0"
           value="Civil Unions"
         >
           Civil Unions
         </option>
         <option
+          className="emotion-0"
           value="Domestic Partnership"
         >
           Domestic Partnership
@@ -4438,7 +4445,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
       >
         Required
         <span
-          className="tool-tip__wrapper emotion-0"
+          className="tool-tip__wrapper emotion-3"
         >
           <div
             className="icon"
@@ -4505,7 +4512,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
       >
         Required
         <span
-          className="tool-tip__wrapper emotion-0"
+          className="tool-tip__wrapper emotion-3"
         >
           <div
             className="icon"
@@ -4570,7 +4577,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
       >
         Required
         <span
-          className="tool-tip__wrapper emotion-0"
+          className="tool-tip__wrapper emotion-3"
         >
           <div
             className="icon"
