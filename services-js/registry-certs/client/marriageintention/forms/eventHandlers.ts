@@ -1,6 +1,8 @@
 import { ChangeEvent } from 'react';
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 
+import { BOSTON_NEIGHBORHOODS } from './inputData';
+
 export const handleFormPageComplete$ = (data: {
   partnerFlag: string;
   val: string;
@@ -29,23 +31,22 @@ export const handleChange$ = (data: {
 };
 
 export const handleUseSurnameChange$ = (data: {
-  e: ChangeEvent<HTMLInputElement>;
-  inputName: string;
-  textInput: string;
+  val: string;
+  partnerFlag: string;
   certObj: MarriageIntentionCertificateRequest;
 }) => {
-  const { e, inputName, textInput, certObj } = data;
+  const { val, partnerFlag, certObj } = data;
   certObj.answerQuestion(
     {
-      [inputName]: e.target.value,
+      [`partner${partnerFlag}_useSurname`]: val,
     },
     ''
   );
 
-  if (e.target.value === '0') {
+  if (val === '0') {
     certObj.answerQuestion(
       {
-        [textInput]: '',
+        [`partner${partnerFlag}_surName`]: '',
       },
       ''
     );
@@ -53,25 +54,23 @@ export const handleUseSurnameChange$ = (data: {
 };
 
 export const handleAdditionalParentChange$ = (data: {
-  e: ChangeEvent<HTMLInputElement>;
-  additionalParent: string;
-  parentB_Name: string;
-  parentB_Surname: string;
+  val: string;
+  partnerFlag: string;
   certObj: MarriageIntentionCertificateRequest;
 }) => {
-  const { e, additionalParent, parentB_Name, parentB_Surname, certObj } = data;
+  const { val, partnerFlag, certObj } = data;
   certObj.answerQuestion(
     {
-      [additionalParent]: e.target.value,
+      [`partner${partnerFlag}_additionalParent`]: val,
     },
     ''
   );
 
-  if (e.target.value === '0') {
+  if (val === '0') {
     certObj.answerQuestion(
       {
-        [parentB_Surname]: '',
-        [parentB_Name]: '',
+        [`partner${partnerFlag}_parentB_Name`]: '',
+        [`partner${partnerFlag}_parentB_Surname`]: '',
       },
       ''
     );
@@ -80,16 +79,14 @@ export const handleAdditionalParentChange$ = (data: {
 
 export const handleBloodRelDescChange$ = (data: {
   e: ChangeEvent<HTMLInputElement>;
-  partnerA: string;
-  partnerB: string;
   certObj: MarriageIntentionCertificateRequest;
 }) => {
-  const { e, partnerA, partnerB, certObj } = data;
+  const { e, certObj } = data;
 
   certObj.answerQuestion(
     {
-      [partnerA]: e.target.value,
-      [partnerB]: e.target.value,
+      [`partnerA_bloodRelationDesc`]: e.target.value,
+      [`partnerB_bloodRelationDesc`]: e.target.value,
     },
     ''
   );
@@ -97,18 +94,14 @@ export const handleBloodRelDescChange$ = (data: {
 
 export const handleBloodRelChange$ = (data: {
   e: ChangeEvent<HTMLInputElement>;
-  partnerA: string;
-  partnerB: string;
-  partnerADesc: string;
-  partnerBDesc: string;
   certObj: MarriageIntentionCertificateRequest;
 }) => {
-  const { e, partnerA, partnerB, partnerADesc, partnerBDesc, certObj } = data;
+  const { e, certObj } = data;
 
   certObj.answerQuestion(
     {
-      [partnerA]: e.target.value,
-      [partnerB]: e.target.value,
+      [`partnerA_bloodRelation`]: e.target.value,
+      [`partnerB_bloodRelation`]: e.target.value,
     },
     ''
   );
@@ -116,12 +109,264 @@ export const handleBloodRelChange$ = (data: {
   if (e.target.value === '0') {
     certObj.answerQuestion(
       {
-        [partnerADesc]: '',
-        [partnerBDesc]: '',
+        [`partnerA_bloodRelationDesc`]: '',
+        [`partnerB_bloodRelationDesc`]: '',
       },
       ''
     );
   }
+};
+
+export const handleMarriedBeforeChange$ = (data: {
+  val: string;
+  partnerFlag: string;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { val, partnerFlag, certObj } = data;
+  certObj.answerQuestion(
+    {
+      [`partner${partnerFlag}_marriedBefore`]: val,
+    },
+    ''
+  );
+
+  if (val === '0') {
+    certObj.answerQuestion(
+      {
+        [`partner${partnerFlag}_marriageNumb`]: '',
+      },
+      ''
+    );
+  }
+};
+
+export const handleBirthplaceCountryChange$ = (data: {
+  e: ChangeEvent<HTMLInputElement>;
+  partnerFlag: string;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { e, partnerFlag, certObj } = data;
+  certObj.answerQuestion(
+    {
+      [e.target.name]: e.target.value,
+    },
+    ''
+  );
+
+  if (e.target.value !== 'USA') {
+    certObj.answerQuestion(
+      {
+        [`partner${partnerFlag}_birthState`]: '',
+      },
+      ''
+    );
+  }
+};
+
+export const handleZipCodeChange$ = (data: {
+  e: ChangeEvent<HTMLInputElement>;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { e, certObj } = data;
+
+  const val = e.target.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');
+
+  certObj.answerQuestion(
+    {
+      [e.target.name]: val,
+    },
+    ''
+  );
+};
+
+export const handleResidenceStateChange$ = (data: {
+  e: ChangeEvent<HTMLInputElement>;
+  partnerFlag: string;
+  requestInformation: any;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { e, partnerFlag, requestInformation, certObj } = data;
+  const {
+    [`partner${partnerFlag}_residenceCity`]: residenceCity,
+    [`partner${partnerFlag}_residenceCountry`]: residenceCountry,
+  } = requestInformation;
+
+  const inlowerCase = residenceCity.toLowerCase();
+  const isBosNeighborhood = BOSTON_NEIGHBORHOODS.indexOf(inlowerCase);
+
+  certObj.answerQuestion(
+    {
+      [e.target.name]: e.target.value,
+    },
+    ''
+  );
+
+  if (
+    residenceCountry === 'USA' &&
+    e.target.value === 'MA' &&
+    isBosNeighborhood > -1
+  ) {
+    replaceBosNeighborhoods$({
+      e: {
+        target: {
+          name: `partner${partnerFlag}_residenceCity`,
+          value: residenceCity,
+        },
+      },
+      partnerFlag: '',
+      requestInformation,
+      certObj,
+    });
+  }
+};
+
+export const replaceBosNeighborhoods$ = (data: {
+  e:
+    | ChangeEvent<HTMLInputElement>
+    | {
+        target: { name: string; value: string };
+      };
+  partnerFlag: string;
+  requestInformation: any;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { e, partnerFlag, requestInformation, certObj } = data;
+  const {
+    [`partner${partnerFlag}_residenceCity`]: residenceCity,
+    [`partner${partnerFlag}_residenceState`]: residenceState,
+  } = requestInformation;
+
+  const inlowerCase = e.target.value.toLowerCase();
+  const isBosNeighborhood = BOSTON_NEIGHBORHOODS.indexOf(inlowerCase);
+
+  if (
+    residenceCity === 'USA' &&
+    residenceState === 'MA' &&
+    isBosNeighborhood > -1
+  ) {
+    certObj.answerQuestion(
+      {
+        [e.target.name]: 'Boston',
+      },
+      ''
+    );
+  }
+};
+
+export const checkBirthCityForNeighborhood$ = (data: {
+  partnerFlag: string;
+  requestInformation: any;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { partnerFlag, requestInformation, certObj } = data;
+  const {
+    [`partner${partnerFlag}_birthCountry`]: birthCountry,
+    [`partner${partnerFlag}_birthCity`]: birthCity,
+    [`partner${partnerFlag}_birthState`]: birthState,
+  } = requestInformation;
+
+  const inlowerCase = birthCity.toLowerCase();
+  const isBosNeighborhood = BOSTON_NEIGHBORHOODS.indexOf(inlowerCase);
+
+  if (
+    birthCountry === 'USA' &&
+    (birthState === 'MA' || birthState === 'Massachusetts') &&
+    isBosNeighborhood > -1
+  ) {
+    certObj.answerQuestion(
+      {
+        [`partner${partnerFlag}_birthCity`]: 'Boston',
+      },
+      ''
+    );
+  }
+};
+
+export const handleResidenceCountryChange$ = (data: {
+  e: ChangeEvent<HTMLInputElement>;
+  partnerFlag: string;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { e, partnerFlag, certObj } = data;
+
+  certObj.answerQuestion(
+    {
+      [e.target.name]: e.target.value,
+    },
+    ''
+  );
+
+  if (e.target.value !== 'USA') {
+    certObj.answerQuestion(
+      {
+        [`partner${partnerFlag}_residenceState`]: '',
+      },
+      ''
+    );
+
+    certObj.answerQuestion(
+      {
+        [`partner${partnerFlag}_residenceZip`]: '',
+      },
+      ''
+    );
+  }
+};
+
+export const handleBirthDateChange$ = (data: {
+  val: Date;
+  partnerFlag: string;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { val, partnerFlag, certObj } = data;
+  const isDate = isDateObj$(val);
+  let age: string = '';
+
+  if (isDate) {
+    age = `${calcAge$(val)}`;
+    updateAge$({ val: age, partnerFlag, certObj });
+  }
+
+  certObj.answerQuestion(
+    {
+      [`partner${partnerFlag}_dob`]: val,
+    },
+    ''
+  );
+};
+
+export const updateAge$ = (data: {
+  val: string;
+  partnerFlag: string;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { val, partnerFlag, certObj } = data;
+
+  certObj.answerQuestion(
+    {
+      [`partner${partnerFlag}_age`]: val,
+    },
+    ''
+  );
+};
+
+export const calcAge$ = (dateObj: Date) => {
+  const today = new Date();
+  let age = today.getFullYear() - dateObj.getFullYear();
+  const m = today.getMonth() - dateObj.getMonth();
+
+  if (m < 0 || (m === 0 && today.getDate() < dateObj.getDate())) {
+    age = age - 1;
+  }
+
+  return age;
+};
+
+export const isDateObj$ = (dateObj: Date | null) => {
+  if (Object.prototype.toString.call(dateObj) === '[object Date]') {
+    return true;
+  }
+  return false;
 };
 
 export default handleChange$;
