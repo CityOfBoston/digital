@@ -52,10 +52,13 @@ export const retPartnerRequestInformation = (
   retObj.surName = requestInformation[`partner${partnerFlag}_surName`];
   retObj.useSurname = requestInformation[`partner${partnerFlag}_useSurname`];
   retObj.occupation = requestInformation[`partner${partnerFlag}_occupation`];
+
   retObj.bloodRelation =
     requestInformation[`partner${partnerFlag}_bloodRelation`];
-  retObj.bloodRelationDesc;
-  requestInformation[`partner${partnerFlag}_bloodRelationDesc`];
+
+  retObj.bloodRelationDesc =
+    requestInformation[`partner${partnerFlag}_bloodRelationDesc`];
+
   retObj.birthCity = requestInformation[`partner${partnerFlag}_birthCity`];
   retObj.birthState = requestInformation[`partner${partnerFlag}_birthState`];
   retObj.birthCountry =
@@ -140,11 +143,15 @@ export const isPartnerFormPageComplete = (
     partnershipStateBool = false;
   }
 
-  const bloodRelDescReq =
+  let bloodRelDescReq =
     data.bloodRelation && data.bloodRelation == '1' ? true : false;
 
   if (bloodRelDescReq && data.bloodRelationDesc.length < 1) {
     bloodRelReq = false;
+  }
+
+  if (bloodRelDescReq && data.bloodRelationDesc.length > 1) {
+    bloodRelReq = true;
   }
 
   const surNameTextReq =

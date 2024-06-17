@@ -2,7 +2,7 @@
 
 import { jsx } from '@emotion/core';
 
-import { ChangeEvent, Component, MouseEvent } from 'react';
+import { Component, MouseEvent } from 'react';
 
 import { observer } from 'mobx-react';
 
@@ -12,7 +12,7 @@ import QuestionComponent from '../../common/question-components/QuestionComponen
 
 import FieldsetComponent from '../../common/question-components/FieldsetComponent';
 
-import { BOSTON_NEIGHBORHOODS } from './inputData';
+// import { BOSTON_NEIGHBORHOODS } from './inputData';
 
 import {
   nameFields,
@@ -30,6 +30,16 @@ import {
   handleBloodRelDescChange$,
   handleBloodRelChange$,
   handleFormPageComplete$,
+  handleMarriedBeforeChange$,
+  handleBirthplaceCountryChange$,
+  handleResidenceCountryChange$,
+  handleZipCodeChange$,
+  handleResidenceStateChange$,
+  replaceBosNeighborhoods$,
+  checkBirthCityForNeighborhood$,
+  isDateObj$,
+  updateAge$,
+  calcAge$,
 } from './eventHandlers';
 
 import { isPartnerFormPageComplete } from '../../marriageintention/helpers/formUtils';
@@ -66,271 +76,34 @@ export default class PartnerForm extends Component<Props> {
   public static isComplete({
     requestInformation,
   }: MarriageIntentionCertificateRequest): boolean {
-    return isPartnerFormPageComplete('A', requestInformation);
+    const isComplete = isPartnerFormPageComplete('A', requestInformation);
+
+    return isComplete;
   }
 
-  private handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    handleChange$({
-      e: event,
-      certObj: this.props.marriageIntentionCertificateRequest,
-    });
-  };
-
-  public handleUseSurnameChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    handleUseSurnameChange$({
-      e: event,
-      inputName: 'partnerA_useSurname',
-      textInput: 'partnerA_surName',
-      certObj: this.props.marriageIntentionCertificateRequest,
-    });
-  };
-
-  public handleAdditionalParentChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    handleAdditionalParentChange$({
-      e: event,
-      additionalParent: 'partnerA_additionalParent',
-      parentB_Name: 'partnerA_parentB_Name',
-      parentB_Surname: 'partnerA_parentB_Surname',
-      certObj: this.props.marriageIntentionCertificateRequest,
-    });
-  };
-
-  public handleBloodRelDescChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    handleBloodRelDescChange$({
-      e: event,
-      partnerA: 'partnerA_bloodRelationDesc',
-      partnerB: 'partnerB_bloodRelationDesc',
-      certObj: this.props.marriageIntentionCertificateRequest,
-    });
-  };
-
-  public handleBloodRelChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    handleBloodRelChange$({
-      e: event,
-      partnerA: 'partnerA_bloodRelation',
-      partnerB: 'partnerB_bloodRelation',
-      partnerADesc: 'partnerA_bloodRelationDesc',
-      partnerBDesc: 'partnerB_bloodRelationDesc',
-      certObj: this.props.marriageIntentionCertificateRequest,
-    });
-  };
-
-  public handleMarriedBeforeChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        ['partnerA_marriedBefore']: event.target.value,
-      },
-      ''
-    );
-
-    if (event.target.value === '0') {
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerA_marriageNumb']: '',
-        },
-        ''
-      );
-    }
-  };
-
+  // ------------------------------------------------------ //
   public handleBirthDateChange = (newDate): void => {
-    const isDate = this.isDateObj(newDate);
+    const isDate = isDateObj$(newDate);
+    const partnerFlag: string = 'A';
     let age = '';
+
     if (isDate) {
-      age = `${this.calcAge(newDate)}`;
-      this.updateAge(age);
-    }
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        partnerA_dob: newDate,
-      },
-      ''
-    );
-  };
-
-  public handleBirthplaceCountryChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        [event.target.name]: event.target.value,
-      },
-      ''
-    );
-
-    if (event.target.value !== 'USA') {
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerA_birthState']: '',
-        },
-        ''
-      );
-    }
-  };
-
-  public handleResidenceCountryChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        [event.target.name]: event.target.value,
-      },
-      ''
-    );
-
-    if (event.target.value !== 'USA') {
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerA_residenceState']: '',
-        },
-        ''
-      );
-
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerA_residenceZip']: '',
-        },
-        ''
-      );
-    }
-  };
-
-  public handleZipCodeChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const val = event.target.value
-      .replace(/[^0-9]/g, '')
-      .replace(/(\..*)\./g, '$1');
-
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        [event.target.name]: val,
-      },
-      ''
-    );
-  };
-
-  public handleResidenceStateChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ): void => {
-    const { marriageIntentionCertificateRequest } = this.props;
-    const {
-      partnerA_residenceCity,
-      partnerA_residenceCountry,
-    } = marriageIntentionCertificateRequest.requestInformation;
-
-    const inlowerCase = partnerA_residenceCity.toLowerCase();
-    const isBosNeighborhood = BOSTON_NEIGHBORHOODS.indexOf(inlowerCase);
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        [event.target.name]: event.target.value,
-      },
-      ''
-    );
-
-    if (
-      partnerA_residenceCountry === 'USA' &&
-      event.target.value === 'MA' &&
-      isBosNeighborhood > -1
-    ) {
-      this.replaceBosNeighborhoods({
-        target: {
-          name: 'partnerA_residenceCity',
-          value: partnerA_residenceCity,
-        },
+      age = `${calcAge$(newDate)}`;
+      updateAge$({
+        val: age,
+        partnerFlag,
+        certObj: this.props.marriageIntentionCertificateRequest,
       });
     }
-  };
 
-  private replaceBosNeighborhoods = (
-    event:
-      | ChangeEvent<HTMLInputElement>
-      | {
-          target: { name: string; value: string };
-        }
-  ): void => {
-    const { marriageIntentionCertificateRequest } = this.props;
-    const {
-      partnerA_residenceCountry,
-      partnerA_residenceState,
-    } = marriageIntentionCertificateRequest.requestInformation;
-    const inlowerCase = event.target.value.toLowerCase();
-    const isBosNeighborhood = BOSTON_NEIGHBORHOODS.indexOf(inlowerCase);
-
-    if (
-      partnerA_residenceCountry === 'USA' &&
-      partnerA_residenceState === 'MA' &&
-      isBosNeighborhood > -1
-    ) {
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          [event.target.name]: 'Boston',
-        },
-        ''
-      );
-    }
-  };
-
-  public checkBirthCityForNeighborhood = (): void => {
-    const { marriageIntentionCertificateRequest } = this.props;
-    const {
-      partnerA_birthCountry,
-      partnerA_birthCity,
-      partnerA_birthState,
-    } = marriageIntentionCertificateRequest.requestInformation;
-    const inlowerCase = partnerA_birthCity.toLowerCase();
-    const isBosNeighborhood = BOSTON_NEIGHBORHOODS.indexOf(inlowerCase);
-
-    if (
-      partnerA_birthCountry === 'USA' &&
-      (partnerA_birthState === 'MA' ||
-        partnerA_birthState === 'Massachusetts') &&
-      isBosNeighborhood > -1
-    ) {
-      this.props.marriageIntentionCertificateRequest.answerQuestion(
-        {
-          ['partnerA_birthCity']: 'Boston',
-        },
-        ''
-      );
-    }
-  };
-
-  private updateAge = (age: string) => {
     this.props.marriageIntentionCertificateRequest.answerQuestion(
       {
-        partnerA_age: age,
+        [`partner${partnerFlag}_dob`]: newDate,
       },
       ''
     );
   };
-
-  private calcAge = (dateObj: Date) => {
-    const today = new Date();
-    let age = today.getFullYear() - dateObj.getFullYear();
-    const m = today.getMonth() - dateObj.getMonth();
-
-    if (m < 0 || (m === 0 && today.getDate() < dateObj.getDate())) {
-      age = age - 1;
-    }
-
-    return age;
-  };
-
-  private isDateObj = (dateObj: Date | null) => {
-    if (Object.prototype.toString.call(dateObj) === '[object Date]') {
-      return true;
-    }
-    return false;
-  };
+  // ------------------------------------------------------ //
 
   private advanceForm = (certObj: any) => {
     handleFormPageComplete$({
@@ -419,9 +192,25 @@ export default class PartnerForm extends Component<Props> {
           {nameFields({
             formPageComplete: partnerA_formPageComplete,
             partnerFlag: partnerLabel,
-            handleChange: this.handleChange,
-            handleResidenceStateChange: this.handleResidenceStateChange,
-            handleUseSurnameChange: this.handleUseSurnameChange,
+            handleChange: e =>
+              handleChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleResidenceStateChange: e =>
+              handleResidenceStateChange$({
+                e,
+                partnerFlag: 'A',
+                requestInformation:
+                  marriageIntentionCertificateRequest.requestInformation,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleUseSurnameChange: e =>
+              handleUseSurnameChange$({
+                val: e.target.value,
+                partnerFlag: 'A',
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
             formErrors: this.props.formErrors,
             errorElemSrc: this.props.errorElemSrc,
             refs: this.props.refObjs.nameFieldsRef,
@@ -442,9 +231,24 @@ export default class PartnerForm extends Component<Props> {
             birthCountryStr: partnerA_birthCountry,
             birthStateStr: partnerA_birthState,
             birthCityStr: partnerA_birthCity,
-            handleChange: this.handleChange,
-            handleBirthplaceCountryChange: this.handleBirthplaceCountryChange,
-            checkBirthCityForNeighborhood: this.checkBirthCityForNeighborhood,
+            handleChange: e =>
+              handleChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleBirthplaceCountryChange: e =>
+              handleBirthplaceCountryChange$({
+                e,
+                partnerFlag: 'A',
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            checkBirthCityForNeighborhood: () =>
+              checkBirthCityForNeighborhood$({
+                partnerFlag: 'A',
+                requestInformation:
+                  marriageIntentionCertificateRequest.requestInformation,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
             handleBirthDateChange: this.handleBirthDateChange,
             formErrors: this.props.formErrors,
             errorElemSrc: this.props.errorElemSrc,
@@ -459,11 +263,38 @@ export default class PartnerForm extends Component<Props> {
             residenceStateStr: partnerA_residenceState,
             residenceAddressStr: partnerA_residenceAddress,
             residenceCountryStr: partnerA_residenceCountry,
-            handleChange: this.handleChange,
-            handleZipCodeChange: this.handleZipCodeChange,
-            replaceBosNeighborhoods: this.replaceBosNeighborhoods,
-            handleResidenceStateChange: this.handleResidenceStateChange,
-            handleResidenceCountryChange: this.handleResidenceCountryChange,
+            handleChange: e =>
+              handleChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleZipCodeChange: e =>
+              handleZipCodeChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            replaceBosNeighborhoods: e =>
+              replaceBosNeighborhoods$({
+                e,
+                partnerFlag: 'A',
+                requestInformation:
+                  marriageIntentionCertificateRequest.requestInformation,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleResidenceStateChange: e =>
+              handleResidenceStateChange$({
+                e,
+                partnerFlag: 'A',
+                requestInformation:
+                  marriageIntentionCertificateRequest.requestInformation,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleResidenceCountryChange: e =>
+              handleResidenceCountryChange$({
+                e,
+                partnerFlag: 'A',
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
             formErrors: this.props.formErrors,
             errorElemSrc: this.props.errorElemSrc,
             refs: this.props.refObjs.residenceRef,
@@ -482,10 +313,27 @@ export default class PartnerForm extends Component<Props> {
             partnershipState: partnerA_partnershipState,
             partnershipTypeDissolved: partnerA_partnershipTypeDissolved,
 
-            handleChange: this.handleChange,
-            handleBloodRelChange: this.handleBloodRelChange,
-            handleBloodRelDescChange: this.handleBloodRelDescChange,
-            handleMarriedBeforeChange: this.handleMarriedBeforeChange,
+            handleChange: e =>
+              handleChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleBloodRelChange: e =>
+              handleBloodRelChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleBloodRelDescChange: e =>
+              handleBloodRelDescChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleMarriedBeforeChange: e =>
+              handleMarriedBeforeChange$({
+                val: e.target.value,
+                partnerFlag: 'A',
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
             formErrors: this.props.formErrors,
             errorElemSrc: this.props.errorElemSrc,
             refs: this.props.refObjs.marriageRef,
@@ -500,8 +348,17 @@ export default class PartnerForm extends Component<Props> {
             parentB_Surname: partnerA_parentB_Surname,
             additionalParent: partnerA_additionalParent,
             parentsMarriedAtBirth: partnerA_parentsMarriedAtBirth,
-            handleChange: this.handleChange,
-            handleAdditionalParentChange: this.handleAdditionalParentChange,
+            handleChange: e =>
+              handleChange$({
+                e,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleAdditionalParentChange: e =>
+              handleAdditionalParentChange$({
+                val: e.target.value,
+                partnerFlag: 'A',
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
             formErrors: this.props.formErrors,
             errorElemSrc: this.props.errorElemSrc,
             refs: this.props.refObjs.parentsRef,
