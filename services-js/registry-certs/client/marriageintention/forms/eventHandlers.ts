@@ -16,20 +16,6 @@ export const handleFormPageComplete$ = (data: {
   );
 };
 
-export const handleChange$ = (data: {
-  e: ChangeEvent<HTMLInputElement>;
-  certObj: MarriageIntentionCertificateRequest;
-}) => {
-  const { e, certObj } = data;
-
-  certObj.answerQuestion(
-    {
-      [e.target.name]: e.target.value,
-    },
-    ''
-  );
-};
-
 export const handleUseSurnameChange$ = (data: {
   val: string;
   partnerFlag: string;
@@ -50,6 +36,111 @@ export const handleUseSurnameChange$ = (data: {
       },
       ''
     );
+  }
+};
+
+export const handleChange$ = (data: {
+  e: ChangeEvent<HTMLInputElement>;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { e, certObj } = data;
+
+  certObj.answerQuestion(
+    {
+      [e.target.name]: e.target.value,
+    },
+    ''
+  );
+};
+
+/****
+ * @name handleParentNameChange$
+ * @description Update Session Data with field data for Parents, cropping last name from first field if last name matches Surname
+ * @case1 If Surname is entered before Name (FML), check FML value; if `Last` matches Surname then update remove the `Last` (L) from (FML) before updating Session Data
+ * @case2 If `First Middle Last` (FML) Name is entered before Surname, if `Last` from (FML) matches `Surname` remove the `Last`|(L) from (FML) in Name field
+ */
+export const handleParentNameChange$ = (data: {
+  e: ChangeEvent<HTMLInputElement>;
+  partnerFlag: string;
+  parentFlag?: 'A' | 'B';
+  requestInformation: any;
+  certObj: MarriageIntentionCertificateRequest;
+}) => {
+  const { e, partnerFlag, requestInformation, certObj } = data;
+  const parentFlag = data.parentFlag ? data.parentFlag : 'A';
+  const {
+    [`partner${partnerFlag}_parent${parentFlag}_Name`]: parentA_Name,
+  } = requestInformation;
+
+  const fieldName = e.target && e.target.name ? e.target.name : '';
+  const fieldVal = e.target && e.target.value ? e.target.value : '';
+
+  if (partnerFlag === 'B') {
+    console.log(`Partner(${partnerFlag})`);
+  }
+
+  if (fieldName === `partner${partnerFlag}_parent${parentFlag}_Name`) {
+    // ---------------------------- //
+    // @case1 - START //
+    const {
+      [`partner${partnerFlag}_parent${parentFlag}_Surname`]: parentA_Surname,
+    } = requestInformation;
+    let case1Val = fieldVal;
+
+    const valArr1 = fieldVal.split(' ');
+    if (
+      parentA_Surname.length > 0 &&
+      valArr1.length > 1 &&
+      valArr1[valArr1.length - 1] === parentA_Surname
+    ) {
+      valArr1.pop();
+      case1Val = valArr1.join(' ');
+    }
+
+    certObj.answerQuestion(
+      {
+        [fieldName]: case1Val,
+      },
+      ''
+    );
+    // @case1 - END //
+    // ---------------------------- //
+  } else {
+    // ---------------------------- //
+    // @case2 - END //
+    if (fieldName === `partner${partnerFlag}_parent${parentFlag}_Surname`) {
+      if (parentA_Name.split(' ').length > 1) {
+        let valArr2 = parentA_Name.split(' ');
+        if (valArr2[valArr2.length - 1] === fieldVal) {
+          valArr2.pop();
+          certObj.answerQuestion(
+            {
+              [`partner${partnerFlag}_parent${parentFlag}_Name`]: valArr2.join(
+                ' '
+              ),
+              [`partner${partnerFlag}_parent${parentFlag}_Surname`]: fieldVal,
+            },
+            ''
+          );
+        } else {
+          certObj.answerQuestion(
+            {
+              [fieldName]: fieldVal,
+            },
+            ''
+          );
+        }
+      } else {
+        certObj.answerQuestion(
+          {
+            [fieldName]: fieldVal,
+          },
+          ''
+        );
+      }
+    }
+    // @case2 - END //
+    // ---------------------------- //
   }
 };
 

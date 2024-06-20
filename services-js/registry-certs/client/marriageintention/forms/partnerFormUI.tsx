@@ -1022,6 +1022,8 @@ export const parents = (data: {
   parentsMarriedAtBirth: string;
   handleChange: ((e: any) => void) | undefined;
   handleAdditionalParentChange: ((e: any) => void) | undefined;
+  handleParentNameChange?: ((e: any) => void) | undefined;
+  handleAddParentNameChange?: ((e: any) => void) | undefined;
   formErrors?: (data: {
     action: string;
     ref?: React.RefObject<HTMLSpanElement>;
@@ -1041,6 +1043,8 @@ export const parents = (data: {
     parentsMarriedAtBirth,
     handleChange,
     handleAdditionalParentChange,
+    handleParentNameChange,
+    handleAddParentNameChange,
     formErrors,
     errorElemSrc,
     refs,
@@ -1135,7 +1139,7 @@ export const parents = (data: {
           label="Parent 1 - First Middle Last Name"
           name={`partner${partnerFlag}_parentA_Name`}
           value={parentA_Name}
-          onChange={handleChange}
+          onChange={handleParentNameChange}
           disableLabelNoWrap={true}
           maxLength={38}
           softRequired={true}
@@ -1146,7 +1150,7 @@ export const parents = (data: {
           label="Parent 1 - Family Name/Last Name At the time of their birth or adoption"
           name={`partner${partnerFlag}_parentA_Surname`}
           value={parentA_Surname}
-          onChange={handleChange}
+          onChange={handleParentNameChange}
           disableLabelNoWrap={true}
           maxLength={38}
           optionalDescription={
@@ -1176,7 +1180,7 @@ export const parents = (data: {
             parentB_Surname,
             errorVal_parentB_Name,
             errorVal_parentB_Surname,
-            handleChange,
+            handleChange: handleAddParentNameChange,
           })}
 
         {parentsMarried({
