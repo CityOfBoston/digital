@@ -42,6 +42,7 @@ import {
   handleResidenceStateChange$,
   replaceBosNeighborhoods$,
   checkBirthCityForNeighborhood$,
+  handleParentNameChange$,
   isDateObj$,
   updateAge$,
   calcAge$,
@@ -352,6 +353,23 @@ export default class PartnerForm extends Component<Props> {
             parentB_Surname: partnerB_parentB_Surname,
             additionalParent: partnerB_additionalParent,
             parentsMarriedAtBirth: partnerB_parentsMarriedAtBirth,
+            handleParentNameChange: e =>
+              handleParentNameChange$({
+                e,
+                partnerFlag: 'B',
+                requestInformation:
+                  marriageIntentionCertificateRequest.requestInformation,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
+            handleAddParentNameChange: e =>
+              handleParentNameChange$({
+                e,
+                partnerFlag: 'B',
+                parentFlag: 'B',
+                requestInformation:
+                  marriageIntentionCertificateRequest.requestInformation,
+                certObj: this.props.marriageIntentionCertificateRequest,
+              }),
             handleChange: e =>
               handleChange$({
                 e,
