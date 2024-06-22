@@ -70899,7 +70899,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
     <label
       className="notice emotion-1"
     >
-      Please enter your middle name if you have one. You cannot list a new middle name.
+      Please enter your middle name if you have one. You cannot list a new middle name. Maiden and surnames may not be used in place of your legal middle name. Any changes to names must be done after marriage
     </label>
     <input
       aria-label=""
@@ -71663,7 +71663,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
     <label
       className="notice emotion-1"
     >
-      Please enter your middle name if you have one. You cannot list a new middle name.
+      Please enter your middle name if you have one. You cannot list a new middle name. Maiden and surnames may not be used in place of your legal middle name. Any changes to names must be done after marriage
     </label>
     <input
       aria-label=""
@@ -71818,7 +71818,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
     <div>
       <label
         className="txt-l "
-        htmlFor="input-546901997"
+        htmlFor="input-238872936"
         style={
           Object {
             "display": "flex",
@@ -71833,7 +71833,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
             }
           }
         >
-          New Last Name to be Used After Marriage
+          Full Name to be Used After Marriage
         </span>
         <span
           aria-hidden="true"
@@ -71868,7 +71868,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <input
         aria-label=""
         className="txt-f   "
-        id="input-546901997"
+        id="input-238872936"
         maxLength={50}
         name="partner1_surName"
         onChange={[Function]}
@@ -72371,7 +72371,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
     <div
       className="notice"
     >
-      Please enter your current residential address. If your mailing address is not the same as your residential one, you will have the opportunity to share your preferred address during your appointment.
+      Please enter your current residential address. If your mailing address is not the same as your residential one, you will have the opportunity to share your preferred address during your appointment. No PO Boxes.
     </div>
   </h1>
   <div
@@ -74773,7 +74773,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review/Person Inf
         <label
           className="field"
         >
-          Last Name to be Used After Marriage
+          Full Name to be Used After Marriage
           : 
         </label>
         <span
@@ -75778,6 +75778,12 @@ Array [
                       </li>
                       <li>
                         Parents' names (including their family names) and whether they were married when you were born
+                      </li>
+                      <li>
+                        While a social security number is not required to get married in the City of Boston, if you do have one, it can simplify the process
+                      </li>
+                      <li>
+                        Your immigration status is not required to get married in the City of Boston
                       </li>
                     </ul>
                   </div>
@@ -77347,7 +77353,7 @@ Array [
                       <label
                         className="notice emotion-6"
                       >
-                        Please enter your middle name if you have one. You cannot list a new middle name.
+                        Please enter your middle name if you have one. You cannot list a new middle name. Maiden and surnames may not be used in place of your legal middle name. Any changes to names must be done after marriage
                       </label>
                       <input
                         aria-label=""
@@ -79294,7 +79300,7 @@ Array [
                       <div
                         className="notice"
                       >
-                        Please enter your current residential address. If your mailing address is not the same as your residential one, you will have the opportunity to share your preferred address during your appointment.
+                        Please enter your current residential address. If your mailing address is not the same as your residential one, you will have the opportunity to share your preferred address during your appointment. No PO Boxes.
                       </div>
                     </h1>
                     <div
@@ -82924,7 +82930,7 @@ Array [
                       <label
                         className="notice emotion-6"
                       >
-                        Please enter your middle name if you have one. You cannot list a new middle name.
+                        Please enter your middle name if you have one. You cannot list a new middle name. Maiden and surnames may not be used in place of your legal middle name. Any changes to names must be done after marriage
                       </label>
                       <input
                         aria-label=""
@@ -84871,7 +84877,7 @@ Array [
                       <div
                         className="notice"
                       >
-                        Please enter your current residential address. If your mailing address is not the same as your residential one, you will have the opportunity to share your preferred address during your appointment.
+                        Please enter your current residential address. If your mailing address is not the same as your residential one, you will have the opportunity to share your preferred address during your appointment. No PO Boxes.
                       </div>
                     </h1>
                     <div
@@ -89147,7 +89153,7 @@ Array [
                           <label
                             className="field"
                           >
-                            Last Name to be Used After Marriage
+                            Full Name to be Used After Marriage
                             : 
                           </label>
                           <span
@@ -89428,7 +89434,7 @@ Array [
                           <label
                             className="field"
                           >
-                            Last Name to be Used After Marriage
+                            Full Name to be Used After Marriage
                             : 
                           </label>
                           <span
