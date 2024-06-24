@@ -157,7 +157,7 @@ export const nameFields = (data: {
     formPageComplete === '1' &&
     useSurname === '1' &&
     surName === ''
-      ? `Please enter the 'Last Name' you'll use`
+      ? `Please enter the 'Full Name' you'll use`
       : '';
   if (errorVal_surName.length > 0) errors.add(`partner${partnerFlag}_surName`);
 
@@ -225,7 +225,7 @@ export const nameFields = (data: {
         onChange={handleChange}
         disableLabelNoWrap={true}
         optionalDescription={
-          'Please enter your middle name if you have one. You cannot list a new middle name.'
+          'Please enter your middle name if you have one. You cannot list a new middle name. Maiden and surnames may not be used in place of your legal middle name. Any changes to names must be done after marriage'
         }
         maxLength={50}
         softRequired={false}
@@ -270,7 +270,7 @@ export const nameFields = (data: {
           ]}
         >
           <TextInput
-            label="New Last Name to be Used After Marriage"
+            label="Full Name to be Used After Marriage"
             name={`partner${partnerFlag}_surName`}
             value={surName}
             onChange={handleChange}
@@ -711,7 +711,7 @@ export const residence = (data: {
         <div className="notice">
           Please enter your current residential address. If your mailing address
           is not the same as your residential one, you will have the opportunity
-          to share your preferred address during your appointment.
+          to share your preferred address during your appointment. No PO Boxes.
         </div>
       </h1>
 

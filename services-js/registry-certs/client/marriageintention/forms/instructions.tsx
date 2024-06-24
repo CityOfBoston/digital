@@ -61,6 +61,16 @@ export default class Instructions extends Component<Props> {
               Parents' names (including their family names) and whether they
               were married when you were born
             </li>
+            <li>
+              While a social security number is not required to get married in
+              the City of Boston, if you do have one, it can simplify the
+              process
+            </li>
+
+            <li>
+              Your immigration status is not required to get married in the City
+              of Boston
+            </li>
           </ul>
         </div>
 

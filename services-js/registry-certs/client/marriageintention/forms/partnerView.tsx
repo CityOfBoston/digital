@@ -113,7 +113,7 @@ export default class PartnerView extends Component<Props> {
             })}
 
             {$ReviewFieldValuePair({
-              field: `Last Name to be Used After Marriage`,
+              field: `Full Name to be Used After Marriage`,
               value: `${surName}`,
             })}
 
