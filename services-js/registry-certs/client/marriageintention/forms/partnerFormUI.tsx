@@ -225,7 +225,7 @@ export const nameFields = (data: {
         onChange={handleChange}
         disableLabelNoWrap={true}
         optionalDescription={
-          'Please enter your middle name if you have one. You cannot list a new middle name. Maiden and surnames may not be used in place of your legal middle name. Any changes to names must be done after marriage'
+          'Please enter your middle name if you have one. You cannot list a new middle name. Maiden and surnames may not be used in place of your legal middle name. Any changes to names must be done after marriage.'
         }
         maxLength={50}
         softRequired={false}
