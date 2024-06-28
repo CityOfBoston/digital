@@ -410,7 +410,13 @@ storiesOf('Marriage Intention/Form Components', module)
     return (
       <div>
         <div>{elem}</div>
-        <div css={spacing}>{elem}</div>
+        <div css={spacing}>
+          {ToolTip({
+            icon: 'i',
+            msg:
+              'This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.',
+          })}
+        </div>
       </div>
     );
   });

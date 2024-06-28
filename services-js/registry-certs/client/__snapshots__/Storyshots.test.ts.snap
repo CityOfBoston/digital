@@ -7937,6 +7937,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               htmlFor="input-2048906072"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -7944,6 +7945,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               <span
                 style={
                   Object {
+                    "alignItems": "center",
                     "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
@@ -7974,6 +7976,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               htmlFor="input-5381"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -8035,6 +8038,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               htmlFor="input-2048906072"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -8042,6 +8046,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               <span
                 style={
                   Object {
+                    "alignItems": "center",
                     "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
@@ -8072,6 +8077,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
               htmlFor="input-5381"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -8662,6 +8668,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-2048906072"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -8669,6 +8676,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <span
                 style={
                   Object {
+                    "alignItems": "center",
                     "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
@@ -8699,6 +8707,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-5381"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -8760,6 +8769,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-2048906072"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -8767,6 +8777,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <span
                 style={
                   Object {
+                    "alignItems": "center",
                     "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
@@ -8797,6 +8808,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-5381"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -9415,6 +9427,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-2048906072"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -9422,6 +9435,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <span
                 style={
                   Object {
+                    "alignItems": "center",
                     "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
@@ -9452,6 +9466,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-5381"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -9513,6 +9528,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-2048906072"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -9520,6 +9536,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               <span
                 style={
                   Object {
+                    "alignItems": "center",
                     "display": "flex",
                     "marginRight": "0.5em",
                     "whiteSpace": "nowrap",
@@ -9550,6 +9567,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
               htmlFor="input-5381"
               style={
                 Object {
+                  "alignItems": "baseline",
                   "display": "flex",
                 }
               }
@@ -10044,6 +10062,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             htmlFor="input-2048906072"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
               }
             }
@@ -10051,6 +10070,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             <span
               style={
                 Object {
+                  "alignItems": "center",
                   "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
@@ -10081,6 +10101,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             htmlFor="input-1103291528"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
               }
             }
@@ -10088,6 +10109,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             <span
               style={
                 Object {
+                  "alignItems": "center",
                   "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
@@ -10122,6 +10144,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             htmlFor="input-2099238988"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
               }
             }
@@ -10129,6 +10152,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
             <span
               style={
                 Object {
+                  "alignItems": "center",
                   "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
@@ -10609,6 +10633,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             htmlFor="input-2048906072"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
               }
             }
@@ -10616,6 +10641,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             <span
               style={
                 Object {
+                  "alignItems": "center",
                   "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
@@ -10646,6 +10672,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             htmlFor="input-1103291528"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
               }
             }
@@ -10653,6 +10680,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             <span
               style={
                 Object {
+                  "alignItems": "center",
                   "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
@@ -10687,6 +10715,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             htmlFor="input-2099238988"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
               }
             }
@@ -10694,6 +10723,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
             <span
               style={
                 Object {
+                  "alignItems": "center",
                   "display": "flex",
                   "marginRight": "0.5em",
                   "whiteSpace": "nowrap",
@@ -14225,6 +14255,7 @@ Array [
                       htmlFor="input-2048906072"
                       style={
                         Object {
+                          "alignItems": "baseline",
                           "display": "flex",
                         }
                       }
@@ -14232,6 +14263,7 @@ Array [
                       <span
                         style={
                           Object {
+                            "alignItems": "center",
                             "display": "flex",
                             "marginRight": "0.5em",
                             "whiteSpace": "nowrap",
@@ -14262,6 +14294,7 @@ Array [
                       htmlFor="input-1103291528"
                       style={
                         Object {
+                          "alignItems": "baseline",
                           "display": "flex",
                         }
                       }
@@ -14269,6 +14302,7 @@ Array [
                       <span
                         style={
                           Object {
+                            "alignItems": "center",
                             "display": "flex",
                             "marginRight": "0.5em",
                             "whiteSpace": "nowrap",
@@ -14303,6 +14337,7 @@ Array [
                       htmlFor="input-2099238988"
                       style={
                         Object {
+                          "alignItems": "baseline",
                           "display": "flex",
                         }
                       }
@@ -14310,6 +14345,7 @@ Array [
                       <span
                         style={
                           Object {
+                            "alignItems": "center",
                             "display": "flex",
                             "marginRight": "0.5em",
                             "whiteSpace": "nowrap",
@@ -15264,6 +15300,7 @@ Array [
                         htmlFor="input-2048906072"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -15271,6 +15308,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                               "whiteSpace": "nowrap",
@@ -15301,6 +15339,7 @@ Array [
                         htmlFor="input-5381"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -15362,6 +15401,7 @@ Array [
                         htmlFor="input-2048906072"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -15369,6 +15409,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                               "whiteSpace": "nowrap",
@@ -15399,6 +15440,7 @@ Array [
                         htmlFor="input-5381"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -65343,6 +65385,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
         htmlFor="input-1547104625"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
           }
         }
@@ -65350,6 +65393,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
         <span
           style={
             Object {
+              "alignItems": "center",
               "display": "flex",
               "marginRight": "0.5em",
             }
@@ -65362,6 +65406,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
           className="t--req"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
               "flexGrow": 1,
             }
@@ -67705,6 +67750,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
         htmlFor="input-1547104625"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
           }
         }
@@ -67712,6 +67758,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
         <span
           style={
             Object {
+              "alignItems": "center",
               "display": "flex",
               "marginRight": "0.5em",
             }
@@ -67724,6 +67771,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
           className="t--req"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
               "flexGrow": 1,
             }
@@ -69701,28 +69749,32 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
 }
 
 .emotion-1 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-1 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-1 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-1 .icon::before {
@@ -69731,7 +69783,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
 
 .emotion-1 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-1 .tt--info::before {
@@ -69739,27 +69790,35 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
 }
 
 .emotion-1 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-1 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-1 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-16 {
@@ -70009,8 +70068,8 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
           >
             Required
           </span>
-          <span
-            className="tool-tip__wrapper emotion-1"
+          <div
+            className="emotion-1"
           >
             <div
               className="icon"
@@ -70020,7 +70079,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
             >
               This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
             </div>
-          </span>
+          </div>
         </div>
         <label
           className="ra  "
@@ -70298,8 +70357,8 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
             >
               Required
             </span>
-            <span
-              className="tool-tip__wrapper emotion-1"
+            <div
+              className="emotion-1"
             >
               <div
                 className="icon"
@@ -70309,7 +70368,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
               >
                 This information is collected as required by the Massachusetts State Marriage Intention Form.
               </div>
-            </span>
+            </div>
           </div>
           <label
             className="ra  "
@@ -70457,6 +70516,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
           htmlFor="input-234553913"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -70464,6 +70524,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
           <span
             style={
               Object {
+                "alignItems": "center",
                 "display": "flex",
                 "marginRight": "0.5em",
               }
@@ -70476,6 +70537,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Marria
             className="t--req"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
                 "flexGrow": 1,
               }
@@ -70656,28 +70718,32 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
 }
 
 .emotion-2 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-2 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-2 .icon::before {
@@ -70686,7 +70752,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
 
 .emotion-2 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-2 .tt--info::before {
@@ -70694,27 +70759,35 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
 }
 
 .emotion-2 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-2 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-2 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-14 {
@@ -70832,6 +70905,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-2048906072"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -70839,6 +70913,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -70851,6 +70926,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
@@ -70881,6 +70957,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-2852212527"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -70888,6 +70965,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -70923,6 +71001,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-1103291528"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -70930,6 +71009,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -70942,6 +71022,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
@@ -70998,8 +71079,8 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
           >
             Required
           </span>
-          <span
-            className="tool-tip__wrapper emotion-2"
+          <div
+            className="emotion-2"
           >
             <div
               className="icon"
@@ -71009,7 +71090,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
             >
               Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
             </div>
-          </span>
+          </div>
         </div>
         <label
           className="ra  "
@@ -71158,6 +71239,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-2786084594"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -71165,6 +71247,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -71177,14 +71260,15 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-2"
+        <div
+          className="emotion-2"
         >
           <div
             className="icon"
@@ -71194,7 +71278,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
           >
             This information is collected as required by the Massachusetts State Marriage Intention Form.
           </div>
-        </span>
+        </div>
       </span>
     </label>
     <input
@@ -71367,28 +71451,32 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
 }
 
 .emotion-2 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-2 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-2 .icon::before {
@@ -71397,7 +71485,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
 
 .emotion-2 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-2 .tt--info::before {
@@ -71405,27 +71492,35 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
 }
 
 .emotion-2 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-2 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-2 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-17 {
@@ -71596,6 +71691,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-2048906072"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -71603,6 +71699,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -71615,6 +71712,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
@@ -71645,6 +71743,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-2852212527"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -71652,6 +71751,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -71687,6 +71787,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-1103291528"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -71694,6 +71795,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -71706,6 +71808,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
@@ -71762,8 +71865,8 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
           >
             Required
           </span>
-          <span
-            className="tool-tip__wrapper emotion-2"
+          <div
+            className="emotion-2"
           >
             <div
               className="icon"
@@ -71773,7 +71876,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
             >
               Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
             </div>
-          </span>
+          </div>
         </div>
         <label
           className="ra  "
@@ -71821,6 +71924,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         htmlFor="input-238872936"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
           }
         }
@@ -71828,6 +71932,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         <span
           style={
             Object {
+              "alignItems": "center",
               "display": "flex",
               "marginRight": "0.5em",
             }
@@ -71840,14 +71945,15 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
           className="t--req"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
               "flexGrow": 1,
             }
           }
         >
           Required
-          <span
-            className="tool-tip__wrapper emotion-2"
+          <div
+            className="emotion-2"
           >
             <div
               className="icon"
@@ -71857,7 +71963,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
             >
               Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
             </div>
-          </span>
+          </div>
         </span>
       </label>
       <label
@@ -71993,6 +72099,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       htmlFor="input-2786084594"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -72000,6 +72107,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
           }
@@ -72012,14 +72120,15 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-2"
+        <div
+          className="emotion-2"
         >
           <div
             className="icon"
@@ -72029,7 +72138,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
           >
             This information is collected as required by the Massachusetts State Marriage Intention Form.
           </div>
-        </span>
+        </div>
       </span>
     </label>
     <input
@@ -72089,28 +72198,32 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
 }
 
 .emotion-1 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-1 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-1 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-1 .icon::before {
@@ -72119,7 +72232,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
 
 .emotion-1 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-1 .tt--info::before {
@@ -72127,27 +72239,35 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
 }
 
 .emotion-1 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-1 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-1 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-242 {
@@ -72409,8 +72529,8 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
             }
           >
             Required
-            <span
-              className="tool-tip__wrapper emotion-1"
+            <div
+              className="emotion-1"
             >
               <div
                 className="icon"
@@ -72420,7 +72540,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
               >
                 If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
               </div>
-            </span>
+            </div>
           </span>
         </label>
         <div
@@ -74248,6 +74368,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
           htmlFor="input-2580217931"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -74255,6 +74376,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
           <span
             style={
               Object {
+                "alignItems": "center",
                 "display": "flex",
                 "marginRight": "0.5em",
               }
@@ -74267,6 +74389,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
             className="t--req"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
                 "flexGrow": 1,
               }
@@ -74303,6 +74426,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
           htmlFor="input-770365431"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -74310,6 +74434,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
           <span
             style={
               Object {
+                "alignItems": "center",
                 "display": "flex",
                 "marginRight": "0.5em",
               }
@@ -74322,6 +74447,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
             className="t--req"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
                 "flexGrow": 1,
               }
@@ -74359,6 +74485,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
           htmlFor="input-2413436367"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -74366,6 +74493,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
           <span
             style={
               Object {
+                "alignItems": "center",
                 "display": "flex",
                 "marginRight": "0.5em",
               }
@@ -74378,6 +74506,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
             className="t--req"
             style={
               Object {
+                "alignItems": "baseline",
                 "display": "flex",
                 "flexGrow": 1,
               }
@@ -75018,28 +75147,32 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review/Person Inf
 
 exports[`Storyshots Marriage Intention/Form Components Tool-Tip 1`] = `
 .emotion-0 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-0 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-0 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-0 .icon::before {
@@ -75048,7 +75181,6 @@ exports[`Storyshots Marriage Intention/Form Components Tool-Tip 1`] = `
 
 .emotion-0 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-0 .tt--info::before {
@@ -75056,27 +75188,35 @@ exports[`Storyshots Marriage Intention/Form Components Tool-Tip 1`] = `
 }
 
 .emotion-0 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-0 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-2 {
@@ -75085,8 +75225,8 @@ exports[`Storyshots Marriage Intention/Form Components Tool-Tip 1`] = `
 
 <div>
   <div>
-    <span
-      className="tool-tip__wrapper emotion-0"
+    <div
+      className="emotion-0"
     >
       <div
         className="icon"
@@ -75096,23 +75236,23 @@ exports[`Storyshots Marriage Intention/Form Components Tool-Tip 1`] = `
       >
         This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
       </div>
-    </span>
+    </div>
   </div>
   <div
     className="emotion-2"
   >
-    <span
-      className="tool-tip__wrapper emotion-0"
+    <div
+      className="emotion-0"
     >
       <div
-        className="icon"
+        className="icon tt--info"
       />
       <div
         className="msg"
       >
         This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
       </div>
-    </span>
+    </div>
   </div>
 </div>
 `;
@@ -75780,7 +75920,7 @@ Array [
                         Parents' names (including their family names) and whether they were married when you were born
                       </li>
                       <li>
-                        While a social security number is not required to get married in the City of Boston, if you do have one, it can simplify the process
+                        A social security number is not required to complete the online Marriage Intention Form, however United States citizens will be required to have their social security number for their in-person appointment.
                       </li>
                       <li>
                         Your immigration status is not required to get married in the City of Boston
@@ -76429,28 +76569,32 @@ Array [
 }
 
 .emotion-7 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-7 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-7 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-7 .icon::before {
@@ -76459,7 +76603,6 @@ Array [
 
 .emotion-7 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-7 .tt--info::before {
@@ -76467,27 +76610,35 @@ Array [
 }
 
 .emotion-7 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-7 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-7 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-19 {
@@ -76797,28 +76948,32 @@ Array [
 }
 
 .emotion-524 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-524 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-524 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-524 .icon::before {
@@ -76827,7 +76982,6 @@ Array [
 
 .emotion-524 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-524 .tt--info::before {
@@ -76835,27 +76989,35 @@ Array [
 }
 
 .emotion-524 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-524 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-524 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-533 {
@@ -77286,6 +77448,7 @@ Array [
                         htmlFor="input-2048906072"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -77293,6 +77456,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -77305,6 +77469,7 @@ Array [
                           className="t--req"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                               "flexGrow": 1,
                             }
@@ -77335,6 +77500,7 @@ Array [
                         htmlFor="input-2852212527"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -77342,6 +77508,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -77377,6 +77544,7 @@ Array [
                         htmlFor="input-1103291528"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -77384,6 +77552,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -77396,6 +77565,7 @@ Array [
                           className="t--req"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                               "flexGrow": 1,
                             }
@@ -77452,8 +77622,8 @@ Array [
                             >
                               Required
                             </span>
-                            <span
-                              className="tool-tip__wrapper emotion-7"
+                            <div
+                              className="emotion-7"
                             >
                               <div
                                 className="icon"
@@ -77463,7 +77633,7 @@ Array [
                               >
                                 Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
                               </div>
-                            </span>
+                            </div>
                           </div>
                           <label
                             className="ra  "
@@ -77610,6 +77780,7 @@ Array [
                         htmlFor="input-2786084594"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -77617,6 +77788,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -77629,14 +77801,15 @@ Array [
                           className="t--req"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                               "flexGrow": 1,
                             }
                           }
                         >
                           Required
-                          <span
-                            className="tool-tip__wrapper emotion-7"
+                          <div
+                            className="emotion-7"
                           >
                             <div
                               className="icon"
@@ -77646,7 +77819,7 @@ Array [
                             >
                               This information is collected as required by the Massachusetts State Marriage Intention Form.
                             </div>
-                          </span>
+                          </div>
                         </span>
                       </label>
                       <input
@@ -79339,8 +79512,8 @@ Array [
                               }
                             >
                               Required
-                              <span
-                                className="tool-tip__wrapper emotion-7"
+                              <div
+                                className="emotion-7"
                               >
                                 <div
                                   className="icon"
@@ -79350,7 +79523,7 @@ Array [
                                 >
                                   If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
                                 </div>
-                              </span>
+                              </div>
                             </span>
                           </label>
                           <div
@@ -80856,8 +81029,8 @@ Array [
                             >
                               Required
                             </span>
-                            <span
-                              className="tool-tip__wrapper emotion-7"
+                            <div
+                              className="emotion-7"
                             >
                               <div
                                 className="icon"
@@ -80867,7 +81040,7 @@ Array [
                               >
                                 This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
                               </div>
-                            </span>
+                            </div>
                           </div>
                           <label
                             className="ra  "
@@ -81008,8 +81181,8 @@ Array [
                               >
                                 Required
                               </span>
-                              <span
-                                className="tool-tip__wrapper emotion-7"
+                              <div
+                                className="emotion-7"
                               >
                                 <div
                                   className="icon"
@@ -81019,7 +81192,7 @@ Array [
                                 >
                                   This information is collected as required by the Massachusetts State Marriage Intention Form.
                                 </div>
-                              </span>
+                              </div>
                             </div>
                             <label
                               className="ra  "
@@ -81086,8 +81259,8 @@ Array [
                         className="notice"
                       >
                         Please enter the full names of your parent(s) as they appear on your birth certificate. It’s important to note that marriage licenses contain details about your parents and are accessible as public records, but they cannot be searched for by the general public.
-                        <span
-                          className="tool-tip__wrapper emotion-524"
+                        <div
+                          className="emotion-524"
                         >
                           <div
                             className="icon"
@@ -81097,7 +81270,7 @@ Array [
                           >
                             This information is collected as required by Massachusetts State Law Chapter 46 Section 1. Marriage licenses include parental details and are public records, but not publicly searchable.
                           </div>
-                        </span>
+                        </div>
                       </div>
                     </h1>
                     <span />
@@ -81110,6 +81283,7 @@ Array [
                           htmlFor="input-507056287"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                             }
                           }
@@ -81117,6 +81291,7 @@ Array [
                           <span
                             style={
                               Object {
+                                "alignItems": "center",
                                 "display": "flex",
                                 "marginRight": "0.5em",
                               }
@@ -81129,6 +81304,7 @@ Array [
                             className="t--req"
                             style={
                               Object {
+                                "alignItems": "baseline",
                                 "display": "flex",
                                 "flexGrow": 1,
                               }
@@ -81159,6 +81335,7 @@ Array [
                           htmlFor="input-4196106810"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                             }
                           }
@@ -81166,6 +81343,7 @@ Array [
                           <span
                             style={
                               Object {
+                                "alignItems": "center",
                                 "display": "flex",
                                 "marginRight": "0.5em",
                               }
@@ -81178,6 +81356,7 @@ Array [
                             className="t--req"
                             style={
                               Object {
+                                "alignItems": "baseline",
                                 "display": "flex",
                                 "flexGrow": 1,
                               }
@@ -81309,8 +81488,8 @@ Array [
                                   >
                                     Required
                                   </span>
-                                  <span
-                                    className="tool-tip__wrapper emotion-7"
+                                  <div
+                                    className="emotion-7"
                                   >
                                     <div
                                       className="icon"
@@ -81320,7 +81499,7 @@ Array [
                                     >
                                       This information is collected as required by Massachusetts State Law Chapter 46 Section 2A. This question ensures that restrictions about impounded records are maintained for marriage information.
                                     </div>
-                                  </span>
+                                  </div>
                                 </div>
                                 <label
                                   className="ra  "
@@ -82006,28 +82185,32 @@ Array [
 }
 
 .emotion-7 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-7 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-7 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-7 .icon::before {
@@ -82036,7 +82219,6 @@ Array [
 
 .emotion-7 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-7 .tt--info::before {
@@ -82044,27 +82226,35 @@ Array [
 }
 
 .emotion-7 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-7 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-7 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-19 {
@@ -82374,28 +82564,32 @@ Array [
 }
 
 .emotion-524 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-524 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-524 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-524 .icon::before {
@@ -82404,7 +82598,6 @@ Array [
 
 .emotion-524 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-524 .tt--info::before {
@@ -82412,27 +82605,35 @@ Array [
 }
 
 .emotion-524 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-524 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-524 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 .emotion-533 {
@@ -82863,6 +83064,7 @@ Array [
                         htmlFor="input-2048906072"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -82870,6 +83072,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -82882,6 +83085,7 @@ Array [
                           className="t--req"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                               "flexGrow": 1,
                             }
@@ -82912,6 +83116,7 @@ Array [
                         htmlFor="input-2852212527"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -82919,6 +83124,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -82954,6 +83160,7 @@ Array [
                         htmlFor="input-1103291528"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -82961,6 +83168,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -82973,6 +83181,7 @@ Array [
                           className="t--req"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                               "flexGrow": 1,
                             }
@@ -83029,8 +83238,8 @@ Array [
                             >
                               Required
                             </span>
-                            <span
-                              className="tool-tip__wrapper emotion-7"
+                            <div
+                              className="emotion-7"
                             >
                               <div
                                 className="icon"
@@ -83040,7 +83249,7 @@ Array [
                               >
                                 Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
                               </div>
-                            </span>
+                            </div>
                           </div>
                           <label
                             className="ra  "
@@ -83187,6 +83396,7 @@ Array [
                         htmlFor="input-2786084594"
                         style={
                           Object {
+                            "alignItems": "baseline",
                             "display": "flex",
                           }
                         }
@@ -83194,6 +83404,7 @@ Array [
                         <span
                           style={
                             Object {
+                              "alignItems": "center",
                               "display": "flex",
                               "marginRight": "0.5em",
                             }
@@ -83206,14 +83417,15 @@ Array [
                           className="t--req"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                               "flexGrow": 1,
                             }
                           }
                         >
                           Required
-                          <span
-                            className="tool-tip__wrapper emotion-7"
+                          <div
+                            className="emotion-7"
                           >
                             <div
                               className="icon"
@@ -83223,7 +83435,7 @@ Array [
                             >
                               This information is collected as required by the Massachusetts State Marriage Intention Form.
                             </div>
-                          </span>
+                          </div>
                         </span>
                       </label>
                       <input
@@ -84916,8 +85128,8 @@ Array [
                               }
                             >
                               Required
-                              <span
-                                className="tool-tip__wrapper emotion-7"
+                              <div
+                                className="emotion-7"
                               >
                                 <div
                                   className="icon"
@@ -84927,7 +85139,7 @@ Array [
                                 >
                                   If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
                                 </div>
-                              </span>
+                              </div>
                             </span>
                           </label>
                           <div
@@ -86433,8 +86645,8 @@ Array [
                             >
                               Required
                             </span>
-                            <span
-                              className="tool-tip__wrapper emotion-7"
+                            <div
+                              className="emotion-7"
                             >
                               <div
                                 className="icon"
@@ -86444,7 +86656,7 @@ Array [
                               >
                                 This information is collected to ensure the marriage abides by Massachusetts State Law Chapter 207 Sections 1-8.
                               </div>
-                            </span>
+                            </div>
                           </div>
                           <label
                             className="ra  "
@@ -86585,8 +86797,8 @@ Array [
                               >
                                 Required
                               </span>
-                              <span
-                                className="tool-tip__wrapper emotion-7"
+                              <div
+                                className="emotion-7"
                               >
                                 <div
                                   className="icon"
@@ -86596,7 +86808,7 @@ Array [
                                 >
                                   This information is collected as required by the Massachusetts State Marriage Intention Form.
                                 </div>
-                              </span>
+                              </div>
                             </div>
                             <label
                               className="ra  "
@@ -86663,8 +86875,8 @@ Array [
                         className="notice"
                       >
                         Please enter the full names of your parent(s) as they appear on your birth certificate. It’s important to note that marriage licenses contain details about your parents and are accessible as public records, but they cannot be searched for by the general public.
-                        <span
-                          className="tool-tip__wrapper emotion-524"
+                        <div
+                          className="emotion-524"
                         >
                           <div
                             className="icon"
@@ -86674,7 +86886,7 @@ Array [
                           >
                             This information is collected as required by Massachusetts State Law Chapter 46 Section 1. Marriage licenses include parental details and are public records, but not publicly searchable.
                           </div>
-                        </span>
+                        </div>
                       </div>
                     </h1>
                     <span />
@@ -86687,6 +86899,7 @@ Array [
                           htmlFor="input-507056287"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                             }
                           }
@@ -86694,6 +86907,7 @@ Array [
                           <span
                             style={
                               Object {
+                                "alignItems": "center",
                                 "display": "flex",
                                 "marginRight": "0.5em",
                               }
@@ -86706,6 +86920,7 @@ Array [
                             className="t--req"
                             style={
                               Object {
+                                "alignItems": "baseline",
                                 "display": "flex",
                                 "flexGrow": 1,
                               }
@@ -86736,6 +86951,7 @@ Array [
                           htmlFor="input-4196106810"
                           style={
                             Object {
+                              "alignItems": "baseline",
                               "display": "flex",
                             }
                           }
@@ -86743,6 +86959,7 @@ Array [
                           <span
                             style={
                               Object {
+                                "alignItems": "center",
                                 "display": "flex",
                                 "marginRight": "0.5em",
                               }
@@ -86755,6 +86972,7 @@ Array [
                             className="t--req"
                             style={
                               Object {
+                                "alignItems": "baseline",
                                 "display": "flex",
                                 "flexGrow": 1,
                               }
@@ -86886,8 +87104,8 @@ Array [
                                   >
                                     Required
                                   </span>
-                                  <span
-                                    className="tool-tip__wrapper emotion-7"
+                                  <div
+                                    className="emotion-7"
                                   >
                                     <div
                                       className="icon"
@@ -86897,7 +87115,7 @@ Array [
                                     >
                                       This information is collected as required by Massachusetts State Law Chapter 46 Section 2A. This question ensures that restrictions about impounded records are maintained for marriage information.
                                     </div>
-                                  </span>
+                                  </div>
                                 </div>
                                 <label
                                   className="ra  "
@@ -87967,6 +88185,7 @@ Array [
                             htmlFor="input-2778663327"
                             style={
                               Object {
+                                "alignItems": "baseline",
                                 "display": "flex",
                               }
                             }
@@ -87974,6 +88193,7 @@ Array [
                             <span
                               style={
                                 Object {
+                                  "alignItems": "center",
                                   "display": "flex",
                                   "marginRight": "0.5em",
                                   "whiteSpace": "nowrap",
@@ -87987,6 +88207,7 @@ Array [
                               className="t--req"
                               style={
                                 Object {
+                                  "alignItems": "baseline",
                                   "display": "flex",
                                   "flexGrow": 1,
                                 }
@@ -88019,6 +88240,7 @@ Array [
                             htmlFor="input-1813726221"
                             style={
                               Object {
+                                "alignItems": "baseline",
                                 "display": "flex",
                               }
                             }
@@ -88026,6 +88248,7 @@ Array [
                             <span
                               style={
                                 Object {
+                                  "alignItems": "center",
                                   "display": "flex",
                                   "marginRight": "0.5em",
                                   "whiteSpace": "nowrap",
@@ -88039,6 +88262,7 @@ Array [
                               className="t--req"
                               style={
                                 Object {
+                                  "alignItems": "baseline",
                                   "display": "flex",
                                   "flexGrow": 1,
                                 }
@@ -88071,6 +88295,7 @@ Array [
                             htmlFor="input-1267882554"
                             style={
                               Object {
+                                "alignItems": "baseline",
                                 "display": "flex",
                               }
                             }
@@ -88078,6 +88303,7 @@ Array [
                             <span
                               style={
                                 Object {
+                                  "alignItems": "center",
                                   "display": "flex",
                                   "marginRight": "0.5em",
                                   "whiteSpace": "nowrap",
@@ -88091,6 +88317,7 @@ Array [
                               className="t--req"
                               style={
                                 Object {
+                                  "alignItems": "baseline",
                                   "display": "flex",
                                   "flexGrow": 1,
                                 }
@@ -101674,6 +101901,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
           htmlFor="input-1103008209"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -101681,6 +101909,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
           <span
             style={
               Object {
+                "alignItems": "center",
                 "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
@@ -101713,6 +101942,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
           htmlFor="input-5381"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -102352,6 +102582,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
           htmlFor="input-1103008209"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -102359,6 +102590,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
           <span
             style={
               Object {
+                "alignItems": "center",
                 "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
@@ -102391,6 +102623,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
           htmlFor="input-5381"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -103030,6 +103263,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
           htmlFor="input-1103008209"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -103037,6 +103271,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
           <span
             style={
               Object {
+                "alignItems": "center",
                 "display": "flex",
                 "marginRight": "0.5em",
                 "whiteSpace": "nowrap",
@@ -103069,6 +103304,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
           htmlFor="input-5381"
           style={
             Object {
+              "alignItems": "baseline",
               "display": "flex",
             }
           }
@@ -107600,6 +107836,7 @@ Array [
                     htmlFor="input-1103008209"
                     style={
                       Object {
+                        "alignItems": "baseline",
                         "display": "flex",
                       }
                     }
@@ -107607,6 +107844,7 @@ Array [
                     <span
                       style={
                         Object {
+                          "alignItems": "center",
                           "display": "flex",
                           "marginRight": "0.5em",
                           "whiteSpace": "nowrap",
@@ -107639,6 +107877,7 @@ Array [
                     htmlFor="input-5381"
                     style={
                       Object {
+                        "alignItems": "baseline",
                         "display": "flex",
                       }
                     }
@@ -108659,6 +108898,7 @@ Array [
                     htmlFor="input-1103008209"
                     style={
                       Object {
+                        "alignItems": "baseline",
                         "display": "flex",
                       }
                     }
@@ -108666,6 +108906,7 @@ Array [
                     <span
                       style={
                         Object {
+                          "alignItems": "center",
                           "display": "flex",
                           "marginRight": "0.5em",
                           "whiteSpace": "nowrap",
@@ -108698,6 +108939,7 @@ Array [
                     htmlFor="input-5381"
                     style={
                       Object {
+                        "alignItems": "baseline",
                         "display": "flex",
                       }
                     }

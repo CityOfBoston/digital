@@ -2997,28 +2997,32 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels as Markup 1`]
 
 exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, SoftRequired, Tool Tip 1`] = `
 .emotion-0 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-0 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-0 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-0 .icon::before {
@@ -3027,7 +3031,6 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, SoftRequired
 
 .emotion-0 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-0 .tt--info::before {
@@ -3035,27 +3038,35 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, SoftRequired
 }
 
 .emotion-0 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-0 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 <div
@@ -3083,8 +3094,8 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, SoftRequired
     >
       Required
     </span>
-    <span
-      className="tool-tip__wrapper emotion-0"
+    <div
+      className="emotion-0"
     >
       <div
         className="icon tt--info"
@@ -3094,7 +3105,7 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, SoftRequired
       >
         This information is collected as required by the Massachusetts State Marriage Intention Form.
       </div>
-    </span>
+    </div>
   </div>
   <label
     className="ra  "
@@ -3146,28 +3157,32 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, SoftRequired
 
 exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, Tool Tip 1`] = `
 .emotion-0 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-0 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-0 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-0 .icon::before {
@@ -3176,7 +3191,6 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, Tool Tip 1`]
 
 .emotion-0 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-0 .tt--info::before {
@@ -3184,27 +3198,35 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, Tool Tip 1`]
 }
 
 .emotion-0 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-0 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 <div
@@ -3221,8 +3243,8 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, Tool Tip 1`]
     }
   >
     Time of Day
-    <span
-      className="tool-tip__wrapper emotion-0"
+    <div
+      className="emotion-0"
     >
       <div
         className="icon"
@@ -3232,7 +3254,7 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, Tool Tip 1`]
       >
         This information is collected as required by the Massachusetts State Marriage Intention Form.
       </div>
-    </span>
+    </div>
   </div>
   <label
     className="ra  "
@@ -3297,6 +3319,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
       htmlFor="input-362326901"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3304,6 +3327,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3346,6 +3370,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
       htmlFor="input-2348632648"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3353,6 +3378,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3380,6 +3406,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
       htmlFor="input-3077581017"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3387,6 +3414,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3426,6 +3454,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       htmlFor="input-2715199497"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3433,6 +3462,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3463,6 +3493,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       htmlFor="input-3647184142"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3470,6 +3501,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3500,6 +3532,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       htmlFor="input-680647510"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3507,6 +3540,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3520,6 +3554,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
@@ -3549,6 +3584,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       htmlFor="input-2490219431"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3556,6 +3592,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3569,6 +3606,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
@@ -3610,6 +3648,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       htmlFor="input-1357588218"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3617,6 +3656,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3630,6 +3670,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
@@ -3657,6 +3698,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       htmlFor="input-3174958747"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3664,6 +3706,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3693,6 +3736,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
         htmlFor="input-423803610"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
           }
         }
@@ -3700,6 +3744,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
         <span
           style={
             Object {
+              "alignItems": "center",
               "display": "flex",
               "marginRight": "0.5em",
               "whiteSpace": "nowrap",
@@ -3730,6 +3775,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       htmlFor="input-5381"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3774,6 +3820,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       htmlFor="input-472033325"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3781,6 +3828,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3808,28 +3856,32 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
 
 exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] = `
 .emotion-0 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-0 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-0 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-0 .icon::before {
@@ -3838,7 +3890,6 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
 
 .emotion-0 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-0 .tt--info::before {
@@ -3846,27 +3897,35 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
 }
 
 .emotion-0 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-0 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 <div
@@ -3883,6 +3942,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
       htmlFor="input-362326901"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -3890,6 +3950,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3903,14 +3964,15 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-0"
+        <div
+          className="emotion-0"
         >
           <div
             className="icon"
@@ -3920,7 +3982,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
           >
             This information is collected.
           </div>
-        </span>
+        </div>
       </span>
     </label>
     <input
@@ -3958,6 +4020,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
       htmlFor="input-362326901"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
           "marginBottom": "2em",
           "marginTop": "1em",
@@ -3967,6 +4030,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -3980,14 +4044,15 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-0"
+        <div
+          className="emotion-0"
         >
           <div
             className="icon"
@@ -3997,7 +4062,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
           >
             Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
           </div>
-        </span>
+        </div>
       </span>
     </label>
   </div>
@@ -4007,6 +4072,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
       htmlFor="input-362326901"
       style={
         Object {
+          "alignItems": "baseline",
           "display": "flex",
         }
       }
@@ -4014,6 +4080,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
       <span
         style={
           Object {
+            "alignItems": "center",
             "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
@@ -4027,14 +4094,15 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
         className="t--req"
         style={
           Object {
+            "alignItems": "baseline",
             "display": "flex",
             "flexGrow": 1,
           }
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-0"
+        <div
+          className="emotion-0"
         >
           <div
             className="icon"
@@ -4044,7 +4112,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] 
           >
             Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
           </div>
-        </span>
+        </div>
       </span>
     </label>
     <input
@@ -4129,28 +4197,32 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
 }
 
 .emotion-3 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-3 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  font-size: 0.75rem;
-  background: #1871bd;
-  margin: 5px 0px 0 5px;
-  padding: 5.4px 0 0 3.00px;
-  line-height: 0px;
-  font-size: 8px;
-  color: white;
 }
 
 .emotion-3 .icon::before {
@@ -4159,7 +4231,6 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
 
 .emotion-3 .tt--info {
   text-transform: lowercase;
-  padding-left: 3.5px;
 }
 
 .emotion-3 .tt--info::before {
@@ -4167,27 +4238,35 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
 }
 
 .emotion-3 .msg {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  visibility: hidden;
-  z-index: 2;
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
   padding: 0.25em 0.5em;
-  color: #58585b;
-  font-family: Lora,Georgia,serif;
   font-weight: 300;
   font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
   text-transform: initial;
-  background-color: #f3f3f3;
-  min-width: 150px;
-  position: absolute;
-  margin-left: 20px;
-  top: calc(-30% + 1px);
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
 }
 
 .emotion-3 .icon:hover + .msg {
-  visibility: visible;
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-3 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
 }
 
 <div
@@ -4444,8 +4523,8 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-3"
+        <div
+          className="emotion-3"
         >
           <div
             className="icon"
@@ -4455,7 +4534,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
           >
             If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
           </div>
-        </span>
+        </div>
       </span>
     </label>
     <div
@@ -4511,8 +4590,8 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-3"
+        <div
+          className="emotion-3"
         >
           <div
             className="icon"
@@ -4522,7 +4601,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
           >
             If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
           </div>
-        </span>
+        </div>
       </span>
     </label>
     <div
@@ -4576,8 +4655,8 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
         }
       >
         Required
-        <span
-          className="tool-tip__wrapper emotion-3"
+        <div
+          className="emotion-3"
         >
           <div
             className="icon"
@@ -4587,7 +4666,7 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
           >
             If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
           </div>
-        </span>
+        </div>
       </span>
     </label>
     <div
