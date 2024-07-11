@@ -84,6 +84,11 @@ export default class IndexPage extends React.Component<Props> {
         ? notice.label
         : 'Notice';
 
+    console.log(`daysUntilMfa: `, daysUntilMfa);
+    console.log(`account.needsNewPassword: `, account.needsNewPassword);
+    console.log(`account.needsMfaDevice: `, account.needsMfaDevice);
+    console.log(`account: `, account);
+
     return (
       <>
         <Head>

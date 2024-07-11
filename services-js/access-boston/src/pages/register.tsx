@@ -43,6 +43,10 @@ export default class RegisterPage extends React.Component<Props> {
     const { publicRuntimeConfig: PING_HOST } = getConfig();
     const logoutImgSrc = `https://${PING_HOST}/ext/idplogout`;
 
+    console.log(`account.needsNewPassword: `, account.needsNewPassword);
+    console.log(`account.needsMfaDevice: `, account.needsMfaDevice);
+    console.log(`account: `, account);
+
     return (
       <>
         <Head>
