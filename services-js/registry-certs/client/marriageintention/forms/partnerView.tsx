@@ -7,25 +7,18 @@ import { observer } from 'mobx-react';
 
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 
-import {
-  SECTION_HEADING_STYLING,
-  SECTION_WRAPPER_STYLING,
-  MARRIAGE_INTENTION_FORM_STYLING,
-} from '../../common/question-components/styling';
+import { REVIEW_FORM_STYLING } from './reviewUI/reviewStying';
 
 import {
-  BOTTOM_SPACING_STYLING,
-  PAIRED_COLUMNS_STYLING,
-  COLUMNS_STYLING,
-  REVIEW_BOTTOM_SPACING_STYLING,
-  REVIEW_SUB_HEADING_STYLING,
-} from './styling';
+  $ReviewControlHeader,
+  $ReviewFieldValuePair,
+} from './reviewUI/components';
 
 import { PARTNERSHIP_TYPE, LAST_MARRIAGE_STATUS } from './inputData';
 
 interface Props {
   marriageIntentionCertificateRequest: MarriageIntentionCertificateRequest;
-  partyLabel: string;
+  partnerLabel: string;
   firstName: string;
   lastName: string;
   middleName: string;
@@ -33,7 +26,6 @@ interface Props {
   dob: string;
   age: string;
   occupation: string;
-  // sex: string;
   address: string;
   birthCity: string;
   birthState: string;
@@ -49,6 +41,9 @@ interface Props {
   bloodRelationDesc: string;
   suffix: string;
   partnershipState: string;
+  stepStr: string;
+  toggleDisclaimerModal: (val: boolean) => void;
+  backTrackingDisclaimer: boolean;
 }
 
 @observer
@@ -59,13 +54,24 @@ export default class PartnerView extends Component<Props> {
 
   public render() {
     const {
-      // marriageIntentionCertificateRequest,
       suffix,
+      firstName,
+      lastName,
+      surName,
+      occupation,
+      dob,
+      birthCity,
+      birthCountry,
+      address,
+      bloodRelation,
+      bloodRelationDesc,
+      marriageNumb,
+      partnerShipDissolve,
+      parentA,
+      parentB,
+      parentsMarriedAtBirth,
+      stepStr,
     } = this.props;
-    // const genderObj = marriageIntentionCertificateRequest.getGenderLabel(
-    //   this.props.sex
-    // );
-    // const genderLabel = genderObj && genderObj.value ? genderObj.label : 'N/A';
 
     const partnerShipTypeObj = PARTNERSHIP_TYPE.find(
       entry => entry.value === this.props.partnerShipType
@@ -78,202 +84,120 @@ export default class PartnerView extends Component<Props> {
     const lastMarriageStatusObj = LAST_MARRIAGE_STATUS.find(
       entry => entry.value === this.props.lastMarriageStatus
     );
+
     const lastMarriageStatus =
       lastMarriageStatusObj && lastMarriageStatusObj.value
         ? lastMarriageStatusObj.label
         : '';
-    const lastName =
-      suffix && suffix !== 'N/A'
-        ? `${this.props.lastName} ${suffix}`
-        : `${this.props.lastName}`;
+
+    const lastNameStr =
+      suffix && suffix !== 'N/A' ? `${lastName} ${suffix}` : `${lastName}`;
+
     return (
       <div>
-        <div css={SECTION_WRAPPER_STYLING}>
-          <h2
-            css={[SECTION_HEADING_STYLING, BOTTOM_SPACING_STYLING]}
-            style={{
-              fontSize: '2rem',
-              textDecoration: 'none',
-            }}
-          >
-            Person {this.props.partyLabel}
-          </h2>
+        {$ReviewControlHeader({
+          title: `Person ${this.props.partnerLabel}`,
+          btnStr: `Edit This Page`,
+          routeStep: `${stepStr}`,
+          backTrackingDisclaimer: this.props.backTrackingDisclaimer,
+          toggleDisclaimerModal: this.props.toggleDisclaimerModal,
+        })}
 
-          <div css={PAIRED_COLUMNS_STYLING}>
-            <div css={COLUMNS_STYLING}>
-              <label>First Name: </label>
-              {this.props.firstName}
-            </div>
+        <div css={REVIEW_FORM_STYLING}>
+          <div className="section-wrapper">
+            <h2>Personal Information</h2>
 
-            <div css={COLUMNS_STYLING}>
-              <label>Middle Name: </label>
-              {this.props.middleName}
-            </div>
+            {$ReviewFieldValuePair({
+              field: `Legal Name`,
+              value: `${firstName} ${lastNameStr}`,
+            })}
+
+            {$ReviewFieldValuePair({
+              field: `Full Name to be Used After Marriage`,
+              value: `${surName}`,
+            })}
+
+            {$ReviewFieldValuePair({
+              field: `Occupation`,
+              value: `${occupation}`,
+            })}
           </div>
 
-          <div css={PAIRED_COLUMNS_STYLING}>
-            <div css={COLUMNS_STYLING}>
-              <label>Last Name: </label>
-              {lastName}
-            </div>
+          <div className="section-wrapper">
+            <h2>Date and Place of Birth</h2>
 
-            <div css={COLUMNS_STYLING}>
-              <label>Last Name / Surname: </label>
-              {this.props.surName}
-            </div>
+            {$ReviewFieldValuePair({
+              field: `Date of Birth`,
+              value: `${dob}`,
+            })}
+
+            {$ReviewFieldValuePair({
+              field: `BirthPlace`,
+              value: `${birthCity}, ${birthCountry}`,
+            })}
           </div>
 
-          <div
-            css={[
-              BOTTOM_SPACING_STYLING,
-              PAIRED_COLUMNS_STYLING,
-              REVIEW_BOTTOM_SPACING_STYLING,
-              REVIEW_SUB_HEADING_STYLING,
-            ]}
-          >
-            <div css={COLUMNS_STYLING}>
-              <label>Date of Birth: </label>
-              {this.props.dob}
-            </div>
+          <div className="section-wrapper">
+            <h2>Residence</h2>
 
-            <div css={COLUMNS_STYLING}>
-              <label>Age: </label>
-              {this.props.age}
-            </div>
-
-            {/* <div css={COLUMNS_STYLING}>
-              <label>Sex: </label>
-              {genderLabel}
-            </div> */}
-
-            <div css={COLUMNS_STYLING}>
-              <label>Occupation: </label>
-              {this.props.occupation}
-            </div>
-
-            <div css={COLUMNS_STYLING}>
-              <label>Address: </label>
-              {this.props.address}
-            </div>
+            {$ReviewFieldValuePair({
+              field: `Address`,
+              value: `${address}`,
+            })}
           </div>
 
-          <div
-            css={[
-              BOTTOM_SPACING_STYLING,
-              PAIRED_COLUMNS_STYLING,
-              REVIEW_BOTTOM_SPACING_STYLING,
-              REVIEW_SUB_HEADING_STYLING,
-            ]}
-          >
-            <h2 css={BOTTOM_SPACING_STYLING}>Birthplace</h2>
+          <div className="section-wrapper">
+            <h2>Marriage</h2>
 
-            <div css={COLUMNS_STYLING}>
-              <label>City: </label>
-              {this.props.birthCity}
-            </div>
+            {$ReviewFieldValuePair({
+              field: `If Applicable, Blood Relation To Current Partner`,
+              value: `${bloodRelation}`,
+            })}
 
-            {this.props.birthState.length > 0 &&
-              this.props.birthState !== '--' && (
-                <div css={COLUMNS_STYLING}>
-                  <label>State: </label>
-                  {this.props.birthState}
-                </div>
-              )}
+            {bloodRelation === 'Yes' &&
+              $ReviewFieldValuePair({
+                field: `Blood Relation Description`,
+                value: `${bloodRelationDesc}`,
+              })}
 
-            <div css={COLUMNS_STYLING}>
-              <label>Country: </label>
-              {this.props.birthCountry}
-            </div>
+            {$ReviewFieldValuePair({
+              field: `Marriage Number`,
+              value: `${marriageNumb}`,
+            })}
+
+            {$ReviewFieldValuePair({
+              field: `If Applicable, Status of Last Marriage`,
+              value: `${lastMarriageStatus}`,
+            })}
+
+            {$ReviewFieldValuePair({
+              field: `If Applicable, Status of Civil Union or Domestic Partnership`,
+              value: `${partnerShipDissolve}`,
+            })}
+
+            {$ReviewFieldValuePair({
+              field: `If Applicable, State of Civil Union or Domestic Partnership`,
+              value: `${partnerShipType}`,
+            })}
           </div>
 
-          <div
-            css={[
-              BOTTOM_SPACING_STYLING,
-              PAIRED_COLUMNS_STYLING,
-              REVIEW_BOTTOM_SPACING_STYLING,
-              REVIEW_SUB_HEADING_STYLING,
-            ]}
-          >
-            <h2 css={BOTTOM_SPACING_STYLING}>Parents</h2>
+          <div className="section-wrapper">
+            <h2>Parents</h2>
 
-            <div css={COLUMNS_STYLING}>
-              <label>Parent 1/Mother: </label>
-              {this.props.parentA}
-            </div>
+            {$ReviewFieldValuePair({
+              field: `Parent 1`,
+              value: `${parentA}`,
+            })}
 
-            <div css={COLUMNS_STYLING}>
-              <label>Parent 2/Father: </label>
-              {this.props.parentB}
-            </div>
+            {$ReviewFieldValuePair({
+              field: `Parent 2`,
+              value: `${parentB}`,
+            })}
 
-            <div css={COLUMNS_STYLING}>
-              <label>
-                Were your parents married at the time of your birth?:
-              </label>
-              {` ${this.props.parentsMarriedAtBirth}`}
-            </div>
-          </div>
-
-          <div
-            css={[
-              BOTTOM_SPACING_STYLING,
-              PAIRED_COLUMNS_STYLING,
-              REVIEW_BOTTOM_SPACING_STYLING,
-              MARRIAGE_INTENTION_FORM_STYLING,
-              REVIEW_SUB_HEADING_STYLING,
-            ]}
-          >
-            <h2 css={BOTTOM_SPACING_STYLING}>Marriage</h2>
-
-            <div css={COLUMNS_STYLING}>
-              <label>Marriage Number: </label>
-              {this.props.marriageNumb}
-            </div>
-
-            {this.props.marriageNumb !== '1st' && (
-              <div css={COLUMNS_STYLING}>
-                <label>Last Marriage Status: </label>
-                {lastMarriageStatus}
-              </div>
-            )}
-
-            {this.props.marriageNumb !== '1st' && (
-              <div css={COLUMNS_STYLING}>
-                <label>Last Marriage Resolution: </label>
-                {this.props.partnerShipDissolve}
-              </div>
-            )}
-
-            <div css={COLUMNS_STYLING}>
-              <label>Current Partnership Type: </label>
-              {partnerShipType}
-            </div>
-
-            {this.props.partnerShipType !== 'N/A' && (
-              <div css={COLUMNS_STYLING}>
-                <label>Civil Union Or Domestic Partnership Dissolved: </label>
-                {this.props.partnerShipDissolve}
-              </div>
-            )}
-
-            {this.props.partnerShipType !== 'N/A' && (
-              <div css={COLUMNS_STYLING}>
-                <label>Partnership State: </label>
-                {this.props.partnershipState}
-              </div>
-            )}
-
-            <div css={COLUMNS_STYLING}>
-              <label>Blood Relation to Partner?: </label>
-              {this.props.bloodRelation}
-            </div>
-
-            {this.props.bloodRelation === 'Yes' && (
-              <div css={COLUMNS_STYLING}>
-                <label>Describe Blood Relation: </label>
-                {this.props.bloodRelationDesc}
-              </div>
-            )}
+            {$ReviewFieldValuePair({
+              field: `Status of Marriage at Time of Birth`,
+              value: `${parentsMarriedAtBirth}`,
+            })}
           </div>
         </div>
       </div>

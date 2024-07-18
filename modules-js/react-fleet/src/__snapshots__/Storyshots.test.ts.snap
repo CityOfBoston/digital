@@ -905,16 +905,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -941,6 +943,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -965,6 +973,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
           htmlFor="default-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -987,6 +1006,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
           htmlFor="default-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1009,6 +1039,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput default 1`] = `
           htmlFor="default-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1055,16 +1096,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1091,6 +1134,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1115,6 +1164,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
           htmlFor="earliest-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1137,6 +1197,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
           htmlFor="earliest-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1159,6 +1230,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput earliestDate: 9/7/16
           htmlFor="earliest-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1205,16 +1287,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1241,6 +1325,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1265,6 +1355,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
           htmlFor="initial-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1287,6 +1388,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
           htmlFor="initial-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1309,6 +1421,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput invalid initialDate 
           htmlFor="initial-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1360,16 +1483,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1396,6 +1521,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1420,6 +1551,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
           htmlFor="latest-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1442,6 +1584,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
           htmlFor="latest-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1464,6 +1617,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput latestDate: 12/31/20
           htmlFor="latest-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1510,16 +1674,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1546,6 +1712,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1570,6 +1742,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
           htmlFor="future-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1592,6 +1775,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
           htmlFor="future-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1614,6 +1808,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture 1`] 
           htmlFor="future-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1660,16 +1865,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1696,6 +1903,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1720,6 +1933,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1742,6 +1966,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1764,6 +1999,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1810,16 +2056,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1846,6 +2094,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -1870,6 +2124,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1892,6 +2157,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1914,6 +2190,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -1960,16 +2247,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -1996,6 +2285,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -2020,6 +2315,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2042,6 +2348,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2064,6 +2381,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowFuture and 
           htmlFor="story-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2110,16 +2438,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -2146,6 +2476,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -2170,6 +2506,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
           htmlFor="past-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2192,6 +2539,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
           htmlFor="past-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2214,6 +2572,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput onlyAllowPast 1`] = 
           htmlFor="past-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2260,16 +2629,18 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
   transition: opacity 0.1s;
 }
 
-.emotion-0 > div {
-  -webkit-flex: 0 0 24%;
-  -ms-flex: 0 0 24%;
-  flex: 0 0 24%;
-}
+@media screen and (min-width:480px) {
+  .emotion-0 > div {
+    -webkit-flex: 0 0 24%;
+    -ms-flex: 0 0 24%;
+    flex: 0 0 24%;
+  }
 
-.emotion-0 > div:last-of-type {
-  -webkit-flex: 0 0 50%;
-  -ms-flex: 0 0 50%;
-  flex: 0 0 50%;
+  .emotion-0 > div:last-of-type {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
 }
 
 .emotion-0 input {
@@ -2296,6 +2667,12 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
   cursor: not-allowed;
 }
 
+@media screen and (max-width:480px) {
+  .emotion-0 {
+    display: block;
+  }
+}
+
 <fieldset
   className="emotion-1"
 >
@@ -2320,6 +2697,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
           htmlFor="initial-month"
         >
           Month
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2342,6 +2730,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
           htmlFor="initial-day"
         >
           Day
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2364,6 +2763,17 @@ exports[`Storyshots Form Elements|Inputs/MemorableDateInput with an initialDate 
           htmlFor="initial-year"
         >
           Year
+          <span
+            aria-hidden="true"
+            className="t--req"
+            style={
+              Object {
+                "marginLeft": "0.35em",
+              }
+            }
+          >
+            Required
+          </span>
         </label>
         <input
           className="txt-f"
@@ -2412,6 +2822,11 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group 1`] = `
   <div
     className="txt-l"
     id="favorite-flower-groupLabel"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
   >
     Favorite Flower
   </div>
@@ -2524,8 +2939,322 @@ exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels as Markup 1`]
   <div
     className="txt-l"
     id="time-of-day-groupLabel"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
   >
     Time of Day
+  </div>
+  <label
+    className="ra  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="morning"
+    />
+    <h2
+      className="m-l200"
+    >
+      Morning
+    </h2>
+  </label>
+  <label
+    className="ra  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="afternoon"
+    />
+    <h2
+      className="m-l200"
+    >
+      Afternoon
+    </h2>
+  </label>
+  <label
+    className="ra  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="evening"
+    />
+    <h2
+      className="m-l200"
+    >
+      Evening
+    </h2>
+  </label>
+</div>
+`;
+
+exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, SoftRequired, Tool Tip 1`] = `
+.emotion-0 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-0 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.emotion-0 .icon::before {
+  content: '?';
+}
+
+.emotion-0 .tt--info {
+  text-transform: lowercase;
+}
+
+.emotion-0 .tt--info::before {
+  content: 'i';
+}
+
+.emotion-0 .msg {
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 0.25em 0.5em;
+  font-weight: 300;
+  font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
+  text-transform: initial;
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
+}
+
+.emotion-0 .icon:hover + .msg {
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
+}
+
+<div
+  aria-labelledby="time-of-day-groupLabel"
+  role="group"
+>
+  <div
+    className="txt-l"
+    id="time-of-day-groupLabel"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    Time of Day
+    <span
+      className="t--req"
+      style={
+        Object {
+          "display": "flex",
+          "paddingLeft": "0.25em",
+        }
+      }
+    >
+      Required
+    </span>
+    <div
+      className="emotion-0"
+    >
+      <div
+        className="icon tt--info"
+      />
+      <div
+        className="msg"
+      >
+        This information is collected as required by the Massachusetts State Marriage Intention Form.
+      </div>
+    </div>
+  </div>
+  <label
+    className="ra  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="morning"
+    />
+    <h2
+      className="m-l200"
+    >
+      Morning
+    </h2>
+  </label>
+  <label
+    className="ra  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="afternoon"
+    />
+    <h2
+      className="m-l200"
+    >
+      Afternoon
+    </h2>
+  </label>
+  <label
+    className="ra  "
+  >
+    <input
+      className="ra-f"
+      name="time-of-day"
+      type="radio"
+      value="evening"
+    />
+    <h2
+      className="m-l200"
+    >
+      Evening
+    </h2>
+  </label>
+</div>
+`;
+
+exports[`Storyshots Form Elements|Inputs/Radio Radio Group, Labels, Tool Tip 1`] = `
+.emotion-0 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-0 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.emotion-0 .icon::before {
+  content: '?';
+}
+
+.emotion-0 .tt--info {
+  text-transform: lowercase;
+}
+
+.emotion-0 .tt--info::before {
+  content: 'i';
+}
+
+.emotion-0 .msg {
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 0.25em 0.5em;
+  font-weight: 300;
+  font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
+  text-transform: initial;
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
+}
+
+.emotion-0 .icon:hover + .msg {
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
+}
+
+<div
+  aria-labelledby="time-of-day-groupLabel"
+  role="group"
+>
+  <div
+    className="txt-l"
+    id="time-of-day-groupLabel"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    Time of Day
+    <div
+      className="emotion-0"
+    >
+      <div
+        className="icon"
+      />
+      <div
+        className="msg"
+      >
+        This information is collected as required by the Massachusetts State Marriage Intention Form.
+      </div>
+    </div>
   </div>
   <label
     className="ra  "
@@ -2580,7 +3309,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -2588,11 +3317,18 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
     <label
       className="txt-l "
       htmlFor="input-362326901"
-      style={Object {}}
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "alignItems": "center",
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2603,7 +3339,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput default 1`] = `
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       disabled={false}
       id="input-362326901"
       placeholder=""
@@ -2624,7 +3360,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -2632,11 +3368,18 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
     <label
       className="txt-l "
       htmlFor="input-2348632648"
-      style={Object {}}
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "alignItems": "center",
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2647,7 +3390,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
     </label>
     <input
       aria-label=""
-      className="txt-f  txt-f--err"
+      className="txt-f  txt-f--err "
       id="input-2348632648"
       type="text"
     />
@@ -2661,11 +3404,18 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
     <label
       className="txt-l "
       htmlFor="input-3077581017"
-      style={Object {}}
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "alignItems": "center",
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2676,7 +3426,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
     </label>
     <input
       aria-label=""
-      className="txt-f  txt-f--err"
+      className="txt-f  txt-f--err "
       id="input-3077581017"
       type="text"
     />
@@ -2689,12 +3439,206 @@ exports[`Storyshots Form Elements|Inputs/TextInput error 1`] = `
 </div>
 `;
 
+exports[`Storyshots Form Elements|Inputs/TextInput interactive states 1`] = `
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-2715199497"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Default (non-active, unvalidated or required
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f   "
+      disabled={false}
+      id="input-2715199497"
+      placeholder=""
+      required={false}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-3647184142"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        State - Focus - Click into field
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f    txt-f--focused"
+      disabled={false}
+      id="input-3647184142"
+      placeholder=""
+      required={false}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-680647510"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        State - Required
+      </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "alignItems": "baseline",
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f   "
+      disabled={false}
+      id="input-680647510"
+      placeholder=""
+      required={true}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-2490219431"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        State - Error
+      </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "alignItems": "baseline",
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f  txt-f--err "
+      disabled={false}
+      id="input-2490219431"
+      placeholder=""
+      required={true}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+      Error Message ...
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
 <div
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -2702,11 +3646,18 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l "
       htmlFor="input-1357588218"
-      style={Object {}}
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "alignItems": "center",
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2717,13 +3668,20 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       <span
         aria-hidden="true"
         className="t--req"
+        style={
+          Object {
+            "alignItems": "baseline",
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
       >
         Required
       </span>
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-1357588218"
       required={true}
       type="text"
@@ -2738,11 +3696,18 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l "
       htmlFor="input-3174958747"
-      style={Object {}}
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "alignItems": "center",
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2753,7 +3718,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-3174958747"
       placeholder="Placeholder Text"
       type="text"
@@ -2769,11 +3734,18 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       <label
         className="txt-l "
         htmlFor="input-423803610"
-        style={Object {}}
+        style={
+          Object {
+            "alignItems": "baseline",
+            "display": "flex",
+          }
+        }
       >
         <span
           style={
             Object {
+              "alignItems": "center",
+              "display": "flex",
               "marginRight": "0.5em",
               "whiteSpace": "nowrap",
             }
@@ -2784,7 +3756,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
       </label>
       <input
         aria-label=""
-        className="txt-f  "
+        className="txt-f   "
         id="input-423803610"
         onChange={[Function]}
         type="password"
@@ -2801,7 +3773,12 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l "
       htmlFor="input-5381"
-      style={Object {}}
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
@@ -2827,7 +3804,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     </label>
     <input
       aria-label=""
-      className="txt-f  "
+      className="txt-f   "
       id="input-5381"
       type="text"
     />
@@ -2841,11 +3818,18 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <label
       className="txt-l txt-l--sm"
       htmlFor="input-472033325"
-      style={Object {}}
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "alignItems": "center",
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2856,9 +3840,288 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     </label>
     <input
       aria-label=""
-      className="txt-f txt-f--sm "
+      className="txt-f txt-f--sm  "
       id="input-472033325"
       placeholder="Placeholder Text"
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements|Inputs/TextInput w/Tool Tip: Short & Long 1`] = `
+.emotion-0 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-0 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.emotion-0 .icon::before {
+  content: '?';
+}
+
+.emotion-0 .tt--info {
+  text-transform: lowercase;
+}
+
+.emotion-0 .tt--info::before {
+  content: 'i';
+}
+
+.emotion-0 .msg {
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 0.25em 0.5em;
+  font-weight: 300;
+  font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
+  text-transform: initial;
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
+}
+
+.emotion-0 .icon:hover + .msg {
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-0 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-362326901"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Standard text input
+      </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "alignItems": "baseline",
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+        <div
+          className="emotion-0"
+        >
+          <div
+            className="icon"
+          />
+          <div
+            className="msg"
+          >
+            This information is collected.
+          </div>
+        </div>
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f   "
+      disabled={false}
+      id="input-362326901"
+      placeholder=""
+      required={false}
+      type="text"
+    />
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+  </div>
+  <div>
+    <div
+      className="t--subinfo t--err m-b100 m-t100"
+    >
+       
+    </div>
+    <input
+      aria-label=""
+      className="txt-f   "
+      disabled={false}
+      id="input-362326901"
+      placeholder=""
+      required={false}
+      type="text"
+    />
+    <label
+      className="txt-l "
+      htmlFor="input-362326901"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+          "marginBottom": "2em",
+          "marginTop": "1em",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Standard text input
+      </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "alignItems": "baseline",
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+        <div
+          className="emotion-0"
+        >
+          <div
+            className="icon"
+          />
+          <div
+            className="msg"
+          >
+            Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
+          </div>
+        </div>
+      </span>
+    </label>
+  </div>
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="input-362326901"
+      style={
+        Object {
+          "alignItems": "baseline",
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Standard text input
+      </span>
+      <span
+        aria-hidden="true"
+        className="t--req"
+        style={
+          Object {
+            "alignItems": "baseline",
+            "display": "flex",
+            "flexGrow": 1,
+          }
+        }
+      >
+        Required
+        <div
+          className="emotion-0"
+        >
+          <div
+            className="icon"
+          />
+          <div
+            className="msg"
+          >
+            Examples: Use your future spouse’s last name, use a two-part last name, or create a new last name.
+          </div>
+        </div>
+      </span>
+    </label>
+    <input
+      aria-label=""
+      className="txt-f   "
+      disabled={false}
+      id="input-362326901"
+      placeholder=""
+      required={true}
       type="text"
     />
     <div
@@ -2875,7 +4138,7 @@ exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -2883,11 +4146,16 @@ exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
     <label
       className="txt-l "
       htmlFor="select-572458229"
-      style={Object {}}
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2924,11 +4192,88 @@ exports[`Storyshots Form Elements|SelectDropdown default 1`] = `
 `;
 
 exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
+.emotion-0 {
+  color: #091f2f;
+}
+
+.emotion-3 {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.25em;
+  padding: 5px 0 0 0;
+}
+
+.emotion-3 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 .icon {
+  background: #1871bd;
+  line-height: normal;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.emotion-3 .icon::before {
+  content: '?';
+}
+
+.emotion-3 .tt--info {
+  text-transform: lowercase;
+}
+
+.emotion-3 .tt--info::before {
+  content: 'i';
+}
+
+.emotion-3 .msg {
+  display: none;
+  position: absolute;
+  line-height: normal;
+  z-index: 1000;
+  left: 110%;
+  top: -10%;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 0.25em 0.5em;
+  font-weight: 300;
+  font-style: italic;
+  font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+  text-align: left;
+  text-transform: initial;
+  background: #f3f3f3;
+  color: #58585b;
+  font-family: Lora,Georgia,serif;
+}
+
+.emotion-3 .icon:hover + .msg {
+  display: block;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-3 .msg {
+    -webkit-transform: translate(-51%,-95%);
+    -ms-transform: translate(-51%,-95%);
+    transform: translate(-51%,-95%);
+  }
+}
+
 <div
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -2936,11 +4281,16 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
     <label
       className="txt-l "
       htmlFor="select-4229616983"
-      style={Object {}}
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2950,6 +4300,11 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
       </span>
       <span
         className="t--req"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
       >
         Required
       </span>
@@ -2980,11 +4335,16 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
     <label
       className="txt-l "
       htmlFor="select-4147655300"
-      style={Object {}}
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -2994,6 +4354,11 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
       </span>
       <span
         className="t--req"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
       >
         Required
       </span>
@@ -3026,11 +4391,16 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
     <label
       className="txt-l txt-l--sm"
       htmlFor="select-4045240769"
-      style={Object {}}
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -3064,11 +4434,16 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
     <label
       className="txt-l "
       htmlFor="select-49712226"
-      style={Object {}}
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
     >
       <span
         style={
           Object {
+            "display": "flex",
             "marginRight": "0.5em",
             "whiteSpace": "nowrap",
           }
@@ -3078,6 +4453,11 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
       </span>
       <span
         className="t--req"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
       >
         Required
       </span>
@@ -3092,19 +4472,221 @@ exports[`Storyshots Form Elements|SelectDropdown variants 1`] = `
         required={true}
       >
         <option
+          className="emotion-0"
           value="Does Not Apply"
         >
           Does Not Apply
         </option>
         <option
+          className="emotion-0"
           value="Civil Unions"
         >
           Civil Unions
         </option>
         <option
+          className="emotion-0"
           value="Domestic Partnership"
         >
           Domestic Partnership
+        </option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="select-297758554"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Required Dropdown w/Tool Tip
+      </span>
+      <span
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+      >
+        Required
+        <div
+          className="emotion-3"
+        >
+          <div
+            className="icon"
+          />
+          <div
+            className="msg"
+          >
+            If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
+          </div>
+        </div>
+      </span>
+    </label>
+    <div
+      className="sel-c  "
+    >
+      <select
+        aria-label=""
+        className="sel-f  "
+        id="select-297758554"
+        required={true}
+      >
+        <option />
+        <option>
+          Finch
+        </option>
+        <option>
+          Nuthatch
+        </option>
+        <option>
+          Sparrow
+        </option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="select-1072838292"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "0.5em",
+            "whiteSpace": "nowrap",
+          }
+        }
+      >
+        Soft-Required Dropdown
+      </span>
+      <span
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+      >
+        Required
+        <div
+          className="emotion-3"
+        >
+          <div
+            className="icon"
+          />
+          <div
+            className="msg"
+          >
+            If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
+          </div>
+        </div>
+      </span>
+    </label>
+    <div
+      className="sel-c  "
+    >
+      <select
+        aria-label=""
+        className="sel-f  "
+        id="select-1072838292"
+      >
+        <option />
+        <option>
+          Finch
+        </option>
+        <option>
+          Nuthatch
+        </option>
+        <option>
+          Sparrow
+        </option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <div>
+    <label
+      className="txt-l "
+      htmlFor="select-3540638923"
+      style={
+        Object {
+          "display": "flex",
+        }
+      }
+    >
+      <span
+        style={
+          Object {
+            "display": "flex",
+            "marginRight": "0.5em",
+          }
+        }
+      >
+        Required Dropdown w/Tool Tip, max-width set
+      </span>
+      <span
+        className="t--req"
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+      >
+        Required
+        <div
+          className="emotion-3"
+        >
+          <div
+            className="icon"
+          />
+          <div
+            className="msg"
+          >
+            If your mailing address differs from your residential one, you can provide your preferred address with the Registry during your appointment.
+          </div>
+        </div>
+      </span>
+    </label>
+    <div
+      className="sel-c  "
+    >
+      <select
+        aria-label=""
+        className="sel-f  "
+        id="select-3540638923"
+        required={true}
+      >
+        <option />
+        <option>
+          Finch
+        </option>
+        <option>
+          Nuthatch
+        </option>
+        <option>
+          Sparrow
         </option>
       </select>
     </div>
@@ -4415,6 +5997,46 @@ exports[`Storyshots Notifications|Modals/StatusModal error with close 1`] = `
 </div>
 `;
 
+exports[`Storyshots Notifications|Modals/StatusModal hide top border decoration 1`] = `
+.emotion-0 {
+  padding-top: 0;
+  max-width: 500px;
+  top: 15%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+<div
+  className="md"
+>
+  <div
+    className="md-c emotion-0"
+  >
+    <button
+      autoFocus={true}
+      className="md-cb"
+      type="button"
+    >
+      Close
+    </button>
+    <div
+      className="md-b p-a300"
+    >
+      <div
+        className="t--intro t--err"
+      >
+        Something went wrong!
+      </div>
+      <p
+        className="t--s400"
+      >
+        If you edit your information, you must click the \`Save and Continue\` button to save your changes.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots ProgressBar default 1`] = `
 .emotion-0 progress {
   margin: 1rem 0 0.25rem;
@@ -4450,7 +6072,7 @@ exports[`Storyshots ProgressBar default 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -4511,7 +6133,7 @@ exports[`Storyshots ProgressBar first step (interactive demo) 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -4572,7 +6194,7 @@ exports[`Storyshots ProgressBar last step (interactive demo) 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -4633,7 +6255,7 @@ exports[`Storyshots ProgressBar with task name 1`] = `
   style={
     Object {
       "margin": "2rem auto",
-      "maxWidth": "600px",
+      "maxWidth": "768px",
     }
   }
 >
@@ -4655,6 +6277,1677 @@ exports[`Storyshots ProgressBar with task name 1`] = `
     >
       Step 3 of 5: Shipping information
     </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 1: Getting Started (default) 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-0 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 1 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Getting Started
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 2: Person 1 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-0 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed"
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 2 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Person 1
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 3: Person 2 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-0 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed"
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed"
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 3 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Person 2
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 4: Contact Info - Nav one step back 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-0 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed"
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed"
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed focused"
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed current"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 3 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Person 2
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 4: Contact Info 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-0 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed"
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed"
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed"
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 4 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Contact Info
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 5: Review 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-0 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed"
+          onClick={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed"
+          onClick={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed"
+          onClick={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed"
+          onClick={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="completed focused current"
+          onClick={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="uncompleted"
+          onClick={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 5 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Review
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ProgressNav Step 6: Submit 1`] = `
+.emotion-0 {
+  display: grid;
+  margin: auto;
+  margin-top: 0.75rem;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+}
+
+.emotion-0 .progressbar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.emotion-0 .progressbar .nav {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  line-height: normal;
+  font-style: normal;
+  font-weight: bold;
+  font-family: Montserrat,Arial,sans-serif;
+  text-transform: uppercase;
+  color: '#58585B';
+}
+
+.emotion-0 .progressbar .nav a {
+  display: table-cell;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  border-left-width: 0;
+  padding: 0.85em 0.5em;
+  color: black;
+  background: #fff;
+  width: 2%;
+  font-size: 0.85em;
+  vertical-align: middle;
+}
+
+.emotion-0 .progressbar .nav a:last-child {
+  grid-column-start: 2;
+}
+
+.emotion-0 .progressbar .nav a:first-child {
+  border-left-width: 1px;
+}
+
+.emotion-0 .progressbar .nav a.completed,
+.emotion-0 .progressbar .nav a.completed.current {
+  cursor: pointer;
+  color: #fff;
+  background: #1871bd;
+}
+
+.emotion-0 .progressbar .nav a.uncompleted {
+  background: #C8C8C8;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused.current {
+  color: #000;
+  cursor: pointer;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.focused,
+.emotion-0 .progressbar .nav a.completed:hover {
+  color: #000;
+  cursor: pointer;
+  background: #b0d9ff;
+}
+
+.emotion-0 .progressbar .nav a.done,
+.emotion-0 .progressbar .nav a.done:hover,
+.emotion-0 .progressbar .nav a.completed.focused.done.current {
+  color: #000;
+  cursor: default;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .nav a.completed.current {
+  color: #000;
+  background: #f2f2f2;
+}
+
+.emotion-0 .progressbar .progress-text {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.emotion-0 .progressbar .progress-text .mobile {
+  display: none;
+}
+
+@media screen and (max-width:540px) {
+  .emotion-0 {
+    max-width: 25.875em;
+  }
+
+  .emotion-0 .progressbar .nav a {
+    overflow: hidden;
+    min-width: 10px;
+    padding: 0.5em 0;
+    text-indent: -500px;
+    line-height: 0;
+  }
+
+  .emotion-0 .progressbar .progress-text .mobile {
+    display: inline-block;
+  }
+}
+
+@media (min-width:541px) and (max-width:1024px) {
+  .emotion-0 .progressbar .nav a {
+    padding: 0.85em 0;
+    font-size: 0.55rem;
+  }
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <div
+    className="emotion-0"
+  >
+    <div
+      className="progressbar"
+    >
+      <div
+        className="nav"
+      >
+        <a
+          aria-label="Getting Started"
+          className="completed done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Getting Started"
+        >
+          Getting Started
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 1"
+          className="completed done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Person 1"
+        >
+          Person 1
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Person 2"
+          className="completed done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Person 2"
+        >
+          Person 2
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Contact Info"
+          className="completed done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Contact Info"
+        >
+          Contact Info
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Review"
+          className="completed done"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Review"
+        >
+          Review
+          <span
+            className="arrow"
+          />
+        </a>
+        <a
+          aria-label="Submit"
+          className="completed focused done current"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+          onTouchMove={[Function]}
+          title="Submit"
+        >
+          Submit
+          <span
+            className="arrow"
+          />
+        </a>
+      </div>
+      <div
+        className="progress-text"
+      >
+        <span>
+          Step 6 of 6
+        </span>
+        <span
+          className=""
+        >
+          : 
+           
+          Submit
+        </span>
+      </div>
+    </div>
   </div>
 </div>
 `;

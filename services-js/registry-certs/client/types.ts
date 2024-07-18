@@ -36,7 +36,7 @@ export type Relation =
   | 'other'
   | '';
 
-export type YesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
+export type yesNoUnknownAnswer = 'yes' | 'no' | 'unknown' | '';
 
 // Death-specific
 export interface DeathCertificate
@@ -97,6 +97,14 @@ export type MarriageIntentionStep =
   | 'reviewForms'
   | 'reviewRequest';
 
+export type MarriageIntentionStepLabels =
+  | 'Getting Started'
+  | 'Person 1'
+  | 'Person 2'
+  | 'Contact Info'
+  | 'Review'
+  | 'Submit';
+
 export type IntentionQuestion = 'introStart';
 
 // Marriage-specific
@@ -126,13 +134,13 @@ export type MarriageStep =
 export type BirthCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
-  bornInBoston: YesNoUnknownAnswer;
-  parentsLivedInBoston?: YesNoUnknownAnswer;
+  bornInBoston: yesNoUnknownAnswer;
+  parentsLivedInBoston?: yesNoUnknownAnswer;
   firstName: string;
   lastName: string;
   altSpelling: string;
   birthDate?: Date | null;
-  parentsMarried: YesNoUnknownAnswer;
+  parentsMarried: yesNoUnknownAnswer;
   parent1FirstName: string;
   parent1LastName: string;
   parent2FirstName: string;
@@ -152,6 +160,7 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerA_lastName: string;
   partnerA_middleName: string;
   partnerA_surName: string;
+  partnerA_useSurname: string;
   partnerA_dob?: Date | null;
   partnerA_age: string;
   partnerA_occupation: string;
@@ -178,6 +187,9 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerA_residenceZip: string;
   partnerA_marriageNumb: string;
   partnerA_lastMarriageStatus: string;
+  partnerA_marriedBefore: string;
+  partnerA_additionalParent: string;
+  partnerA_formPageComplete: '' | '1' | null;
 
   partnerB_fullName: string;
   partnerB_firstMiddleName: string;
@@ -186,6 +198,7 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerB_lastName: string;
   partnerB_middleName: string;
   partnerB_surName: string;
+  partnerB_useSurname: string;
   partnerB_dob?: Date | null;
   partnerB_age: string;
   partnerB_occupation: string;
@@ -212,19 +225,21 @@ export type MarriageIntentionCertificateRequestInformation = {
   partnerB_residenceZip: string;
   partnerB_marriageNumb: string;
   partnerB_lastMarriageStatus: string;
+  partnerB_marriedBefore: string;
+  partnerB_additionalParent: string;
+  partnerB_formPageComplete: '' | '1' | null;
 
   email: string;
   emailConfirm: string;
   dayPhone: string;
   dayPhoneUnformattedStr: string;
   appointmentDate: Date | null;
-  // appointmentTime: string;
 };
 
 export type MarriageCertificateRequestInformation = {
   forSelf: boolean | null;
   howRelated?: Relation;
-  filedInBoston: YesNoUnknownAnswer;
+  filedInBoston: yesNoUnknownAnswer;
   dateOfMarriageExact?: Date | null;
   dateOfMarriageUnsure?: string;
   fullName1: string;
@@ -233,8 +248,8 @@ export type MarriageCertificateRequestInformation = {
   maidenName2?: string;
   altSpellings1?: string;
   altSpellings2?: string;
-  parentsMarried1: YesNoUnknownAnswer;
-  parentsMarried2: YesNoUnknownAnswer;
+  parentsMarried1: yesNoUnknownAnswer;
+  parentsMarried2: yesNoUnknownAnswer;
   // customerNotes?: string;
 
   // only required if parentsMarried[1, 2] !== true:

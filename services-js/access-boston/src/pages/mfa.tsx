@@ -143,10 +143,12 @@ export default class RegisterMfaPage extends React.Component<Props, State> {
       // Stopping the submission process closes the modal.
       setSubmitting(false);
 
-      this.setState({
-        status: VerificationStatus.NONE,
-        verificationError: e.toString(),
-      });
+      if (e) {
+        this.setState({
+          status: VerificationStatus.NONE,
+          verificationError: e.toString(),
+        });
+      }
     }
   };
 

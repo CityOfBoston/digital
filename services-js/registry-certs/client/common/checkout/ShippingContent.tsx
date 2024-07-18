@@ -15,7 +15,7 @@ import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 import Order, { OrderInfo } from '../../models/Order';
 import { makeStateSelectOptions } from '../utility/form-elements';
 
-import { Progress } from '../../PageWrapper';
+import { ProgressProps } from '../../../lib/interfaces';
 import CheckoutPageLayout from './CheckoutPageLayout';
 import { BackButtonContent } from '../question-components/BackButton';
 import RenderOrderDetails from './OrderDetails';
@@ -31,12 +31,12 @@ export type Props = {
   | {
       certificateType: 'birth';
       birthCertificateRequest: BirthCertificateRequest;
-      progress: Progress;
+      progress: ProgressProps;
     }
   | {
       certificateType: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
-      progress: Progress;
+      progress: ProgressProps;
     });
 
 export interface ShippingInfo {

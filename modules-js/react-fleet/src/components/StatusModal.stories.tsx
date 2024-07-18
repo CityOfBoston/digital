@@ -22,4 +22,18 @@ storiesOf('Notifications|Modals/StatusModal', module)
         Feel free to try again. If this keeps happening, let someone know.
       </p>
     </StatusModal>
+  ))
+  .add('hide top border decoration', () => (
+    <StatusModal
+      message="Something went wrong!"
+      error
+      // onClose={action('close')}
+      hideTopBorderDecoration={true}
+      absoluteCloseBtn={action('close')}
+    >
+      <p className="t--s400">
+        If you edit your information, you must click the `Save and Continue`
+        button to save your changes.
+      </p>
+    </StatusModal>
   ));

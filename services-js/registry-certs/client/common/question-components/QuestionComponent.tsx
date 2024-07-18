@@ -1,10 +1,10 @@
 /** @jsx jsx */
 
-import { css, jsx } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
 import { MouseEvent, ReactNode } from 'react';
 
-import { MEDIA_SMALL } from '@cityofboston/react-fleet';
+import { CONTAINER_STYLING, BUTTON_CONTAINER_STYLING } from './styling';
 
 import BackButton from './BackButton';
 
@@ -63,38 +63,3 @@ export default function QuestionComponent(props: Props): JSX.Element {
     </>
   );
 }
-
-const CONTAINER_STYLING = css({
-  'fieldset + fieldset': {
-    marginTop: '2rem',
-
-    [MEDIA_SMALL]: {
-      marginTop: '4rem',
-
-      '.lnk': {
-        paddingLeft: 0,
-      },
-    },
-  },
-});
-
-const BUTTON_CONTAINER_STYLING = css({
-  textAlign: 'center',
-
-  [MEDIA_SMALL]: {
-    marginTop: '2.5rem',
-    textAlign: 'left',
-
-    '> div': {
-      display: 'flex',
-
-      '&.ta-r > button': {
-        marginLeft: 'auto',
-      },
-    },
-
-    '.lnk': {
-      paddingLeft: 0,
-    },
-  },
-});

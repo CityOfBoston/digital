@@ -8,6 +8,7 @@ import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import {
   MarriageIntentionCertificateRequestInformation,
   MarriageIntentionStep,
+  MarriageIntentionStepLabels,
   JSONObject,
   JSONValue,
 } from '../types';
@@ -27,6 +28,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerA_lastName: '',
   partnerA_middleName: '',
   partnerA_surName: '',
+  partnerA_useSurname: '',
   partnerA_dob: null,
   partnerA_age: '',
   partnerA_occupation: '',
@@ -53,6 +55,9 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerA_residenceZip: '',
   partnerA_marriageNumb: '',
   partnerA_lastMarriageStatus: '',
+  partnerA_marriedBefore: '',
+  partnerA_additionalParent: '',
+  partnerA_formPageComplete: '',
 
   partnerB_fullName: '',
   partnerB_firstMiddleName: '',
@@ -61,6 +66,7 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerB_lastName: '',
   partnerB_middleName: '',
   partnerB_surName: '',
+  partnerB_useSurname: '',
   partnerB_dob: null,
   partnerB_age: '',
   partnerB_occupation: '',
@@ -87,6 +93,9 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   partnerB_residenceZip: '',
   partnerB_marriageNumb: '',
   partnerB_lastMarriageStatus: '',
+  partnerB_marriedBefore: '',
+  partnerB_additionalParent: '',
+  partnerB_formPageComplete: '',
 
   email: '',
   emailConfirm: '',
@@ -101,6 +110,15 @@ export const QUESTION_STEPS: MarriageIntentionStep[] = [
   'partnerFormB',
   'contactInfo',
   'reviewForms',
+];
+
+export const LABEL_STEPS: MarriageIntentionStepLabels[] = [
+  'Getting Started',
+  'Person 1',
+  'Person 2',
+  'Contact Info',
+  'Review',
+  'Submit',
 ];
 
 export const CHECKOUT_STEPS: MarriageIntentionStep[] = ['reviewRequest'];
@@ -148,6 +166,7 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_lastName: this.requestInformation.partnerA_lastName,
       partnerA_middleName: this.requestInformation.partnerA_middleName,
       partnerA_surName: this.requestInformation.partnerA_surName,
+      partnerA_useSurname: this.requestInformation.partnerA_useSurname,
       partnerA_dob: this.requestInformation.partnerA_dob
         ? this.requestInformation.partnerA_dob.toISOString()
         : null,
@@ -187,6 +206,11 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_marriageNumb: this.requestInformation.partnerA_marriageNumb,
       partnerA_lastMarriageStatus: this.requestInformation
         .partnerA_lastMarriageStatus,
+      partnerA_marriedBefore: this.requestInformation.partnerA_marriedBefore,
+      partnerA_additionalParent: this.requestInformation
+        .partnerA_additionalParent,
+      partnerA_formPageComplete: this.requestInformation
+        .partnerA_formPageComplete,
 
       partnerB_fullName: this.requestInformation.partnerB_fullName,
       partnerB_firstMiddleName: this.requestInformation
@@ -196,6 +220,7 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_lastName: this.requestInformation.partnerB_lastName,
       partnerB_middleName: this.requestInformation.partnerB_middleName,
       partnerB_surName: this.requestInformation.partnerB_surName,
+      partnerB_useSurname: this.requestInformation.partnerB_useSurname,
       partnerB_dob: this.requestInformation.partnerB_dob
         ? this.requestInformation.partnerB_dob.toISOString()
         : null,
@@ -235,6 +260,11 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_marriageNumb: this.requestInformation.partnerB_marriageNumb,
       partnerB_lastMarriageStatus: this.requestInformation
         .partnerB_lastMarriageStatus,
+      partnerB_marriedBefore: this.requestInformation.partnerB_marriedBefore,
+      partnerB_additionalParent: this.requestInformation
+        .partnerB_additionalParent,
+      partnerB_formPageComplete: this.requestInformation
+        .partnerB_formPageComplete,
 
       email: this.requestInformation.email,
       emailConfirm: this.requestInformation.emailConfirm,
@@ -243,7 +273,6 @@ export default class MarriageIntentionCertificateRequest {
       appointmentDate: this.requestInformation.appointmentDate
         ? this.requestInformation.appointmentDate.toISOString()
         : null,
-      // appointmentTime: this.requestInformation.appointmentTime,
     };
 
     return {
@@ -264,6 +293,7 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_lastName: obj.requestInformation.partnerA_lastName,
       partnerA_middleName: obj.requestInformation.partnerA_middleName,
       partnerA_surName: obj.requestInformation.partnerA_surName,
+      partnerA_useSurname: obj.requestInformation.partnerA_useSurname,
       partnerA_dob: obj.requestInformation.partnerA_dob
         ? new Date(obj.requestInformation.partnerA_dob)
         : null,
@@ -300,6 +330,11 @@ export default class MarriageIntentionCertificateRequest {
       partnerA_marriageNumb: obj.requestInformation.partnerA_marriageNumb,
       partnerA_lastMarriageStatus:
         obj.requestInformation.partnerA_lastMarriageStatus,
+      partnerA_marriedBefore: obj.requestInformation.partnerA_marriedBefore,
+      partnerA_additionalParent:
+        obj.requestInformation.partnerA_additionalParent,
+      partnerA_formPageComplete:
+        obj.requestInformation.partnerA_formPageComplete,
 
       partnerB_fullName: this.requestInformation.partnerB_fullName,
       partnerB_firstMiddleName: this.requestInformation
@@ -309,6 +344,7 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_lastName: obj.requestInformation.partnerB_lastName,
       partnerB_middleName: obj.requestInformation.partnerB_middleName,
       partnerB_surName: obj.requestInformation.partnerB_surName,
+      partnerB_useSurname: obj.requestInformation.partnerB_useSurname,
       partnerB_dob: obj.requestInformation.partnerB_dob
         ? new Date(obj.requestInformation.partnerB_dob)
         : null,
@@ -345,6 +381,11 @@ export default class MarriageIntentionCertificateRequest {
       partnerB_marriageNumb: obj.requestInformation.partnerB_marriageNumb,
       partnerB_lastMarriageStatus:
         obj.requestInformation.partnerB_lastMarriageStatus,
+      partnerB_marriedBefore: obj.requestInformation.partnerB_marriedBefore,
+      partnerB_additionalParent:
+        obj.requestInformation.partnerB_additionalParent,
+      partnerB_formPageComplete:
+        obj.requestInformation.partnerB_formPageComplete,
 
       email: obj.requestInformation.email,
       emailConfirm: obj.requestInformation.emailConfirm,
@@ -353,7 +394,6 @@ export default class MarriageIntentionCertificateRequest {
       appointmentDate: obj.requestInformation.appointmentDate
         ? obj.requestInformation.appointmentDate.toISOString()
         : null,
-      // appointmentTime: obj.requestInformation.appointmentTime,
     };
   }
 
@@ -393,27 +433,12 @@ export default class MarriageIntentionCertificateRequest {
 
   @computed
   public get steps(): MarriageIntentionStep[] {
-    return [
-      ...QUESTION_STEPS,
-      // ...(this.needsIdentityVerification ? VERIFY_IDENTIFICATION_STEPS : []),
-      ...CHECKOUT_STEPS,
-    ];
+    return [...QUESTION_STEPS, ...CHECKOUT_STEPS];
   }
 
   @computed
-  public get needsIdentityVerification(): boolean {
-    // const {
-    //   partnerA_firstName,
-    //   partnerA_lastName,
-    //   partnerA_surName,
-    // } = this.requestInformation;
-
-    // const firstName = partnerA_firstName && partnerA_firstName !== '';
-    // const lastName = partnerA_lastName && partnerA_lastName !== '';
-    // return !!(partnerA_firstName && partnerA_firstName !== '');
-
-    // return !!(partnerA_firstName && partnerA_lastName && partnerA_surName);
-    return true;
+  public get labels(): MarriageIntentionStepLabels[] {
+    return [...LABEL_STEPS];
   }
 
   // A user’s answer may span several fields:
@@ -423,7 +448,6 @@ export default class MarriageIntentionCertificateRequest {
     partnerLabel: string
   ): void {
     partnerLabel = partnerLabel || '';
-    // console.log(`answerQuestion>partnerLabel: [${partnerLabel}]`);
     if (partnerLabel === '') {
       this.requestInformation = {
         ...this.requestInformation,
@@ -467,25 +491,9 @@ export default class MarriageIntentionCertificateRequest {
   @computed
   public get completedQuestionSteps() {
     const steps = {
-      // partnerFormA: false,
-      // partnerFormB: false,
       partnerFormA: true,
       partnerFormB: true,
-      // verifyIdentification: true,
     };
-
-    // const {
-    //   partnerA,
-    //   partnerB,
-    // } = this.requestInformation;
-
-    // if (partnerA.firstName && partnerA.lastName && partnerA.surName) {
-    //   steps.partnerFormA = true;
-    // }
-
-    // if (partnerB.firstName && partnerB.lastName && partnerB.surName) {
-    //   steps.partnerFormB = true;
-    // }
 
     return steps;
   }

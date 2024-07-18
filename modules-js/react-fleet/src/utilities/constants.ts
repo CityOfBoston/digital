@@ -1,4 +1,6 @@
 export const PUBLIC_CSS_URL = 'https://patterns.boston.gov/css/public.css';
+// export const PUBLIC_CSS_URL = 'https://patterns-stg.boston.gov/css/public.css';
+// export const PUBLIC_CSS_URL = 'http://localhost:3030/css/public.css';
 export const WHITE = '#fff';
 export const BLACK = '#000';
 export const YELLOW = '#fcb61a';
@@ -38,7 +40,9 @@ export const MONTSERRAT_SRC =
 export const SANS = 'Montserrat, Arial, sans-serif';
 export const SERIF = 'Lora, Georgia, serif';
 
+export const MEDIA_X_SMALL = '@media screen and (max-width: 330px)';
 export const MEDIA_SMALL = '@media screen and (min-width: 480px)';
+export const MEDIA_SMALL_MAX = '@media screen and (max-width: 480px)';
 export const MEDIA_MEDIUM = '@media screen and (min-width: 768px)';
 export const MEDIA_MEDIUM_MAX = '@media screen and (max-width: 768px)';
 export const MEDIA_LARGE = '@media screen and (min-width: 840px)';

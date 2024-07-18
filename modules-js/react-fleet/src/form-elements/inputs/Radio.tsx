@@ -1,5 +1,7 @@
 import React, { ChangeEvent, FocusEvent, ReactNode } from 'react';
 
+import { ToolTip } from '../ToolTip';
+
 interface RadioProps {
   name: string;
   label: string | ReactNode;
@@ -10,6 +12,8 @@ interface RadioProps {
   checked?: boolean;
   style?: object;
   className?: string;
+  softRequired?: boolean;
+  toolTip?: { icon: string; msg: string };
 
   onChange?(e: ChangeEvent<HTMLInputElement>): void;
   onBlur?(e: FocusEvent<HTMLInputElement>): void;
@@ -58,6 +62,11 @@ interface RadioGroupProps {
   itemsClassName?: string;
   style?: object;
   itemsStyle?: object;
+  softRequired?: boolean;
+  toolTip?: { icon: string; msg: string };
+
+  required?: boolean;
+  error?: string;
 
   handleItemChange?(e: ChangeEvent<HTMLInputElement>): void;
   handleItemBlur?(e: FocusEvent<HTMLInputElement>): void;
@@ -79,6 +88,8 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
     ? (ariaProps['aria-label'] = props.groupLabel)
     : (ariaProps['aria-labelledby'] = `${props.name}-groupLabel`);
 
+  const softRequiredCss = { paddingLeft: '0.25em', display: 'flex' };
+
   return (
     <div
       role="group"
@@ -87,8 +98,19 @@ export function RadioGroup(props: RadioGroupProps): JSX.Element {
       {...ariaProps}
     >
       {!props.hideLabel && (
-        <div className="txt-l" id={`${props.name}-groupLabel`}>
+        <div
+          className="txt-l"
+          id={`${props.name}-groupLabel`}
+          style={{ display: 'flex' }}
+        >
           {props.groupLabel}
+          {props.softRequired && (
+            <span className={`t--req`} style={softRequiredCss}>
+              Required
+            </span>
+          )}
+          {props.toolTip &&
+            ToolTip({ icon: props.toolTip.icon, msg: props.toolTip.msg })}
         </div>
       )}
 
