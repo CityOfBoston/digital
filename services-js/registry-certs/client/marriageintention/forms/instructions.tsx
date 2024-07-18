@@ -62,9 +62,10 @@ export default class Instructions extends Component<Props> {
               were married when you were born
             </li>
             <li>
-              While a social security number is not required to get married in
-              the City of Boston, if you do have one, it can simplify the
-              process
+              A social security number is not required to complete the online
+              Marriage Intention Form, however United States citizens will be
+              required to have their social security number for their in-person
+              appointment.
             </li>
 
             <li>

@@ -89,7 +89,11 @@ export default function TextInput(props: Props): JSX.Element {
 
   const labelText = (label): React.ReactChild => {
     if (typeof label === 'string') {
-      let styleObj = { marginRight: '0.5em', display: 'flex' };
+      let styleObj = {
+        marginRight: '0.5em',
+        display: 'flex',
+        alignItems: 'center',
+      };
       if (!props.disableLabelNoWrap) {
         styleObj['whiteSpace'] = 'nowrap';
       }
@@ -137,10 +141,11 @@ export default function TextInput(props: Props): JSX.Element {
       marginTop: '1em',
       marginBottom: '2em',
       display: 'flex',
+      alignItems: 'baseline',
     };
     const optStyles = props.labelBelowInput
       ? modLabelStyle
-      : { display: 'flex' };
+      : { display: 'flex', alignItems: 'baseline' };
 
     return (
       <label htmlFor={id} className={classNames.label} style={optStyles}>
@@ -154,7 +159,7 @@ export default function TextInput(props: Props): JSX.Element {
           <span
             className={`${cssArrToString}`}
             aria-hidden="true"
-            style={{ display: 'flex', flexGrow: 1 }}
+            style={{ display: 'flex', flexGrow: 1, alignItems: 'baseline' }}
           >
             {requireStr()}
             {toolTip && ToolTip({ icon: `${toolTip.icon}`, msg: toolTip.msg })}

@@ -7,6 +7,7 @@ import {
   OPTIMISTIC_BLUE_DARK,
   DEFAULT_TEXT,
   GRAY_000,
+  MEDIA_SMALL_MAX,
 } from '../utilities/constants';
 
 export const ToolTip = (data: {
@@ -16,22 +17,25 @@ export const ToolTip = (data: {
   const { icon, msg } = data;
 
   const $wrapper = css(`
-    display: flex;
-    flex-grow: 1;
     position: relative;
+    display: inline-block;
+    margin-left: 0.25em;
+    padding: 5px 0 0 0;
 
+    .wrapper {
+      display: flex;
+      align-items: center;
+    }
+    
     .icon {
+      background:${OPTIMISTIC_BLUE_DARK};
+      line-height: normal;
+      color: white;
+      font-size: 0.5rem;
+      text-align: center;
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      font-size: 0.75rem;
-      background: ${OPTIMISTIC_BLUE_DARK};
-
-      margin: 5px 0px 0 5px;
-      padding: 5.4px 0 0 3.00px;
-      line-height: 0px;
-      font-size: 8px;
-      color: white;
 
       &::before {
         content: '?';
@@ -40,32 +44,41 @@ export const ToolTip = (data: {
 
     .tt--info {
       text-transform: lowercase;
-      padding-left: 3.5px;
       &::before { content: 'i' }
     }
 
     .msg {
-      flex-grow: 1;
-      visibility: hidden;
-      z-index: 2;
-
+      display: none;
+      position: absolute;
+      line-height: normal;
+      z-index: 1000;
+      left: 110%;
+      top: -10%;
+      
+      min-width: 250px;
+      max-width: 300px;
       
       padding: 0.25em 0.5em;
-      color: ${DEFAULT_TEXT};
-      font-family: ${SERIF};
       font-weight: 300;
       font-style: italic;
+      font-size: calc(14px + 2 * ((100vw - 480px) / 960));
+      text-align: left;
       text-transform: initial;
-      background-color: ${GRAY_000};
-      
-      min-width: 150px;
 
-      position: absolute;
-      margin-left: 20px;
-      top: calc(-30% + 1px);
+      background: ${GRAY_000};
+      color: ${DEFAULT_TEXT};
+      font-family: ${SERIF};
     }
 
-    .icon:hover + .msg { visibility: visible; }
+    .icon:hover + .msg {
+      display: block;
+    }
+    
+    ${MEDIA_SMALL_MAX} {
+      .msg {
+        transform: translate(-51%, -95%);
+      }
+    }
   `);
 
   let cssObj_labelReq = { icon: 'icon' };
@@ -86,10 +99,10 @@ export const ToolTip = (data: {
     .replace(/,/g, ' ');
 
   return (
-    <span className={'tool-tip__wrapper'} css={$wrapper}>
+    <div css={$wrapper}>
       <div className={cssArrToString} />
       <div className="msg">{msg}</div>
-    </span>
+    </div>
   );
 };
 
