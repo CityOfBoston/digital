@@ -36,15 +36,15 @@ export const addMfaDeviceMutation: MutationResolvers['addMfaDevice'] = async (
     firstName,
     lastName,
     email: registeredEmail,
-    hasMfaDevice,
+    // hasMfaDevice,
   } = loginSession;
 
-  if (hasMfaDevice) {
-    return {
-      sessionId: null,
-      error: MfaError.ALREADY_REGISTERED,
-    };
-  }
+  // if (hasMfaDevice) {
+  //   return {
+  //     sessionId: null,
+  //     error: MfaError.ALREADY_REGISTERED,
+  //   };
+  // }
 
   const pingUser = await pingId.getUserDetails(userId);
 

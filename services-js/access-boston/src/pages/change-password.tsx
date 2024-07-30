@@ -96,6 +96,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
   ) => {
     const { account } = this.props;
 
+    console.log('change-pw: handleSubmit');
+
     this.setState({ showSubmittingModal: true, showModalError: null });
 
     try {
@@ -105,6 +107,8 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
         newPassword,
         confirmPassword
       );
+
+      console.log('change-pw: SWITCH');
 
       switch (status) {
         case 'ERROR':
@@ -118,18 +122,36 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           break;
 
         case 'SUCCESS':
+          console.log('change-pw: SUCCESS');
           if (account.needsNewPassword && !account.needsMfaDevice) {
             // we were doing registration, but if we don't need an MFA device
             // then we can go straight to done.
+            console.log('change-pw: SUCCESS > needsMfa: false');
+
             this.doneRedirectRef.current!.redirect();
           } else {
-            Router.push(
-              formatUrl({
-                // clears out any query param since we're setting it below
-                pathname: successUrl(account).replace(/\?.*/, ''),
-                query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
-              })
+            console.log('change-pw: SUCCESS > needsMfa: true');
+
+            const destUrl = formatUrl({
+              // clears out any query param since we're setting it below
+              pathname: successUrl(account).replace(/\?.*/, ''),
+              query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
+            });
+            console.log(
+              'change-pw: SUCCESS > needsMfa: true > destUrl: ',
+              destUrl
             );
+
+            // Router.push('/mfa?message=password');
+            Router.push(destUrl);
+
+            // Router.push(
+            //   formatUrl({
+            //     // clears out any query param since we're setting it below
+            //     pathname: successUrl(account).replace(/\?.*/, ''),
+            //     query: { message: FlashMessage.CHANGE_PASSWORD_SUCCESS },
+            //   })
+            // );
           }
           break;
       }

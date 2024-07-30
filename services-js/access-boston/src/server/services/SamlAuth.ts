@@ -285,6 +285,8 @@ export default class SamlAuth {
         const { user } = saml;
         const { attributes } = user;
 
+        console.log(`attributes: `, attributes);
+
         return {
           type: 'login',
           nameId: user.name_id,

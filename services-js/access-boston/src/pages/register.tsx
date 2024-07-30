@@ -28,6 +28,8 @@ export default class RegisterPage extends React.Component<Props> {
       account.needsMfaDevice ||
       !account.hasMfaDevice;
 
+    // const canRegister = account.needsNewPassword || account.needsMfaDevice;
+
     if (!canRegister) {
       throw new RedirectError('/');
     }
@@ -43,9 +45,10 @@ export default class RegisterPage extends React.Component<Props> {
     const { publicRuntimeConfig: PING_HOST } = getConfig();
     const logoutImgSrc = `https://${PING_HOST}/ext/idplogout`;
 
+    console.log(`Register.tsx: `);
     console.log(`account.needsNewPassword: `, account.needsNewPassword);
     console.log(`account.needsMfaDevice: `, account.needsMfaDevice);
-    console.log(`account: `, account);
+    console.log(`account.hasMfaDevice: `, account.hasMfaDevice);
 
     return (
       <>

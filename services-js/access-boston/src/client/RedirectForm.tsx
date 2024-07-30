@@ -18,8 +18,10 @@ export default class RedirectForm extends React.Component<Props> {
   private readonly formRef = React.createRef<HTMLFormElement>();
 
   redirect() {
+    console.log(`RedirectForm: `);
     const form = this.formRef.current;
     if (form) {
+      console.log(`RedirectForm: in Form > form.Submit`);
       form.submit();
     }
   }

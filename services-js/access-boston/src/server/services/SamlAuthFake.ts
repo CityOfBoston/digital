@@ -37,6 +37,8 @@ export default class SamlAuthFake implements Required<SamlAuth> {
 
     const isNewUser = userId.startsWith('NEW');
 
+    console.log(`isNewUser: `, isNewUser);
+
     const result: SamlLoginResult = {
       type: 'login',
       nameId: userId,
@@ -68,9 +70,10 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       ],
       // needsNewPassword: isNewUser,
       // needsMfaDevice: isNewUser && userId !== 'NEW88888',
+      // hasMfaDevice: !isNewUser,
       needsNewPassword: true,
       needsMfaDevice: true,
-      hasMfaDevice: !isNewUser,
+      hasMfaDevice: true,
       userAccessToken: 'jfqWE7DExC4nUa7pvkABezkM4oNT',
       userMfaRegistrationDate: '04/17/2019',
       cobAgency: 'CH',
