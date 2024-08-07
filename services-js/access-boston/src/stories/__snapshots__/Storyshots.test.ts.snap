@@ -4168,25 +4168,27 @@ exports[`Storyshots DonePage default 1`] = `
       >
         <h2
           className="sh-title"
-          id="sh-2018125994"
+          id="sh-203550349"
         >
-          You’re all set!
+          Just a moment!
         </h2>
       </div>
       <div
         className="t--intro m-v500"
       >
-        You’re now set up with your Access Boston account. Log in now to continue.
+        You’re now set up with your Access Boston account. 
+        You can use the button below to Log in a moment.
       </div>
       <div
         className="ta-r"
       >
-        <a
+        <button
+          aria-disabled={true}
           className="btn"
-          href="/"
+          disabled={true}
         >
           Log In
-        </a>
+        </button>
       </div>
     </div>
   </main>
