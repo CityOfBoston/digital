@@ -211,6 +211,8 @@ export default class PartnerForm extends Component<Props> {
                 val: e.target.value,
                 partnerFlag: 'A',
                 certObj: this.props.marriageIntentionCertificateRequest,
+                requestInformation:
+                  marriageIntentionCertificateRequest.requestInformation,
               }),
             formErrors: this.props.formErrors,
             errorElemSrc: this.props.errorElemSrc,
