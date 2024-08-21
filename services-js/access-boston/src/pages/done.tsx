@@ -12,33 +12,7 @@ interface State {
 }
 
 export default class DonePage extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { acctFetched: false };
-  }
-
-  async componentDidMount() {
-    // TODO: DIG-4670: (BUG) Registration Workflow
-    // THIS IS PACK TO THIS BUG, PROPER FIX NEEDS TO HAPPEN ON
-    // THE SECURITY TEAMS Servers ...
-    // Error = User CRUD update is slow to be available on the endpoint (api)
-    const delay = async (ms: number) => {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    };
-
-    await delay(13000);
-    this.setState({ acctFetched: true });
-  }
-
   render() {
-    const { acctFetched } = this.state;
-
-    const headerTxt = acctFetched ? 'You’re all set!' : 'Just a moment!';
-    const loginTxt = acctFetched
-      ? `Log in now to
-              continue.`
-      : `You can use the button below to Log in a moment.`;
-
     return (
       <>
         <Head>
@@ -48,22 +22,17 @@ export default class DonePage extends React.Component<Props, State> {
 
         <AppWrapper>
           <div className="b b-c b-c--hsm">
-            <SectionHeader title={headerTxt} />
+            <SectionHeader title="You’re all set!" />
 
             <div className="t--intro m-v500">
-              You’re now set up with your Access Boston account. {loginTxt}
+              You’re now set up with your Access Boston account. Log in now to
+              continue.
             </div>
 
             <div className="ta-r">
-              {acctFetched ? (
-                <a href="/" className="btn">
-                  Log In
-                </a>
-              ) : (
-                <button className={`btn`} aria-disabled disabled>
-                  Log In
-                </button>
-              )}
+              <a href="/" className="btn">
+                Log In
+              </a>
             </div>
           </div>
         </AppWrapper>

@@ -83,8 +83,7 @@ test.only('Device registration', async t => {
 
   const donePage = new PageModel();
   await t
-    // .expect(donePage.sectionHeader.withText('YOU’RE ALL SET!').exists)
-    .expect(donePage.sectionHeader.withText('JUST A MOMENT!').exists)
+    .expect(donePage.sectionHeader.withText('YOU’RE ALL SET!').exists)
     .ok('On done page');
 
   // Now we go home to make sure that the session was destroyed. This should
