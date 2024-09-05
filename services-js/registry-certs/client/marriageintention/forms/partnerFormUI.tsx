@@ -40,7 +40,7 @@ import {
   PARTNERSHIP_TYPE2,
 } from './inputData';
 
-import { COUNTRIES, US_STATES } from '../../../utils/data';
+import { COUNTRIES, US_STATES } from '../../../server/services/DBInputData';
 
 import { ToolTip } from '@cityofboston/react-fleet';
 
@@ -1043,8 +1043,8 @@ export const parents = (data: {
     parentsMarriedAtBirth,
     handleChange,
     handleAdditionalParentChange,
-    handleParentNameChange,
-    handleAddParentNameChange,
+    // handleParentNameChange,
+    // handleAddParentNameChange,
     formErrors,
     errorElemSrc,
     refs,
@@ -1139,7 +1139,8 @@ export const parents = (data: {
           label="Parent 1 - First Middle Last Name"
           name={`partner${partnerFlag}_parentA_Name`}
           value={parentA_Name}
-          onChange={handleParentNameChange}
+          // onChange={handleParentNameChange}
+          onChange={handleChange}
           disableLabelNoWrap={true}
           maxLength={38}
           softRequired={true}
@@ -1150,7 +1151,8 @@ export const parents = (data: {
           label="Parent 1 - Family Name/Last Name At the time of their birth or adoption"
           name={`partner${partnerFlag}_parentA_Surname`}
           value={parentA_Surname}
-          onChange={handleParentNameChange}
+          // onChange={handleParentNameChange}
+          onChange={handleChange}
           disableLabelNoWrap={true}
           maxLength={38}
           optionalDescription={
@@ -1180,7 +1182,8 @@ export const parents = (data: {
             parentB_Surname,
             errorVal_parentB_Name,
             errorVal_parentB_Surname,
-            handleChange: handleAddParentNameChange,
+            // handleChange: handleAddParentNameChange,
+            handleChange,
           })}
 
         {parentsMarried({

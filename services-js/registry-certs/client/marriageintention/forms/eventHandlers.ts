@@ -20,8 +20,14 @@ export const handleUseSurnameChange$ = (data: {
   val: string;
   partnerFlag: string;
   certObj: MarriageIntentionCertificateRequest;
+  requestInformation?: any;
 }) => {
-  const { val, partnerFlag, certObj } = data;
+  const { val, partnerFlag, certObj, requestInformation } = data;
+  const {
+    [`partner${partnerFlag}_firstName`]: partner_FirstName,
+    [`partner${partnerFlag}_lastName`]: partner_LastName,
+    [`partner${partnerFlag}_middleName`]: partner_MiddleName,
+  } = requestInformation;
   certObj.answerQuestion(
     {
       [`partner${partnerFlag}_useSurname`]: val,
@@ -29,10 +35,19 @@ export const handleUseSurnameChange$ = (data: {
     ''
   );
 
+  let surNameDefault = '';
+
   if (val === '0') {
+    const middleName =
+      partner_MiddleName.length < 1 ? '' : ` ${partner_MiddleName}`;
+
+    if (partner_FirstName.length > 0 && partner_LastName.length > 0) {
+      surNameDefault = `${partner_FirstName}${middleName} ${partner_LastName}`;
+    }
+
     certObj.answerQuestion(
       {
-        [`partner${partnerFlag}_surName`]: '',
+        [`partner${partnerFlag}_surName`]: surNameDefault,
       },
       ''
     );

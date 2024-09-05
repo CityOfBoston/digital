@@ -1,4 +1,4 @@
-import { COUNTRIES, US_STATES } from '../../../utils/data';
+import { COUNTRIES, US_STATES } from '../../../server/services/DBInputData';
 import { MARRIAGE_COUNT, PARTNERSHIP_TYPE } from '../forms/inputData';
 
 /**
