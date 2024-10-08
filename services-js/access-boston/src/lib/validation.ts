@@ -5,16 +5,20 @@ import { PHONE_REGEXP } from '@cityofboston/form-common';
 export function analyzePassword(password: string) {
   password = password || '';
 
-  const longEnough = password.length >= 10;
+  const longEnough = password.length >= 12;
   const hasLowercase = !!password.match(/[a-z]/);
   const hasUppercase = !!password.match(/[A-Z]/);
   const hasNumber = !!password.match(/\d/);
   // We clear out spaces from the symbol check so that it doesn't fire for them.
-  const hasSymbol = !!password.replace(/\s/g, '').match(/[\W_]/);
+  // const hasSymbol = !!password.replace(/\s/g, '').match(/[\W_]/);
 
   const complexEnough =
-    [hasLowercase, hasUppercase, hasNumber, hasSymbol].filter(b => b).length >=
-    3;
+    [
+      hasLowercase,
+      hasUppercase,
+      hasNumber,
+      // hasSymbol
+    ].filter(b => b).length >= 3;
 
   const tooLong = password.length > 32;
   const hasSpaces = !!password.match(/\s/);
@@ -25,7 +29,7 @@ export function analyzePassword(password: string) {
     hasLowercase,
     hasUppercase,
     hasNumber,
-    hasSymbol,
+    // hasSymbol,
     tooLong,
     hasSpaces,
   };
@@ -36,7 +40,7 @@ const NEW_PASSWORD_SHAPE = {
     .string()
     .test(
       'longEnough',
-      'Your new password must be at least 10 characters',
+      'Your new password must be at least 12 characters',
       val => analyzePassword(val).longEnough
     )
     .test(

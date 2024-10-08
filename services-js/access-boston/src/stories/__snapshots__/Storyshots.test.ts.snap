@@ -207,7 +207,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
               <li
                 className=""
               >
-                Be at least 10 characters long
+                Be at least 12 characters long
               </li>
               <li
                 className=""
@@ -230,11 +230,6 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -315,7 +310,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -383,7 +378,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -451,7 +446,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -666,7 +661,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
               <li
                 className=""
               >
-                Be at least 10 characters long
+                Be at least 12 characters long
               </li>
               <li
                 className=""
@@ -689,11 +684,6 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -774,7 +764,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -842,7 +832,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -910,7 +900,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -1119,7 +1109,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
               <li
                 className=""
               >
-                Be at least 10 characters long
+                Be at least 12 characters long
               </li>
               <li
                 className=""
@@ -1142,11 +1132,6 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -1227,7 +1212,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -1295,7 +1280,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -1363,7 +1348,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -1553,7 +1538,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
               <li
                 className=""
               >
-                Be at least 10 characters long
+                Be at least 12 characters long
               </li>
               <li
                 className=""
@@ -1576,11 +1561,6 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -1661,7 +1641,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -1729,7 +1709,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -1797,7 +1777,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -2053,7 +2033,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
               <li
                 className=""
               >
-                Be at least 10 characters long
+                Be at least 12 characters long
               </li>
               <li
                 className=""
@@ -2076,11 +2056,6 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -2161,7 +2136,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -2229,7 +2204,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -2297,7 +2272,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -2531,7 +2506,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
               <li
                 className=""
               >
-                Be at least 10 characters long
+                Be at least 12 characters long
               </li>
               <li
                 className=""
@@ -2554,11 +2529,6 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -2639,7 +2609,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -2707,7 +2677,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -2775,7 +2745,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -4305,7 +4275,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
               <li
                 className=""
               >
-                Be at least 10 characters long
+                Be at least 12 characters long
               </li>
               <li
                 className=""
@@ -4328,11 +4298,6 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                     className=""
                   >
                     A number
-                  </li>
-                  <li
-                    className=""
-                  >
-                    A special character
                   </li>
                 </ul>
               </li>
@@ -4413,7 +4378,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -4481,7 +4446,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
                   value=""
                 />
                 <button
-                  className="css-qaopyj-TextInput"
+                  className="css-u2p54j-TextInput"
                 >
                   Show
                 </button>
@@ -4624,7 +4589,7 @@ Array [
                 <li
                   className=""
                 >
-                  Be at least 10 characters long
+                  Be at least 12 characters long
                 </li>
                 <li
                   className=""
@@ -4647,11 +4612,6 @@ Array [
                       className=""
                     >
                       A number
-                    </li>
-                    <li
-                      className=""
-                    >
-                      A special character
                     </li>
                   </ul>
                 </li>
@@ -4732,7 +4692,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-qaopyj-TextInput"
+                    className="css-u2p54j-TextInput"
                   >
                     Show
                   </button>
@@ -4800,7 +4760,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-qaopyj-TextInput"
+                    className="css-u2p54j-TextInput"
                   >
                     Show
                   </button>
@@ -4988,7 +4948,7 @@ Array [
                 <li
                   className=""
                 >
-                  Be at least 10 characters long
+                  Be at least 12 characters long
                 </li>
                 <li
                   className=""
@@ -5011,11 +4971,6 @@ Array [
                       className=""
                     >
                       A number
-                    </li>
-                    <li
-                      className=""
-                    >
-                      A special character
                     </li>
                   </ul>
                 </li>
@@ -5096,7 +5051,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-qaopyj-TextInput"
+                    className="css-u2p54j-TextInput"
                   >
                     Show
                   </button>
@@ -5164,7 +5119,7 @@ Array [
                     value=""
                   />
                   <button
-                    className="css-qaopyj-TextInput"
+                    className="css-u2p54j-TextInput"
                   >
                     Show
                   </button>
@@ -10780,7 +10735,7 @@ Array [
     <li
       className=""
     >
-      Be at least 10 characters long
+      Be at least 12 characters long
     </li>
     <li
       className=""
@@ -10803,11 +10758,6 @@ Array [
           className=""
         >
           A number
-        </li>
-        <li
-          className=""
-        >
-          A special character
         </li>
       </ul>
     </li>
@@ -10853,10 +10803,10 @@ Array [
     <li
       className=""
     >
-      Be at least 10 characters long
+      Be at least 12 characters long
     </li>
     <li
-      className="css-5qhwje"
+      className=""
     >
       Use at least 3 of these:
       <ul
@@ -10876,11 +10826,6 @@ Array [
           className="css-5qhwje"
         >
           A number
-        </li>
-        <li
-          className="css-5qhwje"
-        >
-          A special character
         </li>
       </ul>
     </li>
@@ -10926,7 +10871,7 @@ Array [
     <li
       className="css-pzycro"
     >
-      Be at least 10 characters long
+      Be at least 12 characters long
     </li>
     <li
       className="css-pzycro"
@@ -10949,11 +10894,6 @@ Array [
           className=""
         >
           A number
-        </li>
-        <li
-          className=""
-        >
-          A special character
         </li>
       </ul>
     </li>
@@ -10997,9 +10937,9 @@ Array [
     }
   >
     <li
-      className="css-5qhwje"
+      className=""
     >
-      Be at least 10 characters long
+      Be at least 12 characters long
     </li>
     <li
       className=""
@@ -11022,11 +10962,6 @@ Array [
           className="css-5qhwje"
         >
           A number
-        </li>
-        <li
-          className=""
-        >
-          A special character
         </li>
       </ul>
     </li>
@@ -11072,7 +11007,7 @@ Array [
     <li
       className=""
     >
-      Be at least 10 characters long
+      Be at least 12 characters long
     </li>
     <li
       className=""
@@ -11095,11 +11030,6 @@ Array [
           className=""
         >
           A number
-        </li>
-        <li
-          className=""
-        >
-          A special character
         </li>
       </ul>
     </li>

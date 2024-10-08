@@ -317,8 +317,8 @@ return {
 http://localhost:3000/
 
 ### Staging
-DEV: https://group-mgmt.dev.digital-staging.boston.gov/
-TEST: http://group-mgmt.test.digital-staging.boston.gov/
+DEV: https://group-mgmt-dev.digital-staging.boston.gov/
+TEST: https://group-mgmt-test.digital-staging.boston.gov/
 
 ### PROD
 https://group-mgmt.boston.gov/
