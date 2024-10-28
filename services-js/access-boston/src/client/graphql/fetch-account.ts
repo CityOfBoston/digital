@@ -16,6 +16,7 @@ const QUERY = gql`
       mfaRequiredDate
       groups
       email
+      cobAgency
     }
   }
 `;

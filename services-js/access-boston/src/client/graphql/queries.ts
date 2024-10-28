@@ -68,6 +68,7 @@ export interface FetchAccountAndApps_account {
   mfaRequiredDate: string | null;
   groups: string[] | null;
   email: string;
+  cobAgency: string | null;
 }
 
 export interface FetchAccountAndApps_notice {
@@ -121,6 +122,7 @@ export interface FetchAccount_account {
   mfaRequiredDate: string | null;
   groups: string[] | null;
   email: string;
+  cobAgency: string | null;
 }
 
 export interface FetchAccount {
