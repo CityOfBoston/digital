@@ -3,9 +3,12 @@
 import { jsx } from '@emotion/core';
 import { useReducer /* useState , useEffect */ } from 'react';
 
+import { Account } from '../../../client/graphql/fetch-account';
+
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-import IntroView from './introView';
+import IntroView from './welcomView';
+import SuccessView from './successView';
 
 import {
   getViews,
@@ -13,7 +16,19 @@ import {
 } from '../../storage/PreferredChosenNameRequest';
 import { reducer as stateReducer, newInitState, AppTitle } from '../state/app';
 
-export default function Index() {
+interface Props {
+  account: Account;
+}
+
+export default function Index(props: Props) {
+  const { account } = props;
+  const viewAccountObj = {
+    cobAgency: account.cobAgency || '',
+    firstName: account.firstName || '',
+    lastName: account.lastName || '',
+    email: account.email || '',
+  };
+
   const [state, dispatchState] = useReducer(stateReducer, newInitState);
   //   const fetchedSteps: Array<string> = getSteps();
   const fetchedViews: Array<string> = getViews();
@@ -61,13 +76,33 @@ export default function Index() {
         appTitle={AppTitle}
         handleQuit={closeTab}
         handleStepBack={stepBack}
+        account={viewAccountObj}
+      />
+    </PageWrapper>
+  );
+
+  const successView = (
+    <PageWrapper classString={'b-c'}>
+      <SuccessView
+        handleProceed={advanceStep}
+        resetState={resetState}
+        appTitle={AppTitle}
+        handleQuit={closeTab}
+        handleStepBack={stepBack}
+        account={viewAccountObj}
       />
     </PageWrapper>
   );
 
   switch (fetchedViews[state.view]) {
-    case 'intro':
+    case 'welcomeView':
+      return successView;
+    case 'enterNameView':
       return defaultView;
+    case 'confirmationView':
+      return defaultView;
+    case 'successView':
+      return successView;
     default:
       return defaultView;
   }

@@ -3,6 +3,9 @@
 import { jsx } from '@emotion/core';
 import { useEffect, useState } from 'react';
 
+// import { Account } from '../../graphql/fetch-account';
+
+//--- HTML Struct & Styling ---//
 import QuestionComponent from '../../common/QuestionComponent';
 import TextInput from '../../common/TextInput';
 import { SectionHeader } from '@cityofboston/react-fleet';
@@ -15,16 +18,24 @@ import {
   TEXTINPUT_STYLING,
 } from '../styling';
 
+interface account {
+  cobAgency: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
 interface Props {
   handleProceed: any;
   handleStepBack: any;
   resetState: () => void;
   appTitle: string;
   handleQuit: any;
+  account: account;
 }
 
-export default function IntroView(props: Props) {
-  const { handleProceed, handleStepBack, handleQuit } = props;
+export default function SuccessView(props: Props) {
+  const { handleProceed, handleStepBack, handleQuit, account } = props;
   const [query, setQuery] = useState('');
   const [value, setValue] = useState('');
 
@@ -49,6 +60,8 @@ export default function IntroView(props: Props) {
     return handleStepBack(value);
   };
 
+  console.log(`successView: account: `, account);
+
   return (
     <QuestionComponent
       handleProceed={handle_proceed}
@@ -63,7 +76,9 @@ export default function IntroView(props: Props) {
           title={`${props.appTitle}`}
           css={SECTIONHEADER_STYLING}
         />
-        <div css={SUBHEADER_STYLING}>Instructions</div>
+        <div css={SUBHEADER_STYLING}>
+          Success View [cobAgency: {account.cobAgency}]
+        </div>
 
         <div css={INSTRUCTIONS_STYLING}>
           Please enter the Employee ID or User ID number of the person to be

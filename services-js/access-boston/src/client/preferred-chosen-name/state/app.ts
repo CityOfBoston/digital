@@ -7,7 +7,7 @@ import {
 } from '../types';
 import { getViews } from '../../storage/PreferredChosenNameRequest';
 
-export const AppTitle: string = 'Confirm ID';
+export const AppTitle: string = 'Preferred / Chosen Name';
 export type ActionTypes = 'APP/CHANGE_VIEW' | 'APP/RESET_STATE';
 
 interface Action {
@@ -18,9 +18,9 @@ interface Action {
 
 export const initialState = new PreferredChosenNameInformation();
 export const completedStates = {
-  intro: false,
-  form: false,
-  review: false,
+  welcome: false,
+  enterName: false,
+  approval: false,
   success: false,
 };
 

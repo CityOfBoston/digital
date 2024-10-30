@@ -1,6 +1,14 @@
-export type PreferredChosenNameStep = 'intro' | 'form' | 'review' | 'success';
+export type PreferredChosenNameStep =
+  | 'welcome'
+  | 'enterName'
+  | 'approval'
+  | 'success';
 
-export type View = 'intro' | 'form' | 'verify' | 'success';
+export type View =
+  | 'welcomeView'
+  | 'enterNameView'
+  | 'approvalView'
+  | 'successView';
 
 export type Action = '' | 'new';
 
@@ -29,16 +37,3 @@ export class PreferredChosenNameInformation implements CommonAttributes {
   chosenLastName: string = '';
   email: string = '';
 }
-
-// export type stateType = {
-//     step: number | null;
-//     view: number;
-
-//     employeeId: string;
-//     employeeType: string;
-//     fname: string;
-//     lname: string;
-//     chosenFirstName: string;
-//     chosenLastName: string;
-//     email: string;
-// };
