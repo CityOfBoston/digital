@@ -14,15 +14,16 @@ interface Action {
   type: ActionTypes;
   view: View;
   payload: CommonAttributes;
+  altWorkflow: boolean;
 }
 
 export const initialState = new PreferredChosenNameInformation();
-export const completedStates = {
-  welcome: false,
-  enterName: false,
-  approval: false,
-  success: false,
-};
+// export const completedStates = {
+//   welcome: false,
+//   enterName: false,
+//   approval: false,
+//   success: false,
+// };
 
 export const newInitState = {
   ...initialState,

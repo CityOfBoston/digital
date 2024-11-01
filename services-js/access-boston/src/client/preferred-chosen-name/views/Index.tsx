@@ -7,8 +7,9 @@ import { Account } from '../../../client/graphql/fetch-account';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-import IntroView from './welcomView';
-import SuccessView from './successView';
+// import IntroView from './welcomView';
+// import SuccessView from './successView';
+import WelcomeView from './views';
 
 import {
   getViews,
@@ -33,9 +34,9 @@ export default function Index(props: Props) {
   //   const fetchedSteps: Array<string> = getSteps();
   const fetchedViews: Array<string> = getViews();
 
-  const closeTab = () => {
-    if (window) window.close();
-  };
+  // const closeTab = () => {
+  //   if (window) window.close();
+  // };
 
   const changeView = (newView: any) =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
@@ -43,17 +44,17 @@ export default function Index(props: Props) {
   const updateUserState = (data: any) =>
     dispatchState({ type: 'APP/RESET_STATE', payload: data });
 
-  const resetState = (): void => dispatchState({ type: 'APP/RESET_STATE' });
+  // const resetState = (): void => dispatchState({ type: 'APP/RESET_STATE' });
 
-  const stepBack = (): void => {
-    const prevView = state.view - 1;
+  // const stepBack = (): void => {
+  //   const prevView = state.view - 1;
 
-    if (prevView > -1) {
-      changeView(fetchedViews[prevView]);
-    } else {
-      changeView(fetchedViews[0]);
-    }
-  };
+  //   if (prevView > -1) {
+  //     changeView(fetchedViews[prevView]);
+  //   } else {
+  //     changeView(fetchedViews[0]);
+  //   }
+  // };
 
   const advanceStep = () => {
     const nextView = state.view + 1;
@@ -70,39 +71,46 @@ export default function Index(props: Props) {
 
   const defaultView = (
     <PageWrapper classString={'b-c'}>
-      <IntroView
+      <WelcomeView
+        handleProceed={advanceStep}
+        handleStepBack={() => {}}
+        appTitle={AppTitle}
+        account={viewAccountObj}
+      />
+
+      {/* <IntroView
         handleProceed={advanceStep}
         resetState={resetState}
         appTitle={AppTitle}
         handleQuit={closeTab}
         handleStepBack={stepBack}
         account={viewAccountObj}
-      />
+      /> */}
     </PageWrapper>
   );
 
-  const successView = (
-    <PageWrapper classString={'b-c'}>
-      <SuccessView
-        handleProceed={advanceStep}
-        resetState={resetState}
-        appTitle={AppTitle}
-        handleQuit={closeTab}
-        handleStepBack={stepBack}
-        account={viewAccountObj}
-      />
-    </PageWrapper>
-  );
+  // const successView = (
+  //   <PageWrapper classString={'b-c'}>
+  //     <SuccessView
+  //       handleProceed={advanceStep}
+  //       resetState={resetState}
+  //       appTitle={AppTitle}
+  //       handleQuit={closeTab}
+  //       handleStepBack={stepBack}
+  //       account={viewAccountObj}
+  //     />
+  //   </PageWrapper>
+  // );
 
   switch (fetchedViews[state.view]) {
     case 'welcomeView':
-      return successView;
-    case 'enterNameView':
       return defaultView;
-    case 'confirmationView':
-      return defaultView;
-    case 'successView':
-      return successView;
+    // case 'enterNameView':
+    //   return defaultView;
+    // case 'confirmationView':
+    //   return defaultView;
+    // case 'successView':
+    //   return successView;
     default:
       return defaultView;
   }

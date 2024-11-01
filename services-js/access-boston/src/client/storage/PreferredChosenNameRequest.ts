@@ -17,7 +17,9 @@ const VIEWS: View[] = [
   'approvalView',
   'successView',
 ];
+const VIEWSALT: View[] = ['welcomeView', 'enterNameView', 'successView'];
 
-export const getViews = () => {
-  return [...VIEWS];
+export const getViews = (alt?: boolean) => {
+  const retViews = alt && alt === true ? [...VIEWSALT] : [...VIEWS];
+  return retViews;
 };
