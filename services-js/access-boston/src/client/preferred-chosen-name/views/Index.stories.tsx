@@ -5,7 +5,7 @@ import PageWrapper from '../../PageWrapper';
 
 import { AppTitle } from '../state/app';
 
-import WelcomeView, { EnterNameView, ApprovalView, successView } from './views';
+import WelcomeView, { EnterNameView, ApprovalView } from './views';
 import SuccessView from './successView';
 
 const viewAccountObj = {
