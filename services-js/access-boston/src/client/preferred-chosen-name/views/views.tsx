@@ -26,28 +26,21 @@ interface account {
 
 interface WelcomeProps {
   handleProceed: (ev: MouseEvent) => void;
-  handleStepBack: (ev: MouseEvent) => void;
   appTitle: string;
   account: account;
 }
 
 export default function WelcomeView(props: WelcomeProps) {
-  const { handleProceed, handleStepBack, account } = props;
+  const { handleProceed, account } = props;
 
   const handle_proceed = (evt: MouseEvent<Element, globalThis.MouseEvent>) => {
     return handleProceed(evt);
   };
 
-  const handle_stepBack = (evt: MouseEvent<Element, globalThis.MouseEvent>) => {
-    return handleStepBack(evt);
-  };
-
-  console.log(`DefaultView: account: `, account);
+  console.log(`WelcomeView/DefaultView: account: `, account);
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
-      <h2>Chosen Name</h2>
-
       <div className="BorderedAppWrapper">
         <div className={`AppInnerContainer`}>
           <div className="headerBlock">
@@ -57,9 +50,7 @@ export default function WelcomeView(props: WelcomeProps) {
           <QuestionComponent
             allowProceed={true}
             handleProceed={handle_proceed}
-            handleStepBack={handle_stepBack}
             nextButtonText={'Continue'}
-            quitBtn={true}
           >
             <div className={`row`}>
               <div className={`bodyText`}>
@@ -75,6 +66,104 @@ export default function WelcomeView(props: WelcomeProps) {
                   Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit
                   nesciunt qui galisum quam est numquam tenetur vel cumque
                   repellendus. <a href="#">Link</a>
+                </p>
+              </div>
+            </div>
+          </QuestionComponent>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+interface EnterNameProps {
+  handleProceed: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent) => void;
+  appTitle: string;
+  account: account;
+}
+
+export function EnterNameView(props: EnterNameProps) {
+  const { handleProceed, handleStepBack, account } = props;
+
+  const handle_proceed = (evt: MouseEvent<Element, globalThis.MouseEvent>) => {
+    return handleProceed(evt);
+  };
+
+  const handle_stepBack = (evt: MouseEvent<Element, globalThis.MouseEvent>) => {
+    return handleStepBack(evt);
+  };
+
+  console.log(`EnterNameView: account: `, account);
+
+  return (
+    <div css={PREFERRED_NAME_STYLING}>
+      <h2>Chosen Name</h2>
+
+      <div className="BorderedAppWrapper">
+        <div className={`AppInnerContainer`}>
+          <QuestionComponent
+            allowProceed={true}
+            handleProceed={handle_proceed}
+            handleStepBack={handle_stepBack}
+            prevBtnText={`Clear`}
+            nextButtonText={'Continue'}
+          >
+            <div className={`row`}>
+              <div className={`bodyText`}>
+                <p>
+                  Changes to your name will be reflected across your City of
+                  Boston accounts.Lorem ipsum dolor sit amet. Qui adipisci
+                  voluptatem quo fugit
+                </p>
+              </div>
+            </div>
+          </QuestionComponent>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+interface ApprovalProps {
+  handleProceed: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent) => void;
+  appTitle: string;
+  account: account;
+}
+
+export function ApprovalView(props: ApprovalProps) {
+  const { handleProceed, handleStepBack, account } = props;
+
+  const handle_proceed = (evt: MouseEvent<Element, globalThis.MouseEvent>) => {
+    return handleProceed(evt);
+  };
+
+  const handle_stepBack = (evt: MouseEvent<Element, globalThis.MouseEvent>) => {
+    return handleStepBack(evt);
+  };
+
+  console.log(`ApprovalView: account: `, account);
+
+  return (
+    <div css={PREFERRED_NAME_STYLING}>
+      <h2>Chosen Name</h2>
+
+      <div className="BorderedAppWrapper">
+        <div className={`AppInnerContainer`}>
+          <QuestionComponent
+            allowProceed={true}
+            handleProceed={handle_proceed}
+            handleStepBack={handle_stepBack}
+            prevBtnText={`Go Back`}
+            nextButtonText={'Continue'}
+          >
+            <div className={`row`}>
+              <div className={`bodyText`}>
+                <p>
+                  Changes to your name will be reflected across your City of
+                  Boston accounts.Lorem ipsum dolor sit amet. Qui adipisci
+                  voluptatem quo fugit
                 </p>
               </div>
             </div>

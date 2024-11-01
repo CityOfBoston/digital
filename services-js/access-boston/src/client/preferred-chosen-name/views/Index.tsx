@@ -1,21 +1,20 @@
 /** @jsx jsx */
 
 import { jsx } from '@emotion/core';
-import { useReducer /* useState , useEffect */ } from 'react';
+import { useReducer } from 'react';
 
 import { Account } from '../../../client/graphql/fetch-account';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-// import IntroView from './welcomView';
-// import SuccessView from './successView';
-import WelcomeView from './views';
+import WelcomeView, { EnterNameView, ApprovalView } from './views';
 
 import {
   getViews,
   // getSteps
 } from '../../storage/PreferredChosenNameRequest';
 import { reducer as stateReducer, newInitState, AppTitle } from '../state/app';
+import SuccessView from './successView';
 
 interface Props {
   account: Account;
@@ -34,37 +33,38 @@ export default function Index(props: Props) {
   //   const fetchedSteps: Array<string> = getSteps();
   const fetchedViews: Array<string> = getViews();
 
-  // const closeTab = () => {
-  //   if (window) window.close();
-  // };
+  const closeTab = () => {
+    if (window) window.close();
+  };
 
   const changeView = (newView: any) =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
 
-  const updateUserState = (data: any) =>
-    dispatchState({ type: 'APP/RESET_STATE', payload: data });
+  // const updateUserState = (data: any) =>
+  //   dispatchState({ type: 'APP/RESET_STATE', payload: data });
 
   // const resetState = (): void => dispatchState({ type: 'APP/RESET_STATE' });
 
-  // const stepBack = (): void => {
-  //   const prevView = state.view - 1;
+  const stepBack = (): void => {
+    const prevView = state.view - 1;
 
-  //   if (prevView > -1) {
-  //     changeView(fetchedViews[prevView]);
-  //   } else {
-  //     changeView(fetchedViews[0]);
-  //   }
-  // };
+    if (prevView > -1) {
+      changeView(fetchedViews[prevView]);
+    } else {
+      changeView(fetchedViews[0]);
+    }
+  };
 
   const advanceStep = () => {
+    console.log('advanceStep!!!!!');
     const nextView = state.view + 1;
+    console.log(`nextView: `, nextView, state, fetchedViews);
 
     if (nextView < fetchedViews.length) {
-      // changeView(fetchedViews[nextView]);
-      updateUserState({});
-      advanceStep();
+      changeView(fetchedViews[nextView]);
+      // updateUserState({});
+      // advanceStep();
     } else {
-      // changeView(fetchedViews[0]);
       changeView(fetchedViews[0]);
     }
   };
@@ -73,44 +73,53 @@ export default function Index(props: Props) {
     <PageWrapper classString={'b-c'}>
       <WelcomeView
         handleProceed={advanceStep}
-        handleStepBack={() => {}}
         appTitle={AppTitle}
         account={viewAccountObj}
       />
-
-      {/* <IntroView
-        handleProceed={advanceStep}
-        resetState={resetState}
-        appTitle={AppTitle}
-        handleQuit={closeTab}
-        handleStepBack={stepBack}
-        account={viewAccountObj}
-      /> */}
     </PageWrapper>
   );
 
-  // const successView = (
-  //   <PageWrapper classString={'b-c'}>
-  //     <SuccessView
-  //       handleProceed={advanceStep}
-  //       resetState={resetState}
-  //       appTitle={AppTitle}
-  //       handleQuit={closeTab}
-  //       handleStepBack={stepBack}
-  //       account={viewAccountObj}
-  //     />
-  //   </PageWrapper>
-  // );
+  const enterNameView = (
+    <PageWrapper classString={'b-c'}>
+      <EnterNameView
+        handleProceed={advanceStep}
+        handleStepBack={stepBack}
+        appTitle={AppTitle}
+        account={viewAccountObj}
+      />
+    </PageWrapper>
+  );
+
+  const approvalView = (
+    <PageWrapper classString={'b-c'}>
+      <ApprovalView
+        handleProceed={advanceStep}
+        handleStepBack={stepBack}
+        appTitle={AppTitle}
+        account={viewAccountObj}
+      />
+    </PageWrapper>
+  );
+
+  const successView = (
+    <PageWrapper classString={'b-c'}>
+      <SuccessView
+        handleQuit={closeTab}
+        appTitle={AppTitle}
+        account={viewAccountObj}
+      />
+    </PageWrapper>
+  );
 
   switch (fetchedViews[state.view]) {
     case 'welcomeView':
       return defaultView;
-    // case 'enterNameView':
-    //   return defaultView;
-    // case 'confirmationView':
-    //   return defaultView;
-    // case 'successView':
-    //   return successView;
+    case 'enterNameView':
+      return enterNameView;
+    case 'approvalView':
+      return approvalView;
+    case 'successView':
+      return successView;
     default:
       return defaultView;
   }

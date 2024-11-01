@@ -105,7 +105,7 @@ export const PREFERRED_NAME_STYLING = css({
       paddingBottom: '1rem',
 
       [MEDIA_SMALL_MAX]: {
-        padding: '24 px',
+        padding: '24px',
       },
     },
 
