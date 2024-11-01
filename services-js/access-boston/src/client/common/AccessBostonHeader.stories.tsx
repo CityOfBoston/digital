@@ -15,6 +15,7 @@ const ACCOUNT: Account = {
   mfaRequiredDate: null,
   groups: [''],
   email: '',
+  cobAgency: 'CH',
 };
 
 storiesOf('AccessBostonHeader', module).add('default', () => (

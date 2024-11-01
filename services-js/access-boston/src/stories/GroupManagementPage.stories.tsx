@@ -16,6 +16,7 @@ const ACCOUNT: Account = {
   mfaRequiredDate: '2019-03-19T15:49:37.758Z',
   groups: [''],
   email: 'jondoe@boston.gov',
+  cobAgency: 'CH',
 };
 
 storiesOf('GroupManagementPage', module).add('default', () => (
