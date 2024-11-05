@@ -20,7 +20,7 @@ import { ApolloServer } from 'apollo-server-hapi';
 import { parse, Compile } from 'velocityjs';
 import { default as pingData } from './ping-templates/mockData';
 
-import { isValidJSON, hasExtraKeys } from './helpers';
+import { serverPayloadValidAndUseful } from './helpers';
 
 import Rollbar from 'rollbar';
 
@@ -443,44 +443,43 @@ async function addVelocityTemplates(server: HapiServer) {
       },
       timeout: { server: 15000 },
     },
-    handler: async req => {
-      const validRequestFields = [
-        'id',
-        'preferredFirsName',
-        'preferredLastName',
-      ];
-
-      if (req.payload['query'] && isValidJSON(req.payload['query'])) {
-        // const respObj = {};
-        const queryObj = JSON.parse(req.payload['query']);
+    handler: async (req, h) => {
+      try {
+        const reqReqFields = ['id'];
+        const reqOptFields = ['preferredFirstName', 'preferredLastName'];
+        const validRequestFields = reqReqFields.concat(reqOptFields);
 
         if (
-          !hasExtraKeys(queryObj, validRequestFields) &&
-          queryObj.length > 0
+          typeof req.payload === 'object' &&
+          req.payload &&
+          serverPayloadValidAndUseful(req.payload, validRequestFields)
+          // isValidJSON(JSON.stringify(req.payload))
+          // && isValidJSON(req.payload['query'])
         ) {
-          // const areFieldsValid = hasExtraKeys(queryObj, validRequestFields);
-          // console.log('/preferred-name-request', req);
-          // console.log('/preferred-name-request > payload', JSON.parse(req.payload.query));
-          // console.log(`/preferred-name-request > payload:`, req.payload);
-          // console.log(`/preferred-name-request > payload['query']:`, req.payload['query']);
-          // console.log(`/preferred-name-request > areFieldsValid:`, !areFieldsValid);
-          // console.log(`/preferred-name-request > typeof(query):`, typeof query);
-          console.log(`/preferred-name-request > typeof(query):`, queryObj);
-          // console.log(`/preferred-name-request > JSON.parse(query):`, JSON.parse(query));
-          // console.log(`/preferred-name-request > typeof JSON.parse(query):`, typeof JSON.parse(query));
+          const payloadObj = JSON.parse(JSON.stringify(req.payload));
 
-          return `!hasExtraKeys(queryObj, validRequestFields):, ${hasExtraKeys(
-            queryObj,
-            validRequestFields
-          )}`;
+          console.log(`validRequestFields: `, validRequestFields);
+          console.log(`req.payload: `, req.payload);
+          console.log(`req.payload: `, JSON.stringify(req.payload));
+          console.log(`typeof req.payload: `, typeof req.payload);
+          console.log(`req.payload Obj.len: `, Object.keys(req.payload).length);
+          console.log(`payloadObj: `, payloadObj);
+          // console.log(
+          //   `isValidJSON(JSON.stringify(req.payload)): `,
+          //   isValidJSON(JSON.stringify(req.payload))
+          // );
+          // console.log(
+          //   `hasExtraKeys(req.payload, validRequestFields): `,
+          //   hasExtraKeys(payloadObj, validRequestFields)
+          // );
+
+          return {};
         } else {
-          return `hasExtraKeys(queryObj, validRequestFields):, ${hasExtraKeys(
-            queryObj,
-            validRequestFields
-          )}`;
+          throw Boom.notFound(`No data is available for »${req}«`);
         }
-      } else {
-        throw Boom.notFound(`No data is available for »${req}«`);
+      } catch (error) {
+        console.log();
+        return h.response({ error: 'Invalid JSON format' }).code(400);
       }
     },
   });
