@@ -11052,6 +11052,296 @@ Array [
 ]
 `;
 
+exports[`Storyshots Preferred-Name Approval 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-gcr816-ApprovalView"
+  >
+    <h2>
+      Chosen Name
+    </h2>
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="bodyText"
+            >
+              <p>
+                Changes to your name will be reflected across your City of Boston accounts.Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit
+              </p>
+            </div>
+          </div>
+          <div
+            className="g g--mr css-nvphsg-QuestionComponent"
+          >
+            <button
+              className="btn btn--b-sm btn-alt"
+              onClick={[Function]}
+              type="button"
+            >
+              Go Back
+            </button>
+            <button
+              className="btn btn--b-sm"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred-Name Enter Names 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-1du9kgc-EnterNameView"
+  >
+    <h2>
+      Chosen Name
+    </h2>
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="bodyText"
+            >
+              <p>
+                Changes to your name will be reflected across your City of Boston accounts.Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit
+              </p>
+            </div>
+          </div>
+          <div
+            className="g g--mr css-nvphsg-QuestionComponent"
+          >
+            <button
+              className="btn btn--b-sm btn-alt"
+              onClick={[Function]}
+              type="button"
+            >
+              Clear
+            </button>
+            <button
+              className="btn btn--b-sm"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred-Name Success 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-1ughml-SuccessView"
+  >
+    <div
+      className="css-1hs0tcm-AlertComponent"
+    >
+      <div
+        className="css-uzb58t-AlertComponent"
+      >
+        <svg
+          className="css-1jasw0b-AlertComponent"
+          height="36"
+          viewBox="0 0 24 24"
+          width="36"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
+          />
+        </svg>
+      </div>
+      <div
+        className="css-1ilq0a1-AlertComponent"
+      >
+        Your chosen name and email have been updated
+      </div>
+    </div>
+    <div
+      className="css-1tlqflu-SuccessView"
+    />
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="css-z0ydmo-IndexComponent"
+        >
+          <div
+            className="css-12zfrwi"
+          >
+            <p
+              className="css-1y352y"
+            >
+              Chosen Name
+            </p>
+            <p
+              className="css-1o54m1w"
+            >
+              wdsadasds
+            </p>
+          </div>
+          <div
+            className="css-12zfrwi"
+          >
+            <p
+              className="css-1y352y"
+            >
+              Email Address
+            </p>
+            <p
+              className="css-1o54m1w"
+            >
+              sadsadasd
+            </p>
+          </div>
+        </div>
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="bodyText"
+            >
+              <p>
+                Changes to your name will be reflected across your City of Boston accounts. Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit
+              </p>
+            </div>
+          </div>
+          <div
+            className="g g--mr css-nvphsg-QuestionComponent"
+          >
+            <div
+              className="successView__Btn-wrapper"
+            >
+              <button
+                className="btn btn--b-sm"
+                onClick={[Function]}
+                type="button"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred-Name Welcome 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-14v3w0d-WelcomeView"
+  >
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="headerBlock"
+        >
+          <h3>
+            Chosen Name
+          </h3>
+        </div>
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="bodyText"
+            >
+              <p>
+                Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit nesciunt qui galisum quam est numquam tenetur vel cumque repellendus. Sed voluptatum voluptas aut accusantium asperiores 33 ipsum eveniet qui possimus possimus qui quaerat ratione. 
+                <a
+                  href="#"
+                >
+                  Link
+                </a>
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit nesciunt qui galisum quam est numquam tenetur vel cumque repellendus. 
+                <a
+                  href="#"
+                >
+                  Link
+                </a>
+              </p>
+            </div>
+          </div>
+          <div
+            className="g g--mr css-nvphsg-QuestionComponent"
+          >
+            <button
+              className="btn btn--b-sm"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots RegisterMfaPage default 1`] = `
 <div
   className="css-1m320nk-AppWrapper"

@@ -98,7 +98,7 @@ const BUTTON_CONTAINER_STYLING = css({
   marginLeft: 'auto',
   marginRight: 'auto',
   padding: '0 60px 0',
-  marginBottom: '4rem',
+  marginBottom: '2rem',
   position: 'relative',
 
   textAlign: 'center',
@@ -120,7 +120,7 @@ const BUTTON_CONTAINER_STYLING = css({
   },
 
   '.btn': {
-    fontSize: '16px',
+    fontSize: '22px',
     fontFamily: ' Montserrat',
   },
 
@@ -137,8 +137,8 @@ const BUTTON_CONTAINER_STYLING = css({
     justifyContent: 'center',
 
     '.btn': {
-      width: '181px',
-      height: '44px',
+      width: '225px',
+      height: '65px',
       padding: '12px 20px',
       justifyContent: 'center',
       alignItems: 'center',

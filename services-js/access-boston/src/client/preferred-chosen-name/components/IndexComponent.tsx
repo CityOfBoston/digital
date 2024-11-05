@@ -10,7 +10,7 @@ export default function IndexComponent({
     <div css={INDEX_CONTAINER_STYLING}>
       {Object.entries(data).map(([key, value]) => (
         <div css={INDEX_ITEM_STYLING} key={key}>
-          <p css={KEY_STYLING}>{key}</p>
+          <label css={KEY_STYLING}>{key}</label>
           <p css={VALUE_STYLING}>{value}</p>
         </div>
       ))}
@@ -28,25 +28,28 @@ const INDEX_ITEM_STYLING = css({
   display: 'flex',
   alignItems: 'center',
   borderBottom: '1px solid #ccc',
-  padding: '10px 56px',
+  padding: '32px 56px 18px 56px',
 });
 
 const KEY_STYLING = css({
-  fontSize: '16px',
+  textTransform: 'uppercase',
+  fontFamily: 'Montserrat',
   fontWeight: 'bolder',
   textAlign: 'left',
   margin: 0,
   flex: '0 1 auto',
+  minWidth: "200px",
 });
 
 const VALUE_STYLING = css({
-  fontSize: '16px',
   textAlign: 'right',
   margin: 0,
-  flex: '1 1 auto',
-  whiteSpace: 'nowrap',
+  width: '25px',
+  wordWrap: 'break-word',
+  flex: '1',
+  whiteSpace: 'normal',
   overflow: 'hidden',
-  textOverflow: 'ellipsis',
+  overflowWrap: 'break-word',
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'center',

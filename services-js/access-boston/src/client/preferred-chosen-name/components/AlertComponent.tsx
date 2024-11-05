@@ -32,11 +32,11 @@ const ALERT_CONTAINER_STYLING = css({
   display: 'flex',
   alignItems: 'center',
   padding: '16px',
-  backgroundColor: '#DFF2BF',
-  borderLeft: '10px solid #4CAF50', // Slightly thinner border
-  color: '#000000', // Black text color
+  backgroundColor: '#ecf3ec',
+  borderLeft: '10px solid #00a91c',
+  color: '#000000',
   width: '100%',
-  height: '44px',
+  height: '50px',
   lineHeight: '1.5rem',
   borderRadius: '0px',
 });
@@ -54,6 +54,5 @@ const ICON_STYLING = css({
 });
 
 const TEXT_CONTAINER_STYLING = css({
-  flex: 1,
-  fontSize: '16px',
+  flex: 1
 });

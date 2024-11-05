@@ -10,8 +10,10 @@ import IndexComponent from '../components/IndexComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface account {
-  chosenName: string;
-  emailAddress: string;
+  cobAgency: string;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
 
 interface SuccessProps {
@@ -34,8 +36,8 @@ export default function SuccessView(props: SuccessProps) {
         <div className="AppInnerContainer">
           <IndexComponent
             data={{
-              'Chosen Name': 'wdsadasds',
-              'Email Address': 'sadsadasd',
+              'Chosen Name': 'Camila Donovan',
+              'Email Address': 'Juliana.donovangudelo@boston.gov',
             }}
           />
           <QuestionComponent
@@ -43,7 +45,7 @@ export default function SuccessView(props: SuccessProps) {
             quitBtnText={`Done`}
             handleQuit={handleQuit}
           >
-            <div className="row">
+            <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">
                 <p>
                   Changes to your name will be reflected across your City of
@@ -59,7 +61,10 @@ export default function SuccessView(props: SuccessProps) {
   );
 }
 
-// Styling for the gap
+const BODY_TEXT_STYLING = css({
+  paddingTop: '10px !important'
+})
+
 const GAP_STYLING = css({
-  marginBottom: '16px',
+  marginBottom: '24px',
 });
