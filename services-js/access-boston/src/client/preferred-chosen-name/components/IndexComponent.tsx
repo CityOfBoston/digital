@@ -38,7 +38,7 @@ const KEY_STYLING = css({
   textAlign: 'left',
   margin: 0,
   flex: '0 1 auto',
-  minWidth: "200px",
+  minWidth: '200px',
 });
 
 const VALUE_STYLING = css({

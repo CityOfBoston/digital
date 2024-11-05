@@ -62,8 +62,8 @@ export default function SuccessView(props: SuccessProps) {
 }
 
 const BODY_TEXT_STYLING = css({
-  paddingTop: '10px !important'
-})
+  paddingTop: '10px !important',
+});
 
 const GAP_STYLING = css({
   marginBottom: '24px',

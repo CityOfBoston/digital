@@ -54,5 +54,5 @@ const ICON_STYLING = css({
 });
 
 const TEXT_CONTAINER_STYLING = css({
-  flex: 1
+  flex: 1,
 });
