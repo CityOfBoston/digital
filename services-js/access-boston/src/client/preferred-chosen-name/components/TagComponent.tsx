@@ -19,6 +19,7 @@ export function TagComponent({ icon, label }: TagComponentProps) {
 const TAG_CONTAINER_STYLING = css({
   display: 'flex',
   alignItems: 'center',
+  marginRight: '10%',
   gap: '18px',
 });
 

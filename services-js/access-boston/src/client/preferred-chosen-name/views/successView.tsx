@@ -39,8 +39,7 @@ export default function SuccessView(props: SuccessProps) {
           <QuestionComponent
             quitBtn={true}
             quitBtnText="Log In"
-            handleQuit={handleQuit}
-          >
+            handleQuit={handleQuit}>
             <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">
                 <p css={BODY_PARAGRAPH_STYLING}>
@@ -58,7 +57,7 @@ export default function SuccessView(props: SuccessProps) {
 const BODY_TEXT_STYLING = css({
   paddingTop: '10px !important',
   '@media (max-width: 600px)': {
-    paddingBottom: '10px !important'
+    padding: '0 20px 10px !important'
   },
 });
 

@@ -43,11 +43,10 @@ const INDEX_ITEM_STYLING = css({
 
 const VALUE_STYLING = css({
   textAlign: 'right',
-  margin: 0,
-  wordWrap: 'break-word',
   flex: '1',
   whiteSpace: 'normal',
   overflow: 'hidden',
+  wordBreak: 'break-all',
   overflowWrap: 'break-word',
   display: 'flex',
   justifyContent: 'flex-end',
