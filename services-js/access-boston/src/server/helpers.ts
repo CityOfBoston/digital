@@ -23,19 +23,27 @@ export const isValidJSON = (str: string) => {
 
 export const serverPayloadValidAndUseful = (
   payload: any,
-  validRequestFields: Array<string>
+  validRequestFields: Array<string>,
+  reqOptFields: number,
+  optFieldsArr: Array<string>
 ) => {
-  let retBool: boolean = false;
+  const isObj = typeof payload === 'object';
+  const objKeyGt0 = Object.keys(payload).length > 0;
+  const jsonValid = isValidJSON(JSON.stringify(payload));
+  const noExtraKeys = !hasExtraKeys(
+    JSON.parse(JSON.stringify(payload)),
+    validRequestFields
+  );
+  const optFieldMinReqMeet = validRequestFields.some(value =>
+    optFieldsArr.includes(value)
+  );
 
-  if (typeof payload === 'object') retBool = true;
-  if (Object.keys(payload).length > 0) retBool = true;
-  if (isValidJSON(JSON.stringify(payload))) retBool = true;
-  if (!hasExtraKeys(JSON.parse(JSON.stringify(payload)), validRequestFields))
-    retBool = true;
-
-  return retBool;
+  return (
+    isObj &&
+    objKeyGt0 &&
+    jsonValid &&
+    noExtraKeys &&
+    reqOptFields > 0 &&
+    optFieldMinReqMeet
+  );
 };
-
-// export const serverPayloadMinReqOptFields = (payloadObjs: object, reqFields: Array<string>, optFields: Array<string>, optFieldMinNum: number) => {
-
-// };

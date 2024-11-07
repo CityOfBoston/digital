@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
-import fetch from 'node-fetch';
+// import fetch, { Headers } from 'node-fetch';
 import Boom from 'boom';
 // import { fetch as crossFetch } from 'cross-fetch';
 
@@ -14,8 +14,10 @@ import yar from 'yar';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import hapiDevErrors from 'hapi-dev-errors';
-const next = require('next');
 import { ApolloServer } from 'apollo-server-hapi';
+const next = require('next');
+// const https = require('follow-redirects').https;
+// const request = require('request');
 
 import { parse, Compile } from 'velocityjs';
 import { default as pingData } from './ping-templates/mockData';
@@ -445,16 +447,117 @@ async function addVelocityTemplates(server: HapiServer) {
     },
     handler: async (req, h) => {
       try {
+        // console.log(`Js Fetch - BEFORE`);
+        // const myHeaders = new Headers();
+        // myHeaders.append("Content-Type", "application/json");
+        // myHeaders.append("Authorization", "Basic Q09CX1BPUlRBTF9VU0VSOkJvc3RvbjIwMTgh");
+        // myHeaders.append("Cookie", "JSESSIONID=99F2B18E1E90B28431EC03B3D54D92A7; visid_incap_2007700=3I3p+gX6TOSMTzf1rw8EFTSvH2cAAAAAQUIPAAAAAAAl7PTLjWqCmZc/iSalBT8z; visid_incap_2502767=fjc5ZmivQ+64OO/IETtGP4upH2cAAAAAQUIPAAAAAADdeedlrL26dukdBQgUjiX1; NSC_wTbjmQpjou_Uftu=ffffffff09f9716545525d5f4f58455e445a4a4229a6; NSC_wUftuQjohBddftt=ffffffff09f9717d45525d5f4f58455e445a4a42378b");
+        // const fetchNameAlt = async () => {
+        //   const raw = JSON.stringify({
+        //     "workflowArgs": {
+        //       "identityName": "40000093",
+        //       "preferredFirsName": "Manuel",
+        //       "preferredLastName": "Web-testing"
+        //     }
+        //   });
+
+        //   const requestOptions = {
+        //     method: "POST",
+        //     headers: myHeaders,
+        //     body: raw,
+        //   };
+
+        //   console.log(`Js Fetch - BEFORE Fetch`);
+
+        //   return await fetch("https://identity-test.boston.gov/identityiq/rest/workflows/COB-Workflow-GenerateUniqueEmail/launch", requestOptions)
+        //     .then((response) => response.json())
+        //     .then((result) => console.log(result))
+        //     .catch((error) => console.error(error));
+        // };
+
+        // console.log(`fetchNameAlt(res): `, await fetchNameAlt());
+
+        // const myHeaders = new Headers();
+        // myHeaders.append("Content-Type", "application/json");
+        // myHeaders.append("Authorization", "Basic Q09CX1BPUlRBTF9VU0VSOkJvc3RvbjIwMTgh");
+        // myHeaders.append("Cookie", "JSESSIONID=B6EB890F6AC1DAC603A550EEA1ED1E23; visid_incap_2007700=3I3p+gX6TOSMTzf1rw8EFTSvH2cAAAAAQUIPAAAAAAAl7PTLjWqCmZc/iSalBT8z; visid_incap_2502767=fjc5ZmivQ+64OO/IETtGP4upH2cAAAAAQUIPAAAAAADdeedlrL26dukdBQgUjiX1; NSC_wTbjmQpjou_Uftu=ffffffff09f9714745525d5f4f58455e445a4a4229a6; NSC_wUftuQjohBddftt=ffffffff09f9717d45525d5f4f58455e445a4a42378b");
+
+        // const raw = JSON.stringify({
+        //   "workflowArgs": {
+        //     "identityName": "40000093",
+        //     "preferredFirsName": "Manual",
+        //     "preferredLastName": "WebTesting"
+        //   }
+        // });
+
+        // try {
+        //   const response = await fetch("https://identity-test.boston.gov/identityiq/rest/workflows/COB-Workflow-GenerateUniqueEmail/launch", {
+        //     method: "POST",
+        //     headers: myHeaders,
+        //     body: raw,
+        //     redirect: "manual"
+        //   });
+        //   const result = await response.text();
+        //   console.log(result)
+        // } catch (error) {
+        //   console.error(error);
+        // };
+
+        try {
+          console.log(`cUrl Exec: START`);
+
+          const { exec } = require('child_process');
+
+          exec(
+            `curl -m 10 --location 'https://identity-test.boston.gov/identityiq/rest/workflows/COB-Workflow-GenerateUniqueEmail/launch' --header 'Content-Type: application/json' --header 'Authorization: Basic Q09CX1BPUlRBTF9VU0VSOkJvc3RvbjIwMTgh' --header 'Cookie: JSESSIONID=B6EB890F6AC1DAC603A550EEA1ED1E23; visid_incap_2007700=3I3p+gX6TOSMTzf1rw8EFTSvH2cAAAAAQUIPAAAAAAAl7PTLjWqCmZc/iSalBT8z; visid_incap_2502767=fjc5ZmivQ+64OO/IETtGP4upH2cAAAAAQUIPAAAAAADdeedlrL26dukdBQgUjiX1; NSC_wTbjmQpjou_Uftu=ffffffff09f9714745525d5f4f58455e445a4a4229a6; NSC_wUftuQjohBddftt=ffffffff09f9717d45525d5f4f58455e445a4a42378b' --data '{
+    "workflowArgs": {
+        "identityName": "40000093"
+        ,"preferredFirsName": "Manual"
+        ,"preferredLastName": "WebTesting"
+    }
+}'`,
+            (error, stdout, stderr) => {
+              console.log(`cUrl Exec: .On`);
+              if (error) {
+                console.log(`Error (Msg): `, error);
+                console.error(`Error: ${error}`);
+                return;
+              }
+              if (stderr) {
+                console.log(`stderr: `, stderr);
+                console.error(`stderr: ${stderr}`);
+                return;
+              }
+              console.log(`stdout: ${stdout}`);
+            }
+          );
+
+          console.log(`cUrl Exec: END`);
+        } catch (error) {
+          console.error(error);
+        }
+
+        console.log(`Js Fetch - END`);
+      } catch (error) {
+        console.log(`Js Fetch - ERROR: `, error);
+      }
+
+      try {
+        const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
+          .WORKFLOW_URL__GENERATE_EMAIL as string;
         const reqReqFields = ['id'];
-        const reqOptFields = ['preferredFirstName', 'preferredLastName'];
-        const validRequestFields = reqReqFields.concat(reqOptFields);
+        const optFields = ['preferredFirstName', 'preferredLastName'];
+        const validRequestFields = reqReqFields.concat(optFields);
 
         if (
           typeof req.payload === 'object' &&
           req.payload &&
-          serverPayloadValidAndUseful(req.payload, validRequestFields)
-          // isValidJSON(JSON.stringify(req.payload))
-          // && isValidJSON(req.payload['query'])
+          serverPayloadValidAndUseful(
+            req.payload,
+            validRequestFields,
+            1,
+            optFields
+          )
         ) {
           const payloadObj = JSON.parse(JSON.stringify(req.payload));
 
@@ -464,14 +567,10 @@ async function addVelocityTemplates(server: HapiServer) {
           console.log(`typeof req.payload: `, typeof req.payload);
           console.log(`req.payload Obj.len: `, Object.keys(req.payload).length);
           console.log(`payloadObj: `, payloadObj);
-          // console.log(
-          //   `isValidJSON(JSON.stringify(req.payload)): `,
-          //   isValidJSON(JSON.stringify(req.payload))
-          // );
-          // console.log(
-          //   `hasExtraKeys(req.payload, validRequestFields): `,
-          //   hasExtraKeys(payloadObj, validRequestFields)
-          // );
+
+          console.log(`WORKFLOW_URL__GENERATE_EMAIL: `, {
+            WORKFLOW_URL__GENERATE_EMAIL,
+          });
 
           return {};
         } else {
