@@ -58,7 +58,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
         // 'SG_AB_IAM_VENTURES',
 
         'SG_AB_GRPMGMT_HYPERION',
-        // 'SG_AB_GRPMGMT_Lagan_Groups',
+        'SG_AB_GRPMGMT_Lagan_Groups',
         // 'SG_AB_GRPMGMT_AUDITING',
         // 'SG_AB_GRPMGMT_TANIUM',
         // 'SG_AB_GRPMGMT_AGILEPOINT',

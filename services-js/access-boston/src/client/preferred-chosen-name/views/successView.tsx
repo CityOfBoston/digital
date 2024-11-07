@@ -1,13 +1,15 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import { MouseEvent } from 'react';
 
 //--- HTML Struct & Styling ---//
 import QuestionComponent from '../components/QuestionComponent';
+import AlertComponent from '../components/AlertComponent';
+import RowColumns from '../components/RowColumns';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
-interface account {
+interface Account {
   cobAgency: string;
   firstName: string;
   lastName: string;
@@ -17,7 +19,7 @@ interface account {
 interface SuccessProps {
   handleQuit: (ev: MouseEvent) => void;
   appTitle: string;
-  account: account;
+  account: Account;
 }
 
 export default function SuccessView(props: SuccessProps) {
@@ -27,21 +29,21 @@ export default function SuccessView(props: SuccessProps) {
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
-      <h2>Chosen Name</h2>
-
       <div className="BorderedAppWrapper">
-        <div className={`AppInnerContainer`}>
+        <div className="AppInnerContainer">
+          <AlertComponent text="Your chosen name and email have been updated" />
+          <RowColumns
+            chosenName={`${account.firstName} ${account.lastName}`}
+            emailAddress={account.email}
+          />
           <QuestionComponent
             quitBtn={true}
-            quitBtnText={`Done`}
-            handleQuit={handleQuit}
-          >
-            <div className={`row`}>
-              <div className={`bodyText`}>
-                <p>
-                  Changes to your name will be reflected across your City of
-                  Boston accounts.Lorem ipsum dolor sit amet. Qui adipisci
-                  voluptatem quo fugit
+            quitBtnText="Log In"
+            handleQuit={handleQuit}>
+            <div className="row" css={BODY_TEXT_STYLING}>
+              <div className="bodyText">
+                <p css={BODY_PARAGRAPH_STYLING}>
+                  <span css={{fontWeight: "bold"}}>Please Note: </span>To access the most recent update, please log in to your account
                 </p>
               </div>
             </div>
@@ -51,3 +53,16 @@ export default function SuccessView(props: SuccessProps) {
     </div>
   );
 }
+
+const BODY_TEXT_STYLING = css({
+  paddingTop: '10px !important',
+  '@media (max-width: 600px)': {
+    padding: '0 20px 10px !important'
+  },
+});
+
+const BODY_PARAGRAPH_STYLING = css({
+  '@media (max-width: 600px)': {
+    lineHeight: '1.5rem  !important'
+  },
+})

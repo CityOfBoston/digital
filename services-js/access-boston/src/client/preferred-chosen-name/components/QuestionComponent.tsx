@@ -3,7 +3,7 @@
 import { css, jsx } from '@emotion/core';
 
 import { MouseEvent, ReactNode } from 'react';
-import { MEDIA_SMALL /*, MEDIA_LARGE*/ } from '@cityofboston/react-fleet';
+import { MEDIA_SMALL } from '@cityofboston/react-fleet';
 
 interface Props {
   children: ReactNode;
@@ -87,7 +87,7 @@ const CONTAINER_STYLING = css({
 
   p: {
     lineHeight: '2rem',
-  },
+  }
 });
 
 const BUTTON_CONTAINER_STYLING = css({
@@ -98,7 +98,7 @@ const BUTTON_CONTAINER_STYLING = css({
   marginLeft: 'auto',
   marginRight: 'auto',
   padding: '0 60px 0',
-  marginBottom: '4rem',
+  marginBottom: '2rem',
   position: 'relative',
 
   textAlign: 'center',
@@ -120,7 +120,7 @@ const BUTTON_CONTAINER_STYLING = css({
   },
 
   '.btn': {
-    fontSize: '16px',
+    fontSize: '22px',
     fontFamily: ' Montserrat',
   },
 
@@ -137,12 +137,21 @@ const BUTTON_CONTAINER_STYLING = css({
     justifyContent: 'center',
 
     '.btn': {
-      width: '181px',
-      height: '44px',
+      width: '240px',
+      height: '60px',
       padding: '12px 20px',
       justifyContent: 'center',
       alignItems: 'center',
       gap: '8px',
+
+      '@media (max-width: 600px)': {
+        height: '50px',
+        width: '100%',
+      },
     },
+  },
+
+  '@media (max-width: 600px)': {
+    padding: '0px 20px'
   },
 });

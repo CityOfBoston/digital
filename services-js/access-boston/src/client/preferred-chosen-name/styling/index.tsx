@@ -68,7 +68,7 @@ export const PREFERRED_NAME_STYLING = css({
     display: 'plex',
 
     border: '1px solid #A9AEB1',
-    borderRadius: '4px',
+    borderRadius: '4px', // Matches Figma Design
 
     '.btn': {
       borderRadius: '4px',
