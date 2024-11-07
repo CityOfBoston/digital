@@ -8285,6 +8285,36 @@ exports[`Storyshots IndexPage change password success 1`] = `
                 </span>
               </a>
             </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Add a preferred/chosen name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Add a preferred/chosen name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
           </ul>
         </section>
         <section
@@ -9313,6 +9343,36 @@ exports[`Storyshots IndexPage default 1`] = `
                   }
                 >
                   Manage My Device(s)
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Add a preferred/chosen name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Add a preferred/chosen name
                 </span>
                 <span
                   style={
@@ -10419,6 +10479,36 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                 </span>
               </a>
             </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Add a preferred/chosen name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Add a preferred/chosen name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
           </ul>
         </section>
         <section
@@ -11084,7 +11174,7 @@ exports[`Storyshots Preferred-Name Approval 1`] = `
             </div>
           </div>
           <div
-            className="g g--mr css-nvphsg-QuestionComponent"
+            className="g g--mr css-628dv3-QuestionComponent"
           >
             <button
               className="btn btn--b-sm btn-alt"
@@ -11141,7 +11231,7 @@ exports[`Storyshots Preferred-Name Enter Names 1`] = `
             </div>
           </div>
           <div
-            className="g g--mr css-nvphsg-QuestionComponent"
+            className="g g--mr css-628dv3-QuestionComponent"
           >
             <button
               className="btn btn--b-sm btn-alt"
@@ -11175,86 +11265,130 @@ exports[`Storyshots Preferred-Name Success 1`] = `
     className="css-1ughml-SuccessView"
   >
     <div
-      className="css-1hs0tcm-AlertComponent"
-    >
-      <div
-        className="css-uzb58t-AlertComponent"
-      >
-        <svg
-          className="css-1jasw0b-AlertComponent"
-          height="36"
-          viewBox="0 0 24 24"
-          width="36"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
-          />
-        </svg>
-      </div>
-      <div
-        className="css-1ilq0a1-AlertComponent"
-      >
-        Your chosen name and email have been updated
-      </div>
-    </div>
-    <div
-      className="css-1tlqflu-SuccessView"
-    />
-    <div
       className="BorderedAppWrapper"
     >
       <div
         className="AppInnerContainer"
       >
         <div
-          className="css-z0ydmo-IndexComponent"
+          className="css-1fm4llb-AlertComponent"
         >
           <div
-            className="css-12zfrwi"
+            className="css-18zvm2j-AlertComponent"
           >
-            <p
-              className="css-1y352y"
+            <svg
+              className="css-zufqbj-AlertComponent"
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              Chosen Name
-            </p>
-            <p
-              className="css-1o54m1w"
-            >
-              wdsadasds
-            </p>
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+                fill="#00A91C"
+              />
+            </svg>
           </div>
           <div
-            className="css-12zfrwi"
+            className="css-od4gop-AlertComponent"
           >
-            <p
-              className="css-1y352y"
+            Your chosen name and email have been updated
+          </div>
+        </div>
+        <div
+          className="css-vbppd0-RowColumns"
+        >
+          <div
+            className="css-1dkfbs1-RowColumns"
+          >
+            <label
+              className="css-f2kdqn-TagComponent"
             >
-              Email Address
-            </p>
-            <p
-              className="css-1o54m1w"
+              <svg
+                className="css-s83du1"
+                fill="none"
+                height="32"
+                viewBox="0 0 24 24"
+                width="32"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                  fill="#091F2F"
+                  fillRule="evenodd"
+                />
+              </svg>
+              <span
+                className="css-11jueto-TagComponent"
+              >
+                Chosen Name
+              </span>
+            </label>
+            <div
+              className="css-i8m82d-RowColumns"
             >
-              sadsadasd
-            </p>
+              Felipe Rivera
+            </div>
+          </div>
+          <div
+            className="css-1dkfbs1-RowColumns"
+          >
+            <label
+              className="css-f2kdqn-TagComponent"
+            >
+              <svg
+                className="css-s83du1"
+                fill="none"
+                height="32"
+                viewBox="0 0 24 24"
+                width="32"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M20 4H4C2.9 4 2.01 4.9 2 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+                  fill="#1B1B1B"
+                  fillRule="evenodd"
+                />
+              </svg>
+              <span
+                className="css-11jueto-TagComponent"
+              >
+                Email Address
+              </span>
+            </label>
+            <div
+              className="css-i8m82d-RowColumns"
+            >
+              felipe.rivera@boston.gov
+            </div>
           </div>
         </div>
         <div
           className="css-1qjvoov-QuestionComponent"
         >
           <div
-            className="row"
+            className="row css-1182rks-SuccessView"
           >
             <div
               className="bodyText"
             >
-              <p>
-                Changes to your name will be reflected across your City of Boston accounts. Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit
+              <p
+                className="css-p9n7dz-SuccessView"
+              >
+                <span
+                  className="css-bf7i5p-SuccessView"
+                >
+                  Please Note: 
+                </span>
+                To access the most recent update, please log in to your account
               </p>
             </div>
           </div>
           <div
-            className="g g--mr css-nvphsg-QuestionComponent"
+            className="g g--mr css-628dv3-QuestionComponent"
           >
             <div
               className="successView__Btn-wrapper"
@@ -11264,7 +11398,7 @@ exports[`Storyshots Preferred-Name Success 1`] = `
                 onClick={[Function]}
                 type="button"
               >
-                Done
+                Log In
               </button>
             </div>
           </div>
@@ -11324,7 +11458,7 @@ exports[`Storyshots Preferred-Name Welcome 1`] = `
             </div>
           </div>
           <div
-            className="g g--mr css-nvphsg-QuestionComponent"
+            className="g g--mr css-628dv3-QuestionComponent"
           >
             <button
               className="btn btn--b-sm"
