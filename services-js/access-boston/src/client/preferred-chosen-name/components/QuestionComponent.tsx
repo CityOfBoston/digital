@@ -16,6 +16,7 @@ interface Props {
   nextButtonText?: string;
   prevBtnText?: string;
   quitBtnText?: string;
+  extraButtons?: ReactNode;
 }
 
 /**
@@ -34,13 +35,14 @@ export default function QuestionComponent(props: Props): JSX.Element {
     handleQuit,
     quitBtn,
     quitBtnText,
+    extraButtons
   } = props;
 
   return (
     <div css={CONTAINER_STYLING}>
       {children}
 
-      <div className="g g--mr" css={BUTTON_CONTAINER_STYLING}>
+      <div css={BUTTON_CONTAINER_STYLING}>
         {handleStepBack && (
           <button
             type="button"
@@ -50,6 +52,8 @@ export default function QuestionComponent(props: Props): JSX.Element {
             {prevBtnText || 'Go Back'}
           </button>
         )}
+
+        {extraButtons} {/* Renders Clear button next to Continue */}
 
         {handleProceed && (
           <button
@@ -92,36 +96,25 @@ const CONTAINER_STYLING = css({
 
 const BUTTON_CONTAINER_STYLING = css({
   display: 'flex',
+  flexDirection: 'row',
   justifyContent: 'flex-end',
-  gap: '8px 8px',
+  alignItems: 'center',
+  gap: '8px',
   width: '100%',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  padding: '0 60px 0',
+  padding: '0 60px',
+  boxSizing: 'border-box',
   marginBottom: '2rem',
-  position: 'relative',
-
-  textAlign: 'center',
-
-  [MEDIA_SMALL]: {
-    textAlign: 'left',
-
-    '> div': {
-      display: 'flex',
-
-      '&.ta-r > button': {
-        marginLeft: 'auto',
-      },
-    },
-
-    '.lnk': {
-      paddingLeft: 0,
-    },
-  },
+  overflow: 'hidden',
 
   '.btn': {
     fontSize: '22px',
-    fontFamily: ' Montserrat',
+    fontFamily: 'Montserrat',
+    height: '60px',
+    padding: '12px 20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxSizing: 'border-box',
   },
 
   '.btn-alt': {
@@ -132,26 +125,30 @@ const BUTTON_CONTAINER_STYLING = css({
   },
 
   '.successView__Btn-wrapper': {
-    width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    width: '100%',
 
     '.btn': {
       width: '240px',
-      height: '60px',
-      padding: '12px 20px',
-      justifyContent: 'center',
-      alignItems: 'center',
-      gap: '8px',
-
-      '@media (max-width: 600px)': {
-        height: '50px',
-        width: '100%',
-      },
     },
   },
 
+  // Mobile adjustments
   '@media (max-width: 600px)': {
-    padding: '0px 20px'
+    padding: '0 10px',
+    gap: '4px',
+
+    // Adjusts buttons to share space equally on mobile and appear smaller
+    '& > .btn, & > .btn-alt': {
+      flex: 1,
+      width: '100%',
+      maxWidth: '100%',
+      height: '45px',
+      fontSize: '18px',
+      margin: '0 2px',
+      padding: '8px 16px',
+      boxSizing: 'border-box',
+    },
   },
 });

@@ -5,7 +5,9 @@ import PageWrapper from '../../PageWrapper';
 
 import { AppTitle } from '../state/app';
 
-import WelcomeView, { EnterNameView, ApprovalView } from './views';
+import { ApprovalView } from './views';
+import WelcomeView from './welcomeView';
+import EnterNameView from './enterNameView';
 import SuccessView from './successView';
 
 const viewAccountObj = {
@@ -29,7 +31,6 @@ storiesOf('Preferred-Name', module)
     <PageWrapper classString={'b-c'}>
       <EnterNameView
         handleProceed={() => {}}
-        handleStepBack={() => {}}
         appTitle={AppTitle}
         account={viewAccountObj}
       />
