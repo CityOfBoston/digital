@@ -11142,17 +11142,19 @@ Array [
 ]
 `;
 
-exports[`Storyshots Preferred-Name Approval 1`] = `
+exports[`Storyshots Preferred-Name Confirmation 1`] = `
 <div
   aria-live="polite"
   className="b-c"
 >
   <div
-    className="css-33ur7e-ApprovalView"
+    className="css-1l0zd0e-ConfirmationView"
   >
-    <h2>
+    <div
+      className="sh sh-title css-13xrlnr-ConfirmationView"
+    >
       Chosen Name
-    </h2>
+    </div>
     <div
       className="BorderedAppWrapper"
     >
@@ -11160,21 +11162,127 @@ exports[`Storyshots Preferred-Name Approval 1`] = `
         className="AppInnerContainer"
       >
         <div
+          className="InfoBox css-y4mezr-ConfirmationView"
+        >
+          Changing your chosen name will affect your City of Boston accounts.
+          <div
+            className="css-1s4kh4y-ConfirmationView"
+          >
+            <div
+              className="css-loypy6-ConfirmationView"
+            >
+              <label
+                className="css-f2kdqn-TagComponent"
+              >
+                <svg
+                  className="css-s83du1"
+                  fill="none"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  width="32"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="#091F2F"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="css-11jueto-TagComponent"
+                >
+                  Current Name
+                </span>
+              </label>
+              <div
+                className="CurrentName"
+              >
+                Juliana Donovan
+              </div>
+            </div>
+            <a
+              className="btn btn--b-sm btn-alt css-12mjrq4-ConfirmationView"
+              onClick={[Function]}
+              type="button"
+            >
+              Edit
+            </a>
+          </div>
+        </div>
+        <div
           className="css-1qjvoov-QuestionComponent"
         >
           <div
-            className="row"
+            className="css-ch76h8-ConfirmationView"
           >
-            <div
-              className="bodyText"
+            Select your preferred email option from the list below.
+            <label
+              className="css-ywin4h-ConfirmationView"
             >
-              <p>
-                Changes to your name will be reflected across your City of Boston accounts.Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit
-              </p>
+              <div
+                className="css-5t7y0n-ConfirmationView"
+              >
+                <input
+                  checked={true}
+                  className="ra-f"
+                  id="radio[0]"
+                  name="filters"
+                  onChange={[Function]}
+                  type="radio"
+                  value="UseNewEmail"
+                />
+                <strong
+                  className="css-1mt1fta-ConfirmationView"
+                >
+                  Use new email
+                </strong>
+              </div>
+              <div
+                className="css-1yx5ip1-ConfirmationView"
+              >
+                Camila.donovan21@boston.gov
+              </div>
+            </label>
+            <label
+              className="css-upyo8y-ConfirmationView"
+            >
+              <div
+                className="css-5t7y0n-ConfirmationView"
+              >
+                <input
+                  checked={false}
+                  className="ra-f"
+                  id="radio[1]"
+                  name="filters"
+                  onChange={[Function]}
+                  type="radio"
+                  value="KeepCurrentEmail"
+                />
+                <strong
+                  className="css-1mt1fta-ConfirmationView"
+                >
+                  Keep current email
+                </strong>
+              </div>
+              <div
+                className="css-1yx5ip1-ConfirmationView"
+              >
+                juliana.donovan@boston.gov
+              </div>
+            </label>
+            <div>
+               For more information, see the 
+              <a
+                href="https://www.google.com"
+                target="_blank"
+              >
+                FAQs
+              </a>
             </div>
           </div>
           <div
-            className="g g--mr css-628dv3-QuestionComponent"
+            className="css-1smavax-QuestionComponent"
           >
             <button
               className="btn btn--b-sm btn-alt"
@@ -11183,6 +11291,7 @@ exports[`Storyshots Preferred-Name Approval 1`] = `
             >
               Go Back
             </button>
+             
             <button
               className="btn btn--b-sm"
               disabled={false}
@@ -11205,11 +11314,13 @@ exports[`Storyshots Preferred-Name Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-1iictgn-EnterNameView"
+    className="css-1xtjiyi-EnterNameProps"
   >
-    <h2>
+    <div
+      className="sh sh-title css-18fjgp4-EnterNameProps"
+    >
       Chosen Name
-    </h2>
+    </div>
     <div
       className="BorderedAppWrapper"
     >
@@ -11217,29 +11328,91 @@ exports[`Storyshots Preferred-Name Enter Names 1`] = `
         className="AppInnerContainer"
       >
         <div
+          className="InfoBox css-jfx2n7-EnterNameProps"
+        >
+          Changing your chosen name will affect your City of Boston accounts.
+          <div
+            className="CurrentNameContainer css-1xrobld-EnterNameProps"
+          >
+            <label
+              className="css-f2kdqn-TagComponent"
+            >
+              <svg
+                className="css-s83du1"
+                fill="none"
+                height="32"
+                viewBox="0 0 24 24"
+                width="32"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clipRule="evenodd"
+                  d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                  fill="#091F2F"
+                  fillRule="evenodd"
+                />
+              </svg>
+              <span
+                className="css-11jueto-TagComponent"
+              >
+                Current Name
+              </span>
+            </label>
+            <div
+              className="CurrentName"
+            >
+              Juliana Donovan
+            </div>
+          </div>
+        </div>
+        <div
           className="css-1qjvoov-QuestionComponent"
         >
           <div
-            className="row"
+            className="FormBox css-5gekkm-EnterNameProps"
           >
+            Use the below fields to update your chosen name. You can choose to change your first name, last name, or both.
             <div
-              className="bodyText"
+              className="ChosenFirstNameInput css-d8dhmh-EnterNameProps"
             >
-              <p>
-                Changes to your name will be reflected across your City of Boston accounts.Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit
-              </p>
+              <label
+                className="css-w6n6pz-EnterNameProps"
+              >
+                Chosen First Name
+              </label>
+              <input
+                className="css-110iqcj-EnterNameProps"
+                onChange={[Function]}
+                value=""
+              />
             </div>
+            <div
+              className="ChosenLastNameInput css-d8dhmh-EnterNameProps"
+            >
+              <label
+                className="css-w6n6pz-EnterNameProps"
+              >
+                Chosen Last Name
+              </label>
+              <input
+                className="css-110iqcj-EnterNameProps"
+                onChange={[Function]}
+                value=""
+              />
+            </div>
+            For more information, see the FAQs
           </div>
           <div
-            className="g g--mr css-628dv3-QuestionComponent"
+            className="css-1smavax-QuestionComponent"
           >
-            <button
+            <a
               className="btn btn--b-sm btn-alt"
               onClick={[Function]}
               type="button"
             >
               Clear
-            </button>
+            </a>
+             
             <button
               className="btn btn--b-sm"
               disabled={false}
@@ -11262,7 +11435,7 @@ exports[`Storyshots Preferred-Name Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-97rs00-SuccessView"
+    className="css-uf4gul-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11327,7 +11500,7 @@ exports[`Storyshots Preferred-Name Success 1`] = `
               </span>
             </label>
             <div
-              className="css-i8m82d-RowColumns"
+              className="css-1bvto3k-RowColumns"
             >
               Felipe Rivera
             </div>
@@ -11360,7 +11533,7 @@ exports[`Storyshots Preferred-Name Success 1`] = `
               </span>
             </label>
             <div
-              className="css-i8m82d-RowColumns"
+              className="css-1bvto3k-RowColumns"
             >
               felipe.rivera@boston.gov
             </div>
@@ -11386,8 +11559,9 @@ exports[`Storyshots Preferred-Name Success 1`] = `
             </div>
           </div>
           <div
-            className="g g--mr css-628dv3-QuestionComponent"
+            className="css-1smavax-QuestionComponent"
           >
+             
             <div
               className="successView__Btn-wrapper"
             >
@@ -11396,7 +11570,7 @@ exports[`Storyshots Preferred-Name Success 1`] = `
                 onClick={[Function]}
                 type="button"
               >
-                Log In
+                Done
               </button>
             </div>
           </div>
@@ -11413,7 +11587,7 @@ exports[`Storyshots Preferred-Name Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-1j0mpox-WelcomeView"
+    className="css-1isy0oq-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11469,8 +11643,9 @@ exports[`Storyshots Preferred-Name Welcome 1`] = `
             </p>
           </div>
           <div
-            className="g g--mr css-628dv3-QuestionComponent"
+            className="css-1smavax-QuestionComponent"
           >
+             
             <button
               className="btn btn--b-sm"
               disabled={false}
@@ -11493,7 +11668,7 @@ exports[`Storyshots Preferred-Name Welcome BPL 1`] = `
   className="b-c"
 >
   <div
-    className="css-1j0mpox-WelcomeView"
+    className="css-1isy0oq-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11549,8 +11724,9 @@ exports[`Storyshots Preferred-Name Welcome BPL 1`] = `
             </p>
           </div>
           <div
-            className="g g--mr css-628dv3-QuestionComponent"
+            className="css-1smavax-QuestionComponent"
           >
+             
             <button
               className="btn btn--b-sm"
               disabled={false}
