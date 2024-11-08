@@ -12,7 +12,7 @@ export const SECTIONHEADER_STYLING = css({
 });
 
 export const SUBHEADER_STYLING = css({
-  color: 'black',
+  color: CHARLES_BLUE,
   fontSize: '20px',
   fontWeight: 'bold',
   fontFamily: 'Montserrat',
@@ -86,8 +86,10 @@ export const PREFERRED_NAME_STYLING = css({
       borderBottom: '1px solid #A9AEB1',
 
       [MEDIA_SMALL_MAX]: {
-        paddingLeft: '26px ',
-        fontSize: '12px',
+        paddingLeft: '5px',    
+        padding: "10px 26px",
+        fontSize: "20px",
+        marginBottom: "0",
       },
 
       h3: {

@@ -3,7 +3,6 @@
 import { css, jsx } from '@emotion/core';
 
 import { MouseEvent, ReactNode } from 'react';
-import { MEDIA_SMALL } from '@cityofboston/react-fleet';
 
 interface Props {
   children: ReactNode;
@@ -132,12 +131,22 @@ const BUTTON_CONTAINER_STYLING = css({
     '.btn': {
       width: '240px',
     },
+
+    '@media (max-width: 600px)': {
+      '.btn': {
+        fontSize: "14px",
+        height: "40px",
+        width: '100%'
+      },
+      height: "50px"
+    }
   },
 
   // Mobile adjustments
   '@media (max-width: 600px)': {
     padding: '0 10px',
     gap: '4px',
+    marginBottom: '10px',
 
     // Adjusts buttons to share space equally on mobile and appear smaller
     '& > .btn, & > .btn-alt': {
@@ -145,9 +154,8 @@ const BUTTON_CONTAINER_STYLING = css({
       width: '100%',
       maxWidth: '100%',
       height: '45px',
-      fontSize: '18px',
-      margin: '0 2px',
-      padding: '8px 16px',
+      fontSize: '14px',
+      margin: '10px 0px',
       boxSizing: 'border-box',
     },
   },

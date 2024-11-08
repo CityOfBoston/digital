@@ -38,7 +38,7 @@ export default function SuccessView(props: SuccessProps) {
           />
           <QuestionComponent
             quitBtn={true}
-            quitBtnText="Log In"
+            quitBtnText="Done"
             handleQuit={handleQuit}>
             <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">
