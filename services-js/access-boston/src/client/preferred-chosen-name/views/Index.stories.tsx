@@ -5,10 +5,9 @@ import PageWrapper from '../../PageWrapper';
 
 import { AppTitle } from '../state/app';
 
-import { ApprovalView } from './views';
+import ConfirmationView from './confirmationView';
 import WelcomeView from './welcomeView';
 import EnterNameView from './enterNameView';
-
 import SuccessView from './successView';
 
 const viewAccountObj = {
@@ -47,9 +46,9 @@ storiesOf('Preferred-Name', module)
       />
     </PageWrapper>
   ))
-  .add('Approval', () => (
+  .add('Confirmation', () => (
     <PageWrapper classString={'b-c'}>
-      <ApprovalView
+      <ConfirmationView
         handleProceed={() => {}}
         handleStepBack={() => {}}
         appTitle={AppTitle}

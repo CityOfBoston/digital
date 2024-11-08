@@ -45,13 +45,11 @@ const VALUE_STYLING = css({
   textAlign: 'right',
   flex: '1',
   whiteSpace: 'normal',
-  overflow: 'hidden',
   wordBreak: 'break-all',
   overflowWrap: 'break-word',
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'center',
-
   '@media (max-width: 600px)': {
     textAlign: 'left',
     justifyContent: 'flex-start',
