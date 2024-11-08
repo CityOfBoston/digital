@@ -5,7 +5,8 @@ import PageWrapper from '../../PageWrapper';
 
 import { AppTitle } from '../state/app';
 
-import WelcomeView, { EnterNameView, ApprovalView } from './views';
+import { EnterNameView, ApprovalView } from './views';
+import WelcomeView from './welcomeView';
 import SuccessView from './successView';
 
 const viewAccountObj = {
@@ -21,6 +22,16 @@ storiesOf('Preferred-Name', module)
       <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
+        account={viewAccountObj}
+      />
+    </PageWrapper>
+  ))
+  .add('Welcome BPL', () => (
+    <PageWrapper classString={'b-c'}>
+      <WelcomeView
+        handleProceed={() => {}}
+        appTitle={AppTitle}
+        // Change the obj below to use same obj but different cobAgency: BPL
         account={viewAccountObj}
       />
     </PageWrapper>
@@ -54,3 +65,4 @@ storiesOf('Preferred-Name', module)
       />
     </PageWrapper>
   ));
+

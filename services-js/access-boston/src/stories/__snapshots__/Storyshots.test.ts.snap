@@ -11148,7 +11148,7 @@ exports[`Storyshots Preferred-Name Approval 1`] = `
   className="b-c"
 >
   <div
-    className="css-gcr816-ApprovalView"
+    className="css-33ur7e-ApprovalView"
   >
     <h2>
       Chosen Name
@@ -11205,7 +11205,7 @@ exports[`Storyshots Preferred-Name Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-1du9kgc-EnterNameView"
+    className="css-1iictgn-EnterNameView"
   >
     <h2>
       Chosen Name
@@ -11262,7 +11262,7 @@ exports[`Storyshots Preferred-Name Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-1ughml-SuccessView"
+    className="css-97rs00-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11378,11 +11378,9 @@ exports[`Storyshots Preferred-Name Success 1`] = `
               <p
                 className="css-p9n7dz-SuccessView"
               >
-                <span
-                  className="css-bf7i5p-SuccessView"
-                >
+                <strong>
                   Please Note: 
-                </span>
+                </strong>
                 To access the most recent update, please log in to your account
               </p>
             </div>
@@ -11415,7 +11413,7 @@ exports[`Storyshots Preferred-Name Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-14v3w0d-WelcomeView"
+    className="css-1j0mpox-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11423,39 +11421,132 @@ exports[`Storyshots Preferred-Name Welcome 1`] = `
       <div
         className="AppInnerContainer"
       >
-        <div
-          className="headerBlock"
-        >
-          <h3>
-            Chosen Name
-          </h3>
-        </div>
+        <h2
+          className="headerBlock css-1xelzam-WelcomeView"
+        />
         <div
           className="css-1qjvoov-QuestionComponent"
         >
           <div
-            className="row"
+            className="css-z3pllh-WelcomeView"
           >
-            <div
-              className="bodyText"
+            <p>
+              A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with their gender identity or expression.
+            </p>
+            <ul>
+              <strong>
+                What’s Changing: 
+              </strong>
+              <li>
+                <strong>
+                  Chosen Name: 
+                </strong>
+                You can add a chosen name to your profile. This name will be displayed in internal City of Boston systems and communications.
+              </li>
+              <li>
+                <strong>
+                  Email Address: 
+                </strong>
+                You can update your email address to reflect your chosen name—or keep it as is, if you prefer.
+              </li>
+            </ul>
+            <ul>
+              <strong>
+                What’s Not Changing: 
+              </strong>
+              <li>
+                <strong>
+                  Legal Name: 
+                </strong>
+                City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the legal name link.
+              </li>
+            </ul>
+            <p>
+              <strong>
+                Please note: 
+              </strong>
+              Any changes made to your chosen name or email address will be reflected across all relevant systems and communications.
+            </p>
+          </div>
+          <div
+            className="g g--mr css-628dv3-QuestionComponent"
+          >
+            <button
+              className="btn btn--b-sm"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
             >
-              <p>
-                Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit nesciunt qui galisum quam est numquam tenetur vel cumque repellendus. Sed voluptatum voluptas aut accusantium asperiores 33 ipsum eveniet qui possimus possimus qui quaerat ratione. 
-                <a
-                  href="#"
-                >
-                  Link
-                </a>
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet. Qui adipisci voluptatem quo fugit nesciunt qui galisum quam est numquam tenetur vel cumque repellendus. 
-                <a
-                  href="#"
-                >
-                  Link
-                </a>
-              </p>
-            </div>
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred-Name Welcome BPL 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-1j0mpox-WelcomeView"
+  >
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <h2
+          className="headerBlock css-1xelzam-WelcomeView"
+        />
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="css-z3pllh-WelcomeView"
+          >
+            <p>
+              A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with their gender identity or expression.
+            </p>
+            <ul>
+              <strong>
+                What’s Changing: 
+              </strong>
+              <li>
+                <strong>
+                  Chosen Name: 
+                </strong>
+                You can add a chosen name to your profile. This name will be displayed in internal City of Boston systems and communications.
+              </li>
+              <li>
+                <strong>
+                  Email Address: 
+                </strong>
+                You can update your email address to reflect your chosen name—or keep it as is, if you prefer.
+              </li>
+            </ul>
+            <ul>
+              <strong>
+                What’s Not Changing: 
+              </strong>
+              <li>
+                <strong>
+                  Legal Name: 
+                </strong>
+                City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the legal name link.
+              </li>
+            </ul>
+            <p>
+              <strong>
+                Please note: 
+              </strong>
+              Any changes made to your chosen name or email address will be reflected across all relevant systems and communications.
+            </p>
           </div>
           <div
             className="g g--mr css-628dv3-QuestionComponent"
