@@ -60,8 +60,7 @@ export const PREFERRED_NAME_STYLING = css({
     fontWeight: 'bold',
     lineHeight: 'normal',
     textTransform: 'uppercase',
-    padding: '10px',
-    margin: '0 0 27px 0',
+    padding: '10px'
   },
 
   '.BorderedAppWrapper': {
@@ -81,13 +80,15 @@ export const PREFERRED_NAME_STYLING = css({
     '.headerBlock': {
       display: 'plex',
       alignContent: 'center',
-      padding: '30px 10px 30px 49px',
+      padding: '20px 60px',
       background: '#F0F0F0',
       borderBottom: '1px solid #A9AEB1',
 
       [MEDIA_SMALL_MAX]: {
-        paddingLeft: '26px ',
-        fontSize: '12px',
+        paddingLeft: '26px',
+        fontSize: '20px',
+        padding: '10px 15px',
+        borderBottom: '0'
       },
 
       h3: {
