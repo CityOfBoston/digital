@@ -11,13 +11,13 @@ interface Account {
   email: string;
 }
 
-interface SuccessProps {
+interface welcomeProps {
   handleProceed: (ev: MouseEvent) => void;
   appTitle: string;
   account: Account;
 }
 
-export default function WelcomeView({ handleProceed, account }: SuccessProps) {
+export default function WelcomeView({ handleProceed, account }: welcomeProps) {
   console.log(account)
 
   return (
