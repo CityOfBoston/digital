@@ -25,8 +25,6 @@ interface SuccessProps {
 export default function SuccessView(props: SuccessProps) {
   const { handleQuit, account } = props;
 
-  console.log(`SuccessView: account: `, account);
-
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
@@ -43,7 +41,7 @@ export default function SuccessView(props: SuccessProps) {
             <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">
                 <p css={BODY_PARAGRAPH_STYLING}>
-                  <span css={{fontWeight: "bold"}}>Please Note: </span>To access the most recent update, please log in to your account
+                  <strong>Please Note: </strong>To access the most recent update, please log in to your account
                 </p>
               </div>
             </div>
