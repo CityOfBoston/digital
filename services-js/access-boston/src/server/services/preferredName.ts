@@ -1,3 +1,9 @@
+export interface workflowReqArgs {
+  id: string;
+  preferredFirsName?: string;
+  preferredLastName?: string;
+}
+
 export interface workflowArgs {
   identityName: string;
   preferredFirsName?: string;

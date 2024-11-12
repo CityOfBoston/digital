@@ -450,6 +450,16 @@ async function addVelocityTemplates(server: HapiServer) {
       timeout: { server: 15000 },
     },
     handler: async (req, h) => {
+      // CHECK `token` is present in the request and matches `ENV`
+      if (
+        !req['headers'] ||
+        !req['headers']['token'] ||
+        (req['headers']['token'] as string) !==
+          (process.env.PREFERRED_NAME__API_KEY as string)
+      ) {
+        return h.response({ error: 'Invalid or Missing Token' }).code(400);
+      }
+
       const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
         .WORKFLOW_URL__GENERATE_EMAIL as string;
       const reqReqFields = ['id'];
@@ -482,6 +492,7 @@ async function addVelocityTemplates(server: HapiServer) {
             let workflowArgs: workflowArgs = {
               identityName: req.payload['id'],
             };
+
             if (req.payload['preferredFirstName'])
               workflowArgs['preferredFirstName'] =
                 req.payload['preferredFirstName'];
