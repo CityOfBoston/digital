@@ -29,6 +29,7 @@ export const requestNewNameEmail = async (params: {
   authStr: string;
 }) => {
   const { endpoint, requestJson, authStr } = params;
+  console.log(`requestJson: `, requestJson);
 
   return await fetch(endpoint, {
     method: 'POST',
