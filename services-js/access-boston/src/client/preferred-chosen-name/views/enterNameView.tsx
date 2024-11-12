@@ -18,9 +18,7 @@ interface EnterNameProps {
   account: Account;
 }
 
-export default function EnterNameProps({ handleProceed, account }: EnterNameProps) {
-  console.log(account);
-
+export default function EnterNameProps({ handleProceed }: EnterNameProps) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -32,7 +30,7 @@ export default function EnterNameProps({ handleProceed, account }: EnterNameProp
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="sh sh-title" css={HEADER_CONTAINER_STYLING}>
-				Chosen Name
+        Chosen Name
       </div>
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
@@ -56,22 +54,30 @@ export default function EnterNameProps({ handleProceed, account }: EnterNameProp
               >
                 Clear
               </a>
-            }>
+            }
+          >
             <div className="FormBox" css={FORM_STYLING}>
-              Use the below fields to update your chosen name. You can choose to change your first name, last name, or both.
-              <div className="ChosenFirstNameInput" css={INPUT_HEADER_CONTAINER_STYLING}>
+              Use the below fields to update your chosen name. You can choose to
+              change your first name, last name, or both.
+              <div
+                className="ChosenFirstNameInput"
+                css={INPUT_HEADER_CONTAINER_STYLING}
+              >
                 <label css={LABEL_STYLING}>Chosen First Name</label>
                 <input
                   value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  onChange={e => setFirstName(e.target.value)}
                   css={INPUT_STYLING}
                 />
               </div>
-              <div className="ChosenLastNameInput" css={INPUT_HEADER_CONTAINER_STYLING}>
+              <div
+                className="ChosenLastNameInput"
+                css={INPUT_HEADER_CONTAINER_STYLING}
+              >
                 <label css={LABEL_STYLING}>Chosen Last Name</label>
                 <input
                   value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
+                  onChange={e => setLastName(e.target.value)}
                   css={INPUT_STYLING}
                 />
               </div>
@@ -85,28 +91,28 @@ export default function EnterNameProps({ handleProceed, account }: EnterNameProp
 }
 
 const HEADER_CONTAINER_STYLING = css({
-	fontSize: "2em",
-	paddingBottom: "20px",
-	marginBottom: "30px",
-	'@media (max-width: 600px)': {
-		fontSize: "1.8em",
-		paddingBottom: "15px",
-    marginBottom: "25px",
+  fontSize: '2em',
+  paddingBottom: '20px',
+  marginBottom: '30px',
+  '@media (max-width: 600px)': {
+    fontSize: '1.8em',
+    paddingBottom: '15px',
+    marginBottom: '25px',
   },
 });
 
 const INFO_STYLING = css({
   padding: '30px 60px',
   borderBottom: '1px solid #A9AEB1',
-	'@media (max-width: 600px)': {
-    padding: '25px 15px'
+  '@media (max-width: 600px)': {
+    padding: '25px 15px',
   },
 });
 
 const FORM_STYLING = css({
   padding: '50px 60px',
-	'@media (max-width: 600px)': {
-    padding: '25px 15px'
+  '@media (max-width: 600px)': {
+    padding: '25px 15px',
   },
 });
 
@@ -118,14 +124,14 @@ const CURRENT_NAME_STYLING = css({
     marginLeft: '50px',
     fontSize: '1.2em',
   },
-	'@media (max-width: 600px)': {
+  '@media (max-width: 600px)': {
     padding: '5px 0px',
-		marginTop: '10px',
-		'.CurrentName': {
-			marginTop: '5px',
-			marginLeft: '0px',
-			fontSize: '1.2em',
-		},
+    marginTop: '10px',
+    '.CurrentName': {
+      marginTop: '5px',
+      marginLeft: '0px',
+      fontSize: '1.2em',
+    },
   },
 });
 
@@ -134,7 +140,7 @@ const LABEL_STYLING = css({
   display: 'block',
   fontSize: '22px',
   marginBottom: '8px',
-	'@media (max-width: 600px)': {
+  '@media (max-width: 600px)': {
     fontSize: '16px',
   },
 });

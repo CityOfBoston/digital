@@ -3,7 +3,9 @@
 import fs from 'fs';
 import path from 'path';
 import { promisify } from 'util';
+import fetch from 'node-fetch';
 import Boom from 'boom';
+// import { fetch as crossFetch } from 'cross-fetch';
 
 import { Server as HapiServer, ResponseObject, Lifecycle } from 'hapi';
 import Inert from 'inert';
@@ -12,8 +14,8 @@ import yar from 'yar';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import hapiDevErrors from 'hapi-dev-errors';
+import next from 'next';
 import { ApolloServer } from 'apollo-server-hapi';
-const next = require('next');
 
 import { parse, Compile } from 'velocityjs';
 import { default as pingData } from './ping-templates/mockData';
@@ -54,6 +56,13 @@ import { addForgotPasswordAuth } from './forgot-password-auth';
 import Session from './Session';
 import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
+
+import {
+  basicAuthBase64Str,
+  requestNewNameEmail,
+  workflowArgs,
+  // workflowReqArgs,
+} from './services/preferredName';
 
 require('dotenv').config();
 
@@ -441,86 +450,60 @@ async function addVelocityTemplates(server: HapiServer) {
       timeout: { server: 15000 },
     },
     handler: async (req, h) => {
-      try {
-        const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
-          .WORKFLOW_URL__GENERATE_EMAIL as string;
-        const reqReqFields = ['id'];
-        const optFields = ['preferredFirstName', 'preferredLastName'];
-        const validRequestFields = reqReqFields.concat(optFields);
+      const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
+        .WORKFLOW_URL__GENERATE_EMAIL as string;
+      const reqReqFields = ['id'];
+      const optFields = ['preferredFirstName', 'preferredLastName'];
+      const validRequestFields = reqReqFields.concat(optFields);
+      const serverPayloadValid = serverPayloadValidAndUseful(
+        req.payload,
+        validRequestFields,
+        1,
+        optFields
+      );
 
+      try {
         if (
           WORKFLOW_URL__GENERATE_EMAIL.length > 0 &&
           typeof req.payload === 'object' &&
           req.payload &&
-          serverPayloadValidAndUseful(
-            req.payload,
-            validRequestFields,
-            1,
-            optFields
-          )
+          serverPayloadValid
         ) {
-          const payloadObj = JSON.parse(JSON.stringify(req.payload));
+          if (dev) {
+            // USE FIXTURE
+            return await readFile(
+              path.resolve(
+                __dirname,
+                '../../fixtures/preferred-chosen-name/test/COB-Workflow-GenerateUniqueEmail/response/40000093.json'
+              ),
+              'utf-8'
+            );
+          } else {
+            let workflowArgs: workflowArgs = {
+              identityName: req.payload['id'],
+            };
+            if (req.payload['preferredFirstName'])
+              workflowArgs['preferredFirstName'] =
+                req.payload['preferredFirstName'];
+            if (req.payload['preferredLastName'])
+              workflowArgs['preferredLastName'] =
+                req.payload['preferredLastName'];
 
-          console.log(`validRequestFields: `, validRequestFields);
-          console.log(`req.payload: `, req.payload);
-          console.log(`req.payload: `, JSON.stringify(req.payload));
-          console.log(`typeof req.payload: `, typeof req.payload);
-          console.log(`req.payload Obj.len: `, Object.keys(req.payload).length);
-          console.log(`payloadObj: `, payloadObj);
-
-          console.log(`WORKFLOW_URL__GENERATE_EMAIL: `, {
-            WORKFLOW_URL__GENERATE_EMAIL,
-          });
-
-          // const requestNewNameEmail = async () => {
-          //   const raw = JSON.stringify({
-          //     workflowArgs: {
-          //       identityName: '40000093',
-          //       preferredFirsName: 'Manual',
-          //       preferredLastName: 'WebTesting',
-          //     },
-          //   });
-
-          //   return await fetch(WORKFLOW_URL__GENERATE_EMAIL, {
-          //     method: 'POST',
-          //     headers: {
-          //       'Content-Type': 'application/json',
-          //       Authorization:
-          //         'Basic ' +
-          //         Buffer.from(
-          //           process.env.IDENTITYIQ_USERNAME +
-          //             ':' +
-          //             process.env.IDENTITYIQ_PASSWORD
-          //         ).toString('base64'),
-          //     },
-          //     body: raw,
-          //   })
-          //     .then(response => response.json())
-          //     .then(response => response);
-          // };
-          // // return await requestNewNameEmail();
-          // console.log(
-          //   `await requestNewNameEmail(): `,
-          //   await requestNewNameEmail()
-          // );
-
-          console.log(`Auth: `, {
-            Authorization:
-              'Basic ' +
-              Buffer.from(
-                process.env.IDENTITYIQ_USERNAME +
-                  ':' +
-                  process.env.IDENTITYIQ_PASSWORD
-              ).toString('base64'),
-          });
-
-          return {};
+            return requestNewNameEmail({
+              endpoint: WORKFLOW_URL__GENERATE_EMAIL,
+              requestJson: { workflowArgs },
+              authStr: basicAuthBase64Str(
+                process.env.IDENTITYIQ_USERNAME,
+                process.env.IDENTITYIQ_PASSWORD
+              ),
+            });
+          }
         } else {
           throw Boom.notFound(`No data is available for »${req}«`);
         }
       } catch (error) {
-        console.log();
-        return h.response({ error: 'Invalid JSON format' }).code(400);
+        console.log(`/preferred-name-request (error): `, error);
+        return h.response({ error: 'Invalid JSON format Lv2' }).code(400);
       }
     },
   });
@@ -539,8 +522,7 @@ async function addVelocityTemplates(server: HapiServer) {
       const fetchQ = async this_req => {
         const query = this_req.payload.query;
         const variables = this_req.payload.variables;
-        // console.log('query: ', query);
-        // console.log('variables: ', variables);
+
         return await fetch(
           `${process.env.GROUP_MANAGEMENT_API_URL}` as string,
           {
