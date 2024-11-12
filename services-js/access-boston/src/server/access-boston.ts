@@ -14,11 +14,12 @@ import yar from 'yar';
 import cleanup from 'node-cleanup';
 import acceptLanguagePlugin from 'hapi-accept-language2';
 import hapiDevErrors from 'hapi-dev-errors';
-const next = require('next');
+import next from 'next';
 import { ApolloServer } from 'apollo-server-hapi';
 
 import { parse, Compile } from 'velocityjs';
 import { default as pingData } from './ping-templates/mockData';
+import { serverPayloadValidAndUseful } from './helpers';
 
 import Rollbar from 'rollbar';
 
@@ -55,6 +56,13 @@ import { addForgotPasswordAuth } from './forgot-password-auth';
 import Session from './Session';
 import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
+
+import {
+  basicAuthBase64Str,
+  requestNewNameEmail,
+  workflowArgs,
+  // workflowReqArgs,
+} from './services/preferredName';
 
 require('dotenv').config();
 
@@ -432,6 +440,168 @@ async function addVelocityTemplates(server: HapiServer) {
   });
 
   server.route({
+    path: '/preferred-name-request',
+    method: ['POST'],
+    options: {
+      auth: false,
+      plugins: {
+        crumb: false,
+      },
+      timeout: { server: 15000 },
+    },
+    handler: async (req, h) => {
+      // CHECK `token` is present in the request and matches `ENV`
+      if (
+        !req['headers'] ||
+        !req['headers']['token'] ||
+        (req['headers']['token'] as string) !==
+          (process.env.PREFERRED_NAME__API_KEY as string)
+      ) {
+        return h.response({ error: 'Invalid or Missing Token' }).code(400);
+      }
+
+      const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
+        .WORKFLOW_URL__GENERATE_EMAIL as string;
+      const reqReqFields = ['id'];
+      const optFields = ['preferredFirstName', 'preferredLastName'];
+      const validRequestFields = reqReqFields.concat(optFields);
+      const serverPayloadValid = serverPayloadValidAndUseful(
+        req.payload,
+        validRequestFields,
+        1,
+        optFields
+      );
+
+      try {
+        if (
+          WORKFLOW_URL__GENERATE_EMAIL.length > 0 &&
+          typeof req.payload === 'object' &&
+          req.payload &&
+          serverPayloadValid
+        ) {
+          if (dev) {
+            // USE FIXTURE
+            return await readFile(
+              path.resolve(
+                __dirname,
+                '../../fixtures/preferred-chosen-name/test/COB-Workflow-GenerateUniqueEmail/response/40000093.json'
+              ),
+              'utf-8'
+            );
+          } else {
+            let workflowArgs: workflowArgs = {
+              identityName: req.payload['id'],
+            };
+
+            if (req.payload['preferredFirstName'])
+              workflowArgs['preferredFirstName'] =
+                req.payload['preferredFirstName'];
+            if (req.payload['preferredLastName'])
+              workflowArgs['preferredLastName'] =
+                req.payload['preferredLastName'];
+
+            return requestNewNameEmail({
+              endpoint: WORKFLOW_URL__GENERATE_EMAIL,
+              requestJson: { workflowArgs },
+              authStr: basicAuthBase64Str(
+                process.env.IDENTITYIQ_USERNAME,
+                process.env.IDENTITYIQ_PASSWORD
+              ),
+            });
+          }
+        } else {
+          throw Boom.notFound(`No data is available for »${req}«`);
+        }
+      } catch (error) {
+        console.log(`/preferred-name-request (error): `, error);
+        return h.response({ error: 'Invalid JSON format Lv2' }).code(400);
+      }
+    },
+  });
+
+  server.route({
+    path: '/preferred-name-submit',
+    method: ['POST'],
+    options: {
+      auth: false,
+      plugins: {
+        crumb: false,
+      },
+      timeout: { server: 15000 },
+    },
+    handler: async (req, h) => {
+      // CHECK `token` is present in the request and matches `ENV`
+      if (
+        !req['headers'] ||
+        !req['headers']['token'] ||
+        (req['headers']['token'] as string) !==
+          (process.env.PREFERRED_NAME__API_KEY as string)
+      ) {
+        return h.response({ error: 'Invalid or Missing Token' }).code(400);
+      }
+
+      const WORKFLOW_URL__UPDATENAME: string = process.env
+        .WORKFLOW_URL__UPDATENAME as string;
+      const reqReqFields = ['id'];
+      const optFields = ['preferredFirstName', 'preferredLastName', 'email'];
+      const validRequestFields = reqReqFields.concat(optFields);
+      const serverPayloadValid = serverPayloadValidAndUseful(
+        req.payload,
+        validRequestFields,
+        1,
+        optFields
+      );
+
+      try {
+        if (
+          WORKFLOW_URL__UPDATENAME.length > 0 &&
+          typeof req.payload === 'object' &&
+          req.payload &&
+          serverPayloadValid
+        ) {
+          if (dev) {
+            // USE FIXTURE
+            return await readFile(
+              path.resolve(
+                __dirname,
+                '../../fixtures/preferred-chosen-name/test/COB-Workflow-PreferredNames/response/40000093.json'
+              ),
+              'utf-8'
+            );
+          } else {
+            let workflowArgs: workflowArgs = {
+              identityName: req.payload['id'],
+            };
+
+            if (req.payload['preferredFirstName'])
+              workflowArgs['preferredFirstName'] =
+                req.payload['preferredFirstName'];
+            if (req.payload['preferredLastName'])
+              workflowArgs['preferredLastName'] =
+                req.payload['preferredLastName'];
+            if (req.payload['email'])
+              workflowArgs['email'] = req.payload['email'];
+
+            return requestNewNameEmail({
+              endpoint: WORKFLOW_URL__UPDATENAME,
+              requestJson: { workflowArgs },
+              authStr: basicAuthBase64Str(
+                process.env.IDENTITYIQ_USERNAME,
+                process.env.IDENTITYIQ_PASSWORD
+              ),
+            });
+          }
+        } else {
+          throw Boom.notFound(`No data is available for »${req}«`);
+        }
+      } catch (error) {
+        console.log(`/preferred-name-request (error): `, error);
+        return h.response({ error: 'Invalid JSON format Lv2' }).code(400);
+      }
+    },
+  });
+
+  server.route({
     path: '/fetchGraphql',
     method: ['POST'],
     options: {
@@ -445,8 +615,7 @@ async function addVelocityTemplates(server: HapiServer) {
       const fetchQ = async this_req => {
         const query = this_req.payload.query;
         const variables = this_req.payload.variables;
-        // console.log('query: ', query);
-        // console.log('variables: ', variables);
+
         return await fetch(
           `${process.env.GROUP_MANAGEMENT_API_URL}` as string,
           {

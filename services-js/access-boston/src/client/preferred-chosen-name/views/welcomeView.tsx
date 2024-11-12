@@ -17,14 +17,12 @@ interface welcomeProps {
   account: Account;
 }
 
-export default function WelcomeView({ handleProceed, account }: welcomeProps) {
-  console.log(account)
-
+export default function WelcomeView({ handleProceed }: welcomeProps) {
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
-          <h2 className="headerBlock" css={HEADER_STYLING}></h2>
+          <h2 className="headerBlock" css={HEADER_STYLING} />
           <QuestionComponent
             quitBtn={false}
             nextButtonText="Continue"
@@ -33,29 +31,38 @@ export default function WelcomeView({ handleProceed, account }: welcomeProps) {
           >
             <div css={SNIPPET_CONTAINER_STYLING}>
               <p>
-                A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with their gender identity or expression.
+                A chosen name could be a preferred nickname, middle name, a
+                shortened version of a legal name, or a name that aligns with
+                their gender identity or expression.
               </p>
               <ul>
                 <strong>What’s Changing: </strong>
                 <li>
                   <strong>Chosen Name: </strong>
-                  You can add a chosen name to your profile. This name will be displayed in internal City of Boston systems and communications.
+                  You can add a chosen name to your profile. This name will be
+                  displayed in internal City of Boston systems and
+                  communications.
                 </li>
                 <li>
                   <strong>Email Address: </strong>
-                  You can update your email address to reflect your chosen name—or keep it as is, if you prefer.
+                  You can update your email address to reflect your chosen
+                  name—or keep it as is, if you prefer.
                 </li>
               </ul>
               <ul>
                 <strong>What’s Not Changing: </strong>
                 <li>
                   <strong>Legal Name: </strong>
-                  City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the legal name link.
+                  City Employees, your legal name used for tax documents (like
+                  W2s), paystubs, or other official legal documents will remain
+                  unchanged. To change your legal name, please follow the legal
+                  name link.
                 </li>
               </ul>
               <p>
-                 <strong>Please note: </strong>
-                 Any changes made to your chosen name or email address will be reflected across all relevant systems and communications.
+                <strong>Please note: </strong>
+                Any changes made to your chosen name or email address will be
+                reflected across all relevant systems and communications.
               </p>
             </div>
           </QuestionComponent>
@@ -74,7 +81,7 @@ const SNIPPET_CONTAINER_STYLING = css({
     margin: '0px',
     '@media (max-width: 600px)': {
       lineHeight: '1.5rem  !important',
-      padding: '25px 0px'
+      padding: '25px 0px',
     },
   },
   '& > p:last-of-type': {
@@ -87,7 +94,7 @@ const SNIPPET_CONTAINER_STYLING = css({
       '@media (max-width: 600px)': {
         marginBottom: '10px',
       },
-    }
+    },
   },
   '& li': {
     marginLeft: '40px',
@@ -95,12 +102,12 @@ const SNIPPET_CONTAINER_STYLING = css({
     listStyleType: 'disc',
     listStyle: 'outside',
     '@media (max-width: 600px)': {
-       marginLeft: '20px',
-       marginBottom: '10px',
+      marginLeft: '20px',
+      marginBottom: '10px',
     },
   },
   '@media (max-width: 600px)': {
-    padding: '0px 15px'
+    padding: '0px 15px',
   },
 });
 
@@ -111,5 +118,5 @@ const HEADER_STYLING = css({
     '@media (max-width: 600px)': {
       content: '"Chosen Name"',
     },
-  }
+  },
 });

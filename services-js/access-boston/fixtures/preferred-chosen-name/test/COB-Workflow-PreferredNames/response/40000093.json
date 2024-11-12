@@ -1,0 +1,15 @@
+{
+  "status": null,
+  "requestID": "0af16f5692941e0d8192bf2ae1dc539c",
+  "warnings": null,
+  "errors": null,
+  "retryWait": 0,
+  "metaData": null,
+  "attributes": {
+    "status": "Success. Updated Attributes in IIQ"
+  },
+  "retry": false,
+  "failure": false,
+  "complete": false,
+  "success": false
+}

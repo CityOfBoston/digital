@@ -11272,7 +11272,9 @@ exports[`Storyshots Preferred-Name Confirmation 1`] = `
               </div>
             </label>
             <div>
-               For more information, see the 
+               
+              For more information, see the
+               
               <a
                 href="https://www.google.com"
                 target="_blank"

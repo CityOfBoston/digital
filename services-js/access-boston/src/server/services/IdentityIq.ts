@@ -86,6 +86,26 @@ export interface LaunchedWorkflowResponse {
   launcher: string;
 }
 
+export interface LauncedPreferredNameWorkflowResponse {
+  status: string;
+  requestID: string;
+  warnings: any;
+  errors: any;
+  retryWait: number;
+  metaData: any;
+  attributes: {
+    result: {
+      DisplayName: string;
+      newEmail: string;
+      error: string;
+    };
+    result1: string;
+  };
+  complete: false;
+  success: false;
+  retry: false;
+}
+
 /**
  * Service to connect to IdentityIQ to change passwords and handle other
  * workflow tasks.
@@ -264,6 +284,28 @@ export default class IdentityIq {
 
     return this.makeScimRequest('LaunchedWorkflows', 'POST', requestBody);
   }
+
+  /**
+   * Update user Preferred Chosen Name
+   * @param caseId
+   * @returns
+   */
+  // async updatePrefferedChosenName(
+  //   userId: string,
+  //   {
+  //     preferredFirstName,
+  //     preferredLastName,
+  //     email,
+  //   }: {
+  //     preferredFirstName?: string;
+  //     preferredLastName?: string;
+  //     email?: string;
+  //   }
+  // ) {
+  //   const requestBody: LaunchWorkflowRequest = {
+  //     schemas: [],
+  //   };
+  // }
 
   async fetchWorkflow(caseId: string): Promise<LaunchedWorkflowResponse> {
     return this.makeScimRequest(`LaunchedWorkflows/${caseId}`);
