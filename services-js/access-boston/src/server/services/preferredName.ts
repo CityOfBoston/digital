@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 export interface workflowReqArgs {
   id: string;
   preferredFirsName?: string;
