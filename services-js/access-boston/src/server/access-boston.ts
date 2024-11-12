@@ -520,6 +520,88 @@ async function addVelocityTemplates(server: HapiServer) {
   });
 
   server.route({
+    path: '/preferred-name-submit',
+    method: ['POST'],
+    options: {
+      auth: false,
+      plugins: {
+        crumb: false,
+      },
+      timeout: { server: 15000 },
+    },
+    handler: async (req, h) => {
+      // CHECK `token` is present in the request and matches `ENV`
+      if (
+        !req['headers'] ||
+        !req['headers']['token'] ||
+        (req['headers']['token'] as string) !==
+          (process.env.PREFERRED_NAME__API_KEY as string)
+      ) {
+        return h.response({ error: 'Invalid or Missing Token' }).code(400);
+      }
+
+      const WORKFLOW_URL__UPDATENAME: string = process.env
+        .WORKFLOW_URL__UPDATENAME as string;
+      const reqReqFields = ['id'];
+      const optFields = ['preferredFirstName', 'preferredLastName', 'email'];
+      const validRequestFields = reqReqFields.concat(optFields);
+      const serverPayloadValid = serverPayloadValidAndUseful(
+        req.payload,
+        validRequestFields,
+        1,
+        optFields
+      );
+
+      try {
+        if (
+          WORKFLOW_URL__UPDATENAME.length > 0 &&
+          typeof req.payload === 'object' &&
+          req.payload &&
+          serverPayloadValid
+        ) {
+          if (dev) {
+            // USE FIXTURE
+            return await readFile(
+              path.resolve(
+                __dirname,
+                '../../fixtures/preferred-chosen-name/test/COB-Workflow-PreferredNames/response/40000093.json'
+              ),
+              'utf-8'
+            );
+          } else {
+            let workflowArgs: workflowArgs = {
+              identityName: req.payload['id'],
+            };
+
+            if (req.payload['preferredFirstName'])
+              workflowArgs['preferredFirstName'] =
+                req.payload['preferredFirstName'];
+            if (req.payload['preferredLastName'])
+              workflowArgs['preferredLastName'] =
+                req.payload['preferredLastName'];
+            if (req.payload['email'])
+              workflowArgs['email'] = req.payload['email'];
+
+            return requestNewNameEmail({
+              endpoint: WORKFLOW_URL__UPDATENAME,
+              requestJson: { workflowArgs },
+              authStr: basicAuthBase64Str(
+                process.env.IDENTITYIQ_USERNAME,
+                process.env.IDENTITYIQ_PASSWORD
+              ),
+            });
+          }
+        } else {
+          throw Boom.notFound(`No data is available for »${req}«`);
+        }
+      } catch (error) {
+        console.log(`/preferred-name-request (error): `, error);
+        return h.response({ error: 'Invalid JSON format Lv2' }).code(400);
+      }
+    },
+  });
+
+  server.route({
     path: '/fetchGraphql',
     method: ['POST'],
     options: {

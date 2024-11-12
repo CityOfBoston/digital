@@ -2,17 +2,19 @@ import fetch from 'node-fetch';
 
 export interface workflowReqArgs {
   id: string;
-  preferredFirsName?: string;
+  preferredFirstName?: string;
   preferredLastName?: string;
+  email?: string;
 }
 
 export interface workflowArgs {
   identityName: string;
-  preferredFirsName?: string;
+  preferredFirstName?: string;
   preferredLastName?: string;
+  email?: string;
 }
 
-interface requestWorkflow {
+export interface requestWorkflow {
   workflowArgs: workflowArgs;
 }
 
