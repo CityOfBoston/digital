@@ -7,7 +7,10 @@ import { Account } from '../../../client/graphql/fetch-account';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-import WelcomeView, { EnterNameView, ApprovalView } from './views';
+// import { ApprovalView } from './views';
+import ConfirmationView from '../views/confirmationView';
+import WelcomeView from '../views/welcomeView';
+import EnterNameView from '../views/enterNameView';
 
 import {
   getViews,
@@ -83,7 +86,7 @@ export default function Index(props: Props) {
     <PageWrapper classString={'b-c'}>
       <EnterNameView
         handleProceed={advanceStep}
-        handleStepBack={stepBack}
+        // handleStepBack={stepBack}
         appTitle={AppTitle}
         account={viewAccountObj}
       />
@@ -92,7 +95,7 @@ export default function Index(props: Props) {
 
   const approvalView = (
     <PageWrapper classString={'b-c'}>
-      <ApprovalView
+      <ConfirmationView
         handleProceed={advanceStep}
         handleStepBack={stepBack}
         appTitle={AppTitle}

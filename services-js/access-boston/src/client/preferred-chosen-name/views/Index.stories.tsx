@@ -5,13 +5,13 @@ import PageWrapper from '../../PageWrapper';
 
 import { AppTitle } from '../state/app';
 
-import ConfirmationView from './confirmationView';
 import WelcomeView from './welcomeView';
 import EnterNameView from './enterNameView';
+import ConfirmationView from './confirmationView';
 import SuccessView from './successView';
 
 const viewAccountObj = {
-  cobAgency: 'CH',
+  // cobAgency: 'CH',
   firstName: 'Felipe',
   lastName: 'Rivera',
   email: 'felipe.rivera@boston.gov',
@@ -23,7 +23,7 @@ storiesOf('Preferred-Name', module)
       <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
       />
     </PageWrapper>
   ))
@@ -33,7 +33,7 @@ storiesOf('Preferred-Name', module)
         handleProceed={() => {}}
         appTitle={AppTitle}
         // Change the obj below to use same obj but different cobAgency: BPL
-        account={viewAccountObj}
+        account={{ ...viewAccountObj, ...{ cobAgency: 'BPL' } }}
       />
     </PageWrapper>
   ))
@@ -42,7 +42,7 @@ storiesOf('Preferred-Name', module)
       <EnterNameView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
       />
     </PageWrapper>
   ))
@@ -52,7 +52,7 @@ storiesOf('Preferred-Name', module)
         handleProceed={() => {}}
         handleStepBack={() => {}}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
       />
     </PageWrapper>
   ))
@@ -61,8 +61,7 @@ storiesOf('Preferred-Name', module)
       <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
       />
     </PageWrapper>
   ));
-

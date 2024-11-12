@@ -17,7 +17,7 @@ interface EnterNameProps {
   account: Account;
 }
 
-export default function EnterNameProps({ handleProceed }: EnterNameProps) {
+export default function EnterNameView({ handleProceed }: EnterNameProps) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
