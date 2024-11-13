@@ -45,7 +45,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
         {handleStepBack && (
           <button
             type="button"
-            className="btn btn--b-sm btn-alt"
+            className="btn btn--b-sm btn-alt btn--w"
             onClick={handleStepBack}
           >
             {prevBtnText || 'Go Back'}
@@ -100,7 +100,7 @@ const BUTTON_CONTAINER_STYLING = css({
   alignItems: 'center',
   gap: '8px',
   width: '100%',
-  padding: '0 60px',
+  padding: '0 40px',
   boxSizing: 'border-box',
   marginBottom: '2rem',
   overflow: 'hidden',

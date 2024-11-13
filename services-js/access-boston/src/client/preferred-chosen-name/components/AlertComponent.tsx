@@ -25,7 +25,7 @@ export default function AlertComponent({ text }: AlertProps): JSX.Element {
 const ALERT_CONTAINER_STYLING = css({
   display: 'flex',
   alignItems: 'center',
-  padding: '16px',
+  padding: '16px 40px 16px 30px',
   backgroundColor: '#ecf3ec',
   borderLeft: '10px solid #00a91c',
   color: '#000000',

@@ -2,7 +2,7 @@
 import { jsx, css } from '@emotion/core';
 import { useState, MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
-import { CurrentNameTag } from '../components/TagComponent';
+import { ChosenNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface Account {
@@ -19,14 +19,22 @@ interface ConfirmationProps {
   account: Account;
 }
 
-export default function ConfirmationView({
-  handleProceed,
-  handleStepBack,
-}: ConfirmationProps) {
-  const [selectedOption, setSelectedOption] = useState('UseNewEmail');
+export default function ConfirmationView({ handleProceed, handleStepBack, account }: ConfirmationProps) {
+  console.log(account);
+
+  const [selectedOption, setSelectedOption] = useState("UseNewEmail");
+  const [checkboxChecked, setCheckboxChecked] = useState(false);
+
   const handleRadioChange = (value: string) => {
     setSelectedOption(value);
   };
+
+  const toggleCheckbox = () => {
+    setCheckboxChecked(!checkboxChecked);
+  };
+
+  // Enable the continue button only if an option is selected and the checkbox is checked
+  const allowProceed = (selectedOption === "UseNewEmail" || selectedOption === "KeepCurrentEmail") && checkboxChecked;
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
@@ -37,14 +45,14 @@ export default function ConfirmationView({
         <div className="AppInnerContainer">
           <div className="InfoBox" css={INFO_STYLING}>
             Changing your chosen name will affect your City of Boston accounts.
-            <div css={CURRENT_NAME_CONTAINER_STYLING}>
-              <div css={CURRENT_NAME_STYLING}>
-                <CurrentNameTag />
-                <div className="CurrentName">Juliana Donovan</div>
+            <div css={CHOSEN_NAME_CONTAINER_STYLING}>
+              <div css={CHOSEN_NAME_STYLING}>
+                <ChosenNameTag />
+                <div className="CurrentName">Camila Donovan</div>
               </div>
               <a
                 type="button"
-                className="btn btn--b-sm btn-alt"
+                className="btn btn--b-sm btn-alt btn--w"
                 onClick={handleStepBack}
                 css={EDIT_BUTTON_STYLING}
               >
@@ -55,7 +63,7 @@ export default function ConfirmationView({
           <QuestionComponent
             quitBtn={false}
             nextButtonText="Continue"
-            allowProceed={true}
+            allowProceed={allowProceed}
             handleStepBack={handleStepBack}
             handleProceed={handleProceed}
           >
@@ -102,13 +110,16 @@ export default function ConfirmationView({
                 </div>
                 <div css={EMAIL_TEXT_STYLING}>juliana.donovan@boston.gov</div>
               </label>
-              <div>
-                {' '}
-                For more information, see the{' '}
-                <a href="https://www.google.com" target="_blank">
-                  FAQs
-                </a>
-              </div>
+              <label css={CHECKBOX_LABEL_STYLING(checkboxChecked)}>
+                <input
+                  type="checkbox"
+                  checked={checkboxChecked}
+                  onChange={toggleCheckbox}
+                  css={CHECKBOX_STYLING}
+                />
+                By submitting this form you agree to changing your displayed chosen name and email address across all your City of Boston accounts
+              </label>
+              <div> For more information, see the <a href='https://www.google.com' target="_blank">FAQs</a></div>
             </div>
           </QuestionComponent>
         </div>
@@ -116,6 +127,20 @@ export default function ConfirmationView({
     </div>
   );
 }
+
+const CHECKBOX_STYLING = css({
+  width: '50px',
+  height: '50px',
+});
+
+const CHECKBOX_LABEL_STYLING = (checked: boolean) => css({
+  marginTop: '10px',
+  color: checked ? 'inherit' : '#A9AEB1',
+  display: 'flex',
+  alignItems: 'start',
+  gap: '12px',
+  cursor: 'pointer',
+});
 
 const HEADER_CONTAINER_STYLING = css({
   fontSize: '2em',
@@ -129,53 +154,50 @@ const HEADER_CONTAINER_STYLING = css({
 });
 
 const INFO_STYLING = css({
-  padding: '30px 60px',
+  padding: '30px 40px',
   borderBottom: '1px solid #A9AEB1',
   '@media (max-width: 600px)': {
     padding: '25px 15px',
   },
 });
 
-const CURRENT_NAME_CONTAINER_STYLING = css({
+const CHOSEN_NAME_CONTAINER_STYLING = css({
   display: 'flex',
+  marginTop: "20px",
   alignItems: 'center',
   justifyContent: 'space-between',
-  width: '100%',
-  marginTop: '20px',
+  width: '100%'
 });
 
-const CURRENT_NAME_STYLING = css({
-  flex: '1',
+const CHOSEN_NAME_STYLING = css({
+  flex: "1",
   display: 'flex',
   flexDirection: 'column',
-  padding: '15px 0px',
-  marginTop: '20px',
   '.CurrentName': {
     marginTop: '10px',
     marginLeft: '50px',
     fontSize: '1.2em',
   },
-  '@media (max-width: 600px)': {
-    padding: '5px 0px',
-    marginTop: '10px',
-    '.CurrentName': {
-      marginTop: '5px',
-      marginLeft: '0px',
-      fontSize: '1.2em',
-    },
+	'@media (max-width: 600px)': {
+		'.CurrentName': {
+			marginTop: '5px',
+			marginLeft: '0px',
+			fontSize: '1.2em',
+		},
   },
 });
 
 const EDIT_BUTTON_STYLING = css({
   color: '#005EA2',
   backgroundColor: 'white',
-  fontSize: '1em',
+  padding: '10px 20px',
   border: '2px solid #005EA2',
   flex: '0',
+  height: 'auto'
 });
 
 const RADIO_GROUP_STYLING = css({
-  padding: '50px 60px',
+  padding: '30px 40px',
   '@media (max-width: 600px)': {
     padding: '25px 15px',
   },
@@ -186,8 +208,12 @@ const RADIO_GROUP_STYLING = css({
 
 const RADIO_STACK_STYLING = css({
   cursor: 'pointer',
-  padding: '10px 5px 20px 5px',
+  padding: "15px 5px 20px 15px",
   border: '3px solid #A9AEB1',
+  '@media (max-width: 600px)': {
+    padding: "10px 0px 15px 10px",
+    border: '2px solid #A9AEB1',
+  },
 });
 
 const RADIO_SELECTED_STYLING = css({
@@ -196,10 +222,13 @@ const RADIO_SELECTED_STYLING = css({
 });
 
 const RADIO_OPTION_STYLING = css({
-  alignItems: 'center',
-  display: 'flex',
-  gap: '12px',
+  alignItems: "center",
+  display: "flex",
+  gap: "20px",
   flexDirection: 'row',
+  '@media (max-width: 600px)': {
+    gap: '10px'
+  },
 });
 
 const RADIO_LABEL_STYLING = css({
@@ -208,11 +237,10 @@ const RADIO_LABEL_STYLING = css({
 
 const EMAIL_TEXT_STYLING = css({
   fontSize: '1em',
-  color: '#555',
   wordBreak: 'break-all',
   overflowWrap: 'break-word',
-  margin: '10px 50px 0px',
-  '@media (max-width: 600px)': {
-    margin: '10px 44px',
+  margin: '5px 56px 0px',
+ '@media (max-width: 600px)': {
+    margin: '10px 5px 0px 40px'
   },
 });
