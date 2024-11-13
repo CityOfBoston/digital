@@ -11415,7 +11415,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
                 value=""
               />
             </div>
-            For more information, see the 
+            For more information, see the
+             
             <a
               href="https://www.google.com"
               target="_blank"
@@ -11794,7 +11795,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
                 value=""
               />
             </div>
-            For more information, see the 
+            For more information, see the
+             
             <a
               href="https://www.google.com"
               target="_blank"
@@ -11819,7 +11821,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               onClick={[Function]}
               type="button"
             >
-              Continue
+              Submit
             </button>
           </div>
         </div>

@@ -514,7 +514,11 @@ async function addVelocityTemplates(server: HapiServer) {
         }
       } catch (error) {
         console.log(`/preferred-name-request (error): `, error);
-        return h.response({ error: 'Invalid JSON format Lv2' }).code(400);
+        return h
+          .response({
+            error: 'Invalid request format (JSON); Check fields / values.',
+          })
+          .code(400);
       }
     },
   });
@@ -542,8 +546,8 @@ async function addVelocityTemplates(server: HapiServer) {
 
       const WORKFLOW_URL__UPDATENAME: string = process.env
         .WORKFLOW_URL__UPDATENAME as string;
-      const reqReqFields = ['id'];
-      const optFields = ['preferredFirstName', 'preferredLastName', 'email'];
+      const reqReqFields = ['id', 'email'];
+      const optFields = ['preferredFirstName', 'preferredLastName'];
       const validRequestFields = reqReqFields.concat(optFields);
       const serverPayloadValid = serverPayloadValidAndUseful(
         req.payload,
@@ -571,16 +575,10 @@ async function addVelocityTemplates(server: HapiServer) {
           } else {
             let workflowArgs: workflowArgs = {
               identityName: req.payload['id'],
+              preferredFirstName: req.payload['preferredFirstName'],
+              preferredLastName: req.payload['preferredLastName'],
+              email: req.payload['email'],
             };
-
-            if (req.payload['preferredFirstName'])
-              workflowArgs['preferredFirstName'] =
-                req.payload['preferredFirstName'];
-            if (req.payload['preferredLastName'])
-              workflowArgs['preferredLastName'] =
-                req.payload['preferredLastName'];
-            if (req.payload['email'])
-              workflowArgs['email'] = req.payload['email'];
 
             return requestNewNameEmail({
               endpoint: WORKFLOW_URL__UPDATENAME,
@@ -596,7 +594,11 @@ async function addVelocityTemplates(server: HapiServer) {
         }
       } catch (error) {
         console.log(`/preferred-name-request (error): `, error);
-        return h.response({ error: 'Invalid JSON format Lv2' }).code(400);
+        return h
+          .response({
+            error: 'Invalid request format (JSON); Check fields / values.',
+          })
+          .code(400);
       }
     },
   });

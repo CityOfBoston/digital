@@ -20,7 +20,7 @@ interface welcomeProps {
 
 export default function WelcomeView({ handleProceed, account }: welcomeProps) {
   const { cobAgency } = account;
-  const cobAgenciesAltWorkflowFor = ['BPL', 'BPHC'];
+  const cobAgenciesAltWorkflows = ['BPL', 'BPHC'];
 
   return (
     <div css={OVERRIDDEN_PREFERRED_NAME_STYLING}>
@@ -47,7 +47,7 @@ export default function WelcomeView({ handleProceed, account }: welcomeProps) {
                   displayed in internal City of Boston systems and
                   communications.
                 </li>
-                {!cobAgenciesAltWorkflowFor.includes(cobAgency) && (
+                {!cobAgenciesAltWorkflows.includes(cobAgency) && (
                   <li>
                     <strong>Email Address: </strong>
                     You can update your email address to reflect your chosen
@@ -57,7 +57,7 @@ export default function WelcomeView({ handleProceed, account }: welcomeProps) {
               </ul>
               <ul>
                 <strong>What’s Not Changing: </strong>
-                {cobAgenciesAltWorkflowFor.includes(cobAgency) && (
+                {cobAgenciesAltWorkflows.includes(cobAgency) && (
                   <li>
                     <strong>Email Address: </strong>Your email address will
                     remain the same.

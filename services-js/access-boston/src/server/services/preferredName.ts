@@ -44,7 +44,7 @@ export const requestNewNameEmail = async (params: {
     .then(response => response.json())
     .then(response => response)
     .catch(error => {
-      console.log('/preferred-name-request Error(requestNewNameEmail):', error);
+      console.log('/preferred-name Error(requestNewNameEmail):', error);
       return {};
     });
 };

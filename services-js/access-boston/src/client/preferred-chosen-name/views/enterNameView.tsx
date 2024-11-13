@@ -4,6 +4,7 @@ import { useState, MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
 import { CurrentNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
+
 interface Account {
   cobAgency: string;
   firstName: string;
@@ -17,7 +18,11 @@ interface EnterNameProps {
   account: Account;
 }
 
-export default function EnterNameView({ handleProceed }: EnterNameProps) {
+export default function EnterNameView({
+  handleProceed,
+  account,
+}: EnterNameProps) {
+  const { cobAgency } = account;
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -27,6 +32,10 @@ export default function EnterNameView({ handleProceed }: EnterNameProps) {
     setFirstName('');
     setLastName('');
   };
+  const cobAgenciesAltWorkflows = ['BPL', 'BPHC'];
+  const nextBtnStr: string = cobAgenciesAltWorkflows.includes(cobAgency)
+    ? 'Submit'
+    : 'Continue';
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
@@ -44,7 +53,7 @@ export default function EnterNameView({ handleProceed }: EnterNameProps) {
           </div>
           <QuestionComponent
             quitBtn={false}
-            nextButtonText="Continue"
+            nextButtonText={nextBtnStr}
             allowProceed={allowProceed}
             handleProceed={handleProceed}
             extraButtons={
@@ -58,14 +67,18 @@ export default function EnterNameView({ handleProceed }: EnterNameProps) {
             }
           >
             <div className="FormBox" css={FORM_STYLING}>
-              Use the fields below to update your chosen first name, last name, or both.
-              <div className="ChosenFirstNameInput" css={INPUT_HEADER_CONTAINER_STYLING}>
+              Use the fields below to update your chosen first name, last name,
+              or both.
+              <div
+                className="ChosenFirstNameInput"
+                css={INPUT_HEADER_CONTAINER_STYLING}
+              >
                 <label css={LABEL_STYLING}>Chosen First Name</label>
                 <input
                   value={firstName}
                   onChange={e => setFirstName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder='Default: Juliana'
+                  placeholder="Default: Juliana"
                 />
               </div>
               <div
@@ -77,10 +90,13 @@ export default function EnterNameView({ handleProceed }: EnterNameProps) {
                   value={lastName}
                   onChange={e => setLastName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder='Default: Donovan'
+                  placeholder="Default: Donovan"
                 />
               </div>
-              For more information, see the <a href='https://www.google.com' target="_blank">FAQs</a>
+              For more information, see the{' '}
+              <a href="https://www.google.com" target="_blank">
+                FAQs
+              </a>
             </div>
           </QuestionComponent>
         </div>
@@ -110,8 +126,8 @@ const INFO_STYLING = css({
 
 const FORM_STYLING = css({
   padding: '30px 40px',
-	'@media (max-width: 600px)': {
-    padding: '25px 15px'
+  '@media (max-width: 600px)': {
+    padding: '25px 15px',
   },
 });
 

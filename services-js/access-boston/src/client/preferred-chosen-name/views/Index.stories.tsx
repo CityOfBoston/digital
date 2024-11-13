@@ -22,6 +22,7 @@ const defaultAltWorkflowAccount = {
   ...{ cobAgency: 'BPL' },
 };
 
+// WORKFLOW (Default)
 storiesOf('Preferred Chosen Name/Workflow 1', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
@@ -61,6 +62,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
     </PageWrapper>
   ));
 
+// WORKFLOW (BPL / BPHC)
 storiesOf('Preferred Chosen Name/Workflow 2', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
