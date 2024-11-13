@@ -10,30 +10,25 @@ import EnterNameView from './enterNameView';
 import ConfirmationView from './confirmationView';
 import SuccessView from './successView';
 
-const viewAccountObj = {
-  // cobAgency: 'CH',
+const defaultWorkflowAccount = {
+  cobAgency: 'CH',
   firstName: 'Felipe',
   lastName: 'Rivera',
   email: 'felipe.rivera@boston.gov',
 };
 
-storiesOf('Preferred-Name', module)
+const defaultAltWorkflowAccount = {
+  ...defaultWorkflowAccount,
+  ...{ cobAgency: 'BPL' },
+};
+
+storiesOf('Preferred Chosen Name/Workflow 1', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
       <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
-      />
-    </PageWrapper>
-  ))
-  .add('Welcome BPL', () => (
-    <PageWrapper classString={'b-c'}>
-      <WelcomeView
-        handleProceed={() => {}}
-        appTitle={AppTitle}
-        // Change the obj below to use same obj but different cobAgency: BPL
-        account={{ ...viewAccountObj, ...{ cobAgency: 'BPL' } }}
+        account={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -42,7 +37,7 @@ storiesOf('Preferred-Name', module)
       <EnterNameView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
+        account={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -52,7 +47,7 @@ storiesOf('Preferred-Name', module)
         handleProceed={() => {}}
         handleStepBack={() => {}}
         appTitle={AppTitle}
-        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
+        account={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -61,7 +56,36 @@ storiesOf('Preferred-Name', module)
       <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
-        account={{ ...viewAccountObj, ...{ cobAgency: 'CH' } }}
+        account={defaultWorkflowAccount}
+      />
+    </PageWrapper>
+  ));
+
+storiesOf('Preferred Chosen Name/Workflow 2', module)
+  .add('Welcome', () => (
+    <PageWrapper classString={'b-c'}>
+      <WelcomeView
+        handleProceed={() => {}}
+        appTitle={AppTitle}
+        account={defaultAltWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Enter Names', () => (
+    <PageWrapper classString={'b-c'}>
+      <EnterNameView
+        handleProceed={() => {}}
+        appTitle={AppTitle}
+        account={defaultAltWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Success', () => (
+    <PageWrapper classString={'b-c'}>
+      <SuccessView
+        handleQuit={() => {}}
+        appTitle={AppTitle}
+        account={defaultAltWorkflowAccount}
       />
     </PageWrapper>
   ));

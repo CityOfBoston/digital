@@ -18,7 +18,10 @@ interface welcomeProps {
   account: Account;
 }
 
-export default function WelcomeView({ handleProceed }: welcomeProps) {
+export default function WelcomeView({ handleProceed, account }: welcomeProps) {
+  const { cobAgency } = account;
+  const cobAgenciesAltWorkflowFor = ['BPL', 'BPHC'];
+
   return (
     <div css={OVERRIDDEN_PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
@@ -44,17 +47,31 @@ export default function WelcomeView({ handleProceed }: welcomeProps) {
                   displayed in internal City of Boston systems and
                   communications.
                 </li>
-                <li>
-                  <strong>Email Address: </strong>
-                  You can update your email address to reflect your chosen
-                  name—or keep it as is, if you prefer.
-                </li>
+                {!cobAgenciesAltWorkflowFor.includes(cobAgency) && (
+                  <li>
+                    <strong>Email Address: </strong>
+                    You can update your email address to reflect your chosen
+                    name—or keep it as is, if you prefer.
+                  </li>
+                )}
               </ul>
               <ul>
                 <strong>What’s Not Changing: </strong>
+                {cobAgenciesAltWorkflowFor.includes(cobAgency) && (
+                  <li>
+                    <strong>Email Address: </strong>Your email address will
+                    remain the same.
+                  </li>
+                )}
                 <li>
                   <strong>Legal Name: </strong>
-                  City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the <a href='https://www.google.com' target="_blank">legal name link</a>.
+                  City Employees, your legal name used for tax documents (like
+                  W2s), paystubs, or other official legal documents will remain
+                  unchanged. To change your legal name, please follow the{' '}
+                  <a href="https://www.google.com" target="_blank">
+                    legal name link
+                  </a>
+                  .
                 </li>
               </ul>
               <p>
@@ -74,7 +91,6 @@ const OVERRIDDEN_PREFERRED_NAME_STYLING = css`
   ${PREFERRED_NAME_STYLING};
   max-width: 1000px;
 `;
-
 
 const SNIPPET_CONTAINER_STYLING = css({
   lineHeight: '2rem !important',
