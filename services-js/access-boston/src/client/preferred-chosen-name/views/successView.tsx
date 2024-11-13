@@ -32,16 +32,17 @@ export default function SuccessView(props: SuccessProps) {
           <AlertComponent text="Your chosen name and email have been updated" />
           <RowColumns
             chosenName={`${account.firstName} ${account.lastName}`}
-            emailAddress={account.email}
+            emailAddress={"sadkasdjakldjasklddsdadasdasdsjdlaskjd@boston.gov"}
           />
           <QuestionComponent
             quitBtn={true}
-            quitBtnText="Done"
+            quitBtnText="Log Out"
             handleQuit={handleQuit}>
             <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">
                 <p css={BODY_PARAGRAPH_STYLING}>
-                  <strong>Please Note: </strong>To access the most recent update, please log in to your account
+                  <strong>Please Note: </strong>To access the most recent update, please log in to your account after logging out.
+                  <p>For more information, see the <a href='https://www.google.com' target="_blank">FAQs</a></p>
                 </p>
               </div>
             </div>

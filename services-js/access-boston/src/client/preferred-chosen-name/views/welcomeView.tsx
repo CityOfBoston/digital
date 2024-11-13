@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+
 import { MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
@@ -19,7 +20,7 @@ interface welcomeProps {
 
 export default function WelcomeView({ handleProceed }: welcomeProps) {
   return (
-    <div css={PREFERRED_NAME_STYLING}>
+    <div css={OVERRIDDEN_PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
           <h2 className="headerBlock" css={HEADER_STYLING} />
@@ -53,10 +54,7 @@ export default function WelcomeView({ handleProceed }: welcomeProps) {
                 <strong>What’s Not Changing: </strong>
                 <li>
                   <strong>Legal Name: </strong>
-                  City Employees, your legal name used for tax documents (like
-                  W2s), paystubs, or other official legal documents will remain
-                  unchanged. To change your legal name, please follow the legal
-                  name link.
+                  City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the <a href='https://www.google.com' target="_blank">legal name link</a>.
                 </li>
               </ul>
               <p>
@@ -72,9 +70,15 @@ export default function WelcomeView({ handleProceed }: welcomeProps) {
   );
 }
 
+const OVERRIDDEN_PREFERRED_NAME_STYLING = css`
+  ${PREFERRED_NAME_STYLING};
+  max-width: 1000px;
+`;
+
+
 const SNIPPET_CONTAINER_STYLING = css({
   lineHeight: '2rem !important',
-  padding: '0 60px',
+  padding: '0 40px',
   '& > p, & > ul': {
     borderBottom: '1px solid #ccc',
     padding: '20px 0px',

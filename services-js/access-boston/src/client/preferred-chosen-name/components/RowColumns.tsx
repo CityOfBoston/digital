@@ -29,31 +29,29 @@ const INDEX_CONTAINER_STYLING = css({
 });
 
 const INDEX_ITEM_STYLING = css({
-  display: 'flex',
-  alignItems: 'center',
+  flexDirection: 'column',
+  alignItems: 'flex-start',  
   borderBottom: '1px solid #ccc',
-  padding: '24px 56px 24px 56px',
+  padding: '24px 40px',
 
   '@media (max-width: 600px)': {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
     padding: '16px 20px'
   },
 });
 
 const VALUE_STYLING = css({
-  textAlign: 'right',
+  textAlign: 'left',
   flex: '1',
   whiteSpace: 'normal',
   wordBreak: 'break-all',
   overflowWrap: 'break-word',
   display: 'flex',
-  justifyContent: 'flex-end',
+  justifyContent: 'flex-start',
   alignItems: 'center',
+  width: '100%',
+  paddingTop: '8px',
+  paddingLeft: "50px",
   '@media (max-width: 600px)': {
-    textAlign: 'left',
-    justifyContent: 'flex-start',
-    width: '100%',
-    paddingTop: '8px'
+    paddingLeft: "0px",
   },
 });

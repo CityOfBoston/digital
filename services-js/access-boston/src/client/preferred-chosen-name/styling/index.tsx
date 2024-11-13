@@ -44,7 +44,7 @@ export const PREFERRED_NAME_STYLING = css({
 
   color: `${CHARLES_BLUE}`,
   fontFamily: 'Lora',
-  fontSize: '22px',
+  fontSize: '20px',
   fontStyle: 'normal',
   fontWeight: 'normal',
   lineHeight: '150%',
@@ -80,7 +80,7 @@ export const PREFERRED_NAME_STYLING = css({
     '.headerBlock': {
       display: 'plex',
       alignContent: 'center',
-      padding: '20px 60px',
+      padding: '20px 40px',
       background: '#F0F0F0',
       borderBottom: '1px solid #A9AEB1',
 
@@ -102,7 +102,7 @@ export const PREFERRED_NAME_STYLING = css({
     },
 
     '.row': {
-      padding: '60px',
+      padding: '40px',
       paddingBottom: '1rem',
 
       [MEDIA_SMALL_MAX]: {
