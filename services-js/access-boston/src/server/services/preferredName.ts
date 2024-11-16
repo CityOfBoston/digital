@@ -83,3 +83,24 @@ export const allowPreferredNameEndpointReq = (
       (req['headers']['token'] as string)) === (apiToken as string)
   );
 };
+
+export const preferredNameRequest = async (data: {
+  id: string;
+  preferredFirstName: string;
+  preferredLastName: string;
+}) => {
+  const { id, preferredFirstName, preferredLastName } = data;
+  return await fetch(`/preferred-name-request` as string, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id, preferredFirstName, preferredLastName }),
+  })
+    .then(response => response.json())
+    .then(response => response)
+    .catch(error => {
+      console.log('/preferred-name Error(requestNewNameEmail):', error);
+      return {};
+    });
+};

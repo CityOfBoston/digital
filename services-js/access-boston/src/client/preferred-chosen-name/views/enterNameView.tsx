@@ -7,6 +7,7 @@ import { useState, MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
 import { CurrentNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
+// import { preferredNameRequest } from '../../../server/services/preferredName';
 
 interface Account {
   cobAgency: string;
@@ -59,7 +60,7 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
   //     });
   // };
 
-  // const retObj = advanceStepPreferredNameRequest({
+  // const retObj = preferredNameRequest({
   //   id: '40000093',
   //   preferredFirstName: 'Manuelo',
   //   preferredLastName: 'WebTest',
