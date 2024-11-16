@@ -6,7 +6,7 @@ import PageWrapper from '../../PageWrapper';
 import { AppTitle } from '../state/app';
 
 import WelcomeView from './welcomeView';
-import EnterNameView from './enterNameView';
+import { EnterNameView } from './enterNameView';
 import ConfirmationView from './confirmationView';
 import SuccessView from './successView';
 

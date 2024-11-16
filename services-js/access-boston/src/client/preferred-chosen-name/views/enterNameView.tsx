@@ -1,5 +1,8 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+
+import fetch from 'node-fetch';
+
 import { useState, MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
 import { CurrentNameTag } from '../components/TagComponent';
@@ -18,24 +21,51 @@ interface EnterNameProps {
   account: Account;
 }
 
-export default function EnterNameView({
-  handleProceed,
-  account,
-}: EnterNameProps) {
+export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
   const { cobAgency } = account;
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const allowProceed = firstName.trim() !== '' || lastName.trim() !== '';
+  const allowProceed: boolean =
+    firstName.trim() !== '' || lastName.trim() !== '';
 
   const handleClear = () => {
     setFirstName('');
     setLastName('');
   };
-  const cobAgenciesAltWorkflows = ['BPL', 'BPHC'];
+  const cobAgenciesAltWorkflows: Array<string> = ['BPL', 'BPHC'];
   const nextBtnStr: string = cobAgenciesAltWorkflows.includes(cobAgency)
     ? 'Submit'
     : 'Continue';
+
+  const advanceStepPreferredNameRequest = async (data: {
+    id: string;
+    preferredFirstName: string;
+    preferredLastName: string;
+  }) => {
+    const { id, preferredFirstName, preferredLastName } = data;
+    return await fetch(`/preferred-name-request` as string, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id, preferredFirstName, preferredLastName }),
+    })
+      .then(response => response.json())
+      .then(response => response)
+      .catch(error => {
+        console.log('/preferred-name Error(requestNewNameEmail):', error);
+        return {};
+      });
+  };
+
+  const retObj = advanceStepPreferredNameRequest({
+    id: '40000093',
+    preferredFirstName: 'Manuelo',
+    preferredLastName: 'WebTest',
+  });
+
+  console.log(`advanceStepPreferredNameRequest ...: `, retObj);
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
@@ -103,7 +133,7 @@ export default function EnterNameView({
       </div>
     </div>
   );
-}
+};
 
 const HEADER_CONTAINER_STYLING = css({
   fontSize: '2em',

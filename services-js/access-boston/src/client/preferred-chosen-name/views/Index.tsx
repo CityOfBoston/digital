@@ -3,6 +3,8 @@
 import { jsx } from '@emotion/core';
 import { useReducer } from 'react';
 
+// import fetch from 'node-fetch';
+
 import { Account } from '../../../client/graphql/fetch-account';
 
 // LAYOUT Components
@@ -10,7 +12,7 @@ import PageWrapper from '../../PageWrapper';
 // import { ApprovalView } from './views';
 import ConfirmationView from '../views/confirmationView';
 import WelcomeView from '../views/welcomeView';
-import EnterNameView from '../views/enterNameView';
+import { EnterNameView } from '../views/enterNameView';
 
 import {
   getViews,
@@ -71,6 +73,43 @@ export default function Index(props: Props) {
       changeView(fetchedViews[0]);
     }
   };
+
+  // const advanceStepPreferredNameRequest = async (data: {
+  //   id: string;
+  //   preferredFirstName: string;
+  //   preferredLastName: string;
+  // }) => {
+  //   const { id, preferredFirstName, preferredLastName } = data;
+  //   return await fetch(
+  //     `https://identity-test.boston.gov/identityiq/rest/workflows/COB-Workflow-GenerateUniqueEmail/launch` as string,
+  //     {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: 'Basic Q09CX1BPUlRBTF9VU0VSOkJvc3RvbjIwMTgh',
+  //       },
+  //       body: JSON.stringify({
+  //         workflowArgs: { id, preferredFirstName, preferredLastName },
+  //       }),
+  //     }
+  //   )
+  //     .then(response => response.json())
+  //     .then(response => response);
+  // };
+  // // console.log(
+  // //   `advanceStepPreferredNameRequest: `,
+  // //   advanceStepPreferredNameRequest
+  // // );
+
+  // console.log(
+  //   `advance ...: `,
+  //   advanceStepPreferredNameRequest({
+  //     id: '40000093',
+  //     preferredFirstName: 'Manuelo',
+  //     preferredLastName: 'WebTest',
+  //     // email: 'manuelo.webtest2@boston.gov',
+  //   })
+  // );
 
   const defaultView = (
     <PageWrapper classString={'b-c'}>

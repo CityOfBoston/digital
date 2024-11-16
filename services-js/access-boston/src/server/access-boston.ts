@@ -62,6 +62,7 @@ import {
   requestNewNameEmail,
   workflowArgs,
   // workflowReqArgs,
+  allowPreferredNameEndpointReq,
 } from './services/preferredName';
 
 require('dotenv').config();
@@ -450,74 +451,72 @@ async function addVelocityTemplates(server: HapiServer) {
       timeout: { server: 15000 },
     },
     handler: async (req, h) => {
-      // CHECK `token` is present in the request and matches `ENV`
+      // Only allow request where heades['token'] or referrer ~ host
       if (
-        !req['headers'] ||
-        !req['headers']['token'] ||
-        (req['headers']['token'] as string) !==
-          (process.env.PREFERRED_NAME__API_KEY as string)
+        allowPreferredNameEndpointReq(req, process.env.PREFERRED_NAME__API_KEY)
       ) {
-        return h.response({ error: 'Invalid or Missing Token' }).code(400);
-      }
+        const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
+          .WORKFLOW_URL__GENERATE_EMAIL as string;
+        const reqReqFields = ['id'];
+        const optFields = ['preferredFirstName', 'preferredLastName'];
+        const validRequestFields = reqReqFields.concat(optFields);
+        const serverPayloadValid = serverPayloadValidAndUseful(
+          req.payload,
+          validRequestFields,
+          1,
+          optFields
+        );
 
-      const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
-        .WORKFLOW_URL__GENERATE_EMAIL as string;
-      const reqReqFields = ['id'];
-      const optFields = ['preferredFirstName', 'preferredLastName'];
-      const validRequestFields = reqReqFields.concat(optFields);
-      const serverPayloadValid = serverPayloadValidAndUseful(
-        req.payload,
-        validRequestFields,
-        1,
-        optFields
-      );
+        try {
+          if (
+            WORKFLOW_URL__GENERATE_EMAIL.length > 0 &&
+            typeof req.payload === 'object' &&
+            req.payload &&
+            serverPayloadValid
+          ) {
+            if (dev) {
+              // USE FIXTURE
+              return await readFile(
+                path.resolve(
+                  __dirname,
+                  '../../fixtures/preferred-chosen-name/test/COB-Workflow-GenerateUniqueEmail/response/40000093.json'
+                ),
+                'utf-8'
+              );
+            } else {
+              let workflowArgs: workflowArgs = {
+                identityName: req.payload['id'],
+              };
 
-      try {
-        if (
-          WORKFLOW_URL__GENERATE_EMAIL.length > 0 &&
-          typeof req.payload === 'object' &&
-          req.payload &&
-          serverPayloadValid
-        ) {
-          if (dev) {
-            // USE FIXTURE
-            return await readFile(
-              path.resolve(
-                __dirname,
-                '../../fixtures/preferred-chosen-name/test/COB-Workflow-GenerateUniqueEmail/response/40000093.json'
-              ),
-              'utf-8'
-            );
+              if (req.payload['preferredFirstName'])
+                workflowArgs['preferredFirstName'] =
+                  req.payload['preferredFirstName'];
+              if (req.payload['preferredLastName'])
+                workflowArgs['preferredLastName'] =
+                  req.payload['preferredLastName'];
+
+              return requestNewNameEmail({
+                endpoint: WORKFLOW_URL__GENERATE_EMAIL,
+                requestJson: { workflowArgs },
+                authStr: basicAuthBase64Str(
+                  process.env.IDENTITYIQ_USERNAME,
+                  process.env.IDENTITYIQ_PASSWORD
+                ),
+              });
+            }
           } else {
-            let workflowArgs: workflowArgs = {
-              identityName: req.payload['id'],
-            };
-
-            if (req.payload['preferredFirstName'])
-              workflowArgs['preferredFirstName'] =
-                req.payload['preferredFirstName'];
-            if (req.payload['preferredLastName'])
-              workflowArgs['preferredLastName'] =
-                req.payload['preferredLastName'];
-
-            return requestNewNameEmail({
-              endpoint: WORKFLOW_URL__GENERATE_EMAIL,
-              requestJson: { workflowArgs },
-              authStr: basicAuthBase64Str(
-                process.env.IDENTITYIQ_USERNAME,
-                process.env.IDENTITYIQ_PASSWORD
-              ),
-            });
+            throw Boom.notFound(`No data is available for »${req}«`);
           }
-        } else {
-          throw Boom.notFound(`No data is available for »${req}«`);
+        } catch (error) {
+          return h
+            .response({
+              error: 'Invalid request format (JSON); Check fields / values.',
+            })
+            .code(400);
         }
-      } catch (error) {
-        console.log(`/preferred-name-request (error): `, error);
+      } else {
         return h
-          .response({
-            error: 'Invalid request format (JSON); Check fields / values.',
-          })
+          .response({ error: 'Invalid or Missing Token or referrer != host' })
           .code(400);
       }
     },
@@ -534,70 +533,69 @@ async function addVelocityTemplates(server: HapiServer) {
       timeout: { server: 15000 },
     },
     handler: async (req, h) => {
-      // CHECK `token` is present in the request and matches `ENV`
+      // Only allow request where heades['token'] or referrer ~ host
       if (
-        !req['headers'] ||
-        !req['headers']['token'] ||
-        (req['headers']['token'] as string) !==
-          (process.env.PREFERRED_NAME__API_KEY as string)
+        allowPreferredNameEndpointReq(req, process.env.PREFERRED_NAME__API_KEY)
       ) {
-        return h.response({ error: 'Invalid or Missing Token' }).code(400);
-      }
+        const WORKFLOW_URL__UPDATENAME: string = process.env
+          .WORKFLOW_URL__UPDATENAME as string;
+        const reqReqFields = ['id', 'email'];
+        const optFields = ['preferredFirstName', 'preferredLastName'];
+        const validRequestFields = reqReqFields.concat(optFields);
+        const serverPayloadValid = serverPayloadValidAndUseful(
+          req.payload,
+          validRequestFields,
+          1,
+          optFields
+        );
 
-      const WORKFLOW_URL__UPDATENAME: string = process.env
-        .WORKFLOW_URL__UPDATENAME as string;
-      const reqReqFields = ['id', 'email'];
-      const optFields = ['preferredFirstName', 'preferredLastName'];
-      const validRequestFields = reqReqFields.concat(optFields);
-      const serverPayloadValid = serverPayloadValidAndUseful(
-        req.payload,
-        validRequestFields,
-        1,
-        optFields
-      );
+        try {
+          if (
+            WORKFLOW_URL__UPDATENAME.length > 0 &&
+            typeof req.payload === 'object' &&
+            req.payload &&
+            serverPayloadValid
+          ) {
+            if (dev) {
+              // USE FIXTURE
+              return await readFile(
+                path.resolve(
+                  __dirname,
+                  '../../fixtures/preferred-chosen-name/test/COB-Workflow-PreferredNames/response/40000093.json'
+                ),
+                'utf-8'
+              );
+            } else {
+              let workflowArgs: workflowArgs = {
+                identityName: req.payload['id'],
+                preferredFirstName: req.payload['preferredFirstName'],
+                preferredLastName: req.payload['preferredLastName'],
+                email: req.payload['email'],
+              };
 
-      try {
-        if (
-          WORKFLOW_URL__UPDATENAME.length > 0 &&
-          typeof req.payload === 'object' &&
-          req.payload &&
-          serverPayloadValid
-        ) {
-          if (dev) {
-            // USE FIXTURE
-            return await readFile(
-              path.resolve(
-                __dirname,
-                '../../fixtures/preferred-chosen-name/test/COB-Workflow-PreferredNames/response/40000093.json'
-              ),
-              'utf-8'
-            );
+              return requestNewNameEmail({
+                endpoint: WORKFLOW_URL__UPDATENAME,
+                requestJson: { workflowArgs },
+                authStr: basicAuthBase64Str(
+                  process.env.IDENTITYIQ_USERNAME,
+                  process.env.IDENTITYIQ_PASSWORD
+                ),
+              });
+            }
           } else {
-            let workflowArgs: workflowArgs = {
-              identityName: req.payload['id'],
-              preferredFirstName: req.payload['preferredFirstName'],
-              preferredLastName: req.payload['preferredLastName'],
-              email: req.payload['email'],
-            };
-
-            return requestNewNameEmail({
-              endpoint: WORKFLOW_URL__UPDATENAME,
-              requestJson: { workflowArgs },
-              authStr: basicAuthBase64Str(
-                process.env.IDENTITYIQ_USERNAME,
-                process.env.IDENTITYIQ_PASSWORD
-              ),
-            });
+            throw Boom.notFound(`No data is available for »${req}«`);
           }
-        } else {
-          throw Boom.notFound(`No data is available for »${req}«`);
+        } catch (error) {
+          console.log(`/preferred-name-request (error): `, error);
+          return h
+            .response({
+              error: 'Invalid request format (JSON); Check fields / values.',
+            })
+            .code(400);
         }
-      } catch (error) {
-        console.log(`/preferred-name-request (error): `, error);
+      } else {
         return h
-          .response({
-            error: 'Invalid request format (JSON); Check fields / values.',
-          })
+          .response({ error: 'Invalid or Missing Token or referrer != host' })
           .code(400);
       }
     },
