@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
 import { useState, MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
@@ -38,34 +38,34 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
     ? 'Submit'
     : 'Continue';
 
-  const advanceStepPreferredNameRequest = async (data: {
-    id: string;
-    preferredFirstName: string;
-    preferredLastName: string;
-  }) => {
-    const { id, preferredFirstName, preferredLastName } = data;
-    return await fetch(`/preferred-name-request` as string, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id, preferredFirstName, preferredLastName }),
-    })
-      .then(response => response.json())
-      .then(response => response)
-      .catch(error => {
-        console.log('/preferred-name Error(requestNewNameEmail):', error);
-        return {};
-      });
-  };
+  // const advanceStepPreferredNameRequest = async (data: {
+  //   id: string;
+  //   preferredFirstName: string;
+  //   preferredLastName: string;
+  // }) => {
+  //   const { id, preferredFirstName, preferredLastName } = data;
+  //   return await fetch(`/preferred-name-request` as string, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ id, preferredFirstName, preferredLastName }),
+  //   })
+  //     .then(response => response.json())
+  //     .then(response => response)
+  //     .catch(error => {
+  //       console.log('/preferred-name Error(requestNewNameEmail):', error);
+  //       return {};
+  //     });
+  // };
 
-  const retObj = advanceStepPreferredNameRequest({
-    id: '40000093',
-    preferredFirstName: 'Manuelo',
-    preferredLastName: 'WebTest',
-  });
+  // const retObj = advanceStepPreferredNameRequest({
+  //   id: '40000093',
+  //   preferredFirstName: 'Manuelo',
+  //   preferredLastName: 'WebTest',
+  // });
 
-  console.log(`advanceStepPreferredNameRequest ...: `, retObj);
+  // console.log(`advanceStepPreferredNameRequest ...: `, retObj);
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
