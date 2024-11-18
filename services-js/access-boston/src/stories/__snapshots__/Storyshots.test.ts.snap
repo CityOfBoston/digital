@@ -11198,7 +11198,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               <div
                 className="CurrentName"
               >
-                Camila Donovan
+                Felipe
+                 
+                Rivera
               </div>
             </div>
             <a
@@ -11268,7 +11270,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               <div
                 className="css-13i8ivi-ConfirmationView"
               >
-                juliana.donovan@boston.gov
+                felipe.rivera@boston.gov
               </div>
             </label>
             <label

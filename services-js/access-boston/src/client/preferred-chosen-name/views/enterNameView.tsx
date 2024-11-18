@@ -7,7 +7,10 @@ import { useState, MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
 import { CurrentNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
-// import { preferredNameRequest } from '../../../server/services/preferredName';
+// import {
+//   // preferredNameRequest,
+//   preferredNameSubmit,
+// } from '../../../server/services/preferredName';
 
 interface Account {
   cobAgency: string;
@@ -60,13 +63,23 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
   //     });
   // };
 
+  // ----------------------------------- //
   // const retObj = preferredNameRequest({
   //   id: '40000093',
   //   preferredFirstName: 'Manuelo',
   //   preferredLastName: 'WebTest',
   // });
-
   // console.log(`advanceStepPreferredNameRequest ...: `, retObj);
+
+  // ----------------------------------- //
+  // const retObj = preferredNameSubmit({
+  //   id: '40000093',
+  //   preferredFirstName: 'Manuelo',
+  //   preferredLastName: 'WebTest',
+  //   email: 'manuel.webtest@boston.gov',
+  // });
+  // console.log(`advanceStepPreferredNameSubmit ...: `, retObj);
+  // ----------------------------------- //
 
   return (
     <div css={PREFERRED_NAME_STYLING}>

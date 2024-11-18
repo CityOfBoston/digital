@@ -100,7 +100,42 @@ export const preferredNameRequest = async (data: {
     .then(response => response.json())
     .then(response => response)
     .catch(error => {
-      console.log('/preferred-name Error(requestNewNameEmail):', error);
+      console.log(
+        '/preferred-name-request Error(preferredNameRequest):',
+        error
+      );
+      return {};
+    });
+};
+
+export const preferredNameSubmit = async (data: {
+  id: string;
+  preferredFirstName?: string;
+  preferredLastName?: string;
+  email?: string;
+}) => {
+  const { id, preferredFirstName, preferredLastName, email } = data;
+  let workflowArgsObj = { id };
+
+  if (preferredFirstName && preferredFirstName.length > 1)
+    workflowArgsObj['preferredFirstName'] = preferredFirstName;
+
+  if (preferredLastName && preferredLastName.length > 1)
+    workflowArgsObj['preferredLastName'] = preferredLastName;
+
+  if (email && email.length > 1) workflowArgsObj['email'] = email;
+
+  return await fetch(`/preferred-name-submit` as string, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(workflowArgsObj),
+  })
+    .then(response => response.json())
+    .then(response => response)
+    .catch(error => {
+      console.log('/preferred-name-submit Error(preferredNameSubmit):', error);
       return {};
     });
 };

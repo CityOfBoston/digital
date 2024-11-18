@@ -24,7 +24,7 @@ export default function ConfirmationView({
   handleStepBack,
   account,
 }: ConfirmationProps) {
-  console.log(account);
+  // console.log(account);
 
   const [selectedOption, setSelectedOption] = useState('UseNewEmail');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -55,7 +55,9 @@ export default function ConfirmationView({
             <div css={CHOSEN_NAME_CONTAINER_STYLING}>
               <div css={CHOSEN_NAME_STYLING}>
                 <ChosenNameTag />
-                <div className="CurrentName">Camila Donovan</div>
+                <div className="CurrentName">
+                  {account.firstName} {account.lastName}
+                </div>
               </div>
               <a
                 type="button"
@@ -115,7 +117,7 @@ export default function ConfirmationView({
                   />
                   <strong css={RADIO_LABEL_STYLING}>Keep current email</strong>
                 </div>
-                <div css={EMAIL_TEXT_STYLING}>juliana.donovan@boston.gov</div>
+                <div css={EMAIL_TEXT_STYLING}>{account.email}</div>
               </label>
               <label css={CHECKBOX_LABEL_STYLING(checkboxChecked)}>
                 <input
