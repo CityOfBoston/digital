@@ -4,43 +4,35 @@ import { jsx, css } from '@emotion/core';
 // import fetch from 'node-fetch';
 
 import { useState, MouseEvent } from 'react';
+
+import { CommonAttributes } from '../types';
+
 import QuestionComponent from '../components/QuestionComponent';
 import { CurrentNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 // import {
-//   // preferredNameRequest,
-//   preferredNameSubmit,
+//   preferredNameRequest,
+//   // preferredNameSubmit,
 // } from '../../../server/services/preferredName';
-
-interface Account {
-  cobAgency: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-}
 
 interface EnterNameProps {
   handleProceed: (ev: MouseEvent) => void;
   appTitle: string;
-  account: Account;
+  state: CommonAttributes;
 }
 
-export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
-  const { cobAgency } = account;
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+export const EnterNameView = ({ handleProceed, state }: EnterNameProps) => {
+  const { altWorkflow, firstName, lastName } = state;
+  const [FName, setFirstName] = useState('');
+  const [LName, setLastName] = useState('');
 
-  const allowProceed: boolean =
-    firstName.trim() !== '' || lastName.trim() !== '';
+  const allowProceed: boolean = FName.trim() !== '' || LName.trim() !== '';
 
   const handleClear = () => {
     setFirstName('');
     setLastName('');
   };
-  const cobAgenciesAltWorkflows: Array<string> = ['BPL', 'BPHC'];
-  const nextBtnStr: string = cobAgenciesAltWorkflows.includes(cobAgency)
-    ? 'Submit'
-    : 'Continue';
+  const nextBtnStr: string = altWorkflow ? 'Submit' : 'Continue';
 
   // const advanceStepPreferredNameRequest = async (data: {
   //   id: string;
@@ -62,6 +54,7 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
   //       return {};
   //     });
   // };
+  // ----------------------------------- //
 
   // ----------------------------------- //
   // const retObj = preferredNameRequest({
@@ -70,6 +63,7 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
   //   preferredLastName: 'WebTest',
   // });
   // console.log(`advanceStepPreferredNameRequest ...: `, retObj);
+  // ----------------------------------- //
 
   // ----------------------------------- //
   // const retObj = preferredNameSubmit({
@@ -92,7 +86,9 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
             Changing your chosen name will affect your City of Boston accounts.
             <div className="CurrentNameContainer" css={CURRENT_NAME_STYLING}>
               <CurrentNameTag />
-              <div className="CurrentName">Juliana Donovan</div>
+              <div className="CurrentName">
+                {firstName} {lastName}
+              </div>
             </div>
           </div>
           <QuestionComponent
@@ -119,10 +115,10 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
               >
                 <label css={LABEL_STYLING}>Chosen First Name</label>
                 <input
-                  value={firstName}
+                  value={FName}
                   onChange={e => setFirstName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder="Default: Juliana"
+                  placeholder={`Default: ${firstName}`}
                 />
               </div>
               <div
@@ -131,10 +127,10 @@ export const EnterNameView = ({ handleProceed, account }: EnterNameProps) => {
               >
                 <label css={LABEL_STYLING}>Chosen Last Name</label>
                 <input
-                  value={lastName}
+                  value={LName}
                   onChange={e => setLastName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder="Default: Donovan"
+                  placeholder={`Default: ${lastName}`}
                 />
               </div>
               For more information, see the{' '}

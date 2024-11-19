@@ -3,48 +3,36 @@
 import { jsx, css } from '@emotion/core';
 import { MouseEvent } from 'react';
 
-import { CommonAttributes } from '../types';
+// import { CommonAttributes } from '../types';
 
 //--- HTML Struct & Styling ---//
 import QuestionComponent from '../components/QuestionComponent';
 import AlertComponent from '../components/AlertComponent';
-import RowColumns from '../components/RowColumns';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
-interface SuccessProps {
+interface ErrorProps {
   handleQuit: (ev: MouseEvent) => void;
   appTitle: string;
-  state: CommonAttributes;
+  // state: CommonAttributes;
 }
 
-export default function SuccessView(props: SuccessProps) {
-  const { handleQuit, state } = props;
+export default function ErrorView(props: ErrorProps) {
+  const { handleQuit } = props;
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
-          <AlertComponent text="Your chosen name and email have been updated" />
-          <RowColumns
-            chosenName={`${state.firstName} ${state.lastName}`}
-            emailAddress={'sadkasdjakldjasklddsdadasdasdsjdlaskjd@boston.gov'}
-          />
+          <AlertComponent type={`Error`} text="Error" />
           <QuestionComponent
             quitBtn={true}
-            quitBtnText="Log Out"
+            quitBtnText="Close"
             handleQuit={handleQuit}
           >
             <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">
                 <p css={BODY_PARAGRAPH_STYLING}>
-                  <strong>Please Note: </strong>To access the most recent
-                  update, please log in to your account after logging out.
-                  <p>
-                    For more information, see the{' '}
-                    <a href="https://www.google.com" target="_blank">
-                      FAQs
-                    </a>
-                  </p>
+                  There was an error with this request, please try again later.
                 </p>
               </div>
             </div>

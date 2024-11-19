@@ -8292,7 +8292,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -9362,7 +9362,7 @@ exports[`Storyshots IndexPage default 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -10486,7 +10486,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -11376,7 +11376,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
             <div
               className="CurrentName"
             >
-              Juliana Donovan
+              Felipe
+               
+              Rivera
             </div>
           </div>
         </div>
@@ -11398,7 +11400,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Juliana"
+                placeholder="Default: Felipe"
                 value=""
               />
             </div>
@@ -11413,7 +11415,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Donovan"
+                placeholder="Default: Rivera"
                 value=""
               />
             </div>
@@ -11445,6 +11447,85 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
             >
               Continue
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-1dj428v-ErrorView"
+  >
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="css-i3zcce-AlertComponent"
+        >
+          <div
+            className="css-18zvm2j-AlertComponent"
+          >
+            <svg
+              className="css-zufqbj-AlertComponent"
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+                fill="#9c3d10"
+              />
+            </svg>
+          </div>
+          <div
+            className="css-od4gop-AlertComponent"
+          >
+            Error
+          </div>
+        </div>
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="row css-1cch9y7-ErrorView"
+          >
+            <div
+              className="bodyText"
+            >
+              <p
+                className="css-1mpmuov-ErrorView"
+              >
+                There was an error with this request, please try again later.
+              </p>
+            </div>
+          </div>
+          <div
+            className="css-16umr7p-QuestionComponent"
+          >
+             
+            <div
+              className="successView__Btn-wrapper"
+            >
+              <button
+                className="btn btn--b-sm"
+                onClick={[Function]}
+                type="button"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -11580,7 +11661,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
                 </strong>
                 To access the most recent update, please log in to your account after logging out.
                 <p>
-                  For more information, see the 
+                  For more information, see the
+                   
                   <a
                     href="https://www.google.com"
                     target="_blank"
@@ -11756,7 +11838,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
             <div
               className="CurrentName"
             >
-              Juliana Donovan
+              Felipe
+               
+              Rivera
             </div>
           </div>
         </div>
@@ -11778,7 +11862,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Juliana"
+                placeholder="Default: Felipe"
                 value=""
               />
             </div>
@@ -11793,7 +11877,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Donovan"
+                placeholder="Default: Rivera"
                 value=""
               />
             </div>
@@ -11825,6 +11909,85 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
             >
               Submit
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-1dj428v-ErrorView"
+  >
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="css-i3zcce-AlertComponent"
+        >
+          <div
+            className="css-18zvm2j-AlertComponent"
+          >
+            <svg
+              className="css-zufqbj-AlertComponent"
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+                fill="#9c3d10"
+              />
+            </svg>
+          </div>
+          <div
+            className="css-od4gop-AlertComponent"
+          >
+            Error
+          </div>
+        </div>
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="row css-1cch9y7-ErrorView"
+          >
+            <div
+              className="bodyText"
+            >
+              <p
+                className="css-1mpmuov-ErrorView"
+              >
+                There was an error with this request, please try again later.
+              </p>
+            </div>
+          </div>
+          <div
+            className="css-16umr7p-QuestionComponent"
+          >
+             
+            <div
+              className="successView__Btn-wrapper"
+            >
+              <button
+                className="btn btn--b-sm"
+                onClick={[Function]}
+                type="button"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -11960,7 +12123,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
                 </strong>
                 To access the most recent update, please log in to your account after logging out.
                 <p>
-                  For more information, see the 
+                  For more information, see the
+                   
                   <a
                     href="https://www.google.com"
                     target="_blank"

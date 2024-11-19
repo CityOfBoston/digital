@@ -3,9 +3,8 @@
 import { jsx } from '@emotion/core';
 import { useReducer } from 'react';
 
-// import fetch from 'node-fetch';
-
-import { Account } from '../../../client/graphql/fetch-account';
+// import { Account } from '../../../client/graphql/fetch-account';
+import { CommonAttributes } from '../types';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
@@ -18,24 +17,21 @@ import {
   getViews,
   // getSteps
 } from '../../storage/PreferredChosenNameRequest';
-import { reducer as stateReducer, newInitState, AppTitle } from '../state/app';
+import {
+  reducer as stateReducer,
+  AppTitle,
+  // newInitState,
+} from '../state/app';
 import SuccessView from './successView';
 
 interface Props {
-  account: Account;
+  accountState: CommonAttributes;
 }
 
 export default function Index(props: Props) {
-  const { account } = props;
-  const viewAccountObj = {
-    cobAgency: account.cobAgency || '',
-    firstName: account.firstName || '',
-    lastName: account.lastName || '',
-    email: account.email || '',
-  };
+  const { accountState } = props;
 
-  const [state, dispatchState] = useReducer(stateReducer, newInitState);
-  //   const fetchedSteps: Array<string> = getSteps();
+  const [state, dispatchState] = useReducer(stateReducer, accountState);
   const fetchedViews: Array<string> = getViews();
 
   const closeTab = () => {
@@ -74,49 +70,12 @@ export default function Index(props: Props) {
     }
   };
 
-  // const advanceStepPreferredNameRequest = async (data: {
-  //   id: string;
-  //   preferredFirstName: string;
-  //   preferredLastName: string;
-  // }) => {
-  //   const { id, preferredFirstName, preferredLastName } = data;
-  //   return await fetch(
-  //     `https://identity-test.boston.gov/identityiq/rest/workflows/COB-Workflow-GenerateUniqueEmail/launch` as string,
-  //     {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: 'Basic Q09CX1BPUlRBTF9VU0VSOkJvc3RvbjIwMTgh',
-  //       },
-  //       body: JSON.stringify({
-  //         workflowArgs: { id, preferredFirstName, preferredLastName },
-  //       }),
-  //     }
-  //   )
-  //     .then(response => response.json())
-  //     .then(response => response);
-  // };
-  // // console.log(
-  // //   `advanceStepPreferredNameRequest: `,
-  // //   advanceStepPreferredNameRequest
-  // // );
-
-  // console.log(
-  //   `advance ...: `,
-  //   advanceStepPreferredNameRequest({
-  //     id: '40000093',
-  //     preferredFirstName: 'Manuelo',
-  //     preferredLastName: 'WebTest',
-  //     // email: 'manuelo.webtest2@boston.gov',
-  //   })
-  // );
-
   const defaultView = (
     <PageWrapper classString={'b-c'}>
       <WelcomeView
         handleProceed={advanceStep}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        state={state}
       />
     </PageWrapper>
   );
@@ -127,7 +86,7 @@ export default function Index(props: Props) {
         handleProceed={advanceStep}
         // handleStepBack={stepBack}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        state={state}
       />
     </PageWrapper>
   );
@@ -138,18 +97,14 @@ export default function Index(props: Props) {
         handleProceed={advanceStep}
         handleStepBack={stepBack}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        state={state}
       />
     </PageWrapper>
   );
 
   const successView = (
     <PageWrapper classString={'b-c'}>
-      <SuccessView
-        handleQuit={closeTab}
-        appTitle={AppTitle}
-        account={viewAccountObj}
-      />
+      <SuccessView handleQuit={closeTab} appTitle={AppTitle} state={state} />
     </PageWrapper>
   );
 

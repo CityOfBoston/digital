@@ -1,28 +1,24 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { useState, MouseEvent } from 'react';
+
+import { CommonAttributes } from '../types';
+
 import QuestionComponent from '../components/QuestionComponent';
 import { ChosenNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
-
-interface Account {
-  cobAgency: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-}
 
 interface ConfirmationProps {
   handleProceed: (ev: MouseEvent) => void;
   handleStepBack: (ev: MouseEvent) => void;
   appTitle: string;
-  account: Account;
+  state: CommonAttributes;
 }
 
 export default function ConfirmationView({
   handleProceed,
   handleStepBack,
-  account,
+  state,
 }: ConfirmationProps) {
   // console.log(account);
 
@@ -56,7 +52,7 @@ export default function ConfirmationView({
               <div css={CHOSEN_NAME_STYLING}>
                 <ChosenNameTag />
                 <div className="CurrentName">
-                  {account.firstName} {account.lastName}
+                  {state.firstName} {state.lastName}
                 </div>
               </div>
               <a
@@ -117,7 +113,7 @@ export default function ConfirmationView({
                   />
                   <strong css={RADIO_LABEL_STYLING}>Keep current email</strong>
                 </div>
-                <div css={EMAIL_TEXT_STYLING}>{account.email}</div>
+                <div css={EMAIL_TEXT_STYLING}>{state.email}</div>
               </label>
               <label css={CHECKBOX_LABEL_STYLING(checkboxChecked)}>
                 <input

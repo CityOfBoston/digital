@@ -4,23 +4,32 @@ import { storiesOf } from '@storybook/react';
 import PageWrapper from '../../PageWrapper';
 
 import { AppTitle } from '../state/app';
+import { CommonAttributes, PreferredChosenNameInformation } from '../types';
 
 import WelcomeView from './welcomeView';
 import { EnterNameView } from './enterNameView';
 import ConfirmationView from './confirmationView';
 import SuccessView from './successView';
+import ErrorView from './errorView';
 
-const defaultWorkflowAccount = {
-  cobAgency: 'CH',
-  firstName: 'Felipe',
-  lastName: 'Rivera',
-  email: 'felipe.rivera@boston.gov',
-};
+const defaultWorkflowAccount: CommonAttributes = new PreferredChosenNameInformation(
+  {
+    init: true,
+    employeeId: 'CON12345',
+    employeeType: 'CH',
+    firstName: 'Felipe',
+    lastName: 'Rivera',
+    email: 'felipe.rivera@boston.gov',
+  }
+);
 
 const defaultAltWorkflowAccount = {
   ...defaultWorkflowAccount,
-  ...{ cobAgency: 'BPL' },
+  ...{ employeeType: 'BPL', altWorkflow: true },
 };
+
+// console.log(`defaultWorkflowAccount: `, defaultWorkflowAccount);
+// console.log(`defaultAltWorkflowAccount: `, defaultAltWorkflowAccount);
 
 // WORKFLOW (Default)
 storiesOf('Preferred Chosen Name/Workflow 1', module)
@@ -29,7 +38,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
       <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={defaultWorkflowAccount}
+        state={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -38,7 +47,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
       <EnterNameView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={defaultWorkflowAccount}
+        state={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -48,7 +57,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
         handleProceed={() => {}}
         handleStepBack={() => {}}
         appTitle={AppTitle}
-        account={defaultWorkflowAccount}
+        state={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -57,7 +66,16 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
       <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
-        account={defaultWorkflowAccount}
+        state={defaultWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Error', () => (
+    <PageWrapper classString={'b-c'}>
+      <ErrorView
+        handleQuit={() => {}}
+        appTitle={AppTitle}
+        // state={defaultWorkflowAccount}
       />
     </PageWrapper>
   ));
@@ -69,7 +87,7 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
       <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={defaultAltWorkflowAccount}
+        state={defaultAltWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -78,7 +96,7 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
       <EnterNameView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={defaultAltWorkflowAccount}
+        state={defaultAltWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -87,7 +105,16 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
       <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
-        account={defaultAltWorkflowAccount}
+        state={defaultAltWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Error', () => (
+    <PageWrapper classString={'b-c'}>
+      <ErrorView
+        handleQuit={() => {}}
+        appTitle={AppTitle}
+        // state={defaultWorkflowAccount}
       />
     </PageWrapper>
   ));

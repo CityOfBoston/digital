@@ -60,6 +60,9 @@ export interface LoginSession {
   mfaPhoneNumber: string | null;
 
   cobAgency: string | null;
+
+  // DIG-5136: Preferred/Chosen Name front end to back end workflow
+  // displayName: string | null;
 }
 
 export type SessionAuth = LoginAuth | ForgotPasswordAuth;

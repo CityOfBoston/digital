@@ -3,24 +3,18 @@ import { jsx, css } from '@emotion/core';
 
 import { MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
-import { PREFERRED_NAME_STYLING } from '../styling/index';
 
-interface Account {
-  cobAgency: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-}
+import { CommonAttributes } from '../types';
+import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface welcomeProps {
   handleProceed: (ev: MouseEvent) => void;
   appTitle: string;
-  account: Account;
+  state: CommonAttributes;
 }
 
-export default function WelcomeView({ handleProceed, account }: welcomeProps) {
-  const { cobAgency } = account;
-  const cobAgenciesAltWorkflows = ['BPL', 'BPHC'];
+export default function WelcomeView({ handleProceed, state }: welcomeProps) {
+  console.log(`state: `, state);
 
   return (
     <div css={OVERRIDDEN_PREFERRED_NAME_STYLING}>
@@ -47,7 +41,7 @@ export default function WelcomeView({ handleProceed, account }: welcomeProps) {
                   displayed in internal City of Boston systems and
                   communications.
                 </li>
-                {!cobAgenciesAltWorkflows.includes(cobAgency) && (
+                {!state.altWorkflow && (
                   <li>
                     <strong>Email Address: </strong>
                     You can update your email address to reflect your chosen
@@ -57,7 +51,7 @@ export default function WelcomeView({ handleProceed, account }: welcomeProps) {
               </ul>
               <ul>
                 <strong>What’s Not Changing: </strong>
-                {cobAgenciesAltWorkflows.includes(cobAgency) && (
+                {state.altWorkflow && (
                   <li>
                     <strong>Email Address: </strong>Your email address will
                     remain the same.
