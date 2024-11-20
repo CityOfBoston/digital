@@ -530,7 +530,7 @@ async function addVelocityTemplates(server: HapiServer) {
       plugins: {
         crumb: false,
       },
-      timeout: { server: 15000 },
+      timeout: { server: 60000 },
     },
     handler: async (req, h) => {
       // Only allow request where heades['token'] or referrer ~ host
