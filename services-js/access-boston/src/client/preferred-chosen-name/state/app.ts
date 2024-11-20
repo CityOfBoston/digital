@@ -7,14 +7,15 @@ import {
   PreferredChosenNameInformation,
 } from '../types';
 import { getViews } from '../../storage/PreferredChosenNameRequest';
-import { preferredNameRequest } from '../../../server/services/preferredName';
+// import { preferredNameRequest } from '../../../server/services/preferredName';
 
 export const AppTitle: string = 'Preferred / Chosen Name';
 export type ActionTypes =
   | 'APP/CHANGE_VIEW'
   | 'APP/RESET_STATE'
   | 'APP/INITIAL_STATE'
-  | 'APP/UPDATE_PREFERREDNAME';
+  | 'APP/UPDATE_PREFERREDNAME'
+  | 'APP/UPDATE__SUBMIT_PREFERREDNAME';
 
 interface Action {
   type: ActionTypes;
@@ -73,30 +74,53 @@ export const reducer = (state: any, action: Partial<Action>) => {
     case 'APP/UPDATE_PREFERREDNAME':
       if (action.formData) {
         try {
-          const retObj = preferredNameRequest({
-            id: action.formData.Id,
-            preferredFirstName: action.formData.FName,
-            preferredLastName: action.formData.LName,
-          });
-
-          console.log(`app state (retObj): `, retObj);
-
-          return {
+          const updatedState = {
             ...state,
             chosenFirstName: action.formData.FName,
             chosenLastName: action.formData.LName,
             fetchNameReqRes: true,
             fetchNameReqResError: false,
-            newEmail: retObj['attributes']['result']['newEmail'],
-            // newEmail: retObj.attributes.result.newEmail,
+            newEmail: action.formData.Email,
           };
 
-          // dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
-          // dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
+          console.log(
+            `APP/UPDATE_PREFERREDNAME (updatedState): `,
+            updatedState
+          );
+
+          return updatedState;
         } catch (error) {
-          // dispatchState({ type: 'APP/CHANGE_VIEW', view: 4 });
           console.log(`APP/UPDATE_PREFERREDNAME (error): `, error);
-          return state;
+          console.log(`APP/UPDATE_PREFERREDNAME (post-error(state)): `, state);
+          return {};
+        }
+      } else {
+        return state;
+      }
+    case 'APP/UPDATE__SUBMIT_PREFERREDNAME':
+      if (action.formData) {
+        try {
+          const updatedState = {
+            ...state,
+            chosenFirstName: action.formData.FName,
+            chosenLastName: action.formData.LName,
+            submitNameChangeReq: true,
+            submitNameChangeReqError: false,
+          };
+
+          console.log(
+            `APP/UPDATE__SUBMIT_PREFERREDNAME (updatedState): `,
+            updatedState
+          );
+
+          return updatedState;
+        } catch (error) {
+          console.log(`APP/UPDATE__SUBMIT_PREFERREDNAME (error): `, error);
+          console.log(
+            `APP/UPDATE__SUBMIT_PREFERREDNAME (post-error(state)): `,
+            state
+          );
+          return {};
         }
       } else {
         return state;

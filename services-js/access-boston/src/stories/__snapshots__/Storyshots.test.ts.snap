@@ -8292,7 +8292,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_self"
+                target="_blank"
               >
                 <span
                   className="t--info"
@@ -9362,7 +9362,7 @@ exports[`Storyshots IndexPage default 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_self"
+                target="_blank"
               >
                 <span
                   className="t--info"
@@ -10486,7 +10486,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_self"
+                target="_blank"
               >
                 <span
                   className="t--info"
@@ -11198,9 +11198,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               <div
                 className="CurrentName"
               >
-                Felipe
+                
                  
-                Rivera
+                
               </div>
             </div>
             <a
@@ -11243,7 +11243,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               <div
                 className="css-13i8ivi-ConfirmationView"
               >
-                Camila.donovan21@boston.gov
+                
               </div>
             </label>
             <label
@@ -11607,7 +11607,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             <div
               className="css-14srcyr-RowColumns"
             >
-              Felipe Rivera
+               
             </div>
           </div>
           <div
@@ -11640,7 +11640,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             <div
               className="css-14srcyr-RowColumns"
             >
-              sadkasdjakldjasklddsdadasdasdsjdlaskjd@boston.gov
+              felipe.rivera@boston.gov
             </div>
           </div>
         </div>
@@ -11680,13 +11680,22 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             <div
               className="successView__Btn-wrapper"
             >
-              <button
-                className="btn btn--b-sm"
-                onClick={[Function]}
-                type="button"
+              <form
+                action="/logout"
+                method="POST"
               >
-                Log Out
-              </button>
+                <input
+                  name="crumb"
+                  type="hidden"
+                  value=""
+                />
+                <button
+                  className="btn btn--sm btn--100"
+                  type="submit"
+                >
+                  Log Out
+                </button>
+              </form>
             </div>
           </div>
         </div>
@@ -12033,7 +12042,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
           <div
             className="css-od4gop-AlertComponent"
           >
-            Your chosen name and email have been updated
+            Your chosen name has been updated
           </div>
         </div>
         <div
@@ -12069,7 +12078,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             <div
               className="css-14srcyr-RowColumns"
             >
-              Felipe Rivera
+               
             </div>
           </div>
           <div
@@ -12102,7 +12111,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             <div
               className="css-14srcyr-RowColumns"
             >
-              sadkasdjakldjasklddsdadasdasdsjdlaskjd@boston.gov
+              felipe.rivera@boston.gov
             </div>
           </div>
         </div>
@@ -12142,13 +12151,22 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             <div
               className="successView__Btn-wrapper"
             >
-              <button
-                className="btn btn--b-sm"
-                onClick={[Function]}
-                type="button"
+              <form
+                action="/logout"
+                method="POST"
               >
-                Log Out
-              </button>
+                <input
+                  name="crumb"
+                  type="hidden"
+                  value=""
+                />
+                <button
+                  className="btn btn--sm btn--100"
+                  type="submit"
+                >
+                  Log Out
+                </button>
+              </form>
             </div>
           </div>
         </div>

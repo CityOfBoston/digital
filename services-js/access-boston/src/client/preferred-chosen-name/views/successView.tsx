@@ -19,20 +19,31 @@ interface SuccessProps {
 
 export default function SuccessView(props: SuccessProps) {
   const { handleQuit, state } = props;
+  const alertStr = state.altWorkflow
+    ? 'Your chosen name has been updated'
+    : 'Your chosen name and email have been updated';
+  const finalEmail =
+    state.altWorkflow &&
+    state.newEmail &&
+    typeof state.newEmail === 'string' &&
+    state.newEmail.length > 0
+      ? state.newEmail
+      : state.email;
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
-          <AlertComponent text="Your chosen name and email have been updated" />
+          <AlertComponent text={alertStr} />
           <RowColumns
-            chosenName={`${state.firstName} ${state.lastName}`}
-            emailAddress={'sadkasdjakldjasklddsdadasdasdsjdlaskjd@boston.gov'}
+            chosenName={`${state.chosenFirstName} ${state.chosenLastName}`}
+            emailAddress={finalEmail}
           />
           <QuestionComponent
             quitBtn={true}
             quitBtnText="Log Out"
             handleQuit={handleQuit}
+            useRedirectForm={true}
           >
             <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">

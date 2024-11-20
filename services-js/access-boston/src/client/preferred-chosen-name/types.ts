@@ -16,9 +16,13 @@ export type Action = '' | 'new';
 
 export interface FormInputs {
   Id: string;
-  FName: string;
-  LName: string;
+  FName?: string;
+  LName?: string;
   Email?: string;
+  fetchNameReqRes?: boolean;
+  fetchNameReqResError?: boolean;
+  submitNameChangeReq?: boolean;
+  submitNameChangeReqError?: boolean;
 }
 
 export interface CommonAttributes {

@@ -23,13 +23,13 @@ const defaultWorkflowAccount: CommonAttributes = new PreferredChosenNameInformat
   }
 );
 
-const defaultAltWorkflowAccount = {
+const altWorkflowAccount = {
   ...defaultWorkflowAccount,
   ...{ employeeType: 'BPL', altWorkflow: true },
 };
 
 // console.log(`defaultWorkflowAccount: `, defaultWorkflowAccount);
-// console.log(`defaultAltWorkflowAccount: `, defaultAltWorkflowAccount);
+// console.log(`altWorkflowAccount: `, altWorkflowAccount);
 
 // WORKFLOW (Default)
 storiesOf('Preferred Chosen Name/Workflow 1', module)
@@ -44,11 +44,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   ))
   .add('Enter Names', () => (
     <PageWrapper classString={'b-c'}>
-      <EnterNameView
-        handleProceed={() => {}}
-        appTitle={AppTitle}
-        state={defaultWorkflowAccount}
-      />
+      <EnterNameView handleProceed={() => {}} state={defaultWorkflowAccount} />
     </PageWrapper>
   ))
   .add('Confirmation', () => (
@@ -72,11 +68,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   ))
   .add('Error', () => (
     <PageWrapper classString={'b-c'}>
-      <ErrorView
-        handleQuit={() => {}}
-        appTitle={AppTitle}
-        // state={defaultWorkflowAccount}
-      />
+      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   ));
 
@@ -87,7 +79,7 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
       <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        state={defaultAltWorkflowAccount}
+        state={altWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -95,8 +87,8 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
     <PageWrapper classString={'b-c'}>
       <EnterNameView
         handleProceed={() => {}}
-        appTitle={AppTitle}
-        state={defaultAltWorkflowAccount}
+        handleSubmit={() => {}}
+        state={altWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -105,16 +97,12 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
       <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
-        state={defaultAltWorkflowAccount}
+        state={altWorkflowAccount}
       />
     </PageWrapper>
   ))
   .add('Error', () => (
     <PageWrapper classString={'b-c'}>
-      <ErrorView
-        handleQuit={() => {}}
-        appTitle={AppTitle}
-        // state={defaultWorkflowAccount}
-      />
+      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   ));

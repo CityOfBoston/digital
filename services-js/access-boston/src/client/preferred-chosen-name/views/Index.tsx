@@ -4,24 +4,21 @@ import { jsx } from '@emotion/core';
 import { useReducer } from 'react';
 
 // import { Account } from '../../../client/graphql/fetch-account';
+import { reducer as stateReducer, AppTitle } from '../state/app';
 import { CommonAttributes } from '../types';
+import { getViews } from '../../storage/PreferredChosenNameRequest';
+import {
+  preferredNameRequest,
+  preferredNameSubmit,
+} from '../../../server/services/preferredName';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
 // import { ApprovalView } from './views';
-import ConfirmationView from '../views/confirmationView';
-import WelcomeView from '../views/welcomeView';
 import { EnterNameView } from '../views/enterNameView';
-
-import {
-  getViews,
-  // getSteps
-} from '../../storage/PreferredChosenNameRequest';
-import {
-  reducer as stateReducer,
-  AppTitle,
-  // newInitState,
-} from '../state/app';
+import WelcomeView from '../views/welcomeView';
+import ConfirmationView from '../views/confirmationView';
+import ErrorView from '../views/errorView';
 import SuccessView from './successView';
 
 interface Props {
@@ -57,9 +54,9 @@ export default function Index(props: Props) {
   };
 
   const advanceStep = () => {
-    console.log('advanceStep!!!!!');
     const nextView = state.view + 1;
-    console.log(`nextView: `, nextView, state, fetchedViews);
+    // console.log('advanceStep!!!!!');
+    // console.log(`nextView: `, nextView, state, fetchedViews);
 
     if (nextView < fetchedViews.length) {
       changeView(fetchedViews[nextView]);
@@ -67,6 +64,104 @@ export default function Index(props: Props) {
       // advanceStep();
     } else {
       changeView(fetchedViews[0]);
+    }
+  };
+
+  const handlerPreferredNameReq = async (data: {
+    Id: string;
+    FName: string;
+    LName: string;
+  }) => {
+    const { Id, FName, LName } = data;
+    const retObj = await preferredNameRequest({
+      id: state.employeeId,
+      preferredFirstName: FName,
+      preferredLastName: LName,
+    });
+
+    // console.log(`preferredNameRequest(retObj): `, Id, retObj);
+
+    if (retObj['attributes']) {
+      dispatchState({
+        type: 'APP/UPDATE_PREFERREDNAME',
+        formData: {
+          Id,
+          FName,
+          LName,
+          Email: retObj['attributes']['result']['newEmail'],
+        },
+      });
+
+      changeView(fetchedViews[2]);
+    } else {
+      changeView(fetchedViews[4]);
+    }
+  };
+
+  const handlerPreferredNameSubmit = async (data: {
+    Id: string;
+    FName: string;
+    LName: string;
+    Email?: string;
+  }) => {
+    const { Id, FName, LName, Email } = data;
+    let subObj = {
+      id: state.employeeId,
+      preferredFirstName: FName,
+      preferredLastName: LName,
+    };
+    if (
+      Email &&
+      typeof Email === 'string' &&
+      Email.length > 2 &&
+      !state.altWorkflow
+    ) {
+      subObj['email'] = Email;
+    }
+
+    const retObj = await preferredNameSubmit(subObj);
+    let formData = {
+      Id,
+      FName,
+      LName,
+    };
+    if (
+      formData['Email'] &&
+      formData['Email'].length > 1 &&
+      !state.altWorkflow
+    ) {
+      formData['Email'] = retObj['attributes']['result']['newEmail'];
+    }
+
+    // console.log(
+    //   `handlerPreferredNameSubmit > preferredNameSubmit(retObj): `,
+    //   retObj
+    // );
+
+    if (
+      retObj['attributes'] &&
+      retObj['attributes']['status'] &&
+      retObj['attributes']['status'] === 'Success. Updated Attributes in IIQ'
+    ) {
+      // console.log(
+      //   `handlerPreferredNameSubmit > pre-dispatchState(retObj): `,
+      //   retObj
+      // );
+      // console.log(
+      //   `handlerPreferredNameSubmit > pre-dispatchState(formData): `,
+      //   formData
+      // );
+
+      dispatchState({
+        type: 'APP/UPDATE__SUBMIT_PREFERREDNAME',
+        formData,
+      });
+
+      changeView(fetchedViews[3]);
+    } else {
+      console.log(`Preferred Name Submit (error): `, retObj);
+      console.error(`Preferred Name Submit (error): `, retObj);
+      changeView(fetchedViews[4]);
     }
   };
 
@@ -83,9 +178,8 @@ export default function Index(props: Props) {
   const enterNameView = (
     <PageWrapper classString={'b-c'}>
       <EnterNameView
-        handleProceed={advanceStep}
-        // handleStepBack={stepBack}
-        appTitle={AppTitle}
+        handleProceed={handlerPreferredNameReq}
+        handleSubmit={handlerPreferredNameSubmit}
         state={state}
       />
     </PageWrapper>
@@ -94,10 +188,20 @@ export default function Index(props: Props) {
   const approvalView = (
     <PageWrapper classString={'b-c'}>
       <ConfirmationView
-        handleProceed={advanceStep}
+        handleProceed={handlerPreferredNameSubmit}
         handleStepBack={stepBack}
         appTitle={AppTitle}
         state={state}
+      />
+    </PageWrapper>
+  );
+
+  const errorView = (
+    <PageWrapper classString={'b-c'}>
+      <ErrorView
+        handleQuit={() => {}}
+        appTitle={AppTitle}
+        // state={defaultWorkflowAccount}
       />
     </PageWrapper>
   );
@@ -117,6 +221,8 @@ export default function Index(props: Props) {
       return approvalView;
     case 'successView':
       return successView;
+    case 'errorView':
+      return errorView;
     default:
       return defaultView;
   }

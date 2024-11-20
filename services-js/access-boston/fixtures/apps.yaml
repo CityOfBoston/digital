@@ -139,7 +139,7 @@ categories:
         mfa_device_required: true
       - title: Add a preferred/chosen name
         url: /preferred-chosen-name
-        # target: _blank
+        target: _blank
 
   - title: Support Tools
     apps:

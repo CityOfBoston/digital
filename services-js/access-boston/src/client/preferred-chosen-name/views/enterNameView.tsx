@@ -1,9 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-
-// import fetch from 'node-fetch';
-
-import { useState, MouseEvent } from 'react';
+import { useState } from 'react';
 
 import { CommonAttributes } from '../types';
 
@@ -16,64 +13,37 @@ import { PREFERRED_NAME_STYLING } from '../styling/index';
 // } from '../../../server/services/preferredName';
 
 interface EnterNameProps {
-  handleProceed: (ev: MouseEvent) => void;
-  appTitle: string;
+  handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
+  handleSubmit?: (data: { Id: string; FName: string; LName: string }) => void;
   state: CommonAttributes;
 }
 
-export const EnterNameView = ({ handleProceed, state }: EnterNameProps) => {
+export const EnterNameView = ({
+  handleProceed,
+  handleSubmit,
+  state,
+}: EnterNameProps) => {
   const { altWorkflow, firstName, lastName } = state;
   const [FName, setFirstName] = useState('');
   const [LName, setLastName] = useState('');
-
+  const nextBtnStr: string = altWorkflow ? 'Submit' : 'Continue';
   const allowProceed: boolean = FName.trim() !== '' || LName.trim() !== '';
 
   const handleClear = () => {
     setFirstName('');
     setLastName('');
   };
-  const nextBtnStr: string = altWorkflow ? 'Submit' : 'Continue';
 
-  // const advanceStepPreferredNameRequest = async (data: {
-  //   id: string;
-  //   preferredFirstName: string;
-  //   preferredLastName: string;
-  // }) => {
-  //   const { id, preferredFirstName, preferredLastName } = data;
-  //   return await fetch(`/preferred-name-request` as string, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ id, preferredFirstName, preferredLastName }),
-  //   })
-  //     .then(response => response.json())
-  //     .then(response => response)
-  //     .catch(error => {
-  //       console.log('/preferred-name Error(requestNewNameEmail):', error);
-  //       return {};
-  //     });
-  // };
-  // ----------------------------------- //
+  const handle_proceed = () => {
+    const { employeeId } = state;
+    const subObj = { Id: employeeId, FName, LName };
 
-  // ----------------------------------- //
-  // const retObj = preferredNameRequest({
-  //   id: '40000093',
-  //   preferredFirstName: 'Manuelo',
-  //   preferredLastName: 'WebTest',
-  // });
-  // console.log(`advanceStepPreferredNameRequest ...: `, retObj);
-  // ----------------------------------- //
-
-  // ----------------------------------- //
-  // const retObj = preferredNameSubmit({
-  //   id: '40000093',
-  //   preferredFirstName: 'Manuelo',
-  //   preferredLastName: 'WebTest',
-  //   email: 'manuel.webtest@boston.gov',
-  // });
-  // console.log(`advanceStepPreferredNameSubmit ...: `, retObj);
-  // ----------------------------------- //
+    if (state.altWorkflow && handleSubmit) {
+      handleSubmit(subObj);
+    } else {
+      handleProceed(subObj);
+    }
+  };
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
@@ -95,7 +65,7 @@ export const EnterNameView = ({ handleProceed, state }: EnterNameProps) => {
             quitBtn={false}
             nextButtonText={nextBtnStr}
             allowProceed={allowProceed}
-            handleProceed={handleProceed}
+            handleProceed={handle_proceed}
             extraButtons={
               <a
                 type="button"

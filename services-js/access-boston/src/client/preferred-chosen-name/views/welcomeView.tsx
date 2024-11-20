@@ -14,7 +14,7 @@ interface welcomeProps {
 }
 
 export default function WelcomeView({ handleProceed, state }: welcomeProps) {
-  console.log(`state: `, state);
+  // console.log(`state: `, state);
 
   return (
     <div css={OVERRIDDEN_PREFERRED_NAME_STYLING}>

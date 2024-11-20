@@ -43,11 +43,11 @@ export default class IdentityVerification extends React.Component<Props> {
       displayName: account['displayName'] ? account['displayName'] : '',
     });
 
-    console.log(`preferred-name (account): `, account);
-    console.log(
-      `client/index ... (PreferredChosenNameInformation), `,
-      accountState
-    );
+    // console.log(`preferred-name (account): `, account);
+    // console.log(
+    //   `client/index ... (PreferredChosenNameInformation), `,
+    //   accountState
+    // );
 
     return (
       <>

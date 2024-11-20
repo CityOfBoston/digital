@@ -9,7 +9,7 @@ import { ChosenNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface ConfirmationProps {
-  handleProceed: (ev: MouseEvent) => void;
+  handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
   handleStepBack: (ev: MouseEvent) => void;
   appTitle: string;
   state: CommonAttributes;
@@ -20,7 +20,7 @@ export default function ConfirmationView({
   handleStepBack,
   state,
 }: ConfirmationProps) {
-  // console.log(account);
+  // console.log(`ConfirmationView(state): `, state);
 
   const [selectedOption, setSelectedOption] = useState('UseNewEmail');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
@@ -39,6 +39,17 @@ export default function ConfirmationView({
       selectedOption === 'KeepCurrentEmail') &&
     checkboxChecked;
 
+  const handle_proceed = () => {
+    let subObj = {
+      Id: state.employeeId,
+      FName: state.chosenFirstName,
+      LName: state.chosenLastName,
+    };
+    if (selectedOption === 'UseNewEmail') subObj['Email'] = state.newEmail;
+
+    handleProceed(subObj);
+  };
+
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="sh sh-title" css={HEADER_CONTAINER_STYLING}>
@@ -52,7 +63,7 @@ export default function ConfirmationView({
               <div css={CHOSEN_NAME_STYLING}>
                 <ChosenNameTag />
                 <div className="CurrentName">
-                  {state.firstName} {state.lastName}
+                  {state.chosenFirstName} {state.chosenLastName}
                 </div>
               </div>
               <a
@@ -70,7 +81,7 @@ export default function ConfirmationView({
             nextButtonText="Continue"
             allowProceed={allowProceed}
             handleStepBack={handleStepBack}
-            handleProceed={handleProceed}
+            handleProceed={handle_proceed}
           >
             <div css={RADIO_GROUP_STYLING}>
               Select your preferred email option from the list below.
@@ -92,7 +103,7 @@ export default function ConfirmationView({
                   />
                   <strong css={RADIO_LABEL_STYLING}>Use new email</strong>
                 </div>
-                <div css={EMAIL_TEXT_STYLING}>Camila.donovan21@boston.gov</div>
+                <div css={EMAIL_TEXT_STYLING}>{state.newEmail}</div>
               </label>
               <label
                 css={[

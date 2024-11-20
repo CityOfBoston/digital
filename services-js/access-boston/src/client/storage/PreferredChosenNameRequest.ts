@@ -5,6 +5,7 @@ const STEPS: PreferredChosenNameStep[] = [
   'enterName',
   'approval',
   'success',
+  'error',
 ];
 
 export const getSteps = () => {
@@ -16,6 +17,7 @@ const VIEWS: View[] = [
   'enterNameView',
   'approvalView',
   'successView',
+  'errorView',
 ];
 const VIEWSALT: View[] = ['welcomeView', 'enterNameView', 'successView'];
 
