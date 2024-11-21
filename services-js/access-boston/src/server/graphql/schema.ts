@@ -90,6 +90,7 @@ export interface Account {
   groups: string[] | null;
   email: string;
   cobAgency: string | null;
+  displayName?: string | null;
 }
 
 export interface Apps {
@@ -161,6 +162,7 @@ const queryRootResolvers: QueryRootResolvers = {
         groups,
         email,
         cobAgency,
+        // displayName,
       } = loginSession;
       let mgmt_groups: Array<string> = [];
       if (typeof groups === 'object' && groups.length > 0) {
@@ -182,6 +184,7 @@ const queryRootResolvers: QueryRootResolvers = {
         groups: mgmt_groups,
         email: email,
         cobAgency,
+        // displayName: displayName ? displayName : '',
       };
     } else if (forgotPasswordAuth) {
       return {

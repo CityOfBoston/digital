@@ -3,22 +3,19 @@ import { jsx, css } from '@emotion/core';
 
 import { MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
-import { PREFERRED_NAME_STYLING } from '../styling/index';
 
-interface Account {
-  cobAgency: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-}
+import { CommonAttributes } from '../types';
+import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface welcomeProps {
   handleProceed: (ev: MouseEvent) => void;
   appTitle: string;
-  account: Account;
+  state: CommonAttributes;
 }
 
-export default function WelcomeView({ handleProceed }: welcomeProps) {
+export default function WelcomeView({ handleProceed, state }: welcomeProps) {
+  // console.log(`state: `, state);
+
   return (
     <div css={OVERRIDDEN_PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
@@ -44,17 +41,31 @@ export default function WelcomeView({ handleProceed }: welcomeProps) {
                   displayed in internal City of Boston systems and
                   communications.
                 </li>
-                <li>
-                  <strong>Email Address: </strong>
-                  You can update your email address to reflect your chosen
-                  name—or keep it as is, if you prefer.
-                </li>
+                {!state.altWorkflow && (
+                  <li>
+                    <strong>Email Address: </strong>
+                    You can update your email address to reflect your chosen
+                    name—or keep it as is, if you prefer.
+                  </li>
+                )}
               </ul>
               <ul>
                 <strong>What’s Not Changing: </strong>
+                {state.altWorkflow && (
+                  <li>
+                    <strong>Email Address: </strong>Your email address will
+                    remain the same.
+                  </li>
+                )}
                 <li>
                   <strong>Legal Name: </strong>
-                  City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the <a href='https://www.google.com' target="_blank">legal name link</a>.
+                  City Employees, your legal name used for tax documents (like
+                  W2s), paystubs, or other official legal documents will remain
+                  unchanged. To change your legal name, please follow the{' '}
+                  <a href="https://www.google.com" target="_blank">
+                    legal name link
+                  </a>
+                  .
                 </li>
               </ul>
               <p>
@@ -74,7 +85,6 @@ const OVERRIDDEN_PREFERRED_NAME_STYLING = css`
   ${PREFERRED_NAME_STYLING};
   max-width: 1000px;
 `;
-
 
 const SNIPPET_CONTAINER_STYLING = css({
   lineHeight: '2rem !important',

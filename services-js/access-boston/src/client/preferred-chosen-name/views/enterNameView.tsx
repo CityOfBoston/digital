@@ -1,31 +1,48 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import { useState, MouseEvent } from 'react';
+import { useState } from 'react';
+
+import { CommonAttributes } from '../types';
+
 import QuestionComponent from '../components/QuestionComponent';
 import { CurrentNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
-interface Account {
-  cobAgency: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-}
+// import {
+//   preferredNameRequest,
+//   // preferredNameSubmit,
+// } from '../../../server/services/preferredName';
 
 interface EnterNameProps {
-  handleProceed: (ev: MouseEvent) => void;
-  appTitle: string;
-  account: Account;
+  handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
+  handleSubmit?: (data: { Id: string; FName: string; LName: string }) => void;
+  state: CommonAttributes;
 }
 
-export default function EnterNameProps({ handleProceed }: EnterNameProps) {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-
-  const allowProceed = firstName.trim() !== '' || lastName.trim() !== '';
+export const EnterNameView = ({
+  handleProceed,
+  handleSubmit,
+  state,
+}: EnterNameProps) => {
+  const { altWorkflow, firstName, lastName } = state;
+  const [FName, setFirstName] = useState('');
+  const [LName, setLastName] = useState('');
+  const nextBtnStr: string = altWorkflow ? 'Submit' : 'Continue';
+  const allowProceed: boolean = FName.trim() !== '' || LName.trim() !== '';
 
   const handleClear = () => {
     setFirstName('');
     setLastName('');
+  };
+
+  const handle_proceed = () => {
+    const { employeeId } = state;
+    const subObj = { Id: employeeId, FName, LName };
+
+    if (state.altWorkflow && handleSubmit) {
+      handleSubmit(subObj);
+    } else {
+      handleProceed(subObj);
+    }
   };
 
   return (
@@ -39,14 +56,16 @@ export default function EnterNameProps({ handleProceed }: EnterNameProps) {
             Changing your chosen name will affect your City of Boston accounts.
             <div className="CurrentNameContainer" css={CURRENT_NAME_STYLING}>
               <CurrentNameTag />
-              <div className="CurrentName">Juliana Donovan</div>
+              <div className="CurrentName">
+                {firstName} {lastName}
+              </div>
             </div>
           </div>
           <QuestionComponent
             quitBtn={false}
-            nextButtonText="Continue"
+            nextButtonText={nextBtnStr}
             allowProceed={allowProceed}
-            handleProceed={handleProceed}
+            handleProceed={handle_proceed}
             extraButtons={
               <a
                 type="button"
@@ -58,14 +77,18 @@ export default function EnterNameProps({ handleProceed }: EnterNameProps) {
             }
           >
             <div className="FormBox" css={FORM_STYLING}>
-              Use the fields below to update your chosen first name, last name, or both.
-              <div className="ChosenFirstNameInput" css={INPUT_HEADER_CONTAINER_STYLING}>
+              Use the fields below to update your chosen first name, last name,
+              or both.
+              <div
+                className="ChosenFirstNameInput"
+                css={INPUT_HEADER_CONTAINER_STYLING}
+              >
                 <label css={LABEL_STYLING}>Chosen First Name</label>
                 <input
-                  value={firstName}
+                  value={FName}
                   onChange={e => setFirstName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder='Default: Juliana'
+                  placeholder={`Default: ${firstName}`}
                 />
               </div>
               <div
@@ -74,20 +97,23 @@ export default function EnterNameProps({ handleProceed }: EnterNameProps) {
               >
                 <label css={LABEL_STYLING}>Chosen Last Name</label>
                 <input
-                  value={lastName}
+                  value={LName}
                   onChange={e => setLastName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder='Default: Donovan'
+                  placeholder={`Default: ${lastName}`}
                 />
               </div>
-              For more information, see the <a href='https://www.google.com' target="_blank">FAQs</a>
+              For more information, see the{' '}
+              <a href="https://www.google.com" target="_blank">
+                FAQs
+              </a>
             </div>
           </QuestionComponent>
         </div>
       </div>
     </div>
   );
-}
+};
 
 const HEADER_CONTAINER_STYLING = css({
   fontSize: '2em',
@@ -110,8 +136,8 @@ const INFO_STYLING = css({
 
 const FORM_STYLING = css({
   padding: '30px 40px',
-	'@media (max-width: 600px)': {
-    padding: '25px 15px'
+  '@media (max-width: 600px)': {
+    padding: '25px 15px',
   },
 });
 

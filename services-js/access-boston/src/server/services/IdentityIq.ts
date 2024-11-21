@@ -285,28 +285,6 @@ export default class IdentityIq {
     return this.makeScimRequest('LaunchedWorkflows', 'POST', requestBody);
   }
 
-  /**
-   * Update user Preferred Chosen Name
-   * @param caseId
-   * @returns
-   */
-  // async updatePrefferedChosenName(
-  //   userId: string,
-  //   {
-  //     preferredFirstName,
-  //     preferredLastName,
-  //     email,
-  //   }: {
-  //     preferredFirstName?: string;
-  //     preferredLastName?: string;
-  //     email?: string;
-  //   }
-  // ) {
-  //   const requestBody: LaunchWorkflowRequest = {
-  //     schemas: [],
-  //   };
-  // }
-
   async fetchWorkflow(caseId: string): Promise<LaunchedWorkflowResponse> {
     return this.makeScimRequest(`LaunchedWorkflows/${caseId}`);
   }

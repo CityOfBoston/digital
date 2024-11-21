@@ -4,46 +4,47 @@ import { storiesOf } from '@storybook/react';
 import PageWrapper from '../../PageWrapper';
 
 import { AppTitle } from '../state/app';
+import { CommonAttributes, PreferredChosenNameInformation } from '../types';
 
-import ConfirmationView from './confirmationView';
 import WelcomeView from './welcomeView';
-import EnterNameView from './enterNameView';
+import { EnterNameView } from './enterNameView';
+import ConfirmationView from './confirmationView';
 import SuccessView from './successView';
+import ErrorView from './errorView';
 
-const viewAccountObj = {
-  cobAgency: 'CH',
-  firstName: 'Felipe',
-  lastName: 'Rivera',
-  email: 'felipe.rivera@boston.gov',
+const defaultWorkflowAccount: CommonAttributes = new PreferredChosenNameInformation(
+  {
+    init: true,
+    employeeId: 'CON12345',
+    employeeType: 'CH',
+    firstName: 'Felipe',
+    lastName: 'Rivera',
+    email: 'felipe.rivera@boston.gov',
+  }
+);
+
+const altWorkflowAccount = {
+  ...defaultWorkflowAccount,
+  ...{ employeeType: 'BPL', altWorkflow: true },
 };
 
-storiesOf('Preferred-Name', module)
+// console.log(`defaultWorkflowAccount: `, defaultWorkflowAccount);
+// console.log(`altWorkflowAccount: `, altWorkflowAccount);
+
+// WORKFLOW (Default)
+storiesOf('Preferred Chosen Name/Workflow 1', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
       <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
-        account={viewAccountObj}
-      />
-    </PageWrapper>
-  ))
-  .add('Welcome BPL', () => (
-    <PageWrapper classString={'b-c'}>
-      <WelcomeView
-        handleProceed={() => {}}
-        appTitle={AppTitle}
-        // Change the obj below to use same obj but different cobAgency: BPL
-        account={viewAccountObj}
+        state={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
   .add('Enter Names', () => (
     <PageWrapper classString={'b-c'}>
-      <EnterNameView
-        handleProceed={() => {}}
-        appTitle={AppTitle}
-        account={viewAccountObj}
-      />
+      <EnterNameView handleProceed={() => {}} state={defaultWorkflowAccount} />
     </PageWrapper>
   ))
   .add('Confirmation', () => (
@@ -52,7 +53,7 @@ storiesOf('Preferred-Name', module)
         handleProceed={() => {}}
         handleStepBack={() => {}}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        state={defaultWorkflowAccount}
       />
     </PageWrapper>
   ))
@@ -61,8 +62,47 @@ storiesOf('Preferred-Name', module)
       <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        state={defaultWorkflowAccount}
       />
+    </PageWrapper>
+  ))
+  .add('Error', () => (
+    <PageWrapper classString={'b-c'}>
+      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   ));
 
+// WORKFLOW (BPL / BPHC)
+storiesOf('Preferred Chosen Name/Workflow 2', module)
+  .add('Welcome', () => (
+    <PageWrapper classString={'b-c'}>
+      <WelcomeView
+        handleProceed={() => {}}
+        appTitle={AppTitle}
+        state={altWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Enter Names', () => (
+    <PageWrapper classString={'b-c'}>
+      <EnterNameView
+        handleProceed={() => {}}
+        handleSubmit={() => {}}
+        state={altWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Success', () => (
+    <PageWrapper classString={'b-c'}>
+      <SuccessView
+        handleQuit={() => {}}
+        appTitle={AppTitle}
+        state={altWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Error', () => (
+    <PageWrapper classString={'b-c'}>
+      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
+    </PageWrapper>
+  ));

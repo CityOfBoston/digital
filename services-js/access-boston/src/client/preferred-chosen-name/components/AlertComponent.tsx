@@ -4,17 +4,33 @@ import { ReactNode } from 'react';
 
 interface AlertProps {
   text: ReactNode;
+  type?: 'Error' | 'Success';
 }
 
 /**
  * AlertComponent to display a success message with a left-aligned icon and message text.
  */
-export default function AlertComponent({ text }: AlertProps): JSX.Element {
+export default function AlertComponent({
+  text,
+  type,
+}: AlertProps): JSX.Element {
+  const fillColorByType = type && type === 'Error' ? `#9c3d10` : `#00A91C`;
+
   return (
     <div css={ALERT_CONTAINER_STYLING}>
       <div css={ICON_CONTAINER_STYLING}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" css={ICON_STYLING}>
-          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z" fill="#00A91C"/>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          css={ICON_STYLING}
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+            fill={fillColorByType}
+          />
         </svg>
       </div>
       <div css={TEXT_CONTAINER_STYLING}>{text}</div>
@@ -35,8 +51,7 @@ const ALERT_CONTAINER_STYLING = css({
 
   '@media (max-width: 600px)': {
     alignItems: 'start',
-    padding: '10px'
-
+    padding: '10px',
   },
 });
 
@@ -46,7 +61,7 @@ const ICON_CONTAINER_STYLING = css({
 
   '@media (max-width: 600px)': {
     marginRight: '8px',
-    padding: '2px'
+    padding: '2px',
   },
 });
 

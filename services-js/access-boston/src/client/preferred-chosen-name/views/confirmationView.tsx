@@ -1,28 +1,28 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { useState, MouseEvent } from 'react';
+
+import { CommonAttributes } from '../types';
+
 import QuestionComponent from '../components/QuestionComponent';
 import { ChosenNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
-interface Account {
-  cobAgency: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-}
-
 interface ConfirmationProps {
-  handleProceed: (ev: MouseEvent) => void;
+  handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
   handleStepBack: (ev: MouseEvent) => void;
   appTitle: string;
-  account: Account;
+  state: CommonAttributes;
 }
 
-export default function ConfirmationView({ handleProceed, handleStepBack, account }: ConfirmationProps) {
-  console.log(account);
+export default function ConfirmationView({
+  handleProceed,
+  handleStepBack,
+  state,
+}: ConfirmationProps) {
+  // console.log(`ConfirmationView(state): `, state);
 
-  const [selectedOption, setSelectedOption] = useState("UseNewEmail");
+  const [selectedOption, setSelectedOption] = useState('UseNewEmail');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
 
   const handleRadioChange = (value: string) => {
@@ -34,7 +34,21 @@ export default function ConfirmationView({ handleProceed, handleStepBack, accoun
   };
 
   // Enable the continue button only if an option is selected and the checkbox is checked
-  const allowProceed = (selectedOption === "UseNewEmail" || selectedOption === "KeepCurrentEmail") && checkboxChecked;
+  const allowProceed =
+    (selectedOption === 'UseNewEmail' ||
+      selectedOption === 'KeepCurrentEmail') &&
+    checkboxChecked;
+
+  const handle_proceed = () => {
+    let subObj = {
+      Id: state.employeeId,
+      FName: state.chosenFirstName,
+      LName: state.chosenLastName,
+    };
+    if (selectedOption === 'UseNewEmail') subObj['Email'] = state.newEmail;
+
+    handleProceed(subObj);
+  };
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
@@ -48,7 +62,9 @@ export default function ConfirmationView({ handleProceed, handleStepBack, accoun
             <div css={CHOSEN_NAME_CONTAINER_STYLING}>
               <div css={CHOSEN_NAME_STYLING}>
                 <ChosenNameTag />
-                <div className="CurrentName">Camila Donovan</div>
+                <div className="CurrentName">
+                  {state.chosenFirstName} {state.chosenLastName}
+                </div>
               </div>
               <a
                 type="button"
@@ -65,7 +81,7 @@ export default function ConfirmationView({ handleProceed, handleStepBack, accoun
             nextButtonText="Continue"
             allowProceed={allowProceed}
             handleStepBack={handleStepBack}
-            handleProceed={handleProceed}
+            handleProceed={handle_proceed}
           >
             <div css={RADIO_GROUP_STYLING}>
               Select your preferred email option from the list below.
@@ -87,7 +103,7 @@ export default function ConfirmationView({ handleProceed, handleStepBack, accoun
                   />
                   <strong css={RADIO_LABEL_STYLING}>Use new email</strong>
                 </div>
-                <div css={EMAIL_TEXT_STYLING}>Camila.donovan21@boston.gov</div>
+                <div css={EMAIL_TEXT_STYLING}>{state.newEmail}</div>
               </label>
               <label
                 css={[
@@ -108,7 +124,7 @@ export default function ConfirmationView({ handleProceed, handleStepBack, accoun
                   />
                   <strong css={RADIO_LABEL_STYLING}>Keep current email</strong>
                 </div>
-                <div css={EMAIL_TEXT_STYLING}>juliana.donovan@boston.gov</div>
+                <div css={EMAIL_TEXT_STYLING}>{state.email}</div>
               </label>
               <label css={CHECKBOX_LABEL_STYLING(checkboxChecked)}>
                 <input
@@ -117,9 +133,17 @@ export default function ConfirmationView({ handleProceed, handleStepBack, accoun
                   onChange={toggleCheckbox}
                   css={CHECKBOX_STYLING}
                 />
-                By submitting this form you agree to changing your displayed chosen name and email address across all your City of Boston accounts
+                By submitting this form you agree to changing your displayed
+                chosen name and email address across all your City of Boston
+                accounts
               </label>
-              <div> For more information, see the <a href='https://www.google.com' target="_blank">FAQs</a></div>
+              <div>
+                {' '}
+                For more information, see the{' '}
+                <a href="https://www.google.com" target="_blank">
+                  FAQs
+                </a>
+              </div>
             </div>
           </QuestionComponent>
         </div>
@@ -133,14 +157,15 @@ const CHECKBOX_STYLING = css({
   height: '50px',
 });
 
-const CHECKBOX_LABEL_STYLING = (checked: boolean) => css({
-  marginTop: '10px',
-  color: checked ? 'inherit' : '#A9AEB1',
-  display: 'flex',
-  alignItems: 'start',
-  gap: '12px',
-  cursor: 'pointer',
-});
+const CHECKBOX_LABEL_STYLING = (checked: boolean) =>
+  css({
+    marginTop: '10px',
+    color: checked ? 'inherit' : '#A9AEB1',
+    display: 'flex',
+    alignItems: 'start',
+    gap: '12px',
+    cursor: 'pointer',
+  });
 
 const HEADER_CONTAINER_STYLING = css({
   fontSize: '2em',
@@ -163,14 +188,14 @@ const INFO_STYLING = css({
 
 const CHOSEN_NAME_CONTAINER_STYLING = css({
   display: 'flex',
-  marginTop: "20px",
+  marginTop: '20px',
   alignItems: 'center',
   justifyContent: 'space-between',
-  width: '100%'
+  width: '100%',
 });
 
 const CHOSEN_NAME_STYLING = css({
-  flex: "1",
+  flex: '1',
   display: 'flex',
   flexDirection: 'column',
   '.CurrentName': {
@@ -178,12 +203,12 @@ const CHOSEN_NAME_STYLING = css({
     marginLeft: '50px',
     fontSize: '1.2em',
   },
-	'@media (max-width: 600px)': {
-		'.CurrentName': {
-			marginTop: '5px',
-			marginLeft: '0px',
-			fontSize: '1.2em',
-		},
+  '@media (max-width: 600px)': {
+    '.CurrentName': {
+      marginTop: '5px',
+      marginLeft: '0px',
+      fontSize: '1.2em',
+    },
   },
 });
 
@@ -193,7 +218,7 @@ const EDIT_BUTTON_STYLING = css({
   padding: '10px 20px',
   border: '2px solid #005EA2',
   flex: '0',
-  height: 'auto'
+  height: 'auto',
 });
 
 const RADIO_GROUP_STYLING = css({
@@ -208,10 +233,10 @@ const RADIO_GROUP_STYLING = css({
 
 const RADIO_STACK_STYLING = css({
   cursor: 'pointer',
-  padding: "15px 5px 20px 15px",
+  padding: '15px 5px 20px 15px',
   border: '3px solid #A9AEB1',
   '@media (max-width: 600px)': {
-    padding: "10px 0px 15px 10px",
+    padding: '10px 0px 15px 10px',
     border: '2px solid #A9AEB1',
   },
 });
@@ -222,12 +247,12 @@ const RADIO_SELECTED_STYLING = css({
 });
 
 const RADIO_OPTION_STYLING = css({
-  alignItems: "center",
-  display: "flex",
-  gap: "20px",
+  alignItems: 'center',
+  display: 'flex',
+  gap: '20px',
   flexDirection: 'row',
   '@media (max-width: 600px)': {
-    gap: '10px'
+    gap: '10px',
   },
 });
 
@@ -240,7 +265,7 @@ const EMAIL_TEXT_STYLING = css({
   wordBreak: 'break-all',
   overflowWrap: 'break-word',
   margin: '5px 56px 0px',
- '@media (max-width: 600px)': {
-    margin: '10px 5px 0px 40px'
+  '@media (max-width: 600px)': {
+    margin: '10px 5px 0px 40px',
   },
 });

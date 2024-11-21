@@ -4,6 +4,8 @@ import { css, jsx } from '@emotion/core';
 
 import { MouseEvent, ReactNode } from 'react';
 
+import RedirectForm from '../../RedirectForm';
+
 interface Props {
   children: ReactNode;
   allowProceed?: boolean;
@@ -16,6 +18,7 @@ interface Props {
   prevBtnText?: string;
   quitBtnText?: string;
   extraButtons?: ReactNode;
+  useRedirectForm?: boolean;
 }
 
 /**
@@ -34,7 +37,8 @@ export default function QuestionComponent(props: Props): JSX.Element {
     handleQuit,
     quitBtn,
     quitBtnText,
-    extraButtons
+    extraButtons,
+    useRedirectForm,
   } = props;
 
   return (
@@ -51,9 +55,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
             {prevBtnText || 'Go Back'}
           </button>
         )}
-
         {extraButtons} {/* Renders Clear button next to Continue */}
-
         {handleProceed && (
           <button
             type="button"
@@ -64,8 +66,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
             {nextButtonText || 'Continue'}
           </button>
         )}
-
-        {quitBtn && handleQuit && (
+        {quitBtn && handleQuit && !useRedirectForm && (
           <div className="successView__Btn-wrapper">
             <button
               type="button"
@@ -74,6 +75,15 @@ export default function QuestionComponent(props: Props): JSX.Element {
             >
               {quitBtnText || 'Quit'}
             </button>
+          </div>
+        )}
+        {quitBtn && handleQuit && useRedirectForm && (
+          <div className="successView__Btn-wrapper">
+            <RedirectForm path="/logout">
+              <button type="submit" className="btn btn--sm btn--100">
+                {quitBtnText || 'Quit'}
+              </button>
+            </RedirectForm>
           </div>
         )}
       </div>
@@ -90,7 +100,7 @@ const CONTAINER_STYLING = css({
 
   p: {
     lineHeight: '2rem',
-  }
+  },
 });
 
 const BUTTON_CONTAINER_STYLING = css({
@@ -134,12 +144,12 @@ const BUTTON_CONTAINER_STYLING = css({
 
     '@media (max-width: 600px)': {
       '.btn': {
-        fontSize: "14px",
-        height: "40px",
-        width: '100%'
+        fontSize: '14px',
+        height: '40px',
+        width: '100%',
       },
-      height: "50px"
-    }
+      height: '50px',
+    },
   },
 
   // Mobile adjustments

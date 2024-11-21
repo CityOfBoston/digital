@@ -3,34 +3,32 @@
 import { jsx } from '@emotion/core';
 import { useReducer } from 'react';
 
-import { Account } from '../../../client/graphql/fetch-account';
+// import { Account } from '../../../client/graphql/fetch-account';
+import { reducer as stateReducer, AppTitle } from '../state/app';
+import { CommonAttributes } from '../types';
+import { getViews } from '../../storage/PreferredChosenNameRequest';
+import {
+  preferredNameRequest,
+  preferredNameSubmit,
+} from '../../../server/services/preferredName';
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-import WelcomeView, { EnterNameView, ApprovalView } from './views';
-
-import {
-  getViews,
-  // getSteps
-} from '../../storage/PreferredChosenNameRequest';
-import { reducer as stateReducer, newInitState, AppTitle } from '../state/app';
+// import { ApprovalView } from './views';
+import { EnterNameView } from '../views/enterNameView';
+import WelcomeView from '../views/welcomeView';
+import ConfirmationView from '../views/confirmationView';
+import ErrorView from '../views/errorView';
 import SuccessView from './successView';
 
 interface Props {
-  account: Account;
+  accountState: CommonAttributes;
 }
 
 export default function Index(props: Props) {
-  const { account } = props;
-  const viewAccountObj = {
-    cobAgency: account.cobAgency || '',
-    firstName: account.firstName || '',
-    lastName: account.lastName || '',
-    email: account.email || '',
-  };
+  const { accountState } = props;
 
-  const [state, dispatchState] = useReducer(stateReducer, newInitState);
-  //   const fetchedSteps: Array<string> = getSteps();
+  const [state, dispatchState] = useReducer(stateReducer, accountState);
   const fetchedViews: Array<string> = getViews();
 
   const closeTab = () => {
@@ -56,9 +54,9 @@ export default function Index(props: Props) {
   };
 
   const advanceStep = () => {
-    console.log('advanceStep!!!!!');
     const nextView = state.view + 1;
-    console.log(`nextView: `, nextView, state, fetchedViews);
+    // console.log('advanceStep!!!!!');
+    // console.log(`nextView: `, nextView, state, fetchedViews);
 
     if (nextView < fetchedViews.length) {
       changeView(fetchedViews[nextView]);
@@ -69,12 +67,110 @@ export default function Index(props: Props) {
     }
   };
 
+  const handlerPreferredNameReq = async (data: {
+    Id: string;
+    FName: string;
+    LName: string;
+  }) => {
+    const { Id, FName, LName } = data;
+    const retObj = await preferredNameRequest({
+      id: state.employeeId,
+      preferredFirstName: FName,
+      preferredLastName: LName,
+    });
+
+    // console.log(`preferredNameRequest(retObj): `, Id, retObj);
+
+    if (retObj['attributes']) {
+      dispatchState({
+        type: 'APP/UPDATE_PREFERREDNAME',
+        formData: {
+          Id,
+          FName,
+          LName,
+          Email: retObj['attributes']['result']['newEmail'],
+        },
+      });
+
+      changeView(fetchedViews[2]);
+    } else {
+      changeView(fetchedViews[4]);
+    }
+  };
+
+  const handlerPreferredNameSubmit = async (data: {
+    Id: string;
+    FName: string;
+    LName: string;
+    Email?: string;
+  }) => {
+    const { Id, FName, LName, Email } = data;
+    let subObj = {
+      id: state.employeeId,
+      preferredFirstName: FName,
+      preferredLastName: LName,
+    };
+    if (
+      Email &&
+      typeof Email === 'string' &&
+      Email.length > 2 &&
+      !state.altWorkflow
+    ) {
+      subObj['email'] = Email;
+    }
+
+    const retObj = await preferredNameSubmit(subObj);
+    let formData = {
+      Id,
+      FName,
+      LName,
+    };
+    if (
+      formData['Email'] &&
+      formData['Email'].length > 1 &&
+      !state.altWorkflow
+    ) {
+      formData['Email'] = retObj['attributes']['result']['newEmail'];
+    }
+
+    // console.log(
+    //   `handlerPreferredNameSubmit > preferredNameSubmit(retObj): `,
+    //   retObj
+    // );
+
+    if (
+      retObj['attributes'] &&
+      retObj['attributes']['status'] &&
+      retObj['attributes']['status'] === 'Success. Updated Attributes in IIQ'
+    ) {
+      // console.log(
+      //   `handlerPreferredNameSubmit > pre-dispatchState(retObj): `,
+      //   retObj
+      // );
+      // console.log(
+      //   `handlerPreferredNameSubmit > pre-dispatchState(formData): `,
+      //   formData
+      // );
+
+      dispatchState({
+        type: 'APP/UPDATE__SUBMIT_PREFERREDNAME',
+        formData,
+      });
+
+      changeView(fetchedViews[3]);
+    } else {
+      console.log(`Preferred Name Submit (error): `, retObj);
+      console.error(`Preferred Name Submit (error): `, retObj);
+      changeView(fetchedViews[4]);
+    }
+  };
+
   const defaultView = (
     <PageWrapper classString={'b-c'}>
       <WelcomeView
         handleProceed={advanceStep}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        state={state}
       />
     </PageWrapper>
   );
@@ -82,32 +178,37 @@ export default function Index(props: Props) {
   const enterNameView = (
     <PageWrapper classString={'b-c'}>
       <EnterNameView
-        handleProceed={advanceStep}
-        handleStepBack={stepBack}
-        appTitle={AppTitle}
-        account={viewAccountObj}
+        handleProceed={handlerPreferredNameReq}
+        handleSubmit={handlerPreferredNameSubmit}
+        state={state}
       />
     </PageWrapper>
   );
 
   const approvalView = (
     <PageWrapper classString={'b-c'}>
-      <ApprovalView
-        handleProceed={advanceStep}
+      <ConfirmationView
+        handleProceed={handlerPreferredNameSubmit}
         handleStepBack={stepBack}
         appTitle={AppTitle}
-        account={viewAccountObj}
+        state={state}
+      />
+    </PageWrapper>
+  );
+
+  const errorView = (
+    <PageWrapper classString={'b-c'}>
+      <ErrorView
+        handleQuit={() => {}}
+        appTitle={AppTitle}
+        // state={defaultWorkflowAccount}
       />
     </PageWrapper>
   );
 
   const successView = (
     <PageWrapper classString={'b-c'}>
-      <SuccessView
-        handleQuit={closeTab}
-        appTitle={AppTitle}
-        account={viewAccountObj}
-      />
+      <SuccessView handleQuit={closeTab} appTitle={AppTitle} state={state} />
     </PageWrapper>
   );
 
@@ -120,6 +221,8 @@ export default function Index(props: Props) {
       return approvalView;
     case 'successView':
       return successView;
+    case 'errorView':
+      return errorView;
     default:
       return defaultView;
   }

@@ -9,6 +9,8 @@ import Index from '../client/preferred-chosen-name/views/Index';
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 import { GetInitialPropsDependencies, GetInitialProps } from './_app';
 
+import { PreferredChosenNameInformation } from '../client/preferred-chosen-name/types';
+
 interface Props {
   account: Account;
 }
@@ -27,7 +29,25 @@ export default class IdentityVerification extends React.Component<Props> {
 
   render() {
     const { account } = this.props;
-    console.log(`preferred-name (account): `, account);
+    const altWorkflows = ['BPL', 'BPHC'];
+
+    const accountState = new PreferredChosenNameInformation({
+      employeeId: account.employeeId || '',
+      employeeType: account.cobAgency || '',
+      altWorkflow: altWorkflows.includes(account.cobAgency || ''),
+      firstName: account.firstName || '',
+      lastName: account.lastName || '',
+      email: account.email || '',
+      chosenFirstName: '',
+      chosenLastName: '',
+      displayName: account['displayName'] ? account['displayName'] : '',
+    });
+
+    // console.log(`preferred-name (account): `, account);
+    // console.log(
+    //   `client/index ... (PreferredChosenNameInformation), `,
+    //   accountState
+    // );
 
     return (
       <>
@@ -38,7 +58,7 @@ export default class IdentityVerification extends React.Component<Props> {
 
         <AppWrapper>
           {/* <Index groups={account.groups} /> */}
-          <Index account={account} />
+          <Index accountState={accountState} />
         </AppWrapper>
       </>
     );
