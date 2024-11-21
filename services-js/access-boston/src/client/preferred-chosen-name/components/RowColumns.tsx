@@ -5,19 +5,28 @@ import { ChosenNameTag, EmailAddressTag } from './TagComponent';
 export default function RowColumns({
   chosenName,
   emailAddress,
+  altWorkflow,
 }: {
   chosenName: string;
   emailAddress: string;
+  altWorkflow: boolean;
 }) {
+  console.log(`RowColumns (altWorkflow): `, altWorkflow);
+
   return (
     <div css={INDEX_CONTAINER_STYLING}>
       <div css={INDEX_ITEM_STYLING}>
-        <ChosenNameTag/>
+        <ChosenNameTag />
         <div css={VALUE_STYLING}>{chosenName}</div>
       </div>
       <div css={INDEX_ITEM_STYLING}>
-        <EmailAddressTag/>
-        <div css={VALUE_STYLING}>{emailAddress}</div>
+        <EmailAddressTag />
+        {!altWorkflow && <div css={VALUE_STYLING}>{emailAddress}</div>}
+        {altWorkflow && (
+          <div css={EXTEND_VALUE_STYLING}>
+            Contact your IT department to have your email address updated
+          </div>
+        )}
       </div>
     </div>
   );
@@ -30,12 +39,12 @@ const INDEX_CONTAINER_STYLING = css({
 
 const INDEX_ITEM_STYLING = css({
   flexDirection: 'column',
-  alignItems: 'flex-start',  
+  alignItems: 'flex-start',
   borderBottom: '1px solid #ccc',
   padding: '24px 40px',
 
   '@media (max-width: 600px)': {
-    padding: '16px 20px'
+    padding: '16px 20px',
   },
 });
 
@@ -50,8 +59,22 @@ const VALUE_STYLING = css({
   alignItems: 'center',
   width: '100%',
   paddingTop: '8px',
-  paddingLeft: "50px",
+  paddingLeft: '50px',
   '@media (max-width: 600px)': {
-    paddingLeft: "0px",
+    paddingLeft: '0px',
+  },
+});
+
+const EXTEND_VALUE_STYLING = css({
+  // ...VALUE_STYLING,
+  paddingLeft: '50px',
+  whiteSpace: 'normal',
+  wordBreak: 'break-all',
+  overflowWrap: 'break-word',
+  fontSize: '0.9em',
+  // color: 'red',
+
+  '@media (max-width: 600px)': {
+    paddingLeft: '0px',
   },
 });

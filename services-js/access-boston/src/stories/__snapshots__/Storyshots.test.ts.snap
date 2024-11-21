@@ -11148,7 +11148,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
   className="b-c"
 >
   <div
-    className="css-1b211ro-ConfirmationView"
+    className="css-1nbkuj2-ConfirmationView"
   >
     <div
       className="sh sh-title css-13xrlnr-ConfirmationView"
@@ -11198,9 +11198,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               <div
                 className="CurrentName"
               >
-                
+                Phill
                  
-                
+                Kelly
               </div>
             </div>
             <a
@@ -11243,7 +11243,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               <div
                 className="css-13i8ivi-ConfirmationView"
               >
-                
+                phill.kelly@boston.gov
               </div>
             </label>
             <label
@@ -11313,7 +11313,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               onClick={[Function]}
               type="button"
             >
-              Continue
+              Submit
             </button>
           </div>
         </div>
@@ -11329,7 +11329,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-x4kv3a-EnterNameView"
+    className="css-zwgysu-EnterNameView"
   >
     <div
       className="sh sh-title css-1vgqagw-EnterNameView"
@@ -11400,7 +11400,6 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Felipe"
                 value=""
               />
             </div>
@@ -11415,7 +11414,6 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Rivera"
                 value=""
               />
             </div>
@@ -11461,7 +11459,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1dj428v-ErrorView"
+    className="css-1mc8xzo-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11540,7 +11538,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-1ye77rq-SuccessView"
+    className="css-3btjs5-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11607,7 +11605,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             <div
               className="css-14srcyr-RowColumns"
             >
-               
+              Phill Kelly
             </div>
           </div>
           <div
@@ -11640,7 +11638,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             <div
               className="css-14srcyr-RowColumns"
             >
-              felipe.rivera@boston.gov
+              phill.kelly@boston.gov
             </div>
           </div>
         </div>
@@ -11711,7 +11709,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-zwegvd-WelcomeView"
+    className="css-kmtc8-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11800,7 +11798,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-x4kv3a-EnterNameView"
+    className="css-zwgysu-EnterNameView"
   >
     <div
       className="sh sh-title css-1vgqagw-EnterNameView"
@@ -11871,7 +11869,6 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Felipe"
                 value=""
               />
             </div>
@@ -11886,7 +11883,6 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               <input
                 className="css-1fisj4-EnterNameView"
                 onChange={[Function]}
-                placeholder="Default: Rivera"
                 value=""
               />
             </div>
@@ -11932,7 +11928,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1dj428v-ErrorView"
+    className="css-1mc8xzo-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12011,7 +12007,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-1ye77rq-SuccessView"
+    className="css-3btjs5-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12078,7 +12074,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             <div
               className="css-14srcyr-RowColumns"
             >
-               
+              Phill Kelly
             </div>
           </div>
           <div
@@ -12109,9 +12105,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-14srcyr-RowColumns"
+              className="css-g32svm-RowColumns"
             >
-              felipe.rivera@boston.gov
+              Contact your IT department to have your email address updated
             </div>
           </div>
         </div>
@@ -12182,7 +12178,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-zwegvd-WelcomeView"
+    className="css-kmtc8-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"

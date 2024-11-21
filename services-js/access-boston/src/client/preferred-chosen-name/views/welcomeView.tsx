@@ -83,7 +83,7 @@ export default function WelcomeView({ handleProceed, state }: welcomeProps) {
 
 const OVERRIDDEN_PREFERRED_NAME_STYLING = css`
   ${PREFERRED_NAME_STYLING};
-  max-width: 1000px;
+  // max-width: 1000px;
 `;
 
 const SNIPPET_CONTAINER_STYLING = css({

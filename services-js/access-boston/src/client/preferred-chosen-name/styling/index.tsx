@@ -38,7 +38,6 @@ export const TEXTINPUT_STYLING = css({
 // Preferred Name Styling
 
 export const PREFERRED_NAME_STYLING = css({
-  display: 'plex',
   maxWidth: '694px',
   margin: 'auto',
 
@@ -60,12 +59,10 @@ export const PREFERRED_NAME_STYLING = css({
     fontWeight: 'bold',
     lineHeight: 'normal',
     textTransform: 'uppercase',
-    padding: '10px'
+    padding: '10px',
   },
 
   '.BorderedAppWrapper': {
-    display: 'plex',
-
     border: '1px solid #A9AEB1',
     borderRadius: '4px', // Matches Figma Design
 
@@ -75,20 +72,17 @@ export const PREFERRED_NAME_STYLING = css({
   },
 
   '.AppInnerContainer': {
-    display: 'plex',
-
     '.headerBlock': {
-      display: 'plex',
       alignContent: 'center',
       padding: '20px 40px',
       background: '#F0F0F0',
       borderBottom: '1px solid #A9AEB1',
 
       [MEDIA_SMALL_MAX]: {
-        paddingLeft: '5px',    
-        padding: "10px 26px",
-        fontSize: "20px",
-        marginBottom: "0",
+        paddingLeft: '5px',
+        padding: '10px 26px',
+        fontSize: '20px',
+        marginBottom: '0',
       },
 
       h3: {

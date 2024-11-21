@@ -23,12 +23,14 @@ export default function SuccessView(props: SuccessProps) {
     ? 'Your chosen name has been updated'
     : 'Your chosen name and email have been updated';
   const finalEmail =
-    state.altWorkflow &&
+    !state.altWorkflow &&
     state.newEmail &&
     typeof state.newEmail === 'string' &&
     state.newEmail.length > 0
       ? state.newEmail
       : state.email;
+
+  console.log(`SuccessView (altWorkflow): `, state.altWorkflow);
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
@@ -38,6 +40,7 @@ export default function SuccessView(props: SuccessProps) {
           <RowColumns
             chosenName={`${state.chosenFirstName} ${state.chosenLastName}`}
             emailAddress={finalEmail}
+            altWorkflow={state.altWorkflow ? state.altWorkflow : false}
           />
           <QuestionComponent
             quitBtn={true}

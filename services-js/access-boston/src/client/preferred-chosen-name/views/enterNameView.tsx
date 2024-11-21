@@ -88,7 +88,6 @@ export const EnterNameView = ({
                   value={FName}
                   onChange={e => setFirstName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder={`Default: ${firstName}`}
                 />
               </div>
               <div
@@ -100,7 +99,6 @@ export const EnterNameView = ({
                   value={LName}
                   onChange={e => setLastName(e.target.value)}
                   css={INPUT_STYLING}
-                  placeholder={`Default: ${lastName}`}
                 />
               </div>
               For more information, see the{' '}

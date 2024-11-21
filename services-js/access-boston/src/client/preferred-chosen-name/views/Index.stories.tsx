@@ -20,6 +20,9 @@ const defaultWorkflowAccount: CommonAttributes = new PreferredChosenNameInformat
     firstName: 'Felipe',
     lastName: 'Rivera',
     email: 'felipe.rivera@boston.gov',
+    chosenFirstName: 'Phill',
+    chosenLastName: 'Kelly',
+    newEmail: 'phill.kelly@boston.gov',
   }
 );
 
@@ -27,9 +30,6 @@ const altWorkflowAccount = {
   ...defaultWorkflowAccount,
   ...{ employeeType: 'BPL', altWorkflow: true },
 };
-
-// console.log(`defaultWorkflowAccount: `, defaultWorkflowAccount);
-// console.log(`altWorkflowAccount: `, altWorkflowAccount);
 
 // WORKFLOW (Default)
 storiesOf('Preferred Chosen Name/Workflow 1', module)

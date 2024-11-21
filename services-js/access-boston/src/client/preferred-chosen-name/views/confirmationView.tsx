@@ -78,7 +78,7 @@ export default function ConfirmationView({
           </div>
           <QuestionComponent
             quitBtn={false}
-            nextButtonText="Continue"
+            nextButtonText="Submit"
             allowProceed={allowProceed}
             handleStepBack={handleStepBack}
             handleProceed={handle_proceed}
