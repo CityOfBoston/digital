@@ -11,8 +11,6 @@ export default function RowColumns({
   emailAddress: string;
   altWorkflow: boolean;
 }) {
-  console.log(`RowColumns (altWorkflow): `, altWorkflow);
-
   return (
     <div css={INDEX_CONTAINER_STYLING}>
       <div css={INDEX_ITEM_STYLING}>

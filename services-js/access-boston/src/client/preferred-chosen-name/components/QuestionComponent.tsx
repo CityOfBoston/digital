@@ -5,6 +5,7 @@ import { css, jsx } from '@emotion/core';
 import { MouseEvent, ReactNode } from 'react';
 
 import RedirectForm from '../../RedirectForm';
+import { Spinner } from '../../common/Spinner';
 
 interface Props {
   children: ReactNode;
@@ -19,6 +20,8 @@ interface Props {
   quitBtnText?: string;
   extraButtons?: ReactNode;
   useRedirectForm?: boolean;
+  useLoadingSpinner?: boolean;
+  loading?: boolean;
 }
 
 /**
@@ -41,6 +44,23 @@ export default function QuestionComponent(props: Props): JSX.Element {
     useRedirectForm,
   } = props;
 
+  const proceedBtnStr = (): JSX.Element => {
+    if (
+      props.useLoadingSpinner &&
+      props.useLoadingSpinner === true &&
+      props.loading &&
+      props.loading === true
+    ) {
+      return (
+        <>
+          <Spinner size="1.2em" />
+        </>
+      );
+    }
+
+    return <>{nextButtonText || 'Continue'}</>;
+  };
+
   return (
     <div css={CONTAINER_STYLING}>
       {children}
@@ -61,9 +81,15 @@ export default function QuestionComponent(props: Props): JSX.Element {
             type="button"
             className="btn btn--b-sm"
             onClick={handleProceed}
-            disabled={!allowProceed}
+            disabled={
+              !allowProceed ||
+              (props.useLoadingSpinner &&
+                props.useLoadingSpinner === true &&
+                props.loading &&
+                props.loading === true)
+            }
           >
-            {nextButtonText || 'Continue'}
+            {proceedBtnStr()}
           </button>
         )}
         {quitBtn && handleQuit && !useRedirectForm && (

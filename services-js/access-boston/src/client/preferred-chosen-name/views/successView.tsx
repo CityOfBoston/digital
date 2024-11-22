@@ -30,8 +30,6 @@ export default function SuccessView(props: SuccessProps) {
       ? state.newEmail
       : state.email;
 
-  console.log(`SuccessView (altWorkflow): `, state.altWorkflow);
-
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">

@@ -15,7 +15,8 @@ export type ActionTypes =
   | 'APP/RESET_STATE'
   | 'APP/INITIAL_STATE'
   | 'APP/UPDATE_PREFERREDNAME'
-  | 'APP/UPDATE__SUBMIT_PREFERREDNAME';
+  | 'APP/UPDATE__SUBMIT_PREFERREDNAME'
+  | 'APP/LOADING';
 
 interface Action {
   type: ActionTypes;
@@ -46,31 +47,8 @@ export const reducer = (state: any, action: Partial<Action>) => {
       }
     case 'APP/RESET_STATE':
       return startingState;
-    case 'APP/INITIAL_STATE':
-      if (action.payload) {
-        const altWorkflows = ['BPL', 'BPHC'];
-
-        const retObj = {
-          ...state,
-          init: true,
-          employeeId: action.payload.employeeId,
-          employeeType: action.payload.employeeType,
-          firstName: action.payload.firstName,
-          lastName: action.payload.lastName,
-          email: action.payload.email,
-          altWorkflow: altWorkflows.includes(action.payload.employeeType),
-          // displayName: action.payload.displayName,
-          // chosenFirstName: action.payload.chosenFirstName,
-          // chosenLastName: action.payload.chosenLastName,
-        };
-        console.log(`APP/RESET_STATE (action.type): `, action.type);
-        console.log(`APP/RESET_STATE (action.payload): `, action.payload);
-        console.log(`APP/RESET_STATE (retObj): `, retObj);
-
-        return retObj;
-      } else {
-        return state;
-      }
+    case 'APP/LOADING':
+      return { ...state, loading: !state.loading };
     case 'APP/UPDATE_PREFERREDNAME':
       if (action.formData) {
         try {

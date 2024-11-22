@@ -23,7 +23,7 @@ export default function ErrorView(props: ErrorProps) {
     <div css={PREFERRED_NAME_STYLING}>
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
-          <AlertComponent type={`Error`} text="Error" />
+          <AlertComponent type={`Error`} text="Error Status" />
           <QuestionComponent
             quitBtn={true}
             quitBtnText="Close"

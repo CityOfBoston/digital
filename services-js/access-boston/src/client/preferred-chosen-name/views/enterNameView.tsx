@@ -7,10 +7,6 @@ import { CommonAttributes } from '../types';
 import QuestionComponent from '../components/QuestionComponent';
 import { CurrentNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
-// import {
-//   preferredNameRequest,
-//   // preferredNameSubmit,
-// } from '../../../server/services/preferredName';
 
 interface EnterNameProps {
   handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
@@ -23,7 +19,7 @@ export const EnterNameView = ({
   handleSubmit,
   state,
 }: EnterNameProps) => {
-  const { altWorkflow, firstName, lastName } = state;
+  const { altWorkflow, firstName, lastName, loading } = state;
   const [FName, setFirstName] = useState('');
   const [LName, setLastName] = useState('');
   const nextBtnStr: string = altWorkflow ? 'Submit' : 'Continue';
@@ -75,6 +71,8 @@ export const EnterNameView = ({
                 Clear
               </a>
             }
+            useLoadingSpinner={true}
+            loading={loading}
           >
             <div className="FormBox" css={FORM_STYLING}>
               Use the fields below to update your chosen first name, last name,

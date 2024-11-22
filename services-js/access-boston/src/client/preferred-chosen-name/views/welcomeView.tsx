@@ -31,7 +31,7 @@ export default function WelcomeView({ handleProceed, state }: welcomeProps) {
               <p>
                 A chosen name could be a preferred nickname, middle name, a
                 shortened version of a legal name, or a name that aligns with
-                their gender identity or expression.
+                your gender identity or expression.
               </p>
               <ul>
                 <strong>What’s Changing: </strong>

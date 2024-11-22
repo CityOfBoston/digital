@@ -23,6 +23,7 @@ export interface FormInputs {
   fetchNameReqResError?: boolean;
   submitNameChangeReq?: boolean;
   submitNameChangeReqError?: boolean;
+  loading?: boolean;
 }
 
 export interface CommonAttributes {
@@ -30,16 +31,18 @@ export interface CommonAttributes {
   step?: number | null;
   view?: number;
   altWorkflow?: boolean;
+  loading?: boolean;
 
   employeeId: string;
   employeeType: string;
   firstName: string;
   lastName: string;
+  email: string;
   chosenFirstName: string;
   chosenLastName: string;
-  email: string;
   newEmail?: string;
   displayName?: string;
+
   fetchNameReqRes: boolean;
   fetchNameReqResError: boolean;
   submitNameChangeReq: boolean;
@@ -51,6 +54,7 @@ export class PreferredChosenNameInformation implements CommonAttributes {
   step: number | null = null;
   view: number = 0;
   altWorkflow: boolean = false;
+  loading: boolean = false;
 
   employeeId: string = '';
   employeeType: string = '';
@@ -72,6 +76,7 @@ export class PreferredChosenNameInformation implements CommonAttributes {
     step?: number;
     view?: number;
     altWorkflow?: boolean;
+    loading?: boolean;
 
     employeeId?: string;
     employeeType?: string;
@@ -92,6 +97,7 @@ export class PreferredChosenNameInformation implements CommonAttributes {
       (this.step = opt && opt.step ? opt.step : 0),
       (this.view = opt && opt.view ? opt.view : 0),
       (this.altWorkflow = opt && opt.altWorkflow ? opt.altWorkflow : false),
+      (this.loading = opt && opt.loading ? opt.loading : false),
       (this.employeeId = opt && opt.employeeId ? opt.employeeId : ''),
       (this.employeeType = opt && opt.employeeType ? opt.employeeType : ''),
       (this.firstName = opt && opt.firstName ? opt.firstName : ''),

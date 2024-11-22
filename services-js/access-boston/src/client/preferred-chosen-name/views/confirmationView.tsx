@@ -20,8 +20,6 @@ export default function ConfirmationView({
   handleStepBack,
   state,
 }: ConfirmationProps) {
-  // console.log(`ConfirmationView(state): `, state);
-
   const [selectedOption, setSelectedOption] = useState('UseNewEmail');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
 
@@ -82,6 +80,8 @@ export default function ConfirmationView({
             allowProceed={allowProceed}
             handleStepBack={handleStepBack}
             handleProceed={handle_proceed}
+            useLoadingSpinner={true}
+            loading={state.loading}
           >
             <div css={RADIO_GROUP_STYLING}>
               Select your preferred email option from the list below.
