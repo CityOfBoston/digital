@@ -160,7 +160,7 @@ const CHECKBOX_STYLING = css({
 const CHECKBOX_LABEL_STYLING = (checked: boolean) =>
   css({
     marginTop: '10px',
-    color: checked ? 'inherit' : '#A9AEB1',
+    color: checked ? 'inherit' : '#58585B',
     display: 'flex',
     alignItems: 'start',
     gap: '12px',

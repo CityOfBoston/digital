@@ -43,10 +43,10 @@ export const PREFERRED_NAME_STYLING = css({
 
   color: `${CHARLES_BLUE}`,
   fontFamily: 'Lora',
-  fontSize: '20px',
+  fontSize: '16px',
   fontStyle: 'normal',
   fontWeight: 'normal',
-  lineHeight: '150%',
+  lineHeight: '100%',
 
   [MEDIA_SMALL_MAX]: {
     fontSize: '16px',

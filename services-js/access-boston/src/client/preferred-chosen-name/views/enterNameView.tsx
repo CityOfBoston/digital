@@ -112,7 +112,7 @@ export const EnterNameView = ({
 };
 
 const HEADER_CONTAINER_STYLING = css({
-  fontSize: '2em',
+  fontSize: '18px',
   paddingBottom: '20px',
   marginBottom: '30px',
   '@media (max-width: 600px)': {
@@ -171,8 +171,10 @@ const INPUT_HEADER_CONTAINER_STYLING = css({
 
 const INPUT_STYLING = css({
   width: '100%',
-  padding: '8px',
-  fontSize: '1em',
+  padding: '10px',
+  fontSize: '16px',
+  fontFamily: 'Lora',
+  lineHeight: 'inherit',
   borderRadius: '0',
   border: '1px solid',
 });
