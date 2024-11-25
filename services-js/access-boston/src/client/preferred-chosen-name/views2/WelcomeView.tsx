@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
 import { MouseEvent } from 'react';
 import QuestionComponent from '../components/QuestionComponent';
 
 import { CommonAttributes } from '../types';
-import { PREFERRED_NAME_STYLING } from '../styling/index';
+import { PREFERRED_NAME_STYLING, WELCOMEVIEW_STYLING } from '../styling/index';
 
 interface welcomeProps {
   handleProceed: (ev: MouseEvent) => void;
@@ -13,33 +13,33 @@ interface welcomeProps {
   state: CommonAttributes;
 }
 
-export default function WelcomeView({ handleProceed, state }: welcomeProps) {
+export default function WelcomeView2({ handleProceed, state }: welcomeProps) {
   // console.log(`state: `, state);
 
   return (
     <div css={PREFERRED_NAME_STYLING}>
+      <h2 className="headerBlock">Update Chosen Name</h2>
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
-          <h2 className="headerBlock" css={HEADER_STYLING} />
           <QuestionComponent
             quitBtn={false}
             nextButtonText="Continue"
             allowProceed={true}
             handleProceed={handleProceed}
           >
-            <div css={SNIPPET_CONTAINER_STYLING}>
+            <div css={WELCOMEVIEW_STYLING}>
               <p>
                 A chosen name could be a preferred nickname, middle name, a
                 shortened version of a legal name, or a name that aligns with
                 your gender identity or expression.
               </p>
+
+              <label>What’s Changing:</label>
               <ul>
-                <strong>What’s Changing: </strong>
                 <li>
                   <strong>Chosen Name: </strong>
                   You can add a chosen name to your profile. This name will be
-                  displayed in internal City of Boston systems and
-                  communications.
+                  displayed in internal City of Boston systems.
                 </li>
                 {!state.altWorkflow && (
                   <li>
@@ -49,8 +49,9 @@ export default function WelcomeView({ handleProceed, state }: welcomeProps) {
                   </li>
                 )}
               </ul>
+
+              <label>What’s Not Changing: </label>
               <ul>
-                <strong>What’s Not Changing: </strong>
                 {state.altWorkflow && (
                   <li>
                     <strong>Email Address: </strong>Your email address will
@@ -80,52 +81,3 @@ export default function WelcomeView({ handleProceed, state }: welcomeProps) {
     </div>
   );
 }
-
-const SNIPPET_CONTAINER_STYLING = css({
-  lineHeight: '2rem !important',
-  padding: '0 40px',
-  '& > p, & > ul': {
-    borderBottom: '1px solid #ccc',
-    padding: '20px 0px',
-    margin: '0px',
-    '@media (max-width: 600px)': {
-      lineHeight: '1.5rem  !important',
-      padding: '25px 0px',
-    },
-  },
-  '& > p:last-of-type': {
-    borderBottom: 'none',
-  },
-  '& ul': {
-    '& > strong': {
-      display: 'block',
-      marginBottom: '25px',
-      '@media (max-width: 600px)': {
-        marginBottom: '10px',
-      },
-    },
-  },
-  '& li': {
-    marginLeft: '40px',
-    marginBottom: '20px',
-    listStyleType: 'disc',
-    listStyle: 'outside',
-    '@media (max-width: 600px)': {
-      marginLeft: '20px',
-      marginBottom: '10px',
-    },
-  },
-  '@media (max-width: 600px)': {
-    padding: '0px 15px',
-  },
-});
-
-// Add CSS for changing header text on mobile
-const HEADER_STYLING = css({
-  '&::before': {
-    content: '"Update Chosen Name"',
-    '@media (max-width: 600px)': {
-      content: '"Update Chosen Name"',
-    },
-  },
-});

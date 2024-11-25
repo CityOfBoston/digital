@@ -65,36 +65,44 @@ export const PREFERRED_NAME_STYLING = css({
   '.BorderedAppWrapper': {
     border: '1px solid #A9AEB1',
     borderRadius: '4px', // Matches Figma Design
+    borderTop: '0',
+    borderTopLeftRadius: '0px',
+    borderTopRightRadius: '0px',
+    // borderTop: '0px',
 
     '.btn': {
       borderRadius: '4px',
     },
   },
 
-  '.AppInnerContainer': {
-    '.headerBlock': {
-      alignContent: 'center',
-      padding: '20px 40px',
-      background: '#F0F0F0',
-      borderBottom: '1px solid #A9AEB1',
+  '.headerBlock': {
+    alignContent: 'center',
+    padding: '20px 40px',
+    background: '#F0F0F0',
+    border: '1px solid #A9AEB1',
+    borderRadius: '4px', // Matches Figma Design
+    borderBottom: '1px solid #A9AEB1',
+    borderBottomLeftRadius: '0',
+    borderBottomRightRadius: '0',
 
-      [MEDIA_SMALL_MAX]: {
-        paddingLeft: '5px',
-        padding: '10px 26px',
-        fontSize: '20px',
-        marginBottom: '0',
-      },
-
-      h3: {
-        margin: 0,
-        padding: 0,
-
-        [MEDIA_SMALL_MAX]: {
-          fontSize: '16px',
-        },
-      },
+    [MEDIA_SMALL_MAX]: {
+      paddingLeft: '5px',
+      padding: '10px 26px',
+      fontSize: '20px',
+      marginBottom: '0',
     },
 
+    h3: {
+      margin: 0,
+      padding: 0,
+
+      [MEDIA_SMALL_MAX]: {
+        fontSize: '16px',
+      },
+    },
+  },
+
+  '.AppInnerContainer': {
     '.row': {
       padding: '40px',
       paddingBottom: '1rem',
@@ -105,7 +113,7 @@ export const PREFERRED_NAME_STYLING = css({
     },
 
     '.bodyText': {
-      lineHeight: '2rem',
+      lineHeight: '1.5rem',
     },
   },
 
@@ -113,3 +121,39 @@ export const PREFERRED_NAME_STYLING = css({
     fontWeight: 'bold',
   },
 });
+
+// ------------------------ //
+// VIEWS //
+
+export const WELCOMEVIEW_STYLING = css({
+  padding: '0.5rem 2.5rem 0 2.5rem',
+
+  '@media (max-width: 600px)': {
+    padding: '1.0em 0.75em',
+  },
+
+  '& > p:first-of-type, ul': {
+    borderBottom: '1px solid #ccc',
+  },
+
+  '& > p:first-of-type': {
+    padding: '0 0 1.5em',
+  },
+
+  '& > ul': {
+    padding: '0.85em 0 0',
+    margin: '0 0 1.25em',
+
+    '& > li': {
+      listStyleType: 'disc',
+      listStyle: 'outside',
+      marginLeft: '1.8em',
+    },
+  },
+
+  '& > label': {
+    fontWeight: 'bold',
+  },
+});
+
+// ------------------------ //

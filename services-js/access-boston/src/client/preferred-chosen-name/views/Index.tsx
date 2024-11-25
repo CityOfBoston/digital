@@ -14,7 +14,8 @@ import {
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
 import { EnterNameView } from '../views/enterNameView';
-import WelcomeView from '../views/welcomeView';
+// import WelcomeView from '../views/welcomeView';
+import WelcomeView from '../views2/WelcomeView';
 import ConfirmationView from '../views/confirmationView';
 import ErrorView from '../views/errorView';
 import SuccessView from './successView';

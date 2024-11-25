@@ -7,6 +7,7 @@ import { AppTitle } from '../state/app';
 import { CommonAttributes, PreferredChosenNameInformation } from '../types';
 
 import WelcomeView from './welcomeView';
+import WelcomeView2 from '../views2/WelcomeView';
 import { EnterNameView } from './enterNameView';
 import ConfirmationView from './confirmationView';
 import SuccessView from './successView';
@@ -36,6 +37,15 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
       <WelcomeView
+        handleProceed={() => {}}
+        appTitle={AppTitle}
+        state={defaultWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Welcome 2', () => (
+    <PageWrapper classString={'b-c'}>
+      <WelcomeView2
         handleProceed={() => {}}
         appTitle={AppTitle}
         state={defaultWorkflowAccount}
@@ -72,11 +82,22 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
     </PageWrapper>
   ));
 
+// -------------------------------------------------------------------- //
+
 // WORKFLOW (BPL / BPHC)
 storiesOf('Preferred Chosen Name/Workflow 2', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
       <WelcomeView
+        handleProceed={() => {}}
+        appTitle={AppTitle}
+        state={altWorkflowAccount}
+      />
+    </PageWrapper>
+  ))
+  .add('Welcome 2', () => (
+    <PageWrapper classString={'b-c'}>
+      <WelcomeView2
         handleProceed={() => {}}
         appTitle={AppTitle}
         state={altWorkflowAccount}

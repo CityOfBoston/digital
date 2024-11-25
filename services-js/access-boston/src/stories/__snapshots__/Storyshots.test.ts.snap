@@ -8292,7 +8292,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -9362,7 +9362,7 @@ exports[`Storyshots IndexPage default 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -10486,7 +10486,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                 className="p-a300"
                 href="/preferred-chosen-name"
                 id="app-link-Add a preferred/chosen name"
-                target="_blank"
+                target="_self"
               >
                 <span
                   className="t--info"
@@ -11148,7 +11148,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
   className="b-c"
 >
   <div
-    className="css-1nbkuj2-ConfirmationView"
+    className="css-14jc4hw-ConfirmationView"
   >
     <div
       className="sh sh-title css-13xrlnr-ConfirmationView"
@@ -11274,7 +11274,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               </div>
             </label>
             <label
-              className="css-6ieohi-ConfirmationView"
+              className="css-1cqee8j-ConfirmationView"
             >
               <input
                 checked={false}
@@ -11329,10 +11329,10 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-zwgysu-EnterNameView"
+    className="css-1m8anyv-EnterNameView"
   >
     <div
-      className="sh sh-title css-1vgqagw-EnterNameView"
+      className="sh sh-title css-vyg9hd-EnterNameView"
     >
       Chosen Name
     </div>
@@ -11398,7 +11398,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
                 Chosen First Name
               </label>
               <input
-                className="css-1fisj4-EnterNameView"
+                className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
                 value=""
               />
@@ -11412,7 +11412,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
                 Chosen Last Name
               </label>
               <input
-                className="css-1fisj4-EnterNameView"
+                className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
                 value=""
               />
@@ -11459,7 +11459,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1mc8xzo-ErrorView"
+    className="css-fyfn9c-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11540,7 +11540,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-3btjs5-SuccessView"
+    className="css-1p8uexj-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11701,7 +11701,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-kmtc8-WelcomeView"
+    className="css-9edno8-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11710,7 +11710,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
         className="AppInnerContainer"
       >
         <h2
-          className="headerBlock css-1xelzam-WelcomeView"
+          className="headerBlock css-zbikga-WelcomeView"
         />
         <div
           className="css-1qjvoov-QuestionComponent"
@@ -11783,16 +11783,106 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
 </div>
 `;
 
+exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-u5st1l"
+  >
+    <h2
+      className="headerBlock"
+    >
+      Update Chosen Name
+    </h2>
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="css-1dm2ng8"
+          >
+            <p>
+              A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with your gender identity or expression.
+            </p>
+            <label>
+              What’s Changing:
+            </label>
+            <ul>
+              <li>
+                <strong>
+                  Chosen Name: 
+                </strong>
+                You can add a chosen name to your profile. This name will be displayed in internal City of Boston systems.
+              </li>
+              <li>
+                <strong>
+                  Email Address: 
+                </strong>
+                You can update your email address to reflect your chosen name—or keep it as is, if you prefer.
+              </li>
+            </ul>
+            <label>
+              What’s Not Changing: 
+            </label>
+            <ul>
+              <li>
+                <strong>
+                  Legal Name: 
+                </strong>
+                City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the
+                 
+                <a
+                  href="https://www.google.com"
+                  target="_blank"
+                >
+                  legal name link
+                </a>
+                .
+              </li>
+            </ul>
+            <p>
+              <strong>
+                Please note: 
+              </strong>
+              Any changes made to your chosen name or email address will be reflected across all relevant systems and communications.
+            </p>
+          </div>
+          <div
+            className="css-16umr7p-QuestionComponent"
+          >
+             
+            <button
+              className="btn btn--b-sm"
+              onClick={[Function]}
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
 <div
   aria-live="polite"
   className="b-c"
 >
   <div
-    className="css-zwgysu-EnterNameView"
+    className="css-1m8anyv-EnterNameView"
   >
     <div
-      className="sh sh-title css-1vgqagw-EnterNameView"
+      className="sh sh-title css-vyg9hd-EnterNameView"
     >
       Chosen Name
     </div>
@@ -11858,7 +11948,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
                 Chosen First Name
               </label>
               <input
-                className="css-1fisj4-EnterNameView"
+                className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
                 value=""
               />
@@ -11872,7 +11962,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
                 Chosen Last Name
               </label>
               <input
-                className="css-1fisj4-EnterNameView"
+                className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
                 value=""
               />
@@ -11919,7 +12009,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1mc8xzo-ErrorView"
+    className="css-fyfn9c-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12000,7 +12090,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-3btjs5-SuccessView"
+    className="css-1p8uexj-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12161,7 +12251,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-kmtc8-WelcomeView"
+    className="css-9edno8-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12170,7 +12260,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
         className="AppInnerContainer"
       >
         <h2
-          className="headerBlock css-1xelzam-WelcomeView"
+          className="headerBlock css-zbikga-WelcomeView"
         />
         <div
           className="css-1qjvoov-QuestionComponent"
@@ -12196,6 +12286,96 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
               <strong>
                 What’s Not Changing: 
               </strong>
+              <li>
+                <strong>
+                  Email Address: 
+                </strong>
+                Your email address will remain the same.
+              </li>
+              <li>
+                <strong>
+                  Legal Name: 
+                </strong>
+                City Employees, your legal name used for tax documents (like W2s), paystubs, or other official legal documents will remain unchanged. To change your legal name, please follow the
+                 
+                <a
+                  href="https://www.google.com"
+                  target="_blank"
+                >
+                  legal name link
+                </a>
+                .
+              </li>
+            </ul>
+            <p>
+              <strong>
+                Please note: 
+              </strong>
+              Any changes made to your chosen name or email address will be reflected across all relevant systems and communications.
+            </p>
+          </div>
+          <div
+            className="css-16umr7p-QuestionComponent"
+          >
+             
+            <button
+              className="btn btn--b-sm"
+              onClick={[Function]}
+              type="button"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-u5st1l"
+  >
+    <h2
+      className="headerBlock"
+    >
+      Update Chosen Name
+    </h2>
+    <div
+      className="BorderedAppWrapper"
+    >
+      <div
+        className="AppInnerContainer"
+      >
+        <div
+          className="css-1qjvoov-QuestionComponent"
+        >
+          <div
+            className="css-1dm2ng8"
+          >
+            <p>
+              A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with your gender identity or expression.
+            </p>
+            <label>
+              What’s Changing:
+            </label>
+            <ul>
+              <li>
+                <strong>
+                  Chosen Name: 
+                </strong>
+                You can add a chosen name to your profile. This name will be displayed in internal City of Boston systems.
+              </li>
+            </ul>
+            <label>
+              What’s Not Changing: 
+            </label>
+            <ul>
               <li>
                 <strong>
                   Email Address: 

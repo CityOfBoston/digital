@@ -112,7 +112,7 @@ export const EnterNameView = ({
 };
 
 const HEADER_CONTAINER_STYLING = css({
-  fontSize: '18px',
+  fontSize: '32px',
   paddingBottom: '20px',
   marginBottom: '30px',
   '@media (max-width: 600px)': {
