@@ -11148,7 +11148,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
   className="b-c"
 >
   <div
-    className="css-14jc4hw-ConfirmationView"
+    className="css-1o0yoim-ConfirmationView"
   >
     <div
       className="sh sh-title css-13xrlnr-ConfirmationView"
@@ -11172,14 +11172,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               className="css-wh3iwn-ConfirmationView"
             >
               <label
-                className="css-f2kdqn-TagComponent"
+                className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-s83du1"
+                  className="css-fjrp2q"
                   fill="none"
-                  height="32"
                   viewBox="0 0 24 24"
-                  width="32"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -11323,13 +11321,196 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
 </div>
 `;
 
+exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-102fagz"
+  >
+    <div
+      className="sh sh-title css-txnj1j"
+    >
+      Chosen Name
+    </div>
+    <div
+      className="AddBorderTop"
+    >
+      <div
+        className="BorderedAppWrapper"
+      >
+        <div
+          className="AppInnerContainer"
+        >
+          <div
+            className="InfoBox css-1o57lzp"
+          >
+            Changing your chosen name will affect your City of Boston accounts.
+            <div
+              className="css-1spgrt7"
+            >
+              <div
+                className="css-g9lrbn"
+              >
+                <label
+                  className="css-fblkm4-TagComponent"
+                >
+                  <svg
+                    className="css-fjrp2q"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                      fill="#091F2F"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                  <span
+                    className="css-11jueto-TagComponent"
+                  >
+                    Chosen Name
+                  </span>
+                </label>
+                <div
+                  className="CurrentName"
+                >
+                  Phill
+                   
+                  Kelly
+                </div>
+              </div>
+              <a
+                className="btn btn--b-sm btn-alt btn--w css-vcp3bu"
+                onClick={[Function]}
+                type="button"
+              >
+                Edit
+              </a>
+            </div>
+          </div>
+          <div
+            className="css-1qjvoov-QuestionComponent"
+          >
+            <div
+              className="css-1kw61in"
+            >
+              Select your preferred email option from the list below.
+              <label
+                className="css-89boef"
+              >
+                <div
+                  className="css-1suh0c0"
+                >
+                  <input
+                    checked={true}
+                    className="ra-f"
+                    id="radio[0]"
+                    name="filters"
+                    onChange={[Function]}
+                    type="radio"
+                    value="UseNewEmail"
+                  />
+                  <strong
+                    className="css-in3yi3"
+                  >
+                    Use new email
+                  </strong>
+                </div>
+                <div
+                  className="css-essj8j"
+                >
+                  phill.kelly@boston.gov
+                </div>
+              </label>
+              <label
+                className="css-1k6yyzn"
+              >
+                <div
+                  className="css-1suh0c0"
+                >
+                  <input
+                    checked={false}
+                    className="ra-f"
+                    id="radio[1]"
+                    name="filters"
+                    onChange={[Function]}
+                    type="radio"
+                    value="KeepCurrentEmail"
+                  />
+                  <strong
+                    className="css-in3yi3"
+                  >
+                    Keep current email
+                  </strong>
+                </div>
+                <div
+                  className="css-essj8j"
+                >
+                  felipe.rivera@boston.gov
+                </div>
+              </label>
+              <label
+                className="css-1kdtvu5"
+              >
+                <input
+                  checked={false}
+                  className="css-eyqs17"
+                  onChange={[Function]}
+                  type="checkbox"
+                />
+                By submitting this form you agree to changing your displayed chosen name and email address across all your City of Boston accounts
+              </label>
+              <div>
+                 
+                For more information, see the
+                 
+                <a
+                  href="https://www.google.com"
+                  target="_blank"
+                >
+                  Chosen Name Support Documentation
+                </a>
+              </div>
+            </div>
+            <div
+              className="css-16umr7p-QuestionComponent"
+            >
+              <button
+                className="btn btn--b-sm btn-alt btn--w"
+                onClick={[Function]}
+                type="button"
+              >
+                Go Back
+              </button>
+               
+              <button
+                className="btn btn--b-sm"
+                disabled={true}
+                onClick={[Function]}
+                type="button"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
 <div
   aria-live="polite"
   className="b-c"
 >
   <div
-    className="css-1m8anyv-EnterNameView"
+    className="css-1mlr4dp-EnterNameView"
   >
     <div
       className="sh sh-title css-vyg9hd-EnterNameView"
@@ -11347,17 +11528,15 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
         >
           Changing your chosen name will affect your City of Boston accounts.
           <div
-            className="CurrentNameContainer css-it6ib0-EnterNameView"
+            className="CurrentNameContainer css-1kiuem8-EnterNameView"
           >
             <label
-              className="css-f2kdqn-TagComponent"
+              className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-s83du1"
+                className="css-fjrp2q"
                 fill="none"
-                height="32"
                 viewBox="0 0 24 24"
-                width="32"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -11400,7 +11579,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               <input
                 className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
-                value=""
+                value="Phill"
               />
             </div>
             <div
@@ -11414,7 +11593,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               <input
                 className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
-                value=""
+                value="Kelly"
               />
             </div>
             For more information, see the
@@ -11439,12 +11618,144 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
              
             <button
               className="btn btn--b-sm"
-              disabled={true}
+              disabled={false}
               onClick={[Function]}
               type="button"
             >
               Continue
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-102fagz"
+  >
+    <div
+      className="sh sh-title css-grhjxa"
+    >
+      Chosen Name
+    </div>
+    <div
+      className="AddBorderTop"
+    >
+      <div
+        className="BorderedAppWrapper"
+      >
+        <div
+          className="AppInnerContainer"
+        >
+          <div
+            className="InfoBox css-1o57lzp"
+          >
+            Changing your chosen name will affect your City of Boston accounts.
+            <div
+              className="CurrentNameContainer css-1hug8il"
+            >
+              <label
+                className="css-fblkm4-TagComponent"
+              >
+                <svg
+                  className="css-fjrp2q"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="#091F2F"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="css-11jueto-TagComponent"
+                >
+                  Current Name
+                </span>
+              </label>
+              <div
+                className="CurrentName"
+              >
+                Felipe
+                 
+                Rivera
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-1qjvoov-QuestionComponent"
+          >
+            <div
+              className="FormBox css-1kyyl6g"
+            >
+              Use the fields below to update your chosen first name, last name, or both.
+              <div
+                className="ChosenFirstNameInput css-msn52r"
+              >
+                <label
+                  className="css-3dalep"
+                >
+                  Chosen First Name
+                </label>
+                <input
+                  className="css-17e3x26"
+                  onChange={[Function]}
+                  value="Phill"
+                />
+              </div>
+              <div
+                className="ChosenLastNameInput css-msn52r"
+              >
+                <label
+                  className="css-3dalep"
+                >
+                  Chosen Last Name
+                </label>
+                <input
+                  className="css-17e3x26"
+                  onChange={[Function]}
+                  value="Kelly"
+                />
+              </div>
+              For more information, see the
+               
+              <a
+                href="https://www.google.com"
+                target="_blank"
+              >
+                Chosen Name Support Documentation
+              </a>
+            </div>
+            <div
+              className="css-16umr7p-QuestionComponent"
+            >
+              <button
+                className="btn btn--b-sm btn-alt btn--w"
+                onClick={[Function]}
+                type="button"
+              >
+                Back
+              </button>
+               
+              <button
+                className="btn btn--b-sm"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -11459,7 +11770,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-fyfn9c-ErrorView"
+    className="css-1mg0xoo-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11534,13 +11845,98 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
 </div>
 `;
 
+exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-102fagz"
+  >
+    <div
+      className="AddBorderTop"
+    >
+      <div
+        className="BorderedAppWrapper"
+      >
+        <div
+          className="AppInnerContainer"
+        >
+          <div
+            className="css-1tthkhf-AlertComponent"
+          >
+            <div
+              className="css-mrlb96-AlertComponent"
+            >
+              <div
+                className="css-18zvm2j-AlertComponent"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                    fill="#D54309"
+                  />
+                </svg>
+              </div>
+              <div
+                className="css-9h7ot6-AlertComponent"
+              >
+                Something Went Wrong
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-1qjvoov-QuestionComponent"
+          >
+            <div
+              className="row css-rr215r"
+            >
+              <div
+                className="bodyText"
+              >
+                <p
+                  className="css-k57hss"
+                >
+                  There was an error with this request, please try again later.
+                </p>
+              </div>
+            </div>
+            <div
+              className="css-16umr7p-QuestionComponent"
+            >
+               
+              <div
+                className="successView__Btn-wrapper"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
 <div
   aria-live="polite"
   className="b-c"
 >
   <div
-    className="css-1p8uexj-SuccessView"
+    className="css-s6b1at-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11571,14 +11967,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             className="css-8pk6zo-RowColumns"
           >
             <label
-              className="css-f2kdqn-TagComponent"
+              className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-s83du1"
+                className="css-fjrp2q"
                 fill="none"
-                height="32"
                 viewBox="0 0 24 24"
-                width="32"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -11595,7 +11989,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-14srcyr-RowColumns"
+              className="css-p0hlzq-RowColumns"
             >
               Phill Kelly
             </div>
@@ -11604,14 +11998,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             className="css-8pk6zo-RowColumns"
           >
             <label
-              className="css-f2kdqn-TagComponent"
+              className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-s83du1"
+                className="css-fjrp2q"
                 fill="none"
-                height="32"
                 viewBox="0 0 24 24"
-                width="32"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -11628,7 +12020,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-14srcyr-RowColumns"
+              className="css-p0hlzq-RowColumns"
             >
               phill.kelly@boston.gov
             </div>
@@ -11649,7 +12041,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
                 <strong>
                   Please Note: 
                 </strong>
-                To access the most recent update, please log in to your account after logging out.
+                To see your updated chosen name, please log out and log back into your (Access Boston for specificity) account.
                 <p>
                   For more information, see the
                    
@@ -11695,13 +12087,164 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
 </div>
 `;
 
+exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-102fagz"
+  >
+    <div
+      className="AddBorderTop"
+    >
+      <div
+        className="BorderedAppWrapper"
+      >
+        <div
+          className="AppInnerContainer"
+        >
+          <div
+            className="css-kxjo63-AlertComponent"
+          >
+            <div
+              className="css-mrlb96-AlertComponent"
+            >
+              <div
+                className="css-18zvm2j-AlertComponent"
+              />
+              <div
+                className="css-od4gop-AlertComponent"
+              >
+                Your chosen name and email have been updated
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-vbppd0-RowColumns"
+          >
+            <div
+              className="css-8pk6zo-RowColumns"
+            >
+              <label
+                className="css-fblkm4-TagComponent"
+              >
+                <svg
+                  className="css-fjrp2q"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="#091F2F"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="css-11jueto-TagComponent"
+                >
+                  Chosen Name
+                </span>
+              </label>
+              <div
+                className="css-p0hlzq-RowColumns"
+              >
+                Phill Kelly
+              </div>
+            </div>
+            <div
+              className="css-8pk6zo-RowColumns"
+            >
+              <label
+                className="css-fblkm4-TagComponent"
+              >
+                <svg
+                  className="css-fjrp2q"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M20 4H4C2.9 4 2.01 4.9 2 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+                    fill="#1B1B1B"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="css-11jueto-TagComponent"
+                >
+                  Email Address
+                </span>
+              </label>
+              <div
+                className="css-p0hlzq-RowColumns"
+              >
+                phill.kelly@boston.gov
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-1qjvoov-QuestionComponent"
+          >
+            <div
+              className="row css-iwyqov"
+            >
+              <div
+                className="bodyText"
+              >
+                <p
+                  className="css-k57hss"
+                >
+                  <strong>
+                    Please Note: 
+                  </strong>
+                  To see your updated chosen name, please log out and log back into your account.
+                </p>
+              </div>
+            </div>
+            <div
+              className="css-16umr7p-QuestionComponent"
+            >
+               
+              <div
+                className="successView__Btn-wrapper"
+              >
+                <form
+                  action="/logout"
+                  method="POST"
+                >
+                  <input
+                    name="crumb"
+                    type="hidden"
+                    value=""
+                  />
+                  <button
+                    className="btn btn--sm btn--100"
+                    type="submit"
+                  >
+                    Log Out
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
 <div
   aria-live="polite"
   className="b-c"
 >
   <div
-    className="css-9edno8-WelcomeView"
+    className="css-h52jb3-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11789,7 +12332,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-u5st1l"
+    className="css-102fagz"
   >
     <h2
       className="headerBlock"
@@ -11879,7 +12422,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-1m8anyv-EnterNameView"
+    className="css-1mlr4dp-EnterNameView"
   >
     <div
       className="sh sh-title css-vyg9hd-EnterNameView"
@@ -11897,17 +12440,15 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
         >
           Changing your chosen name will affect your City of Boston accounts.
           <div
-            className="CurrentNameContainer css-it6ib0-EnterNameView"
+            className="CurrentNameContainer css-1kiuem8-EnterNameView"
           >
             <label
-              className="css-f2kdqn-TagComponent"
+              className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-s83du1"
+                className="css-fjrp2q"
                 fill="none"
-                height="32"
                 viewBox="0 0 24 24"
-                width="32"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -11950,7 +12491,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               <input
                 className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
-                value=""
+                value="Phill"
               />
             </div>
             <div
@@ -11964,7 +12505,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               <input
                 className="css-19co7nm-EnterNameView"
                 onChange={[Function]}
-                value=""
+                value="Kelly"
               />
             </div>
             For more information, see the
@@ -11989,12 +12530,144 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
              
             <button
               className="btn btn--b-sm"
-              disabled={true}
+              disabled={false}
               onClick={[Function]}
               type="button"
             >
               Submit
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-102fagz"
+  >
+    <div
+      className="sh sh-title css-grhjxa"
+    >
+      Chosen Name
+    </div>
+    <div
+      className="AddBorderTop"
+    >
+      <div
+        className="BorderedAppWrapper"
+      >
+        <div
+          className="AppInnerContainer"
+        >
+          <div
+            className="InfoBox css-1o57lzp"
+          >
+            Changing your chosen name will affect your City of Boston accounts.
+            <div
+              className="CurrentNameContainer css-1hug8il"
+            >
+              <label
+                className="css-fblkm4-TagComponent"
+              >
+                <svg
+                  className="css-fjrp2q"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="#091F2F"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="css-11jueto-TagComponent"
+                >
+                  Current Name
+                </span>
+              </label>
+              <div
+                className="CurrentName"
+              >
+                Felipe
+                 
+                Rivera
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-1qjvoov-QuestionComponent"
+          >
+            <div
+              className="FormBox css-1kyyl6g"
+            >
+              Use the fields below to update your chosen first name, last name, or both.
+              <div
+                className="ChosenFirstNameInput css-msn52r"
+              >
+                <label
+                  className="css-3dalep"
+                >
+                  Chosen First Name
+                </label>
+                <input
+                  className="css-17e3x26"
+                  onChange={[Function]}
+                  value="Phill"
+                />
+              </div>
+              <div
+                className="ChosenLastNameInput css-msn52r"
+              >
+                <label
+                  className="css-3dalep"
+                >
+                  Chosen Last Name
+                </label>
+                <input
+                  className="css-17e3x26"
+                  onChange={[Function]}
+                  value="Kelly"
+                />
+              </div>
+              For more information, see the
+               
+              <a
+                href="https://www.google.com"
+                target="_blank"
+              >
+                Chosen Name Support Documentation
+              </a>
+            </div>
+            <div
+              className="css-16umr7p-QuestionComponent"
+            >
+              <button
+                className="btn btn--b-sm btn-alt btn--w"
+                onClick={[Function]}
+                type="button"
+              >
+                Back
+              </button>
+               
+              <button
+                className="btn btn--b-sm"
+                disabled={false}
+                onClick={[Function]}
+                type="button"
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -12009,7 +12682,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-fyfn9c-ErrorView"
+    className="css-1mg0xoo-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12084,13 +12757,98 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
 </div>
 `;
 
+exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-102fagz"
+  >
+    <div
+      className="AddBorderTop"
+    >
+      <div
+        className="BorderedAppWrapper"
+      >
+        <div
+          className="AppInnerContainer"
+        >
+          <div
+            className="css-1tthkhf-AlertComponent"
+          >
+            <div
+              className="css-mrlb96-AlertComponent"
+            >
+              <div
+                className="css-18zvm2j-AlertComponent"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+                    fill="#D54309"
+                  />
+                </svg>
+              </div>
+              <div
+                className="css-9h7ot6-AlertComponent"
+              >
+                Something Went Wrong
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-1qjvoov-QuestionComponent"
+          >
+            <div
+              className="row css-rr215r"
+            >
+              <div
+                className="bodyText"
+              >
+                <p
+                  className="css-k57hss"
+                >
+                  There was an error with this request, please try again later.
+                </p>
+              </div>
+            </div>
+            <div
+              className="css-16umr7p-QuestionComponent"
+            >
+               
+              <div
+                className="successView__Btn-wrapper"
+              >
+                <button
+                  className="btn btn--b-sm"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
 <div
   aria-live="polite"
   className="b-c"
 >
   <div
-    className="css-1p8uexj-SuccessView"
+    className="css-s6b1at-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12121,14 +12879,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             className="css-8pk6zo-RowColumns"
           >
             <label
-              className="css-f2kdqn-TagComponent"
+              className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-s83du1"
+                className="css-fjrp2q"
                 fill="none"
-                height="32"
                 viewBox="0 0 24 24"
-                width="32"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -12145,7 +12901,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-14srcyr-RowColumns"
+              className="css-p0hlzq-RowColumns"
             >
               Phill Kelly
             </div>
@@ -12154,14 +12910,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             className="css-8pk6zo-RowColumns"
           >
             <label
-              className="css-f2kdqn-TagComponent"
+              className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-s83du1"
+                className="css-fjrp2q"
                 fill="none"
-                height="32"
                 viewBox="0 0 24 24"
-                width="32"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -12178,7 +12932,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-g32svm-RowColumns"
+              className="css-1s6fqp4-RowColumns"
             >
               Contact your IT department to have your email address updated
             </div>
@@ -12199,7 +12953,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
                 <strong>
                   Please Note: 
                 </strong>
-                To access the most recent update, please log in to your account after logging out.
+                To see your updated chosen name, please log out and log back into your (Access Boston for specificity) account.
                 <p>
                   For more information, see the
                    
@@ -12245,13 +12999,164 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
 </div>
 `;
 
+exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
+<div
+  aria-live="polite"
+  className="b-c"
+>
+  <div
+    className="css-102fagz"
+  >
+    <div
+      className="AddBorderTop"
+    >
+      <div
+        className="BorderedAppWrapper"
+      >
+        <div
+          className="AppInnerContainer"
+        >
+          <div
+            className="css-kxjo63-AlertComponent"
+          >
+            <div
+              className="css-mrlb96-AlertComponent"
+            >
+              <div
+                className="css-18zvm2j-AlertComponent"
+              />
+              <div
+                className="css-od4gop-AlertComponent"
+              >
+                Your chosen name has been updated
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-vbppd0-RowColumns"
+          >
+            <div
+              className="css-8pk6zo-RowColumns"
+            >
+              <label
+                className="css-fblkm4-TagComponent"
+              >
+                <svg
+                  className="css-fjrp2q"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"
+                    fill="#091F2F"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="css-11jueto-TagComponent"
+                >
+                  Chosen Name
+                </span>
+              </label>
+              <div
+                className="css-p0hlzq-RowColumns"
+              >
+                Phill Kelly
+              </div>
+            </div>
+            <div
+              className="css-8pk6zo-RowColumns"
+            >
+              <label
+                className="css-fblkm4-TagComponent"
+              >
+                <svg
+                  className="css-fjrp2q"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clipRule="evenodd"
+                    d="M20 4H4C2.9 4 2.01 4.9 2 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+                    fill="#1B1B1B"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="css-11jueto-TagComponent"
+                >
+                  Email Address
+                </span>
+              </label>
+              <div
+                className="css-1s6fqp4-RowColumns"
+              >
+                Contact your IT department to have your email address updated
+              </div>
+            </div>
+          </div>
+          <div
+            className="css-1qjvoov-QuestionComponent"
+          >
+            <div
+              className="row css-iwyqov"
+            >
+              <div
+                className="bodyText"
+              >
+                <p
+                  className="css-k57hss"
+                >
+                  <strong>
+                    Please Note: 
+                  </strong>
+                  To see your updated chosen name, please log out and log back into your account.
+                </p>
+              </div>
+            </div>
+            <div
+              className="css-16umr7p-QuestionComponent"
+            >
+               
+              <div
+                className="successView__Btn-wrapper"
+              >
+                <form
+                  action="/logout"
+                  method="POST"
+                >
+                  <input
+                    name="crumb"
+                    type="hidden"
+                    value=""
+                  />
+                  <button
+                    className="btn btn--sm btn--100"
+                    type="submit"
+                  >
+                    Log Out
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
 <div
   aria-live="polite"
   className="b-c"
 >
   <div
-    className="css-9edno8-WelcomeView"
+    className="css-h52jb3-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12339,7 +13244,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-u5st1l"
+    className="css-102fagz"
   >
     <h2
       className="headerBlock"

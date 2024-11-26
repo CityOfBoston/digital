@@ -46,7 +46,7 @@ export const PREFERRED_NAME_STYLING = css({
   fontSize: '16px',
   fontStyle: 'normal',
   fontWeight: 'normal',
-  lineHeight: '100%',
+  lineHeight: 'inherit',
 
   [MEDIA_SMALL_MAX]: {
     fontSize: '16px',
@@ -68,11 +68,17 @@ export const PREFERRED_NAME_STYLING = css({
     borderTop: '0',
     borderTopLeftRadius: '0px',
     borderTopRightRadius: '0px',
-    // borderTop: '0px',
 
     '.btn': {
       borderRadius: '4px',
     },
+  },
+
+  '.AddBorderTop': {
+    borderColor: '#A9AEB1',
+    borderTopWidth: '1px',
+    borderTopStyle: 'solid',
+    borderRadius: '4px', // Matches Figma Design
   },
 
   '.headerBlock': {

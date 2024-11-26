@@ -49,8 +49,9 @@ export default function SuccessView(props: SuccessProps) {
             <div className="row" css={BODY_TEXT_STYLING}>
               <div className="bodyText">
                 <p css={BODY_PARAGRAPH_STYLING}>
-                  <strong>Please Note: </strong>To access the most recent
-                  update, please log in to your account after logging out.
+                  <strong>Please Note: </strong>To see your updated chosen name,
+                  please log out and log back into your (Access Boston for
+                  specificity) account.
                   <p>
                     For more information, see the{' '}
                     <a href="https://www.google.com" target="_blank">

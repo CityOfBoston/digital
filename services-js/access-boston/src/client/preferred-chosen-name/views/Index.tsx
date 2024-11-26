@@ -13,7 +13,8 @@ import {
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-import { EnterNameView } from '../views/enterNameView';
+// import { EnterNameView } from '../views/enterNameView';
+import { EnterNameView2 } from '../views2/EnterNameView';
 // import WelcomeView from '../views/welcomeView';
 import WelcomeView from '../views2/WelcomeView';
 import ConfirmationView from '../views/confirmationView';
@@ -158,9 +159,15 @@ export default function Index(props: Props) {
 
   const enterNameView = (
     <PageWrapper classString={'b-c'}>
-      <EnterNameView
+      {/* <EnterNameView
         handleProceed={handlerPreferredNameReq}
         handleSubmit={handlerPreferredNameSubmit}
+        state={state}
+      /> */}
+      <EnterNameView2
+        handleProceed={handlerPreferredNameReq}
+        handleSubmit={handlerPreferredNameSubmit}
+        handleStepBack={stepBack}
         state={state}
       />
     </PageWrapper>

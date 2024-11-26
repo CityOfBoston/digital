@@ -13,12 +13,11 @@ interface welcomeProps {
   state: CommonAttributes;
 }
 
-export default function WelcomeView2({ handleProceed, state }: welcomeProps) {
-  // console.log(`state: `, state);
-
+const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <h2 className="headerBlock">Update Chosen Name</h2>
+
       <div className="BorderedAppWrapper">
         <div className="AppInnerContainer">
           <QuestionComponent
@@ -80,4 +79,6 @@ export default function WelcomeView2({ handleProceed, state }: welcomeProps) {
       </div>
     </div>
   );
-}
+};
+
+export default WelcomeView2;
