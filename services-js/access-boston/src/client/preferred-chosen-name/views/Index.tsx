@@ -13,13 +13,17 @@ import {
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-// import { EnterNameView } from '../views/enterNameView';
+import { WelcomeView2 } from '../views2/WelcomeView';
 import { EnterNameView2 } from '../views2/EnterNameView';
+import { ConfirmationView2 } from '../views2/ConfirmationView';
+import { ErrorView2 } from '../views2/ErrorView';
+import { SuccessView2 } from '../views2/SuccessView';
+
+// import { EnterNameView } from '../views/enterNameView';
 // import WelcomeView from '../views/welcomeView';
-import WelcomeView from '../views2/WelcomeView';
-import ConfirmationView from '../views/confirmationView';
-import ErrorView from '../views/errorView';
-import SuccessView from './successView';
+// import ConfirmationView from '../views/confirmationView';
+// import ErrorView from '../views/errorView';
+// import SuccessView from './successView';
 
 interface Props {
   accountState: CommonAttributes;
@@ -149,7 +153,7 @@ export default function Index(props: Props) {
 
   const defaultView = (
     <PageWrapper classString={'b-c'}>
-      <WelcomeView
+      <WelcomeView2
         handleProceed={advanceStep}
         appTitle={AppTitle}
         state={state}
@@ -175,7 +179,7 @@ export default function Index(props: Props) {
 
   const approvalView = (
     <PageWrapper classString={'b-c'}>
-      <ConfirmationView
+      <ConfirmationView2
         handleProceed={handlerPreferredNameSubmit}
         handleStepBack={stepBack}
         appTitle={AppTitle}
@@ -186,13 +190,13 @@ export default function Index(props: Props) {
 
   const errorView = (
     <PageWrapper classString={'b-c'}>
-      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
+      <ErrorView2 handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   );
 
   const successView = (
     <PageWrapper classString={'b-c'}>
-      <SuccessView handleQuit={closeTab} appTitle={AppTitle} state={state} />
+      <SuccessView2 handleQuit={closeTab} appTitle={AppTitle} state={state} />
     </PageWrapper>
   );
 

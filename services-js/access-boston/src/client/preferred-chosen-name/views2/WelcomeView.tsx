@@ -13,7 +13,7 @@ interface welcomeProps {
   state: CommonAttributes;
 }
 
-const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
+export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <h2 className="headerBlock">Update Chosen Name</h2>
