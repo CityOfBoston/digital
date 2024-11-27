@@ -34,8 +34,6 @@ export const EnterNameView2 = ({
   const nextBtnStr: string = altWorkflow ? 'Submit' : 'Continue';
   const allowProceed: boolean = FName.trim() !== '' || LName.trim() !== '';
 
-  console.log(`EnterNameView(2) state: `, state);
-
   const handle_proceed = () => {
     const { employeeId } = state;
     const subObj = { Id: employeeId, FName, LName };

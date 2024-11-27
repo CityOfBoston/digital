@@ -8230,6 +8230,36 @@ exports[`Storyshots IndexPage change password success 1`] = `
             >
               <a
                 className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Update Chosen Name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Update Chosen Name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
                 href="/change-password"
                 id="app-link-Change My Password"
                 target="_self"
@@ -8273,36 +8303,6 @@ exports[`Storyshots IndexPage change password success 1`] = `
                   }
                 >
                   Manage My Device(s)
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/preferred-chosen-name"
-                id="app-link-Add a preferred/chosen name"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Add a preferred/chosen name
                 </span>
                 <span
                   style={
@@ -9300,6 +9300,36 @@ exports[`Storyshots IndexPage default 1`] = `
             >
               <a
                 className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Update Chosen Name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Update Chosen Name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
                 href="/change-password"
                 id="app-link-Change My Password"
                 target="_self"
@@ -9343,36 +9373,6 @@ exports[`Storyshots IndexPage default 1`] = `
                   }
                 >
                   Manage My Device(s)
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/preferred-chosen-name"
-                id="app-link-Add a preferred/chosen name"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Add a preferred/chosen name
                 </span>
                 <span
                   style={
@@ -10424,6 +10424,36 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
             >
               <a
                 className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Update Chosen Name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Update Chosen Name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
                 href="/change-password"
                 id="app-link-Change My Password"
                 target="_self"
@@ -10467,36 +10497,6 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                   }
                 >
                   Manage My Device(s)
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/preferred-chosen-name"
-                id="app-link-Add a preferred/chosen name"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Add a preferred/chosen name
                 </span>
                 <span
                   style={
