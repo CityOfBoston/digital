@@ -22,6 +22,12 @@ export const ConfirmationView2 = ({
 }: ConfirmationProps) => {
   const [selectedOption, setSelectedOption] = useState('UseNewEmail');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const { firstName, lastName, chosenFirstName, chosenLastName } = state;
+
+  const FName =
+    chosenFirstName && chosenFirstName.length > 0 ? chosenFirstName : firstName;
+  const LName =
+    chosenLastName && chosenLastName.length > 0 ? chosenLastName : lastName;
 
   const handleRadioChange = (value: string) => {
     setSelectedOption(value);
@@ -40,8 +46,8 @@ export const ConfirmationView2 = ({
   const handle_proceed = () => {
     let subObj = {
       Id: state.employeeId,
-      FName: state.chosenFirstName,
-      LName: state.chosenLastName,
+      FName: FName,
+      LName: LName,
     };
     if (selectedOption === 'UseNewEmail') subObj['Email'] = state.newEmail;
 
@@ -51,7 +57,7 @@ export const ConfirmationView2 = ({
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="sh sh-title" css={HEADER_CONTAINER_STYLING}>
-        Chosen Name
+        Update Chosen Name
       </div>
 
       <div className={'AddBorderTop'}>
@@ -72,6 +78,7 @@ export const ConfirmationView2 = ({
                   className="btn btn--b-sm btn-alt btn--w"
                   onClick={handleStepBack}
                   css={EDIT_BUTTON_STYLING}
+                  tabIndex={0}
                 >
                   Edit
                 </a>
@@ -103,12 +110,15 @@ export const ConfirmationView2 = ({
                       className="ra-f"
                       checked={selectedOption === 'UseNewEmail'}
                       onChange={() => handleRadioChange('UseNewEmail')}
+                      title={`Use new email`}
+                      alt={`Use new email`}
                     />
                     <strong css={RADIO_LABEL_STYLING}>Use new email</strong>
                   </div>
                   <div css={EMAIL_TEXT_STYLING}>{state.newEmail}</div>
                 </label>
                 <label
+                  tabIndex={0}
                   css={[
                     RADIO_STACK_STYLING,
                     selectedOption === 'KeepCurrentEmail' &&
@@ -124,6 +134,8 @@ export const ConfirmationView2 = ({
                       className="ra-f"
                       checked={selectedOption === 'KeepCurrentEmail'}
                       onChange={() => handleRadioChange('KeepCurrentEmail')}
+                      title={`Keep current email`}
+                      alt={`Keep current email`}
                     />
                     <strong css={RADIO_LABEL_STYLING}>
                       Keep current email
@@ -137,15 +149,24 @@ export const ConfirmationView2 = ({
                     checked={checkboxChecked}
                     onChange={toggleCheckbox}
                     css={CHECKBOX_STYLING}
-                  />
-                  By submitting this form you agree to changing your displayed
+                    alt={`By submitting this form you agree to changing your displayed
                   chosen name and email address across all your City of Boston
-                  accounts
+                  accounts`}
+                    title={`By submitting this form you agree to changing your displayed
+                  chosen name and email address across all your City of Boston
+                  accounts`}
+                  />
+                  By submitting this form you agree to updating your chosen
+                  name, or chosen name and email, across City of Boston accounts
                 </label>
                 <div>
                   {' '}
                   For more information, see the{' '}
-                  <a href="https://www.google.com" target="_blank">
+                  <a
+                    href="https://www.google.com"
+                    target="_blank"
+                    title={`Chosen Name Support Documentation`}
+                  >
                     Chosen Name Support Documentation
                   </a>
                 </div>
@@ -163,6 +184,10 @@ export default ConfirmationView2;
 const CHECKBOX_STYLING = css({
   width: '34.3px',
   height: '20px',
+
+  // '@media (max-width: 600px)': {
+  //   width: '34px',
+  // },
 });
 
 const CHECKBOX_LABEL_STYLING = () =>
@@ -205,15 +230,17 @@ const CHOSEN_NAME_STYLING = css({
   flex: '1',
   display: 'flex',
   flexDirection: 'column',
+
   '.CurrentName': {
     marginTop: '10px',
     marginLeft: '1.5em',
     fontSize: '1.2em',
   },
+
   '@media (max-width: 600px)': {
     '.CurrentName': {
       marginTop: '5px',
-      marginLeft: '0px',
+      // marginLeft: '0px',
       fontSize: '1.2em',
     },
   },
@@ -229,21 +256,27 @@ const EDIT_BUTTON_STYLING = css({
 });
 
 const RADIO_GROUP_STYLING = css({
+  display: 'flex',
+  flexDirection: 'column',
   padding: '30px 40px',
+  gap: '8px',
+
   '@media (max-width: 600px)': {
     padding: '25px 15px',
   },
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '8px',
 });
 
 const RADIO_STACK_STYLING = css({
   cursor: 'pointer',
-  padding: '15px 5px 20px 15px',
+  padding: '15px 5px 10px 15px',
   border: '3px solid #A9AEB1',
+
+  ':focus-visible': {
+    outlineColor: '#005EA2',
+  },
+
   '@media (max-width: 600px)': {
-    padding: '10px 0px 15px 10px',
+    padding: '10px 0px 10px 10px',
     border: '2px solid #A9AEB1',
   },
 });
@@ -251,6 +284,10 @@ const RADIO_STACK_STYLING = css({
 const RADIO_SELECTED_STYLING = css({
   borderColor: '#005EA2',
   backgroundColor: '#D9E8F6',
+
+  ':focus-visible': {
+    outlineColor: 'red',
+  },
 });
 
 const RADIO_OPTION_STYLING = css({
@@ -287,7 +324,8 @@ const EMAIL_TEXT_STYLING = css({
   wordBreak: 'break-all',
   overflowWrap: 'break-word',
   margin: '5px 1.8em 0px',
+
   '@media (max-width: 600px)': {
-    margin: '10px 5px 0px 40px',
+    margin: '10px 5px 0px 30px',
   },
 });

@@ -22,6 +22,12 @@ export default function ConfirmationView({
 }: ConfirmationProps) {
   const [selectedOption, setSelectedOption] = useState('UseNewEmail');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const { firstName, lastName, chosenFirstName, chosenLastName } = state;
+
+  const FName =
+    chosenFirstName && chosenFirstName.length > 0 ? chosenFirstName : firstName;
+  const LName =
+    chosenLastName && chosenLastName.length > 0 ? chosenLastName : lastName;
 
   const handleRadioChange = (value: string) => {
     setSelectedOption(value);
@@ -40,8 +46,8 @@ export default function ConfirmationView({
   const handle_proceed = () => {
     let subObj = {
       Id: state.employeeId,
-      FName: state.chosenFirstName,
-      LName: state.chosenLastName,
+      FName: FName,
+      LName: LName,
     };
     if (selectedOption === 'UseNewEmail') subObj['Email'] = state.newEmail;
 
@@ -61,7 +67,7 @@ export default function ConfirmationView({
               <div css={CHOSEN_NAME_STYLING}>
                 <ChosenNameTag />
                 <div className="CurrentName">
-                  {state.chosenFirstName} {state.chosenLastName}
+                  {FName} {LName}
                 </div>
               </div>
               <a
@@ -99,6 +105,7 @@ export default function ConfirmationView({
                     value="UseNewEmail"
                     className="ra-f"
                     checked={selectedOption === 'UseNewEmail'}
+                    tabIndex={0}
                     onChange={() => handleRadioChange('UseNewEmail')}
                   />
                   <strong css={RADIO_LABEL_STYLING}>Use new email</strong>
@@ -119,6 +126,7 @@ export default function ConfirmationView({
                     name="filters"
                     value="KeepCurrentEmail"
                     className="ra-f"
+                    tabIndex={0}
                     checked={selectedOption === 'KeepCurrentEmail'}
                     onChange={() => handleRadioChange('KeepCurrentEmail')}
                   />

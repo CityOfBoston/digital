@@ -8209,7 +8209,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
           </ul>
         </section>
         <section
-          aria-labelledby="sh-1450655087"
+          aria-labelledby="sh-2668086721"
           className="m-b500 g--6"
         >
           <div
@@ -8217,9 +8217,9 @@ exports[`Storyshots IndexPage change password success 1`] = `
           >
             <h2
               className="sh-title"
-              id="sh-1450655087"
+              id="sh-2668086721"
             >
-              Account Tools
+              Account Settings
             </h2>
           </div>
           <ul
@@ -9279,7 +9279,7 @@ exports[`Storyshots IndexPage default 1`] = `
           </ul>
         </section>
         <section
-          aria-labelledby="sh-1450655087"
+          aria-labelledby="sh-2668086721"
           className="m-b500 g--6"
         >
           <div
@@ -9287,9 +9287,9 @@ exports[`Storyshots IndexPage default 1`] = `
           >
             <h2
               className="sh-title"
-              id="sh-1450655087"
+              id="sh-2668086721"
             >
-              Account Tools
+              Account Settings
             </h2>
           </div>
           <ul
@@ -10403,7 +10403,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           </ul>
         </section>
         <section
-          aria-labelledby="sh-1450655087"
+          aria-labelledby="sh-2668086721"
           className="m-b500 g--6"
         >
           <div
@@ -10411,9 +10411,9 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           >
             <h2
               className="sh-title"
-              id="sh-1450655087"
+              id="sh-2668086721"
             >
-              Account Tools
+              Account Settings
             </h2>
           </div>
           <ul
@@ -11148,7 +11148,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
   className="b-c"
 >
   <div
-    className="css-1o0yoim-ConfirmationView"
+    className="css-rld64n-ConfirmationView"
   >
     <div
       className="sh sh-title css-13xrlnr-ConfirmationView"
@@ -11175,7 +11175,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-fjrp2q"
+                  className="css-1kp08h6"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -11229,6 +11229,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
                   id="radio[0]"
                   name="filters"
                   onChange={[Function]}
+                  tabIndex={0}
                   type="radio"
                   value="UseNewEmail"
                 />
@@ -11256,6 +11257,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
                   id="radio[1]"
                   name="filters"
                   onChange={[Function]}
+                  tabIndex={0}
                   type="radio"
                   value="KeepCurrentEmail"
                 />
@@ -11295,20 +11297,24 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
             </div>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
             <button
               className="btn btn--b-sm btn-alt btn--w"
               onClick={[Function]}
+              tabIndex={0}
+              title="Back"
               type="button"
             >
-              Go Back
+              Back
             </button>
              
             <button
               className="btn btn--b-sm"
               disabled={true}
               onClick={[Function]}
+              tabIndex={0}
+              title="Submit"
               type="button"
             >
               Submit
@@ -11327,12 +11333,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <div
       className="sh sh-title css-txnj1j"
     >
-      Chosen Name
+      Update Chosen Name
     </div>
     <div
       className="AddBorderTop"
@@ -11351,13 +11357,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
               className="css-1spgrt7"
             >
               <div
-                className="css-g9lrbn"
+                className="css-1mp4ink"
               >
                 <label
                   className="css-fblkm4-TagComponent"
                 >
                   <svg
-                    className="css-fjrp2q"
+                    className="css-1kp08h6"
                     fill="none"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -11386,6 +11392,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
               <a
                 className="btn btn--b-sm btn-alt btn--w css-vcp3bu"
                 onClick={[Function]}
+                tabIndex={0}
                 type="button"
               >
                 Edit
@@ -11396,21 +11403,23 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
             className="css-1qjvoov-QuestionComponent"
           >
             <div
-              className="css-1kw61in"
+              className="css-1lqbzrd"
             >
               Select your preferred email option from the list below.
               <label
-                className="css-89boef"
+                className="css-ezpss8"
               >
                 <div
                   className="css-1suh0c0"
                 >
                   <input
+                    alt="Use new email"
                     checked={true}
                     className="ra-f"
                     id="radio[0]"
                     name="filters"
                     onChange={[Function]}
+                    title="Use new email"
                     type="radio"
                     value="UseNewEmail"
                   />
@@ -11421,23 +11430,26 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                   </strong>
                 </div>
                 <div
-                  className="css-essj8j"
+                  className="css-7wunt6"
                 >
                   phill.kelly@boston.gov
                 </div>
               </label>
               <label
-                className="css-1k6yyzn"
+                className="css-9asq9x"
+                tabIndex={0}
               >
                 <div
                   className="css-1suh0c0"
                 >
                   <input
+                    alt="Keep current email"
                     checked={false}
                     className="ra-f"
                     id="radio[1]"
                     name="filters"
                     onChange={[Function]}
+                    title="Keep current email"
                     type="radio"
                     value="KeepCurrentEmail"
                   />
@@ -11448,7 +11460,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                   </strong>
                 </div>
                 <div
-                  className="css-essj8j"
+                  className="css-7wunt6"
                 >
                   felipe.rivera@boston.gov
                 </div>
@@ -11457,12 +11469,18 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                 className="css-1kdtvu5"
               >
                 <input
+                  alt="By submitting this form you agree to changing your displayed
+                  chosen name and email address across all your City of Boston
+                  accounts"
                   checked={false}
                   className="css-eyqs17"
                   onChange={[Function]}
+                  title="By submitting this form you agree to changing your displayed
+                  chosen name and email address across all your City of Boston
+                  accounts"
                   type="checkbox"
                 />
-                By submitting this form you agree to changing your displayed chosen name and email address across all your City of Boston accounts
+                By submitting this form you agree to updating your chosen name, or chosen name and email, across City of Boston accounts
               </label>
               <div>
                  
@@ -11471,26 +11489,31 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                 <a
                   href="https://www.google.com"
                   target="_blank"
+                  title="Chosen Name Support Documentation"
                 >
                   Chosen Name Support Documentation
                 </a>
               </div>
             </div>
             <div
-              className="css-16umr7p-QuestionComponent"
+              className="css-19sg0i4-QuestionComponent"
             >
               <button
                 className="btn btn--b-sm btn-alt btn--w"
                 onClick={[Function]}
+                tabIndex={0}
+                title="Back"
                 type="button"
               >
-                Go Back
+                Back
               </button>
                
               <button
                 className="btn btn--b-sm"
                 disabled={true}
                 onClick={[Function]}
+                tabIndex={0}
+                title="Submit"
                 type="button"
               >
                 Submit
@@ -11510,7 +11533,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-1mlr4dp-EnterNameView"
+    className="css-dasyc-EnterNameView"
   >
     <div
       className="sh sh-title css-vyg9hd-EnterNameView"
@@ -11534,7 +11557,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-fjrp2q"
+                className="css-1kp08h6"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -11606,7 +11629,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
             </a>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
             <a
               className="btn btn--b-sm btn-alt btn--w"
@@ -11620,6 +11643,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               className="btn btn--b-sm"
               disabled={false}
               onClick={[Function]}
+              tabIndex={0}
+              title="Continue"
               type="button"
             >
               Continue
@@ -11638,12 +11663,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <div
       className="sh sh-title css-grhjxa"
     >
-      Chosen Name
+      Update Chosen Name
     </div>
     <div
       className="AddBorderTop"
@@ -11659,13 +11684,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
           >
             Changing your chosen name will affect your City of Boston accounts.
             <div
-              className="CurrentNameContainer css-1hug8il"
+              className="CurrentNameContainer css-uwkjgi"
             >
               <label
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-fjrp2q"
+                  className="css-1kp08h6"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -11708,8 +11733,11 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
                   Chosen First Name
                 </label>
                 <input
+                  alt="Enter your Chosen First Name"
                   className="css-17e3x26"
                   onChange={[Function]}
+                  tabIndex={0}
+                  title="Enter your Chosen First Name"
                   value="Phill"
                 />
               </div>
@@ -11722,8 +11750,11 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
                   Chosen Last Name
                 </label>
                 <input
+                  alt="Enter your Chosen Last Name"
                   className="css-17e3x26"
                   onChange={[Function]}
+                  tabIndex={0}
+                  title="Enter your Chosen Last Name"
                   value="Kelly"
                 />
               </div>
@@ -11737,11 +11768,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
               </a>
             </div>
             <div
-              className="css-16umr7p-QuestionComponent"
+              className="css-19sg0i4-QuestionComponent"
             >
               <button
                 className="btn btn--b-sm btn-alt btn--w"
                 onClick={[Function]}
+                tabIndex={0}
+                title="Back"
                 type="button"
               >
                 Back
@@ -11751,6 +11784,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
                 className="btn btn--b-sm"
                 disabled={false}
                 onClick={[Function]}
+                tabIndex={0}
+                title="Continue"
                 type="button"
               >
                 Continue
@@ -11770,7 +11805,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1mg0xoo-ErrorView"
+    className="css-1rwwagz-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11782,15 +11817,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
           className="css-1tthkhf-AlertComponent"
         >
           <div
-            className="css-mrlb96-AlertComponent"
+            className="css-rc8snv-AlertComponent"
           >
             <div
-              className="css-18zvm2j-AlertComponent"
+              className="css-1qk193-AlertComponent"
             >
               <svg
-                height="24"
                 viewBox="0 0 24 24"
-                width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -11800,9 +11833,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
               </svg>
             </div>
             <div
-              className="css-9h7ot6-AlertComponent"
+              className="css-hzqfcc-AlertComponent"
             >
-              Error Status
+              <div
+                className="mainHeader"
+              >
+                Error Status
+              </div>
             </div>
           </div>
         </div>
@@ -11823,7 +11860,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
             </div>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <div
@@ -11832,6 +11869,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
               <button
                 className="btn btn--b-sm"
                 onClick={[Function]}
+                tabIndex={0}
+                title="Close"
                 type="button"
               >
                 Close
@@ -11851,7 +11890,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <div
       className="AddBorderTop"
@@ -11866,15 +11905,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
             className="css-1tthkhf-AlertComponent"
           >
             <div
-              className="css-mrlb96-AlertComponent"
+              className="css-rc8snv-AlertComponent"
             >
               <div
-                className="css-18zvm2j-AlertComponent"
+                className="css-1qk193-AlertComponent"
               >
                 <svg
-                  height="24"
                   viewBox="0 0 24 24"
-                  width="24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -11884,9 +11921,27 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
                 </svg>
               </div>
               <div
-                className="css-9h7ot6-AlertComponent"
+                className="css-hzqfcc-AlertComponent"
               >
-                Something Went Wrong
+                <div
+                  className="mainHeader"
+                >
+                  Something Went Wrong
+                </div>
+                <div
+                  className="subTitle"
+                >
+                  An error occurred while processing your request, go the
+                   
+                  <a
+                    href="https://www.boston.gov/departments/innovation-and-technology/access-boston-portal-help"
+                    target="_blank"
+                  >
+                    Access Boston Help
+                  </a>
+                   
+                  page for more information
+                </div>
               </div>
             </div>
           </div>
@@ -11894,33 +11949,23 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
             className="css-1qjvoov-QuestionComponent"
           >
             <div
-              className="row css-rr215r"
+              className="row css-wa902y"
             >
               <div
                 className="bodyText"
               >
-                <p
-                  className="css-k57hss"
+                <button
+                  className="btn"
+                  onClick={[Function]}
                 >
-                  There was an error with this request, please try again later.
-                </p>
+                  Help Page
+                </button>
               </div>
             </div>
             <div
-              className="css-16umr7p-QuestionComponent"
+              className="css-19sg0i4-QuestionComponent"
             >
                
-              <div
-                className="successView__Btn-wrapper"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Close
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -11936,7 +11981,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-s6b1at-SuccessView"
+    className="css-hefxsx-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11948,15 +11993,19 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
           className="css-kxjo63-AlertComponent"
         >
           <div
-            className="css-mrlb96-AlertComponent"
+            className="css-rc8snv-AlertComponent"
           >
             <div
-              className="css-18zvm2j-AlertComponent"
+              className="css-1qk193-AlertComponent"
             />
             <div
-              className="css-od4gop-AlertComponent"
+              className="css-hzqfcc-AlertComponent"
             >
-              Your chosen name and email have been updated
+              <div
+                className="mainHeader"
+              >
+                Your chosen name and email have been updated
+              </div>
             </div>
           </div>
         </div>
@@ -11970,7 +12019,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-fjrp2q"
+                className="css-1kp08h6"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -11989,7 +12038,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-p0hlzq-RowColumns"
+              className="css-ew5a3f-RowColumns"
             >
               Phill Kelly
             </div>
@@ -12001,7 +12050,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-fjrp2q"
+                className="css-1kp08h6"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12020,7 +12069,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-p0hlzq-RowColumns"
+              className="css-ew5a3f-RowColumns"
             >
               phill.kelly@boston.gov
             </div>
@@ -12056,7 +12105,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             </div>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <div
@@ -12073,6 +12122,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
                 />
                 <button
                   className="btn btn--sm btn--100"
+                  tabIndex={0}
+                  title="Log Out"
                   type="submit"
                 >
                   Log Out
@@ -12093,7 +12144,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <div
       className="AddBorderTop"
@@ -12108,15 +12159,31 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
             className="css-kxjo63-AlertComponent"
           >
             <div
-              className="css-mrlb96-AlertComponent"
+              className="css-rc8snv-AlertComponent"
             >
               <div
-                className="css-18zvm2j-AlertComponent"
-              />
-              <div
-                className="css-od4gop-AlertComponent"
+                className="css-1qk193-AlertComponent"
               >
-                Your chosen name and email have been updated
+                <svg
+                  className="css-16q75nx"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+                    fill="#00A91C"
+                  />
+                </svg>
+              </div>
+              <div
+                className="css-hzqfcc-AlertComponent"
+              >
+                <div
+                  className="mainHeader"
+                >
+                  Your chosen name and email have been updated
+                </div>
               </div>
             </div>
           </div>
@@ -12130,7 +12197,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-fjrp2q"
+                  className="css-1kp08h6"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -12149,7 +12216,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
                 </span>
               </label>
               <div
-                className="css-p0hlzq-RowColumns"
+                className="css-ew5a3f-RowColumns"
               >
                 Phill Kelly
               </div>
@@ -12161,7 +12228,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-fjrp2q"
+                  className="css-1kp08h6"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -12180,7 +12247,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
                 </span>
               </label>
               <div
-                className="css-p0hlzq-RowColumns"
+                className="css-ew5a3f-RowColumns"
               >
                 phill.kelly@boston.gov
               </div>
@@ -12201,12 +12268,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
                   <strong>
                     Please Note: 
                   </strong>
-                  To see your updated chosen name, please log out and log back into your account.
+                  To see your updated chosen name, please log out and log back into your Access Boston account.
                 </p>
               </div>
             </div>
             <div
-              className="css-16umr7p-QuestionComponent"
+              className="css-19sg0i4-QuestionComponent"
             >
                
               <div
@@ -12223,6 +12290,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
                   />
                   <button
                     className="btn btn--sm btn--100"
+                    tabIndex={0}
+                    title="Log Out"
                     type="submit"
                   >
                     Log Out
@@ -12244,7 +12313,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-h52jb3-WelcomeView"
+    className="css-dzgwwz-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12308,12 +12377,14 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
             </p>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              tabIndex={0}
+              title="Continue"
               type="button"
             >
               Continue
@@ -12332,7 +12403,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <h2
       className="headerBlock"
@@ -12394,16 +12465,18 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
               <strong>
                 Please note: 
               </strong>
-              Any changes made to your chosen name or email address will be reflected across all relevant systems and communications.
+              Any changes made to your chosen name or email address will be reflected across all relevant systems.
             </p>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              tabIndex={0}
+              title="Continue"
               type="button"
             >
               Continue
@@ -12422,7 +12495,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-1mlr4dp-EnterNameView"
+    className="css-dasyc-EnterNameView"
   >
     <div
       className="sh sh-title css-vyg9hd-EnterNameView"
@@ -12446,7 +12519,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-fjrp2q"
+                className="css-1kp08h6"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12518,7 +12591,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
             </a>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
             <a
               className="btn btn--b-sm btn-alt btn--w"
@@ -12532,6 +12605,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               className="btn btn--b-sm"
               disabled={false}
               onClick={[Function]}
+              tabIndex={0}
+              title="Submit"
               type="button"
             >
               Submit
@@ -12550,12 +12625,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <div
       className="sh sh-title css-grhjxa"
     >
-      Chosen Name
+      Update Chosen Name
     </div>
     <div
       className="AddBorderTop"
@@ -12571,13 +12646,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
           >
             Changing your chosen name will affect your City of Boston accounts.
             <div
-              className="CurrentNameContainer css-1hug8il"
+              className="CurrentNameContainer css-uwkjgi"
             >
               <label
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-fjrp2q"
+                  className="css-1kp08h6"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -12620,8 +12695,11 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
                   Chosen First Name
                 </label>
                 <input
+                  alt="Enter your Chosen First Name"
                   className="css-17e3x26"
                   onChange={[Function]}
+                  tabIndex={0}
+                  title="Enter your Chosen First Name"
                   value="Phill"
                 />
               </div>
@@ -12634,8 +12712,11 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
                   Chosen Last Name
                 </label>
                 <input
+                  alt="Enter your Chosen Last Name"
                   className="css-17e3x26"
                   onChange={[Function]}
+                  tabIndex={0}
+                  title="Enter your Chosen Last Name"
                   value="Kelly"
                 />
               </div>
@@ -12649,11 +12730,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
               </a>
             </div>
             <div
-              className="css-16umr7p-QuestionComponent"
+              className="css-19sg0i4-QuestionComponent"
             >
               <button
                 className="btn btn--b-sm btn-alt btn--w"
                 onClick={[Function]}
+                tabIndex={0}
+                title="Back"
                 type="button"
               >
                 Back
@@ -12663,6 +12746,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
                 className="btn btn--b-sm"
                 disabled={false}
                 onClick={[Function]}
+                tabIndex={0}
+                title="Submit"
                 type="button"
               >
                 Submit
@@ -12682,7 +12767,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1mg0xoo-ErrorView"
+    className="css-1rwwagz-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12694,15 +12779,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
           className="css-1tthkhf-AlertComponent"
         >
           <div
-            className="css-mrlb96-AlertComponent"
+            className="css-rc8snv-AlertComponent"
           >
             <div
-              className="css-18zvm2j-AlertComponent"
+              className="css-1qk193-AlertComponent"
             >
               <svg
-                height="24"
                 viewBox="0 0 24 24"
-                width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -12712,9 +12795,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
               </svg>
             </div>
             <div
-              className="css-9h7ot6-AlertComponent"
+              className="css-hzqfcc-AlertComponent"
             >
-              Error Status
+              <div
+                className="mainHeader"
+              >
+                Error Status
+              </div>
             </div>
           </div>
         </div>
@@ -12735,7 +12822,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
             </div>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <div
@@ -12744,6 +12831,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
               <button
                 className="btn btn--b-sm"
                 onClick={[Function]}
+                tabIndex={0}
+                title="Close"
                 type="button"
               >
                 Close
@@ -12763,7 +12852,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <div
       className="AddBorderTop"
@@ -12778,15 +12867,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
             className="css-1tthkhf-AlertComponent"
           >
             <div
-              className="css-mrlb96-AlertComponent"
+              className="css-rc8snv-AlertComponent"
             >
               <div
-                className="css-18zvm2j-AlertComponent"
+                className="css-1qk193-AlertComponent"
               >
                 <svg
-                  height="24"
                   viewBox="0 0 24 24"
-                  width="24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -12796,9 +12883,27 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
                 </svg>
               </div>
               <div
-                className="css-9h7ot6-AlertComponent"
+                className="css-hzqfcc-AlertComponent"
               >
-                Something Went Wrong
+                <div
+                  className="mainHeader"
+                >
+                  Something Went Wrong
+                </div>
+                <div
+                  className="subTitle"
+                >
+                  An error occurred while processing your request, go the
+                   
+                  <a
+                    href="https://www.boston.gov/departments/innovation-and-technology/access-boston-portal-help"
+                    target="_blank"
+                  >
+                    Access Boston Help
+                  </a>
+                   
+                  page for more information
+                </div>
               </div>
             </div>
           </div>
@@ -12806,33 +12911,23 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
             className="css-1qjvoov-QuestionComponent"
           >
             <div
-              className="row css-rr215r"
+              className="row css-wa902y"
             >
               <div
                 className="bodyText"
               >
-                <p
-                  className="css-k57hss"
+                <button
+                  className="btn"
+                  onClick={[Function]}
                 >
-                  There was an error with this request, please try again later.
-                </p>
+                  Help Page
+                </button>
               </div>
             </div>
             <div
-              className="css-16umr7p-QuestionComponent"
+              className="css-19sg0i4-QuestionComponent"
             >
                
-              <div
-                className="successView__Btn-wrapper"
-              >
-                <button
-                  className="btn btn--b-sm"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Close
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -12848,7 +12943,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-s6b1at-SuccessView"
+    className="css-hefxsx-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12860,15 +12955,19 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
           className="css-kxjo63-AlertComponent"
         >
           <div
-            className="css-mrlb96-AlertComponent"
+            className="css-rc8snv-AlertComponent"
           >
             <div
-              className="css-18zvm2j-AlertComponent"
+              className="css-1qk193-AlertComponent"
             />
             <div
-              className="css-od4gop-AlertComponent"
+              className="css-hzqfcc-AlertComponent"
             >
-              Your chosen name has been updated
+              <div
+                className="mainHeader"
+              >
+                Your chosen name has been updated
+              </div>
             </div>
           </div>
         </div>
@@ -12882,7 +12981,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-fjrp2q"
+                className="css-1kp08h6"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12901,7 +13000,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
               </span>
             </label>
             <div
-              className="css-p0hlzq-RowColumns"
+              className="css-ew5a3f-RowColumns"
             >
               Phill Kelly
             </div>
@@ -12913,7 +13012,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-fjrp2q"
+                className="css-1kp08h6"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12968,7 +13067,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             </div>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <div
@@ -12985,6 +13084,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
                 />
                 <button
                   className="btn btn--sm btn--100"
+                  tabIndex={0}
+                  title="Log Out"
                   type="submit"
                 >
                   Log Out
@@ -13005,7 +13106,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <div
       className="AddBorderTop"
@@ -13020,15 +13121,31 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
             className="css-kxjo63-AlertComponent"
           >
             <div
-              className="css-mrlb96-AlertComponent"
+              className="css-rc8snv-AlertComponent"
             >
               <div
-                className="css-18zvm2j-AlertComponent"
-              />
-              <div
-                className="css-od4gop-AlertComponent"
+                className="css-1qk193-AlertComponent"
               >
-                Your chosen name has been updated
+                <svg
+                  className="css-16q75nx"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+                    fill="#00A91C"
+                  />
+                </svg>
+              </div>
+              <div
+                className="css-hzqfcc-AlertComponent"
+              >
+                <div
+                  className="mainHeader"
+                >
+                  Your chosen name has been updated
+                </div>
               </div>
             </div>
           </div>
@@ -13042,7 +13159,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-fjrp2q"
+                  className="css-1kp08h6"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -13061,7 +13178,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
                 </span>
               </label>
               <div
-                className="css-p0hlzq-RowColumns"
+                className="css-ew5a3f-RowColumns"
               >
                 Phill Kelly
               </div>
@@ -13073,7 +13190,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-fjrp2q"
+                  className="css-1kp08h6"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -13113,12 +13230,12 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
                   <strong>
                     Please Note: 
                   </strong>
-                  To see your updated chosen name, please log out and log back into your account.
+                  To see your updated chosen name, please log out and log back into your Access Boston account.
                 </p>
               </div>
             </div>
             <div
-              className="css-16umr7p-QuestionComponent"
+              className="css-19sg0i4-QuestionComponent"
             >
                
               <div
@@ -13135,6 +13252,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
                   />
                   <button
                     className="btn btn--sm btn--100"
+                    tabIndex={0}
+                    title="Log Out"
                     type="submit"
                   >
                     Log Out
@@ -13156,7 +13275,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-h52jb3-WelcomeView"
+    className="css-dzgwwz-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -13220,12 +13339,14 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
             </p>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              tabIndex={0}
+              title="Continue"
               type="button"
             >
               Continue
@@ -13244,7 +13365,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-102fagz"
+    className="css-i65o4o"
   >
     <h2
       className="headerBlock"
@@ -13306,16 +13427,18 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
               <strong>
                 Please note: 
               </strong>
-              Any changes made to your chosen name or email address will be reflected across all relevant systems and communications.
+              Any changes made to your chosen name or email address will be reflected across all relevant systems.
             </p>
           </div>
           <div
-            className="css-16umr7p-QuestionComponent"
+            className="css-19sg0i4-QuestionComponent"
           >
              
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              tabIndex={0}
+              title="Continue"
               type="button"
             >
               Continue

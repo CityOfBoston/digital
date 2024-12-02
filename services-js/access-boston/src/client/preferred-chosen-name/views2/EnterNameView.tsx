@@ -48,7 +48,7 @@ export const EnterNameView2 = ({
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <div className="sh sh-title" css={HEADER_CONTAINER_STYLING}>
-        Chosen Name
+        Update Chosen Name
       </div>
 
       <div className={'AddBorderTop'}>
@@ -86,6 +86,9 @@ export const EnterNameView2 = ({
                     value={FName}
                     onChange={e => setFirstName(e.target.value)}
                     css={INPUT_STYLING}
+                    tabIndex={0}
+                    title={`Enter your Chosen First Name`}
+                    alt={`Enter your Chosen First Name`}
                   />
                 </div>
                 <div
@@ -97,6 +100,9 @@ export const EnterNameView2 = ({
                     value={LName}
                     onChange={e => setLastName(e.target.value)}
                     css={INPUT_STYLING}
+                    tabIndex={0}
+                    title={`Enter your Chosen Last Name`}
+                    alt={`Enter your Chosen Last Name`}
                   />
                 </div>
                 For more information, see the{' '}
@@ -141,6 +147,7 @@ const FORM_STYLING = css({
 const CURRENT_NAME_STYLING = css({
   paddingTop: '15px',
   marginTop: '20px',
+
   '.CurrentName': {
     marginTop: '10px',
     marginLeft: '1.5em',
@@ -148,10 +155,10 @@ const CURRENT_NAME_STYLING = css({
   },
   '@media (max-width: 600px)': {
     padding: '5px 0px',
-    marginTop: '10px',
+    // marginTop: '10px',
+
     '.CurrentName': {
       marginTop: '5px',
-      marginLeft: '0px',
       fontSize: '1.2em',
     },
   },

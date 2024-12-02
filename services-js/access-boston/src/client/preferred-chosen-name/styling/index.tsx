@@ -52,6 +52,19 @@ export const PREFERRED_NAME_STYLING = css({
     fontSize: '16px',
   },
 
+  '*:focus-visible': {
+    outlineColor: '#005EA2',
+  },
+
+  'a:link': {
+    textDecoration: 'underline',
+    color: '##005EA2',
+
+    ':hover': {
+      color: '#005EA2',
+    },
+  },
+
   'h2, h3': {
     fontFamily: 'Montserrat',
     fontSize: '32px',

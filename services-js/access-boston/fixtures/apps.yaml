@@ -130,7 +130,7 @@ categories:
         groups:
           - SG_AB_FN_LIASONS_USERS
 
-  - title: Account Tools
+  - title: Account Settings
     apps:
       - title: Update Chosen Name
         url: /preferred-chosen-name

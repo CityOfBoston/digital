@@ -86,7 +86,7 @@ Array [
     ],
     "icons": false,
     "showRequestAccessLink": false,
-    "title": "Account Tools",
+    "title": "Account Settings",
   },
   Object {
     "apps": Array [
@@ -241,7 +241,7 @@ Array [
     ],
     "icons": false,
     "showRequestAccessLink": false,
-    "title": "Account Tools",
+    "title": "Account Settings",
   },
   Object {
     "apps": Array [
@@ -349,7 +349,7 @@ Array [
     ],
     "icons": false,
     "showRequestAccessLink": false,
-    "title": "Account Tools",
+    "title": "Account Settings",
   },
   Object {
     "apps": Array [
@@ -492,7 +492,7 @@ Array [
     ],
     "icons": false,
     "showRequestAccessLink": false,
-    "title": "Account Tools",
+    "title": "Account Settings",
   },
   Object {
     "apps": Array [
@@ -635,7 +635,7 @@ Array [
     ],
     "icons": false,
     "showRequestAccessLink": false,
-    "title": "Account Tools",
+    "title": "Account Settings",
   },
   Object {
     "apps": Array [

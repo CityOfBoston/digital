@@ -57,10 +57,7 @@ const VALUE_STYLING = css({
   alignItems: 'center',
   width: '100%',
   paddingTop: '8px',
-  paddingLeft: '1.9em',
-  '@media (max-width: 600px)': {
-    paddingLeft: '0px',
-  },
+  paddingLeft: '1.8em',
 });
 
 const EXTEND_VALUE_STYLING = css({
@@ -70,7 +67,6 @@ const EXTEND_VALUE_STYLING = css({
   wordBreak: 'break-all',
   overflowWrap: 'break-word',
   fontSize: '0.9em',
-  // color: 'red',
 
   '@media (max-width: 600px)': {
     paddingLeft: '0px',

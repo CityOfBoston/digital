@@ -76,6 +76,7 @@ export interface SamlLoginResult {
   /** Format is MM/DD/YYYY */
   userMfaRegistrationDate: string | null;
   cobAgency: string | null;
+  // displayName: string | null;
 }
 
 export interface SamlLogoutRequestResult {
@@ -304,6 +305,7 @@ export default class SamlAuth {
             null,
           cobAgency:
             (attributes.cobUserAgency && attributes.cobUserAgency[0]) || null,
+          // displayName: (attributes.FirstName && attributes.FirstName[0]) || '',
         };
       }
       case 'logout_request':

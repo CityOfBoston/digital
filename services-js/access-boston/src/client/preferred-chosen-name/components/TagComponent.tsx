@@ -30,22 +30,13 @@ const LABEL_STYLING = css({
 });
 
 const ICON_STYLING = css({
-  // width: '32px',
-  // height: '32px',
   maxWidth: '20px',
   maxHeight: '20px',
-
-  // Hide icon on screens smaller than 600px
-  '@media (max-width: 600px)': {
-    display: 'none',
-  },
 });
 
 const NameIcon = (
   <svg
     css={ICON_STYLING}
-    // width="32"
-    // height="32"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +53,6 @@ const NameIcon = (
 const EmailAddressIcon = (
   <svg
     css={ICON_STYLING}
-    // width="32"
-    // height="32"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

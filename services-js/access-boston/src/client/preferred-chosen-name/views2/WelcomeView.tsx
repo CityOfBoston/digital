@@ -71,7 +71,7 @@ export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
               <p>
                 <strong>Please note: </strong>
                 Any changes made to your chosen name or email address will be
-                reflected across all relevant systems and communications.
+                reflected across all relevant systems.
               </p>
             </div>
           </QuestionComponent>

@@ -35,7 +35,7 @@ export const SuccessView2 = (props: SuccessProps) => {
       <div className={'AddBorderTop'}>
         <div className="BorderedAppWrapper">
           <div className="AppInnerContainer">
-            <AlertComponent text={alertStr} />
+            <AlertComponent type={`Success`} text={alertStr} />
             <RowColumns
               chosenName={`${state.chosenFirstName} ${state.chosenLastName}`}
               emailAddress={finalEmail}
@@ -51,7 +51,8 @@ export const SuccessView2 = (props: SuccessProps) => {
                 <div className="bodyText">
                   <p css={BODY_PARAGRAPH_STYLING}>
                     <strong>Please Note: </strong>To see your updated chosen
-                    name, please log out and log back into your account.
+                    name, please log out and log back into your Access Boston
+                    account.
                     {/* <p>
                       For more information, see the{' '}
                       <a href="https://www.google.com" target="_blank">
