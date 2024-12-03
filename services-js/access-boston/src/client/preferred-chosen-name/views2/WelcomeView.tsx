@@ -54,14 +54,16 @@ export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
                 {state.altWorkflow && (
                   <li>
                     <strong>Email Address: </strong>Your email address will
-                    remain the same.
+                    remain the same. To update your email, please contact your
+                    IT Department.
                   </li>
                 )}
                 <li>
                   <strong>Legal Name: </strong>
                   City Employees, your legal name used for tax documents (like
                   W2s), paystubs, or other official legal documents will remain
-                  unchanged. To change your legal name, please follow the{' '}
+                  unchanged. This will not update HCM or ESS. To change your
+                  legal name, please follow the{' '}
                   <a href="https://www.google.com" target="_blank">
                     legal name link
                   </a>

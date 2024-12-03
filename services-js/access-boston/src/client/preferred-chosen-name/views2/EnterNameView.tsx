@@ -122,8 +122,9 @@ const HEADER_CONTAINER_STYLING = css({
   fontSize: '32px',
   paddingBottom: '20px',
   marginBottom: '30px',
+
   '@media (max-width: 600px)': {
-    fontSize: '1.8em',
+    fontSize: '1.375em',
     paddingBottom: '15px',
     marginBottom: '25px',
   },
@@ -132,6 +133,7 @@ const HEADER_CONTAINER_STYLING = css({
 const INFO_STYLING = css({
   padding: '30px 40px',
   borderBottom: '1px solid #A9AEB1',
+
   '@media (max-width: 600px)': {
     padding: '25px 15px',
   },
@@ -139,6 +141,7 @@ const INFO_STYLING = css({
 
 const FORM_STYLING = css({
   padding: '30px 40px',
+
   '@media (max-width: 600px)': {
     padding: '25px 15px',
   },
@@ -153,6 +156,7 @@ const CURRENT_NAME_STYLING = css({
     marginLeft: '1.5em',
     fontSize: '1.2em',
   },
+
   '@media (max-width: 600px)': {
     padding: '5px 0px',
     // marginTop: '10px',
@@ -168,6 +172,7 @@ const LABEL_STYLING = css({
   fontWeight: 'bold',
   display: 'block',
   marginBottom: '8px',
+
   '@media (max-width: 600px)': {
     fontSize: '16px',
   },

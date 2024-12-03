@@ -70,7 +70,7 @@ export const ConfirmationView2 = ({
                 <div css={CHOSEN_NAME_STYLING}>
                   <ChosenNameTag />
                   <div className="CurrentName">
-                    {state.chosenFirstName} {state.chosenLastName}
+                    {FName} {LName}
                   </div>
                 </div>
                 <a
@@ -184,10 +184,6 @@ export default ConfirmationView2;
 const CHECKBOX_STYLING = css({
   width: '34.3px',
   height: '20px',
-
-  // '@media (max-width: 600px)': {
-  //   width: '34px',
-  // },
 });
 
 const CHECKBOX_LABEL_STYLING = () =>
@@ -203,6 +199,7 @@ const HEADER_CONTAINER_STYLING = css({
   fontSize: '2em',
   paddingBottom: '20px',
   marginBottom: '30px',
+
   '@media (max-width: 600px)': {
     fontSize: '1.8em',
     paddingBottom: '15px',
@@ -240,7 +237,6 @@ const CHOSEN_NAME_STYLING = css({
   '@media (max-width: 600px)': {
     '.CurrentName': {
       marginTop: '5px',
-      // marginLeft: '0px',
       fontSize: '1.2em',
     },
   },

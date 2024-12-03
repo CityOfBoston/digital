@@ -106,8 +106,8 @@ export const PREFERRED_NAME_STYLING = css({
 
     [MEDIA_SMALL_MAX]: {
       paddingLeft: '5px',
-      padding: '10px 26px',
-      fontSize: '20px',
+      padding: '15px 26px',
+      fontSize: '16px',
       marginBottom: '0',
     },
 

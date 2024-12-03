@@ -60,7 +60,7 @@ export default function AlertComponent({
           css={
             type && type === 'Error'
               ? TEXT_CONTAINER_STYLING_ERROR
-              : TEXT_CONTAINER_STYLING
+              : TEXT_CONTAINER_STYLING_SUCCESS
           }
         >
           {text && <div className={`mainHeader`}>{text}</div>}
@@ -141,10 +141,10 @@ const mainHeaderCss = css(`
   }  
 `);
 
-const TEXT_CONTAINER_STYLING = css({
+const TEXT_CONTAINER_STYLING_SUCCESS = css({
   flex: 1,
   ...subTitleCss,
-  ...mainHeaderCss,
+  // ...mainHeaderCss,
 });
 
 const TEXT_CONTAINER_STYLING_ERROR = css({
