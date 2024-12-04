@@ -148,7 +148,6 @@ export default function Index(props: Props) {
   const handleUseNewEmailToogle = () => {
     dispatchState({
       type: 'APP/UPDATE_EMAIL_TO_USE',
-      useNewEmail: state.useNewEmail,
     });
   };
 
@@ -177,9 +176,8 @@ export default function Index(props: Props) {
     <PageWrapper classString={'b-c'}>
       <ConfirmationView2
         handleProceed={handlerPreferredNameSubmit}
-        handleUseNewEmailToogle={handleUseNewEmailToogle}
         handleStepBack={stepBack}
-        appTitle={AppTitle}
+        handleUseNewEmailToogle={handleUseNewEmailToogle}
         state={state}
       />
     </PageWrapper>

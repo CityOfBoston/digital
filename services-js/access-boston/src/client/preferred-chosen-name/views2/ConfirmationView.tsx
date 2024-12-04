@@ -8,11 +8,10 @@ import QuestionComponent from '../components/QuestionComponent';
 import { ChosenNameTag } from '../components/TagComponent';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
-interface ConfirmationProps {
+interface props {
   handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
   handleStepBack: (ev: MouseEvent) => void;
   handleUseNewEmailToogle: () => void;
-  appTitle: string;
   state: CommonAttributes;
 }
 
@@ -21,7 +20,7 @@ export const ConfirmationView2 = ({
   handleStepBack,
   handleUseNewEmailToogle,
   state,
-}: ConfirmationProps) => {
+}: props) => {
   // const [selectedOption, setSelectedOption] = useState(state.useNewEmail);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
   const {
@@ -39,9 +38,7 @@ export const ConfirmationView2 = ({
     chosenLastName && chosenLastName.length > 0 ? chosenLastName : lastName;
 
   const handleRadioChange = () => {
-    console.log(`PRE: handleRadioChange (useNewEmail): `, state.useNewEmail);
     handleUseNewEmailToogle();
-    console.log(`POST: handleRadioChange (useNewEmail): `, state.useNewEmail);
   };
 
   const toggleCheckbox = () => {

@@ -7,7 +7,7 @@ import { AppTitle } from '../state/app';
 import { CommonAttributes, PreferredChosenNameInformation } from '../types';
 
 import WelcomeView from './welcomeView';
-import WelcomeView2 from '../views2/WelcomeView';
+import { WelcomeView2 } from '../views2/WelcomeView';
 import { EnterNameView } from './enterNameView';
 import { EnterNameView2 } from '../views2/EnterNameView';
 import { ConfirmationView2 } from '../views2/ConfirmationView';
@@ -86,7 +86,6 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
         handleProceed={() => {}}
         handleStepBack={() => {}}
         handleUseNewEmailToogle={() => {}}
-        appTitle={AppTitle}
         state={defaultWorkflowAccount}
       />
     </PageWrapper>

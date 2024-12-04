@@ -24,6 +24,7 @@ export const SuccessView2 = (props: SuccessProps) => {
     : 'Your chosen name and email have been updated';
   const finalEmail =
     !state.altWorkflow &&
+    state.useNewEmail === true &&
     state.newEmail &&
     typeof state.newEmail === 'string' &&
     state.newEmail.length > 0

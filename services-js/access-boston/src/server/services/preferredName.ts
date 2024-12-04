@@ -31,7 +31,6 @@ export const requestNewNameEmail = async (params: {
   authStr: string;
 }) => {
   const { endpoint, requestJson, authStr } = params;
-  console.log(`requestJson: `, requestJson);
 
   return await fetch(endpoint, {
     method: 'POST',
@@ -91,8 +90,6 @@ export const preferredNameRequest = async (data: {
 }) => {
   const { id, preferredFirstName, preferredLastName } = data;
 
-  console.log(`preferredNameRequest (data): `, data);
-
   return await fetch(`/preferred-name-request` as string, {
     method: 'POST',
     headers: {
@@ -127,9 +124,6 @@ export const preferredNameSubmit = async (data: {
     workflowArgsObj['preferredLastName'] = preferredLastName;
 
   if (email && email.length > 1) workflowArgsObj['email'] = email;
-
-  console.log(`preferredNameSubmit (data): `, data);
-  console.log(`preferredNameSubmit (workflowArgsObj): `, workflowArgsObj);
 
   return await fetch(`/preferred-name-submit` as string, {
     method: 'POST',

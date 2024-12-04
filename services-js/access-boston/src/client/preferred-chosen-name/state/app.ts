@@ -63,26 +63,18 @@ export const reducer = (state: any, action: Partial<Action>) => {
             newEmail: action.formData.Email,
           };
 
-          console.log(
-            `APP/UPDATE_PREFERREDNAME (updatedState): `,
-            updatedState
-          );
-
           return updatedState;
         } catch (error) {
           console.log(`APP/UPDATE_PREFERREDNAME (error): `, error);
           console.log(`APP/UPDATE_PREFERREDNAME (post-error(state)): `, state);
+          console.error(`APP/UPDATE_PREFERREDNAME (error): `, error);
           return {};
         }
       } else {
         return state;
       }
     case 'APP/UPDATE_EMAIL_TO_USE':
-      if (action.useNewEmail) {
-        return { ...state, useNewEmail: action.useNewEmail };
-      } else {
-        return state;
-      }
+      return { ...state, useNewEmail: !state.useNewEmail };
     case 'APP/UPDATE__SUBMIT_PREFERREDNAME':
       if (action.formData) {
         try {
@@ -94,11 +86,6 @@ export const reducer = (state: any, action: Partial<Action>) => {
             submitNameChangeReqError: false,
           };
 
-          console.log(
-            `APP/UPDATE__SUBMIT_PREFERREDNAME (updatedState): `,
-            updatedState
-          );
-
           return updatedState;
         } catch (error) {
           console.log(`APP/UPDATE__SUBMIT_PREFERREDNAME (error): `, error);
@@ -106,6 +93,7 @@ export const reducer = (state: any, action: Partial<Action>) => {
             `APP/UPDATE__SUBMIT_PREFERREDNAME (post-error(state)): `,
             state
           );
+          console.error(`APP/UPDATE__SUBMIT_PREFERREDNAME (error): `, error);
           return {};
         }
       } else {
