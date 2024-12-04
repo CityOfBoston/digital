@@ -24,6 +24,7 @@ export interface FormInputs {
   submitNameChangeReq?: boolean;
   submitNameChangeReqError?: boolean;
   loading?: boolean;
+  useNewEmail?: boolean;
 }
 
 export interface CommonAttributes {
@@ -32,6 +33,7 @@ export interface CommonAttributes {
   view?: number;
   altWorkflow?: boolean;
   loading?: boolean;
+  useNewEmail?: boolean;
 
   employeeId: string;
   employeeType: string;
@@ -55,6 +57,7 @@ export class PreferredChosenNameInformation implements CommonAttributes {
   view: number = 0;
   altWorkflow: boolean = false;
   loading: boolean = false;
+  useNewEmail: boolean = false;
 
   employeeId: string = '';
   employeeType: string = '';
@@ -77,6 +80,7 @@ export class PreferredChosenNameInformation implements CommonAttributes {
     view?: number;
     altWorkflow?: boolean;
     loading?: boolean;
+    useNewEmail?: boolean;
 
     employeeId?: string;
     employeeType?: string;
@@ -98,6 +102,7 @@ export class PreferredChosenNameInformation implements CommonAttributes {
       (this.view = opt && opt.view ? opt.view : 0),
       (this.altWorkflow = opt && opt.altWorkflow ? opt.altWorkflow : false),
       (this.loading = opt && opt.loading ? opt.loading : false),
+      (this.useNewEmail = opt && opt.useNewEmail ? opt.useNewEmail : true),
       (this.employeeId = opt && opt.employeeId ? opt.employeeId : ''),
       (this.employeeType = opt && opt.employeeType ? opt.employeeType : ''),
       (this.firstName = opt && opt.firstName ? opt.firstName : ''),

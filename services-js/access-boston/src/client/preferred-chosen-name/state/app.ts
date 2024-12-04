@@ -16,6 +16,7 @@ export type ActionTypes =
   | 'APP/INITIAL_STATE'
   | 'APP/UPDATE_PREFERREDNAME'
   | 'APP/UPDATE__SUBMIT_PREFERREDNAME'
+  | 'APP/UPDATE_EMAIL_TO_USE'
   | 'APP/LOADING';
 
 interface Action {
@@ -24,6 +25,7 @@ interface Action {
   payload: CommonAttributes;
   formData: FormInputs;
   altWorkflow: boolean;
+  useNewEmail: boolean;
 }
 
 export const initialState = new PreferredChosenNameInformation();
@@ -72,6 +74,12 @@ export const reducer = (state: any, action: Partial<Action>) => {
           console.log(`APP/UPDATE_PREFERREDNAME (post-error(state)): `, state);
           return {};
         }
+      } else {
+        return state;
+      }
+    case 'APP/UPDATE_EMAIL_TO_USE':
+      if (action.useNewEmail) {
+        return { ...state, useNewEmail: action.useNewEmail };
       } else {
         return state;
       }

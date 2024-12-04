@@ -11,6 +11,7 @@ import { PREFERRED_NAME_STYLING } from '../styling/index';
 interface ConfirmationProps {
   handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
   handleStepBack: (ev: MouseEvent) => void;
+  handleUseNewEmailToogle: () => void;
   appTitle: string;
   state: CommonAttributes;
 }
@@ -18,19 +19,29 @@ interface ConfirmationProps {
 export const ConfirmationView2 = ({
   handleProceed,
   handleStepBack,
+  handleUseNewEmailToogle,
   state,
 }: ConfirmationProps) => {
-  const [selectedOption, setSelectedOption] = useState('UseNewEmail');
+  // const [selectedOption, setSelectedOption] = useState(state.useNewEmail);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
-  const { firstName, lastName, chosenFirstName, chosenLastName } = state;
+  const {
+    firstName,
+    lastName,
+    chosenFirstName,
+    chosenLastName,
+    newEmail,
+    useNewEmail,
+  } = state;
 
   const FName =
     chosenFirstName && chosenFirstName.length > 0 ? chosenFirstName : firstName;
   const LName =
     chosenLastName && chosenLastName.length > 0 ? chosenLastName : lastName;
 
-  const handleRadioChange = (value: string) => {
-    setSelectedOption(value);
+  const handleRadioChange = () => {
+    console.log(`PRE: handleRadioChange (useNewEmail): `, state.useNewEmail);
+    handleUseNewEmailToogle();
+    console.log(`POST: handleRadioChange (useNewEmail): `, state.useNewEmail);
   };
 
   const toggleCheckbox = () => {
@@ -38,10 +49,7 @@ export const ConfirmationView2 = ({
   };
 
   // Enable the continue button only if an option is selected and the checkbox is checked
-  const allowProceed =
-    (selectedOption === 'UseNewEmail' ||
-      selectedOption === 'KeepCurrentEmail') &&
-    checkboxChecked;
+  const allowProceed = checkboxChecked;
 
   const handle_proceed = () => {
     let subObj = {
@@ -49,7 +57,13 @@ export const ConfirmationView2 = ({
       FName: FName,
       LName: LName,
     };
-    if (selectedOption === 'UseNewEmail') subObj['Email'] = state.newEmail;
+    if (
+      useNewEmail &&
+      newEmail &&
+      typeof newEmail === 'string' &&
+      newEmail.length > 0
+    )
+      subObj['Email'] = state.newEmail;
 
     handleProceed(subObj);
   };
@@ -98,7 +112,7 @@ export const ConfirmationView2 = ({
                 <label
                   css={[
                     RADIO_STACK_STYLING,
-                    selectedOption === 'UseNewEmail' && RADIO_SELECTED_STYLING,
+                    useNewEmail && RADIO_SELECTED_STYLING,
                   ]}
                 >
                   <div css={RADIO_OPTION_STYLING}>
@@ -106,10 +120,10 @@ export const ConfirmationView2 = ({
                       id="radio[0]"
                       type="radio"
                       name="filters"
-                      value="UseNewEmail"
+                      value="useNewEmail"
                       className="ra-f"
-                      checked={selectedOption === 'UseNewEmail'}
-                      onChange={() => handleRadioChange('UseNewEmail')}
+                      checked={useNewEmail}
+                      onChange={() => handleRadioChange()}
                       title={`Use new email`}
                       alt={`Use new email`}
                     />
@@ -121,8 +135,7 @@ export const ConfirmationView2 = ({
                   tabIndex={0}
                   css={[
                     RADIO_STACK_STYLING,
-                    selectedOption === 'KeepCurrentEmail' &&
-                      RADIO_SELECTED_STYLING,
+                    !useNewEmail && RADIO_SELECTED_STYLING,
                   ]}
                 >
                   <div css={RADIO_OPTION_STYLING}>
@@ -132,8 +145,8 @@ export const ConfirmationView2 = ({
                       name="filters"
                       value="KeepCurrentEmail"
                       className="ra-f"
-                      checked={selectedOption === 'KeepCurrentEmail'}
-                      onChange={() => handleRadioChange('KeepCurrentEmail')}
+                      checked={!useNewEmail}
+                      onChange={() => handleRadioChange()}
                       title={`Keep current email`}
                       alt={`Keep current email`}
                     />

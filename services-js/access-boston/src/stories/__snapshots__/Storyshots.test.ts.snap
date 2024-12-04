@@ -11421,7 +11421,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                     onChange={[Function]}
                     title="Use new email"
                     type="radio"
-                    value="UseNewEmail"
+                    value="useNewEmail"
                   />
                   <strong
                     className="css-in3yi3"

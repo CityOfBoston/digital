@@ -85,6 +85,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
       <ConfirmationView2
         handleProceed={() => {}}
         handleStepBack={() => {}}
+        handleUseNewEmailToogle={() => {}}
         appTitle={AppTitle}
         state={defaultWorkflowAccount}
       />

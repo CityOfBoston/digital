@@ -19,12 +19,6 @@ import { ConfirmationView2 } from '../views2/ConfirmationView';
 import { ErrorView2 } from '../views2/ErrorView';
 import { SuccessView2 } from '../views2/SuccessView';
 
-// import { EnterNameView } from '../views/enterNameView';
-// import WelcomeView from '../views/welcomeView';
-// import ConfirmationView from '../views/confirmationView';
-// import ErrorView from '../views/errorView';
-// import SuccessView from './successView';
-
 interface Props {
   accountState: CommonAttributes;
 }
@@ -151,6 +145,13 @@ export default function Index(props: Props) {
     }
   };
 
+  const handleUseNewEmailToogle = () => {
+    dispatchState({
+      type: 'APP/UPDATE_EMAIL_TO_USE',
+      useNewEmail: state.useNewEmail,
+    });
+  };
+
   const defaultView = (
     <PageWrapper classString={'b-c'}>
       <WelcomeView2
@@ -163,11 +164,6 @@ export default function Index(props: Props) {
 
   const enterNameView = (
     <PageWrapper classString={'b-c'}>
-      {/* <EnterNameView
-        handleProceed={handlerPreferredNameReq}
-        handleSubmit={handlerPreferredNameSubmit}
-        state={state}
-      /> */}
       <EnterNameView2
         handleProceed={handlerPreferredNameReq}
         handleSubmit={handlerPreferredNameSubmit}
@@ -181,6 +177,7 @@ export default function Index(props: Props) {
     <PageWrapper classString={'b-c'}>
       <ConfirmationView2
         handleProceed={handlerPreferredNameSubmit}
+        handleUseNewEmailToogle={handleUseNewEmailToogle}
         handleStepBack={stepBack}
         appTitle={AppTitle}
         state={state}
