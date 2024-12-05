@@ -172,7 +172,7 @@ export default function Index(props: Props) {
     </PageWrapper>
   );
 
-  const confirmationView = (
+  const approvalView = (
     <PageWrapper classString={'b-c'}>
       <ConfirmationView2
         handleProceed={handlerPreferredNameSubmit}
@@ -200,8 +200,8 @@ export default function Index(props: Props) {
       return defaultView;
     case 'enterNameView':
       return enterNameView;
-    case 'confirmationView':
-      return confirmationView;
+    case 'approvalView':
+      return approvalView;
     case 'successView':
       return successView;
     case 'errorView':

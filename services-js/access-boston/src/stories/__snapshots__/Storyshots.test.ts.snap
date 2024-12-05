@@ -11354,7 +11354,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
           >
             Changing your chosen name will affect your City of Boston accounts.
             <div
-              className="css-1spgrt7"
+              className="css-6uowtb"
             >
               <div
                 className="css-1mp4ink"
@@ -11407,7 +11407,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
             >
               Select your preferred email option from the list below.
               <label
-                className="css-ezpss8"
+                className="css-1lsql48"
               >
                 <div
                   className="css-1suh0c0"
@@ -11430,13 +11430,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                   </strong>
                 </div>
                 <div
-                  className="css-7wunt6"
+                  className="css-1psyc5d"
                 >
                   phill.kelly@boston.gov
                 </div>
               </label>
               <label
-                className="css-9asq9x"
+                className="css-rqueiv"
                 tabIndex={0}
               >
                 <div
@@ -11460,7 +11460,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                   </strong>
                 </div>
                 <div
-                  className="css-7wunt6"
+                  className="css-1psyc5d"
                 >
                   felipe.rivera@boston.gov
                 </div>

@@ -220,6 +220,7 @@ const HEADER_CONTAINER_STYLING = css({
 const INFO_STYLING = css({
   padding: '30px 40px',
   borderBottom: '1px solid #A9AEB1',
+
   '@media (max-width: 600px)': {
     padding: '25px 15px',
   },
@@ -230,6 +231,7 @@ const CHOSEN_NAME_CONTAINER_STYLING = css({
   marginTop: '20px',
   alignItems: 'center',
   justifyContent: 'space-between',
+  'align-items': 'flex-start',
   width: '100%',
 });
 
@@ -283,7 +285,7 @@ const RADIO_STACK_STYLING = css({
 
   '@media (max-width: 600px)': {
     padding: '10px 0px 10px 10px',
-    border: '2px solid #A9AEB1',
+    // border: '2px solid #A9AEB1',
   },
 });
 
@@ -292,7 +294,7 @@ const RADIO_SELECTED_STYLING = css({
   backgroundColor: '#D9E8F6',
 
   ':focus-visible': {
-    outlineColor: 'red',
+    outlineColor: '#005EA2',
   },
 });
 
@@ -329,9 +331,10 @@ const EMAIL_TEXT_STYLING = css({
   fontSize: '1em',
   wordBreak: 'break-all',
   overflowWrap: 'break-word',
-  margin: '5px 1.8em 0px',
+  padding: '0.3em 0 0 1.8em',
+  // margin: '5px 1.8em 0px',
 
-  '@media (max-width: 600px)': {
-    margin: '10px 5px 0px 30px',
-  },
+  // '@media (max-width: 600px)': {
+  //   margin: '10px 5px 0px 30px',
+  // },
 });

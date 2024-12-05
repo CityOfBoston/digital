@@ -2,7 +2,7 @@
 
 import { css, jsx } from '@emotion/core';
 
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent, ReactNode, useEffect } from 'react';
 
 import RedirectForm from '../../RedirectForm';
 import { Spinner } from '../../common/Spinner';
@@ -43,6 +43,10 @@ export default function QuestionComponent(props: Props): JSX.Element {
     extraButtons,
     useRedirectForm,
   } = props;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const proceedBtnStr = (): JSX.Element => {
     if (
