@@ -11211,7 +11211,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
           </div>
         </div>
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="css-p82ezj-ConfirmationView"
@@ -11336,7 +11336,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
     className="css-1kb9mjb"
   >
     <div
-      className="sh sh-title css-txnj1j"
+      className="sh sh-title css-6g6riv"
     >
       Update Chosen Name
     </div>
@@ -11400,7 +11400,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
             </div>
           </div>
           <div
-            className="css-1qjvoov-QuestionComponent"
+            className="css-12u8vhf-QuestionComponent"
           >
             <div
               className="css-1lqbzrd"
@@ -11585,7 +11585,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
           </div>
         </div>
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="FormBox css-vc28a3-EnterNameView"
@@ -11718,7 +11718,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
             </div>
           </div>
           <div
-            className="css-1qjvoov-QuestionComponent"
+            className="css-12u8vhf-QuestionComponent"
           >
             <div
               className="FormBox css-1kyyl6g"
@@ -11833,7 +11833,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
               </svg>
             </div>
             <div
-              className="css-hzqfcc-AlertComponent"
+              className="css-1oclxfl-AlertComponent"
             >
               <div
                 className="mainHeader"
@@ -11844,7 +11844,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
           </div>
         </div>
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="row css-1cch9y7-ErrorView"
@@ -11921,7 +11921,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
                 </svg>
               </div>
               <div
-                className="css-hzqfcc-AlertComponent"
+                className="css-1oclxfl-AlertComponent"
               >
                 <div
                   className="mainHeader"
@@ -11946,7 +11946,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
             </div>
           </div>
           <div
-            className="css-1qjvoov-QuestionComponent"
+            className="css-12u8vhf-QuestionComponent"
           >
             <div
               className="row css-yus4bt"
@@ -12076,7 +12076,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
           </div>
         </div>
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="row css-1182rks-SuccessView"
@@ -12254,7 +12254,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
             </div>
           </div>
           <div
-            className="css-1qjvoov-QuestionComponent"
+            className="css-12u8vhf-QuestionComponent"
           >
             <div
               className="row css-iwyqov"
@@ -12325,7 +12325,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
           className="headerBlock css-zbikga-WelcomeView"
         />
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="css-uh9kto-WelcomeView"
@@ -12417,10 +12417,10 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
         className="AppInnerContainer"
       >
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
-            className="css-1dm2ng8"
+            className="css-q7cdq"
           >
             <p>
               A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with your gender identity or expression.
@@ -12547,7 +12547,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
           </div>
         </div>
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="FormBox css-vc28a3-EnterNameView"
@@ -12680,7 +12680,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
             </div>
           </div>
           <div
-            className="css-1qjvoov-QuestionComponent"
+            className="css-12u8vhf-QuestionComponent"
           >
             <div
               className="FormBox css-1kyyl6g"
@@ -12795,7 +12795,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
               </svg>
             </div>
             <div
-              className="css-hzqfcc-AlertComponent"
+              className="css-1oclxfl-AlertComponent"
             >
               <div
                 className="mainHeader"
@@ -12806,7 +12806,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
           </div>
         </div>
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="row css-1cch9y7-ErrorView"
@@ -12883,7 +12883,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
                 </svg>
               </div>
               <div
-                className="css-hzqfcc-AlertComponent"
+                className="css-1oclxfl-AlertComponent"
               >
                 <div
                   className="mainHeader"
@@ -12908,7 +12908,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
             </div>
           </div>
           <div
-            className="css-1qjvoov-QuestionComponent"
+            className="css-12u8vhf-QuestionComponent"
           >
             <div
               className="row css-yus4bt"
@@ -13038,7 +13038,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
           </div>
         </div>
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="row css-1182rks-SuccessView"
@@ -13216,7 +13216,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
             </div>
           </div>
           <div
-            className="css-1qjvoov-QuestionComponent"
+            className="css-12u8vhf-QuestionComponent"
           >
             <div
               className="row css-iwyqov"
@@ -13287,7 +13287,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
           className="headerBlock css-zbikga-WelcomeView"
         />
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
             className="css-uh9kto-WelcomeView"
@@ -13379,10 +13379,10 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
         className="AppInnerContainer"
       >
         <div
-          className="css-1qjvoov-QuestionComponent"
+          className="css-12u8vhf-QuestionComponent"
         >
           <div
-            className="css-1dm2ng8"
+            className="css-q7cdq"
           >
             <p>
               A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with your gender identity or expression.

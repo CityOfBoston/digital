@@ -138,13 +138,13 @@ const mainHeaderCss = css(`
     line-height: inherit;
     font-family: Montserrat;
     text-transform: uppercase;
+    padding-bottom: 0.25em;
   }  
 `);
 
 const TEXT_CONTAINER_STYLING_SUCCESS = css({
   flex: 1,
   ...subTitleCss,
-  // ...mainHeaderCss,
 });
 
 const TEXT_CONTAINER_STYLING_ERROR = css({

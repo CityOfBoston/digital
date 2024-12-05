@@ -110,7 +110,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   ))
   .add('Error', () => (
     <PageWrapper classString={'b-c'}>
-      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
+      <ErrorView handleQuit={() => {}} />
     </PageWrapper>
   ))
   .add('Error 2', () => (
@@ -180,7 +180,7 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
   ))
   .add('Error', () => (
     <PageWrapper classString={'b-c'}>
-      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
+      <ErrorView handleQuit={() => {}} />
     </PageWrapper>
   ))
   .add('Error 2', () => (

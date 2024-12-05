@@ -12,8 +12,6 @@ import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface ErrorProps {
   handleQuit: (ev: MouseEvent) => void;
-  appTitle: string;
-  // state: CommonAttributes;
 }
 
 export default function ErrorView(props: ErrorProps) {

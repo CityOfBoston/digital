@@ -148,7 +148,7 @@ export const WELCOMEVIEW_STYLING = css({
   padding: '0.5rem 2.5rem 0 2.5rem',
 
   '@media (max-width: 600px)': {
-    padding: '1.0em 0.75em',
+    padding: '0.25em 0.75em 1em',
   },
 
   '& > p:first-of-type, ul': {

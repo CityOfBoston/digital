@@ -211,7 +211,7 @@ const HEADER_CONTAINER_STYLING = css({
   marginBottom: '30px',
 
   '@media (max-width: 600px)': {
-    fontSize: '1.8em',
+    fontSize: '1.375em',
     paddingBottom: '15px',
     marginBottom: '25px',
   },

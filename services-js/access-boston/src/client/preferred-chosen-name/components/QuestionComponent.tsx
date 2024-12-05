@@ -136,7 +136,7 @@ const CONTAINER_STYLING = css({
   width: '100%',
 
   p: {
-    lineHeight: '2rem',
+    lineHeight: '1.5em',
   },
 });
 
