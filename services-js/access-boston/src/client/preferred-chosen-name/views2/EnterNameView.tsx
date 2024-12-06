@@ -55,8 +55,10 @@ export const EnterNameView2 = ({
         <div className="BorderedAppWrapper">
           <div className="AppInnerContainer">
             <div className="InfoBox" css={INFO_STYLING}>
-              Changing your chosen name will affect your City of Boston
-              accounts.
+              <p>
+                Changing your chosen name will affect your City of Boston
+                accounts.
+              </p>
               <div className="CurrentNameContainer" css={CURRENT_NAME_STYLING}>
                 <CurrentNameTag />
                 <div className="CurrentName">

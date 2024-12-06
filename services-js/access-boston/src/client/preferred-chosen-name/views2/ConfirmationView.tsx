@@ -75,8 +75,10 @@ export const ConfirmationView2 = ({
         <div className="BorderedAppWrapper">
           <div className="AppInnerContainer">
             <div className="InfoBox" css={INFO_STYLING}>
-              Changing your chosen name will affect your City of Boston
-              accounts.
+              <p>
+                Changing your chosen name will affect your City of Boston
+                accounts.
+              </p>
               <div css={CHOSEN_NAME_CONTAINER_STYLING}>
                 <div css={CHOSEN_NAME_STYLING}>
                   <ChosenNameTag />

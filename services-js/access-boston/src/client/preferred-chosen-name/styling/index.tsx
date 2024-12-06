@@ -122,6 +122,8 @@ export const PREFERRED_NAME_STYLING = css({
   },
 
   '.AppInnerContainer': {
+    'line-height': '1.5rem',
+
     '.row': {
       padding: '40px',
       paddingBottom: '1rem',

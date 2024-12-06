@@ -48,21 +48,10 @@ export const SuccessView2 = (props: SuccessProps) => {
               handleQuit={handleQuit}
               useRedirectForm={true}
             >
-              <div className="row" css={BODY_TEXT_STYLING}>
-                <div className="bodyText">
-                  <p css={BODY_PARAGRAPH_STYLING}>
-                    <strong>Please Note: </strong>To see your updated chosen
-                    name, please log out and log back into your Access Boston
-                    account.
-                    {/* <p>
-                      For more information, see the{' '}
-                      <a href="https://www.google.com" target="_blank">
-                        FAQs
-                      </a>
-                    </p> */}
-                  </p>
-                </div>
-              </div>
+              <p css={BODY_TEXT_STYLING}>
+                <strong>Please Note: </strong>To see your updated chosen name,
+                please log out and log back into your Access Boston account.
+              </p>
             </QuestionComponent>
           </div>
         </div>
@@ -74,16 +63,9 @@ export const SuccessView2 = (props: SuccessProps) => {
 export default SuccessView2;
 
 const BODY_TEXT_STYLING = css({
-  paddingTop: '10px !important',
   lineHeight: 'inheret',
 
   '@media (max-width: 600px)': {
-    padding: '0 20px 10px !important',
-  },
-});
-
-const BODY_PARAGRAPH_STYLING = css({
-  '@media (max-width: 600px)': {
-    lineHeight: '1.5rem  !important',
+    padding: '0 20px 10px',
   },
 });
