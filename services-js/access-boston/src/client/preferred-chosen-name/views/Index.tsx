@@ -3,7 +3,6 @@
 import { jsx } from '@emotion/core';
 import { useReducer } from 'react';
 
-// import { Account } from '../../../client/graphql/fetch-account';
 import { reducer as stateReducer, AppTitle } from '../state/app';
 import { CommonAttributes } from '../types';
 import { getViews } from '../../storage/PreferredChosenNameRequest';
@@ -14,12 +13,11 @@ import {
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-// import { ApprovalView } from './views';
-import { EnterNameView } from '../views/enterNameView';
-import WelcomeView from '../views/welcomeView';
-import ConfirmationView from '../views/confirmationView';
-import ErrorView from '../views/errorView';
-import SuccessView from './successView';
+import { WelcomeView2 } from '../views2/WelcomeView';
+import { EnterNameView2 } from '../views2/EnterNameView';
+import { ConfirmationView2 } from '../views2/ConfirmationView';
+import { ErrorView2 } from '../views2/ErrorView';
+import { SuccessView2 } from '../views2/SuccessView';
 
 interface Props {
   accountState: CommonAttributes;
@@ -38,11 +36,6 @@ export default function Index(props: Props) {
   const changeView = (newView: any) =>
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
 
-  // const updateUserState = (data: any) =>
-  //   dispatchState({ type: 'APP/RESET_STATE', payload: data });
-
-  // const resetState = (): void => dispatchState({ type: 'APP/RESET_STATE' });
-
   const stepBack = (): void => {
     const prevView = state.view - 1;
 
@@ -55,13 +48,9 @@ export default function Index(props: Props) {
 
   const advanceStep = () => {
     const nextView = state.view + 1;
-    // console.log('advanceStep!!!!!');
-    // console.log(`nextView: `, nextView, state, fetchedViews);
 
     if (nextView < fetchedViews.length) {
       changeView(fetchedViews[nextView]);
-      // updateUserState({});
-      // advanceStep();
     } else {
       changeView(fetchedViews[0]);
     }
@@ -73,13 +62,14 @@ export default function Index(props: Props) {
     LName: string;
   }) => {
     const { Id, FName, LName } = data;
+
+    dispatchState({ type: 'APP/LOADING' });
+
     const retObj = await preferredNameRequest({
       id: state.employeeId,
       preferredFirstName: FName,
       preferredLastName: LName,
     });
-
-    // console.log(`preferredNameRequest(retObj): `, Id, retObj);
 
     if (retObj['attributes']) {
       dispatchState({
@@ -92,6 +82,7 @@ export default function Index(props: Props) {
         },
       });
 
+      dispatchState({ type: 'APP/LOADING' });
       changeView(fetchedViews[2]);
     } else {
       changeView(fetchedViews[4]);
@@ -119,6 +110,8 @@ export default function Index(props: Props) {
       subObj['email'] = Email;
     }
 
+    dispatchState({ type: 'APP/LOADING' });
+
     const retObj = await preferredNameSubmit(subObj);
     let formData = {
       Id,
@@ -133,29 +126,16 @@ export default function Index(props: Props) {
       formData['Email'] = retObj['attributes']['result']['newEmail'];
     }
 
-    // console.log(
-    //   `handlerPreferredNameSubmit > preferredNameSubmit(retObj): `,
-    //   retObj
-    // );
-
     if (
       retObj['attributes'] &&
       retObj['attributes']['status'] &&
       retObj['attributes']['status'] === 'Success. Updated Attributes in IIQ'
     ) {
-      // console.log(
-      //   `handlerPreferredNameSubmit > pre-dispatchState(retObj): `,
-      //   retObj
-      // );
-      // console.log(
-      //   `handlerPreferredNameSubmit > pre-dispatchState(formData): `,
-      //   formData
-      // );
-
       dispatchState({
         type: 'APP/UPDATE__SUBMIT_PREFERREDNAME',
         formData,
       });
+      dispatchState({ type: 'APP/LOADING' });
 
       changeView(fetchedViews[3]);
     } else {
@@ -165,9 +145,15 @@ export default function Index(props: Props) {
     }
   };
 
+  const handleUseNewEmailToogle = () => {
+    dispatchState({
+      type: 'APP/UPDATE_EMAIL_TO_USE',
+    });
+  };
+
   const defaultView = (
     <PageWrapper classString={'b-c'}>
-      <WelcomeView
+      <WelcomeView2
         handleProceed={advanceStep}
         appTitle={AppTitle}
         state={state}
@@ -177,9 +163,10 @@ export default function Index(props: Props) {
 
   const enterNameView = (
     <PageWrapper classString={'b-c'}>
-      <EnterNameView
+      <EnterNameView2
         handleProceed={handlerPreferredNameReq}
         handleSubmit={handlerPreferredNameSubmit}
+        handleStepBack={stepBack}
         state={state}
       />
     </PageWrapper>
@@ -187,10 +174,10 @@ export default function Index(props: Props) {
 
   const approvalView = (
     <PageWrapper classString={'b-c'}>
-      <ConfirmationView
+      <ConfirmationView2
         handleProceed={handlerPreferredNameSubmit}
         handleStepBack={stepBack}
-        appTitle={AppTitle}
+        handleUseNewEmailToogle={handleUseNewEmailToogle}
         state={state}
       />
     </PageWrapper>
@@ -198,17 +185,13 @@ export default function Index(props: Props) {
 
   const errorView = (
     <PageWrapper classString={'b-c'}>
-      <ErrorView
-        handleQuit={() => {}}
-        appTitle={AppTitle}
-        // state={defaultWorkflowAccount}
-      />
+      <ErrorView2 handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   );
 
   const successView = (
     <PageWrapper classString={'b-c'}>
-      <SuccessView handleQuit={closeTab} appTitle={AppTitle} state={state} />
+      <SuccessView2 handleQuit={closeTab} appTitle={AppTitle} state={state} />
     </PageWrapper>
   );
 

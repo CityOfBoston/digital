@@ -15,7 +15,9 @@ export type ActionTypes =
   | 'APP/RESET_STATE'
   | 'APP/INITIAL_STATE'
   | 'APP/UPDATE_PREFERREDNAME'
-  | 'APP/UPDATE__SUBMIT_PREFERREDNAME';
+  | 'APP/UPDATE__SUBMIT_PREFERREDNAME'
+  | 'APP/UPDATE_EMAIL_TO_USE'
+  | 'APP/LOADING';
 
 interface Action {
   type: ActionTypes;
@@ -23,6 +25,7 @@ interface Action {
   payload: CommonAttributes;
   formData: FormInputs;
   altWorkflow: boolean;
+  useNewEmail: boolean;
 }
 
 export const initialState = new PreferredChosenNameInformation();
@@ -46,31 +49,8 @@ export const reducer = (state: any, action: Partial<Action>) => {
       }
     case 'APP/RESET_STATE':
       return startingState;
-    case 'APP/INITIAL_STATE':
-      if (action.payload) {
-        const altWorkflows = ['BPL', 'BPHC'];
-
-        const retObj = {
-          ...state,
-          init: true,
-          employeeId: action.payload.employeeId,
-          employeeType: action.payload.employeeType,
-          firstName: action.payload.firstName,
-          lastName: action.payload.lastName,
-          email: action.payload.email,
-          altWorkflow: altWorkflows.includes(action.payload.employeeType),
-          // displayName: action.payload.displayName,
-          // chosenFirstName: action.payload.chosenFirstName,
-          // chosenLastName: action.payload.chosenLastName,
-        };
-        console.log(`APP/RESET_STATE (action.type): `, action.type);
-        console.log(`APP/RESET_STATE (action.payload): `, action.payload);
-        console.log(`APP/RESET_STATE (retObj): `, retObj);
-
-        return retObj;
-      } else {
-        return state;
-      }
+    case 'APP/LOADING':
+      return { ...state, loading: !state.loading };
     case 'APP/UPDATE_PREFERREDNAME':
       if (action.formData) {
         try {
@@ -83,20 +63,18 @@ export const reducer = (state: any, action: Partial<Action>) => {
             newEmail: action.formData.Email,
           };
 
-          console.log(
-            `APP/UPDATE_PREFERREDNAME (updatedState): `,
-            updatedState
-          );
-
           return updatedState;
         } catch (error) {
           console.log(`APP/UPDATE_PREFERREDNAME (error): `, error);
           console.log(`APP/UPDATE_PREFERREDNAME (post-error(state)): `, state);
+          console.error(`APP/UPDATE_PREFERREDNAME (error): `, error);
           return {};
         }
       } else {
         return state;
       }
+    case 'APP/UPDATE_EMAIL_TO_USE':
+      return { ...state, useNewEmail: !state.useNewEmail };
     case 'APP/UPDATE__SUBMIT_PREFERREDNAME':
       if (action.formData) {
         try {
@@ -108,11 +86,6 @@ export const reducer = (state: any, action: Partial<Action>) => {
             submitNameChangeReqError: false,
           };
 
-          console.log(
-            `APP/UPDATE__SUBMIT_PREFERREDNAME (updatedState): `,
-            updatedState
-          );
-
           return updatedState;
         } catch (error) {
           console.log(`APP/UPDATE__SUBMIT_PREFERREDNAME (error): `, error);
@@ -120,6 +93,7 @@ export const reducer = (state: any, action: Partial<Action>) => {
             `APP/UPDATE__SUBMIT_PREFERREDNAME (post-error(state)): `,
             state
           );
+          console.error(`APP/UPDATE__SUBMIT_PREFERREDNAME (error): `, error);
           return {};
         }
       } else {

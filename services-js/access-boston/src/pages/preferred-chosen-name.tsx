@@ -43,12 +43,6 @@ export default class IdentityVerification extends React.Component<Props> {
       displayName: account['displayName'] ? account['displayName'] : '',
     });
 
-    // console.log(`preferred-name (account): `, account);
-    // console.log(
-    //   `client/index ... (PreferredChosenNameInformation), `,
-    //   accountState
-    // );
-
     return (
       <>
         <Head>
@@ -57,7 +51,6 @@ export default class IdentityVerification extends React.Component<Props> {
         </Head>
 
         <AppWrapper>
-          {/* <Index groups={account.groups} /> */}
           <Index accountState={accountState} />
         </AppWrapper>
       </>

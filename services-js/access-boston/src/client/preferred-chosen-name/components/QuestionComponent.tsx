@@ -2,9 +2,10 @@
 
 import { css, jsx } from '@emotion/core';
 
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent, ReactNode, useEffect } from 'react';
 
 import RedirectForm from '../../RedirectForm';
+import { Spinner } from '../../common/Spinner';
 
 interface Props {
   children: ReactNode;
@@ -19,6 +20,8 @@ interface Props {
   quitBtnText?: string;
   extraButtons?: ReactNode;
   useRedirectForm?: boolean;
+  useLoadingSpinner?: boolean;
+  loading?: boolean;
 }
 
 /**
@@ -41,6 +44,27 @@ export default function QuestionComponent(props: Props): JSX.Element {
     useRedirectForm,
   } = props;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const proceedBtnStr = (): JSX.Element => {
+    if (
+      props.useLoadingSpinner &&
+      props.useLoadingSpinner === true &&
+      props.loading &&
+      props.loading === true
+    ) {
+      return (
+        <>
+          <Spinner size="1.2em" />
+        </>
+      );
+    }
+
+    return <>{nextButtonText || 'Continue'}</>;
+  };
+
   return (
     <div css={CONTAINER_STYLING}>
       {children}
@@ -51,8 +75,10 @@ export default function QuestionComponent(props: Props): JSX.Element {
             type="button"
             className="btn btn--b-sm btn-alt btn--w"
             onClick={handleStepBack}
+            tabIndex={0}
+            title={prevBtnText || 'Back'}
           >
-            {prevBtnText || 'Go Back'}
+            {prevBtnText || 'Back'}
           </button>
         )}
         {extraButtons} {/* Renders Clear button next to Continue */}
@@ -61,9 +87,17 @@ export default function QuestionComponent(props: Props): JSX.Element {
             type="button"
             className="btn btn--b-sm"
             onClick={handleProceed}
-            disabled={!allowProceed}
+            disabled={
+              !allowProceed ||
+              (props.useLoadingSpinner &&
+                props.useLoadingSpinner === true &&
+                props.loading &&
+                props.loading === true)
+            }
+            tabIndex={0}
+            title={nextButtonText || 'Continue'}
           >
-            {nextButtonText || 'Continue'}
+            {proceedBtnStr()}
           </button>
         )}
         {quitBtn && handleQuit && !useRedirectForm && (
@@ -72,6 +106,8 @@ export default function QuestionComponent(props: Props): JSX.Element {
               type="button"
               className="btn btn--b-sm"
               onClick={handleQuit}
+              tabIndex={0}
+              title={quitBtnText || 'Quit'}
             >
               {quitBtnText || 'Quit'}
             </button>
@@ -80,7 +116,12 @@ export default function QuestionComponent(props: Props): JSX.Element {
         {quitBtn && handleQuit && useRedirectForm && (
           <div className="successView__Btn-wrapper">
             <RedirectForm path="/logout">
-              <button type="submit" className="btn btn--sm btn--100">
+              <button
+                type="submit"
+                className="btn btn--sm btn--100"
+                tabIndex={0}
+                title={quitBtnText || 'Quit'}
+              >
                 {quitBtnText || 'Quit'}
               </button>
             </RedirectForm>
@@ -99,7 +140,7 @@ const CONTAINER_STYLING = css({
   width: '100%',
 
   p: {
-    lineHeight: '2rem',
+    lineHeight: '1.5em',
   },
 });
 
@@ -116,9 +157,9 @@ const BUTTON_CONTAINER_STYLING = css({
   overflow: 'hidden',
 
   '.btn': {
-    fontSize: '22px',
+    fontSize: '16px',
     fontFamily: 'Montserrat',
-    height: '60px',
+    height: '48px',
     padding: '12px 20px',
     display: 'flex',
     alignItems: 'center',
@@ -163,7 +204,7 @@ const BUTTON_CONTAINER_STYLING = css({
       flex: 1,
       width: '100%',
       maxWidth: '100%',
-      height: '45px',
+      height: '48px',
       fontSize: '14px',
       margin: '10px 0px',
       boxSizing: 'border-box',

@@ -20,10 +20,14 @@ export default function ConfirmationView({
   handleStepBack,
   state,
 }: ConfirmationProps) {
-  // console.log(`ConfirmationView(state): `, state);
-
   const [selectedOption, setSelectedOption] = useState('UseNewEmail');
   const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const { firstName, lastName, chosenFirstName, chosenLastName } = state;
+
+  const FName =
+    chosenFirstName && chosenFirstName.length > 0 ? chosenFirstName : firstName;
+  const LName =
+    chosenLastName && chosenLastName.length > 0 ? chosenLastName : lastName;
 
   const handleRadioChange = (value: string) => {
     setSelectedOption(value);
@@ -42,8 +46,8 @@ export default function ConfirmationView({
   const handle_proceed = () => {
     let subObj = {
       Id: state.employeeId,
-      FName: state.chosenFirstName,
-      LName: state.chosenLastName,
+      FName: FName,
+      LName: LName,
     };
     if (selectedOption === 'UseNewEmail') subObj['Email'] = state.newEmail;
 
@@ -63,7 +67,7 @@ export default function ConfirmationView({
               <div css={CHOSEN_NAME_STYLING}>
                 <ChosenNameTag />
                 <div className="CurrentName">
-                  {state.chosenFirstName} {state.chosenLastName}
+                  {FName} {LName}
                 </div>
               </div>
               <a
@@ -78,10 +82,12 @@ export default function ConfirmationView({
           </div>
           <QuestionComponent
             quitBtn={false}
-            nextButtonText="Continue"
+            nextButtonText="Submit"
             allowProceed={allowProceed}
             handleStepBack={handleStepBack}
             handleProceed={handle_proceed}
+            useLoadingSpinner={true}
+            loading={state.loading}
           >
             <div css={RADIO_GROUP_STYLING}>
               Select your preferred email option from the list below.
@@ -99,6 +105,7 @@ export default function ConfirmationView({
                     value="UseNewEmail"
                     className="ra-f"
                     checked={selectedOption === 'UseNewEmail'}
+                    tabIndex={0}
                     onChange={() => handleRadioChange('UseNewEmail')}
                   />
                   <strong css={RADIO_LABEL_STYLING}>Use new email</strong>
@@ -119,6 +126,7 @@ export default function ConfirmationView({
                     name="filters"
                     value="KeepCurrentEmail"
                     className="ra-f"
+                    tabIndex={0}
                     checked={selectedOption === 'KeepCurrentEmail'}
                     onChange={() => handleRadioChange('KeepCurrentEmail')}
                   />
@@ -160,7 +168,7 @@ const CHECKBOX_STYLING = css({
 const CHECKBOX_LABEL_STYLING = (checked: boolean) =>
   css({
     marginTop: '10px',
-    color: checked ? 'inherit' : '#A9AEB1',
+    color: checked ? 'inherit' : '#58585B',
     display: 'flex',
     alignItems: 'start',
     gap: '12px',

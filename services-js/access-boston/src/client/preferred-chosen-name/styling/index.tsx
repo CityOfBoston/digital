@@ -38,19 +38,31 @@ export const TEXTINPUT_STYLING = css({
 // Preferred Name Styling
 
 export const PREFERRED_NAME_STYLING = css({
-  display: 'plex',
   maxWidth: '694px',
   margin: 'auto',
 
   color: `${CHARLES_BLUE}`,
   fontFamily: 'Lora',
-  fontSize: '20px',
+  fontSize: '16px',
   fontStyle: 'normal',
   fontWeight: 'normal',
-  lineHeight: '150%',
+  lineHeight: 'inherit',
 
   [MEDIA_SMALL_MAX]: {
     fontSize: '16px',
+  },
+
+  '*:focus-visible': {
+    outlineColor: '#005EA2',
+  },
+
+  'a:link': {
+    textDecoration: 'underline',
+    color: '##005EA2',
+
+    ':hover': {
+      color: '#005EA2',
+    },
   },
 
   'h2, h3': {
@@ -60,46 +72,57 @@ export const PREFERRED_NAME_STYLING = css({
     fontWeight: 'bold',
     lineHeight: 'normal',
     textTransform: 'uppercase',
-    padding: '10px'
+    padding: '10px',
   },
 
   '.BorderedAppWrapper': {
-    display: 'plex',
-
     border: '1px solid #A9AEB1',
     borderRadius: '4px', // Matches Figma Design
+    borderTop: '0',
+    borderTopLeftRadius: '0px',
+    borderTopRightRadius: '0px',
 
     '.btn': {
       borderRadius: '4px',
     },
   },
 
-  '.AppInnerContainer': {
-    display: 'plex',
+  '.AddBorderTop': {
+    borderColor: '#A9AEB1',
+    borderTopWidth: '1px',
+    borderTopStyle: 'solid',
+    borderRadius: '4px', // Matches Figma Design
+  },
 
-    '.headerBlock': {
-      display: 'plex',
-      alignContent: 'center',
-      padding: '20px 40px',
-      background: '#F0F0F0',
-      borderBottom: '1px solid #A9AEB1',
+  '.headerBlock': {
+    alignContent: 'center',
+    padding: '20px 40px',
+    background: '#F0F0F0',
+    border: '1px solid #A9AEB1',
+    borderRadius: '4px', // Matches Figma Design
+    borderBottom: '1px solid #A9AEB1',
+    borderBottomLeftRadius: '0',
+    borderBottomRightRadius: '0',
+
+    [MEDIA_SMALL_MAX]: {
+      paddingLeft: '5px',
+      padding: '15px 26px',
+      fontSize: '16px',
+      marginBottom: '0',
+    },
+
+    h3: {
+      margin: 0,
+      padding: 0,
 
       [MEDIA_SMALL_MAX]: {
-        paddingLeft: '5px',    
-        padding: "10px 26px",
-        fontSize: "20px",
-        marginBottom: "0",
-      },
-
-      h3: {
-        margin: 0,
-        padding: 0,
-
-        [MEDIA_SMALL_MAX]: {
-          fontSize: '16px',
-        },
+        fontSize: '16px',
       },
     },
+  },
+
+  '.AppInnerContainer': {
+    'line-height': '1.5rem',
 
     '.row': {
       padding: '40px',
@@ -111,7 +134,7 @@ export const PREFERRED_NAME_STYLING = css({
     },
 
     '.bodyText': {
-      lineHeight: '2rem',
+      lineHeight: '1.5rem',
     },
   },
 
@@ -119,3 +142,39 @@ export const PREFERRED_NAME_STYLING = css({
     fontWeight: 'bold',
   },
 });
+
+// ------------------------ //
+// VIEWS //
+
+export const WELCOMEVIEW_STYLING = css({
+  padding: '0.5rem 2.5rem 0 2.5rem',
+
+  '@media (max-width: 600px)': {
+    padding: '0.25em 0.75em 1em',
+  },
+
+  '& > p:first-of-type, ul': {
+    borderBottom: '1px solid #ccc',
+  },
+
+  '& > p:first-of-type': {
+    padding: '0 0 1.5em',
+  },
+
+  '& > ul': {
+    padding: '0.85em 0 0',
+    margin: '0 0 1.25em',
+
+    '& > li': {
+      listStyleType: 'disc',
+      listStyle: 'outside',
+      marginLeft: '1.8em',
+    },
+  },
+
+  '& > label': {
+    fontWeight: 'bold',
+  },
+});
+
+// ------------------------ //
