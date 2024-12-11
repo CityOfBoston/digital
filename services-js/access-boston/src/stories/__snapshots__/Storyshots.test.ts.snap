@@ -11148,7 +11148,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
   className="b-c"
 >
   <div
-    className="css-ly7fj0-ConfirmationView"
+    className="css-1g16gy2-ConfirmationView"
   >
     <div
       className="sh sh-title css-13xrlnr-ConfirmationView"
@@ -11333,7 +11333,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <div
       className="sh sh-title css-6g6riv"
@@ -11352,7 +11352,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
           <div
             className="InfoBox css-1o57lzp"
           >
-            Changing your chosen name will affect your City of Boston accounts.
+            <p>
+              Changing your chosen name will affect your City of Boston accounts.
+            </p>
             <div
               className="css-6uowtb"
             >
@@ -11533,7 +11535,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-16l4lbt-EnterNameView"
+    className="css-1po1mf5-EnterNameView"
   >
     <div
       className="sh sh-title css-vyg9hd-EnterNameView"
@@ -11663,7 +11665,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <div
       className="sh sh-title css-10hs29c"
@@ -11682,7 +11684,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
           <div
             className="InfoBox css-1o57lzp"
           >
-            Changing your chosen name will affect your City of Boston accounts.
+            <p>
+              Changing your chosen name will affect your City of Boston accounts.
+            </p>
             <div
               className="CurrentNameContainer css-uwkjgi"
             >
@@ -11805,7 +11809,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1d3v5r7-ErrorView"
+    className="css-qe8abu-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -11890,7 +11894,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <div
       className="AddBorderTop"
@@ -11981,7 +11985,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-up9yi3-SuccessView"
+    className="css-8s8fti-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12144,7 +12148,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <div
       className="AddBorderTop"
@@ -12256,22 +12260,14 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
           <div
             className="css-12u8vhf-QuestionComponent"
           >
-            <div
-              className="row css-iwyqov"
+            <p
+              className="css-62yfs6"
             >
-              <div
-                className="bodyText"
-              >
-                <p
-                  className="css-k57hss"
-                >
-                  <strong>
-                    Please Note: 
-                  </strong>
-                  To see your updated chosen name, please log out and log back into your Access Boston account.
-                </p>
-              </div>
-            </div>
+              <strong>
+                Please Note: 
+              </strong>
+              To see your updated chosen name, please log out and log back into your Access Boston account.
+            </p>
             <div
               className="css-19sg0i4-QuestionComponent"
             >
@@ -12313,7 +12309,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-1xxczt2-WelcomeView"
+    className="css-1qy7b6x-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12403,7 +12399,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <h2
       className="headerBlock"
@@ -12495,7 +12491,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-16l4lbt-EnterNameView"
+    className="css-1po1mf5-EnterNameView"
   >
     <div
       className="sh sh-title css-vyg9hd-EnterNameView"
@@ -12625,7 +12621,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <div
       className="sh sh-title css-10hs29c"
@@ -12644,7 +12640,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
           <div
             className="InfoBox css-1o57lzp"
           >
-            Changing your chosen name will affect your City of Boston accounts.
+            <p>
+              Changing your chosen name will affect your City of Boston accounts.
+            </p>
             <div
               className="CurrentNameContainer css-uwkjgi"
             >
@@ -12767,7 +12765,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-1d3v5r7-ErrorView"
+    className="css-qe8abu-ErrorView"
   >
     <div
       className="BorderedAppWrapper"
@@ -12852,7 +12850,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <div
       className="AddBorderTop"
@@ -12943,7 +12941,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-up9yi3-SuccessView"
+    className="css-8s8fti-SuccessView"
   >
     <div
       className="BorderedAppWrapper"
@@ -13106,7 +13104,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <div
       className="AddBorderTop"
@@ -13218,22 +13216,14 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
           <div
             className="css-12u8vhf-QuestionComponent"
           >
-            <div
-              className="row css-iwyqov"
+            <p
+              className="css-62yfs6"
             >
-              <div
-                className="bodyText"
-              >
-                <p
-                  className="css-k57hss"
-                >
-                  <strong>
-                    Please Note: 
-                  </strong>
-                  To see your updated chosen name, please log out and log back into your Access Boston account.
-                </p>
-              </div>
-            </div>
+              <strong>
+                Please Note: 
+              </strong>
+              To see your updated chosen name, please log out and log back into your Access Boston account.
+            </p>
             <div
               className="css-19sg0i4-QuestionComponent"
             >
@@ -13275,7 +13265,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-1xxczt2-WelcomeView"
+    className="css-1qy7b6x-WelcomeView"
   >
     <div
       className="BorderedAppWrapper"
@@ -13365,7 +13355,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
   className="b-c"
 >
   <div
-    className="css-1kb9mjb"
+    className="css-19y3kzk"
   >
     <h2
       className="headerBlock"
