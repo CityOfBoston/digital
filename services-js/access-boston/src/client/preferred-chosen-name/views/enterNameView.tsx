@@ -108,7 +108,10 @@ export const EnterNameView2 = ({
                   />
                 </div>
                 For more information, see the{' '}
-                <a href="https://www.google.com" target="_blank">
+                <a
+                  href="https://www.boston.gov/departments/innovation-and-technology/chosen-name-updates-where-and-when"
+                  target="_blank"
+                >
                   Chosen Name Support Documentation
                 </a>
               </div>

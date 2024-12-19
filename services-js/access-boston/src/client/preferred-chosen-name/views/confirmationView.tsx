@@ -192,7 +192,7 @@ export const ConfirmationView2 = ({
                   {' '}
                   For more information, see the{' '}
                   <a
-                    href="https://www.google.com"
+                    href="https://www.boston.gov/departments/innovation-and-technology/chosen-name-updates-where-and-when"
                     target="_blank"
                     title={`Chosen Name Support Documentation`}
                   >

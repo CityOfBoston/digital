@@ -66,7 +66,7 @@ export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
                   unchanged. This will not update HCM or ESS. To change your
                   legal name, please follow the{' '}
                   <a
-                    href="https://sso-test.boston.gov/as/authorization.oauth2?response_type=code&client_id=pa_wam&redirect_uri=https%3A%2F%2Fess-awsuat.boston.gov%2Fpa%2Foidc%2Fcb&state=eyJ6aXAiOiJERUYiLCJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2Iiwia2lkIjoiQk9MZmJmTm1YZFBRdHhsTkY4aEdUT0hQa1NnIiwic3VmZml4IjoiMVhyR2tVLjE3MzI4OTA5MzMifQ..HK2KIBY6u5vJFcsaXyv9NA.RDqP6cAoD_aRK_dOL6t4w46vt8L-YaLpo5LGPkI1C6_nUIE7cAAnd-AF_N2KATyqOyx1hr6nhUgVuX3TfjX1xM6bc7_4_0c2XUnxPCN9700.IxU5tLkqs_LjSdGlQx_GaA&nonce=nZdehsu67Ivv9NoymGf8FQiQlxfsCmbNdBpyDOqeSZQ&scope=openid%20profile%20email&vnd_pi_requested_resource=https%3A%2F%2Fess-awsuat.boston.gov%2F&vnd_pi_application_name=ESS+UAT+AWS+Cloud+application+"
+                    href="https://ess.boston.gov/pages/NameChange-BS3/namechange.aspx"
                     target="_blank"
                   >
                     legal name change
