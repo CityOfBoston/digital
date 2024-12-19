@@ -13,11 +13,11 @@ import {
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-import { WelcomeView2 } from '../views2/WelcomeView';
-import { EnterNameView2 } from '../views2/EnterNameView';
-import { ConfirmationView2 } from '../views2/ConfirmationView';
-import { ErrorView2 } from '../views2/ErrorView';
-import { SuccessView2 } from '../views2/SuccessView';
+import { WelcomeView2 } from './WelcomeView';
+import { EnterNameView2 } from './EnterNameView';
+import { ConfirmationView2 } from './ConfirmationView';
+import { ErrorView2 } from './ErrorView';
+import { SuccessView2 } from './SuccessView';
 
 interface Props {
   accountState: CommonAttributes;
