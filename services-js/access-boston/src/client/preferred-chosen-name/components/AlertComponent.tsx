@@ -84,7 +84,7 @@ const WRAPPER_STYLE_SUCCESS = css({
 const ALERT_CONTAINER_STYLING = css({
   display: 'flex',
   alignItems: 'self-start',
-  padding: '16px 40px 16px 30px',
+  padding: '16px 40px 16px 14px',
   color: '#000000',
   width: '100%',
   lineHeight: '1.5rem',
@@ -115,8 +115,8 @@ const ICON_STYLING = css({
   height: '32px',
 
   '@media (max-width: 600px)': {
-    width: '20px',
-    height: '20px',
+    width: '24px',
+    height: '24px',
   },
 });
 

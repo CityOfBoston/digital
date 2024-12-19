@@ -30,8 +30,8 @@ const LABEL_STYLING = css({
 });
 
 const ICON_STYLING = css({
-  maxWidth: '20px',
-  maxHeight: '20px',
+  maxWidth: '24px',
+  maxHeight: '24px',
 });
 
 const NameIcon = (

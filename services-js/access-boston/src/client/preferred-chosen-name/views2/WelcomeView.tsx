@@ -1,14 +1,15 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
-import { MouseEvent } from 'react';
+import { MouseEvent, KeyboardEvent } from 'react';
+import { MEDIA_SMALL_MAX } from '@cityofboston/react-fleet';
 import QuestionComponent from '../components/QuestionComponent';
 
 import { CommonAttributes } from '../types';
 import { PREFERRED_NAME_STYLING, WELCOMEVIEW_STYLING } from '../styling/index';
 
 interface welcomeProps {
-  handleProceed: (ev: MouseEvent) => void;
+  handleProceed: (ev: MouseEvent | KeyboardEvent) => void;
   appTitle: string;
   state: CommonAttributes;
 }
@@ -73,7 +74,7 @@ export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
                   .
                 </li>
               </ul>
-              <p>
+              <p css={PLEASE_NOTE__STYLING}>
                 <strong>Please note: </strong>
                 Any changes made to your chosen name or email address will be
                 reflected across all relevant systems.
@@ -87,3 +88,10 @@ export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
 };
 
 export default WelcomeView2;
+
+const PLEASE_NOTE__STYLING = css({
+  [MEDIA_SMALL_MAX]: {
+    paddingLeft: '22px',
+    paddingRight: '22px',
+  },
+});

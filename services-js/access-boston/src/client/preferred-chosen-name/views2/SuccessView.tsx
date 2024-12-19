@@ -1,7 +1,9 @@
 /** @jsx jsx */
 
 import { jsx, css } from '@emotion/core';
-import { MouseEvent } from 'react';
+import { MouseEvent, KeyboardEvent } from 'react';
+
+import { MEDIA_SMALL_MAX } from '@cityofboston/react-fleet';
 
 import { CommonAttributes } from '../types';
 
@@ -12,7 +14,7 @@ import RowColumns from '../components/RowColumns';
 import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface SuccessProps {
-  handleQuit: (ev: MouseEvent) => void;
+  handleQuit: (ev: MouseEvent | KeyboardEvent) => void;
   appTitle: string;
   state: CommonAttributes;
 }
@@ -63,9 +65,9 @@ export const SuccessView2 = (props: SuccessProps) => {
 export default SuccessView2;
 
 const BODY_TEXT_STYLING = css({
-  lineHeight: 'inheret',
+  padding: '0 20px 10px 30px',
 
-  '@media (max-width: 600px)': {
-    padding: '0 20px 10px',
+  [MEDIA_SMALL_MAX]: {
+    paddingLeft: '22px',
   },
 });

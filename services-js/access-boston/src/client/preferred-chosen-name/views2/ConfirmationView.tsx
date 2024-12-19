@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-import { useState, MouseEvent } from 'react';
+import { useState, MouseEvent, KeyboardEvent } from 'react';
 
 import { CommonAttributes } from '../types';
 
@@ -10,7 +10,7 @@ import { PREFERRED_NAME_STYLING } from '../styling/index';
 
 interface props {
   handleProceed: (data: { Id: string; FName: string; LName: string }) => void;
-  handleStepBack: (ev: MouseEvent) => void;
+  handleStepBack: (ev: MouseEvent | KeyboardEvent) => void;
   handleUseNewEmailToogle: () => void;
   state: CommonAttributes;
 }
@@ -43,6 +43,18 @@ export const ConfirmationView2 = ({
 
   const toggleCheckbox = () => {
     setCheckboxChecked(!checkboxChecked);
+  };
+
+  const handleRadioBtnKeyDown = (event: KeyboardEvent) => {
+    if (event.keyCode === 13 || event.keyCode === 32) handleRadioChange();
+  };
+
+  const handleCheckboxBtnKeyDown = (event: KeyboardEvent) => {
+    if (event.keyCode === 13) toggleCheckbox();
+  };
+
+  const handleEditBtnKeyDown = (event: KeyboardEvent) => {
+    if (event.keyCode === 13 || event.keyCode === 32) handleStepBack(event);
   };
 
   // Enable the continue button only if an option is selected and the checkbox is checked
@@ -92,6 +104,7 @@ export const ConfirmationView2 = ({
                   onClick={handleStepBack}
                   css={EDIT_BUTTON_STYLING}
                   tabIndex={0}
+                  onKeyDown={handleEditBtnKeyDown}
                 >
                   Edit
                 </a>
@@ -113,41 +126,44 @@ export const ConfirmationView2 = ({
                     RADIO_STACK_STYLING,
                     useNewEmail && RADIO_SELECTED_STYLING,
                   ]}
+                  tabIndex={0}
+                  onKeyDown={handleRadioBtnKeyDown}
                 >
                   <div css={RADIO_OPTION_STYLING}>
                     <input
                       id="radio[0]"
                       type="radio"
                       name="filters"
-                      value="useNewEmail"
                       className="ra-f"
-                      checked={useNewEmail}
-                      onChange={() => handleRadioChange()}
                       title={`Use new email`}
                       alt={`Use new email`}
+                      value="useNewEmail"
+                      checked={useNewEmail}
+                      onChange={() => handleRadioChange()}
                     />
                     <strong css={RADIO_LABEL_STYLING}>Use new email</strong>
                   </div>
                   <div css={EMAIL_TEXT_STYLING}>{state.newEmail}</div>
                 </label>
                 <label
-                  tabIndex={0}
                   css={[
                     RADIO_STACK_STYLING,
                     !useNewEmail && RADIO_SELECTED_STYLING,
                   ]}
+                  tabIndex={0}
+                  onKeyDown={handleRadioBtnKeyDown}
                 >
                   <div css={RADIO_OPTION_STYLING}>
                     <input
                       id="radio[1]"
                       type="radio"
                       name="filters"
-                      value="KeepCurrentEmail"
                       className="ra-f"
-                      checked={!useNewEmail}
-                      onChange={() => handleRadioChange()}
                       title={`Keep current email`}
                       alt={`Keep current email`}
+                      value="KeepCurrentEmail"
+                      checked={!useNewEmail}
+                      onChange={() => handleRadioChange()}
                     />
                     <strong css={RADIO_LABEL_STYLING}>
                       Keep current email
@@ -167,6 +183,7 @@ export const ConfirmationView2 = ({
                     title={`By submitting this form you agree to changing your displayed
                   chosen name and email address across all your City of Boston
                   accounts`}
+                    onKeyDown={handleCheckboxBtnKeyDown}
                   />
                   By submitting this form you agree to updating your chosen
                   name, or chosen name and email, across City of Boston accounts
@@ -244,7 +261,7 @@ const CHOSEN_NAME_STYLING = css({
 
   '.CurrentName': {
     marginTop: '10px',
-    marginLeft: '1.5em',
+    marginLeft: '1.7em',
     fontSize: '1.2em',
   },
 

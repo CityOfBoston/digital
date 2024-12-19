@@ -11175,7 +11175,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-1kp08h6"
+                  className="css-1de1q5w"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -11302,6 +11302,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
             <button
               className="btn btn--b-sm btn-alt btn--w"
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Back"
               type="button"
@@ -11313,6 +11314,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
               className="btn btn--b-sm"
               disabled={true}
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Submit"
               type="button"
@@ -11359,13 +11361,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
               className="css-6uowtb"
             >
               <div
-                className="css-1mp4ink"
+                className="css-13f8le7"
               >
                 <label
                   className="css-fblkm4-TagComponent"
                 >
                   <svg
-                    className="css-1kp08h6"
+                    className="css-1de1q5w"
                     fill="none"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -11394,6 +11396,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
               <a
                 className="btn btn--b-sm btn-alt btn--w css-vcp3bu"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 type="button"
               >
@@ -11410,6 +11413,8 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
               Select your preferred email option from the list below.
               <label
                 className="css-1lsql48"
+                onKeyDown={[Function]}
+                tabIndex={0}
               >
                 <div
                   className="css-1suh0c0"
@@ -11439,6 +11444,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
               </label>
               <label
                 className="css-rqueiv"
+                onKeyDown={[Function]}
                 tabIndex={0}
               >
                 <div
@@ -11477,6 +11483,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                   checked={false}
                   className="css-eyqs17"
                   onChange={[Function]}
+                  onKeyDown={[Function]}
                   title="By submitting this form you agree to changing your displayed
                   chosen name and email address across all your City of Boston
                   accounts"
@@ -11503,6 +11510,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
               <button
                 className="btn btn--b-sm btn-alt btn--w"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Back"
                 type="button"
@@ -11514,6 +11522,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 2 1`] = `
                 className="btn btn--b-sm"
                 disabled={true}
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Submit"
                 type="button"
@@ -11559,7 +11568,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-1kp08h6"
+                className="css-1de1q5w"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -11645,6 +11654,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               className="btn btn--b-sm"
               disabled={false}
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Continue"
               type="button"
@@ -11694,7 +11704,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-1kp08h6"
+                  className="css-1de1q5w"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -11777,6 +11787,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
               <button
                 className="btn btn--b-sm btn-alt btn--w"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Back"
                 type="button"
@@ -11788,6 +11799,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 2 1`] = `
                 className="btn btn--b-sm"
                 disabled={false}
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Continue"
                 type="button"
@@ -11821,7 +11833,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
           className="css-1tthkhf-AlertComponent"
         >
           <div
-            className="css-rc8snv-AlertComponent"
+            className="css-1v3ux7g-AlertComponent"
           >
             <div
               className="css-1qk193-AlertComponent"
@@ -11873,6 +11885,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
               <button
                 className="btn btn--b-sm"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Close"
                 type="button"
@@ -11909,7 +11922,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 2 1`] = `
             className="css-1tthkhf-AlertComponent"
           >
             <div
-              className="css-rc8snv-AlertComponent"
+              className="css-1v3ux7g-AlertComponent"
             >
               <div
                 className="css-1qk193-AlertComponent"
@@ -11997,7 +12010,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
           className="css-kxjo63-AlertComponent"
         >
           <div
-            className="css-rc8snv-AlertComponent"
+            className="css-1v3ux7g-AlertComponent"
           >
             <div
               className="css-1qk193-AlertComponent"
@@ -12017,13 +12030,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
           className="css-vbppd0-RowColumns"
         >
           <div
-            className="css-8pk6zo-RowColumns"
+            className="css-16jw8qe-RowColumns"
           >
             <label
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-1kp08h6"
+                className="css-1de1q5w"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12048,13 +12061,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             </div>
           </div>
           <div
-            className="css-8pk6zo-RowColumns"
+            className="css-16jw8qe-RowColumns"
           >
             <label
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-1kp08h6"
+                className="css-1de1q5w"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12163,13 +12176,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
             className="css-kxjo63-AlertComponent"
           >
             <div
-              className="css-rc8snv-AlertComponent"
+              className="css-1v3ux7g-AlertComponent"
             >
               <div
                 className="css-1qk193-AlertComponent"
               >
                 <svg
-                  className="css-16q75nx"
+                  className="css-1lottpp"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -12195,13 +12208,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
             className="css-vbppd0-RowColumns"
           >
             <div
-              className="css-8pk6zo-RowColumns"
+              className="css-16jw8qe-RowColumns"
             >
               <label
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-1kp08h6"
+                  className="css-1de1q5w"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -12226,13 +12239,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
               </div>
             </div>
             <div
-              className="css-8pk6zo-RowColumns"
+              className="css-16jw8qe-RowColumns"
             >
               <label
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-1kp08h6"
+                  className="css-1de1q5w"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -12261,7 +12274,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 2 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <p
-              className="css-62yfs6"
+              className="css-vhi9rt"
             >
               <strong>
                 Please Note: 
@@ -12379,6 +12392,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Continue"
               type="button"
@@ -12457,7 +12471,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
                 .
               </li>
             </ul>
-            <p>
+            <p
+              className="css-1oj872b"
+            >
               <strong>
                 Please note: 
               </strong>
@@ -12471,6 +12487,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 2 1`] = `
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Continue"
               type="button"
@@ -12515,7 +12532,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-1kp08h6"
+                className="css-1de1q5w"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -12601,6 +12618,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               className="btn btn--b-sm"
               disabled={false}
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Submit"
               type="button"
@@ -12650,7 +12668,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-1kp08h6"
+                  className="css-1de1q5w"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -12733,6 +12751,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
               <button
                 className="btn btn--b-sm btn-alt btn--w"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Back"
                 type="button"
@@ -12744,6 +12763,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 2 1`] = `
                 className="btn btn--b-sm"
                 disabled={false}
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Submit"
                 type="button"
@@ -12777,7 +12797,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
           className="css-1tthkhf-AlertComponent"
         >
           <div
-            className="css-rc8snv-AlertComponent"
+            className="css-1v3ux7g-AlertComponent"
           >
             <div
               className="css-1qk193-AlertComponent"
@@ -12829,6 +12849,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
               <button
                 className="btn btn--b-sm"
                 onClick={[Function]}
+                onKeyDown={[Function]}
                 tabIndex={0}
                 title="Close"
                 type="button"
@@ -12865,7 +12886,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 2 1`] = `
             className="css-1tthkhf-AlertComponent"
           >
             <div
-              className="css-rc8snv-AlertComponent"
+              className="css-1v3ux7g-AlertComponent"
             >
               <div
                 className="css-1qk193-AlertComponent"
@@ -12953,7 +12974,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
           className="css-kxjo63-AlertComponent"
         >
           <div
-            className="css-rc8snv-AlertComponent"
+            className="css-1v3ux7g-AlertComponent"
           >
             <div
               className="css-1qk193-AlertComponent"
@@ -12973,13 +12994,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
           className="css-vbppd0-RowColumns"
         >
           <div
-            className="css-8pk6zo-RowColumns"
+            className="css-16jw8qe-RowColumns"
           >
             <label
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-1kp08h6"
+                className="css-1de1q5w"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -13004,13 +13025,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             </div>
           </div>
           <div
-            className="css-8pk6zo-RowColumns"
+            className="css-16jw8qe-RowColumns"
           >
             <label
               className="css-fblkm4-TagComponent"
             >
               <svg
-                className="css-1kp08h6"
+                className="css-1de1q5w"
                 fill="none"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -13119,13 +13140,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
             className="css-kxjo63-AlertComponent"
           >
             <div
-              className="css-rc8snv-AlertComponent"
+              className="css-1v3ux7g-AlertComponent"
             >
               <div
                 className="css-1qk193-AlertComponent"
               >
                 <svg
-                  className="css-16q75nx"
+                  className="css-1lottpp"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -13151,13 +13172,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
             className="css-vbppd0-RowColumns"
           >
             <div
-              className="css-8pk6zo-RowColumns"
+              className="css-16jw8qe-RowColumns"
             >
               <label
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-1kp08h6"
+                  className="css-1de1q5w"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -13182,13 +13203,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
               </div>
             </div>
             <div
-              className="css-8pk6zo-RowColumns"
+              className="css-16jw8qe-RowColumns"
             >
               <label
                 className="css-fblkm4-TagComponent"
               >
                 <svg
-                  className="css-1kp08h6"
+                  className="css-1de1q5w"
                   fill="none"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -13217,7 +13238,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 2 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <p
-              className="css-62yfs6"
+              className="css-vhi9rt"
             >
               <strong>
                 Please Note: 
@@ -13335,6 +13356,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Continue"
               type="button"
@@ -13413,7 +13435,9 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
                 .
               </li>
             </ul>
-            <p>
+            <p
+              className="css-1oj872b"
+            >
               <strong>
                 Please note: 
               </strong>
@@ -13427,6 +13451,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 2 1`] = `
             <button
               className="btn btn--b-sm"
               onClick={[Function]}
+              onKeyDown={[Function]}
               tabIndex={0}
               title="Continue"
               type="button"

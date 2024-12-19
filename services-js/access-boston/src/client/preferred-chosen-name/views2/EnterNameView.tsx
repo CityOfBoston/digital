@@ -155,7 +155,7 @@ const CURRENT_NAME_STYLING = css({
 
   '.CurrentName': {
     marginTop: '10px',
-    marginLeft: '1.5em',
+    marginLeft: '1.7em',
     fontSize: '1.2em',
   },
 
