@@ -24,6 +24,7 @@ export interface App {
   // null agencies means "all agencies"
   agencies: string[] | null;
   target: string;
+  exclusions: string[];
 }
 
 export class NoticeClass implements Notice {
@@ -79,7 +80,12 @@ export default class AppsRegistry {
           mfa_device_required,
           agencies,
           target,
+          exclusions,
         } = a;
+        // const exclusion = exclusions || [];
+        // console.log(
+        //   `App Title: ${title} || exclusions: ${exclusion.toString()}`
+        // );
 
         if (!title || typeof title !== 'string') {
           throw new Error('App missing a title: ' + JSON.stringify(a));
@@ -97,6 +103,10 @@ export default class AppsRegistry {
           throw new Error('agencies is not an array: ' + JSON.stringify(a));
         }
 
+        if (exclusions && !Array.isArray(exclusions)) {
+          throw new Error('exclusions is not an array: ' + JSON.stringify(a));
+        }
+
         return {
           title,
           url,
@@ -106,8 +116,10 @@ export default class AppsRegistry {
           mfaDeviceRequired: mfa_device_required || false,
           agencies: agencies || null,
           target: target || '',
+          exclusions: exclusions || null,
         };
       });
+
       return {
         title,
         apps,
@@ -126,11 +138,13 @@ export default class AppsRegistry {
     hasMfaDevice: boolean,
     cobAgency: string | null
   ): AppsCategory[] {
-    return (
-      this.allCategories
-        .map(c => ({
-          ...c,
-          apps: c.apps.filter(({ groups, mfaDeviceRequired, agencies }) => {
+    // console.log(`userGroups: `, userGroups);
+    console.log(`cobAgency: `, cobAgency);
+    const retObj = this.allCategories
+      .map(c => ({
+        ...c,
+        apps: c.apps.filter(
+          ({ groups, mfaDeviceRequired, agencies, exclusions }) => {
             // this.showAll = false;
 
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
@@ -145,16 +159,28 @@ export default class AppsRegistry {
               ? agencies && (cobAgency && agencies.includes(cobAgency))
               : false;
 
+            const agencyExcusionMet =
+              cobAgency &&
+              exclusions &&
+              exclusions.length > 0 &&
+              exclusions.includes(cobAgency);
+
             const isGroupOrAgencies =
               (groupsRequirementMet || agencyRequirementMet) &&
               mfaRequirementMet;
 
-            return this.showAll || (!groups && !agencies) || isGroupOrAgencies;
-          }),
-        }))
-        // Filter out apps with no categories
-        .filter(c => c.apps.length > 0)
-    );
+            return (
+              (this.showAll || (!groups && !agencies) || isGroupOrAgencies) &&
+              !agencyExcusionMet
+            );
+          }
+        ),
+      }))
+      // Filter out apps with no categories
+      .filter(c => c.apps.length > 0);
+
+    // console.log(`retObj: `, retObj[2]['apps'][0]['exclusions'], retObj[2]);
+    return retObj;
   }
 }
 

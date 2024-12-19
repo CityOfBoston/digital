@@ -135,6 +135,8 @@ categories:
       - title: Update Chosen Name
         url: /preferred-chosen-name
         # target: _blank
+        exclusions:
+          - BPD
       - title: Change My Password
         url: /change-password
       - title: Manage My Device(s)
