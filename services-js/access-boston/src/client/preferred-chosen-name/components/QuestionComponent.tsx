@@ -2,7 +2,7 @@
 
 import { css, jsx } from '@emotion/core';
 
-import { MouseEvent, ReactNode, useEffect } from 'react';
+import { MouseEvent, KeyboardEvent, ReactNode, useEffect } from 'react';
 
 import RedirectForm from '../../RedirectForm';
 import { Spinner } from '../../common/Spinner';
@@ -11,10 +11,10 @@ interface Props {
   children: ReactNode;
   allowProceed?: boolean;
   quitBtn?: boolean;
-  handleProceed?: (ev: MouseEvent) => void;
-  handleStepBack?: (ev: MouseEvent) => void;
-  handleReset?: (ev: MouseEvent) => void;
-  handleQuit?: (ev: MouseEvent) => void;
+  handleProceed?: (ev: MouseEvent | KeyboardEvent) => void;
+  handleStepBack?: (ev: MouseEvent | KeyboardEvent) => void;
+  handleReset?: (ev: MouseEvent | KeyboardEvent) => void;
+  handleQuit?: (ev: MouseEvent | KeyboardEvent) => void;
   nextButtonText?: string;
   prevBtnText?: string;
   quitBtnText?: string;
@@ -77,6 +77,11 @@ export default function QuestionComponent(props: Props): JSX.Element {
             onClick={handleStepBack}
             tabIndex={0}
             title={prevBtnText || 'Back'}
+            onKeyDown={(event: any) => {
+              if (event.keyCode === 13 || event.keyCode === 32) {
+                handleStepBack(event);
+              }
+            }}
           >
             {prevBtnText || 'Back'}
           </button>
@@ -96,6 +101,11 @@ export default function QuestionComponent(props: Props): JSX.Element {
             }
             tabIndex={0}
             title={nextButtonText || 'Continue'}
+            onKeyDown={event => {
+              if (event.keyCode === 13 || event.keyCode === 32) {
+                handleProceed(event);
+              }
+            }}
           >
             {proceedBtnStr()}
           </button>
@@ -108,6 +118,11 @@ export default function QuestionComponent(props: Props): JSX.Element {
               onClick={handleQuit}
               tabIndex={0}
               title={quitBtnText || 'Quit'}
+              onKeyDown={event => {
+                if (event.keyCode === 13 || event.keyCode === 32) {
+                  handleQuit(event);
+                }
+              }}
             >
               {quitBtnText || 'Quit'}
             </button>

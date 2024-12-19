@@ -39,7 +39,7 @@ const INDEX_ITEM_STYLING = css({
   flexDirection: 'column',
   alignItems: 'flex-start',
   borderBottom: '1px solid #ccc',
-  padding: '24px 40px',
+  padding: '24px 40px 24px 28px',
 
   '@media (max-width: 600px)': {
     padding: '16px 20px',
@@ -57,7 +57,7 @@ const VALUE_STYLING = css({
   alignItems: 'center',
   width: '100%',
   paddingTop: '8px',
-  paddingLeft: '1.8em',
+  paddingLeft: '2.1em',
 });
 
 const EXTEND_VALUE_STYLING = css({
