@@ -8,7 +8,7 @@ import { CommonAttributes, PreferredChosenNameInformation } from '../types';
 
 import { WelcomeView2 } from './WelcomeView';
 import { EnterNameView2 } from './EnterNameView';
-import { ConfirmationView2 } from './ConfirmationView';
+import { ConfirmationView } from './ConfirmationView';
 import { SuccessView2 } from './SuccessView';
 import { ErrorView2 } from './ErrorView';
 
@@ -53,7 +53,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   ))
   .add('Confirmation', () => (
     <PageWrapper classString={'b-c'}>
-      <ConfirmationView2
+      <ConfirmationView
         handleProceed={() => {}}
         handleStepBack={() => {}}
         handleUseNewEmailToogle={() => {}}

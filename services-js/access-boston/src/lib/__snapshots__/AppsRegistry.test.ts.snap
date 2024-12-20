@@ -176,6 +176,48 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Settings",
+  },
+  Object {
+    "apps": Array [
+      Object {
         "agencies": Array [
           "CH",
         ],
@@ -222,48 +264,6 @@ Array [
     "icons": false,
     "showRequestAccessLink": false,
     "title": "Forms / Links",
-  },
-  Object {
-    "apps": Array [
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": Array [
-          "BPD",
-        ],
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Update Chosen Name",
-        "url": "/preferred-chosen-name",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": null,
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Change My Password",
-        "url": "/change-password",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": null,
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": true,
-        "target": "",
-        "title": "Manage My Device(s)",
-        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
-      },
-    ],
-    "icons": false,
-    "showRequestAccessLink": false,
-    "title": "Account Settings",
   },
   Object {
     "apps": Array [
@@ -449,6 +449,48 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Settings",
+  },
+  Object {
+    "apps": Array [
+      Object {
         "agencies": Array [
           "CH",
         ],
@@ -495,48 +537,6 @@ Array [
     "icons": false,
     "showRequestAccessLink": false,
     "title": "Forms / Links",
-  },
-  Object {
-    "apps": Array [
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": Array [
-          "BPD",
-        ],
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Update Chosen Name",
-        "url": "/preferred-chosen-name",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": null,
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Change My Password",
-        "url": "/change-password",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": null,
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": true,
-        "target": "",
-        "title": "Manage My Device(s)",
-        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
-      },
-    ],
-    "icons": false,
-    "showRequestAccessLink": false,
-    "title": "Account Settings",
   },
   Object {
     "apps": Array [
@@ -604,6 +604,48 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Settings",
+  },
+  Object {
+    "apps": Array [
+      Object {
         "agencies": Array [
           "CH",
         ],
@@ -650,48 +692,6 @@ Array [
     "icons": false,
     "showRequestAccessLink": false,
     "title": "Forms / Links",
-  },
-  Object {
-    "apps": Array [
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": Array [
-          "BPD",
-        ],
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Update Chosen Name",
-        "url": "/preferred-chosen-name",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": null,
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Change My Password",
-        "url": "/change-password",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "exclusions": null,
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": true,
-        "target": "",
-        "title": "Manage My Device(s)",
-        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
-      },
-    ],
-    "icons": false,
-    "showRequestAccessLink": false,
-    "title": "Account Settings",
   },
   Object {
     "apps": Array [

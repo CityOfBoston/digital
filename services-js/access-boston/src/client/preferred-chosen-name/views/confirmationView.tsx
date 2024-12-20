@@ -15,7 +15,7 @@ interface props {
   state: CommonAttributes;
 }
 
-export const ConfirmationView2 = ({
+export const ConfirmationView = ({
   handleProceed,
   handleStepBack,
   handleUseNewEmailToogle,
@@ -208,7 +208,7 @@ export const ConfirmationView2 = ({
   );
 };
 
-export default ConfirmationView2;
+export default ConfirmationView;
 
 const CHECKBOX_STYLING = css({
   width: '34.3px',

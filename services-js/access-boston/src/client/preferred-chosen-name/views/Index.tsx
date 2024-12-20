@@ -15,7 +15,7 @@ import {
 import PageWrapper from '../../PageWrapper';
 import { WelcomeView2 } from './WelcomeView';
 import { EnterNameView2 } from './EnterNameView';
-import { ConfirmationView2 } from './ConfirmationView';
+import { ConfirmationView } from './ConfirmationView';
 import { ErrorView2 } from './ErrorView';
 import { SuccessView2 } from './SuccessView';
 
@@ -174,7 +174,7 @@ export default function Index(props: Props) {
 
   const approvalView = (
     <PageWrapper classString={'b-c'}>
-      <ConfirmationView2
+      <ConfirmationView
         handleProceed={handlerPreferredNameSubmit}
         handleStepBack={stepBack}
         handleUseNewEmailToogle={handleUseNewEmailToogle}

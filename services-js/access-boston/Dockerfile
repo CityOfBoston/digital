@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
-FROM node:14.19.1-alpine as build_phase
+FROM node:14.19.1-alpine AS build_phase
 
 # ARG S3_ENV_PATH='s3://cob-digital-apps-staging-config/access-boston/test'
 
 ENV WORKSPACE=access-boston
-ENV NODE_ENV development
+ENV NODE_ENV=development
 
 WORKDIR /app
 
@@ -38,11 +38,11 @@ WORKDIR /app/services-js/$WORKSPACE
 RUN yarn install --ignore-scripts
 
 # syntax=docker/dockerfile:1
-FROM node:14.19.1-alpine as deploy_phase
+FROM node:14.19.1-alpine AS deploy_phase
 
-ENV WORKSPACE access-boston
-ENV NODE_ENV development
-ENV USE_SSL true
+ENV WORKSPACE=access-boston
+ENV NODE_ENV=development
+ENV USE_SSL=true
 
 COPY --from=build_phase /app /app
 
@@ -77,7 +77,7 @@ RUN --mount=type=secret,id=aws,target=/root/.aws/credentials \
 
 EXPOSE 3000
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 ENTRYPOINT ["/app/scripts/service-entrypoint.sh"]
 CMD ["yarn", "start"]

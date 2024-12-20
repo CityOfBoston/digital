@@ -8040,6 +8040,115 @@ exports[`Storyshots IndexPage change password success 1`] = `
         className="g"
       >
         <section
+          aria-labelledby="sh-2668086721"
+          className="m-b500 g--6"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-2668086721"
+            >
+              Account Settings
+            </h2>
+          </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Update Chosen Name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Update Chosen Name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/change-password"
+                id="app-link-Change My Password"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Change My Password
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
+                id="app-link-Manage My Device(s)"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage My Device(s)
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section
           aria-labelledby="sh-361796124"
           className="m-b500 g--6"
         >
@@ -8194,115 +8303,6 @@ exports[`Storyshots IndexPage change password success 1`] = `
                   }
                 >
                   Request FN Access
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-          </ul>
-        </section>
-        <section
-          aria-labelledby="sh-2668086721"
-          className="m-b500 g--6"
-        >
-          <div
-            className="sh m-b300 "
-          >
-            <h2
-              className="sh-title"
-              id="sh-2668086721"
-            >
-              Account Settings
-            </h2>
-          </div>
-          <ul
-            className="ul m-v500"
-          >
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/preferred-chosen-name"
-                id="app-link-Update Chosen Name"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Update Chosen Name
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/change-password"
-                id="app-link-Change My Password"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Change My Password
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
-                id="app-link-Manage My Device(s)"
-                target="_blank"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Manage My Device(s)
                 </span>
                 <span
                   style={
@@ -9110,6 +9110,115 @@ exports[`Storyshots IndexPage default 1`] = `
         className="g"
       >
         <section
+          aria-labelledby="sh-2668086721"
+          className="m-b500 g--6"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-2668086721"
+            >
+              Account Settings
+            </h2>
+          </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Update Chosen Name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Update Chosen Name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/change-password"
+                id="app-link-Change My Password"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Change My Password
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
+                id="app-link-Manage My Device(s)"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage My Device(s)
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section
           aria-labelledby="sh-361796124"
           className="m-b500 g--6"
         >
@@ -9264,115 +9373,6 @@ exports[`Storyshots IndexPage default 1`] = `
                   }
                 >
                   Request FN Access
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-          </ul>
-        </section>
-        <section
-          aria-labelledby="sh-2668086721"
-          className="m-b500 g--6"
-        >
-          <div
-            className="sh m-b300 "
-          >
-            <h2
-              className="sh-title"
-              id="sh-2668086721"
-            >
-              Account Settings
-            </h2>
-          </div>
-          <ul
-            className="ul m-v500"
-          >
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/preferred-chosen-name"
-                id="app-link-Update Chosen Name"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Update Chosen Name
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/change-password"
-                id="app-link-Change My Password"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Change My Password
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
-                id="app-link-Manage My Device(s)"
-                target="_blank"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Manage My Device(s)
                 </span>
                 <span
                   style={
@@ -10234,6 +10234,115 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
         className="g"
       >
         <section
+          aria-labelledby="sh-2668086721"
+          className="m-b500 g--6"
+        >
+          <div
+            className="sh m-b300 "
+          >
+            <h2
+              className="sh-title"
+              id="sh-2668086721"
+            >
+              Account Settings
+            </h2>
+          </div>
+          <ul
+            className="ul m-v500"
+          >
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/preferred-chosen-name"
+                id="app-link-Update Chosen Name"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Update Chosen Name
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="/change-password"
+                id="app-link-Change My Password"
+                target="_self"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Change My Password
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+            <li
+              className="css-t5urb8"
+            >
+              <a
+                className="p-a300"
+                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
+                id="app-link-Manage My Device(s)"
+                target="_blank"
+              >
+                <span
+                  className="t--info"
+                  style={
+                    Object {
+                      "color": "inherit",
+                    }
+                  }
+                >
+                  Manage My Device(s)
+                </span>
+                <span
+                  style={
+                    Object {
+                      "color": "#091f2f",
+                    }
+                  }
+                >
+                  
+                </span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section
           aria-labelledby="sh-361796124"
           className="m-b500 g--6"
         >
@@ -10388,115 +10497,6 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
                   }
                 >
                   Request FN Access
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-          </ul>
-        </section>
-        <section
-          aria-labelledby="sh-2668086721"
-          className="m-b500 g--6"
-        >
-          <div
-            className="sh m-b300 "
-          >
-            <h2
-              className="sh-title"
-              id="sh-2668086721"
-            >
-              Account Settings
-            </h2>
-          </div>
-          <ul
-            className="ul m-v500"
-          >
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/preferred-chosen-name"
-                id="app-link-Update Chosen Name"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Update Chosen Name
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="/change-password"
-                id="app-link-Change My Password"
-                target="_self"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Change My Password
-                </span>
-                <span
-                  style={
-                    Object {
-                      "color": "#091f2f",
-                    }
-                  }
-                >
-                  
-                </span>
-              </a>
-            </li>
-            <li
-              className="css-t5urb8"
-            >
-              <a
-                className="p-a300"
-                href="https://desktop.pingone.com/boston/Selection?cmd=devices"
-                id="app-link-Manage My Device(s)"
-                target="_blank"
-              >
-                <span
-                  className="t--info"
-                  style={
-                    Object {
-                      "color": "inherit",
-                    }
-                  }
-                >
-                  Manage My Device(s)
                 </span>
                 <span
                   style={
@@ -11148,10 +11148,10 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-1g16gy2-ConfirmationView"
   >
     <div
-      className="sh sh-title css-6g6riv"
+      className="sh sh-title css-tuot81-ConfirmationView"
     >
       Update Chosen Name
     </div>
@@ -11165,16 +11165,16 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
           className="AppInnerContainer"
         >
           <div
-            className="InfoBox css-1o57lzp"
+            className="InfoBox css-vi3edl-ConfirmationView"
           >
             <p>
               Changing your chosen name will affect your City of Boston accounts.
             </p>
             <div
-              className="css-6uowtb"
+              className="css-12laepq-ConfirmationView"
             >
               <div
-                className="css-13f8le7"
+                className="css-57u9hl-ConfirmationView"
               >
                 <label
                   className="css-fblkm4-TagComponent"
@@ -11207,7 +11207,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
                 </div>
               </div>
               <a
-                className="btn btn--b-sm btn-alt btn--w css-vcp3bu"
+                className="btn btn--b-sm btn-alt btn--w css-1cpc0vk-ConfirmationView"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 tabIndex={0}
@@ -11221,16 +11221,16 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <div
-              className="css-1lqbzrd"
+              className="css-b7dcfs-ConfirmationView"
             >
               Select your preferred email option from the list below.
               <label
-                className="css-1lsql48"
+                className="css-13rp0gy-ConfirmationView"
                 onKeyDown={[Function]}
                 tabIndex={0}
               >
                 <div
-                  className="css-1suh0c0"
+                  className="css-lmvnap-ConfirmationView"
                 >
                   <input
                     alt="Use new email"
@@ -11244,24 +11244,24 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
                     value="useNewEmail"
                   />
                   <strong
-                    className="css-in3yi3"
+                    className="css-1mt1fta-ConfirmationView"
                   >
                     Use new email
                   </strong>
                 </div>
                 <div
-                  className="css-1psyc5d"
+                  className="css-1bxkcx1-ConfirmationView"
                 >
                   phill.kelly@boston.gov
                 </div>
               </label>
               <label
-                className="css-rqueiv"
+                className="css-2dq5k8-ConfirmationView"
                 onKeyDown={[Function]}
                 tabIndex={0}
               >
                 <div
-                  className="css-1suh0c0"
+                  className="css-lmvnap-ConfirmationView"
                 >
                   <input
                     alt="Keep current email"
@@ -11275,26 +11275,26 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Confirmation 1`] = `
                     value="KeepCurrentEmail"
                   />
                   <strong
-                    className="css-in3yi3"
+                    className="css-1mt1fta-ConfirmationView"
                   >
                     Keep current email
                   </strong>
                 </div>
                 <div
-                  className="css-1psyc5d"
+                  className="css-1bxkcx1-ConfirmationView"
                 >
                   felipe.rivera@boston.gov
                 </div>
               </label>
               <label
-                className="css-1kdtvu5"
+                className="css-1b1lh8p-ConfirmationView"
               >
                 <input
                   alt="By submitting this form you agree to changing your displayed
                   chosen name and email address across all your City of Boston
                   accounts"
                   checked={false}
-                  className="css-eyqs17"
+                  className="css-1415a4e-ConfirmationView"
                   onChange={[Function]}
                   onKeyDown={[Function]}
                   title="By submitting this form you agree to changing your displayed
