@@ -3581,7 +3581,7 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                         className="txt-f"
                         disabled={true}
                         id="dob-year"
-                        max={2024}
+                        max={2025}
                         maxLength={4}
                         min="1000"
                         name="year"
@@ -4041,7 +4041,7 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                       <input
                         className="txt-f"
                         id="dob-year"
-                        max={2024}
+                        max={2025}
                         maxLength={4}
                         min="1000"
                         name="year"
@@ -11357,10 +11357,10 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-1po1mf5-EnterNameView"
   >
     <div
-      className="sh sh-title css-10hs29c"
+      className="sh sh-title css-1ylumeg-EnterNameView"
     >
       Update Chosen Name
     </div>
@@ -11374,13 +11374,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
           className="AppInnerContainer"
         >
           <div
-            className="InfoBox css-1o57lzp"
+            className="InfoBox css-1d0731u-EnterNameView"
           >
             <p>
               Changing your chosen name will affect your City of Boston accounts.
             </p>
             <div
-              className="CurrentNameContainer css-dcrrqg"
+              className="CurrentNameContainer css-xukhw5-EnterNameView"
             >
               <label
                 className="css-fblkm4-TagComponent"
@@ -11417,20 +11417,20 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <div
-              className="FormBox css-1kyyl6g"
+              className="FormBox css-vc28a3-EnterNameView"
             >
               Use the fields below to update your chosen first name, last name, or both.
               <div
-                className="ChosenFirstNameInput css-msn52r"
+                className="ChosenFirstNameInput css-1v3voil-EnterNameView"
               >
                 <label
-                  className="css-3dalep"
+                  className="css-um4mm2-EnterNameView"
                 >
                   Chosen First Name
                 </label>
                 <input
                   alt="Enter your Chosen First Name"
-                  className="css-17e3x26"
+                  className="css-19co7nm-EnterNameView"
                   onChange={[Function]}
                   tabIndex={0}
                   title="Enter your Chosen First Name"
@@ -11438,16 +11438,16 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
                 />
               </div>
               <div
-                className="ChosenLastNameInput css-msn52r"
+                className="ChosenLastNameInput css-1v3voil-EnterNameView"
               >
                 <label
-                  className="css-3dalep"
+                  className="css-um4mm2-EnterNameView"
                 >
                   Chosen Last Name
                 </label>
                 <input
                   alt="Enter your Chosen Last Name"
-                  className="css-17e3x26"
+                  className="css-19co7nm-EnterNameView"
                   onChange={[Function]}
                   tabIndex={0}
                   title="Enter your Chosen Last Name"
@@ -11457,7 +11457,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Enter Names 1`] = `
               For more information, see the
                
               <a
-                href="https://www.boston.gov/departments/innovation-and-technology/chosen-name-updates-where-and-when"
+                href="https://beacon.boston.gov/cob?id=kb_article&sysparm_article=KB0010678"
                 target="_blank"
               >
                 Chosen Name Support Documentation
@@ -11503,7 +11503,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-qe8abu-ErrorView"
   >
     <div
       className="AddBorderTop"
@@ -11562,7 +11562,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Error 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <div
-              className="row css-yus4bt"
+              className="row css-okn7fq-ErrorView"
             >
               <div
                 className="bodyText"
@@ -11594,7 +11594,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-8s8fti-SuccessView"
   >
     <div
       className="AddBorderTop"
@@ -11707,7 +11707,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Success 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <p
-              className="css-vhi9rt"
+              className="css-f4r9jc-SuccessView"
             >
               <strong>
                 Please Note: 
@@ -11755,7 +11755,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-1qy7b6x-WelcomeView"
   >
     <h2
       className="headerBlock"
@@ -11772,7 +11772,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
           className="css-12u8vhf-QuestionComponent"
         >
           <div
-            className="css-q7cdq"
+            className="css-18zl8uw-WelcomeView"
           >
             <p>
               A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with your gender identity or expression.
@@ -11814,7 +11814,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 1 Welcome 1`] = `
               </li>
             </ul>
             <p
-              className="css-1oj872b"
+              className="css-1kf87ux-WelcomeView"
             >
               <strong>
                 Please note: 
@@ -11850,10 +11850,10 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-1po1mf5-EnterNameView"
   >
     <div
-      className="sh sh-title css-10hs29c"
+      className="sh sh-title css-1ylumeg-EnterNameView"
     >
       Update Chosen Name
     </div>
@@ -11867,13 +11867,13 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
           className="AppInnerContainer"
         >
           <div
-            className="InfoBox css-1o57lzp"
+            className="InfoBox css-1d0731u-EnterNameView"
           >
             <p>
               Changing your chosen name will affect your City of Boston accounts.
             </p>
             <div
-              className="CurrentNameContainer css-dcrrqg"
+              className="CurrentNameContainer css-xukhw5-EnterNameView"
             >
               <label
                 className="css-fblkm4-TagComponent"
@@ -11910,20 +11910,20 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <div
-              className="FormBox css-1kyyl6g"
+              className="FormBox css-vc28a3-EnterNameView"
             >
               Use the fields below to update your chosen first name, last name, or both.
               <div
-                className="ChosenFirstNameInput css-msn52r"
+                className="ChosenFirstNameInput css-1v3voil-EnterNameView"
               >
                 <label
-                  className="css-3dalep"
+                  className="css-um4mm2-EnterNameView"
                 >
                   Chosen First Name
                 </label>
                 <input
                   alt="Enter your Chosen First Name"
-                  className="css-17e3x26"
+                  className="css-19co7nm-EnterNameView"
                   onChange={[Function]}
                   tabIndex={0}
                   title="Enter your Chosen First Name"
@@ -11931,16 +11931,16 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
                 />
               </div>
               <div
-                className="ChosenLastNameInput css-msn52r"
+                className="ChosenLastNameInput css-1v3voil-EnterNameView"
               >
                 <label
-                  className="css-3dalep"
+                  className="css-um4mm2-EnterNameView"
                 >
                   Chosen Last Name
                 </label>
                 <input
                   alt="Enter your Chosen Last Name"
-                  className="css-17e3x26"
+                  className="css-19co7nm-EnterNameView"
                   onChange={[Function]}
                   tabIndex={0}
                   title="Enter your Chosen Last Name"
@@ -11950,7 +11950,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Enter Names 1`] = `
               For more information, see the
                
               <a
-                href="https://www.boston.gov/departments/innovation-and-technology/chosen-name-updates-where-and-when"
+                href="https://beacon.boston.gov/cob?id=kb_article&sysparm_article=KB0010678"
                 target="_blank"
               >
                 Chosen Name Support Documentation
@@ -11996,7 +11996,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-qe8abu-ErrorView"
   >
     <div
       className="AddBorderTop"
@@ -12055,7 +12055,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Error 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <div
-              className="row css-yus4bt"
+              className="row css-okn7fq-ErrorView"
             >
               <div
                 className="bodyText"
@@ -12087,7 +12087,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-8s8fti-SuccessView"
   >
     <div
       className="AddBorderTop"
@@ -12200,7 +12200,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Success 1`] = `
             className="css-12u8vhf-QuestionComponent"
           >
             <p
-              className="css-vhi9rt"
+              className="css-f4r9jc-SuccessView"
             >
               <strong>
                 Please Note: 
@@ -12248,7 +12248,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
   className="b-c"
 >
   <div
-    className="css-19y3kzk"
+    className="css-1qy7b6x-WelcomeView"
   >
     <h2
       className="headerBlock"
@@ -12265,7 +12265,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
           className="css-12u8vhf-QuestionComponent"
         >
           <div
-            className="css-q7cdq"
+            className="css-18zl8uw-WelcomeView"
           >
             <p>
               A chosen name could be a preferred nickname, middle name, a shortened version of a legal name, or a name that aligns with your gender identity or expression.
@@ -12307,7 +12307,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
               </li>
             </ul>
             <p
-              className="css-1oj872b"
+              className="css-1kf87ux-WelcomeView"
             >
               <strong>
                 Please note: 

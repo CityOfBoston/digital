@@ -6,11 +6,11 @@ import PageWrapper from '../../PageWrapper';
 import { AppTitle } from '../state/app';
 import { CommonAttributes, PreferredChosenNameInformation } from '../types';
 
-import { WelcomeView2 } from './WelcomeView';
-import { EnterNameView2 } from './EnterNameView';
-import { ConfirmationView } from './ConfirmationView';
-import { SuccessView2 } from './SuccessView';
-import { ErrorView2 } from './ErrorView';
+import { WelcomeView } from './welcomeView';
+import { EnterNameView } from './enterNameView';
+import { ConfirmationView } from './confirmationView';
+import { SuccessView } from './successView';
+import { ErrorView } from './errorView';
 
 const defaultWorkflowAccount: CommonAttributes = new PreferredChosenNameInformation(
   {
@@ -35,7 +35,7 @@ const altWorkflowAccount = {
 storiesOf('Preferred Chosen Name/Workflow 1', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
-      <WelcomeView2
+      <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
         state={defaultWorkflowAccount}
@@ -44,7 +44,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   ))
   .add('Enter Names', () => (
     <PageWrapper classString={'b-c'}>
-      <EnterNameView2
+      <EnterNameView
         handleProceed={() => {}}
         handleStepBack={() => {}}
         state={defaultWorkflowAccount}
@@ -63,7 +63,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   ))
   .add('Success', () => (
     <PageWrapper classString={'b-c'}>
-      <SuccessView2
+      <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
         state={defaultWorkflowAccount}
@@ -72,7 +72,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
   ))
   .add('Error', () => (
     <PageWrapper classString={'b-c'}>
-      <ErrorView2 handleQuit={() => {}} appTitle={AppTitle} />
+      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   ));
 
@@ -82,7 +82,7 @@ storiesOf('Preferred Chosen Name/Workflow 1', module)
 storiesOf('Preferred Chosen Name/Workflow 2', module)
   .add('Welcome', () => (
     <PageWrapper classString={'b-c'}>
-      <WelcomeView2
+      <WelcomeView
         handleProceed={() => {}}
         appTitle={AppTitle}
         state={altWorkflowAccount}
@@ -91,7 +91,7 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
   ))
   .add('Enter Names', () => (
     <PageWrapper classString={'b-c'}>
-      <EnterNameView2
+      <EnterNameView
         handleProceed={() => {}}
         handleStepBack={() => {}}
         handleSubmit={() => {}}
@@ -101,7 +101,7 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
   ))
   .add('Success', () => (
     <PageWrapper classString={'b-c'}>
-      <SuccessView2
+      <SuccessView
         handleQuit={() => {}}
         appTitle={AppTitle}
         state={altWorkflowAccount}
@@ -110,6 +110,6 @@ storiesOf('Preferred Chosen Name/Workflow 2', module)
   ))
   .add('Error', () => (
     <PageWrapper classString={'b-c'}>
-      <ErrorView2 handleQuit={() => {}} appTitle={AppTitle} />
+      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   ));

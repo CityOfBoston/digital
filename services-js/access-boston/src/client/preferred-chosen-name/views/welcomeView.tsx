@@ -14,7 +14,7 @@ interface welcomeProps {
   state: CommonAttributes;
 }
 
-export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
+export const WelcomeView = ({ handleProceed, state }: welcomeProps) => {
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <h2 className="headerBlock">Update Chosen Name</h2>
@@ -87,7 +87,7 @@ export const WelcomeView2 = ({ handleProceed, state }: welcomeProps) => {
   );
 };
 
-export default WelcomeView2;
+export default WelcomeView;
 
 const PLEASE_NOTE__STYLING = css({
   [MEDIA_SMALL_MAX]: {

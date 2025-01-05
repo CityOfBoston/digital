@@ -13,7 +13,7 @@ interface ErrorProps {
   appTitle: string;
 }
 
-export const ErrorView2 = (_props: ErrorProps) => {
+export const ErrorView = (_props: ErrorProps) => {
   const errorTag = () => {
     return (
       <>
@@ -64,7 +64,7 @@ export const ErrorView2 = (_props: ErrorProps) => {
   );
 };
 
-export default ErrorView2;
+export default ErrorView;
 
 const BODY_TEXT_STYLING = css({
   display: 'flex',

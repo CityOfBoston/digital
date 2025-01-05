@@ -13,11 +13,11 @@ import {
 
 // LAYOUT Components
 import PageWrapper from '../../PageWrapper';
-import { WelcomeView2 } from './WelcomeView';
-import { EnterNameView2 } from './EnterNameView';
-import { ConfirmationView } from './ConfirmationView';
-import { ErrorView2 } from './ErrorView';
-import { SuccessView2 } from './SuccessView';
+import { WelcomeView } from './welcomeView';
+import { EnterNameView } from './enterNameView';
+import { ConfirmationView } from './confirmationView';
+import { ErrorView } from './errorView';
+import { SuccessView } from './successView';
 
 interface Props {
   accountState: CommonAttributes;
@@ -153,7 +153,7 @@ export default function Index(props: Props) {
 
   const defaultView = (
     <PageWrapper classString={'b-c'}>
-      <WelcomeView2
+      <WelcomeView
         handleProceed={advanceStep}
         appTitle={AppTitle}
         state={state}
@@ -163,7 +163,7 @@ export default function Index(props: Props) {
 
   const enterNameView = (
     <PageWrapper classString={'b-c'}>
-      <EnterNameView2
+      <EnterNameView
         handleProceed={handlerPreferredNameReq}
         handleSubmit={handlerPreferredNameSubmit}
         handleStepBack={stepBack}
@@ -185,13 +185,13 @@ export default function Index(props: Props) {
 
   const errorView = (
     <PageWrapper classString={'b-c'}>
-      <ErrorView2 handleQuit={() => {}} appTitle={AppTitle} />
+      <ErrorView handleQuit={() => {}} appTitle={AppTitle} />
     </PageWrapper>
   );
 
   const successView = (
     <PageWrapper classString={'b-c'}>
-      <SuccessView2 handleQuit={closeTab} appTitle={AppTitle} state={state} />
+      <SuccessView handleQuit={closeTab} appTitle={AppTitle} state={state} />
     </PageWrapper>
   );
 

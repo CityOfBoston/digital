@@ -19,7 +19,7 @@ interface SuccessProps {
   state: CommonAttributes;
 }
 
-export const SuccessView2 = (props: SuccessProps) => {
+export const SuccessView = (props: SuccessProps) => {
   const { handleQuit, state } = props;
   const alertStr = state.altWorkflow
     ? 'Your chosen name has been updated'
@@ -62,7 +62,7 @@ export const SuccessView2 = (props: SuccessProps) => {
   );
 };
 
-export default SuccessView2;
+export default SuccessView;
 
 const BODY_TEXT_STYLING = css({
   padding: '0 20px 10px 30px',
