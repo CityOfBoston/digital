@@ -15,6 +15,7 @@ const ACCOUNT: Account = {
   mfaRequiredDate: null,
   groups: [''],
   email: 'jondoe@boston.gov',
+  cobAgency: 'CH',
 };
 
 storiesOf('ForgotPasswordPage', module)

@@ -1,0 +1,20 @@
+{
+  "status": null,
+  "requestID": "0af16f7492941b50819302bbe6173d52",
+  "warnings": null,
+  "errors": null,
+  "retryWait": 0,
+  "metaData": null,
+  "attributes": {
+    "result": {
+      "DisplayName": "Manual WebTesting",
+      "newEmail": "manual.webtesting@boston.gov",
+      "error": ""
+    },
+    "result1": "Venky"
+  },
+  "complete": false,
+  "success": false,
+  "retry": false,
+  "failure": false
+}

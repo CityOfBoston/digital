@@ -58,7 +58,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
         // 'SG_AB_IAM_VENTURES',
 
         'SG_AB_GRPMGMT_HYPERION',
-        // 'SG_AB_GRPMGMT_Lagan_Groups',
+        'SG_AB_GRPMGMT_Lagan_Groups',
         // 'SG_AB_GRPMGMT_AUDITING',
         // 'SG_AB_GRPMGMT_TANIUM',
         // 'SG_AB_GRPMGMT_AGILEPOINT',
@@ -71,7 +71,11 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       hasMfaDevice: !isNewUser,
       userAccessToken: 'jfqWE7DExC4nUa7pvkABezkM4oNT',
       userMfaRegistrationDate: '04/17/2019',
+      // cobAgency: 'BPHC',
+      // cobAgency: 'BPL',
       cobAgency: 'CH',
+      // cobAgency: 'BPD',
+      // displayName: '',
     };
     return Promise.resolve(result);
   }

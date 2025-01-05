@@ -1,0 +1,20 @@
+{
+  "status": null,
+  "requestID": "0af16f5692941e0d8192f7f62dd80335",
+  "warnings": null,
+  "errors": null,
+  "retryWait": 0,
+  "metaData": null,
+  "attributes": {
+    "result": {
+      "DisplayName": "Manuelo WebTest",
+      "newEmail": "manuelo.webtest2@boston.gov",
+      "error": ""
+    },
+    "result1": "Venky"
+  },
+  "retry": false,
+  "failure": false,
+  "complete": false,
+  "success": false
+}

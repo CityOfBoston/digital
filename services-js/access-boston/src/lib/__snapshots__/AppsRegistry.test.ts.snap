@@ -7,6 +7,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
         "mfaDeviceRequired": false,
@@ -17,6 +18,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/talented.svg",
         "mfaDeviceRequired": false,
@@ -27,6 +29,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
         "mfaDeviceRequired": false,
@@ -37,6 +40,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": Array [
           "SG_AB_IAM_TEAM",
         ],
@@ -56,6 +60,20 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -66,6 +84,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": true,
@@ -76,13 +95,14 @@ Array [
     ],
     "icons": false,
     "showRequestAccessLink": false,
-    "title": "Account Tools",
+    "title": "Account Settings",
   },
   Object {
     "apps": Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -105,6 +125,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
         "mfaDeviceRequired": false,
@@ -115,6 +136,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/talented.svg",
         "mfaDeviceRequired": false,
@@ -125,6 +147,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
         "mfaDeviceRequired": false,
@@ -135,6 +158,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": Array [
           "SG_AB_IAM_TEAM",
         ],
@@ -152,10 +176,53 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Settings",
+  },
+  Object {
+    "apps": Array [
+      Object {
         "agencies": Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -170,6 +237,7 @@ Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -182,6 +250,7 @@ Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": Array [
           "SG_AB_BLDGMAINTREQ",
         ],
@@ -201,33 +270,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Change My Password",
-        "url": "/change-password",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": true,
-        "target": "",
-        "title": "Manage My Device(s)",
-        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
-      },
-    ],
-    "icons": false,
-    "showRequestAccessLink": false,
-    "title": "Account Tools",
-  },
-  Object {
-    "apps": Array [
-      Object {
-        "agencies": null,
-        "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -250,6 +293,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
         "mfaDeviceRequired": false,
@@ -260,6 +304,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/talented.svg",
         "mfaDeviceRequired": false,
@@ -270,6 +315,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
         "mfaDeviceRequired": false,
@@ -280,6 +326,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": Array [
           "SG_AB_IAM_TEAM",
         ],
@@ -299,6 +346,20 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -309,6 +370,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": true,
@@ -319,13 +381,14 @@ Array [
     ],
     "icons": false,
     "showRequestAccessLink": false,
-    "title": "Account Tools",
+    "title": "Account Settings",
   },
   Object {
     "apps": Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -348,6 +411,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
         "mfaDeviceRequired": false,
@@ -358,6 +422,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/talented.svg",
         "mfaDeviceRequired": false,
@@ -368,6 +433,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
         "mfaDeviceRequired": false,
@@ -383,10 +449,53 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Settings",
+  },
+  Object {
+    "apps": Array [
+      Object {
         "agencies": Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -401,6 +510,7 @@ Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -413,6 +523,7 @@ Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": Array [
           "SG_AB_BLDGMAINTREQ",
         ],
@@ -432,33 +543,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Change My Password",
-        "url": "/change-password",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": true,
-        "target": "",
-        "title": "Manage My Device(s)",
-        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
-      },
-    ],
-    "icons": false,
-    "showRequestAccessLink": false,
-    "title": "Account Tools",
-  },
-  Object {
-    "apps": Array [
-      Object {
-        "agencies": null,
-        "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -481,6 +566,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/hub.svg",
         "mfaDeviceRequired": false,
@@ -491,6 +577,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/talented.svg",
         "mfaDeviceRequired": false,
@@ -501,6 +588,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": "/assets/apps/boston-maps.svg",
         "mfaDeviceRequired": false,
@@ -516,10 +604,53 @@ Array [
   Object {
     "apps": Array [
       Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": Array [
+          "BPD",
+        ],
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Update Chosen Name",
+        "url": "/preferred-chosen-name",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": false,
+        "target": "",
+        "title": "Change My Password",
+        "url": "/change-password",
+      },
+      Object {
+        "agencies": null,
+        "description": "",
+        "exclusions": null,
+        "groups": null,
+        "iconUrl": null,
+        "mfaDeviceRequired": true,
+        "target": "",
+        "title": "Manage My Device(s)",
+        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
+      },
+    ],
+    "icons": false,
+    "showRequestAccessLink": false,
+    "title": "Account Settings",
+  },
+  Object {
+    "apps": Array [
+      Object {
         "agencies": Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -534,6 +665,7 @@ Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,
@@ -546,6 +678,7 @@ Array [
           "CH",
         ],
         "description": "",
+        "exclusions": null,
         "groups": Array [
           "SG_AB_BLDGMAINTREQ",
         ],
@@ -565,33 +698,7 @@ Array [
       Object {
         "agencies": null,
         "description": "",
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": false,
-        "target": "",
-        "title": "Change My Password",
-        "url": "/change-password",
-      },
-      Object {
-        "agencies": null,
-        "description": "",
-        "groups": null,
-        "iconUrl": null,
-        "mfaDeviceRequired": true,
-        "target": "",
-        "title": "Manage My Device(s)",
-        "url": "https://desktop.pingone.com/boston/Selection?cmd=devices",
-      },
-    ],
-    "icons": false,
-    "showRequestAccessLink": false,
-    "title": "Account Tools",
-  },
-  Object {
-    "apps": Array [
-      Object {
-        "agencies": null,
-        "description": "",
+        "exclusions": null,
         "groups": null,
         "iconUrl": null,
         "mfaDeviceRequired": false,

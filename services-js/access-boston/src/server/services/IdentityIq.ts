@@ -86,6 +86,26 @@ export interface LaunchedWorkflowResponse {
   launcher: string;
 }
 
+export interface LauncedPreferredNameWorkflowResponse {
+  status: string;
+  requestID: string;
+  warnings: any;
+  errors: any;
+  retryWait: number;
+  metaData: any;
+  attributes: {
+    result: {
+      DisplayName: string;
+      newEmail: string;
+      error: string;
+    };
+    result1: string;
+  };
+  complete: false;
+  success: false;
+  retry: false;
+}
+
 /**
  * Service to connect to IdentityIQ to change passwords and handle other
  * workflow tasks.

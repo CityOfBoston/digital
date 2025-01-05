@@ -184,6 +184,7 @@ export async function addLoginAuth(
           hasMfaDevice,
           userMfaRegistrationDate,
           cobAgency,
+          // displayName,
         } = assertResult;
 
         // This will be read by the validate method above when doing authentication.
@@ -233,6 +234,7 @@ export async function addLoginAuth(
           // string because we’re serializing in Redis.
           mfaRequiredDate,
           cobAgency,
+          // displayName,
         };
 
         request.yar.set(LOGIN_SESSION_KEY, session);

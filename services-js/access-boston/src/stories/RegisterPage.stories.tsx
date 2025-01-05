@@ -17,6 +17,7 @@ storiesOf('RegisterPage', module)
         mfaRequiredDate: null,
         groups: [''],
         email: 'jondoe@boston.gov',
+        cobAgency: 'CH',
       }}
     />
   ))
@@ -33,6 +34,7 @@ storiesOf('RegisterPage', module)
         mfaRequiredDate: null,
         groups: [''],
         email: 'jondoe@boston.gov',
+        cobAgency: 'CH',
       }}
     />
   ));

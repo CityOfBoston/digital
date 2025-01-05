@@ -103,6 +103,19 @@ categories:
         groups:
           - SG_AB_CONFIRMID
 
+  - title: Account Settings
+    apps:
+      - title: Update Chosen Name
+        url: /preferred-chosen-name
+        # target: _blank
+        exclusions:
+          - BPD
+      - title: Change My Password
+        url: /change-password
+      - title: Manage My Device(s)
+        url: https://desktop.pingone.com/boston/Selection?cmd=devices
+        mfa_device_required: true
+
   - title: Forms / Links
     apps:
       - title: Create Sponsored Account
@@ -129,14 +142,6 @@ categories:
         url: https://identity.boston.gov/identityiq/requestPsfn.jsf
         groups:
           - SG_AB_FN_LIASONS_USERS
-
-  - title: Account Tools
-    apps:
-      - title: Change My Password
-        url: /change-password
-      - title: Manage My Device(s)
-        url: https://desktop.pingone.com/boston/Selection?cmd=devices
-        mfa_device_required: true
 
   - title: Support Tools
     apps:
