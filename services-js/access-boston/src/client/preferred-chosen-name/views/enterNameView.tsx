@@ -15,7 +15,7 @@ interface EnterNameProps {
   state: CommonAttributes;
 }
 
-export const EnterNameView2 = ({
+export const EnterNameView = ({
   handleProceed,
   handleSubmit,
   handleStepBack,
@@ -109,7 +109,7 @@ export const EnterNameView2 = ({
                 </div>
                 For more information, see the{' '}
                 <a
-                  href="https://www.boston.gov/departments/innovation-and-technology/chosen-name-updates-where-and-when"
+                  href="https://beacon.boston.gov/cob?id=kb_article&sysparm_article=KB0010678"
                   target="_blank"
                 >
                   Chosen Name Support Documentation
