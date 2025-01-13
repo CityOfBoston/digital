@@ -4,6 +4,8 @@ import { css, jsx } from '@emotion/core';
 
 import { ReactNode } from 'react';
 
+import { MEDIA_LARGE } from '@cityofboston/react-fleet';
+
 import { Account } from '../graphql/fetch-account';
 
 import AccessBostonHeader from './AccessBostonHeader';
@@ -39,5 +41,11 @@ const WRAPPER_STYLING = css({
 
     display: 'flex',
     flexDirection: 'column',
+  },
+
+  [MEDIA_LARGE]: {
+    '.sh-title': {
+      fontSize: 'calc(22px + 15 * ((100vw - 480px) / 960))',
+    },
   },
 });
