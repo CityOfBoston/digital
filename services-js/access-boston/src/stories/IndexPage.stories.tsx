@@ -43,6 +43,16 @@ storiesOf('IndexPage', module)
       notice={new NoticeClass({})}
     />
   ))
+
+  .add('Notice Banner', () => (
+    <IndexPage
+      account={ACCOUNT}
+      apps={APPS}
+      daysUntilMfa={null}
+      notice={{ label: '', pretext: '', copy: '', alert: true }}
+    />
+  ))
+
   .add('change password success', () => (
     <IndexPage
       account={ACCOUNT}
@@ -52,6 +62,7 @@ storiesOf('IndexPage', module)
       notice={new NoticeClass({})}
     />
   ))
+
   .add('hasn’t registered MFA', () => (
     <IndexPage
       account={{

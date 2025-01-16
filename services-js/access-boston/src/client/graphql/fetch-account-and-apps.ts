@@ -28,7 +28,8 @@ const QUERY = gql`
     notice {
       label
       pretext
-      text
+      copy
+      alert
     }
 
     apps {

@@ -3,7 +3,8 @@ import yaml from 'js-yaml';
 export interface Notice {
   label: string;
   pretext: string;
-  text: string;
+  copy: string;
+  alert: boolean;
 }
 
 export interface AppsCategory {
@@ -30,12 +31,19 @@ export interface App {
 export class NoticeClass implements Notice {
   label: string = '';
   pretext: string = '';
-  text: string = '';
+  copy: string = '';
+  alert: boolean = false;
 
-  constructor(opts: { label?: any; pretext?: any; text?: any }) {
+  constructor(opts: {
+    label?: string;
+    pretext?: string;
+    copy?: string;
+    alert?: boolean;
+  }) {
     (this.label = opts.label ? opts.label : ''),
       (this.pretext = opts.pretext ? opts.pretext : ''),
-      (this.text = opts.text ? opts.text : '');
+      (this.copy = opts.copy ? opts.copy : ''),
+      (this.alert = opts.alert ? opts.alert : false);
   }
 }
 
@@ -56,6 +64,8 @@ export default class AppsRegistry {
     if (!yamlCategories || !Array.isArray(yamlCategories)) {
       throw new Error('Missing categories array');
     }
+
+    console.log(`yamlNotice: `, yamlNotice);
 
     this.noticeMsg = yamlNotice ? yamlNotice : new NoticeClass({});
 

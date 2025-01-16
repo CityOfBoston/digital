@@ -116,7 +116,8 @@ export interface App {
 export interface Notice {
   label: string;
   pretext: string;
-  text: string;
+  copy: string;
+  alert: boolean;
 }
 
 // This file is built by the "generate-graphql-schema" script from
@@ -143,7 +144,8 @@ const queryRootResolvers: QueryRootResolvers = {
     return {
       label: notice['label'],
       pretext: notice['pretext'],
-      text: notice['text'],
+      copy: notice['copy'],
+      alert: notice['alert'],
     };
   },
 

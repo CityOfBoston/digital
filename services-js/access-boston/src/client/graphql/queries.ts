@@ -74,7 +74,8 @@ export interface FetchAccountAndApps_account {
 export interface FetchAccountAndApps_notice {
   label: string;
   pretext: string;
-  text: string;
+  copy: string;
+  alert: boolean;
 }
 
 export interface FetchAccountAndApps_apps_categories_apps {

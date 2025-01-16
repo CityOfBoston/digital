@@ -80,9 +80,11 @@ export default class IndexPage extends React.Component<Props> {
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
     const noticeLabel =
-      notice.text.length > 0 && notice.label.length > 0
+      notice.copy.length > 0 && notice.label.length > 0
         ? notice.label
         : 'Notice';
+
+    console.log(`notice:`, notice);
 
     return (
       <>
@@ -136,7 +138,7 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
-                {notice.text.length > 0 && (
+                {notice.copy.length > 0 && (
                   <div css={APP_ALERT_MSG}>
                     {notice.label.length > 0 && (
                       <label className="notice">{noticeLabel}: </label>
@@ -144,7 +146,7 @@ export default class IndexPage extends React.Component<Props> {
                     {notice.pretext.length > 0 && (
                       <span>{notice.pretext} </span>
                     )}
-                    {<Markdown>{notice.text}</Markdown>}
+                    {<Markdown>{notice.copy}</Markdown>}
                   </div>
                 )}
                 <SectionHeader title={title} />
