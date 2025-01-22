@@ -7576,58 +7576,7 @@ exports[`Storyshots IndexPage Notice Banner 1`] = `
   <main
     className="mn css-1jubgvi"
   >
-    <div
-      className="css-1ex1w5y"
-    >
-      <div
-        className="bg"
-      >
-        <div
-          className="b-c"
-        >
-          <div
-            className="g"
-          >
-            <div
-              className="g p-v300"
-            >
-              <div
-                className="banner-copy-wrapper"
-              >
-                <div
-                  className="banner__icon-col"
-                >
-                  <svg
-                    fill="none"
-                    height="40"
-                    viewBox="0 0 41 40"
-                    width="41"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.5834 15H21.9167V11.6667H18.5834M20.25 33.3334C12.9 33.3334 6.91671 27.35 6.91671 20C6.91671 12.65 12.9 6.66671 20.25 6.66671C27.6 6.66671 33.5834 12.65 33.5834 20C33.5834 27.35 27.6 33.3334 20.25 33.3334ZM20.25 3.33337C18.0613 3.33337 15.8941 3.76447 13.872 4.60205C11.8499 5.43963 10.0126 6.66728 8.46493 8.21493C5.33932 11.3405 3.58337 15.5798 3.58337 20C3.58337 24.4203 5.33932 28.6595 8.46493 31.7852C10.0126 33.3328 11.8499 34.5605 13.872 35.398C15.8941 36.2356 18.0613 36.6667 20.25 36.6667C24.6703 36.6667 28.9095 34.9108 32.0352 31.7852C35.1608 28.6595 36.9167 24.4203 36.9167 20C36.9167 17.8113 36.4856 15.6441 35.648 13.622C34.8105 11.5999 33.5828 9.76257 32.0352 8.21493C30.4875 6.66728 28.6502 5.43963 26.6281 4.60205C24.606 3.76447 22.4387 3.33337 20.25 3.33337ZM18.5834 28.3334H21.9167V18.3334H18.5834V28.3334Z"
-                      fill="#1871BD"
-                    />
-                  </svg>
-                </div>
-                <div
-                  className="banner__copy-col"
-                >
-                  <label>
-                    Confirm your Mailing Address
-                  </label>
-                  <p>
-                    <span>
-                      test
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <div
       className="b b-c"
     >
@@ -7635,23 +7584,7 @@ exports[`Storyshots IndexPage Notice Banner 1`] = `
         aria-labelledby="sh-1322116428"
         className="m-b500"
       >
-        <div
-          className="css-181drrs"
-        >
-          <label
-            className="notice"
-          >
-            Confirm your Mailing Address
-            : 
-          </label>
-          <span>
-            PRETEXT
-             
-          </span>
-          <span>
-            test
-          </span>
-        </div>
+        
         <div
           className="sh m-b300 "
         >

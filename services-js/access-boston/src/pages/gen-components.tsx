@@ -3,15 +3,14 @@
 import { jsx } from '@emotion/core';
 
 interface SvgIconProps {
-  type: 'info' | 'warn' | 'error' | 'success';
+  type: 'info' | 'warn' | 'error' | 'success' | string;
 }
 
-// /**
-//  * @type Icon
-//  * @name BannerIcon
-//  * @description Notice Banner Icon
-//  */
-
+/**
+ * @type Icon
+ * @name BannerIcon
+ * @description Notice Banner Icon
+ */
 export const BannerIcon = (props: SvgIconProps) => {
   const { type } = props;
 

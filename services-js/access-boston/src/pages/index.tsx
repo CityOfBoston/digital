@@ -83,11 +83,23 @@ export default class IndexPage extends React.Component<Props> {
     const noticeLabel =
       notice &&
       notice['copy'] &&
-      notice['copy'].length > 0 &&
+      // notice['copy'].length > 0 &&
       notice['label'] &&
       notice['label'].length > 0
         ? notice['label']
         : 'Notice';
+
+    const noticeType =
+      notice && notice['type'] && typeof notice['type'] === 'string'
+        ? notice['type']
+        : 'error';
+    const noticeBgClassName = `bg__${noticeType}`;
+    const barnnerElem = () => {
+      console.log(
+        `noticeType: ${noticeType} | ${typeof noticeType}: ${noticeType}`
+      );
+      return <BannerIcon type={noticeType} />;
+    };
 
     return (
       <>
@@ -134,16 +146,14 @@ export default class IndexPage extends React.Component<Props> {
             </div>
           )}
 
-          {notice && notice.copy && notice.copy.length > 0 && (
+          {notice && notice.copy && (
             <div css={NOTICE_WRAPPER}>
-              <div className="bg">
+              <div className={noticeBgClassName}>
                 <div className="b-c">
                   <div className="g">
                     <div className="g p-v300">
                       <div className="banner-copy-wrapper">
-                        <div className="banner__icon-col">
-                          <BannerIcon type="info" />
-                        </div>
+                        <div className="banner__icon-col">{barnnerElem()}</div>
                         <div className="banner__copy-col">
                           <label>{notice.label}</label>
                           <p>{<Markdown>{notice.copy}</Markdown>}</p>
@@ -163,7 +173,7 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
-                {notice && notice['copy'] && notice['copy'].length > 0 && (
+                {notice && notice['copy'] && (
                   <div css={APP_ALERT_MSG}>
                     {notice.label.length > 0 && (
                       <label className="notice">{noticeLabel}: </label>
@@ -320,11 +330,11 @@ const NOTICE_WRAPPER = css(`
     background: #D4E8FA;
   }
   
-  .bg__informational {
+  .bg__info {
     background: #D4E8FA;
   }
   
-  .bg__warning {
+  .bg__warn {
     background: #FAF3D1;
   }
   

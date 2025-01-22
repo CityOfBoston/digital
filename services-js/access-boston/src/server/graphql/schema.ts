@@ -146,9 +146,6 @@ const queryRootResolvers: QueryRootResolvers = {
       pretext: notice && notice['pretext'] ? notice['pretext'] : '',
       copy: notice && notice['copy'] ? notice['copy'] : '',
       alert: notice && notice['alert'] ? notice['alert'] : '',
-      // pretext: notice['pretext'],
-      // copy: notice['copy'],
-      // alert: notice['alert'],
     };
   },
 

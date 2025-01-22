@@ -62,7 +62,7 @@ storiesOf('IndexPage', module)
       notice={{
         label: 'Confirm your Mailing Address',
         pretext: 'PRETEXT',
-        copy: `test`,
+        copy: ``,
         alert: true,
       }}
     />
