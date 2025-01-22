@@ -3,15 +3,12 @@
 import { css, jsx } from '@emotion/core';
 
 import React from 'react';
+import Markdown from 'markdown-to-jsx';
+import { differenceInCalendarDays } from 'date-fns';
+
 import Head from 'next/head';
 import Link from 'next/link';
-import Markdown from 'markdown-to-jsx';
-
 import { BannerIcon } from './gen-components';
-
-// import { css } from 'emotion';
-
-import { differenceInCalendarDays } from 'date-fns';
 
 import {
   SectionHeader,
@@ -47,7 +44,7 @@ interface Props {
   apps: Apps;
   flashMessage?: FlashMessage;
   daysUntilMfa: number | null;
-  notice: Notice;
+  notice?: Notice;
 }
 
 export default class IndexPage extends React.Component<Props> {
@@ -84,11 +81,13 @@ export default class IndexPage extends React.Component<Props> {
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
     const noticeLabel =
-      notice.copy.length > 0 && notice.label.length > 0
-        ? notice.label
+      notice &&
+      notice['copy'] &&
+      notice['copy'].length > 0 &&
+      notice['label'] &&
+      notice['label'].length > 0
+        ? notice['label']
         : 'Notice';
-
-    // console.log(`notice:`, notice);
 
     return (
       <>
@@ -135,7 +134,7 @@ export default class IndexPage extends React.Component<Props> {
             </div>
           )}
 
-          {notice.copy.length > 0 && (
+          {notice && notice.copy && notice.copy.length > 0 && (
             <div css={NOTICE_WRAPPER}>
               <div className="bg">
                 <div className="b-c">
@@ -164,7 +163,7 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
-                {notice.copy.length > 0 && (
+                {notice && notice['copy'] && notice['copy'].length > 0 && (
                   <div css={APP_ALERT_MSG}>
                     {notice.label.length > 0 && (
                       <label className="notice">{noticeLabel}: </label>
@@ -175,6 +174,7 @@ export default class IndexPage extends React.Component<Props> {
                     {<Markdown>{notice.copy}</Markdown>}
                   </div>
                 )}
+
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (

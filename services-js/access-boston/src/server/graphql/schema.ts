@@ -142,10 +142,13 @@ const queryRootResolvers: QueryRootResolvers = {
     const notice = appsRegistry.appsForNotice();
 
     return {
-      label: notice['label'],
-      pretext: notice['pretext'],
-      copy: notice['copy'],
-      alert: notice['alert'],
+      label: notice && notice['label'] ? notice['label'] : '',
+      pretext: notice && notice['pretext'] ? notice['pretext'] : '',
+      copy: notice && notice['copy'] ? notice['copy'] : '',
+      alert: notice && notice['alert'] ? notice['alert'] : '',
+      // pretext: notice['pretext'],
+      // copy: notice['copy'],
+      // alert: notice['alert'],
     };
   },
 

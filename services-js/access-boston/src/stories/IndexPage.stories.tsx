@@ -9,6 +9,16 @@ import { makeAppsRegistry } from '../lib/AppsRegistry';
 import APPS_YAML from '../../fixtures/apps.yaml';
 import { NoticeClass } from '../lib/AppsRegistry';
 
+const noticeBanner1 = new NoticeClass({
+  label: 'Confirm your Mailing Address',
+  pretext: 'PRETEXT',
+  copy: `Click the ESS tile to confirm that your mailing address is correct & to go paperless for your W2, ACA and paystubs.
+Tax documents will be available in January. Make your Access Boston account even more secure by setting up the PingID app. It is faster and easier to use than getting codes via text, email or phone! Directions are [here](https://www.boston.gov/access-boston-portal-help#pingid-app-instructions)`,
+  alert: true,
+});
+
+console.log('noticeBanner1: ', noticeBanner1);
+
 const ACCOUNT: Account = {
   employeeId: 'CON01234',
   firstName: 'Jyn',
@@ -49,7 +59,12 @@ storiesOf('IndexPage', module)
       account={ACCOUNT}
       apps={APPS}
       daysUntilMfa={null}
-      notice={{ label: '', pretext: '', copy: '', alert: true }}
+      notice={{
+        label: 'Confirm your Mailing Address',
+        pretext: 'PRETEXT',
+        copy: `test`,
+        alert: true,
+      }}
     />
   ))
 
