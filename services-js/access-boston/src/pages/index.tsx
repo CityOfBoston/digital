@@ -7,6 +7,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
 
+import { BannerIcon } from './gen-components';
+
 // import { css } from 'emotion';
 
 import { differenceInCalendarDays } from 'date-fns';
@@ -16,6 +18,8 @@ import {
   PUBLIC_CSS_URL,
   CHARLES_BLUE,
   MEDIA_LARGE_MAX,
+  SANS,
+  SERIF,
 } from '@cityofboston/react-fleet';
 
 import fetchAccountAndApps, {
@@ -84,7 +88,7 @@ export default class IndexPage extends React.Component<Props> {
         ? notice.label
         : 'Notice';
 
-    console.log(`notice:`, notice);
+    // console.log(`notice:`, notice);
 
     return (
       <>
@@ -125,6 +129,28 @@ export default class IndexPage extends React.Component<Props> {
                         Complete it now
                       </a>
                     </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {notice.copy.length > 0 && (
+            <div css={NOTICE_WRAPPER}>
+              <div className="bg">
+                <div className="b-c">
+                  <div className="g">
+                    <div className="g p-v300">
+                      <div className="banner-copy-wrapper">
+                        <div className="banner__icon-col">
+                          <BannerIcon type="info" />
+                        </div>
+                        <div className="banner__copy-col">
+                          <label>{notice.label}</label>
+                          <p>{<Markdown>{notice.copy}</Markdown>}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -288,3 +314,63 @@ const APP_ALERT_MSG = css({
     fontWeight: 'bold',
   },
 });
+
+const NOTICE_WRAPPER = css(`
+  .bg {
+    background: #D4E8FA;
+  }
+  
+  .bg__informational {
+    background: #D4E8FA;
+  }
+  
+  .bg__warning {
+    background: #FAF3D1;
+  }
+  
+  .bg__success {
+    background: #E3F5E1;
+  }
+  
+  .bg__error {
+    background: #FEDBD9;
+  }
+
+  .b-c {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+    
+  .banner-copy-wrapper {
+    display: flex;
+    padding-top: 0.5rem;
+
+    .banner__icon-col {
+      min-width: 60px;
+    }
+
+    .banner__copy-col {
+      line-height: 24px;
+      font-size: 16px;
+      color: ${CHARLES_BLUE};
+      padding-top: 0.25rem;
+
+      label {
+        text-transform: uppercase;
+        font-family: ${SANS};
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      p {
+        font-family: ${SERIF};
+        font-weight: 400;
+      }
+    }
+
+    .banner__label: {
+      font-weight: bold;
+      color: red;
+    }
+  }
+`);

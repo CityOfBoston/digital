@@ -65,8 +65,6 @@ export default class AppsRegistry {
       throw new Error('Missing categories array');
     }
 
-    console.log(`yamlNotice: `, yamlNotice);
-
     this.noticeMsg = yamlNotice ? yamlNotice : new NoticeClass({});
 
     this.allCategories = yamlCategories.map(c => {

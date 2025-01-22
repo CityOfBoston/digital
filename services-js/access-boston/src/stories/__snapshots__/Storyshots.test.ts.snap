@@ -94,7 +94,7 @@ exports[`Storyshots AccessBostonHeader default 1`] = `
 
 exports[`Storyshots ChangePasswordPage default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -534,7 +534,7 @@ exports[`Storyshots ChangePasswordPage default 1`] = `
 
 exports[`Storyshots ChangePasswordPage first time registration 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -977,7 +977,7 @@ exports[`Storyshots ChangePasswordPage first time registration 1`] = `
 
 exports[`Storyshots ChangePasswordPage first time registration w/ temp password 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -1425,7 +1425,7 @@ exports[`Storyshots ChangePasswordPage first time registration w/ temp password 
 
 exports[`Storyshots ChangePasswordPage network error 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -1920,7 +1920,7 @@ exports[`Storyshots ChangePasswordPage network error 1`] = `
 
 exports[`Storyshots ChangePasswordPage session error 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -2393,7 +2393,7 @@ exports[`Storyshots ChangePasswordPage session error 1`] = `
 
 exports[`Storyshots ChangePasswordPage submitting 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -2855,7 +2855,7 @@ exports[`Storyshots ChangePasswordPage submitting 1`] = `
 
 exports[`Storyshots Common/AppWrapper default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -4105,7 +4105,7 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
 
 exports[`Storyshots DonePage default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -4202,7 +4202,7 @@ exports[`Storyshots DonePage default 1`] = `
 
 exports[`Storyshots ForgotPasswordPage default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -4516,7 +4516,7 @@ exports[`Storyshots ForgotPasswordPage default 1`] = `
 exports[`Storyshots ForgotPasswordPage network error 1`] = `
 Array [
   <div
-    className="css-3pqtz4-AppWrapper"
+    className="css-1ewon3a-AppWrapper"
   >
     <header
       className="p-a200 css-1yqn408"
@@ -4875,7 +4875,7 @@ Array [
 exports[`Storyshots ForgotPasswordPage session error 1`] = `
 Array [
   <div
-    className="css-3pqtz4-AppWrapper"
+    className="css-1ewon3a-AppWrapper"
   >
     <header
       className="p-a200 css-1yqn408"
@@ -5222,7 +5222,7 @@ Array [
 
 exports[`Storyshots ForgotPasswordPage success 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -5308,7 +5308,7 @@ exports[`Storyshots ForgotPasswordPage success 1`] = `
 
 exports[`Storyshots GroupManagementPage default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -7522,7 +7522,7 @@ exports[`Storyshots GroupManagementPage/SelectedComponent person view 1`] = `
 
 exports[`Storyshots IndexPage Notice Banner 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -8592,7 +8592,7 @@ exports[`Storyshots IndexPage Notice Banner 1`] = `
 
 exports[`Storyshots IndexPage change password success 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -9680,7 +9680,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
 
 exports[`Storyshots IndexPage default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -10750,7 +10750,7 @@ exports[`Storyshots IndexPage default 1`] = `
 
 exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -13409,7 +13409,7 @@ exports[`Storyshots Preferred Chosen Name/Workflow 2 Welcome 1`] = `
 
 exports[`Storyshots RegisterMfaPage default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -13711,7 +13711,7 @@ exports[`Storyshots RegisterMfaPage default 1`] = `
 
 exports[`Storyshots RegisterMfaPage email 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -13956,7 +13956,7 @@ exports[`Storyshots RegisterMfaPage email 1`] = `
 
 exports[`Storyshots RegisterMfaPage modal open 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -15600,7 +15600,7 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationModal waiting for voice co
 
 exports[`Storyshots RegisterPage default 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
@@ -15798,7 +15798,7 @@ exports[`Storyshots RegisterPage default 1`] = `
 
 exports[`Storyshots RegisterPage password already ok 1`] = `
 <div
-  className="css-3pqtz4-AppWrapper"
+  className="css-1ewon3a-AppWrapper"
 >
   <header
     className="p-a200 css-1yqn408"
