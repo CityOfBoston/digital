@@ -78,19 +78,10 @@ export default class IndexPage extends React.Component<Props> {
     } = this.props;
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
-    const noticeLabel =
-      notice &&
-      notice['copy'] &&
-      // notice['copy'].length > 0 &&
-      notice['label'] &&
-      notice['label'].length > 0
-        ? notice['label']
-        : 'Notice';
-
     const noticeType =
       notice && notice['type'] && typeof notice['type'] === 'string'
         ? notice['type']
-        : 'error';
+        : 'info';
     const noticeBgClassName = `bg__${noticeType}`;
     const barnnerElem = (
       type?: 'info' | 'warn' | 'error' | 'success' | string | undefined
@@ -132,26 +123,32 @@ export default class IndexPage extends React.Component<Props> {
           )}
 
           {daysUntilMfa !== null && daysUntilMfa > 0 && (
-            <div className="b--g">
-              <div className="b-c" style={{ padding: 0 }}>
-                <div className="g g--vc p-v500">
-                  <div className="g--9">
-                    <div className="h3 tt-u">Account notice</div>
-                    <div className="t--intro">
-                      You have{' '}
-                      <strong>
-                        {daysUntilMfa === 1 ? '1 day' : `${daysUntilMfa} days`}
-                      </strong>{' '}
-                      to complete your registration.
-                    </div>
-                  </div>
+            <div css={NOTICE_WRAPPER}>
+              <div className={`bg__warn`}>
+                <div className="b-c">
+                  <div className="g">
+                    <div className="g p-v500">
+                      <div className="g--9">
+                        <div className="h3 tt-u">Account notice</div>
+                        <div className="t--intro">
+                          You have{' '}
+                          <strong>
+                            {daysUntilMfa === 1
+                              ? '1 day'
+                              : `${daysUntilMfa} days`}
+                          </strong>{' '}
+                          to complete your registration.
+                        </div>
+                      </div>
 
-                  <div className="g--3 ta-r">
-                    <Link href="/mfa">
-                      <a className="btn" style={{ whiteSpace: 'nowrap' }}>
-                        Complete it now
-                      </a>
-                    </Link>
+                      <div className="g--3 ta-r">
+                        <Link href="/mfa">
+                          <a className="btn" style={{ whiteSpace: 'nowrap' }}>
+                            Complete it now
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -185,18 +182,6 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
-                {notice && notice['copy'] && (
-                  <div css={APP_ALERT_MSG}>
-                    {notice.label.length > 0 && (
-                      <label className="notice">{noticeLabel}: </label>
-                    )}
-                    {notice.pretext.length > 0 && (
-                      <span>{notice.pretext} </span>
-                    )}
-                    {<Markdown>{notice.copy}</Markdown>}
-                  </div>
-                )}
-
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (
@@ -316,23 +301,5 @@ const APP_IMAGE_STYLE = css({
 
   [MEDIA_LARGE_MAX]: {
     maxHeight: 84,
-  },
-});
-
-const APP_ALERT_MSG = css({
-  fontSize: '18px',
-  paddingBottom: '1.25em',
-  lineHeight: '1.25em',
-  label: {
-    fontSize: '20px',
-    fontFamily: 'Montserrat',
-    paddingRight: '0.25em',
-    color: 'red',
-    fontWeight: 'bold',
-    marginBottom: '0.5em',
-    textTransform: 'uppercase',
-  },
-  span: {
-    fontWeight: 'bold',
   },
 });

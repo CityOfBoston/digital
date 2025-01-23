@@ -7633,7 +7633,6 @@ exports[`Storyshots IndexPage change password success 1`] = `
         aria-labelledby="sh-1322116428"
         className="m-b500"
       >
-        
         <div
           className="sh m-b300 "
         >
@@ -8705,7 +8704,6 @@ exports[`Storyshots IndexPage default 1`] = `
         aria-labelledby="sh-1322116428"
         className="m-b500"
       >
-        
         <div
           className="sh m-b300 "
         >
@@ -9770,55 +9768,58 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
     className="mn css-1jubgvi"
   >
     <div
-      className="b--g"
+      className="css-u26d0f"
     >
       <div
-        className="b-c"
-        style={
-          Object {
-            "padding": 0,
-          }
-        }
+        className="bg__warn"
       >
         <div
-          className="g g--vc p-v500"
+          className="b-c"
         >
           <div
-            className="g--9"
+            className="g"
           >
             <div
-              className="h3 tt-u"
+              className="g p-v500"
             >
-              Account notice
+              <div
+                className="g--9"
+              >
+                <div
+                  className="h3 tt-u"
+                >
+                  Account notice
+                </div>
+                <div
+                  className="t--intro"
+                >
+                  You have
+                   
+                  <strong>
+                    28 days
+                  </strong>
+                   
+                  to complete your registration.
+                </div>
+              </div>
+              <div
+                className="g--3 ta-r"
+              >
+                <a
+                  className="btn"
+                  href="/mfa"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                  style={
+                    Object {
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                >
+                  Complete it now
+                </a>
+              </div>
             </div>
-            <div
-              className="t--intro"
-            >
-              You have
-               
-              <strong>
-                28 days
-              </strong>
-               
-              to complete your registration.
-            </div>
-          </div>
-          <div
-            className="g--3 ta-r"
-          >
-            <a
-              className="btn"
-              href="/mfa"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              style={
-                Object {
-                  "whiteSpace": "nowrap",
-                }
-              }
-            >
-              Complete it now
-            </a>
           </div>
         </div>
       </div>
@@ -9831,7 +9832,6 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
         aria-labelledby="sh-1322116428"
         className="m-b500"
       >
-        
         <div
           className="sh m-b300 "
         >
