@@ -90,10 +90,6 @@ export default class AppsRegistry {
           target,
           exclusions,
         } = a;
-        // const exclusion = exclusions || [];
-        // console.log(
-        //   `App Title: ${title} || exclusions: ${exclusion.toString()}`
-        // );
 
         if (!title || typeof title !== 'string') {
           throw new Error('App missing a title: ' + JSON.stringify(a));
@@ -146,15 +142,11 @@ export default class AppsRegistry {
     hasMfaDevice: boolean,
     cobAgency: string | null
   ): AppsCategory[] {
-    // console.log(`userGroups: `, userGroups);
-    console.log(`cobAgency: `, cobAgency);
     const retObj = this.allCategories
       .map(c => ({
         ...c,
         apps: c.apps.filter(
           ({ groups, mfaDeviceRequired, agencies, exclusions }) => {
-            // this.showAll = false;
-
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
 
             const groupsRequirementMet = groups

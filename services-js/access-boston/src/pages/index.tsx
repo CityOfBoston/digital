@@ -8,15 +8,13 @@ import { differenceInCalendarDays } from 'date-fns';
 
 import Head from 'next/head';
 import Link from 'next/link';
-import { BannerIcon } from './gen-components';
+import { BannerIcon, NOTICE_WRAPPER } from './gen-components';
 
 import {
   SectionHeader,
   PUBLIC_CSS_URL,
   CHARLES_BLUE,
   MEDIA_LARGE_MAX,
-  SANS,
-  SERIF,
 } from '@cityofboston/react-fleet';
 
 import fetchAccountAndApps, {
@@ -94,11 +92,12 @@ export default class IndexPage extends React.Component<Props> {
         ? notice['type']
         : 'error';
     const noticeBgClassName = `bg__${noticeType}`;
-    const barnnerElem = () => {
-      console.log(
-        `noticeType: ${noticeType} | ${typeof noticeType}: ${noticeType}`
-      );
-      return <BannerIcon type={noticeType} />;
+    const barnnerElem = (
+      type?: 'info' | 'warn' | 'error' | 'success' | string | undefined
+    ) => {
+      const notice_type = noticeType ? noticeType : 'info';
+      const typeVal = type ? type : notice_type;
+      return <BannerIcon type={typeVal} />;
     };
 
     return (
@@ -110,10 +109,23 @@ export default class IndexPage extends React.Component<Props> {
 
         <AppWrapper account={account}>
           {flashMessage && (
-            <div className="b--g">
-              <div className="b-c" style={{ padding: 0 }}>
-                <div className="t--intro p-v500">
-                  {FLASH_MESSAGE_STRINGS[flashMessage]}
+            <div css={NOTICE_WRAPPER}>
+              <div className={`bg__success`}>
+                <div className="b-c">
+                  <div className="g">
+                    <div className="g p-v300">
+                      <div className="banner-copy-wrapper">
+                        <div className="banner__icon-col">
+                          {barnnerElem('success')}
+                        </div>
+                        <div className="banner__copy-col">
+                          <div className="flassMessage">
+                            {FLASH_MESSAGE_STRINGS[flashMessage]}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -324,63 +336,3 @@ const APP_ALERT_MSG = css({
     fontWeight: 'bold',
   },
 });
-
-const NOTICE_WRAPPER = css(`
-  .bg {
-    background: #D4E8FA;
-  }
-  
-  .bg__info {
-    background: #D4E8FA;
-  }
-  
-  .bg__warn {
-    background: #FAF3D1;
-  }
-  
-  .bg__success {
-    background: #E3F5E1;
-  }
-  
-  .bg__error {
-    background: #FEDBD9;
-  }
-
-  .b-c {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-    
-  .banner-copy-wrapper {
-    display: flex;
-    padding-top: 0.5rem;
-
-    .banner__icon-col {
-      min-width: 60px;
-    }
-
-    .banner__copy-col {
-      line-height: 24px;
-      font-size: 16px;
-      color: ${CHARLES_BLUE};
-      padding-top: 0.25rem;
-
-      label {
-        text-transform: uppercase;
-        font-family: ${SANS};
-        font-weight: bold;
-        font-size: 20px;
-      }
-
-      p {
-        font-family: ${SERIF};
-        font-weight: 400;
-      }
-    }
-
-    .banner__label: {
-      font-weight: bold;
-      color: red;
-    }
-  }
-`);

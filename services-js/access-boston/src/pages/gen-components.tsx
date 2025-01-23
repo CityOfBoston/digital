@@ -1,9 +1,11 @@
 /** @jsx jsx */
 
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
-interface SvgIconProps {
-  type: 'info' | 'warn' | 'error' | 'success' | string;
+import { CHARLES_BLUE, SANS, SERIF } from '@cityofboston/react-fleet';
+
+export interface SvgIconProps {
+  type: 'info' | 'warn' | 'error' | 'success' | string | undefined;
 }
 
 /**
@@ -83,3 +85,67 @@ export const ErrorIconSVG = (
 );
 
 export default BannerIcon;
+
+export const NOTICE_WRAPPER = css(`
+  .bg {
+    background: #D4E8FA;
+  }
+  
+  .bg__info {
+    background: #D4E8FA;
+  }
+  
+  .bg__warn {
+    background: #FAF3D1;
+  }
+  
+  .bg__success {
+    background: #E3F5E1;
+  }
+  
+  .bg__error {
+    background: #FEDBD9;
+  }
+
+  .b-c {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+    
+  .banner-copy-wrapper {
+    display: flex;
+    padding-top: 0.5rem;
+
+    .banner__icon-col {
+      min-width: 60px;
+    }
+
+    .banner__copy-col {
+      line-height: 24px;
+      font-size: 16px;
+      color: ${CHARLES_BLUE};
+      padding-top: 0.25rem;
+
+      label {
+        text-transform: uppercase;
+        font-family: ${SANS};
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      p {
+        font-family: ${SERIF};
+        font-weight: 400;
+      }
+    }
+
+    .banner__label: {
+      font-weight: bold;
+      color: red;
+    }
+
+    .flassMessage {
+      padding-top: 0.15rem;
+    }
+  }
+`);
