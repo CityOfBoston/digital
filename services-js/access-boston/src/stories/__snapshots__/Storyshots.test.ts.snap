@@ -7577,7 +7577,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
     className="mn css-1jubgvi"
   >
     <div
-      className="css-u26d0f"
+      className="css-bj3mze"
     >
       <div
         className="bg__success"
@@ -9768,7 +9768,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
     className="mn css-1jubgvi"
   >
     <div
-      className="css-u26d0f"
+      className="css-bj3mze"
     >
       <div
         className="bg__warn"
@@ -9777,47 +9777,51 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
           className="b-c"
         >
           <div
-            className="g"
+            className="g p-v500 banner-copy-wrapper daysUntilMfa"
           >
             <div
-              className="g p-v500"
+              className="banner__icon-col"
             >
-              <div
-                className="g--9"
+              <svg
+                fill="none"
+                height="40"
+                viewBox="0 0 41 40"
+                width="41"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div
-                  className="h3 tt-u"
-                >
-                  Account notice
-                </div>
-                <div
-                  className="t--intro"
-                >
-                  You have
-                   
-                  <strong>
-                    28 days
-                  </strong>
-                   
-                  to complete your registration.
-                </div>
-              </div>
+                <path
+                  d="M38.0406 29.0781L24.3765 5.34843C23.9808 4.67157 23.4147 4.11013 22.7346 3.71997C22.0545 3.32981 21.2841 3.12451 20.5 3.12451C19.7159 3.12451 18.9455 3.32981 18.2654 3.71997C17.5853 4.11013 17.0192 4.67157 16.6234 5.34843L2.95935 29.0781C2.57532 29.7349 2.37292 30.4821 2.37292 31.243C2.37292 32.0038 2.57532 32.751 2.95935 33.4078C3.35074 34.088 3.91605 34.6519 4.59729 35.0415C5.27853 35.4311 6.05116 35.6325 6.83591 35.625H34.164C34.9483 35.632 35.7203 35.4303 36.4009 35.0407C37.0815 34.6511 37.6464 34.0876 38.0375 33.4078C38.422 32.7512 38.6249 32.0042 38.6255 31.2434C38.626 30.4825 38.4242 29.7352 38.0406 29.0781ZM34.7906 31.5312C34.7271 31.6395 34.6354 31.7286 34.5254 31.7891C34.4154 31.8496 34.2911 31.8793 34.1656 31.875H6.83591C6.71043 31.8793 6.58611 31.8496 6.4761 31.7891C6.36609 31.7286 6.27446 31.6395 6.21091 31.5312C6.15701 31.4436 6.12848 31.3427 6.12848 31.2398C6.12848 31.1369 6.15701 31.0361 6.21091 30.9484L19.875 7.21874C19.9426 7.11459 20.0353 7.029 20.1444 6.96975C20.2536 6.9105 20.3758 6.87946 20.5 6.87946C20.6242 6.87946 20.7464 6.9105 20.8556 6.96975C20.9647 7.029 21.0573 7.11459 21.125 7.21874L34.7875 30.9484C34.8419 31.0358 34.8709 31.1365 34.8715 31.2394C34.872 31.3423 34.844 31.4433 34.7906 31.5312ZM18.625 21.25V16.25C18.625 15.7527 18.8225 15.2758 19.1742 14.9242C19.5258 14.5725 20.0027 14.375 20.5 14.375C20.9973 14.375 21.4742 14.5725 21.8258 14.9242C22.1774 15.2758 22.375 15.7527 22.375 16.25V21.25C22.375 21.7473 22.1774 22.2242 21.8258 22.5758C21.4742 22.9274 20.9973 23.125 20.5 23.125C20.0027 23.125 19.5258 22.9274 19.1742 22.5758C18.8225 22.2242 18.625 21.7473 18.625 21.25ZM23 27.5C23 27.9944 22.8534 28.4778 22.5787 28.8889C22.3039 29.3 21.9135 29.6205 21.4567 29.8097C20.9999 29.9989 20.4972 30.0484 20.0123 29.952C19.5273 29.8555 19.0818 29.6174 18.7322 29.2678C18.3826 28.9181 18.1445 28.4727 18.048 27.9877C17.9516 27.5028 18.0011 27.0001 18.1903 26.5433C18.3795 26.0865 18.6999 25.696 19.1111 25.4213C19.5222 25.1466 20.0055 25 20.5 25C21.163 25 21.7989 25.2634 22.2677 25.7322C22.7366 26.2011 23 26.8369 23 27.5Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+            <div
+              className="banner__copy-col"
+            >
+              <label>
+                Account Notice
+              </label>
               <div
-                className="g--3 ta-r"
+                className="banner__copy-mfa-reg"
               >
-                <a
-                  className="btn"
-                  href="/mfa"
-                  onClick={[Function]}
-                  onMouseEnter={[Function]}
-                  style={
-                    Object {
-                      "whiteSpace": "nowrap",
-                    }
-                  }
+                You have
+                 
+                <strong>
+                  28 days
+                </strong>
+                 
+                to complete your registration.
+                <div
+                  className="banner__copy_link-row"
                 >
-                  Complete it now
-                </a>
+                  <a
+                    href="/mfa"
+                    onClick={[Function]}
+                    onMouseEnter={[Function]}
+                  >
+                    Complete it now
+                  </a>
+                </div>
               </div>
             </div>
           </div>

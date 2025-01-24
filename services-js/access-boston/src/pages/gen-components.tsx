@@ -2,7 +2,13 @@
 
 import { jsx, css } from '@emotion/core';
 
-import { CHARLES_BLUE, SANS, SERIF } from '@cityofboston/react-fleet';
+import {
+  CHARLES_BLUE,
+  OPTIMISTIC_BLUE_DARK,
+  MEDIA_SMALL_MAX,
+  SANS,
+  SERIF,
+} from '@cityofboston/react-fleet';
 
 export interface SvgIconProps {
   type: 'info' | 'warn' | 'error' | 'success' | string | undefined;
@@ -137,6 +143,12 @@ export const NOTICE_WRAPPER = css(`
         font-family: ${SERIF};
         font-weight: 400;
       }
+      
+      .t--intro {
+        font-family: ${SERIF};
+        font-weight: 400;
+        font-size: 20px;
+      }
     }
 
     .banner__label: {
@@ -144,8 +156,35 @@ export const NOTICE_WRAPPER = css(`
       color: red;
     }
 
+    .banner__copy-mfa-reg {
+      font-size: 18px;
+      line-height: 24px;
+      padding-top: 0.25rem;
+
+      .banner__copy_link-row {
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color: ${OPTIMISTIC_BLUE_DARK};
+        text-underline-offset: 0.25rem;
+      }
+    }
+
     .flassMessage {
       padding-top: 0.15rem;
+    }
+  }
+
+  .daysUntilMfa {
+    padding-top: 1.5rem;
+  }
+
+  ${MEDIA_SMALL_MAX} {
+    .banner__icon-col {
+      min-width: 40px;
+    }
+
+    .banner__copy-col {
+      max-width: 270px;
     }
   }
 `);

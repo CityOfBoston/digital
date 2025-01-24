@@ -81,7 +81,7 @@ export default class IndexPage extends React.Component<Props> {
     const noticeType =
       notice && notice['type'] && typeof notice['type'] === 'string'
         ? notice['type']
-        : 'info';
+        : 'warn';
     const noticeBgClassName = `bg__${noticeType}`;
     const barnnerElem = (
       type?: 'info' | 'warn' | 'error' | 'success' | string | undefined
@@ -126,27 +126,23 @@ export default class IndexPage extends React.Component<Props> {
             <div css={NOTICE_WRAPPER}>
               <div className={`bg__warn`}>
                 <div className="b-c">
-                  <div className="g">
-                    <div className="g p-v500">
-                      <div className="g--9">
-                        <div className="h3 tt-u">Account notice</div>
-                        <div className="t--intro">
-                          You have{' '}
-                          <strong>
-                            {daysUntilMfa === 1
-                              ? '1 day'
-                              : `${daysUntilMfa} days`}
-                          </strong>{' '}
-                          to complete your registration.
+                  <div className="g p-v500 banner-copy-wrapper daysUntilMfa">
+                    <div className="banner__icon-col">{barnnerElem()}</div>
+                    <div className="banner__copy-col">
+                      <label>Account Notice</label>
+                      <div className="banner__copy-mfa-reg">
+                        You have{' '}
+                        <strong>
+                          {daysUntilMfa === 1
+                            ? '1 day'
+                            : `${daysUntilMfa} days`}
+                        </strong>{' '}
+                        to complete your registration.
+                        <div className="banner__copy_link-row">
+                          <Link href="/mfa">
+                            <a href="/mfa">Complete it now</a>
+                          </Link>
                         </div>
-                      </div>
-
-                      <div className="g--3 ta-r">
-                        <Link href="/mfa">
-                          <a className="btn" style={{ whiteSpace: 'nowrap' }}>
-                            Complete it now
-                          </a>
-                        </Link>
                       </div>
                     </div>
                   </div>
