@@ -23,8 +23,11 @@ export const BannerIcon = (props: SvgIconProps) => {
   const { type } = props;
 
   if (type === 'info') return InfoIconSVG;
+
   if (type === 'warn') return WarnIconSVG;
+
   if (type === 'success') return SuccessIconSVG;
+
   if (type === 'error') return ErrorIconSVG;
 
   return InfoIconSVG;
@@ -32,8 +35,8 @@ export const BannerIcon = (props: SvgIconProps) => {
 
 export const InfoIconSVG = (
   <svg
-    width="41"
-    height="40"
+    // width="41"
+    // height="40"
     viewBox="0 0 41 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -47,8 +50,8 @@ export const InfoIconSVG = (
 
 export const WarnIconSVG = (
   <svg
-    width="41"
-    height="40"
+    // width="41"
+    // height="40"
     viewBox="0 0 41 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -62,8 +65,8 @@ export const WarnIconSVG = (
 
 export const SuccessIconSVG = (
   <svg
-    width="41"
-    height="40"
+    // width="41"
+    // height="40"
     viewBox="0 0 41 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -77,8 +80,8 @@ export const SuccessIconSVG = (
 
 export const ErrorIconSVG = (
   <svg
-    width="41"
-    height="40"
+    // width="41"
+    // height="40"
     viewBox="0 0 41 40"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -123,10 +126,17 @@ export const NOTICE_WRAPPER = css(`
     padding-top: 0.5rem;
 
     .banner__icon-col {
-      min-width: 60px;
+      width: 40px;
+      margin-right: 20px;
+
+      svg: {
+        width: 40px;
+        height: 40px;
+      }
     }
 
     .banner__copy-col {
+      flex-grow: 1;
       line-height: 24px;
       font-size: 16px;
       color: ${CHARLES_BLUE};
@@ -149,11 +159,6 @@ export const NOTICE_WRAPPER = css(`
         font-weight: 400;
         font-size: 20px;
       }
-    }
-
-    .banner__label: {
-      font-weight: bold;
-      color: red;
     }
 
     .banner__copy-mfa-reg {
@@ -179,12 +184,53 @@ export const NOTICE_WRAPPER = css(`
   }
 
   ${MEDIA_SMALL_MAX} {
-    .banner__icon-col {
-      min-width: 40px;
-    }
+    .banner-copy-wrapper {
+      .banner__icon-col {
+        width: 24px;
+        margin-right: 12px;
 
-    .banner__copy-col {
-      max-width: 270px;
+        svg: {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .banner__copy-col {
+        max-width: 240px;
+        padding-top: 0;
+
+        label {
+          font-size: 18px;
+        }
+
+        p {
+          margin-top: 0.5rem;
+        }
+      }
+
+      .banner__copy-mfa-reg {
+        .banner__copy_link-row {
+          margin-top: 0.25rem;
+        }
+      }
+
+      .flassMessage {
+        padding-top: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .banner-copy-wrapper {
+      .banner__copy-col {
+        p {
+          font-size: 16px;
+        }
+      }
+
+      .banner__copy-mfa-reg {
+        font-size: 16px;
+      }
     }
   }
 `);

@@ -7577,7 +7577,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
     className="mn css-1jubgvi"
   >
     <div
-      className="css-bj3mze"
+      className="css-lqcsga"
     >
       <div
         className="bg__success"
@@ -7599,9 +7599,7 @@ exports[`Storyshots IndexPage change password success 1`] = `
                 >
                   <svg
                     fill="none"
-                    height="40"
                     viewBox="0 0 41 40"
-                    width="41"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -9768,7 +9766,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
     className="mn css-1jubgvi"
   >
     <div
-      className="css-bj3mze"
+      className="css-lqcsga"
     >
       <div
         className="bg__warn"
@@ -9784,9 +9782,7 @@ exports[`Storyshots IndexPage hasn’t registered MFA 1`] = `
             >
               <svg
                 fill="none"
-                height="40"
                 viewBox="0 0 41 40"
-                width="41"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
