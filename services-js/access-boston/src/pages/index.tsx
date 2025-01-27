@@ -7,9 +7,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
 
-// import { css } from 'emotion';
-
 import { differenceInCalendarDays } from 'date-fns';
+import { NoticeBanner } from './notice';
 
 import {
   SectionHeader,
@@ -44,6 +43,7 @@ interface Props {
   flashMessage?: FlashMessage;
   daysUntilMfa: number | null;
   notice: Notice;
+  bannerType?: 'warn' | 'info' | 'error' | 'success' | undefined;
 }
 
 export default class IndexPage extends React.Component<Props> {
@@ -62,10 +62,18 @@ export default class IndexPage extends React.Component<Props> {
 
     return {
       flashMessage: query.message as FlashMessage | undefined,
-      daysUntilMfa,
+      daysUntilMfa: query.daysUntilMFA
+        ? ((query.daysUntilMFA as unknown) as number | null)
+        : daysUntilMfa,
       account,
       apps,
       notice,
+      bannerType: query.type as
+        | 'warn'
+        | 'info'
+        | 'error'
+        | 'success'
+        | undefined,
     };
   };
 
@@ -76,13 +84,10 @@ export default class IndexPage extends React.Component<Props> {
       apps: { categories },
       daysUntilMfa,
       notice,
+      bannerType,
     } = this.props;
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
-    const noticeLabel =
-      notice.text.length > 0 && notice.label.length > 0
-        ? notice.label
-        : 'Notice';
 
     return (
       <>
@@ -92,41 +97,37 @@ export default class IndexPage extends React.Component<Props> {
         </Head>
 
         <AppWrapper account={account}>
+          {notice && notice.text && (
+            <NoticeBanner type={bannerType ? bannerType : `warn`}>
+              <label>{notice.label}</label>
+              <p>{<Markdown>{notice.text}</Markdown>}</p>
+            </NoticeBanner>
+          )}
+
           {flashMessage && (
-            <div className="b--g">
-              <div className="b-c" style={{ padding: 0 }}>
-                <div className="t--intro p-v500">
-                  {FLASH_MESSAGE_STRINGS[flashMessage]}
-                </div>
+            <NoticeBanner type={`success`}>
+              <div className="flassMessage">
+                {FLASH_MESSAGE_STRINGS[flashMessage]}
               </div>
-            </div>
+            </NoticeBanner>
           )}
 
           {daysUntilMfa !== null && daysUntilMfa > 0 && (
-            <div className="b--g">
-              <div className="b-c" style={{ padding: 0 }}>
-                <div className="g g--vc p-v500">
-                  <div className="g--9">
-                    <div className="h3 tt-u">Account notice</div>
-                    <div className="t--intro">
-                      You have{' '}
-                      <strong>
-                        {daysUntilMfa === 1 ? '1 day' : `${daysUntilMfa} days`}
-                      </strong>{' '}
-                      to complete your registration.
-                    </div>
-                  </div>
-
-                  <div className="g--3 ta-r">
-                    <Link href="/mfa">
-                      <a className="btn" style={{ whiteSpace: 'nowrap' }}>
-                        Complete it now
-                      </a>
-                    </Link>
-                  </div>
+            <NoticeBanner type={`warn`} classString={`daysUntilMfa`}>
+              <label>Account Notice</label>
+              <div className="banner__copy-mfa-reg">
+                You have{' '}
+                <strong>
+                  {daysUntilMfa === 1 ? '1 day' : `${daysUntilMfa} days`}
+                </strong>{' '}
+                to complete your registration.
+                <div className="banner__copy_link-row">
+                  <Link href="/mfa">
+                    <a href="/mfa">Complete it now</a>
+                  </Link>
                 </div>
               </div>
-            </div>
+            </NoticeBanner>
           )}
 
           <div className="b b-c">
@@ -136,17 +137,6 @@ export default class IndexPage extends React.Component<Props> {
                 key={title}
                 aria-labelledby={SectionHeader.makeId(title)}
               >
-                {notice.text.length > 0 && (
-                  <div css={APP_ALERT_MSG}>
-                    {notice.label.length > 0 && (
-                      <label className="notice">{noticeLabel}: </label>
-                    )}
-                    {notice.pretext.length > 0 && (
-                      <span>{notice.pretext} </span>
-                    )}
-                    {<Markdown>{notice.text}</Markdown>}
-                  </div>
-                )}
                 <SectionHeader title={title} />
 
                 {requestAccessUrl && (
@@ -266,23 +256,5 @@ const APP_IMAGE_STYLE = css({
 
   [MEDIA_LARGE_MAX]: {
     maxHeight: 84,
-  },
-});
-
-const APP_ALERT_MSG = css({
-  fontSize: '18px',
-  paddingBottom: '1.25em',
-  lineHeight: '1.25em',
-  label: {
-    fontSize: '20px',
-    fontFamily: 'Montserrat',
-    paddingRight: '0.25em',
-    color: 'red',
-    fontWeight: 'bold',
-    marginBottom: '0.5em',
-    textTransform: 'uppercase',
-  },
-  span: {
-    fontWeight: 'bold',
   },
 });
