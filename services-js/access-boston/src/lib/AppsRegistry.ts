@@ -145,7 +145,7 @@ export default class AppsRegistry {
         ...c,
         apps: c.apps.filter(
           ({ groups, mfaDeviceRequired, agencies, exclusions }) => {
-            // this.showAll = false;
+            this.showAll = false;
 
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
 
@@ -160,10 +160,11 @@ export default class AppsRegistry {
               : false;
 
             const agencyExcusionMet =
-              cobAgency &&
-              exclusions &&
-              exclusions.length > 0 &&
-              exclusions.includes(cobAgency);
+              (cobAgency &&
+                exclusions &&
+                exclusions.length > 0 &&
+                exclusions.includes(cobAgency)) ||
+              false;
 
             const isGroupOrAgencies =
               (groupsRequirementMet || agencyRequirementMet) &&
@@ -179,7 +180,7 @@ export default class AppsRegistry {
       // Filter out apps with no categories
       .filter(c => c.apps.length > 0);
 
-    // console.log(`retObj: `, retObj[2]['apps'][0]['exclusions'], retObj[2]);
+    // console.log(`retObj[1]['apps'][0]: `, retObj[1]['apps'][0]);
     return retObj;
   }
 }
