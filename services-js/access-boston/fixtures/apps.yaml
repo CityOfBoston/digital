@@ -1,7 +1,8 @@
 notice:
-  label: 'Notice'
+  label: 'City Employees - Go Paperless'
   pretext: ''
-  text: 'Make your Access Boston account even more secure by setting up the PingID app. It is faster and easier to use than getting codes via text, email or phone! Directions are [here](https://www.boston.gov/access-boston-portal-help#pingid-app-instructions)'
+  text: 'Click the ESS tile to confirm that your mailing address is correct & to go paperless for your W2, ACA and paystubs. Tax documents will be available in January.'
+  # text: 'Make your Access Boston account even more secure by setting up the PingID app. It is faster and easier to use than getting codes via text, email or phone! Directions are [here](https://www.boston.gov/access-boston-portal-help#pingid-app-instructions)'
 categories:
   - title: Applications
     show_request_access_link: false

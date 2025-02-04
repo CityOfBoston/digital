@@ -3489,7 +3489,7 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                     Data of Birth (MM/DD/YYYY)
                   </legend>
                   <div
-                    className="disabled css-zu1hcp"
+                    className="disabled css-1wyga37"
                   >
                     <div>
                       <label
@@ -3497,17 +3497,6 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                         htmlFor="dob-month"
                       >
                         Month
-                        <span
-                          aria-hidden="true"
-                          className="t--req"
-                          style={
-                            Object {
-                              "marginLeft": "0.35em",
-                            }
-                          }
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         className="txt-f"
@@ -3531,17 +3520,6 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                         htmlFor="dob-day"
                       >
                         Day
-                        <span
-                          aria-hidden="true"
-                          className="t--req"
-                          style={
-                            Object {
-                              "marginLeft": "0.35em",
-                            }
-                          }
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         className="txt-f"
@@ -3565,17 +3543,6 @@ exports[`Storyshots Confirm-Identity Review 1`] = `
                         htmlFor="dob-year"
                       >
                         Year
-                        <span
-                          aria-hidden="true"
-                          className="t--req"
-                          style={
-                            Object {
-                              "marginLeft": "0.35em",
-                            }
-                          }
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         className="txt-f"
@@ -3952,7 +3919,7 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                     Data of Birth (MM/DD/YYYY)
                   </legend>
                   <div
-                    className=" css-zu1hcp"
+                    className=" css-1wyga37"
                   >
                     <div>
                       <label
@@ -3960,17 +3927,6 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                         htmlFor="dob-month"
                       >
                         Month
-                        <span
-                          aria-hidden="true"
-                          className="t--req"
-                          style={
-                            Object {
-                              "marginLeft": "0.35em",
-                            }
-                          }
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         className="txt-f"
@@ -3993,17 +3949,6 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                         htmlFor="dob-day"
                       >
                         Day
-                        <span
-                          aria-hidden="true"
-                          className="t--req"
-                          style={
-                            Object {
-                              "marginLeft": "0.35em",
-                            }
-                          }
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         className="txt-f"
@@ -4026,17 +3971,6 @@ exports[`Storyshots Confirm-Identity Validate 1`] = `
                         htmlFor="dob-year"
                       >
                         Year
-                        <span
-                          aria-hidden="true"
-                          className="t--req"
-                          style={
-                            Object {
-                              "marginLeft": "0.35em",
-                            }
-                          }
-                        >
-                          Required
-                        </span>
                       </label>
                       <input
                         className="txt-f"
@@ -10666,11 +10600,6 @@ exports[`Storyshots RegisterMfaPage default 1`] = `
           <div
             className="txt-l"
             id="smsOrVoice-groupLabel"
-            style={
-              Object {
-                "display": "flex",
-              }
-            }
           >
             How should we send security codes?
           </div>
@@ -11213,11 +11142,6 @@ exports[`Storyshots RegisterMfaPage modal open 1`] = `
           <div
             className="txt-l"
             id="smsOrVoice-groupLabel"
-            style={
-              Object {
-                "display": "flex",
-              }
-            }
           >
             How should we send security codes?
           </div>
@@ -11579,11 +11503,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm code sending error 1`
       <div
         className="txt-l"
         id="smsOrVoice-groupLabel"
-        style={
-          Object {
-            "display": "flex",
-          }
-        }
       >
         How should we send security codes?
       </div>
@@ -11923,11 +11842,6 @@ exports[`Storyshots RegisterMfaPage/DeviceVerificationForm phone 1`] = `
       <div
         className="txt-l"
         id="smsOrVoice-groupLabel"
-        style={
-          Object {
-            "display": "flex",
-          }
-        }
       >
         How should we send security codes?
       </div>
