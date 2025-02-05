@@ -27,7 +27,6 @@ const QUERY = gql`
 
     notice {
       label
-      pretext
       text
       type
     }

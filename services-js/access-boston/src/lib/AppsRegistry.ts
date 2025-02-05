@@ -2,9 +2,7 @@ import yaml from 'js-yaml';
 
 export interface Notice {
   label: string;
-  pretext: string;
   text: string;
-  // type: 'info' | 'warn' | 'error' | 'success' | string | undefined | null;
   type: string;
 }
 
@@ -31,13 +29,11 @@ export interface App {
 
 export class NoticeClass implements Notice {
   label: string = '';
-  pretext: string = '';
   text: string = '';
   type: string = 'info';
 
-  constructor(opts: { label?: any; pretext?: any; text?: any; type?: string }) {
+  constructor(opts: { label?: any; text?: any; type?: string }) {
     (this.label = opts.label ? opts.label : ''),
-      (this.pretext = opts.pretext ? opts.pretext : ''),
       (this.type = opts.type ? opts.type : 'info'),
       (this.text = opts.text ? opts.text : '');
   }

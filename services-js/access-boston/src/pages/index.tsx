@@ -89,6 +89,15 @@ export default class IndexPage extends React.Component<Props> {
     const iconCategories = categories.filter(({ showIcons }) => showIcons);
     const listCategories = categories.filter(({ showIcons }) => !showIcons);
 
+    const canUseBannerType =
+      typeof bannerType === 'string' &&
+      ['info', 'warn', 'success', 'error'].includes(bannerType);
+    const noticeType = canUseBannerType
+      ? bannerType
+      : notice.type
+      ? notice.type
+      : `warn`;
+
     return (
       <>
         <Head>
@@ -98,7 +107,7 @@ export default class IndexPage extends React.Component<Props> {
 
         <AppWrapper account={account}>
           {notice && notice.text && (
-            <NoticeBanner type={bannerType ? bannerType : `warn`}>
+            <NoticeBanner type={noticeType}>
               <label>{notice.label}</label>
               <p>{<Markdown>{notice.text}</Markdown>}</p>
             </NoticeBanner>
