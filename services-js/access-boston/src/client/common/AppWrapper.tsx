@@ -36,6 +36,10 @@ const WRAPPER_STYLING = css({
   display: 'flex',
   flexDirection: 'column',
 
+  '.mn': {
+    paddingTop: '47px',
+  },
+
   '> main': {
     flexGrow: 1,
 

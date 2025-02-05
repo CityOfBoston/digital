@@ -5,7 +5,12 @@ import { Component } from 'react';
 
 import Link from 'next/link';
 
-import { CHARLES_BLUE, SANS, WHITE } from '@cityofboston/react-fleet';
+import {
+  CHARLES_BLUE,
+  SANS,
+  WHITE,
+  MEDIA_SMALL_MAX,
+} from '@cityofboston/react-fleet';
 
 import { Account } from '../graphql/fetch-account';
 import RedirectForm from '../RedirectForm';
@@ -18,7 +23,6 @@ interface Props {
 export default class AccessBostonHeader extends Component<Props> {
   render() {
     const { account, noLinks } = this.props;
-    // console.log('header > account: ', account);
 
     return (
       <header className="p-a200" css={HEADER_STYLE}>
@@ -83,4 +87,8 @@ const ACCESS_BOSTON_TITLE_STYLE = css({
   textTransform: 'uppercase',
   fontSize: '1.25rem',
   fontWeight: 'bold',
+
+  [MEDIA_SMALL_MAX]: {
+    fontSize: '1.00rem',
+  },
 });

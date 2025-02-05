@@ -29,6 +29,7 @@ const QUERY = gql`
       label
       pretext
       text
+      type
     }
 
     apps {

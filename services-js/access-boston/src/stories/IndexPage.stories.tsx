@@ -43,7 +43,7 @@ storiesOf('IndexPage', module)
       notice={new NoticeClass({})}
     />
   ))
-  .add('change password success', () => (
+  .add('FlashMessage: change password success', () => (
     <IndexPage
       account={ACCOUNT}
       apps={APPS}

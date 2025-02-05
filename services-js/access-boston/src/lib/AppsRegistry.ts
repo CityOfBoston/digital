@@ -4,6 +4,8 @@ export interface Notice {
   label: string;
   pretext: string;
   text: string;
+  // type: 'info' | 'warn' | 'error' | 'success' | string | undefined | null;
+  type: string;
 }
 
 export interface AppsCategory {
@@ -31,10 +33,12 @@ export class NoticeClass implements Notice {
   label: string = '';
   pretext: string = '';
   text: string = '';
+  type: string = 'info';
 
-  constructor(opts: { label?: any; pretext?: any; text?: any }) {
+  constructor(opts: { label?: any; pretext?: any; text?: any; type?: string }) {
     (this.label = opts.label ? opts.label : ''),
       (this.pretext = opts.pretext ? opts.pretext : ''),
+      (this.type = opts.type ? opts.type : 'info'),
       (this.text = opts.text ? opts.text : '');
   }
 }
@@ -138,8 +142,6 @@ export default class AppsRegistry {
     hasMfaDevice: boolean,
     cobAgency: string | null
   ): AppsCategory[] {
-    // console.log(`userGroups: `, userGroups);
-    console.log(`cobAgency: `, cobAgency);
     const retObj = this.allCategories
       .map(c => ({
         ...c,
