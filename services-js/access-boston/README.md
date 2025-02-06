@@ -105,6 +105,19 @@ https://access-boston.boston.gov/
     - services-js/access-boston/src/client/group-management/ConfirmationView.stories.tsx
     - services-js/access-boston/src/client/group-management/ReviewChangesView.stories.tsx
 
+
+### Banner Notification
+Notification Banner appears as the second UI item, after the header/nav. Its is used to display messages color coded by urgency.
+
+| Example | Type |
+|---|---|
+| <img width="300" src="https://github.com/user-attachments/assets/133b729d-36d7-4c0e-85e2-d288476ba4e7" /> | <p>`type`: *info* (light blue)</p> <p>`type`: *warn* (light yellow)</p> <p>`type`: *success* (light green)</p> <p>`type`: *error* (light red)</p> |
+
+| Info | Warn|
+|---|---|
+| <img title="Info" alt="Info" width="300" src="https://github.com/user-attachments/assets/9ef21cf5-7efc-4d67-afdf-b5f2e04f9e47" /> | <img title="Warn" alt="Warn" width="300" src="https://github.com/user-attachments/assets/ade1d384-0ebe-49f5-a058-e7a84b121e19" /> |
+| <img title="Success" alt="Success" width="300" src="https://github.com/user-attachments/assets/212028b9-c3b3-4757-ae19-948137429c86" /> | <img title="Error" alt="Error" width="300" src="https://github.com/user-attachments/assets/1c183e0c-dac8-4a1a-b550-fe9c94a3154b" /> |
+
 ### Deploys
 
 - 2020.05.27: New App entry, PHIRE
@@ -134,3 +147,4 @@ https://access-boston.boston.gov/
 - 2022.02.26: PROD deploy - Remove 'Boston Gives Back' icon/link from Dashboard
 - 2022.02.28: PROD deploy - New Tile, CyberArk
 - 2022.08.11: PROD deploy - Push-through Docker Image Sizing Fix
+- 2025.02.05: PROD deploy - New APB Banner Design

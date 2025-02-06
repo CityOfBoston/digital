@@ -115,7 +115,6 @@ export interface App {
 
 export interface Notice {
   label: string;
-  pretext: string;
   text: string;
   type: string;
 }
@@ -143,7 +142,6 @@ const queryRootResolvers: QueryRootResolvers = {
 
     return {
       label: notice['label'],
-      pretext: notice['pretext'],
       text: notice['text'],
       type: notice['type'] ? notice['type'] : 'info',
     };

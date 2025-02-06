@@ -7,13 +7,16 @@ import { BannerIcon, NOTICE_WRAPPER } from './gen-components';
 
 export interface NoticeBannerProps {
   children: ReactNode;
-  type?: 'info' | 'warn' | 'error' | 'success' | undefined;
+  type?: 'info' | 'warn' | 'error' | 'success' | string | undefined;
   classString?: string;
 }
 
 /**
  * @name NoticeBanner
  * @description Notice Banner Elem
+ * @param type 'info' | 'warn' | 'error' | 'success' | string | undefined
+ * @param classString string
+ * @param children ReactNode
  */
 export const NoticeBanner = (props: NoticeBannerProps) => {
   const { children, type, classString } = props;
