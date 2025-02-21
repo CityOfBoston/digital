@@ -29,6 +29,7 @@ const QUERY = gql`
       label
       text
       type
+      exclusions
     }
 
     apps {

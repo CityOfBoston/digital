@@ -4,6 +4,7 @@ export interface Notice {
   label: string;
   text: string;
   type: string;
+  exclusions: string[];
 }
 
 export interface AppsCategory {
@@ -31,10 +32,17 @@ export class NoticeClass implements Notice {
   label: string = '';
   text: string = '';
   type: string = 'info';
+  exclusions: string[] = [''];
 
-  constructor(opts: { label?: any; text?: any; type?: string }) {
+  constructor(opts: {
+    label?: any;
+    text?: any;
+    type?: string;
+    exclusions?: string[];
+  }) {
     (this.label = opts.label ? opts.label : ''),
       (this.type = opts.type ? opts.type : 'info'),
+      (this.exclusions = opts.exclusions ? opts.exclusions : ['']),
       (this.text = opts.text ? opts.text : '');
   }
 }
