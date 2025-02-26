@@ -98,6 +98,15 @@ export default class IndexPage extends React.Component<Props> {
       ? notice.type
       : `warn`;
 
+    console.log(`notice: `, notice.exclusions);
+    console.log(`account: `, account.cobAgency);
+    if (account['cobAgency']) {
+      console.log(
+        `notice.exclusions.includes(account['cobAgency']): `,
+        notice.exclusions.includes(account['cobAgency'])
+      );
+    }
+
     return (
       <>
         <Head>
@@ -106,12 +115,16 @@ export default class IndexPage extends React.Component<Props> {
         </Head>
 
         <AppWrapper account={account}>
-          {notice && notice.text && (
-            <NoticeBanner type={noticeType}>
-              <label>{notice.label}</label>
-              <p>{<Markdown>{notice.text}</Markdown>}</p>
-            </NoticeBanner>
-          )}
+          {notice &&
+            notice.text &&
+            account['cobAgency'] &&
+            notice['exclusions'] &&
+            !notice.exclusions.includes(account['cobAgency']) && (
+              <NoticeBanner type={noticeType}>
+                <label>{notice.label}</label>
+                <p>{<Markdown>{notice.text}</Markdown>}</p>
+              </NoticeBanner>
+            )}
 
           {flashMessage && (
             <NoticeBanner type={`success`}>

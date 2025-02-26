@@ -118,7 +118,7 @@ Notification Banner appears as the second UI item, after the header/nav. Its is 
 | <img title="Info" alt="Info" width="300" src="https://github.com/user-attachments/assets/9ef21cf5-7efc-4d67-afdf-b5f2e04f9e47" /> | <img title="Warn" alt="Warn" width="300" src="https://github.com/user-attachments/assets/ade1d384-0ebe-49f5-a058-e7a84b121e19" /> |
 | <img title="Success" alt="Success" width="300" src="https://github.com/user-attachments/assets/212028b9-c3b3-4757-ae19-948137429c86" /> | <img title="Error" alt="Error" width="300" src="https://github.com/user-attachments/assets/1c183e0c-dac8-4a1a-b550-fe9c94a3154b" /> |
 
-### Deploys
+### Releases
 
 - 2020.05.27: New App entry, PHIRE
 - 2020.07.10: Adding group to Building Maintenance Form Link
@@ -148,3 +148,4 @@ Notification Banner appears as the second UI item, after the header/nav. Its is 
 - 2022.02.28: PROD deploy - New Tile, CyberArk
 - 2022.08.11: PROD deploy - Push-through Docker Image Sizing Fix
 - 2025.02.05: PROD deploy - New APB Banner Design
+- 2025.02.21: PROD deploy - Allow banners to have security exclusions
