@@ -8,7 +8,7 @@ interface Options {
   value: string;
 }
 
-type Props = {
+interface Props {
   label: string;
   name?: string;
   value?: string;
@@ -18,7 +18,7 @@ type Props = {
   onBlur?(e: any): void;
   onChange?(e: any): void;
   onFocus?(e: any): void;
-};
+}
 
 export default function RegistryCCSelectDropDown(props: Props): JSX.Element {
   const { label, id, options } = props;

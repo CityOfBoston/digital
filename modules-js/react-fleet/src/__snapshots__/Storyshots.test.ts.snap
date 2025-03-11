@@ -449,77 +449,194 @@ exports[`Storyshots Content Sections|SectionHeader yellow 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form Elements|Buttons/CloseButton close 1`] = `
+exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
 .emotion-0 {
-  border: none;
-  background-color: transparent;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-0 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
+}
+
+.emotion-0 .wrapper input[type='radio'] {
+  display: none;
+}
+
+.emotion-0 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
   cursor: pointer;
-  padding: 0;
-  opacity: 0.8;
-  -webkit-transition: opacity 0.15s;
-  transition: opacity 0.15s;
 }
 
-.emotion-0:hover {
-  opacity: 1;
+.emotion-0 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
-<button
-  className="emotion-0"
-  onClick={[Function]}
+.emotion-0:active .wrapper,
+.emotion-0:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-0:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-0[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-0[data-state='disabled']:active .wrapper,
+.emotion-0[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-0[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-0[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-0[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div
   style={
     Object {
-      "height": "50px",
-      "overflow": "visible",
-      "width": "50px",
+      "margin": "2rem auto",
+      "maxWidth": "768px",
     }
   }
-  title="Close"
-  type="button"
 >
-  <svg
-    aria-hidden="true"
-    height="50px"
-    overflow="visible"
-    viewBox="0 0 24 24"
-    width="50px"
+  <div
+    className="emotion-0"
+    data-action="add"
+    data-state="disabled"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    tabIndex={0}
   >
-    <circle
-      cx="12"
-      cy="12"
-      fill="#d22d23"
-      r="12"
-      stroke="none"
-    />
-    <g
-      transform="rotate(45, 12, 12)"
+    <div
+      className="wrapper"
     >
-      <line
-        fill="none"
-        stroke="#fff"
-        strokeLinecap="round"
-        strokeWidth="3"
-        x1="12"
-        x2="12"
-        y1="4"
-        y2="20"
+      <label
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
       />
-      <line
-        fill="none"
-        stroke="#fff"
-        strokeLinecap="round"
-        strokeWidth="3"
-        x1="4"
-        x2="20"
-        y1="12"
-        y2="12"
+      <input
+        name="CC_AddRemove"
+        type="hidden"
+        value={0}
       />
-    </g>
-  </svg>
-</button>
+    </div>
+  </div>
+  <br />
+  <div
+    className="emotion-0"
+    data-action="add"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="wrapper"
+    >
+      <label
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
+      />
+      <input
+        name="CC_AddRemove"
+        type="hidden"
+        value={0}
+      />
+    </div>
+  </div>
+  <br />
+  <div
+    className="emotion-0"
+    data-action="add"
+    data-state="focused"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="wrapper"
+    >
+      <label
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
+      />
+      <input
+        name="CC_AddRemove"
+        type="hidden"
+        value={0}
+      />
+    </div>
+  </div>
+  <br />
+  <div
+    className="emotion-0"
+    data-action="remove"
+    data-state="default"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="wrapper"
+    >
+      <label
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
+      />
+      <input
+        name="CC_AddRemove"
+        type="hidden"
+        value={1}
+      />
+    </div>
+  </div>
+</div>
 `;
 
-exports[`Storyshots Form Elements|Checkout SelectDropdown default 1`] = `
+exports[`Storyshots Form Elements | Checkout / SelectDropdown default 1`] = `
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -623,6 +740,76 @@ exports[`Storyshots Form Elements|Checkout SelectDropdown default 1`] = `
     </div>
   </span>
 </div>
+`;
+
+exports[`Storyshots Form Elements|Buttons/CloseButton close 1`] = `
+.emotion-0 {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.8;
+  -webkit-transition: opacity 0.15s;
+  transition: opacity 0.15s;
+}
+
+.emotion-0:hover {
+  opacity: 1;
+}
+
+<button
+  className="emotion-0"
+  onClick={[Function]}
+  style={
+    Object {
+      "height": "50px",
+      "overflow": "visible",
+      "width": "50px",
+    }
+  }
+  title="Close"
+  type="button"
+>
+  <svg
+    aria-hidden="true"
+    height="50px"
+    overflow="visible"
+    viewBox="0 0 24 24"
+    width="50px"
+  >
+    <circle
+      cx="12"
+      cy="12"
+      fill="#d22d23"
+      r="12"
+      stroke="none"
+    />
+    <g
+      transform="rotate(45, 12, 12)"
+    >
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeLinecap="round"
+        strokeWidth="3"
+        x1="12"
+        x2="12"
+        y1="4"
+        y2="20"
+      />
+      <line
+        fill="none"
+        stroke="#fff"
+        strokeLinecap="round"
+        strokeWidth="3"
+        x1="4"
+        x2="20"
+        y1="12"
+        y2="12"
+      />
+    </g>
+  </svg>
+</button>
 `;
 
 exports[`Storyshots Form Elements|Inputs/Checkbox Checkbox 1`] = `
@@ -6441,7 +6628,7 @@ exports[`Storyshots ProgressNav Step 1: Getting Started (default) 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -6678,7 +6865,7 @@ exports[`Storyshots ProgressNav Step 2: Person 1 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -6915,7 +7102,7 @@ exports[`Storyshots ProgressNav Step 3: Person 2 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7152,7 +7339,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info - Nav one step back 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7389,7 +7576,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7626,7 +7813,7 @@ exports[`Storyshots ProgressNav Step 5: Review 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7863,7 +8050,7 @@ exports[`Storyshots ProgressNav Step 6: Submit 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 

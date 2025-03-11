@@ -231,7 +231,7 @@ export default class ReviewContent extends React.Component<Props, State> {
           <div className="m-v700">
             <div className="fs-l">
               <div className="fs-l-c">
-                Contact Information
+                Contact Information 3
                 <span className="t--reset">
                   &nbsp;—&nbsp;
                   <span className="t--subinfo">

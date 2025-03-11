@@ -16,7 +16,7 @@ export const CONTACTFORM_CONTACT_FIELD_STYLING = css(`
   .contact-fields {
     margin-bottom: 10px;
 
-    label:first-child {
+    label:first-of-type {
       margin-top: 1em;
     }
 

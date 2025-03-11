@@ -7,8 +7,6 @@ import { withKnobs, array, boolean, text } from '@storybook/addon-knobs';
 import { NarrowWrapper } from '@cityofboston/storybook-common';
 
 import SelectDropdown from './SelectDropdown';
-import RegistryCCSelectDropDown from './RegistryCCSelectDropdown';
-// import TextInput from './inputs/TextInput';
 
 export const PARTNERSHIP_TYPE = [
   {
@@ -118,14 +116,3 @@ storiesOf('Form Elements|SelectDropdown', module)
       />
     </>
   ));
-
-// .add('checkout', () => (
-//   <RegistryCCSelectDropDown
-//     label={'Service fee'}
-//     options={[
-//       { value: -1, label: 'select card' },
-//       { value: 0, label: 'credit card' },
-//       { value: 1, label: 'debit card' },
-//     ]}
-//   />
-// ))
