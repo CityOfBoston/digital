@@ -6,7 +6,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import RegistryCCSelectDropDown from './RegistryCCSelectDropdown';
 
-storiesOf('Form Elements|Checkout SelectDropdown', module)
+storiesOf('Form Elements | Checkout / SelectDropdown', module)
   .addDecorator(story => <NarrowWrapper>{story()}</NarrowWrapper>)
   .addDecorator(withKnobs)
   .add('default', () => (

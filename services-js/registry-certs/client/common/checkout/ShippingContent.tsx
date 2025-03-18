@@ -194,7 +194,7 @@ export default class ShippingContent extends React.Component<Props> {
     return (
       <form method="post" onSubmit={handleSubmit}>
         <fieldset className="fs m-v700">
-          <legend className="fs-l">Contact Information</legend>
+          <legend className="fs-l">Contact Information 1</legend>
 
           <div className="txt">
             <label htmlFor="contactName" className="txt-l txt-l--sm">

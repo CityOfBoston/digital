@@ -880,6 +880,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       }
     }
   },
+
   async cancelOrder(
     _root,
     { transactionId },
@@ -936,6 +937,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       }
     }
   },
+
   async deleteUpload(
     _root,
     { type, uploadSessionID, attachmentKey },

@@ -2126,7 +2126,7 @@ Array [
                   <div
                     className="fs-l-c"
                   >
-                    Contact Information
+                    Contact Information 3
                     <span
                       className="t--reset"
                     >
@@ -3247,7 +3247,7 @@ Array [
                 <legend
                   className="fs-l"
                 >
-                  Contact Information
+                  Contact Information 1
                 </legend>
                 <div
                   className="txt"
@@ -26289,7 +26289,7 @@ Array [
                   <div
                     className="fs-l-c"
                   >
-                    Contact Information
+                    Contact Information 3
                     <span
                       className="t--reset"
                     >
@@ -27074,7 +27074,7 @@ Array [
                 <div
                   className="fs-l-c"
                 >
-                  Contact Information
+                  Contact Information 3
                   <span
                     className="t--reset"
                   >
@@ -27896,7 +27896,7 @@ Array [
                 <div
                   className="fs-l-c"
                 >
-                  Contact Information
+                  Contact Information 3
                   <span
                     className="t--reset"
                   >
@@ -28691,7 +28691,7 @@ Array [
                 <div
                   className="fs-l-c"
                 >
-                  Contact Information
+                  Contact Information 3
                   <span
                     className="t--reset"
                   >
@@ -29486,7 +29486,7 @@ Array [
                 <div
                   className="fs-l-c"
                 >
-                  Contact Information
+                  Contact Information 3
                   <span
                     className="t--reset"
                   >
@@ -30319,7 +30319,7 @@ Array [
                   <div
                     className="fs-l-c"
                   >
-                    Contact Information
+                    Contact Information 3
                     <span
                       className="t--reset"
                     >
@@ -31106,7 +31106,7 @@ Array [
                 <div
                   className="fs-l-c"
                 >
-                  Contact Information
+                  Contact Information 3
                   <span
                     className="t--reset"
                   >
@@ -31944,7 +31944,7 @@ Array [
                 <div
                   className="fs-l-c"
                 >
-                  Contact Information
+                  Contact Information 3
                   <span
                     className="t--reset"
                   >
@@ -32788,7 +32788,7 @@ Array [
                 <div
                   className="fs-l-c"
                 >
-                  Contact Information
+                  Contact Information 3
                   <span
                     className="t--reset"
                   >
@@ -33616,7 +33616,7 @@ Array [
                 <legend
                   className="fs-l"
                 >
-                  Contact Information
+                  Contact Information 1
                 </legend>
                 <div
                   className="txt"
@@ -34699,7 +34699,7 @@ Array [
               <legend
                 className="fs-l"
               >
-                Contact Information
+                Contact Information 1
               </legend>
               <div
                 className="txt"
@@ -35761,7 +35761,7 @@ Array [
               <legend
                 className="fs-l"
               >
-                Contact Information
+                Contact Information 1
               </legend>
               <div
                 className="txt"
@@ -36823,7 +36823,7 @@ Array [
               <legend
                 className="fs-l"
               >
-                Contact Information
+                Contact Information 1
               </legend>
               <div
                 className="txt"
@@ -37969,7 +37969,7 @@ Array [
                 <legend
                   className="fs-l"
                 >
-                  Contact Information
+                  Contact Information 1
                 </legend>
                 <div
                   className="txt"
@@ -74660,7 +74660,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review - Contact 
       className="wrapper-title"
     >
       <h1>
-        Contact Information
+        Contact Information 2
       </h1>
     </div>
     <div
@@ -75436,7 +75436,7 @@ Array [
   grid-column-start: 2;
 }
 
-.emotion-3 .progressbar .nav a:first-child {
+.emotion-3 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -76322,7 +76322,7 @@ Array [
   grid-column-start: 2;
 }
 
-.emotion-3 .progressbar .nav a:first-child {
+.emotion-3 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -81938,7 +81938,7 @@ Array [
   grid-column-start: 2;
 }
 
-.emotion-3 .progressbar .nav a:first-child {
+.emotion-3 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -87554,7 +87554,7 @@ Array [
   grid-column-start: 2;
 }
 
-.emotion-3 .progressbar .nav a:first-child {
+.emotion-3 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -87782,7 +87782,7 @@ Array [
   margin-bottom: 10px;
 }
 
-.emotion-6 .contact-fields label:first-child {
+.emotion-6 .contact-fields label:first-of-type {
   margin-top: 1em;
 }
 
@@ -88793,7 +88793,7 @@ Array [
   grid-column-start: 2;
 }
 
-.emotion-3 .progressbar .nav a:first-child {
+.emotion-3 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -89897,7 +89897,7 @@ Array [
                         className="wrapper-title"
                       >
                         <h1>
-                          Contact Information
+                          Contact Information 2
                         </h1>
                       </div>
                       <div
@@ -90288,7 +90288,7 @@ Array [
   grid-column-start: 2;
 }
 
-.emotion-3 .progressbar .nav a:first-child {
+.emotion-3 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -90841,7 +90841,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 1: Getting Started (defa
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -91078,7 +91078,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 2: Person 1 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -91315,7 +91315,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 3: Person 2 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -91552,7 +91552,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info - Nav on
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -91789,7 +91789,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 4: Contact Info 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -92026,7 +92026,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 5: Review 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -92263,7 +92263,7 @@ exports[`Storyshots Marriage Intention/ProgressNav Step 6: Submit 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -94559,7 +94559,7 @@ Array [
                   <div
                     className="fs-l-c"
                   >
-                    Contact Information
+                    Contact Information 3
                     <span
                       className="t--reset"
                     >
@@ -95674,7 +95674,7 @@ Array [
                 <legend
                   className="fs-l"
                 >
-                  Contact Information
+                  Contact Information 1
                 </legend>
                 <div
                   className="txt"
