@@ -16,13 +16,27 @@ import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
 
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
+import CertifiedMail from '../models/CertifiedMail';
+import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
+
 import {
   SECTION_HEADING_STYLING,
   DISCLAIMER_STYLING,
 } from '../common/question-components/styling';
 
-interface Props
-  extends Pick<PageDependencies, 'birthCertificateRequest' | 'siteAnalytics'> {}
+interface PageDependenciesProps
+  extends Pick<
+    PageDependencies,
+    'birthCertificateRequest' | 'siteAnalytics' | 'certMailProvider'
+  > {}
+
+type State = {
+  certMail: CertifiedMail | null;
+};
+
+interface Props extends PageDependenciesProps {
+  certifiedMailForTest?: CertifiedMail;
+}
 
 /**
  * Component which allows a user to review their request, and update the
@@ -32,10 +46,31 @@ interface Props
  * clear all information and start over.
  */
 @observer
-export default class ReviewRequestPage extends Component<Props> {
+export default class ReviewRequestPage extends Component<Props, State> {
+  state: State = { certMail: this.props.certifiedMailForTest || null };
+
+  async componentDidMount() {
+    const { certMailProvider } = this.props;
+
+    // We won’t have an Order until we’re mounted in the browser because it’s
+    // dependent on sessionStorage / localStorage data.
+    const certMail = await certMailProvider.get();
+    await new Promise((resolve: any) => this.setState({ certMail }, resolve));
+  }
+
   public render() {
     const { steps } = this.props.birthCertificateRequest;
     const pageTitle = 'Review your record request';
+
+    const certMailHandler = () => {
+      const { certMail } = this.state;
+
+      if (certMail) {
+        certMail.updateCertMail({
+          requestCertifiedMail: !certMail.certMailInfo.requestCertifiedMail,
+        });
+      }
+    };
 
     return (
       <PageWrapper
@@ -84,6 +119,25 @@ export default class ReviewRequestPage extends Component<Props> {
                 .
               </li>
             </ol>
+
+            <AddRemoveRadioBtn
+              labels={['Add', 'Remove']}
+              name={`CC_AddRemove`}
+              id={`checkoutAddRemove`}
+              action={
+                this.state.certMail &&
+                this.state.certMail.certMailInfo.requestCertifiedMail === true
+                  ? 'remove'
+                  : 'add'
+              }
+              value={
+                this.state.certMail &&
+                this.state.certMail.certMailInfo.requestCertifiedMail === true
+                  ? 1
+                  : 0
+              }
+              onClickHandler={certMailHandler}
+            />
           </div>
         </ReviewCertificateRequest>
       </PageWrapper>

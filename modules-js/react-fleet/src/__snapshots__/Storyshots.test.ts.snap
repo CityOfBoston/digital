@@ -539,6 +539,9 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
     }
   }
 >
+  <h4>
+    State: Disabled
+  </h4>
   <div
     className="emotion-0"
     data-action="add"
@@ -558,11 +561,14 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       <input
         name="CC_AddRemove"
         type="hidden"
-        value={0}
+        value="0"
       />
     </div>
   </div>
   <br />
+  <h4>
+    State: Enabled (default)
+  </h4>
   <div
     className="emotion-0"
     data-action="add"
@@ -581,11 +587,14 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       <input
         name="CC_AddRemove"
         type="hidden"
-        value={0}
+        value="0"
       />
     </div>
   </div>
   <br />
+  <h4>
+    Action: Focused
+  </h4>
   <div
     className="emotion-0"
     data-action="add"
@@ -605,11 +614,14 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       <input
         name="CC_AddRemove"
         type="hidden"
-        value={0}
+        value="0"
       />
     </div>
   </div>
   <br />
+  <h4>
+    Action: Remove
+  </h4>
   <div
     className="emotion-0"
     data-action="remove"
@@ -629,7 +641,7 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       <input
         name="CC_AddRemove"
         type="hidden"
-        value={1}
+        value="1"
       />
     </div>
   </div>

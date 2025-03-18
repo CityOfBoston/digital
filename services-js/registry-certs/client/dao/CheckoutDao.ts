@@ -123,12 +123,14 @@ export default class CheckoutDao {
    */
   submitDeathCertificateCart(
     cart: DeathCertificateCart,
-    order: Order
+    order: Order,
+    tracking: boolean
   ): Promise<string> {
     const orderPromise = submitDeathCertificateOrder(
       this.fetchGraphql,
       cart,
-      order
+      order,
+      tracking
     );
 
     return this.handleOrder(order, orderPromise);
@@ -144,12 +146,14 @@ export default class CheckoutDao {
    */
   submitBirthCertificateRequest(
     birthCertificateRequest: BirthCertificateRequest,
-    order: Order
+    order: Order,
+    tracking: boolean
   ): Promise<string> {
     const orderPromise = submitBirthCertificateOrder(
       this.fetchGraphql,
       birthCertificateRequest,
-      order
+      order,
+      tracking
     );
 
     return this.handleOrder(order, orderPromise);
@@ -167,12 +171,14 @@ export default class CheckoutDao {
    */
   submitMarriageCertificateRequest(
     marriageCertificateRequest: MarriageCertificateRequest,
-    order: Order
+    order: Order,
+    tracking: boolean
   ): Promise<string> {
     const orderPromise = submitMarriageCertificateOrder(
       this.fetchGraphql,
       marriageCertificateRequest,
-      order
+      order,
+      tracking
     );
 
     return this.handleOrder(order, orderPromise);

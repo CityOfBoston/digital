@@ -16870,13 +16870,13 @@ Array [
   font-style: italic;
 }
 
-.emotion-23:after {
+.emotion-24:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-13 {
+.emotion-14 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -16888,19 +16888,19 @@ Array [
   width: 1px;
 }
 
-.emotion-15 {
+.emotion-16 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-22 {
+.emotion-23 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-21 {
+.emotion-22 {
   font-size: 80%;
 }
 
@@ -16924,16 +16924,97 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-24 {
+.emotion-25 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
 
-.emotion-5 ol li {
+.emotion-6 ol li {
   padding-bottom: 0.7em;
 }
 
-.emotion-12 {
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
+}
+
+.emotion-5 .wrapper input[type='radio'] {
+  display: none;
+}
+
+.emotion-5 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
+}
+
+.emotion-5 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5:active .wrapper,
+.emotion-5:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-5[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-5[data-state='disabled']:active .wrapper,
+.emotion-5[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-5[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-5[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-13 {
   border-bottom: 1px solid #e0e0e0;
   border-top: 1px solid #e0e0e0;
   padding-bottom: 0.5em;
@@ -16950,20 +17031,20 @@ Array [
   align-items: center;
 }
 
-.emotion-12 > div:first-of-type {
+.emotion-13 > div:first-of-type {
   -webkit-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
   flex-basis: 25%;
 }
 
-.emotion-8 {
+.emotion-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-6 {
+.emotion-7 {
   -moz-appearance: textfield;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -16971,32 +17052,32 @@ Array [
   flex-grow: 1;
 }
 
-.emotion-6::-webkit-inner-spin-button {
+.emotion-7::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-6 {
+  .emotion-7 {
     width: 70px;
     border-right: 0;
   }
 }
 
-.emotion-7 {
+.emotion-8 {
   display: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-7 {
+  .emotion-8 {
     display: block;
   }
 }
 
-.emotion-7:after {
+.emotion-8:after {
   content: 'Qty';
 }
 
-.emotion-11 {
+.emotion-12 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -17004,12 +17085,12 @@ Array [
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 {
+  .emotion-12 {
     margin-left: 0.75rem;
   }
 }
 
-.emotion-9 {
+.emotion-10 {
   font-style: normal;
   font-weight: bold;
   -webkit-letter-spacing: 1.4px;
@@ -17018,26 +17099,26 @@ Array [
   letter-spacing: 1.4px;
 }
 
-.emotion-10 {
+.emotion-11 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-style: italic;
 }
 
-.emotion-10 > span {
+.emotion-11 > span {
   display: block;
 }
 
-.emotion-18 {
+.emotion-19 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-17:after {
+.emotion-18:after {
   width: 2rem;
 }
 
-.emotion-16 {
+.emotion-17 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -17253,7 +17334,7 @@ Array [
               Review your record request
             </h2>
             <div
-              className="emotion-5"
+              className="emotion-6"
             >
               <p>
                 You can only order copies of one person's birth certificate at a time. Want to order copies of a certificate for another person? Please put in a separate request.
@@ -17275,16 +17356,38 @@ Array [
                   .
                 </li>
               </ol>
+              <div
+                className="emotion-5"
+                data-action="add"
+                id="checkoutAddRemove"
+                onClick={[Function]}
+                tabIndex={0}
+              >
+                <div
+                  className="wrapper"
+                >
+                  <label
+                    data-content-alt="Remove"
+                    data-content-default="Add"
+                    htmlFor="checkoutAddRemove"
+                  />
+                  <input
+                    name="CC_AddRemove"
+                    type="hidden"
+                    value="0"
+                  />
+                </div>
+              </div>
             </div>
             <div
-              className="emotion-12"
+              className="emotion-13"
             >
               <div
-                className="emotion-8"
+                className="emotion-9"
               >
                 <input
                   aria-label="Quantity"
-                  className="txt-f txt-f--auto ta-r emotion-6"
+                  className="txt-f txt-f--auto ta-r emotion-7"
                   min="1"
                   name="quantity"
                   onBlur={[Function]}
@@ -17295,7 +17398,7 @@ Array [
                 />
                 <div
                   aria-hidden="true"
-                  className="sel-c sel-c--sq emotion-7"
+                  className="sel-c sel-c--sq emotion-8"
                 >
                   <select
                     className="sel-f sel-f--sq"
@@ -17367,15 +17470,15 @@ Array [
                 </div>
               </div>
               <div
-                className="t--sans emotion-11"
+                className="t--sans emotion-12"
               >
                 <div
-                  className="emotion-9"
+                  className="emotion-10"
                 >
                   Carol Danvers
                 </div>
                 <div
-                  className="emotion-10"
+                  className="emotion-11"
                 >
                   <span>
                     Birth
@@ -17388,7 +17491,7 @@ Array [
               </div>
             </div>
             <div
-              className="emotion-23"
+              className="emotion-24"
             >
               <table
                 className="t--info ta-r"
@@ -17399,12 +17502,12 @@ Array [
                 }
               >
                 <caption
-                  className="emotion-13"
+                  className="emotion-14"
                 >
                   Cost Summary
                 </caption>
                 <thead
-                  className="emotion-13"
+                  className="emotion-14"
                 >
                   <tr>
                     <th
@@ -17430,7 +17533,7 @@ Array [
                       $14.00
                     </td>
                     <td
-                      className="emotion-15"
+                      className="emotion-16"
                     >
                       $
                       14.00
@@ -17440,14 +17543,14 @@ Array [
                     <td>
                       <div>
                         <div
-                          className="sel sel--thin emotion-18"
+                          className="sel sel--thin emotion-19"
                         >
                           <div
-                            className="sel-c  emotion-17"
+                            className="sel-c  emotion-18"
                           >
                             <select
                               aria-label="Payment type"
-                              className="sel-f emotion-16"
+                              className="sel-f emotion-17"
                               id="serviceFeeTypeSelect"
                               onChange={[Function]}
                               value="CREDIT"
@@ -17477,7 +17580,7 @@ Array [
                       </div>
                     </td>
                     <td
-                      className="emotion-15"
+                      className="emotion-16"
                     >
                       $
                       0.56
@@ -17488,7 +17591,7 @@ Array [
                       U.S. shipping included
                     </td>
                     <td
-                      className="emotion-15"
+                      className="emotion-16"
                     >
                       <i>
                         $0.00
@@ -17497,10 +17600,10 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      className="sh-title emotion-22"
+                      className="sh-title emotion-23"
                     >
                       <span
-                        className="emotion-21"
+                        className="emotion-22"
                       >
                         Total
                       </span>
@@ -17522,7 +17625,7 @@ Array [
                 className="g--9 t--info"
               >
                 <button
-                  className="lnk emotion-24"
+                  className="lnk emotion-25"
                   onClick={[Function]}
                   type="button"
                 >
@@ -50411,6 +50514,87 @@ Array [
   color: #d22d23;
 }
 
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
+}
+
+.emotion-5 .wrapper input[type='radio'] {
+  display: none;
+}
+
+.emotion-5 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
+}
+
+.emotion-5 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5:active .wrapper,
+.emotion-5:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-5[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-5[data-state='disabled']:active .wrapper,
+.emotion-5[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-5[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-5[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -50697,6 +50881,33 @@ Array [
                 </div>
               </div>
             </div>
+            <div>
+              <label>
+                Need A Tracking Number?
+              </label>
+              <div
+                className="emotion-5"
+                data-action="add"
+                id="checkoutAddRemove"
+                onClick={[Function]}
+                tabIndex={0}
+              >
+                <div
+                  className="wrapper"
+                >
+                  <label
+                    data-content-alt="Remove"
+                    data-content-default="Add"
+                    htmlFor="checkoutAddRemove"
+                  />
+                  <input
+                    name="CC_AddRemove"
+                    type="hidden"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -50828,13 +51039,13 @@ Array [
   color: #d22d23;
 }
 
-.emotion-15:after {
+.emotion-16:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-5 {
+.emotion-6 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -50846,32 +51057,113 @@ Array [
   width: 1px;
 }
 
-.emotion-7 {
+.emotion-8 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-14 {
+.emotion-15 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-13 {
+.emotion-14 {
   font-size: 80%;
 }
 
-.emotion-10 {
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
+}
+
+.emotion-5 .wrapper input[type='radio'] {
+  display: none;
+}
+
+.emotion-5 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
+}
+
+.emotion-5 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5:active .wrapper,
+.emotion-5:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-5[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-5[data-state='disabled']:active .wrapper,
+.emotion-5[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-5[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-5[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-11 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-9:after {
+.emotion-10:after {
   width: 2rem;
 }
 
-.emotion-8 {
+.emotion-9 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -51156,11 +51448,38 @@ Array [
                 </div>
               </div>
             </div>
+            <div>
+              <label>
+                Need A Tracking Number?
+              </label>
+              <div
+                className="emotion-5"
+                data-action="add"
+                id="checkoutAddRemove"
+                onClick={[Function]}
+                tabIndex={0}
+              >
+                <div
+                  className="wrapper"
+                >
+                  <label
+                    data-content-alt="Remove"
+                    data-content-default="Add"
+                    htmlFor="checkoutAddRemove"
+                  />
+                  <input
+                    name="CC_AddRemove"
+                    type="hidden"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
             <div
               className="m-t700"
             >
               <div
-                className="emotion-15"
+                className="emotion-16"
               >
                 <table
                   className="t--info ta-r"
@@ -51171,12 +51490,12 @@ Array [
                   }
                 >
                   <caption
-                    className="emotion-5"
+                    className="emotion-6"
                   >
                     Cost Summary
                   </caption>
                   <thead
-                    className="emotion-5"
+                    className="emotion-6"
                   >
                     <tr>
                       <th
@@ -51202,7 +51521,7 @@ Array [
                         $14.00
                       </td>
                       <td
-                        className="emotion-7"
+                        className="emotion-8"
                       >
                         $
                         112.00
@@ -51212,14 +51531,14 @@ Array [
                       <td>
                         <div>
                           <div
-                            className="sel sel--thin emotion-10"
+                            className="sel sel--thin emotion-11"
                           >
                             <div
-                              className="sel-c  emotion-9"
+                              className="sel-c  emotion-10"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="sel-f emotion-8"
+                                className="sel-f emotion-9"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
@@ -51249,7 +51568,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        className="emotion-7"
+                        className="emotion-8"
                       >
                         $
                         2.66
@@ -51260,7 +51579,7 @@ Array [
                         U.S. shipping included
                       </td>
                       <td
-                        className="emotion-7"
+                        className="emotion-8"
                       >
                         <i>
                           $0.00
@@ -51269,10 +51588,10 @@ Array [
                     </tr>
                     <tr>
                       <td
-                        className="sh-title emotion-14"
+                        className="sh-title emotion-15"
                       >
                         <span
-                          className="emotion-13"
+                          className="emotion-14"
                         >
                           Total
                         </span>
@@ -51461,13 +51780,13 @@ Array [
   color: #d22d23;
 }
 
-.emotion-36:after {
+.emotion-37:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-26 {
+.emotion-27 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -51479,20 +51798,101 @@ Array [
   width: 1px;
 }
 
-.emotion-28 {
+.emotion-29 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-35 {
+.emotion-36 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-34 {
+.emotion-35 {
   font-size: 80%;
+}
+
+.emotion-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-26 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
+}
+
+.emotion-26 .wrapper input[type='radio'] {
+  display: none;
+}
+
+.emotion-26 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
+}
+
+.emotion-26 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-26:active .wrapper,
+.emotion-26:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-26:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-26[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-26[data-state='disabled']:active .wrapper,
+.emotion-26[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-26[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-26[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-26[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-26[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-7 {
@@ -51504,16 +51904,16 @@ Array [
   letter-spacing: 1.4px;
 }
 
-.emotion-31 {
+.emotion-32 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-30:after {
+.emotion-31:after {
   width: 2rem;
 }
 
-.emotion-29 {
+.emotion-30 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -52001,11 +52401,38 @@ Array [
                 </div>
               </div>
             </div>
+            <div>
+              <label>
+                Need A Tracking Number?
+              </label>
+              <div
+                className="emotion-26"
+                data-action="add"
+                id="checkoutAddRemove"
+                onClick={[Function]}
+                tabIndex={0}
+              >
+                <div
+                  className="wrapper"
+                >
+                  <label
+                    data-content-alt="Remove"
+                    data-content-default="Add"
+                    htmlFor="checkoutAddRemove"
+                  />
+                  <input
+                    name="CC_AddRemove"
+                    type="hidden"
+                    value="0"
+                  />
+                </div>
+              </div>
+            </div>
             <div
               className="m-t700"
             >
               <div
-                className="emotion-36"
+                className="emotion-37"
               >
                 <table
                   className="t--info ta-r"
@@ -52016,12 +52443,12 @@ Array [
                   }
                 >
                   <caption
-                    className="emotion-26"
+                    className="emotion-27"
                   >
                     Cost Summary
                   </caption>
                   <thead
-                    className="emotion-26"
+                    className="emotion-27"
                   >
                     <tr>
                       <th
@@ -52047,7 +52474,7 @@ Array [
                         $14.00
                       </td>
                       <td
-                        className="emotion-28"
+                        className="emotion-29"
                       >
                         $
                         70.00
@@ -52057,14 +52484,14 @@ Array [
                       <td>
                         <div>
                           <div
-                            className="sel sel--thin emotion-31"
+                            className="sel sel--thin emotion-32"
                           >
                             <div
-                              className="sel-c  emotion-30"
+                              className="sel-c  emotion-31"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="sel-f emotion-29"
+                                className="sel-f emotion-30"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
@@ -52094,7 +52521,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        className="emotion-28"
+                        className="emotion-29"
                       >
                         $
                         1.76
@@ -52105,7 +52532,7 @@ Array [
                         U.S. shipping included
                       </td>
                       <td
-                        className="emotion-28"
+                        className="emotion-29"
                       >
                         <i>
                           $0.00
@@ -52114,10 +52541,10 @@ Array [
                     </tr>
                     <tr>
                       <td
-                        className="sh-title emotion-35"
+                        className="sh-title emotion-36"
                       >
                         <span
-                          className="emotion-34"
+                          className="emotion-35"
                         >
                           Total
                         </span>
@@ -110426,13 +110853,13 @@ Array [
   font-style: italic;
 }
 
-.emotion-23:after {
+.emotion-24:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-13 {
+.emotion-14 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -110444,19 +110871,19 @@ Array [
   width: 1px;
 }
 
-.emotion-15 {
+.emotion-16 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-22 {
+.emotion-23 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-21 {
+.emotion-22 {
   font-size: 80%;
 }
 
@@ -110480,16 +110907,97 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-24 {
+.emotion-25 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
 
-.emotion-5 ol li {
+.emotion-6 ol li {
   padding-bottom: 0.7em;
 }
 
-.emotion-12 {
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
+}
+
+.emotion-5 .wrapper input[type='radio'] {
+  display: none;
+}
+
+.emotion-5 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
+}
+
+.emotion-5 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5:active .wrapper,
+.emotion-5:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-5[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-5[data-state='disabled']:active .wrapper,
+.emotion-5[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-5[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-5[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-5[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-5[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-13 {
   border-bottom: 1px solid #e0e0e0;
   border-top: 1px solid #e0e0e0;
   padding-bottom: 0.5em;
@@ -110506,20 +111014,20 @@ Array [
   align-items: center;
 }
 
-.emotion-12 > div:first-of-type {
+.emotion-13 > div:first-of-type {
   -webkit-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
   flex-basis: 25%;
 }
 
-.emotion-8 {
+.emotion-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-6 {
+.emotion-7 {
   -moz-appearance: textfield;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -110527,32 +111035,32 @@ Array [
   flex-grow: 1;
 }
 
-.emotion-6::-webkit-inner-spin-button {
+.emotion-7::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-6 {
+  .emotion-7 {
     width: 70px;
     border-right: 0;
   }
 }
 
-.emotion-7 {
+.emotion-8 {
   display: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-7 {
+  .emotion-8 {
     display: block;
   }
 }
 
-.emotion-7:after {
+.emotion-8:after {
   content: 'Qty';
 }
 
-.emotion-11 {
+.emotion-12 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -110560,12 +111068,12 @@ Array [
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 {
+  .emotion-12 {
     margin-left: 0.75rem;
   }
 }
 
-.emotion-9 {
+.emotion-10 {
   font-style: normal;
   font-weight: bold;
   -webkit-letter-spacing: 1.4px;
@@ -110574,26 +111082,26 @@ Array [
   letter-spacing: 1.4px;
 }
 
-.emotion-10 {
+.emotion-11 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-style: italic;
 }
 
-.emotion-10 > span {
+.emotion-11 > span {
   display: block;
 }
 
-.emotion-18 {
+.emotion-19 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-17:after {
+.emotion-18:after {
   width: 2rem;
 }
 
-.emotion-16 {
+.emotion-17 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -110819,7 +111327,7 @@ Array [
               Review your record request
             </h2>
             <div
-              className="emotion-5"
+              className="emotion-6"
             >
               <p>
                 You can only order copies of a marriage certificate for one couple at a time. Want to order copies of a certificate for a different marriage? Please put in a separate request.
@@ -110841,16 +111349,38 @@ Array [
                   .
                 </li>
               </ol>
+              <div
+                className="emotion-5"
+                data-action="add"
+                id="checkoutAddRemove"
+                onClick={[Function]}
+                tabIndex={0}
+              >
+                <div
+                  className="wrapper"
+                >
+                  <label
+                    data-content-alt="Remove"
+                    data-content-default="Add"
+                    htmlFor="checkoutAddRemove"
+                  />
+                  <input
+                    name="CC_AddRemove"
+                    type="hidden"
+                    value="0"
+                  />
+                </div>
+              </div>
             </div>
             <div
-              className="emotion-12"
+              className="emotion-13"
             >
               <div
-                className="emotion-8"
+                className="emotion-9"
               >
                 <input
                   aria-label="Quantity"
-                  className="txt-f txt-f--auto ta-r emotion-6"
+                  className="txt-f txt-f--auto ta-r emotion-7"
                   min="1"
                   name="quantity"
                   onBlur={[Function]}
@@ -110861,7 +111391,7 @@ Array [
                 />
                 <div
                   aria-hidden="true"
-                  className="sel-c sel-c--sq emotion-7"
+                  className="sel-c sel-c--sq emotion-8"
                 >
                   <select
                     className="sel-f sel-f--sq"
@@ -110933,15 +111463,15 @@ Array [
                 </div>
               </div>
               <div
-                className="t--sans emotion-11"
+                className="t--sans emotion-12"
               >
                 <div
-                  className="emotion-9"
+                  className="emotion-10"
                 >
                   Laurel Johnson (Laurel Smith) & Terry Johnson (Terry Doe)
                 </div>
                 <div
-                  className="emotion-10"
+                  className="emotion-11"
                 >
                   <span>
                     Marriage
@@ -110954,7 +111484,7 @@ Array [
               </div>
             </div>
             <div
-              className="emotion-23"
+              className="emotion-24"
             >
               <table
                 className="t--info ta-r"
@@ -110965,12 +111495,12 @@ Array [
                 }
               >
                 <caption
-                  className="emotion-13"
+                  className="emotion-14"
                 >
                   Cost Summary
                 </caption>
                 <thead
-                  className="emotion-13"
+                  className="emotion-14"
                 >
                   <tr>
                     <th
@@ -110996,7 +111526,7 @@ Array [
                       $14.00
                     </td>
                     <td
-                      className="emotion-15"
+                      className="emotion-16"
                     >
                       $
                       14.00
@@ -111006,14 +111536,14 @@ Array [
                     <td>
                       <div>
                         <div
-                          className="sel sel--thin emotion-18"
+                          className="sel sel--thin emotion-19"
                         >
                           <div
-                            className="sel-c  emotion-17"
+                            className="sel-c  emotion-18"
                           >
                             <select
                               aria-label="Payment type"
-                              className="sel-f emotion-16"
+                              className="sel-f emotion-17"
                               id="serviceFeeTypeSelect"
                               onChange={[Function]}
                               value="CREDIT"
@@ -111043,7 +111573,7 @@ Array [
                       </div>
                     </td>
                     <td
-                      className="emotion-15"
+                      className="emotion-16"
                     >
                       $
                       0.56
@@ -111054,7 +111584,7 @@ Array [
                       U.S. shipping included
                     </td>
                     <td
-                      className="emotion-15"
+                      className="emotion-16"
                     >
                       <i>
                         $0.00
@@ -111063,10 +111593,10 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      className="sh-title emotion-22"
+                      className="sh-title emotion-23"
                     >
                       <span
-                        className="emotion-21"
+                        className="emotion-22"
                       >
                         Total
                       </span>
@@ -111088,7 +111618,7 @@ Array [
                 className="g--9 t--info"
               >
                 <button
-                  className="lnk emotion-24"
+                  className="lnk emotion-25"
                   onClick={[Function]}
                   type="button"
                 >

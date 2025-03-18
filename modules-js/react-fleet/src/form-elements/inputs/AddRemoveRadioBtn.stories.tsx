@@ -20,6 +20,7 @@ storiesOf('Form Elements | Checkout / Add-Remove', module)
   .addDecorator(withKnobs)
   .add('variants', () => (
     <>
+      <h4>State: Disabled</h4>
       <AddRemoveRadioBtn
         labels={['Add', 'Remove']}
         name={`CC_AddRemove`}
@@ -32,6 +33,7 @@ storiesOf('Form Elements | Checkout / Add-Remove', module)
 
       <br />
 
+      <h4>State: Enabled (default)</h4>
       <AddRemoveRadioBtn
         labels={['Add', 'Remove']}
         name={`CC_AddRemove`}
@@ -43,6 +45,7 @@ storiesOf('Form Elements | Checkout / Add-Remove', module)
 
       <br />
 
+      <h4>Action: Focused</h4>
       <AddRemoveRadioBtn
         labels={['Add', 'Remove']}
         name={`CC_AddRemove`}
@@ -55,6 +58,7 @@ storiesOf('Form Elements | Checkout / Add-Remove', module)
 
       <br />
 
+      <h4>Action: Remove</h4>
       <AddRemoveRadioBtn
         labels={['Add', 'Remove']}
         name={`CC_AddRemove`}

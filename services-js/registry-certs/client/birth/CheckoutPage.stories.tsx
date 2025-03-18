@@ -7,6 +7,7 @@ import CheckoutDao from '../dao/CheckoutDao';
 import Order, { OrderInfo } from '../models/Order';
 import OrderProvider from '../store/OrderProvider';
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
+import CertMailProvider from '../store/CertifiedMailProvider';
 
 import CheckoutPage from './CheckoutPage';
 
@@ -87,6 +88,7 @@ storiesOf('Birth/CheckoutPage', module)
       stripe={makeStripe()}
       // This never resolves, so we just get the initial render.
       orderProvider={{ get: () => new Promise(() => {}) } as any}
+      certMailProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('no birth certificate request', () => (
@@ -98,6 +100,7 @@ storiesOf('Birth/CheckoutPage', module)
       stripe={makeStripe()}
       // This never resolves, so we just get the initial render.
       orderProvider={new OrderProvider()}
+      certMailProvider={new CertMailProvider()}
       orderForTest={new Order()}
     />
   ))
@@ -109,6 +112,7 @@ storiesOf('Birth/CheckoutPage', module)
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
+      certMailProvider={new CertMailProvider()}
       orderForTest={new Order()}
     />
   ))
@@ -120,6 +124,7 @@ storiesOf('Birth/CheckoutPage', module)
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
+      certMailProvider={new CertMailProvider()}
       orderForTest={makeShippingCompleteOrder()}
     />
   ))
@@ -131,6 +136,7 @@ storiesOf('Birth/CheckoutPage', module)
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
+      certMailProvider={new CertMailProvider()}
       orderForTest={makeBillingCompleteOrder()}
     />
   ))
@@ -147,6 +153,7 @@ storiesOf('Birth/CheckoutPage', module)
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
+      certMailProvider={new CertMailProvider()}
       orderForTest={new Order()}
     />
   ));

@@ -8,6 +8,8 @@ import OrderProvider from '../../store/OrderProvider';
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import Order from '../../models/Order';
+import CertifiedMail from '../../models/CertifiedMail';
+import CertMailProvider from '../../store/CertifiedMailProvider';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -70,6 +72,7 @@ describe('rendering', () => {
       deathCertificateCart: new DeathCertificateCart(),
       checkoutDao: {} as any,
       orderProvider: new OrderProvider(),
+      certMailProvider: new CertMailProvider(),
       siteAnalytics: new GaSiteAnalytics(),
       stripe: null,
     };
@@ -83,6 +86,7 @@ describe('rendering', () => {
 
     page.state = {
       order: new Order(),
+      certMail: new CertifiedMail(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -96,6 +100,7 @@ describe('rendering', () => {
 
     page.state = {
       order: new Order(),
+      certMail: new CertifiedMail(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -109,6 +114,7 @@ describe('rendering', () => {
 
     page.state = {
       order: new Order(),
+      certMail: new CertifiedMail(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -126,6 +132,7 @@ describe('rendering', () => {
 
     page.state = {
       order: new Order(),
+      certMail: new CertifiedMail(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -135,6 +142,7 @@ describe('rendering', () => {
 describe('operations', () => {
   let checkoutDao: CheckoutDao;
   let orderProvider: OrderProvider;
+  let certMailProvider: CertMailProvider;
   let component: CheckoutPage;
   let scrollSpy;
 
@@ -143,6 +151,10 @@ describe('operations', () => {
 
     orderProvider = new OrderProvider();
     orderProvider.attach(null, null);
+
+    certMailProvider = new CertMailProvider();
+    certMailProvider.attach(null, null);
+
     checkoutDao = new CheckoutDao(null as any, null);
 
     // page doesn't really matter for this
@@ -153,11 +165,13 @@ describe('operations', () => {
 
       info: { page: 'shipping' },
       orderProvider,
+      certMailProvider,
       checkoutDao,
     });
 
     component.state = {
       order: await orderProvider.get(),
+      certMail: await certMailProvider.get(),
     };
 
     // Keeps us from setting state in the order succes case, since it will fail

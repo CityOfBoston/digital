@@ -5,7 +5,7 @@ import hash from 'string-hash';
 type Props = {
   labels: [string, string] | ['Add', 'Remove'];
   name?: string;
-  value: number;
+  value: 0 | 1 | true | false;
   id?: string;
   state?: 'default' | 'disabled' | 'focused';
   action?: 'add' | 'remove';
@@ -33,7 +33,7 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
           data-content-default={labels[0]}
           data-content-alt={labels[1]}
         />
-        <input type="hidden" name={elemName} value={value} />
+        <input type="hidden" name={elemName} value={`${value}`} />
       </div>
     </div>
   );

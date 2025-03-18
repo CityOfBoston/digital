@@ -4,6 +4,8 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
 
+import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
+
 import { PageDependencies } from '../../../pages/_app';
 
 import PageLayout from '../../PageLayout';
@@ -14,11 +16,31 @@ import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
 import { ServiceFeeDisclosure } from '../../common/FeeDisclosures';
 
-interface Props
-  extends Pick<PageDependencies, 'deathCertificateCart' | 'siteAnalytics'> {}
+import CertifiedMail from '../../models/CertifiedMail';
+
+export type PageDependenciesProps = Pick<
+  PageDependencies,
+  'deathCertificateCart' | 'certMailProvider' | 'siteAnalytics'
+>;
+
+type State = {
+  /**
+   * This will be null on the server and during the first client render.
+   */
+  certMail: CertifiedMail | null;
+};
+
+interface Props extends PageDependenciesProps {
+  certifiedMailForTest?: CertifiedMail;
+}
+
+// interface Props extends Props
 
 @observer
-class CartPage extends React.Component<Props> {
+class CartPage extends React.Component<Props, State> {
+  // state: State = { certMail: this.props.certifiedMailForTest || null };
+  state: State = { certMail: this.props.certifiedMailForTest || null };
+
   // When we leave the cart page, remove everything that's 0-size.
   componentWillUnmount = action(
     'CartPageController componentWillUnmount',
@@ -28,10 +50,28 @@ class CartPage extends React.Component<Props> {
     }
   );
 
+  async componentDidMount() {
+    const { certMailProvider } = this.props;
+
+    // We won’t have an Order until we’re mounted in the browser because it’s
+    // dependent on sessionStorage / localStorage data.
+    const certMail = await certMailProvider.get();
+    await new Promise((resolve: any) => this.setState({ certMail }, resolve));
+  }
+
   render() {
     const { deathCertificateCart, siteAnalytics } = this.props;
-
     const loading = !!deathCertificateCart.entries.find(({ cert }) => !cert);
+
+    const certMailHandler = () => {
+      const { certMail } = this.state;
+
+      if (certMail) {
+        certMail.updateCertMail({
+          requestCertifiedMail: !certMail.certMailInfo.requestCertifiedMail,
+        });
+      }
+    };
 
     return (
       <PageLayout
@@ -83,6 +123,29 @@ class CartPage extends React.Component<Props> {
                   </div>
                 )}
               </div>
+            </div>
+
+            <div>
+              <label>Need A Tracking Number?</label>
+
+              <AddRemoveRadioBtn
+                labels={['Add', 'Remove']}
+                name={`CC_AddRemove`}
+                id={`checkoutAddRemove`}
+                action={
+                  this.state.certMail &&
+                  this.state.certMail.certMailInfo.requestCertifiedMail === true
+                    ? 'remove'
+                    : 'add'
+                }
+                value={
+                  this.state.certMail &&
+                  this.state.certMail.certMailInfo.requestCertifiedMail === true
+                    ? 1
+                    : 0
+                }
+                onClickHandler={certMailHandler}
+              />
             </div>
 
             {deathCertificateCart.entries.length > 0 && (
