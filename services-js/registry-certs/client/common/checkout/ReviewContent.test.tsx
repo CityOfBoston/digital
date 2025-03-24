@@ -25,6 +25,7 @@ describe('submitting', () => {
         certificateType="death"
         deathCertificateCart={cart}
         submit={submit}
+        tracking={true}
       />
     );
   });

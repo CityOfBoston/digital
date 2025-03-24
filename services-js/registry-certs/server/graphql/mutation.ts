@@ -143,6 +143,7 @@ export interface Mutation extends ResolvableWith<{}> {
     billingZip: string;
 
     items: DeathCertificateOrderItemInput[];
+    tracking: boolean;
     idempotencyKey: string;
   }): OrderResult;
 
@@ -241,6 +242,7 @@ export interface Mutation extends ResolvableWith<{}> {
     billingZip: string;
 
     item: BirthCertificateOrderItemInput;
+    tracking: boolean;
 
     idempotencyKey: string;
   }): OrderResult;
@@ -270,6 +272,7 @@ export interface Mutation extends ResolvableWith<{}> {
     billingZip: string;
 
     item: MarriageCertificateOrderItemInput;
+    tracking: boolean;
 
     idempotencyKey: string;
   }): OrderResult;
@@ -324,6 +327,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       billingZip,
 
       items,
+      tracking,
       idempotencyKey,
     } = args;
 
@@ -354,30 +358,35 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const orderId = makeOrderId(OrderType.DeathCertificate);
     const orderDate = new Date();
 
-    const orderKey = await registryDb.addOrder(OrderType.DeathCertificate, {
-      orderID: orderId,
-      orderDate,
-      contactName,
-      contactEmail,
-      confirmContactEmail,
-      contactPhone,
-      shippingName,
-      shippingCompany: shippingCompanyName,
-      shippingAddr1: shippingAddress1,
-      shippingAddr2: shippingAddress2,
-      shippingCity,
-      shippingState,
-      shippingZIP: shippingZip,
-      billingName: cardholderName,
-      billingAddr1: billingAddress1,
-      billingAddr2: billingAddress2,
-      billingCity,
-      billingState,
-      billingZIP: billingZip,
-      billingLast4: cardLast4,
-      serviceFee: serviceFee / 100,
-      idempotencyKey,
-    });
+    const orderKey = await registryDb.addOrder(
+      OrderType.DeathCertificate,
+      tracking,
+      {
+        orderID: orderId,
+        orderDate,
+        contactName,
+        contactEmail,
+        confirmContactEmail,
+        contactPhone,
+        shippingName,
+        shippingCompany: shippingCompanyName,
+        shippingAddr1: shippingAddress1,
+        shippingAddr2: shippingAddress2,
+        shippingCity,
+        shippingState,
+        shippingZIP: shippingZip,
+        billingName: cardholderName,
+        billingAddr1: billingAddress1,
+        billingAddr2: billingAddress2,
+        billingCity,
+        billingState,
+        billingZIP: billingZip,
+        billingLast4: cardLast4,
+        serviceFee: serviceFee / 100,
+        idempotencyKey,
+        // tracking,
+      }
+    );
 
     await Promise.all(
       items.map(({ id, name, quantity }) =>
@@ -601,6 +610,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       billingZip,
 
       item,
+      tracking,
 
       idempotencyKey,
     } = args;
@@ -622,30 +632,35 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const orderId = makeOrderId(OrderType.BirthCertificate);
     const orderDate = new Date();
 
-    const orderKey = await registryDb.addOrder(OrderType.BirthCertificate, {
-      orderID: orderId,
-      orderDate,
-      contactName,
-      contactEmail,
-      confirmContactEmail,
-      contactPhone,
-      shippingName,
-      shippingCompany: shippingCompanyName,
-      shippingAddr1: shippingAddress1,
-      shippingAddr2: shippingAddress2,
-      shippingCity,
-      shippingState,
-      shippingZIP: shippingZip,
-      billingName: cardholderName,
-      billingAddr1: billingAddress1,
-      billingAddr2: billingAddress2,
-      billingCity,
-      billingState,
-      billingZIP: billingZip,
-      billingLast4: cardLast4,
-      serviceFee: serviceFee / 100,
-      idempotencyKey,
-    });
+    const orderKey = await registryDb.addOrder(
+      OrderType.BirthCertificate,
+      tracking,
+      {
+        orderID: orderId,
+        orderDate,
+        contactName,
+        contactEmail,
+        confirmContactEmail,
+        contactPhone,
+        shippingName,
+        shippingCompany: shippingCompanyName,
+        shippingAddr1: shippingAddress1,
+        shippingAddr2: shippingAddress2,
+        shippingCity,
+        shippingState,
+        shippingZIP: shippingZip,
+        billingName: cardholderName,
+        billingAddr1: billingAddress1,
+        billingAddr2: billingAddress2,
+        billingCity,
+        billingState,
+        billingZIP: billingZip,
+        billingLast4: cardLast4,
+        serviceFee: serviceFee / 100,
+        idempotencyKey,
+        // tracking,
+      }
+    );
 
     const requestItemKey = await registryDb.addBirthCertificateRequest(
       orderKey,
@@ -731,6 +746,7 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       billingZip,
 
       item,
+      tracking,
 
       idempotencyKey,
     } = args;
@@ -752,30 +768,35 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const orderId = makeOrderId(OrderType.MarriageCertificate);
     const orderDate = new Date();
 
-    const orderKey = await registryDb.addOrder(OrderType.MarriageCertificate, {
-      orderID: orderId,
-      orderDate,
-      contactName,
-      contactEmail,
-      confirmContactEmail,
-      contactPhone,
-      shippingName,
-      shippingCompany: shippingCompanyName,
-      shippingAddr1: shippingAddress1,
-      shippingAddr2: shippingAddress2,
-      shippingCity,
-      shippingState,
-      shippingZIP: shippingZip,
-      billingName: cardholderName,
-      billingAddr1: billingAddress1,
-      billingAddr2: billingAddress2,
-      billingCity,
-      billingState,
-      billingZIP: billingZip,
-      billingLast4: cardLast4,
-      serviceFee: serviceFee / 100,
-      idempotencyKey,
-    });
+    const orderKey = await registryDb.addOrder(
+      OrderType.MarriageCertificate,
+      tracking,
+      {
+        orderID: orderId,
+        orderDate,
+        contactName,
+        contactEmail,
+        confirmContactEmail,
+        contactPhone,
+        shippingName,
+        shippingCompany: shippingCompanyName,
+        shippingAddr1: shippingAddress1,
+        shippingAddr2: shippingAddress2,
+        shippingCity,
+        shippingState,
+        shippingZIP: shippingZip,
+        billingName: cardholderName,
+        billingAddr1: billingAddress1,
+        billingAddr2: billingAddress2,
+        billingCity,
+        billingState,
+        billingZIP: billingZip,
+        billingLast4: cardLast4,
+        serviceFee: serviceFee / 100,
+        idempotencyKey,
+        // tracking,
+      }
+    );
 
     const requestItemKey = await registryDb.addMarriageCertificateRequest(
       orderKey,

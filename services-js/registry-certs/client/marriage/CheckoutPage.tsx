@@ -9,6 +9,7 @@ import { getParam } from '@cityofboston/next-client-common';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
+import CertifiedMail from '../models/CertifiedMail';
 
 import ShippingContent from '../common/checkout/ShippingContent';
 import PaymentContent from '../common/checkout/PaymentContent';
@@ -39,11 +40,16 @@ interface InitialProps {
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
-  'marriageCertificateRequest' | 'orderProvider' | 'checkoutDao' | 'stripe'
+  | 'marriageCertificateRequest'
+  | 'orderProvider'
+  | 'certMailProvider'
+  | 'checkoutDao'
+  | 'stripe'
 >;
 
 interface Props extends InitialProps, PageDependenciesProps {
   orderForTest?: Order;
+  certifiedMailForTest?: CertifiedMail;
 }
 
 type State = {
@@ -51,6 +57,7 @@ type State = {
    * This will be null on the server and during the first client render.
    */
   order: Order | null;
+  certMail: CertifiedMail | null;
 };
 
 @observer
@@ -101,11 +108,12 @@ export default class MarriageCheckoutPage extends React.Component<
 
     this.state = {
       order: props.orderForTest || null,
+      certMail: this.props.certifiedMailForTest || null,
     };
   }
 
   async componentDidMount() {
-    const { orderProvider } = this.props;
+    const { orderProvider, certMailProvider } = this.props;
 
     if (this.state.order) {
       return;
@@ -114,8 +122,11 @@ export default class MarriageCheckoutPage extends React.Component<
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
+    const certMail = await certMailProvider.get();
 
-    await new Promise((resolve: any) => this.setState({ order }, resolve));
+    await new Promise((resolve: any) =>
+      this.setState({ order, certMail }, resolve)
+    );
   }
 
   advanceToPayment = async (shippingInfo: Partial<OrderInfo>) => {
@@ -170,7 +181,7 @@ export default class MarriageCheckoutPage extends React.Component<
       orderProvider,
     } = this.props;
 
-    const { order } = this.state;
+    const { order, certMail } = this.state;
 
     if (!order) {
       return;
@@ -179,7 +190,8 @@ export default class MarriageCheckoutPage extends React.Component<
     const stepCount = marriageCertificateRequest.steps.length;
     const orderId = await checkoutDao.submitMarriageCertificateRequest(
       marriageCertificateRequest,
-      order
+      order,
+      certMail ? certMail.certMailInfo.requestCertifiedMail : false
     );
 
     const confirmationUrl = `/marriage/checkout?page=confirmation&orderId=${encodeURIComponent(
@@ -224,7 +236,7 @@ export default class MarriageCheckoutPage extends React.Component<
 
   render() {
     const { info, marriageCertificateRequest, stripe } = this.props;
-    const { order } = this.state;
+    const { order, certMail } = this.state;
 
     // We short-circuit here because the confirmation page doesn’t need an order
     // or a complete birth certificate request.
@@ -304,6 +316,9 @@ export default class MarriageCheckoutPage extends React.Component<
             certificateType="marriage"
             marriageCertificateRequest={marriageCertificateRequest}
             order={order}
+            tracking={
+              certMail ? certMail.certMailInfo.requestCertifiedMail : false
+            }
             submit={this.submitOrder}
             progress={{
               currentStep:

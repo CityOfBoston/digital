@@ -15,6 +15,7 @@ import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import Order from '../../models/Order';
+// import CertifiedMail from '../../models/CertifiedMail';
 
 import CostSummary from '../CostSummary';
 import { OrderErrorCause } from '../../queries/graphql-types';
@@ -26,6 +27,8 @@ import RenderOrderDetails from './OrderDetails';
 export type Props = {
   submit: (cardElement?: stripe.elements.Element) => Promise<void>;
   order: Order;
+  // tracking: CertifiedMail;
+  tracking: boolean;
   showErrorsForTest?: boolean;
   testSubmissionError?: SubmissionError;
 } & (

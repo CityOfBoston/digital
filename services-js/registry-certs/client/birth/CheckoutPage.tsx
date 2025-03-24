@@ -9,6 +9,7 @@ import { getParam } from '@cityofboston/next-client-common';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
+import CertifiedMail from '../models/CertifiedMail';
 import { CERTIFICATE_COST } from '../../lib/costs';
 
 import ShippingContent from '../common/checkout/ShippingContent';
@@ -45,12 +46,14 @@ export type PageDependenciesProps = Pick<
   | 'birthCertificateRequest'
   | 'siteAnalytics'
   | 'orderProvider'
+  | 'certMailProvider'
   | 'checkoutDao'
   | 'stripe'
 >;
 
 interface Props extends InitialProps, PageDependenciesProps {
   orderForTest?: Order;
+  certifiedMailForTest?: CertifiedMail;
 }
 
 type State = {
@@ -58,6 +61,7 @@ type State = {
    * This will be null on the server and during the first client render.
    */
   order: Order | null;
+  certMail: CertifiedMail | null;
 };
 
 @observer
@@ -105,13 +109,14 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
 
     this.state = {
       order: props.orderForTest || null,
+      certMail: this.props.certifiedMailForTest || null,
     };
   }
 
   async componentDidMount() {
     this.reportCheckoutStep(this.props);
 
-    const { orderProvider } = this.props;
+    const { orderProvider, certMailProvider } = this.props;
 
     if (this.state.order) {
       return;
@@ -120,7 +125,10 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
-    await new Promise((resolve: any) => this.setState({ order }, resolve));
+    const certMail = await certMailProvider.get();
+    await new Promise((resolve: any) =>
+      this.setState({ order, certMail }, resolve)
+    );
   }
 
   componentWillReceiveProps(newProps: Props) {
@@ -203,7 +211,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
       orderProvider,
     } = this.props;
 
-    const { order } = this.state;
+    const { order, certMail } = this.state;
 
     if (!order) {
       return;
@@ -213,7 +221,8 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
 
     const orderId = await checkoutDao.submitBirthCertificateRequest(
       birthCertificateRequest,
-      order
+      order,
+      certMail ? certMail.certMailInfo.requestCertifiedMail : false
     );
 
     const confirmationUrl = `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
@@ -297,7 +306,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
 
   render() {
     const { info, birthCertificateRequest, stripe } = this.props;
-    const { order } = this.state;
+    const { order, certMail } = this.state;
 
     // We short-circuit here because the confirmation page doesn’t need an order
     // or a complete birth certificate request.
@@ -375,6 +384,9 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
             certificateType="birth"
             birthCertificateRequest={birthCertificateRequest}
             order={order}
+            tracking={
+              certMail ? certMail.certMailInfo.requestCertifiedMail : false
+            }
             submit={this.submitOrder}
             progress={{
               currentStep:

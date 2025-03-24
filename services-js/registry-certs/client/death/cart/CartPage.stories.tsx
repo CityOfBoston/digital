@@ -5,6 +5,7 @@ import { runInAction } from 'mobx';
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
+import CertMailProvider from '../../store/CertifiedMailProvider';
 
 import CartPage from './CartPage';
 
@@ -47,17 +48,20 @@ storiesOf('Death/CartPage', module)
     <CartPage
       deathCertificateCart={makeCart(true)}
       siteAnalytics={new GaSiteAnalytics()}
+      certMailProvider={new CertMailProvider()}
     />
   ))
   .add('normal page', () => (
     <CartPage
       deathCertificateCart={makeCart(false)}
       siteAnalytics={new GaSiteAnalytics()}
+      certMailProvider={new CertMailProvider()}
     />
   ))
   .add('empty cart', () => (
     <CartPage
       deathCertificateCart={new DeathCertificateCart()}
       siteAnalytics={new GaSiteAnalytics()}
+      certMailProvider={new CertMailProvider()}
     />
   ));

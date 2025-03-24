@@ -17,6 +17,7 @@ storiesOf('Common Components/Checkout/CheckoutPage', module).add(
       stripe={null}
       // This never resolves, so we just get the initial render.
       orderProvider={{ get: () => new Promise(() => {}) } as any}
+      certMailProvider={{ get: () => new Promise(() => {}) } as any}
     />
   )
 );

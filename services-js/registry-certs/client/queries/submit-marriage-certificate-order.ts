@@ -32,6 +32,7 @@ const QUERY = gql`
     $billingState: String!
     $billingZip: String!
     $item: MarriageCertificateOrderItemInput!
+    $tracking: Boolean!
     $idempotencyKey: String!
   ) {
     submitMarriageCertificateOrder(
@@ -55,6 +56,7 @@ const QUERY = gql`
       billingState: $billingState
       billingZip: $billingZip
       item: $item
+      tracking: $tracking
       idempotencyKey: $idempotencyKey
     ) {
       order {
@@ -71,7 +73,8 @@ const QUERY = gql`
 export default async function submitMarriageCertificateOrder(
   fetchGraphql: FetchGraphql,
   marriageCertificateRequest: MarriageCertificateRequest,
-  order: Order
+  order: Order,
+  tracking: boolean
 ): Promise<MarriageCertificateOrderResult> {
   const {
     info: {
@@ -174,6 +177,7 @@ ${filedInBoston === 'unknown' ? '*Unsure if filed in Boston*' : ''}
       requestDetails,
       // customerNotes: customerNotes || '',
     },
+    tracking,
     idempotencyKey,
   };
 

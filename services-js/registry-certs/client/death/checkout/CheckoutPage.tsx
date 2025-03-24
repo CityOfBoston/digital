@@ -8,6 +8,7 @@ import { getParam } from '@cityofboston/next-client-common';
 
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import Order, { OrderInfo } from '../../models/Order';
+import CertifiedMail from '../../models/CertifiedMail';
 
 import { CERTIFICATE_COST } from '../../../lib/costs';
 
@@ -44,12 +45,14 @@ export type PageDependenciesProps = Pick<
   | 'deathCertificateCart'
   | 'siteAnalytics'
   | 'orderProvider'
+  | 'certMailProvider'
   | 'checkoutDao'
   | 'stripe'
 >;
 
 interface Props extends InitialProps, PageDependenciesProps {
   orderForTest?: Order;
+  certifiedMailForTest?: CertifiedMail;
 }
 
 type State = {
@@ -57,6 +60,7 @@ type State = {
    * This will be null on the server and during the first client render.
    */
   order: Order | null;
+  certMail: CertifiedMail | null;
 };
 
 @observer
@@ -66,6 +70,7 @@ export default class CheckoutPageController extends React.Component<
 > {
   state: State = {
     order: this.props.orderForTest || null,
+    certMail: this.props.certifiedMailForTest || null,
   };
 
   static getInitialProps: GetInitialProps<InitialProps, 'query'> = ({
@@ -104,12 +109,16 @@ export default class CheckoutPageController extends React.Component<
   async componentDidMount() {
     this.reportCheckoutStep(this.props);
 
-    const { orderProvider } = this.props;
+    const { orderProvider, certMailProvider } = this.props;
 
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
-    await new Promise((resolve: any) => this.setState({ order }, resolve));
+    const certMail = await certMailProvider.get();
+    // await new Promise((resolve: any) => this.setState({ order }, resolve));
+    await new Promise((resolve: any) =>
+      this.setState({ order, certMail }, resolve)
+    );
   }
 
   componentWillReceiveProps(newProps: Props) {
@@ -187,9 +196,10 @@ export default class CheckoutPageController extends React.Component<
       checkoutDao,
       siteAnalytics,
       orderProvider,
+      // certMailProvider,
     } = this.props;
 
-    const { order } = this.state;
+    const { order, certMail } = this.state;
 
     if (!order) {
       return;
@@ -197,7 +207,8 @@ export default class CheckoutPageController extends React.Component<
 
     const orderId = await checkoutDao.submitDeathCertificateCart(
       deathCertificateCart,
-      order
+      order,
+      certMail ? certMail.certMailInfo.requestCertifiedMail : false
     );
 
     deathCertificateCart.trackCartItems();
@@ -214,9 +225,11 @@ export default class CheckoutPageController extends React.Component<
 
     deathCertificateCart.clear();
     orderProvider.clear();
+    // certMailProvider.clear();
 
     this.setState({
       order: await orderProvider.get(),
+      // certMail: await certMailProvider.get(),
     });
 
     await Router.push(
@@ -231,7 +244,9 @@ export default class CheckoutPageController extends React.Component<
 
   render() {
     const { info, deathCertificateCart, stripe } = this.props;
-    const { order } = this.state;
+    const { order, certMail } = this.state;
+
+    // console.log(`certifiedMail | certMail: `, certMail);
 
     // This happens during server side rendering
     if (!order) {
@@ -267,6 +282,9 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.submitOrder}
+            tracking={
+              certMail ? certMail.certMailInfo.requestCertifiedMail : false
+            }
           />
         );
 
