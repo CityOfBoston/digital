@@ -13,7 +13,7 @@ storiesOf('Form Elements | Checkout / SelectDropdown', module)
     <RegistryCCSelectDropDown
       label={'Service fee'}
       options={[
-        { value: '-1', label: 'select card' },
+        { value: '-1', label: 'Select card' },
         { value: '0', label: 'credit card' },
         { value: '1', label: 'debit card' },
       ]}

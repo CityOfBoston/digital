@@ -7,10 +7,6 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import AddRemoveRadioBtn from './AddRemoveRadioBtn';
 
-// interface Props {
-//     clickHandler?: any;
-// }
-
 const clickHandler = (key: number = 0): void => {
   console.log(`Step Click: #${key}`);
 };
