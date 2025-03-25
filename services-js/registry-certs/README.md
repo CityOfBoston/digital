@@ -91,6 +91,7 @@ https://registry.boston.gov/birth
   * Create 'Add/Remove' Component - Global change across all Registry Certificate workflows
   * Connect new certified mail quantity component to back end DB
   * Create Quantity Component - Global change across all Registry Certificate workflows
+  * External Link Component (UI/UX)
 
 ## Useful CMDs
 

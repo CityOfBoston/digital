@@ -27,12 +27,20 @@ export default function RegistryCCSelectDropDown(props: Props): JSX.Element {
 
   const opts = (options: Options[]) => {
     return options.map((option: { value: string; label: React.ReactNode }) => {
-      return <option value={option.value}>{option.label}</option>;
+      return (
+        <option value={option.value} key={`${id}_${option.label}`}>
+          {option.label}
+        </option>
+      );
     });
   };
 
   return (
-    <span css={CS_SELECT} className="labeled-select">
+    <span
+      css={CS_SELECT}
+      className="labeled-select"
+      key={`select--key-${hash(props.label)}`}
+    >
       <label htmlFor={key}>{label}:</label>
       <div className="select--wrapper">
         <select

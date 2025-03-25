@@ -13,30 +13,33 @@ storiesOf('Form Elements | Checkout / QuantityDropdown', module)
     <>
       <h4>Default (Q: 1)</h4>
       <QuantityDropdown
+        id={'quantityDropDown__1'}
+        label={'Quantity1'}
         handleQuantityChange={() => {}}
-        quantity={1}
-        largeQ={false}
-        data-type="select"
+        quantity={1} // Quantity = [Input] && || [Selecte] value
+        selectOptions={{ start: 1, total: 10 }}
       />
 
       <br />
 
       <h4>Default (Q: 10)</h4>
       <QuantityDropdown
+        id={'quantityDropDown__2'}
+        label={'Quantity2'}
         handleQuantityChange={() => {}}
-        quantity={10}
-        largeQ={true}
-        data-type="input"
+        quantity={11} // Quantity = [Input] && || [Selecte] value
+        selectOptions={{ start: 1, total: 11 }}
       />
 
       <br />
 
       <h4>Default (Q: 100)</h4>
       <QuantityDropdown
+        id={'quantityDropDown__3'}
+        label={'Quantity3'}
         handleQuantityChange={() => {}}
-        quantity={100}
-        largeQ={true}
-        data-type="input"
+        quantity={100} // Quantity = [Input] && || [Selecte] value
+        selectOptions={{ start: 1, total: 12 }}
       />
     </>
   ));
