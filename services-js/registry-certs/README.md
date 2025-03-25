@@ -90,6 +90,7 @@ https://registry.boston.gov/birth
   * Create Select drop down for 'Debit/Credit Card' - Global change across all Registry Certificate workflows
   * Create 'Add/Remove' Component - Global change across all Registry Certificate workflows
   * Connect new certified mail quantity component to back end DB
+  * Create Quantity Component - Global change across all Registry Certificate workflows
 
 ## Useful CMDs
 
