@@ -36,3 +36,4 @@ export {
 export {
   default as RegistryCCSelectDropDown,
 } from './form-elements/RegistryCCSelectDropdown';
+export { default as QuantityDropdown } from './form-elements/QuantityDropdown';

@@ -2,22 +2,46 @@
 
 import { jsx, css } from '@emotion/core';
 import { useEffect, useRef, useState } from 'react';
+import hash from 'string-hash';
+import { SERIF, CHARLES_BLUE, GRAY_200 } from '../utilities/constants';
 
-import { SERIF, CHARLES_BLUE, GRAY_200 } from '@cityofboston/react-fleet';
-
-interface Props {
-  quantity: number;
-  largeQ: boolean;
-  handleQuantityChange: (value: number | null) => void;
+interface Options {
+  start: number;
+  total: number;
 }
 
-const QuantityDropdown = (props: Props) => {
-  const { largeQ } = props;
+interface Props {
+  label: string;
+  quantity: number;
+  handleQuantityChange: (value: number | null) => void;
+  selectOptions?: Options;
+  id: string;
+  maxLength?: number;
+}
 
-  const inputField = useRef<HTMLInputElement>(null);
+const QuantityDropdown = (props: Props): JSX.Element => {
+  const {
+    id,
+    label = 'Quantity',
+    quantity: propQuantity,
+    maxLength = 3,
+    selectOptions = { start: 1, total: 10 },
+  } = props;
+
+  const selectOps = Array.from(
+    { length: selectOptions.total },
+    (_, i) => i + selectOptions.start
+  );
+
+  const inputRef = useRef<HTMLInputElement>(null);
   const selectRef = useRef<HTMLSelectElement>(null);
-  const [selectValue, setSelectValue] = useState<string>('1');
-  const [quantity, setQuantity] = useState<number>(1);
+  const [selectValue, setSelectValue] = useState<string>(
+    `${selectOptions.start}`
+  );
+  const [quantity, setQuantity] = useState<number>(propQuantity | 1);
+  const [type, setType] = useState<string>(
+    quantity < selectOps[selectOps.length - 1] ? 'select' : 'input'
+  );
 
   const ignoreKeys = [
     'ArrowDown',
@@ -29,14 +53,18 @@ const QuantityDropdown = (props: Props) => {
   ];
 
   const handleIconClick = () => {
-    if (inputField && inputField.current) {
-      inputField.current.focus();
+    if (inputRef && inputRef.current) {
+      inputRef.current.focus();
     }
   };
 
   const handleLabelClick = () => {
     if (selectRef && selectRef.current) {
       selectRef.current.focus();
+    }
+
+    if (inputRef && inputRef.current) {
+      inputRef.current.focus();
     }
   };
 
@@ -52,19 +80,19 @@ const QuantityDropdown = (props: Props) => {
 
   const handleSelectValueChange = (value: string): void => {
     setSelectValue(value);
+    setQuantity(+value);
 
-    if (value !== 'other') {
-      setQuantity(+value);
-    } else {
-      setQuantity('' as any);
+    if (type === 'input') {
+      if (inputRef && inputRef.current) inputRef.current.focus();
+    }
 
-      if (inputField && inputField.current) inputField.current.focus();
+    if (parseInt(value) === selectOps[selectOps.length - 1]) {
+      setType('input');
     }
   };
 
   const handleQuantityInputBlur = (): void => {
     // If user erases value in field, return quantity to 1 on blur
-    // console.log(`handleQuantityInputBlur > quantity: ${quantity}`);
     if (Number.isNaN(quantity)) handleQuantityChange('1');
     if (quantity < 1) handleQuantityChange('1');
   };
@@ -85,13 +113,28 @@ const QuantityDropdown = (props: Props) => {
     props.handleQuantityChange(quantity);
   }, [quantity]);
 
+  const key = id || `select-${hash(label)}`;
+
+  const select_ops = (options: number[]) => {
+    return options.map((val, i) => {
+      let attr = {
+        value: val,
+        key: `${id}_${val}__${i}`,
+      };
+
+      return (
+        <option {...Object.assign({}, attr)}>
+          {val}
+          {options.length === i + 1 && `+`}
+        </option>
+      );
+    });
+  };
+
   return (
     <div css={CS_QUANTITYDROPDOWN}>
-      <div
-        className="quantity__main-wrapper"
-        data-type={largeQ ? 'input' : 'select'}
-      >
-        {largeQ ? (
+      <div className="quantity__main-wrapper" data-type={type}>
+        {type === 'input' ? (
           <label htmlFor={`quantity_txtInput`} onClick={handleIconClick}>
             Quantity:
           </label>
@@ -101,16 +144,16 @@ const QuantityDropdown = (props: Props) => {
           </label>
         )}
 
-        {largeQ && (
+        {type === 'input' && (
           <div className={`input_wrapper`}>
             <input
               type="text"
               name="quantity_txtInput"
               value={quantity}
               aria-label="Quantity"
-              size={3}
+              maxLength={maxLength}
               tabIndex={0}
-              ref={inputField}
+              ref={inputRef}
               onChange={event => handleQuantityChange(event.target.value)}
               onBlur={handleQuantityInputBlur}
               onKeyDown={handleInputKeyDown}
@@ -120,24 +163,16 @@ const QuantityDropdown = (props: Props) => {
           </div>
         )}
 
-        {!largeQ && (
+        {type === 'select' && (
           <select
+            id={key}
             name={`quantityMenu`}
             value={selectValue}
             ref={selectRef}
             tabIndex={0}
             onChange={event => handleSelectValueChange(event.target.value)}
           >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10+</option>
+            {select_ops(selectOps)}
           </select>
         )}
       </div>
