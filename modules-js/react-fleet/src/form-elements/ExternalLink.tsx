@@ -1,13 +1,13 @@
 /** @jsx jsx */
 
 import { jsx, css } from '@emotion/core';
-import { SERIF, OPTIMISTIC_BLUE_DARK } from '../utilities/constants';
+import { SERIF, OPTIMISTIC_BLUE_DARK, PURPLE } from '../utilities/constants';
 
 interface Props {
   copy: string;
   href: string;
   displayIcon: boolean;
-  state?: 'focused' | 'hover' | 'visited' | null | undefined;
+  state?: 'focus' | 'hover' | 'visited' | null | undefined;
 }
 
 const ExternalLink = (props: Props) => {
@@ -63,31 +63,35 @@ const CSS_EXTERNALLINK = css`
   text-underline-offset: auto;
   text-underline-position: from-font;
 
-  &:focus,
-  &:active,
-  &[data-state='focused'] {
-    color: ${OPTIMISTIC_BLUE_DARK};
-    border: 1px solid ${OPTIMISTIC_BLUE_DARK};
-  }
-
-  :visited,
-  :visited svg,
-  &[data-state='visited'] {
-    color: #681da8;
-    fill: #681da8;
-  }
-
-  :hover,
-  :hover svg {
-    color: #125893;
-    fill: #125893;
-  }
-
   svg {
     width: 24px;
     height: 24px;
     margin-left: 0.25rem;
     fill: ${OPTIMISTIC_BLUE_DARK};
+  }
+
+  &:hover,
+  &[data-state='hover'] {
+    color: #125893;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:active,
+  &[data-state='focus'] {
+    color: ${OPTIMISTIC_BLUE_DARK};
+    border: 3px solid ${OPTIMISTIC_BLUE_DARK};
+    border-radius: 0rem;
+  }
+
+  &:visited,
+  &[data-state='visited'] {
+    color: ${PURPLE};
+    border-width: 0;
+
+    svg {
+      fill: ${PURPLE};
+    }
   }
 `;
 

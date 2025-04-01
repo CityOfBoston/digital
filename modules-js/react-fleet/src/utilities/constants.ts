@@ -10,6 +10,7 @@ export const GRAY_100 = '#e0e0e0';
 export const GRAY_200 = '#C8C8C8';
 export const GRAY_300 = '#828282';
 export const CHARLES_BLUE = '#091f2f';
+export const PURPLE = '#681da8';
 
 // 2/2019: DARK variations of OPTIMISTIC_BLUE and FREEDOM_RED have been added
 // to provide stronger contrast and readability as text on a light background.
