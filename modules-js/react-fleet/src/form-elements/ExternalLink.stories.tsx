@@ -18,5 +18,23 @@ storiesOf('Form Elements | Checkout / ExternalLink', module)
       <h4>Default (Icon)</h4>
       <ExternalLink copy={'External Link'} href={'#'} displayIcon={true} />
       <br />
+
+      <h4>Default (Focused)</h4>
+      <ExternalLink
+        copy={'External Link'}
+        href={'#'}
+        displayIcon={true}
+        state={'focused'}
+      />
+      <br />
+
+      <h4>Default (Focused)</h4>
+      <ExternalLink
+        copy={'External Link'}
+        href={'#'}
+        displayIcon={true}
+        state={'visited'}
+      />
+      <br />
     </>
   ));
