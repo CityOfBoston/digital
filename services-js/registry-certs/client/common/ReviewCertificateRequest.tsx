@@ -31,6 +31,7 @@ interface Props {
   certificateRequest: any;
   siteAnalytics?: any;
   children: ReactChild | ReactChild[];
+  tracking?: boolean;
 }
 
 /**
@@ -135,7 +136,7 @@ export default class ReviewCertificateRequest extends Component<Props> {
   };
 
   public render() {
-    const { certificateRequest, certificateType } = this.props;
+    const { certificateRequest, certificateType, tracking } = this.props;
     const { quantity } = certificateRequest;
 
     return (
@@ -179,6 +180,7 @@ export default class ReviewCertificateRequest extends Component<Props> {
           certificateQuantity={quantity}
           allowServiceFeeTypeChoice
           serviceFeeType="CREDIT"
+          tracking={tracking}
         />
 
         {/* {certificateType === 'marriage' && (

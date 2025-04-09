@@ -92,6 +92,12 @@ export default class ReviewRequestPage extends Component<Props, State> {
           certificateType="birth"
           certificateRequest={this.props.birthCertificateRequest}
           siteAnalytics={this.props.siteAnalytics}
+          tracking={
+            this.state.certMail &&
+            this.state.certMail.certMailInfo.requestCertifiedMail === true
+              ? true
+              : false
+          }
         >
           <div css={DISCLAIMER_STYLING}>
             <p>

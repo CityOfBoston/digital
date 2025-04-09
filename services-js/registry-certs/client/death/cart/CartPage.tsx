@@ -81,7 +81,7 @@ class CartPage extends React.Component<Props, State> {
       >
         <div className="b-ff">
           <Head>
-            <title>Boston.gov — Death Certificate Cart</title>
+            <title>Boston.gov — Death Certificate Cart</title>
           </Head>
 
           <div className="b-ff b-c b-c--nbp">
@@ -155,6 +155,14 @@ class CartPage extends React.Component<Props, State> {
                   certificateQuantity={deathCertificateCart.size}
                   allowServiceFeeTypeChoice
                   serviceFeeType="CREDIT"
+                  newServiceFeeType="-1"
+                  tracking={
+                    this.state.certMail &&
+                    this.state.certMail.certMailInfo.requestCertifiedMail ===
+                      true
+                      ? true
+                      : false
+                  }
                 />
 
                 <div className="g">

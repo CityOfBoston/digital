@@ -9,6 +9,8 @@ import CertMailProvider from '../../store/CertifiedMailProvider';
 
 import CartPage from './CartPage';
 
+import CostSummary from '../../common/CostSummary';
+
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
@@ -63,5 +65,13 @@ storiesOf('Death/CartPage', module)
       deathCertificateCart={new DeathCertificateCart()}
       siteAnalytics={new GaSiteAnalytics()}
       certMailProvider={new CertMailProvider()}
+    />
+  ))
+  .add('cost summary', () => (
+    <CostSummary
+      certificateType="death"
+      certificateQuantity={2}
+      allowServiceFeeTypeChoice
+      serviceFeeType="CREDIT"
     />
   ));
