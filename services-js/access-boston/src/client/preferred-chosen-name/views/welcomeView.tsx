@@ -31,7 +31,8 @@ export const WelcomeView = ({ handleProceed, state }: welcomeProps) => {
               <p>
                 A chosen name could be a preferred nickname, middle name, a
                 shortened version of a legal name, or a name that aligns with
-                your gender identity or expression.
+                your gender identity or expression. To change your displayed
+                name, use the workflow below. Otherwise, no action is needed.
               </p>
 
               <label>What’s Changing:</label>
