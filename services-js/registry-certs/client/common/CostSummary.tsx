@@ -72,7 +72,7 @@ export default class CostSummary extends Component<Props, State> {
   };
 
   calculateCost() {
-    const { certificateQuantity, hasResearchFee } = this.props;
+    const { certificateQuantity, hasResearchFee, tracking } = this.props;
     const { serviceFeeType } = this.state;
     const certificateTypeCost =
       CERTIFICATE_COST[this.props.certificateType.toUpperCase()];
@@ -81,12 +81,14 @@ export default class CostSummary extends Component<Props, State> {
       ? calculateCreditCardCost(
           certificateTypeCost,
           certificateQuantity,
-          hasResearchFee
+          hasResearchFee,
+          tracking
         )
       : calculateDebitCardCost(
           certificateTypeCost,
           certificateQuantity,
-          hasResearchFee
+          hasResearchFee,
+          tracking
         );
   }
 
@@ -96,11 +98,6 @@ export default class CostSummary extends Component<Props, State> {
 
     return (
       <>
-        {/*
-          {certificateQuantity}{' '}
-          {certificateQuantity === 1 ? 'certificate' : 'certificates'} ×{' '}
-          {CERTIFICATE_COST_STRING[certificateType.toUpperCase()]}
-        */}
         {$OrderSummary({
           certQuantityLabel: `${certificateQuantity} ${
             certificateQuantity === 1 ? 'certificate' : 'certificates'
