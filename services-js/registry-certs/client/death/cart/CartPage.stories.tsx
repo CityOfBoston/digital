@@ -73,5 +73,16 @@ storiesOf('Death/CartPage', module)
       certificateQuantity={2}
       allowServiceFeeTypeChoice
       serviceFeeType="CREDIT"
+      newServiceFeeType={'1'}
+    />
+  ))
+  .add('cost summary w/certified mail tracking', () => (
+    <CostSummary
+      certificateType="death"
+      certificateQuantity={2}
+      allowServiceFeeTypeChoice
+      serviceFeeType="CREDIT"
+      newServiceFeeType={'0'}
+      tracking={true}
     />
   ));

@@ -4,8 +4,6 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
 
-import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
-
 import { PageDependencies } from '../../../pages/_app';
 
 import PageLayout from '../../PageLayout';
@@ -17,6 +15,8 @@ import CostSummary from '../../common/CostSummary';
 import { ServiceFeeDisclosure } from '../../common/FeeDisclosures';
 
 import CertifiedMail from '../../models/CertifiedMail';
+
+import CertMailTracking from '../../common/CertMailTracking';
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
@@ -125,28 +125,21 @@ class CartPage extends React.Component<Props, State> {
               </div>
             </div>
 
-            <div>
-              <label>Need A Tracking Number?</label>
-
-              <AddRemoveRadioBtn
-                labels={['Add', 'Remove']}
-                name={`CC_AddRemove`}
-                id={`checkoutAddRemove`}
-                action={
-                  this.state.certMail &&
-                  this.state.certMail.certMailInfo.requestCertifiedMail === true
-                    ? 'remove'
-                    : 'add'
-                }
-                value={
-                  this.state.certMail &&
-                  this.state.certMail.certMailInfo.requestCertifiedMail === true
-                    ? 1
-                    : 0
-                }
-                onClickHandler={certMailHandler}
-              />
-            </div>
+            <CertMailTracking
+              action={
+                this.state.certMail &&
+                this.state.certMail.certMailInfo.requestCertifiedMail === true
+                  ? 'remove'
+                  : 'add'
+              }
+              value={
+                this.state.certMail &&
+                this.state.certMail.certMailInfo.requestCertifiedMail === true
+                  ? 1
+                  : 0
+              }
+              onClickHandler={certMailHandler}
+            />
 
             {deathCertificateCart.entries.length > 0 && (
               <div className="m-t700">

@@ -2394,7 +2394,7 @@ Array [
                     <div
                       className="col"
                     >
-                      4 certificates × $14.00
+                      Subtotal: 4 certificates × $14.00
                     </div>
                     <div
                       className="col"
@@ -2464,7 +2464,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      1.46
+                      1.11
                     </div>
                   </div>
                   <div
@@ -2479,7 +2479,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      57.46
+                      57.11
                     </div>
                   </div>
                 </div>
@@ -2547,7 +2547,7 @@ Array [
                           className="emotion-12"
                         >
                           $
-                          1.46
+                          1.11
                         </td>
                       </tr>
                       <tr>
@@ -2576,7 +2576,7 @@ Array [
                           className="cost-cell cost br br-t100 p-v200"
                         >
                           $
-                          57.46
+                          57.11
                         </td>
                       </tr>
                     </tbody>
@@ -17841,7 +17841,7 @@ Array [
                 <div
                   className="col"
                 >
-                  1 certificate × $14.00
+                  Subtotal: 1 certificate × $14.00
                 </div>
                 <div
                   className="col"
@@ -17911,7 +17911,7 @@ Array [
                   className="col"
                 >
                   $ 
-                  0.56
+                  0.47
                 </div>
               </div>
               <div
@@ -17926,7 +17926,7 @@ Array [
                   className="col"
                 >
                   $ 
-                  14.56
+                  14.47
                 </div>
               </div>
             </div>
@@ -18023,7 +18023,7 @@ Array [
                       className="emotion-18"
                     >
                       $
-                      0.56
+                      0.47
                     </td>
                   </tr>
                   <tr>
@@ -18052,7 +18052,7 @@ Array [
                       className="cost-cell cost br br-t100 p-v200"
                     >
                       $
-                      14.56
+                      14.47
                     </td>
                   </tr>
                 </tbody>
@@ -27100,7 +27100,7 @@ Array [
                     <div
                       className="col"
                     >
-                      4 certificates × $14.00
+                      Subtotal: 4 certificates × $14.00
                     </div>
                     <div
                       className="col"
@@ -27170,7 +27170,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      1.46
+                      1.11
                     </div>
                   </div>
                   <div
@@ -27185,7 +27185,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      57.46
+                      57.11
                     </div>
                   </div>
                 </div>
@@ -27253,7 +27253,7 @@ Array [
                           className="emotion-12"
                         >
                           $
-                          1.46
+                          1.11
                         </td>
                       </tr>
                       <tr>
@@ -27282,7 +27282,7 @@ Array [
                           className="cost-cell cost br br-t100 p-v200"
                         >
                           $
-                          57.46
+                          57.11
                         </td>
                       </tr>
                     </tbody>
@@ -28105,7 +28105,7 @@ Array [
                   <div
                     className="col"
                   >
-                    8 certificates × $14.00
+                    Subtotal: 8 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -28175,7 +28175,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    2.66
+                    1.96
                   </div>
                 </div>
                 <div
@@ -28190,7 +28190,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    114.66
+                    113.96
                   </div>
                 </div>
               </div>
@@ -28258,7 +28258,7 @@ Array [
                         className="emotion-9"
                       >
                         $
-                        2.66
+                        1.96
                       </td>
                     </tr>
                     <tr>
@@ -28287,7 +28287,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        114.66
+                        113.96
                       </td>
                     </tr>
                   </tbody>
@@ -29147,7 +29147,7 @@ Array [
                   <div
                     className="col"
                   >
-                    6 certificates × $14.00
+                    Subtotal: 6 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -29217,7 +29217,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    2.06
+                    1.53
                   </div>
                 </div>
                 <div
@@ -29232,7 +29232,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    86.06
+                    85.53
                   </div>
                 </div>
               </div>
@@ -29300,7 +29300,7 @@ Array [
                         className="emotion-9"
                       >
                         $
-                        2.06
+                        1.53
                       </td>
                     </tr>
                     <tr>
@@ -29329,7 +29329,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        86.06
+                        85.53
                       </td>
                     </tr>
                   </tbody>
@@ -30162,7 +30162,7 @@ Array [
                   <div
                     className="col"
                   >
-                    0 certificates × $14.00
+                    Subtotal: 0 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -30232,7 +30232,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    0.26
+                    0.25
                   </div>
                 </div>
                 <div
@@ -30247,7 +30247,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    0.26
+                    0.25
                   </div>
                 </div>
               </div>
@@ -30315,7 +30315,7 @@ Array [
                         className="emotion-9"
                       >
                         $
-                        0.26
+                        0.25
                       </td>
                     </tr>
                     <tr>
@@ -30344,7 +30344,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        0.26
+                        0.25
                       </td>
                     </tr>
                   </tbody>
@@ -31148,7 +31148,7 @@ Array [
                   <div
                     className="col"
                   >
-                    6 certificates × $14.00
+                    Subtotal: 6 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -31218,7 +31218,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    2.06
+                    1.53
                   </div>
                 </div>
                 <div
@@ -31233,7 +31233,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    86.06
+                    85.53
                   </div>
                 </div>
               </div>
@@ -31301,7 +31301,7 @@ Array [
                         className="emotion-9"
                       >
                         $
-                        2.06
+                        1.53
                       </td>
                     </tr>
                     <tr>
@@ -31330,7 +31330,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        86.06
+                        85.53
                       </td>
                     </tr>
                   </tbody>
@@ -32230,7 +32230,7 @@ Array [
                     <div
                       className="col"
                     >
-                      1 certificate × $14.00
+                      Subtotal: 1 certificate × $14.00
                     </div>
                     <div
                       className="col"
@@ -32300,7 +32300,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      0.56
+                      0.47
                     </div>
                   </div>
                   <div
@@ -32315,7 +32315,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      14.56
+                      14.47
                     </div>
                   </div>
                 </div>
@@ -32383,7 +32383,7 @@ Array [
                           className="emotion-12"
                         >
                           $
-                          0.56
+                          0.47
                         </td>
                       </tr>
                       <tr>
@@ -32412,7 +32412,7 @@ Array [
                           className="cost-cell cost br br-t100 p-v200"
                         >
                           $
-                          14.56
+                          14.47
                         </td>
                       </tr>
                     </tbody>
@@ -33237,7 +33237,7 @@ Array [
                   <div
                     className="col"
                   >
-                    6 certificates × $14.00
+                    Subtotal: 6 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -33307,7 +33307,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    2.06
+                    1.53
                   </div>
                 </div>
                 <div
@@ -33322,7 +33322,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    86.06
+                    85.53
                   </div>
                 </div>
               </div>
@@ -33390,7 +33390,7 @@ Array [
                         className="emotion-9"
                       >
                         $
-                        2.06
+                        1.53
                       </td>
                     </tr>
                     <tr>
@@ -33419,7 +33419,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        86.06
+                        85.53
                       </td>
                     </tr>
                   </tbody>
@@ -34295,7 +34295,7 @@ Array [
                   <div
                     className="col"
                   >
-                    6 certificates × $14.00
+                    Subtotal: 6 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -34365,7 +34365,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    2.06
+                    1.53
                   </div>
                 </div>
                 <div
@@ -34380,7 +34380,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    86.06
+                    85.53
                   </div>
                 </div>
               </div>
@@ -34448,7 +34448,7 @@ Array [
                         className="emotion-9"
                       >
                         $
-                        2.06
+                        1.53
                       </td>
                     </tr>
                     <tr>
@@ -34477,7 +34477,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        86.06
+                        85.53
                       </td>
                     </tr>
                   </tbody>
@@ -35359,7 +35359,7 @@ Array [
                   <div
                     className="col"
                   >
-                    6 certificates × $14.00
+                    Subtotal: 6 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -35429,7 +35429,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    2.06
+                    1.53
                   </div>
                 </div>
                 <div
@@ -35444,7 +35444,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    86.06
+                    85.53
                   </div>
                 </div>
               </div>
@@ -35512,7 +35512,7 @@ Array [
                         className="emotion-9"
                       >
                         $
-                        2.06
+                        1.53
                       </td>
                     </tr>
                     <tr>
@@ -35541,7 +35541,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        86.06
+                        85.53
                       </td>
                     </tr>
                   </tbody>
@@ -41372,7 +41372,7 @@ Array [
       <div
         className="col"
       >
-        5 certificates × $14.00
+        Subtotal: 5 certificates × $14.00
       </div>
       <div
         className="col"
@@ -41442,7 +41442,7 @@ Array [
         className="col"
       >
         $ 
-        1.76
+        1.32
       </div>
     </div>
     <div
@@ -41457,7 +41457,7 @@ Array [
         className="col"
       >
         $ 
-        71.76
+        71.32
       </div>
     </div>
   </div>,
@@ -41603,7 +41603,7 @@ Array [
             className="emotion-2"
           >
             $
-            1.76
+            1.32
           </td>
         </tr>
         <tr>
@@ -41632,7 +41632,7 @@ Array [
             className="cost-cell cost br br-t100 p-v200"
           >
             $
-            71.76
+            71.32
           </td>
         </tr>
       </tbody>
@@ -41774,7 +41774,7 @@ Array [
       <div
         className="col"
       >
-        5 certificates × $14.00
+        Subtotal: 5 certificates × $14.00
       </div>
       <div
         className="col"
@@ -42176,7 +42176,7 @@ Array [
       <div
         className="col"
       >
-        5 certificates × $14.00
+        Subtotal: 5 certificates × $14.00
       </div>
       <div
         className="col"
@@ -42246,7 +42246,7 @@ Array [
         className="col"
       >
         $ 
-        1.76
+        1.32
       </div>
     </div>
     <div
@@ -42261,7 +42261,7 @@ Array [
         className="col"
       >
         $ 
-        71.76
+        71.32
       </div>
     </div>
   </div>,
@@ -42363,7 +42363,7 @@ Array [
             className="emotion-2"
           >
             $
-            1.76
+            1.32
           </td>
         </tr>
         <tr>
@@ -42392,7 +42392,7 @@ Array [
             className="cost-cell cost br br-t100 p-v200"
           >
             $
-            71.76
+            71.32
           </td>
         </tr>
       </tbody>
@@ -42534,7 +42534,7 @@ Array [
       <div
         className="col"
       >
-        5 certificates × $14.00
+        Subtotal: 5 certificates × $14.00
       </div>
       <div
         className="col"
@@ -42892,7 +42892,7 @@ Array [
       <div
         className="col"
       >
-        1 certificate × $14.00
+        Subtotal: 1 certificate × $14.00
       </div>
       <div
         className="col"
@@ -51597,7 +51597,7 @@ Array [
       <div
         className="col"
       >
-        1 certificate × $14.00
+        Subtotal: 1 certificate × $14.00
       </div>
       <div
         className="col"
@@ -51667,7 +51667,7 @@ Array [
         className="col"
       >
         $ 
-        0.56
+        0.47
       </div>
     </div>
     <div
@@ -51682,7 +51682,7 @@ Array [
         className="col"
       >
         $ 
-        14.56
+        14.47
       </div>
     </div>
   </div>,
@@ -51828,7 +51828,7 @@ Array [
             className="emotion-2"
           >
             $
-            0.56
+            0.47
           </td>
         </tr>
         <tr>
@@ -51857,7 +51857,7 @@ Array [
             className="cost-cell cost br br-t100 p-v200"
           >
             $
-            14.56
+            14.47
           </td>
         </tr>
       </tbody>
@@ -52264,7 +52264,7 @@ Array [
       <div
         className="col"
       >
-        1 certificate × $14.00
+        Subtotal: 1 certificate × $14.00
       </div>
       <div
         className="col"
@@ -52334,7 +52334,7 @@ Array [
         className="col"
       >
         $ 
-        0.56
+        0.47
       </div>
     </div>
     <div
@@ -52349,7 +52349,7 @@ Array [
         className="col"
       >
         $ 
-        14.56
+        14.47
       </div>
     </div>
   </div>,
@@ -52495,7 +52495,7 @@ Array [
             className="emotion-2"
           >
             $
-            0.56
+            0.47
           </td>
         </tr>
         <tr>
@@ -52524,7 +52524,7 @@ Array [
             className="cost-cell cost br br-t100 p-v200"
           >
             $
-            14.56
+            14.47
           </td>
         </tr>
       </tbody>
@@ -54554,7 +54554,7 @@ Array [
       <div
         className="col"
       >
-        2 certificates × $14.00
+        Subtotal: 2 certificates × $14.00
       </div>
       <div
         className="col"
@@ -54599,7 +54599,7 @@ Array [
             <select
               id="ServiceFeeTypeSelect"
               onChange={[Function]}
-              value="-1"
+              value="1"
             >
               <option
                 value="-1"
@@ -54823,6 +54823,422 @@ Array [
 ]
 `;
 
+exports[`Storyshots Death/CartPage cost summary w/certified mail tracking 1`] = `
+Array [
+  .emotion-1 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: auto;
+  min-width: 320px;
+  max-width: 680px;
+}
+
+.emotion-1 h1 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.emotion-1 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.emotion-1 .row .col {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.emotion-1 .row .col:nth-of-type(2) {
+  text-align: right;
+}
+
+.emotion-1 .row:nth-last-of-type(-n + 1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-top: 1px solid #58585b;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 .select--wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-0 .select--wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0px solid green;
+  border-radius: 0;
+  padding: 0.3em 1em 0.25em 0.25em;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #1871bd;
+  text-align: center;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding-right: calc(0.5em + 0.75rem);
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.emotion-0 .select--wrapper select option {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+    className="emotion-1"
+  >
+    <h1>
+      Order Summary
+    </h1>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        Subtotal: 2 certificates × $14.00
+      </div>
+      <div
+        className="col"
+      >
+        $
+        28.00
+      </div>
+    </div>
+    
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        US Shipping
+      </div>
+      <div
+        className="col"
+      >
+        FREE
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <span
+          className="labeled-select emotion-0"
+        >
+          <label
+            htmlFor="ServiceFeeTypeSelect"
+          >
+            Service fee
+            :
+          </label>
+          <div
+            className="select--wrapper"
+          >
+            <select
+              id="ServiceFeeTypeSelect"
+              onChange={[Function]}
+              value="0"
+            >
+              <option
+                value="-1"
+              >
+                Select card
+              </option>
+              <option
+                value="0"
+              >
+                credit card
+              </option>
+              <option
+                value="1"
+              >
+                debit card
+              </option>
+            </select>
+          </div>
+        </span>
+      </div>
+      <div
+        className="col"
+      >
+        $ 
+        5.76
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        USPS Tracking®
+      </div>
+      <div
+        className="col"
+      >
+        $ 5.00
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        Total
+      </div>
+      <div
+        className="col"
+      >
+        $ 
+        33.76
+      </div>
+    </div>
+  </div>,
+  .emotion-10:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.emotion-0 {
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.emotion-2 {
+  width: 5em;
+  vertical-align: bottom;
+  line-height: 1.75;
+}
+
+.emotion-9 {
+  padding: 0;
+  line-height: 1;
+  font-style: normal;
+}
+
+.emotion-8 {
+  font-size: 80%;
+}
+
+.emotion-5 {
+  line-height: 1;
+  display: inline-block;
+}
+
+.emotion-4:after {
+  width: 2rem;
+}
+
+.emotion-3 {
+  height: 2rem;
+  line-height: initial;
+  padding-right: 3rem;
+}
+
+<div
+    className="emotion-10"
+  >
+    <table
+      className="t--info ta-r"
+      style={
+        Object {
+          "float": "right",
+        }
+      }
+    >
+      <caption
+        className="emotion-0"
+      >
+        Cost Summary
+      </caption>
+      <thead
+        className="emotion-0"
+      >
+        <tr>
+          <th
+            scope="col"
+          >
+            Item
+          </th>
+          <th
+            scope="col"
+          >
+            Amount
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            2
+             
+            certificates
+             ×
+             
+            $14.00
+          </td>
+          <td
+            className="emotion-2"
+          >
+            $
+            28.00
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              <div
+                className="sel sel--thin emotion-5"
+              >
+                <div
+                  className="sel-c  emotion-4"
+                >
+                  <select
+                    aria-label="Payment type"
+                    className="sel-f emotion-3"
+                    id="serviceFeeTypeSelect"
+                    onChange={[Function]}
+                    value="CREDIT"
+                  >
+                    <option
+                      value="CREDIT"
+                    >
+                      Credit card
+                    </option>
+                    <option
+                      value="DEBIT"
+                    >
+                      Debit card
+                    </option>
+                  </select>
+                </div>
+              </div>
+               
+              service fee
+               
+              <a
+                aria-label="About the service fee"
+                href="#service-fee"
+              >
+                *
+              </a>
+            </div>
+          </td>
+          <td
+            className="emotion-2"
+          >
+            $
+            5.76
+          </td>
+        </tr>
+        <tr>
+          <td>
+            U.S. shipping included
+          </td>
+          <td
+            className="emotion-2"
+          >
+            <i>
+              $0.00
+            </i>
+          </td>
+        </tr>
+        <tr>
+          <td
+            className="sh-title emotion-9"
+          >
+            <span
+              className="emotion-8"
+            >
+              Total
+            </span>
+          </td>
+          <td
+            className="cost-cell cost br br-t100 p-v200"
+          >
+            $
+            33.76
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>,
+]
+`;
+
 exports[`Storyshots Death/CartPage empty cart 1`] = `
 Array [
   <a
@@ -55023,6 +55439,10 @@ Array [
   height: 0;
   left: -20px;
   top: 12px;
+}
+
+.emotion-6 {
+  font-family: SERIF;
 }
 
 <div
@@ -55266,7 +55686,9 @@ Array [
                 </div>
               </div>
             </div>
-            <div>
+            <div
+              className="emotion-6"
+            >
               <label>
                 Need A Tracking Number?
               </label>
@@ -55424,7 +55846,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-7 {
+.emotion-8 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -55436,7 +55858,7 @@ Array [
   max-width: 680px;
 }
 
-.emotion-7 h1 {
+.emotion-8 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -55444,7 +55866,7 @@ Array [
   margin-bottom: 6px;
 }
 
-.emotion-7 .row {
+.emotion-8 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55456,18 +55878,18 @@ Array [
   margin-bottom: 12px;
 }
 
-.emotion-7 .row .col {
+.emotion-8 .row .col {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-7 .row .col:nth-of-type(2) {
+.emotion-8 .row .col:nth-of-type(2) {
   text-align: right;
 }
 
-.emotion-7 .row:nth-last-of-type(-n + 1) {
+.emotion-8 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -55477,7 +55899,7 @@ Array [
   margin-top: 16px;
 }
 
-.emotion-6 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55500,14 +55922,14 @@ Array [
   align-items: center;
 }
 
-.emotion-6 .select--wrapper {
+.emotion-7 .select--wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-6 .select--wrapper select {
+.emotion-7 .select--wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -55538,18 +55960,18 @@ Array [
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.emotion-6 .select--wrapper select option {
+.emotion-7 .select--wrapper select option {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-18:after {
+.emotion-19:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-8 {
+.emotion-9 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -55561,19 +55983,19 @@ Array [
   width: 1px;
 }
 
-.emotion-10 {
+.emotion-11 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-17 {
+.emotion-18 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-16 {
+.emotion-17 {
   font-size: 80%;
 }
 
@@ -55658,16 +56080,16 @@ Array [
   text-decoration: none;
 }
 
-.emotion-13 {
+.emotion-14 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-12:after {
+.emotion-13:after {
   width: 2rem;
 }
 
-.emotion-11 {
+.emotion-12 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -55716,6 +56138,10 @@ Array [
   height: 0;
   left: -20px;
   top: 12px;
+}
+
+.emotion-6 {
+  font-family: SERIF;
 }
 
 <div
@@ -55952,7 +56378,9 @@ Array [
                 </div>
               </div>
             </div>
-            <div>
+            <div
+              className="emotion-6"
+            >
               <label>
                 Need A Tracking Number?
               </label>
@@ -55983,7 +56411,7 @@ Array [
               className="m-t700"
             >
               <div
-                className="emotion-7"
+                className="emotion-8"
               >
                 <h1>
                   Order Summary
@@ -55994,7 +56422,7 @@ Array [
                   <div
                     className="col"
                   >
-                    8 certificates × $14.00
+                    Subtotal: 8 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -56025,7 +56453,7 @@ Array [
                     className="col"
                   >
                     <span
-                      className="labeled-select emotion-6"
+                      className="labeled-select emotion-7"
                     >
                       <label
                         htmlFor="ServiceFeeTypeSelect"
@@ -56064,7 +56492,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    2.66
+                    1.96
                   </div>
                 </div>
                 <div
@@ -56079,12 +56507,12 @@ Array [
                     className="col"
                   >
                     $ 
-                    114.66
+                    113.96
                   </div>
                 </div>
               </div>
               <div
-                className="emotion-18"
+                className="emotion-19"
               >
                 <table
                   className="t--info ta-r"
@@ -56095,12 +56523,12 @@ Array [
                   }
                 >
                   <caption
-                    className="emotion-8"
+                    className="emotion-9"
                   >
                     Cost Summary
                   </caption>
                   <thead
-                    className="emotion-8"
+                    className="emotion-9"
                   >
                     <tr>
                       <th
@@ -56126,7 +56554,7 @@ Array [
                         $14.00
                       </td>
                       <td
-                        className="emotion-10"
+                        className="emotion-11"
                       >
                         $
                         112.00
@@ -56136,14 +56564,14 @@ Array [
                       <td>
                         <div>
                           <div
-                            className="sel sel--thin emotion-13"
+                            className="sel sel--thin emotion-14"
                           >
                             <div
-                              className="sel-c  emotion-12"
+                              className="sel-c  emotion-13"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="sel-f emotion-11"
+                                className="sel-f emotion-12"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
@@ -56173,10 +56601,10 @@ Array [
                         </div>
                       </td>
                       <td
-                        className="emotion-10"
+                        className="emotion-11"
                       >
                         $
-                        2.66
+                        1.96
                       </td>
                     </tr>
                     <tr>
@@ -56184,7 +56612,7 @@ Array [
                         U.S. shipping included
                       </td>
                       <td
-                        className="emotion-10"
+                        className="emotion-11"
                       >
                         <i>
                           $0.00
@@ -56193,10 +56621,10 @@ Array [
                     </tr>
                     <tr>
                       <td
-                        className="sh-title emotion-17"
+                        className="sh-title emotion-18"
                       >
                         <span
-                          className="emotion-16"
+                          className="emotion-17"
                         >
                           Total
                         </span>
@@ -56205,7 +56633,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        114.66
+                        113.96
                       </td>
                     </tr>
                   </tbody>
@@ -56385,7 +56813,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-28 {
+.emotion-29 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -56397,7 +56825,7 @@ Array [
   max-width: 680px;
 }
 
-.emotion-28 h1 {
+.emotion-29 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -56405,7 +56833,7 @@ Array [
   margin-bottom: 6px;
 }
 
-.emotion-28 .row {
+.emotion-29 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56417,18 +56845,18 @@ Array [
   margin-bottom: 12px;
 }
 
-.emotion-28 .row .col {
+.emotion-29 .row .col {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-28 .row .col:nth-of-type(2) {
+.emotion-29 .row .col:nth-of-type(2) {
   text-align: right;
 }
 
-.emotion-28 .row:nth-last-of-type(-n + 1) {
+.emotion-29 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -56438,7 +56866,7 @@ Array [
   margin-top: 16px;
 }
 
-.emotion-27 {
+.emotion-28 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56461,14 +56889,14 @@ Array [
   align-items: center;
 }
 
-.emotion-27 .select--wrapper {
+.emotion-28 .select--wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-27 .select--wrapper select {
+.emotion-28 .select--wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -56499,18 +56927,18 @@ Array [
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.emotion-27 .select--wrapper select option {
+.emotion-28 .select--wrapper select option {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-39:after {
+.emotion-40:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-29 {
+.emotion-30 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -56522,19 +56950,19 @@ Array [
   width: 1px;
 }
 
-.emotion-31 {
+.emotion-32 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-38 {
+.emotion-39 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-37 {
+.emotion-38 {
   font-size: 80%;
 }
 
@@ -56628,16 +57056,16 @@ Array [
   letter-spacing: 1.4px;
 }
 
-.emotion-34 {
+.emotion-35 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-33:after {
+.emotion-34:after {
   width: 2rem;
 }
 
-.emotion-32 {
+.emotion-33 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -56742,6 +57170,10 @@ Array [
   vertical-align: middle;
   cursor: pointer;
   padding: 0 0 0.2em;
+}
+
+.emotion-27 {
+  font-family: SERIF;
 }
 
 <div
@@ -57125,7 +57557,9 @@ Array [
                 </div>
               </div>
             </div>
-            <div>
+            <div
+              className="emotion-27"
+            >
               <label>
                 Need A Tracking Number?
               </label>
@@ -57156,7 +57590,7 @@ Array [
               className="m-t700"
             >
               <div
-                className="emotion-28"
+                className="emotion-29"
               >
                 <h1>
                   Order Summary
@@ -57167,7 +57601,7 @@ Array [
                   <div
                     className="col"
                   >
-                    5 certificates × $14.00
+                    Subtotal: 5 certificates × $14.00
                   </div>
                   <div
                     className="col"
@@ -57198,7 +57632,7 @@ Array [
                     className="col"
                   >
                     <span
-                      className="labeled-select emotion-27"
+                      className="labeled-select emotion-28"
                     >
                       <label
                         htmlFor="ServiceFeeTypeSelect"
@@ -57237,7 +57671,7 @@ Array [
                     className="col"
                   >
                     $ 
-                    1.76
+                    1.32
                   </div>
                 </div>
                 <div
@@ -57252,12 +57686,12 @@ Array [
                     className="col"
                   >
                     $ 
-                    71.76
+                    71.32
                   </div>
                 </div>
               </div>
               <div
-                className="emotion-39"
+                className="emotion-40"
               >
                 <table
                   className="t--info ta-r"
@@ -57268,12 +57702,12 @@ Array [
                   }
                 >
                   <caption
-                    className="emotion-29"
+                    className="emotion-30"
                   >
                     Cost Summary
                   </caption>
                   <thead
-                    className="emotion-29"
+                    className="emotion-30"
                   >
                     <tr>
                       <th
@@ -57299,7 +57733,7 @@ Array [
                         $14.00
                       </td>
                       <td
-                        className="emotion-31"
+                        className="emotion-32"
                       >
                         $
                         70.00
@@ -57309,14 +57743,14 @@ Array [
                       <td>
                         <div>
                           <div
-                            className="sel sel--thin emotion-34"
+                            className="sel sel--thin emotion-35"
                           >
                             <div
-                              className="sel-c  emotion-33"
+                              className="sel-c  emotion-34"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="sel-f emotion-32"
+                                className="sel-f emotion-33"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
@@ -57346,10 +57780,10 @@ Array [
                         </div>
                       </td>
                       <td
-                        className="emotion-31"
+                        className="emotion-32"
                       >
                         $
-                        1.76
+                        1.32
                       </td>
                     </tr>
                     <tr>
@@ -57357,7 +57791,7 @@ Array [
                         U.S. shipping included
                       </td>
                       <td
-                        className="emotion-31"
+                        className="emotion-32"
                       >
                         <i>
                           $0.00
@@ -57366,10 +57800,10 @@ Array [
                     </tr>
                     <tr>
                       <td
-                        className="sh-title emotion-38"
+                        className="sh-title emotion-39"
                       >
                         <span
-                          className="emotion-37"
+                          className="emotion-38"
                         >
                           Total
                         </span>
@@ -57378,7 +57812,7 @@ Array [
                         className="cost-cell cost br br-t100 p-v200"
                       >
                         $
-                        71.76
+                        71.32
                       </td>
                     </tr>
                   </tbody>
@@ -100079,7 +100513,7 @@ Array [
                     <div
                       className="col"
                     >
-                      1 certificate × $14.00
+                      Subtotal: 1 certificate × $14.00
                     </div>
                     <div
                       className="col"
@@ -100149,7 +100583,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      0.56
+                      0.47
                     </div>
                   </div>
                   <div
@@ -100164,7 +100598,7 @@ Array [
                       className="col"
                     >
                       $ 
-                      14.56
+                      14.47
                     </div>
                   </div>
                 </div>
@@ -100232,7 +100666,7 @@ Array [
                           className="emotion-12"
                         >
                           $
-                          0.56
+                          0.47
                         </td>
                       </tr>
                       <tr>
@@ -100261,7 +100695,7 @@ Array [
                           className="cost-cell cost br br-t100 p-v200"
                         >
                           $
-                          14.56
+                          14.47
                         </td>
                       </tr>
                     </tbody>
@@ -116659,7 +117093,7 @@ Array [
                 <div
                   className="col"
                 >
-                  1 certificate × $14.00
+                  Subtotal: 1 certificate × $14.00
                 </div>
                 <div
                   className="col"
@@ -116729,7 +117163,7 @@ Array [
                   className="col"
                 >
                   $ 
-                  0.56
+                  0.47
                 </div>
               </div>
               <div
@@ -116744,7 +117178,7 @@ Array [
                   className="col"
                 >
                   $ 
-                  14.56
+                  14.47
                 </div>
               </div>
             </div>
@@ -116841,7 +117275,7 @@ Array [
                       className="emotion-18"
                     >
                       $
-                      0.56
+                      0.47
                     </td>
                   </tr>
                   <tr>
@@ -116870,7 +117304,7 @@ Array [
                       className="cost-cell cost br br-t100 p-v200"
                     >
                       $
-                      14.56
+                      14.47
                     </td>
                   </tr>
                 </tbody>

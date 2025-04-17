@@ -60,12 +60,40 @@ export default class CostSummary extends Component<Props, State> {
   }
 
   handleCardOptionChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
+    const value = ev.currentTarget.value;
+    // let newServiceVal = '-1';
+    // let serviceFeeTypeVal = 'CREDIT';
+
+    // if (value === 'CREDIT') newServiceVal = '0';
+    // if (value === 'DEBIT') newServiceVal = '1';
+
+    // // if (value === '-1') serviceFeeTypeVal = 'CREDIT';
+    // // if (value === '0') serviceFeeTypeVal = 'CREDIT';
+    // if (value === '1') serviceFeeTypeVal = 'DEBIT';
+
+    // console.log(
+    //   `handleCardOptionChanged > value: ${value} | serviceFeeType: ${
+    //     this.state.serviceFeeType
+    //   } | newServiceFeeType: ${
+    //     this.state.newServiceFeeType
+    //   } | newServiceVal: ${newServiceVal}`
+    // );
+
     this.setState({
-      serviceFeeType: ev.currentTarget.value as ServiceFeeType,
+      serviceFeeType: value as ServiceFeeType,
+      // serviceFeeType: serviceFeeTypeVal as ServiceFeeType,
+      // newServiceFeeType: newServiceVal as NewServiceFeeType,
     });
   };
 
   handleCardOptChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
+    // console.log(
+    //   `handleCardOptChanged > value: ${
+    //     ev.currentTarget.value
+    //   } | serviceFeeType: ${this.state.serviceFeeType} | newServiceFeeType: ${
+    //     this.state.newServiceFeeType
+    //   }`
+    // );
     this.setState({
       newServiceFeeType: ev.currentTarget.value as NewServiceFeeType,
     });
@@ -73,11 +101,14 @@ export default class CostSummary extends Component<Props, State> {
 
   calculateCost() {
     const { certificateQuantity, hasResearchFee, tracking } = this.props;
-    const { serviceFeeType } = this.state;
+    const {
+      // serviceFeeType,
+      newServiceFeeType,
+    } = this.state;
     const certificateTypeCost =
       CERTIFICATE_COST[this.props.certificateType.toUpperCase()];
 
-    return serviceFeeType === 'CREDIT'
+    return newServiceFeeType === '1'
       ? calculateCreditCardCost(
           certificateTypeCost,
           certificateQuantity,
@@ -99,7 +130,7 @@ export default class CostSummary extends Component<Props, State> {
     return (
       <>
         {$OrderSummary({
-          certQuantityLabel: `${certificateQuantity} ${
+          certQuantityLabel: `Subtotal: ${certificateQuantity} ${
             certificateQuantity === 1 ? 'certificate' : 'certificates'
           } × ${CERTIFICATE_COST_STRING[certificateType.toUpperCase()]}`,
           totalCost: `${(subtotal / 100).toFixed(2)}`,
