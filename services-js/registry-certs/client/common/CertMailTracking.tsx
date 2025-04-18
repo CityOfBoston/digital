@@ -1,8 +1,12 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
-// import React from 'react';
 
-import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
+import {
+  SANS,
+  SERIF,
+  CHARLES_BLUE,
+  AddRemoveRadioBtn,
+} from '@cityofboston/react-fleet';
 
 interface Props {
   action: 'add' | 'remove';
@@ -15,16 +19,26 @@ export const CertMailTracking = (props: Props): JSX.Element => {
 
   return (
     <div css={TRACKING_STYLING}>
-      <label>Need A Tracking Number?</label>
+      <h1>Need A Tracking Number?</h1>
 
-      <AddRemoveRadioBtn
-        labels={['Add', 'Remove']}
-        name={`CC_AddRemove`}
-        id={`checkoutAddRemove`}
-        action={action}
-        value={value}
-        onClickHandler={onClickHandler}
-      />
+      <div className="row">
+        <div className="col">
+          We are pleased to offer USPS Tracking® services for an additional fee
+          of $5.00. After your purchase the Registry will follow-up with a
+          tracking number.
+        </div>
+
+        <div className="col">
+          <AddRemoveRadioBtn
+            labels={['Add', 'Remove']}
+            name={`CC_AddRemove`}
+            id={`checkoutAddRemove`}
+            action={action}
+            value={value}
+            onClickHandler={onClickHandler}
+          />
+        </div>
+      </div>
     </div>
   );
 };
@@ -32,5 +46,27 @@ export const CertMailTracking = (props: Props): JSX.Element => {
 export default CertMailTracking;
 
 const TRACKING_STYLING = css`
-  font-family: SERIF;
+  color: ${CHARLES_BLUE};
+  font-family: ${SERIF};
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+
+  h1 {
+    font-family: ${SANS};
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .col:first-of-type {
+      padding-top: 0.75rem;
+      max-width: 75%;
+    }
+  }
 `;

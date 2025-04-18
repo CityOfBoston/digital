@@ -10,6 +10,7 @@ import {
   // SERIF,
   SANS,
   DEFAULT_TEXT,
+  SERIF,
 } from '@cityofboston/react-fleet';
 
 export const THICK_BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
@@ -53,6 +54,29 @@ export const DISCLAIMER_STYLING = css({
     paddingBottom: '0.7em',
   },
 });
+
+export const NEW_DISCLAIMER_STYLING = css`
+  color: ${CHARLES_BLUE};
+  font-family: ${SERIF};
+  font-size: 18px;
+  line-height: normal;
+  font-style: normal;
+
+  span.bold {
+    font-weight: 700;
+  }
+
+  ol li {
+    padding-bottom: 0.7em;
+    list-style: normal;
+    margin: 0 0 40px 15px;
+    padding: 0 0 0 1px;
+
+    &:before {
+      content: none;
+    }
+  }
+`;
 
 export const RADIOGROUP_STYLING = css({
   margin: '2rem 0 3rem',

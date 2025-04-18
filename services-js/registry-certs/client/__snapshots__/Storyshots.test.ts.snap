@@ -17090,7 +17090,7 @@ Array [
   font-style: italic;
 }
 
-.emotion-15 {
+.emotion-16 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -17102,7 +17102,7 @@ Array [
   max-width: 680px;
 }
 
-.emotion-15 h1 {
+.emotion-16 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -17110,7 +17110,7 @@ Array [
   margin-bottom: 6px;
 }
 
-.emotion-15 .row {
+.emotion-16 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17122,18 +17122,18 @@ Array [
   margin-bottom: 12px;
 }
 
-.emotion-15 .row .col {
+.emotion-16 .row .col {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-15 .row .col:nth-of-type(2) {
+.emotion-16 .row .col:nth-of-type(2) {
   text-align: right;
 }
 
-.emotion-15 .row:nth-last-of-type(-n + 1) {
+.emotion-16 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -17143,7 +17143,7 @@ Array [
   margin-top: 16px;
 }
 
-.emotion-14 {
+.emotion-15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -17166,14 +17166,14 @@ Array [
   align-items: center;
 }
 
-.emotion-14 .select--wrapper {
+.emotion-15 .select--wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-14 .select--wrapper select {
+.emotion-15 .select--wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -17204,18 +17204,18 @@ Array [
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.emotion-14 .select--wrapper select option {
+.emotion-15 .select--wrapper select option {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-26:after {
+.emotion-27:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-16 {
+.emotion-17 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -17227,19 +17227,19 @@ Array [
   width: 1px;
 }
 
-.emotion-18 {
+.emotion-19 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-25 {
+.emotion-26 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-24 {
+.emotion-25 {
   font-size: 80%;
 }
 
@@ -17263,13 +17263,67 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-27 {
+.emotion-28 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
 
-.emotion-6 ol li {
+.emotion-7 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  line-height: normal;
+  font-style: normal;
+}
+
+.emotion-7 span.bold {
+  font-weight: 700;
+}
+
+.emotion-7 ol li {
   padding-bottom: 0.7em;
+  list-style: normal;
+  margin: 0 0 40px 15px;
+  padding: 0 0 0 1px;
+}
+
+.emotion-7 ol li:before {
+  content: none;
+}
+
+.emotion-6 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+}
+
+.emotion-6 h1 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-6 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-6 .row .col:first-of-type {
+  padding-top: 0.75rem;
+  max-width: 75%;
 }
 
 .emotion-5 {
@@ -17353,7 +17407,7 @@ Array [
   text-decoration: none;
 }
 
-.emotion-13 {
+.emotion-14 {
   border-bottom: 1px solid #e0e0e0;
   border-top: 1px solid #e0e0e0;
   padding-bottom: 0.5em;
@@ -17370,20 +17424,20 @@ Array [
   align-items: center;
 }
 
-.emotion-13 > div:first-of-type {
+.emotion-14 > div:first-of-type {
   -webkit-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
   flex-basis: 25%;
 }
 
-.emotion-9 {
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-7 {
+.emotion-8 {
   -moz-appearance: textfield;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -17391,32 +17445,32 @@ Array [
   flex-grow: 1;
 }
 
-.emotion-7::-webkit-inner-spin-button {
+.emotion-8::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-7 {
+  .emotion-8 {
     width: 70px;
     border-right: 0;
   }
 }
 
-.emotion-8 {
+.emotion-9 {
   display: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-8 {
+  .emotion-9 {
     display: block;
   }
 }
 
-.emotion-8:after {
+.emotion-9:after {
   content: 'Qty';
 }
 
-.emotion-12 {
+.emotion-13 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -17424,12 +17478,12 @@ Array [
 }
 
 @media screen and (min-width:768px) {
-  .emotion-12 {
+  .emotion-13 {
     margin-left: 0.75rem;
   }
 }
 
-.emotion-10 {
+.emotion-11 {
   font-style: normal;
   font-weight: bold;
   -webkit-letter-spacing: 1.4px;
@@ -17438,26 +17492,26 @@ Array [
   letter-spacing: 1.4px;
 }
 
-.emotion-11 {
+.emotion-12 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-style: italic;
 }
 
-.emotion-11 > span {
+.emotion-12 > span {
   display: block;
 }
 
-.emotion-21 {
+.emotion-22 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-20:after {
+.emotion-21:after {
   width: 2rem;
 }
 
-.emotion-19 {
+.emotion-20 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -17673,13 +17727,28 @@ Array [
               Review your record request
             </h2>
             <div
-              className="emotion-6"
+              className="emotion-7"
             >
               <p>
-                You can only order copies of one person's birth certificate at a time. Want to order copies of a certificate for another person? Please put in a separate request.
+                You can only order copies of one person's birth certificate at a time.
               </p>
               <p>
-                Do you need a certificate for international use that requires an Apostille from the Massachusetts Secretary of State's Office? Follow these steps:
+                <span
+                  className="bold"
+                >
+                  Want to order copies of a certificate for another person?
+                </span>
+                 
+                Please put in a separate request.
+              </p>
+              <p>
+                <span
+                  className="bold"
+                >
+                  Do you need a certificate for international use that requires an Apostille from the Massachusetts Secretary of State's Office?
+                </span>
+                 
+                Follow these steps:
               </p>
               <ol>
                 <li>
@@ -17687,8 +17756,9 @@ Array [
                 </li>
                 <li>
                   Submit the certificate to the
+                   
                   <a
-                    href="https://www.sec.state.ma.us/pre/precom/comidx.htm"
+                    href="https://www.sec.state.ma.us/divisions/public-records/public-records.htm"
                   >
                     Massachusetts Secretary of State's Office
                   </a>
@@ -17696,37 +17766,57 @@ Array [
                 </li>
               </ol>
               <div
-                className="emotion-5"
-                data-action="add"
-                id="checkoutAddRemove"
-                onClick={[Function]}
-                tabIndex={0}
+                className="emotion-6"
               >
+                <h1>
+                  Need A Tracking Number?
+                </h1>
                 <div
-                  className="wrapper"
+                  className="row"
                 >
-                  <label
-                    data-content-alt="Remove"
-                    data-content-default="Add"
-                    htmlFor="checkoutAddRemove"
-                  />
-                  <input
-                    name="CC_AddRemove"
-                    type="hidden"
-                    value="0"
-                  />
+                  <div
+                    className="col"
+                  >
+                    We are pleased to offer USPS Tracking® services for an additional fee of $5.00. After your purchase the Registry will follow-up with a tracking number.
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="emotion-5"
+                      data-action="add"
+                      id="checkoutAddRemove"
+                      onClick={[Function]}
+                      tabIndex={0}
+                    >
+                      <div
+                        className="wrapper"
+                      >
+                        <label
+                          data-content-alt="Remove"
+                          data-content-default="Add"
+                          htmlFor="checkoutAddRemove"
+                        />
+                        <input
+                          name="CC_AddRemove"
+                          type="hidden"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              className="emotion-13"
+              className="emotion-14"
             >
               <div
-                className="emotion-9"
+                className="emotion-10"
               >
                 <input
                   aria-label="Quantity"
-                  className="txt-f txt-f--auto ta-r emotion-7"
+                  className="txt-f txt-f--auto ta-r emotion-8"
                   min="1"
                   name="quantity"
                   onBlur={[Function]}
@@ -17737,7 +17827,7 @@ Array [
                 />
                 <div
                   aria-hidden="true"
-                  className="sel-c sel-c--sq emotion-8"
+                  className="sel-c sel-c--sq emotion-9"
                 >
                   <select
                     className="sel-f sel-f--sq"
@@ -17809,15 +17899,15 @@ Array [
                 </div>
               </div>
               <div
-                className="t--sans emotion-12"
+                className="t--sans emotion-13"
               >
                 <div
-                  className="emotion-10"
+                  className="emotion-11"
                 >
                   Carol Danvers
                 </div>
                 <div
-                  className="emotion-11"
+                  className="emotion-12"
                 >
                   <span>
                     Birth
@@ -17830,7 +17920,7 @@ Array [
               </div>
             </div>
             <div
-              className="emotion-15"
+              className="emotion-16"
             >
               <h1>
                 Order Summary
@@ -17872,7 +17962,7 @@ Array [
                   className="col"
                 >
                   <span
-                    className="labeled-select emotion-14"
+                    className="labeled-select emotion-15"
                   >
                     <label
                       htmlFor="ServiceFeeTypeSelect"
@@ -17931,7 +18021,7 @@ Array [
               </div>
             </div>
             <div
-              className="emotion-26"
+              className="emotion-27"
             >
               <table
                 className="t--info ta-r"
@@ -17942,12 +18032,12 @@ Array [
                 }
               >
                 <caption
-                  className="emotion-16"
+                  className="emotion-17"
                 >
                   Cost Summary
                 </caption>
                 <thead
-                  className="emotion-16"
+                  className="emotion-17"
                 >
                   <tr>
                     <th
@@ -17973,7 +18063,7 @@ Array [
                       $14.00
                     </td>
                     <td
-                      className="emotion-18"
+                      className="emotion-19"
                     >
                       $
                       14.00
@@ -17983,14 +18073,14 @@ Array [
                     <td>
                       <div>
                         <div
-                          className="sel sel--thin emotion-21"
+                          className="sel sel--thin emotion-22"
                         >
                           <div
-                            className="sel-c  emotion-20"
+                            className="sel-c  emotion-21"
                           >
                             <select
                               aria-label="Payment type"
-                              className="sel-f emotion-19"
+                              className="sel-f emotion-20"
                               id="serviceFeeTypeSelect"
                               onChange={[Function]}
                               value="CREDIT"
@@ -18020,7 +18110,7 @@ Array [
                       </div>
                     </td>
                     <td
-                      className="emotion-18"
+                      className="emotion-19"
                     >
                       $
                       0.47
@@ -18031,7 +18121,7 @@ Array [
                       U.S. shipping included
                     </td>
                     <td
-                      className="emotion-18"
+                      className="emotion-19"
                     >
                       <i>
                         $0.00
@@ -18040,10 +18130,10 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      className="sh-title emotion-25"
+                      className="sh-title emotion-26"
                     >
                       <span
-                        className="emotion-24"
+                        className="emotion-25"
                       >
                         Total
                       </span>
@@ -18065,7 +18155,7 @@ Array [
                 className="g--9 t--info"
               >
                 <button
-                  className="lnk emotion-27"
+                  className="lnk emotion-28"
                   onClick={[Function]}
                   type="button"
                 >
@@ -44225,6 +44315,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
         className="emotion-2"
       >
         Born: 3/5/1968
+         XXX
       </div>
     </div>
   </div>
@@ -44313,6 +44404,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         className="emotion-2"
       >
         Died: 3/4/2016 — Age: 53
+         XXX
       </div>
     </div>
   </div>
@@ -44374,6 +44466,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         className="emotion-2"
       >
         Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
+         XXX
       </div>
     </div>
   </div>
@@ -44415,6 +44508,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         className="emotion-2"
       >
         Died: 2004 — Age: 6
+         XXX
       </div>
     </div>
   </div>
@@ -44505,6 +44599,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
         className="emotion-2"
       >
         
+         XXX
       </div>
     </div>
   </div>
@@ -44674,6 +44769,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
               className="emotion-4"
             >
               Born: 3/5/1968
+               XXX
             </div>
           </div>
         </div>
@@ -44927,6 +45023,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               className="emotion-4"
             >
               Died: 3/4/2016 — Age: 53
+               XXX
             </div>
           </div>
         </div>
@@ -44988,6 +45085,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               className="emotion-4"
             >
               Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
+               XXX
             </div>
           </div>
         </div>
@@ -45029,6 +45127,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               className="emotion-4"
             >
               Died: 2004 — Age: 6
+               XXX
             </div>
           </div>
         </div>
@@ -45298,6 +45397,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
               className="emotion-4"
             >
               
+               XXX
             </div>
           </div>
         </div>
@@ -54163,6 +54263,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
         className="emotion-3"
       >
         Died: 2004 — Age: 6
+         XXX
       </div>
     </div>
     <button
@@ -54173,6 +54274,15 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
     >
       ×
     </button>
+  </div>
+  <div
+    className="emotion-7"
+  >
+    <label>
+      MONKEY
+       
+      JOE
+    </label>
   </div>
 </div>
 `;
@@ -54295,6 +54405,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
         className="emotion-3"
       >
         Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
+         XXX
       </div>
     </div>
     <button
@@ -54305,6 +54416,15 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
     >
       ×
     </button>
+  </div>
+  <div
+    className="emotion-7"
+  >
+    <label>
+      JAMES
+       
+      HOWLETT (LOGAN)
+    </label>
   </div>
 </div>
 `;
@@ -54407,6 +54527,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
         className="emotion-3"
       >
         Died: 3/4/2016 — Age: 53
+         XXX
       </div>
     </div>
     <button
@@ -54417,6 +54538,15 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
     >
       ×
     </button>
+  </div>
+  <div
+    className="emotion-7"
+  >
+    <label>
+      BRUCE
+       
+      BANNER
+    </label>
   </div>
 </div>
 `;
@@ -55315,6 +55445,41 @@ Array [
   color: #d22d23;
 }
 
+.emotion-6 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+}
+
+.emotion-6 h1 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-6 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-6 .row .col:first-of-type {
+  padding-top: 0.75rem;
+  max-width: 75%;
+}
+
 .emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -55439,10 +55604,6 @@ Array [
   height: 0;
   left: -20px;
   top: 12px;
-}
-
-.emotion-6 {
-  font-family: SERIF;
 }
 
 <div
@@ -55689,29 +55850,42 @@ Array [
             <div
               className="emotion-6"
             >
-              <label>
+              <h1>
                 Need A Tracking Number?
-              </label>
+              </h1>
               <div
-                className="emotion-5"
-                data-action="add"
-                id="checkoutAddRemove"
-                onClick={[Function]}
-                tabIndex={0}
+                className="row"
               >
                 <div
-                  className="wrapper"
+                  className="col"
                 >
-                  <label
-                    data-content-alt="Remove"
-                    data-content-default="Add"
-                    htmlFor="checkoutAddRemove"
-                  />
-                  <input
-                    name="CC_AddRemove"
-                    type="hidden"
-                    value="0"
-                  />
+                  We are pleased to offer USPS Tracking® services for an additional fee of $5.00. After your purchase the Registry will follow-up with a tracking number.
+                </div>
+                <div
+                  className="col"
+                >
+                  <div
+                    className="emotion-5"
+                    data-action="add"
+                    id="checkoutAddRemove"
+                    onClick={[Function]}
+                    tabIndex={0}
+                  >
+                    <div
+                      className="wrapper"
+                    >
+                      <label
+                        data-content-alt="Remove"
+                        data-content-default="Add"
+                        htmlFor="checkoutAddRemove"
+                      />
+                      <input
+                        name="CC_AddRemove"
+                        type="hidden"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -55999,6 +56173,41 @@ Array [
   font-size: 80%;
 }
 
+.emotion-6 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+}
+
+.emotion-6 h1 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-6 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-6 .row .col:first-of-type {
+  padding-top: 0.75rem;
+  max-width: 75%;
+}
+
 .emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -56138,10 +56347,6 @@ Array [
   height: 0;
   left: -20px;
   top: 12px;
-}
-
-.emotion-6 {
-  font-family: SERIF;
 }
 
 <div
@@ -56381,29 +56586,42 @@ Array [
             <div
               className="emotion-6"
             >
-              <label>
+              <h1>
                 Need A Tracking Number?
-              </label>
+              </h1>
               <div
-                className="emotion-5"
-                data-action="add"
-                id="checkoutAddRemove"
-                onClick={[Function]}
-                tabIndex={0}
+                className="row"
               >
                 <div
-                  className="wrapper"
+                  className="col"
                 >
-                  <label
-                    data-content-alt="Remove"
-                    data-content-default="Add"
-                    htmlFor="checkoutAddRemove"
-                  />
-                  <input
-                    name="CC_AddRemove"
-                    type="hidden"
-                    value="0"
-                  />
+                  We are pleased to offer USPS Tracking® services for an additional fee of $5.00. After your purchase the Registry will follow-up with a tracking number.
+                </div>
+                <div
+                  className="col"
+                >
+                  <div
+                    className="emotion-5"
+                    data-action="add"
+                    id="checkoutAddRemove"
+                    onClick={[Function]}
+                    tabIndex={0}
+                  >
+                    <div
+                      className="wrapper"
+                    >
+                      <label
+                        data-content-alt="Remove"
+                        data-content-default="Add"
+                        htmlFor="checkoutAddRemove"
+                      />
+                      <input
+                        name="CC_AddRemove"
+                        type="hidden"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -56813,7 +57031,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-29 {
+.emotion-32 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -56825,7 +57043,7 @@ Array [
   max-width: 680px;
 }
 
-.emotion-29 h1 {
+.emotion-32 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -56833,7 +57051,7 @@ Array [
   margin-bottom: 6px;
 }
 
-.emotion-29 .row {
+.emotion-32 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56845,18 +57063,18 @@ Array [
   margin-bottom: 12px;
 }
 
-.emotion-29 .row .col {
+.emotion-32 .row .col {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-29 .row .col:nth-of-type(2) {
+.emotion-32 .row .col:nth-of-type(2) {
   text-align: right;
 }
 
-.emotion-29 .row:nth-last-of-type(-n + 1) {
+.emotion-32 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -56866,7 +57084,7 @@ Array [
   margin-top: 16px;
 }
 
-.emotion-28 {
+.emotion-31 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56889,14 +57107,14 @@ Array [
   align-items: center;
 }
 
-.emotion-28 .select--wrapper {
+.emotion-31 .select--wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-28 .select--wrapper select {
+.emotion-31 .select--wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -56927,18 +57145,18 @@ Array [
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.emotion-28 .select--wrapper select option {
+.emotion-31 .select--wrapper select option {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-40:after {
+.emotion-43:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-30 {
+.emotion-33 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -56950,30 +57168,65 @@ Array [
   width: 1px;
 }
 
-.emotion-32 {
+.emotion-35 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-39 {
+.emotion-42 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-38 {
+.emotion-41 {
   font-size: 80%;
 }
 
-.emotion-26 {
+.emotion-30 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+}
+
+.emotion-30 h1 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-30 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-30 .row .col:first-of-type {
+  padding-top: 0.75rem;
+  max-width: 75%;
+}
+
+.emotion-29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-26 .wrapper {
+.emotion-29 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56982,11 +57235,11 @@ Array [
   border: 3px solid transparent;
 }
 
-.emotion-26 .wrapper input[type='radio'] {
+.emotion-29 .wrapper input[type='radio'] {
   display: none;
 }
 
-.emotion-26 .wrapper label::before {
+.emotion-29 .wrapper label::before {
   content: 'Add';
   color: #1871bd;
   font-family: Lora;
@@ -57002,39 +57255,39 @@ Array [
   cursor: pointer;
 }
 
-.emotion-26 .wrapper label:hover::before {
+.emotion-29 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-26:active .wrapper,
-.emotion-26:focus .wrapper {
+.emotion-29:active .wrapper,
+.emotion-29:focus .wrapper {
   border-color: #1871bd;
 }
 
-.emotion-26:focus:not(:focus-visible) .wrapper {
+.emotion-29:focus:not(:focus-visible) .wrapper {
   border-color: transparrent;
 }
 
-.emotion-26[data-state='disabled'] .wrapper label::before {
+.emotion-29[data-state='disabled'] .wrapper label::before {
   color: #d2d2d2;
   background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 
-.emotion-26[data-state='disabled']:active .wrapper,
-.emotion-26[data-state='disabled']:focus .wrapper {
+.emotion-29[data-state='disabled']:active .wrapper,
+.emotion-29[data-state='disabled']:focus .wrapper {
   border-color: #d2d2d2;
 }
 
-.emotion-26[data-state='focused'] .wrapper {
+.emotion-29[data-state='focused'] .wrapper {
   border-color: #1871bd;
 }
 
-.emotion-26[data-action='add'] label::before {
+.emotion-29[data-action='add'] label::before {
   content: attr(data-content-default);
 }
 
-.emotion-26[data-action='remove'] label::before {
+.emotion-29[data-action='remove'] label::before {
   content: attr(data-content-alt);
   background: none;
   padding-right: 3px;
@@ -57042,7 +57295,7 @@ Array [
   text-decoration: underline;
 }
 
-.emotion-26[data-action='remove']:hover label::before {
+.emotion-29[data-action='remove']:hover label::before {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -57056,16 +57309,16 @@ Array [
   letter-spacing: 1.4px;
 }
 
-.emotion-35 {
+.emotion-38 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-34:after {
+.emotion-37:after {
   width: 2rem;
 }
 
-.emotion-33 {
+.emotion-36 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -57170,10 +57423,6 @@ Array [
   vertical-align: middle;
   cursor: pointer;
   padding: 0 0 0.2em;
-}
-
-.emotion-27 {
-  font-family: SERIF;
 }
 
 <div
@@ -57435,6 +57684,7 @@ Array [
                         className="emotion-8"
                       >
                         Died: 3/4/2016 — Age: 53
+                         XXX
                       </div>
                     </div>
                     <button
@@ -57445,6 +57695,15 @@ Array [
                     >
                       ×
                     </button>
+                  </div>
+                  <div
+                    className="emotion-12"
+                  >
+                    <label>
+                      BRUCE
+                       
+                      BANNER
+                    </label>
                   </div>
                 </div>
                 <div>
@@ -57499,6 +57758,7 @@ Array [
                         className="emotion-8"
                       >
                         Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
+                         XXX
                       </div>
                     </div>
                     <button
@@ -57509,6 +57769,15 @@ Array [
                     >
                       ×
                     </button>
+                  </div>
+                  <div
+                    className="emotion-12"
+                  >
+                    <label>
+                      JAMES
+                       
+                      HOWLETT (LOGAN)
+                    </label>
                   </div>
                 </div>
                 <div>
@@ -57543,6 +57812,7 @@ Array [
                         className="emotion-8"
                       >
                         Died: 2004 — Age: 6
+                         XXX
                       </div>
                     </div>
                     <button
@@ -57554,35 +57824,57 @@ Array [
                       ×
                     </button>
                   </div>
+                  <div
+                    className="emotion-12"
+                  >
+                    <label>
+                      MONKEY
+                       
+                      JOE
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              className="emotion-27"
+              className="emotion-30"
             >
-              <label>
+              <h1>
                 Need A Tracking Number?
-              </label>
+              </h1>
               <div
-                className="emotion-26"
-                data-action="add"
-                id="checkoutAddRemove"
-                onClick={[Function]}
-                tabIndex={0}
+                className="row"
               >
                 <div
-                  className="wrapper"
+                  className="col"
                 >
-                  <label
-                    data-content-alt="Remove"
-                    data-content-default="Add"
-                    htmlFor="checkoutAddRemove"
-                  />
-                  <input
-                    name="CC_AddRemove"
-                    type="hidden"
-                    value="0"
-                  />
+                  We are pleased to offer USPS Tracking® services for an additional fee of $5.00. After your purchase the Registry will follow-up with a tracking number.
+                </div>
+                <div
+                  className="col"
+                >
+                  <div
+                    className="emotion-29"
+                    data-action="add"
+                    id="checkoutAddRemove"
+                    onClick={[Function]}
+                    tabIndex={0}
+                  >
+                    <div
+                      className="wrapper"
+                    >
+                      <label
+                        data-content-alt="Remove"
+                        data-content-default="Add"
+                        htmlFor="checkoutAddRemove"
+                      />
+                      <input
+                        name="CC_AddRemove"
+                        type="hidden"
+                        value="0"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -57590,7 +57882,7 @@ Array [
               className="m-t700"
             >
               <div
-                className="emotion-29"
+                className="emotion-32"
               >
                 <h1>
                   Order Summary
@@ -57632,7 +57924,7 @@ Array [
                     className="col"
                   >
                     <span
-                      className="labeled-select emotion-28"
+                      className="labeled-select emotion-31"
                     >
                       <label
                         htmlFor="ServiceFeeTypeSelect"
@@ -57691,7 +57983,7 @@ Array [
                 </div>
               </div>
               <div
-                className="emotion-40"
+                className="emotion-43"
               >
                 <table
                   className="t--info ta-r"
@@ -57702,12 +57994,12 @@ Array [
                   }
                 >
                   <caption
-                    className="emotion-30"
+                    className="emotion-33"
                   >
                     Cost Summary
                   </caption>
                   <thead
-                    className="emotion-30"
+                    className="emotion-33"
                   >
                     <tr>
                       <th
@@ -57733,7 +58025,7 @@ Array [
                         $14.00
                       </td>
                       <td
-                        className="emotion-32"
+                        className="emotion-35"
                       >
                         $
                         70.00
@@ -57743,14 +58035,14 @@ Array [
                       <td>
                         <div>
                           <div
-                            className="sel sel--thin emotion-35"
+                            className="sel sel--thin emotion-38"
                           >
                             <div
-                              className="sel-c  emotion-34"
+                              className="sel-c  emotion-37"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="sel-f emotion-33"
+                                className="sel-f emotion-36"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
@@ -57780,7 +58072,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        className="emotion-32"
+                        className="emotion-35"
                       >
                         $
                         1.32
@@ -57791,7 +58083,7 @@ Array [
                         U.S. shipping included
                       </td>
                       <td
-                        className="emotion-32"
+                        className="emotion-35"
                       >
                         <i>
                           $0.00
@@ -57800,10 +58092,10 @@ Array [
                     </tr>
                     <tr>
                       <td
-                        className="sh-title emotion-39"
+                        className="sh-title emotion-42"
                       >
                         <span
-                          className="emotion-38"
+                          className="emotion-41"
                         >
                           Total
                         </span>
@@ -63486,6 +63778,7 @@ Array [
                       className="emotion-7"
                     >
                       Died: 3/4/2016 — Age: 53
+                       XXX
                     </div>
                   </div>
                 </div>
@@ -63538,6 +63831,7 @@ Array [
                       className="emotion-7"
                     >
                       Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
+                       XXX
                     </div>
                   </div>
                 </div>
@@ -63570,6 +63864,7 @@ Array [
                       className="emotion-7"
                     >
                       Died: 2004 — Age: 6
+                       XXX
                     </div>
                   </div>
                 </div>
@@ -63823,6 +64118,7 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
         className="emotion-2"
       >
         Died: 2004 — Age: 6
+         XXX
       </div>
     </div>
   </div>
@@ -63900,6 +64196,7 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
         className="emotion-2"
       >
         Died: 3/4/2016 — Age: 53
+         XXX
       </div>
     </div>
   </div>
@@ -116332,7 +116629,7 @@ Array [
   font-style: italic;
 }
 
-.emotion-15 {
+.emotion-16 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -116344,7 +116641,7 @@ Array [
   max-width: 680px;
 }
 
-.emotion-15 h1 {
+.emotion-16 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -116352,7 +116649,7 @@ Array [
   margin-bottom: 6px;
 }
 
-.emotion-15 .row {
+.emotion-16 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -116364,18 +116661,18 @@ Array [
   margin-bottom: 12px;
 }
 
-.emotion-15 .row .col {
+.emotion-16 .row .col {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-15 .row .col:nth-of-type(2) {
+.emotion-16 .row .col:nth-of-type(2) {
   text-align: right;
 }
 
-.emotion-15 .row:nth-last-of-type(-n + 1) {
+.emotion-16 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -116385,7 +116682,7 @@ Array [
   margin-top: 16px;
 }
 
-.emotion-14 {
+.emotion-15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -116408,14 +116705,14 @@ Array [
   align-items: center;
 }
 
-.emotion-14 .select--wrapper {
+.emotion-15 .select--wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-14 .select--wrapper select {
+.emotion-15 .select--wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -116446,18 +116743,18 @@ Array [
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.emotion-14 .select--wrapper select option {
+.emotion-15 .select--wrapper select option {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-26:after {
+.emotion-27:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-16 {
+.emotion-17 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -116469,19 +116766,19 @@ Array [
   width: 1px;
 }
 
-.emotion-18 {
+.emotion-19 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-25 {
+.emotion-26 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-24 {
+.emotion-25 {
   font-size: 80%;
 }
 
@@ -116505,13 +116802,67 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-27 {
+.emotion-28 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
 }
 
-.emotion-6 ol li {
+.emotion-7 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  line-height: normal;
+  font-style: normal;
+}
+
+.emotion-7 span.bold {
+  font-weight: 700;
+}
+
+.emotion-7 ol li {
   padding-bottom: 0.7em;
+  list-style: normal;
+  margin: 0 0 40px 15px;
+  padding: 0 0 0 1px;
+}
+
+.emotion-7 ol li:before {
+  content: none;
+}
+
+.emotion-6 {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+}
+
+.emotion-6 h1 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-6 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.emotion-6 .row .col:first-of-type {
+  padding-top: 0.75rem;
+  max-width: 75%;
 }
 
 .emotion-5 {
@@ -116595,7 +116946,7 @@ Array [
   text-decoration: none;
 }
 
-.emotion-13 {
+.emotion-14 {
   border-bottom: 1px solid #e0e0e0;
   border-top: 1px solid #e0e0e0;
   padding-bottom: 0.5em;
@@ -116612,20 +116963,20 @@ Array [
   align-items: center;
 }
 
-.emotion-13 > div:first-of-type {
+.emotion-14 > div:first-of-type {
   -webkit-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
   flex-basis: 25%;
 }
 
-.emotion-9 {
+.emotion-10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-7 {
+.emotion-8 {
   -moz-appearance: textfield;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -116633,32 +116984,32 @@ Array [
   flex-grow: 1;
 }
 
-.emotion-7::-webkit-inner-spin-button {
+.emotion-8::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-7 {
+  .emotion-8 {
     width: 70px;
     border-right: 0;
   }
 }
 
-.emotion-8 {
+.emotion-9 {
   display: none;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-8 {
+  .emotion-9 {
     display: block;
   }
 }
 
-.emotion-8:after {
+.emotion-9:after {
   content: 'Qty';
 }
 
-.emotion-12 {
+.emotion-13 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -116666,12 +117017,12 @@ Array [
 }
 
 @media screen and (min-width:768px) {
-  .emotion-12 {
+  .emotion-13 {
     margin-left: 0.75rem;
   }
 }
 
-.emotion-10 {
+.emotion-11 {
   font-style: normal;
   font-weight: bold;
   -webkit-letter-spacing: 1.4px;
@@ -116680,26 +117031,26 @@ Array [
   letter-spacing: 1.4px;
 }
 
-.emotion-11 {
+.emotion-12 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-style: italic;
 }
 
-.emotion-11 > span {
+.emotion-12 > span {
   display: block;
 }
 
-.emotion-21 {
+.emotion-22 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-20:after {
+.emotion-21:after {
   width: 2rem;
 }
 
-.emotion-19 {
+.emotion-20 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -116925,13 +117276,28 @@ Array [
               Review your record request
             </h2>
             <div
-              className="emotion-6"
+              className="emotion-7"
             >
               <p>
-                You can only order copies of a marriage certificate for one couple at a time. Want to order copies of a certificate for a different marriage? Please put in a separate request.
+                You can only order copies of one person's birth certificate at a time.
               </p>
               <p>
-                Do you need a certificate for international use that requires an Apostille from the Massachusetts Secretary of State's Office? Follow these steps:
+                <span
+                  className="bold"
+                >
+                  Want to order copies of a certificate for another person?
+                </span>
+                 
+                Please put in a separate request.
+              </p>
+              <p>
+                <span
+                  className="bold"
+                >
+                  Do you need a certificate for international use that requires an Apostille from the Massachusetts Secretary of State's Office?
+                </span>
+                 
+                Follow these steps:
               </p>
               <ol>
                 <li>
@@ -116939,8 +117305,9 @@ Array [
                 </li>
                 <li>
                   Submit the certificate to the
+                   
                   <a
-                    href="https://www.sec.state.ma.us/pre/precom/comidx.htm"
+                    href="https://www.sec.state.ma.us/divisions/public-records/public-records.htm"
                   >
                     Massachusetts Secretary of State's Office
                   </a>
@@ -116948,37 +117315,57 @@ Array [
                 </li>
               </ol>
               <div
-                className="emotion-5"
-                data-action="add"
-                id="checkoutAddRemove"
-                onClick={[Function]}
-                tabIndex={0}
+                className="emotion-6"
               >
+                <h1>
+                  Need A Tracking Number?
+                </h1>
                 <div
-                  className="wrapper"
+                  className="row"
                 >
-                  <label
-                    data-content-alt="Remove"
-                    data-content-default="Add"
-                    htmlFor="checkoutAddRemove"
-                  />
-                  <input
-                    name="CC_AddRemove"
-                    type="hidden"
-                    value="0"
-                  />
+                  <div
+                    className="col"
+                  >
+                    We are pleased to offer USPS Tracking® services for an additional fee of $5.00. After your purchase the Registry will follow-up with a tracking number.
+                  </div>
+                  <div
+                    className="col"
+                  >
+                    <div
+                      className="emotion-5"
+                      data-action="add"
+                      id="checkoutAddRemove"
+                      onClick={[Function]}
+                      tabIndex={0}
+                    >
+                      <div
+                        className="wrapper"
+                      >
+                        <label
+                          data-content-alt="Remove"
+                          data-content-default="Add"
+                          htmlFor="checkoutAddRemove"
+                        />
+                        <input
+                          name="CC_AddRemove"
+                          type="hidden"
+                          value="0"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              className="emotion-13"
+              className="emotion-14"
             >
               <div
-                className="emotion-9"
+                className="emotion-10"
               >
                 <input
                   aria-label="Quantity"
-                  className="txt-f txt-f--auto ta-r emotion-7"
+                  className="txt-f txt-f--auto ta-r emotion-8"
                   min="1"
                   name="quantity"
                   onBlur={[Function]}
@@ -116989,7 +117376,7 @@ Array [
                 />
                 <div
                   aria-hidden="true"
-                  className="sel-c sel-c--sq emotion-8"
+                  className="sel-c sel-c--sq emotion-9"
                 >
                   <select
                     className="sel-f sel-f--sq"
@@ -117061,15 +117448,15 @@ Array [
                 </div>
               </div>
               <div
-                className="t--sans emotion-12"
+                className="t--sans emotion-13"
               >
                 <div
-                  className="emotion-10"
+                  className="emotion-11"
                 >
                   Laurel Johnson (Laurel Smith) & Terry Johnson (Terry Doe)
                 </div>
                 <div
-                  className="emotion-11"
+                  className="emotion-12"
                 >
                   <span>
                     Marriage
@@ -117082,7 +117469,7 @@ Array [
               </div>
             </div>
             <div
-              className="emotion-15"
+              className="emotion-16"
             >
               <h1>
                 Order Summary
@@ -117124,7 +117511,7 @@ Array [
                   className="col"
                 >
                   <span
-                    className="labeled-select emotion-14"
+                    className="labeled-select emotion-15"
                   >
                     <label
                       htmlFor="ServiceFeeTypeSelect"
@@ -117183,7 +117570,7 @@ Array [
               </div>
             </div>
             <div
-              className="emotion-26"
+              className="emotion-27"
             >
               <table
                 className="t--info ta-r"
@@ -117194,12 +117581,12 @@ Array [
                 }
               >
                 <caption
-                  className="emotion-16"
+                  className="emotion-17"
                 >
                   Cost Summary
                 </caption>
                 <thead
-                  className="emotion-16"
+                  className="emotion-17"
                 >
                   <tr>
                     <th
@@ -117225,7 +117612,7 @@ Array [
                       $14.00
                     </td>
                     <td
-                      className="emotion-18"
+                      className="emotion-19"
                     >
                       $
                       14.00
@@ -117235,14 +117622,14 @@ Array [
                     <td>
                       <div>
                         <div
-                          className="sel sel--thin emotion-21"
+                          className="sel sel--thin emotion-22"
                         >
                           <div
-                            className="sel-c  emotion-20"
+                            className="sel-c  emotion-21"
                           >
                             <select
                               aria-label="Payment type"
-                              className="sel-f emotion-19"
+                              className="sel-f emotion-20"
                               id="serviceFeeTypeSelect"
                               onChange={[Function]}
                               value="CREDIT"
@@ -117272,7 +117659,7 @@ Array [
                       </div>
                     </td>
                     <td
-                      className="emotion-18"
+                      className="emotion-19"
                     >
                       $
                       0.47
@@ -117283,7 +117670,7 @@ Array [
                       U.S. shipping included
                     </td>
                     <td
-                      className="emotion-18"
+                      className="emotion-19"
                     >
                       <i>
                         $0.00
@@ -117292,10 +117679,10 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      className="sh-title emotion-25"
+                      className="sh-title emotion-26"
                     >
                       <span
-                        className="emotion-24"
+                        className="emotion-25"
                       >
                         Total
                       </span>
@@ -117317,7 +117704,7 @@ Array [
                 className="g--9 t--info"
               >
                 <button
-                  className="lnk emotion-27"
+                  className="lnk emotion-28"
                   onClick={[Function]}
                   type="button"
                 >

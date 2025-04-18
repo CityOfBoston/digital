@@ -16,12 +16,15 @@ import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
 
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
+// import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
+
 import CertifiedMail from '../models/CertifiedMail';
-import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
+import CertMailTracking from '../common/CertMailTracking';
+import { $CHECKOUT_DISCLAIMER_CONTENT } from '../common/content/CheckoutCertDisclaimer';
 
 import {
   SECTION_HEADING_STYLING,
-  DISCLAIMER_STYLING,
+  NEW_DISCLAIMER_STYLING,
 } from '../common/question-components/styling';
 
 interface PageDependenciesProps
@@ -92,37 +95,10 @@ export default class ReviewRequestPage extends Component<Props, State> {
           certificateType="marriage"
           certificateRequest={this.props.marriageCertificateRequest}
         >
-          <div css={DISCLAIMER_STYLING}>
-            <p>
-              You can only order copies of a marriage certificate for one couple
-              at a time. Want to order copies of a certificate for a different
-              marriage? Please put in a separate request.
-            </p>
+          <div css={NEW_DISCLAIMER_STYLING}>
+            {$CHECKOUT_DISCLAIMER_CONTENT()}
 
-            <p>
-              Do you need a certificate for international use that requires an
-              Apostille from the Massachusetts Secretary of State's Office?
-              Follow these steps:
-            </p>
-
-            <ol>
-              <li>
-                Request a certified birth certificate from the City of Boston
-                Registry. You don’t need extra information or paperwork.
-              </li>
-              <li>
-                Submit the certificate to the
-                <a href="https://www.sec.state.ma.us/pre/precom/comidx.htm">
-                  Massachusetts Secretary of State's Office
-                </a>
-                .
-              </li>
-            </ol>
-
-            <AddRemoveRadioBtn
-              labels={['Add', 'Remove']}
-              name={`CC_AddRemove`}
-              id={`checkoutAddRemove`}
+            <CertMailTracking
               action={
                 this.state.certMail &&
                 this.state.certMail.certMailInfo.requestCertifiedMail === true

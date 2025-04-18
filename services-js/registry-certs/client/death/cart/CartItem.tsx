@@ -19,6 +19,8 @@ import DeathCertificateCart, {
 
 import CertificateRow from '../../common/CertificateRow';
 
+import { $CartItem } from './NewCartItem';
+
 export interface Props {
   cart: DeathCertificateCart;
   siteAnalytics: GaSiteAnalytics;
@@ -144,6 +146,7 @@ export default class CartItem extends Component<Props, State> {
             </button>,
           ]}
         </CertificateRow>
+        {$CartItem({ firstName: cert.firstName, lastName: cert.lastName })}
       </div>
     );
   }

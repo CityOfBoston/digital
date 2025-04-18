@@ -96,7 +96,7 @@ const renderCertificate = (
       )}
     </div>
 
-    <div css={CERTIFICATE_SUBINFO_STYLE}>{certificateProps.subinfo}</div>
+    <div css={CERTIFICATE_SUBINFO_STYLE}>{certificateProps.subinfo} XXX</div>
   </div>
 );
 
@@ -178,6 +178,7 @@ function marriageRequestProps(request): CertificateProps {
     fullNames,
     // dateString
   } = request;
+  console.log(`marriageRequestProps (request): `, request);
 
   // todo: temporary hack - 8/29 jm
   // return {
