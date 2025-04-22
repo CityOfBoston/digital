@@ -1804,7 +1804,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-9 h1 {
@@ -17099,7 +17098,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-16 h1 {
@@ -17297,6 +17295,13 @@ Array [
   font-size: 18px;
   font-weight: normal;
   line-height: normal;
+  margin-top: 2rem;
+  padding: 2rem 0 2rem;
+  border-color: #d2d2d2;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .emotion-6 h1 {
@@ -26600,7 +26605,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-9 h1 {
@@ -27612,7 +27616,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-6 h1 {
@@ -28654,7 +28657,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-6 h1 {
@@ -29669,7 +29671,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-6 h1 {
@@ -30684,7 +30685,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-6 h1 {
@@ -31720,7 +31720,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-9 h1 {
@@ -32736,7 +32735,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-6 h1 {
@@ -33794,7 +33792,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-6 h1 {
@@ -34858,7 +34855,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-6 h1 {
@@ -41340,7 +41336,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -41742,7 +41737,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -42144,7 +42138,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -42502,7 +42495,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -42860,7 +42852,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -44315,7 +44306,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
         className="emotion-2"
       >
         Born: 3/5/1968
-         XXX
       </div>
     </div>
   </div>
@@ -44404,7 +44394,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         className="emotion-2"
       >
         Died: 3/4/2016 — Age: 53
-         XXX
       </div>
     </div>
   </div>
@@ -44466,7 +44455,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         className="emotion-2"
       >
         Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
-         XXX
       </div>
     </div>
   </div>
@@ -44508,7 +44496,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
         className="emotion-2"
       >
         Died: 2004 — Age: 6
-         XXX
       </div>
     </div>
   </div>
@@ -44599,7 +44586,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
         className="emotion-2"
       >
         
-         XXX
       </div>
     </div>
   </div>
@@ -44769,7 +44755,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
               className="emotion-4"
             >
               Born: 3/5/1968
-               XXX
             </div>
           </div>
         </div>
@@ -45023,7 +45008,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               className="emotion-4"
             >
               Died: 3/4/2016 — Age: 53
-               XXX
             </div>
           </div>
         </div>
@@ -45085,7 +45069,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               className="emotion-4"
             >
               Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
-               XXX
             </div>
           </div>
         </div>
@@ -45127,7 +45110,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
               className="emotion-4"
             >
               Died: 2004 — Age: 6
-               XXX
             </div>
           </div>
         </div>
@@ -45397,7 +45379,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
               className="emotion-4"
             >
               
-               XXX
             </div>
           </div>
         </div>
@@ -51575,7 +51556,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -52242,7 +52222,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -54166,387 +54145,1260 @@ exports[`Storyshots Common Components/SupportingDocumentsInput error uploading o
 `;
 
 exports[`Storyshots Death/CartItem certificate without death date 1`] = `
-.emotion-2 {
-  font-style: normal;
-  font-weight: bold;
-  -webkit-letter-spacing: 1.4px;
-  -moz-letter-spacing: 1.4px;
-  -ms-letter-spacing: 1.4px;
-  letter-spacing: 1.4px;
-}
-
-.emotion-6 {
-  border-color: #e0e0e0;
-  border-left-width: 0;
-  border-right-width: 0;
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.emotion-4 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.emotion-1 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
 }
 
-.emotion-1 span {
-  white-space: nowrap;
+.emotion-1 .wrapper input[type='radio'] {
+  display: none;
 }
 
-.emotion-1 span:first-of-type {
-  margin-right: 0.4em;
+.emotion-1 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
 }
 
-.emotion-3 {
+.emotion-1 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1:active .wrapper,
+.emotion-1:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-1:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-1[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-1[data-state='disabled']:active .wrapper,
+.emotion-1[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-1[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-1[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-1[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
   color: #091f2f;
-  font-style: italic;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-2 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-2 .row .col {
+  background: transparent;
+}
+
+.emotion-2 .name label {
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-2 .qty label {
+  font-weight: normal;
+}
+
+.emotion-2 label {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  font-weight: 600;
+}
+
+.emotion-2 label span {
+  font-weight: normal;
+}
+
+.emotion-2 > label:nth-of-type(1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 50px;
+  background: red;
+  text-transform: uppercase;
 }
 
 .emotion-0 {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 1rem;
-  font-family: inherit;
-  font-style: italic;
-  font-size: 1rem;
-  background: #1871bd;
-  color: #fff;
-  text-align: right;
-  padding: 0.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.emotion-5 {
-  border: none;
-  background: transparent;
-  color: #d22d23;
-  font-size: 2.5rem;
-  vertical-align: middle;
+.emotion-0 .quantity__main-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  border: 1px solid #091f2f;
+  padding: 10px 8px;
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  color: #091f2f;
+}
+
+.emotion-0 .quantity__main-wrapper input,
+.emotion-0 .quantity__main-wrapper select,
+.emotion-0 .quantity__main-wrapper option {
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.emotion-0 .quantity__main-wrapper label {
+  margin-right: 0.15rem;
   cursor: pointer;
-  padding: 0 0 0.2em;
+  color: #091f2f;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
+  max-width: 35px;
+  padding: 3px 2px 3px 2px;
+  border: 1px solid transparent;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+  background: #C8C8C8;
+  outline: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+  display: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  background-size: 24px 24px;
+}
+
+.emotion-0 .quantity__main-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  background-position: center right;
+  padding-right: calc(0.75em + 0.75rem);
+  background-size: 22px;
+}
+
+.emotion-0 .quantity__main-wrapper select option {
+  text-align: center;
+  background: green;
+}
+
+.emotion-0 [data-type='select'] {
+  border: 1px solid transparent;
+}
+
+.emotion-0 [data-type='input'] {
+  border: 1px solid #091f2f;
 }
 
 <div>
   <div
-    className="p-v300 br b--w br-a100 emotion-6"
+    className="emotion-2"
   >
-    <input
-      aria-label="Quantity for MONKEY JOE"
-      className="br br-a150 emotion-0"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      value="1"
-    />
     <div
-      className="emotion-4"
+      className="col"
     >
       <div
-        className="t--sans m-v100 emotion-2"
+        className="row name"
       >
-        <span
-          className="emotion-1"
-        >
-          <span>
-            MONKEY
-             
-            JOE
-          </span>
-        </span>
+        <label>
+          MONKEY
+           
+          JOE
+        </label>
       </div>
       <div
-        className="emotion-3"
+        className="row"
       >
-        Died: 2004 — Age: 6
-         XXX
+        <label>
+          Age: 
+          <span>
+            6
+          </span>
+        </label>
       </div>
     </div>
-    <button
-      aria-label="Remove MONKEY JOE"
-      className="emotion-5"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="col qty"
     >
-      ×
-    </button>
-  </div>
-  <div
-    className="emotion-7"
-  >
-    <label>
-      MONKEY
-       
-      JOE
-    </label>
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="emotion-0"
+          >
+            <div
+              className="quantity__main-wrapper"
+              data-type="select"
+            >
+              <label
+                htmlFor="quantityMenu"
+                onClick={[Function]}
+              >
+                Quantity:
+              </label>
+              <select
+                id="quantityDropDown__000003"
+                name="quantityMenu"
+                onChange={[Function]}
+                tabIndex={0}
+                value="1"
+              >
+                <option
+                  value={1}
+                >
+                  1
+                </option>
+                <option
+                  value={2}
+                >
+                  2
+                </option>
+                <option
+                  value={3}
+                >
+                  3
+                </option>
+                <option
+                  value={4}
+                >
+                  4
+                </option>
+                <option
+                  value={5}
+                >
+                  5
+                </option>
+                <option
+                  value={6}
+                >
+                  6
+                </option>
+                <option
+                  value={7}
+                >
+                  7
+                </option>
+                <option
+                  value={8}
+                >
+                  8
+                </option>
+                <option
+                  value={9}
+                >
+                  9
+                </option>
+                <option
+                  value={10}
+                >
+                  10
+                  +
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col"
+        >
+          <div
+            className="emotion-1"
+            data-action="remove"
+            id="checkoutAddRemove"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="wrapper"
+            >
+              <label
+                data-content-alt="Remove"
+                data-content-default="Add"
+                htmlFor="checkoutAddRemove"
+              />
+              <input
+                name="CC_AddRemove"
+                type="hidden"
+                value="1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Storyshots Death/CartItem pending certificate 1`] = `
-.emotion-2 {
-  font-style: normal;
-  font-weight: bold;
-  -webkit-letter-spacing: 1.4px;
-  -moz-letter-spacing: 1.4px;
-  -ms-letter-spacing: 1.4px;
-  letter-spacing: 1.4px;
-}
-
-.emotion-6 {
-  border-color: #e0e0e0;
-  border-left-width: 0;
-  border-right-width: 0;
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.emotion-4 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.emotion-1 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
 }
 
-.emotion-1 span {
-  white-space: nowrap;
+.emotion-1 .wrapper input[type='radio'] {
+  display: none;
 }
 
-.emotion-1 span:first-of-type {
-  margin-right: 0.4em;
+.emotion-1 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
 }
 
-.emotion-3 {
+.emotion-1 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1:active .wrapper,
+.emotion-1:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-1:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-1[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-1[data-state='disabled']:active .wrapper,
+.emotion-1[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-1[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-1[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-1[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
   color: #091f2f;
-  font-style: italic;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-2 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-2 .row .col {
+  background: transparent;
+}
+
+.emotion-2 .name label {
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-2 .qty label {
+  font-weight: normal;
+}
+
+.emotion-2 label {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  font-weight: 600;
+}
+
+.emotion-2 label span {
+  font-weight: normal;
+}
+
+.emotion-2 > label:nth-of-type(1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 50px;
+  background: red;
+  text-transform: uppercase;
 }
 
 .emotion-0 {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 1rem;
-  font-family: inherit;
-  font-style: italic;
-  font-size: 1rem;
-  background: #1871bd;
-  color: #fff;
-  text-align: right;
-  padding: 0.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.emotion-5 {
-  border: none;
-  background: transparent;
-  color: #d22d23;
-  font-size: 2.5rem;
-  vertical-align: middle;
+.emotion-0 .quantity__main-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  border: 1px solid #091f2f;
+  padding: 10px 8px;
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  color: #091f2f;
+}
+
+.emotion-0 .quantity__main-wrapper input,
+.emotion-0 .quantity__main-wrapper select,
+.emotion-0 .quantity__main-wrapper option {
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.emotion-0 .quantity__main-wrapper label {
+  margin-right: 0.15rem;
   cursor: pointer;
-  padding: 0 0 0.2em;
+  color: #091f2f;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
+  max-width: 35px;
+  padding: 3px 2px 3px 2px;
+  border: 1px solid transparent;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+  background: #C8C8C8;
+  outline: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+  display: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  background-size: 24px 24px;
+}
+
+.emotion-0 .quantity__main-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  background-position: center right;
+  padding-right: calc(0.75em + 0.75rem);
+  background-size: 22px;
+}
+
+.emotion-0 .quantity__main-wrapper select option {
+  text-align: center;
+  background: green;
+}
+
+.emotion-0 [data-type='select'] {
+  border: 1px solid transparent;
+}
+
+.emotion-0 [data-type='input'] {
+  border: 1px solid #091f2f;
 }
 
 <div>
   <div
-    className="p-v300 br b--w br-a100 emotion-6"
+    className="emotion-2"
   >
-    <input
-      aria-label="Quantity for JAMES HOWLETT (LOGAN)"
-      className="br br-a150 emotion-0"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      value="1"
-    />
     <div
-      className="emotion-4"
+      className="col"
     >
       <div
-        className="t--sans m-v100 emotion-2"
+        className="row name"
       >
-        <span
-          className="emotion-1"
-        >
-          <span>
-            JAMES
-             
-            HOWLETT (LOGAN)
-          </span>
-        </span>
-        <span
-          style={
-            Object {
-              "color": "#091f2f",
-            }
-          }
-        >
-           — 
-          <span
-            className="t--sans tt-u"
-            style={
-              Object {
-                "fontStyle": "normal",
-                "fontWeight": "bold",
-              }
-            }
-          >
-            pending
-          </span>
-        </span>
+        <label>
+          JAMES
+           
+          HOWLETT (LOGAN)
+        </label>
       </div>
       <div
-        className="emotion-3"
+        className="row"
       >
-        Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
-         XXX
+        <label>
+          Date of death: 
+          <span>
+            4/15/2014
+          </span>
+        </label>
+      </div>
+      <div
+        className="row"
+      >
+        <label>
+          Age: 
+          <span>
+            44 yrs. 2 mos. 10 dys
+          </span>
+        </label>
       </div>
     </div>
-    <button
-      aria-label="Remove JAMES HOWLETT (LOGAN)"
-      className="emotion-5"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="col qty"
     >
-      ×
-    </button>
-  </div>
-  <div
-    className="emotion-7"
-  >
-    <label>
-      JAMES
-       
-      HOWLETT (LOGAN)
-    </label>
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="emotion-0"
+          >
+            <div
+              className="quantity__main-wrapper"
+              data-type="select"
+            >
+              <label
+                htmlFor="quantityMenu"
+                onClick={[Function]}
+              >
+                Quantity:
+              </label>
+              <select
+                id="quantityDropDown__000001"
+                name="quantityMenu"
+                onChange={[Function]}
+                tabIndex={0}
+                value="1"
+              >
+                <option
+                  value={1}
+                >
+                  1
+                </option>
+                <option
+                  value={2}
+                >
+                  2
+                </option>
+                <option
+                  value={3}
+                >
+                  3
+                </option>
+                <option
+                  value={4}
+                >
+                  4
+                </option>
+                <option
+                  value={5}
+                >
+                  5
+                </option>
+                <option
+                  value={6}
+                >
+                  6
+                </option>
+                <option
+                  value={7}
+                >
+                  7
+                </option>
+                <option
+                  value={8}
+                >
+                  8
+                </option>
+                <option
+                  value={9}
+                >
+                  9
+                </option>
+                <option
+                  value={10}
+                >
+                  10
+                  +
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col"
+        >
+          <div
+            className="emotion-1"
+            data-action="remove"
+            id="checkoutAddRemove"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="wrapper"
+            >
+              <label
+                data-content-alt="Remove"
+                data-content-default="Add"
+                htmlFor="checkoutAddRemove"
+              />
+              <input
+                name="CC_AddRemove"
+                type="hidden"
+                value="1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Storyshots Death/CartItem typical certificate 1`] = `
-.emotion-2 {
-  font-style: normal;
-  font-weight: bold;
-  -webkit-letter-spacing: 1.4px;
-  -moz-letter-spacing: 1.4px;
-  -ms-letter-spacing: 1.4px;
-  letter-spacing: 1.4px;
-}
-
-.emotion-6 {
-  border-color: #e0e0e0;
-  border-left-width: 0;
-  border-right-width: 0;
+.emotion-1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
-.emotion-4 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+.emotion-1 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
 }
 
-.emotion-1 span {
-  white-space: nowrap;
+.emotion-1 .wrapper input[type='radio'] {
+  display: none;
 }
 
-.emotion-1 span:first-of-type {
-  margin-right: 0.4em;
+.emotion-1 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
 }
 
-.emotion-3 {
+.emotion-1 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1:active .wrapper,
+.emotion-1:focus .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-1:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-1[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-1[data-state='disabled']:active .wrapper,
+.emotion-1[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-1[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-1[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-1[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
   color: #091f2f;
-  font-style: italic;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-2 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-2 .row .col {
+  background: transparent;
+}
+
+.emotion-2 .name label {
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-2 .qty label {
+  font-weight: normal;
+}
+
+.emotion-2 label {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  font-weight: 600;
+}
+
+.emotion-2 label span {
+  font-weight: normal;
+}
+
+.emotion-2 > label:nth-of-type(1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 50px;
+  background: red;
+  text-transform: uppercase;
 }
 
 .emotion-0 {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 1rem;
-  font-family: inherit;
-  font-style: italic;
-  font-size: 1rem;
-  background: #1871bd;
-  color: #fff;
-  text-align: right;
-  padding: 0.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.emotion-5 {
-  border: none;
-  background: transparent;
-  color: #d22d23;
-  font-size: 2.5rem;
-  vertical-align: middle;
+.emotion-0 .quantity__main-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  border: 1px solid #091f2f;
+  padding: 10px 8px;
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  color: #091f2f;
+}
+
+.emotion-0 .quantity__main-wrapper input,
+.emotion-0 .quantity__main-wrapper select,
+.emotion-0 .quantity__main-wrapper option {
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.emotion-0 .quantity__main-wrapper label {
+  margin-right: 0.15rem;
   cursor: pointer;
-  padding: 0 0 0.2em;
+  color: #091f2f;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
+  max-width: 35px;
+  padding: 3px 2px 3px 2px;
+  border: 1px solid transparent;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+  background: #C8C8C8;
+  outline: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+  display: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  background-size: 24px 24px;
+}
+
+.emotion-0 .quantity__main-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  background-position: center right;
+  padding-right: calc(0.75em + 0.75rem);
+  background-size: 22px;
+}
+
+.emotion-0 .quantity__main-wrapper select option {
+  text-align: center;
+  background: green;
+}
+
+.emotion-0 [data-type='select'] {
+  border: 1px solid transparent;
+}
+
+.emotion-0 [data-type='input'] {
+  border: 1px solid #091f2f;
 }
 
 <div>
   <div
-    className="p-v300 br b--w br-a100 emotion-6"
+    className="emotion-2"
   >
-    <input
-      aria-label="Quantity for BRUCE BANNER"
-      className="br br-a150 emotion-0"
-      onBlur={[Function]}
-      onChange={[Function]}
-      onFocus={[Function]}
-      value="1"
-    />
     <div
-      className="emotion-4"
+      className="col"
     >
       <div
-        className="t--sans m-v100 emotion-2"
+        className="row name"
       >
-        <span
-          className="emotion-1"
-        >
-          <span>
-            BRUCE
-             
-            BANNER
-          </span>
-        </span>
+        <label>
+          BRUCE
+           
+          BANNER
+        </label>
       </div>
       <div
-        className="emotion-3"
+        className="row"
       >
-        Died: 3/4/2016 — Age: 53
-         XXX
+        <label>
+          Date of death: 
+          <span>
+            3/4/2016
+          </span>
+        </label>
+      </div>
+      <div
+        className="row"
+      >
+        <label>
+          Age: 
+          <span>
+            53
+          </span>
+        </label>
       </div>
     </div>
-    <button
-      aria-label="Remove BRUCE BANNER"
-      className="emotion-5"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="col qty"
     >
-      ×
-    </button>
-  </div>
-  <div
-    className="emotion-7"
-  >
-    <label>
-      BRUCE
-       
-      BANNER
-    </label>
+      <div
+        className="row"
+      >
+        <div
+          className="col"
+        >
+          <div
+            className="emotion-0"
+          >
+            <div
+              className="quantity__main-wrapper"
+              data-type="select"
+            >
+              <label
+                htmlFor="quantityMenu"
+                onClick={[Function]}
+              >
+                Quantity:
+              </label>
+              <select
+                id="quantityDropDown__000002"
+                name="quantityMenu"
+                onChange={[Function]}
+                tabIndex={0}
+                value="1"
+              >
+                <option
+                  value={1}
+                >
+                  1
+                </option>
+                <option
+                  value={2}
+                >
+                  2
+                </option>
+                <option
+                  value={3}
+                >
+                  3
+                </option>
+                <option
+                  value={4}
+                >
+                  4
+                </option>
+                <option
+                  value={5}
+                >
+                  5
+                </option>
+                <option
+                  value={6}
+                >
+                  6
+                </option>
+                <option
+                  value={7}
+                >
+                  7
+                </option>
+                <option
+                  value={8}
+                >
+                  8
+                </option>
+                <option
+                  value={9}
+                >
+                  9
+                </option>
+                <option
+                  value={10}
+                >
+                  10
+                  +
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col"
+        >
+          <div
+            className="emotion-1"
+            data-action="remove"
+            id="checkoutAddRemove"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            <div
+              className="wrapper"
+            >
+              <label
+                data-content-alt="Remove"
+                data-content-default="Add"
+                htmlFor="checkoutAddRemove"
+              />
+              <input
+                name="CC_AddRemove"
+                type="hidden"
+                value="1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -54562,7 +55414,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -54964,7 +55815,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-1 h1 {
@@ -55451,6 +56301,13 @@ Array [
   font-size: 18px;
   font-weight: normal;
   line-height: normal;
+  margin-top: 2rem;
+  padding: 2rem 0 2rem;
+  border-color: #d2d2d2;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .emotion-6 h1 {
@@ -55604,6 +56461,20 @@ Array [
   height: 0;
   left: -20px;
   top: 12px;
+}
+
+.emotion-7 .m-b500 a {
+  color: #1871bd;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.emotion-7 .m-b500 a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -55800,9 +56671,18 @@ Array [
           className="b-ff"
         >
           <div
-            className="b-ff b-c b-c--nbp"
+            className="b-ff b-c b-c--nbp emotion-7"
           >
             <div>
+              <div
+                className="sh sh--b0 m-v300"
+              >
+                <h1
+                  className="sh-title"
+                >
+                  Order Details
+                </h1>
+              </div>
               <div
                 className="m-b500"
               >
@@ -55816,17 +56696,8 @@ Array [
                     }
                   }
                 >
-                  ← Search for another certificate
+                  Search for another certificate
                 </a>
-              </div>
-              <div
-                className="sh sh--b0 m-v300"
-              >
-                <h1
-                  className="sh-title"
-                >
-                  Cart
-                </h1>
               </div>
             </div>
             <div
@@ -56029,7 +56900,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-8 h1 {
@@ -56179,6 +57049,13 @@ Array [
   font-size: 18px;
   font-weight: normal;
   line-height: normal;
+  margin-top: 2rem;
+  padding: 2rem 0 2rem;
+  border-color: #d2d2d2;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .emotion-6 h1 {
@@ -56347,6 +57224,20 @@ Array [
   height: 0;
   left: -20px;
   top: 12px;
+}
+
+.emotion-20 .m-b500 a {
+  color: #1871bd;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.emotion-20 .m-b500 a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -56543,9 +57434,18 @@ Array [
           className="b-ff"
         >
           <div
-            className="b-ff b-c b-c--nbp"
+            className="b-ff b-c b-c--nbp emotion-20"
           >
             <div>
+              <div
+                className="sh sh--b0 m-v300"
+              >
+                <h1
+                  className="sh-title"
+                >
+                  Order Details
+                </h1>
+              </div>
               <div
                 className="m-b500"
               >
@@ -56559,17 +57459,8 @@ Array [
                     }
                   }
                 >
-                  ← Search for another certificate
+                  Search for another certificate
                 </a>
-              </div>
-              <div
-                className="sh sh--b0 m-v300"
-              >
-                <h1
-                  className="sh-title"
-                >
-                  Cart
-                </h1>
               </div>
             </div>
             <div
@@ -57031,7 +57922,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-32 {
+.emotion-17 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -57040,10 +57931,9 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
-.emotion-32 h1 {
+.emotion-17 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -57051,7 +57941,7 @@ Array [
   margin-bottom: 6px;
 }
 
-.emotion-32 .row {
+.emotion-17 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57063,18 +57953,18 @@ Array [
   margin-bottom: 12px;
 }
 
-.emotion-32 .row .col {
+.emotion-17 .row .col {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
 }
 
-.emotion-32 .row .col:nth-of-type(2) {
+.emotion-17 .row .col:nth-of-type(2) {
   text-align: right;
 }
 
-.emotion-32 .row:nth-last-of-type(-n + 1) {
+.emotion-17 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -57084,7 +57974,7 @@ Array [
   margin-top: 16px;
 }
 
-.emotion-31 {
+.emotion-16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57107,14 +57997,14 @@ Array [
   align-items: center;
 }
 
-.emotion-31 .select--wrapper {
+.emotion-16 .select--wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-31 .select--wrapper select {
+.emotion-16 .select--wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -57145,18 +58035,18 @@ Array [
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.emotion-31 .select--wrapper select option {
+.emotion-16 .select--wrapper select option {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-43:after {
+.emotion-28:after {
   content: '';
   display: table;
   clear: both;
 }
 
-.emotion-33 {
+.emotion-18 {
   border: 0;
   -webkit-clip: rect(0 0 0 0);
   clip: rect(0 0 0 0);
@@ -57168,38 +58058,45 @@ Array [
   width: 1px;
 }
 
-.emotion-35 {
+.emotion-20 {
   width: 5em;
   vertical-align: bottom;
   line-height: 1.75;
 }
 
-.emotion-42 {
+.emotion-27 {
   padding: 0;
   line-height: 1;
   font-style: normal;
 }
 
-.emotion-41 {
+.emotion-26 {
   font-size: 80%;
 }
 
-.emotion-30 {
+.emotion-15 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: normal;
   line-height: normal;
+  margin-top: 2rem;
+  padding: 2rem 0 2rem;
+  border-color: #d2d2d2;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
-.emotion-30 h1 {
+.emotion-15 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.emotion-30 .row {
+.emotion-15 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57214,19 +58111,19 @@ Array [
   justify-content: space-between;
 }
 
-.emotion-30 .row .col:first-of-type {
+.emotion-15 .row .col:first-of-type {
   padding-top: 0.75rem;
   max-width: 75%;
 }
 
-.emotion-29 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-29 .wrapper {
+.emotion-6 .wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57235,11 +58132,11 @@ Array [
   border: 3px solid transparent;
 }
 
-.emotion-29 .wrapper input[type='radio'] {
+.emotion-6 .wrapper input[type='radio'] {
   display: none;
 }
 
-.emotion-29 .wrapper label::before {
+.emotion-6 .wrapper label::before {
   content: 'Add';
   color: #1871bd;
   font-family: Lora;
@@ -57255,39 +58152,39 @@ Array [
   cursor: pointer;
 }
 
-.emotion-29 .wrapper label:hover::before {
+.emotion-6 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
-.emotion-29:active .wrapper,
-.emotion-29:focus .wrapper {
+.emotion-6:active .wrapper,
+.emotion-6:focus .wrapper {
   border-color: #1871bd;
 }
 
-.emotion-29:focus:not(:focus-visible) .wrapper {
+.emotion-6:focus:not(:focus-visible) .wrapper {
   border-color: transparrent;
 }
 
-.emotion-29[data-state='disabled'] .wrapper label::before {
+.emotion-6[data-state='disabled'] .wrapper label::before {
   color: #d2d2d2;
   background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 
-.emotion-29[data-state='disabled']:active .wrapper,
-.emotion-29[data-state='disabled']:focus .wrapper {
+.emotion-6[data-state='disabled']:active .wrapper,
+.emotion-6[data-state='disabled']:focus .wrapper {
   border-color: #d2d2d2;
 }
 
-.emotion-29[data-state='focused'] .wrapper {
+.emotion-6[data-state='focused'] .wrapper {
   border-color: #1871bd;
 }
 
-.emotion-29[data-action='add'] label::before {
+.emotion-6[data-action='add'] label::before {
   content: attr(data-content-default);
 }
 
-.emotion-29[data-action='remove'] label::before {
+.emotion-6[data-action='remove'] label::before {
   content: attr(data-content-alt);
   background: none;
   padding-right: 3px;
@@ -57295,30 +58192,21 @@ Array [
   text-decoration: underline;
 }
 
-.emotion-29[data-action='remove']:hover label::before {
+.emotion-6[data-action='remove']:hover label::before {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-7 {
-  font-style: normal;
-  font-weight: bold;
-  -webkit-letter-spacing: 1.4px;
-  -moz-letter-spacing: 1.4px;
-  -ms-letter-spacing: 1.4px;
-  letter-spacing: 1.4px;
-}
-
-.emotion-38 {
+.emotion-23 {
   line-height: 1;
   display: inline-block;
 }
 
-.emotion-37:after {
+.emotion-22:after {
   width: 2rem;
 }
 
-.emotion-36 {
+.emotion-21 {
   height: 2rem;
   line-height: initial;
   padding-right: 3rem;
@@ -57369,60 +58257,206 @@ Array [
   top: 12px;
 }
 
-.emotion-11 {
-  border-color: #e0e0e0;
-  border-left-width: 0;
-  border-right-width: 0;
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-9 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-}
-
-.emotion-6 span {
-  white-space: nowrap;
-}
-
-.emotion-6 span:first-of-type {
-  margin-right: 0.4em;
-}
-
-.emotion-8 {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
   color: #091f2f;
-  font-style: italic;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  margin-bottom: 1.5rem;
+}
+
+.emotion-7 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-7 .row .col {
+  background: transparent;
+}
+
+.emotion-7 .name label {
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-7 .qty label {
+  font-weight: normal;
+}
+
+.emotion-7 label {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  font-weight: 600;
+}
+
+.emotion-7 label span {
+  font-weight: normal;
+}
+
+.emotion-7 > label:nth-of-type(1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 50px;
+  background: red;
+  text-transform: uppercase;
 }
 
 .emotion-5 {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-right: 1rem;
-  font-family: inherit;
-  font-style: italic;
-  font-size: 1rem;
-  background: #1871bd;
-  color: #fff;
-  text-align: right;
-  padding: 0.5rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.emotion-10 {
-  border: none;
-  background: transparent;
-  color: #d22d23;
-  font-size: 2.5rem;
-  vertical-align: middle;
+.emotion-5 .quantity__main-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  border: 1px solid #091f2f;
+  padding: 10px 8px;
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  color: #091f2f;
+}
+
+.emotion-5 .quantity__main-wrapper input,
+.emotion-5 .quantity__main-wrapper select,
+.emotion-5 .quantity__main-wrapper option {
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.emotion-5 .quantity__main-wrapper label {
+  margin-right: 0.15rem;
   cursor: pointer;
-  padding: 0 0 0.2em;
+  color: #091f2f;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text'] {
+  max-width: 35px;
+  padding: 3px 2px 3px 2px;
+  border: 1px solid transparent;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+  background: #C8C8C8;
+  outline: none;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+  display: none;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper .icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  background-size: 24px 24px;
+}
+
+.emotion-5 .quantity__main-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  background-position: center right;
+  padding-right: calc(0.75em + 0.75rem);
+  background-size: 22px;
+}
+
+.emotion-5 .quantity__main-wrapper select option {
+  text-align: center;
+  background: green;
+}
+
+.emotion-5 [data-type='select'] {
+  border: 1px solid transparent;
+}
+
+.emotion-5 [data-type='input'] {
+  border: 1px solid #091f2f;
+}
+
+.emotion-29 .m-b500 a {
+  color: #1871bd;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.emotion-29 .m-b500 a:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -57619,9 +58653,18 @@ Array [
           className="b-ff"
         >
           <div
-            className="b-ff b-c b-c--nbp"
+            className="b-ff b-c b-c--nbp emotion-29"
           >
             <div>
+              <div
+                className="sh sh--b0 m-v300"
+              >
+                <h1
+                  className="sh-title"
+                >
+                  Order Details
+                </h1>
+              </div>
               <div
                 className="m-b500"
               >
@@ -57635,17 +58678,8 @@ Array [
                     }
                   }
                 >
-                  ← Search for another certificate
+                  Search for another certificate
                 </a>
-              </div>
-              <div
-                className="sh sh--b0 m-v300"
-              >
-                <h1
-                  className="sh-title"
-                >
-                  Cart
-                </h1>
               </div>
             </div>
             <div
@@ -57654,190 +58688,451 @@ Array [
               <div>
                 <div>
                   <div
-                    className="p-v300 br b--w br-t100 emotion-11"
+                    className="emotion-7"
                   >
-                    <input
-                      aria-label="Quantity for BRUCE BANNER"
-                      className="br br-a150 emotion-5"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value="1"
-                    />
                     <div
-                      className="emotion-9"
+                      className="col"
                     >
                       <div
-                        className="t--sans m-v100 emotion-7"
+                        className="row name"
                       >
-                        <span
-                          className="emotion-6"
-                        >
-                          <span>
-                            BRUCE
-                             
-                            BANNER
-                          </span>
-                        </span>
+                        <label>
+                          BRUCE
+                           
+                          BANNER
+                        </label>
                       </div>
                       <div
-                        className="emotion-8"
+                        className="row"
                       >
-                        Died: 3/4/2016 — Age: 53
-                         XXX
+                        <label>
+                          Date of death: 
+                          <span>
+                            3/4/2016
+                          </span>
+                        </label>
+                      </div>
+                      <div
+                        className="row"
+                      >
+                        <label>
+                          Age: 
+                          <span>
+                            53
+                          </span>
+                        </label>
                       </div>
                     </div>
-                    <button
-                      aria-label="Remove BRUCE BANNER"
-                      className="emotion-10"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      ×
-                    </button>
-                  </div>
-                  <div
-                    className="emotion-12"
-                  >
-                    <label>
-                      BRUCE
-                       
-                      BANNER
-                    </label>
-                  </div>
-                </div>
-                <div>
-                  <div
-                    className="p-v300 br b--w br-t100 emotion-11"
-                  >
-                    <input
-                      aria-label="Quantity for JAMES HOWLETT (LOGAN)"
-                      className="br br-a150 emotion-5"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value="3"
-                    />
                     <div
-                      className="emotion-9"
+                      className="col qty"
                     >
                       <div
-                        className="t--sans m-v100 emotion-7"
+                        className="row"
                       >
-                        <span
-                          className="emotion-6"
+                        <div
+                          className="col"
                         >
-                          <span>
-                            JAMES
-                             
-                            HOWLETT (LOGAN)
-                          </span>
-                        </span>
-                        <span
-                          style={
-                            Object {
-                              "color": "#091f2f",
-                            }
-                          }
-                        >
-                           — 
-                          <span
-                            className="t--sans tt-u"
-                            style={
-                              Object {
-                                "fontStyle": "normal",
-                                "fontWeight": "bold",
-                              }
-                            }
+                          <div
+                            className="emotion-5"
                           >
-                            pending
-                          </span>
-                        </span>
-                      </div>
-                      <div
-                        className="emotion-8"
-                      >
-                        Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
-                         XXX
+                            <div
+                              className="quantity__main-wrapper"
+                              data-type="select"
+                            >
+                              <label
+                                htmlFor="quantityMenu"
+                                onClick={[Function]}
+                              >
+                                Quantity:
+                              </label>
+                              <select
+                                id="quantityDropDown__000002"
+                                name="quantityMenu"
+                                onChange={[Function]}
+                                tabIndex={0}
+                                value="1"
+                              >
+                                <option
+                                  value={1}
+                                >
+                                  1
+                                </option>
+                                <option
+                                  value={2}
+                                >
+                                  2
+                                </option>
+                                <option
+                                  value={3}
+                                >
+                                  3
+                                </option>
+                                <option
+                                  value={4}
+                                >
+                                  4
+                                </option>
+                                <option
+                                  value={5}
+                                >
+                                  5
+                                </option>
+                                <option
+                                  value={6}
+                                >
+                                  6
+                                </option>
+                                <option
+                                  value={7}
+                                >
+                                  7
+                                </option>
+                                <option
+                                  value={8}
+                                >
+                                  8
+                                </option>
+                                <option
+                                  value={9}
+                                >
+                                  9
+                                </option>
+                                <option
+                                  value={10}
+                                >
+                                  10
+                                  +
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col"
+                        >
+                          <div
+                            className="emotion-6"
+                            data-action="remove"
+                            id="checkoutAddRemove"
+                            onClick={[Function]}
+                            tabIndex={0}
+                          >
+                            <div
+                              className="wrapper"
+                            >
+                              <label
+                                data-content-alt="Remove"
+                                data-content-default="Add"
+                                htmlFor="checkoutAddRemove"
+                              />
+                              <input
+                                name="CC_AddRemove"
+                                type="hidden"
+                                value="1"
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <button
-                      aria-label="Remove JAMES HOWLETT (LOGAN)"
-                      className="emotion-10"
-                      onClick={[Function]}
-                      type="button"
-                    >
-                      ×
-                    </button>
-                  </div>
-                  <div
-                    className="emotion-12"
-                  >
-                    <label>
-                      JAMES
-                       
-                      HOWLETT (LOGAN)
-                    </label>
                   </div>
                 </div>
                 <div>
                   <div
-                    className="p-v300 br b--w br-a100 emotion-11"
+                    className="emotion-7"
                   >
-                    <input
-                      aria-label="Quantity for MONKEY JOE"
-                      className="br br-a150 emotion-5"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value="1"
-                    />
                     <div
-                      className="emotion-9"
+                      className="col"
                     >
                       <div
-                        className="t--sans m-v100 emotion-7"
+                        className="row name"
                       >
-                        <span
-                          className="emotion-6"
-                        >
-                          <span>
-                            MONKEY
-                             
-                            JOE
-                          </span>
-                        </span>
+                        <label>
+                          JAMES
+                           
+                          HOWLETT (LOGAN)
+                        </label>
                       </div>
                       <div
-                        className="emotion-8"
+                        className="row"
                       >
-                        Died: 2004 — Age: 6
-                         XXX
+                        <label>
+                          Date of death: 
+                          <span>
+                            4/15/2014
+                          </span>
+                        </label>
+                      </div>
+                      <div
+                        className="row"
+                      >
+                        <label>
+                          Age: 
+                          <span>
+                            44 yrs. 2 mos. 10 dys
+                          </span>
+                        </label>
                       </div>
                     </div>
-                    <button
-                      aria-label="Remove MONKEY JOE"
-                      className="emotion-10"
-                      onClick={[Function]}
-                      type="button"
+                    <div
+                      className="col qty"
                     >
-                      ×
-                    </button>
+                      <div
+                        className="row"
+                      >
+                        <div
+                          className="col"
+                        >
+                          <div
+                            className="emotion-5"
+                          >
+                            <div
+                              className="quantity__main-wrapper"
+                              data-type="select"
+                            >
+                              <label
+                                htmlFor="quantityMenu"
+                                onClick={[Function]}
+                              >
+                                Quantity:
+                              </label>
+                              <select
+                                id="quantityDropDown__000001"
+                                name="quantityMenu"
+                                onChange={[Function]}
+                                tabIndex={0}
+                                value="1"
+                              >
+                                <option
+                                  value={1}
+                                >
+                                  1
+                                </option>
+                                <option
+                                  value={2}
+                                >
+                                  2
+                                </option>
+                                <option
+                                  value={3}
+                                >
+                                  3
+                                </option>
+                                <option
+                                  value={4}
+                                >
+                                  4
+                                </option>
+                                <option
+                                  value={5}
+                                >
+                                  5
+                                </option>
+                                <option
+                                  value={6}
+                                >
+                                  6
+                                </option>
+                                <option
+                                  value={7}
+                                >
+                                  7
+                                </option>
+                                <option
+                                  value={8}
+                                >
+                                  8
+                                </option>
+                                <option
+                                  value={9}
+                                >
+                                  9
+                                </option>
+                                <option
+                                  value={10}
+                                >
+                                  10
+                                  +
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col"
+                        >
+                          <div
+                            className="emotion-6"
+                            data-action="remove"
+                            id="checkoutAddRemove"
+                            onClick={[Function]}
+                            tabIndex={0}
+                          >
+                            <div
+                              className="wrapper"
+                            >
+                              <label
+                                data-content-alt="Remove"
+                                data-content-default="Add"
+                                htmlFor="checkoutAddRemove"
+                              />
+                              <input
+                                name="CC_AddRemove"
+                                type="hidden"
+                                value="1"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
+                <div>
                   <div
-                    className="emotion-12"
+                    className="emotion-7"
                   >
-                    <label>
-                      MONKEY
-                       
-                      JOE
-                    </label>
+                    <div
+                      className="col"
+                    >
+                      <div
+                        className="row name"
+                      >
+                        <label>
+                          MONKEY
+                           
+                          JOE
+                        </label>
+                      </div>
+                      <div
+                        className="row"
+                      >
+                        <label>
+                          Age: 
+                          <span>
+                            6
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      className="col qty"
+                    >
+                      <div
+                        className="row"
+                      >
+                        <div
+                          className="col"
+                        >
+                          <div
+                            className="emotion-5"
+                          >
+                            <div
+                              className="quantity__main-wrapper"
+                              data-type="select"
+                            >
+                              <label
+                                htmlFor="quantityMenu"
+                                onClick={[Function]}
+                              >
+                                Quantity:
+                              </label>
+                              <select
+                                id="quantityDropDown__000003"
+                                name="quantityMenu"
+                                onChange={[Function]}
+                                tabIndex={0}
+                                value="1"
+                              >
+                                <option
+                                  value={1}
+                                >
+                                  1
+                                </option>
+                                <option
+                                  value={2}
+                                >
+                                  2
+                                </option>
+                                <option
+                                  value={3}
+                                >
+                                  3
+                                </option>
+                                <option
+                                  value={4}
+                                >
+                                  4
+                                </option>
+                                <option
+                                  value={5}
+                                >
+                                  5
+                                </option>
+                                <option
+                                  value={6}
+                                >
+                                  6
+                                </option>
+                                <option
+                                  value={7}
+                                >
+                                  7
+                                </option>
+                                <option
+                                  value={8}
+                                >
+                                  8
+                                </option>
+                                <option
+                                  value={9}
+                                >
+                                  9
+                                </option>
+                                <option
+                                  value={10}
+                                >
+                                  10
+                                  +
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="col"
+                        >
+                          <div
+                            className="emotion-6"
+                            data-action="remove"
+                            id="checkoutAddRemove"
+                            onClick={[Function]}
+                            tabIndex={0}
+                          >
+                            <div
+                              className="wrapper"
+                            >
+                              <label
+                                data-content-alt="Remove"
+                                data-content-default="Add"
+                                htmlFor="checkoutAddRemove"
+                              />
+                              <input
+                                name="CC_AddRemove"
+                                type="hidden"
+                                value="1"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div
-              className="emotion-30"
+              className="emotion-15"
             >
               <h1>
                 Need A Tracking Number?
@@ -57854,7 +59149,7 @@ Array [
                   className="col"
                 >
                   <div
-                    className="emotion-29"
+                    className="emotion-6"
                     data-action="add"
                     id="checkoutAddRemove"
                     onClick={[Function]}
@@ -57882,7 +59177,7 @@ Array [
               className="m-t700"
             >
               <div
-                className="emotion-32"
+                className="emotion-17"
               >
                 <h1>
                   Order Summary
@@ -57924,7 +59219,7 @@ Array [
                     className="col"
                   >
                     <span
-                      className="labeled-select emotion-31"
+                      className="labeled-select emotion-16"
                     >
                       <label
                         htmlFor="ServiceFeeTypeSelect"
@@ -57983,7 +59278,7 @@ Array [
                 </div>
               </div>
               <div
-                className="emotion-43"
+                className="emotion-28"
               >
                 <table
                   className="t--info ta-r"
@@ -57994,12 +59289,12 @@ Array [
                   }
                 >
                   <caption
-                    className="emotion-33"
+                    className="emotion-18"
                   >
                     Cost Summary
                   </caption>
                   <thead
-                    className="emotion-33"
+                    className="emotion-18"
                   >
                     <tr>
                       <th
@@ -58025,7 +59320,7 @@ Array [
                         $14.00
                       </td>
                       <td
-                        className="emotion-35"
+                        className="emotion-20"
                       >
                         $
                         70.00
@@ -58035,14 +59330,14 @@ Array [
                       <td>
                         <div>
                           <div
-                            className="sel sel--thin emotion-38"
+                            className="sel sel--thin emotion-23"
                           >
                             <div
-                              className="sel-c  emotion-37"
+                              className="sel-c  emotion-22"
                             >
                               <select
                                 aria-label="Payment type"
-                                className="sel-f emotion-36"
+                                className="sel-f emotion-21"
                                 id="serviceFeeTypeSelect"
                                 onChange={[Function]}
                                 value="CREDIT"
@@ -58072,7 +59367,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        className="emotion-35"
+                        className="emotion-20"
                       >
                         $
                         1.32
@@ -58083,7 +59378,7 @@ Array [
                         U.S. shipping included
                       </td>
                       <td
-                        className="emotion-35"
+                        className="emotion-20"
                       >
                         <i>
                           $0.00
@@ -58092,10 +59387,10 @@ Array [
                     </tr>
                     <tr>
                       <td
-                        className="sh-title emotion-42"
+                        className="sh-title emotion-27"
                       >
                         <span
-                          className="emotion-41"
+                          className="emotion-26"
                         >
                           Total
                         </span>
@@ -63778,7 +65073,6 @@ Array [
                       className="emotion-7"
                     >
                       Died: 3/4/2016 — Age: 53
-                       XXX
                     </div>
                   </div>
                 </div>
@@ -63831,7 +65125,6 @@ Array [
                       className="emotion-7"
                     >
                       Died: 4/15/2014 — Age: 44 yrs. 2 mos. 10 dys
-                       XXX
                     </div>
                   </div>
                 </div>
@@ -63864,7 +65157,6 @@ Array [
                       className="emotion-7"
                     >
                       Died: 2004 — Age: 6
-                       XXX
                     </div>
                   </div>
                 </div>
@@ -64118,7 +65410,6 @@ exports[`Storyshots Death/SearchResult certificate without death date 1`] = `
         className="emotion-2"
       >
         Died: 2004 — Age: 6
-         XXX
       </div>
     </div>
   </div>
@@ -64196,7 +65487,6 @@ exports[`Storyshots Death/SearchResult typical certificate 1`] = `
         className="emotion-2"
       >
         Died: 3/4/2016 — Age: 53
-         XXX
       </div>
     </div>
   </div>
@@ -100210,7 +101500,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-9 h1 {
@@ -116638,7 +117927,6 @@ Array [
   line-height: normal;
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
 }
 
 .emotion-16 h1 {
@@ -116836,6 +118124,13 @@ Array [
   font-size: 18px;
   font-weight: normal;
   line-height: normal;
+  margin-top: 2rem;
+  padding: 2rem 0 2rem;
+  border-color: #d2d2d2;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 
 .emotion-6 h1 {

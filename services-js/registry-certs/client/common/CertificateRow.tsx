@@ -96,7 +96,7 @@ const renderCertificate = (
       )}
     </div>
 
-    <div css={CERTIFICATE_SUBINFO_STYLE}>{certificateProps.subinfo} XXX</div>
+    <div css={CERTIFICATE_SUBINFO_STYLE}>{certificateProps.subinfo}</div>
   </div>
 );
 
@@ -120,14 +120,16 @@ export default function CertificateRow(props: Props) {
   }
 
   return (
-    <div
-      className={`${thin ? 'p-v200' : 'p-v300'} br b--w ${borderClass}`}
-      css={CERTIFICATE_ROW_STYLE}
-    >
-      {wrapperFunc
-        ? wrapperFunc(renderCertificate(getCertificateProps(props), !!thin))
-        : renderCertificate(getCertificateProps(props), !!thin)}
-    </div>
+    <>
+      <div
+        className={`${thin ? 'p-v200' : 'p-v300'} br b--w ${borderClass}`}
+        css={CERTIFICATE_ROW_STYLE}
+      >
+        {wrapperFunc
+          ? wrapperFunc(renderCertificate(getCertificateProps(props), !!thin))
+          : renderCertificate(getCertificateProps(props), !!thin)}
+      </div>
+    </>
   );
 }
 

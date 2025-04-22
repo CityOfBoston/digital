@@ -5,6 +5,7 @@ import {
   SANS,
   SERIF,
   CHARLES_BLUE,
+  GRAY_400,
   AddRemoveRadioBtn,
 } from '@cityofboston/react-fleet';
 
@@ -51,6 +52,13 @@ const TRACKING_STYLING = css`
   font-size: 18px;
   font-weight: normal;
   line-height: normal;
+  margin-top: 2rem;
+  padding: 2rem 0 2rem;
+  border-color: ${GRAY_400};
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 
   h1 {
     font-family: ${SANS};

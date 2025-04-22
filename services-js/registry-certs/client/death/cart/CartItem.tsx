@@ -1,23 +1,29 @@
 /** @jsx jsx */
 
-import { css, jsx } from '@emotion/core';
+import {
+  // css,
+  jsx,
+} from '@emotion/core';
 
-import { ChangeEvent, Component } from 'react';
+import {
+  // ChangeEvent,
+  Component,
+} from 'react';
 import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
-import {
-  OPTIMISTIC_BLUE_DARK,
-  FREEDOM_RED_DARK,
-  WHITE,
-} from '@cityofboston/react-fleet';
+// import {
+//   OPTIMISTIC_BLUE_DARK,
+//   FREEDOM_RED_DARK,
+//   WHITE,
+// } from '@cityofboston/react-fleet';
 
 import DeathCertificateCart, {
   DeathCertificateCartEntry,
 } from '../../store/DeathCertificateCart';
 
-import CertificateRow from '../../common/CertificateRow';
+// import CertificateRow from '../../common/CertificateRow';
 
 import { $CartItem } from './NewCartItem';
 
@@ -60,27 +66,21 @@ export default class CartItem extends Component<Props, State> {
     this.setState({ quantityHasFocus: false });
   };
 
-  handleQuantityChange = action(
+  handleQuantityChange2 = action(
     'CartItem > handleQuantityChange',
-    (ev: ChangeEvent<HTMLInputElement>) => {
+    (quantity: number) => {
       const {
         cart,
         siteAnalytics,
         entry: { cert },
       } = this.props;
 
-      const value = ev.target.value;
       if (!cert) {
         return;
       }
 
-      if (value === '') {
-        cart.setQuantity(cert, 0);
-      } else {
-        const quantity = parseInt(value, 10);
-        if (!isNaN(quantity)) {
-          cart.setQuantity(cert, quantity);
-        }
+      if (!isNaN(quantity)) {
+        cart.setQuantity(cert, quantity);
       }
 
       siteAnalytics.sendEvent('input', {
@@ -89,6 +89,36 @@ export default class CartItem extends Component<Props, State> {
       });
     }
   );
+
+  // handleQuantityChange = action(
+  //   'CartItem > handleQuantityChange',
+  //   (ev: ChangeEvent<HTMLInputElement>) => {
+  //     const {
+  //       cart,
+  //       siteAnalytics,
+  //       entry: { cert },
+  //     } = this.props;
+
+  //     const value = ev.target.value;
+  //     if (!cert) {
+  //       return;
+  //     }
+
+  //     if (value === '') {
+  //       cart.setQuantity(cert, 0);
+  //     } else {
+  //       const quantity = parseInt(value, 10);
+  //       if (!isNaN(quantity)) {
+  //         cart.setQuantity(cert, quantity);
+  //       }
+  //     }
+
+  //     siteAnalytics.sendEvent('input', {
+  //       category: 'UX',
+  //       label: 'update quantity',
+  //     });
+  //   }
+  // );
 
   handleRemove = action('CartItem > handleRemove', () => {
     const { cart, entry, siteAnalytics } = this.props;
@@ -102,7 +132,7 @@ export default class CartItem extends Component<Props, State> {
   render() {
     const {
       entry: { cert },
-      lastRow,
+      // lastRow,
     } = this.props;
 
     if (!cert) {
@@ -115,7 +145,7 @@ export default class CartItem extends Component<Props, State> {
 
     return (
       <div>
-        <CertificateRow
+        {/* <CertificateRow
           type="death"
           certificate={cert}
           borderTop={true}
@@ -145,32 +175,40 @@ export default class CartItem extends Component<Props, State> {
               ×
             </button>,
           ]}
-        </CertificateRow>
-        {$CartItem({ firstName: cert.firstName, lastName: cert.lastName })}
+        </CertificateRow> */}
+
+        {parseInt(quantityValue) > 0 &&
+          $CartItem({
+            type: 'death',
+            cert: cert,
+            quantity: parseInt(quantityValue),
+            handleQuantityChange: this.handleQuantityChange2,
+            handleRemove: this.handleRemove,
+          })}
       </div>
     );
   }
 }
 
-const QUANTITY_BOX_STYLE = css({
-  width: '2.5rem',
-  height: '2.5rem',
-  marginRight: '1rem',
-  fontFamily: 'inherit',
-  fontStyle: 'italic',
-  fontSize: '1rem',
-  background: OPTIMISTIC_BLUE_DARK,
-  color: WHITE,
-  textAlign: 'right',
-  padding: '0.5rem',
-});
+// const QUANTITY_BOX_STYLE = css({
+//   width: '2.5rem',
+//   height: '2.5rem',
+//   marginRight: '1rem',
+//   fontFamily: 'inherit',
+//   fontStyle: 'italic',
+//   fontSize: '1rem',
+//   background: OPTIMISTIC_BLUE_DARK,
+//   color: WHITE,
+//   textAlign: 'right',
+//   padding: '0.5rem',
+// });
 
-const REMOVE_BUTTON_STYLE = css({
-  border: 'none',
-  background: 'transparent',
-  color: FREEDOM_RED_DARK,
-  fontSize: '2.5rem',
-  verticalAlign: 'middle',
-  cursor: 'pointer',
-  padding: '0 0 0.2em',
-});
+// const REMOVE_BUTTON_STYLE = css({
+//   border: 'none',
+//   background: 'transparent',
+//   color: FREEDOM_RED_DARK,
+//   fontSize: '2.5rem',
+//   verticalAlign: 'middle',
+//   cursor: 'pointer',
+//   padding: '0 0 0.2em',
+// });

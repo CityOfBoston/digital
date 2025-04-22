@@ -1,8 +1,14 @@
+/** @jsx jsx */
+
+import { css, jsx } from '@emotion/core';
+
 import React from 'react';
 import Head from 'next/head';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Link from 'next/link';
+
+import { SERIF, OPTIMISTIC_BLUE_DARK } from '@cityofboston/react-fleet';
 
 import { PageDependencies } from '../../../pages/_app';
 
@@ -84,20 +90,20 @@ class CartPage extends React.Component<Props, State> {
             <title>Boston.gov — Death Certificate Cart</title>
           </Head>
 
-          <div className="b-ff b-c b-c--nbp">
+          <div css={ORDER_DETAILS} className="b-ff b-c b-c--nbp">
             {/* Wrapper <div> because a flex container prevents collapsing vertical
         margins. */}
             <div>
+              <div className="sh sh--b0 m-v300">
+                <h1 className="sh-title">Order Details</h1>
+              </div>
+
               <div className="m-b500">
                 <Link href="/death">
                   <a style={{ fontStyle: 'italic' }}>
-                    ← Search for another certificate
+                    Search for another certificate
                   </a>
                 </Link>
-              </div>
-
-              <div className="sh sh--b0 m-v300">
-                <h1 className="sh-title">Cart</h1>
               </div>
             </div>
 
@@ -181,3 +187,17 @@ class CartPage extends React.Component<Props, State> {
 }
 
 export default (CartPage as any) as React.ComponentClass<Props>;
+
+const ORDER_DETAILS = css`
+  .m-b500 a {
+    color: ${OPTIMISTIC_BLUE_DARK};
+    font-family: ${SERIF};
+    font-size: 1.125em;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+`;

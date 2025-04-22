@@ -338,7 +338,7 @@ const ORDERSUMMARY = css`
 
   margin: auto;
   min-width: 320px;
-  max-width: 680px;
+  // max-width: 680px;
   // border: 1px dotted green;
 
   h1 {
