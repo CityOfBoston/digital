@@ -5,7 +5,7 @@ import { css, jsx } from '@emotion/core';
 import { ChangeEvent, Component } from 'react';
 
 import {
-  VISUALLY_HIDDEN,
+  // VISUALLY_HIDDEN,
   SANS,
   SERIF,
   CHARLES_BLUE,
@@ -127,6 +127,64 @@ export default class CostSummary extends Component<Props, State> {
     const { certificateType, certificateQuantity, tracking } = this.props;
     const { total, subtotal, serviceFee, researchFee } = this.calculateCost();
 
+    // const oldCostSummary = () => {
+    //   return (
+    //     <div css={CLEARFIX_STYLE}>
+    //       <table className="t--info ta-r" style={{ float: 'right' }}>
+    //         <caption css={VISUALLY_HIDDEN}>Cost Summary</caption>
+    //         <thead css={VISUALLY_HIDDEN}>
+    //           <tr>
+    //             <th scope="col">Item</th>
+    //             <th scope="col">Amount</th>
+    //           </tr>
+    //         </thead>
+    //         <tbody>
+    //           <tr>
+    //             <td>
+    //               {certificateQuantity}{' '}
+    //               {certificateQuantity === 1 ? 'certificate' : 'certificates'} ×{' '}
+    //               {CERTIFICATE_COST_STRING[certificateType.toUpperCase()]}
+    //             </td>
+    //             <td css={COST_CELL_STYLE}>${(subtotal / 100).toFixed(2)}</td>
+    //           </tr>
+
+    //           {/* todo: add hyperlinked asterisk to explain to user why research fee was applied */}
+    //           {/* Per-transaction fee for records dated before 1870. */}
+    //           {researchFee > 0 && (
+    //             <tr>
+    //               <td>Research fee</td>
+    //               <td css={COST_CELL_STYLE}>
+    //                 ${(researchFee / 100).toFixed(2)}
+    //               </td>
+    //             </tr>
+    //           )}
+
+    //           <tr>
+    //             <td>{this.renderServiceFeeLabel()}</td>
+    //             <td css={COST_CELL_STYLE}>${(serviceFee / 100).toFixed(2)}</td>
+    //           </tr>
+
+    //           <tr>
+    //             <td>U.S. shipping included</td>
+    //             <td css={COST_CELL_STYLE}>
+    //               <i>$0.00</i>
+    //             </td>
+    //           </tr>
+
+    //           <tr>
+    //             <td className="sh-title" css={TOTAL_STYLE}>
+    //               <span css={TOTAL_TEXT_STYLE}>Total</span>
+    //             </td>
+    //             <td className="cost-cell cost br br-t100 p-v200">
+    //               ${(total / 100).toFixed(2)}
+    //             </td>
+    //           </tr>
+    //         </tbody>
+    //       </table>
+    //     </div>
+    //   );
+    // };
+
     return (
       <>
         {$OrderSummary({
@@ -144,59 +202,7 @@ export default class CostSummary extends Component<Props, State> {
           serviceFee: `${(serviceFee / 100).toFixed(2)}`,
         })}
 
-        <div css={CLEARFIX_STYLE}>
-          <table className="t--info ta-r" style={{ float: 'right' }}>
-            <caption css={VISUALLY_HIDDEN}>Cost Summary</caption>
-            <thead css={VISUALLY_HIDDEN}>
-              <tr>
-                <th scope="col">Item</th>
-                <th scope="col">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  {certificateQuantity}{' '}
-                  {certificateQuantity === 1 ? 'certificate' : 'certificates'} ×{' '}
-                  {CERTIFICATE_COST_STRING[certificateType.toUpperCase()]}
-                </td>
-                <td css={COST_CELL_STYLE}>${(subtotal / 100).toFixed(2)}</td>
-              </tr>
-
-              {/* todo: add hyperlinked asterisk to explain to user why research fee was applied */}
-              {/* Per-transaction fee for records dated before 1870. */}
-              {researchFee > 0 && (
-                <tr>
-                  <td>Research fee</td>
-                  <td css={COST_CELL_STYLE}>
-                    ${(researchFee / 100).toFixed(2)}
-                  </td>
-                </tr>
-              )}
-
-              <tr>
-                <td>{this.renderServiceFeeLabel()}</td>
-                <td css={COST_CELL_STYLE}>${(serviceFee / 100).toFixed(2)}</td>
-              </tr>
-
-              <tr>
-                <td>U.S. shipping included</td>
-                <td css={COST_CELL_STYLE}>
-                  <i>$0.00</i>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="sh-title" css={TOTAL_STYLE}>
-                  <span css={TOTAL_TEXT_STYLE}>Total</span>
-                </td>
-                <td className="cost-cell cost br br-t100 p-v200">
-                  ${(total / 100).toFixed(2)}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        {/* {oldCostSummary()} */}
       </>
     );
   }
@@ -315,7 +321,9 @@ const $OrderSummary = (params: {
 
       {tracking === true && (
         <div className={'row'}>
-          <div className={'col'}>USPS Tracking®</div>
+          <div className={'col'}>
+            <span className={`bold`}>USPS Tracking®</span>
+          </div>
           <div className={'col'}>$ 5.00</div>
         </div>
       )}
@@ -338,8 +346,6 @@ const ORDERSUMMARY = css`
 
   margin: auto;
   min-width: 320px;
-  // max-width: 680px;
-  // border: 1px dotted green;
 
   h1 {
     font-family: ${SANS};
@@ -347,6 +353,10 @@ const ORDERSUMMARY = css`
     font-size: 18px;
     text-transform: uppercase;
     margin-bottom: 6px;
+  }
+
+  span.bold {
+    font-weight: 700;
   }
 
   .row {
@@ -376,32 +386,32 @@ const ORDERSUMMARY = css`
   }
 `;
 
-const CLEARFIX_STYLE = css({
-  '&:after': {
-    content: "''",
-    display: 'table',
-    clear: 'both',
-  },
-});
+// const CLEARFIX_STYLE = css({
+//   '&:after': {
+//     content: "''",
+//     display: 'table',
+//     clear: 'both',
+//   },
+// });
 
-const COST_CELL_STYLE = css({
-  width: '5em',
-  verticalAlign: 'bottom',
-  // Gives us even spacing for the rows
-  lineHeight: 1.75,
-});
+// const COST_CELL_STYLE = css({
+//   width: '5em',
+//   verticalAlign: 'bottom',
+//   // Gives us even spacing for the rows
+//   lineHeight: 1.75,
+// });
 
-const TOTAL_STYLE = css({
-  padding: '0',
-  lineHeight: 1,
-  fontStyle: 'normal',
-});
+// const TOTAL_STYLE = css({
+//   padding: '0',
+//   lineHeight: 1,
+//   fontStyle: 'normal',
+// });
 
-const TOTAL_TEXT_STYLE = css({
-  // We want to re-use the responsive size from sh-title but be
-  // a little bit smaller.
-  fontSize: '80%',
-});
+// const TOTAL_TEXT_STYLE = css({
+//   // We want to re-use the responsive size from sh-title but be
+//   // a little bit smaller.
+//   fontSize: '80%',
+// });
 
 const CARD_SELECT_STYLE = css({
   lineHeight: 1,

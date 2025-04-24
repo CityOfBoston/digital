@@ -24,9 +24,9 @@ export const CertMailTracking = (props: Props): JSX.Element => {
 
       <div className="row">
         <div className="col">
-          We are pleased to offer USPS Tracking® services for an additional fee
-          of $5.00. After your purchase the Registry will follow-up with a
-          tracking number.
+          We are pleased to offer <span className={`bold`}>USPS Tracking®</span>{' '}
+          services for an additional fee of $5.00. After your purchase the
+          Registry will follow-up with a tracking number.
         </div>
 
         <div className="col">
@@ -65,6 +65,10 @@ const TRACKING_STYLING = css`
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
+  }
+
+  span.bold {
+    font-weight: 700;
   }
 
   .row {

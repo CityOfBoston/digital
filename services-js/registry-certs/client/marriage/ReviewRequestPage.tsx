@@ -63,7 +63,7 @@ export default class ReviewRequestPage extends Component<Props, State> {
 
   public render() {
     const { steps } = this.props.marriageCertificateRequest;
-    const pageTitle = 'Review your record request';
+    const pageTitle = 'Review Your Request';
 
     const certMailHandler = () => {
       const { certMail } = this.state;

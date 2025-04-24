@@ -9,6 +9,7 @@ export const GRAY_000 = '#f3f3f3';
 export const GRAY_100 = '#e0e0e0';
 export const GRAY_200 = '#C8C8C8';
 export const GRAY_300 = '#828282';
+export const GRAY_400 = '#d2d2d2';
 export const CHARLES_BLUE = '#091f2f';
 export const PURPLE = '#681da8';
 

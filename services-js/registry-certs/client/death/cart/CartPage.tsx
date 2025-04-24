@@ -100,35 +100,31 @@ class CartPage extends React.Component<Props, State> {
 
               <div className="m-b500">
                 <Link href="/death">
-                  <a style={{ fontStyle: 'italic' }}>
-                    Search for another certificate
-                  </a>
+                  <a>Search for another certificate</a>
                 </Link>
               </div>
             </div>
 
-            <div className="b-ff">
-              <div>
-                {deathCertificateCart.entries.map((entry, i) => (
-                  <CartItem
-                    key={entry.id}
-                    entry={entry}
-                    cart={deathCertificateCart}
-                    siteAnalytics={siteAnalytics}
-                    lastRow={i === deathCertificateCart.entries.length - 1}
-                  />
-                ))}
+            <div>
+              {deathCertificateCart.entries.map((entry, i) => (
+                <CartItem
+                  key={entry.id}
+                  entry={entry}
+                  cart={deathCertificateCart}
+                  siteAnalytics={siteAnalytics}
+                  lastRow={i === deathCertificateCart.entries.length - 1}
+                />
+              ))}
 
-                {loading && <div className="t--intro">Loading your cart…</div>}
-                {deathCertificateCart.entries.length === 0 && (
-                  <div>
-                    <div className="t--intro">There’s nothing here yet!</div>
-                    <p className="t--info">
-                      Search for death certificates and add them to your cart.
-                    </p>
-                  </div>
-                )}
-              </div>
+              {loading && <div className="t--intro">Loading your cart…</div>}
+              {deathCertificateCart.entries.length === 0 && (
+                <div>
+                  <div className="t--intro">There’s nothing here yet!</div>
+                  <p className="t--info">
+                    Search for death certificates and add them to your cart.
+                  </p>
+                </div>
+              )}
             </div>
 
             <CertMailTracking

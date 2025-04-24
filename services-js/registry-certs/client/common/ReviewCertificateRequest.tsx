@@ -83,15 +83,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
     }
   };
 
-  // currently only used for Marriage (6/14 jm)
-  // private handleCustomerNotesChange = (
-  //   event: ChangeEvent<HTMLTextAreaElement>
-  // ) => {
-  //   this.props.certificateRequest.answerQuestion({
-  //     customerNotes: event.target.value,
-  //   });
-  // };
-
   private userResetStartOver = () => {
     const { certificateType, siteAnalytics } = this.props;
 
@@ -182,14 +173,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
           serviceFeeType="CREDIT"
           tracking={tracking}
         />
-
-        {/* {certificateType === 'marriage' && (
-          <Textarea
-            name="customerNotes"
-            label="Anything else you’d like us to know?"
-            onChange={this.handleCustomerNotesChange}
-          />
-        )} */}
 
         <div className="g g--mr m-t700">
           <div className="g--9 t--info">

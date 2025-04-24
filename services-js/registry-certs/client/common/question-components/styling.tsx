@@ -26,9 +26,10 @@ export const SECTION_HEADING_STYLING = css({
   marginBottom: '0',
   fontFamily: `${SANS}`,
   fontWeight: 700,
-  fontSize: '1.5rem',
+  fontSize: '1.875rem',
   color: CHARLES_BLUE,
-  borderBottom: THICK_BORDER_STYLE,
+  // borderBottom: THICK_BORDER_STYLE,
+  textTransform: 'uppercase',
 
   '&.secondary': {
     marginBottom: '1rem',

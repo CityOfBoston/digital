@@ -12,6 +12,7 @@ import {
 
 interface Props {
   type: 'death' | 'birth' | 'marriage';
+  usage?: 'summary' | 'accordion';
   cert: any;
   quantity: number;
   handleQuantityChange: any;
@@ -19,30 +20,51 @@ interface Props {
 }
 
 export const $CartItem = (props: Props) => {
-  const { quantity, handleQuantityChange, handleRemove } = props;
+  const {
+    type: certificateTypeStr,
+    usage = 'summary',
+    quantity,
+    handleQuantityChange,
+    handleRemove,
+  } = props;
   const { id, firstName, lastName, age, deathDate } = props.cert;
+  // console.log(`$CartItem(props.cert): `, props.cert);
 
   return (
     <div css={CARTITEM}>
       <div className={`col`}>
-        <div className={`row name`}>
+        <div className={`row name main`}>
           <label>
             {firstName} {lastName ? lastName : ''}
           </label>
         </div>
 
         {deathDate && typeof deathDate === 'string' && deathDate.length > 0 && (
-          <div className={`row`}>
+          <div className={`row main`}>
             <label>
-              Date of death: <span>{deathDate}</span>
+              Date of {certificateTypeStr}: <span>{deathDate}</span>
             </label>
           </div>
         )}
 
-        {age && typeof age === 'string' && age.length > 0 && (
-          <div className={`row`}>
+        {age &&
+          typeof age === 'string' &&
+          age.length > 0 &&
+          certificateTypeStr === 'death' && (
+            <div className={`row main`}>
+              <label>
+                Age:{' '}
+                <span>
+                  {age}
+                  {!age.includes('days') && !age.includes('yr') ? `yrs` : ''}
+                </span>
+              </label>
+            </div>
+          )}
+        {usage === 'summary' && (
+          <div className={`row certTypeName main`}>
             <label>
-              Age: <span>{age}</span>
+              <span>{certificateTypeStr} certificate</span> (Paper Copy)
             </label>
           </div>
         )}
@@ -93,10 +115,15 @@ const CARTITEM = css`
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 0.5rem;
 
     .col {
       background: transparent;
     }
+  }
+
+  .main {
+    margin-bottom: 0.25rem;
   }
 
   .name label {
@@ -104,8 +131,13 @@ const CARTITEM = css`
     margin-bottom: 0.25rem;
   }
 
-  .qty label {
+  .qty label,
+  .certTypeName label {
     font-weight: normal;
+  }
+
+  .certTypeName label span {
+    text-transform: capitalize;
   }
 
   label {
@@ -113,7 +145,6 @@ const CARTITEM = css`
     font-family: ${SERIF};
     font-size: 1.125em;
     font-weight: 600;
-    // text-transform: lowercase;
 
     span {
       font-weight: normal;

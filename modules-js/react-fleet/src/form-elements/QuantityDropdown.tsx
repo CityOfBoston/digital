@@ -13,7 +13,7 @@ interface Options {
 interface Props {
   label: string;
   quantity: number;
-  handleQuantityChange: (value: number | null) => void;
+  handleQuantityChange: (value: number | string | null) => void;
   selectOptions?: Options;
   id: string;
   maxLength?: number;
