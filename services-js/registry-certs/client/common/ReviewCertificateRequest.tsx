@@ -10,21 +10,22 @@ import { observer } from 'mobx-react';
 
 import {
   CHARLES_BLUE,
-  MEDIA_MEDIUM,
+  // MEDIA_MEDIUM,
   SERIF,
   // Textarea,
 } from '@cityofboston/react-fleet';
 
-import { capitalize } from '../../lib/helpers';
+// import { capitalize } from '../../lib/helpers';
 
 import { CERTIFICATE_COST } from '../../lib/costs';
 
 import CostSummary from './CostSummary';
+import { OrderDetails } from './checkout/OrderDetails';
 
-import QuantityDropdown from './QuantityDropdown';
+// import QuantityDropdown from './QuantityDropdown';
 import BackButton from './question-components/BackButton';
 
-import { THIN_BORDER_STYLE } from './question-components/styling';
+// import { THIN_BORDER_STYLE } from './question-components/styling';
 
 interface Props {
   certificateType: 'birth' | 'marriage' | 'intention';
@@ -63,25 +64,25 @@ export default class ReviewCertificateRequest extends Component<Props> {
     }
   }
 
-  private handleQuantityChange = (value: number | null) => {
-    const { certificateRequest, certificateType, siteAnalytics } = this.props;
+  // private handleQuantityChange = (value: number | null) => {
+  //   const { certificateRequest, certificateType, siteAnalytics } = this.props;
 
-    const oldValue = certificateRequest.quantity;
-    const newValue = value;
+  //   const oldValue = certificateRequest.quantity;
+  //   const newValue = value;
 
-    if (newValue) {
-      const difference = Math.abs(oldValue - newValue);
+  //   if (newValue) {
+  //     const difference = Math.abs(oldValue - newValue);
 
-      if (certificateType === 'birth') {
-        siteAnalytics.sendEvent('change certificate quantity', {
-          category: 'Birth',
-          label: oldValue > newValue ? 'decrease' : 'increase',
-          value: oldValue > newValue ? -difference : difference,
-        });
-      }
-      certificateRequest.setQuantity(newValue as number);
-    }
-  };
+  //     if (certificateType === 'birth') {
+  //       siteAnalytics.sendEvent('change certificate quantity', {
+  //         category: 'Birth',
+  //         label: oldValue > newValue ? 'decrease' : 'increase',
+  //         value: oldValue > newValue ? -difference : difference,
+  //       });
+  //     }
+  //     certificateRequest.setQuantity(newValue as number);
+  //   }
+  // };
 
   private userResetStartOver = () => {
     const { certificateType, siteAnalytics } = this.props;
@@ -130,11 +131,39 @@ export default class ReviewCertificateRequest extends Component<Props> {
     const { certificateRequest, certificateType, tracking } = this.props;
     const { quantity } = certificateRequest;
 
+    const entry = () => {
+      if (certificateType === 'birth') {
+        return (
+          <div css={ENTRIES_CSS}>
+            <div className={'certRow'}>
+              <OrderDetails
+                type="birth"
+                birthCertificateRequest={this.props.certificateRequest}
+              />
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div css={ENTRIES_CSS}>
+            <div className={'certRow'}>
+              <OrderDetails
+                type="marriage"
+                marriageCertificateRequest={this.props.certificateRequest}
+              />
+            </div>
+          </div>
+        );
+      }
+    };
+
     return (
       <>
         {this.props.children}
 
-        <div css={CERTIFICATE_ROW_STYLE}>
+        {entry()}
+
+        {/* <div css={CERTIFICATE_ROW_STYLE}>
           <QuantityDropdown
             quantity={quantity}
             handleQuantityChange={this.handleQuantityChange}
@@ -164,14 +193,13 @@ export default class ReviewCertificateRequest extends Component<Props> {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
 
         <CostSummary
           certificateType="birth"
           certificateQuantity={quantity}
           allowServiceFeeTypeChoice
           newServiceFeeType={'0'}
-          // serviceFeeType="CREDIT"
           tracking={tracking}
         />
 
@@ -203,43 +231,51 @@ export default class ReviewCertificateRequest extends Component<Props> {
   }
 }
 
-const CERTIFICATE_NAME_STYLE = css({
-  fontStyle: 'normal',
-  fontWeight: 'bold',
-  letterSpacing: '1.4px',
-});
+// const CERTIFICATE_NAME_STYLE = css({
+//   fontStyle: 'normal',
+//   fontWeight: 'bold',
+//   letterSpacing: '1.4px',
+// });
 
-const CERTIFICATE_INFO_BOX_STYLE = css({
-  flex: 1,
-  marginLeft: '1.25rem',
-  [MEDIA_MEDIUM]: {
-    marginLeft: '0.75rem',
-  },
-});
+// const CERTIFICATE_INFO_BOX_STYLE = css({
+//   flex: 1,
+//   marginLeft: '1.25rem',
+//   [MEDIA_MEDIUM]: {
+//     marginLeft: '0.75rem',
+//   },
+// });
 
-const CERTIFICATE_SUBINFO_STYLE = css({
-  color: CHARLES_BLUE,
-  fontFamily: SERIF,
-  fontStyle: 'italic',
+// const CERTIFICATE_SUBINFO_STYLE = css({
+//   color: CHARLES_BLUE,
+//   fontFamily: SERIF,
+//   fontStyle: 'italic',
 
-  '> span': {
-    display: 'block',
-  },
-});
+//   '> span': {
+//     display: 'block',
+//   },
+// });
 
-const CERTIFICATE_ROW_STYLE = css({
-  borderBottom: THIN_BORDER_STYLE,
-  borderTop: THIN_BORDER_STYLE,
+// const CERTIFICATE_ROW_STYLE = css({
+//   borderBottom: THIN_BORDER_STYLE,
+//   borderTop: THIN_BORDER_STYLE,
 
-  paddingBottom: '0.5em',
-  paddingTop: '0.5em',
-  marginBottom: '1em',
-  marginTop: '3em',
+//   paddingBottom: '0.5em',
+//   paddingTop: '0.5em',
+//   marginBottom: '1em',
+//   marginTop: '3em',
 
-  display: 'flex',
-  alignItems: 'center',
+//   display: 'flex',
+//   alignItems: 'center',
 
-  '> div:first-of-type': {
-    flexBasis: '25%',
-  },
-});
+//   '> div:first-of-type': {
+//     flexBasis: '25%',
+//   },
+// });
+
+const ENTRIES_CSS = css`
+  .certRow {
+    color: ${CHARLES_BLUE};
+    font-family: ${SERIF};
+    margin-bottom: 1.5rem;
+  }
+`;

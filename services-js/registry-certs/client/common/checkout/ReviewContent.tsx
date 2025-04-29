@@ -8,10 +8,13 @@ import { observer } from 'mobx-react';
 
 import {
   CHARLES_BLUE,
+  GRAY_400,
+  OPTIMISTIC_BLUE_DARK,
   SANS,
   // SANS,
   SERIF,
   StatusModal,
+  WHITE,
 } from '@cityofboston/react-fleet';
 
 import {
@@ -26,13 +29,15 @@ import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import Order from '../../models/Order';
 // import CertifiedMail from '../../models/CertifiedMail';
+import CertificateRow from '../CertificateRow';
 
 import CostSummary from '../CostSummary';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import { SubmissionError } from '../../dao/CheckoutDao';
 import CheckoutPageLayout from './CheckoutPageLayout';
 import { ProgressProps } from '../../../lib/interfaces';
-import RenderOrderDetails from './OrderDetails';
+import { OrderDetails } from './OrderDetails';
+// import RenderOrderDetails from './OrderDetails';
 
 export type Props = {
   submit: (cardElement?: stripe.elements.Element) => Promise<void>;
@@ -143,7 +148,7 @@ export default class ReviewContent extends React.Component<Props, State> {
   };
 
   render() {
-    const { order, certificateType } = this.props;
+    const { order, certificateType, tracking } = this.props;
 
     const {
       acceptNonRefundable,
@@ -193,6 +198,68 @@ export default class ReviewContent extends React.Component<Props, State> {
 
     const checkoutPath = `/${certificateType}/checkout`;
 
+    let cartTypeStr = 'deathCertificateCart';
+
+    switch (this.props.certificateType) {
+      case 'death':
+        cartTypeStr = 'deathCertificateCart';
+        break;
+      case 'birth':
+        cartTypeStr = 'birthCertificateRequest';
+        break;
+      case 'marriage':
+        cartTypeStr = 'marriageCertificateRequest';
+        break;
+    }
+
+    if (this.props.certificateType === 'death') {
+      console.log(
+        `deathCertificateCart: `,
+        this.props['deathCertificateCart'],
+        this.props['deathCertificateCart'].entries[1]
+      );
+    } else {
+      console.log(`CertificateRequest `, cartTypeStr, this.props[cartTypeStr]);
+    }
+
+    const certEntries = () => {
+      if (this.props.certificateType === 'death') {
+        return this.props[cartTypeStr].entries.map(
+          ({ cert, quantity }, i) =>
+            cert && (
+              <div className={'certRow'}>
+                <CertificateRow
+                  type={this.props.certificateType}
+                  key={cert.id}
+                  certificate={cert}
+                  borderTop={i !== 0}
+                  borderBottom={true}
+                  quantity={quantity}
+                />
+              </div>
+            )
+        );
+      } else if (this.props.certificateType === 'birth') {
+        return (
+          <div className={'certRow'}>
+            <OrderDetails
+              type="birth"
+              birthCertificateRequest={this.props[cartTypeStr]}
+            />
+          </div>
+        );
+      } else {
+        return (
+          <div className={'certRow'}>
+            <OrderDetails
+              type="marriage"
+              marriageCertificateRequest={this.props[cartTypeStr]}
+            />
+          </div>
+        );
+      }
+    };
+
     return (
       <CheckoutPageLayout
         certificateType={certificateType}
@@ -226,42 +293,16 @@ export default class ReviewContent extends React.Component<Props, State> {
             method="post"
             onSubmit={this.handleSubmit}
           >
-            <div className="m-v700">
-              {/* <div className="fs-l">
-                <div className="fs-l-c">
-                  Order Details
-                  {this.props.certificateType === 'death' && (
-                    <span className="t--reset">
-                      &nbsp;—&nbsp;
-                      <span className="t--subinfo">
-                        <Link href="/death/cart">
-                          <a aria-label="Edit cart">edit</a>
-                        </Link>
-                      </span>
-                    </span>
-                  )}
-                </div>
-              </div> */}
-
+            {/* <div className="m-v700">
               <RenderOrderDetails details={this.props} />
-            </div>
+            </div> */}
 
-            {/*             
-            <div className={'row'}>
-              <div className={'col'}></div>
-              <div className={'col'}></div>
-            </div>
-            */}
-
-            <div className={'row'}>
+            <div className={'row info-row'}>
               <div className={'col'}>
-                <label>Contact Information</label>
+                <label className={'header'}>Contact Information</label>
 
-                <div className="info">
-                  {contactEmail}
-                  <br />
-                  {contactPhone}
-                </div>
+                <div className="info">{contactEmail}</div>
+                <div className="info">{contactPhone}</div>
               </div>
 
               <div className={'col'}>
@@ -273,103 +314,113 @@ export default class ReviewContent extends React.Component<Props, State> {
               </div>
             </div>
 
-            <div className="m-v700">
-              <div className="fs-l">
-                <div className="fs-l-c">
-                  Contact Information 3
-                  <span className="t--reset">
-                    &nbsp;—&nbsp;
-                    <span className="t--subinfo">
-                      <Link href={`${checkoutPath}?page=shipping`}>
-                        <a aria-label="Edit contact information">edit</a>
-                      </Link>
-                    </span>
-                  </span>
-                </div>
+            <div className={'row info-row'}>
+              <div className={'col'}>
+                <label className={'header'}>Shipping Address</label>
+
+                {shippingIsComplete ? (
+                  <div>
+                    {shippingName}
+                    <br />
+                    {shippingCompanyName
+                      ? [shippingCompanyName, <br key="br" />]
+                      : null}
+                    {shippingAddress1}
+                    <br />
+                    {shippingAddress2
+                      ? [shippingAddress2, <br key="br" />]
+                      : null}
+                    {`${shippingCity}, ${shippingState} ${shippingZip}`}
+                  </div>
+                ) : (
+                  <div className="t--err t--info">
+                    You need to edit your shipping info to fix some errors
+                  </div>
+                )}
               </div>
 
-              <div className="t--info" style={{ fontStyle: 'normal' }}>
-                <strong>{contactEmail}</strong>
-                <br />
-                {contactPhone}
+              <div className={'col'}>
+                <Link href={`${checkoutPath}?page=shipping`}>
+                  <a className={'btn'} aria-label="Edit contact information">
+                    edit
+                  </a>
+                </Link>
               </div>
             </div>
 
-            <div className="m-v700">
-              <div className="fs-l">
-                <div className="fs-l-c">
-                  Shipping Address
-                  <span className="t--reset">
-                    &nbsp;—&nbsp;
-                    <span className="t--subinfo">
-                      <Link href={`${checkoutPath}?page=shipping`}>
-                        <a aria-label="Edit shipping address">edit</a>
-                      </Link>
-                    </span>
-                  </span>
-                </div>
+            <div className={'row info-row'}>
+              <div className={'col'}>
+                <label className={'header'}>Payment Information</label>
+
+                {paymentIsComplete ? (
+                  <div>
+                    {cardholderName}
+                    <br />
+                    •••• •••• •••• {cardLast4 || ''}
+                    <br />
+                    {billingAddress1}
+                    <br />
+                    {billingAddress2
+                      ? [billingAddress2, <br key="br" />]
+                      : null}
+                    {billingCity}, {billingState} {billingZip}
+                  </div>
+                ) : (
+                  <div className="t--err t--info">
+                    You need to edit your payment info to fix some errors
+                  </div>
+                )}
               </div>
 
-              {shippingIsComplete ? (
-                <div className="t--info" style={{ fontStyle: 'normal' }}>
-                  {shippingName}
-                  <br />
-                  {shippingCompanyName
-                    ? [shippingCompanyName, <br key="br" />]
-                    : null}
-                  {shippingAddress1}
-                  <br />
-                  {shippingAddress2
-                    ? [shippingAddress2, <br key="br" />]
-                    : null}
-                  {`${shippingCity}, ${shippingState} ${shippingZip}`}
-                </div>
-              ) : (
-                <div className="t--err t--info">
-                  You need to edit your shipping info to fix some errors
-                </div>
-              )}
+              <div className={'col'}>
+                <Link href={`${checkoutPath}?page=payment`}>
+                  <a className={'btn'} aria-label="Edit contact information">
+                    edit
+                  </a>
+                </Link>
+              </div>
             </div>
 
-            <div className="fs m-v700">
-              <div className="fs-l">
-                <div className="fs-l-c">
-                  Payment Information
-                  <span className="t--reset">
-                    &nbsp;—&nbsp;
-                    <span className="t--subinfo">
-                      <Link href={`${checkoutPath}?page=payment`}>
-                        <a aria-label="Edit payment information">edit</a>
-                      </Link>
-                    </span>
-                  </span>
-                </div>
+            <div className={'row'}>
+              <div className={'col'}>
+                <label className={'header'}>Order Details</label>
               </div>
 
-              {paymentIsComplete ? (
-                <div className="t--info" style={{ fontStyle: 'normal' }}>
-                  {cardholderName}
-                  <br />
-                  •••• •••• •••• {cardLast4 || ''}
-                  <br />
-                  {billingAddress1}
-                  <br />
-                  {billingAddress2 ? [billingAddress2, <br key="br" />] : null}
-                  {billingCity}, {billingState} {billingZip}
-                </div>
-              ) : (
-                <div className="t--err t--info">
-                  You need to edit your payment info to fix some errors
-                </div>
-              )}
+              <div className={'col'}>
+                <Link href={`/death/cart`}>
+                  <a className={'btn'} aria-label="Edit contact information">
+                    edit
+                  </a>
+                </Link>
+              </div>
             </div>
+
+            {certEntries()}
+
+            {/* {this.props[cartTypeStr].entries.map(
+              ({ cert, quantity }, i) =>
+                cert && (
+                  <div className={'certRow'}>
+                    <CertificateRow
+                      type={this.props.certificateType}
+                      key={cert.id}
+                      certificate={cert}
+                      borderTop={i !== 0}
+                      borderBottom={true}
+                      quantity={quantity}
+                    />
+                  </div>
+                )
+            )} */}
 
             <div className="m-v500">
+              <h1 className={'summary'}>Order Summary</h1>
               <CostSummary
                 certificateType={this.props.certificateType}
                 certificateQuantity={quantity}
-                newServiceFeeType={`-1`}
-                // serviceFeeType={cardFunding === 'debit' ? 'DEBIT' : 'CREDIT'}
+                newServiceFeeType={`0`}
+                useInDrawer={true}
+                tracking={tracking}
               />
             </div>
 
@@ -540,12 +591,35 @@ const REVIEW_CSS = css`
     font-size: 24px;
   }
 
+  h1.summary {
+    color: ${CHARLES_BLUE};
+    font-family: ${SANS};
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-row {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid ${GRAY_400};
+  }
+
+  .certRow {
+    color: ${CHARLES_BLUE};
+    font-family: ${SERIF};
+  }
+
   .row {
     display: flex;
     justify-content: space-between;
-    align-items: top;
+    align-items: flex-start;
+    color: ${CHARLES_BLUE};
+    font-family: ${SERIF};
 
-    label {
+    label.header {
       color: ${CHARLES_BLUE};
       font-family: ${SANS};
       font-size: 24px;
@@ -553,6 +627,29 @@ const REVIEW_CSS = css`
       font-weight: 700;
       line-height: normal;
       text-transform: uppercase;
+    }
+
+    .info {
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      font-family: ${SERIF};
+      color: ${OPTIMISTIC_BLUE_DARK};
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: capitalize;
+      background: ${WHITE};
+      border: 1px solid ${GRAY_400};
+      padding: 13px;
+
+      &:hover {
+        background: ${OPTIMISTIC_BLUE_DARK};
+        color: ${WHITE};
+      }
     }
   }
 `;

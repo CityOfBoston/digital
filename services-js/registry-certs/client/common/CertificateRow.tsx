@@ -60,11 +60,22 @@ const renderCertificate = (
   thin: boolean,
   quantity?: number
 ) => {
-  // console.log(`renderCertificate > certificateProps: `, certificateProps);
-
   const capFirstLetterOfStr = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+
+  let certTypeDateLabel = '';
+  switch (certificateProps.type) {
+    case 'death':
+      certTypeDateLabel = 'Date of death:';
+      break;
+    case 'birth':
+      certTypeDateLabel = 'Date of birth:';
+      break;
+    case 'marriage':
+      certTypeDateLabel = 'Date of marriage:';
+      break;
+  }
 
   return (
     <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
@@ -119,12 +130,14 @@ const renderCertificate = (
         )}
       </div>
 
-      <div css={LONG_TEXT_STYLE}>
-        <div>
-          <span className="label">Date of death:</span>
-          <span className="name">{certificateProps.subinfo}</span>
+      {certificateProps.subinfo.length > 0 && (
+        <div css={LONG_TEXT_STYLE}>
+          <div>
+            <span className="label">{certTypeDateLabel}</span>
+            <span className="name">{certificateProps.subinfo}</span>
+          </div>
         </div>
-      </div>
+      )}
 
       {certificateProps.age && (
         <div css={LONG_TEXT_STYLE}>

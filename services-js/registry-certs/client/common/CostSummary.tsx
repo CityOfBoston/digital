@@ -32,6 +32,7 @@ interface Props {
   newServiceFeeType?: NewServiceFeeType;
   setCardType?: (type: '-1' | '0' | '1') => void;
   getCardType?: any;
+  useInDrawer?: boolean;
 }
 
 interface State {
@@ -86,7 +87,12 @@ export default class CostSummary extends Component<Props, State> {
   }
 
   render() {
-    const { certificateType, certificateQuantity, tracking } = this.props;
+    const {
+      certificateType,
+      certificateQuantity,
+      tracking,
+      useInDrawer = false,
+    } = this.props;
     const { total, subtotal, serviceFee, researchFee } = this.calculateCost();
 
     return (
@@ -104,6 +110,7 @@ export default class CostSummary extends Component<Props, State> {
           onChangeHandler: this.handleCardOptChanged,
           serviceFeeType: this.state.newServiceFeeType,
           serviceFee: `${(serviceFee / 100).toFixed(2)}`,
+          useInDrawer: useInDrawer,
         })}
       </>
     );
@@ -156,6 +163,13 @@ export const $OrderSummary = (params: {
         <div className={'col'}>FREE</div>
       </div>
 
+      {tracking === true && (
+        <div className={'row'}>
+          <div className={'col'}>USPS Tracking®</div>
+          <div className={'col'}>$ 5.00</div>
+        </div>
+      )}
+
       {onChangeHandler && useInDrawer === false && (
         <div className={'row'}>
           <div className={'col'}>
@@ -175,17 +189,10 @@ export const $OrderSummary = (params: {
         </div>
       )}
 
-      {!onChangeHandler && useInDrawer === true && (
+      {useInDrawer === true && (
         <div className={'row'}>
           <div className={'col'}>Service fee</div>
           <div className={'col'}>$ {serviceFee}</div>
-        </div>
-      )}
-
-      {tracking === true && (
-        <div className={'row'}>
-          <div className={'col'}>USPS Tracking®</div>
-          <div className={'col'}>$ 5.00</div>
         </div>
       )}
 

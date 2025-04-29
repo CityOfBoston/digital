@@ -22,6 +22,7 @@ import { ProgressProps } from '../../../lib/interfaces';
 import CheckoutPageLayout from './CheckoutPageLayout';
 import { BackButtonContent } from '../question-components/BackButton';
 import RenderOrderDetails from './OrderDetails';
+import { SANS } from '@cityofboston/react-fleet';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
@@ -514,4 +515,18 @@ export default class ShippingContent extends React.Component<Props> {
 
 const FIELDSET_CSS = css`
   margin-bottom: 3.5rem;
+
+  legend {
+    font-size: 24px;
+    font-family: ${SANS};
+    font-weight: 700;
+    margin-bottom: 1.75rem;
+  }
+
+  .txt-l,
+  label.sel-l {
+    font-size: 16px;
+    font-family: ${SANS};
+    font-weight: 700;
+  }
 `;
