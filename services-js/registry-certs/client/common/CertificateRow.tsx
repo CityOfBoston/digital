@@ -4,7 +4,7 @@ import { css, jsx } from '@emotion/core';
 
 import { ReactChild } from 'react';
 
-import { CHARLES_BLUE, GRAY_100 } from '@cityofboston/react-fleet';
+import { CHARLES_BLUE, GRAY_100, SERIF } from '@cityofboston/react-fleet';
 
 import BirthCertificateRequest from '../store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
@@ -18,6 +18,7 @@ export type Props = {
     renderedCertificate: ReactChild
   ) => ReactChild | Array<ReactChild>;
   thin?: boolean;
+  quantity?: number;
 } & (
   | {
       type: 'death';
@@ -40,72 +41,113 @@ type CertificateProps = {
       type: 'death';
       firstName: string;
       lastName: string;
+      age: string;
     }
   | {
       type: 'birth';
       firstName: string;
       lastName: string;
+      age: string;
     }
   | {
       type: 'marriage';
       fullNames: string;
+      age: string;
     });
 
 const renderCertificate = (
   certificateProps: CertificateProps,
-  thin: boolean
-) => (
-  <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
-    <div
-      className="t--sans m-v100"
-      css={thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE}
-    >
-      {certificateProps.type === 'marriage' ? (
-        <span css={LONG_TEXT_STYLE}>
-          <span>{certificateProps.fullNames}</span>
+  thin: boolean,
+  quantity?: number
+) => {
+  // console.log(`renderCertificate > certificateProps: `, certificateProps);
 
-          <wbr />
+  const capFirstLetterOfStr = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
-          <span>(Certified paper copy)</span>
-        </span>
-      ) : (
-        <span css={LONG_TEXT_STYLE}>
-          <span>
-            {certificateProps.firstName} {certificateProps.lastName}
+  return (
+    <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
+      <div
+        className="t--sans m-v100"
+        css={thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE}
+      >
+        {certificateProps.type === 'marriage' ? (
+          <div css={LONG_TEXT_STYLE}>
+            <span>
+              {capFirstLetterOfStr(certificateProps.fullNames.toLowerCase())}
+            </span>
+
+            <wbr />
+
+            <span>(Certified paper copy)</span>
+          </div>
+        ) : (
+          <div css={LONG_TEXT_STYLE}>
+            <span className={'label'}>Name:</span>
+            <span className={'name'}>
+              {capFirstLetterOfStr(certificateProps.firstName.toLowerCase())}{' '}
+              {capFirstLetterOfStr(certificateProps.lastName.toLowerCase())}
+              {quantity && typeof quantity === 'number' && quantity > 0 && (
+                <>
+                  <span className="label"> x</span>
+                  <span className="name">{quantity}</span>
+                </>
+              )}
+            </span>
+
+            {certificateProps.type === 'birth' && (
+              <>
+                <wbr />
+
+                <span>(Certified paper copy)</span>
+              </>
+            )}
+          </div>
+        )}
+
+        {certificateProps.pending && (
+          <span style={{ color: CHARLES_BLUE }}>
+            {' — '}
+            <span
+              className="t--sans tt-u"
+              style={{ fontStyle: 'normal', fontWeight: 'bold' }}
+            >
+              pending
+            </span>
           </span>
-          {certificateProps.type === 'birth' && (
-            <>
-              <wbr />
+        )}
+      </div>
 
-              <span>(Certified paper copy)</span>
-            </>
-          )}
-        </span>
-      )}
+      <div css={LONG_TEXT_STYLE}>
+        <div>
+          <span className="label">Date of death:</span>
+          <span className="name">{certificateProps.subinfo}</span>
+        </div>
+      </div>
 
-      {certificateProps.pending && (
-        <span style={{ color: CHARLES_BLUE }}>
-          {' — '}
-          <span
-            className="t--sans tt-u"
-            style={{ fontStyle: 'normal', fontWeight: 'bold' }}
-          >
-            pending
-          </span>
-        </span>
+      {certificateProps.age && (
+        <div css={LONG_TEXT_STYLE}>
+          <span className="label">Age:</span>
+          <span className="name">{certificateProps.age}</span>
+        </div>
       )}
     </div>
-
-    <div css={CERTIFICATE_SUBINFO_STYLE}>{certificateProps.subinfo}</div>
-  </div>
-);
+  );
+};
 
 // This component takes an optional render prop as its child so that callers can
 // construct their own rows. The function is given a <div> component for the
 // certificate, and they can return it and other elements.
 
 export default function CertificateRow(props: Props) {
-  const { borderTop, borderBottom, children: wrapperFunc, thin } = props;
+  const {
+    borderTop,
+    borderBottom,
+    children: wrapperFunc,
+    thin,
+    quantity,
+  } = props;
 
   let borderClass = '';
 
@@ -119,15 +161,19 @@ export default function CertificateRow(props: Props) {
     }
   }
 
+  const qty: number = quantity && typeof quantity === 'number' ? quantity : 0;
+
   return (
     <>
       <div
-        className={`${thin ? 'p-v200' : 'p-v300'} br b--w ${borderClass}`}
+        className={`${thin ? 'p-v200' : 'p-v300'} br ${borderClass}`}
         css={CERTIFICATE_ROW_STYLE}
       >
         {wrapperFunc
-          ? wrapperFunc(renderCertificate(getCertificateProps(props), !!thin))
-          : renderCertificate(getCertificateProps(props), !!thin)}
+          ? wrapperFunc(
+              renderCertificate(getCertificateProps(props), !!thin, qty)
+            )
+          : renderCertificate(getCertificateProps(props), !!thin, qty)}
       </div>
     </>
   );
@@ -151,13 +197,18 @@ function deathCertificateProps(certificate): CertificateProps {
     deathYear,
     age,
     pending,
+    quantity,
   } = certificate;
-  const ageStr = age ? ` — Age: ${age}` : '';
+  const ageStr = age
+    ? `${age}${!age.includes('days') && !age.includes('yr') ? 'yrs' : ''}`
+    : '';
+  console.log(`quantity: ${quantity}`);
 
   return {
     firstName,
     lastName,
-    subinfo: `Died: ${deathDate || deathYear}${ageStr}`,
+    subinfo: `${deathDate || deathYear}`,
+    age: ageStr,
     pending,
     type: 'death',
   };
@@ -166,35 +217,37 @@ function deathCertificateProps(certificate): CertificateProps {
 function birthRequestProps(request): CertificateProps {
   const { firstName, lastName } = request.requestInformation;
 
+  const getAgeStr = dateString => {
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const month = today.getMonth() - birthDate.getMonth();
+
+    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
   return {
     firstName,
     lastName,
     subinfo: `Born: ${request.dateString}`,
     pending: false,
     type: 'birth',
+    age: `${getAgeStr(request.dateString)}`,
   };
 }
 
 function marriageRequestProps(request): CertificateProps {
-  const {
-    fullNames,
-    // dateString
-  } = request;
-  console.log(`marriageRequestProps (request): `, request);
-
-  // todo: temporary hack - 8/29 jm
-  // return {
-  //   fullNames,
-  //   subinfo: `Married: ${dateString}`,
-  //   pending: false,
-  //   type: 'marriage',
-  // };
+  const { fullNames } = request;
 
   return {
     fullNames,
     subinfo: '',
     pending: false,
     type: 'marriage',
+    age: '',
   };
 }
 
@@ -210,11 +263,6 @@ const THIN_CERTIFICATE_NAME_STYLE = css({
   fontStyle: 'normal',
 });
 
-const CERTIFICATE_SUBINFO_STYLE = css({
-  color: CHARLES_BLUE,
-  fontStyle: 'italic',
-});
-
 const CERTIFICATE_ROW_STYLE = css({
   borderColor: GRAY_100,
   borderLeftWidth: 0,
@@ -225,6 +273,17 @@ const CERTIFICATE_ROW_STYLE = css({
 });
 
 const LONG_TEXT_STYLE = css({
+  fontFamily: SERIF,
+  fontSize: '18px',
+
+  ['span.label']: {
+    fontWeight: 700,
+  },
+
+  ['span.name']: {
+    fontWeight: 'normal',
+  },
+
   span: {
     whiteSpace: 'nowrap',
 

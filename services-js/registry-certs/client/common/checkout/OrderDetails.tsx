@@ -6,14 +6,20 @@ import { Component } from 'react';
 
 import { observer } from 'mobx-react';
 
-import Link from 'next/link';
+// import Link from 'next/link';
 
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
+// import { $Drawer } from './Drawer';
+import { $OrderSummary } from '../CostSummary';
+
 import {
-  GRAY_000,
+  WHITE,
+  GRAY_100,
+  GRAY_400,
   CHARLES_BLUE,
   OPTIMISTIC_BLUE_DARK,
+  SERIF,
 } from '@cityofboston/react-fleet';
 
 import {
@@ -59,11 +65,11 @@ type OrderDetailsProps =
 export const OrderDetails = observer(function OrderDetails(
   props: OrderDetailsProps
 ) {
-  const makeWrapRow = quantity => certificateDiv => (
+  const makeWrapRow = _quantity => certificateDiv => (
     <>
-      <div className="t--sans p-a300" style={{ fontWeight: 'bold' }}>
-        <span aria-label="Quantity">{quantity}</span> ×
-      </div>
+      {/* <div className="t--sans p-a300" style={{ fontWeight: 'bold' }}>
+        <span aria-label="Quantity">{_quantity}</span> ×
+      </div> */}
 
       {certificateDiv}
     </>
@@ -86,6 +92,7 @@ export const OrderDetails = observer(function OrderDetails(
                   }
                   thin={props.thin}
                   children={makeWrapRow(quantity)}
+                  quantity={quantity}
                 />
               )
           )}
@@ -125,6 +132,7 @@ interface DropdownProps {
   certificateQuantity: number | string;
   startExpanded?: boolean;
   hasResearchFee?: boolean;
+  drawer?: boolean;
 }
 
 interface DropdownState {
@@ -149,6 +157,7 @@ export class OrderDetailsDropdown extends Component<
   static defaultProps: Partial<DropdownProps> = {
     startExpanded: false,
     hasResearchFee: false,
+    drawer: false,
   };
 
   constructor(props: DropdownProps) {
@@ -169,107 +178,98 @@ export class OrderDetailsDropdown extends Component<
     const quantity = +this.props.certificateQuantity;
 
     const certificateCost = CERTIFICATE_COST[orderType.toUpperCase()];
-    const certificateCostString =
-      CERTIFICATE_COST_STRING[orderType.toUpperCase()];
 
-    return (
-      <div
-        className={`dr ${open ? 'dr--open' : ''}`}
-        css={[DRAWER_STYLE, open ? OPEN_DRAWER_STYLE : '']}
-      >
-        <button
-          className="dr-h"
-          css={DRAWER_HEADER_STYLE}
-          type="button"
-          onClick={this.toggleOpen}
-          aria-expanded={open}
-        >
-          <div className="p-a300">
-            <div className="dr-ic" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-2 8.5 18 25"
-                focusable="false"
-              >
-                <path
-                  className="dr-i"
-                  css={DRAWER_ICON_STYLE}
-                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                />
-              </svg>
-            </div>
+    const $DrawerUI = () => {
+      const orderCost = calculateCreditCardCost(certificateCost, quantity);
+      const {
+        subtotal,
+        total,
+        serviceFee,
+        // researchFee
+      } = orderCost;
 
-            <h2 className="stp">Order details</h2>
+      // console.log(`certificateCost: `, certificateCost);
+      // console.log(`orderCost: `, orderCost);
 
-            <div className="t--info">
-              {quantity} {quantity === 1 ? 'item' : 'items'} ×{' '}
-              {certificateCostString} = $
-              {(
-                calculateCreditCardCost(certificateCost, quantity).subtotal /
-                100
-              ).toFixed(2)}{' '}
-              + service fee*
-              {this.props.hasResearchFee && (
+      return (
+        <div css={DRAWER_CSS}>
+          <div
+            className={`header${open ? ' open' : ''}`}
+            onClick={this.toggleOpen}
+            aria-expanded={open}
+          >
+            Your order details
+          </div>
+
+          <div className={`body`}>
+            <VelocityTransitionGroup
+              enter={{ animation: 'slideDown', duration: 250 }}
+              leave={{ animation: 'slideUp', duration: 250 }}
+              role="region"
+            >
+              {open && (
                 <>
-                  <span> + research fee</span>
-                  {/* dagger character looks strange when italicized */}
-                  <span style={{ fontStyle: 'normal' }}>†</span>
+                  <div className={`summary__qty`}>
+                    {quantity} {quantity === 1 ? 'item' : 'items'}
+                  </div>
+
+                  <div className={`order_items`}>{children}</div>
+
+                  <div className={`cost_summary`}>
+                    <$OrderSummary
+                      certQuantityLabel={`Subtotal: ${quantity} ${
+                        quantity === 1 ? 'certificate' : 'certificates'
+                      } × ${CERTIFICATE_COST_STRING[orderType.toUpperCase()]}`}
+                      totalCost={`${(subtotal / 100).toFixed(2)}`}
+                      researchFee={``}
+                      tracking={true}
+                      finalCost={`${(total / 100).toFixed(2)}`}
+                      serviceFeeType={`1`}
+                      serviceFee={`${serviceFee / 100}`}
+                      useInDrawer={true}
+                    />
+                  </div>
+
+                  <div className="t--subinfo notes">
+                    {serviceFeeDisclosureText()}
+                    {this.props.hasResearchFee && (
+                      <p>
+                        <span style={{ fontStyle: 'normal' }}>†</span>{' '}
+                        {researchFeeDisclosureText()}
+                      </p>
+                    )}
+                  </div>
                 </>
               )}
-            </div>
+            </VelocityTransitionGroup>
           </div>
-        </button>
+        </div>
+      );
+    };
 
-        <VelocityTransitionGroup
-          enter={{ animation: 'slideDown', duration: 250 }}
-          leave={{ animation: 'slideUp', duration: 250 }}
-          role="region"
-        >
-          {open && (
-            <div className="dr-c" css={DRAWER_CONTENT_STYLE}>
-              {children}
-
-              <div className="t--subinfo p-a300">
-                * {serviceFeeDisclosureText()}
-                {this.props.hasResearchFee && (
-                  <p>
-                    <span style={{ fontStyle: 'normal' }}>†</span>{' '}
-                    {researchFeeDisclosureText()}
-                  </p>
-                )}
-              </div>
-
-              <div className="ta-c t--subinfo b--g">
-                {orderType === 'death' && (
-                  <Link href={`/death/cart`}>
-                    <a style={{ display: 'block', padding: '0.5em' }}>
-                      edit cart
-                    </a>
-                  </Link>
-                )}
-              </div>
-            </div>
-          )}
-        </VelocityTransitionGroup>
-      </div>
-    );
+    return <>{$DrawerUI()}</>;
   }
 }
 
-export default function RenderOrderDetails(props): JSX.Element {
+export default function RenderOrderDetails(props: {
+  details: any;
+  drawer?: boolean;
+}): JSX.Element {
   const { details } = props;
 
   if (details.certificateType === 'death') {
     return (
-      <OrderDetailsDropdown
-        orderType="death"
-        certificateQuantity={details.deathCertificateCart.size}
-      >
-        <OrderDetails
-          type="death"
-          deathCertificateCart={details.deathCertificateCart}
-        />
-      </OrderDetailsDropdown>
+      <>
+        <OrderDetailsDropdown
+          orderType="death"
+          certificateQuantity={details.deathCertificateCart.size}
+        >
+          <OrderDetails
+            type="death"
+            deathCertificateCart={details.deathCertificateCart}
+          />
+        </OrderDetailsDropdown>
+      </>
     );
   } else {
     const quantity =
@@ -298,30 +298,78 @@ export default function RenderOrderDetails(props): JSX.Element {
   }
 }
 
-const DRAWER_STYLE = css({
-  backgroundColor: GRAY_000,
-  marginTop: '0 !important',
-});
+const DRAWER_CSS = css`
+  width: 100%;
 
-const DRAWER_HEADER_STYLE = css({
-  padding: 0,
-});
+  background: ${GRAY_100};
+  background: #f2f2f2;
+  margin-bottom: 3.125rem;
 
-const DRAWER_ICON_STYLE = css({});
+  .header,
+  .footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    cursor: pointer;
 
-const DRAWER_CONTENT_STYLE = css({
-  padding: 0,
-  display: 'block',
-});
+    color: ${OPTIMISTIC_BLUE_DARK};
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
 
-const OPEN_DRAWER_STYLE = css({
-  '.dr-h': {
-    backgroundColor: GRAY_000,
-    color: CHARLES_BLUE,
-  },
+    h1 {
+      font-weight: 700;
+    }
+  }
 
-  '.dr-i': {
-    // This is forced only on “open” so that it can go to white on hover.
-    fill: `${OPTIMISTIC_BLUE_DARK} !important`,
-  },
-});
+  .header {
+    margin-bottom: 1em;
+
+    &:hover,
+    &:.open {
+      color: ${WHITE};
+      background: ${OPTIMISTIC_BLUE_DARK};
+      text-decoration-line: underline;
+    }
+  }
+
+  .header.open {
+    background: ${CHARLES_BLUE};
+    color: ${WHITE};
+  }
+
+  .body {
+    color: ${CHARLES_BLUE};
+    font-family: ${SERIF};
+    font-size: 1.125em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 0px 24px;
+
+    .summary__qty {
+      font-family: ${SERIF};
+      font-size: 1.125em;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid ${GRAY_400};
+    }
+
+    .order_items {
+      margin-bottom: 1.5rem;
+    }
+
+    .cost_summary,
+    .notes {
+      padding-bottom: 1.115rem;
+    }
+  }
+`;

@@ -148,9 +148,9 @@ class CartPage extends React.Component<Props, State> {
                 <CostSummary
                   certificateType="death"
                   certificateQuantity={deathCertificateCart.size}
-                  allowServiceFeeTypeChoice
-                  serviceFeeType="CREDIT"
-                  newServiceFeeType="-1"
+                  newServiceFeeType={deathCertificateCart.getCardType()}
+                  setCardType={deathCertificateCart.setCardType}
+                  getCardType={deathCertificateCart.getCardType}
                   tracking={
                     this.state.certMail &&
                     this.state.certMail.certMailInfo.requestCertifiedMail ===

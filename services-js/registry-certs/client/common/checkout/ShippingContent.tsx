@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+
 import React from 'react';
 import Link from 'next/link';
 import { Formik, FormikProps } from 'formik';
@@ -115,7 +118,7 @@ export default class ShippingContent extends React.Component<Props> {
         }
       >
         <div className="m-v300">
-          <RenderOrderDetails details={this.props} />
+          <RenderOrderDetails details={this.props} drawer={true} />
         </div>
 
         <Formik
@@ -193,8 +196,8 @@ export default class ShippingContent extends React.Component<Props> {
 
     return (
       <form method="post" onSubmit={handleSubmit}>
-        <fieldset className="fs m-v700">
-          <legend className="fs-l">Contact Information 1</legend>
+        <fieldset css={FIELDSET_CSS} className="fs m-v700">
+          <legend className="fs-l">Contact Information</legend>
 
           <div className="txt">
             <label htmlFor="contactName" className="txt-l txt-l--sm">
@@ -299,7 +302,7 @@ export default class ShippingContent extends React.Component<Props> {
           </div>
         </fieldset>
 
-        <fieldset className="fs m-v700">
+        <fieldset css={FIELDSET_CSS} className="fs m-v700">
           <legend className="fs-l">Shipping Address</legend>
 
           <div className="txt">
@@ -508,3 +511,7 @@ export default class ShippingContent extends React.Component<Props> {
     );
   };
 }
+
+const FIELDSET_CSS = css`
+  margin-bottom: 3.5rem;
+`;

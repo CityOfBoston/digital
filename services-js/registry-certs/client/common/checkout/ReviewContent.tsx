@@ -159,7 +159,7 @@ export default class ReviewContent extends React.Component<Props, State> {
 
         cardholderName,
         cardLast4,
-        cardFunding,
+        // cardFunding,
       },
       billingAddress1,
       billingAddress2,
@@ -324,7 +324,8 @@ export default class ReviewContent extends React.Component<Props, State> {
             <CostSummary
               certificateType={this.props.certificateType}
               certificateQuantity={quantity}
-              serviceFeeType={cardFunding === 'debit' ? 'DEBIT' : 'CREDIT'}
+              newServiceFeeType={`-1`}
+              // serviceFeeType={cardFunding === 'debit' ? 'DEBIT' : 'CREDIT'}
             />
           </div>
 

@@ -170,7 +170,8 @@ export default class ReviewCertificateRequest extends Component<Props> {
           certificateType="birth"
           certificateQuantity={quantity}
           allowServiceFeeTypeChoice
-          serviceFeeType="CREDIT"
+          newServiceFeeType={'0'}
+          // serviceFeeType="CREDIT"
           tracking={tracking}
         />
 
