@@ -300,6 +300,7 @@ const DRAWER_CSS = css`
 
   background: ${GRAY_100};
   background: #f2f2f2;
+  // background: rgba(40, 40, 40, 0.25);
   margin-bottom: 3.125rem;
 
   .header,
