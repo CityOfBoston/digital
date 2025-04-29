@@ -197,12 +197,10 @@ function deathCertificateProps(certificate): CertificateProps {
     deathYear,
     age,
     pending,
-    quantity,
   } = certificate;
   const ageStr = age
     ? `${age}${!age.includes('days') && !age.includes('yr') ? 'yrs' : ''}`
     : '';
-  console.log(`quantity: ${quantity}`);
 
   return {
     firstName,

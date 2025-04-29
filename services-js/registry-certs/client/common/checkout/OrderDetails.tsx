@@ -188,9 +188,6 @@ export class OrderDetailsDropdown extends Component<
         // researchFee
       } = orderCost;
 
-      // console.log(`certificateCost: `, certificateCost);
-      // console.log(`orderCost: `, orderCost);
-
       return (
         <div css={DRAWER_CSS}>
           <div

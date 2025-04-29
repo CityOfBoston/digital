@@ -72,7 +72,7 @@ storiesOf('Death/CartPage', module)
       certificateType="death"
       certificateQuantity={2}
       allowServiceFeeTypeChoice
-      serviceFeeType="CREDIT"
+      // serviceFeeType="CREDIT"
       newServiceFeeType={'1'}
     />
   ))
@@ -81,7 +81,7 @@ storiesOf('Death/CartPage', module)
       certificateType="death"
       certificateQuantity={2}
       allowServiceFeeTypeChoice
-      serviceFeeType="CREDIT"
+      // serviceFeeType="CREDIT"
       newServiceFeeType={'0'}
       tracking={true}
     />
