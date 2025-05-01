@@ -19,6 +19,7 @@ export type Props = {
   ) => ReactChild | Array<ReactChild>;
   thin?: boolean;
   quantity?: number;
+  showQuantity?: boolean;
 } & (
   | {
       type: 'death';
@@ -58,8 +59,15 @@ type CertificateProps = {
 const renderCertificate = (
   certificateProps: CertificateProps,
   thin: boolean,
-  quantity?: number
+  quantity?: number,
+  showQuantity?: boolean
 ) => {
+  const qty = quantity ? quantity : 0;
+  const show_quantity = showQuantity ? showQuantity : true;
+  console.log(
+    `show_quantity: ${show_quantity} | quantity: ${quantity} | qty: ${qty}`
+  );
+
   const capFirstLetterOfStr = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -99,13 +107,14 @@ const renderCertificate = (
             <span className={'name'}>
               {capFirstLetterOfStr(certificateProps.firstName.toLowerCase())}{' '}
               {capFirstLetterOfStr(certificateProps.lastName.toLowerCase())}
-              {quantity && typeof quantity === 'number' && quantity > 0 && (
-                <>
-                  <span className="label"> x</span>
-                  <span className="name">{quantity}</span>
-                </>
-              )}
             </span>
+
+            {qty > 0 && show_quantity === true && (
+              <>
+                <span className="label"> x </span>
+                <span className="name">{quantity}</span>
+              </>
+            )}
 
             {certificateProps.type === 'birth' && (
               <>
@@ -114,19 +123,19 @@ const renderCertificate = (
                 <span>(Certified paper copy)</span>
               </>
             )}
-          </div>
-        )}
 
-        {certificateProps.pending && (
-          <span style={{ color: CHARLES_BLUE }}>
-            {' — '}
-            <span
-              className="t--sans tt-u"
-              style={{ fontStyle: 'normal', fontWeight: 'bold' }}
-            >
-              pending
-            </span>
-          </span>
+            {certificateProps.pending && (
+              <span style={{ color: CHARLES_BLUE }}>
+                {' — '}
+                <span
+                  className="t--sans tt-u"
+                  style={{ fontStyle: 'normal', fontWeight: 'bold' }}
+                >
+                  pending
+                </span>
+              </span>
+            )}
+          </div>
         )}
       </div>
 
@@ -160,6 +169,7 @@ export default function CertificateRow(props: Props) {
     children: wrapperFunc,
     thin,
     quantity,
+    showQuantity = false,
   } = props;
 
   let borderClass = '';
@@ -184,9 +194,19 @@ export default function CertificateRow(props: Props) {
       >
         {wrapperFunc
           ? wrapperFunc(
-              renderCertificate(getCertificateProps(props), !!thin, qty)
+              renderCertificate(
+                getCertificateProps(props),
+                !!thin,
+                qty,
+                showQuantity
+              )
             )
-          : renderCertificate(getCertificateProps(props), !!thin, qty)}
+          : renderCertificate(
+              getCertificateProps(props),
+              !!thin,
+              qty,
+              showQuantity
+            )}
       </div>
     </>
   );
@@ -243,7 +263,7 @@ function birthRequestProps(request): CertificateProps {
   return {
     firstName,
     lastName,
-    subinfo: `Born: ${request.dateString}`,
+    subinfo: `${request.dateString}`,
     pending: false,
     type: 'birth',
     age: `${getAgeStr(request.dateString)}`,
