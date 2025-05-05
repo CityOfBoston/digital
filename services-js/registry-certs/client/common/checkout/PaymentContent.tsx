@@ -34,6 +34,7 @@ import { ProgressProps } from '../../../lib/interfaces';
 import { BackButtonContent } from '../question-components/BackButton';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 import RenderOrderDetails from './OrderDetails';
+import { CARDTYPE } from '../../models/CardType';
 
 type Props = {
   submit: (
@@ -44,6 +45,8 @@ type Props = {
   order: Order;
   tokenizationErrorForTest?: string;
   cardElementErrorForTest?: string;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
 } & (
   | {
       certificateType: 'death';
@@ -243,6 +246,8 @@ export default class PaymentContent extends React.Component<Props, State> {
   };
 
   render() {
+    const { tracking, cardType } = this.props;
+
     return (
       <CheckoutPageLayout
         certificateType={this.props.certificateType}
@@ -254,7 +259,11 @@ export default class PaymentContent extends React.Component<Props, State> {
         }
       >
         <div className="m-v300">
-          <RenderOrderDetails details={this.props} />
+          <RenderOrderDetails
+            details={this.props}
+            tracking={tracking}
+            cardType={cardType}
+          />
         </div>
 
         <Formik

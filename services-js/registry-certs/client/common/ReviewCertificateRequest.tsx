@@ -10,17 +10,17 @@ import { observer } from 'mobx-react';
 
 import {
   CHARLES_BLUE,
-  // MEDIA_MEDIUM,
   SERIF,
+  // MEDIA_MEDIUM,
   // Textarea,
 } from '@cityofboston/react-fleet';
-
 // import { capitalize } from '../../lib/helpers';
 
 import { CERTIFICATE_COST } from '../../lib/costs';
 
 import CostSummary from './CostSummary';
 import { OrderDetails } from './checkout/OrderDetails';
+import { CARDTYPE } from '../models/CardType';
 
 // import QuantityDropdown from './QuantityDropdown';
 import BackButton from './question-components/BackButton';
@@ -33,6 +33,8 @@ interface Props {
   siteAnalytics?: any;
   children: ReactChild | ReactChild[];
   tracking?: boolean;
+  cardType?: CARDTYPE;
+  cardTypeChangeHandler?: (type: CARDTYPE) => void;
 }
 
 /**
@@ -63,26 +65,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
       siteAnalytics.setProductAction('detail');
     }
   }
-
-  // private handleQuantityChange = (value: number | null) => {
-  //   const { certificateRequest, certificateType, siteAnalytics } = this.props;
-
-  //   const oldValue = certificateRequest.quantity;
-  //   const newValue = value;
-
-  //   if (newValue) {
-  //     const difference = Math.abs(oldValue - newValue);
-
-  //     if (certificateType === 'birth') {
-  //       siteAnalytics.sendEvent('change certificate quantity', {
-  //         category: 'Birth',
-  //         label: oldValue > newValue ? 'decrease' : 'increase',
-  //         value: oldValue > newValue ? -difference : difference,
-  //       });
-  //     }
-  //     certificateRequest.setQuantity(newValue as number);
-  //   }
-  // };
 
   private userResetStartOver = () => {
     const { certificateType, siteAnalytics } = this.props;
@@ -128,7 +110,13 @@ export default class ReviewCertificateRequest extends Component<Props> {
   };
 
   public render() {
-    const { certificateRequest, certificateType, tracking } = this.props;
+    const {
+      certificateRequest,
+      certificateType,
+      tracking,
+      cardType,
+      cardTypeChangeHandler,
+    } = this.props;
     const { quantity } = certificateRequest;
 
     const entry = () => {
@@ -163,44 +151,13 @@ export default class ReviewCertificateRequest extends Component<Props> {
 
         {entry()}
 
-        {/* <div css={CERTIFICATE_ROW_STYLE}>
-          <QuantityDropdown
-            quantity={quantity}
-            handleQuantityChange={this.handleQuantityChange}
-          />
-
-          <div className="t--sans" css={CERTIFICATE_INFO_BOX_STYLE}>
-            <div css={CERTIFICATE_NAME_STYLE}>
-              {certificateType === 'birth'
-                ? certificateRequest.fullName
-                : certificateRequest.fullNames}
-            </div>
-
-            <div css={CERTIFICATE_SUBINFO_STYLE}>
-              <span>
-                {capitalize(certificateType)} Certificate (Certified paper copy)
-              </span>
-
-              {certificateRequest.dateString ? (
-                <span>
-                  {certificateType === 'birth' &&
-                    `Born: ${certificateRequest.dateString}`}
-                  {certificateType === 'marriage' &&
-                    `Date: ${certificateRequest.dateString}`}
-                </span>
-              ) : (
-                <></>
-              )}
-            </div>
-          </div>
-        </div> */}
-
         <CostSummary
           certificateType="birth"
           certificateQuantity={quantity}
           allowServiceFeeTypeChoice
-          newServiceFeeType={'0'}
+          newServiceFeeType={cardType}
           tracking={tracking}
+          setCardType={cardTypeChangeHandler}
         />
 
         <div className="g g--mr m-t700">
@@ -230,47 +187,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
     );
   }
 }
-
-// const CERTIFICATE_NAME_STYLE = css({
-//   fontStyle: 'normal',
-//   fontWeight: 'bold',
-//   letterSpacing: '1.4px',
-// });
-
-// const CERTIFICATE_INFO_BOX_STYLE = css({
-//   flex: 1,
-//   marginLeft: '1.25rem',
-//   [MEDIA_MEDIUM]: {
-//     marginLeft: '0.75rem',
-//   },
-// });
-
-// const CERTIFICATE_SUBINFO_STYLE = css({
-//   color: CHARLES_BLUE,
-//   fontFamily: SERIF,
-//   fontStyle: 'italic',
-
-//   '> span': {
-//     display: 'block',
-//   },
-// });
-
-// const CERTIFICATE_ROW_STYLE = css({
-//   borderBottom: THIN_BORDER_STYLE,
-//   borderTop: THIN_BORDER_STYLE,
-
-//   paddingBottom: '0.5em',
-//   paddingTop: '0.5em',
-//   marginBottom: '1em',
-//   marginTop: '3em',
-
-//   display: 'flex',
-//   alignItems: 'center',
-
-//   '> div:first-of-type': {
-//     flexBasis: '25%',
-//   },
-// });
 
 const ENTRIES_CSS = css`
   .certRow {

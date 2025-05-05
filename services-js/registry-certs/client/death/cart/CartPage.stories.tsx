@@ -51,6 +51,7 @@ storiesOf('Death/CartPage', module)
       deathCertificateCart={makeCart(true)}
       siteAnalytics={new GaSiteAnalytics()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('normal page', () => (
@@ -58,6 +59,7 @@ storiesOf('Death/CartPage', module)
       deathCertificateCart={makeCart(false)}
       siteAnalytics={new GaSiteAnalytics()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('empty cart', () => (
@@ -65,6 +67,7 @@ storiesOf('Death/CartPage', module)
       deathCertificateCart={new DeathCertificateCart()}
       siteAnalytics={new GaSiteAnalytics()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('cost summary', () => (

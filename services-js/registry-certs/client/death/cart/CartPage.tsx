@@ -21,12 +21,16 @@ import CostSummary from '../../common/CostSummary';
 import { ServiceFeeDisclosure } from '../../common/FeeDisclosures';
 
 import CertifiedMail from '../../models/CertifiedMail';
+import CardType, { CARDTYPE } from '../../models/CardType';
 
 import CertMailTracking from '../../common/CertMailTracking';
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
-  'deathCertificateCart' | 'certMailProvider' | 'siteAnalytics'
+  | 'deathCertificateCart'
+  | 'certMailProvider'
+  | 'cardTypeProvider'
+  | 'siteAnalytics'
 >;
 
 type State = {
@@ -34,10 +38,12 @@ type State = {
    * This will be null on the server and during the first client render.
    */
   certMail: CertifiedMail | null;
+  cardType: CardType | null;
 };
 
 interface Props extends PageDependenciesProps {
   certifiedMailForTest?: CertifiedMail;
+  cardTypeForTest?: CardType;
 }
 
 // interface Props extends Props
@@ -45,7 +51,10 @@ interface Props extends PageDependenciesProps {
 @observer
 class CartPage extends React.Component<Props, State> {
   // state: State = { certMail: this.props.certifiedMailForTest || null };
-  state: State = { certMail: this.props.certifiedMailForTest || null };
+  state: State = {
+    certMail: this.props.certifiedMailForTest || null,
+    cardType: this.props.cardTypeForTest || null,
+  };
 
   // When we leave the cart page, remove everything that's 0-size.
   componentWillUnmount = action(
@@ -57,17 +66,22 @@ class CartPage extends React.Component<Props, State> {
   );
 
   async componentDidMount() {
-    const { certMailProvider } = this.props;
+    const { certMailProvider, cardTypeProvider } = this.props;
 
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const certMail = await certMailProvider.get();
-    await new Promise((resolve: any) => this.setState({ certMail }, resolve));
+    const cardType = await cardTypeProvider.get();
+
+    await new Promise((resolve: any) =>
+      this.setState({ certMail, cardType }, resolve)
+    );
   }
 
   render() {
     const { deathCertificateCart, siteAnalytics } = this.props;
     const loading = !!deathCertificateCart.entries.find(({ cert }) => !cert);
+    const { certMail, cardType } = this.state;
 
     const certMailHandler = () => {
       const { certMail } = this.state;
@@ -78,6 +92,21 @@ class CartPage extends React.Component<Props, State> {
         });
       }
     };
+
+    const cardTypeChangeHandler = (type: CARDTYPE) => {
+      const { cardType } = this.state;
+
+      if (cardType) {
+        cardType.updateCardType({
+          cardType: type,
+        });
+      }
+    };
+
+    let card_type =
+      cardType && cardType.cardTypeInfo && cardType.cardTypeInfo.cardType
+        ? cardType && cardType.cardTypeInfo.cardType
+        : '-1';
 
     return (
       <PageLayout
@@ -127,29 +156,31 @@ class CartPage extends React.Component<Props, State> {
               )}
             </div>
 
-            <CertMailTracking
-              action={
-                this.state.certMail &&
-                this.state.certMail.certMailInfo.requestCertifiedMail === true
-                  ? 'remove'
-                  : 'add'
-              }
-              value={
-                this.state.certMail &&
-                this.state.certMail.certMailInfo.requestCertifiedMail === true
-                  ? 1
-                  : 0
-              }
-              onClickHandler={certMailHandler}
-            />
-
             {deathCertificateCart.entries.length > 0 && (
+              <CertMailTracking
+                action={
+                  certMail &&
+                  certMail.certMailInfo.requestCertifiedMail === true
+                    ? 'remove'
+                    : 'add'
+                }
+                value={
+                  certMail &&
+                  certMail.certMailInfo.requestCertifiedMail === true
+                    ? 1
+                    : 0
+                }
+                onClickHandler={certMailHandler}
+              />
+            )}
+
+            {!loading && deathCertificateCart.entries.length > 0 && (
               <div className="m-t700">
                 <CostSummary
                   certificateType="death"
                   certificateQuantity={deathCertificateCart.size}
-                  newServiceFeeType={deathCertificateCart.getCardType()}
-                  setCardType={deathCertificateCart.setCardType}
+                  newServiceFeeType={card_type}
+                  setCardType={cardTypeChangeHandler}
                   getCardType={deathCertificateCart.getCardType}
                   tracking={
                     this.state.certMail &&

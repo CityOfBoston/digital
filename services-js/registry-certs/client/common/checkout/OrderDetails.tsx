@@ -10,7 +10,8 @@ import { observer } from 'mobx-react';
 
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
-// import { $Drawer } from './Drawer';
+import { CARDTYPE } from '../../models/CardType';
+
 import { $OrderSummary } from '../CostSummary';
 
 import {
@@ -24,6 +25,7 @@ import {
 
 import {
   calculateCreditCardCost,
+  calculateDebitCardCost,
   CERTIFICATE_COST,
   CERTIFICATE_COST_STRING,
 } from '../../../lib/costs';
@@ -93,6 +95,7 @@ export const OrderDetails = observer(function OrderDetails(
                   thin={props.thin}
                   children={makeWrapRow(quantity)}
                   quantity={quantity}
+                  showQuantity={true}
                 />
               )
           )}
@@ -108,6 +111,8 @@ export const OrderDetails = observer(function OrderDetails(
             borderBottom={true}
             thin={props.thin}
             children={makeWrapRow(props.birthCertificateRequest.quantity)}
+            quantity={props.birthCertificateRequest.quantity}
+            showQuantity={true}
           />
         </div>
       );
@@ -121,6 +126,8 @@ export const OrderDetails = observer(function OrderDetails(
             borderBottom={true}
             thin={props.thin}
             children={makeWrapRow(props.marriageCertificateRequest.quantity)}
+            quantity={props.marriageCertificateRequest.quantity}
+            showQuantity={true}
           />
         </div>
       );
@@ -133,6 +140,8 @@ interface DropdownProps {
   startExpanded?: boolean;
   hasResearchFee?: boolean;
   drawer?: boolean;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
 }
 
 interface DropdownState {
@@ -158,6 +167,8 @@ export class OrderDetailsDropdown extends Component<
     startExpanded: false,
     hasResearchFee: false,
     drawer: false,
+    tracking: false,
+    cardType: '0',
   };
 
   constructor(props: DropdownProps) {
@@ -174,16 +185,24 @@ export class OrderDetailsDropdown extends Component<
 
   render() {
     const { open } = this.state;
-    const { orderType, children } = this.props;
+    const {
+      orderType,
+      children,
+      tracking = false,
+      cardType = '0',
+    } = this.props;
     const quantity = +this.props.certificateQuantity;
 
     const certificateCost = CERTIFICATE_COST[orderType.toUpperCase()];
 
     const $DrawerUI = () => {
-      const orderCost = calculateCreditCardCost(certificateCost, quantity);
+      const orderCost =
+        cardType === '0'
+          ? calculateCreditCardCost(certificateCost, quantity, false, tracking)
+          : calculateDebitCardCost(certificateCost, quantity, false, tracking);
       const {
-        subtotal,
         total,
+        subtotal,
         serviceFee,
         // researchFee
       } = orderCost;
@@ -219,9 +238,9 @@ export class OrderDetailsDropdown extends Component<
                       } × ${CERTIFICATE_COST_STRING[orderType.toUpperCase()]}`}
                       totalCost={`${(subtotal / 100).toFixed(2)}`}
                       researchFee={``}
-                      tracking={true}
+                      tracking={tracking}
                       finalCost={`${(total / 100).toFixed(2)}`}
-                      serviceFeeType={`1`}
+                      serviceFeeType={cardType}
                       serviceFee={`${serviceFee / 100}`}
                       useInDrawer={true}
                     />
@@ -251,8 +270,10 @@ export class OrderDetailsDropdown extends Component<
 export default function RenderOrderDetails(props: {
   details: any;
   drawer?: boolean;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
 }): JSX.Element {
-  const { details } = props;
+  const { details, tracking = false, cardType = '0' } = props;
 
   if (details.certificateType === 'death') {
     return (
@@ -260,6 +281,8 @@ export default function RenderOrderDetails(props: {
         <OrderDetailsDropdown
           orderType="death"
           certificateQuantity={details.deathCertificateCart.size}
+          tracking={tracking}
+          cardType={cardType}
         >
           <OrderDetails
             type="death"
@@ -278,6 +301,8 @@ export default function RenderOrderDetails(props: {
       <OrderDetailsDropdown
         orderType={details.certificateType}
         certificateQuantity={quantity}
+        tracking={tracking}
+        cardType={cardType}
       >
         {details.certificateType === 'birth' ? (
           <OrderDetails

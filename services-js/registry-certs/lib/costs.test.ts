@@ -13,7 +13,9 @@ it(`calculates service fee correctly for certificates`, () => {
   for (let q = 0; q < 100; ++q) {
     const { total, serviceFee, subtotal } = calculateCreditCardCost(
       CERTIFICATE_COST.DEATH,
-      q
+      q,
+      false,
+      true
     );
 
     // Stripe rounding: https://support.stripe.com/questions/what-rules-do-you-use-for-rounding-stripe-fees

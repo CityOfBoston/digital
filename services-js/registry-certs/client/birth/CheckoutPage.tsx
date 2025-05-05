@@ -10,6 +10,7 @@ import { getParam } from '@cityofboston/next-client-common';
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
 import CertifiedMail from '../models/CertifiedMail';
+import CardType, { CARDTYPE } from '../models/CardType';
 import { CERTIFICATE_COST } from '../../lib/costs';
 
 import ShippingContent from '../common/checkout/ShippingContent';
@@ -47,6 +48,7 @@ export type PageDependenciesProps = Pick<
   | 'siteAnalytics'
   | 'orderProvider'
   | 'certMailProvider'
+  | 'cardTypeProvider'
   | 'checkoutDao'
   | 'stripe'
 >;
@@ -54,6 +56,9 @@ export type PageDependenciesProps = Pick<
 interface Props extends InitialProps, PageDependenciesProps {
   orderForTest?: Order;
   certifiedMailForTest?: CertifiedMail;
+  cardTypeForTest?: CardType;
+  trackingVal?: boolean;
+  cardTypeVal?: CARDTYPE;
 }
 
 type State = {
@@ -62,6 +67,9 @@ type State = {
    */
   order: Order | null;
   certMail: CertifiedMail | null;
+  cardType: CardType | null;
+  trackingVal: boolean | null;
+  cardTypeVal: CARDTYPE | null;
 };
 
 @observer
@@ -110,13 +118,16 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     this.state = {
       order: props.orderForTest || null,
       certMail: this.props.certifiedMailForTest || null,
+      cardType: this.props.cardTypeForTest || null,
+      trackingVal: this.props.trackingVal || null,
+      cardTypeVal: this.props.cardTypeVal || null,
     };
   }
 
   async componentDidMount() {
     this.reportCheckoutStep(this.props);
 
-    const { orderProvider, certMailProvider } = this.props;
+    const { orderProvider, certMailProvider, cardTypeProvider } = this.props;
 
     if (this.state.order) {
       return;
@@ -126,8 +137,17 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
     const certMail = await certMailProvider.get();
+    const cardType = await cardTypeProvider.get();
+
     await new Promise((resolve: any) =>
-      this.setState({ order, certMail }, resolve)
+      this.setState(
+        {
+          order,
+          certMail,
+          cardType,
+        },
+        resolve
+      )
     );
   }
 
@@ -306,7 +326,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
 
   render() {
     const { info, birthCertificateRequest, stripe } = this.props;
-    const { order, certMail } = this.state;
+    const { order, certMail, cardType } = this.state;
 
     // We short-circuit here because the confirmation page doesn’t need an order
     // or a complete birth certificate request.
@@ -358,6 +378,20 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
+            tracking={
+              this.props.trackingVal
+                ? this.props.trackingVal
+                : certMail
+                ? certMail.certMailInfo.requestCertifiedMail
+                : false
+            }
+            cardType={
+              this.props.cardTypeVal
+                ? this.props.cardTypeVal
+                : cardType
+                ? cardType.cardTypeInfo.cardType
+                : '0'
+            }
           />
         );
 
@@ -375,6 +409,20 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
+            tracking={
+              this.props.trackingVal
+                ? this.props.trackingVal
+                : certMail
+                ? certMail.certMailInfo.requestCertifiedMail
+                : false
+            }
+            cardType={
+              this.props.cardTypeVal
+                ? this.props.cardTypeVal
+                : cardType
+                ? cardType.cardTypeInfo.cardType
+                : '0'
+            }
           />
         );
 
@@ -385,7 +433,18 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
             birthCertificateRequest={birthCertificateRequest}
             order={order}
             tracking={
-              certMail ? certMail.certMailInfo.requestCertifiedMail : false
+              this.props.trackingVal
+                ? this.props.trackingVal
+                : certMail
+                ? certMail.certMailInfo.requestCertifiedMail
+                : false
+            }
+            cardType={
+              this.props.cardTypeVal
+                ? this.props.cardTypeVal
+                : cardType
+                ? cardType.cardTypeInfo.cardType
+                : '0'
             }
             submit={this.submitOrder}
             progress={{

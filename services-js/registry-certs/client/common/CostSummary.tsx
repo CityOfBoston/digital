@@ -30,7 +30,7 @@ interface Props {
   hasResearchFee?: boolean;
   tracking?: boolean;
   newServiceFeeType?: NewServiceFeeType;
-  setCardType?: (type: '-1' | '0' | '1') => void;
+  setCardType?: any;
   getCardType?: any;
   useInDrawer?: boolean;
 }
@@ -52,16 +52,22 @@ export default class CostSummary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
+    // console.log(`CostSummary > newServiceFeeType: `, props.newServiceFeeType);
+
     this.state = {
       newServiceFeeType: props.newServiceFeeType || '0',
     };
   }
 
   handleCardOptChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
-    const newTypeVal = ev.currentTarget.value as NewServiceFeeType;
+    const { setCardType } = this.props;
+    const value = ev.currentTarget.value as NewServiceFeeType;
+
+    // console.log(`value: ${value} | setCardType: `);
+    setCardType(value);
 
     this.setState({
-      newServiceFeeType: newTypeVal,
+      newServiceFeeType: value,
     });
   };
 
@@ -71,7 +77,7 @@ export default class CostSummary extends Component<Props, State> {
     const certificateTypeCost =
       CERTIFICATE_COST[this.props.certificateType.toUpperCase()];
 
-    return newServiceFeeType === '1'
+    return newServiceFeeType === '0'
       ? calculateCreditCardCost(
           certificateTypeCost,
           certificateQuantity,

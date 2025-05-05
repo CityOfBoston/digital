@@ -33,7 +33,7 @@ export default class ConfirmationContent extends React.Component<Props> {
       >
         <div className="b-c">
           <Head>
-            <title>Boston.gov — Death Certificate Order Complete</title>
+            <title>Boston.gov - Death Certificate Order Complete</title>
           </Head>
 
           <div css={RECEIPT_CSS}>

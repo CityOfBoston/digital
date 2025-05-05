@@ -19,5 +19,6 @@ storiesOf('Birth/ReviewRequestPage', module).add('default page', () => (
     birthCertificateRequest={birthCertificateRequest}
     siteAnalytics={new GaSiteAnalytics()}
     certMailProvider={new CertMailProvider()}
+    cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
   />
 ));

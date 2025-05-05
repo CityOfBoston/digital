@@ -11,7 +11,6 @@ import {
   GRAY_400,
   OPTIMISTIC_BLUE_DARK,
   SANS,
-  // SANS,
   SERIF,
   StatusModal,
   WHITE,
@@ -28,7 +27,6 @@ import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import Order from '../../models/Order';
-// import CertifiedMail from '../../models/CertifiedMail';
 import CertificateRow from '../CertificateRow';
 
 import CostSummary from '../CostSummary';
@@ -37,13 +35,14 @@ import { SubmissionError } from '../../dao/CheckoutDao';
 import CheckoutPageLayout from './CheckoutPageLayout';
 import { ProgressProps } from '../../../lib/interfaces';
 import { OrderDetails } from './OrderDetails';
+import { CARDTYPE } from '../../models/CardType';
 // import RenderOrderDetails from './OrderDetails';
 
 export type Props = {
   submit: (cardElement?: stripe.elements.Element) => Promise<void>;
   order: Order;
-  // tracking: CertifiedMail;
   tracking: boolean;
+  cardType?: CARDTYPE;
   showErrorsForTest?: boolean;
   testSubmissionError?: SubmissionError;
 } & (
@@ -148,7 +147,7 @@ export default class ReviewContent extends React.Component<Props, State> {
   };
 
   render() {
-    const { order, certificateType, tracking } = this.props;
+    const { order, certificateType, tracking, cardType = '0' } = this.props;
 
     const {
       acceptNonRefundable,
@@ -183,12 +182,19 @@ export default class ReviewContent extends React.Component<Props, State> {
       billingZip,
     } = order;
 
-    const quantity =
-      this.props.certificateType === 'death'
-        ? this.props.deathCertificateCart.size
-        : this.props.certificateType === 'birth'
-        ? this.props.birthCertificateRequest.quantity
-        : this.props.marriageCertificateRequest.quantity;
+    let quantity = 0;
+
+    switch (certificateType) {
+      case 'birth':
+        quantity = this.props.birthCertificateRequest.quantity;
+        break;
+      case 'marriage':
+        quantity = this.props.marriageCertificateRequest.quantity;
+        break;
+      case 'death':
+        quantity = this.props.deathCertificateCart.size;
+        break;
+    }
 
     const needsAccepting =
       !acceptNonRefundable ||
@@ -212,16 +218,6 @@ export default class ReviewContent extends React.Component<Props, State> {
         break;
     }
 
-    if (this.props.certificateType === 'death') {
-      console.log(
-        `deathCertificateCart: `,
-        this.props['deathCertificateCart'],
-        this.props['deathCertificateCart'].entries[1]
-      );
-    } else {
-      console.log(`CertificateRequest `, cartTypeStr, this.props[cartTypeStr]);
-    }
-
     const certEntries = () => {
       if (this.props.certificateType === 'death') {
         return this.props[cartTypeStr].entries.map(
@@ -235,6 +231,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                   borderTop={i !== 0}
                   borderBottom={true}
                   quantity={quantity}
+                  showQuantity={true}
                 />
               </div>
             )
@@ -418,7 +415,7 @@ export default class ReviewContent extends React.Component<Props, State> {
               <CostSummary
                 certificateType={this.props.certificateType}
                 certificateQuantity={quantity}
-                newServiceFeeType={`0`}
+                newServiceFeeType={cardType}
                 useInDrawer={true}
                 tracking={tracking}
               />

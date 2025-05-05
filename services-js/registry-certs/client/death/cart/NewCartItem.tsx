@@ -64,7 +64,8 @@ export const $CartItem = (props: Props) => {
         {usage === 'summary' && (
           <div className={`row certTypeName main`}>
             <label>
-              <span>{certificateTypeStr} certificate</span> (Paper Copy)
+              <span>{certificateTypeStr} certificate</span> (Paper Copy with
+              raised seal)
             </label>
           </div>
         )}

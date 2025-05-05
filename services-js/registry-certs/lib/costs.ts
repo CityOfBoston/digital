@@ -51,7 +51,7 @@ export function calculateCreditCardCost(
   hasResearchFee?: boolean,
   tracking?: boolean
 ) {
-  return calculateCost(
+  const resCost = calculateCost(
     eachCost,
     quantity,
     FIXED_CC_SERVICE_FEE,
@@ -59,6 +59,8 @@ export function calculateCreditCardCost(
     hasResearchFee,
     tracking
   );
+
+  return resCost;
 }
 
 export function calculateDebitCardCost(
@@ -67,7 +69,7 @@ export function calculateDebitCardCost(
   researchFee?: boolean,
   tracking?: boolean
 ) {
-  return calculateCost(
+  const resCost = calculateCost(
     eachCost,
     quantity,
     FIXED_DC_SERVICE_FEE,
@@ -75,6 +77,8 @@ export function calculateDebitCardCost(
     researchFee,
     tracking
   );
+
+  return resCost;
 }
 
 function calculateCost(
@@ -85,17 +89,23 @@ function calculateCost(
   hasResearchFee: boolean | undefined,
   tracking?: boolean | undefined
 ) {
-  const subtotal = quantity * eachCost;
-
   const researchFee = hasResearchFee ? RESEARCH_FEE : 0;
   const trackingFee = tracking && tracking === true ? TRACKING_FEE : 0;
+  const subtotal = quantity * eachCost;
 
   // Math: https://support.stripe.com/questions/can-i-charge-my-stripe-fees-to-my-customers
   const total = Math.round(
     (subtotal + fixedCost + researchFee + trackingFee) / (1 - percentageCost)
   );
 
-  const serviceFee = total - subtotal - researchFee;
+  let serviceFee = total - subtotal - researchFee;
+  if (tracking) serviceFee = serviceFee - trackingFee;
+  // console.log(
+  //   `serviceFee: ${serviceFee}: total: ${total} | subtotal: ${subtotal} | researchFee: ${researchFee}`
+  // );
+  // console.log(
+  //   `serviceFee: ${serviceFee} > total: ${total} | subtotal: ${subtotal} | researchFee: ${researchFee}`
+  // );
 
   return {
     subtotal,

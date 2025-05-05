@@ -19,6 +19,7 @@ import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 // import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
 
 import CertifiedMail from '../models/CertifiedMail';
+import CardType, { CARDTYPE } from '../models/CardType';
 import CertMailTracking from '../common/CertMailTracking';
 import { $CHECKOUT_DISCLAIMER_CONTENT } from '../common/content/CheckoutCertDisclaimer';
 
@@ -26,19 +27,23 @@ import {
   SECTION_HEADING_STYLING,
   NEW_DISCLAIMER_STYLING,
 } from '../common/question-components/styling';
+// import CardTypeProvider from '../store/CardTypeProvider';
 
 interface PageDependenciesProps
   extends Pick<
     PageDependencies,
-    'marriageCertificateRequest' | 'certMailProvider'
+    'marriageCertificateRequest' | 'certMailProvider' | 'cardTypeProvider'
   > {}
 
 type State = {
   certMail: CertifiedMail | null;
+  cardType: CardType | null;
+  loading: boolean;
 };
 
 interface Props extends PageDependenciesProps {
   certifiedMailForTest?: CertifiedMail;
+  cardTypeForTest?: CardType;
 }
 
 /**
@@ -50,18 +55,27 @@ interface Props extends PageDependenciesProps {
  */
 @observer
 export default class ReviewRequestPage extends Component<Props, State> {
-  state: State = { certMail: this.props.certifiedMailForTest || null };
+  state: State = {
+    certMail: this.props.certifiedMailForTest || null,
+    cardType: this.props.cardTypeForTest || null,
+    loading: true,
+  };
 
   async componentDidMount() {
-    const { certMailProvider } = this.props;
+    const { certMailProvider, cardTypeProvider } = this.props;
 
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const certMail = await certMailProvider.get();
-    await new Promise((resolve: any) => this.setState({ certMail }, resolve));
+    const cardType = await cardTypeProvider.get();
+
+    await new Promise((resolve: any) =>
+      this.setState({ certMail, cardType, loading: false }, resolve)
+    );
   }
 
   public render() {
+    const { loading, cardType } = this.state;
     const { steps } = this.props.marriageCertificateRequest;
     const pageTitle = 'Review Your Request';
 
@@ -71,6 +85,16 @@ export default class ReviewRequestPage extends Component<Props, State> {
       if (certMail) {
         certMail.updateCertMail({
           requestCertifiedMail: !certMail.certMailInfo.requestCertifiedMail,
+        });
+      }
+    };
+
+    const cardTypeChangeHandler = (type: CARDTYPE) => {
+      const { cardType } = this.state;
+
+      if (cardType) {
+        cardType.updateCardType({
+          cardType: type,
         });
       }
     };
@@ -91,30 +115,40 @@ export default class ReviewRequestPage extends Component<Props, State> {
 
         <h2 css={SECTION_HEADING_STYLING}>{pageTitle}</h2>
 
-        <ReviewCertificateRequest
-          certificateType="marriage"
-          certificateRequest={this.props.marriageCertificateRequest}
-        >
-          <div css={NEW_DISCLAIMER_STYLING}>
-            {$CHECKOUT_DISCLAIMER_CONTENT()}
+        {!loading && (
+          <ReviewCertificateRequest
+            certificateType="marriage"
+            certificateRequest={this.props.marriageCertificateRequest}
+            tracking={
+              this.state.certMail &&
+              this.state.certMail.certMailInfo.requestCertifiedMail === true
+                ? true
+                : false
+            }
+            cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
+            cardTypeChangeHandler={cardTypeChangeHandler}
+          >
+            <div css={NEW_DISCLAIMER_STYLING}>
+              {$CHECKOUT_DISCLAIMER_CONTENT()}
 
-            <CertMailTracking
-              action={
-                this.state.certMail &&
-                this.state.certMail.certMailInfo.requestCertifiedMail === true
-                  ? 'remove'
-                  : 'add'
-              }
-              value={
-                this.state.certMail &&
-                this.state.certMail.certMailInfo.requestCertifiedMail === true
-                  ? 1
-                  : 0
-              }
-              onClickHandler={certMailHandler}
-            />
-          </div>
-        </ReviewCertificateRequest>
+              <CertMailTracking
+                action={
+                  this.state.certMail &&
+                  this.state.certMail.certMailInfo.requestCertifiedMail === true
+                    ? 'remove'
+                    : 'add'
+                }
+                value={
+                  this.state.certMail &&
+                  this.state.certMail.certMailInfo.requestCertifiedMail === true
+                    ? 1
+                    : 0
+                }
+                onClickHandler={certMailHandler}
+              />
+            </div>
+          </ReviewCertificateRequest>
+        )}
       </PageWrapper>
     );
   }

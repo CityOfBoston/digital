@@ -64,9 +64,6 @@ const renderCertificate = (
 ) => {
   const qty = quantity ? quantity : 0;
   const show_quantity = showQuantity ? showQuantity : true;
-  console.log(
-    `show_quantity: ${show_quantity} | quantity: ${quantity} | qty: ${qty}`
-  );
 
   const capFirstLetterOfStr = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -97,9 +94,9 @@ const renderCertificate = (
               {capFirstLetterOfStr(certificateProps.fullNames.toLowerCase())}
             </span>
 
-            <wbr />
+            {/* <wbr />
 
-            <span>(Certified paper copy)</span>
+            <span>Certified Paper Copy (with raised seal)</span> */}
           </div>
         ) : (
           <div css={LONG_TEXT_STYLE}>
@@ -113,14 +110,6 @@ const renderCertificate = (
               <>
                 <span className="label"> x </span>
                 <span className="name">{quantity}</span>
-              </>
-            )}
-
-            {certificateProps.type === 'birth' && (
-              <>
-                <wbr />
-
-                <span>(Certified paper copy)</span>
               </>
             )}
 
@@ -154,6 +143,22 @@ const renderCertificate = (
           <span className="name">{certificateProps.age}</span>
         </div>
       )}
+
+      <div css={LONG_TEXT_STYLE}>
+        {/* {certificateProps.type !== 'death' && (
+          <>
+            <wbr />
+
+            <span>Certified Paper Copy (with raised seal)</span>
+          </>
+        )} */}
+
+        <>
+          <wbr />
+
+          <span>Certified Paper Copy (with raised seal)</span>
+        </>
+      </div>
     </div>
   );
 };

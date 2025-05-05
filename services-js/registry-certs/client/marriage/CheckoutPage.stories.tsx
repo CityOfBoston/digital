@@ -86,6 +86,7 @@ storiesOf('Marriage/CheckoutPage', module)
       // This never resolves, so we just get the initial render.
       orderProvider={{ get: () => new Promise(() => {}) } as any}
       certMailProvider={{ get: () => new Promise(() => {}) } as any}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('no marriage certificate request', () => (
@@ -97,6 +98,7 @@ storiesOf('Marriage/CheckoutPage', module)
       // This never resolves, so we just get the initial render.
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
       orderForTest={new Order()}
     />
   ))
@@ -108,6 +110,7 @@ storiesOf('Marriage/CheckoutPage', module)
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
       orderForTest={new Order()}
     />
   ))
@@ -119,6 +122,7 @@ storiesOf('Marriage/CheckoutPage', module)
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
       orderForTest={makeShippingCompleteOrder()}
     />
   ))
@@ -130,7 +134,10 @@ storiesOf('Marriage/CheckoutPage', module)
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
       orderForTest={makeBillingCompleteOrder()}
+      trackingVal={true}
+      cardTypeVal={'0'}
     />
   ))
   .add('confirmation', () => (
@@ -146,6 +153,7 @@ storiesOf('Marriage/CheckoutPage', module)
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
       orderForTest={new Order()}
     />
   ));

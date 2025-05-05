@@ -23,10 +23,13 @@ import CheckoutPageLayout from './CheckoutPageLayout';
 import { BackButtonContent } from '../question-components/BackButton';
 import RenderOrderDetails from './OrderDetails';
 import { SANS } from '@cityofboston/react-fleet';
+import { CARDTYPE } from '../../models/CardType';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
   order: Order;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
 } & (
   | {
       certificateType: 'death';
@@ -106,7 +109,12 @@ export default class ShippingContent extends React.Component<Props> {
   };
 
   render() {
-    const { submit, certificateType } = this.props;
+    const {
+      submit,
+      certificateType,
+      tracking = false,
+      cardType = '0',
+    } = this.props;
 
     return (
       <CheckoutPageLayout
@@ -119,7 +127,12 @@ export default class ShippingContent extends React.Component<Props> {
         }
       >
         <div className="m-v300">
-          <RenderOrderDetails details={this.props} drawer={true} />
+          <RenderOrderDetails
+            details={this.props}
+            drawer={true}
+            tracking={tracking}
+            cardType={cardType}
+          />
         </div>
 
         <Formik

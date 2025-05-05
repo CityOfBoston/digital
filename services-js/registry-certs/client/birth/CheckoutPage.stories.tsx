@@ -89,6 +89,7 @@ storiesOf('Birth/CheckoutPage', module)
       // This never resolves, so we just get the initial render.
       orderProvider={{ get: () => new Promise(() => {}) } as any}
       certMailProvider={{ get: () => new Promise(() => {}) } as any}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('no birth certificate request', () => (
@@ -101,6 +102,7 @@ storiesOf('Birth/CheckoutPage', module)
       // This never resolves, so we just get the initial render.
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
       orderForTest={new Order()}
     />
   ))
@@ -111,9 +113,12 @@ storiesOf('Birth/CheckoutPage', module)
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
+      orderForTest={new Order()}
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
-      orderForTest={new Order()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
+      trackingVal={true}
+      cardTypeVal={'1'}
     />
   ))
   .add('payment', () => (
@@ -123,9 +128,12 @@ storiesOf('Birth/CheckoutPage', module)
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
+      orderForTest={makeShippingCompleteOrder()}
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
-      orderForTest={makeShippingCompleteOrder()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
+      trackingVal={true}
+      cardTypeVal={'1'}
     />
   ))
   .add('review', () => (
@@ -136,8 +144,11 @@ storiesOf('Birth/CheckoutPage', module)
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
       orderProvider={new OrderProvider()}
-      certMailProvider={new CertMailProvider()}
       orderForTest={makeBillingCompleteOrder()}
+      certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
+      trackingVal={true}
+      cardTypeVal={'1'}
     />
   ))
   .add('confirmation', () => (
@@ -152,8 +163,11 @@ storiesOf('Birth/CheckoutPage', module)
       siteAnalytics={new GaSiteAnalytics()}
       checkoutDao={new CheckoutDao(null as any, null)}
       stripe={makeStripe()}
+      orderForTest={new Order()}
       orderProvider={new OrderProvider()}
       certMailProvider={new CertMailProvider()}
-      orderForTest={new Order()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
+      trackingVal={true}
+      cardTypeVal={'0'}
     />
   ));
