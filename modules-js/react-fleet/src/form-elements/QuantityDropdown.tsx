@@ -214,6 +214,7 @@ const CS_QUANTITYDROPDOWN = css`
       margin-right: 0.15rem;
       cursor: pointer;
       color: ${CHARLES_BLUE};
+      font-size: 18px;
     }
 
     .input_wrapper {
@@ -223,10 +224,9 @@ const CS_QUANTITYDROPDOWN = css`
       align-items: baseline;
 
       input[type='text'] {
-        max-width: 35px;
+        max-width: 40px;
         padding: 3px 2px 3px 2px;
         border: 1px solid transparent;
-        // border: 1px solid ${CHARLES_BLUE};
 
         &:focus {
           background: ${GRAY_200};
@@ -262,7 +262,6 @@ const CS_QUANTITYDROPDOWN = css`
 
       option {
         text-align: center;
-        background: green;
       }
     }
   }

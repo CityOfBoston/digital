@@ -226,7 +226,7 @@ const ORDERSUMMARY = css`
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    margin-bottom: 14px;
   }
 
   span.bold {
@@ -237,7 +237,7 @@ const ORDERSUMMARY = css`
     display: flex;
     align-items: baseline;
     margin-bottom: 12px;
-    // background: orange;
+    line-height: 1.25rem;
 
     .col {
       flex-grow: 1;

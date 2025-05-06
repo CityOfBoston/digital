@@ -7,6 +7,7 @@ import {
   CHARLES_BLUE,
   GRAY_400,
   AddRemoveRadioBtn,
+  MEDIA_SMALL_MAX,
 } from '@cityofboston/react-fleet';
 
 interface Props {
@@ -20,10 +21,11 @@ export const CertMailTracking = (props: Props): JSX.Element => {
 
   return (
     <div css={TRACKING_STYLING}>
-      <h1>Need A Tracking Number?</h1>
+      {/* <h1>Need A Tracking Number?</h1> */}
 
       <div className="row">
         <div className="col">
+          <h1>Need A Tracking Number?</h1>
           You can add <span className={`bold`}>USPS Tracking®</span> services
           for an additional fee of $5.00. After your purchase the Registry will
           follow-up with a tracking number.
@@ -51,9 +53,10 @@ const TRACKING_STYLING = css`
   font-family: ${SERIF};
   font-size: 18px;
   font-weight: normal;
-  line-height: normal;
-  margin-top: 2rem;
-  padding: 2rem 0 2rem;
+  line-height: 1.5em;
+  // margin-top: 2rem;
+  // padding: 2rem 0 2rem;
+  padding: 1rem 0 1.5rem 0;
   border-color: ${GRAY_400};
   border-top-width: 1px;
   border-top-style: solid;
@@ -79,6 +82,15 @@ const TRACKING_STYLING = css`
     .col:first-of-type {
       padding-top: 0.75rem;
       max-width: 75%;
+    }
+  }
+
+  ${MEDIA_SMALL_MAX} {
+    .row {
+      .col:first-of-type {
+        padding-top: 0.75rem;
+        max-width: 85%;
+      }
     }
   }
 `;

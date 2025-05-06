@@ -8,6 +8,7 @@ import {
   SERIF,
   QuantityDropdown,
   AddRemoveRadioBtn,
+  MEDIA_MEDIUM_MAX,
 } from '@cityofboston/react-fleet';
 
 interface Props {
@@ -27,31 +28,56 @@ export const $CartItem = (props: Props) => {
     handleQuantityChange,
     handleRemove,
   } = props;
-  const { id, firstName, lastName, age, deathDate } = props.cert;
-  // console.log(`$CartItem(props.cert): `, props.cert);
+  const { id, firstName, lastName, age, deathDate, type } = props.cert;
 
   return (
     <div css={CARTITEM}>
       <div className={`col`}>
-        <div className={`row name main`}>
+        {quantity && quantity > 0 && (
+          <span className={`mobile__visible`}>
+            <div className={`col`}>
+              <QuantityDropdown
+                id={`quantityDropDown__${id}`}
+                label={`quantity_for_${id}`}
+                handleQuantityChange={handleQuantityChange}
+                quantity={quantity} // Quantity = [Input] && || [Selecte] value
+                selectOptions={{ start: 1, total: 10 }}
+              />
+            </div>
+
+            <AddRemoveRadioBtn
+              labels={['Add', 'Remove']}
+              name={`CC_AddRemove`}
+              id={`checkoutAddRemove`}
+              action={`remove`}
+              value={1}
+              onClickHandler={handleRemove}
+            />
+          </span>
+        )}
+
+        <span className={`name main`}>
           <label>
+            {type === 'death' && <>Name:</>}
             {firstName} {lastName ? lastName : ''}
           </label>
-        </div>
+        </span>
+        <br />
 
         {deathDate && typeof deathDate === 'string' && deathDate.length > 0 && (
-          <div className={`row main`}>
+          <span className={`main`}>
             <label>
               Date of {certificateTypeStr}: <span>{deathDate}</span>
             </label>
-          </div>
+          </span>
         )}
+        <br />
 
         {age &&
           typeof age === 'string' &&
           age.length > 0 &&
           certificateTypeStr === 'death' && (
-            <div className={`row main`}>
+            <span className={`main`}>
               <label>
                 Age:{' '}
                 <span>
@@ -59,21 +85,23 @@ export const $CartItem = (props: Props) => {
                   {!age.includes('days') && !age.includes('yr') ? `yrs` : ''}
                 </span>
               </label>
-            </div>
+            </span>
           )}
+
         {usage === 'summary' && (
-          <div className={`row certTypeName main`}>
+          <span className={`certTypeName main`}>
             <label>
               <span>{certificateTypeStr} certificate</span> (Paper Copy with
               raised seal)
             </label>
-          </div>
+          </span>
         )}
+        <br />
       </div>
 
       {quantity && quantity > 0 && (
         <div className={`col qty`}>
-          <div className={`row`}>
+          <div className={`row mobile`}>
             <div className={`col`}>
               <QuantityDropdown
                 id={`quantityDropDown__${id}`}
@@ -125,6 +153,7 @@ const CARTITEM = css`
 
   .main {
     margin-bottom: 0.25rem;
+    line-height: 1.5em;
   }
 
   .name label {
@@ -155,7 +184,26 @@ const CARTITEM = css`
   > label:nth-of-type(1) {
     font-family: ${SANS};
     font-size: 50px;
-    background: red;
     text-transform: uppercase;
+  }
+
+  .mobile__visible {
+    display: none;
+  }
+
+  ${MEDIA_MEDIUM_MAX} {
+    font-size: 16px;
+
+    .mobile,
+    .mobile__visible {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      float: right;
+    }
+
+    .mobile {
+      display: none;
+    }
   }
 `;

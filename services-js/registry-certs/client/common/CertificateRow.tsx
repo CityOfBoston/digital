@@ -93,10 +93,6 @@ const renderCertificate = (
             <span>
               {capFirstLetterOfStr(certificateProps.fullNames.toLowerCase())}
             </span>
-
-            {/* <wbr />
-
-            <span>Certified Paper Copy (with raised seal)</span> */}
           </div>
         ) : (
           <div css={LONG_TEXT_STYLE}>
@@ -293,10 +289,12 @@ const CERTIFICATE_NAME_STYLE = css({
   fontStyle: 'normal',
   fontWeight: 'bold',
   letterSpacing: '1.4px',
+  lineHeight: '1.5em',
 });
 
 const THIN_CERTIFICATE_NAME_STYLE = css({
   fontStyle: 'normal',
+  lineHeight: '1.5em',
 });
 
 const CERTIFICATE_ROW_STYLE = css({
@@ -311,6 +309,7 @@ const CERTIFICATE_ROW_STYLE = css({
 const LONG_TEXT_STYLE = css({
   fontFamily: SERIF,
   fontSize: '18px',
+  marginBottom: '0.75rem',
 
   ['span.label']: {
     fontWeight: 700,
