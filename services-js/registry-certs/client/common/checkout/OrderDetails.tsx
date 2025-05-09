@@ -96,6 +96,8 @@ export const OrderDetails = observer(function OrderDetails(
                   children={makeWrapRow(quantity)}
                   quantity={quantity}
                   showQuantity={true}
+                  showSeal={true}
+                  showNameLabel={true}
                 />
               )
           )}
@@ -113,6 +115,7 @@ export const OrderDetails = observer(function OrderDetails(
             children={makeWrapRow(props.birthCertificateRequest.quantity)}
             quantity={props.birthCertificateRequest.quantity}
             showQuantity={true}
+            showNameLabel={true}
           />
         </div>
       );
@@ -128,6 +131,7 @@ export const OrderDetails = observer(function OrderDetails(
             children={makeWrapRow(props.marriageCertificateRequest.quantity)}
             quantity={props.marriageCertificateRequest.quantity}
             showQuantity={true}
+            showNameLabel={true}
           />
         </div>
       );

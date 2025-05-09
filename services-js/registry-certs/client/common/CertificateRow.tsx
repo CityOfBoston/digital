@@ -10,6 +10,7 @@ import BirthCertificateRequest from '../store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
 
 import { DeathCertificate } from '../types';
+import { capitalize } from '../../lib/helpers';
 
 export type Props = {
   borderTop: boolean;
@@ -20,6 +21,9 @@ export type Props = {
   thin?: boolean;
   quantity?: number;
   showQuantity?: boolean;
+  showSeal?: boolean;
+  link?: boolean;
+  showNameLabel?: boolean;
 } & (
   | {
       type: 'death';
@@ -56,12 +60,24 @@ type CertificateProps = {
       age: string;
     });
 
-const renderCertificate = (
-  certificateProps: CertificateProps,
-  thin: boolean,
-  quantity?: number,
-  showQuantity?: boolean
-) => {
+const renderCertificate = (props: {
+  certificateProps: CertificateProps;
+  thin: boolean;
+  quantity?: number;
+  showQuantity?: boolean;
+  showSeal?: boolean;
+  link?: boolean;
+  showNameLabel?: boolean;
+}) => {
+  const {
+    certificateProps,
+    thin,
+    quantity,
+    showQuantity,
+    showSeal = false,
+    link = false,
+    showNameLabel = false,
+  } = props;
   const qty = quantity ? quantity : 0;
   const show_quantity = showQuantity ? showQuantity : true;
 
@@ -70,6 +86,7 @@ const renderCertificate = (
   };
 
   let certTypeDateLabel = '';
+
   switch (certificateProps.type) {
     case 'death':
       certTypeDateLabel = 'Date of death:';
@@ -81,6 +98,43 @@ const renderCertificate = (
       certTypeDateLabel = 'Date of marriage:';
       break;
   }
+
+  const nameRowElem = certificateProps => {
+    return (
+      <>
+        {showNameLabel && <span className={'label'}>Name:</span>}
+        <span className={'name'}>
+          {link === true ? (
+            `${certificateProps.firstName} ${certificateProps.lastName}`
+          ) : (
+            <>
+              {capFirstLetterOfStr(certificateProps.firstName.toLowerCase())}{' '}
+              {capFirstLetterOfStr(certificateProps.lastName.toLowerCase())}
+            </>
+          )}
+        </span>
+
+        {qty > 0 && show_quantity === true && (
+          <>
+            <span className="label"> x </span>
+            <span className="name">{quantity}</span>
+          </>
+        )}
+
+        {certificateProps.pending && (
+          <span style={{ color: CHARLES_BLUE }}>
+            {' — '}
+            <span
+              className="t--sans tt-u"
+              style={{ fontStyle: 'normal', fontWeight: 'bold' }}
+            >
+              pending
+            </span>
+          </span>
+        )}
+      </>
+    );
+  };
 
   return (
     <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
@@ -95,32 +149,7 @@ const renderCertificate = (
             </span>
           </div>
         ) : (
-          <div css={LONG_TEXT_STYLE}>
-            <span className={'label'}>Name:</span>
-            <span className={'name'}>
-              {capFirstLetterOfStr(certificateProps.firstName.toLowerCase())}{' '}
-              {capFirstLetterOfStr(certificateProps.lastName.toLowerCase())}
-            </span>
-
-            {qty > 0 && show_quantity === true && (
-              <>
-                <span className="label"> x </span>
-                <span className="name">{quantity}</span>
-              </>
-            )}
-
-            {certificateProps.pending && (
-              <span style={{ color: CHARLES_BLUE }}>
-                {' — '}
-                <span
-                  className="t--sans tt-u"
-                  style={{ fontStyle: 'normal', fontWeight: 'bold' }}
-                >
-                  pending
-                </span>
-              </span>
-            )}
-          </div>
+          <div css={LONG_TEXT_STYLE}>{nameRowElem(certificateProps)}</div>
         )}
       </div>
 
@@ -140,21 +169,18 @@ const renderCertificate = (
         </div>
       )}
 
-      <div css={LONG_TEXT_STYLE}>
-        {/* {certificateProps.type !== 'death' && (
+      {showSeal && showSeal === true && (
+        <div css={LONG_TEXT_STYLE}>
           <>
             <wbr />
 
-            <span>Certified Paper Copy (with raised seal)</span>
+            <span>
+              {capitalize(certificateProps.type)} Certified Paper Copy (with
+              raised seal)
+            </span>
           </>
-        )} */}
-
-        <>
-          <wbr />
-
-          <span>Certified Paper Copy (with raised seal)</span>
-        </>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -171,6 +197,9 @@ export default function CertificateRow(props: Props) {
     thin,
     quantity,
     showQuantity = false,
+    showSeal = false,
+    link = false,
+    showNameLabel = false,
   } = props;
 
   let borderClass = '';
@@ -195,19 +224,25 @@ export default function CertificateRow(props: Props) {
       >
         {wrapperFunc
           ? wrapperFunc(
-              renderCertificate(
-                getCertificateProps(props),
-                !!thin,
-                qty,
-                showQuantity
-              )
+              renderCertificate({
+                certificateProps: getCertificateProps(props),
+                thin: !!thin,
+                quantity: qty,
+                showQuantity,
+                link,
+                showNameLabel,
+                showSeal,
+              })
             )
-          : renderCertificate(
-              getCertificateProps(props),
-              !!thin,
-              qty,
-              showQuantity
-            )}
+          : renderCertificate({
+              certificateProps: getCertificateProps(props),
+              thin: !!thin,
+              quantity: qty,
+              showQuantity,
+              showSeal,
+              link,
+              showNameLabel,
+            })}
       </div>
     </>
   );

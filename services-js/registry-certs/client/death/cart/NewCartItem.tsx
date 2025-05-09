@@ -23,7 +23,7 @@ interface Props {
 export const $CartItem = (props: Props) => {
   const {
     type: certificateTypeStr,
-    usage = 'summary',
+    // usage = 'summary',
     quantity,
     handleQuantityChange,
     handleRemove,
@@ -88,14 +88,14 @@ export const $CartItem = (props: Props) => {
             </span>
           )}
 
-        {usage === 'summary' && (
+        {/* {!age && usage === 'summary' && (
           <span className={`certTypeName main`}>
             <label>
               <span>{certificateTypeStr} certificate</span> (Paper Copy with
               raised seal)
             </label>
           </span>
-        )}
+        )} */}
         <br />
       </div>
 
