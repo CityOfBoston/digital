@@ -173,7 +173,7 @@ const CARTITEM = css`
   label {
     color: ${CHARLES_BLUE};
     font-family: ${SERIF};
-    font-size: 1.125em;
+    font-size: 18px;
     font-weight: 600;
 
     span {

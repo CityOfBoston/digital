@@ -13,17 +13,10 @@ import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
-// import {
-//   OPTIMISTIC_BLUE_DARK,
-//   FREEDOM_RED_DARK,
-//   WHITE,
-// } from '@cityofboston/react-fleet';
 
 import DeathCertificateCart, {
   DeathCertificateCartEntry,
 } from '../../store/DeathCertificateCart';
-
-// import CertificateRow from '../../common/CertificateRow';
 
 import { $CartItem } from './NewCartItem';
 
@@ -90,36 +83,6 @@ export default class CartItem extends Component<Props, State> {
     }
   );
 
-  // handleQuantityChange = action(
-  //   'CartItem > handleQuantityChange',
-  //   (ev: ChangeEvent<HTMLInputElement>) => {
-  //     const {
-  //       cart,
-  //       siteAnalytics,
-  //       entry: { cert },
-  //     } = this.props;
-
-  //     const value = ev.target.value;
-  //     if (!cert) {
-  //       return;
-  //     }
-
-  //     if (value === '') {
-  //       cart.setQuantity(cert, 0);
-  //     } else {
-  //       const quantity = parseInt(value, 10);
-  //       if (!isNaN(quantity)) {
-  //         cart.setQuantity(cert, quantity);
-  //       }
-  //     }
-
-  //     siteAnalytics.sendEvent('input', {
-  //       category: 'UX',
-  //       label: 'update quantity',
-  //     });
-  //   }
-  // );
-
   handleRemove = action('CartItem > handleRemove', () => {
     const { cart, entry, siteAnalytics } = this.props;
     cart.remove(entry.id);
@@ -145,38 +108,6 @@ export default class CartItem extends Component<Props, State> {
 
     return (
       <div>
-        {/* <CertificateRow
-          type="death"
-          certificate={cert}
-          borderTop={true}
-          borderBottom={lastRow}
-        >
-          {certificateDiv => [
-            <input
-              key="quantity"
-              aria-label={`Quantity for ${cert.firstName} ${cert.lastName}`}
-              value={quantityValue}
-              onChange={this.handleQuantityChange}
-              onFocus={this.handleQuantityFocus}
-              onBlur={this.handleQuantityBlur}
-              className="br br-a150"
-              css={QUANTITY_BOX_STYLE}
-            />,
-
-            certificateDiv,
-
-            <button
-              key="removeButton"
-              css={REMOVE_BUTTON_STYLE}
-              type="button"
-              onClick={this.handleRemove}
-              aria-label={`Remove ${cert.firstName} ${cert.lastName}`}
-            >
-              ×
-            </button>,
-          ]}
-        </CertificateRow> */}
-
         {parseInt(quantityValue) > 0 &&
           $CartItem({
             type: 'death',

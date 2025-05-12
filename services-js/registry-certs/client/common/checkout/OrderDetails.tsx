@@ -42,6 +42,11 @@ import {
 } from '../FeeDisclosures';
 
 import CertificateRow from '../../common/CertificateRow';
+// import CertItem from '../components/CertItem';
+// import {
+//   // formatDate,
+//   adjustForTimezone,
+// } from '../../marriageintention/helpers/formUtils';
 
 type OrderDetailsProps =
   | {
@@ -120,8 +125,53 @@ export const OrderDetails = observer(function OrderDetails(
         </div>
       );
     case 'marriage':
+      // console.log(
+      //   `marriageCertificateRequest: `,
+      //   props.marriageCertificateRequest
+      // );
+      // const {
+      //   dateOfMarriageExact = null,
+      //   // dateOfMarriageUnsure = '00/0000 - 00/0000',
+      //   dateOfMarriageUnsure = '',
+      // } = props.marriageCertificateRequest.requestInformation;
+
+      // const getDateOfMarriage = (dateStr: any) => {
+      //   // Return empty string if not a valid date
+      //   if (typeof dateStr === null) return '';
+
+      //   const dateObj = new Date(adjustForTimezone(new Date(dateStr)));
+
+      //   const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
+      //     dateObj
+      //   );
+      //   const month = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(
+      //     dateObj
+      //   );
+      //   const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(
+      //     dateObj
+      //   );
+
+      //   return `${month}/${day}/${year}`;
+      // };
+      // const dateOf_marriage = getDateOfMarriage(dateOfMarriageExact);
+
+      // const subinfo = dateOfMarriageUnsure.length > 0
+      // ? `Date (Range) of Marriage: ${dateOfMarriageUnsure}`
+      // : `Date of Marriage: ${dateOf_marriage}`;
+
+      // console.log(`subinfo: ${subinfo}`);
+
       return (
         <div>
+          {/* <CertItem
+            type={'marriage'}
+            quantity={props.marriageCertificateRequest.quantity}
+            showNameLabel={true}
+            pending={false}
+            fullNames={props.marriageCertificateRequest.fullNames}
+            subinfo={subinfo}
+          /> */}
+
           <CertificateRow
             type="marriage"
             certificate={props.marriageCertificateRequest}

@@ -52,8 +52,6 @@ export default class CostSummary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    // console.log(`CostSummary > newServiceFeeType: `, props.newServiceFeeType);
-
     this.state = {
       newServiceFeeType: props.newServiceFeeType || '0',
     };
@@ -62,8 +60,6 @@ export default class CostSummary extends Component<Props, State> {
   handleCardOptChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
     const { setCardType } = this.props;
     const value = ev.currentTarget.value as NewServiceFeeType;
-
-    // console.log(`value: ${value} | setCardType: `);
     setCardType(value);
 
     this.setState({

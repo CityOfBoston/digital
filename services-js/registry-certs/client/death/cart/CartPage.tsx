@@ -148,7 +148,7 @@ class CartPage extends React.Component<Props, State> {
               {loading && <div className="t--intro">Loading your cart…</div>}
               {deathCertificateCart.entries.length === 0 && (
                 <div>
-                  <div className="t--intro">There’s nothing here yet!</div>
+                  <div className="t--intro">There's nothing here yet!</div>
                   <p className="t--info">
                     Search for death certificates and add them to your cart.
                   </p>
