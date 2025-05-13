@@ -279,33 +279,6 @@ export const formatDate = (date_Obj: Date | null | undefined): any => {
   return `${month} ${day}, ${year}`;
 };
 
-// export const dateFormatType = (
-//   type: 'd/m/y' | 'dd/mm/yyyy' | 'mmm dd, yyyy',
-//   dateObj: Date
-// ) => {
-//   switch (type) {
-//     case 'd/m/y':
-//       const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
-//         dateObj
-//       );
-//       const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(
-//         dateObj
-//       );
-//       const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(
-//         dateObj
-//       );
-
-//       return `${month} ${day}, ${year}`;
-//       break;
-//     case 'dd/mm/yyyy':
-
-//     break;
-//     case 'mmm dd, yyyy':
-
-//     break;
-//   }
-// };
-
 /**
  * @name getCountryFullName
  * @description Convert a 2-3 letter Country Code into the full country name

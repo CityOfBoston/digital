@@ -8,7 +8,7 @@ import {
   SERIF,
   QuantityDropdown,
   AddRemoveRadioBtn,
-  MEDIA_MEDIUM_MAX,
+  MEDIA_SMALL_MAX,
 } from '@cityofboston/react-fleet';
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
   cert: any;
   quantity: number;
   handleQuantityChange: any;
-  handleRemove: (() => void) & {};
+  handleRemove?: (() => void) & {};
 }
 
 export const $CartItem = (props: Props) => {
@@ -45,14 +45,16 @@ export const $CartItem = (props: Props) => {
               />
             </div>
 
-            <AddRemoveRadioBtn
-              labels={['Add', 'Remove']}
-              name={`CC_AddRemove`}
-              id={`checkoutAddRemove`}
-              action={`remove`}
-              value={1}
-              onClickHandler={handleRemove}
-            />
+            {handleRemove && (
+              <AddRemoveRadioBtn
+                labels={['Add', 'Remove']}
+                name={`CC_AddRemove`}
+                id={`checkoutAddRemove`}
+                action={`remove`}
+                value={1}
+                onClickHandler={handleRemove}
+              />
+            )}
           </span>
         )}
 
@@ -87,15 +89,6 @@ export const $CartItem = (props: Props) => {
               </label>
             </span>
           )}
-
-        {/* {!age && usage === 'summary' && (
-          <span className={`certTypeName main`}>
-            <label>
-              <span>{certificateTypeStr} certificate</span> (Paper Copy with
-              raised seal)
-            </label>
-          </span>
-        )} */}
         <br />
       </div>
 
@@ -139,6 +132,7 @@ const CARTITEM = css`
   font-family: ${SERIF};
   font-size: 1.125em;
   margin-bottom: 1.5rem;
+  position: relative;
 
   .row {
     display: flex;
@@ -191,7 +185,7 @@ const CARTITEM = css`
     display: none;
   }
 
-  ${MEDIA_MEDIUM_MAX} {
+  ${MEDIA_SMALL_MAX} {
     font-size: 16px;
 
     .mobile,

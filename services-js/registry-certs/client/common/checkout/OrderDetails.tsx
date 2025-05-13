@@ -4,6 +4,7 @@ import { css, jsx } from '@emotion/core';
 
 import { Component } from 'react';
 
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 // import Link from 'next/link';
@@ -30,7 +31,7 @@ import {
   CERTIFICATE_COST_STRING,
 } from '../../../lib/costs';
 
-import { CertificateType } from '../../types';
+import { CertificateType, DeathCertificate } from '../../types';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
@@ -42,11 +43,12 @@ import {
 } from '../FeeDisclosures';
 
 import CertificateRow from '../../common/CertificateRow';
-// import CertItem from '../components/CertItem';
-// import {
-//   // formatDate,
-//   adjustForTimezone,
-// } from '../../marriageintention/helpers/formUtils';
+
+import CertItem from '../components/CertItem';
+import {
+  capFirstLetterOfStr,
+  formatCheckoutDate,
+} from '../../../utils/helpers';
 
 type OrderDetailsProps =
   | {
@@ -72,15 +74,84 @@ type OrderDetailsProps =
 export const OrderDetails = observer(function OrderDetails(
   props: OrderDetailsProps
 ) {
-  const makeWrapRow = _quantity => certificateDiv => (
-    <>
-      {/* <div className="t--sans p-a300" style={{ fontWeight: 'bold' }}>
-        <span aria-label="Quantity">{_quantity}</span> ×
-      </div> */}
+  const makeWrapRow = _quantity => certificateDiv => <>{certificateDiv}</>;
 
-      {certificateDiv}
-    </>
+  const handleQuantityChange = action(
+    'CartItem > handleQuantityChange',
+    (quantity: string | number | null): void => {
+      const {
+        siteAnalytics,
+        birthCertificateRequest,
+        marriageCertificateRequest,
+        deathCertificateCart,
+      } = this.props;
+
+      if (!quantity) return;
+      if (typeof quantity === 'string') return;
+
+      if (!isNaN(quantity)) {
+        switch (props.type) {
+          case 'birth':
+            birthCertificateRequest.setQuantity(quantity);
+            break;
+          case 'marriage':
+            marriageCertificateRequest.setQuantity(quantity);
+            break;
+          case 'death':
+            deathCertificateCart.setQuantity(quantity);
+            break;
+        }
+      }
+
+      if (siteAnalytics && siteAnalytics.sendEvent) {
+        siteAnalytics.sendEvent('input', {
+          category: 'UX',
+          label: 'update quantity',
+        });
+      }
+    }
   );
+
+  const deathCertEntry = (data: {
+    cert: DeathCertificate;
+    cart: { entries: string | any[] };
+    quantity: number;
+    index: string;
+  }) => {
+    const { cert, cart, quantity = 1, index = '0' } = data;
+    // const { firstName, lastName, deathDate, deathYear } = cart.entries[index];
+    // const subinfo = `Date of Death: `;
+
+    return (
+      <>
+        {/* <CertItem
+          type={props.type}
+          quantity={quantity}
+          showNameLabel={true}
+          pending={false}
+          fullNames={`${firstName} ${lastName}`}
+          subinfo={subinfo}
+          dateStr={formatCheckoutDate(deathDate || deathYear)}
+          key={index}
+          handleQuantityChange={handleQuantityChange}
+        /> */}
+
+        <CertificateRow
+          type="death"
+          key={cert.id}
+          certificate={cert}
+          borderTop={parseInt(index) !== 0}
+          borderBottom={parseInt(index) === cart.entries.length - 1}
+          thin={props.thin}
+          children={makeWrapRow(quantity)}
+          quantity={quantity}
+          showQuantity={true}
+          showSeal={true}
+          showNameLabel={true}
+        />
+      </>
+    );
+  };
 
   switch (props.type) {
     case 'death':
@@ -88,92 +159,84 @@ export const OrderDetails = observer(function OrderDetails(
         <div>
           {props.deathCertificateCart.entries.map(
             ({ cert, quantity }, i) =>
-              cert && (
-                <CertificateRow
-                  type="death"
-                  key={cert.id}
-                  certificate={cert}
-                  borderTop={i !== 0}
-                  borderBottom={
-                    i === props.deathCertificateCart.entries.length - 1
-                  }
-                  thin={props.thin}
-                  children={makeWrapRow(quantity)}
-                  quantity={quantity}
-                  showQuantity={true}
-                  showSeal={true}
-                  showNameLabel={true}
-                />
-              )
+              cert &&
+              deathCertEntry({
+                cert: cert,
+                cart: props.deathCertificateCart,
+                quantity: quantity,
+                index: `${i}`,
+              })
           )}
         </div>
       );
-    case 'birth':
+    case 'birth': {
+      const { quantity, requestInformation } = props.birthCertificateRequest;
+      const { birthDate, firstName, lastName } = requestInformation;
+      const subinfo = `Date of Birth: `;
+
       return (
         <div>
-          <CertificateRow
-            type="birth"
-            certificate={props.birthCertificateRequest}
-            borderTop={false}
-            borderBottom={true}
-            thin={props.thin}
-            children={makeWrapRow(props.birthCertificateRequest.quantity)}
-            quantity={props.birthCertificateRequest.quantity}
-            showQuantity={true}
-            showNameLabel={true}
-          />
+          {quantity && quantity > 0 && (
+            <>
+              <CertItem
+                type={props.type}
+                quantity={quantity}
+                showNameLabel={true}
+                pending={false}
+                fullNames={`${firstName} ${lastName}`}
+                subinfo={subinfo}
+                dateStr={formatCheckoutDate(birthDate)}
+                key={`1`}
+                handleQuantityChange={handleQuantityChange}
+              />
+
+              {/* <CertificateRow
+                type={props.type}
+                certificate={props.birthCertificateRequest}
+                borderTop={false}
+                borderBottom={true}
+                thin={props.thin}
+                children={makeWrapRow(props.birthCertificateRequest.quantity)}
+                quantity={props.birthCertificateRequest.quantity}
+                showQuantity={true}
+                showNameLabel={true}
+              /> */}
+            </>
+          )}
         </div>
       );
-    case 'marriage':
-      // console.log(
-      //   `marriageCertificateRequest: `,
-      //   props.marriageCertificateRequest
-      // );
-      // const {
-      //   dateOfMarriageExact = null,
-      //   // dateOfMarriageUnsure = '00/0000 - 00/0000',
-      //   dateOfMarriageUnsure = '',
-      // } = props.marriageCertificateRequest.requestInformation;
-
-      // const getDateOfMarriage = (dateStr: any) => {
-      //   // Return empty string if not a valid date
-      //   if (typeof dateStr === null) return '';
-
-      //   const dateObj = new Date(adjustForTimezone(new Date(dateStr)));
-
-      //   const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
-      //     dateObj
-      //   );
-      //   const month = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(
-      //     dateObj
-      //   );
-      //   const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(
-      //     dateObj
-      //   );
-
-      //   return `${month}/${day}/${year}`;
-      // };
-      // const dateOf_marriage = getDateOfMarriage(dateOfMarriageExact);
-
-      // const subinfo = dateOfMarriageUnsure.length > 0
-      // ? `Date (Range) of Marriage: ${dateOfMarriageUnsure}`
-      // : `Date of Marriage: ${dateOf_marriage}`;
-
-      // console.log(`subinfo: ${subinfo}`);
+    }
+    case 'marriage': {
+      const {
+        fullNames,
+        requestInformation,
+      } = props.marriageCertificateRequest;
+      const {
+        dateOfMarriageExact = null,
+        dateOfMarriageUnsure = '',
+      } = requestInformation;
+      const dateOf_marriage = formatCheckoutDate(dateOfMarriageExact);
+      const subinfo =
+        dateOfMarriageUnsure.length > 0
+          ? `Date (Range) of ${capFirstLetterOfStr(props.type)}: `
+          : `Date of ${capFirstLetterOfStr(props.type)}: `;
 
       return (
         <div>
-          {/* <CertItem
-            type={'marriage'}
+          <CertItem
+            type={props.type}
             quantity={props.marriageCertificateRequest.quantity}
             showNameLabel={true}
             pending={false}
-            fullNames={props.marriageCertificateRequest.fullNames}
+            fullNames={fullNames.replace(' & ', ' and ')}
             subinfo={subinfo}
-          /> */}
+            dateStr={dateOf_marriage}
+            key={`1`}
+            handleQuantityChange={handleQuantityChange}
+          />
 
-          <CertificateRow
-            type="marriage"
+          {/* <CertificateRow
+            type={props.type}
             certificate={props.marriageCertificateRequest}
             borderTop={false}
             borderBottom={true}
@@ -182,9 +245,10 @@ export const OrderDetails = observer(function OrderDetails(
             quantity={props.marriageCertificateRequest.quantity}
             showQuantity={true}
             showNameLabel={true}
-          />
+          /> */}
         </div>
       );
+    }
   }
 });
 
@@ -334,7 +398,7 @@ export default function RenderOrderDetails(props: {
       <>
         <OrderDetailsDropdown
           orderType="death"
-          certificateQuantity={details.deathCertificateCart.size}
+          certificateQuantity={details.deathCertificateCart.size || 1}
           tracking={tracking}
           cardType={cardType}
         >

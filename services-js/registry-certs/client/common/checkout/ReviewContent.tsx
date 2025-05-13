@@ -293,7 +293,6 @@ export default class ReviewContent extends React.Component<Props, State> {
             {/* <div className="m-v700">
               <RenderOrderDetails details={this.props} />
             </div> */}
-
             <div className={'row info-row'}>
               <div className={'col'}>
                 <label className={'header'}>Contact Information</label>
@@ -310,7 +309,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </Link>
               </div>
             </div>
-
             <div className={'row info-row'}>
               <div className={'col'}>
                 <label className={'header'}>Shipping Address</label>
@@ -344,7 +342,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </Link>
               </div>
             </div>
-
             <div className={'row info-row'}>
               <div className={'col'}>
                 <label className={'header'}>Payment Information</label>
@@ -377,7 +374,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </Link>
               </div>
             </div>
-
             <div className={'row'}>
               <div className={'col'}>
                 <label className={'header'}>Order Details</label>
@@ -391,9 +387,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </Link>
               </div>
             </div>
-
             {certEntries()}
-
             {/* {this.props[cartTypeStr].entries.map(
               ({ cert, quantity }, i) =>
                 cert && (
@@ -409,7 +403,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                   </div>
                 )
             )} */}
-
             <div className="m-v500">
               <h1 className={'summary'}>Order Summary</h1>
               <CostSummary
@@ -420,16 +413,13 @@ export default class ReviewContent extends React.Component<Props, State> {
                 tracking={tracking}
               />
             </div>
-
             {this.renderAcceptCheckboxes()}
-
             {this.props.certificateType === 'death' && (
               <div className="t--info m-v300" id="charge-message">
                 Pressing the “Submit Order” button will charge the total amount
                 to your card and place an order with the Registry.
               </div>
             )}
-
             {this.props.certificateType === 'birth' && (
               <div className="t--info m-v300" id="charge-message">
                 Pressing the “Submit Order” button will put a hold for the total
@@ -437,7 +427,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 will be charged when the Registry mails your order.
               </div>
             )}
-
             {processing && (
               <StatusModal message="Submitting your order…">
                 <div className="t--info m-t300">
@@ -446,7 +435,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </div>
               </StatusModal>
             )}
-
             {submissionError && !submissionErrorIsForPayment && (
               <StatusModal
                 message={`There’s a problem: ${submissionError}`}
@@ -463,7 +451,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </div>
               </StatusModal>
             )}
-
             {submissionError && submissionErrorIsForPayment && (
               <StatusModal message="This charge failed." error>
                 <div className="t--info m-t300">
@@ -478,7 +465,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </div>
               </StatusModal>
             )}
-
             <div className="m-v300">
               <button
                 className="btn"
@@ -497,7 +483,6 @@ export default class ReviewContent extends React.Component<Props, State> {
                 Submit Order
               </button>
             </div>
-
             {this.props.certificateType === 'death' && (
               <div className="ta-c t--info m-v700">
                 <Link href="/death">

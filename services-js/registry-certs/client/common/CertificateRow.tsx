@@ -100,6 +100,7 @@ const renderCertificate = (props: {
   }
 
   const nameRowElem = certificateProps => {
+    // console.log(`CertificateRow > certificateProps: `, certificateProps);
     return (
       <>
         {showNameLabel && <span className={'label'}>Name:</span>}
@@ -122,7 +123,7 @@ const renderCertificate = (props: {
         )}
 
         {certificateProps.pending && (
-          <span style={{ color: CHARLES_BLUE }}>
+          <span className={'pending'}>
             {' — '}
             <span
               className="t--sans tt-u"
@@ -135,6 +136,11 @@ const renderCertificate = (props: {
       </>
     );
   };
+
+  // if (certificateProps.type === 'marriage') {
+  //   console.log(`certificateProps.fullNames: [${certificateProps.fullNames}]`);
+  // }
+  // console.log(`certificateProps: `, certificateProps);
 
   return (
     <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
@@ -318,7 +324,13 @@ function marriageRequestProps(request): CertificateProps {
   };
 }
 
-const CERTIFICATE_INFO_BOX_STYLE = css({ flex: 1 });
+const CERTIFICATE_INFO_BOX_STYLE = css`
+  flex: 1;
+
+  .pending {
+    color: ${CHARLES_BLUE};
+  }
+`;
 
 const CERTIFICATE_NAME_STYLE = css({
   fontStyle: 'normal',
