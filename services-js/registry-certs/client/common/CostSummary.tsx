@@ -10,6 +10,7 @@ import {
   CHARLES_BLUE,
   DEFAULT_TEXT,
   RegistryCCSelectDropDown,
+  MEDIA_SMALL_MAX,
 } from '@cityofboston/react-fleet';
 
 import {
@@ -200,7 +201,7 @@ export const $OrderSummary = (params: {
 
       <div className={'row'}>
         <div className={'col'}>Total</div>
-        <div className={'col'}>$ {finalCost}</div>
+        <div className={'col total-cost'}>$ {finalCost}</div>
       </div>
     </div>
   );
@@ -215,7 +216,7 @@ const ORDERSUMMARY = css`
   line-height: normal;
 
   margin: auto;
-  min-width: 320px;
+  width: 100%;
 
   h1 {
     font-family: ${SANS};
@@ -236,11 +237,13 @@ const ORDERSUMMARY = css`
     line-height: 1.25rem;
 
     .col {
-      flex-grow: 1;
+      white-space: 'rap';
+      flex: min-content;
     }
 
     .col:nth-of-type(2) {
       text-align: right;
+      max-width: 30%;
     }
 
     &:nth-last-of-type(-n + 1) {
@@ -252,6 +255,12 @@ const ORDERSUMMARY = css`
       border-top: 1px solid ${DEFAULT_TEXT};
       padding-top: 16px;
       margin-top: 16px;
+    }
+  }
+
+  ${MEDIA_SMALL_MAX} {
+    .total-cost {
+      font-size: 15px;
     }
   }
 `;

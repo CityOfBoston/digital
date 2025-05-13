@@ -50,7 +50,7 @@ import {
   formatCheckoutDate,
 } from '../../../utils/helpers';
 
-type OrderDetailsProps =
+type OrderDetailsProps = { inDrawer?: boolean } & (
   | {
       type: 'death';
       deathCertificateCart: DeathCertificateCart;
@@ -65,7 +65,7 @@ type OrderDetailsProps =
       type: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
       thin?: boolean;
-    };
+    });
 
 /**
  * Displays a list of all certificates in an order’s cart.
@@ -188,6 +188,7 @@ export const OrderDetails = observer(function OrderDetails(
                 dateStr={formatCheckoutDate(birthDate)}
                 key={`1`}
                 handleQuantityChange={handleQuantityChange}
+                drawer={props.inDrawer}
               />
 
               {/* <CertificateRow
@@ -233,6 +234,7 @@ export const OrderDetails = observer(function OrderDetails(
             dateStr={dateOf_marriage}
             key={`1`}
             handleQuantityChange={handleQuantityChange}
+            drawer={props.inDrawer}
           />
 
           {/* <CertificateRow
@@ -325,15 +327,21 @@ export class OrderDetailsDropdown extends Component<
         // researchFee
       } = orderCost;
 
+      const $arrowUI = () => {
+        return <div className={'arrow'} />;
+      };
+
       return (
         <div css={DRAWER_CSS}>
-          <div
-            className={`header${open ? ' open' : ''}`}
+          <button
+            className={`drawerHeader ${open ? ' open' : ''}`}
+            type="button"
             onClick={this.toggleOpen}
             aria-expanded={open}
           >
             Your order details
-          </div>
+            {$arrowUI()}
+          </button>
 
           <div className={`body`}>
             <VelocityTransitionGroup
@@ -405,6 +413,7 @@ export default function RenderOrderDetails(props: {
           <OrderDetails
             type="death"
             deathCertificateCart={details.deathCertificateCart}
+            inDrawer={true}
           />
         </OrderDetailsDropdown>
       </>
@@ -426,11 +435,13 @@ export default function RenderOrderDetails(props: {
           <OrderDetails
             type="birth"
             birthCertificateRequest={details.birthCertificateRequest}
+            inDrawer={true}
           />
         ) : (
           <OrderDetails
             type="marriage"
             marriageCertificateRequest={details.marriageCertificateRequest}
+            inDrawer={true}
           />
         )}
       </OrderDetailsDropdown>
@@ -443,17 +454,16 @@ const DRAWER_CSS = css`
 
   background: ${GRAY_100};
   background: #f2f2f2;
-  // background: rgba(40, 40, 40, 0.25);
   margin-bottom: 3.125rem;
 
-  .header,
-  .footer {
+  .drawerHeader {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 12px 24px;
     cursor: pointer;
+    border: 0;
 
     color: ${OPTIMISTIC_BLUE_DARK};
     font-family: Lora;
@@ -464,28 +474,49 @@ const DRAWER_CSS = css`
     text-decoration-style: solid;
     text-decoration-skip-ink: auto;
     text-decoration-thickness: auto;
-    text-underline-offset: auto;
+    text-underline-offset: -3px;
     text-underline-position: from-font;
 
-    h1 {
-      font-weight: 700;
+    .arrow {
+      border: solid #1871bd;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      margin-top: -3px;
+
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+
+    [aria-expanded='true'] {
+      border-color: white;
     }
   }
 
-  .header {
-    margin-bottom: 1em;
-
-    &:hover,
-    &:.open {
-      color: ${WHITE};
-      background: ${OPTIMISTIC_BLUE_DARK};
-      text-decoration-line: underline;
-    }
-  }
-
-  .header.open {
-    background: ${CHARLES_BLUE};
+  // .drawerHeader:active,
+  .drawerHeader:hover,
+  .drawerHeader:focus {
     color: ${WHITE};
+    text-decoration: underline;
+    background: ${OPTIMISTIC_BLUE_DARK};
+    text-decoration-line: underline;
+
+    .arrow {
+      border-color: ${WHITE};
+    }
+  }
+
+  .drawerHeader[aria-expanded='true'] {
+    margin-bottom: 1em;
+    color: ${WHITE};
+    background: ${CHARLES_BLUE};
+
+    .arrow {
+      margin-top: 6px;
+      border-color: white;
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+    }
   }
 
   .body {
@@ -511,6 +542,7 @@ const DRAWER_CSS = css`
     .cost_summary,
     .notes {
       padding-bottom: 1.115rem;
+      font-style: normal;
     }
   }
 `;

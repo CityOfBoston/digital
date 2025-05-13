@@ -22,6 +22,7 @@ export type CertItemProps = {
   dateStr?: string;
   key?: string;
   handleQuantityChange?: (quantity: string | number | null) => void;
+  drawer?: boolean;
 };
 
 export const CertItem = (cert: CertItemProps) => {
@@ -33,6 +34,7 @@ export const CertItem = (cert: CertItemProps) => {
     dateStr,
     key = '1',
     handleQuantityChange = () => {},
+    drawer = false,
   } = cert;
   let paperCopyLabel = `Certificate (Paper copy)`;
   let age = ``;
@@ -40,26 +42,27 @@ export const CertItem = (cert: CertItemProps) => {
   if (dateStr && type === 'birth') {
     age = getAgeFromDate(dateStr.toString());
   }
-  // console.log(`CertItem > cert: `, cert);
 
   return (
     <div css={CERTITEM_CSS}>
       <div className={`col`}>
-        <span className={`mobile__visible`}>
-          <div className={`col`}>
-            <QuantityDropdown
-              id={`quantityDropDown__${key}`}
-              label={`quantity_for_${key}`}
-              handleQuantityChange={handleQuantityChange}
-              quantity={quantity}
-              selectOptions={{ start: 1, total: 10 }}
-            />
-          </div>
-        </span>
+        {!drawer && (
+          <span className={`mobile__visible`}>
+            <div className={`col`}>
+              <QuantityDropdown
+                id={`quantityDropDown__${key}`}
+                label={`quantity_for_${key}`}
+                handleQuantityChange={handleQuantityChange}
+                quantity={quantity}
+                selectOptions={{ start: 1, total: 10 }}
+              />
+            </div>
+          </span>
+        )}
 
         {fullNames.length > 0 && (
           <div className={'name-row'}>
-            <label>Name [xxx]: </label>
+            <label>Name: </label>
             <span>{fullNames}</span>
           </div>
         )}
@@ -81,17 +84,19 @@ export const CertItem = (cert: CertItemProps) => {
         <div>{`${capFirstLetterOfStr(type)} ${paperCopyLabel}`}</div>
       </div>
 
-      {/* <div className={`col`}>
-        <div className={`row mobile`}>
-          <QuantityDropdown
-            id={`quantityDropDown__${key}`}
-            label={`quantity_for_${key}`}
-            handleQuantityChange={handleQuantityChange}
-            quantity={quantity}
-            selectOptions={{ start: 1, total: 10 }}
-          />
+      {/* {!drawer && (
+        <div className={`col`}>
+          <div className={`row mobile`}>
+            <QuantityDropdown
+              id={`quantityDropDown__${key}`}
+              label={`quantity_for_${key}`}
+              handleQuantityChange={handleQuantityChange}
+              quantity={quantity}
+              selectOptions={{ start: 1, total: 10 }}
+            />
+          </div>
         </div>
-      </div> */}
+      )} */}
     </div>
   );
 };

@@ -145,7 +145,7 @@ const renderCertificate = (props: {
   return (
     <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
       <div
-        className="t--sans m-v100"
+        className=""
         css={thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE}
       >
         {certificateProps.type === 'marriage' ? (
@@ -176,6 +176,10 @@ const renderCertificate = (props: {
       )}
 
       {showSeal && showSeal === true && (
+        // <>
+        //   {capitalize(certificateProps.type)} Certified Paper Copy (with raised
+        //   seal)
+        // </>
         <div css={LONG_TEXT_STYLE}>
           <>
             <wbr />
@@ -325,7 +329,8 @@ function marriageRequestProps(request): CertificateProps {
 }
 
 const CERTIFICATE_INFO_BOX_STYLE = css`
-  flex: 1;
+  // flex: 1;
+  background: orange;
 
   .pending {
     color: ${CHARLES_BLUE};
@@ -367,7 +372,7 @@ const LONG_TEXT_STYLE = css({
   },
 
   span: {
-    whiteSpace: 'nowrap',
+    // whiteSpace: 'nowrap',
 
     '&:first-of-type': {
       marginRight: '0.4em',
