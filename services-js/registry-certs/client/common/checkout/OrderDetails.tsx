@@ -48,6 +48,7 @@ import CertItem from '../components/CertItem';
 import {
   capFirstLetterOfStr,
   formatCheckoutDate,
+  ReactKeyIndexStr,
 } from '../../../utils/helpers';
 
 type OrderDetailsProps = { inDrawer?: boolean } & (
@@ -132,13 +133,21 @@ export const OrderDetails = observer(function OrderDetails(
           fullNames={`${firstName} ${lastName}`}
           subinfo={subinfo}
           dateStr={formatCheckoutDate(deathDate || deathYear)}
-          key={index}
+          key={
+            index ||
+            ReactKeyIndexStr({
+              seedStr: `${props.type}Cert_row`,
+              max: 1000,
+            })
+          }
           handleQuantityChange={handleQuantityChange}
         /> */}
 
         <CertificateRow
           type="death"
-          key={cert.id}
+          key={
+            cert.id || ReactKeyIndexStr({ seedStr: 'deathCert_row', max: 1000 })
+          }
           certificate={cert}
           borderTop={parseInt(index) !== 0}
           borderBottom={parseInt(index) === cart.entries.length - 1}
@@ -186,7 +195,10 @@ export const OrderDetails = observer(function OrderDetails(
                 fullNames={`${firstName} ${lastName}`}
                 subinfo={subinfo}
                 dateStr={formatCheckoutDate(birthDate)}
-                key={`1`}
+                key={ReactKeyIndexStr({
+                  seedStr: `${props.type}Cert_row`,
+                  max: 1000,
+                })}
                 handleQuantityChange={handleQuantityChange}
                 drawer={props.inDrawer}
               />
@@ -232,7 +244,10 @@ export const OrderDetails = observer(function OrderDetails(
             fullNames={fullNames.replace(' & ', ' and ')}
             subinfo={subinfo}
             dateStr={dateOf_marriage}
-            key={`1`}
+            key={ReactKeyIndexStr({
+              seedStr: `${props.type}Cert_row`,
+              max: 1000,
+            })}
             handleQuantityChange={handleQuantityChange}
             drawer={props.inDrawer}
           />

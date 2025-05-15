@@ -1,7 +1,13 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/core';
-import { capFirstLetterOfStr, getAgeFromDate } from '../../../utils/helpers';
+
+import {
+  capFirstLetterOfStr,
+  getAgeFromDate,
+  ReactKeyIndexStr,
+} from '../../../utils/helpers';
+
 import {
   CHARLES_BLUE,
   GRAY_100,
@@ -32,7 +38,7 @@ export const CertItem = (cert: CertItemProps) => {
     fullNames = '',
     subinfo,
     dateStr,
-    key = '1',
+    key = ReactKeyIndexStr({ seedStr: `key`, max: 10000 }),
     handleQuantityChange = () => {},
     drawer = false,
   } = cert;
@@ -42,6 +48,7 @@ export const CertItem = (cert: CertItemProps) => {
   if (dateStr && type === 'birth') {
     age = getAgeFromDate(dateStr.toString());
   }
+  // console.log(`CertItem > key: ${key}`);
 
   return (
     <div css={CERTITEM_CSS}>

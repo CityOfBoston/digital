@@ -116,33 +116,75 @@ Array [
   font-style: italic;
 }
 
-@media screen and (max-width:840px) {
-  .emotion-5 {
-    display: none;
-  }
-}
-
-.emotion-4 {
-  fill: #fff;
+.emotion-5 .banner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   color: #091f2f;
-  stroke: currentColor;
-  stroke-width: 3;
+  padding: 24px 32px 10px;
+  background: rgba(0,136,23,0.25);
+  margin-bottom: 1.25rem;
+  -webkit-align-items: top;
+  -webkit-box-align: top;
+  -ms-flex-align: top;
+  align-items: top;
 }
 
-.emotion-4 .frame {
-  stroke-width: 3.5;
+.emotion-5 .banner svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .lines {
-  stroke-width: 3.75;
+.emotion-5 .banner label {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.emotion-4 .birth {
-  stroke: none;
+.emotion-4 svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .marriage {
-  stroke: none;
+.emotion-6 .body {
+  color: #091f2f;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0px 24px 24px;
+  background: #fff;
+  border: 1px solid #d2d2d2;
+}
+
+.emotion-6 .body a {
+  line-height: normal;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: -4px;
+  text-underline-position: from-font;
+}
+
+.emotion-6 .body a.print {
+  color: #1871bd;
+  font-style: 700;
+  font-weight: 600;
+}
+
+.emotion-6 .body a.print:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -354,136 +396,45 @@ Array [
           className="b-c"
         >
           <div
-            className="g"
+            className="emotion-5"
           >
             <div
-              className="g--4 m-b500 emotion-5"
+              className="banner"
             >
               <div
-                className="m-h100"
+                className="emotion-4"
               >
                 <svg
-                  aria-hidden="true"
-                  className="emotion-4"
-                  focusable="false"
-                  overflow="visible"
-                  viewBox="0 0 147 97"
+                  fill="none"
+                  viewBox="0 0 40 40"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <rect
-                    height="93"
-                    width="143"
-                    x="2"
-                    y="2"
+                  <path
+                    d="M27.5766 14.9234C27.7514 15.0976 27.8901 15.3046 27.9847 15.5325C28.0793 15.7604 28.128 16.0048 28.128 16.2516C28.128 16.4983 28.0793 16.7427 27.9847 16.9706C27.8901 17.1985 27.7514 17.4055 27.5766 17.5797L18.8266 26.3297C18.6524 26.5045 18.4454 26.6432 18.2175 26.7378C17.9896 26.8325 17.7452 26.8812 17.4984 26.8812C17.2517 26.8812 17.0073 26.8325 16.7794 26.7378C16.5515 26.6432 16.3445 26.5045 16.1703 26.3297L12.4203 22.5797C12.2459 22.4053 12.1076 22.1982 12.0132 21.9703C11.9188 21.7425 11.8702 21.4982 11.8702 21.2516C11.8702 21.0049 11.9188 20.7607 12.0132 20.5328C12.1076 20.3049 12.2459 20.0978 12.4203 19.9234C12.5947 19.749 12.8018 19.6107 13.0297 19.5163C13.2575 19.4219 13.5018 19.3733 13.7484 19.3733C13.9951 19.3733 14.2393 19.4219 14.4672 19.5163C14.6951 19.6107 14.9022 19.749 15.0766 19.9234L17.5 22.3438L24.9234 14.9188C25.0979 14.7447 25.3049 14.6068 25.5327 14.5128C25.7605 14.4189 26.0046 14.3707 26.251 14.3712C26.4974 14.3716 26.7413 14.4206 26.9687 14.5154C27.1962 14.6101 27.4027 14.7488 27.5766 14.9234ZM36.875 20C36.875 23.3376 35.8853 26.6002 34.0311 29.3752C32.1768 32.1503 29.5413 34.3132 26.4578 35.5905C23.3743 36.8677 19.9813 37.2019 16.7079 36.5508C13.4344 35.8996 10.4276 34.2924 8.06758 31.9324C5.70757 29.5724 4.10038 26.5656 3.44926 23.2921C2.79813 20.0187 3.13231 16.6257 4.40954 13.5422C5.68677 10.4587 7.84968 7.8232 10.6248 5.96895C13.3998 4.1147 16.6624 3.125 20 3.125C24.474 3.12996 28.7634 4.90945 31.927 8.07305C35.0906 11.2367 36.87 15.526 36.875 20ZM33.125 20C33.125 17.4041 32.3552 14.8665 30.913 12.7081C29.4709 10.5497 27.421 8.86748 25.0227 7.87408C22.6244 6.88068 19.9854 6.62076 17.4394 7.12719C14.8934 7.63362 12.5548 8.88366 10.7192 10.7192C8.88367 12.5548 7.63363 14.8934 7.1272 17.4394C6.62077 19.9854 6.88069 22.6244 7.87409 25.0227C8.86749 27.421 10.5498 29.4708 12.7081 30.913C14.8665 32.3552 17.4041 33.125 20 33.125C23.4798 33.1213 26.8161 31.7373 29.2767 29.2767C31.7373 26.8161 33.1213 23.4798 33.125 20Z"
+                    fill="#008817"
                   />
-                  <g
-                    className="lines"
-                  >
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="16.3"
-                      y2="16.3"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="31.8"
-                      y2="31.8"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="47.2"
-                      y2="47.2"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="62.6"
-                      y2="62.6"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="78"
-                      y2="78"
-                    />
-                  </g>
-                  <g
-                    className="birth"
-                    transform="translate(-80 -31) scale(1.1 1.1)"
-                  >
-                    <path
-                      d="M120.1 91c-.3-1.8-1-3.5-1.7-5.3-.3-.7-.6-1.4-1.1-2-.4-.5-.8-.9-1.2-1.4-4.1-4.7-5-12.8-.7-17.7 1.7-2 1.6-7.2 0-9.2-.8-1-2-1.6-3.2-2.1-4.1-1.5-8.9-1.3-12.9.6-2.5 1.2-3.7 2.7-4 5.4-1.5 13.1 5.3 41.4 17.6 41.4 3 0 5.4-2.2 6.5-4.9.8-1.6.9-3.2.7-4.8z"
-                      fill="currentColor"
-                    />
-                    <ellipse
-                      cx="118.2"
-                      cy="48"
-                      fill="currentColor"
-                      rx="3.2"
-                      ry="4.4"
-                      transform="rotate(34.386 118.151 48.032)"
-                    />
-                    <ellipse
-                      cx="111"
-                      cy="46.6"
-                      fill="currentColor"
-                      rx="2.1"
-                      ry="2.8"
-                      transform="rotate(19.881 111.01 46.555)"
-                    />
-                    <ellipse
-                      cx="105.3"
-                      cy="46.5"
-                      fill="currentColor"
-                      rx="2.1"
-                      ry="2.8"
-                      transform="rotate(8.583 105.263 46.468)"
-                    />
-                    <ellipse
-                      cx="99.5"
-                      cy="47.9"
-                      fill="currentColor"
-                      rx="2.1"
-                      ry="2.8"
-                      transform="rotate(-13.639 99.556 47.887)"
-                    />
-                    <ellipse
-                      cx="94.9"
-                      cy="51.9"
-                      fill="currentColor"
-                      rx="1.9"
-                      ry="2.6"
-                      transform="rotate(-22.382 94.858 51.887)"
-                    />
-                  </g>
                 </svg>
               </div>
-            </div>
-            <div
-              className="g--8"
-            >
-              <h2
-                className="h3 tt-u"
+              <div
+                className="header"
               >
-                Thank you
-              </h2>
-              <p
-                className="t--info"
-                style={
-                  Object {
-                    "fontStyle": "normal",
-                  }
-                }
-              >
-                We received your request and sent an email confirmation to:
-                 
-                <strong>
+                <label>
+                  We Received Your Order
+                </label>
+                <p>
+                  A copy of your receipt has been sent to 
                   ttoe@squirrelzone.net
-                </strong>
-              </p>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="emotion-6"
+          >
+            <div
+              className="body"
+            >
               <p
                 className="t--info"
                 style={
@@ -507,10 +458,17 @@ Array [
                 }
               >
                 <strong>
-                  Please allow 2–3 business days for us to process your order.
+                  Please allow 2-3 business days for us to process your order.
                 </strong>
                  
                 Your order will be shipped via U.S. Postal Service to the shipping address you provided.
+              </p>
+              <p>
+                If you paid for 
+                <strong>
+                  USPS Tracking®
+                </strong>
+                 services, a Registry Clerk will follow up via email with your shipment's tracking number.
               </p>
               <p
                 className="t--info"
@@ -2679,7 +2637,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__1"
+                                  id="quantityDropDown__key__2033"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}
@@ -18200,33 +18158,75 @@ Array [
   font-style: italic;
 }
 
-@media screen and (max-width:840px) {
-  .emotion-5 {
-    display: none;
-  }
-}
-
-.emotion-4 {
-  fill: #fff;
+.emotion-5 .banner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   color: #091f2f;
-  stroke: currentColor;
-  stroke-width: 3;
+  padding: 24px 32px 10px;
+  background: rgba(0,136,23,0.25);
+  margin-bottom: 1.25rem;
+  -webkit-align-items: top;
+  -webkit-box-align: top;
+  -ms-flex-align: top;
+  align-items: top;
 }
 
-.emotion-4 .frame {
-  stroke-width: 3.5;
+.emotion-5 .banner svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .lines {
-  stroke-width: 3.75;
+.emotion-5 .banner label {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.emotion-4 .birth {
-  stroke: none;
+.emotion-4 svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .marriage {
-  stroke: none;
+.emotion-6 .body {
+  color: #091f2f;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0px 24px 24px;
+  background: #fff;
+  border: 1px solid #d2d2d2;
+}
+
+.emotion-6 .body a {
+  line-height: normal;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: -4px;
+  text-underline-position: from-font;
+}
+
+.emotion-6 .body a.print {
+  color: #1871bd;
+  font-style: 700;
+  font-weight: 600;
+}
+
+.emotion-6 .body a.print:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div
@@ -18438,136 +18438,45 @@ Array [
           className="b-c"
         >
           <div
-            className="g"
+            className="emotion-5"
           >
             <div
-              className="g--4 m-b500 emotion-5"
+              className="banner"
             >
               <div
-                className="m-h100"
+                className="emotion-4"
               >
                 <svg
-                  aria-hidden="true"
-                  className="emotion-4"
-                  focusable="false"
-                  overflow="visible"
-                  viewBox="0 0 147 97"
+                  fill="none"
+                  viewBox="0 0 40 40"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <rect
-                    height="93"
-                    width="143"
-                    x="2"
-                    y="2"
+                  <path
+                    d="M27.5766 14.9234C27.7514 15.0976 27.8901 15.3046 27.9847 15.5325C28.0793 15.7604 28.128 16.0048 28.128 16.2516C28.128 16.4983 28.0793 16.7427 27.9847 16.9706C27.8901 17.1985 27.7514 17.4055 27.5766 17.5797L18.8266 26.3297C18.6524 26.5045 18.4454 26.6432 18.2175 26.7378C17.9896 26.8325 17.7452 26.8812 17.4984 26.8812C17.2517 26.8812 17.0073 26.8325 16.7794 26.7378C16.5515 26.6432 16.3445 26.5045 16.1703 26.3297L12.4203 22.5797C12.2459 22.4053 12.1076 22.1982 12.0132 21.9703C11.9188 21.7425 11.8702 21.4982 11.8702 21.2516C11.8702 21.0049 11.9188 20.7607 12.0132 20.5328C12.1076 20.3049 12.2459 20.0978 12.4203 19.9234C12.5947 19.749 12.8018 19.6107 13.0297 19.5163C13.2575 19.4219 13.5018 19.3733 13.7484 19.3733C13.9951 19.3733 14.2393 19.4219 14.4672 19.5163C14.6951 19.6107 14.9022 19.749 15.0766 19.9234L17.5 22.3438L24.9234 14.9188C25.0979 14.7447 25.3049 14.6068 25.5327 14.5128C25.7605 14.4189 26.0046 14.3707 26.251 14.3712C26.4974 14.3716 26.7413 14.4206 26.9687 14.5154C27.1962 14.6101 27.4027 14.7488 27.5766 14.9234ZM36.875 20C36.875 23.3376 35.8853 26.6002 34.0311 29.3752C32.1768 32.1503 29.5413 34.3132 26.4578 35.5905C23.3743 36.8677 19.9813 37.2019 16.7079 36.5508C13.4344 35.8996 10.4276 34.2924 8.06758 31.9324C5.70757 29.5724 4.10038 26.5656 3.44926 23.2921C2.79813 20.0187 3.13231 16.6257 4.40954 13.5422C5.68677 10.4587 7.84968 7.8232 10.6248 5.96895C13.3998 4.1147 16.6624 3.125 20 3.125C24.474 3.12996 28.7634 4.90945 31.927 8.07305C35.0906 11.2367 36.87 15.526 36.875 20ZM33.125 20C33.125 17.4041 32.3552 14.8665 30.913 12.7081C29.4709 10.5497 27.421 8.86748 25.0227 7.87408C22.6244 6.88068 19.9854 6.62076 17.4394 7.12719C14.8934 7.63362 12.5548 8.88366 10.7192 10.7192C8.88367 12.5548 7.63363 14.8934 7.1272 17.4394C6.62077 19.9854 6.88069 22.6244 7.87409 25.0227C8.86749 27.421 10.5498 29.4708 12.7081 30.913C14.8665 32.3552 17.4041 33.125 20 33.125C23.4798 33.1213 26.8161 31.7373 29.2767 29.2767C31.7373 26.8161 33.1213 23.4798 33.125 20Z"
+                    fill="#008817"
                   />
-                  <g
-                    className="lines"
-                  >
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="16.3"
-                      y2="16.3"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="31.8"
-                      y2="31.8"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="47.2"
-                      y2="47.2"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="62.6"
-                      y2="62.6"
-                    />
-                    <line
-                      x1="77"
-                      x2="132"
-                      y1="78"
-                      y2="78"
-                    />
-                  </g>
-                  <g
-                    className="birth"
-                    transform="translate(-80 -31) scale(1.1 1.1)"
-                  >
-                    <path
-                      d="M120.1 91c-.3-1.8-1-3.5-1.7-5.3-.3-.7-.6-1.4-1.1-2-.4-.5-.8-.9-1.2-1.4-4.1-4.7-5-12.8-.7-17.7 1.7-2 1.6-7.2 0-9.2-.8-1-2-1.6-3.2-2.1-4.1-1.5-8.9-1.3-12.9.6-2.5 1.2-3.7 2.7-4 5.4-1.5 13.1 5.3 41.4 17.6 41.4 3 0 5.4-2.2 6.5-4.9.8-1.6.9-3.2.7-4.8z"
-                      fill="currentColor"
-                    />
-                    <ellipse
-                      cx="118.2"
-                      cy="48"
-                      fill="currentColor"
-                      rx="3.2"
-                      ry="4.4"
-                      transform="rotate(34.386 118.151 48.032)"
-                    />
-                    <ellipse
-                      cx="111"
-                      cy="46.6"
-                      fill="currentColor"
-                      rx="2.1"
-                      ry="2.8"
-                      transform="rotate(19.881 111.01 46.555)"
-                    />
-                    <ellipse
-                      cx="105.3"
-                      cy="46.5"
-                      fill="currentColor"
-                      rx="2.1"
-                      ry="2.8"
-                      transform="rotate(8.583 105.263 46.468)"
-                    />
-                    <ellipse
-                      cx="99.5"
-                      cy="47.9"
-                      fill="currentColor"
-                      rx="2.1"
-                      ry="2.8"
-                      transform="rotate(-13.639 99.556 47.887)"
-                    />
-                    <ellipse
-                      cx="94.9"
-                      cy="51.9"
-                      fill="currentColor"
-                      rx="1.9"
-                      ry="2.6"
-                      transform="rotate(-22.382 94.858 51.887)"
-                    />
-                  </g>
                 </svg>
               </div>
-            </div>
-            <div
-              className="g--8"
-            >
-              <h2
-                className="h3 tt-u"
+              <div
+                className="header"
               >
-                Thank you
-              </h2>
-              <p
-                className="t--info"
-                style={
-                  Object {
-                    "fontStyle": "normal",
-                  }
-                }
-              >
-                We received your request and sent an email confirmation to:
-                 
-                <strong>
+                <label>
+                  We Received Your Order
+                </label>
+                <p>
+                  A copy of your receipt has been sent to 
                   me@email.com
-                </strong>
-              </p>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="emotion-6"
+          >
+            <div
+              className="body"
+            >
               <p
                 className="t--info"
                 style={
@@ -18591,10 +18500,17 @@ Array [
                 }
               >
                 <strong>
-                  Please allow 2–3 business days for us to process your order.
+                  Please allow 2-3 business days for us to process your order.
                 </strong>
                  
                 Your order will be shipped via U.S. Postal Service to the shipping address you provided.
+              </p>
+              <p>
+                If you paid for 
+                <strong>
+                  USPS Tracking®
+                </strong>
+                 services, a Registry Clerk will follow up via email with your shipment's tracking number.
               </p>
               <p
                 className="t--info"
@@ -18827,33 +18743,75 @@ Array [
   font-style: italic;
 }
 
-@media screen and (max-width:840px) {
-  .emotion-5 {
-    display: none;
-  }
-}
-
-.emotion-4 {
-  fill: #fff;
+.emotion-5 .banner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   color: #091f2f;
-  stroke: currentColor;
-  stroke-width: 3;
+  padding: 24px 32px 10px;
+  background: rgba(0,136,23,0.25);
+  margin-bottom: 1.25rem;
+  -webkit-align-items: top;
+  -webkit-box-align: top;
+  -ms-flex-align: top;
+  align-items: top;
 }
 
-.emotion-4 .frame {
-  stroke-width: 3.5;
+.emotion-5 .banner svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .lines {
-  stroke-width: 3.75;
+.emotion-5 .banner label {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.emotion-4 .birth {
-  stroke: none;
+.emotion-4 svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .marriage {
-  stroke: none;
+.emotion-6 .body {
+  color: #091f2f;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0px 24px 24px;
+  background: #fff;
+  border: 1px solid #d2d2d2;
+}
+
+.emotion-6 .body a {
+  line-height: normal;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: -4px;
+  text-underline-position: from-font;
+}
+
+.emotion-6 .body a.print {
+  color: #1871bd;
+  font-style: 700;
+  font-weight: 600;
+}
+
+.emotion-6 .body a.print:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-2 {
@@ -19075,111 +19033,45 @@ Array [
           className="b-c"
         >
           <div
-            className="g"
+            className="emotion-5"
           >
             <div
-              className="g--4 m-b500 emotion-5"
+              className="banner"
             >
               <div
-                className="m-h100"
+                className="emotion-4"
               >
                 <svg
-                  aria-hidden="true"
-                  className="emotion-4"
-                  focusable="false"
-                  overflow="visible"
-                  viewBox="0 0 147 97"
+                  fill="none"
+                  viewBox="0 0 40 40"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    viewBox="0 0 276 137"
-                  >
-                    <g
-                      className="marriage"
-                      overflow="visible"
-                      transform="translate(-80 -55) scale(1.7 1.7)"
-                    >
-                      <path
-                        d="M128 109.1c-17.1 0-31-13.9-31-31s13.9-31 31-31 31 13.9 31 31c0 8.5-3.4 16.5-9.6 22.4-.6.6-1.5.6-2.1 0-.6-.6-.6-1.5 0-2.1 5.6-5.3 8.6-12.5 8.6-20.2 0-15.5-12.6-28-28-28s-28 12.6-28 28 12.6 28 28 28c4.9 0 9.7-1.3 14-3.7.7-.4 1.6-.2 2 .5.4.7.2 1.6-.5 2-4.6 2.7-9.9 4.1-15.4 4.1zm0-6.1c-13.7 0-24.9-11.2-24.9-24.9s11.2-24.9 24.9-24.9 24.9 11.2 24.9 24.9c0 7.3-3.2 14.3-8.8 19-.6.5-1.6.5-2.1-.2-.5-.6-.5-1.6.2-2.1 4.9-4.2 7.8-10.3 7.8-16.7 0-12.1-9.8-21.9-21.9-21.9s-21.9 9.8-21.9 21.9c0 12.1 9.8 21.9 21.9 21.9 3 0 5.9-.6 8.6-1.8.8-.3 1.6 0 2 .8.3.8 0 1.6-.8 2-3.1 1.3-6.4 2-9.9 2z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M85.2 63.6c47.2 4.1 112.9 0 115 0 2.9 0 5.2 5.7 5.2 12.8 0 7.1-2.3 12.8-5.2 12.8-1.5 0-62.6-3.7-115 0"
-                      />
-                      <path
-                        d="M85.2 90.7c-.8 0-1.4-.6-1.5-1.4-.1-.8.6-1.5 1.4-1.6 30.5-2.2 70.7-2.2 113.1-.1 1.2.1 1.9.1 2.1.1 1.5 0 3.7-4.5 3.7-11.3s-2.2-11.3-3.7-11.3c-.2 0-1.5.1-3 .1-58 2.9-93 1.5-112.1-.1-.8-.1-1.4-.8-1.4-1.6.1-.8.8-1.4 1.6-1.4 19 1.6 53.8 3 111.7.1 2.1-.1 2.9-.1 3.2-.1 4.4 0 6.7 7.2 6.7 14.3s-2.3 14.3-6.7 14.3c-.2 0-.9 0-2.2-.1-42.3-2.1-82.3-2.1-112.7.1h-.2z"
-                        fill="currentColor"
-                      />
-                      <circle
-                        cx="134.7"
-                        cy="65.4"
-                        r="3.2"
-                      />
-                      <circle
-                        cx="133.9"
-                        cy="87.2"
-                        r="3.2"
-                      />
-                      <path
-                        d="M157.9 109.1c-17.1 0-31-13.9-31-31 0-8.3 3.2-16.1 9.1-21.9.6-.6 1.5-.6 2.1 0s.6 1.5 0 2.1c-5.3 5.3-8.2 12.3-8.2 19.8 0 15.5 12.6 28 28 28s28-12.6 28-28-12.6-28-28-28c-4.8 0-9.5 1.2-13.6 3.5-.7.4-1.6.1-2-.6-.4-.7-.1-1.6.6-2 4.6-2.6 9.8-3.9 15.1-3.9 17.1 0 31 13.9 31 31s-14 31-31.1 31zm0-6.1c-13.7 0-24.9-11.2-24.9-24.9 0-7.4 3.3-14.4 9-19.1.6-.5 1.6-.4 2.1.2.5.6.4 1.6-.2 2.1-5 4.2-7.9 10.3-7.9 16.8 0 12.1 9.8 21.9 21.9 21.9s21.9-9.8 21.9-21.9c0-12.1-9.8-21.9-21.9-21.9-3 0-6 .6-8.7 1.8-.8.3-1.6 0-2-.8-.3-.8 0-1.6.8-2 3.1-1.4 6.5-2.1 9.9-2.1 13.7 0 24.9 11.2 24.9 24.9 0 13.8-11.2 25-24.9 25z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M133.3 50h-10.5l-8.5-13.5 7.1-8.7h13.3l7.1 8.7-8.5 13.5zm-8.8-3h7.2l6.5-10.2-4.8-5.9h-10.5l-4.8 5.9 6.4 10.2z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M85.2 90.7c-4.4 0-6.7-7.2-6.7-14.3s2.3-14.3 6.7-14.3 6.7 7.2 6.7 14.3-2.3 14.3-6.7 14.3zm0-25.6c-1.5 0-3.7 4.5-3.7 11.3s2.2 11.3 3.7 11.3 3.7-4.5 3.7-11.3-2.2-11.3-3.7-11.3z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M164.6 50h-10.5l-8.5-13.5 7.1-8.7H166l7.1 8.7-8.5 13.5zm-8.8-3h7.2l6.5-10.2-4.8-5.9h-10.5l-4.8 5.9 6.4 10.2zm-15.9-8.8h-23.8c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h23.8c.8 0 1.5.7 1.5 1.5s-.6 1.5-1.5 1.5z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M171.3 38.2h-23.8c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h23.8c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M87 88.2c2.7-2.9 4.1-19.5.1-18.4-4.1 1.1-1.2 10.6-1.2 10.6"
-                      />
-                      <path
-                        d="M175 65.9l15.6-.7-1 22.3-13.6-.6z"
-                        fill="#fff"
-                        stroke="#fff"
-                        transform="scale(1 0.85) translate(0, 13.5)"
-                      />
-                      <path
-                        d="M87 89.7c-.4 0-.7-.1-1-.4-.6-.6-.6-1.5-.1-2.1 1.2-1.3 2.5-7.8 2.1-12.7-.1-2-.5-3-.7-3.3-.2.1-.4.2-.5.5-.9 1.7-.2 5.9.5 8.2.2.8-.2 1.6-1 1.9-.8.2-1.6-.2-1.9-1-.2-.7-2.1-7.2-.2-10.5.6-1 1.4-1.7 2.5-2 1.3-.4 2.5.2 3.3 1.4 2.4 4 .8 16.7-1.8 19.5-.4.4-.8.5-1.2.5z"
-                        fill="currentColor"
-                      />
-                    </g>
-                  </svg>
+                  <path
+                    d="M27.5766 14.9234C27.7514 15.0976 27.8901 15.3046 27.9847 15.5325C28.0793 15.7604 28.128 16.0048 28.128 16.2516C28.128 16.4983 28.0793 16.7427 27.9847 16.9706C27.8901 17.1985 27.7514 17.4055 27.5766 17.5797L18.8266 26.3297C18.6524 26.5045 18.4454 26.6432 18.2175 26.7378C17.9896 26.8325 17.7452 26.8812 17.4984 26.8812C17.2517 26.8812 17.0073 26.8325 16.7794 26.7378C16.5515 26.6432 16.3445 26.5045 16.1703 26.3297L12.4203 22.5797C12.2459 22.4053 12.1076 22.1982 12.0132 21.9703C11.9188 21.7425 11.8702 21.4982 11.8702 21.2516C11.8702 21.0049 11.9188 20.7607 12.0132 20.5328C12.1076 20.3049 12.2459 20.0978 12.4203 19.9234C12.5947 19.749 12.8018 19.6107 13.0297 19.5163C13.2575 19.4219 13.5018 19.3733 13.7484 19.3733C13.9951 19.3733 14.2393 19.4219 14.4672 19.5163C14.6951 19.6107 14.9022 19.749 15.0766 19.9234L17.5 22.3438L24.9234 14.9188C25.0979 14.7447 25.3049 14.6068 25.5327 14.5128C25.7605 14.4189 26.0046 14.3707 26.251 14.3712C26.4974 14.3716 26.7413 14.4206 26.9687 14.5154C27.1962 14.6101 27.4027 14.7488 27.5766 14.9234ZM36.875 20C36.875 23.3376 35.8853 26.6002 34.0311 29.3752C32.1768 32.1503 29.5413 34.3132 26.4578 35.5905C23.3743 36.8677 19.9813 37.2019 16.7079 36.5508C13.4344 35.8996 10.4276 34.2924 8.06758 31.9324C5.70757 29.5724 4.10038 26.5656 3.44926 23.2921C2.79813 20.0187 3.13231 16.6257 4.40954 13.5422C5.68677 10.4587 7.84968 7.8232 10.6248 5.96895C13.3998 4.1147 16.6624 3.125 20 3.125C24.474 3.12996 28.7634 4.90945 31.927 8.07305C35.0906 11.2367 36.87 15.526 36.875 20ZM33.125 20C33.125 17.4041 32.3552 14.8665 30.913 12.7081C29.4709 10.5497 27.421 8.86748 25.0227 7.87408C22.6244 6.88068 19.9854 6.62076 17.4394 7.12719C14.8934 7.63362 12.5548 8.88366 10.7192 10.7192C8.88367 12.5548 7.63363 14.8934 7.1272 17.4394C6.62077 19.9854 6.88069 22.6244 7.87409 25.0227C8.86749 27.421 10.5498 29.4708 12.7081 30.913C14.8665 32.3552 17.4041 33.125 20 33.125C23.4798 33.1213 26.8161 31.7373 29.2767 29.2767C31.7373 26.8161 33.1213 23.4798 33.125 20Z"
+                    fill="#008817"
+                  />
                 </svg>
               </div>
-            </div>
-            <div
-              className="g--8"
-            >
-              <h2
-                className="h3 tt-u"
+              <div
+                className="header"
               >
-                Thank you
-              </h2>
-              <p
-                className="t--info"
-                style={
-                  Object {
-                    "fontStyle": "normal",
-                  }
-                }
-              >
-                We received your request and sent an email confirmation to:
-                 
-                <strong>
+                <label>
+                  We Received Your Order
+                </label>
+                <p>
+                  A copy of your receipt has been sent to 
                   me@email.com
-                </strong>
-              </p>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="emotion-6"
+          >
+            <div
+              className="body"
+            >
               <p
                 className="t--info"
                 style={
@@ -19203,10 +19095,17 @@ Array [
                 }
               >
                 <strong>
-                  Please allow 2–3 business days for us to process your order.
+                  Please allow 2-3 business days for us to process your order.
                 </strong>
                  
                 Your order will be shipped via U.S. Postal Service to the shipping address you provided.
+              </p>
+              <p>
+                If you paid for 
+                <strong>
+                  USPS Tracking®
+                </strong>
+                 services, a Registry Clerk will follow up via email with your shipment's tracking number.
               </p>
               <p
                 className="t--info"
@@ -27803,7 +27702,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__1"
+                                  id="quantityDropDown__key__4730"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}
@@ -32883,7 +32782,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__1"
+                                  id="quantityDropDown__key__5624"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}
@@ -44629,7 +44528,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__1"
+                id="quantityDropDown__key__3731"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -45269,7 +45168,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__1"
+                id="quantityDropDown__key__4702"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -45809,7 +45708,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__1"
+                        id="quantityDropDown__key__4702"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -47331,7 +47230,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__1"
+                        id="quantityDropDown__key__3693"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -53695,7 +53594,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__1"
+                      id="quantityDropDown__key__8787"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -54335,7 +54234,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__1"
+                      id="quantityDropDown__key__9071"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -64718,6 +64617,77 @@ Array [
   color: #d22d23;
 }
 
+.emotion-6 .banner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #091f2f;
+  padding: 24px 32px 10px;
+  background: rgba(0,136,23,0.25);
+  margin-bottom: 1.25rem;
+  -webkit-align-items: top;
+  -webkit-box-align: top;
+  -ms-flex-align: top;
+  align-items: top;
+}
+
+.emotion-6 .banner svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.emotion-6 .banner label {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.emotion-5 svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.emotion-7 .body {
+  color: #091f2f;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0px 24px 24px;
+  background: #fff;
+  border: 1px solid #d2d2d2;
+}
+
+.emotion-7 .body a {
+  line-height: normal;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: -4px;
+  text-underline-position: from-font;
+}
+
+.emotion-7 .body a.print {
+  color: #1871bd;
+  font-style: 700;
+  font-weight: 600;
+}
+
+.emotion-7 .body a.print:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -64761,72 +64731,6 @@ Array [
   height: 0;
   left: -20px;
   top: 12px;
-}
-
-.emotion-5 .banner {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  color: #091f2f;
-  padding: 24px 32px 10px;
-  background: rgba(0,136,23,0.25);
-  border: 1px dotted #008817;
-  margin-bottom: 1.25rem;
-  -webkit-align-items: top;
-  -webkit-box-align: top;
-  -ms-flex-align: top;
-  align-items: top;
-}
-
-.emotion-5 .banner svg {
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
-}
-
-.emotion-5 .banner label {
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.emotion-5 .body {
-  color: #091f2f;
-  font-family: Lora;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding: 0px 24px 24px;
-  background: #fff;
-  border: 1px solid #d2d2d2;
-}
-
-.emotion-5 .body a {
-  line-height: normal;
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
-  -webkit-text-decoration-style: solid;
-  text-decoration-style: solid;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-  -webkit-text-decoration-thickness: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: -4px;
-  text-underline-position: from-font;
-}
-
-.emotion-5 .body a.print {
-  color: #1871bd;
-  font-style: 700;
-  font-weight: 600;
-}
-
-.emotion-5 .body a.print:hover {
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 <div
@@ -65023,21 +64927,25 @@ Array [
           className="b-c"
         >
           <div
-            className="emotion-5"
+            className="emotion-6"
           >
             <div
               className="banner"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 40 40"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                className="emotion-5"
               >
-                <path
-                  d="M27.5766 14.9234C27.7514 15.0976 27.8901 15.3046 27.9847 15.5325C28.0793 15.7604 28.128 16.0048 28.128 16.2516C28.128 16.4983 28.0793 16.7427 27.9847 16.9706C27.8901 17.1985 27.7514 17.4055 27.5766 17.5797L18.8266 26.3297C18.6524 26.5045 18.4454 26.6432 18.2175 26.7378C17.9896 26.8325 17.7452 26.8812 17.4984 26.8812C17.2517 26.8812 17.0073 26.8325 16.7794 26.7378C16.5515 26.6432 16.3445 26.5045 16.1703 26.3297L12.4203 22.5797C12.2459 22.4053 12.1076 22.1982 12.0132 21.9703C11.9188 21.7425 11.8702 21.4982 11.8702 21.2516C11.8702 21.0049 11.9188 20.7607 12.0132 20.5328C12.1076 20.3049 12.2459 20.0978 12.4203 19.9234C12.5947 19.749 12.8018 19.6107 13.0297 19.5163C13.2575 19.4219 13.5018 19.3733 13.7484 19.3733C13.9951 19.3733 14.2393 19.4219 14.4672 19.5163C14.6951 19.6107 14.9022 19.749 15.0766 19.9234L17.5 22.3438L24.9234 14.9188C25.0979 14.7447 25.3049 14.6068 25.5327 14.5128C25.7605 14.4189 26.0046 14.3707 26.251 14.3712C26.4974 14.3716 26.7413 14.4206 26.9687 14.5154C27.1962 14.6101 27.4027 14.7488 27.5766 14.9234ZM36.875 20C36.875 23.3376 35.8853 26.6002 34.0311 29.3752C32.1768 32.1503 29.5413 34.3132 26.4578 35.5905C23.3743 36.8677 19.9813 37.2019 16.7079 36.5508C13.4344 35.8996 10.4276 34.2924 8.06758 31.9324C5.70757 29.5724 4.10038 26.5656 3.44926 23.2921C2.79813 20.0187 3.13231 16.6257 4.40954 13.5422C5.68677 10.4587 7.84968 7.8232 10.6248 5.96895C13.3998 4.1147 16.6624 3.125 20 3.125C24.474 3.12996 28.7634 4.90945 31.927 8.07305C35.0906 11.2367 36.87 15.526 36.875 20ZM33.125 20C33.125 17.4041 32.3552 14.8665 30.913 12.7081C29.4709 10.5497 27.421 8.86748 25.0227 7.87408C22.6244 6.88068 19.9854 6.62076 17.4394 7.12719C14.8934 7.63362 12.5548 8.88366 10.7192 10.7192C8.88367 12.5548 7.63363 14.8934 7.1272 17.4394C6.62077 19.9854 6.88069 22.6244 7.87409 25.0227C8.86749 27.421 10.5498 29.4708 12.7081 30.913C14.8665 32.3552 17.4041 33.125 20 33.125C23.4798 33.1213 26.8161 31.7373 29.2767 29.2767C31.7373 26.8161 33.1213 23.4798 33.125 20Z"
-                  fill="#008817"
-                />
-              </svg>
+                <svg
+                  fill="none"
+                  viewBox="0 0 40 40"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M27.5766 14.9234C27.7514 15.0976 27.8901 15.3046 27.9847 15.5325C28.0793 15.7604 28.128 16.0048 28.128 16.2516C28.128 16.4983 28.0793 16.7427 27.9847 16.9706C27.8901 17.1985 27.7514 17.4055 27.5766 17.5797L18.8266 26.3297C18.6524 26.5045 18.4454 26.6432 18.2175 26.7378C17.9896 26.8325 17.7452 26.8812 17.4984 26.8812C17.2517 26.8812 17.0073 26.8325 16.7794 26.7378C16.5515 26.6432 16.3445 26.5045 16.1703 26.3297L12.4203 22.5797C12.2459 22.4053 12.1076 22.1982 12.0132 21.9703C11.9188 21.7425 11.8702 21.4982 11.8702 21.2516C11.8702 21.0049 11.9188 20.7607 12.0132 20.5328C12.1076 20.3049 12.2459 20.0978 12.4203 19.9234C12.5947 19.749 12.8018 19.6107 13.0297 19.5163C13.2575 19.4219 13.5018 19.3733 13.7484 19.3733C13.9951 19.3733 14.2393 19.4219 14.4672 19.5163C14.6951 19.6107 14.9022 19.749 15.0766 19.9234L17.5 22.3438L24.9234 14.9188C25.0979 14.7447 25.3049 14.6068 25.5327 14.5128C25.7605 14.4189 26.0046 14.3707 26.251 14.3712C26.4974 14.3716 26.7413 14.4206 26.9687 14.5154C27.1962 14.6101 27.4027 14.7488 27.5766 14.9234ZM36.875 20C36.875 23.3376 35.8853 26.6002 34.0311 29.3752C32.1768 32.1503 29.5413 34.3132 26.4578 35.5905C23.3743 36.8677 19.9813 37.2019 16.7079 36.5508C13.4344 35.8996 10.4276 34.2924 8.06758 31.9324C5.70757 29.5724 4.10038 26.5656 3.44926 23.2921C2.79813 20.0187 3.13231 16.6257 4.40954 13.5422C5.68677 10.4587 7.84968 7.8232 10.6248 5.96895C13.3998 4.1147 16.6624 3.125 20 3.125C24.474 3.12996 28.7634 4.90945 31.927 8.07305C35.0906 11.2367 36.87 15.526 36.875 20ZM33.125 20C33.125 17.4041 32.3552 14.8665 30.913 12.7081C29.4709 10.5497 27.421 8.86748 25.0227 7.87408C22.6244 6.88068 19.9854 6.62076 17.4394 7.12719C14.8934 7.63362 12.5548 8.88366 10.7192 10.7192C8.88367 12.5548 7.63363 14.8934 7.1272 17.4394C6.62077 19.9854 6.88069 22.6244 7.87409 25.0227C8.86749 27.421 10.5498 29.4708 12.7081 30.913C14.8665 32.3552 17.4041 33.125 20 33.125C23.4798 33.1213 26.8161 31.7373 29.2767 29.2767C31.7373 26.8161 33.1213 23.4798 33.125 20Z"
+                    fill="#008817"
+                  />
+                </svg>
+              </div>
               <div
                 className="header"
               >
@@ -65051,6 +64959,10 @@ Array [
                 </p>
               </div>
             </div>
+          </div>
+          <div
+            className="emotion-7"
+          >
             <div
               className="body"
             >
@@ -65063,7 +64975,7 @@ Array [
                 .
               </p>
               <p>
-                We will mail out your order in 1–2 business days via the U.S. Postal Service.
+                We will mail out your order in 1- business days via the U.S. Postal Service.
               </p>
               <p>
                 If you paid for 
@@ -65076,11 +64988,11 @@ Array [
                 Have any questions? Email the Registry Department at
                  
                 <a
-                  href="mailto:birth@boston.gov"
+                  href="mailto:death@boston.gov"
                   onClick={[Function]}
                   onMouseEnter={[Function]}
                 >
-                  birth@boston.gov
+                  death@boston.gov
                 </a>
                 .
               </p>
@@ -101631,33 +101543,75 @@ Array [
   font-style: italic;
 }
 
-@media screen and (max-width:840px) {
-  .emotion-5 {
-    display: none;
-  }
-}
-
-.emotion-4 {
-  fill: #fff;
+.emotion-5 .banner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   color: #091f2f;
-  stroke: currentColor;
-  stroke-width: 3;
+  padding: 24px 32px 10px;
+  background: rgba(0,136,23,0.25);
+  margin-bottom: 1.25rem;
+  -webkit-align-items: top;
+  -webkit-box-align: top;
+  -ms-flex-align: top;
+  align-items: top;
 }
 
-.emotion-4 .frame {
-  stroke-width: 3.5;
+.emotion-5 .banner svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .lines {
-  stroke-width: 3.75;
+.emotion-5 .banner label {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.emotion-4 .birth {
-  stroke: none;
+.emotion-4 svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
 }
 
-.emotion-4 .marriage {
-  stroke: none;
+.emotion-6 .body {
+  color: #091f2f;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0px 24px 24px;
+  background: #fff;
+  border: 1px solid #d2d2d2;
+}
+
+.emotion-6 .body a {
+  line-height: normal;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: -4px;
+  text-underline-position: from-font;
+}
+
+.emotion-6 .body a.print {
+  color: #1871bd;
+  font-style: 700;
+  font-weight: 600;
+}
+
+.emotion-6 .body a.print:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-2 {
@@ -101879,111 +101833,45 @@ Array [
           className="b-c"
         >
           <div
-            className="g"
+            className="emotion-5"
           >
             <div
-              className="g--4 m-b500 emotion-5"
+              className="banner"
             >
               <div
-                className="m-h100"
+                className="emotion-4"
               >
                 <svg
-                  aria-hidden="true"
-                  className="emotion-4"
-                  focusable="false"
-                  overflow="visible"
-                  viewBox="0 0 147 97"
+                  fill="none"
+                  viewBox="0 0 40 40"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    viewBox="0 0 276 137"
-                  >
-                    <g
-                      className="marriage"
-                      overflow="visible"
-                      transform="translate(-80 -55) scale(1.7 1.7)"
-                    >
-                      <path
-                        d="M128 109.1c-17.1 0-31-13.9-31-31s13.9-31 31-31 31 13.9 31 31c0 8.5-3.4 16.5-9.6 22.4-.6.6-1.5.6-2.1 0-.6-.6-.6-1.5 0-2.1 5.6-5.3 8.6-12.5 8.6-20.2 0-15.5-12.6-28-28-28s-28 12.6-28 28 12.6 28 28 28c4.9 0 9.7-1.3 14-3.7.7-.4 1.6-.2 2 .5.4.7.2 1.6-.5 2-4.6 2.7-9.9 4.1-15.4 4.1zm0-6.1c-13.7 0-24.9-11.2-24.9-24.9s11.2-24.9 24.9-24.9 24.9 11.2 24.9 24.9c0 7.3-3.2 14.3-8.8 19-.6.5-1.6.5-2.1-.2-.5-.6-.5-1.6.2-2.1 4.9-4.2 7.8-10.3 7.8-16.7 0-12.1-9.8-21.9-21.9-21.9s-21.9 9.8-21.9 21.9c0 12.1 9.8 21.9 21.9 21.9 3 0 5.9-.6 8.6-1.8.8-.3 1.6 0 2 .8.3.8 0 1.6-.8 2-3.1 1.3-6.4 2-9.9 2z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M85.2 63.6c47.2 4.1 112.9 0 115 0 2.9 0 5.2 5.7 5.2 12.8 0 7.1-2.3 12.8-5.2 12.8-1.5 0-62.6-3.7-115 0"
-                      />
-                      <path
-                        d="M85.2 90.7c-.8 0-1.4-.6-1.5-1.4-.1-.8.6-1.5 1.4-1.6 30.5-2.2 70.7-2.2 113.1-.1 1.2.1 1.9.1 2.1.1 1.5 0 3.7-4.5 3.7-11.3s-2.2-11.3-3.7-11.3c-.2 0-1.5.1-3 .1-58 2.9-93 1.5-112.1-.1-.8-.1-1.4-.8-1.4-1.6.1-.8.8-1.4 1.6-1.4 19 1.6 53.8 3 111.7.1 2.1-.1 2.9-.1 3.2-.1 4.4 0 6.7 7.2 6.7 14.3s-2.3 14.3-6.7 14.3c-.2 0-.9 0-2.2-.1-42.3-2.1-82.3-2.1-112.7.1h-.2z"
-                        fill="currentColor"
-                      />
-                      <circle
-                        cx="134.7"
-                        cy="65.4"
-                        r="3.2"
-                      />
-                      <circle
-                        cx="133.9"
-                        cy="87.2"
-                        r="3.2"
-                      />
-                      <path
-                        d="M157.9 109.1c-17.1 0-31-13.9-31-31 0-8.3 3.2-16.1 9.1-21.9.6-.6 1.5-.6 2.1 0s.6 1.5 0 2.1c-5.3 5.3-8.2 12.3-8.2 19.8 0 15.5 12.6 28 28 28s28-12.6 28-28-12.6-28-28-28c-4.8 0-9.5 1.2-13.6 3.5-.7.4-1.6.1-2-.6-.4-.7-.1-1.6.6-2 4.6-2.6 9.8-3.9 15.1-3.9 17.1 0 31 13.9 31 31s-14 31-31.1 31zm0-6.1c-13.7 0-24.9-11.2-24.9-24.9 0-7.4 3.3-14.4 9-19.1.6-.5 1.6-.4 2.1.2.5.6.4 1.6-.2 2.1-5 4.2-7.9 10.3-7.9 16.8 0 12.1 9.8 21.9 21.9 21.9s21.9-9.8 21.9-21.9c0-12.1-9.8-21.9-21.9-21.9-3 0-6 .6-8.7 1.8-.8.3-1.6 0-2-.8-.3-.8 0-1.6.8-2 3.1-1.4 6.5-2.1 9.9-2.1 13.7 0 24.9 11.2 24.9 24.9 0 13.8-11.2 25-24.9 25z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M133.3 50h-10.5l-8.5-13.5 7.1-8.7h13.3l7.1 8.7-8.5 13.5zm-8.8-3h7.2l6.5-10.2-4.8-5.9h-10.5l-4.8 5.9 6.4 10.2z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M85.2 90.7c-4.4 0-6.7-7.2-6.7-14.3s2.3-14.3 6.7-14.3 6.7 7.2 6.7 14.3-2.3 14.3-6.7 14.3zm0-25.6c-1.5 0-3.7 4.5-3.7 11.3s2.2 11.3 3.7 11.3 3.7-4.5 3.7-11.3-2.2-11.3-3.7-11.3z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M164.6 50h-10.5l-8.5-13.5 7.1-8.7H166l7.1 8.7-8.5 13.5zm-8.8-3h7.2l6.5-10.2-4.8-5.9h-10.5l-4.8 5.9 6.4 10.2zm-15.9-8.8h-23.8c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h23.8c.8 0 1.5.7 1.5 1.5s-.6 1.5-1.5 1.5z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M171.3 38.2h-23.8c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5h23.8c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5z"
-                        fill="currentColor"
-                      />
-                      <path
-                        d="M87 88.2c2.7-2.9 4.1-19.5.1-18.4-4.1 1.1-1.2 10.6-1.2 10.6"
-                      />
-                      <path
-                        d="M175 65.9l15.6-.7-1 22.3-13.6-.6z"
-                        fill="#fff"
-                        stroke="#fff"
-                        transform="scale(1 0.85) translate(0, 13.5)"
-                      />
-                      <path
-                        d="M87 89.7c-.4 0-.7-.1-1-.4-.6-.6-.6-1.5-.1-2.1 1.2-1.3 2.5-7.8 2.1-12.7-.1-2-.5-3-.7-3.3-.2.1-.4.2-.5.5-.9 1.7-.2 5.9.5 8.2.2.8-.2 1.6-1 1.9-.8.2-1.6-.2-1.9-1-.2-.7-2.1-7.2-.2-10.5.6-1 1.4-1.7 2.5-2 1.3-.4 2.5.2 3.3 1.4 2.4 4 .8 16.7-1.8 19.5-.4.4-.8.5-1.2.5z"
-                        fill="currentColor"
-                      />
-                    </g>
-                  </svg>
+                  <path
+                    d="M27.5766 14.9234C27.7514 15.0976 27.8901 15.3046 27.9847 15.5325C28.0793 15.7604 28.128 16.0048 28.128 16.2516C28.128 16.4983 28.0793 16.7427 27.9847 16.9706C27.8901 17.1985 27.7514 17.4055 27.5766 17.5797L18.8266 26.3297C18.6524 26.5045 18.4454 26.6432 18.2175 26.7378C17.9896 26.8325 17.7452 26.8812 17.4984 26.8812C17.2517 26.8812 17.0073 26.8325 16.7794 26.7378C16.5515 26.6432 16.3445 26.5045 16.1703 26.3297L12.4203 22.5797C12.2459 22.4053 12.1076 22.1982 12.0132 21.9703C11.9188 21.7425 11.8702 21.4982 11.8702 21.2516C11.8702 21.0049 11.9188 20.7607 12.0132 20.5328C12.1076 20.3049 12.2459 20.0978 12.4203 19.9234C12.5947 19.749 12.8018 19.6107 13.0297 19.5163C13.2575 19.4219 13.5018 19.3733 13.7484 19.3733C13.9951 19.3733 14.2393 19.4219 14.4672 19.5163C14.6951 19.6107 14.9022 19.749 15.0766 19.9234L17.5 22.3438L24.9234 14.9188C25.0979 14.7447 25.3049 14.6068 25.5327 14.5128C25.7605 14.4189 26.0046 14.3707 26.251 14.3712C26.4974 14.3716 26.7413 14.4206 26.9687 14.5154C27.1962 14.6101 27.4027 14.7488 27.5766 14.9234ZM36.875 20C36.875 23.3376 35.8853 26.6002 34.0311 29.3752C32.1768 32.1503 29.5413 34.3132 26.4578 35.5905C23.3743 36.8677 19.9813 37.2019 16.7079 36.5508C13.4344 35.8996 10.4276 34.2924 8.06758 31.9324C5.70757 29.5724 4.10038 26.5656 3.44926 23.2921C2.79813 20.0187 3.13231 16.6257 4.40954 13.5422C5.68677 10.4587 7.84968 7.8232 10.6248 5.96895C13.3998 4.1147 16.6624 3.125 20 3.125C24.474 3.12996 28.7634 4.90945 31.927 8.07305C35.0906 11.2367 36.87 15.526 36.875 20ZM33.125 20C33.125 17.4041 32.3552 14.8665 30.913 12.7081C29.4709 10.5497 27.421 8.86748 25.0227 7.87408C22.6244 6.88068 19.9854 6.62076 17.4394 7.12719C14.8934 7.63362 12.5548 8.88366 10.7192 10.7192C8.88367 12.5548 7.63363 14.8934 7.1272 17.4394C6.62077 19.9854 6.88069 22.6244 7.87409 25.0227C8.86749 27.421 10.5498 29.4708 12.7081 30.913C14.8665 32.3552 17.4041 33.125 20 33.125C23.4798 33.1213 26.8161 31.7373 29.2767 29.2767C31.7373 26.8161 33.1213 23.4798 33.125 20Z"
+                    fill="#008817"
+                  />
                 </svg>
               </div>
-            </div>
-            <div
-              className="g--8"
-            >
-              <h2
-                className="h3 tt-u"
+              <div
+                className="header"
               >
-                Thank you
-              </h2>
-              <p
-                className="t--info"
-                style={
-                  Object {
-                    "fontStyle": "normal",
-                  }
-                }
-              >
-                We received your request and sent an email confirmation to:
-                 
-                <strong>
+                <label>
+                  We Received Your Order
+                </label>
+                <p>
+                  A copy of your receipt has been sent to 
                   ttoe@squirrelzone.net
-                </strong>
-              </p>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="emotion-6"
+          >
+            <div
+              className="body"
+            >
               <p
                 className="t--info"
                 style={
@@ -102007,10 +101895,17 @@ Array [
                 }
               >
                 <strong>
-                  Please allow 2–3 business days for us to process your order.
+                  Please allow 2-3 business days for us to process your order.
                 </strong>
                  
                 Your order will be shipped via U.S. Postal Service to the shipping address you provided.
+              </p>
+              <p>
+                If you paid for 
+                <strong>
+                  USPS Tracking®
+                </strong>
+                 services, a Registry Clerk will follow up via email with your shipment's tracking number.
               </p>
               <p
                 className="t--info"
@@ -104179,7 +104074,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__1"
+                                  id="quantityDropDown__key__5913"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}

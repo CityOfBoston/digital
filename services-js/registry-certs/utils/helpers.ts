@@ -224,3 +224,11 @@ export const getAgeFromDate = (dateString: string): string => {
   }
   return `${age}`;
 };
+
+export const ReactKeyIndexStr = (opt: {
+  seedStr: string;
+  max: number;
+}): string => {
+  const { seedStr = 'elem-key', max = 100 } = opt;
+  return `${seedStr}__${Math.floor(Math.random() * max)}`;
+};

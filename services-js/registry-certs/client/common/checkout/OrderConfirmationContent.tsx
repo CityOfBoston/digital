@@ -1,15 +1,13 @@
-/** @jsx jsx */
-
-import { css, jsx } from '@emotion/core';
-
 import Link from 'next/link';
-
-import { MEDIA_LARGE_MAX } from '@cityofboston/react-fleet';
 
 import { CertificateType } from '../../types';
 
 import CheckoutPageLayout from './CheckoutPageLayout';
-import CertificateIcon from '../icons/CertificateIcon';
+
+import {
+  CONFIRMATION_BANNER__SUCCESS,
+  CONFIRMATION_RECEIPT_SUCCESS,
+} from '../components';
 
 type Props = {
   certificateType: CertificateType;
@@ -31,34 +29,29 @@ export default function OrderConfirmationContent({
 
   // Rendered as a footer so we can break the narrow default width
   const footer = (
-    <div className="b-c">
-      <div className="g">
-        <div className="g--4 m-b500" css={ICON_CELL_STYLE}>
-          <div className="m-h100">
-            {certificateType !== 'death' && (
-              <CertificateIcon name={certificateType} />
-            )}
-          </div>
-        </div>
+    <>
+      <div className="b-c">
+        <CONFIRMATION_BANNER__SUCCESS>
+          <label>We Received Your Order</label>
+          <p>A copy of your receipt has been sent to {contactEmail}.</p>
+        </CONFIRMATION_BANNER__SUCCESS>
 
-        <div className="g--8">
-          <h2 className="h3 tt-u">Thank you</h2>
-
-          <p className="t--info" style={{ fontStyle: 'normal' }}>
-            We received your request and sent an email confirmation to:{' '}
-            <strong>{contactEmail}</strong>
-          </p>
-
+        <CONFIRMATION_RECEIPT_SUCCESS>
           <p className="t--info" style={{ fontStyle: 'normal' }}>
             Your order number is <strong>#{orderId}</strong>
           </p>
 
           <p className="t--info" style={{ fontStyle: 'normal' }}>
             <strong>
-              Please allow 2–3 business days for us to process your order.
+              Please allow 2-3 business days for us to process your order.
             </strong>{' '}
             Your order will be shipped via U.S. Postal Service to the shipping
             address you provided.
+          </p>
+
+          <p>
+            If you paid for <strong>USPS Tracking®</strong> services, a Registry
+            Clerk will follow up via email with your shipment's tracking number.
           </p>
 
           <p className="t--info" style={{ fontStyle: 'normal' }}>
@@ -88,9 +81,9 @@ export default function OrderConfirmationContent({
             </Link>{' '}
             certificate.
           </p>
-        </div>
+        </CONFIRMATION_RECEIPT_SUCCESS>
       </div>
-    </div>
+    </>
   );
 
   window.scroll(0, 0);
@@ -107,9 +100,3 @@ export default function OrderConfirmationContent({
     />
   );
 }
-
-const ICON_CELL_STYLE = css({
-  [MEDIA_LARGE_MAX]: {
-    display: 'none',
-  },
-});
