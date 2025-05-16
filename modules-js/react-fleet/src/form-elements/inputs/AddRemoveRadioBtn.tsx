@@ -13,13 +13,21 @@ type Props = {
 };
 
 export default function AddRemoveRadioBtn(props: Props): JSX.Element {
-  const { name, id, labels, state, action, value, onClickHandler } = props;
+  const {
+    name,
+    id = 'id',
+    labels,
+    state,
+    action,
+    value,
+    onClickHandler,
+  } = props;
 
   const key = id || `id-${hash(id)}`;
   const elemName = name || `name-${hash(id)}`;
 
   return (
-    <div
+    <button
       css={ADDREMOVE_BTN}
       tabIndex={0}
       data-state={state}
@@ -35,7 +43,7 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
         />
         <input type="hidden" name={elemName} value={`${value}`} />
       </div>
-    </div>
+    </button>
   );
 }
 
@@ -47,6 +55,8 @@ const bg_size = `calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)`;
 
 const ADDREMOVE_BTN = css`
   display: flex;
+  border-color: transparent;
+  background: transparent;
 
   .wrapper {
     display: flex;
@@ -81,12 +91,12 @@ const ADDREMOVE_BTN = css`
     }
   }
 
-  &:active,
-  &:focus {
-    .wrapper {
-      border-color: #1871bd;
-    }
-  }
+  // &:active,
+  // &:focus {
+  //   .wrapper {
+  //     border-color: #1871bd;
+  //   }
+  // }
 
   &:focus:not(:focus-visible) {
     .wrapper {

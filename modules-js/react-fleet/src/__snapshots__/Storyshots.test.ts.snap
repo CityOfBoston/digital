@@ -455,6 +455,8 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  border-color: transparent;
+  background: transparent;
 }
 
 .emotion-0 .wrapper {
@@ -489,11 +491,6 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
 .emotion-0 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-}
-
-.emotion-0:active .wrapper,
-.emotion-0:focus .wrapper {
-  border-color: #1871bd;
 }
 
 .emotion-0:focus:not(:focus-visible) .wrapper {
@@ -542,7 +539,7 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
   <h4>
     State: Disabled
   </h4>
-  <div
+  <button
     className="emotion-0"
     data-action="add"
     data-state="disabled"
@@ -564,12 +561,12 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
         value="0"
       />
     </div>
-  </div>
+  </button>
   <br />
   <h4>
     State: Enabled (default)
   </h4>
-  <div
+  <button
     className="emotion-0"
     data-action="add"
     id="checkoutAddRemove"
@@ -590,12 +587,12 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
         value="0"
       />
     </div>
-  </div>
+  </button>
   <br />
   <h4>
     Action: Focused
   </h4>
-  <div
+  <button
     className="emotion-0"
     data-action="add"
     data-state="focused"
@@ -617,12 +614,12 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
         value="0"
       />
     </div>
-  </div>
+  </button>
   <br />
   <h4>
     Action: Remove
   </h4>
-  <div
+  <button
     className="emotion-0"
     data-action="remove"
     data-state="default"
@@ -644,7 +641,7 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
         value="1"
       />
     </div>
-  </div>
+  </button>
 </div>
 `;
 

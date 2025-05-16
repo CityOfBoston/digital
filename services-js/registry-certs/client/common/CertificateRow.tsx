@@ -330,7 +330,7 @@ function marriageRequestProps(request): CertificateProps {
 
 const CERTIFICATE_INFO_BOX_STYLE = css`
   // flex: 1;
-  background: orange;
+  // background: orange;
 
   .pending {
     color: ${CHARLES_BLUE};

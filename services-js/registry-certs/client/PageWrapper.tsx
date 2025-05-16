@@ -26,6 +26,7 @@ interface Props {
   mainHeadline?: string;
   offset?: number;
   progressNav?: ProgressNavProps;
+  noHeadline?: boolean;
 }
 
 /**
@@ -44,6 +45,7 @@ export default class PageWrapper extends Component<Props> {
       mainHeadline,
       offset,
       progressNav,
+      noHeadline = false,
     } = this.props;
     const sec2ndClassStr = footer ? 'b-c--nbp' : '';
     const classStr =
@@ -64,9 +66,11 @@ export default class PageWrapper extends Component<Props> {
     return (
       <PageLayout breadcrumbNav={BREADCRUMB_NAV_LINKS[certificateType]}>
         <div className={classStr} aria-live="polite">
-          <h1 className="sh-title" css={titleStyle(certificateType)}>
-            {$mainHeadline}
-          </h1>
+          {!noHeadline && (
+            <h1 className="sh-title" css={titleStyle(certificateType)}>
+              {$mainHeadline}
+            </h1>
+          )}
 
           {progress && <ProgressBar {...modProgress} />}
           {progressNav && <ProgressNav {...Object.assign({}, progressNav)} />}

@@ -79,7 +79,7 @@ export default class ReviewRequestPage extends Component<Props, State> {
   public render() {
     const { cardType, loading } = this.state;
     const { steps } = this.props.birthCertificateRequest;
-    const pageTitle = 'Review your record request';
+    const pageTitle = 'Review your request';
 
     const certMailHandler = () => {
       const { certMail } = this.state;
@@ -110,6 +110,7 @@ export default class ReviewRequestPage extends Component<Props, State> {
           currentStepCompleted: true,
         }}
         footer={<ServiceFeeDisclosure />}
+        noHeadline={true}
       >
         <Head>
           <title>Boston.gov — {pageTitle}</title>

@@ -76,47 +76,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-5 .banner {
+.emotion-3 .banner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -131,26 +91,26 @@ Array [
   align-items: top;
 }
 
-.emotion-5 .banner svg {
+.emotion-3 .banner svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-5 .banner label {
+.emotion-3 .banner label {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.emotion-4 svg {
+.emotion-2 svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-6 .body {
+.emotion-4 .body {
   color: #091f2f;
   font-family: Lora;
   font-size: 18px;
@@ -162,7 +122,7 @@ Array [
   border: 1px solid #d2d2d2;
 }
 
-.emotion-6 .body a {
+.emotion-4 .body a {
   line-height: normal;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
@@ -176,13 +136,13 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-6 .body a.print {
+.emotion-4 .body a.print {
   color: #1871bd;
   font-style: 700;
   font-weight: 600;
 }
 
-.emotion-6 .body a.print:hover {
+.emotion-4 .body a.print:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -364,30 +324,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 8"
-              max={8}
-              value={8}
-            >
-              Step 8 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           />
@@ -396,13 +332,13 @@ Array [
           className="b-c"
         >
           <div
-            className="emotion-5"
+            className="emotion-3"
           >
             <div
               className="banner"
             >
               <div
-                className="emotion-4"
+                className="emotion-2"
               >
                 <svg
                   fill="none"
@@ -430,7 +366,7 @@ Array [
             </div>
           </div>
           <div
-            className="emotion-6"
+            className="emotion-4"
           >
             <div
               className="body"
@@ -671,16 +607,6 @@ Array [
   color: #d22d23;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
 <div
     className="mn--full-ie"
   >
@@ -858,11 +784,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
           <section
             className="m-t500"
           >
@@ -1015,73 +936,33 @@ Array [
 }
 
 .emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1114,7 +995,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -1126,12 +1007,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -1140,18 +1021,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -1160,7 +1041,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -1170,42 +1051,42 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1222,7 +1103,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-4 .row label.header {
   display: inline-block;
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
@@ -1234,11 +1115,11 @@ Array [
   margin-bottom: 0.25rem;
 }
 
-.emotion-6 .row .info {
+.emotion-4 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-4 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -1252,7 +1133,7 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-4 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
@@ -1434,35 +1315,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={7}
-              aria-valuetext="Step 7 of 8"
-              max={8}
-              value={6}
-            >
-              Step 7 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 7 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Payment
             </h2>
@@ -1470,7 +1327,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -1494,7 +1351,7 @@ Array [
             </div>
             <form
               acceptCharset="UTF-8"
-              className="emotion-6"
+              className="emotion-4"
               method="post"
               onSubmit={[Function]}
             >
@@ -1823,66 +1680,26 @@ Array [
 }
 
 .emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-8 .t--info {
+.emotion-6 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -1891,13 +1708,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-8 .sh-title {
+.emotion-6 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-8 h1.summary {
+.emotion-6 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -1907,18 +1724,18 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .info-row {
+.emotion-6 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-8 .certRow {
+.emotion-6 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row {
+.emotion-6 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1935,7 +1752,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row label.header {
+.emotion-6 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -1945,11 +1762,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-8 .row .info {
+.emotion-6 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .row .btn {
+.emotion-6 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -1963,12 +1780,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-8 .row .btn:hover {
+.emotion-6 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-6 {
+.emotion-4 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -1986,15 +1803,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-6 .name-row {
+.emotion-4 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-6 .name-row label {
+.emotion-4 .name-row label {
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2010,32 +1827,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .col {
+.emotion-4 .row .col {
   background: transparent;
 }
 
-.emotion-6 label {
+.emotion-4 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-6 label span {
+.emotion-4 label span {
   font-weight: normal;
 }
 
-.emotion-6 .mobile__visible {
+.emotion-4 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-6 {
+  .emotion-4 {
     font-size: 16px;
   }
 
-  .emotion-6 .mobile,
-  .emotion-6 .mobile__visible {
+  .emotion-4 .mobile,
+  .emotion-4 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -2050,19 +1867,19 @@ Array [
     float: right;
   }
 
-  .emotion-6 .mobile {
+  .emotion-4 .mobile {
     display: none;
   }
 }
 
-.emotion-5 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-5 .quantity__main-wrapper {
+.emotion-3 .quantity__main-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2090,9 +1907,9 @@ Array [
   color: #091f2f;
 }
 
-.emotion-5 .quantity__main-wrapper input,
-.emotion-5 .quantity__main-wrapper select,
-.emotion-5 .quantity__main-wrapper option {
+.emotion-3 .quantity__main-wrapper input,
+.emotion-3 .quantity__main-wrapper select,
+.emotion-3 .quantity__main-wrapper option {
   font-family: Lora,Georgia,serif;
   font-weight: 400;
   font-size: 18px;
@@ -2104,14 +1921,14 @@ Array [
   text-align: center;
 }
 
-.emotion-5 .quantity__main-wrapper label {
+.emotion-3 .quantity__main-wrapper label {
   margin-right: 0.15rem;
   cursor: pointer;
   color: #091f2f;
   font-size: 18px;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper {
+.emotion-3 .quantity__main-wrapper .input_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2128,23 +1945,23 @@ Array [
   align-items: baseline;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text'] {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
   max-width: 40px;
   padding: 3px 2px 3px 2px;
   border: 1px solid transparent;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
   background: #C8C8C8;
   outline: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
   display: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
   width: 24px;
   height: 24px;
   background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
@@ -2153,7 +1970,7 @@ Array [
   background-size: 24px 24px;
 }
 
-.emotion-5 .quantity__main-wrapper select {
+.emotion-3 .quantity__main-wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -2166,19 +1983,19 @@ Array [
   background-size: 22px;
 }
 
-.emotion-5 .quantity__main-wrapper select option {
+.emotion-3 .quantity__main-wrapper select option {
   text-align: center;
 }
 
-.emotion-5 [data-type='select'] {
+.emotion-3 [data-type='select'] {
   border: 1px solid transparent;
 }
 
-.emotion-5 [data-type='input'] {
+.emotion-3 [data-type='input'] {
   border: 1px solid #091f2f;
 }
 
-.emotion-7 {
+.emotion-5 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -2189,7 +2006,7 @@ Array [
   width: 100%;
 }
 
-.emotion-7 h1 {
+.emotion-5 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -2197,11 +2014,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-7 span.bold {
+.emotion-5 span.bold {
   font-weight: 700;
 }
 
-.emotion-7 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2214,19 +2031,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-7 .row .col {
+.emotion-5 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-7 .row .col:nth-of-type(2) {
+.emotion-5 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-7 .row:nth-last-of-type(-n + 1) {
+.emotion-5 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -2237,7 +2054,7 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-7 .total-cost {
+  .emotion-5 .total-cost {
     font-size: 15px;
   }
 }
@@ -2419,40 +2236,16 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 8"
-              max={8}
-              value={7}
-            >
-              Step 8 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Review Order
             </h2>
             <div
-              className="emotion-8"
+              className="emotion-6"
             >
               <div
                 className="t--info m-v500"
@@ -2599,7 +2392,7 @@ Array [
                     <a
                       aria-label="Edit contact information"
                       className="btn"
-                      href="/death/cart"
+                      href="/birth/review"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                     >
@@ -2612,7 +2405,7 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-6"
+                      className="emotion-4"
                     >
                       <div
                         className="col"
@@ -2624,7 +2417,7 @@ Array [
                             className="col"
                           >
                             <div
-                              className="emotion-5"
+                              className="emotion-3"
                             >
                               <div
                                 className="quantity__main-wrapper"
@@ -2637,7 +2430,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__key__2033"
+                                  id="quantityDropDown__key__4289"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}
@@ -2745,7 +2538,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-7"
+                    className="emotion-5"
                   >
                     <div
                       className="row"
@@ -3039,16 +2832,6 @@ Array [
   color: #d22d23;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
 <div
     className="mn--full-ie"
   >
@@ -3226,11 +3009,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
           <section
             className="m-t500"
           />
@@ -3365,73 +3143,33 @@ Array [
 }
 
 .emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3464,7 +3202,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -3476,12 +3214,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -3490,18 +3228,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -3510,7 +3248,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -3520,36 +3258,36 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -3732,35 +3470,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={6}
-              aria-valuetext="Step 6 of 8"
-              max={8}
-              value={5}
-            >
-              Step 6 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 6 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Shipping
             </h2>
@@ -3768,7 +3482,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -3795,7 +3509,7 @@ Array [
               onSubmit={[Function]}
             >
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -3924,7 +3638,7 @@ Array [
                 </div>
               </fieldset>
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -4595,7 +4309,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston initial question 1`] 
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -5039,7 +4753,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston may not have record 1
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -5636,7 +5350,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston secondary question 1`
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -6213,7 +5927,7 @@ exports[`Storyshots Birth/Question Components/BornInBoston will not have record 
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -6810,7 +6524,7 @@ exports[`Storyshots Birth/Question Components/ClientInstructions default 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -6976,7 +6690,7 @@ exports[`Storyshots Birth/Question Components/ForWhom default 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -7353,7 +7067,7 @@ exports[`Storyshots Birth/Question Components/ForWhom someone else’s 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -8175,7 +7889,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -8906,7 +8620,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -9665,7 +9379,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -10422,7 +10136,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -10997,7 +10711,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -11535,7 +11249,7 @@ exports[`Storyshots Birth/Question Components/VerifyIdentification default 1`] =
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -12290,7 +12004,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -13046,7 +12760,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -13593,7 +13307,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -14418,7 +14132,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -15337,7 +15051,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -16449,7 +16163,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -17383,17 +17097,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
+.emotion-2 progress {
   margin: 1rem 0 0.25rem;
   width: 100%;
   height: 1rem;
@@ -17401,49 +17105,49 @@ Array [
   background-color: #fff;
 }
 
-.emotion-3 progress::-webkit-progress-bar {
+.emotion-2 progress::-webkit-progress-bar {
   background-color: #fff;
 }
 
-.emotion-3 progress::-webkit-progress-value {
+.emotion-2 progress::-webkit-progress-value {
   -webkit-transition: width 0.5s;
   transition: width 0.5s;
   background-color: #288be4;
 }
 
-.emotion-3 progress::-moz-progress-bar {
+.emotion-2 progress::-moz-progress-bar {
   background-color: #288be4;
 }
 
-.emotion-3 progress::-ms-fill {
+.emotion-2 progress::-ms-fill {
   background-color: #288be4;
 }
 
-.emotion-3 span {
+.emotion-2 span {
   font-style: italic;
 }
 
-.emotion-4 {
+.emotion-3 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-3.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-3.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-4 {
   font-weight: 700;
 }
 
@@ -17624,13 +17328,8 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
           <div
-            className="emotion-3"
+            className="emotion-2"
           >
             <progress
               aria-valuemax={8}
@@ -17652,9 +17351,9 @@ Array [
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-3"
             >
-              Review your record request
+              Review your request
             </h2>
           </section>
         </div>
@@ -17667,7 +17366,7 @@ Array [
           >
             * 
             <span
-              className="emotion-5"
+              className="emotion-4"
             >
               Note:
             </span>
@@ -18118,47 +17817,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-5 .banner {
+.emotion-3 .banner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -18173,26 +17832,26 @@ Array [
   align-items: top;
 }
 
-.emotion-5 .banner svg {
+.emotion-3 .banner svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-5 .banner label {
+.emotion-3 .banner label {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.emotion-4 svg {
+.emotion-2 svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-6 .body {
+.emotion-4 .body {
   color: #091f2f;
   font-family: Lora;
   font-size: 18px;
@@ -18204,7 +17863,7 @@ Array [
   border: 1px solid #d2d2d2;
 }
 
-.emotion-6 .body a {
+.emotion-4 .body a {
   line-height: normal;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
@@ -18218,13 +17877,13 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-6 .body a.print {
+.emotion-4 .body a.print {
   color: #1871bd;
   font-style: 700;
   font-weight: 600;
 }
 
-.emotion-6 .body a.print:hover {
+.emotion-4 .body a.print:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -18406,30 +18065,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 8"
-              max={8}
-              value={8}
-            >
-              Step 8 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           />
@@ -18438,13 +18073,13 @@ Array [
           className="b-c"
         >
           <div
-            className="emotion-5"
+            className="emotion-3"
           >
             <div
               className="banner"
             >
               <div
-                className="emotion-4"
+                className="emotion-2"
               >
                 <svg
                   fill="none"
@@ -18472,7 +18107,7 @@ Array [
             </div>
           </div>
           <div
-            className="emotion-6"
+            className="emotion-4"
           >
             <div
               className="body"
@@ -18713,37 +18348,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-5 .banner {
+.emotion-3 .banner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -18758,26 +18363,26 @@ Array [
   align-items: top;
 }
 
-.emotion-5 .banner svg {
+.emotion-3 .banner svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-5 .banner label {
+.emotion-3 .banner label {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.emotion-4 svg {
+.emotion-2 svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-6 .body {
+.emotion-4 .body {
   color: #091f2f;
   font-family: Lora;
   font-size: 18px;
@@ -18789,7 +18394,7 @@ Array [
   border: 1px solid #d2d2d2;
 }
 
-.emotion-6 .body a {
+.emotion-4 .body a {
   line-height: normal;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
@@ -18803,25 +18408,15 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-6 .body a.print {
+.emotion-4 .body a.print {
   color: #1871bd;
   font-style: 700;
   font-weight: 600;
 }
 
-.emotion-6 .body a.print:hover {
+.emotion-4 .body a.print:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
 }
 
 <div
@@ -19001,30 +18596,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 8"
-              max={8}
-              value={8}
-            >
-              Step 8 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           />
@@ -19033,13 +18604,13 @@ Array [
           className="b-c"
         >
           <div
-            className="emotion-5"
+            className="emotion-3"
           >
             <div
               className="banner"
             >
               <div
-                className="emotion-4"
+                className="emotion-2"
               >
                 <svg
                   fill="none"
@@ -19067,7 +18638,7 @@ Array [
             </div>
           </div>
           <div
-            className="emotion-6"
+            className="emotion-4"
           >
             <div
               className="body"
@@ -21722,73 +21293,33 @@ Array [
 }
 
 .emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21821,7 +21352,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -21833,12 +21364,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -21847,18 +21378,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -21867,7 +21398,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -21877,42 +21408,42 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21929,7 +21460,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-4 .row label.header {
   display: inline-block;
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
@@ -21941,11 +21472,11 @@ Array [
   margin-bottom: 0.25rem;
 }
 
-.emotion-6 .row .info {
+.emotion-4 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-4 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -21959,7 +21490,7 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-4 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
@@ -22141,35 +21672,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={7}
-              aria-valuetext="Step 7 of 8"
-              max={8}
-              value={6}
-            >
-              Step 7 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 7 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Payment
             </h2>
@@ -22177,7 +21684,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -22201,7 +21708,7 @@ Array [
             </div>
             <form
               acceptCharset="UTF-8"
-              className="emotion-6"
+              className="emotion-4"
               method="post"
               onSubmit={[Function]}
             >
@@ -25600,64 +25107,34 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25690,7 +25167,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -25702,12 +25179,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -25716,18 +25193,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -25736,7 +25213,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -25746,42 +25223,42 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25798,7 +25275,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-4 .row label.header {
   display: inline-block;
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
@@ -25810,11 +25287,11 @@ Array [
   margin-bottom: 0.25rem;
 }
 
-.emotion-6 .row .info {
+.emotion-4 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-4 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -25828,19 +25305,9 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-4 .row .btn:hover {
   background: #1871bd;
   color: #fff;
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
 }
 
 <div
@@ -26020,35 +25487,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={7}
-              aria-valuetext="Step 7 of 8"
-              max={8}
-              value={6}
-            >
-              Step 7 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 7 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Payment
             </h2>
@@ -26056,7 +25499,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -26080,7 +25523,7 @@ Array [
             </div>
             <form
               acceptCharset="UTF-8"
-              className="emotion-6"
+              className="emotion-4"
               method="post"
               onSubmit={[Function]}
             >
@@ -26888,66 +26331,26 @@ Array [
 }
 
 .emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-8 .t--info {
+.emotion-6 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -26956,13 +26359,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-8 .sh-title {
+.emotion-6 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-8 h1.summary {
+.emotion-6 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -26972,18 +26375,18 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .info-row {
+.emotion-6 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-8 .certRow {
+.emotion-6 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row {
+.emotion-6 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27000,7 +26403,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row label.header {
+.emotion-6 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -27010,11 +26413,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-8 .row .info {
+.emotion-6 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .row .btn {
+.emotion-6 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -27028,12 +26431,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-8 .row .btn:hover {
+.emotion-6 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-6 {
+.emotion-4 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -27051,15 +26454,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-6 .name-row {
+.emotion-4 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-6 .name-row label {
+.emotion-4 .name-row label {
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27075,32 +26478,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .col {
+.emotion-4 .row .col {
   background: transparent;
 }
 
-.emotion-6 label {
+.emotion-4 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-6 label span {
+.emotion-4 label span {
   font-weight: normal;
 }
 
-.emotion-6 .mobile__visible {
+.emotion-4 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-6 {
+  .emotion-4 {
     font-size: 16px;
   }
 
-  .emotion-6 .mobile,
-  .emotion-6 .mobile__visible {
+  .emotion-4 .mobile,
+  .emotion-4 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -27115,19 +26518,19 @@ Array [
     float: right;
   }
 
-  .emotion-6 .mobile {
+  .emotion-4 .mobile {
     display: none;
   }
 }
 
-.emotion-5 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-5 .quantity__main-wrapper {
+.emotion-3 .quantity__main-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27155,9 +26558,9 @@ Array [
   color: #091f2f;
 }
 
-.emotion-5 .quantity__main-wrapper input,
-.emotion-5 .quantity__main-wrapper select,
-.emotion-5 .quantity__main-wrapper option {
+.emotion-3 .quantity__main-wrapper input,
+.emotion-3 .quantity__main-wrapper select,
+.emotion-3 .quantity__main-wrapper option {
   font-family: Lora,Georgia,serif;
   font-weight: 400;
   font-size: 18px;
@@ -27169,14 +26572,14 @@ Array [
   text-align: center;
 }
 
-.emotion-5 .quantity__main-wrapper label {
+.emotion-3 .quantity__main-wrapper label {
   margin-right: 0.15rem;
   cursor: pointer;
   color: #091f2f;
   font-size: 18px;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper {
+.emotion-3 .quantity__main-wrapper .input_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27193,23 +26596,23 @@ Array [
   align-items: baseline;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text'] {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
   max-width: 40px;
   padding: 3px 2px 3px 2px;
   border: 1px solid transparent;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
   background: #C8C8C8;
   outline: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
   display: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
   width: 24px;
   height: 24px;
   background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
@@ -27218,7 +26621,7 @@ Array [
   background-size: 24px 24px;
 }
 
-.emotion-5 .quantity__main-wrapper select {
+.emotion-3 .quantity__main-wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -27231,19 +26634,19 @@ Array [
   background-size: 22px;
 }
 
-.emotion-5 .quantity__main-wrapper select option {
+.emotion-3 .quantity__main-wrapper select option {
   text-align: center;
 }
 
-.emotion-5 [data-type='select'] {
+.emotion-3 [data-type='select'] {
   border: 1px solid transparent;
 }
 
-.emotion-5 [data-type='input'] {
+.emotion-3 [data-type='input'] {
   border: 1px solid #091f2f;
 }
 
-.emotion-7 {
+.emotion-5 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -27254,7 +26657,7 @@ Array [
   width: 100%;
 }
 
-.emotion-7 h1 {
+.emotion-5 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -27262,11 +26665,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-7 span.bold {
+.emotion-5 span.bold {
   font-weight: 700;
 }
 
-.emotion-7 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27279,19 +26682,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-7 .row .col {
+.emotion-5 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-7 .row .col:nth-of-type(2) {
+.emotion-5 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-7 .row:nth-last-of-type(-n + 1) {
+.emotion-5 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -27302,7 +26705,7 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-7 .total-cost {
+  .emotion-5 .total-cost {
     font-size: 15px;
   }
 }
@@ -27484,40 +26887,16 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 8"
-              max={8}
-              value={7}
-            >
-              Step 8 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Review Order
             </h2>
             <div
-              className="emotion-8"
+              className="emotion-6"
             >
               <div
                 className="t--info m-v500"
@@ -27664,7 +27043,7 @@ Array [
                     <a
                       aria-label="Edit contact information"
                       className="btn"
-                      href="/death/cart"
+                      href="/birth/review"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                     >
@@ -27677,7 +27056,7 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-6"
+                      className="emotion-4"
                     >
                       <div
                         className="col"
@@ -27689,7 +27068,7 @@ Array [
                             className="col"
                           >
                             <div
-                              className="emotion-5"
+                              className="emotion-3"
                             >
                               <div
                                 className="quantity__main-wrapper"
@@ -27702,7 +27081,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__key__4730"
+                                  id="quantityDropDown__key__3308"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}
@@ -27810,7 +27189,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-7"
+                    className="emotion-5"
                   >
                     <div
                       className="row"
@@ -28266,10 +27645,6 @@ Array [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.emotion-6 {
-  background: orange;
 }
 
 .emotion-6 .pending {
@@ -29364,10 +28739,6 @@ Array [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.emotion-6 {
-  background: orange;
 }
 
 .emotion-6 .pending {
@@ -31158,10 +30529,6 @@ Array [
   align-items: center;
 }
 
-.emotion-6 {
-  background: orange;
-}
-
 .emotion-6 .pending {
   color: #091f2f;
 }
@@ -31967,57 +31334,27 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-8 .t--info {
+.emotion-6 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -32026,13 +31363,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-8 .sh-title {
+.emotion-6 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-8 h1.summary {
+.emotion-6 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -32042,18 +31379,18 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .info-row {
+.emotion-6 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-8 .certRow {
+.emotion-6 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row {
+.emotion-6 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32070,7 +31407,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row label.header {
+.emotion-6 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -32080,11 +31417,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-8 .row .info {
+.emotion-6 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .row .btn {
+.emotion-6 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -32098,12 +31435,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-8 .row .btn:hover {
+.emotion-6 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-6 {
+.emotion-4 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -32121,15 +31458,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-6 .name-row {
+.emotion-4 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-6 .name-row label {
+.emotion-4 .name-row label {
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32145,32 +31482,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .col {
+.emotion-4 .row .col {
   background: transparent;
 }
 
-.emotion-6 label {
+.emotion-4 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-6 label span {
+.emotion-4 label span {
   font-weight: normal;
 }
 
-.emotion-6 .mobile__visible {
+.emotion-4 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-6 {
+  .emotion-4 {
     font-size: 16px;
   }
 
-  .emotion-6 .mobile,
-  .emotion-6 .mobile__visible {
+  .emotion-4 .mobile,
+  .emotion-4 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -32185,19 +31522,19 @@ Array [
     float: right;
   }
 
-  .emotion-6 .mobile {
+  .emotion-4 .mobile {
     display: none;
   }
 }
 
-.emotion-5 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-5 .quantity__main-wrapper {
+.emotion-3 .quantity__main-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32225,9 +31562,9 @@ Array [
   color: #091f2f;
 }
 
-.emotion-5 .quantity__main-wrapper input,
-.emotion-5 .quantity__main-wrapper select,
-.emotion-5 .quantity__main-wrapper option {
+.emotion-3 .quantity__main-wrapper input,
+.emotion-3 .quantity__main-wrapper select,
+.emotion-3 .quantity__main-wrapper option {
   font-family: Lora,Georgia,serif;
   font-weight: 400;
   font-size: 18px;
@@ -32239,14 +31576,14 @@ Array [
   text-align: center;
 }
 
-.emotion-5 .quantity__main-wrapper label {
+.emotion-3 .quantity__main-wrapper label {
   margin-right: 0.15rem;
   cursor: pointer;
   color: #091f2f;
   font-size: 18px;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper {
+.emotion-3 .quantity__main-wrapper .input_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32263,23 +31600,23 @@ Array [
   align-items: baseline;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text'] {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
   max-width: 40px;
   padding: 3px 2px 3px 2px;
   border: 1px solid transparent;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
   background: #C8C8C8;
   outline: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
   display: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
   width: 24px;
   height: 24px;
   background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
@@ -32288,7 +31625,7 @@ Array [
   background-size: 24px 24px;
 }
 
-.emotion-5 .quantity__main-wrapper select {
+.emotion-3 .quantity__main-wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -32301,19 +31638,19 @@ Array [
   background-size: 22px;
 }
 
-.emotion-5 .quantity__main-wrapper select option {
+.emotion-3 .quantity__main-wrapper select option {
   text-align: center;
 }
 
-.emotion-5 [data-type='select'] {
+.emotion-3 [data-type='select'] {
   border: 1px solid transparent;
 }
 
-.emotion-5 [data-type='input'] {
+.emotion-3 [data-type='input'] {
   border: 1px solid #091f2f;
 }
 
-.emotion-7 {
+.emotion-5 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -32324,7 +31661,7 @@ Array [
   width: 100%;
 }
 
-.emotion-7 h1 {
+.emotion-5 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -32332,11 +31669,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-7 span.bold {
+.emotion-5 span.bold {
   font-weight: 700;
 }
 
-.emotion-7 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32349,19 +31686,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-7 .row .col {
+.emotion-5 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-7 .row .col:nth-of-type(2) {
+.emotion-5 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-7 .row:nth-last-of-type(-n + 1) {
+.emotion-5 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -32372,18 +31709,8 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-7 .total-cost {
+  .emotion-5 .total-cost {
     font-size: 15px;
-  }
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
   }
 }
 
@@ -32564,40 +31891,16 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 8"
-              max={8}
-              value={7}
-            >
-              Step 8 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Review Order
             </h2>
             <div
-              className="emotion-8"
+              className="emotion-6"
             >
               <div
                 className="t--info m-v500"
@@ -32744,7 +32047,7 @@ Array [
                     <a
                       aria-label="Edit contact information"
                       className="btn"
-                      href="/death/cart"
+                      href="/marriage/review"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                     >
@@ -32757,7 +32060,7 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-6"
+                      className="emotion-4"
                     >
                       <div
                         className="col"
@@ -32769,7 +32072,7 @@ Array [
                             className="col"
                           >
                             <div
-                              className="emotion-5"
+                              className="emotion-3"
                             >
                               <div
                                 className="quantity__main-wrapper"
@@ -32782,7 +32085,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__key__5624"
+                                  id="quantityDropDown__key__3514"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}
@@ -32881,7 +32184,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-7"
+                    className="emotion-5"
                   >
                     <div
                       className="row"
@@ -33331,10 +32634,6 @@ Array [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.emotion-6 {
-  background: orange;
 }
 
 .emotion-6 .pending {
@@ -34362,10 +33661,6 @@ Array [
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.emotion-6 {
-  background: orange;
 }
 
 .emotion-6 .pending {
@@ -35401,10 +34696,6 @@ Array [
   align-items: center;
 }
 
-.emotion-6 {
-  background: orange;
-}
-
 .emotion-6 .pending {
   color: #091f2f;
 }
@@ -36256,73 +35547,33 @@ Array [
 }
 
 .emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 38px;
-  }
-}
-
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36355,7 +35606,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -36367,12 +35618,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -36381,18 +35632,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -36401,7 +35652,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -36411,36 +35662,36 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
@@ -36623,35 +35874,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a birth certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={6}
-              aria-valuetext="Step 6 of 8"
-              max={8}
-              value={5}
-            >
-              Step 6 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 6 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Shipping
             </h2>
@@ -36659,7 +35886,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -36686,7 +35913,7 @@ Array [
               onSubmit={[Function]}
             >
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -36815,7 +36042,7 @@ Array [
                 </div>
               </fieldset>
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -40976,64 +40203,34 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -41066,7 +40263,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -41078,12 +40275,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -41092,18 +40289,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -41112,7 +40309,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -41122,49 +40319,39 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
 }
 
 <div
@@ -41344,35 +40531,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={6}
-              aria-valuetext="Step 6 of 8"
-              max={8}
-              value={5}
-            >
-              Step 6 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 6 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Shipping
             </h2>
@@ -41380,7 +40543,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -41407,7 +40570,7 @@ Array [
               onSubmit={[Function]}
             >
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -41536,7 +40699,7 @@ Array [
                 </div>
               </fieldset>
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -44528,7 +43691,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__key__3731"
+                id="quantityDropDown__key__3678"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -44641,10 +43804,6 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.emotion-5 {
-  background: orange;
 }
 
 .emotion-5 .pending {
@@ -45168,7 +44327,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__key__4702"
+                id="quantityDropDown__key__5989"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -45708,7 +44867,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__key__4702"
+                        id="quantityDropDown__key__5018"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -46232,10 +45391,6 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.emotion-5 {
-  background: orange;
 }
 
 .emotion-5 .pending {
@@ -47230,7 +46385,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__key__3693"
+                        id="quantityDropDown__key__5460"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -48454,7 +47609,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -48860,7 +48015,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -49299,7 +48454,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -50118,7 +49273,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -50169,7 +49324,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -50548,7 +49703,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -50672,7 +49827,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -50720,7 +49875,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -50770,7 +49925,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -51168,7 +50323,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -51448,7 +50603,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -51496,7 +50651,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -51546,7 +50701,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -51944,7 +51099,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -52224,7 +51379,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -52272,7 +51427,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -52322,7 +51477,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -52729,7 +51884,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -53020,7 +52175,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -53594,7 +52749,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__key__8787"
+                      id="quantityDropDown__key__2291"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -54234,7 +53389,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__key__9071"
+                      id="quantityDropDown__key__5129"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -56322,6 +55477,8 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  border-color: transparent;
+  background: transparent;
 }
 
 .emotion-1 .wrapper {
@@ -56356,11 +55513,6 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
 .emotion-1 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-}
-
-.emotion-1:active .wrapper,
-.emotion-1:focus .wrapper {
-  border-color: #1871bd;
 }
 
 .emotion-1:focus:not(:focus-visible) .wrapper {
@@ -56486,7 +55638,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
             </div>
           </div>
         </div>
-        <div
+        <button
           className="emotion-1"
           data-action="remove"
           id="checkoutAddRemove"
@@ -56507,7 +55659,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
               value="1"
             />
           </div>
-        </div>
+        </button>
       </span>
       <span
         className="name main"
@@ -56621,7 +55773,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
         <div
           className="col"
         >
-          <div
+          <button
             className="emotion-1"
             data-action="remove"
             id="checkoutAddRemove"
@@ -56642,7 +55794,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
                 value="1"
               />
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -56885,6 +56037,8 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  border-color: transparent;
+  background: transparent;
 }
 
 .emotion-1 .wrapper {
@@ -56919,11 +56073,6 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
 .emotion-1 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-}
-
-.emotion-1:active .wrapper,
-.emotion-1:focus .wrapper {
-  border-color: #1871bd;
 }
 
 .emotion-1:focus:not(:focus-visible) .wrapper {
@@ -57049,7 +56198,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
             </div>
           </div>
         </div>
-        <div
+        <button
           className="emotion-1"
           data-action="remove"
           id="checkoutAddRemove"
@@ -57070,7 +56219,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
               value="1"
             />
           </div>
-        </div>
+        </button>
       </span>
       <span
         className="name main"
@@ -57196,7 +56345,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
         <div
           className="col"
         >
-          <div
+          <button
             className="emotion-1"
             data-action="remove"
             id="checkoutAddRemove"
@@ -57217,7 +56366,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
                 value="1"
               />
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -57460,6 +56609,8 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  border-color: transparent;
+  background: transparent;
 }
 
 .emotion-1 .wrapper {
@@ -57494,11 +56645,6 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
 .emotion-1 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-}
-
-.emotion-1:active .wrapper,
-.emotion-1:focus .wrapper {
-  border-color: #1871bd;
 }
 
 .emotion-1:focus:not(:focus-visible) .wrapper {
@@ -57624,7 +56770,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
             </div>
           </div>
         </div>
-        <div
+        <button
           className="emotion-1"
           data-action="remove"
           id="checkoutAddRemove"
@@ -57645,7 +56791,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
               value="1"
             />
           </div>
-        </div>
+        </button>
       </span>
       <span
         className="name main"
@@ -57771,7 +56917,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
         <div
           className="col"
         >
-          <div
+          <button
             className="emotion-1"
             data-action="remove"
             id="checkoutAddRemove"
@@ -57792,7 +56938,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
                 value="1"
               />
             </div>
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -58826,6 +57972,8 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  border-color: transparent;
+  background: transparent;
 }
 
 .emotion-5 .wrapper {
@@ -58860,11 +58008,6 @@ Array [
 .emotion-5 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-}
-
-.emotion-5:active .wrapper,
-.emotion-5:focus .wrapper {
-  border-color: #1871bd;
 }
 
 .emotion-5:focus:not(:focus-visible) .wrapper {
@@ -59216,7 +58359,7 @@ Array [
                 <div
                   className="col"
                 >
-                  <div
+                  <button
                     className="emotion-5"
                     data-action="add"
                     id="checkoutAddRemove"
@@ -59237,7 +58380,7 @@ Array [
                         value="0"
                       />
                     </div>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -59807,6 +58950,8 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  border-color: transparent;
+  background: transparent;
 }
 
 .emotion-6 .wrapper {
@@ -59841,11 +58986,6 @@ Array [
 .emotion-6 .wrapper label:hover::before {
   -webkit-text-decoration: underline;
   text-decoration: underline;
-}
-
-.emotion-6:active .wrapper,
-.emotion-6:focus .wrapper {
-  border-color: #1871bd;
 }
 
 .emotion-6:focus:not(:focus-visible) .wrapper {
@@ -60256,7 +59396,7 @@ Array [
                           </div>
                         </div>
                       </div>
-                      <div
+                      <button
                         className="emotion-6"
                         data-action="remove"
                         id="checkoutAddRemove"
@@ -60277,7 +59417,7 @@ Array [
                             value="1"
                           />
                         </div>
-                      </div>
+                      </button>
                     </span>
                     <span
                       className="name main"
@@ -60403,7 +59543,7 @@ Array [
                       <div
                         className="col"
                       >
-                        <div
+                        <button
                           className="emotion-6"
                           data-action="remove"
                           id="checkoutAddRemove"
@@ -60424,7 +59564,7 @@ Array [
                               value="1"
                             />
                           </div>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -60518,7 +59658,7 @@ Array [
                           </div>
                         </div>
                       </div>
-                      <div
+                      <button
                         className="emotion-6"
                         data-action="remove"
                         id="checkoutAddRemove"
@@ -60539,7 +59679,7 @@ Array [
                             value="1"
                           />
                         </div>
-                      </div>
+                      </button>
                     </span>
                     <span
                       className="name main"
@@ -60665,7 +59805,7 @@ Array [
                       <div
                         className="col"
                       >
-                        <div
+                        <button
                           className="emotion-6"
                           data-action="remove"
                           id="checkoutAddRemove"
@@ -60686,7 +59826,7 @@ Array [
                               value="1"
                             />
                           </div>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -60780,7 +59920,7 @@ Array [
                           </div>
                         </div>
                       </div>
-                      <div
+                      <button
                         className="emotion-6"
                         data-action="remove"
                         id="checkoutAddRemove"
@@ -60801,7 +59941,7 @@ Array [
                             value="1"
                           />
                         </div>
-                      </div>
+                      </button>
                     </span>
                     <span
                       className="name main"
@@ -60915,7 +60055,7 @@ Array [
                       <div
                         className="col"
                       >
-                        <div
+                        <button
                           className="emotion-6"
                           data-action="remove"
                           id="checkoutAddRemove"
@@ -60936,7 +60076,7 @@ Array [
                               value="1"
                             />
                           </div>
-                        </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -60966,7 +60106,7 @@ Array [
                 <div
                   className="col"
                 >
-                  <div
+                  <button
                     className="emotion-6"
                     data-action="add"
                     id="checkoutAddRemove"
@@ -60987,7 +60127,7 @@ Array [
                         value="0"
                       />
                     </div>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -68625,7 +67765,7 @@ Thank you for your order!
 Date: 1/8/2018 2:05PM
 Order ID: RG-BC201801-100001
 
-Your shipping information:
+Your shipping information  XXX:
 Nancy Whitehead
 123 Fake St.
 Boston, MA 02141
@@ -69409,7 +68549,7 @@ Thank you for your order!
 Date: 1/8/2018 2:05PM
 Order ID: RG-BC201801-100001
 
-Your shipping information:
+Your shipping information  XXX:
 Nancy Whitehead
 123 Fake St.
 Boston, MA 02141
@@ -70188,7 +69328,7 @@ Thank you for your order!
 Date: 1/8/2018 2:05PM
 Order ID: RG-DC201801-100001
 
-Your shipping information:
+Your shipping information  XXX:
 Nancy Whitehead
 123 Fake St.
 Boston, MA 02141
@@ -71641,7 +70781,7 @@ Thank you for your order!
 Date: 1/8/2018 2:05PM
 Order ID: RG-MC201801-100001
 
-Your shipping information:
+Your shipping information  XXX:
 Nancy Whitehead
 123 Fake St.
 Boston, MA 02141
@@ -72425,7 +71565,7 @@ Thank you for your order!
 Date: 1/8/2018 2:05PM
 Order ID: RG-MC201801-100001
 
-Your shipping information:
+Your shipping information  XXX:
 Nancy Whitehead
 123 Fake St.
 Boston, MA 02141
@@ -99189,7 +98329,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -101513,37 +100653,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-5 .banner {
+.emotion-3 .banner {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -101558,26 +100668,26 @@ Array [
   align-items: top;
 }
 
-.emotion-5 .banner svg {
+.emotion-3 .banner svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-5 .banner label {
+.emotion-3 .banner label {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.emotion-4 svg {
+.emotion-2 svg {
   width: 40px;
   height: 40px;
   margin-right: 20px;
 }
 
-.emotion-6 .body {
+.emotion-4 .body {
   color: #091f2f;
   font-family: Lora;
   font-size: 18px;
@@ -101589,7 +100699,7 @@ Array [
   border: 1px solid #d2d2d2;
 }
 
-.emotion-6 .body a {
+.emotion-4 .body a {
   line-height: normal;
   -webkit-text-decoration-line: underline;
   text-decoration-line: underline;
@@ -101603,25 +100713,15 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-6 .body a.print {
+.emotion-4 .body a.print {
   color: #1871bd;
   font-style: 700;
   font-weight: 600;
 }
 
-.emotion-6 .body a.print:hover {
+.emotion-4 .body a.print:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
 }
 
 <div
@@ -101801,30 +100901,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={8}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 8"
-              max={8}
-              value={8}
-            >
-              Step 8 of 8
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 8
-            </span>
-          </div>
           <section
             className="m-t500"
           />
@@ -101833,13 +100909,13 @@ Array [
           className="b-c"
         >
           <div
-            className="emotion-5"
+            className="emotion-3"
           >
             <div
               className="banner"
             >
               <div
-                className="emotion-4"
+                className="emotion-2"
               >
                 <svg
                   fill="none"
@@ -101867,7 +100943,7 @@ Array [
             </div>
           </div>
           <div
-            className="emotion-6"
+            className="emotion-4"
           >
             <div
               className="body"
@@ -102108,16 +101184,6 @@ Array [
   color: #d22d23;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
-}
-
 <div
     className="mn--full-ie"
   >
@@ -102295,11 +101361,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
           <section
             className="m-t500"
           >
@@ -102451,64 +101512,34 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -102541,7 +101572,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -102553,12 +101584,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -102567,18 +101598,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -102587,7 +101618,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -102597,42 +101628,42 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -102649,7 +101680,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-4 .row label.header {
   display: inline-block;
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
@@ -102661,11 +101692,11 @@ Array [
   margin-bottom: 0.25rem;
 }
 
-.emotion-6 .row .info {
+.emotion-4 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-4 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -102679,19 +101710,9 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-4 .row .btn:hover {
   background: #1871bd;
   color: #fff;
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
 }
 
 <div
@@ -102871,35 +101892,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={9}
-              aria-valuemin={1}
-              aria-valuenow={8}
-              aria-valuetext="Step 8 of 9"
-              max={9}
-              value={7}
-            >
-              Step 8 of 9
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 8 of 9
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Payment
             </h2>
@@ -102907,7 +101904,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -102931,7 +101928,7 @@ Array [
             </div>
             <form
               acceptCharset="UTF-8"
-              className="emotion-6"
+              className="emotion-4"
               method="post"
               onSubmit={[Function]}
             >
@@ -103259,57 +102256,27 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-8 .t--info {
+.emotion-6 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -103318,13 +102285,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-8 .sh-title {
+.emotion-6 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-8 h1.summary {
+.emotion-6 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -103334,18 +102301,18 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .info-row {
+.emotion-6 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-8 .certRow {
+.emotion-6 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row {
+.emotion-6 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -103362,7 +102329,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-8 .row label.header {
+.emotion-6 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -103372,11 +102339,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-8 .row .info {
+.emotion-6 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-8 .row .btn {
+.emotion-6 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -103390,12 +102357,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-8 .row .btn:hover {
+.emotion-6 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-6 {
+.emotion-4 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -103413,15 +102380,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-6 .name-row {
+.emotion-4 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-6 .name-row label {
+.emotion-4 .name-row label {
   font-weight: 700;
 }
 
-.emotion-6 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -103437,32 +102404,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .col {
+.emotion-4 .row .col {
   background: transparent;
 }
 
-.emotion-6 label {
+.emotion-4 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-6 label span {
+.emotion-4 label span {
   font-weight: normal;
 }
 
-.emotion-6 .mobile__visible {
+.emotion-4 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-6 {
+  .emotion-4 {
     font-size: 16px;
   }
 
-  .emotion-6 .mobile,
-  .emotion-6 .mobile__visible {
+  .emotion-4 .mobile,
+  .emotion-4 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -103477,19 +102444,19 @@ Array [
     float: right;
   }
 
-  .emotion-6 .mobile {
+  .emotion-4 .mobile {
     display: none;
   }
 }
 
-.emotion-5 {
+.emotion-3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.emotion-5 .quantity__main-wrapper {
+.emotion-3 .quantity__main-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -103517,9 +102484,9 @@ Array [
   color: #091f2f;
 }
 
-.emotion-5 .quantity__main-wrapper input,
-.emotion-5 .quantity__main-wrapper select,
-.emotion-5 .quantity__main-wrapper option {
+.emotion-3 .quantity__main-wrapper input,
+.emotion-3 .quantity__main-wrapper select,
+.emotion-3 .quantity__main-wrapper option {
   font-family: Lora,Georgia,serif;
   font-weight: 400;
   font-size: 18px;
@@ -103531,14 +102498,14 @@ Array [
   text-align: center;
 }
 
-.emotion-5 .quantity__main-wrapper label {
+.emotion-3 .quantity__main-wrapper label {
   margin-right: 0.15rem;
   cursor: pointer;
   color: #091f2f;
   font-size: 18px;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper {
+.emotion-3 .quantity__main-wrapper .input_wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -103555,23 +102522,23 @@ Array [
   align-items: baseline;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text'] {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
   max-width: 40px;
   padding: 3px 2px 3px 2px;
   border: 1px solid transparent;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
   background: #C8C8C8;
   outline: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
   display: none;
 }
 
-.emotion-5 .quantity__main-wrapper .input_wrapper .icon {
+.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
   width: 24px;
   height: 24px;
   background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
@@ -103580,7 +102547,7 @@ Array [
   background-size: 24px 24px;
 }
 
-.emotion-5 .quantity__main-wrapper select {
+.emotion-3 .quantity__main-wrapper select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -103593,19 +102560,19 @@ Array [
   background-size: 22px;
 }
 
-.emotion-5 .quantity__main-wrapper select option {
+.emotion-3 .quantity__main-wrapper select option {
   text-align: center;
 }
 
-.emotion-5 [data-type='select'] {
+.emotion-3 [data-type='select'] {
   border: 1px solid transparent;
 }
 
-.emotion-5 [data-type='input'] {
+.emotion-3 [data-type='input'] {
   border: 1px solid #091f2f;
 }
 
-.emotion-7 {
+.emotion-5 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -103616,7 +102583,7 @@ Array [
   width: 100%;
 }
 
-.emotion-7 h1 {
+.emotion-5 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -103624,11 +102591,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-7 span.bold {
+.emotion-5 span.bold {
   font-weight: 700;
 }
 
-.emotion-7 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -103641,19 +102608,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-7 .row .col {
+.emotion-5 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-7 .row .col:nth-of-type(2) {
+.emotion-5 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-7 .row:nth-last-of-type(-n + 1) {
+.emotion-5 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -103664,18 +102631,8 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-7 .total-cost {
+  .emotion-5 .total-cost {
     font-size: 15px;
-  }
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
   }
 }
 
@@ -103856,40 +102813,16 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm b-c--nbp"
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={9}
-              aria-valuemin={1}
-              aria-valuenow={9}
-              aria-valuetext="Step 9 of 9"
-              max={9}
-              value={8}
-            >
-              Step 9 of 9
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 9 of 9
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Review Order
             </h2>
             <div
-              className="emotion-8"
+              className="emotion-6"
             >
               <div
                 className="t--info m-v500"
@@ -104036,7 +102969,7 @@ Array [
                     <a
                       aria-label="Edit contact information"
                       className="btn"
-                      href="/death/cart"
+                      href="/marriage/review"
                       onClick={[Function]}
                       onMouseEnter={[Function]}
                     >
@@ -104049,7 +102982,7 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-6"
+                      className="emotion-4"
                     >
                       <div
                         className="col"
@@ -104061,7 +102994,7 @@ Array [
                             className="col"
                           >
                             <div
-                              className="emotion-5"
+                              className="emotion-3"
                             >
                               <div
                                 className="quantity__main-wrapper"
@@ -104074,7 +103007,7 @@ Array [
                                   Quantity:
                                 </label>
                                 <select
-                                  id="quantityDropDown__key__5913"
+                                  id="quantityDropDown__key__1201"
                                   name="quantityMenu"
                                   onChange={[Function]}
                                   tabIndex={0}
@@ -104173,7 +103106,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-7"
+                    className="emotion-5"
                   >
                     <div
                       className="row"
@@ -104461,16 +103394,6 @@ Array [
   color: #d22d23;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
-}
-
 <div
     className="mn--full-ie"
   >
@@ -104648,11 +103571,6 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
           <section
             className="m-t500"
           />
@@ -104786,64 +103704,34 @@ Array [
   color: #d22d23;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-4 {
+.emotion-2 {
   padding-bottom: 0.25rem;
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
 
-.emotion-4.secondary {
+.emotion-2.secondary {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   border-width: 3px;
 }
 
-.emotion-4.secondary em {
+.emotion-2.secondary em {
   font-size: 1rem;
 }
 
-.emotion-5 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-5 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104876,7 +103764,7 @@ Array [
   text-underline-position: from-font;
 }
 
-.emotion-5 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -104888,12 +103776,12 @@ Array [
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-5 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-5 .drawerHeader:hover,
-.emotion-5 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -104902,18 +103790,18 @@ Array [
   text-decoration-line: underline;
 }
 
-.emotion-5 .drawerHeader:hover .arrow,
-.emotion-5 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-5 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -104922,7 +103810,7 @@ Array [
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-5 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -104932,49 +103820,39 @@ Array [
   padding: 0px 24px;
 }
 
-.emotion-5 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-5 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-5 .body .cost_summary,
-.emotion-5 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-6 {
+.emotion-4 {
   margin-bottom: 3.5rem;
 }
 
-.emotion-6 legend {
+.emotion-4 legend {
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   margin-bottom: 1.75rem;
 }
 
-.emotion-6 .txt-l,
-.emotion-6 label.sel-l {
+.emotion-4 .txt-l,
+.emotion-4 label.sel-l {
   font-size: 16px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-}
-
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
 }
 
 <div
@@ -105154,35 +104032,11 @@ Array [
           aria-live="polite"
           className="b-c b-c--hsm "
         >
-          <h1
-            className="sh-title emotion-2"
-          >
-            Request a marriage certificate
-          </h1>
-          <div
-            className="emotion-3"
-          >
-            <progress
-              aria-valuemax={9}
-              aria-valuemin={1}
-              aria-valuenow={7}
-              aria-valuetext="Step 7 of 9"
-              max={9}
-              value={6}
-            >
-              Step 7 of 9
-            </progress>
-            <span
-              aria-hidden="true"
-            >
-              Step 7 of 9
-            </span>
-          </div>
           <section
             className="m-t500"
           >
             <h2
-              className="emotion-4"
+              className="emotion-2"
             >
               Shipping
             </h2>
@@ -105190,7 +104044,7 @@ Array [
               className="m-v300"
             >
               <div
-                className="emotion-5"
+                className="emotion-3"
               >
                 <button
                   aria-expanded={false}
@@ -105217,7 +104071,7 @@ Array [
               onSubmit={[Function]}
             >
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -105346,7 +104200,7 @@ Array [
                 </div>
               </fieldset>
               <fieldset
-                className="fs m-v700 emotion-6"
+                className="fs m-v700 emotion-4"
               >
                 <legend
                   className="fs-l"
@@ -106015,7 +104869,7 @@ exports[`Storyshots Marriage/Question Components/ClientInstructions default 1`] 
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -106153,7 +105007,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -106741,7 +105595,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage default 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -107118,7 +105972,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage knows exact date
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -107695,7 +106549,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -108296,7 +107150,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -108912,7 +107766,7 @@ exports[`Storyshots Marriage/Question Components/FiledInBoston default 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -109362,7 +108216,7 @@ exports[`Storyshots Marriage/Question Components/FiledInBoston user has selected
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -109834,7 +108688,7 @@ exports[`Storyshots Marriage/Question Components/FiledInBoston user is not sure 
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -110304,7 +109158,7 @@ exports[`Storyshots Marriage/Question Components/ForWhom default 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -110726,7 +109580,7 @@ exports[`Storyshots Marriage/Question Components/ForWhom someone else’s 1`] = 
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -111148,7 +110002,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -111834,7 +110688,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -112515,7 +111369,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -113196,7 +112050,7 @@ exports[`Storyshots Marriage/Question Components/VerifyIdentification default 1`
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -113940,7 +112794,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -114741,7 +113595,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -115288,7 +114142,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -116091,7 +114945,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -116877,7 +115731,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -117083,16 +115937,6 @@ Array [
   stroke: none;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
-}
-
 .emotion-8 {
   border: none;
   background-color: transparent;
@@ -117128,6 +115972,16 @@ Array [
 
 .emotion-7 line {
   stroke: #fff;
+}
+
+.emotion-2 {
+  padding-right: 0;
+}
+
+@media screen and (min-width:980px) {
+  .emotion-2 {
+    font-size: 34px;
+  }
 }
 
 @media screen and (min-width:480px) {
@@ -117939,7 +116793,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -118145,16 +116999,6 @@ Array [
   stroke: none;
 }
 
-.emotion-2 {
-  padding-right: 0;
-}
-
-@media screen and (min-width:980px) {
-  .emotion-2 {
-    font-size: 34px;
-  }
-}
-
 .emotion-8 {
   border: none;
   background-color: transparent;
@@ -118190,6 +117034,16 @@ Array [
 
 .emotion-7 line {
   stroke: #fff;
+}
+
+.emotion-2 {
+  padding-right: 0;
+}
+
+@media screen and (min-width:980px) {
+  .emotion-2 {
+    font-size: 34px;
+  }
 }
 
 @media screen and (min-width:480px) {
@@ -119001,7 +117855,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }
@@ -119979,7 +118833,7 @@ Array [
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   color: #091f2f;
   text-transform: uppercase;
 }

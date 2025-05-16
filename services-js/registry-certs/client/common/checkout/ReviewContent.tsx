@@ -290,9 +290,6 @@ export default class ReviewContent extends React.Component<Props, State> {
             method="post"
             onSubmit={this.handleSubmit}
           >
-            {/* <div className="m-v700">
-              <RenderOrderDetails details={this.props} />
-            </div> */}
             <div className={'row info-row'}>
               <div className={'col'}>
                 <label className={'header'}>Contact Information</label>
@@ -380,29 +377,22 @@ export default class ReviewContent extends React.Component<Props, State> {
               </div>
 
               <div className={'col'}>
-                <Link href={`/death/cart`}>
+                <Link
+                  href={`${
+                    certificateType === 'death'
+                      ? '/death/cart'
+                      : `/${certificateType}/review`
+                  }`}
+                >
                   <a className={'btn'} aria-label="Edit contact information">
                     edit
                   </a>
                 </Link>
               </div>
             </div>
+
             {certEntries()}
-            {/* {this.props[cartTypeStr].entries.map(
-              ({ cert, quantity }, i) =>
-                cert && (
-                  <div className={'certRow'}>
-                    <CertificateRow
-                      type={this.props.certificateType}
-                      key={cert.id}
-                      certificate={cert}
-                      borderTop={i !== 0}
-                      borderBottom={true}
-                      quantity={quantity}
-                    />
-                  </div>
-                )
-            )} */}
+
             <div className="m-v500">
               <h1 className={'summary'}>Order Summary</h1>
               <CostSummary
@@ -413,6 +403,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                 tracking={tracking}
               />
             </div>
+
             {this.renderAcceptCheckboxes()}
             {this.props.certificateType === 'death' && (
               <div className="t--info m-v300" id="charge-message">
