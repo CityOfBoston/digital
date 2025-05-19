@@ -578,6 +578,7 @@ const REVIEW_CSS = css`
     margin-bottom: 1.5rem;
     padding-bottom: 1.5em;
     border-bottom: 1px solid ${GRAY_400};
+    line-height: 1.5em;
   }
 
   .certRow {

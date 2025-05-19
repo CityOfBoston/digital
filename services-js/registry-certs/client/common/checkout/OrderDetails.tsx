@@ -201,6 +201,7 @@ export const OrderDetails = observer(function OrderDetails(
                 })}
                 handleQuantityChange={handleQuantityChange}
                 drawer={props.inDrawer}
+                hideQtyUI={true}
               />
 
               {/* <CertificateRow
@@ -250,6 +251,7 @@ export const OrderDetails = observer(function OrderDetails(
             })}
             handleQuantityChange={handleQuantityChange}
             drawer={props.inDrawer}
+            hideQtyUI={true}
           />
 
           {/* <CertificateRow

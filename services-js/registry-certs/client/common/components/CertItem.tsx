@@ -29,6 +29,7 @@ export type CertItemProps = {
   key?: string;
   handleQuantityChange?: (quantity: string | number | null) => void;
   drawer?: boolean;
+  hideQtyUI?: boolean;
 };
 
 export const CertItem = (cert: CertItemProps) => {
@@ -41,6 +42,7 @@ export const CertItem = (cert: CertItemProps) => {
     key = ReactKeyIndexStr({ seedStr: `key`, max: 10000 }),
     handleQuantityChange = () => {},
     drawer = false,
+    hideQtyUI = false,
   } = cert;
   let paperCopyLabel = `Certificate (Paper copy)`;
   let age = ``;
@@ -53,7 +55,7 @@ export const CertItem = (cert: CertItemProps) => {
   return (
     <div css={CERTITEM_CSS}>
       <div className={`col`}>
-        {!drawer && (
+        {!drawer && hideQtyUI === false && (
           <span className={`mobile__visible`}>
             <div className={`col`}>
               <QuantityDropdown
@@ -63,6 +65,7 @@ export const CertItem = (cert: CertItemProps) => {
                 quantity={quantity}
                 selectOptions={{ start: 1, total: 10 }}
               />
+              [QuantityDropdown]
             </div>
           </span>
         )}

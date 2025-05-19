@@ -1699,7 +1699,7 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-6 .t--info {
+.emotion-5 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -1708,13 +1708,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-6 .sh-title {
+.emotion-5 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-6 h1.summary {
+.emotion-5 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -1724,18 +1724,19 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .info-row {
+.emotion-5 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
-.emotion-6 .certRow {
+.emotion-5 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1752,7 +1753,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-5 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -1762,11 +1763,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-6 .row .info {
+.emotion-5 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-5 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -1780,12 +1781,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-5 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-4 {
+.emotion-3 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -1803,15 +1804,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-4 .name-row {
+.emotion-3 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-4 .name-row label {
+.emotion-3 .name-row label {
   font-weight: 700;
 }
 
-.emotion-4 .row {
+.emotion-3 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1827,32 +1828,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-4 .row .col {
+.emotion-3 .row .col {
   background: transparent;
 }
 
-.emotion-4 label {
+.emotion-3 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-4 label span {
+.emotion-3 label span {
   font-weight: normal;
 }
 
-.emotion-4 .mobile__visible {
+.emotion-3 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-4 {
+  .emotion-3 {
     font-size: 16px;
   }
 
-  .emotion-4 .mobile,
-  .emotion-4 .mobile__visible {
+  .emotion-3 .mobile,
+  .emotion-3 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1867,135 +1868,12 @@ Array [
     float: right;
   }
 
-  .emotion-4 .mobile {
+  .emotion-3 .mobile {
     display: none;
   }
 }
 
-.emotion-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-3 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-3 .quantity__main-wrapper input,
-.emotion-3 .quantity__main-wrapper select,
-.emotion-3 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-3 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-3 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-3 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-3 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-3 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-5 {
+.emotion-4 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -2006,7 +1884,7 @@ Array [
   width: 100%;
 }
 
-.emotion-5 h1 {
+.emotion-4 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -2014,11 +1892,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-5 span.bold {
+.emotion-4 span.bold {
   font-weight: 700;
 }
 
-.emotion-5 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2031,19 +1909,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-5 .row .col {
+.emotion-4 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-5 .row .col:nth-of-type(2) {
+.emotion-4 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-5 .row:nth-last-of-type(-n + 1) {
+.emotion-4 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -2054,7 +1932,7 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-5 .total-cost {
+  .emotion-4 .total-cost {
     font-size: 15px;
   }
 }
@@ -2245,7 +2123,7 @@ Array [
               Review Order
             </h2>
             <div
-              className="emotion-6"
+              className="emotion-5"
             >
               <div
                 className="t--info m-v500"
@@ -2405,93 +2283,11 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-4"
+                      className="emotion-3"
                     >
                       <div
                         className="col"
                       >
-                        <span
-                          className="mobile__visible"
-                        >
-                          <div
-                            className="col"
-                          >
-                            <div
-                              className="emotion-3"
-                            >
-                              <div
-                                className="quantity__main-wrapper"
-                                data-type="select"
-                              >
-                                <label
-                                  htmlFor="quantityMenu"
-                                  onClick={[Function]}
-                                >
-                                  Quantity:
-                                </label>
-                                <select
-                                  id="quantityDropDown__key__4289"
-                                  name="quantityMenu"
-                                  onChange={[Function]}
-                                  tabIndex={0}
-                                  value="1"
-                                >
-                                  <option
-                                    value={1}
-                                  >
-                                    1
-                                  </option>
-                                  <option
-                                    value={2}
-                                  >
-                                    2
-                                  </option>
-                                  <option
-                                    value={3}
-                                  >
-                                    3
-                                  </option>
-                                  <option
-                                    value={4}
-                                  >
-                                    4
-                                  </option>
-                                  <option
-                                    value={5}
-                                  >
-                                    5
-                                  </option>
-                                  <option
-                                    value={6}
-                                  >
-                                    6
-                                  </option>
-                                  <option
-                                    value={7}
-                                  >
-                                    7
-                                  </option>
-                                  <option
-                                    value={8}
-                                  >
-                                    8
-                                  </option>
-                                  <option
-                                    value={9}
-                                  >
-                                    9
-                                  </option>
-                                  <option
-                                    value={10}
-                                  >
-                                    10
-                                    +
-                                  </option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </span>
                         <div
                           className="name-row"
                         >
@@ -2538,7 +2334,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-5"
+                    className="emotion-4"
                   >
                     <div
                       className="row"
@@ -8240,7 +8036,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
           <div>
             <label
               className="txt-l "
-              htmlFor="input-5381"
+              htmlFor="input-686119205"
               style={
                 Object {
                   "alignItems": "baseline",
@@ -8272,7 +8068,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             <input
               aria-label=""
               className="txt-f   "
-              id="input-5381"
+              id="input-686119205"
               name="parent1LastName"
               onChange={[Function]}
               type="text"
@@ -8341,7 +8137,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
           <div>
             <label
               className="txt-l "
-              htmlFor="input-5381"
+              htmlFor="input-686119205"
               style={
                 Object {
                   "alignItems": "baseline",
@@ -8373,7 +8169,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation default 1`] = 
             <input
               aria-label=""
               className="txt-f   "
-              id="input-5381"
+              id="input-686119205"
               name="parent2LastName"
               onChange={[Function]}
               type="text"
@@ -8971,7 +8767,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           <div>
             <label
               className="txt-l "
-              htmlFor="input-5381"
+              htmlFor="input-686119205"
               style={
                 Object {
                   "alignItems": "baseline",
@@ -9003,7 +8799,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             <input
               aria-label=""
               className="txt-f   "
-              id="input-5381"
+              id="input-686119205"
               name="parent1LastName"
               onChange={[Function]}
               type="text"
@@ -9072,7 +8868,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           <div>
             <label
               className="txt-l "
-              htmlFor="input-5381"
+              htmlFor="input-686119205"
               style={
                 Object {
                   "alignItems": "baseline",
@@ -9104,7 +8900,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             <input
               aria-label=""
               className="txt-f   "
-              id="input-5381"
+              id="input-686119205"
               name="parent2LastName"
               onChange={[Function]}
               type="text"
@@ -9730,7 +9526,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           <div>
             <label
               className="txt-l "
-              htmlFor="input-5381"
+              htmlFor="input-686119205"
               style={
                 Object {
                   "alignItems": "baseline",
@@ -9762,7 +9558,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             <input
               aria-label=""
               className="txt-f   "
-              id="input-5381"
+              id="input-686119205"
               name="parent1LastName"
               onChange={[Function]}
               type="text"
@@ -9831,7 +9627,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
           <div>
             <label
               className="txt-l "
-              htmlFor="input-5381"
+              htmlFor="input-686119205"
               style={
                 Object {
                   "alignItems": "baseline",
@@ -9863,7 +9659,7 @@ exports[`Storyshots Birth/Question Components/ParentalInformation may be restric
             <input
               aria-label=""
               className="txt-f   "
-              id="input-5381"
+              id="input-686119205"
               name="parent2LastName"
               onChange={[Function]}
               type="text"
@@ -15603,7 +15399,7 @@ Array [
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-5381"
+                        htmlFor="input-686119205"
                         style={
                           Object {
                             "alignItems": "baseline",
@@ -15635,7 +15431,7 @@ Array [
                       <input
                         aria-label=""
                         className="txt-f   "
-                        id="input-5381"
+                        id="input-686119205"
                         name="parent1LastName"
                         onChange={[Function]}
                         type="text"
@@ -15704,7 +15500,7 @@ Array [
                     <div>
                       <label
                         className="txt-l "
-                        htmlFor="input-5381"
+                        htmlFor="input-686119205"
                         style={
                           Object {
                             "alignItems": "baseline",
@@ -15736,7 +15532,7 @@ Array [
                       <input
                         aria-label=""
                         className="txt-f   "
-                        id="input-5381"
+                        id="input-686119205"
                         name="parent2LastName"
                         onChange={[Function]}
                         type="text"
@@ -26350,7 +26146,7 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-6 .t--info {
+.emotion-5 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -26359,13 +26155,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-6 .sh-title {
+.emotion-5 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-6 h1.summary {
+.emotion-5 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -26375,18 +26171,19 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .info-row {
+.emotion-5 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
-.emotion-6 .certRow {
+.emotion-5 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26403,7 +26200,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-5 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -26413,11 +26210,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-6 .row .info {
+.emotion-5 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-5 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -26431,12 +26228,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-5 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-4 {
+.emotion-3 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -26454,15 +26251,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-4 .name-row {
+.emotion-3 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-4 .name-row label {
+.emotion-3 .name-row label {
   font-weight: 700;
 }
 
-.emotion-4 .row {
+.emotion-3 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26478,32 +26275,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-4 .row .col {
+.emotion-3 .row .col {
   background: transparent;
 }
 
-.emotion-4 label {
+.emotion-3 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-4 label span {
+.emotion-3 label span {
   font-weight: normal;
 }
 
-.emotion-4 .mobile__visible {
+.emotion-3 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-4 {
+  .emotion-3 {
     font-size: 16px;
   }
 
-  .emotion-4 .mobile,
-  .emotion-4 .mobile__visible {
+  .emotion-3 .mobile,
+  .emotion-3 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -26518,135 +26315,12 @@ Array [
     float: right;
   }
 
-  .emotion-4 .mobile {
+  .emotion-3 .mobile {
     display: none;
   }
 }
 
-.emotion-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-3 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-3 .quantity__main-wrapper input,
-.emotion-3 .quantity__main-wrapper select,
-.emotion-3 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-3 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-3 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-3 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-3 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-3 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-5 {
+.emotion-4 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -26657,7 +26331,7 @@ Array [
   width: 100%;
 }
 
-.emotion-5 h1 {
+.emotion-4 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -26665,11 +26339,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-5 span.bold {
+.emotion-4 span.bold {
   font-weight: 700;
 }
 
-.emotion-5 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -26682,19 +26356,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-5 .row .col {
+.emotion-4 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-5 .row .col:nth-of-type(2) {
+.emotion-4 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-5 .row:nth-last-of-type(-n + 1) {
+.emotion-4 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -26705,7 +26379,7 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-5 .total-cost {
+  .emotion-4 .total-cost {
     font-size: 15px;
   }
 }
@@ -26896,7 +26570,7 @@ Array [
               Review Order
             </h2>
             <div
-              className="emotion-6"
+              className="emotion-5"
             >
               <div
                 className="t--info m-v500"
@@ -27056,93 +26730,11 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-4"
+                      className="emotion-3"
                     >
                       <div
                         className="col"
                       >
-                        <span
-                          className="mobile__visible"
-                        >
-                          <div
-                            className="col"
-                          >
-                            <div
-                              className="emotion-3"
-                            >
-                              <div
-                                className="quantity__main-wrapper"
-                                data-type="select"
-                              >
-                                <label
-                                  htmlFor="quantityMenu"
-                                  onClick={[Function]}
-                                >
-                                  Quantity:
-                                </label>
-                                <select
-                                  id="quantityDropDown__key__3308"
-                                  name="quantityMenu"
-                                  onChange={[Function]}
-                                  tabIndex={0}
-                                  value="1"
-                                >
-                                  <option
-                                    value={1}
-                                  >
-                                    1
-                                  </option>
-                                  <option
-                                    value={2}
-                                  >
-                                    2
-                                  </option>
-                                  <option
-                                    value={3}
-                                  >
-                                    3
-                                  </option>
-                                  <option
-                                    value={4}
-                                  >
-                                    4
-                                  </option>
-                                  <option
-                                    value={5}
-                                  >
-                                    5
-                                  </option>
-                                  <option
-                                    value={6}
-                                  >
-                                    6
-                                  </option>
-                                  <option
-                                    value={7}
-                                  >
-                                    7
-                                  </option>
-                                  <option
-                                    value={8}
-                                  >
-                                    8
-                                  </option>
-                                  <option
-                                    value={9}
-                                  >
-                                    9
-                                  </option>
-                                  <option
-                                    value={10}
-                                  >
-                                    10
-                                    +
-                                  </option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </span>
                         <div
                           className="name-row"
                         >
@@ -27189,7 +26781,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-5"
+                    className="emotion-4"
                   >
                     <div
                       className="row"
@@ -27512,6 +27104,7 @@ Array [
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
 .emotion-21 .certRow {
@@ -28606,6 +28199,7 @@ Array [
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
 .emotion-15 .certRow {
@@ -29590,6 +29184,7 @@ Array [
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
 .emotion-3 .certRow {
@@ -30394,6 +29989,7 @@ Array [
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
 .emotion-15 .certRow {
@@ -31354,7 +30950,7 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-6 .t--info {
+.emotion-5 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -31363,13 +30959,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-6 .sh-title {
+.emotion-5 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-6 h1.summary {
+.emotion-5 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -31379,18 +30975,19 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .info-row {
+.emotion-5 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
-.emotion-6 .certRow {
+.emotion-5 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31407,7 +31004,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-5 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -31417,11 +31014,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-6 .row .info {
+.emotion-5 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-5 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -31435,12 +31032,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-5 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-4 {
+.emotion-3 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -31458,15 +31055,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-4 .name-row {
+.emotion-3 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-4 .name-row label {
+.emotion-3 .name-row label {
   font-weight: 700;
 }
 
-.emotion-4 .row {
+.emotion-3 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31482,32 +31079,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-4 .row .col {
+.emotion-3 .row .col {
   background: transparent;
 }
 
-.emotion-4 label {
+.emotion-3 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-4 label span {
+.emotion-3 label span {
   font-weight: normal;
 }
 
-.emotion-4 .mobile__visible {
+.emotion-3 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-4 {
+  .emotion-3 {
     font-size: 16px;
   }
 
-  .emotion-4 .mobile,
-  .emotion-4 .mobile__visible {
+  .emotion-3 .mobile,
+  .emotion-3 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -31522,135 +31119,12 @@ Array [
     float: right;
   }
 
-  .emotion-4 .mobile {
+  .emotion-3 .mobile {
     display: none;
   }
 }
 
-.emotion-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-3 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-3 .quantity__main-wrapper input,
-.emotion-3 .quantity__main-wrapper select,
-.emotion-3 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-3 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-3 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-3 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-3 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-3 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-5 {
+.emotion-4 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -31661,7 +31135,7 @@ Array [
   width: 100%;
 }
 
-.emotion-5 h1 {
+.emotion-4 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -31669,11 +31143,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-5 span.bold {
+.emotion-4 span.bold {
   font-weight: 700;
 }
 
-.emotion-5 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -31686,19 +31160,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-5 .row .col {
+.emotion-4 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-5 .row .col:nth-of-type(2) {
+.emotion-4 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-5 .row:nth-last-of-type(-n + 1) {
+.emotion-4 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -31709,7 +31183,7 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-5 .total-cost {
+  .emotion-4 .total-cost {
     font-size: 15px;
   }
 }
@@ -31900,7 +31374,7 @@ Array [
               Review Order
             </h2>
             <div
-              className="emotion-6"
+              className="emotion-5"
             >
               <div
                 className="t--info m-v500"
@@ -32060,93 +31534,11 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-4"
+                      className="emotion-3"
                     >
                       <div
                         className="col"
                       >
-                        <span
-                          className="mobile__visible"
-                        >
-                          <div
-                            className="col"
-                          >
-                            <div
-                              className="emotion-3"
-                            >
-                              <div
-                                className="quantity__main-wrapper"
-                                data-type="select"
-                              >
-                                <label
-                                  htmlFor="quantityMenu"
-                                  onClick={[Function]}
-                                >
-                                  Quantity:
-                                </label>
-                                <select
-                                  id="quantityDropDown__key__3514"
-                                  name="quantityMenu"
-                                  onChange={[Function]}
-                                  tabIndex={0}
-                                  value="1"
-                                >
-                                  <option
-                                    value={1}
-                                  >
-                                    1
-                                  </option>
-                                  <option
-                                    value={2}
-                                  >
-                                    2
-                                  </option>
-                                  <option
-                                    value={3}
-                                  >
-                                    3
-                                  </option>
-                                  <option
-                                    value={4}
-                                  >
-                                    4
-                                  </option>
-                                  <option
-                                    value={5}
-                                  >
-                                    5
-                                  </option>
-                                  <option
-                                    value={6}
-                                  >
-                                    6
-                                  </option>
-                                  <option
-                                    value={7}
-                                  >
-                                    7
-                                  </option>
-                                  <option
-                                    value={8}
-                                  >
-                                    8
-                                  </option>
-                                  <option
-                                    value={9}
-                                  >
-                                    9
-                                  </option>
-                                  <option
-                                    value={10}
-                                  >
-                                    10
-                                    +
-                                  </option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </span>
                         <div
                           className="name-row"
                         >
@@ -32184,7 +31576,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-5"
+                    className="emotion-4"
                   >
                     <div
                       className="row"
@@ -32501,6 +31893,7 @@ Array [
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
 .emotion-16 .certRow {
@@ -33528,6 +32921,7 @@ Array [
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
 .emotion-16 .certRow {
@@ -34561,6 +33955,7 @@ Array [
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
 .emotion-16 .certRow {
@@ -43454,7 +42849,7 @@ exports[`Storyshots Common Components/Nav default 1`] = `
 `;
 
 exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
-.emotion-1 {
+.emotion-0 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -43472,15 +42867,15 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
   padding: 18px 0 24px 0;
 }
 
-.emotion-1 .name-row {
+.emotion-0 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-1 .name-row label {
+.emotion-0 .name-row label {
   font-weight: 700;
 }
 
-.emotion-1 .row {
+.emotion-0 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -43496,32 +42891,32 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
   margin-bottom: 0.5rem;
 }
 
-.emotion-1 .row .col {
+.emotion-0 .row .col {
   background: transparent;
 }
 
-.emotion-1 label {
+.emotion-0 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-1 label span {
+.emotion-0 label span {
   font-weight: normal;
 }
 
-.emotion-1 .mobile__visible {
+.emotion-0 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 16px;
   }
 
-  .emotion-1 .mobile,
-  .emotion-1 .mobile__visible {
+  .emotion-0 .mobile,
+  .emotion-0 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -43536,223 +42931,18 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
     float: right;
   }
 
-  .emotion-1 .mobile {
+  .emotion-0 .mobile {
     display: none;
   }
 }
 
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-0 .quantity__main-wrapper input,
-.emotion-0 .quantity__main-wrapper select,
-.emotion-0 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-0 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-0 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-0 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-0 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-0 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
 <div>
   <div
-    className="emotion-1"
+    className="emotion-0"
   >
     <div
       className="col"
     >
-      <span
-        className="mobile__visible"
-      >
-        <div
-          className="col"
-        >
-          <div
-            className="emotion-0"
-          >
-            <div
-              className="quantity__main-wrapper"
-              data-type="select"
-            >
-              <label
-                htmlFor="quantityMenu"
-                onClick={[Function]}
-              >
-                Quantity:
-              </label>
-              <select
-                id="quantityDropDown__key__3678"
-                name="quantityMenu"
-                onChange={[Function]}
-                tabIndex={0}
-                value="1"
-              >
-                <option
-                  value={1}
-                >
-                  1
-                </option>
-                <option
-                  value={2}
-                >
-                  2
-                </option>
-                <option
-                  value={3}
-                >
-                  3
-                </option>
-                <option
-                  value={4}
-                >
-                  4
-                </option>
-                <option
-                  value={5}
-                >
-                  5
-                </option>
-                <option
-                  value={6}
-                >
-                  6
-                </option>
-                <option
-                  value={7}
-                >
-                  7
-                </option>
-                <option
-                  value={8}
-                >
-                  8
-                </option>
-                <option
-                  value={9}
-                >
-                  9
-                </option>
-                <option
-                  value={10}
-                >
-                  10
-                  +
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </span>
       <div
         className="name-row"
       >
@@ -44090,7 +43280,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
 `;
 
 exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] = `
-.emotion-1 {
+.emotion-0 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -44108,15 +43298,15 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
   padding: 18px 0 24px 0;
 }
 
-.emotion-1 .name-row {
+.emotion-0 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-1 .name-row label {
+.emotion-0 .name-row label {
   font-weight: 700;
 }
 
-.emotion-1 .row {
+.emotion-0 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44132,32 +43322,32 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
   margin-bottom: 0.5rem;
 }
 
-.emotion-1 .row .col {
+.emotion-0 .row .col {
   background: transparent;
 }
 
-.emotion-1 label {
+.emotion-0 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-1 label span {
+.emotion-0 label span {
   font-weight: normal;
 }
 
-.emotion-1 .mobile__visible {
+.emotion-0 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 16px;
   }
 
-  .emotion-1 .mobile,
-  .emotion-1 .mobile__visible {
+  .emotion-0 .mobile,
+  .emotion-0 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -44172,223 +43362,18 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
     float: right;
   }
 
-  .emotion-1 .mobile {
+  .emotion-0 .mobile {
     display: none;
   }
 }
 
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-0 .quantity__main-wrapper input,
-.emotion-0 .quantity__main-wrapper select,
-.emotion-0 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-0 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-0 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-0 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-0 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-0 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
 <div>
   <div
-    className="emotion-1"
+    className="emotion-0"
   >
     <div
       className="col"
     >
-      <span
-        className="mobile__visible"
-      >
-        <div
-          className="col"
-        >
-          <div
-            className="emotion-0"
-          >
-            <div
-              className="quantity__main-wrapper"
-              data-type="select"
-            >
-              <label
-                htmlFor="quantityMenu"
-                onClick={[Function]}
-              >
-                Quantity:
-              </label>
-              <select
-                id="quantityDropDown__key__5989"
-                name="quantityMenu"
-                onChange={[Function]}
-                tabIndex={0}
-                value="1"
-              >
-                <option
-                  value={1}
-                >
-                  1
-                </option>
-                <option
-                  value={2}
-                >
-                  2
-                </option>
-                <option
-                  value={3}
-                >
-                  3
-                </option>
-                <option
-                  value={4}
-                >
-                  4
-                </option>
-                <option
-                  value={5}
-                >
-                  5
-                </option>
-                <option
-                  value={6}
-                >
-                  6
-                </option>
-                <option
-                  value={7}
-                >
-                  7
-                </option>
-                <option
-                  value={8}
-                >
-                  8
-                </option>
-                <option
-                  value={9}
-                >
-                  9
-                </option>
-                <option
-                  value={10}
-                >
-                  10
-                  +
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </span>
       <div
         className="name-row"
       >
@@ -44419,14 +43404,14 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
 `;
 
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth open 1`] = `
-.emotion-4 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-4 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44459,7 +43444,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   text-underline-position: from-font;
 }
 
-.emotion-4 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -44471,12 +43456,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-4 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-4 .drawerHeader:hover,
-.emotion-4 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -44485,18 +43470,18 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   text-decoration-line: underline;
 }
 
-.emotion-4 .drawerHeader:hover .arrow,
-.emotion-4 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-4 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-4 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -44505,7 +43490,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-4 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -44515,24 +43500,24 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   padding: 0px 24px;
 }
 
-.emotion-4 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-4 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-4 .body .cost_summary,
-.emotion-4 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-1 {
+.emotion-0 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -44550,15 +43535,15 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   padding: 18px 0 24px 0;
 }
 
-.emotion-1 .name-row {
+.emotion-0 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-1 .name-row label {
+.emotion-0 .name-row label {
   font-weight: 700;
 }
 
-.emotion-1 .row {
+.emotion-0 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44574,32 +43559,32 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   margin-bottom: 0.5rem;
 }
 
-.emotion-1 .row .col {
+.emotion-0 .row .col {
   background: transparent;
 }
 
-.emotion-1 label {
+.emotion-0 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-1 label span {
+.emotion-0 label span {
   font-weight: normal;
 }
 
-.emotion-1 .mobile__visible {
+.emotion-0 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 16px;
   }
 
-  .emotion-1 .mobile,
-  .emotion-1 .mobile__visible {
+  .emotion-0 .mobile,
+  .emotion-0 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -44614,135 +43599,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
     float: right;
   }
 
-  .emotion-1 .mobile {
+  .emotion-0 .mobile {
     display: none;
   }
 }
 
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-0 .quantity__main-wrapper input,
-.emotion-0 .quantity__main-wrapper select,
-.emotion-0 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-0 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-0 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-0 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-0 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-0 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-2 {
+.emotion-1 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -44753,7 +43615,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   width: 100%;
 }
 
-.emotion-2 h1 {
+.emotion-1 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -44761,11 +43623,11 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   margin-bottom: 14px;
 }
 
-.emotion-2 span.bold {
+.emotion-1 span.bold {
   font-weight: 700;
 }
 
-.emotion-2 .row {
+.emotion-1 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44778,19 +43640,19 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
   line-height: 1.25rem;
 }
 
-.emotion-2 .row .col {
+.emotion-1 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-2 .row .col:nth-of-type(2) {
+.emotion-1 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-2 .row:nth-last-of-type(-n + 1) {
+.emotion-1 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -44801,17 +43663,17 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
 }
 
 @media screen and (max-width:480px) {
-  .emotion-2 .total-cost {
+  .emotion-1 .total-cost {
     font-size: 15px;
   }
 }
 
-.emotion-3 {
+.emotion-2 {
   font-weight: 700;
 }
 
 <div
-  className="emotion-4"
+  className="emotion-3"
 >
   <button
     aria-expanded={true}
@@ -44842,93 +43704,11 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
       >
         <div>
           <div
-            className="emotion-1"
+            className="emotion-0"
           >
             <div
               className="col"
             >
-              <span
-                className="mobile__visible"
-              >
-                <div
-                  className="col"
-                >
-                  <div
-                    className="emotion-0"
-                  >
-                    <div
-                      className="quantity__main-wrapper"
-                      data-type="select"
-                    >
-                      <label
-                        htmlFor="quantityMenu"
-                        onClick={[Function]}
-                      >
-                        Quantity:
-                      </label>
-                      <select
-                        id="quantityDropDown__key__5018"
-                        name="quantityMenu"
-                        onChange={[Function]}
-                        tabIndex={0}
-                        value="1"
-                      >
-                        <option
-                          value={1}
-                        >
-                          1
-                        </option>
-                        <option
-                          value={2}
-                        >
-                          2
-                        </option>
-                        <option
-                          value={3}
-                        >
-                          3
-                        </option>
-                        <option
-                          value={4}
-                        >
-                          4
-                        </option>
-                        <option
-                          value={5}
-                        >
-                          5
-                        </option>
-                        <option
-                          value={6}
-                        >
-                          6
-                        </option>
-                        <option
-                          value={7}
-                        >
-                          7
-                        </option>
-                        <option
-                          value={8}
-                        >
-                          8
-                        </option>
-                        <option
-                          value={9}
-                        >
-                          9
-                        </option>
-                        <option
-                          value={10}
-                        >
-                          10
-                          +
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </span>
               <div
                 className="name-row"
               >
@@ -44970,7 +43750,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
         className="cost_summary"
       >
         <div
-          className="emotion-2"
+          className="emotion-1"
         >
           <div
             className="row"
@@ -45038,7 +43818,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
         className="t--subinfo notes"
       >
         <span
-          className="emotion-3"
+          className="emotion-2"
         >
           Note:
         </span>
@@ -45937,14 +44717,14 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: loadin
 `;
 
 exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marriage open 1`] = `
-.emotion-4 {
+.emotion-3 {
   width: 100%;
   background: #e0e0e0;
   background: #f2f2f2;
   margin-bottom: 3.125rem;
 }
 
-.emotion-4 .drawerHeader {
+.emotion-3 .drawerHeader {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -45977,7 +44757,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   text-underline-position: from-font;
 }
 
-.emotion-4 .drawerHeader .arrow {
+.emotion-3 .drawerHeader .arrow {
   border: solid #1871bd;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -45989,12 +44769,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   -webkit-transform: rotate(45deg);
 }
 
-.emotion-4 .drawerHeader [aria-expanded='true'] {
+.emotion-3 .drawerHeader [aria-expanded='true'] {
   border-color: white;
 }
 
-.emotion-4 .drawerHeader:hover,
-.emotion-4 .drawerHeader:focus {
+.emotion-3 .drawerHeader:hover,
+.emotion-3 .drawerHeader:focus {
   color: #fff;
   -webkit-text-decoration: underline;
   text-decoration: underline;
@@ -46003,18 +44783,18 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   text-decoration-line: underline;
 }
 
-.emotion-4 .drawerHeader:hover .arrow,
-.emotion-4 .drawerHeader:focus .arrow {
+.emotion-3 .drawerHeader:hover .arrow,
+.emotion-3 .drawerHeader:focus .arrow {
   border-color: #fff;
 }
 
-.emotion-4 .drawerHeader[aria-expanded='true'] {
+.emotion-3 .drawerHeader[aria-expanded='true'] {
   margin-bottom: 1em;
   color: #fff;
   background: #091f2f;
 }
 
-.emotion-4 .drawerHeader[aria-expanded='true'] .arrow {
+.emotion-3 .drawerHeader[aria-expanded='true'] .arrow {
   margin-top: 6px;
   border-color: white;
   -webkit-transform: rotate(-135deg);
@@ -46023,7 +44803,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   -webkit-transform: rotate(-135deg);
 }
 
-.emotion-4 .body {
+.emotion-3 .body {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -46033,24 +44813,24 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   padding: 0px 24px;
 }
 
-.emotion-4 .body .summary__qty {
+.emotion-3 .body .summary__qty {
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #d2d2d2;
 }
 
-.emotion-4 .body .order_items {
+.emotion-3 .body .order_items {
   margin-bottom: 1.5rem;
 }
 
-.emotion-4 .body .cost_summary,
-.emotion-4 .body .notes {
+.emotion-3 .body .cost_summary,
+.emotion-3 .body .notes {
   padding-bottom: 1.115rem;
   font-style: normal;
 }
 
-.emotion-1 {
+.emotion-0 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -46068,15 +44848,15 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   padding: 18px 0 24px 0;
 }
 
-.emotion-1 .name-row {
+.emotion-0 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-1 .name-row label {
+.emotion-0 .name-row label {
   font-weight: 700;
 }
 
-.emotion-1 .row {
+.emotion-0 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -46092,32 +44872,32 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   margin-bottom: 0.5rem;
 }
 
-.emotion-1 .row .col {
+.emotion-0 .row .col {
   background: transparent;
 }
 
-.emotion-1 label {
+.emotion-0 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-1 label span {
+.emotion-0 label span {
   font-weight: normal;
 }
 
-.emotion-1 .mobile__visible {
+.emotion-0 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 16px;
   }
 
-  .emotion-1 .mobile,
-  .emotion-1 .mobile__visible {
+  .emotion-0 .mobile,
+  .emotion-0 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -46132,135 +44912,12 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
     float: right;
   }
 
-  .emotion-1 .mobile {
+  .emotion-0 .mobile {
     display: none;
   }
 }
 
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-0 .quantity__main-wrapper input,
-.emotion-0 .quantity__main-wrapper select,
-.emotion-0 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-0 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-0 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-0 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-0 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-0 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-2 {
+.emotion-1 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -46271,7 +44928,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   width: 100%;
 }
 
-.emotion-2 h1 {
+.emotion-1 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -46279,11 +44936,11 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   margin-bottom: 14px;
 }
 
-.emotion-2 span.bold {
+.emotion-1 span.bold {
   font-weight: 700;
 }
 
-.emotion-2 .row {
+.emotion-1 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -46296,19 +44953,19 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
   line-height: 1.25rem;
 }
 
-.emotion-2 .row .col {
+.emotion-1 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-2 .row .col:nth-of-type(2) {
+.emotion-1 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-2 .row:nth-last-of-type(-n + 1) {
+.emotion-1 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -46319,17 +44976,17 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
 }
 
 @media screen and (max-width:480px) {
-  .emotion-2 .total-cost {
+  .emotion-1 .total-cost {
     font-size: 15px;
   }
 }
 
-.emotion-3 {
+.emotion-2 {
   font-weight: 700;
 }
 
 <div
-  className="emotion-4"
+  className="emotion-3"
 >
   <button
     aria-expanded={true}
@@ -46360,93 +45017,11 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
       >
         <div>
           <div
-            className="emotion-1"
+            className="emotion-0"
           >
             <div
               className="col"
             >
-              <span
-                className="mobile__visible"
-              >
-                <div
-                  className="col"
-                >
-                  <div
-                    className="emotion-0"
-                  >
-                    <div
-                      className="quantity__main-wrapper"
-                      data-type="select"
-                    >
-                      <label
-                        htmlFor="quantityMenu"
-                        onClick={[Function]}
-                      >
-                        Quantity:
-                      </label>
-                      <select
-                        id="quantityDropDown__key__5460"
-                        name="quantityMenu"
-                        onChange={[Function]}
-                        tabIndex={0}
-                        value="1"
-                      >
-                        <option
-                          value={1}
-                        >
-                          1
-                        </option>
-                        <option
-                          value={2}
-                        >
-                          2
-                        </option>
-                        <option
-                          value={3}
-                        >
-                          3
-                        </option>
-                        <option
-                          value={4}
-                        >
-                          4
-                        </option>
-                        <option
-                          value={5}
-                        >
-                          5
-                        </option>
-                        <option
-                          value={6}
-                        >
-                          6
-                        </option>
-                        <option
-                          value={7}
-                        >
-                          7
-                        </option>
-                        <option
-                          value={8}
-                        >
-                          8
-                        </option>
-                        <option
-                          value={9}
-                        >
-                          9
-                        </option>
-                        <option
-                          value={10}
-                        >
-                          10
-                          +
-                        </option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </span>
               <div
                 className="name-row"
               >
@@ -46479,7 +45054,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
         className="cost_summary"
       >
         <div
-          className="emotion-2"
+          className="emotion-1"
         >
           <div
             className="row"
@@ -46547,7 +45122,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
         className="t--subinfo notes"
       >
         <span
-          className="emotion-3"
+          className="emotion-2"
         >
           Note:
         </span>
@@ -52500,7 +51075,7 @@ exports[`Storyshots Common Components/Question Components/YesNoUnsureComponent d
 exports[`Storyshots Common Components/ReviewCertificateRequest birth 1`] = `
 Array [
   <p />,
-  .emotion-1 {
+  .emotion-0 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -52518,15 +51093,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-1 .name-row {
+.emotion-0 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-1 .name-row label {
+.emotion-0 .name-row label {
   font-weight: 700;
 }
 
-.emotion-1 .row {
+.emotion-0 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -52542,32 +51117,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-1 .row .col {
+.emotion-0 .row .col {
   background: transparent;
 }
 
-.emotion-1 label {
+.emotion-0 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-1 label span {
+.emotion-0 label span {
   font-weight: normal;
 }
 
-.emotion-1 .mobile__visible {
+.emotion-0 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 16px;
   }
 
-  .emotion-1 .mobile,
-  .emotion-1 .mobile__visible {
+  .emotion-0 .mobile,
+  .emotion-0 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -52582,235 +51157,30 @@ Array [
     float: right;
   }
 
-  .emotion-1 .mobile {
+  .emotion-0 .mobile {
     display: none;
   }
 }
 
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-0 .quantity__main-wrapper input,
-.emotion-0 .quantity__main-wrapper select,
-.emotion-0 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-0 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-0 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-0 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-0 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-0 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-2 .certRow {
+.emotion-1 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   margin-bottom: 1.5rem;
 }
 
 <div
-    className="emotion-2"
+    className="emotion-1"
   >
     <div
       className="certRow"
     >
       <div>
         <div
-          className="emotion-1"
+          className="emotion-0"
         >
           <div
             className="col"
           >
-            <span
-              className="mobile__visible"
-            >
-              <div
-                className="col"
-              >
-                <div
-                  className="emotion-0"
-                >
-                  <div
-                    className="quantity__main-wrapper"
-                    data-type="select"
-                  >
-                    <label
-                      htmlFor="quantityMenu"
-                      onClick={[Function]}
-                    >
-                      Quantity:
-                    </label>
-                    <select
-                      id="quantityDropDown__key__2291"
-                      name="quantityMenu"
-                      onChange={[Function]}
-                      tabIndex={0}
-                      value="1"
-                    >
-                      <option
-                        value={1}
-                      >
-                        1
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        2
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        3
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        4
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        5
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        6
-                      </option>
-                      <option
-                        value={7}
-                      >
-                        7
-                      </option>
-                      <option
-                        value={8}
-                      >
-                        8
-                      </option>
-                      <option
-                        value={9}
-                      >
-                        9
-                      </option>
-                      <option
-                        value={10}
-                      >
-                        10
-                        +
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </span>
             <div
               className="name-row"
             >
@@ -53140,7 +51510,7 @@ Array [
 exports[`Storyshots Common Components/ReviewCertificateRequest marriage 1`] = `
 Array [
   <p />,
-  .emotion-1 {
+  .emotion-0 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -53158,15 +51528,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-1 .name-row {
+.emotion-0 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-1 .name-row label {
+.emotion-0 .name-row label {
   font-weight: 700;
 }
 
-.emotion-1 .row {
+.emotion-0 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -53182,32 +51552,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-1 .row .col {
+.emotion-0 .row .col {
   background: transparent;
 }
 
-.emotion-1 label {
+.emotion-0 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-1 label span {
+.emotion-0 label span {
   font-weight: normal;
 }
 
-.emotion-1 .mobile__visible {
+.emotion-0 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-1 {
+  .emotion-0 {
     font-size: 16px;
   }
 
-  .emotion-1 .mobile,
-  .emotion-1 .mobile__visible {
+  .emotion-0 .mobile,
+  .emotion-0 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -53222,235 +51592,30 @@ Array [
     float: right;
   }
 
-  .emotion-1 .mobile {
+  .emotion-0 .mobile {
     display: none;
   }
 }
 
-.emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-0 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-0 .quantity__main-wrapper input,
-.emotion-0 .quantity__main-wrapper select,
-.emotion-0 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-0 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-0 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-0 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-0 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-0 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-2 .certRow {
+.emotion-1 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   margin-bottom: 1.5rem;
 }
 
 <div
-    className="emotion-2"
+    className="emotion-1"
   >
     <div
       className="certRow"
     >
       <div>
         <div
-          className="emotion-1"
+          className="emotion-0"
         >
           <div
             className="col"
           >
-            <span
-              className="mobile__visible"
-            >
-              <div
-                className="col"
-              >
-                <div
-                  className="emotion-0"
-                >
-                  <div
-                    className="quantity__main-wrapper"
-                    data-type="select"
-                  >
-                    <label
-                      htmlFor="quantityMenu"
-                      onClick={[Function]}
-                    >
-                      Quantity:
-                    </label>
-                    <select
-                      id="quantityDropDown__key__5129"
-                      name="quantityMenu"
-                      onChange={[Function]}
-                      tabIndex={0}
-                      value="1"
-                    >
-                      <option
-                        value={1}
-                      >
-                        1
-                      </option>
-                      <option
-                        value={2}
-                      >
-                        2
-                      </option>
-                      <option
-                        value={3}
-                      >
-                        3
-                      </option>
-                      <option
-                        value={4}
-                      >
-                        4
-                      </option>
-                      <option
-                        value={5}
-                      >
-                        5
-                      </option>
-                      <option
-                        value={6}
-                      >
-                        6
-                      </option>
-                      <option
-                        value={7}
-                      >
-                        7
-                      </option>
-                      <option
-                        value={8}
-                      >
-                        8
-                      </option>
-                      <option
-                        value={9}
-                      >
-                        9
-                      </option>
-                      <option
-                        value={10}
-                      >
-                        10
-                        +
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </span>
             <div
               className="name-row"
             >
@@ -55243,6 +53408,112 @@ exports[`Storyshots Common Components/SupportingDocumentsInput error uploading o
 `;
 
 exports[`Storyshots Death/CartItem certificate without death date 1`] = `
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.emotion-4 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-4 .row .col {
+  background: transparent;
+}
+
+.emotion-4 .main {
+  margin-bottom: 0.25rem;
+  line-height: 1.5em;
+}
+
+.emotion-4 .name label {
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-4 .qty label,
+.emotion-4 .certTypeName label {
+  font-weight: normal;
+}
+
+.emotion-4 .certTypeName label span {
+  text-transform: capitalize;
+}
+
+.emotion-4 label {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.emotion-4 label span {
+  font-weight: normal;
+}
+
+.emotion-4 > label:nth-of-type(1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.emotion-4 .mobile__visible {
+  display: none;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-4 {
+    font-size: 16px;
+  }
+
+  .emotion-4 .mobile,
+  .emotion-4 .mobile__visible {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: end;
+    float: right;
+  }
+
+  .emotion-4 .mobile {
+    display: none;
+  }
+}
+
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -55364,112 +53635,6 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
 
 .emotion-0 [data-type='input'] {
   border: 1px solid #091f2f;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 1.125em;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.emotion-4 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  margin-bottom: 0.5rem;
-}
-
-.emotion-4 .row .col {
-  background: transparent;
-}
-
-.emotion-4 .main {
-  margin-bottom: 0.25rem;
-  line-height: 1.5em;
-}
-
-.emotion-4 .name label {
-  font-family: Montserrat,Arial,sans-serif;
-  margin-bottom: 0.25rem;
-}
-
-.emotion-4 .qty label,
-.emotion-4 .certTypeName label {
-  font-weight: normal;
-}
-
-.emotion-4 .certTypeName label span {
-  text-transform: capitalize;
-}
-
-.emotion-4 label {
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.emotion-4 label span {
-  font-weight: normal;
-}
-
-.emotion-4 > label:nth-of-type(1) {
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 50px;
-  text-transform: uppercase;
-}
-
-.emotion-4 .mobile__visible {
-  display: none;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-4 {
-    font-size: 16px;
-  }
-
-  .emotion-4 .mobile,
-  .emotion-4 .mobile__visible {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-items: end;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: end;
-    float: right;
-  }
-
-  .emotion-4 .mobile {
-    display: none;
-  }
 }
 
 .emotion-1 {
@@ -55803,6 +53968,112 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
 `;
 
 exports[`Storyshots Death/CartItem pending certificate 1`] = `
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.emotion-4 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-4 .row .col {
+  background: transparent;
+}
+
+.emotion-4 .main {
+  margin-bottom: 0.25rem;
+  line-height: 1.5em;
+}
+
+.emotion-4 .name label {
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-4 .qty label,
+.emotion-4 .certTypeName label {
+  font-weight: normal;
+}
+
+.emotion-4 .certTypeName label span {
+  text-transform: capitalize;
+}
+
+.emotion-4 label {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.emotion-4 label span {
+  font-weight: normal;
+}
+
+.emotion-4 > label:nth-of-type(1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.emotion-4 .mobile__visible {
+  display: none;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-4 {
+    font-size: 16px;
+  }
+
+  .emotion-4 .mobile,
+  .emotion-4 .mobile__visible {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: end;
+    float: right;
+  }
+
+  .emotion-4 .mobile {
+    display: none;
+  }
+}
+
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -55924,112 +54195,6 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
 
 .emotion-0 [data-type='input'] {
   border: 1px solid #091f2f;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 1.125em;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.emotion-4 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  margin-bottom: 0.5rem;
-}
-
-.emotion-4 .row .col {
-  background: transparent;
-}
-
-.emotion-4 .main {
-  margin-bottom: 0.25rem;
-  line-height: 1.5em;
-}
-
-.emotion-4 .name label {
-  font-family: Montserrat,Arial,sans-serif;
-  margin-bottom: 0.25rem;
-}
-
-.emotion-4 .qty label,
-.emotion-4 .certTypeName label {
-  font-weight: normal;
-}
-
-.emotion-4 .certTypeName label span {
-  text-transform: capitalize;
-}
-
-.emotion-4 label {
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.emotion-4 label span {
-  font-weight: normal;
-}
-
-.emotion-4 > label:nth-of-type(1) {
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 50px;
-  text-transform: uppercase;
-}
-
-.emotion-4 .mobile__visible {
-  display: none;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-4 {
-    font-size: 16px;
-  }
-
-  .emotion-4 .mobile,
-  .emotion-4 .mobile__visible {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-items: end;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: end;
-    float: right;
-  }
-
-  .emotion-4 .mobile {
-    display: none;
-  }
 }
 
 .emotion-1 {
@@ -56375,6 +54540,112 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
 `;
 
 exports[`Storyshots Death/CartItem typical certificate 1`] = `
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 1.125em;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.emotion-4 .row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.emotion-4 .row .col {
+  background: transparent;
+}
+
+.emotion-4 .main {
+  margin-bottom: 0.25rem;
+  line-height: 1.5em;
+}
+
+.emotion-4 .name label {
+  font-family: Montserrat,Arial,sans-serif;
+  margin-bottom: 0.25rem;
+}
+
+.emotion-4 .qty label,
+.emotion-4 .certTypeName label {
+  font-weight: normal;
+}
+
+.emotion-4 .certTypeName label span {
+  text-transform: capitalize;
+}
+
+.emotion-4 label {
+  color: #091f2f;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.emotion-4 label span {
+  font-weight: normal;
+}
+
+.emotion-4 > label:nth-of-type(1) {
+  font-family: Montserrat,Arial,sans-serif;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.emotion-4 .mobile__visible {
+  display: none;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-4 {
+    font-size: 16px;
+  }
+
+  .emotion-4 .mobile,
+  .emotion-4 .mobile__visible {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: end;
+    float: right;
+  }
+
+  .emotion-4 .mobile {
+    display: none;
+  }
+}
+
 .emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -56496,112 +54767,6 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
 
 .emotion-0 [data-type='input'] {
   border: 1px solid #091f2f;
-}
-
-.emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 1.125em;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.emotion-4 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  margin-bottom: 0.5rem;
-}
-
-.emotion-4 .row .col {
-  background: transparent;
-}
-
-.emotion-4 .main {
-  margin-bottom: 0.25rem;
-  line-height: 1.5em;
-}
-
-.emotion-4 .name label {
-  font-family: Montserrat,Arial,sans-serif;
-  margin-bottom: 0.25rem;
-}
-
-.emotion-4 .qty label,
-.emotion-4 .certTypeName label {
-  font-weight: normal;
-}
-
-.emotion-4 .certTypeName label span {
-  text-transform: capitalize;
-}
-
-.emotion-4 label {
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.emotion-4 label span {
-  font-weight: normal;
-}
-
-.emotion-4 > label:nth-of-type(1) {
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 50px;
-  text-transform: uppercase;
-}
-
-.emotion-4 .mobile__visible {
-  display: none;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-4 {
-    font-size: 16px;
-  }
-
-  .emotion-4 .mobile,
-  .emotion-4 .mobile__visible {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-items: end;
-    -webkit-box-align: end;
-    -ms-flex-align: end;
-    align-items: end;
-    float: right;
-  }
-
-  .emotion-4 .mobile {
-    display: none;
-  }
 }
 
 .emotion-1 {
@@ -58541,129 +56706,6 @@ Array [
   color: #d22d23;
 }
 
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-5 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-5 .quantity__main-wrapper input,
-.emotion-5 .quantity__main-wrapper select,
-.emotion-5 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-5 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-5 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-5 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-5 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-5 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-5 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-5 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
 .emotion-23 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
@@ -58943,6 +56985,129 @@ Array [
   .emotion-9 .mobile {
     display: none;
   }
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-5 .quantity__main-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  border: 1px solid #091f2f;
+  padding: 10px 8px;
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  color: #091f2f;
+}
+
+.emotion-5 .quantity__main-wrapper input,
+.emotion-5 .quantity__main-wrapper select,
+.emotion-5 .quantity__main-wrapper option {
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.emotion-5 .quantity__main-wrapper label {
+  margin-right: 0.15rem;
+  cursor: pointer;
+  color: #091f2f;
+  font-size: 18px;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text'] {
+  max-width: 40px;
+  padding: 3px 2px 3px 2px;
+  border: 1px solid transparent;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+  background: #C8C8C8;
+  outline: none;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-5 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+  display: none;
+}
+
+.emotion-5 .quantity__main-wrapper .input_wrapper .icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  background-size: 24px 24px;
+}
+
+.emotion-5 .quantity__main-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  background-position: center right;
+  padding-right: calc(0.75em + 0.75rem);
+  background-size: 22px;
+}
+
+.emotion-5 .quantity__main-wrapper select option {
+  text-align: center;
+}
+
+.emotion-5 [data-type='select'] {
+  border: 1px solid transparent;
+}
+
+.emotion-5 [data-type='input'] {
+  border: 1px solid #091f2f;
 }
 
 .emotion-6 {
@@ -102276,7 +100441,7 @@ Array [
   font-size: 1rem;
 }
 
-.emotion-6 .t--info {
+.emotion-5 .t--info {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 20px;
@@ -102285,13 +100450,13 @@ Array [
   line-height: normal;
 }
 
-.emotion-6 .sh-title {
+.emotion-5 .sh-title {
   font-family: Lora,Georgia,serif;
   color: #091f2f;
   font-size: 24px;
 }
 
-.emotion-6 h1.summary {
+.emotion-5 h1.summary {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 18px;
@@ -102301,18 +100466,19 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .info-row {
+.emotion-5 .info-row {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5em;
   border-bottom: 1px solid #d2d2d2;
+  line-height: 1.5em;
 }
 
-.emotion-6 .certRow {
+.emotion-5 .certRow {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row {
+.emotion-5 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -102329,7 +100495,7 @@ Array [
   font-family: Lora,Georgia,serif;
 }
 
-.emotion-6 .row label.header {
+.emotion-5 .row label.header {
   color: #091f2f;
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
@@ -102339,11 +100505,11 @@ Array [
   text-transform: uppercase;
 }
 
-.emotion-6 .row .info {
+.emotion-5 .row .info {
   margin-bottom: 0.5rem;
 }
 
-.emotion-6 .row .btn {
+.emotion-5 .row .btn {
   font-family: Lora,Georgia,serif;
   color: #1871bd;
   text-align: center;
@@ -102357,12 +100523,12 @@ Array [
   padding: 13px;
 }
 
-.emotion-6 .row .btn:hover {
+.emotion-5 .row .btn:hover {
   background: #1871bd;
   color: #fff;
 }
 
-.emotion-4 {
+.emotion-3 {
   dislay: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -102380,15 +100546,15 @@ Array [
   padding: 18px 0 24px 0;
 }
 
-.emotion-4 .name-row {
+.emotion-3 .name-row {
   margin-bottom: 12px;
 }
 
-.emotion-4 .name-row label {
+.emotion-3 .name-row label {
   font-weight: 700;
 }
 
-.emotion-4 .row {
+.emotion-3 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -102404,32 +100570,32 @@ Array [
   margin-bottom: 0.5rem;
 }
 
-.emotion-4 .row .col {
+.emotion-3 .row .col {
   background: transparent;
 }
 
-.emotion-4 label {
+.emotion-3 label {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
   font-weight: 600;
 }
 
-.emotion-4 label span {
+.emotion-3 label span {
   font-weight: normal;
 }
 
-.emotion-4 .mobile__visible {
+.emotion-3 .mobile__visible {
   float: right;
 }
 
 @media screen and (max-width:480px) {
-  .emotion-4 {
+  .emotion-3 {
     font-size: 16px;
   }
 
-  .emotion-4 .mobile,
-  .emotion-4 .mobile__visible {
+  .emotion-3 .mobile,
+  .emotion-3 .mobile__visible {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -102444,135 +100610,12 @@ Array [
     float: right;
   }
 
-  .emotion-4 .mobile {
+  .emotion-3 .mobile {
     display: none;
   }
 }
 
-.emotion-3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-3 .quantity__main-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  border: 1px solid #091f2f;
-  padding: 10px 8px;
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  color: #091f2f;
-}
-
-.emotion-3 .quantity__main-wrapper input,
-.emotion-3 .quantity__main-wrapper select,
-.emotion-3 .quantity__main-wrapper option {
-  font-family: Lora,Georgia,serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 100%;
-  -webkit-letter-spacing: 0%;
-  -moz-letter-spacing: 0%;
-  -ms-letter-spacing: 0%;
-  letter-spacing: 0%;
-  text-align: center;
-}
-
-.emotion-3 .quantity__main-wrapper label {
-  margin-right: 0.15rem;
-  cursor: pointer;
-  color: #091f2f;
-  font-size: 18px;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text'] {
-  max-width: 40px;
-  padding: 3px 2px 3px 2px;
-  border: 1px solid transparent;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
-  background: #C8C8C8;
-  outline: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
-.emotion-3 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
-  display: none;
-}
-
-.emotion-3 .quantity__main-wrapper .input_wrapper .icon {
-  width: 24px;
-  height: 24px;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: 0px 4px;
-  background-size: 24px 24px;
-}
-
-.emotion-3 .quantity__main-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid transparent;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding: 5px 5px 5px 5px;
-  background-position: center right;
-  padding-right: calc(0.75em + 0.75rem);
-  background-size: 22px;
-}
-
-.emotion-3 .quantity__main-wrapper select option {
-  text-align: center;
-}
-
-.emotion-3 [data-type='select'] {
-  border: 1px solid transparent;
-}
-
-.emotion-3 [data-type='input'] {
-  border: 1px solid #091f2f;
-}
-
-.emotion-5 {
+.emotion-4 {
   color: #091f2f;
   font-family: Lora,Georgia,serif;
   font-size: 18px;
@@ -102583,7 +100626,7 @@ Array [
   width: 100%;
 }
 
-.emotion-5 h1 {
+.emotion-4 h1 {
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -102591,11 +100634,11 @@ Array [
   margin-bottom: 14px;
 }
 
-.emotion-5 span.bold {
+.emotion-4 span.bold {
   font-weight: 700;
 }
 
-.emotion-5 .row {
+.emotion-4 .row {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -102608,19 +100651,19 @@ Array [
   line-height: 1.25rem;
 }
 
-.emotion-5 .row .col {
+.emotion-4 .row .col {
   white-space: 'rap';
   -webkit-flex: min-content;
   -ms-flex: min-content;
   flex: min-content;
 }
 
-.emotion-5 .row .col:nth-of-type(2) {
+.emotion-4 .row .col:nth-of-type(2) {
   text-align: right;
   max-width: 30%;
 }
 
-.emotion-5 .row:nth-last-of-type(-n + 1) {
+.emotion-4 .row:nth-last-of-type(-n + 1) {
   font-family: Montserrat,Arial,sans-serif;
   font-size: 24px;
   font-weight: 700;
@@ -102631,7 +100674,7 @@ Array [
 }
 
 @media screen and (max-width:480px) {
-  .emotion-5 .total-cost {
+  .emotion-4 .total-cost {
     font-size: 15px;
   }
 }
@@ -102822,7 +100865,7 @@ Array [
               Review Order
             </h2>
             <div
-              className="emotion-6"
+              className="emotion-5"
             >
               <div
                 className="t--info m-v500"
@@ -102982,93 +101025,11 @@ Array [
                 >
                   <div>
                     <div
-                      className="emotion-4"
+                      className="emotion-3"
                     >
                       <div
                         className="col"
                       >
-                        <span
-                          className="mobile__visible"
-                        >
-                          <div
-                            className="col"
-                          >
-                            <div
-                              className="emotion-3"
-                            >
-                              <div
-                                className="quantity__main-wrapper"
-                                data-type="select"
-                              >
-                                <label
-                                  htmlFor="quantityMenu"
-                                  onClick={[Function]}
-                                >
-                                  Quantity:
-                                </label>
-                                <select
-                                  id="quantityDropDown__key__1201"
-                                  name="quantityMenu"
-                                  onChange={[Function]}
-                                  tabIndex={0}
-                                  value="1"
-                                >
-                                  <option
-                                    value={1}
-                                  >
-                                    1
-                                  </option>
-                                  <option
-                                    value={2}
-                                  >
-                                    2
-                                  </option>
-                                  <option
-                                    value={3}
-                                  >
-                                    3
-                                  </option>
-                                  <option
-                                    value={4}
-                                  >
-                                    4
-                                  </option>
-                                  <option
-                                    value={5}
-                                  >
-                                    5
-                                  </option>
-                                  <option
-                                    value={6}
-                                  >
-                                    6
-                                  </option>
-                                  <option
-                                    value={7}
-                                  >
-                                    7
-                                  </option>
-                                  <option
-                                    value={8}
-                                  >
-                                    8
-                                  </option>
-                                  <option
-                                    value={9}
-                                  >
-                                    9
-                                  </option>
-                                  <option
-                                    value={10}
-                                  >
-                                    10
-                                    +
-                                  </option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </span>
                         <div
                           className="name-row"
                         >
@@ -103106,7 +101067,7 @@ Array [
                     Order Summary
                   </h1>
                   <div
-                    className="emotion-5"
+                    className="emotion-4"
                   >
                     <div
                       className="row"
@@ -110341,7 +108302,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
       >
         <label
           className="txt-l "
-          htmlFor="input-5381"
+          htmlFor="input-686119205"
           style={
             Object {
               "alignItems": "baseline",
@@ -110363,7 +108324,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 1 1`] = `
         <input
           aria-label=""
           className="txt-f   "
-          id="input-5381"
+          id="input-686119205"
           name="maidenName1"
           onChange={[Function]}
           type="text"
@@ -111022,7 +108983,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
       >
         <label
           className="txt-l "
-          htmlFor="input-5381"
+          htmlFor="input-686119205"
           style={
             Object {
               "alignItems": "baseline",
@@ -111044,7 +109005,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord person 2 1`] = `
         <input
           aria-label=""
           className="txt-f   "
-          id="input-5381"
+          id="input-686119205"
           name="maidenName2"
           onChange={[Function]}
           type="text"
@@ -111703,7 +109664,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
       >
         <label
           className="txt-l "
-          htmlFor="input-5381"
+          htmlFor="input-686119205"
           style={
             Object {
               "alignItems": "baseline",
@@ -111725,7 +109686,7 @@ exports[`Storyshots Marriage/Question Components/PersonOnRecord self 1`] = `
         <input
           aria-label=""
           className="txt-f   "
-          id="input-5381"
+          id="input-686119205"
           name="maidenName1"
           onChange={[Function]}
           type="text"
@@ -116276,7 +114237,7 @@ Array [
                 >
                   <label
                     className="txt-l "
-                    htmlFor="input-5381"
+                    htmlFor="input-686119205"
                     style={
                       Object {
                         "alignItems": "baseline",
@@ -116298,7 +114259,7 @@ Array [
                   <input
                     aria-label=""
                     className="txt-f   "
-                    id="input-5381"
+                    id="input-686119205"
                     name="maidenName1"
                     onChange={[Function]}
                     type="text"
@@ -117338,7 +115299,7 @@ Array [
                 >
                   <label
                     className="txt-l "
-                    htmlFor="input-5381"
+                    htmlFor="input-686119205"
                     style={
                       Object {
                         "alignItems": "baseline",
@@ -117360,7 +115321,7 @@ Array [
                   <input
                     aria-label=""
                     className="txt-f   "
-                    id="input-5381"
+                    id="input-686119205"
                     name="maidenName2"
                     onChange={[Function]}
                     type="text"
