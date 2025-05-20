@@ -51,7 +51,7 @@ const BANNER_CSS = css`
     display: flex;
     color: ${CHARLES_BLUE};
     padding: 24px 32px 10px;
-    background: rgba(0, 136, 23, 0.25);
+    background: #e3f5e1;
     margin-bottom: 1.25rem;
     align-items: top;
 

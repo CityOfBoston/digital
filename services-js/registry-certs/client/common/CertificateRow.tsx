@@ -176,10 +176,6 @@ const renderCertificate = (props: {
       )}
 
       {showSeal && showSeal === true && (
-        // <>
-        //   {capitalize(certificateProps.type)} Certified Paper Copy (with raised
-        //   seal)
-        // </>
         <div css={LONG_TEXT_STYLE}>
           <>
             <wbr />
@@ -277,15 +273,16 @@ function deathCertificateProps(certificate): CertificateProps {
     age,
     pending,
   } = certificate;
-  const ageStr = age
-    ? `${age}${!age.includes('days') && !age.includes('yr') ? 'yrs' : ''}`
-    : '';
+  // const ageStr = age
+  //   ? `${age}${!age.includes('days') && !age.includes('yr') ? ' yrs' : ''}`
+  //   : '';
 
   return {
     firstName,
     lastName,
     subinfo: `${deathDate || deathYear}`,
-    age: ageStr,
+    // age: ageStr,
+    age,
     pending,
     type: 'death',
   };

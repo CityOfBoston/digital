@@ -242,6 +242,7 @@ export default class ReviewContent extends React.Component<Props, State> {
             <OrderDetails
               type="birth"
               birthCertificateRequest={this.props[cartTypeStr]}
+              hideQtyUI={true}
             />
           </div>
         );
@@ -251,6 +252,7 @@ export default class ReviewContent extends React.Component<Props, State> {
             <OrderDetails
               type="marriage"
               marriageCertificateRequest={this.props[cartTypeStr]}
+              hideQtyUI={true}
             />
           </div>
         );

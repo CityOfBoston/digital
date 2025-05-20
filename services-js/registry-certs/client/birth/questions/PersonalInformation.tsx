@@ -96,6 +96,7 @@ export default class PersonalInformation extends Component<Props> {
               name="firstName"
               value={firstName}
               onChange={this.handleChange}
+              required={true}
             />
 
             <TextInput
@@ -103,6 +104,7 @@ export default class PersonalInformation extends Component<Props> {
               name="lastName"
               value={lastName}
               onChange={this.handleChange}
+              required={true}
             />
           </div>
 

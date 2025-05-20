@@ -31,8 +31,14 @@ export default function SearchResult({ backUrl, certificate }: Props) {
   } = certificate;
 
   const ageStr = age
-    ? `${age}${!age.includes('days') && !age.includes('yr') ? 'yrs' : ''}`
+    ? `${age}${
+        !age.includes('days') && !age.includes('yr') && !age.includes('yrs')
+          ? ''
+          : ''
+      }`
     : '';
+  // ? `${age}${!age.includes('days') && !age.includes('yr') ? ' yrs' : ''}`
+  // const ageStr = age;
 
   return (
     <div css={LINK_CSS}>

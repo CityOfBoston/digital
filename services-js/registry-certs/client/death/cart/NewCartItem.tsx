@@ -84,7 +84,11 @@ export const $CartItem = (props: Props) => {
                 Age:{' '}
                 <span>
                   {age}
-                  {!age.includes('days') && !age.includes('yr') ? `yrs` : ''}
+                  {/* {!age.includes('days') &&
+                  !age.includes('yr') &&
+                  !age.includes('yrs')
+                    ? ` yrs`
+                    : ''} */}
                 </span>
               </label>
             </span>

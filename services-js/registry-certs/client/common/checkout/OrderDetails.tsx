@@ -46,12 +46,12 @@ import CertificateRow from '../../common/CertificateRow';
 
 import CertItem from '../components/CertItem';
 import {
-  capFirstLetterOfStr,
+  // capFirstLetterOfStr,
   formatCheckoutDate,
   ReactKeyIndexStr,
 } from '../../../utils/helpers';
 
-type OrderDetailsProps = { inDrawer?: boolean } & (
+type OrderDetailsProps = { inDrawer?: boolean; hideQtyUI?: boolean } & (
   | {
       type: 'death';
       deathCertificateCart: DeathCertificateCart;
@@ -121,7 +121,7 @@ export const OrderDetails = observer(function OrderDetails(
   }) => {
     const { cert, cart, quantity = 1, index = '0' } = data;
     // const { firstName, lastName, deathDate, deathYear } = cart.entries[index];
-    // const subinfo = `Date of Death: `;
+    // const subinfo = `Date of death: `;
 
     return (
       <>
@@ -179,15 +179,34 @@ export const OrderDetails = observer(function OrderDetails(
         </div>
       );
     case 'birth': {
+      const { hideQtyUI = false } = props;
       const { quantity, requestInformation } = props.birthCertificateRequest;
       const { birthDate, firstName, lastName } = requestInformation;
-      const subinfo = `Date of Birth: `;
+      const subinfo = `Date of birth: `;
+
+      let certItemParams = {
+        type: props.type,
+        quantity,
+        showNameLabel: true,
+        pending: false,
+        fullNames: `${firstName} ${lastName}`,
+        subinfo,
+        dateStr: formatCheckoutDate(birthDate),
+        handleQuantityChange: handleQuantityChange,
+        drawer: props.inDrawer,
+        hideQtyUI,
+        key: ReactKeyIndexStr({
+          seedStr: `${props.type}Cert_row`,
+          max: 1000,
+        }),
+      };
 
       return (
         <div>
           {quantity && quantity > 0 && (
             <>
-              <CertItem
+              <CertItem {...certItemParams} />
+              {/* <CertItem
                 type={props.type}
                 quantity={quantity}
                 showNameLabel={true}
@@ -201,8 +220,8 @@ export const OrderDetails = observer(function OrderDetails(
                 })}
                 handleQuantityChange={handleQuantityChange}
                 drawer={props.inDrawer}
-                hideQtyUI={true}
-              />
+                hideQtyUI
+              /> */}
 
               {/* <CertificateRow
                 type={props.type}
@@ -221,6 +240,7 @@ export const OrderDetails = observer(function OrderDetails(
       );
     }
     case 'marriage': {
+      const { hideQtyUI = false } = props;
       const {
         fullNames,
         requestInformation,
@@ -232,12 +252,30 @@ export const OrderDetails = observer(function OrderDetails(
       const dateOf_marriage = formatCheckoutDate(dateOfMarriageExact);
       const subinfo =
         dateOfMarriageUnsure.length > 0
-          ? `Date (Range) of ${capFirstLetterOfStr(props.type)}: `
-          : `Date of ${capFirstLetterOfStr(props.type)}: `;
+          ? `Date (Range) of ${props.type}: `
+          : `Date of ${props.type}: `;
+
+      let certItemParams = {
+        type: props.type,
+        quantity: props.marriageCertificateRequest.quantity,
+        showNameLabel: true,
+        pending: false,
+        fullNames: fullNames.replace(' & ', ' and '),
+        subinfo,
+        dateStr: dateOf_marriage,
+        handleQuantityChange: handleQuantityChange,
+        drawer: props.inDrawer,
+        hideQtyUI: hideQtyUI,
+        key: ReactKeyIndexStr({
+          seedStr: `${props.type}Cert_row`,
+          max: 1000,
+        }),
+      };
 
       return (
         <div>
-          <CertItem
+          <CertItem {...certItemParams} />
+          {/* <CertItem
             type={props.type}
             quantity={props.marriageCertificateRequest.quantity}
             showNameLabel={true}
@@ -252,7 +290,7 @@ export const OrderDetails = observer(function OrderDetails(
             handleQuantityChange={handleQuantityChange}
             drawer={props.inDrawer}
             hideQtyUI={true}
-          />
+          /> */}
 
           {/* <CertificateRow
             type={props.type}

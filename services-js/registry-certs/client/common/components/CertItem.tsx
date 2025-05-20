@@ -44,7 +44,7 @@ export const CertItem = (cert: CertItemProps) => {
     drawer = false,
     hideQtyUI = false,
   } = cert;
-  let paperCopyLabel = `Certificate (Paper copy)`;
+  let paperCopyLabel = `Certificate Paper copy (with raised seal)`;
   let age = ``;
 
   if (dateStr && type === 'birth') {
@@ -65,7 +65,6 @@ export const CertItem = (cert: CertItemProps) => {
                 quantity={quantity}
                 selectOptions={{ start: 1, total: 10 }}
               />
-              [QuantityDropdown]
             </div>
           </span>
         )}
