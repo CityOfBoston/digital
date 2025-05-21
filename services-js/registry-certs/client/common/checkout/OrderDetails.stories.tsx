@@ -15,6 +15,7 @@ import { TYPICAL_REQUEST as marriageCertRequest } from '../../../fixtures/client
 
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
+import { ReactKeyIndexStr } from '../../../utils/helpers';
 
 function makeCart(loading: boolean): any {
   const cart = new DeathCertificateCart();
@@ -75,7 +76,14 @@ storiesOf('Common Components/Order Details', module)
       orderType="death"
       certificateQuantity={loadingCart.size}
     >
-      <OrderDetails type="death" deathCertificateCart={loadingCart} />
+      <OrderDetails
+        type="death"
+        deathCertificateCart={loadingCart}
+        keyIndex={ReactKeyIndexStr({
+          seedStr: `OrderDetailsDropdown-details-loading`,
+          max: 10000,
+        })}
+      />
     </OrderDetailsDropdown>
   ))
   .add('OrderDetailsDropdown: death closed', () => (
@@ -83,7 +91,15 @@ storiesOf('Common Components/Order Details', module)
       orderType="death"
       certificateQuantity={deathCart.size}
     >
-      <OrderDetails type="death" deathCertificateCart={deathCart} />
+      <OrderDetails
+        type="death"
+        deathCertificateCart={deathCart}
+        // keyIndex={`OrderDetailsDropdown-death-closed`}
+        keyIndex={ReactKeyIndexStr({
+          seedStr: `OrderDetailsDropdown-death-closed`,
+          max: 10000,
+        })}
+      />
     </OrderDetailsDropdown>
   ))
   .add('OrderDetailsDropdown: death open', () => (
@@ -92,7 +108,17 @@ storiesOf('Common Components/Order Details', module)
       certificateQuantity={deathCart.size}
       startExpanded
     >
-      <OrderDetails type="death" deathCertificateCart={deathCart} />
+      <OrderDetails
+        type="death"
+        deathCertificateCart={deathCart}
+        // keyIndex={`${ReactKeyIndexStr({
+        //   seedStr: `OrderDetailsDropdown-death-open`,
+        //   max: 10000,
+        // })}__${ReactKeyIndexStr({
+        //   seedStr: `--`,
+        //   max: 10000,
+        // })}`}
+      />
     </OrderDetailsDropdown>
   ))
   .add('OrderDetailsDropdown: birth open', () => (
@@ -104,6 +130,11 @@ storiesOf('Common Components/Order Details', module)
       <OrderDetails
         type="birth"
         birthCertificateRequest={makeBirthCertificateRequest()}
+        // keyIndex={`story-test-birth`}
+        keyIndex={ReactKeyIndexStr({
+          seedStr: `OrderDetailsDropdown-birth-open`,
+          max: 10000,
+        })}
       />
     </OrderDetailsDropdown>
   ))
@@ -116,21 +147,38 @@ storiesOf('Common Components/Order Details', module)
       <OrderDetails
         type="marriage"
         marriageCertificateRequest={makeMarriageCertificateRequest()}
+        // keyIndex={`story-test-marriage`}
+        keyIndex={ReactKeyIndexStr({
+          seedStr: `OrderDetailsDropdown-marriage-open`,
+          max: 10000,
+        })}
       />
     </OrderDetailsDropdown>
   ))
   .add('OrderDetails: death', () => (
-    <OrderDetails type="death" deathCertificateCart={deathCart} />
+    <OrderDetails
+      type="death"
+      deathCertificateCart={deathCart}
+      // keyIndex={`${ReactKeyIndexStr({
+      //   seedStr: `OrderDetails-death`,
+      //   max: 10000,
+      // })}__${ReactKeyIndexStr({ seedStr: `--`, max: 10000 })}`}
+    />
   ))
   .add('OrderDetails: birth', () => (
     <OrderDetails
       type="birth"
       birthCertificateRequest={makeBirthCertificateRequest()}
+      keyIndex={ReactKeyIndexStr({ seedStr: `OrderDetails-birth`, max: 10000 })}
     />
   ))
   .add('OrderDetails: marriage', () => (
     <OrderDetails
       type="marriage"
       marriageCertificateRequest={makeMarriageCertificateRequest()}
+      keyIndex={ReactKeyIndexStr({
+        seedStr: `OrderDetails-marriage`,
+        max: 10000,
+      })}
     />
   ));

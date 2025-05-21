@@ -43170,7 +43170,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__key__9230"
+                id="quantityDropDown__birthCert_row__151"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -43318,250 +43318,256 @@ exports[`Storyshots Common Components/Order Details OrderDetails: death 1`] = `
 }
 
 <div>
-  <div
-    className="p-v300 br  emotion-6"
-  >
+  <div>
     <div
-      className="emotion-5"
+      className="p-v300 br  emotion-6"
     >
       <div
-        className=" emotion-1"
+        className="emotion-5"
       >
         <div
-          className="emotion-0"
+          className=" emotion-1"
         >
-          <span
-            className="label"
+          <div
+            className="emotion-0"
           >
-            Name:
-          </span>
-          <span
-            className="name"
-          >
-            Bruce
-             
-            Banner
-          </span>
-          <span
-            className="label"
-          >
-             x 
-          </span>
-          <span
-            className="name"
-          >
-            1
-          </span>
-        </div>
-      </div>
-      <div
-        className="emotion-0"
-      >
-        <div>
-          <span
-            className="label"
-          >
-            Date of death:
-          </span>
-          <span
-            className="name"
-          >
-            3/4/2016
-          </span>
-        </div>
-      </div>
-      <div
-        className="emotion-0"
-      >
-        <span
-          className="label"
-        >
-          Age:
-        </span>
-        <span
-          className="name"
-        >
-          53
-        </span>
-      </div>
-      <div
-        className="emotion-0"
-      >
-        <wbr />
-        <span>
-          Death
-           Certified Paper Copy (with raised seal)
-        </span>
-      </div>
-    </div>
-  </div>
-  <div
-    className="p-v300 br br-t100 emotion-6"
-  >
-    <div
-      className="emotion-5"
-    >
-      <div
-        className=" emotion-1"
-      >
-        <div
-          className="emotion-0"
-        >
-          <span
-            className="label"
-          >
-            Name:
-          </span>
-          <span
-            className="name"
-          >
-            James
-             
-            Howlett (logan)
-          </span>
-          <span
-            className="label"
-          >
-             x 
-          </span>
-          <span
-            className="name"
-          >
-            3
-          </span>
-          <span
-            className="pending"
-          >
-             — 
             <span
-              className="t--sans tt-u"
-              style={
-                Object {
-                  "fontStyle": "normal",
-                  "fontWeight": "bold",
-                }
-              }
+              className="label"
             >
-              pending
+              Name:
             </span>
-          </span>
+            <span
+              className="name"
+            >
+              Bruce
+               
+              Banner
+            </span>
+            <span
+              className="label"
+            >
+               x 
+            </span>
+            <span
+              className="name"
+            >
+              1
+            </span>
+          </div>
         </div>
-      </div>
-      <div
-        className="emotion-0"
-      >
-        <div>
-          <span
-            className="label"
-          >
-            Date of death:
-          </span>
-          <span
-            className="name"
-          >
-            4/15/2014
-          </span>
+        <div
+          className="emotion-0"
+        >
+          <div>
+            <span
+              className="label"
+            >
+              Date of death:
+            </span>
+            <span
+              className="name"
+            >
+              3/4/2016
+            </span>
+          </div>
         </div>
-      </div>
-      <div
-        className="emotion-0"
-      >
-        <span
-          className="label"
-        >
-          Age:
-        </span>
-        <span
-          className="name"
-        >
-          44 yrs. 2 mos. 10 dys
-        </span>
-      </div>
-      <div
-        className="emotion-0"
-      >
-        <wbr />
-        <span>
-          Death
-           Certified Paper Copy (with raised seal)
-        </span>
-      </div>
-    </div>
-  </div>
-  <div
-    className="p-v300 br br-a100 emotion-6"
-  >
-    <div
-      className="emotion-5"
-    >
-      <div
-        className=" emotion-1"
-      >
         <div
           className="emotion-0"
         >
           <span
             className="label"
           >
-            Name:
+            Age:
           </span>
           <span
             className="name"
           >
-            Monkey
-             
-            Joe
+            53
           </span>
-          <span
-            className="label"
-          >
-             x 
-          </span>
-          <span
-            className="name"
-          >
-            1
+        </div>
+        <div
+          className="emotion-0"
+        >
+          <wbr />
+          <span>
+            Death
+             Certified Paper Copy (with raised seal)
           </span>
         </div>
       </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="p-v300 br br-t100 emotion-6"
+    >
       <div
-        className="emotion-0"
+        className="emotion-5"
       >
-        <div>
+        <div
+          className=" emotion-1"
+        >
+          <div
+            className="emotion-0"
+          >
+            <span
+              className="label"
+            >
+              Name:
+            </span>
+            <span
+              className="name"
+            >
+              James
+               
+              Howlett (logan)
+            </span>
+            <span
+              className="label"
+            >
+               x 
+            </span>
+            <span
+              className="name"
+            >
+              3
+            </span>
+            <span
+              className="pending"
+            >
+               — 
+              <span
+                className="t--sans tt-u"
+                style={
+                  Object {
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                pending
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          className="emotion-0"
+        >
+          <div>
+            <span
+              className="label"
+            >
+              Date of death:
+            </span>
+            <span
+              className="name"
+            >
+              4/15/2014
+            </span>
+          </div>
+        </div>
+        <div
+          className="emotion-0"
+        >
           <span
             className="label"
           >
-            Date of death:
+            Age:
           </span>
           <span
             className="name"
           >
-            2004
+            44 yrs. 2 mos. 10 dys
+          </span>
+        </div>
+        <div
+          className="emotion-0"
+        >
+          <wbr />
+          <span>
+            Death
+             Certified Paper Copy (with raised seal)
           </span>
         </div>
       </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="p-v300 br br-a100 emotion-6"
+    >
       <div
-        className="emotion-0"
+        className="emotion-5"
       >
-        <span
-          className="label"
+        <div
+          className=" emotion-1"
         >
-          Age:
-        </span>
-        <span
-          className="name"
+          <div
+            className="emotion-0"
+          >
+            <span
+              className="label"
+            >
+              Name:
+            </span>
+            <span
+              className="name"
+            >
+              Monkey
+               
+              Joe
+            </span>
+            <span
+              className="label"
+            >
+               x 
+            </span>
+            <span
+              className="name"
+            >
+              1
+            </span>
+          </div>
+        </div>
+        <div
+          className="emotion-0"
         >
-          6
-        </span>
-      </div>
-      <div
-        className="emotion-0"
-      >
-        <wbr />
-        <span>
-          Death
-           Certified Paper Copy (with raised seal)
-        </span>
+          <div>
+            <span
+              className="label"
+            >
+              Date of death:
+            </span>
+            <span
+              className="name"
+            >
+              2004
+            </span>
+          </div>
+        </div>
+        <div
+          className="emotion-0"
+        >
+          <span
+            className="label"
+          >
+            Age:
+          </span>
+          <span
+            className="name"
+          >
+            6
+          </span>
+        </div>
+        <div
+          className="emotion-0"
+        >
+          <wbr />
+          <span>
+            Death
+             Certified Paper Copy (with raised seal)
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -43806,7 +43812,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__key__3548"
+                id="quantityDropDown__marriageCert_row__195"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -44346,7 +44352,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__key__662"
+                        id="quantityDropDown__birthCert_row__166"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -44935,250 +44941,256 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: death 
         className="order_items"
       >
         <div>
-          <div
-            className="p-v300 br  emotion-6"
-          >
+          <div>
             <div
-              className="emotion-5"
+              className="p-v300 br  emotion-6"
             >
               <div
-                className=" emotion-1"
+                className="emotion-5"
               >
                 <div
-                  className="emotion-0"
+                  className=" emotion-1"
                 >
-                  <span
-                    className="label"
+                  <div
+                    className="emotion-0"
                   >
-                    Name:
-                  </span>
-                  <span
-                    className="name"
-                  >
-                    Bruce
-                     
-                    Banner
-                  </span>
-                  <span
-                    className="label"
-                  >
-                     x 
-                  </span>
-                  <span
-                    className="name"
-                  >
-                    1
-                  </span>
-                </div>
-              </div>
-              <div
-                className="emotion-0"
-              >
-                <div>
-                  <span
-                    className="label"
-                  >
-                    Date of death:
-                  </span>
-                  <span
-                    className="name"
-                  >
-                    3/4/2016
-                  </span>
-                </div>
-              </div>
-              <div
-                className="emotion-0"
-              >
-                <span
-                  className="label"
-                >
-                  Age:
-                </span>
-                <span
-                  className="name"
-                >
-                  53
-                </span>
-              </div>
-              <div
-                className="emotion-0"
-              >
-                <wbr />
-                <span>
-                  Death
-                   Certified Paper Copy (with raised seal)
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="p-v300 br br-t100 emotion-6"
-          >
-            <div
-              className="emotion-5"
-            >
-              <div
-                className=" emotion-1"
-              >
-                <div
-                  className="emotion-0"
-                >
-                  <span
-                    className="label"
-                  >
-                    Name:
-                  </span>
-                  <span
-                    className="name"
-                  >
-                    James
-                     
-                    Howlett (logan)
-                  </span>
-                  <span
-                    className="label"
-                  >
-                     x 
-                  </span>
-                  <span
-                    className="name"
-                  >
-                    3
-                  </span>
-                  <span
-                    className="pending"
-                  >
-                     — 
                     <span
-                      className="t--sans tt-u"
-                      style={
-                        Object {
-                          "fontStyle": "normal",
-                          "fontWeight": "bold",
-                        }
-                      }
+                      className="label"
                     >
-                      pending
+                      Name:
                     </span>
-                  </span>
+                    <span
+                      className="name"
+                    >
+                      Bruce
+                       
+                      Banner
+                    </span>
+                    <span
+                      className="label"
+                    >
+                       x 
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      1
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div
-                className="emotion-0"
-              >
-                <div>
-                  <span
-                    className="label"
-                  >
-                    Date of death:
-                  </span>
-                  <span
-                    className="name"
-                  >
-                    4/15/2014
-                  </span>
+                <div
+                  className="emotion-0"
+                >
+                  <div>
+                    <span
+                      className="label"
+                    >
+                      Date of death:
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      3/4/2016
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div
-                className="emotion-0"
-              >
-                <span
-                  className="label"
-                >
-                  Age:
-                </span>
-                <span
-                  className="name"
-                >
-                  44 yrs. 2 mos. 10 dys
-                </span>
-              </div>
-              <div
-                className="emotion-0"
-              >
-                <wbr />
-                <span>
-                  Death
-                   Certified Paper Copy (with raised seal)
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            className="p-v300 br br-a100 emotion-6"
-          >
-            <div
-              className="emotion-5"
-            >
-              <div
-                className=" emotion-1"
-              >
                 <div
                   className="emotion-0"
                 >
                   <span
                     className="label"
                   >
-                    Name:
+                    Age:
                   </span>
                   <span
                     className="name"
                   >
-                    Monkey
-                     
-                    Joe
+                    53
                   </span>
-                  <span
-                    className="label"
-                  >
-                     x 
-                  </span>
-                  <span
-                    className="name"
-                  >
-                    1
+                </div>
+                <div
+                  className="emotion-0"
+                >
+                  <wbr />
+                  <span>
+                    Death
+                     Certified Paper Copy (with raised seal)
                   </span>
                 </div>
               </div>
+            </div>
+          </div>
+          <div>
+            <div
+              className="p-v300 br br-t100 emotion-6"
+            >
               <div
-                className="emotion-0"
+                className="emotion-5"
               >
-                <div>
+                <div
+                  className=" emotion-1"
+                >
+                  <div
+                    className="emotion-0"
+                  >
+                    <span
+                      className="label"
+                    >
+                      Name:
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      James
+                       
+                      Howlett (logan)
+                    </span>
+                    <span
+                      className="label"
+                    >
+                       x 
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      3
+                    </span>
+                    <span
+                      className="pending"
+                    >
+                       — 
+                      <span
+                        className="t--sans tt-u"
+                        style={
+                          Object {
+                            "fontStyle": "normal",
+                            "fontWeight": "bold",
+                          }
+                        }
+                      >
+                        pending
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="emotion-0"
+                >
+                  <div>
+                    <span
+                      className="label"
+                    >
+                      Date of death:
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      4/15/2014
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="emotion-0"
+                >
                   <span
                     className="label"
                   >
-                    Date of death:
+                    Age:
                   </span>
                   <span
                     className="name"
                   >
-                    2004
+                    44 yrs. 2 mos. 10 dys
+                  </span>
+                </div>
+                <div
+                  className="emotion-0"
+                >
+                  <wbr />
+                  <span>
+                    Death
+                     Certified Paper Copy (with raised seal)
                   </span>
                 </div>
               </div>
+            </div>
+          </div>
+          <div>
+            <div
+              className="p-v300 br br-a100 emotion-6"
+            >
               <div
-                className="emotion-0"
+                className="emotion-5"
               >
-                <span
-                  className="label"
+                <div
+                  className=" emotion-1"
                 >
-                  Age:
-                </span>
-                <span
-                  className="name"
+                  <div
+                    className="emotion-0"
+                  >
+                    <span
+                      className="label"
+                    >
+                      Name:
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      Monkey
+                       
+                      Joe
+                    </span>
+                    <span
+                      className="label"
+                    >
+                       x 
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      1
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="emotion-0"
                 >
-                  6
-                </span>
-              </div>
-              <div
-                className="emotion-0"
-              >
-                <wbr />
-                <span>
-                  Death
-                   Certified Paper Copy (with raised seal)
-                </span>
+                  <div>
+                    <span
+                      className="label"
+                    >
+                      Date of death:
+                    </span>
+                    <span
+                      className="name"
+                    >
+                      2004
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="emotion-0"
+                >
+                  <span
+                    className="label"
+                  >
+                    Age:
+                  </span>
+                  <span
+                    className="name"
+                  >
+                    6
+                  </span>
+                </div>
+                <div
+                  className="emotion-0"
+                >
+                  <wbr />
+                  <span>
+                    Death
+                     Certified Paper Copy (with raised seal)
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -45864,7 +45876,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__key__5691"
+                        id="quantityDropDown__marriageCert_row__564"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -52228,7 +52240,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__key__4235"
+                      id="quantityDropDown__birthCert_row__402"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -52868,7 +52880,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__key__7038"
+                      id="quantityDropDown__marriageCert_row__408"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -68575,7 +68587,7 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Your order will be shipped within 1–2 business days via the U.S. Postal Service.
+        Your order will be shipped within 1-2 business days via the U.S. Postal Service.
       </div>
     
               </td>
@@ -68813,7 +68825,7 @@ Your order:
   Card processing fee*  $1.32
   Total  $141.32
 
-Your order will be shipped within 1–2 business days via the 
+Your order will be shipped within 1-2 business days via the 
 U.S. Postal Service.
 
 * You are charged an extra service fee of not more than 

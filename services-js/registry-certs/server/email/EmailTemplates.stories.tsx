@@ -33,12 +33,12 @@ storiesOf('Email/Birth/Shipped', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
-        __html: snapToString('receipt Birth certificate shipped 2'),
+        __html: snapToString('shipped Birth certificate shipped 2'),
       }}
     />
   ))
   .add('text', () => (
-    <pre>{snapToString('receipt Birth certificate shipped 3')}</pre>
+    <pre>{snapToString('shipped Birth certificate shipped 3')}</pre>
   ));
 
 storiesOf('Email/Birth/Expired', module)
@@ -69,12 +69,12 @@ storiesOf('Email/Marriage/Shipped', module)
   .add('HTML', () => (
     <div
       dangerouslySetInnerHTML={{
-        __html: snapToString('receipt Marriage certificate shipped 2'),
+        __html: snapToString('shipped Marriage certificate shipped 2'),
       }}
     />
   ))
   .add('text', () => (
-    <pre>{snapToString('receipt Marriage certificate shipped 3')}</pre>
+    <pre>{snapToString('shipped Marriage certificate shipped 3')}</pre>
   ));
 
 storiesOf('Email/Marriage/Expired', module)

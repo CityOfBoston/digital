@@ -51,7 +51,11 @@ import {
   ReactKeyIndexStr,
 } from '../../../utils/helpers';
 
-type OrderDetailsProps = { inDrawer?: boolean; hideQtyUI?: boolean } & (
+type OrderDetailsProps = {
+  inDrawer?: boolean;
+  hideQtyUI?: boolean;
+  keyIndex?: string;
+} & (
   | {
       type: 'death';
       deathCertificateCart: DeathCertificateCart;
@@ -120,11 +124,17 @@ export const OrderDetails = observer(function OrderDetails(
     index: string;
   }) => {
     const { cert, cart, quantity = 1, index = '0' } = data;
+    const {
+      keyIndex = ReactKeyIndexStr({
+        seedStr: `order-details--key`,
+        max: 10000,
+      }),
+    } = props;
     // const { firstName, lastName, deathDate, deathYear } = cart.entries[index];
     // const subinfo = `Date of death: `;
 
     return (
-      <>
+      <div key={keyIndex}>
         {/* <CertItem
           type={props.type}
           quantity={quantity}
@@ -157,8 +167,9 @@ export const OrderDetails = observer(function OrderDetails(
           showQuantity={true}
           showSeal={true}
           showNameLabel={true}
+          keyIndex={keyIndex}
         />
-      </>
+      </div>
     );
   };
 
@@ -195,7 +206,7 @@ export const OrderDetails = observer(function OrderDetails(
         handleQuantityChange: handleQuantityChange,
         drawer: props.inDrawer,
         hideQtyUI,
-        key: ReactKeyIndexStr({
+        keyIndex: ReactKeyIndexStr({
           seedStr: `${props.type}Cert_row`,
           max: 1000,
         }),
@@ -266,7 +277,7 @@ export const OrderDetails = observer(function OrderDetails(
         handleQuantityChange: handleQuantityChange,
         drawer: props.inDrawer,
         hideQtyUI: hideQtyUI,
-        key: ReactKeyIndexStr({
+        keyIndex: ReactKeyIndexStr({
           seedStr: `${props.type}Cert_row`,
           max: 1000,
         }),

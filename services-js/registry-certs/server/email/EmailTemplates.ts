@@ -131,7 +131,7 @@ export class EmailTemplates {
         })),
 
         belowOrderText: [
-          'Your order will be shipped within 1–2 business days via the U.S. Postal Service.',
+          'Your order will be shipped within 1-2 business days via the U.S. Postal Service.',
         ],
       },
       `City of Boston Death Certificates Order #${receipt.orderId}`

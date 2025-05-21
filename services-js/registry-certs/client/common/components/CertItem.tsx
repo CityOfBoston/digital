@@ -26,7 +26,7 @@ export type CertItemProps = {
   lastName?: string;
   fullNames?: string;
   dateStr?: string;
-  key?: string;
+  keyIndex?: string;
   handleQuantityChange?: (quantity: string | number | null) => void;
   drawer?: boolean;
   hideQtyUI?: boolean;
@@ -39,7 +39,7 @@ export const CertItem = (cert: CertItemProps) => {
     fullNames = '',
     subinfo,
     dateStr,
-    key = ReactKeyIndexStr({ seedStr: `key`, max: 10000 }),
+    keyIndex = ReactKeyIndexStr({ seedStr: `key`, max: 10000 }),
     handleQuantityChange = () => {},
     drawer = false,
     hideQtyUI = false,
@@ -50,7 +50,6 @@ export const CertItem = (cert: CertItemProps) => {
   if (dateStr && type === 'birth') {
     age = getAgeFromDate(dateStr.toString());
   }
-  // console.log(`CertItem > key: ${key}`);
 
   return (
     <div css={CERTITEM_CSS}>
@@ -59,8 +58,8 @@ export const CertItem = (cert: CertItemProps) => {
           <span className={`mobile__visible`}>
             <div className={`col`}>
               <QuantityDropdown
-                id={`quantityDropDown__${key}`}
-                label={`quantity_for_${key}`}
+                id={`quantityDropDown__${keyIndex}`}
+                label={`quantity_for_${keyIndex}`}
                 handleQuantityChange={handleQuantityChange}
                 quantity={quantity}
                 selectOptions={{ start: 1, total: 10 }}
@@ -97,8 +96,8 @@ export const CertItem = (cert: CertItemProps) => {
         <div className={`col`}>
           <div className={`row mobile`}>
             <QuantityDropdown
-              id={`quantityDropDown__${key}`}
-              label={`quantity_for_${key}`}
+              id={`quantityDropDown__${keyIndex}`}
+              label={`quantity_for_${keyIndex}`}
               handleQuantityChange={handleQuantityChange}
               quantity={quantity}
               selectOptions={{ start: 1, total: 10 }}

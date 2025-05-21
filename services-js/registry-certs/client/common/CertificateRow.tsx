@@ -11,6 +11,7 @@ import MarriageCertificateRequest from '../store/MarriageCertificateRequest';
 
 import { DeathCertificate } from '../types';
 import { capitalize } from '../../lib/helpers';
+import { ReactKeyIndexStr } from '../../utils/helpers';
 
 export type Props = {
   borderTop: boolean;
@@ -24,6 +25,7 @@ export type Props = {
   showSeal?: boolean;
   link?: boolean;
   showNameLabel?: boolean;
+  keyIndex?: string;
 } & (
   | {
       type: 'death';
@@ -68,6 +70,7 @@ const renderCertificate = (props: {
   showSeal?: boolean;
   link?: boolean;
   showNameLabel?: boolean;
+  keyIndex?: string;
 }) => {
   const {
     certificateProps,
@@ -77,6 +80,7 @@ const renderCertificate = (props: {
     showSeal = false,
     link = false,
     showNameLabel = false,
+    keyIndex = ReactKeyIndexStr({ seedStr: `key`, max: 10000 }),
   } = props;
   const qty = quantity ? quantity : 0;
   const show_quantity = showQuantity ? showQuantity : true;
@@ -100,7 +104,6 @@ const renderCertificate = (props: {
   }
 
   const nameRowElem = certificateProps => {
-    // console.log(`CertificateRow > certificateProps: `, certificateProps);
     return (
       <>
         {showNameLabel && <span className={'label'}>Name:</span>}
@@ -143,7 +146,7 @@ const renderCertificate = (props: {
   // console.log(`certificateProps: `, certificateProps);
 
   return (
-    <div key="certificate" css={CERTIFICATE_INFO_BOX_STYLE}>
+    <div key={`certificate__${keyIndex}`} css={CERTIFICATE_INFO_BOX_STYLE}>
       <div
         className=""
         css={thin ? THIN_CERTIFICATE_NAME_STYLE : CERTIFICATE_NAME_STYLE}
@@ -206,6 +209,7 @@ export default function CertificateRow(props: Props) {
     showSeal = false,
     link = false,
     showNameLabel = false,
+    keyIndex = ReactKeyIndexStr({ seedStr: `key`, max: 10000 }),
   } = props;
 
   let borderClass = '';
@@ -238,6 +242,7 @@ export default function CertificateRow(props: Props) {
                 link,
                 showNameLabel,
                 showSeal,
+                keyIndex,
               })
             )
           : renderCertificate({
@@ -248,6 +253,7 @@ export default function CertificateRow(props: Props) {
               showSeal,
               link,
               showNameLabel,
+              keyIndex,
             })}
       </div>
     </>

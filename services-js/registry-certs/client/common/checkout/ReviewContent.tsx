@@ -36,6 +36,7 @@ import CheckoutPageLayout from './CheckoutPageLayout';
 import { ProgressProps } from '../../../lib/interfaces';
 import { OrderDetails } from './OrderDetails';
 import { CARDTYPE } from '../../models/CardType';
+import { ReactKeyIndexStr } from '../../../utils/helpers';
 // import RenderOrderDetails from './OrderDetails';
 
 export type Props = {
@@ -45,6 +46,7 @@ export type Props = {
   cardType?: CARDTYPE;
   showErrorsForTest?: boolean;
   testSubmissionError?: SubmissionError;
+  keyIndex?: string;
 } & (
   | {
       certificateType: 'death';
@@ -147,7 +149,16 @@ export default class ReviewContent extends React.Component<Props, State> {
   };
 
   render() {
-    const { order, certificateType, tracking, cardType = '0' } = this.props;
+    const {
+      order,
+      certificateType,
+      tracking,
+      cardType = '0',
+      keyIndex = ReactKeyIndexStr({
+        seedStr: `review-content`,
+        max: 1000,
+      }),
+    } = this.props;
 
     const {
       acceptNonRefundable,
@@ -223,7 +234,10 @@ export default class ReviewContent extends React.Component<Props, State> {
         return this.props[cartTypeStr].entries.map(
           ({ cert, quantity }, i) =>
             cert && (
-              <div className={'certRow'}>
+              <div
+                key={`div--rev-content-${keyIndex}#${i}`}
+                className={'certRow'}
+              >
                 <CertificateRow
                   type={this.props.certificateType}
                   key={cert.id}
@@ -232,6 +246,7 @@ export default class ReviewContent extends React.Component<Props, State> {
                   borderBottom={true}
                   quantity={quantity}
                   showQuantity={true}
+                  keyIndex={`${keyIndex}__${i}`}
                 />
               </div>
             )
@@ -281,7 +296,7 @@ export default class ReviewContent extends React.Component<Props, State> {
           </div>
         }
       >
-        <div css={REVIEW_CSS}>
+        <div key={keyIndex} css={REVIEW_CSS}>
           <div className="t--info m-v500">
             Your order is not yet complete. Please check the information below,
             then click the <b>Submit Order</b> button.
