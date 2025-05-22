@@ -157,21 +157,24 @@ class CartPage extends React.Component<Props, State> {
             </div>
 
             {deathCertificateCart.entries.length > 0 && (
-              <CertMailTracking
-                action={
-                  certMail &&
-                  certMail.certMailInfo.requestCertifiedMail === true
-                    ? 'remove'
-                    : 'add'
-                }
-                value={
-                  certMail &&
-                  certMail.certMailInfo.requestCertifiedMail === true
-                    ? 1
-                    : 0
-                }
-                onClickHandler={certMailHandler}
-              />
+              <>
+                <CertMailTracking
+                  name={`death-workflow--certtracking`}
+                  action={
+                    certMail &&
+                    certMail.certMailInfo.requestCertifiedMail === true
+                      ? 'remove'
+                      : 'add'
+                  }
+                  value={
+                    certMail &&
+                    certMail.certMailInfo.requestCertifiedMail === true
+                      ? 1
+                      : 0
+                  }
+                  onClickHandler={certMailHandler}
+                />
+              </>
             )}
 
             {!loading && deathCertificateCart.entries.length > 0 && (

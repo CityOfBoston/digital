@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
+import hash from 'string-hash';
 
 import {
   SANS,
@@ -9,15 +10,21 @@ import {
   AddRemoveRadioBtn,
   MEDIA_SMALL_MAX,
 } from '@cityofboston/react-fleet';
+import { ReactKeyIndexStr } from '../../utils/helpers';
 
 interface Props {
   action: 'add' | 'remove';
   value: 0 | 1;
   onClickHandler: () => void;
+  name?: string;
 }
 
 export const CertMailTracking = (props: Props): JSX.Element => {
-  const { action, value, onClickHandler } = props;
+  const { name = 'AddRemove', action, value, onClickHandler } = props;
+  const elemName = ReactKeyIndexStr({
+    seedStr: `CertMailTracking-Input--${hash(name)}__`,
+    max: 10000,
+  });
 
   return (
     <div css={TRACKING_STYLING}>
@@ -34,7 +41,7 @@ export const CertMailTracking = (props: Props): JSX.Element => {
         <div className="col">
           <AddRemoveRadioBtn
             labels={['Add', 'Remove']}
-            name={`CC_AddRemove`}
+            name={elemName}
             id={`checkoutAddRemove`}
             action={action}
             value={value}

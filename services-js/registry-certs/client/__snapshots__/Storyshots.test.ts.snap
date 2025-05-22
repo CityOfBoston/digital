@@ -43170,7 +43170,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__birthCert_row__233"
+                id="quantityDropDown__birthCert_row__222"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -43812,7 +43812,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
                 Quantity:
               </label>
               <select
-                id="quantityDropDown__marriageCert_row__933"
+                id="quantityDropDown__marriageCert_row__82"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -44352,7 +44352,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__birthCert_row__632"
+                        id="quantityDropDown__birthCert_row__962"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -45876,7 +45876,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
                         Quantity:
                       </label>
                       <select
-                        id="quantityDropDown__marriageCert_row__752"
+                        id="quantityDropDown__marriageCert_row__647"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -52240,7 +52240,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__birthCert_row__236"
+                      id="quantityDropDown__birthCert_row__533"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -52880,7 +52880,7 @@ Array [
                       Quantity:
                     </label>
                     <select
-                      id="quantityDropDown__marriageCert_row__579"
+                      id="quantityDropDown__marriageCert_row__775"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -55129,11 +55129,13 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
             </div>
           </div>
         </div>
-        <button
+        <div
           className="emotion-1"
           data-action="remove"
           id="checkoutAddRemove"
           onClick={[Function]}
+          onKeyUp={[Function]}
+          onTouchEnd={[Function]}
           tabIndex={0}
         >
           <div
@@ -55145,12 +55147,12 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
               htmlFor="checkoutAddRemove"
             />
             <input
-              name="CC_AddRemove"
+              name="hidden-CC_AddRemove"
               type="hidden"
               value="1"
             />
           </div>
-        </button>
+        </div>
       </span>
       <span
         className="name main"
@@ -55263,11 +55265,13 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
         <div
           className="col"
         >
-          <button
+          <div
             className="emotion-1"
             data-action="remove"
             id="checkoutAddRemove"
             onClick={[Function]}
+            onKeyUp={[Function]}
+            onTouchEnd={[Function]}
             tabIndex={0}
           >
             <div
@@ -55279,12 +55283,12 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
                 htmlFor="checkoutAddRemove"
               />
               <input
-                name="CC_AddRemove"
+                name="hidden-CC_AddRemove"
                 type="hidden"
                 value="1"
               />
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -55688,11 +55692,13 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
             </div>
           </div>
         </div>
-        <button
+        <div
           className="emotion-1"
           data-action="remove"
           id="checkoutAddRemove"
           onClick={[Function]}
+          onKeyUp={[Function]}
+          onTouchEnd={[Function]}
           tabIndex={0}
         >
           <div
@@ -55704,12 +55710,12 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
               htmlFor="checkoutAddRemove"
             />
             <input
-              name="CC_AddRemove"
+              name="hidden-CC_AddRemove"
               type="hidden"
               value="1"
             />
           </div>
-        </button>
+        </div>
       </span>
       <span
         className="name main"
@@ -55834,11 +55840,13 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
         <div
           className="col"
         >
-          <button
+          <div
             className="emotion-1"
             data-action="remove"
             id="checkoutAddRemove"
             onClick={[Function]}
+            onKeyUp={[Function]}
+            onTouchEnd={[Function]}
             tabIndex={0}
           >
             <div
@@ -55850,12 +55858,12 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
                 htmlFor="checkoutAddRemove"
               />
               <input
-                name="CC_AddRemove"
+                name="hidden-CC_AddRemove"
                 type="hidden"
                 value="1"
               />
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -56259,11 +56267,13 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
             </div>
           </div>
         </div>
-        <button
+        <div
           className="emotion-1"
           data-action="remove"
           id="checkoutAddRemove"
           onClick={[Function]}
+          onKeyUp={[Function]}
+          onTouchEnd={[Function]}
           tabIndex={0}
         >
           <div
@@ -56275,12 +56285,12 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
               htmlFor="checkoutAddRemove"
             />
             <input
-              name="CC_AddRemove"
+              name="hidden-CC_AddRemove"
               type="hidden"
               value="1"
             />
           </div>
-        </button>
+        </div>
       </span>
       <span
         className="name main"
@@ -56405,11 +56415,13 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
         <div
           className="col"
         >
-          <button
+          <div
             className="emotion-1"
             data-action="remove"
             id="checkoutAddRemove"
             onClick={[Function]}
+            onKeyUp={[Function]}
+            onTouchEnd={[Function]}
             tabIndex={0}
           >
             <div
@@ -56421,12 +56433,12 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
                 htmlFor="checkoutAddRemove"
               />
               <input
-                name="CC_AddRemove"
+                name="hidden-CC_AddRemove"
                 type="hidden"
                 value="1"
               />
             </div>
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -57847,11 +57859,13 @@ Array [
                 <div
                   className="col"
                 >
-                  <button
+                  <div
                     className="emotion-5"
                     data-action="add"
                     id="checkoutAddRemove"
                     onClick={[Function]}
+                    onKeyUp={[Function]}
+                    onTouchEnd={[Function]}
                     tabIndex={0}
                   >
                     <div
@@ -57863,12 +57877,12 @@ Array [
                         htmlFor="checkoutAddRemove"
                       />
                       <input
-                        name="CC_AddRemove"
+                        name="hidden-CertMailTracking-Input--2526058632____2885"
                         type="hidden"
                         value="0"
                       />
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -58884,11 +58898,13 @@ Array [
                           </div>
                         </div>
                       </div>
-                      <button
+                      <div
                         className="emotion-6"
                         data-action="remove"
                         id="checkoutAddRemove"
                         onClick={[Function]}
+                        onKeyUp={[Function]}
+                        onTouchEnd={[Function]}
                         tabIndex={0}
                       >
                         <div
@@ -58900,12 +58916,12 @@ Array [
                             htmlFor="checkoutAddRemove"
                           />
                           <input
-                            name="CC_AddRemove"
+                            name="hidden-CC_AddRemove"
                             type="hidden"
                             value="1"
                           />
                         </div>
-                      </button>
+                      </div>
                     </span>
                     <span
                       className="name main"
@@ -59030,11 +59046,13 @@ Array [
                       <div
                         className="col"
                       >
-                        <button
+                        <div
                           className="emotion-6"
                           data-action="remove"
                           id="checkoutAddRemove"
                           onClick={[Function]}
+                          onKeyUp={[Function]}
+                          onTouchEnd={[Function]}
                           tabIndex={0}
                         >
                           <div
@@ -59046,12 +59064,12 @@ Array [
                               htmlFor="checkoutAddRemove"
                             />
                             <input
-                              name="CC_AddRemove"
+                              name="hidden-CC_AddRemove"
                               type="hidden"
                               value="1"
                             />
                           </div>
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -59145,11 +59163,13 @@ Array [
                           </div>
                         </div>
                       </div>
-                      <button
+                      <div
                         className="emotion-6"
                         data-action="remove"
                         id="checkoutAddRemove"
                         onClick={[Function]}
+                        onKeyUp={[Function]}
+                        onTouchEnd={[Function]}
                         tabIndex={0}
                       >
                         <div
@@ -59161,12 +59181,12 @@ Array [
                             htmlFor="checkoutAddRemove"
                           />
                           <input
-                            name="CC_AddRemove"
+                            name="hidden-CC_AddRemove"
                             type="hidden"
                             value="1"
                           />
                         </div>
-                      </button>
+                      </div>
                     </span>
                     <span
                       className="name main"
@@ -59291,11 +59311,13 @@ Array [
                       <div
                         className="col"
                       >
-                        <button
+                        <div
                           className="emotion-6"
                           data-action="remove"
                           id="checkoutAddRemove"
                           onClick={[Function]}
+                          onKeyUp={[Function]}
+                          onTouchEnd={[Function]}
                           tabIndex={0}
                         >
                           <div
@@ -59307,12 +59329,12 @@ Array [
                               htmlFor="checkoutAddRemove"
                             />
                             <input
-                              name="CC_AddRemove"
+                              name="hidden-CC_AddRemove"
                               type="hidden"
                               value="1"
                             />
                           </div>
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -59406,11 +59428,13 @@ Array [
                           </div>
                         </div>
                       </div>
-                      <button
+                      <div
                         className="emotion-6"
                         data-action="remove"
                         id="checkoutAddRemove"
                         onClick={[Function]}
+                        onKeyUp={[Function]}
+                        onTouchEnd={[Function]}
                         tabIndex={0}
                       >
                         <div
@@ -59422,12 +59446,12 @@ Array [
                             htmlFor="checkoutAddRemove"
                           />
                           <input
-                            name="CC_AddRemove"
+                            name="hidden-CC_AddRemove"
                             type="hidden"
                             value="1"
                           />
                         </div>
-                      </button>
+                      </div>
                     </span>
                     <span
                       className="name main"
@@ -59540,11 +59564,13 @@ Array [
                       <div
                         className="col"
                       >
-                        <button
+                        <div
                           className="emotion-6"
                           data-action="remove"
                           id="checkoutAddRemove"
                           onClick={[Function]}
+                          onKeyUp={[Function]}
+                          onTouchEnd={[Function]}
                           tabIndex={0}
                         >
                           <div
@@ -59556,12 +59582,12 @@ Array [
                               htmlFor="checkoutAddRemove"
                             />
                             <input
-                              name="CC_AddRemove"
+                              name="hidden-CC_AddRemove"
                               type="hidden"
                               value="1"
                             />
                           </div>
-                        </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -59591,11 +59617,13 @@ Array [
                 <div
                   className="col"
                 >
-                  <button
+                  <div
                     className="emotion-6"
                     data-action="add"
                     id="checkoutAddRemove"
                     onClick={[Function]}
+                    onKeyUp={[Function]}
+                    onTouchEnd={[Function]}
                     tabIndex={0}
                   >
                     <div
@@ -59607,12 +59635,12 @@ Array [
                         htmlFor="checkoutAddRemove"
                       />
                       <input
-                        name="CC_AddRemove"
+                        name="hidden-CertMailTracking-Input--2526058632____3805"
                         type="hidden"
                         value="0"
                       />
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>

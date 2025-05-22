@@ -24,16 +24,26 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
   } = props;
 
   const key = id || `id-${hash(id)}`;
-  const elemName = name || `name-${hash(id)}`;
+  const elemName = name || `AddRemoveBtn--${hash(id)}`;
 
   return (
-    <button
+    <div
       css={ADDREMOVE_BTN}
       tabIndex={0}
       data-state={state}
       data-action={action}
       id={id}
       onClick={onClickHandler}
+      onTouchEnd={() => {
+        setTimeout(() => {
+          setTimeout(() => {
+            onClickHandler();
+          }, 500);
+        });
+      }}
+      onKeyUp={e => {
+        if (e.keyCode === 13) onClickHandler();
+      }}
     >
       <div className="wrapper">
         <label
@@ -41,9 +51,9 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
           data-content-default={labels[0]}
           data-content-alt={labels[1]}
         />
-        <input type="hidden" name={elemName} value={`${value}`} />
+        <input type="hidden" name={`hidden-${elemName}`} value={`${value}`} />
       </div>
-    </button>
+    </div>
   );
 }
 
