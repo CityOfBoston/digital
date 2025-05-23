@@ -86,7 +86,7 @@ export default class ReviewRequestPage extends Component<Props, State> {
 
       if (certMail) {
         certMail.updateCertMail({
-          requestCertifiedMail: !certMail.certMailInfo.requestCertifiedMail,
+          certMailForBirth: !certMail.certMailInfo.certMailForBirth,
         });
       }
     };
@@ -125,7 +125,7 @@ export default class ReviewRequestPage extends Component<Props, State> {
             siteAnalytics={this.props.siteAnalytics}
             tracking={
               this.state.certMail &&
-              this.state.certMail.certMailInfo.requestCertifiedMail === true
+              this.state.certMail.certMailInfo.certMailForBirth === true
                 ? true
                 : false
             }
@@ -138,13 +138,13 @@ export default class ReviewRequestPage extends Component<Props, State> {
               <CertMailTracking
                 action={
                   this.state.certMail &&
-                  this.state.certMail.certMailInfo.requestCertifiedMail === true
+                  this.state.certMail.certMailInfo.certMailForBirth === true
                     ? 'remove'
                     : 'add'
                 }
                 value={
                   this.state.certMail &&
-                  this.state.certMail.certMailInfo.requestCertifiedMail === true
+                  this.state.certMail.certMailInfo.certMailForBirth === true
                     ? 1
                     : 0
                 }

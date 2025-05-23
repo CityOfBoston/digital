@@ -39,6 +39,7 @@ type State = {
    */
   certMail: CertifiedMail | null;
   cardType: CardType | null;
+  ready: boolean;
 };
 
 interface Props extends PageDependenciesProps {
@@ -54,6 +55,7 @@ class CartPage extends React.Component<Props, State> {
   state: State = {
     certMail: this.props.certifiedMailForTest || null,
     cardType: this.props.cardTypeForTest || null,
+    ready: false,
   };
 
   // When we leave the cart page, remove everything that's 0-size.
@@ -73,22 +75,22 @@ class CartPage extends React.Component<Props, State> {
     const certMail = await certMailProvider.get();
     const cardType = await cardTypeProvider.get();
 
-    await new Promise((resolve: any) =>
-      this.setState({ certMail, cardType }, resolve)
-    );
+    await new Promise((resolve: any) => {
+      this.setState({ certMail, cardType, ready: true }, resolve);
+    });
   }
 
   render() {
     const { deathCertificateCart, siteAnalytics } = this.props;
     const loading = !!deathCertificateCart.entries.find(({ cert }) => !cert);
-    const { certMail, cardType } = this.state;
+    const { certMail, cardType, ready } = this.state;
 
     const certMailHandler = () => {
       const { certMail } = this.state;
 
       if (certMail) {
         certMail.updateCertMail({
-          requestCertifiedMail: !certMail.certMailInfo.requestCertifiedMail,
+          certMailForDeath: !certMail.certMailInfo.certMailForDeath,
         });
       }
     };
@@ -161,14 +163,12 @@ class CartPage extends React.Component<Props, State> {
                 <CertMailTracking
                   name={`death-workflow--certtracking`}
                   action={
-                    certMail &&
-                    certMail.certMailInfo.requestCertifiedMail === true
+                    certMail && certMail.certMailInfo.certMailForDeath === true
                       ? 'remove'
                       : 'add'
                   }
                   value={
-                    certMail &&
-                    certMail.certMailInfo.requestCertifiedMail === true
+                    certMail && certMail.certMailInfo.certMailForDeath === true
                       ? 1
                       : 0
                   }
@@ -177,7 +177,7 @@ class CartPage extends React.Component<Props, State> {
               </>
             )}
 
-            {!loading && deathCertificateCart.entries.length > 0 && (
+            {!loading && ready && deathCertificateCart.entries.length > 0 && (
               <div className="m-t700">
                 <CostSummary
                   certificateType="death"
@@ -187,8 +187,7 @@ class CartPage extends React.Component<Props, State> {
                   getCardType={deathCertificateCart.getCardType}
                   tracking={
                     this.state.certMail &&
-                    this.state.certMail.certMailInfo.requestCertifiedMail ===
-                      true
+                    this.state.certMail.certMailInfo.certMailForDeath === true
                       ? true
                       : false
                   }

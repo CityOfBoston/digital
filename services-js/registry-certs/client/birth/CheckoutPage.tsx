@@ -242,7 +242,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     const orderId = await checkoutDao.submitBirthCertificateRequest(
       birthCertificateRequest,
       order,
-      certMail ? certMail.certMailInfo.requestCertifiedMail : false
+      certMail ? certMail.certMailInfo.certMailForBirth : false
     );
 
     const confirmationUrl = `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
@@ -382,7 +382,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
-                ? certMail.certMailInfo.requestCertifiedMail
+                ? certMail.certMailInfo.certMailForBirth
                 : false
             }
             cardType={
@@ -413,7 +413,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
-                ? certMail.certMailInfo.requestCertifiedMail
+                ? certMail.certMailInfo.certMailForBirth
                 : false
             }
             cardType={
@@ -436,7 +436,7 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
-                ? certMail.certMailInfo.requestCertifiedMail
+                ? certMail.certMailInfo.certMailForBirth
                 : false
             }
             cardType={

@@ -43160,17 +43160,20 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
-                id="quantityDropDown__birthCert_row__222"
+                id="quantityDropDown__birthCert_row__519"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -43802,17 +43805,20 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
-                id="quantityDropDown__marriageCert_row__82"
+                id="quantityDropDown__marriageCert_row__111"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -44342,17 +44348,20 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                     className="emotion-0"
                   >
                     <div
+                      aria-label="Quantity"
                       className="quantity__main-wrapper"
                       data-type="select"
+                      title="Quantity"
                     >
                       <label
                         htmlFor="quantityMenu"
                         onClick={[Function]}
                       >
-                        Quantity:
+                        Quantity
+                        :
                       </label>
                       <select
-                        id="quantityDropDown__birthCert_row__962"
+                        id="quantityDropDown__birthCert_row__580"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -45866,17 +45875,20 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
                     className="emotion-0"
                   >
                     <div
+                      aria-label="Quantity"
                       className="quantity__main-wrapper"
                       data-type="select"
+                      title="Quantity"
                     >
                       <label
                         htmlFor="quantityMenu"
                         onClick={[Function]}
                       >
-                        Quantity:
+                        Quantity
+                        :
                       </label>
                       <select
-                        id="quantityDropDown__marriageCert_row__647"
+                        id="quantityDropDown__marriageCert_row__339"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -52230,17 +52242,20 @@ Array [
                   className="emotion-0"
                 >
                   <div
+                    aria-label="Quantity"
                     className="quantity__main-wrapper"
                     data-type="select"
+                    title="Quantity"
                   >
                     <label
                       htmlFor="quantityMenu"
                       onClick={[Function]}
                     >
-                      Quantity:
+                      Quantity
+                      :
                     </label>
                     <select
-                      id="quantityDropDown__birthCert_row__533"
+                      id="quantityDropDown__birthCert_row__884"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -52870,17 +52885,20 @@ Array [
                   className="emotion-0"
                 >
                   <div
+                    aria-label="Quantity"
                     className="quantity__main-wrapper"
                     data-type="select"
+                    title="Quantity"
                   >
                     <label
                       htmlFor="quantityMenu"
                       onClick={[Function]}
                     >
-                      Quantity:
+                      Quantity
+                      :
                     </label>
                     <select
-                      id="quantityDropDown__marriageCert_row__775"
+                      id="quantityDropDown__marriageCert_row__640"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -55058,14 +55076,17 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
                 id="quantityDropDown__000003"
@@ -55142,9 +55163,11 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
             className="wrapper"
           >
             <label
+              aria-label="Add / Remove Button"
               data-content-alt="Remove"
               data-content-default="Add"
               htmlFor="checkoutAddRemove"
+              title="Add / Remove Button"
             />
             <input
               name="hidden-CC_AddRemove"
@@ -55191,14 +55214,17 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
                 id="quantityDropDown__000003"
@@ -55278,9 +55304,11 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
               className="wrapper"
             >
               <label
+                aria-label="Add / Remove Button"
                 data-content-alt="Remove"
                 data-content-default="Add"
                 htmlFor="checkoutAddRemove"
+                title="Add / Remove Button"
               />
               <input
                 name="hidden-CC_AddRemove"
@@ -55621,14 +55649,17 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
                 id="quantityDropDown__000001"
@@ -55705,9 +55736,11 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
             className="wrapper"
           >
             <label
+              aria-label="Add / Remove Button"
               data-content-alt="Remove"
               data-content-default="Add"
               htmlFor="checkoutAddRemove"
+              title="Add / Remove Button"
             />
             <input
               name="hidden-CC_AddRemove"
@@ -55766,14 +55799,17 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
                 id="quantityDropDown__000001"
@@ -55853,9 +55889,11 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
               className="wrapper"
             >
               <label
+                aria-label="Add / Remove Button"
                 data-content-alt="Remove"
                 data-content-default="Add"
                 htmlFor="checkoutAddRemove"
+                title="Add / Remove Button"
               />
               <input
                 name="hidden-CC_AddRemove"
@@ -56196,14 +56234,17 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
                 id="quantityDropDown__000002"
@@ -56280,9 +56321,11 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
             className="wrapper"
           >
             <label
+              aria-label="Add / Remove Button"
               data-content-alt="Remove"
               data-content-default="Add"
               htmlFor="checkoutAddRemove"
+              title="Add / Remove Button"
             />
             <input
               name="hidden-CC_AddRemove"
@@ -56341,14 +56384,17 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
             className="emotion-0"
           >
             <div
+              aria-label="Quantity"
               className="quantity__main-wrapper"
               data-type="select"
+              title="Quantity"
             >
               <label
                 htmlFor="quantityMenu"
                 onClick={[Function]}
               >
-                Quantity:
+                Quantity
+                :
               </label>
               <select
                 id="quantityDropDown__000002"
@@ -56428,9 +56474,11 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
               className="wrapper"
             >
               <label
+                aria-label="Add / Remove Button"
                 data-content-alt="Remove"
                 data-content-default="Add"
                 htmlFor="checkoutAddRemove"
+                title="Add / Remove Button"
               />
               <input
                 name="hidden-CC_AddRemove"
@@ -57872,12 +57920,14 @@ Array [
                       className="wrapper"
                     >
                       <label
+                        aria-label="Add / Remove Button"
                         data-content-alt="Remove"
                         data-content-default="Add"
                         htmlFor="checkoutAddRemove"
+                        title="Add / Remove Button"
                       />
                       <input
-                        name="hidden-CertMailTracking-Input--2526058632____2885"
+                        name="hidden-CertMailTracking-Input--2526058632____6241"
                         type="hidden"
                         value="0"
                       />
@@ -58044,133 +58094,7 @@ Array [
 }
 
 .emotion-23 {
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: auto;
-  width: 100%;
-}
-
-.emotion-23 h1 {
-  font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-
-.emotion-23 span.bold {
-  font-weight: 700;
-}
-
-.emotion-23 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: baseline;
-  -webkit-box-align: baseline;
-  -ms-flex-align: baseline;
-  align-items: baseline;
-  margin-bottom: 12px;
-  line-height: 1.25rem;
-}
-
-.emotion-23 .row .col {
-  white-space: 'rap';
-  -webkit-flex: min-content;
-  -ms-flex: min-content;
-  flex: min-content;
-}
-
-.emotion-23 .row .col:nth-of-type(2) {
-  text-align: right;
-  max-width: 30%;
-}
-
-.emotion-23 .row:nth-last-of-type(-n + 1) {
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-top: 1px solid #58585b;
-  padding-top: 16px;
-  margin-top: 16px;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-23 .total-cost {
-    font-size: 15px;
-  }
-}
-
-.emotion-25 {
-  font-weight: 700;
-}
-
-.emotion-22 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  color: #000;
-  font-family: Lora;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.emotion-22 .select--wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.emotion-22 .select--wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  border: 0;
-  padding: 0.3em 1em 0.25em 0.25em;
-  margin-left: 0.25rem;
-  font-family: Lora;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  color: #1871bd;
-  text-align: center;
-  -webkit-text-decoration-line: underline;
-  text-decoration-line: underline;
-  -webkit-text-decoration-style: solid;
-  text-decoration-style: solid;
-  -webkit-text-decoration-skip-ink: auto;
-  text-decoration-skip-ink: auto;
-  -webkit-text-decoration-thickness: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
-  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  padding-right: calc(0.5em + 0.75rem);
-  background-position: center right;
-  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
 .emotion-2 {
@@ -58525,7 +58449,7 @@ Array [
   text-decoration: none;
 }
 
-.emotion-24 .m-b500 a {
+.emotion-22 .m-b500 a {
   color: #1871bd;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -58534,7 +58458,7 @@ Array [
   text-underline-offset: 0.15em;
 }
 
-.emotion-24 .m-b500 a:hover {
+.emotion-22 .m-b500 a:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -58785,7 +58709,7 @@ Array [
           className="b-ff"
         >
           <div
-            className="b-ff b-c b-c--nbp emotion-24"
+            className="b-ff b-c b-c--nbp emotion-22"
           >
             <div>
               <div
@@ -58827,14 +58751,17 @@ Array [
                           className="emotion-5"
                         >
                           <div
+                            aria-label="Quantity"
                             className="quantity__main-wrapper"
                             data-type="select"
+                            title="Quantity"
                           >
                             <label
                               htmlFor="quantityMenu"
                               onClick={[Function]}
                             >
-                              Quantity:
+                              Quantity
+                              :
                             </label>
                             <select
                               id="quantityDropDown__000002"
@@ -58911,9 +58838,11 @@ Array [
                           className="wrapper"
                         >
                           <label
+                            aria-label="Add / Remove Button"
                             data-content-alt="Remove"
                             data-content-default="Add"
                             htmlFor="checkoutAddRemove"
+                            title="Add / Remove Button"
                           />
                           <input
                             name="hidden-CC_AddRemove"
@@ -58972,14 +58901,17 @@ Array [
                           className="emotion-5"
                         >
                           <div
+                            aria-label="Quantity"
                             className="quantity__main-wrapper"
                             data-type="select"
+                            title="Quantity"
                           >
                             <label
                               htmlFor="quantityMenu"
                               onClick={[Function]}
                             >
-                              Quantity:
+                              Quantity
+                              :
                             </label>
                             <select
                               id="quantityDropDown__000002"
@@ -59059,9 +58991,11 @@ Array [
                             className="wrapper"
                           >
                             <label
+                              aria-label="Add / Remove Button"
                               data-content-alt="Remove"
                               data-content-default="Add"
                               htmlFor="checkoutAddRemove"
+                              title="Add / Remove Button"
                             />
                             <input
                               name="hidden-CC_AddRemove"
@@ -59092,14 +59026,17 @@ Array [
                           className="emotion-5"
                         >
                           <div
+                            aria-label="Quantity"
                             className="quantity__main-wrapper"
                             data-type="select"
+                            title="Quantity"
                           >
                             <label
                               htmlFor="quantityMenu"
                               onClick={[Function]}
                             >
-                              Quantity:
+                              Quantity
+                              :
                             </label>
                             <select
                               id="quantityDropDown__000001"
@@ -59176,9 +59113,11 @@ Array [
                           className="wrapper"
                         >
                           <label
+                            aria-label="Add / Remove Button"
                             data-content-alt="Remove"
                             data-content-default="Add"
                             htmlFor="checkoutAddRemove"
+                            title="Add / Remove Button"
                           />
                           <input
                             name="hidden-CC_AddRemove"
@@ -59237,14 +59176,17 @@ Array [
                           className="emotion-5"
                         >
                           <div
+                            aria-label="Quantity"
                             className="quantity__main-wrapper"
                             data-type="select"
+                            title="Quantity"
                           >
                             <label
                               htmlFor="quantityMenu"
                               onClick={[Function]}
                             >
-                              Quantity:
+                              Quantity
+                              :
                             </label>
                             <select
                               id="quantityDropDown__000001"
@@ -59324,9 +59266,11 @@ Array [
                             className="wrapper"
                           >
                             <label
+                              aria-label="Add / Remove Button"
                               data-content-alt="Remove"
                               data-content-default="Add"
                               htmlFor="checkoutAddRemove"
+                              title="Add / Remove Button"
                             />
                             <input
                               name="hidden-CC_AddRemove"
@@ -59357,14 +59301,17 @@ Array [
                           className="emotion-5"
                         >
                           <div
+                            aria-label="Quantity"
                             className="quantity__main-wrapper"
                             data-type="select"
+                            title="Quantity"
                           >
                             <label
                               htmlFor="quantityMenu"
                               onClick={[Function]}
                             >
-                              Quantity:
+                              Quantity
+                              :
                             </label>
                             <select
                               id="quantityDropDown__000003"
@@ -59441,9 +59388,11 @@ Array [
                           className="wrapper"
                         >
                           <label
+                            aria-label="Add / Remove Button"
                             data-content-alt="Remove"
                             data-content-default="Add"
                             htmlFor="checkoutAddRemove"
+                            title="Add / Remove Button"
                           />
                           <input
                             name="hidden-CC_AddRemove"
@@ -59490,14 +59439,17 @@ Array [
                           className="emotion-5"
                         >
                           <div
+                            aria-label="Quantity"
                             className="quantity__main-wrapper"
                             data-type="select"
+                            title="Quantity"
                           >
                             <label
                               htmlFor="quantityMenu"
                               onClick={[Function]}
                             >
-                              Quantity:
+                              Quantity
+                              :
                             </label>
                             <select
                               id="quantityDropDown__000003"
@@ -59577,9 +59529,11 @@ Array [
                             className="wrapper"
                           >
                             <label
+                              aria-label="Add / Remove Button"
                               data-content-alt="Remove"
                               data-content-default="Add"
                               htmlFor="checkoutAddRemove"
+                              title="Add / Remove Button"
                             />
                             <input
                               name="hidden-CC_AddRemove"
@@ -59630,141 +59584,19 @@ Array [
                       className="wrapper"
                     >
                       <label
+                        aria-label="Add / Remove Button"
                         data-content-alt="Remove"
                         data-content-default="Add"
                         htmlFor="checkoutAddRemove"
+                        title="Add / Remove Button"
                       />
                       <input
-                        name="hidden-CertMailTracking-Input--2526058632____3805"
+                        name="hidden-CertMailTracking-Input--2526058632____9512"
                         type="hidden"
                         value="0"
                       />
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="m-t700"
-            >
-              <div
-                className="emotion-23"
-              >
-                <h1>
-                  Order Summary
-                </h1>
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col"
-                  >
-                    Subtotal: 5 certificates × $14.00
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    $
-                    70.00
-                  </div>
-                </div>
-                
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col"
-                  >
-                    US Shipping
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    FREE
-                  </div>
-                </div>
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col"
-                  >
-                    <span
-                      className="labeled-select emotion-22"
-                    >
-                      <label
-                        htmlFor="ServiceFeeTypeSelect"
-                      >
-                        Service fee
-                        :
-                      </label>
-                      <div
-                        className="select--wrapper"
-                      >
-                        <select
-                          id="ServiceFeeTypeSelect"
-                          onChange={[Function]}
-                          value="-1"
-                        >
-                          <option
-                            value="-1"
-                          >
-                            Select card
-                          </option>
-                          <option
-                            value="0"
-                          >
-                            credit card
-                          </option>
-                          <option
-                            value="1"
-                          >
-                            debit card
-                          </option>
-                        </select>
-                      </div>
-                    </span>
-                  </div>
-                  <div
-                    className="col"
-                  >
-                    $ 
-                    1.32
-                  </div>
-                </div>
-                <div
-                  className="row"
-                >
-                  <div
-                    className="col"
-                  >
-                    Total
-                  </div>
-                  <div
-                    className="col total-cost"
-                  >
-                    $ 
-                    71.32
-                  </div>
-                </div>
-              </div>
-              <div
-                className="g"
-              >
-                <div
-                  className="g--8"
-                />
-                <div
-                  className="ta-r g--4 m-v500"
-                >
-                  <a
-                    className="btn"
-                    href="/death/checkout"
-                    onClick={[Function]}
-                    onMouseEnter={[Function]}
-                  >
-                    Go to checkout
-                  </a>
                 </div>
               </div>
             </div>
@@ -59778,7 +59610,7 @@ Array [
             >
               * 
               <span
-                className="emotion-25"
+                className="emotion-23"
               >
                 Note:
               </span>

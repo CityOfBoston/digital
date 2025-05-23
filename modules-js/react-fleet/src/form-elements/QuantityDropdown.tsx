@@ -17,12 +17,14 @@ interface Props {
   selectOptions?: Options;
   id: string;
   maxLength?: number;
+  labelName?: string;
 }
 
 const QuantityDropdown = (props: Props): JSX.Element => {
   const {
     id,
     label = 'Quantity',
+    labelName = 'Quantity',
     quantity: propQuantity,
     maxLength = 3,
     selectOptions = { start: 1, total: 10 },
@@ -133,14 +135,19 @@ const QuantityDropdown = (props: Props): JSX.Element => {
 
   return (
     <div css={CS_QUANTITYDROPDOWN}>
-      <div className="quantity__main-wrapper" data-type={type}>
+      <div
+        className="quantity__main-wrapper"
+        data-type={type}
+        title={`${labelName}`}
+        aria-label={`${labelName}`}
+      >
         {type === 'input' ? (
           <label htmlFor={`quantity_txtInput`} onClick={handleIconClick}>
-            Quantity:
+            {labelName}:
           </label>
         ) : (
           <label htmlFor={`quantityMenu`} onClick={handleLabelClick}>
-            Quantity:
+            {labelName}:
           </label>
         )}
 

@@ -215,7 +215,7 @@ export default class CheckoutPageController extends React.Component<
     const orderId = await checkoutDao.submitDeathCertificateCart(
       deathCertificateCart,
       order,
-      certMail ? certMail.certMailInfo.requestCertifiedMail : false
+      certMail ? certMail.certMailInfo.certMailForDeath : false
     );
 
     deathCertificateCart.trackCartItems();
@@ -268,9 +268,7 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.advanceToPayment}
-            tracking={
-              certMail ? certMail.certMailInfo.requestCertifiedMail : false
-            }
+            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
@@ -283,9 +281,7 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.advanceToReview}
-            tracking={
-              certMail ? certMail.certMailInfo.requestCertifiedMail : false
-            }
+            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
@@ -297,9 +293,7 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.submitOrder}
-            tracking={
-              certMail ? certMail.certMailInfo.requestCertifiedMail : false
-            }
+            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
           />
         );
 

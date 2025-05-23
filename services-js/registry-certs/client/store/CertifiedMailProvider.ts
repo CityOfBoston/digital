@@ -160,10 +160,18 @@ export default class CertMailProvider {
    * Does not return any card token information.
    */
   private permanentStorageInfo(certMailInfo: CertMailProps): CertMailProps {
-    const { requestCertifiedMail } = certMailInfo;
+    const {
+      requestCertifiedMail,
+      certMailForBirth,
+      certMailForMarriage,
+      certMailForDeath,
+    } = certMailInfo;
 
     const outInfo: CertMailProps = {
       requestCertifiedMail: requestCertifiedMail ? requestCertifiedMail : false,
+      certMailForBirth: certMailForBirth ? certMailForBirth : false,
+      certMailForMarriage: certMailForMarriage ? certMailForMarriage : false,
+      certMailForDeath: certMailForDeath ? certMailForDeath : false,
     };
 
     return outInfo;

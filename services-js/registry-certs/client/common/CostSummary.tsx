@@ -58,6 +58,12 @@ export default class CostSummary extends Component<Props, State> {
     };
   }
 
+  async componentDidMount() {
+    this.state = {
+      newServiceFeeType: this.props.newServiceFeeType || '0',
+    };
+  }
+
   handleCardOptChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
     const { setCardType } = this.props;
     const value = ev.currentTarget.value as NewServiceFeeType;

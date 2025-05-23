@@ -25,6 +25,7 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
 
   const key = id || `id-${hash(id)}`;
   const elemName = name || `AddRemoveBtn--${hash(id)}`;
+  const ariaLabel = `${labels[0]} / ${labels[1]} Button`;
 
   return (
     <div
@@ -42,7 +43,7 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
         });
       }}
       onKeyUp={e => {
-        if (e.keyCode === 13) onClickHandler();
+        if (e.keyCode === 13 || e.keyCode === 32) onClickHandler();
       }}
     >
       <div className="wrapper">
@@ -50,6 +51,8 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
           htmlFor={key}
           data-content-default={labels[0]}
           data-content-alt={labels[1]}
+          title={`${ariaLabel}`}
+          aria-label={`${ariaLabel}`}
         />
         <input type="hidden" name={`hidden-${elemName}`} value={`${value}`} />
       </div>
@@ -100,13 +103,6 @@ const ADDREMOVE_BTN = css`
       text-decoration: underline;
     }
   }
-
-  // &:active,
-  // &:focus {
-  //   .wrapper {
-  //     border-color: #1871bd;
-  //   }
-  // }
 
   &:focus:not(:focus-visible) {
     .wrapper {

@@ -39,6 +39,7 @@ export const $CartItem = (props: Props) => {
               <QuantityDropdown
                 id={`quantityDropDown__${id}`}
                 label={`quantity_for_${id}`}
+                labelName={`Quantity`}
                 handleQuantityChange={handleQuantityChange}
                 quantity={quantity} // Quantity = [Input] && || [Selecte] value
                 selectOptions={{ start: 1, total: 10 }}
@@ -103,6 +104,7 @@ export const $CartItem = (props: Props) => {
               <QuantityDropdown
                 id={`quantityDropDown__${id}`}
                 label={`quantity_for_${id}`}
+                labelName={`Quantity`}
                 handleQuantityChange={handleQuantityChange}
                 quantity={quantity} // Quantity = [Input] && || [Selecte] value
                 selectOptions={{ start: 1, total: 10 }}

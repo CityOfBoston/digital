@@ -553,9 +553,11 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       className="wrapper"
     >
       <label
+        aria-label="Add / Remove Button"
         data-content-alt="Remove"
         data-content-default="Add"
         htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
       />
       <input
         name="hidden-CC_AddRemove"
@@ -581,9 +583,11 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       className="wrapper"
     >
       <label
+        aria-label="Add / Remove Button"
         data-content-alt="Remove"
         data-content-default="Add"
         htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
       />
       <input
         name="hidden-CC_AddRemove"
@@ -610,9 +614,11 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       className="wrapper"
     >
       <label
+        aria-label="Add / Remove Button"
         data-content-alt="Remove"
         data-content-default="Add"
         htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
       />
       <input
         name="hidden-CC_AddRemove"
@@ -639,9 +645,11 @@ exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
       className="wrapper"
     >
       <label
+        aria-label="Add / Remove Button"
         data-content-alt="Remove"
         data-content-default="Add"
         htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
       />
       <input
         name="hidden-CC_AddRemove"
@@ -961,14 +969,17 @@ exports[`Storyshots Form Elements | Checkout / QuantityDropdown variants 1`] = `
     className="emotion-0"
   >
     <div
+      aria-label="Quantity"
       className="quantity__main-wrapper"
       data-type="select"
+      title="Quantity"
     >
       <label
         htmlFor="quantityMenu"
         onClick={[Function]}
       >
-        Quantity:
+        Quantity
+        :
       </label>
       <select
         id="quantityDropDown__1"
@@ -1039,14 +1050,17 @@ exports[`Storyshots Form Elements | Checkout / QuantityDropdown variants 1`] = `
     className="emotion-0"
   >
     <div
+      aria-label="Quantity"
       className="quantity__main-wrapper"
       data-type="input"
+      title="Quantity"
     >
       <label
         htmlFor="quantity_txtInput"
         onClick={[Function]}
       >
-        Quantity:
+        Quantity
+        :
       </label>
       <div
         className="input_wrapper"
@@ -1077,14 +1091,17 @@ exports[`Storyshots Form Elements | Checkout / QuantityDropdown variants 1`] = `
     className="emotion-0"
   >
     <div
+      aria-label="Quantity"
       className="quantity__main-wrapper"
       data-type="input"
+      title="Quantity"
     >
       <label
         htmlFor="quantity_txtInput"
         onClick={[Function]}
       >
-        Quantity:
+        Quantity
+        :
       </label>
       <div
         className="input_wrapper"

@@ -199,7 +199,7 @@ export default class MarriageCheckoutPage extends React.Component<
     const orderId = await checkoutDao.submitMarriageCertificateRequest(
       marriageCertificateRequest,
       order,
-      certMail ? certMail.certMailInfo.requestCertifiedMail : false
+      certMail ? certMail.certMailInfo.certMailForMarriage : false
     );
 
     const confirmationUrl = `/marriage/checkout?page=confirmation&orderId=${encodeURIComponent(
@@ -298,7 +298,7 @@ export default class MarriageCheckoutPage extends React.Component<
               totalSteps: progressSteps,
             }}
             tracking={
-              certMail ? certMail.certMailInfo.requestCertifiedMail : false
+              certMail ? certMail.certMailInfo.certMailForMarriage : false
             }
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
@@ -320,7 +320,7 @@ export default class MarriageCheckoutPage extends React.Component<
               totalSteps: progressSteps,
             }}
             tracking={
-              certMail ? certMail.certMailInfo.requestCertifiedMail : false
+              certMail ? certMail.certMailInfo.certMailForMarriage : false
             }
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
@@ -343,7 +343,7 @@ export default class MarriageCheckoutPage extends React.Component<
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
-                ? certMail.certMailInfo.requestCertifiedMail
+                ? certMail.certMailInfo.certMailForMarriage
                 : false
             }
             cardType={

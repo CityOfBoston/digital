@@ -60,6 +60,7 @@ export const CertItem = (cert: CertItemProps) => {
               <QuantityDropdown
                 id={`quantityDropDown__${keyIndex}`}
                 label={`quantity_for_${keyIndex}`}
+                labelName={`Quantity`}
                 handleQuantityChange={handleQuantityChange}
                 quantity={quantity}
                 selectOptions={{ start: 1, total: 10 }}
@@ -98,6 +99,7 @@ export const CertItem = (cert: CertItemProps) => {
             <QuantityDropdown
               id={`quantityDropDown__${keyIndex}`}
               label={`quantity_for_${keyIndex}`}
+              labelName={`Quantity`}
               handleQuantityChange={handleQuantityChange}
               quantity={quantity}
               selectOptions={{ start: 1, total: 10 }}
