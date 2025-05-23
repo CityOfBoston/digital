@@ -43173,7 +43173,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
                 :
               </label>
               <select
-                id="quantityDropDown__birthCert_row__519"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -43818,7 +43818,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: marriage 1`] =
                 :
               </label>
               <select
-                id="quantityDropDown__marriageCert_row__111"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -44361,7 +44361,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                         :
                       </label>
                       <select
-                        id="quantityDropDown__birthCert_row__580"
+                        id="quantityDropDown"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -45888,7 +45888,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: marria
                         :
                       </label>
                       <select
-                        id="quantityDropDown__marriageCert_row__339"
+                        id="quantityDropDown"
                         name="quantityMenu"
                         onChange={[Function]}
                         tabIndex={0}
@@ -52255,7 +52255,7 @@ Array [
                       :
                     </label>
                     <select
-                      id="quantityDropDown__birthCert_row__884"
+                      id="quantityDropDown"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -52898,7 +52898,7 @@ Array [
                       :
                     </label>
                     <select
-                      id="quantityDropDown__marriageCert_row__640"
+                      id="quantityDropDown"
                       name="quantityMenu"
                       onChange={[Function]}
                       tabIndex={0}
@@ -55089,7 +55089,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
                 :
               </label>
               <select
-                id="quantityDropDown__000003"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -55227,7 +55227,7 @@ exports[`Storyshots Death/CartItem certificate without death date 1`] = `
                 :
               </label>
               <select
-                id="quantityDropDown__000003"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -55662,7 +55662,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
                 :
               </label>
               <select
-                id="quantityDropDown__000001"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -55812,7 +55812,7 @@ exports[`Storyshots Death/CartItem pending certificate 1`] = `
                 :
               </label>
               <select
-                id="quantityDropDown__000001"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -56247,7 +56247,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
                 :
               </label>
               <select
-                id="quantityDropDown__000002"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -56397,7 +56397,7 @@ exports[`Storyshots Death/CartItem typical certificate 1`] = `
                 :
               </label>
               <select
-                id="quantityDropDown__000002"
+                id="quantityDropDown"
                 name="quantityMenu"
                 onChange={[Function]}
                 tabIndex={0}
@@ -57927,7 +57927,7 @@ Array [
                         title="Add / Remove Button"
                       />
                       <input
-                        name="hidden-CertMailTracking-Input--2526058632____6241"
+                        name="hidden-CertMailTracking-Input--2526058632"
                         type="hidden"
                         value="0"
                       />
@@ -58764,7 +58764,7 @@ Array [
                               :
                             </label>
                             <select
-                              id="quantityDropDown__000002"
+                              id="quantityDropDown"
                               name="quantityMenu"
                               onChange={[Function]}
                               tabIndex={0}
@@ -58914,7 +58914,7 @@ Array [
                               :
                             </label>
                             <select
-                              id="quantityDropDown__000002"
+                              id="quantityDropDown"
                               name="quantityMenu"
                               onChange={[Function]}
                               tabIndex={0}
@@ -59039,7 +59039,7 @@ Array [
                               :
                             </label>
                             <select
-                              id="quantityDropDown__000001"
+                              id="quantityDropDown"
                               name="quantityMenu"
                               onChange={[Function]}
                               tabIndex={0}
@@ -59189,7 +59189,7 @@ Array [
                               :
                             </label>
                             <select
-                              id="quantityDropDown__000001"
+                              id="quantityDropDown"
                               name="quantityMenu"
                               onChange={[Function]}
                               tabIndex={0}
@@ -59314,7 +59314,7 @@ Array [
                               :
                             </label>
                             <select
-                              id="quantityDropDown__000003"
+                              id="quantityDropDown"
                               name="quantityMenu"
                               onChange={[Function]}
                               tabIndex={0}
@@ -59452,7 +59452,7 @@ Array [
                               :
                             </label>
                             <select
-                              id="quantityDropDown__000003"
+                              id="quantityDropDown"
                               name="quantityMenu"
                               onChange={[Function]}
                               tabIndex={0}
@@ -59591,7 +59591,7 @@ Array [
                         title="Add / Remove Button"
                       />
                       <input
-                        name="hidden-CertMailTracking-Input--2526058632____9512"
+                        name="hidden-CertMailTracking-Input--2526058632"
                         type="hidden"
                         value="0"
                       />

@@ -37,7 +37,7 @@ export const $CartItem = (props: Props) => {
           <span className={`mobile__visible`}>
             <div className={`col`}>
               <QuantityDropdown
-                id={`quantityDropDown__${id}`}
+                id={`quantityDropDown`}
                 label={`quantity_for_${id}`}
                 labelName={`Quantity`}
                 handleQuantityChange={handleQuantityChange}
@@ -102,7 +102,7 @@ export const $CartItem = (props: Props) => {
           <div className={`row mobile`}>
             <div className={`col`}>
               <QuantityDropdown
-                id={`quantityDropDown__${id}`}
+                id={`quantityDropDown`}
                 label={`quantity_for_${id}`}
                 labelName={`Quantity`}
                 handleQuantityChange={handleQuantityChange}

@@ -22,7 +22,7 @@ interface Props {
 
 const QuantityDropdown = (props: Props): JSX.Element => {
   const {
-    id,
+    id = 'quantityDropDown',
     label = 'Quantity',
     labelName = 'Quantity',
     quantity: propQuantity,

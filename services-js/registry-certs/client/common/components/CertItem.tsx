@@ -58,7 +58,7 @@ export const CertItem = (cert: CertItemProps) => {
           <span className={`mobile__visible`}>
             <div className={`col`}>
               <QuantityDropdown
-                id={`quantityDropDown__${keyIndex}`}
+                id={`quantityDropDown`}
                 label={`quantity_for_${keyIndex}`}
                 labelName={`Quantity`}
                 handleQuantityChange={handleQuantityChange}
@@ -97,7 +97,7 @@ export const CertItem = (cert: CertItemProps) => {
         <div className={`col`}>
           <div className={`row mobile`}>
             <QuantityDropdown
-              id={`quantityDropDown__${keyIndex}`}
+              id={`quantityDropDown`}
               label={`quantity_for_${keyIndex}`}
               labelName={`Quantity`}
               handleQuantityChange={handleQuantityChange}
