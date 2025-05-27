@@ -114,6 +114,7 @@ export interface FindOrderResult {
   CertificateCost: number;
   ServiceFee: number;
   TotalCost: number;
+  CertifiedMail: boolean;
 }
 
 export interface FindBirthCertificateRequestResult {

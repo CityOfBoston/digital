@@ -596,7 +596,7 @@ exports[`expired Birth certificate expired 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry at <b><i><a
+        Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at <a href=\\"tel:6176354175\\" target=\\"_blank\\">617-635-4175</a>, or email <b><i><a
               href=\\"mailto:birth@boston.gov\\">birth@boston.gov</a></i></b>.
       </div>
     
@@ -658,8 +658,8 @@ the hold from your card. Your card will not be charged.
 If you would like to place a new order, visit 
 https://www.boston.gov/birth
 
-Have any questions? Contact the Registry at 
-birth@boston.gov."
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. - 4 p.m. at 617-635-4175, or email birth@boston.gov."
 `;
 
 exports[`expired Marriage certificate expired 2`] = `
@@ -1258,7 +1258,7 @@ exports[`expired Marriage certificate expired 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry at <b><i><a
+        Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at <a href=\\"tel:6176354175\\" target=\\"_blank\\">617-635-4175</a>, or email <b><i><a
               href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
@@ -1321,8 +1321,8 @@ charged.
 If you would like to place a new order, visit 
 https://www.boston.gov/marriage
 
-Have any questions? Contact the Registry at 
-marriage@boston.gov."
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. - 4 p.m. at 617-635-4175, or email marriage@boston.gov."
 `;
 
 exports[`receipt Birth certificate 2`] = `
@@ -1813,17 +1813,27 @@ exports[`receipt Birth certificate 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
+                    <i>1 × Birth Certificate for Carol Danvers (10/6/1976)</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
+                </tr>
+    
+    
+    
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>USPS Tracking® fee*</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$5.00</b></td>
                 </tr>
     
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
                 </tr>
+                
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\">
+                    <b>$19.56</b>
+                  </td>
                 </tr>
       </table>
     
@@ -1853,6 +1863,20 @@ exports[`receipt Birth certificate 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
       </div>
     
               </td>
@@ -2018,7 +2042,7 @@ exports[`receipt Birth certificate 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry at <b><i><a
+        Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at <a href=\\"tel:6176354175\\" target=\\"_blank\\">617-635-4175</a>, or email <b><i><a
               href=\\"mailto:birth@boston.gov\\">birth@boston.gov</a></i></b>.
       </div>
     
@@ -2080,12 +2104,18 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified birth certificate for Carol Danvers (10/6/1976) $14.00
+  1 x Birth Certificate for Carol Danvers (10/6/1976) $14.00
   Card processing fee*  $0.00
-  Total  $14.56
+  Total  $19.56
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We have received your order. You will be charged when the 
 certificate ships.
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
@@ -2097,8 +2127,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.boston.gov/common-questions-about-online-payments]
 
-Have any questions? Contact the Registry at 
-birth@boston.gov."
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. - 4 p.m. at 617-635-4175, or email birth@boston.gov."
 `;
 
 exports[`receipt Death certificates 2`] = `
@@ -2602,13 +2632,23 @@ exports[`receipt Death certificates 2`] = `
                   <td style=\\"padding: 0 25px\\"><i>Subtotal</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$140.00</b></td>
                 </tr>
+    
+    
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>USPS Tracking® fee*</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$5.00</b></td>
+                </tr>
+    
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$1.32</b></td>
                 </tr>
+                
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$141.32</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\">
+                    <b>$146.32</b>
+                  </td>
                 </tr>
       </table>
     
@@ -2624,6 +2664,20 @@ exports[`receipt Death certificates 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         Your order will be shipped within 1-2 business days via the U.S. Postal Service.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
       </div>
     
               </td>
@@ -2789,7 +2843,7 @@ exports[`receipt Death certificates 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry at <b><i><a
+        Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at <a href=\\"tel:6176354175\\" target=\\"_blank\\">617-635-4175</a>, or email <b><i><a
               href=\\"mailto:registry@boston.gov\\">registry@boston.gov</a></i></b>.
       </div>
     
@@ -2855,7 +2909,10 @@ Your order:
   6 x Death certificate for Bruce Banner $84.00
   Subtotal  $140.00
   Card processing fee*  $1.32
-  Total  $141.32
+  Total  $146.32
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 Your order will be shipped within 1-2 business days via the 
 U.S. Postal Service.
@@ -2866,8 +2923,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.boston.gov/common-questions-about-online-payments]
 
-Have any questions? Contact the Registry at 
-registry@boston.gov."
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. - 4 p.m. at 617-635-4175, or email registry@boston.gov."
 `;
 
 exports[`receipt Marriage certificate 2`] = `
@@ -3358,17 +3415,27 @@ exports[`receipt Marriage certificate 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate </i></td>
+                    <i>1 × Marriage Certificate </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
+                </tr>
+    
+    
+    
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>USPS Tracking® fee*</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$5.00</b></td>
                 </tr>
     
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
                 </tr>
+                
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\">
+                    <b>$19.56</b>
+                  </td>
                 </tr>
       </table>
     
@@ -3398,6 +3465,20 @@ exports[`receipt Marriage certificate 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
       </div>
     
               </td>
@@ -3563,7 +3644,7 @@ exports[`receipt Marriage certificate 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry at <b><i><a
+        Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at <a href=\\"tel:6176354175\\" target=\\"_blank\\">617-635-4175</a>, or email <b><i><a
               href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
@@ -3625,12 +3706,18 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate  $14.00
+  1 x Marriage Certificate  $14.00
   Card processing fee*  $0.00
-  Total  $14.56
+  Total  $19.56
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We have received your order. You will be charged when the 
 certificate ships.
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
@@ -3642,8 +3729,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.boston.gov/common-questions-about-online-payments]
 
-Have any questions? Contact the Registry at 
-marriage@boston.gov."
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. - 4 p.m. at 617-635-4175, or email marriage@boston.gov."
 `;
 
 exports[`shipped Birth certificate shipped 2`] = `
@@ -4134,17 +4221,27 @@ exports[`shipped Birth certificate shipped 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified birth certificate for Carol Danvers (10/6/1976)</i></td>
+                    <i>1 × Birth Certificate for Carol Danvers (10/6/1976)</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
+                </tr>
+    
+    
+    
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>USPS Tracking® fee*</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$5.00</b></td>
                 </tr>
     
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
                 </tr>
+                
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\">
+                    <b>$19.56</b>
+                  </td>
                 </tr>
       </table>
     
@@ -4174,6 +4271,20 @@ exports[`shipped Birth certificate shipped 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
       </div>
     
               </td>
@@ -4339,7 +4450,7 @@ exports[`shipped Birth certificate shipped 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry at <b><i><a
+        Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at <a href=\\"tel:6176354175\\" target=\\"_blank\\">617-635-4175</a>, or email <b><i><a
               href=\\"mailto:birth@boston.gov\\">birth@boston.gov</a></i></b>.
       </div>
     
@@ -4401,12 +4512,18 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified birth certificate for Carol Danvers (10/6/1976) $14.00
+  1 x Birth Certificate for Carol Danvers (10/6/1976) $14.00
   Card processing fee*  $0.00
-  Total  $14.56
+  Total  $19.56
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We have received your order. You will be charged when the 
 certificate ships.
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
@@ -4418,8 +4535,8 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.boston.gov/common-questions-about-online-payments]
 
-Have any questions? Contact the Registry at 
-birth@boston.gov."
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. - 4 p.m. at 617-635-4175, or email birth@boston.gov."
 `;
 
 exports[`shipped Marriage certificate shipped 2`] = `
@@ -4910,17 +5027,27 @@ exports[`shipped Marriage certificate shipped 2`] = `
       >
         <tr>
                   <td style=\\"padding: 0 25px\\">
-                    <i>1 × Certified marriage certificate </i></td>
+                    <i>1 × Marriage Certificate </i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$14.00</b></td>
+                </tr>
+    
+    
+    
+                <tr>
+                  <td style=\\"padding: 0 25px\\"><i>USPS Tracking® fee*</i></td>
+                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$5.00</b></td>
                 </tr>
     
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
                   <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$0.00</b></td>
                 </tr>
+                
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
-                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\"><b>$14.56</b></td>
+                  <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\">
+                    <b>$19.56</b>
+                  </td>
                 </tr>
       </table>
     
@@ -4950,6 +5077,20 @@ exports[`shipped Marriage certificate shipped 2`] = `
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
         We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
       </div>
     
               </td>
@@ -5115,7 +5256,7 @@ exports[`shipped Marriage certificate shipped 2`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Have any questions? Contact the Registry at <b><i><a
+        Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at <a href=\\"tel:6176354175\\" target=\\"_blank\\">617-635-4175</a>, or email <b><i><a
               href=\\"mailto:marriage@boston.gov\\">marriage@boston.gov</a></i></b>.
       </div>
     
@@ -5177,12 +5318,18 @@ Nancy Whitehead
 Boston, MA 02141
 
 Your order:
-  1 x Certified marriage certificate  $14.00
+  1 x Marriage Certificate  $14.00
   Card processing fee*  $0.00
-  Total  $14.56
+  Total  $19.56
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We have received your order. You will be charged when the 
 certificate ships.
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
@@ -5194,6 +5341,6 @@ pay for the cost of card processing. Learn more about card
 service fees at the City of Boston. 
 [https://www.boston.gov/common-questions-about-online-payments]
 
-Have any questions? Contact the Registry at 
-marriage@boston.gov."
+Have any questions? Contact the Registry on weekdays from 9 
+a.m. - 4 p.m. at 617-635-4175, or email marriage@boston.gov."
 `;

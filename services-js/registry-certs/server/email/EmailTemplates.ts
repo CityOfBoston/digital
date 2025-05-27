@@ -45,6 +45,7 @@ export type ReceiptData = {
   /** Percentage between 0–1 */
   percentageFee: number;
   serviceFeeUri: string;
+  certifiedMail: boolean;
 };
 
 /**
@@ -79,6 +80,7 @@ type ReceiptTemplateData = {
 
   aboveOrderText?: string[];
   belowOrderText?: string[];
+  certifiedMail?: boolean;
 };
 
 type ExpiredTemplateData = {
@@ -129,6 +131,12 @@ export class EmailTemplates {
           cost,
           description: `Death certificate for ${name}`,
         })),
+
+        certifiedMail: receipt.certifiedMail ? receipt.certifiedMail : false,
+        total:
+          receipt.certifiedMail && receipt.certifiedMail === true
+            ? receipt.total + 500
+            : receipt.total,
 
         belowOrderText: [
           'Your order will be shipped within 1-2 business days via the U.S. Postal Service.',
@@ -201,10 +209,15 @@ export class EmailTemplates {
         items: receipt.items.map(({ cost, quantity, name, date }) => ({
           quantity,
           cost,
-          description: `Certified ${orderType} certificate ${
+          description: `${capitalize(orderType)} Certificate ${
             orderType === 'birth' ? `for ${name} ${dateString(date)}` : ''
           }`,
         })),
+        certifiedMail: receipt.certifiedMail ? receipt.certifiedMail : false,
+        total:
+          receipt.certifiedMail && receipt.certifiedMail === true
+            ? receipt.total + 500
+            : receipt.total,
 
         ...orderText,
       },

@@ -19,6 +19,7 @@ const TEST_ORDER = {
   fixedFee: 25,
   percentageFee: 0.0215,
   serviceFeeUri: SERVICE_FEE_URL,
+  certifiedMail: true,
 };
 
 const DEATH_DETAILS = {

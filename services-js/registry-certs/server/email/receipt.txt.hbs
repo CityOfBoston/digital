@@ -18,14 +18,18 @@ Your order:
   {{quantity}} x {{description}} {{formatCents cost}}
 {{/each}}
 {{#if subtotal}}  Subtotal  {{formatCents subtotal}}
+{{!-- {{/if}}{{#if eqBool certifiedMail}}  Certified Mail fee* {{formatCents 500}} --}}
 {{/if}}  Card processing fee*  {{formatCents serviceFee}}
   Total  {{formatCents total}}
 
 {{#each belowOrderText}}
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
+
 {{#wrap}}{{.}}{{/wrap}}
 
 {{/each}}
 {{#wrap}}* You are charged an extra service fee of not more than {{formatCents fixedFee}} plus {{formatPercentage percentageFee}}. This fee goes directly to a third party to pay for the cost of card processing. Learn more about card service fees at the City of Boston. [{{serviceFeeUri}}]
 
-Have any questions? Contact the Registry at {{registryEmail}}.{{/wrap}}
+Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at 617-635-4175, or email {{registryEmail}}.{{/wrap}}
 {{/with}}
