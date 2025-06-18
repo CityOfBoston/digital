@@ -19,6 +19,7 @@ const TEST_ORDER = {
   fixedFee: 25,
   percentageFee: 0.0215,
   serviceFeeUri: SERVICE_FEE_URL,
+  certifiedMail: true,
 };
 
 const DEATH_DETAILS = {
@@ -103,19 +104,6 @@ describe('receipt', () => {
     expect(text).toMatchSnapshot();
   });
 
-  test('Birth certificate shipped', () => {
-    const { html, subject, text } = templates.requestReceipt('birth', {
-      ...TEST_ORDER,
-      ...BIRTH_DETAILS,
-    });
-
-    expect(subject).toMatchInlineSnapshot(
-      `"City of Boston Birth Certificate Order #RG-BC201801-100001"`
-    );
-    expect(html).toMatchSnapshot();
-    expect(text).toMatchSnapshot();
-  });
-
   test('Marriage certificate', () => {
     const { html, subject, text } = templates.requestReceipt('marriage', {
       ...TEST_ORDER,
@@ -124,6 +112,21 @@ describe('receipt', () => {
 
     expect(subject).toMatchInlineSnapshot(
       `"City of Boston Marriage Certificate Order #RG-MC201801-100001"`
+    );
+    expect(html).toMatchSnapshot();
+    expect(text).toMatchSnapshot();
+  });
+});
+
+describe('shipped', () => {
+  test('Birth certificate shipped', () => {
+    const { html, subject, text } = templates.requestReceipt('birth', {
+      ...TEST_ORDER,
+      ...BIRTH_DETAILS,
+    });
+
+    expect(subject).toMatchInlineSnapshot(
+      `"City of Boston Birth Certificate Order #RG-BC201801-100001"`
     );
     expect(html).toMatchSnapshot();
     expect(text).toMatchSnapshot();

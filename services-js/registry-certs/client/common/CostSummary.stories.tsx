@@ -27,7 +27,8 @@ storiesOf('Common Components/CostSummary', module)
       certificateType="death"
       certificateQuantity={makeCart().size}
       allowServiceFeeTypeChoice
-      serviceFeeType="CREDIT"
+      newServiceFeeType={'1'}
+      // serviceFeeType="CREDIT"
     />
   ))
   .add('default debit card', () => (
@@ -35,21 +36,24 @@ storiesOf('Common Components/CostSummary', module)
       certificateType="death"
       certificateQuantity={makeCart().size}
       allowServiceFeeTypeChoice
-      serviceFeeType="DEBIT"
+      newServiceFeeType={'1'}
+      // serviceFeeType="DEBIT"
     />
   ))
   .add('only credit card', () => (
     <CostSummary
       certificateType="death"
       certificateQuantity={makeCart().size}
-      serviceFeeType="CREDIT"
+      newServiceFeeType={'1'}
+      // serviceFeeType="CREDIT"
     />
   ))
   .add('only debit card', () => (
     <CostSummary
       certificateType="death"
       certificateQuantity={makeCart().size}
-      serviceFeeType="DEBIT"
+      newServiceFeeType={'1'}
+      // serviceFeeType="DEBIT"
     />
   ))
   .add('with research fee', () => (
@@ -57,7 +61,8 @@ storiesOf('Common Components/CostSummary', module)
       certificateType="birth"
       certificateQuantity={1}
       allowServiceFeeTypeChoice
-      serviceFeeType="DEBIT"
+      newServiceFeeType={'1'}
+      // serviceFeeType="DEBIT"
       hasResearchFee
     />
   ));

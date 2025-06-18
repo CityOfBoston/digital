@@ -17,6 +17,9 @@ export const CERTIFICATE_COST_STRING = {
 // Per-transaction fee for records dated before 1870.
 export const RESEARCH_FEE = 10 * 100;
 
+// DIG-5688: Certified Mail Tracking
+export const TRACKING_FEE: number = 5 * 100;
+
 // CC == “credit card”
 export const FIXED_CC_SERVICE_FEE = 25;
 export const PERCENTAGE_CC_SERVICE_FEE = 0.021;
@@ -45,47 +48,64 @@ function certificateCostString(certificateCost: number): string {
 export function calculateCreditCardCost(
   eachCost: number,
   quantity: number,
-  hasResearchFee?: boolean
+  hasResearchFee?: boolean,
+  tracking?: boolean
 ) {
-  return calculateCost(
+  const resCost = calculateCost(
     eachCost,
     quantity,
     FIXED_CC_SERVICE_FEE,
     PERCENTAGE_CC_SERVICE_FEE,
-    hasResearchFee
+    hasResearchFee,
+    tracking
   );
+
+  return resCost;
 }
 
 export function calculateDebitCardCost(
   eachCost: number,
   quantity: number,
-  researchFee?: boolean
+  researchFee?: boolean,
+  tracking?: boolean
 ) {
-  return calculateCost(
+  const resCost = calculateCost(
     eachCost,
     quantity,
     FIXED_DC_SERVICE_FEE,
     PERCENTAGE_DC_SERVICE_FEE,
-    researchFee
+    researchFee,
+    tracking
   );
+
+  return resCost;
 }
+
 function calculateCost(
   eachCost: number,
   quantity: number,
   fixedCost: number,
   percentageCost: number,
-  hasResearchFee: boolean | undefined
+  hasResearchFee: boolean | undefined,
+  tracking?: boolean | undefined
 ) {
-  const subtotal = quantity * eachCost;
-
   const researchFee = hasResearchFee ? RESEARCH_FEE : 0;
+  const trackingFee = tracking && tracking === true ? TRACKING_FEE : 0;
+  const subtotal = quantity * eachCost;
 
   // Math: https://support.stripe.com/questions/can-i-charge-my-stripe-fees-to-my-customers
   const total = Math.round(
-    (subtotal + fixedCost + researchFee) / (1 - percentageCost)
+    (subtotal + fixedCost + researchFee + trackingFee) / (1 - percentageCost)
   );
 
-  const serviceFee = total - subtotal - researchFee;
+  let serviceFee = total - subtotal - researchFee;
+  if (tracking) serviceFee = serviceFee - trackingFee;
+  // console.log(
+  //   `serviceFee: ${serviceFee}: total: ${total} | subtotal: ${subtotal} | researchFee: ${researchFee}`
+  // );
+  // console.log(
+  //   `serviceFee: ${serviceFee} > total: ${total} | subtotal: ${subtotal} | researchFee: ${researchFee}`
+  // );
 
   return {
     subtotal,

@@ -4,25 +4,34 @@ import { css, jsx } from '@emotion/core';
 
 import { Component } from 'react';
 
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
-import Link from 'next/link';
+// import Link from 'next/link';
 
 import VelocityTransitionGroup from 'velocity-react/velocity-transition-group';
 
+import { CARDTYPE } from '../../models/CardType';
+
+import { $OrderSummary } from '../CostSummary';
+
 import {
-  GRAY_000,
+  WHITE,
+  GRAY_100,
+  GRAY_400,
   CHARLES_BLUE,
   OPTIMISTIC_BLUE_DARK,
+  SERIF,
 } from '@cityofboston/react-fleet';
 
 import {
   calculateCreditCardCost,
+  calculateDebitCardCost,
   CERTIFICATE_COST,
   CERTIFICATE_COST_STRING,
 } from '../../../lib/costs';
 
-import { CertificateType } from '../../types';
+import { CertificateType, DeathCertificate } from '../../types';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
@@ -35,7 +44,18 @@ import {
 
 import CertificateRow from '../../common/CertificateRow';
 
-type OrderDetailsProps =
+import CertItem from '../components/CertItem';
+import {
+  // capFirstLetterOfStr,
+  formatCheckoutDate,
+  ReactKeyIndexStr,
+} from '../../../utils/helpers';
+
+type OrderDetailsProps = {
+  inDrawer?: boolean;
+  hideQtyUI?: boolean;
+  keyIndex?: string;
+} & (
   | {
       type: 'death';
       deathCertificateCart: DeathCertificateCart;
@@ -50,7 +70,7 @@ type OrderDetailsProps =
       type: 'marriage';
       marriageCertificateRequest: MarriageCertificateRequest;
       thin?: boolean;
-    };
+    });
 
 /**
  * Displays a list of all certificates in an order’s cart.
@@ -59,15 +79,99 @@ type OrderDetailsProps =
 export const OrderDetails = observer(function OrderDetails(
   props: OrderDetailsProps
 ) {
-  const makeWrapRow = quantity => certificateDiv => (
-    <>
-      <div className="t--sans p-a300" style={{ fontWeight: 'bold' }}>
-        <span aria-label="Quantity">{quantity}</span> ×
-      </div>
+  const makeWrapRow = _quantity => certificateDiv => <>{certificateDiv}</>;
 
-      {certificateDiv}
-    </>
+  const handleQuantityChange = action(
+    'CartItem > handleQuantityChange',
+    (quantity: string | number | null): void => {
+      const {
+        siteAnalytics,
+        birthCertificateRequest,
+        marriageCertificateRequest,
+        deathCertificateCart,
+      } = this.props;
+
+      if (!quantity) return;
+      if (typeof quantity === 'string') return;
+
+      if (!isNaN(quantity)) {
+        switch (props.type) {
+          case 'birth':
+            birthCertificateRequest.setQuantity(quantity);
+            break;
+          case 'marriage':
+            marriageCertificateRequest.setQuantity(quantity);
+            break;
+          case 'death':
+            deathCertificateCart.setQuantity(quantity);
+            break;
+        }
+      }
+
+      if (siteAnalytics && siteAnalytics.sendEvent) {
+        siteAnalytics.sendEvent('input', {
+          category: 'UX',
+          label: 'update quantity',
+        });
+      }
+    }
   );
+
+  const deathCertEntry = (data: {
+    cert: DeathCertificate;
+    cart: { entries: string | any[] };
+    quantity: number;
+    index: string;
+  }) => {
+    const { cert, cart, quantity = 1, index = '0' } = data;
+    const {
+      keyIndex = ReactKeyIndexStr({
+        seedStr: `order-details--key`,
+        max: 10000,
+      }),
+    } = props;
+    // const { firstName, lastName, deathDate, deathYear } = cart.entries[index];
+    // const subinfo = `Date of death: `;
+
+    return (
+      <div key={keyIndex}>
+        {/* <CertItem
+          type={props.type}
+          quantity={quantity}
+          showNameLabel={true}
+          pending={false}
+          fullNames={`${firstName} ${lastName}`}
+          subinfo={subinfo}
+          dateStr={formatCheckoutDate(deathDate || deathYear)}
+          key={
+            index ||
+            ReactKeyIndexStr({
+              seedStr: `${props.type}Cert_row`,
+              max: 1000,
+            })
+          }
+          handleQuantityChange={handleQuantityChange}
+        /> */}
+
+        <CertificateRow
+          type="death"
+          key={
+            cert.id || ReactKeyIndexStr({ seedStr: 'deathCert_row', max: 1000 })
+          }
+          certificate={cert}
+          borderTop={parseInt(index) !== 0}
+          borderBottom={parseInt(index) === cart.entries.length - 1}
+          thin={props.thin}
+          children={makeWrapRow(quantity)}
+          quantity={quantity}
+          showQuantity={true}
+          showSeal={true}
+          showNameLabel={true}
+          keyIndex={keyIndex}
+        />
+      </div>
+    );
+  };
 
   switch (props.type) {
     case 'death':
@@ -75,48 +179,144 @@ export const OrderDetails = observer(function OrderDetails(
         <div>
           {props.deathCertificateCart.entries.map(
             ({ cert, quantity }, i) =>
-              cert && (
-                <CertificateRow
-                  type="death"
-                  key={cert.id}
-                  certificate={cert}
-                  borderTop={i !== 0}
-                  borderBottom={
-                    i === props.deathCertificateCart.entries.length - 1
-                  }
-                  thin={props.thin}
-                  children={makeWrapRow(quantity)}
-                />
-              )
+              cert &&
+              deathCertEntry({
+                cert: cert,
+                cart: props.deathCertificateCart,
+                quantity: quantity,
+                index: `${i}`,
+              })
           )}
         </div>
       );
-    case 'birth':
+    case 'birth': {
+      const { hideQtyUI = false } = props;
+      const { quantity, requestInformation } = props.birthCertificateRequest;
+      const { birthDate, firstName, lastName } = requestInformation;
+      const subinfo = `Date of birth: `;
+
+      let certItemParams = {
+        type: props.type,
+        quantity,
+        showNameLabel: true,
+        pending: false,
+        fullNames: `${firstName} ${lastName}`,
+        subinfo,
+        dateStr: formatCheckoutDate(birthDate),
+        handleQuantityChange: handleQuantityChange,
+        drawer: props.inDrawer,
+        hideQtyUI,
+        keyIndex: ReactKeyIndexStr({
+          seedStr: `${props.type}Cert_row`,
+          max: 1000,
+        }),
+      };
+
       return (
         <div>
-          <CertificateRow
-            type="birth"
-            certificate={props.birthCertificateRequest}
-            borderTop={false}
-            borderBottom={true}
-            thin={props.thin}
-            children={makeWrapRow(props.birthCertificateRequest.quantity)}
-          />
+          {quantity && quantity > 0 && (
+            <>
+              <CertItem {...certItemParams} />
+              {/* <CertItem
+                type={props.type}
+                quantity={quantity}
+                showNameLabel={true}
+                pending={false}
+                fullNames={`${firstName} ${lastName}`}
+                subinfo={subinfo}
+                dateStr={formatCheckoutDate(birthDate)}
+                key={ReactKeyIndexStr({
+                  seedStr: `${props.type}Cert_row`,
+                  max: 1000,
+                })}
+                handleQuantityChange={handleQuantityChange}
+                drawer={props.inDrawer}
+                hideQtyUI
+              /> */}
+
+              {/* <CertificateRow
+                type={props.type}
+                certificate={props.birthCertificateRequest}
+                borderTop={false}
+                borderBottom={true}
+                thin={props.thin}
+                children={makeWrapRow(props.birthCertificateRequest.quantity)}
+                quantity={props.birthCertificateRequest.quantity}
+                showQuantity={true}
+                showNameLabel={true}
+              /> */}
+            </>
+          )}
         </div>
       );
-    case 'marriage':
+    }
+    case 'marriage': {
+      const { hideQtyUI = false } = props;
+      const {
+        fullNames,
+        requestInformation,
+      } = props.marriageCertificateRequest;
+      const {
+        dateOfMarriageExact = null,
+        dateOfMarriageUnsure = '',
+      } = requestInformation;
+      const dateOf_marriage = formatCheckoutDate(dateOfMarriageExact);
+      const subinfo =
+        dateOfMarriageUnsure.length > 0
+          ? `Date (Range) of ${props.type}: `
+          : `Date of ${props.type}: `;
+
+      let certItemParams = {
+        type: props.type,
+        quantity: props.marriageCertificateRequest.quantity,
+        showNameLabel: true,
+        pending: false,
+        fullNames: fullNames.replace(' & ', ' and '),
+        subinfo,
+        dateStr: dateOf_marriage,
+        handleQuantityChange: handleQuantityChange,
+        drawer: props.inDrawer,
+        hideQtyUI: hideQtyUI,
+        keyIndex: ReactKeyIndexStr({
+          seedStr: `${props.type}Cert_row`,
+          max: 1000,
+        }),
+      };
+
       return (
         <div>
-          <CertificateRow
-            type="marriage"
+          <CertItem {...certItemParams} />
+          {/* <CertItem
+            type={props.type}
+            quantity={props.marriageCertificateRequest.quantity}
+            showNameLabel={true}
+            pending={false}
+            fullNames={fullNames.replace(' & ', ' and ')}
+            subinfo={subinfo}
+            dateStr={dateOf_marriage}
+            key={ReactKeyIndexStr({
+              seedStr: `${props.type}Cert_row`,
+              max: 1000,
+            })}
+            handleQuantityChange={handleQuantityChange}
+            drawer={props.inDrawer}
+            hideQtyUI={true}
+          /> */}
+
+          {/* <CertificateRow
+            type={props.type}
             certificate={props.marriageCertificateRequest}
             borderTop={false}
             borderBottom={true}
             thin={props.thin}
             children={makeWrapRow(props.marriageCertificateRequest.quantity)}
-          />
+            quantity={props.marriageCertificateRequest.quantity}
+            showQuantity={true}
+            showNameLabel={true}
+          /> */}
         </div>
       );
+    }
   }
 });
 
@@ -125,6 +325,9 @@ interface DropdownProps {
   certificateQuantity: number | string;
   startExpanded?: boolean;
   hasResearchFee?: boolean;
+  drawer?: boolean;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
 }
 
 interface DropdownState {
@@ -149,6 +352,9 @@ export class OrderDetailsDropdown extends Component<
   static defaultProps: Partial<DropdownProps> = {
     startExpanded: false,
     hasResearchFee: false,
+    drawer: false,
+    tracking: false,
+    cardType: '0',
   };
 
   constructor(props: DropdownProps) {
@@ -165,111 +371,118 @@ export class OrderDetailsDropdown extends Component<
 
   render() {
     const { open } = this.state;
-    const { orderType, children } = this.props;
+    const {
+      orderType,
+      children,
+      tracking = false,
+      cardType = '0',
+    } = this.props;
     const quantity = +this.props.certificateQuantity;
 
     const certificateCost = CERTIFICATE_COST[orderType.toUpperCase()];
-    const certificateCostString =
-      CERTIFICATE_COST_STRING[orderType.toUpperCase()];
 
-    return (
-      <div
-        className={`dr ${open ? 'dr--open' : ''}`}
-        css={[DRAWER_STYLE, open ? OPEN_DRAWER_STYLE : '']}
-      >
-        <button
-          className="dr-h"
-          css={DRAWER_HEADER_STYLE}
-          type="button"
-          onClick={this.toggleOpen}
-          aria-expanded={open}
-        >
-          <div className="p-a300">
-            <div className="dr-ic" aria-hidden="true">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-2 8.5 18 25"
-                focusable="false"
-              >
-                <path
-                  className="dr-i"
-                  css={DRAWER_ICON_STYLE}
-                  d="M16 21L.5 33.2c-.6.5-1.5.4-2.2-.2-.5-.6-.4-1.6.2-2l12.6-10-12.6-10c-.6-.5-.7-1.5-.2-2s1.5-.7 2.2-.2L16 21z"
-                />
-              </svg>
-            </div>
+    const $DrawerUI = () => {
+      const orderCost =
+        cardType === '0'
+          ? calculateCreditCardCost(certificateCost, quantity, false, tracking)
+          : calculateDebitCardCost(certificateCost, quantity, false, tracking);
+      const {
+        total,
+        subtotal,
+        serviceFee,
+        // researchFee
+      } = orderCost;
 
-            <h2 className="stp">Order details</h2>
+      const $arrowUI = () => {
+        return <div className={'arrow'} />;
+      };
 
-            <div className="t--info">
-              {quantity} {quantity === 1 ? 'item' : 'items'} ×{' '}
-              {certificateCostString} = $
-              {(
-                calculateCreditCardCost(certificateCost, quantity).subtotal /
-                100
-              ).toFixed(2)}{' '}
-              + service fee*
-              {this.props.hasResearchFee && (
+      return (
+        <div css={DRAWER_CSS}>
+          <button
+            className={`drawerHeader ${open ? ' open' : ''}`}
+            type="button"
+            onClick={this.toggleOpen}
+            aria-expanded={open}
+          >
+            Your order details
+            {$arrowUI()}
+          </button>
+
+          <div className={`body`}>
+            <VelocityTransitionGroup
+              enter={{ animation: 'slideDown', duration: 250 }}
+              leave={{ animation: 'slideUp', duration: 250 }}
+              role="region"
+            >
+              {open && (
                 <>
-                  <span> + research fee</span>
-                  {/* dagger character looks strange when italicized */}
-                  <span style={{ fontStyle: 'normal' }}>†</span>
+                  <div className={`summary__qty`}>
+                    {quantity} {quantity === 1 ? 'item' : 'items'}
+                  </div>
+
+                  <div className={`order_items`}>{children}</div>
+
+                  <div className={`cost_summary`}>
+                    <$OrderSummary
+                      certQuantityLabel={`Subtotal: ${quantity} ${
+                        quantity === 1 ? 'certificate' : 'certificates'
+                      } × ${CERTIFICATE_COST_STRING[orderType.toUpperCase()]}`}
+                      totalCost={`${(subtotal / 100).toFixed(2)}`}
+                      researchFee={``}
+                      tracking={tracking}
+                      finalCost={`${(total / 100).toFixed(2)}`}
+                      serviceFeeType={cardType}
+                      serviceFee={`${serviceFee / 100}`}
+                      useInDrawer={true}
+                    />
+                  </div>
+
+                  <div className="t--subinfo notes">
+                    {serviceFeeDisclosureText()}
+                    {this.props.hasResearchFee && (
+                      <p>
+                        <span style={{ fontStyle: 'normal' }}>†</span>{' '}
+                        {researchFeeDisclosureText()}
+                      </p>
+                    )}
+                  </div>
                 </>
               )}
-            </div>
+            </VelocityTransitionGroup>
           </div>
-        </button>
+        </div>
+      );
+    };
 
-        <VelocityTransitionGroup
-          enter={{ animation: 'slideDown', duration: 250 }}
-          leave={{ animation: 'slideUp', duration: 250 }}
-          role="region"
-        >
-          {open && (
-            <div className="dr-c" css={DRAWER_CONTENT_STYLE}>
-              {children}
-
-              <div className="t--subinfo p-a300">
-                * {serviceFeeDisclosureText()}
-                {this.props.hasResearchFee && (
-                  <p>
-                    <span style={{ fontStyle: 'normal' }}>†</span>{' '}
-                    {researchFeeDisclosureText()}
-                  </p>
-                )}
-              </div>
-
-              <div className="ta-c t--subinfo b--g">
-                {orderType === 'death' && (
-                  <Link href={`/death/cart`}>
-                    <a style={{ display: 'block', padding: '0.5em' }}>
-                      edit cart
-                    </a>
-                  </Link>
-                )}
-              </div>
-            </div>
-          )}
-        </VelocityTransitionGroup>
-      </div>
-    );
+    return <>{$DrawerUI()}</>;
   }
 }
 
-export default function RenderOrderDetails(props): JSX.Element {
-  const { details } = props;
+export default function RenderOrderDetails(props: {
+  details: any;
+  drawer?: boolean;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
+}): JSX.Element {
+  const { details, tracking = false, cardType = '0' } = props;
 
   if (details.certificateType === 'death') {
     return (
-      <OrderDetailsDropdown
-        orderType="death"
-        certificateQuantity={details.deathCertificateCart.size}
-      >
-        <OrderDetails
-          type="death"
-          deathCertificateCart={details.deathCertificateCart}
-        />
-      </OrderDetailsDropdown>
+      <>
+        <OrderDetailsDropdown
+          orderType="death"
+          certificateQuantity={details.deathCertificateCart.size || 1}
+          tracking={tracking}
+          cardType={cardType}
+        >
+          <OrderDetails
+            type="death"
+            deathCertificateCart={details.deathCertificateCart}
+            inDrawer={true}
+          />
+        </OrderDetailsDropdown>
+      </>
     );
   } else {
     const quantity =
@@ -281,16 +494,20 @@ export default function RenderOrderDetails(props): JSX.Element {
       <OrderDetailsDropdown
         orderType={details.certificateType}
         certificateQuantity={quantity}
+        tracking={tracking}
+        cardType={cardType}
       >
         {details.certificateType === 'birth' ? (
           <OrderDetails
             type="birth"
             birthCertificateRequest={details.birthCertificateRequest}
+            inDrawer={true}
           />
         ) : (
           <OrderDetails
             type="marriage"
             marriageCertificateRequest={details.marriageCertificateRequest}
+            inDrawer={true}
           />
         )}
       </OrderDetailsDropdown>
@@ -298,30 +515,100 @@ export default function RenderOrderDetails(props): JSX.Element {
   }
 }
 
-const DRAWER_STYLE = css({
-  backgroundColor: GRAY_000,
-  marginTop: '0 !important',
-});
+const DRAWER_CSS = css`
+  width: 100%;
 
-const DRAWER_HEADER_STYLE = css({
-  padding: 0,
-});
+  background: ${GRAY_100};
+  background: #f2f2f2;
+  margin-bottom: 3.125rem;
 
-const DRAWER_ICON_STYLE = css({});
+  .drawerHeader {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    cursor: pointer;
+    border: 0;
 
-const DRAWER_CONTENT_STYLE = css({
-  padding: 0,
-  display: 'block',
-});
+    color: ${OPTIMISTIC_BLUE_DARK};
+    font-family: Lora;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: -3px;
+    text-underline-position: from-font;
 
-const OPEN_DRAWER_STYLE = css({
-  '.dr-h': {
-    backgroundColor: GRAY_000,
-    color: CHARLES_BLUE,
-  },
+    .arrow {
+      border: solid #1871bd;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      margin-top: -3px;
 
-  '.dr-i': {
-    // This is forced only on “open” so that it can go to white on hover.
-    fill: `${OPTIMISTIC_BLUE_DARK} !important`,
-  },
-});
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+
+    [aria-expanded='true'] {
+      border-color: white;
+    }
+  }
+
+  // .drawerHeader:active,
+  .drawerHeader:hover,
+  .drawerHeader:focus {
+    color: ${WHITE};
+    text-decoration: underline;
+    background: ${OPTIMISTIC_BLUE_DARK};
+    text-decoration-line: underline;
+
+    .arrow {
+      border-color: ${WHITE};
+    }
+  }
+
+  .drawerHeader[aria-expanded='true'] {
+    margin-bottom: 1em;
+    color: ${WHITE};
+    background: ${CHARLES_BLUE};
+
+    .arrow {
+      margin-top: 6px;
+      border-color: white;
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+    }
+  }
+
+  .body {
+    color: ${CHARLES_BLUE};
+    font-family: ${SERIF};
+    font-size: 1.125em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 0px 24px;
+
+    .summary__qty {
+      font-family: ${SERIF};
+      font-size: 1.125em;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid ${GRAY_400};
+    }
+
+    .order_items {
+      margin-bottom: 1.5rem;
+    }
+
+    .cost_summary,
+    .notes {
+      padding-bottom: 1.115rem;
+      font-style: normal;
+    }
+  }
+`;

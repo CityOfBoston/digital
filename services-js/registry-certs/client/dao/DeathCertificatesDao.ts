@@ -45,9 +45,6 @@ export default class DeathCertificatesDao {
 
     const { query, startYear, endYear } = this.parseQuery(fullQuery);
 
-    console.log('DeathCertificateDao > page: ', page);
-    console.log('DeathCertificateDao > query: ', query);
-
     try {
       const results = await searchDeathCertificates(
         this.fetchGraphql,

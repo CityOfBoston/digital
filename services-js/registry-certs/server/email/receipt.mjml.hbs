@@ -60,19 +60,39 @@
               <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents subtotal}}</b></td>
             </tr>
             {{/if}}
+
+            {{!-- <tr>
+              <td style="padding: 0 25px">[certifiedMail: </td>
+              <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>[{{certifiedMail}}]]</b></td>
+            </tr> --}}
+
+            {{#if certifiedMail}}
+            <tr>
+              <td style="padding: 0 25px"><i>USPS Tracking® fee*</i></td>
+              <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents 500}}</b></td>
+            </tr>
+            {{/if}}
+
             <tr>
               <td style="padding: 0 25px"><i>Card service fee*</i></td>
               <td style="padding: 0 25px; white-space: nowrap;" align="right"><b>{{formatCents serviceFee}}</b></td>
             </tr>
+            
             <tr>
               <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;">Total</td>
-              <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;" align="right"><b>{{formatCents total}}</b></td>
+              <td style="background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;" align="right">
+                <b>{{formatCents total}}</b>
+              </td>
             </tr>
           </mj-table>
 
           {{#each belowOrderText}}
             <mj-text padding="25px 25px 0" line-height="1.5">{{.}}</mj-text>
           {{/each}}
+
+          <mj-text padding="25px 25px 0" line-height="1.5">
+            If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
+          </mj-text>
 
           <mj-text padding="25px 25px 0" font-size="13px" line-height="1.5">
             <i>* You are charged an extra service fee of not more than

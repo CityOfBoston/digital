@@ -9,6 +9,7 @@ import { getParam } from '@cityofboston/next-client-common';
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import Order, { OrderInfo } from '../../models/Order';
 import CertifiedMail from '../../models/CertifiedMail';
+import CardType from '../../models/CardType';
 
 import { CERTIFICATE_COST } from '../../../lib/costs';
 
@@ -46,6 +47,7 @@ export type PageDependenciesProps = Pick<
   | 'siteAnalytics'
   | 'orderProvider'
   | 'certMailProvider'
+  | 'cardTypeProvider'
   | 'checkoutDao'
   | 'stripe'
 >;
@@ -53,6 +55,7 @@ export type PageDependenciesProps = Pick<
 interface Props extends InitialProps, PageDependenciesProps {
   orderForTest?: Order;
   certifiedMailForTest?: CertifiedMail;
+  cardTypeForTest?: CardType;
 }
 
 type State = {
@@ -61,6 +64,7 @@ type State = {
    */
   order: Order | null;
   certMail: CertifiedMail | null;
+  cardType: CardType | null;
 };
 
 @observer
@@ -71,6 +75,7 @@ export default class CheckoutPageController extends React.Component<
   state: State = {
     order: this.props.orderForTest || null,
     certMail: this.props.certifiedMailForTest || null,
+    cardType: this.props.cardTypeForTest || null,
   };
 
   static getInitialProps: GetInitialProps<InitialProps, 'query'> = ({
@@ -109,15 +114,16 @@ export default class CheckoutPageController extends React.Component<
   async componentDidMount() {
     this.reportCheckoutStep(this.props);
 
-    const { orderProvider, certMailProvider } = this.props;
+    const { orderProvider, certMailProvider, cardTypeProvider } = this.props;
 
     // We won’t have an Order until we’re mounted in the browser because it’s
     // dependent on sessionStorage / localStorage data.
     const order = await orderProvider.get();
     const certMail = await certMailProvider.get();
-    // await new Promise((resolve: any) => this.setState({ order }, resolve));
+    const cardType = await cardTypeProvider.get();
+
     await new Promise((resolve: any) =>
-      this.setState({ order, certMail }, resolve)
+      this.setState({ order, certMail, cardType }, resolve)
     );
   }
 
@@ -196,7 +202,8 @@ export default class CheckoutPageController extends React.Component<
       checkoutDao,
       siteAnalytics,
       orderProvider,
-      // certMailProvider,
+      certMailProvider,
+      cardTypeProvider,
     } = this.props;
 
     const { order, certMail } = this.state;
@@ -208,7 +215,7 @@ export default class CheckoutPageController extends React.Component<
     const orderId = await checkoutDao.submitDeathCertificateCart(
       deathCertificateCart,
       order,
-      certMail ? certMail.certMailInfo.requestCertifiedMail : false
+      certMail ? certMail.certMailInfo.certMailForDeath : false
     );
 
     deathCertificateCart.trackCartItems();
@@ -225,11 +232,13 @@ export default class CheckoutPageController extends React.Component<
 
     deathCertificateCart.clear();
     orderProvider.clear();
-    // certMailProvider.clear();
+    certMailProvider.clear();
+    cardTypeProvider.clear();
 
     this.setState({
       order: await orderProvider.get(),
-      // certMail: await certMailProvider.get(),
+      certMail: await certMailProvider.get(),
+      cardType: await cardTypeProvider.get(),
     });
 
     await Router.push(
@@ -244,9 +253,7 @@ export default class CheckoutPageController extends React.Component<
 
   render() {
     const { info, deathCertificateCart, stripe } = this.props;
-    const { order, certMail } = this.state;
-
-    // console.log(`certifiedMail | certMail: `, certMail);
+    const { order, certMail, cardType } = this.state;
 
     // This happens during server side rendering
     if (!order) {
@@ -261,6 +268,8 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.advanceToPayment}
+            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
+            cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
 
@@ -272,6 +281,8 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.advanceToReview}
+            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
+            cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
 
@@ -282,9 +293,7 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.submitOrder}
-            tracking={
-              certMail ? certMail.certMailInfo.requestCertifiedMail : false
-            }
+            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
           />
         );
 

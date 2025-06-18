@@ -5,6 +5,9 @@ import { observable, computed, action } from 'mobx';
 
 export interface CertMailProps {
   requestCertifiedMail: boolean;
+  certMailForBirth: boolean;
+  certMailForMarriage: boolean;
+  certMailForDeath: boolean;
 }
 
 export default class CertifiedMail {
@@ -29,6 +32,9 @@ export default class CertifiedMail {
 
     this.certMailInfo = certMailInfo || {
       requestCertifiedMail: false,
+      certMailForBirth: false,
+      certMailForMarriage: false,
+      certMailForDeath: false,
     };
   }
 

@@ -9,6 +9,8 @@ import CertMailProvider from '../../store/CertifiedMailProvider';
 
 import CartPage from './CartPage';
 
+import CostSummary from '../../common/CostSummary';
+
 import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
@@ -49,6 +51,7 @@ storiesOf('Death/CartPage', module)
       deathCertificateCart={makeCart(true)}
       siteAnalytics={new GaSiteAnalytics()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('normal page', () => (
@@ -56,6 +59,7 @@ storiesOf('Death/CartPage', module)
       deathCertificateCart={makeCart(false)}
       siteAnalytics={new GaSiteAnalytics()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
     />
   ))
   .add('empty cart', () => (
@@ -63,5 +67,25 @@ storiesOf('Death/CartPage', module)
       deathCertificateCart={new DeathCertificateCart()}
       siteAnalytics={new GaSiteAnalytics()}
       certMailProvider={new CertMailProvider()}
+      cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
+    />
+  ))
+  .add('cost summary', () => (
+    <CostSummary
+      certificateType="death"
+      certificateQuantity={2}
+      allowServiceFeeTypeChoice
+      // serviceFeeType="CREDIT"
+      newServiceFeeType={'1'}
+    />
+  ))
+  .add('cost summary w/certified mail tracking', () => (
+    <CostSummary
+      certificateType="death"
+      certificateQuantity={2}
+      allowServiceFeeTypeChoice
+      // serviceFeeType="CREDIT"
+      newServiceFeeType={'0'}
+      tracking={true}
     />
   ));

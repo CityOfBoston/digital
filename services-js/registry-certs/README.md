@@ -92,6 +92,7 @@ https://registry.boston.gov/birth
   * Connect new certified mail quantity component to back end DB
   * Create Quantity Component - Global change across all Registry Certificate workflows
   * External Link Component (UI/UX)
+  * Create 'Order Details' component for Registry Certificate workflows
 
 ## Useful CMDs
 

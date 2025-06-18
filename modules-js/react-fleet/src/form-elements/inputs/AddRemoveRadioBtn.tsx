@@ -13,10 +13,19 @@ type Props = {
 };
 
 export default function AddRemoveRadioBtn(props: Props): JSX.Element {
-  const { name, id, labels, state, action, value, onClickHandler } = props;
+  const {
+    name,
+    id = 'id',
+    labels,
+    state,
+    action,
+    value,
+    onClickHandler,
+  } = props;
 
   const key = id || `id-${hash(id)}`;
-  const elemName = name || `name-${hash(id)}`;
+  const elemName = name || `AddRemoveBtn--${hash(id)}`;
+  const ariaLabel = `${labels[0]} / ${labels[1]} Button`;
 
   return (
     <div
@@ -26,14 +35,26 @@ export default function AddRemoveRadioBtn(props: Props): JSX.Element {
       data-action={action}
       id={id}
       onClick={onClickHandler}
+      onTouchEnd={() => {
+        setTimeout(() => {
+          setTimeout(() => {
+            onClickHandler();
+          }, 500);
+        });
+      }}
+      onKeyUp={e => {
+        if (e.keyCode === 13 || e.keyCode === 32) onClickHandler();
+      }}
     >
       <div className="wrapper">
         <label
           htmlFor={key}
           data-content-default={labels[0]}
           data-content-alt={labels[1]}
+          title={`${ariaLabel}`}
+          aria-label={`${ariaLabel}`}
         />
-        <input type="hidden" name={elemName} value={`${value}`} />
+        <input type="hidden" name={`hidden-${elemName}`} value={`${value}`} />
       </div>
     </div>
   );
@@ -47,6 +68,8 @@ const bg_size = `calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)`;
 
 const ADDREMOVE_BTN = css`
   display: flex;
+  border-color: transparent;
+  background: transparent;
 
   .wrapper {
     display: flex;
@@ -78,13 +101,6 @@ const ADDREMOVE_BTN = css`
 
     label:hover::before {
       text-decoration: underline;
-    }
-  }
-
-  &:active,
-  &:focus {
-    .wrapper {
-      border-color: #1871bd;
     }
   }
 

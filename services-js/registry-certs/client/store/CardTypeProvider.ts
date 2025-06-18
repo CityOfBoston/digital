@@ -1,25 +1,25 @@
 import { autorun, observable, action } from 'mobx';
-import CertifiedMail, { CertMailProps } from '../models/CertifiedMail';
+import CardType, { CardTypesProps } from '../models/CardType';
 
-export const LOCAL_STORAGE_CERTMAIL_KEY = 'certmail';
-export const SESSION_STORAGE_CERTMAIL_KEY = 'certmail';
+export const LOCAL_STORAGE_CARDTYPE_KEY = 'cardtype';
+export const SESSION_STORAGE_CARDTYPE_KEY = 'cardtype';
 
 /**
- * Class to provide CertMail objects that are pre-populated from storage and can
+ * Class to provide CardType objects that are pre-populated from storage and can
  * write back to it.
  *
  * We use localStorage to save address information if the user explicitly opts
  * in to it.
  *
- * We use sessionStorage to keep the CertMail while the forms are being filled out.
+ * We use sessionStorage to keep the CardType while the forms are being filled out.
  */
 
-export default class CertMailProvider {
+export default class CardTypeProvider {
   @observable.ref private localStorage: Storage | null = null;
   @observable.ref private sessionStorage: Storage | null = null;
 
   private attached: boolean = false;
-  private certMailResolveFns: Array<(CertifiedMail) => unknown> = [];
+  private cardTypeResolveFns: Array<(CardType) => unknown> = [];
 
   @action
   attach(localStorage: Storage | null, sessionStorage: Storage | null) {
@@ -27,8 +27,8 @@ export default class CertMailProvider {
     this.sessionStorage = sessionStorage;
     this.attached = true;
 
-    this.certMailResolveFns.forEach(fn => {
-      fn(this.getCertMailInternal());
+    this.cardTypeResolveFns.forEach(fn => {
+      fn(this.getCardTypeInternal());
     });
   }
 
@@ -44,12 +44,12 @@ export default class CertMailProvider {
    * Ensures that if there is localStorage / sessionStorage data to initialize
    * with then we’ve loaded it.
    */
-  get(): Promise<CertifiedMail> {
+  get(): Promise<CardType> {
     if (this.attached) {
-      return Promise.resolve(this.getCertMailInternal());
+      return Promise.resolve(this.getCardTypeInternal());
     } else {
       return new Promise(resolve => {
-        this.certMailResolveFns.push(resolve);
+        this.cardTypeResolveFns.push(resolve);
       });
     }
   }
@@ -58,44 +58,44 @@ export default class CertMailProvider {
     if (sessionStorage) {
       try {
         return JSON.parse(
-          sessionStorage.getItem(SESSION_STORAGE_CERTMAIL_KEY) || 'null'
+          sessionStorage.getItem(SESSION_STORAGE_CARDTYPE_KEY) || 'null'
         );
       } catch (e) {
         // safety value
-        console.log(`Error (getCertInfo): `, e);
+        console.log(`Error (getCardTypeInfo): `, e);
       }
     }
   }
 
-  private getCertMailInternal(): CertifiedMail {
+  private getCardTypeInternal(): CardType {
     const { localStorage, sessionStorage } = this;
 
-    let mailInfo: CertMailProps | null = null;
+    let mailInfo: CardTypesProps | null = null;
 
     // Session storage is where the current cert-mail is saved.
     if (sessionStorage) {
       try {
         mailInfo = JSON.parse(
-          sessionStorage.getItem(SESSION_STORAGE_CERTMAIL_KEY) || 'null'
+          sessionStorage.getItem(SESSION_STORAGE_CARDTYPE_KEY) || 'null'
         );
       } catch (e) {
         // safety value
-        sessionStorage.removeItem(SESSION_STORAGE_CERTMAIL_KEY);
+        sessionStorage.removeItem(SESSION_STORAGE_CARDTYPE_KEY);
       }
     }
 
     if (!mailInfo && localStorage) {
       try {
         mailInfo = JSON.parse(
-          localStorage.getItem(LOCAL_STORAGE_CERTMAIL_KEY) || 'null'
+          localStorage.getItem(LOCAL_STORAGE_CARDTYPE_KEY) || 'null'
         );
       } catch (e) {
         // safety value
-        localStorage.removeItem(LOCAL_STORAGE_CERTMAIL_KEY);
+        localStorage.removeItem(LOCAL_STORAGE_CARDTYPE_KEY);
       }
     }
 
-    const cert = new CertifiedMail(mailInfo, !!localStorage);
+    const card = new CardType(mailInfo, !!localStorage);
 
     autorun(
       () => {
@@ -105,13 +105,13 @@ export default class CertMailProvider {
           return;
         }
 
-        if (cert.certMailInfo.requestCertifiedMail) {
+        if (card.cardTypeInfo.cardType) {
           const value = JSON.stringify(
-            this.permanentStorageInfo(cert.certMailInfo)
+            this.permanentStorageInfo(card.cardTypeInfo)
           );
-          localStorage.setItem(LOCAL_STORAGE_CERTMAIL_KEY, value);
+          localStorage.setItem(LOCAL_STORAGE_CARDTYPE_KEY, value);
         } else {
-          localStorage.removeItem(LOCAL_STORAGE_CERTMAIL_KEY);
+          localStorage.removeItem(LOCAL_STORAGE_CARDTYPE_KEY);
         }
       },
       {
@@ -129,15 +129,15 @@ export default class CertMailProvider {
 
         // Unlike localStorage, the sessionStorage values are unfiltered and
         // always saved.
-        const value = JSON.stringify(cert.certMailInfo);
-        sessionStorage.setItem(SESSION_STORAGE_CERTMAIL_KEY, value);
+        const value = JSON.stringify(card.cardTypeInfo);
+        sessionStorage.setItem(SESSION_STORAGE_CARDTYPE_KEY, value);
       },
       {
         name: 'Order -> sessionStorage',
       }
     );
 
-    return cert;
+    return card;
   }
 
   /**
@@ -148,7 +148,7 @@ export default class CertMailProvider {
     const { sessionStorage } = this;
 
     if (sessionStorage) {
-      sessionStorage.removeItem(SESSION_STORAGE_CERTMAIL_KEY);
+      sessionStorage.removeItem(SESSION_STORAGE_CARDTYPE_KEY);
     }
   }
 
@@ -159,19 +159,11 @@ export default class CertMailProvider {
    *
    * Does not return any card token information.
    */
-  private permanentStorageInfo(certMailInfo: CertMailProps): CertMailProps {
-    const {
-      requestCertifiedMail,
-      certMailForBirth,
-      certMailForMarriage,
-      certMailForDeath,
-    } = certMailInfo;
+  private permanentStorageInfo(cardTypeInfo: CardTypesProps): CardTypesProps {
+    const { cardType } = cardTypeInfo;
 
-    const outInfo: CertMailProps = {
-      requestCertifiedMail: requestCertifiedMail ? requestCertifiedMail : false,
-      certMailForBirth: certMailForBirth ? certMailForBirth : false,
-      certMailForMarriage: certMailForMarriage ? certMailForMarriage : false,
-      certMailForDeath: certMailForDeath ? certMailForDeath : false,
+    const outInfo: CardTypesProps = {
+      cardType: cardType ? cardType : '-1',
     };
 
     return outInfo;

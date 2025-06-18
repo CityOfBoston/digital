@@ -30,6 +30,8 @@ Handlebars.registerHelper(
   (cents: number) => `$${(cents / 100).toFixed(2)}`
 );
 
+Handlebars.registerHelper('eqBool', val => val === true);
+
 Handlebars.registerHelper('wrap', function(options) {
   return wrap(options.fn(this as any), {
     width: 60,

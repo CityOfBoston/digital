@@ -1,20 +1,24 @@
 /** @jsx jsx */
 
 import { jsx, css } from '@emotion/core';
-import { SERIF, CHARLES_BLUE } from '../utilities/constants';
+import { SERIF, OPTIMISTIC_BLUE_DARK, PURPLE } from '../utilities/constants';
 
 interface Props {
   copy: string;
   href: string;
   displayIcon: boolean;
+  state?: 'focus' | 'hover' | 'visited' | null | undefined;
 }
 
 const ExternalLink = (props: Props) => {
-  const { copy, href, displayIcon = true } = props;
-  const linkAattr = {
+  const { copy, href, displayIcon = true, state = undefined } = props;
+  let linkAattr = {
     href: href,
     css: CSS_EXTERNALLINK,
   };
+
+  if (state) linkAattr['data-state'] = state;
+
   return (
     <a {...Object.assign({}, linkAattr)}>
       {copy}
@@ -43,10 +47,10 @@ const CSS_EXTERNALLINK = css`
   align-items: center;
 
   padding: 4px;
-  border: 1px solid ${CHARLES_BLUE};
+  border: 1px solid ${OPTIMISTIC_BLUE_DARK};
   border: 1px solid transparent;
 
-  color: ${CHARLES_BLUE};
+  color: ${OPTIMISTIC_BLUE_DARK};
   font-family: ${SERIF};
   font-size: 18px;
   font-style: normal;
@@ -59,28 +63,35 @@ const CSS_EXTERNALLINK = css`
   text-underline-offset: auto;
   text-underline-position: from-font;
 
-  &:focus,
-  &:active {
-    color: ${CHARLES_BLUE};
-    border: 1px solid ${CHARLES_BLUE};
-  }
-
-  :visited,
-  :visited svg {
-    color: #681da8;
-    fill: #681da8;
-  }
-
-  :hover,
-  :hover svg {
-    color: ${CHARLES_BLUE};
-  }
-
   svg {
     width: 24px;
     height: 24px;
     margin-left: 0.25rem;
-    fill: ${CHARLES_BLUE};
+    fill: ${OPTIMISTIC_BLUE_DARK};
+  }
+
+  &:hover,
+  &[data-state='hover'] {
+    color: #125893;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:active,
+  &[data-state='focus'] {
+    color: ${OPTIMISTIC_BLUE_DARK};
+    border: 3px solid ${OPTIMISTIC_BLUE_DARK};
+    border-radius: 0rem;
+  }
+
+  &:visited,
+  &[data-state='visited'] {
+    color: ${PURPLE};
+    border-width: 0;
+
+    svg {
+      fill: ${PURPLE};
+    }
   }
 `;
 

@@ -368,7 +368,9 @@ export default class MarriageCertificateRequest {
       this.requestInformation.fullName2 +
       (maidenName2 ? ` (${maidenName2})` : '');
 
-    return `${fullName1} & ${fullName2}`;
+    let full_name = `${fullName1} & ${fullName2}`;
+
+    return `${full_name}`;
   }
 
   /**

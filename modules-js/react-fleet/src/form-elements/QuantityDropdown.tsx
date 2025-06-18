@@ -13,16 +13,18 @@ interface Options {
 interface Props {
   label: string;
   quantity: number;
-  handleQuantityChange: (value: number | null) => void;
+  handleQuantityChange: (value: number | string | null) => void;
   selectOptions?: Options;
   id: string;
   maxLength?: number;
+  labelName?: string;
 }
 
 const QuantityDropdown = (props: Props): JSX.Element => {
   const {
-    id,
+    id = 'quantityDropDown',
     label = 'Quantity',
+    labelName = 'Quantity',
     quantity: propQuantity,
     maxLength = 3,
     selectOptions = { start: 1, total: 10 },
@@ -133,14 +135,19 @@ const QuantityDropdown = (props: Props): JSX.Element => {
 
   return (
     <div css={CS_QUANTITYDROPDOWN}>
-      <div className="quantity__main-wrapper" data-type={type}>
+      <div
+        className="quantity__main-wrapper"
+        data-type={type}
+        title={`${labelName}`}
+        aria-label={`${labelName}`}
+      >
         {type === 'input' ? (
           <label htmlFor={`quantity_txtInput`} onClick={handleIconClick}>
-            Quantity:
+            {labelName}:
           </label>
         ) : (
           <label htmlFor={`quantityMenu`} onClick={handleLabelClick}>
-            Quantity:
+            {labelName}:
           </label>
         )}
 
@@ -214,6 +221,7 @@ const CS_QUANTITYDROPDOWN = css`
       margin-right: 0.15rem;
       cursor: pointer;
       color: ${CHARLES_BLUE};
+      font-size: 18px;
     }
 
     .input_wrapper {
@@ -223,10 +231,9 @@ const CS_QUANTITYDROPDOWN = css`
       align-items: baseline;
 
       input[type='text'] {
-        max-width: 35px;
+        max-width: 40px;
         padding: 3px 2px 3px 2px;
         border: 1px solid transparent;
-        // border: 1px solid ${CHARLES_BLUE};
 
         &:focus {
           background: ${GRAY_200};
@@ -262,7 +269,6 @@ const CS_QUANTITYDROPDOWN = css`
 
       option {
         text-align: center;
-        background: green;
       }
     }
   }

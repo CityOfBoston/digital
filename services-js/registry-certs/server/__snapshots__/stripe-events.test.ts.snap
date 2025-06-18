@@ -7,6 +7,7 @@ exports[`charge.captured sends a birth shipped email 1`] = `
       "Nancy Whitehead",
       "nancy@mew.org",
       Object {
+        "certifiedMail": true,
         "fixedFee": 25,
         "items": Array [
           Object {
@@ -49,6 +50,7 @@ exports[`charge.captured sends a marriage shipped email 1`] = `
       "Nancy Whitehead",
       "nancy@mew.org",
       Object {
+        "certifiedMail": true,
         "fixedFee": 25,
         "items": Array [
           Object {
@@ -91,6 +93,7 @@ exports[`charge.created sends birth email 1`] = `
       "Nancy Whitehead",
       "nancy@mew.org",
       Object {
+        "certifiedMail": true,
         "fixedFee": 25,
         "items": Array [
           Object {
@@ -120,6 +123,7 @@ exports[`charge.created sends birth email 1`] = `
       "Nancy Whitehead",
       "nancy@mew.org",
       Object {
+        "certifiedMail": true,
         "fixedFee": 25,
         "items": Array [
           Object {
@@ -166,6 +170,7 @@ exports[`charge.created sends death email 1`] = `
       "Nancy Whitehead",
       "nancy@mew.org",
       Object {
+        "certifiedMail": true,
         "fixedFee": 25,
         "items": Array [
           Object {
@@ -201,6 +206,7 @@ exports[`charge.created sends death email 1`] = `
       "Nancy Whitehead",
       "nancy@mew.org",
       Object {
+        "certifiedMail": true,
         "fixedFee": 25,
         "items": Array [
           Object {
@@ -253,6 +259,7 @@ exports[`charge.created sends marriage email 1`] = `
       "Nancy Whitehead",
       "nancy@mew.org",
       Object {
+        "certifiedMail": true,
         "fixedFee": 25,
         "items": Array [
           Object {

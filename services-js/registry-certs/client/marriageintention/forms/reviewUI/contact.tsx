@@ -30,7 +30,7 @@ export default class ContactUX extends Component<Props> {
     return (
       <div>
         {$ReviewControlHeader({
-          title: `Contact Information 2`,
+          title: `Contact Information`,
           btnStr: `Edit This Page`,
           routeStep: `contactInfo`,
           backTrackingDisclaimer: this.props.backTrackingDisclaimer,

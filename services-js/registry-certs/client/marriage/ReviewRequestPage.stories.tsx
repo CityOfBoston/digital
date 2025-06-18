@@ -17,5 +17,6 @@ storiesOf('Marriage/ReviewRequestPage', module).add('default page', () => (
   <ReviewRequestPage
     marriageCertificateRequest={marriageCertificateRequest}
     certMailProvider={new CertMailProvider()}
+    cardTypeProvider={{ get: () => new Promise(() => {}) } as any}
   />
 ));

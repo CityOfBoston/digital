@@ -77,9 +77,10 @@ const CS_SELECT = css`
 
     select {
       appearance: none;
-      border: 0px solid green;
       border-radius: 0;
+      border: 0;
       padding: 0.3em 1em 0.25em 0.25em;
+      margin-left: 0.25rem;
 
       font-family: Lora;
       font-size: 18px;
@@ -102,10 +103,6 @@ const CS_SELECT = css`
       padding-right: calc(0.5em + 0.75rem);
       background-position: center right;
       background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-
-      option {
-        text-decoration: underline;
-      }
     }
   }
 `;

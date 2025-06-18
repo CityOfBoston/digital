@@ -94,6 +94,8 @@ storiesOf('Common Components/Checkout/PaymentContent', module)
       stripe={makeStripe()}
       order={makeShippingCompleteOrder()}
       submit={action('submit')}
+      tracking={true}
+      cardType={'1'}
     />
   ))
   .add('credit card error', () => (
@@ -104,6 +106,8 @@ storiesOf('Common Components/Checkout/PaymentContent', module)
       order={makeShippingCompleteOrder()}
       submit={action('submit')}
       cardElementErrorForTest="Your card number is incomplete."
+      tracking={true}
+      cardType={'1'}
     />
   ))
   .add('ZIP code error', () => (
@@ -116,6 +120,8 @@ storiesOf('Common Components/Checkout/PaymentContent', module)
         billingAddressSameAsShippingAddress: false,
       })}
       submit={action('submit')}
+      tracking={true}
+      cardType={'1'}
     />
   ))
   .add('Stripe error', () => (
@@ -126,6 +132,8 @@ storiesOf('Common Components/Checkout/PaymentContent', module)
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
       tokenizationErrorForTest="The card could not be tokenized"
+      tracking={true}
+      cardType={'1'}
     />
   ))
   .add('existing billing', () => (
@@ -135,6 +143,8 @@ storiesOf('Common Components/Checkout/PaymentContent', module)
       stripe={makeStripe()}
       order={makeBillingCompleteOrder()}
       submit={action('submit')}
+      tracking={true}
+      cardType={'1'}
     />
   ))
   .add('birth certificate', () => (
@@ -149,6 +159,8 @@ storiesOf('Common Components/Checkout/PaymentContent', module)
         totalSteps: 8,
         currentStepCompleted: false,
       }}
+      tracking={true}
+      cardType={'1'}
     />
   ))
   .add('marriage certificate', () => (
@@ -163,5 +175,7 @@ storiesOf('Common Components/Checkout/PaymentContent', module)
         totalSteps: 8,
         currentStepCompleted: false,
       }}
+      tracking={true}
+      cardType={'1'}
     />
   ));

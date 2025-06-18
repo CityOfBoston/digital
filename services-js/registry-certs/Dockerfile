@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM node:14.19.1-alpine as build_phase
+FROM node:14.19.1-alpine AS build_phase
 
 ENV WORKSPACE=registry-certs
 ENV NODE_ENV=development
@@ -30,7 +30,7 @@ WORKDIR /app/services-js/$WORKSPACE
 RUN yarn install --ignore-scripts
 
 # syntax=docker/dockerfile:1
-FROM node:14.19.1-alpine as deploy_phase
+FROM node:14.19.1-alpine AS deploy_phase
 
 ENV WORKSPACE=registry-certs
 ENV NODE_ENV=development

@@ -9,6 +9,8 @@ import { CERTIFICATE_COST } from '../../lib/costs';
 
 const DEATH_CERTIFICATE_COST = CERTIFICATE_COST.DEATH;
 
+type CardTypes = '-1' | '0' | '1';
+
 interface LocalStorageEntry {
   id: string;
   quantity: number;
@@ -23,6 +25,7 @@ export class DeathCertificateCartEntry {
 export default class DeathCertificateCart {
   @observable entries: Array<DeathCertificateCartEntry> = [];
   @observable pendingFetches: number = 0;
+  @observable cardType: CardTypes = '-1'; // -1 = NaN, 0 = CREDIT, 1 = DEBIT
 
   localStorageDisposer: Function | null = null;
   siteAnalytics: GaSiteAnalytics | null = null;
@@ -40,6 +43,8 @@ export default class DeathCertificateCart {
         const savedCart: Array<LocalStorageEntry> = JSON.parse(
           localStorage.getItem('cart') || '[]'
         );
+
+        this.cardType = '-1';
 
         this.entries = savedCart
           .filter(({ quantity }) => quantity > 0)
@@ -139,6 +144,18 @@ export default class DeathCertificateCart {
     return this.pendingFetches > 0;
   }
 
+  setCardType(type: '-1' | '0' | '1'): void {
+    if (this && this.cardType) this.cardType = type;
+    // if (this && this.getCardType) {
+    //   console.log(
+    //     `deathCertificateCart > getCardType: `,
+    //     type,
+    //     this.getCardType()
+    //   );
+    // }
+    // this.cardType = type;
+  }
+
   setQuantity(cert: DeathCertificate, quantity: number) {
     const { siteAnalytics } = this;
 
@@ -190,6 +207,13 @@ export default class DeathCertificateCart {
 
       this.entries.splice(idx, 1);
     }
+  }
+
+  getCardType() {
+    let retVal: CardTypes = '0';
+    if (this && this.cardType) retVal = this.cardType;
+    // console.log(`deathCertificateCart > getCardType: `, retVal);
+    return retVal;
   }
 
   getQuantity(certId: string): number {

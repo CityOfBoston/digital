@@ -21,6 +21,7 @@ import {
   makeBirthCertificateRequest,
   makeMarriageCertificateRequest,
 } from './ShippingContent.stories';
+import { ReactKeyIndexStr } from '../../../utils/helpers';
 
 function makeCart(extraCerts?: Array<DeathCertificate>) {
   const cart = new Cart();
@@ -76,6 +77,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       order={makeOrder()}
       tracking={true}
       submit={action('submit') as any}
+      keyIndex={ReactKeyIndexStr({ seedStr: `review-content`, max: 100000 })}
     />
   ))
   .add('cart has pending certs', () => (

@@ -8,6 +8,11 @@ import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
 import Cart from '../../store/DeathCertificateCart';
 
+import {
+  CONFIRMATION_BANNER__SUCCESS,
+  CONFIRMATION_RECEIPT_SUCCESS,
+} from '../../common/components';
+
 export interface Props {
   orderId: string;
   contactEmail: string;
@@ -27,56 +32,53 @@ export default class ConfirmationContent extends React.Component<Props> {
       >
         <div className="b-c">
           <Head>
-            <title>Boston.gov — Death Certificate Order Complete</title>
+            <title>Boston.gov - Death Certificate Order Complete</title>
           </Head>
 
-          <div className="sh sh--b0">
-            <h1 className="sh-title">Order submitted</h1>
-          </div>
+          <>
+            <CONFIRMATION_BANNER__SUCCESS>
+              <label>We Received Your Order</label>
+              <p>A copy of your receipt has been sent to {contactEmail}.</p>
+            </CONFIRMATION_BANNER__SUCCESS>
 
-          <div className="t--intro">
-            Thank you for your order! Your order number is{' '}
-            <strong>#{orderId}</strong>.
-          </div>
+            <CONFIRMATION_RECEIPT_SUCCESS>
+              <p>
+                Your order number is <strong>#{orderId}</strong>.
+              </p>
 
-          <div className="ta-c m-v300">
-            <a
-              className="btn"
-              href={`/death/receipt?id=${orderId}&contactEmail=${encodeURIComponent(
-                contactEmail
-              )}`}
-              target="_blank"
-            >
-              View printable receipt
-            </a>
-          </div>
+              <p>
+                We will mail out your order in 1- business days via the U.S.
+                Postal Service.
+              </p>
 
-          <p className="t--info" style={{ fontStyle: 'normal' }}>
-            A copy of your receipt has been sent to{' '}
-            <strong>{contactEmail}</strong>. We will mail out your order in 1–2
-            business days via the U.S. Postal Service.
-          </p>
+              <p>
+                If you paid for <strong>USPS Tracking®</strong> services, a
+                Registry Clerk will follow up via email with your shipment's
+                tracking number.
+              </p>
 
-          <p className="t--info" style={{ fontStyle: 'normal' }}>
-            Have any questions? Contact the Registry on weekdays from 9 a.m. – 4
-            p.m. at <a href="tel:617-635-4175">617-635-4175</a>, or email{' '}
-            <a href="mailto:registry@boston.gov">registry@boston.gov</a>. You
-            can also order a{' '}
-            <Link href="/birth">
-              <a>birth</a>
-            </Link>{' '}
-            or{' '}
-            <Link href="/marriage">
-              <a>marriage</a>
-            </Link>{' '}
-            certificate online.
-          </p>
+              <p>
+                Have any questions? Email the Registry Department at{' '}
+                <Link href="mailto:death@boston.gov">death@boston.gov</Link>.
+              </p>
 
-          <div className="m-t500 ta-c t--info">
-            <Link href="/death">
-              <a>Back to search</a>
-            </Link>
-          </div>
+              <p>
+                Order a new <Link href="/birth">birth</Link>,{' '}
+                <Link href="/marriage">marriage</Link>, or{' '}
+                <Link href="/death">death certificate</Link>.
+              </p>
+
+              <a
+                className="print"
+                href={`/death/receipt?id=${orderId}&contactEmail=${encodeURIComponent(
+                  contactEmail
+                )}`}
+                target="_blank"
+              >
+                View printable receipt
+              </a>
+            </CONFIRMATION_RECEIPT_SUCCESS>
+          </>
         </div>
       </PageLayout>
     );

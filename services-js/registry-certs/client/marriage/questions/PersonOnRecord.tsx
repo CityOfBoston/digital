@@ -117,6 +117,7 @@ export default class PersonOnRecord extends Component<Props> {
               name={isPerson1 ? 'fullName1' : 'fullName2'}
               value={isPerson1 ? fullName1 : fullName2}
               onChange={this.handleChange}
+              required={true}
             />
 
             <TextInput

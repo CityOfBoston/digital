@@ -10,6 +10,8 @@ import { OrderErrorCause } from '../../queries/graphql-types';
 import Order from '../../models/Order';
 import CertifiedMail from '../../models/CertifiedMail';
 import CertMailProvider from '../../store/CertifiedMailProvider';
+import CardTypeProvider from '../../store/CardTypeProvider';
+import CardType from '../../models/CardType';
 
 jest.mock('next/router');
 jest.mock('../../dao/CheckoutDao');
@@ -73,6 +75,7 @@ describe('rendering', () => {
       checkoutDao: {} as any,
       orderProvider: new OrderProvider(),
       certMailProvider: new CertMailProvider(),
+      cardTypeProvider: new CardTypeProvider(),
       siteAnalytics: new GaSiteAnalytics(),
       stripe: null,
     };
@@ -87,6 +90,7 @@ describe('rendering', () => {
     page.state = {
       order: new Order(),
       certMail: new CertifiedMail(),
+      cardType: new CardType(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -101,6 +105,7 @@ describe('rendering', () => {
     page.state = {
       order: new Order(),
       certMail: new CertifiedMail(),
+      cardType: new CardType(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -115,6 +120,7 @@ describe('rendering', () => {
     page.state = {
       order: new Order(),
       certMail: new CertifiedMail(),
+      cardType: new CardType(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -133,6 +139,7 @@ describe('rendering', () => {
     page.state = {
       order: new Order(),
       certMail: new CertifiedMail(),
+      cardType: new CardType(),
     };
 
     expect(page.render()).toMatchSnapshot();
@@ -143,6 +150,7 @@ describe('operations', () => {
   let checkoutDao: CheckoutDao;
   let orderProvider: OrderProvider;
   let certMailProvider: CertMailProvider;
+  let cardTypeProvider: CardTypeProvider;
   let component: CheckoutPage;
   let scrollSpy;
 
@@ -155,6 +163,9 @@ describe('operations', () => {
     certMailProvider = new CertMailProvider();
     certMailProvider.attach(null, null);
 
+    cardTypeProvider = new CardTypeProvider();
+    cardTypeProvider.attach(null, null);
+
     checkoutDao = new CheckoutDao(null as any, null);
 
     // page doesn't really matter for this
@@ -166,12 +177,14 @@ describe('operations', () => {
       info: { page: 'shipping' },
       orderProvider,
       certMailProvider,
+      cardTypeProvider,
       checkoutDao,
     });
 
     component.state = {
       order: await orderProvider.get(),
       certMail: await certMailProvider.get(),
+      cardType: await cardTypeProvider.get(),
     };
 
     // Keeps us from setting state in the order succes case, since it will fail
