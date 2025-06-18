@@ -114,6 +114,7 @@ export interface FindOrderResult {
   CertificateCost: number;
   ServiceFee: number;
   TotalCost: number;
+  CertifiedMail: boolean;
 }
 
 export interface FindBirthCertificateRequestResult {
@@ -359,6 +360,7 @@ export default class RegistryDb {
 
   async addOrder(
     orderType: OrderType,
+    tracking: boolean,
     {
       orderID,
       orderDate,
@@ -407,6 +409,7 @@ export default class RegistryDb {
       .input('billingZIP', billingZIP)
       .input('billingLast4', billingLast4)
       .input('serviceFee', `$${serviceFee.toFixed(2)}`)
+      .input('certifiedMail', tracking)
       .input('idempotencyKey', idempotencyKey)
       .execute('Commerce.sp_AddOrder');
 

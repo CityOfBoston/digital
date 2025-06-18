@@ -204,6 +204,7 @@ async function makeDeathReceiptInfo(
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
     serviceFeeUri: SERVICE_FEE_URL,
     items,
+    certifiedMail: order.certifiedMail || false,
   };
 }
 
@@ -252,6 +253,7 @@ async function makeBirthReceiptInfo(
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
     serviceFeeUri: SERVICE_FEE_URL,
     items,
+    certifiedMail: order.certifiedMail || false,
   };
 }
 
@@ -305,6 +307,7 @@ async function makeMarriageReceiptInfo(
     percentageFee: PERCENTAGE_CC_SERVICE_FEE,
     serviceFeeUri: SERVICE_FEE_URL,
     items,
+    certifiedMail: order.certifiedMail || false,
   };
 }
 

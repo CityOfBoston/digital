@@ -16,12 +16,35 @@ import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
 
 import { ServiceFeeDisclosure } from '../common/FeeDisclosures';
 
+// import { AddRemoveRadioBtn } from '@cityofboston/react-fleet';
+
+import CertifiedMail from '../models/CertifiedMail';
+import CardType, { CARDTYPE } from '../models/CardType';
+import CertMailTracking from '../common/CertMailTracking';
+import { $CHECKOUT_DISCLAIMER_CONTENT } from '../common/content/CheckoutCertDisclaimer';
+
 import {
   SECTION_HEADING_STYLING,
-  DISCLAIMER_STYLING,
+  NEW_DISCLAIMER_STYLING,
 } from '../common/question-components/styling';
+// import CardTypeProvider from '../store/CardTypeProvider';
 
-interface Props extends Pick<PageDependencies, 'marriageCertificateRequest'> {}
+interface PageDependenciesProps
+  extends Pick<
+    PageDependencies,
+    'marriageCertificateRequest' | 'certMailProvider' | 'cardTypeProvider'
+  > {}
+
+type State = {
+  certMail: CertifiedMail | null;
+  cardType: CardType | null;
+  loading: boolean;
+};
+
+interface Props extends PageDependenciesProps {
+  certifiedMailForTest?: CertifiedMail;
+  cardTypeForTest?: CardType;
+}
 
 /**
  * Component which allows a user to review their request, and update the
@@ -31,10 +54,50 @@ interface Props extends Pick<PageDependencies, 'marriageCertificateRequest'> {}
  * clear all information and start over.
  */
 @observer
-export default class ReviewRequestPage extends Component<Props> {
+export default class ReviewRequestPage extends Component<Props, State> {
+  state: State = {
+    certMail: this.props.certifiedMailForTest || null,
+    cardType: this.props.cardTypeForTest || null,
+    loading: true,
+  };
+
+  async componentDidMount() {
+    const { certMailProvider, cardTypeProvider } = this.props;
+
+    // We won’t have an Order until we’re mounted in the browser because it’s
+    // dependent on sessionStorage / localStorage data.
+    const certMail = await certMailProvider.get();
+    const cardType = await cardTypeProvider.get();
+
+    await new Promise((resolve: any) =>
+      this.setState({ certMail, cardType, loading: false }, resolve)
+    );
+  }
+
   public render() {
+    const { loading, cardType } = this.state;
     const { steps } = this.props.marriageCertificateRequest;
-    const pageTitle = 'Review your record request';
+    const pageTitle = 'Review Your Request';
+
+    const certMailHandler = () => {
+      const { certMail } = this.state;
+
+      if (certMail) {
+        certMail.updateCertMail({
+          certMailForMarriage: !certMail.certMailInfo.certMailForMarriage,
+        });
+      }
+    };
+
+    const cardTypeChangeHandler = (type: CARDTYPE) => {
+      const { cardType } = this.state;
+
+      if (cardType) {
+        cardType.updateCardType({
+          cardType: type,
+        });
+      }
+    };
 
     return (
       <PageWrapper
@@ -52,37 +115,40 @@ export default class ReviewRequestPage extends Component<Props> {
 
         <h2 css={SECTION_HEADING_STYLING}>{pageTitle}</h2>
 
-        <ReviewCertificateRequest
-          certificateType="marriage"
-          certificateRequest={this.props.marriageCertificateRequest}
-        >
-          <div css={DISCLAIMER_STYLING}>
-            <p>
-              You can only order copies of a marriage certificate for one couple
-              at a time. Want to order copies of a certificate for a different
-              marriage? Please put in a separate request.
-            </p>
+        {!loading && (
+          <ReviewCertificateRequest
+            certificateType="marriage"
+            certificateRequest={this.props.marriageCertificateRequest}
+            tracking={
+              this.state.certMail &&
+              this.state.certMail.certMailInfo.certMailForMarriage === true
+                ? true
+                : false
+            }
+            cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
+            cardTypeChangeHandler={cardTypeChangeHandler}
+          >
+            <div css={NEW_DISCLAIMER_STYLING}>
+              {$CHECKOUT_DISCLAIMER_CONTENT()}
 
-            <p>
-              Do you need a certificate for international use that requires an
-              Apostille from the Massachusetts Secretary of State's Office?
-              Follow these steps:
-            </p>
-            <ol>
-              <li>
-                Request a certified birth certificate from the City of Boston
-                Registry. You don’t need extra information or paperwork.
-              </li>
-              <li>
-                Submit the certificate to the
-                <a href="https://www.sec.state.ma.us/pre/precom/comidx.htm">
-                  Massachusetts Secretary of State's Office
-                </a>
-                .
-              </li>
-            </ol>
-          </div>
-        </ReviewCertificateRequest>
+              <CertMailTracking
+                action={
+                  this.state.certMail &&
+                  this.state.certMail.certMailInfo.certMailForMarriage === true
+                    ? 'remove'
+                    : 'add'
+                }
+                value={
+                  this.state.certMail &&
+                  this.state.certMail.certMailInfo.certMailForMarriage === true
+                    ? 1
+                    : 0
+                }
+                onClickHandler={certMailHandler}
+              />
+            </div>
+          </ReviewCertificateRequest>
+        )}
       </PageWrapper>
     );
   }

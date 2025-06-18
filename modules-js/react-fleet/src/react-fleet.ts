@@ -30,3 +30,10 @@ export { default as TextInput } from './form-elements/inputs/TextInput';
 export { default as ToolTip } from './form-elements/ToolTip';
 export { default as ErrorPage } from './pages/ErrorPage';
 export { default as UploadPhoto } from './form-elements/UploadPhoto';
+export {
+  default as AddRemoveRadioBtn,
+} from './form-elements/inputs/AddRemoveRadioBtn';
+export {
+  default as RegistryCCSelectDropDown,
+} from './form-elements/RegistryCCSelectDropdown';
+export { default as QuantityDropdown } from './form-elements/QuantityDropdown';

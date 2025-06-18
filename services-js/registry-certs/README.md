@@ -86,6 +86,13 @@ https://registry.boston.gov/birth
 * 2021.10.28: Added `nofollow` to staging sites
 * 2023.02.06: Add email validation
 * 2023.02.06: Upgrade Webservices Rollbar to the latest version
+* 2025.03.29: Registry Mail and Payment updates FY25 Q3
+  * Create Select drop down for 'Debit/Credit Card' - Global change across all Registry Certificate workflows
+  * Create 'Add/Remove' Component - Global change across all Registry Certificate workflows
+  * Connect new certified mail quantity component to back end DB
+  * Create Quantity Component - Global change across all Registry Certificate workflows
+  * External Link Component (UI/UX)
+  * Create 'Order Details' component for Registry Certificate workflows
 
 ## Useful CMDs
 

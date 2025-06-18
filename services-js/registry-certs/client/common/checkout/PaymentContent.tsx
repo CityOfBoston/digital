@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+
 import React from 'react';
 import Link from 'next/link';
 import { Formik, FormikProps } from 'formik';
@@ -11,6 +14,10 @@ import {
   FREEDOM_RED_DARK,
   SERIF,
   StatusModal,
+  SANS,
+  OPTIMISTIC_BLUE_DARK,
+  WHITE,
+  GRAY_400,
 } from '@cityofboston/react-fleet';
 
 import makePaymentValidator from '../../../lib/validators/PaymentValidator';
@@ -27,6 +34,7 @@ import { ProgressProps } from '../../../lib/interfaces';
 import { BackButtonContent } from '../question-components/BackButton';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 import RenderOrderDetails from './OrderDetails';
+import { CARDTYPE } from '../../models/CardType';
 
 type Props = {
   submit: (
@@ -37,6 +45,8 @@ type Props = {
   order: Order;
   tokenizationErrorForTest?: string;
   cardElementErrorForTest?: string;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
 } & (
   | {
       certificateType: 'death';
@@ -236,6 +246,8 @@ export default class PaymentContent extends React.Component<Props, State> {
   };
 
   render() {
+    const { tracking, cardType } = this.props;
+
     return (
       <CheckoutPageLayout
         certificateType={this.props.certificateType}
@@ -247,7 +259,11 @@ export default class PaymentContent extends React.Component<Props, State> {
         }
       >
         <div className="m-v300">
-          <RenderOrderDetails details={this.props} />
+          <RenderOrderDetails
+            details={this.props}
+            tracking={tracking}
+            cardType={cardType}
+          />
         </div>
 
         <Formik
@@ -329,28 +345,30 @@ export default class PaymentContent extends React.Component<Props, State> {
     const shippingUrl = `/${this.props.certificateType}/checkout?page=shipping`;
 
     return (
-      <form acceptCharset="UTF-8" method="post" onSubmit={handleSubmit}>
-        <div className="m-v700">
-          <div className="fs-l">
-            <div className="fs-l-c">
-              Shipping Address
-              <span className="t--reset">
-                &nbsp;–&nbsp;
-                <span className="t--subinfo">
-                  <Link href={shippingUrl}>
-                    <a aria-label="Edit shipping address">edit</a>
-                  </Link>
-                </span>
-              </span>
-            </div>
+      <form
+        acceptCharset="UTF-8"
+        method="post"
+        onSubmit={handleSubmit}
+        css={FIELDSET_CSS}
+      >
+        <div className={'row info-row'}>
+          <div className={'col'}>
+            <label className={'header'}>Shipping Address</label>
+
+            <div className="m-b200">{`${info.shippingAddress1}${
+              info.shippingAddress2 ? `, ${info.shippingAddress2}` : ''
+            }, ${info.shippingCity} ${info.shippingState} ${
+              info.shippingZip
+            }`}</div>
           </div>
 
-          <div className="m-b200">{`${info.shippingAddress1}${
-            info.shippingAddress2 ? `, ${info.shippingAddress2}` : ''
-          }, ${info.shippingCity} ${info.shippingState} ${
-            info.shippingZip
-          }`}</div>
-          <div> </div>
+          <div className={'col'}>
+            <Link href={shippingUrl}>
+              <a className={'btn'} aria-label="Edit contact information">
+                edit
+              </a>
+            </Link>
+          </div>
         </div>
 
         <fieldset className="fs m-v700">
@@ -649,3 +667,64 @@ export default class PaymentContent extends React.Component<Props, State> {
     );
   };
 }
+
+const FIELDSET_CSS = css`
+  margin-bottom: 3.5rem;
+
+  legend {
+    font-size: 24px;
+    font-family: ${SANS};
+    font-weight: 700;
+    margin-bottom: 1.75rem;
+  }
+
+  .txt-l,
+  label.sel-l {
+    font-size: 16px;
+    font-family: ${SANS};
+    font-weight: 700;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: ${CHARLES_BLUE};
+    font-family: ${SERIF};
+
+    label.header {
+      display: inline-block;
+      color: ${CHARLES_BLUE};
+      font-family: ${SANS};
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .info {
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      font-family: ${SERIF};
+      color: ${OPTIMISTIC_BLUE_DARK};
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      text-transform: capitalize;
+      background: ${WHITE};
+      border: 1px solid ${GRAY_400};
+      padding: 13px;
+
+      &:hover {
+        background: ${OPTIMISTIC_BLUE_DARK};
+        color: ${WHITE};
+      }
+    }
+  }
+`;

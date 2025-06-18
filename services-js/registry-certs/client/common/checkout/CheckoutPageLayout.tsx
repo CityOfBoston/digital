@@ -35,7 +35,7 @@ type Props = {
 export default function CheckoutPageLayout({
   certificateType,
   title,
-  progress,
+  // progress,
   footer,
   children,
 }: Props): ReactElement<any> {
@@ -74,7 +74,8 @@ export default function CheckoutPageLayout({
       <PageWrapper
         certificateType={certificateType}
         footer={footer}
-        progress={progress}
+        // progress={progress}
+        noHeadline={true}
       >
         {head}
         {title && <h2 css={SECTION_HEADING_STYLING}>{title}</h2>}

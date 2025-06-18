@@ -449,6 +449,791 @@ exports[`Storyshots Content Sections|SectionHeader yellow 1`] = `
 </div>
 `;
 
+exports[`Storyshots Form Elements | Checkout / Add-Remove variants 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-color: transparent;
+  background: transparent;
+}
+
+.emotion-0 .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px 3px 8px 5px;
+  border: 3px solid transparent;
+}
+
+.emotion-0 .wrapper input[type='radio'] {
+  display: none;
+}
+
+.emotion-0 .wrapper label::before {
+  content: 'Add';
+  color: #1871bd;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  cursor: pointer;
+}
+
+.emotion-0 .wrapper label:hover::before {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0:focus:not(:focus-visible) .wrapper {
+  border-color: transparrent;
+}
+
+.emotion-0[data-state='disabled'] .wrapper label::before {
+  color: #d2d2d2;
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.emotion-0[data-state='disabled']:active .wrapper,
+.emotion-0[data-state='disabled']:focus .wrapper {
+  border-color: #d2d2d2;
+}
+
+.emotion-0[data-state='focused'] .wrapper {
+  border-color: #1871bd;
+}
+
+.emotion-0[data-action='add'] label::before {
+  content: attr(data-content-default);
+}
+
+.emotion-0[data-action='remove'] label::before {
+  content: attr(data-content-alt);
+  background: none;
+  padding-right: 3px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-0[data-action='remove']:hover label::before {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <h4>
+    State: Disabled
+  </h4>
+  <div
+    className="emotion-0"
+    data-action="add"
+    data-state="disabled"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    onKeyUp={[Function]}
+    onTouchEnd={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="wrapper"
+    >
+      <label
+        aria-label="Add / Remove Button"
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
+      />
+      <input
+        name="hidden-CC_AddRemove"
+        type="hidden"
+        value="0"
+      />
+    </div>
+  </div>
+  <br />
+  <h4>
+    State: Enabled (default)
+  </h4>
+  <div
+    className="emotion-0"
+    data-action="add"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    onKeyUp={[Function]}
+    onTouchEnd={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="wrapper"
+    >
+      <label
+        aria-label="Add / Remove Button"
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
+      />
+      <input
+        name="hidden-CC_AddRemove"
+        type="hidden"
+        value="0"
+      />
+    </div>
+  </div>
+  <br />
+  <h4>
+    Action: Focused
+  </h4>
+  <div
+    className="emotion-0"
+    data-action="add"
+    data-state="focused"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    onKeyUp={[Function]}
+    onTouchEnd={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="wrapper"
+    >
+      <label
+        aria-label="Add / Remove Button"
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
+      />
+      <input
+        name="hidden-CC_AddRemove"
+        type="hidden"
+        value="0"
+      />
+    </div>
+  </div>
+  <br />
+  <h4>
+    Action: Remove
+  </h4>
+  <div
+    className="emotion-0"
+    data-action="remove"
+    data-state="default"
+    id="checkoutAddRemove"
+    onClick={[Function]}
+    onKeyUp={[Function]}
+    onTouchEnd={[Function]}
+    tabIndex={0}
+  >
+    <div
+      className="wrapper"
+    >
+      <label
+        aria-label="Add / Remove Button"
+        data-content-alt="Remove"
+        data-content-default="Add"
+        htmlFor="checkoutAddRemove"
+        title="Add / Remove Button"
+      />
+      <input
+        name="hidden-CC_AddRemove"
+        type="hidden"
+        value="1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements | Checkout / ExternalLink variants 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid #1871bd;
+  border: 1px solid transparent;
+  color: #1871bd;
+  font-family: Lora,Georgia,serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.emotion-0 svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 0.25rem;
+  fill: #1871bd;
+}
+
+.emotion-0:hover,
+.emotion-0[data-state='hover'] {
+  color: #125893;
+}
+
+.emotion-0:focus,
+.emotion-0:focus-visible,
+.emotion-0:active,
+.emotion-0[data-state='focus'] {
+  color: #1871bd;
+  border: 3px solid #1871bd;
+  border-radius: 0rem;
+}
+
+.emotion-0:visited,
+.emotion-0[data-state='visited'] {
+  color: #681da8;
+  border-width: 0;
+}
+
+.emotion-0:visited svg,
+.emotion-0[data-state='visited'] svg {
+  fill: #681da8;
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <h4>
+    Default (No Icon)
+  </h4>
+  <a
+    className="emotion-0"
+    href="#"
+  >
+    External Link
+  </a>
+  <br />
+  <h4>
+    Default (Icon)
+  </h4>
+  <a
+    className="emotion-0"
+    href="#"
+  >
+    External Link
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 9.75C21 9.94891 20.921 10.1397 20.7803 10.2803C20.6397 10.421 20.4489 10.5 20.25 10.5C20.0511 10.5 19.8603 10.421 19.7197 10.2803C19.579 10.1397 19.5 9.94891 19.5 9.75V5.56125L13.2816 11.7806C13.1408 11.9214 12.95 12.0004 12.7509 12.0004C12.5519 12.0004 12.361 11.9214 12.2203 11.7806C12.0796 11.6399 12.0005 11.449 12.0005 11.25C12.0005 11.051 12.0796 10.8601 12.2203 10.7194L18.4387 4.5H14.25C14.0511 4.5 13.8603 4.42098 13.7197 4.28033C13.579 4.13968 13.5 3.94891 13.5 3.75C13.5 3.55109 13.579 3.36032 13.7197 3.21967C13.8603 3.07902 14.0511 3 14.25 3H20.25C20.4489 3 20.6397 3.07902 20.7803 3.21967C20.921 3.36032 21 3.55109 21 3.75V9.75ZM17.25 12C17.0511 12 16.8603 12.079 16.7197 12.2197C16.579 12.3603 16.5 12.5511 16.5 12.75V19.5H4.5V7.5H11.25C11.4489 7.5 11.6397 7.42098 11.7803 7.28033C11.921 7.13968 12 6.94891 12 6.75C12 6.55109 11.921 6.36032 11.7803 6.21967C11.6397 6.07902 11.4489 6 11.25 6H4.5C4.10218 6 3.72064 6.15804 3.43934 6.43934C3.15804 6.72064 3 7.10218 3 7.5V19.5C3 19.8978 3.15804 20.2794 3.43934 20.5607C3.72064 20.842 4.10218 21 4.5 21H16.5C16.8978 21 17.2794 20.842 17.5607 20.5607C17.842 20.2794 18 19.8978 18 19.5V12.75C18 12.5511 17.921 12.3603 17.7803 12.2197C17.6397 12.079 17.4489 12 17.25 12Z"
+      />
+    </svg>
+  </a>
+  <br />
+  <h4>
+    Default (Hovered)
+  </h4>
+  <a
+    className="emotion-0"
+    data-state="hover"
+    href="#"
+  >
+    External Link
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 9.75C21 9.94891 20.921 10.1397 20.7803 10.2803C20.6397 10.421 20.4489 10.5 20.25 10.5C20.0511 10.5 19.8603 10.421 19.7197 10.2803C19.579 10.1397 19.5 9.94891 19.5 9.75V5.56125L13.2816 11.7806C13.1408 11.9214 12.95 12.0004 12.7509 12.0004C12.5519 12.0004 12.361 11.9214 12.2203 11.7806C12.0796 11.6399 12.0005 11.449 12.0005 11.25C12.0005 11.051 12.0796 10.8601 12.2203 10.7194L18.4387 4.5H14.25C14.0511 4.5 13.8603 4.42098 13.7197 4.28033C13.579 4.13968 13.5 3.94891 13.5 3.75C13.5 3.55109 13.579 3.36032 13.7197 3.21967C13.8603 3.07902 14.0511 3 14.25 3H20.25C20.4489 3 20.6397 3.07902 20.7803 3.21967C20.921 3.36032 21 3.55109 21 3.75V9.75ZM17.25 12C17.0511 12 16.8603 12.079 16.7197 12.2197C16.579 12.3603 16.5 12.5511 16.5 12.75V19.5H4.5V7.5H11.25C11.4489 7.5 11.6397 7.42098 11.7803 7.28033C11.921 7.13968 12 6.94891 12 6.75C12 6.55109 11.921 6.36032 11.7803 6.21967C11.6397 6.07902 11.4489 6 11.25 6H4.5C4.10218 6 3.72064 6.15804 3.43934 6.43934C3.15804 6.72064 3 7.10218 3 7.5V19.5C3 19.8978 3.15804 20.2794 3.43934 20.5607C3.72064 20.842 4.10218 21 4.5 21H16.5C16.8978 21 17.2794 20.842 17.5607 20.5607C17.842 20.2794 18 19.8978 18 19.5V12.75C18 12.5511 17.921 12.3603 17.7803 12.2197C17.6397 12.079 17.4489 12 17.25 12Z"
+      />
+    </svg>
+  </a>
+  <br />
+  <h4>
+    Default (Focused)
+  </h4>
+  <a
+    className="emotion-0"
+    data-state="focus"
+    href="#"
+  >
+    External Link
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 9.75C21 9.94891 20.921 10.1397 20.7803 10.2803C20.6397 10.421 20.4489 10.5 20.25 10.5C20.0511 10.5 19.8603 10.421 19.7197 10.2803C19.579 10.1397 19.5 9.94891 19.5 9.75V5.56125L13.2816 11.7806C13.1408 11.9214 12.95 12.0004 12.7509 12.0004C12.5519 12.0004 12.361 11.9214 12.2203 11.7806C12.0796 11.6399 12.0005 11.449 12.0005 11.25C12.0005 11.051 12.0796 10.8601 12.2203 10.7194L18.4387 4.5H14.25C14.0511 4.5 13.8603 4.42098 13.7197 4.28033C13.579 4.13968 13.5 3.94891 13.5 3.75C13.5 3.55109 13.579 3.36032 13.7197 3.21967C13.8603 3.07902 14.0511 3 14.25 3H20.25C20.4489 3 20.6397 3.07902 20.7803 3.21967C20.921 3.36032 21 3.55109 21 3.75V9.75ZM17.25 12C17.0511 12 16.8603 12.079 16.7197 12.2197C16.579 12.3603 16.5 12.5511 16.5 12.75V19.5H4.5V7.5H11.25C11.4489 7.5 11.6397 7.42098 11.7803 7.28033C11.921 7.13968 12 6.94891 12 6.75C12 6.55109 11.921 6.36032 11.7803 6.21967C11.6397 6.07902 11.4489 6 11.25 6H4.5C4.10218 6 3.72064 6.15804 3.43934 6.43934C3.15804 6.72064 3 7.10218 3 7.5V19.5C3 19.8978 3.15804 20.2794 3.43934 20.5607C3.72064 20.842 4.10218 21 4.5 21H16.5C16.8978 21 17.2794 20.842 17.5607 20.5607C17.842 20.2794 18 19.8978 18 19.5V12.75C18 12.5511 17.921 12.3603 17.7803 12.2197C17.6397 12.079 17.4489 12 17.25 12Z"
+      />
+    </svg>
+  </a>
+  <br />
+  <h4>
+    Default (Visited)
+  </h4>
+  <a
+    className="emotion-0"
+    data-state="visited"
+    href="#"
+  >
+    External Link
+    <svg
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 9.75C21 9.94891 20.921 10.1397 20.7803 10.2803C20.6397 10.421 20.4489 10.5 20.25 10.5C20.0511 10.5 19.8603 10.421 19.7197 10.2803C19.579 10.1397 19.5 9.94891 19.5 9.75V5.56125L13.2816 11.7806C13.1408 11.9214 12.95 12.0004 12.7509 12.0004C12.5519 12.0004 12.361 11.9214 12.2203 11.7806C12.0796 11.6399 12.0005 11.449 12.0005 11.25C12.0005 11.051 12.0796 10.8601 12.2203 10.7194L18.4387 4.5H14.25C14.0511 4.5 13.8603 4.42098 13.7197 4.28033C13.579 4.13968 13.5 3.94891 13.5 3.75C13.5 3.55109 13.579 3.36032 13.7197 3.21967C13.8603 3.07902 14.0511 3 14.25 3H20.25C20.4489 3 20.6397 3.07902 20.7803 3.21967C20.921 3.36032 21 3.55109 21 3.75V9.75ZM17.25 12C17.0511 12 16.8603 12.079 16.7197 12.2197C16.579 12.3603 16.5 12.5511 16.5 12.75V19.5H4.5V7.5H11.25C11.4489 7.5 11.6397 7.42098 11.7803 7.28033C11.921 7.13968 12 6.94891 12 6.75C12 6.55109 11.921 6.36032 11.7803 6.21967C11.6397 6.07902 11.4489 6 11.25 6H4.5C4.10218 6 3.72064 6.15804 3.43934 6.43934C3.15804 6.72064 3 7.10218 3 7.5V19.5C3 19.8978 3.15804 20.2794 3.43934 20.5607C3.72064 20.842 4.10218 21 4.5 21H16.5C16.8978 21 17.2794 20.842 17.5607 20.5607C17.842 20.2794 18 19.8978 18 19.5V12.75C18 12.5511 17.921 12.3603 17.7803 12.2197C17.6397 12.079 17.4489 12 17.25 12Z"
+      />
+    </svg>
+  </a>
+  <br />
+</div>
+`;
+
+exports[`Storyshots Form Elements | Checkout / QuantityDropdown variants 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-0 .quantity__main-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  border: 1px solid #091f2f;
+  padding: 10px 8px;
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  color: #091f2f;
+}
+
+.emotion-0 .quantity__main-wrapper input,
+.emotion-0 .quantity__main-wrapper select,
+.emotion-0 .quantity__main-wrapper option {
+  font-family: Lora,Georgia,serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  -webkit-letter-spacing: 0%;
+  -moz-letter-spacing: 0%;
+  -ms-letter-spacing: 0%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.emotion-0 .quantity__main-wrapper label {
+  margin-right: 0.15rem;
+  cursor: pointer;
+  color: #091f2f;
+  font-size: 18px;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text'] {
+  max-width: 40px;
+  padding: 3px 2px 3px 2px;
+  border: 1px solid transparent;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus {
+  background: #C8C8C8;
+  outline: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:focus + .icon,
+.emotion-0 .quantity__main-wrapper .input_wrapper input[type='text']:active + .icon {
+  display: none;
+}
+
+.emotion-0 .quantity__main-wrapper .input_wrapper .icon {
+  width: 24px;
+  height: 24px;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: 0px 4px;
+  background-size: 24px 24px;
+}
+
+.emotion-0 .quantity__main-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid transparent;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+  background-position: center right;
+  padding-right: calc(0.75em + 0.75rem);
+  background-size: 22px;
+}
+
+.emotion-0 .quantity__main-wrapper select option {
+  text-align: center;
+}
+
+.emotion-0 [data-type='select'] {
+  border: 1px solid transparent;
+}
+
+.emotion-0 [data-type='input'] {
+  border: 1px solid #091f2f;
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <h4>
+    Default (Q: 1)
+  </h4>
+  <div
+    className="emotion-0"
+  >
+    <div
+      aria-label="Quantity"
+      className="quantity__main-wrapper"
+      data-type="select"
+      title="Quantity"
+    >
+      <label
+        htmlFor="quantityMenu"
+        onClick={[Function]}
+      >
+        Quantity
+        :
+      </label>
+      <select
+        id="quantityDropDown__1"
+        name="quantityMenu"
+        onChange={[Function]}
+        tabIndex={0}
+        value="1"
+      >
+        <option
+          value={1}
+        >
+          1
+        </option>
+        <option
+          value={2}
+        >
+          2
+        </option>
+        <option
+          value={3}
+        >
+          3
+        </option>
+        <option
+          value={4}
+        >
+          4
+        </option>
+        <option
+          value={5}
+        >
+          5
+        </option>
+        <option
+          value={6}
+        >
+          6
+        </option>
+        <option
+          value={7}
+        >
+          7
+        </option>
+        <option
+          value={8}
+        >
+          8
+        </option>
+        <option
+          value={9}
+        >
+          9
+        </option>
+        <option
+          value={10}
+        >
+          10
+          +
+        </option>
+      </select>
+    </div>
+  </div>
+  <br />
+  <h4>
+    Default (Q: 10)
+  </h4>
+  <div
+    className="emotion-0"
+  >
+    <div
+      aria-label="Quantity"
+      className="quantity__main-wrapper"
+      data-type="input"
+      title="Quantity"
+    >
+      <label
+        htmlFor="quantity_txtInput"
+        onClick={[Function]}
+      >
+        Quantity
+        :
+      </label>
+      <div
+        className="input_wrapper"
+      >
+        <input
+          aria-label="Quantity"
+          maxLength={3}
+          name="quantity_txtInput"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+          type="text"
+          value={11}
+        />
+        <div
+          className="icon"
+          onClick={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+  <br />
+  <h4>
+    Default (Q: 100)
+  </h4>
+  <div
+    className="emotion-0"
+  >
+    <div
+      aria-label="Quantity"
+      className="quantity__main-wrapper"
+      data-type="input"
+      title="Quantity"
+    >
+      <label
+        htmlFor="quantity_txtInput"
+        onClick={[Function]}
+      >
+        Quantity
+        :
+      </label>
+      <div
+        className="input_wrapper"
+      >
+        <input
+          aria-label="Quantity"
+          maxLength={3}
+          name="quantity_txtInput"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          tabIndex={0}
+          type="text"
+          value={101}
+        />
+        <div
+          className="icon"
+          onClick={[Function]}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form Elements | Checkout / SelectDropdown default 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-0 .select--wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-0 .select--wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  padding: 0.3em 1em 0.25em 0.25em;
+  margin-left: 0.25rem;
+  font-family: Lora;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #1871bd;
+  text-align: center;
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-style: solid;
+  text-decoration-style: solid;
+  -webkit-text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-thickness: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M20.0306%209.53062L12.5306%2017.0306C12.4609%2017.1003%2012.3782%2017.1557%2012.2871%2017.1934C12.1961%2017.2312%2012.0985%2017.2506%2011.9999%2017.2506C11.9014%2017.2506%2011.8038%2017.2312%2011.7127%2017.1934C11.6217%2017.1557%2011.539%2017.1003%2011.4693%2017.0306L3.9693%209.53062C3.82857%209.38988%203.74951%209.19901%203.74951%208.99999C3.74951%208.80097%203.82857%208.61009%203.9693%208.46936C4.11003%208.32863%204.30091%208.24957%204.49993%208.24957C4.69895%208.24957%204.88982%208.32863%205.03055%208.46936L11.9999%2015.4397L18.9693%208.46936C19.039%208.39968%2019.1217%208.34441%2019.2128%208.30669C19.3038%208.26898%2019.4014%208.24957%2019.4999%208.24957C19.5985%208.24957%2019.6961%208.26898%2019.7871%208.30669C19.8781%208.34441%2019.9609%208.39968%2020.0306%208.46936C20.1002%208.53905%2020.1555%208.62177%2020.1932%208.71282C20.2309%208.80386%2020.2503%208.90144%2020.2503%208.99999C20.2503%209.09854%2020.2309%209.19612%2020.1932%209.28716C20.1555%209.37821%2020.1002%209.46093%2020.0306%209.53062Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  padding-right: calc(0.5em + 0.75rem);
+  background-position: center right;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+<div
+  style={
+    Object {
+      "margin": "2rem auto",
+      "maxWidth": "768px",
+    }
+  }
+>
+  <span
+    className="labeled-select emotion-0"
+  >
+    <label
+      htmlFor="select-2781782046"
+    >
+      Service fee
+      :
+    </label>
+    <div
+      className="select--wrapper"
+    >
+      <select
+        id="select-2781782046"
+      >
+        <option
+          value="-1"
+        >
+          Select card
+        </option>
+        <option
+          value="0"
+        >
+          credit card
+        </option>
+        <option
+          value="1"
+        >
+          debit card
+        </option>
+      </select>
+    </div>
+  </span>
+</div>
+`;
+
 exports[`Storyshots Form Elements|Buttons/CloseButton close 1`] = `
 .emotion-0 {
   border: none;
@@ -3772,7 +4557,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
   <div>
     <label
       className="txt-l "
-      htmlFor="input-5381"
+      htmlFor="input-686119205"
       style={
         Object {
           "alignItems": "baseline",
@@ -3805,7 +4590,7 @@ exports[`Storyshots Form Elements|Inputs/TextInput variations 1`] = `
     <input
       aria-label=""
       className="txt-f   "
-      id="input-5381"
+      id="input-686119205"
       type="text"
     />
     <div
@@ -6335,7 +7120,7 @@ exports[`Storyshots ProgressNav Step 1: Getting Started (default) 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -6572,7 +7357,7 @@ exports[`Storyshots ProgressNav Step 2: Person 1 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -6809,7 +7594,7 @@ exports[`Storyshots ProgressNav Step 3: Person 2 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7046,7 +7831,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info - Nav one step back 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7283,7 +8068,7 @@ exports[`Storyshots ProgressNav Step 4: Contact Info 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7520,7 +8305,7 @@ exports[`Storyshots ProgressNav Step 5: Review 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 
@@ -7757,7 +8542,7 @@ exports[`Storyshots ProgressNav Step 6: Submit 1`] = `
   grid-column-start: 2;
 }
 
-.emotion-0 .progressbar .nav a:first-child {
+.emotion-0 .progressbar .nav a:first-of-type {
   border-left-width: 1px;
 }
 

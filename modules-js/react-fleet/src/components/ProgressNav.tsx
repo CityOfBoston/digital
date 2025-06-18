@@ -168,7 +168,7 @@ const PROGRESSBAR_STYLE = css`
           grid-column-start: 2;
         }
 
-        &:first-child {
+        &:first-of-type {
           border-left-width: ${BORDER_WIDTH};
         }
 

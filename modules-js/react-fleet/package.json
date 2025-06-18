@@ -21,7 +21,9 @@
     "fetch-templates": "ts-node ./scripts/fetch-templates.ts"
   },
   "jest": {
-    "snapshotSerializers": ["jest-emotion"],
+    "snapshotSerializers": [
+      "jest-emotion"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/",
@@ -67,6 +69,7 @@
     "@types/storybook__addon-actions": "^3.4.2",
     "@types/storybook__addon-storyshots": "^3.4.8",
     "@types/storybook__react": "^4.0.1",
+    "@types/string-hash": "^1.1.3",
     "babel-core": "^7.0.0-0",
     "babel-plugin-inline-import": "^2.0.6",
     "babel-plugin-require-context-hook": "^1.0.0",

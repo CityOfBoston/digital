@@ -63,15 +63,18 @@ type Props = {
     }
   | {
       hideLabel?: false | undefined;
-      label: string | React.ReactChild;
+      label: string | any;
+      // label: string | React.ReactChild;
     });
 
 import { ToolTip } from '../ToolTip';
 
 export default function TextInput(props: Props): JSX.Element {
-  const { toolTip, focused } = props;
+  const { toolTip, focused, label = 'label' } = props;
 
-  const id = props.id || `input-${hash(props.label)}`;
+  const labelStr = typeof label !== 'string' ? 'default-label' : label;
+
+  const id = props.id || `input-${hash(labelStr)}`;
 
   const classNames = {
     label: `txt-l ${props.small ? 'txt-l--sm' : ''}`,

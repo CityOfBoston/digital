@@ -178,6 +178,7 @@ export function orderToReceiptInfo(id: string, order: FindOrderResult) {
     subtotal: Math.floor(order.CertificateCost * 100),
     serviceFee: Math.floor(order.ServiceFee * 100),
     total: Math.floor(order.TotalCost * 100),
+    certifiedMail: order.CertifiedMail ? order.CertifiedMail : false,
   };
 }
 

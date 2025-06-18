@@ -4,7 +4,14 @@ import { css, jsx } from '@emotion/core';
 
 import { ChangeEvent, Component } from 'react';
 
-import { VISUALLY_HIDDEN } from '@cityofboston/react-fleet';
+import {
+  SANS,
+  SERIF,
+  CHARLES_BLUE,
+  DEFAULT_TEXT,
+  RegistryCCSelectDropDown,
+  MEDIA_SMALL_MAX,
+} from '@cityofboston/react-fleet';
 
 import {
   calculateCreditCardCost,
@@ -15,18 +22,22 @@ import {
 
 import { CertificateType } from '../types';
 
-type ServiceFeeType = 'CREDIT' | 'DEBIT';
+type NewServiceFeeType = '-1' | '0' | '1';
 
 interface Props {
   certificateType: CertificateType;
   certificateQuantity: number;
-  serviceFeeType: ServiceFeeType;
   allowServiceFeeTypeChoice?: boolean;
   hasResearchFee?: boolean;
+  tracking?: boolean;
+  newServiceFeeType?: NewServiceFeeType;
+  setCardType?: any;
+  getCardType?: any;
+  useInDrawer?: boolean;
 }
 
 interface State {
-  serviceFeeType: ServiceFeeType;
+  newServiceFeeType: NewServiceFeeType;
 }
 
 /**
@@ -43,185 +54,219 @@ export default class CostSummary extends Component<Props, State> {
     super(props);
 
     this.state = {
-      serviceFeeType: props.serviceFeeType,
+      newServiceFeeType: props.newServiceFeeType || '0',
     };
   }
 
-  handleCardOptionChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
+  async componentDidMount() {
+    this.state = {
+      newServiceFeeType: this.props.newServiceFeeType || '0',
+    };
+  }
+
+  handleCardOptChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
+    const { setCardType } = this.props;
+    const value = ev.currentTarget.value as NewServiceFeeType;
+    setCardType(value);
+
     this.setState({
-      serviceFeeType: ev.currentTarget.value as any,
+      newServiceFeeType: value,
     });
   };
 
   calculateCost() {
-    const { certificateQuantity, hasResearchFee } = this.props;
-    const { serviceFeeType } = this.state;
+    const { certificateQuantity, hasResearchFee, tracking } = this.props;
+    const { newServiceFeeType } = this.state;
     const certificateTypeCost =
       CERTIFICATE_COST[this.props.certificateType.toUpperCase()];
 
-    return serviceFeeType === 'CREDIT'
+    return newServiceFeeType === '0'
       ? calculateCreditCardCost(
           certificateTypeCost,
           certificateQuantity,
-          hasResearchFee
+          hasResearchFee,
+          tracking
         )
       : calculateDebitCardCost(
           certificateTypeCost,
           certificateQuantity,
-          hasResearchFee
+          hasResearchFee,
+          tracking
         );
   }
 
   render() {
-    const { certificateType, certificateQuantity } = this.props;
+    const {
+      certificateType,
+      certificateQuantity,
+      tracking,
+      useInDrawer = false,
+    } = this.props;
     const { total, subtotal, serviceFee, researchFee } = this.calculateCost();
 
     return (
-      <div css={CLEARFIX_STYLE}>
-        <table className="t--info ta-r" style={{ float: 'right' }}>
-          <caption css={VISUALLY_HIDDEN}>Cost Summary</caption>
-          <thead css={VISUALLY_HIDDEN}>
-            <tr>
-              <th scope="col">Item</th>
-              <th scope="col">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                {certificateQuantity}{' '}
-                {certificateQuantity === 1 ? 'certificate' : 'certificates'} ×{' '}
-                {CERTIFICATE_COST_STRING[certificateType.toUpperCase()]}
-              </td>
-              <td css={COST_CELL_STYLE}>${(subtotal / 100).toFixed(2)}</td>
-            </tr>
-
-            {/* todo: add hyperlinked asterisk to explain to user why research fee was applied */}
-            {/* Per-transaction fee for records dated before 1870. */}
-            {researchFee > 0 && (
-              <tr>
-                <td>Research fee</td>
-                <td css={COST_CELL_STYLE}>${(researchFee / 100).toFixed(2)}</td>
-              </tr>
-            )}
-
-            <tr>
-              <td>{this.renderServiceFeeLabel()}</td>
-              <td css={COST_CELL_STYLE}>${(serviceFee / 100).toFixed(2)}</td>
-            </tr>
-
-            <tr>
-              <td>U.S. shipping included</td>
-              <td css={COST_CELL_STYLE}>
-                <i>$0.00</i>
-              </td>
-            </tr>
-
-            <tr>
-              <td className="sh-title" css={TOTAL_STYLE}>
-                <span css={TOTAL_TEXT_STYLE}>Total</span>
-              </td>
-              <td className="cost-cell cost br br-t100 p-v200">
-                ${(total / 100).toFixed(2)}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <>
+        {$OrderSummary({
+          certQuantityLabel: `Subtotal: ${certificateQuantity} ${
+            certificateQuantity === 1 ? 'certificate' : 'certificates'
+          } × ${CERTIFICATE_COST_STRING[certificateType.toUpperCase()]}`,
+          totalCost: `${(subtotal / 100).toFixed(2)}`,
+          researchFee: `${
+            researchFee > 0 ? (researchFee / 100).toFixed(2) : ''
+          }`,
+          tracking: tracking,
+          finalCost: `${(total / 100).toFixed(2)}`,
+          onChangeHandler: this.handleCardOptChanged,
+          serviceFeeType: this.state.newServiceFeeType,
+          serviceFee: `${(serviceFee / 100).toFixed(2)}`,
+          useInDrawer: useInDrawer,
+        })}
+      </>
     );
-  }
-
-  renderServiceFeeLabel() {
-    const { allowServiceFeeTypeChoice } = this.props;
-    const { serviceFeeType } = this.state;
-
-    if (allowServiceFeeTypeChoice) {
-      return (
-        <div>
-          <div className="sel sel--thin" css={CARD_SELECT_STYLE}>
-            <div className="sel-c " css={CARD_SELECT_CONTAINER_STYLE}>
-              <select
-                id="serviceFeeTypeSelect"
-                className="sel-f"
-                css={CARD_SELECT_FIELD_STYLE}
-                onChange={this.handleCardOptionChanged}
-                value={serviceFeeType}
-                aria-label="Payment type"
-              >
-                <option value="CREDIT">Credit card</option>
-                <option value="DEBIT">Debit card</option>
-              </select>
-            </div>
-          </div>{' '}
-          service fee{' '}
-          <a href="#service-fee" aria-label="About the service fee">
-            *
-          </a>
-        </div>
-      );
-    } else {
-      switch (serviceFeeType) {
-        case 'CREDIT':
-          return (
-            <span>
-              Credit card service fee <a href="#service-fee">*</a>
-            </span>
-          );
-
-        case 'DEBIT':
-          return (
-            <span>
-              Debit card service fee <a href="#service-fee">*</a>
-            </span>
-          );
-
-        default:
-          throw new Error();
-      }
-    }
   }
 }
 
-const CLEARFIX_STYLE = css({
-  '&:after': {
-    content: "''",
-    display: 'table',
-    clear: 'both',
-  },
-});
+export const $OrderSummary = (params: {
+  certQuantityLabel: string;
+  totalCost: string;
+  researchFee: string;
+  tracking?: boolean;
+  finalCost?: string;
+  onChangeHandler?: (ev: ChangeEvent<HTMLSelectElement>) => void;
+  serviceFeeType?: string;
+  serviceFee?: string;
+  useInDrawer?: boolean;
+}) => {
+  const {
+    certQuantityLabel,
+    totalCost,
+    researchFee,
+    tracking = false,
+    finalCost,
+    serviceFeeType = '0',
+    serviceFee,
+    onChangeHandler,
+    useInDrawer = false,
+  } = params;
 
-const COST_CELL_STYLE = css({
-  width: '5em',
-  verticalAlign: 'bottom',
-  // Gives us even spacing for the rows
-  lineHeight: 1.75,
-});
+  return (
+    <div css={ORDERSUMMARY}>
+      {!useInDrawer && <h1>Order Summary</h1>}
 
-const TOTAL_STYLE = css({
-  padding: '0',
-  lineHeight: 1,
-  fontStyle: 'normal',
-});
+      {certQuantityLabel && totalCost && (
+        <div className={'row'}>
+          <div className={'col'}>{certQuantityLabel}</div>
+          <div className={'col'}>${totalCost}</div>
+        </div>
+      )}
 
-const TOTAL_TEXT_STYLE = css({
-  // We want to re-use the responsive size from sh-title but be
-  // a little bit smaller.
-  fontSize: '80%',
-});
+      {researchFee && (
+        <div className={'row'}>
+          <div className="col">Research fee</div>
+          <div className="col">{researchFee}</div>
+        </div>
+      )}
 
-const CARD_SELECT_STYLE = css({
-  lineHeight: 1,
-  display: 'inline-block',
-});
+      <div className={'row'}>
+        <div className={'col'}>US Shipping</div>
+        <div className={'col'}>FREE</div>
+      </div>
 
-const CARD_SELECT_FIELD_STYLE = css({
-  height: '2rem',
-  lineHeight: 'initial',
-  paddingRight: '3rem',
-});
+      {tracking === true && (
+        <div className={'row'}>
+          <div className={'col'}>USPS Tracking®</div>
+          <div className={'col'}>$ 5.00</div>
+        </div>
+      )}
 
-const CARD_SELECT_CONTAINER_STYLE = css({
-  '&:after': {
-    width: '2rem',
-  },
-});
+      {onChangeHandler && useInDrawer === false && (
+        <div className={'row'}>
+          <div className={'col'}>
+            <RegistryCCSelectDropDown
+              id="ServiceFeeTypeSelect"
+              value={serviceFeeType}
+              label={'Service fee'}
+              options={[
+                { value: '-1', label: 'Select card' },
+                { value: '0', label: 'credit card' },
+                { value: '1', label: 'debit card' },
+              ]}
+              onChange={onChangeHandler}
+            />
+          </div>
+          <div className={'col'}>$ {serviceFee}</div>
+        </div>
+      )}
+
+      {useInDrawer === true && (
+        <div className={'row'}>
+          <div className={'col'}>Service fee</div>
+          <div className={'col'}>$ {serviceFee}</div>
+        </div>
+      )}
+
+      <div className={'row'}>
+        <div className={'col'}>Total</div>
+        <div className={'col total-cost'}>$ {finalCost}</div>
+      </div>
+    </div>
+  );
+};
+
+const ORDERSUMMARY = css`
+  color: ${CHARLES_BLUE};
+  font-family: ${SERIF};
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  margin: auto;
+  width: 100%;
+
+  h1 {
+    font-family: ${SANS};
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  span.bold {
+    font-weight: 700;
+  }
+
+  .row {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 12px;
+    line-height: 1.25rem;
+
+    .col {
+      white-space: 'rap';
+      flex: min-content;
+    }
+
+    .col:nth-of-type(2) {
+      text-align: right;
+      max-width: 30%;
+    }
+
+    &:nth-last-of-type(-n + 1) {
+      font-family: ${SANS};
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      border-top: 1px solid ${DEFAULT_TEXT};
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+  }
+
+  ${MEDIA_SMALL_MAX} {
+    .total-cost {
+      font-size: 15px;
+    }
+  }
+`;

@@ -10,27 +10,31 @@ import { observer } from 'mobx-react';
 
 import {
   CHARLES_BLUE,
-  MEDIA_MEDIUM,
   SERIF,
+  // MEDIA_MEDIUM,
   // Textarea,
 } from '@cityofboston/react-fleet';
-
-import { capitalize } from '../../lib/helpers';
+// import { capitalize } from '../../lib/helpers';
 
 import { CERTIFICATE_COST } from '../../lib/costs';
 
 import CostSummary from './CostSummary';
+import { OrderDetails } from './checkout/OrderDetails';
+import { CARDTYPE } from '../models/CardType';
 
-import QuantityDropdown from './QuantityDropdown';
+// import QuantityDropdown from './QuantityDropdown';
 import BackButton from './question-components/BackButton';
 
-import { THIN_BORDER_STYLE } from './question-components/styling';
+// import { THIN_BORDER_STYLE } from './question-components/styling';
 
 interface Props {
   certificateType: 'birth' | 'marriage' | 'intention';
   certificateRequest: any;
   siteAnalytics?: any;
   children: ReactChild | ReactChild[];
+  tracking?: boolean;
+  cardType?: CARDTYPE;
+  cardTypeChangeHandler?: (type: CARDTYPE) => void;
 }
 
 /**
@@ -61,35 +65,6 @@ export default class ReviewCertificateRequest extends Component<Props> {
       siteAnalytics.setProductAction('detail');
     }
   }
-
-  private handleQuantityChange = (value: number | null) => {
-    const { certificateRequest, certificateType, siteAnalytics } = this.props;
-
-    const oldValue = certificateRequest.quantity;
-    const newValue = value;
-
-    if (newValue) {
-      const difference = Math.abs(oldValue - newValue);
-
-      if (certificateType === 'birth') {
-        siteAnalytics.sendEvent('change certificate quantity', {
-          category: 'Birth',
-          label: oldValue > newValue ? 'decrease' : 'increase',
-          value: oldValue > newValue ? -difference : difference,
-        });
-      }
-      certificateRequest.setQuantity(newValue as number);
-    }
-  };
-
-  // currently only used for Marriage (6/14 jm)
-  // private handleCustomerNotesChange = (
-  //   event: ChangeEvent<HTMLTextAreaElement>
-  // ) => {
-  //   this.props.certificateRequest.answerQuestion({
-  //     customerNotes: event.target.value,
-  //   });
-  // };
 
   private userResetStartOver = () => {
     const { certificateType, siteAnalytics } = this.props;
@@ -135,59 +110,55 @@ export default class ReviewCertificateRequest extends Component<Props> {
   };
 
   public render() {
-    const { certificateRequest, certificateType } = this.props;
+    const {
+      certificateRequest,
+      certificateType,
+      tracking,
+      cardType,
+      cardTypeChangeHandler,
+    } = this.props;
     const { quantity } = certificateRequest;
+
+    const entry = () => {
+      if (certificateType === 'birth') {
+        return (
+          <div css={ENTRIES_CSS}>
+            <div className={'certRow'}>
+              <OrderDetails
+                type="birth"
+                birthCertificateRequest={this.props.certificateRequest}
+              />
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div css={ENTRIES_CSS}>
+            <div className={'certRow'}>
+              <OrderDetails
+                type="marriage"
+                marriageCertificateRequest={this.props.certificateRequest}
+              />
+            </div>
+          </div>
+        );
+      }
+    };
 
     return (
       <>
         {this.props.children}
 
-        <div css={CERTIFICATE_ROW_STYLE}>
-          <QuantityDropdown
-            quantity={quantity}
-            handleQuantityChange={this.handleQuantityChange}
-          />
-
-          <div className="t--sans" css={CERTIFICATE_INFO_BOX_STYLE}>
-            <div css={CERTIFICATE_NAME_STYLE}>
-              {certificateType === 'birth'
-                ? certificateRequest.fullName
-                : certificateRequest.fullNames}
-            </div>
-
-            <div css={CERTIFICATE_SUBINFO_STYLE}>
-              <span>
-                {capitalize(certificateType)} Certificate (Certified paper copy)
-              </span>
-
-              {certificateRequest.dateString ? (
-                <span>
-                  {certificateType === 'birth' &&
-                    `Born: ${certificateRequest.dateString}`}
-                  {certificateType === 'marriage' &&
-                    `Date: ${certificateRequest.dateString}`}
-                </span>
-              ) : (
-                <></>
-              )}
-            </div>
-          </div>
-        </div>
+        {entry()}
 
         <CostSummary
           certificateType="birth"
           certificateQuantity={quantity}
           allowServiceFeeTypeChoice
-          serviceFeeType="CREDIT"
+          newServiceFeeType={cardType}
+          tracking={tracking}
+          setCardType={cardTypeChangeHandler}
         />
-
-        {/* {certificateType === 'marriage' && (
-          <Textarea
-            name="customerNotes"
-            label="Anything else you’d like us to know?"
-            onChange={this.handleCustomerNotesChange}
-          />
-        )} */}
 
         <div className="g g--mr m-t700">
           <div className="g--9 t--info">
@@ -217,43 +188,10 @@ export default class ReviewCertificateRequest extends Component<Props> {
   }
 }
 
-const CERTIFICATE_NAME_STYLE = css({
-  fontStyle: 'normal',
-  fontWeight: 'bold',
-  letterSpacing: '1.4px',
-});
-
-const CERTIFICATE_INFO_BOX_STYLE = css({
-  flex: 1,
-  marginLeft: '1.25rem',
-  [MEDIA_MEDIUM]: {
-    marginLeft: '0.75rem',
-  },
-});
-
-const CERTIFICATE_SUBINFO_STYLE = css({
-  color: CHARLES_BLUE,
-  fontFamily: SERIF,
-  fontStyle: 'italic',
-
-  '> span': {
-    display: 'block',
-  },
-});
-
-const CERTIFICATE_ROW_STYLE = css({
-  borderBottom: THIN_BORDER_STYLE,
-  borderTop: THIN_BORDER_STYLE,
-
-  paddingBottom: '0.5em',
-  paddingTop: '0.5em',
-  marginBottom: '1em',
-  marginTop: '3em',
-
-  display: 'flex',
-  alignItems: 'center',
-
-  '> div:first-of-type': {
-    flexBasis: '25%',
-  },
-});
+const ENTRIES_CSS = css`
+  .certRow {
+    color: ${CHARLES_BLUE};
+    font-family: ${SERIF};
+    margin-bottom: 1.5rem;
+  }
+`;

@@ -25,5 +25,6 @@
     "CertificateQuantities": "7,1",
     "CertificateCost": 112,
     "ServiceFee": 2.66,
-    "TotalCost": 114.66
+    "TotalCost": 114.66,
+    "CertifiedMail": true
 }

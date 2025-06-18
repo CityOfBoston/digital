@@ -52,7 +52,7 @@ test('submitDeathCertificateOrder', async () => {
 
   order.idempotencyKey = '1234abcd';
 
-  await submitDeathCertificateOrder(fetchGraphql, cart, order);
+  await submitDeathCertificateOrder(fetchGraphql, cart, order, true);
 
   const queryVariables: SubmitDeathCertificateOrderVariables = {
     contactName: 'Squirrel Girl',
@@ -85,6 +85,8 @@ test('submitDeathCertificateOrder', async () => {
         quantity: 10,
       },
     ],
+
+    tracking: true,
 
     idempotencyKey: '1234abcd',
   };

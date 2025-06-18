@@ -21,6 +21,7 @@ import {
   makeBirthCertificateRequest,
   makeMarriageCertificateRequest,
 } from './ShippingContent.stories';
+import { ReactKeyIndexStr } from '../../../utils/helpers';
 
 function makeCart(extraCerts?: Array<DeathCertificate>) {
   const cart = new Cart();
@@ -74,7 +75,9 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="death"
       deathCertificateCart={makeCart()}
       order={makeOrder()}
+      tracking={true}
       submit={action('submit') as any}
+      keyIndex={ReactKeyIndexStr({ seedStr: `review-content`, max: 100000 })}
     />
   ))
   .add('cart has pending certs', () => (
@@ -82,6 +85,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="death"
       deathCertificateCart={makeCart([PENDING_CERTIFICATE])}
       order={makeOrder()}
+      tracking={true}
       submit={action('submit') as any}
     />
   ))
@@ -90,6 +94,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="death"
       deathCertificateCart={new Cart()}
       order={makeOrder()}
+      tracking={true}
       submit={action('submit') as any}
     />
   ))
@@ -98,6 +103,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="death"
       deathCertificateCart={makeCart()}
       order={new Order()}
+      tracking={true}
       submit={action('submit') as any}
     />
   ))
@@ -111,6 +117,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
 
         return order;
       })()}
+      tracking={true}
       submit={action('submit') as any}
       showErrorsForTest
     />
@@ -120,6 +127,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="death"
       deathCertificateCart={makeCart()}
       order={makeOrder()}
+      tracking={true}
       submit={action('submit') as any}
       testSubmissionError={
         new SubmissionError(
@@ -134,6 +142,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="death"
       deathCertificateCart={makeCart()}
       order={makeOrder()}
+      tracking={true}
       submit={action('submit') as any}
       testSubmissionError={
         new SubmissionError(
@@ -148,6 +157,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="birth"
       birthCertificateRequest={makeBirthCertificateRequest()}
       order={makeOrder()}
+      tracking={true}
       submit={action('submit') as any}
       progress={{
         currentStep: 8,
@@ -161,6 +171,7 @@ storiesOf('Common Components/Checkout/ReviewContent', module)
       certificateType="marriage"
       marriageCertificateRequest={makeMarriageCertificateRequest()}
       order={makeOrder()}
+      tracking={true}
       submit={action('submit') as any}
       progress={{
         currentStep: 8,

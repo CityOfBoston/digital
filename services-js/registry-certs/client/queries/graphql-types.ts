@@ -221,6 +221,7 @@ export interface SubmitBirthCertificateOrderVariables {
   billingState: string;
   billingZip: string;
   item: BirthCertificateOrderItemInput;
+  tracking: boolean;
   idempotencyKey: string;
 }
 
@@ -272,6 +273,7 @@ export interface SubmitDeathCertificateOrderVariables {
   billingState: string;
   billingZip: string;
   items: DeathCertificateOrderItemInput[];
+  tracking: boolean;
   idempotencyKey: string;
 }
 
@@ -323,6 +325,7 @@ export interface SubmitMarriageCertificateOrderVariables {
   billingState: string;
   billingZip: string;
   item: MarriageCertificateOrderItemInput;
+  tracking: boolean;
   idempotencyKey: string;
 }
 

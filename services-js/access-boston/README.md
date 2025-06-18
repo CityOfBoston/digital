@@ -149,3 +149,4 @@ Notification Banner appears as the second UI item, after the header/nav. Its is 
 - 2022.08.11: PROD deploy - Push-through Docker Image Sizing Fix
 - 2025.02.05: PROD deploy - New APB Banner Design
 - 2025.02.21: PROD deploy - Allow banners to have security exclusions
+- 2025.03.31: PROD deploy - Registry Mail and Payment updates FY25 Q3

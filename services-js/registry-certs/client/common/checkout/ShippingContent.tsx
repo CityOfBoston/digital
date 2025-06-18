@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
+
 import React from 'react';
 import Link from 'next/link';
 import { Formik, FormikProps } from 'formik';
@@ -19,10 +22,14 @@ import { ProgressProps } from '../../../lib/interfaces';
 import CheckoutPageLayout from './CheckoutPageLayout';
 import { BackButtonContent } from '../question-components/BackButton';
 import RenderOrderDetails from './OrderDetails';
+import { SANS } from '@cityofboston/react-fleet';
+import { CARDTYPE } from '../../models/CardType';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
   order: Order;
+  tracking?: boolean;
+  cardType?: CARDTYPE;
 } & (
   | {
       certificateType: 'death';
@@ -102,7 +109,12 @@ export default class ShippingContent extends React.Component<Props> {
   };
 
   render() {
-    const { submit, certificateType } = this.props;
+    const {
+      submit,
+      certificateType,
+      tracking = false,
+      cardType = '0',
+    } = this.props;
 
     return (
       <CheckoutPageLayout
@@ -115,7 +127,12 @@ export default class ShippingContent extends React.Component<Props> {
         }
       >
         <div className="m-v300">
-          <RenderOrderDetails details={this.props} />
+          <RenderOrderDetails
+            details={this.props}
+            drawer={true}
+            tracking={tracking}
+            cardType={cardType}
+          />
         </div>
 
         <Formik
@@ -193,7 +210,7 @@ export default class ShippingContent extends React.Component<Props> {
 
     return (
       <form method="post" onSubmit={handleSubmit}>
-        <fieldset className="fs m-v700">
+        <fieldset css={FIELDSET_CSS} className="fs m-v700">
           <legend className="fs-l">Contact Information</legend>
 
           <div className="txt">
@@ -299,7 +316,7 @@ export default class ShippingContent extends React.Component<Props> {
           </div>
         </fieldset>
 
-        <fieldset className="fs m-v700">
+        <fieldset css={FIELDSET_CSS} className="fs m-v700">
           <legend className="fs-l">Shipping Address</legend>
 
           <div className="txt">
@@ -508,3 +525,21 @@ export default class ShippingContent extends React.Component<Props> {
     );
   };
 }
+
+const FIELDSET_CSS = css`
+  margin-bottom: 3.5rem;
+
+  legend {
+    font-size: 24px;
+    font-family: ${SANS};
+    font-weight: 700;
+    margin-bottom: 1.75rem;
+  }
+
+  .txt-l,
+  label.sel-l {
+    font-size: 16px;
+    font-family: ${SANS};
+    font-weight: 700;
+  }
+`;

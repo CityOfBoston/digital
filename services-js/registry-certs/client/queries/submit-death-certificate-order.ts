@@ -30,6 +30,7 @@ const QUERY = gql`
     $billingState: String!
     $billingZip: String!
     $items: [DeathCertificateOrderItemInput!]!
+    $tracking: Boolean!
     $idempotencyKey: String!
   ) {
     submitDeathCertificateOrder(
@@ -53,6 +54,7 @@ const QUERY = gql`
       billingState: $billingState
       billingZip: $billingZip
       items: $items
+      tracking: $tracking
       idempotencyKey: $idempotencyKey
     ) {
       order {
@@ -69,7 +71,8 @@ const QUERY = gql`
 export default async function submitDeathCertificateOrder(
   fetchGraphql: FetchGraphql,
   cart: Cart,
-  order: Order
+  order: Order,
+  tracking: boolean
 ): Promise<DeathCertificateOrderResult> {
   const {
     info: {
@@ -95,6 +98,7 @@ export default async function submitDeathCertificateOrder(
     billingZip,
     idempotencyKey,
   } = order;
+  // console.log(`submitDeathCertificateOrder(tracking)`, tracking);
 
   if (!cardToken || !cardLast4) {
     throw new Error(
@@ -133,6 +137,7 @@ export default async function submitDeathCertificateOrder(
       quantity: e.quantity,
       name: e.cert ? `${e.cert.firstName} ${e.cert.lastName}` : 'Unknown Name',
     })),
+    tracking,
     idempotencyKey,
   };
 

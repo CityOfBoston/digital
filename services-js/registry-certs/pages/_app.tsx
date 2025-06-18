@@ -21,6 +21,8 @@ import MarriageCertificateRequest from '../client/store/MarriageCertificateReque
 import DeathCertificateCart from '../client/store/DeathCertificateCart';
 
 import OrderProvider from '../client/store/OrderProvider';
+import CertMailProvider from '../client/store/CertifiedMailProvider';
+import CardTypeProvider from '../client/store/CardTypeProvider';
 import DeathCertificatesDao from '../client/dao/DeathCertificatesDao';
 import CheckoutDao from '../client/dao/CheckoutDao';
 import MarriageIntentionDao from '../client/dao/MarriageIntentionDao';
@@ -87,6 +89,8 @@ export interface PageDependencies extends GetInitialPropsDependencies {
   screenReaderSupport: ScreenReaderSupport;
   routerListener: RouterListener;
   orderProvider: OrderProvider;
+  certMailProvider: CertMailProvider;
+  cardTypeProvider: CardTypeProvider;
   siteAnalytics: GaSiteAnalytics;
   completedSteps: Set<number> | null;
 }
@@ -162,6 +166,8 @@ export default class RegistryCertsApp extends App {
     const marriageCertificateRequest = new MarriageCertificateRequest();
     const deathCertificateCart = new DeathCertificateCart();
     const orderProvider = new OrderProvider();
+    const certMailProvider = new CertMailProvider();
+    const cardTypeProvider = new CardTypeProvider();
     const siteAnalytics = new GaSiteAnalytics();
 
     const config = getConfig();
@@ -190,6 +196,8 @@ export default class RegistryCertsApp extends App {
       marriageCertificateRequest,
       deathCertificateCart,
       orderProvider,
+      certMailProvider,
+      cardTypeProvider,
     };
   }
 
@@ -200,6 +208,8 @@ export default class RegistryCertsApp extends App {
       siteAnalytics,
       deathCertificateCart,
       orderProvider,
+      certMailProvider,
+      cardTypeProvider,
       deathCertificatesDao,
       birthCertificateRequest,
       marriageIntentionCertificateRequest,
@@ -266,6 +276,8 @@ export default class RegistryCertsApp extends App {
     );
 
     orderProvider.attach(localStorage, sessionStorage);
+    certMailProvider.attach(localStorage, sessionStorage);
+    cardTypeProvider.attach(localStorage, sessionStorage);
   }
 
   componentWillUnmount() {
@@ -273,6 +285,8 @@ export default class RegistryCertsApp extends App {
       routerListener,
       screenReaderSupport,
       orderProvider,
+      certMailProvider,
+      cardTypeProvider,
       birthCertificateRequest,
       marriageIntentionCertificateRequest,
       marriageCertificateRequest,
@@ -281,6 +295,8 @@ export default class RegistryCertsApp extends App {
     routerListener.detach();
     screenReaderSupport.detach();
     orderProvider.detach();
+    certMailProvider.detach();
+    cardTypeProvider.detach();
     birthCertificateRequest.detach();
     marriageIntentionCertificateRequest.detach();
     marriageCertificateRequest.detach();

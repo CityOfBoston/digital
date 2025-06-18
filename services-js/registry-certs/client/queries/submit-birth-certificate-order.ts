@@ -30,6 +30,7 @@ const QUERY = gql`
     $billingState: String!
     $billingZip: String!
     $item: BirthCertificateOrderItemInput!
+    $tracking: Boolean!
     $idempotencyKey: String!
   ) {
     submitBirthCertificateOrder(
@@ -53,6 +54,7 @@ const QUERY = gql`
       billingState: $billingState
       billingZip: $billingZip
       item: $item
+      tracking: $tracking
       idempotencyKey: $idempotencyKey
     ) {
       order {
@@ -69,7 +71,8 @@ const QUERY = gql`
 export default async function submitBirthCertificateOrder(
   fetchGraphql: FetchGraphql,
   birthCertificateRequest: BirthCertificateRequest,
-  order: Order
+  order: Order,
+  tracking: boolean
 ): Promise<BirthCertificateOrderResult> {
   const {
     info: {
@@ -177,6 +180,7 @@ Relation: ${forSelf ? 'self' : howRelated || 'unknown'}
       quantity,
       requestDetails,
     },
+    tracking,
     idempotencyKey,
   };
 

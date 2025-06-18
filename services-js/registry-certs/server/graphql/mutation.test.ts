@@ -73,6 +73,7 @@ describe('Mutation resolvers', () => {
 
             items: DEFAULT_DEATH_ITEMS,
             contactName: '',
+            tracking: false,
           },
           {} as any
         )
@@ -86,6 +87,7 @@ describe('Mutation resolvers', () => {
           {
             ...DEFAULT_ORDER,
             items: [],
+            tracking: false,
           },
           {} as any
         )
@@ -118,7 +120,7 @@ describe('Mutation resolvers', () => {
 
       await resolvers.Mutation.submitDeathCertificateOrder(
         {},
-        { ...DEFAULT_ORDER, items: DEFAULT_DEATH_ITEMS },
+        { ...DEFAULT_ORDER, items: DEFAULT_DEATH_ITEMS, tracking: false },
         {
           stripe,
           registryDb,
@@ -155,6 +157,7 @@ describe('Mutation resolvers', () => {
             ...DEFAULT_ORDER,
             item: DEFAULT_BIRTH_ITEM,
             contactName: '',
+            tracking: false,
           },
           { registryDb } as any
         )
@@ -202,6 +205,7 @@ describe('Mutation resolvers', () => {
             requestDetails: 'sidekick',
             uploadSessionId: '',
           },
+          tracking: false,
         },
 
         {
