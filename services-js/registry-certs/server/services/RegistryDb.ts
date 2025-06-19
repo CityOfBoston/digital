@@ -360,7 +360,7 @@ export default class RegistryDb {
 
   async addOrder(
     orderType: OrderType,
-    tracking: boolean,
+    tracking: boolean = false,
     {
       orderID,
       orderDate,

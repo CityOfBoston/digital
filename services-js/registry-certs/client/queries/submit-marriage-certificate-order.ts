@@ -74,7 +74,7 @@ export default async function submitMarriageCertificateOrder(
   fetchGraphql: FetchGraphql,
   marriageCertificateRequest: MarriageCertificateRequest,
   order: Order,
-  tracking: boolean
+  tracking: boolean = false
 ): Promise<MarriageCertificateOrderResult> {
   const {
     info: {
