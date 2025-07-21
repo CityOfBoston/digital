@@ -144,7 +144,7 @@ categories:
         groups:
           - SG_AB_BLDGMAINTREQ
       - title: Request FN Access
-        url: https://identity.boston.gov/identityiq/requestPsfn.jsf
+        url: https://cityofboston-sb.identitynow.com/ui/d/launchpad/launchers/932765db-4d56-4535-b929-51f456bb1669
         groups:
           - SG_AB_FN_LIASONS_USERS
 
