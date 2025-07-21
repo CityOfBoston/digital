@@ -205,7 +205,7 @@
 				},
 				{
 					"title": "View User Information",
-					"url": "https://identity.boston.gov/identityiq/viewUserIdentityonly.jsf",
+					"url": "https://cityofboston-sb.identitynow.com/ui/d/launchpad/launchers/e77e5c65-8206-4623-a140-32377a507547",
 					"groups": [
 						"SG_AB_SERVICEDESK_USERS"
 					]
