@@ -189,7 +189,7 @@
 				},
 				{
 					"title": "Add a preferred/chosen name",
-					"url": "/preferred-chosen-name",
+					"url": "/preferred-chosen-name"
 				}
 			]
 		},
@@ -229,7 +229,7 @@
 			"apps": [
 				{
 					"title": "Set an Access Boston Delegate",
-					"url": "https://identity.boston.gov/identityiq/dashboard/editPreferences.jsf",
+					"url": "https://cityofboston-sb.identitynow.com/ui/d/user-preferences/work-reassignment-schedule",
 					"groups": [
 						"SG_AB_MANAGER",
 						"SG_AB_TRAINING_TEAM",
