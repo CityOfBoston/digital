@@ -175,7 +175,7 @@ categories:
           - SG_AB_TRAINING_TEAM
           - SG_AB_FN_LIASONS_USERS
       - title: My Access Boston Approvals
-        url: https://identity.boston.gov/identityiq/manage/workItems/workItems.jsf?workItemType=Approval
+        url: https://cityofboston-sb.identitynow.com/ui/d/approvals/requested-items
         groups:
           - SG_AB_MANAGER
           - SG_AB_TRAINING_TEAM
