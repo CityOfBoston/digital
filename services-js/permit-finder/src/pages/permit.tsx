@@ -67,7 +67,7 @@ type MilestoneRenderInfo = {
   // building only
   projectReview: MilestoneStep | null;
   // building only
-  zoningReview: MilestoneStep | null;
+  zoningAppeal: MilestoneStep | null;
   // Fire only
   permitReview: MilestoneStep | null;
   issuance: MilestoneStep | null;
@@ -80,7 +80,7 @@ type MilestoneRenderInfo = {
 const BUILDING_MILESTONE_ORDER: Array<keyof MilestoneRenderInfo> = [
   'intakePayment',
   'projectReview',
-  'zoningReview',
+  'zoningAppeal',
   'issuance',
   'inspections',
   'occupancy',
@@ -347,7 +347,7 @@ export default class PermitPage extends React.Component<Props, State> {
           step: 1,
         })}
 
-        {this.renderStep('Zoning Review', renderInfo.zoningReview, {
+        {this.renderStep('Zoning Appeal', renderInfo.zoningAppeal, {
           ...commonOpts,
           step: 2,
         })}
@@ -559,7 +559,7 @@ export function generateBuildingMilestoneRenderInfo(
   const info: MilestoneRenderInfo = {
     intakePayment: null,
     projectReview: null,
-    zoningReview: null,
+    zoningAppeal: null,
     permitReview: null,
     issuance: null,
     inspections: null,
@@ -593,8 +593,8 @@ export function generateBuildingMilestoneRenderInfo(
             info.projectReview = step;
             break;
 
-          case 'Zoning Review':
-            info.zoningReview = step;
+          case 'Zoning Appeal':
+            info.zoningAppeal = step;
             break;
 
           case 'Issuance':
@@ -633,7 +633,7 @@ export function generateFireMilestoneRenderInfo(
   const info: MilestoneRenderInfo = {
     intakePayment: null,
     projectReview: null,
-    zoningReview: null,
+    zoningAppeal: null,
     permitReview: null,
     issuance: null,
     inspections: null,
