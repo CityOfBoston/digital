@@ -522,12 +522,12 @@ export default class PermitPage extends React.Component<Props, State> {
 }
 
 /**
- * Given a "DisplayStatus" that indicates which milestone box we’re talking
+ * Given a "DisplayStatus" that indicates which milestone box we're talking
  * about, finds an ExpectedDuration in our translations that matches.
  *
  * Note that more than one entry in the translations can match this
- * DisplayStatus, so we return the last one. This matches the behavior of the
- * PHP app.
+ * DisplayStatus, so we return the last one that has a non-null ExpectedDuration.
+ * This matches the behavior of the PHP app.
  */
 function lookupTargetDuration(
   translations:
@@ -535,18 +535,21 @@ function lookupTargetDuration(
     | typeof FIRE_MILESTONE_TRANSLATIONS,
   displayStatus: string
 ): string | null {
+  // First, find all translations that match the display status
   const matchingTranslations = translations.filter(
-    ({ DisplayStatus, ExpectedDuration }) =>
-      DisplayStatus === displayStatus && !!ExpectedDuration
+    ({ DisplayStatus }) => DisplayStatus === displayStatus
   );
 
-  if (matchingTranslations.length) {
-    // We take the last one to match the PHP behavior. Keeps us from returning
-    // "Waiting"’s jank duration.
-    return matchingTranslations.pop()!.ExpectedDuration;
-  } else {
-    return null;
+  // Then, find the last one that has a non-null ExpectedDuration
+  for (let i = matchingTranslations.length - 1; i >= 0; i--) {
+    const translation = matchingTranslations[i];
+    if (translation.ExpectedDuration) {
+      return translation.ExpectedDuration;
+    }
   }
+
+  // If no matching translation with non-null ExpectedDuration is found, return null
+  return null;
 }
 
 /**
