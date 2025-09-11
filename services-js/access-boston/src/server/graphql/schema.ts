@@ -22,10 +22,11 @@ import IdentityIq from '../services/IdentityIq';
 import PingId, { VerificationType } from '../services/PingId';
 
 import {
-  resetPasswordMutation,
   Workflow,
   workflowQuery,
 } from './workflows';
+
+import { cobraResetPasswordMutation } from './cobra-reset-password';
 
 import { cobraChangePasswordMutation } from './cobra-workflows';
 
@@ -62,7 +63,6 @@ export interface Mutation {
   resetPassword(args: {
     newPassword: string;
     confirmPassword: string;
-    token: string;
   }): Workflow;
 
   addMfaDevice(args: {
@@ -263,7 +263,7 @@ const queryRootResolvers: QueryRootResolvers = {
 
 const mutationResolvers: MutationResolvers = {
   changePassword: cobraChangePasswordMutation,
-  resetPassword: resetPasswordMutation,
+  resetPassword: cobraResetPasswordMutation,
   addMfaDevice: addMfaDeviceMutation,
   verifyMfaDevice: verifyMfaDeviceMutation,
 };

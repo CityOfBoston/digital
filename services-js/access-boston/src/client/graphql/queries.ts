@@ -152,7 +152,6 @@ export interface ResetPassword {
 export interface ResetPasswordVariables {
   newPassword: string;
   confirmPassword: string;
-  token: string;
 }
 
 /* tslint:disable */

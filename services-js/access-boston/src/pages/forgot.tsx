@@ -53,7 +53,6 @@ interface FormValues {
   username: string;
   newPassword: string;
   confirmPassword: string;
-  token: string;
 }
 
 export default class ForgotPasswordPage extends React.Component<Props, State> {
@@ -79,7 +78,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
   }
 
   private handleSubmit = async (
-    { newPassword, confirmPassword, token }: FormValues,
+    { newPassword, confirmPassword }: FormValues,
     { setSubmitting, setErrors }: FormikActions<FormValues>
   ) => {
     this.setState({ showSubmittingModal: true, showModalError: null });
@@ -88,8 +87,7 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
       const { status, error } = await resetPassword(
         this.props.fetchGraphql,
         newPassword,
-        confirmPassword,
-        token
+        confirmPassword
       );
 
       switch (status) {
@@ -126,7 +124,6 @@ export default class ForgotPasswordPage extends React.Component<Props, State> {
 
     const initialValues: FormValues = {
       username: account.employeeId,
-      token: account.resetPasswordToken,
       newPassword: '',
       confirmPassword: '',
     };
