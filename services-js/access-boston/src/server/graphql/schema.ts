@@ -22,11 +22,12 @@ import IdentityIq from '../services/IdentityIq';
 import PingId, { VerificationType } from '../services/PingId';
 
 import {
-  changePasswordMutation,
   resetPasswordMutation,
   Workflow,
   workflowQuery,
 } from './workflows';
+
+import { cobraChangePasswordMutation } from './cobra-workflows';
 
 import {
   addMfaDeviceMutation,
@@ -50,7 +51,6 @@ export interface Query {
 
 export interface Mutation {
   changePassword(args: {
-    currentPassword: string;
     newPassword: string;
     confirmPassword: string;
   }): Workflow;
@@ -127,11 +127,14 @@ const schemaGraphql = fs.readFileSync(
   'utf-8'
 );
 
+import CobraClient from '../services/cobra/CobraClient';
+
 export interface Context {
   session: Session;
   appsRegistry: AppsRegistry;
   identityIq: IdentityIq;
   pingId: PingId;
+  cobraClient: CobraClient;
 }
 
 export type QueryRootResolvers = Resolvers<Query, Context>;
@@ -259,7 +262,7 @@ const queryRootResolvers: QueryRootResolvers = {
 };
 
 const mutationResolvers: MutationResolvers = {
-  changePassword: changePasswordMutation,
+  changePassword: cobraChangePasswordMutation,
   resetPassword: resetPasswordMutation,
   addMfaDevice: addMfaDeviceMutation,
   verifyMfaDevice: verifyMfaDeviceMutation,

@@ -3,12 +3,10 @@ import { ChangePassword, ChangePasswordVariables } from './queries';
 
 const QUERY = gql`
   mutation ChangePassword(
-    $currentPassword: String!
     $newPassword: String!
     $confirmPassword: String!
   ) {
     changePassword(
-      currentPassword: $currentPassword
       newPassword: $newPassword
       confirmPassword: $confirmPassword
     ) {
@@ -22,12 +20,10 @@ const QUERY = gql`
 
 export default async function changePassword(
   fetchGraphql: FetchGraphql,
-  currentPassword,
   newPassword,
   confirmPassword
 ) {
   const args: ChangePasswordVariables = {
-    currentPassword,
     newPassword,
     confirmPassword,
   };

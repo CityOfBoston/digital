@@ -48,14 +48,12 @@ interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {
 interface State {
   showSubmittingModal: boolean;
   showModalError: ModalError | null;
-  showPassword0: boolean;
   showPassword1: boolean;
   showPassword2: boolean;
 }
 
 interface FormValues {
   username: string;
-  password: string;
   newPassword: string;
   confirmPassword: string;
 }
@@ -84,14 +82,13 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     this.state = {
       showSubmittingModal: !!props.testSubmittingModal,
       showModalError: props.testModalError || null,
-      showPassword0: false,
       showPassword1: false,
       showPassword2: false,
     };
   }
 
   private handleSubmit = async (
-    { password, newPassword, confirmPassword }: FormValues,
+    { newPassword, confirmPassword }: FormValues,
     { setSubmitting, setErrors }
   ) => {
     const { account } = this.props;
@@ -101,7 +98,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     try {
       const { status, error } = await changePassword(
         this.props.fetchGraphql,
-        password,
         newPassword,
         confirmPassword
       );
@@ -148,7 +144,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
 
     const initialValues: FormValues = {
       username: account.employeeId,
-      password: '',
       newPassword: '',
       confirmPassword: '',
     };
@@ -221,7 +216,7 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     isSubmitting,
     isValid,
   }: FormikProps<FormValues>) => {
-    const { account, hasTemporaryPassword } = this.props;
+    const { account } = this.props;
 
     const commonPasswordProps = {
       ...DEFAULT_PASSWORD_ATTRIBUTES,
@@ -235,17 +230,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
     // touched.
     const lookupFormError = (key: keyof FormValues) =>
       touched[key] && (errors[key] as any);
-    const setShowPassword0 = (evt: { type: string }) => {
-      let passBool: boolean = true;
-
-      if (evt.type && (evt.type === 'mouseup' || evt.type === 'touchend')) {
-        passBool = false;
-      }
-
-      this.setState({
-        showPassword0: passBool,
-      });
-    };
     const setShowPassword1 = (evt: { type: string }) => {
       let passBool: boolean = true;
 
@@ -299,20 +283,6 @@ export default class ChangePasswordPage extends React.Component<Props, State> {
           </div>
 
           <div className="g--6">
-            <TextInput
-              label={
-                hasTemporaryPassword ? 'Temporary Password' : 'Current Password'
-              }
-              error={lookupFormError('password')}
-              name="password"
-              autoComplete="current-password"
-              value={values.password}
-              {...commonPasswordProps}
-              type={this.state.showPassword0 ? 'text' : 'password'}
-              showPassword={true}
-              showPassFun={setShowPassword0}
-            />
-
             <TextInput
               label="New Password"
               error={lookupFormError('newPassword')}

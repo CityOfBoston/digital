@@ -23,7 +23,7 @@ export enum PasswordError {
 
 export const changePasswordMutation: MutationResolvers['changePassword'] = async (
   _root,
-  { currentPassword, newPassword, confirmPassword },
+  { newPassword, confirmPassword },
   { identityIq, session }
 ) => {
   const { loginAuth, loginSession } = session;
@@ -48,8 +48,8 @@ export const changePasswordMutation: MutationResolvers['changePassword'] = async
 
   const workflowResponse = await identityIq.changePassword(
     loginAuth.userId,
-    currentPassword,
-    newPassword
+    newPassword,
+    confirmPassword
   );
 
   const out = launchedWorkflowResponseToWorkflow(workflowResponse);

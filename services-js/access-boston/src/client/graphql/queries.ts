@@ -43,7 +43,6 @@ export interface ChangePassword {
 }
 
 export interface ChangePasswordVariables {
-  currentPassword: string;
   newPassword: string;
   confirmPassword: string;
 }

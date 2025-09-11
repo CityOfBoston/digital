@@ -49,6 +49,7 @@ import graphqlSchema, { Context } from './graphql/schema';
 
 import IdentityIq from './services/IdentityIq';
 import IdentityIqFake from './services/IdentityIqFake';
+import CobraClient from './services/cobra/CobraClient';
 import AppsRegistry, { makeAppsRegistry } from '../lib/AppsRegistry';
 
 import { addLoginAuth } from './login-auth';
@@ -225,7 +226,8 @@ export async function makeServer(port, rollbar: Rollbar) {
   server.route(adminOkRoute);
   server.route(makeStaticAssetRoutes());
 
-  await addGraphQl(server, appsRegistry, identityIq, pingId, rollbar);
+  const cobraClient = new CobraClient();
+  await addGraphQl(server, appsRegistry, identityIq, pingId, cobraClient, rollbar);
 
   await addVelocityTemplates(server);
 
@@ -256,6 +258,7 @@ async function addGraphQl(
   appsRegistry: AppsRegistry,
   identityIq: IdentityIq,
   pingId: PingId,
+  cobraClient: CobraClient,
   rollbar: Rollbar
 ) {
   if (process.env.NODE_ENV === 'production' && !process.env.API_KEYS) {
@@ -275,6 +278,7 @@ async function addGraphQl(
     appsRegistry,
     identityIq,
     pingId,
+    cobraClient,
   });
 
   const apolloServer = new ApolloServer({
