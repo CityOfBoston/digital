@@ -141,7 +141,6 @@ export interface FindMarriageCertificateRequestResult {
 export interface MarriageIntentionCertificateRequestArgs {
   Email: string;
   DayPhone: string;
-  AppointmentDate: string;
 
   AApplicantFName: string;
   AApplicantLName: string;
@@ -460,7 +459,6 @@ export default class RegistryDb {
   async addMarriageIntentionCertificateRequest({
     Email,
     DayPhone,
-    AppointmentDate,
     AApplicantFName,
     AApplicantLName,
     AApplicantMiddleName,
@@ -522,7 +520,6 @@ export default class RegistryDb {
     BSexNum,
     BSex,
   }: MarriageIntentionCertificateRequestArgs): Promise<number> {
-    const formattedAptDate = convertJsDateToSql(AppointmentDate);
     const formattedADOB = convertJsDateToSql(ADOB);
     const formattedBDOB = convertJsDateToSql(BDOB);
 
@@ -649,7 +646,6 @@ export default class RegistryDb {
       .request()
       .input('Email', Email)
       .input('DayPhone', DayPhone)
-      .input('AppointmentDate', formattedAptDate)
       .input('AApplicantFName', AFName)
       .input('AApplicantLName', ALName)
       .input('APostmarriageSurname', APostMarriageSurname)

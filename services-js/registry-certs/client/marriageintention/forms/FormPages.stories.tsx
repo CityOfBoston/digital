@@ -390,7 +390,6 @@ storiesOf('Marriage Intention/Form Components', module)
 
     return (
       <ContactUX
-        appointmentDateTime={formatDate(new Date(`1982-09-23T00:00:00.000Z`))}
         requestInformation={{
           email: 'phillip.kelly@boston.gov',
           dayPhone: '6170001111',

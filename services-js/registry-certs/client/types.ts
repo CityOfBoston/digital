@@ -233,7 +233,6 @@ export type MarriageIntentionCertificateRequestInformation = {
   emailConfirm: string;
   dayPhone: string;
   dayPhoneUnformattedStr: string;
-  appointmentDate: Date | null;
 };
 
 export type MarriageCertificateRequestInformation = {

@@ -59,10 +59,6 @@ export default class ReviewForms extends Component<Props> {
       requestInformation,
     } = this.props.marriageIntentionCertificateRequest;
 
-    const appointmentDateTime = `${formatDate(
-      requestInformation.appointmentDate
-    )}`;
-
     const partnerA_parentA = `${requestInformation.partnerA_parentA_Name}/${
       requestInformation.partnerA_parentA_Surname
     }`;
@@ -208,7 +204,6 @@ export default class ReviewForms extends Component<Props> {
           />
 
           <ContactUX
-            appointmentDateTime={appointmentDateTime}
             requestInformation={{
               email: requestInformation.email,
               dayPhone: requestInformation.dayPhone,
