@@ -3,9 +3,13 @@
 import { jsx, css } from '@emotion/core';
 import { useState } from 'react';
 import { SectionHeader } from '@cityofboston/react-fleet';
+import Link from 'next/link';
 
 import { Identity, ActiveTab } from './types';
-import { searchDummy } from './searchService';
+import { FetchGraphql } from '@cityofboston/next-client-common';
+import fetchViewUserInfo from './fetchViewUserInfo';
+
+const MONTSERRAT_FONT = 'Montserrat, Arial, sans-serif';
 
 const COLORS = {
   primary: '#091F2F',
@@ -13,7 +17,7 @@ const COLORS = {
   secondaryHover: '#145a96',
   background: '#F5F7FA',
   border: '#E5E7EB',
-  text: '#1F2937',
+  text: '#000000',
   textLight: '#6B7280',
   green: '#10B981',
   greenLight: '#D1FAE5',
@@ -26,6 +30,38 @@ const COLORS = {
 const CONTAINER_STYLING = css({
   minHeight: '60vh',
   backgroundColor: COLORS.background,
+  // Override SectionHeader styles to use Montserrat and all caps
+  '& .sh-title': {
+    fontFamily: MONTSERRAT_FONT,
+    textTransform: 'uppercase',
+  },
+});
+
+const HEADER_ROW_STYLING = css({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1rem',
+  marginBottom: '1rem',
+});
+
+const EXIT_BUTTON_STYLING = css({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '0.5rem',
+  padding: '0.5rem 1rem',
+  backgroundColor: 'white',
+  border: `1px solid ${COLORS.border}`,
+  borderRadius: '0.375rem',
+  color: COLORS.text,
+  fontSize: '0.875rem',
+  fontWeight: 'normal',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  transition: 'all 0.2s',
+  '&:hover': {
+    backgroundColor: COLORS.grayLight,
+    borderColor: COLORS.gray,
+  },
 });
 
 const SEARCH_SECTION_STYLING = css({
@@ -60,6 +96,7 @@ const SEARCH_INPUT_STYLING = css({
   width: '100%',
   padding: '0.75rem',
   paddingLeft: '0.75rem',
+  paddingRight: '2.5rem',
   fontSize: '1rem',
   color: COLORS.text,
   outline: 'none',
@@ -69,11 +106,34 @@ const SEARCH_INPUT_STYLING = css({
   },
 });
 
+const CLEAR_BUTTON_STYLING = css({
+  position: 'absolute',
+  right: '150px',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  padding: '0.25rem',
+  backgroundColor: 'transparent',
+  border: 'none',
+  color: COLORS.gray,
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '50%',
+  transition: 'all 0.2s',
+  '&:hover': {
+    backgroundColor: COLORS.grayLight,
+    color: COLORS.text,
+  },
+});
+
 const SEARCH_BUTTON_STYLING = css({
   backgroundColor: COLORS.secondary,
   color: 'white',
   padding: '0.75rem 1.5rem',
+  fontFamily: MONTSERRAT_FONT,
   fontWeight: 500,
+  textTransform: 'uppercase',
   border: 'none',
   cursor: 'pointer',
   transition: 'background-color 0.2s',
@@ -103,7 +163,8 @@ const NO_RESULTS_STYLING = css({
   borderRadius: '0.5rem',
   border: `1px solid ${COLORS.border}`,
   boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
-  color: COLORS.textLight,
+  color: COLORS.text,
+  fontWeight: 'normal',
   fontSize: '1.125rem',
 });
 
@@ -133,11 +194,12 @@ const CARD_HEADER_STYLING = css({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  flexWrap: 'wrap',
+  flexWrap: 'nowrap',
   gap: '1rem',
   '@media (max-width: 768px)': {
     flexDirection: 'column',
     alignItems: 'flex-start',
+    flexWrap: 'wrap',
   },
 });
 
@@ -145,6 +207,8 @@ const USER_INFO_STYLING = css({
   display: 'flex',
   alignItems: 'center',
   gap: '1rem',
+  minWidth: 0,
+  flex: '1 1 auto',
 });
 
 const AVATAR_STYLING = css({
@@ -165,21 +229,36 @@ const USER_DETAILS_STYLING = css({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.25rem',
+  minWidth: 0,
+  flex: '1 1 auto',
+  overflow: 'hidden',
 });
 
 const USER_NAME_STYLING = css({
   fontSize: '1.125rem',
+  fontFamily: MONTSERRAT_FONT,
   fontWeight: 600,
+  textTransform: 'uppercase',
   color: COLORS.primary,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
 });
 
 const USER_META_STYLING = css({
   fontSize: '0.875rem',
-  color: COLORS.textLight,
+  color: COLORS.text,
+  fontWeight: 'normal',
   display: 'flex',
   alignItems: 'center',
   gap: '0.5rem',
-  flexWrap: 'wrap',
+  flexWrap: 'nowrap',
+  '& > span:last-child': {
+    wordBreak: 'break-word',
+    overflowWrap: 'break-word',
+    flex: '1 1 auto',
+    minWidth: 0,
+  },
 });
 
 const UID_BADGE_STYLING = css({
@@ -194,16 +273,21 @@ const CARD_ACTIONS_STYLING = css({
   display: 'flex',
   alignItems: 'center',
   gap: '1.5rem',
-  width: '100%',
-  justifyContent: 'space-between',
-  '@media (min-width: 768px)': {
-    width: 'auto',
-    justifyContent: 'flex-end',
+  flexShrink: 0,
+  '@media (max-width: 768px)': {
+    width: '100%',
+    justifyContent: 'space-between',
   },
 });
 
 const DEPT_INFO_STYLING = css({
   textAlign: 'right',
+  minWidth: 0,
+  maxWidth: '200px',
+  '& > div': {
+    wordWrap: 'break-word',
+    overflowWrap: 'break-word',
+  },
   '@media (max-width: 768px)': {
     display: 'none',
   },
@@ -215,6 +299,7 @@ const STATUS_BADGE_STYLING = (status: string) => {
     padding: '0.25rem 0.75rem',
     borderRadius: '9999px',
     fontSize: '0.75rem',
+    fontFamily: MONTSERRAT_FONT,
     fontWeight: 600,
     textTransform: 'uppercase',
     letterSpacing: '0.05em',
@@ -253,7 +338,9 @@ const TAB_BUTTON_STYLING = (isActive: boolean) =>
     paddingBottom: '0.75rem',
     paddingTop: '0.5rem',
     fontSize: '0.875rem',
+    fontFamily: MONTSERRAT_FONT,
     fontWeight: 500,
+    textTransform: 'uppercase',
     color: isActive ? COLORS.primary : COLORS.textLight,
     transition: 'all 0.2s',
     cursor: 'pointer',
@@ -289,6 +376,7 @@ const ATTRIBUTE_ITEM_STYLING = css({
 
 const ATTRIBUTE_LABEL_STYLING = css({
   fontSize: '0.75rem',
+  fontFamily: MONTSERRAT_FONT,
   fontWeight: 600,
   color: COLORS.textLight,
   textTransform: 'uppercase',
@@ -298,7 +386,7 @@ const ATTRIBUTE_LABEL_STYLING = css({
 const ATTRIBUTE_VALUE_STYLING = css({
   fontSize: '0.875rem',
   color: COLORS.text,
-  fontWeight: 500,
+  fontWeight: 'normal',
   wordBreak: 'break-word',
 });
 
@@ -327,6 +415,7 @@ const TABLE_HEADER_CELL_STYLING = css({
   padding: '0.75rem 1.5rem',
   textAlign: 'left',
   fontSize: '0.75rem',
+  fontFamily: MONTSERRAT_FONT,
   fontWeight: 500,
   color: COLORS.textLight,
   textTransform: 'uppercase',
@@ -344,7 +433,7 @@ const TABLE_CELL_STYLING = css({
   padding: '1rem 1.5rem',
   whiteSpace: 'nowrap',
   fontSize: '0.875rem',
-  fontWeight: 500,
+  fontWeight: 'normal',
   color: COLORS.text,
 });
 
@@ -353,8 +442,10 @@ const ACCOUNT_STATUS_BADGE_STYLING = (disabled: boolean) =>
     padding: '0.125rem 0.5rem',
     display: 'inline-flex',
     fontSize: '0.75rem',
+    fontFamily: MONTSERRAT_FONT,
     lineHeight: '1.25rem',
     fontWeight: 600,
+    textTransform: 'uppercase',
     borderRadius: '9999px',
     backgroundColor: disabled ? COLORS.redLight : COLORS.greenLight,
     color: disabled ? '#991B1B' : '#065F46',
@@ -363,10 +454,54 @@ const ACCOUNT_STATUS_BADGE_STYLING = (disabled: boolean) =>
 const NO_ACCOUNTS_STYLING = css({
   padding: '2rem',
   textAlign: 'center',
-  color: COLORS.textLight,
+  color: COLORS.text,
+  fontWeight: 'normal',
 });
 
-export default function ViewUserInfoIndex() {
+interface Props {
+  fetchGraphql: FetchGraphql;
+}
+
+// Helper function to format email values
+const formatEmail = (email: string | undefined): string | undefined => {
+  if (!email) return undefined;
+  if (email.toUpperCase() === 'NO_EMAIL') return 'Email Not Available';
+  return email;
+};
+
+// Helper function to format employment status
+const formatEmploymentStatus = (status: string | undefined): string | undefined => {
+  if (!status) return 'N/A';
+  const upperStatus = status.toUpperCase();
+  if (upperStatus === 'UNKNOWN') return 'N/A';
+  if (upperStatus === 'ACTIVE') return 'Active';
+  return status;
+};
+
+// Helper function to format user registered status
+const formatUserRegistered = (registered: string | undefined): string | undefined => {
+  if (!registered) return undefined;
+  if (registered.toLowerCase() === 'false') return 'Not Registered';
+  return registered;
+};
+
+// Helper function to format VPN status
+const formatVpnStatus = (vpnStatus: string | undefined): string => {
+  if (!vpnStatus) return 'False';
+  const lowerStatus = vpnStatus.toLowerCase();
+  if (lowerStatus === 'true') return 'True';
+  if (lowerStatus === 'false') return 'False';
+  return vpnStatus;
+};
+
+// Helper function to get display name (preferred if available, otherwise legal)
+const getDisplayName = (identity: Identity): string => {
+  const firstName = identity.preferredFirstName || identity.legalFirstName || '';
+  const lastName = identity.preferredLastName || identity.legalLastName || '';
+  return `${firstName} ${lastName}`.trim() || 'Unknown';
+};
+
+export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState<Identity[]>([]);
   const [loading, setLoading] = useState(false);
@@ -385,13 +520,15 @@ export default function ViewUserInfoIndex() {
     setExpandedRow(null);
 
     try {
-      // Using dummy data for now - will be replaced with GraphQL API call
-      const data = searchDummy(searchTerm);
-      await new Promise((resolve) => setTimeout(resolve, 300));
-      setResults(data);
+      console.log('[ViewUserInfoIndex] Starting search for:', searchTerm);
+      // Call the real API with User ID or Name (returns array)
+      const userInfoResults = await fetchViewUserInfo(fetchGraphql, searchTerm);
+      console.log('[ViewUserInfoIndex] Received results:', userInfoResults);
+      console.log('[ViewUserInfoIndex] Results count:', userInfoResults ? userInfoResults.length : 0);
+      setResults(userInfoResults);
     } catch (err) {
-      console.error(err);
-      setError('Failed to fetch results. Please try again.');
+      console.error('[ViewUserInfoIndex] Error during search:', err);
+      setError('User not found or failed to fetch results. Please try again with a valid User ID or Name.');
     } finally {
       setLoading(false);
     }
@@ -406,9 +543,27 @@ export default function ViewUserInfoIndex() {
     }
   };
 
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    setResults([]);
+    setError(null);
+    setSearched(false);
+  };
+
   return (
     <div css={CONTAINER_STYLING}>
       <div className="b b-c b-c--hsm">
+        <div css={HEADER_ROW_STYLING}>
+          <Link href="/">
+            <a css={EXIT_BUTTON_STYLING}>
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Back to Home
+            </a>
+          </Link>
+        </div>
+
         <SectionHeader title="Identity Search" />
 
         <div css={SEARCH_SECTION_STYLING}>
@@ -426,10 +581,22 @@ export default function ViewUserInfoIndex() {
             <input
               type="text"
               css={SEARCH_INPUT_STYLING}
-              placeholder="Search by name, UID, or email..."
+              placeholder="Search by User ID or Name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
+            {searchTerm && !loading && (
+              <button
+                type="button"
+                css={CLEAR_BUTTON_STYLING}
+                onClick={handleClearSearch}
+                aria-label="Clear search"
+              >
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            )}
             <button type="submit" disabled={loading} css={SEARCH_BUTTON_STYLING}>
               {loading ? 'Searching...' : 'Search'}
             </button>
@@ -438,8 +605,8 @@ export default function ViewUserInfoIndex() {
 
         {error && (
           <div css={ERROR_MESSAGE_STYLING}>
-            <p style={{ fontWeight: 500, margin: '0 0 0.25rem 0' }}>Error</p>
-            <p style={{ fontSize: '0.875rem', margin: 0 }}>{error}</p>
+            <p style={{ fontFamily: MONTSERRAT_FONT, fontWeight: 500, textTransform: 'uppercase', margin: '0 0 0.25rem 0' }}>Error</p>
+            <p style={{ fontSize: '0.875rem', fontWeight: 'normal', margin: 0 }}>{error}</p>
           </div>
         )}
 
@@ -450,41 +617,42 @@ export default function ViewUserInfoIndex() {
             </div>
           )}
 
-          {results.map((identity) => {
-            const isExpanded = expandedRow === identity.id;
+          {results.map((identity, index) => {
+            const uniqueKey = `${identity.uid}-${index}`;
+            const isExpanded = expandedRow === uniqueKey;
 
             return (
-              <div key={identity.id} css={IDENTITY_CARD_STYLING(isExpanded)}>
-                <div css={CARD_HEADER_STYLING} onClick={() => toggleRow(identity.id)}>
+              <div key={uniqueKey} css={IDENTITY_CARD_STYLING(isExpanded)}>
+                <div css={CARD_HEADER_STYLING} onClick={() => toggleRow(uniqueKey)}>
                   <div css={USER_INFO_STYLING}>
                     <div css={AVATAR_STYLING}>
-                      {((identity.legalFirstName && identity.legalFirstName[0]) || (identity.uid && identity.uid[0]) || '?').toUpperCase()}
+                      {(((identity.preferredFirstName || identity.legalFirstName || identity.uid || '?')[0])).toUpperCase()}
                     </div>
                     <div css={USER_DETAILS_STYLING}>
                       <h3 css={USER_NAME_STYLING}>
-                        {identity.legalFirstName} {identity.legalLastName}
+                        {getDisplayName(identity)}
                       </h3>
                       <div css={USER_META_STYLING}>
                         <span css={UID_BADGE_STYLING}>{identity.uid}</span>
                         <span>•</span>
-                        <span>{identity.email}</span>
+                        <span>{formatEmail(identity.email)}</span>
                       </div>
                     </div>
                   </div>
 
                   <div css={CARD_ACTIONS_STYLING}>
                     <div css={DEPT_INFO_STYLING}>
-                      <div style={{ fontSize: '0.875rem', fontWeight: 500, color: COLORS.text }}>
+                      <div style={{ fontSize: '0.875rem', fontWeight: 'normal', color: COLORS.text }}>
                         {identity.departmentName || 'No Dept'}
                       </div>
-                      <div style={{ fontSize: '0.75rem', color: COLORS.textLight }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 'normal', color: COLORS.text }}>
                         {identity.location || 'No Location'}
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <span css={STATUS_BADGE_STYLING(identity.accountStatus || 'active')}>
-                        {identity.accountStatus || 'Unknown'}
+                      <span css={STATUS_BADGE_STYLING(identity.identityState || 'active')}>
+                        {identity.identityState || 'Unknown'}
                       </span>
                       <svg css={CHEVRON_STYLING(isExpanded)} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -520,6 +688,7 @@ export default function ViewUserInfoIndex() {
                             marginLeft: '0.25rem',
                             backgroundColor: COLORS.border,
                             color: COLORS.text,
+                            fontWeight: 'normal',
                             padding: '0 0.375rem',
                             borderRadius: '9999px',
                             fontSize: '0.75rem',
@@ -534,17 +703,30 @@ export default function ViewUserInfoIndex() {
                       {activeTab === 'attributes' ? (
                         <div css={ATTRIBUTES_GRID_STYLING}>
                           {[
+                            ['User ID', identity.uid],
+                            ...(identity.preferredFirstName
+                              ? [['Preferred First Name', identity.preferredFirstName] as [string, string | undefined]]
+                              : []),
+                            ...(identity.preferredLastName
+                              ? [['Preferred Last Name', identity.preferredLastName] as [string, string | undefined]]
+                              : []),
                             ['Legal First Name', identity.legalFirstName],
+                            ...(identity.middleName
+                              ? [['Middle Name', identity.middleName] as [string, string | undefined]]
+                              : []),
                             ['Legal Last Name', identity.legalLastName],
-                            ['Email', identity.email],
-                            ['Personal Email', identity.personalEmail],
+                            ['Email', formatEmail(identity.email)],
+                            ['Personal Email', formatEmail(identity.personalEmail)],
                             ['Manager', identity.manager],
                             ['Department', identity.departmentName],
                             ['Location', identity.location],
-                            ['Employment Status', identity.employmentStatus],
-                            ['VPN Status', identity.vpnStatus],
-                            ['User Registered', identity.userRegistered],
+                            ['Employment Status', formatEmploymentStatus(identity.employmentStatus)],
+                            ['VPN Status', formatVpnStatus(identity.vpnStatus)],
+                            ['User Registered', formatUserRegistered(identity.userRegistered)],
                             ['Password Expires On', identity.passwordExpiresOn],
+                            ...(identity.isVip
+                              ? [['VIP', identity.isVip] as [string, string | undefined]]
+                              : []),
                             ...(!identity.isEmployee
                               ? [
                                   ['End Date', identity.endDate] as [string, string | undefined],

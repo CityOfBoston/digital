@@ -14,9 +14,7 @@ import FieldsetComponent from '../../common/question-components/FieldsetComponen
 
 import {
   MARRIAGE_INTENTION_FORM_STYLING,
-  PAIRED_INPUT_STYLING,
   // SECTION_HEADING_STYLING,
-  NAME_FIELDS_CONTAINER_STYLING,
   NAME_FIELDS_BASIC_CONTAINER_STYLING,
 } from '../../common/question-components/styling';
 
@@ -151,8 +149,6 @@ export default class ContactInfo extends Component<Props> {
           <div css={MARRIAGE_INTENTION_FORM_STYLING}>
             <div
               css={[
-                NAME_FIELDS_CONTAINER_STYLING,
-                PAIRED_INPUT_STYLING,
                 NAME_FIELDS_BASIC_CONTAINER_STYLING,
               ]}
             >

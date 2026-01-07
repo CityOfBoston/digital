@@ -1,4 +1,5 @@
 import fetch from 'node-fetch';
+import * as https from 'https';
 
 /**
  * Interface for request options
@@ -18,6 +19,41 @@ export interface CobraErrorResponse {
   statusCode: number;
 }
 
+export interface CreateUniqueEmailArgs {
+  firstName: string;
+  lastName: string;
+}
+
+export interface CreateUniqueEmailResponse {
+  available: boolean;
+  message: string;
+  email: string;
+}
+
+export interface GetUserDetailsArgs {
+  samaccountname: string;
+}
+
+export interface IsUserRegisteredArgs {
+  sAMAccountName: string;
+  isUserRegistered: string;
+}
+
+export interface OtpAuthRequiredArgs {
+  SAMACCOUNTNAME: string;
+  otpauthrequired: string;
+}
+
+export interface PwdResetArgs {
+  SAMACCOUNTNAME: string;
+  pwdreset: string;
+}
+
+export interface LockAccountArgs {
+  SAMACCOUNTNAME: string;
+  lockaccount: string;
+}
+
 /**
  * Client for making HTTP calls to Cobra endpoints.
  * All endpoints are synchronous and use Bearer token authentication.
@@ -26,14 +62,13 @@ export default class CobraClient {
   private baseUrl: string;
   private bearerToken: string;
   private defaultTimeout: number;
+  private httpsAgent: https.Agent | undefined;
 
   constructor() {
     const httpMethod = process.env.COBRA_HTTP_METHOD;
     const hostname = process.env.COBRA_HOSTNAME;
-    const port = process.env.COBRA_PORT;
-    const token = process.env.COBRA_AUTH_TOKEN;
-    const timeout = process.env.COBRA_REQUEST_TIMEOUT;
-
+    const port = process.env.COBRA_HOST_PORT;
+    const token = process.env.COBRA_JWT_TOKEN;
     if (!httpMethod) {
       throw new Error('COBRA_HTTP_METHOD not provided');
     }
@@ -43,16 +78,25 @@ export default class CobraClient {
     }
 
     if (!port) {
-      throw new Error('COBRA_PORT not provided');
+      throw new Error('COBRA_HOST_PORT not provided');
     }
 
     if (!token) {
-      throw new Error('COBRA_AUTH_TOKEN not provided');
+      throw new Error('COBRA_JWT_TOKEN not provided');
     }
 
     this.baseUrl = `${httpMethod}://${hostname}:${port}`;
     this.bearerToken = token;
-    this.defaultTimeout = timeout ? parseInt(timeout, 10) : 30000; // Default 30s timeout
+    this.defaultTimeout = 30000; // Default 30s timeout
+    
+    // Create HTTPS agent with SSL verification options
+    // Set COBRA_REJECT_UNAUTHORIZED=false to bypass SSL verification (like curl -k)
+    if (httpMethod === 'https') {
+      this.httpsAgent = new https.Agent({
+        rejectUnauthorized: false
+      });
+      console.warn('[CobraClient] SSL certificate verification is DISABLED. This should only be used in development/testing.');
+    }
   }
 
   /**
@@ -106,6 +150,9 @@ export default class CobraClient {
     const { body, timeout = this.defaultTimeout } = options;
 
     try {
+      console.log(`[CobraClient.makeRequest] ${method} ${url}`);
+      console.log('[CobraClient.makeRequest] Body:', body ? JSON.stringify(body) : 'none');
+      
       const response = await fetch(url, {
         method,
         headers: {
@@ -114,31 +161,91 @@ export default class CobraClient {
           'Accept': 'application/json'
         },
         body: body ? JSON.stringify(body) : undefined,
-        timeout // node-fetch supports timeout option
+        timeout, // node-fetch supports timeout option
+        agent: this.httpsAgent // Use HTTPS agent for SSL options
       });
 
+      console.log(`[CobraClient.makeRequest] Response status: ${response.status} ${response.statusText}`);
+
       if (!response.ok) {
-        let errorData: CobraErrorResponse;
+        let errorMessage: string;
         try {
-          errorData = await response.json();
-          throw new Error(errorData.message || `Cobra API error: ${response.statusText}`);
-        } catch (e) {
-          throw new Error(`Cobra API error: ${response.statusText}`);
+          // Try to parse as JSON first
+          const errorData: CobraErrorResponse = await response.json();
+          console.error('[CobraClient.makeRequest] Error response (JSON):', errorData);
+          errorMessage = errorData.message || `Cobra API error: ${response.statusText}`;
+        } catch (jsonError) {
+          // If JSON parsing fails, try to read as text
+          try {
+            const text = await response.text();
+            console.error('[CobraClient.makeRequest] Error response (text):', text);
+            errorMessage = text || `Cobra API error: ${response.statusText}`;
+          } catch (textError) {
+            console.error('[CobraClient.makeRequest] Failed to parse error response:', textError);
+            errorMessage = `Cobra API error: ${response.statusText}`;
+          }
         }
+        throw new Error(errorMessage);
       }
 
       // Handle empty responses
       const contentType = response.headers.get('content-type');
       if (contentType && contentType.indexOf('application/json') !== -1) {
-        return response.json();
+        const data = await response.json();
+        console.log('[CobraClient.makeRequest] Success, received JSON response');
+        return data;
       }
+      console.log('[CobraClient.makeRequest] Success, no JSON content');
       return {} as T;
 
     } catch (error) {
-      if (error.name === 'AbortError') {
+      console.error('[CobraClient.makeRequest] Exception:', error);
+      if ((error as any).name === 'AbortError') {
         throw new Error(`Cobra API request timeout after ${timeout}ms`);
       }
       throw error;
     }
+  }
+
+  async viewUserInfo(args: { id_or_displayname: string }): Promise<any> {
+    return this.post<any>('/api/sailpoint/viewuserinfo', {
+      body: args
+    });
+  }
+
+  async createUniqueEmail(args: CreateUniqueEmailArgs): Promise<CreateUniqueEmailResponse> {
+    return this.post<CreateUniqueEmailResponse>('/api/createuniqueemail', {
+      body: args
+    });
+  }
+
+  async getUserDetails(args: GetUserDetailsArgs): Promise<any> {
+    return this.post<any>('/api/ping/getuserdetails', {
+      body: args
+    });
+  }
+
+  async isUserRegistered(args: IsUserRegisteredArgs): Promise<any> {
+    return this.post<any>('/api/isuserregistered', {
+      body: args
+    });
+  }
+
+  async otpAuthRequired(args: OtpAuthRequiredArgs): Promise<any> {
+    return this.post<any>('/api/otpauthrequired', {
+      body: args
+    });
+  }
+
+  async pwdReset(args: PwdResetArgs): Promise<any> {
+    return this.post<any>('/api/pwdreset', {
+      body: args
+    });
+  }
+
+  async lockAccount(args: LockAccountArgs): Promise<any> {
+    return this.post<any>('/api/lockaccount', {
+      body: args
+    });
   }
 }

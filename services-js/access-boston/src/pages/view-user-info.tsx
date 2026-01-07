@@ -5,20 +5,22 @@ import { PUBLIC_CSS_URL } from '@cityofboston/react-fleet';
 
 import fetchAccount, { Account } from '../client/graphql/fetch-account';
 
-import { GetInitialPropsDependencies, GetInitialProps } from './_app';
+import { GetInitialPropsDependencies, GetInitialProps, PageDependencies } from './_app';
 
 import AppWrapper from '../client/common/AppWrapper';
 import ViewUserInfoIndex from '../client/view-user-info/Index';
 
-interface Props {
+interface InitialProps {
   account: Account;
 }
 
+interface Props extends InitialProps, Pick<PageDependencies, 'fetchGraphql'> {}
+
 export default class ViewUserInfo extends React.Component<Props> {
-  static getInitialProps: GetInitialProps<Props> = async (
+  static getInitialProps: GetInitialProps<InitialProps> = async (
     _ctx,
     { fetchGraphql }: GetInitialPropsDependencies
-  ): Promise<Props> => {
+  ): Promise<InitialProps> => {
     const account = await fetchAccount(fetchGraphql);
     return {
       account,
@@ -26,7 +28,7 @@ export default class ViewUserInfo extends React.Component<Props> {
   };
 
   render() {
-    const { account } = this.props;
+    const { account, fetchGraphql } = this.props;
     return (
       <>
         <Head>
@@ -35,7 +37,7 @@ export default class ViewUserInfo extends React.Component<Props> {
         </Head>
 
         <AppWrapper account={account}>
-          <ViewUserInfoIndex />
+          <ViewUserInfoIndex fetchGraphql={fetchGraphql} />
         </AppWrapper>
       </>
     );

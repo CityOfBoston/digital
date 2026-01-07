@@ -1,7 +1,7 @@
 import CobraClient from './CobraClient';
 
 export interface ChangePasswordRequest {
-  userid: string;
+  samaccountname: string;
   password: string;
   verifypassword: string;
 }
@@ -38,7 +38,7 @@ export class ChangePasswordService {
     confirmPassword: string
   ): Promise<ChangePasswordResponse> {
     const requestBody: ChangePasswordRequest = {
-      userid: userId,
+      samaccountname: userId,
       password: newPassword,
       verifypassword: confirmPassword
     };
