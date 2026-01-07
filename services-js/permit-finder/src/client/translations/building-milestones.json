@@ -52,82 +52,75 @@
     "Milestones": "PZCon",
     "DisplayStatus": "Project Review",
     "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
-    "ExpectedDuration": "20 Business Days",
+    "ExpectedDuration": "30 Business Days",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
   },
   {
     "Milestones": "Assignment",
     "DisplayStatus": "Project Review",
     "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
-    "ExpectedDuration": "20 Business Days",
+    "ExpectedDuration": "30 Business Days",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
-  },
-  {
-    "Milestones": "PlanningZoning",
-    "DisplayStatus": "Project Review",
-    "Description": "Your project plan is under review by a plans examiner familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
-    "ExpectedDuration": "20 Business Days",
-    "ContactInstructions": "Call 617-635-5300 and ask for your assigned plans examiner."
   },
   {
     "Milestones": "Satisfy Conditions",
     "DisplayStatus": "Project Review",
     "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
-    "ExpectedDuration": "20 Business Days",
+    "ExpectedDuration": "30 Business Days",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
   },
   {
     "Milestones": "Traffic Management Review",
     "DisplayStatus": "Project Review",
     "Description": "Your project plan is under review by a professional familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
-    "ExpectedDuration": "20 Business Days",
+    "ExpectedDuration": "30 Business Days",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 3."
   },
   {
     "Milestones": "Waiting",
-    "DisplayStatus": "Zoning Review",
+    "DisplayStatus": "Zoning Appeal",
     "Description": "You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.",
     "ExpectedDuration": "Please get back to us soon so we can continue Project Review",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
   },
   {
     "Milestones": "Extension",
-    "DisplayStatus": "Zoning Review",
+    "DisplayStatus": "Zoning Appeal",
     "Description": "You should have received an official letter from ISD informing you of the status of your application. If we have requested more information please contact your plans examiner.",
     "ExpectedDuration": "Please get back to us soon so we can continue Project Review",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
   },
   {
     "Milestones": "BOA Pending",
-    "DisplayStatus": "Zoning Review",
+    "DisplayStatus": "Zoning Appeal",
     "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
     "ExpectedDuration": "60–90 days",
     "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
   },
   {
     "Milestones": "Board of Appeals",
-    "DisplayStatus": "Zoning Review",
+    "DisplayStatus": "Zoning Appeal",
     "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
     "ExpectedDuration": "60–90 days",
     "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
   },
   {
     "Milestones": "Board of Appeal",
-    "DisplayStatus": "Zoning Review",
+    "DisplayStatus": "Zoning Appeal",
     "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
     "ExpectedDuration": "60–90 days",
     "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
   },
   {
     "Milestones": "Appeal Pending",
-    "DisplayStatus": "Zoning Review",
+    "DisplayStatus": "Zoning Appeal",
     "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
     "ExpectedDuration": "60–90 days",
     "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
   },
   {
     "Milestones": "Bldg BOA Pending",
-    "DisplayStatus": "Zoning Review",
+    "DisplayStatus": "Zoning Appeal",
     "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes.  If you have not yet done so please file an application with the Zoning Board of Appeals.",
     "ExpectedDuration": "60–90 days",
     "ContactInstructions": "Call 617-635-5300 and ask for the Zoning Board of Appeals."
@@ -255,7 +248,7 @@
     "Milestones": "MoreInfo",
     "DisplayStatus": "Intake & Payment",
     "Description": "More information is needed to complete permit and plan intake. Please log in to the permitting portal (https://onlinepermitsandlicenses.boston.gov/isdpermits/) to view comments from the reviewer and update your application. ",
-    "ExpectedDuration": "Please get back to us soon so we can complete intake.",
+    "ExpectedDuration": "",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
   },
   {
@@ -271,5 +264,12 @@
     "Description": "Your project requires special consideration because it conflicts with your area’s zoning codes. Please log in to the permitting portal (https://onlinepermitsandlicenses.boston.gov/isdpermits/) to view the refusal letter from the plans examiner. You can revise and resubmit plans or submit an appeal to proceed. To learn more about the Zoning Board of Appeals process, please visit https://www.boston.gov/departments/inspectional-services/zoning-board-appeal.",
     "ExpectedDuration": "Please take action to proceed.",
     "ContactInstructions": "Call 617-635-5300 and ask for ISD Counter 2."
+  },
+  {
+    "Milestones": "PlanningZoning",
+    "DisplayStatus": "Project Review",
+    "Description": "Your project plan is under review by a plans examiner familiar with local building and zoning codes.  We’re working with agencies throughout the City to ensure your project meets all applicable codes and regulatory requirements.",
+    "ExpectedDuration": "30 Business Days",
+    "ContactInstructions": "Call 617-635-5300 and ask for your assigned plans examiner."
   }
 ]
