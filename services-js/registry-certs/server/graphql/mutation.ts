@@ -352,7 +352,9 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       stripe,
       CERTIFICATE_COST.DEATH,
       cardToken,
-      totalQuantity
+      totalQuantity,
+      false,
+      tracking
     );
 
     const orderId = makeOrderId(OrderType.DeathCertificate);
@@ -626,7 +628,9 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
       stripe,
       CERTIFICATE_COST.BIRTH,
       cardToken,
-      item.quantity
+      item.quantity,
+      false,
+      tracking
     );
 
     const orderId = makeOrderId(OrderType.BirthCertificate);
@@ -760,9 +764,11 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     // These are all in cents, to match Stripe
     const { total, serviceFee } = await calculateCostForToken(
       stripe,
-      CERTIFICATE_COST.BIRTH,
+      CERTIFICATE_COST.MARRIAGE,
       cardToken,
-      item.quantity
+      item.quantity,
+      false,
+      tracking
     );
 
     const orderId = makeOrderId(OrderType.MarriageCertificate);
@@ -1087,7 +1093,9 @@ async function calculateCostForToken(
   stripe: any,
   eachCost: number,
   cardToken: string,
-  quantity: number
+  quantity: number,
+  hasResearchFee: boolean,
+  tracking: boolean
 ) {
   // We have to look the token up again so we can figure out what fee
   // structure to use. We do *not* trust the client to send us this
@@ -1095,8 +1103,8 @@ async function calculateCostForToken(
   const token = await stripe.tokens.retrieve(cardToken);
 
   return token.card.funding === 'credit'
-    ? calculateCreditCardCost(eachCost, quantity)
-    : calculateDebitCardCost(eachCost, quantity);
+    ? calculateCreditCardCost(eachCost, quantity, hasResearchFee, tracking)
+    : calculateDebitCardCost(eachCost, quantity, hasResearchFee, tracking);
 }
 
 function makeOrderId(type: OrderType): string {

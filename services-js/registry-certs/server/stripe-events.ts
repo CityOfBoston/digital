@@ -225,12 +225,17 @@ async function makeBirthReceiptInfo(
 
   // For birth certificates, these are null in the database, so we have to
   // calculate them in another way.
-  const subtotal = details.TotalCost * 100;
+  const TRACKING_FEE_DOLLARS = 5.00;
+  const subtotal = order.certifiedMail 
+    ? (details.TotalCost - TRACKING_FEE_DOLLARS) * 100  // Subtract $5 tracking fee, convert to cents
+    : details.TotalCost * 100;                          // No tracking fee to remove
   const total = subtotal + order.serviceFee;
   const items = [
     {
       quantity: details.Quantity,
-      cost: details.TotalCost * 100,
+      cost: order.certifiedMail 
+        ? (details.TotalCost - TRACKING_FEE_DOLLARS) * 100  // Subtract tracking fee from item cost too
+        : details.TotalCost * 100,
       name: `${details.CertificateFirstName} ${details.CertificateLastName}`,
       date: details.DateOfBirth,
     },
@@ -279,14 +284,19 @@ async function makeMarriageReceiptInfo(
 
   // For marriage certificates, these are null in the database, so we have to
   // calculate them in another way.
-  const subtotal = details.TotalCost * 100;
+  const TRACKING_FEE_DOLLARS = 5.00;
+  const subtotal = order.certifiedMail 
+    ? (details.TotalCost - TRACKING_FEE_DOLLARS) * 100  // Subtract $5 tracking fee, convert to cents
+    : details.TotalCost * 100;                          // No tracking fee to remove
   const total = subtotal + order.serviceFee;
   const items = [
     {
       quantity: details.Quantity,
-      cost: details.TotalCost * 100,
+      cost: order.certifiedMail 
+        ? (details.TotalCost - TRACKING_FEE_DOLLARS) * 100  // Subtract tracking fee from item cost too
+        : details.TotalCost * 100,
       name: names,
-      date: '', // we’re not displaying a date on marriage certificate receipts
+      date: '', // we're not displaying a date on marriage certificate receipts
     },
   ];
 
