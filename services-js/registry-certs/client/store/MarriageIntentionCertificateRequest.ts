@@ -101,7 +101,6 @@ export const INITIAL_REQUEST_INFORMATION: Readonly<
   emailConfirm: '',
   dayPhone: '',
   dayPhoneUnformattedStr: '',
-  appointmentDate: null,
 };
 
 export const QUESTION_STEPS: MarriageIntentionStep[] = [
@@ -270,9 +269,6 @@ export default class MarriageIntentionCertificateRequest {
       emailConfirm: this.requestInformation.emailConfirm,
       dayPhone: this.requestInformation.dayPhone,
       dayPhoneUnformattedStr: this.requestInformation.dayPhoneUnformattedStr,
-      appointmentDate: this.requestInformation.appointmentDate
-        ? this.requestInformation.appointmentDate.toISOString()
-        : null,
     };
 
     return {
@@ -391,9 +387,6 @@ export default class MarriageIntentionCertificateRequest {
       emailConfirm: obj.requestInformation.emailConfirm,
       dayPhone: obj.requestInformation.dayPhone,
       dayPhoneUnformattedStr: obj.requestInformation.dayPhoneUnformattedStr,
-      appointmentDate: obj.requestInformation.appointmentDate
-        ? obj.requestInformation.appointmentDate.toISOString()
-        : null,
     };
   }
 

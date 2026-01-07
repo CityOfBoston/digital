@@ -8,7 +8,6 @@ const QUERY = gql`
   mutation SubmitMarriageIntentionCertificateOrder(
     $email: String!
     $dayPhoneUnformattedStr: String!
-    $appointmentDate: String!
     $partnerA_firstName: String!
     $partnerA_lastName: String!
     $partnerA_middleName: String!
@@ -73,7 +72,6 @@ const QUERY = gql`
     submitMarriageIntentionCertificateOrder(
       Email: $email
       DayPhone: $dayPhoneUnformattedStr
-      AppointmentDate: $appointmentDate
       AApplicantFName: $partnerA_firstName
       AApplicantLName: $partnerA_lastName
       AApplicantMiddleName: $partnerA_middleName
@@ -156,7 +154,6 @@ export default async function submitMarriageIntentionCertificateOrder(
     requestInformation: {
       email,
       dayPhoneUnformattedStr,
-      appointmentDate,
       partnerA_firstName,
       partnerA_lastName,
       partnerA_middleName,
@@ -223,7 +220,6 @@ export default async function submitMarriageIntentionCertificateOrder(
   const queryVariables = {
     email,
     dayPhoneUnformattedStr,
-    appointmentDate,
     partnerA_firstName,
     partnerA_lastName,
     partnerA_middleName,

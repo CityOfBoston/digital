@@ -69,7 +69,6 @@ const NEW_PASSWORD_SHAPE = {
 };
 
 export const changePasswordSchema = yup.object().shape({
-  password: yup.string().required('Your current password is required'),
   ...NEW_PASSWORD_SHAPE,
 });
 

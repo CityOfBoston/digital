@@ -150,7 +150,6 @@ export interface Mutation extends ResolvableWith<{}> {
   submitMarriageIntentionCertificateOrder(args: {
     Email: string;
     DayPhone: string;
-    AppointmentDate: string;
 
     AApplicantFName: string;
     AApplicantLName: string;
@@ -443,7 +442,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     const {
       Email,
       DayPhone,
-      AppointmentDate,
       AApplicantFName,
       AApplicantLName,
       AApplicantMiddleName,
@@ -514,7 +512,6 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     await registryDb.addMarriageIntentionCertificateRequest({
       Email: Email,
       DayPhone: DayPhone,
-      AppointmentDate: AppointmentDate,
       AApplicantFName: AApplicantFName,
       AApplicantLName: AApplicantLName,
       AApplicantMiddleName: AApplicantMiddleName,

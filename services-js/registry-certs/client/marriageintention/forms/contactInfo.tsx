@@ -1,16 +1,11 @@
 /** @jsx jsx */
 
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 
 import { ChangeEvent, Component, MouseEvent } from 'react';
 import { observer } from 'mobx-react';
 
-import {
-  TextInput,
-  MemorableDateInput,
-  SANS,
-  CHARLES_BLUE,
-} from '@cityofboston/react-fleet';
+import { TextInput } from '@cityofboston/react-fleet';
 
 import MarriageIntentionCertificateRequest from '../../store/MarriageIntentionCertificateRequest';
 
@@ -19,9 +14,7 @@ import FieldsetComponent from '../../common/question-components/FieldsetComponen
 
 import {
   MARRIAGE_INTENTION_FORM_STYLING,
-  PAIRED_INPUT_STYLING,
   // SECTION_HEADING_STYLING,
-  NAME_FIELDS_CONTAINER_STYLING,
   NAME_FIELDS_BASIC_CONTAINER_STYLING,
 } from '../../common/question-components/styling';
 
@@ -48,7 +41,6 @@ export default class ContactInfo extends Component<Props> {
       email,
       emailConfirm,
       dayPhone,
-      appointmentDate,
     } = requestInformation;
 
     let dayPhoneLen: number = 0;
@@ -65,8 +57,7 @@ export default class ContactInfo extends Component<Props> {
       isEmailValid(emailConfirm) &&
       email === emailConfirm &&
       dayPhone &&
-      dayPhoneLen > 9 &&
-      appointmentDate
+      dayPhoneLen > 9
     );
   }
 
@@ -123,14 +114,6 @@ export default class ContactInfo extends Component<Props> {
     );
   };
 
-  private handleAptDateChange = (newDate: Date | null): void => {
-    this.props.marriageIntentionCertificateRequest.answerQuestion(
-      {
-        appointmentDate: newDate,
-      },
-      ''
-    );
-  };
 
   private handleStepBack = (ev: MouseEvent | TouchEvent) => {
     const { toggleDisclaimerModal, backTrackingDisclaimer } = this.props;
@@ -148,12 +131,7 @@ export default class ContactInfo extends Component<Props> {
       email,
       emailConfirm,
       dayPhone,
-      appointmentDate,
     } = marriageIntentionCertificateRequest.requestInformation;
-
-    const earliestDateToday = new Date(
-      new Date(new Date(new Date().setHours(9)).setMinutes(0)).setSeconds(0)
-    );
 
     return (
       <QuestionComponent
@@ -171,8 +149,6 @@ export default class ContactInfo extends Component<Props> {
           <div css={MARRIAGE_INTENTION_FORM_STYLING}>
             <div
               css={[
-                NAME_FIELDS_CONTAINER_STYLING,
-                PAIRED_INPUT_STYLING,
                 NAME_FIELDS_BASIC_CONTAINER_STYLING,
               ]}
             >
@@ -215,43 +191,9 @@ export default class ContactInfo extends Component<Props> {
                 />
               </div>
             </div>
-            <div
-              css={NAME_FIELDS_BASIC_CONTAINER_STYLING}
-              style={{ paddingTop: '1.5rem', marginBottom: '1em' }}
-            >
-              <MemorableDateInput
-                legend={
-                  <h2
-                    css={[APPT_HEADER_STYLING]}
-                    style={{ marginBottom: '1.5rem' }}
-                  >
-                    Appointment Date
-                  </h2>
-                }
-                initialDate={appointmentDate || undefined}
-                componentId="appointmentDate"
-                onlyAllowFuture={true}
-                earliestDate={earliestDateToday}
-                handleDate={this.handleAptDateChange}
-                includeToday={true}
-              />
-            </div>
           </div>
         </FieldsetComponent>
       </QuestionComponent>
     );
   }
 }
-
-export const THICK_BORDER_STYLE = `4px solid ${CHARLES_BLUE}`;
-const APPT_HEADER_STYLING = css(`
-  padding-bottom: 0.25rem;
-  marginBottom: 0;
-  font-weight: 700;
-  color: ${CHARLES_BLUE};
-  border-bottom: ${THICK_BORDER_STYLE};
-
-  text-transform: uppercase;
-  font-family: ${SANS};
-  font-size: 1.125rem !important;
-`);

@@ -22,11 +22,13 @@ import IdentityIq from '../services/IdentityIq';
 import PingId, { VerificationType } from '../services/PingId';
 
 import {
-  changePasswordMutation,
-  resetPasswordMutation,
   Workflow,
   workflowQuery,
 } from './workflows';
+
+import { cobraResetPasswordMutation } from './cobra-reset-password';
+
+import { cobraChangePasswordMutation } from './cobra-workflows';
 
 import {
   addMfaDeviceMutation,
@@ -46,11 +48,50 @@ export interface Query {
   account: Account;
   apps: Apps;
   workflow(args: { caseId: string }): Workflow;
+  viewUserInfo(args: { query_string: string }): ViewUserInfoResult[];
+}
+
+export interface ViewUserInfoResult {
+  id: string;
+  uid: string;
+  legalFirstName: string;
+  legalLastName: string;
+  middleName?: string | null;
+  preferredFirstName?: string | null;
+  preferredLastName?: string | null;
+  displayName?: string | null;
+  email: string;
+  personalEmail?: string | null;
+  workPhone?: string | null;
+  phone?: string | null;
+  manager?: string | null;
+  departmentName?: string | null;
+  location?: string | null;
+  employmentStatus?: string | null;
+  accountStatus?: string | null;
+  identityState?: string | null;
+  vpnStatus?: string | null;
+  userRegistered?: string | null;
+  passwordExpiresOn?: string | null;
+  hireDate?: string | null;
+  startDate?: string | null;
+  isManager?: string | null;
+  positionNumber?: string | null;
+  jobCode?: string | null;
+  isVip?: string | null;
+  accounts: ViewUserInfoAccount[];
+  isEmployee: boolean;
+  endDate?: string | null;
+  sponsor?: string | null;
+}
+
+export interface ViewUserInfoAccount {
+  name: string;
+  disabled: boolean;
 }
 
 export interface Mutation {
   changePassword(args: {
-    currentPassword: string;
     newPassword: string;
     confirmPassword: string;
   }): Workflow;
@@ -62,7 +103,6 @@ export interface Mutation {
   resetPassword(args: {
     newPassword: string;
     confirmPassword: string;
-    token: string;
   }): Workflow;
 
   addMfaDevice(args: {
@@ -127,11 +167,14 @@ const schemaGraphql = fs.readFileSync(
   'utf-8'
 );
 
+import CobraClient from '../services/cobra/CobraClient';
+
 export interface Context {
   session: Session;
   appsRegistry: AppsRegistry;
   identityIq: IdentityIq;
   pingId: PingId;
+  cobraClient: CobraClient;
 }
 
 export type QueryRootResolvers = Resolvers<Query, Context>;
@@ -186,7 +229,7 @@ const queryRootResolvers: QueryRootResolvers = {
         groups: mgmt_groups,
         email: email,
         cobAgency,
-        // displayName: displayName ? displayName : '',
+        displayName: null, // Field required by schema even when optional
       };
     } else if (forgotPasswordAuth) {
       return {
@@ -203,6 +246,7 @@ const queryRootResolvers: QueryRootResolvers = {
         groups: [''],
         email: '',
         cobAgency: '',
+        displayName: null, // Field required by schema even when optional
       };
     } else {
       // This must have the message "Forbidden" because it’s matched explicitly
@@ -256,11 +300,61 @@ const queryRootResolvers: QueryRootResolvers = {
   },
 
   workflow: workflowQuery,
+
+  viewUserInfo: async (_root, { query_string }, { cobraClient, session }) => {
+    // Require authentication - user must be logged in to view user info
+    const { loginAuth, loginSession } = session;
+
+    if (!loginAuth || !loginSession) {
+      // This must have the message "Forbidden" because it's matched explicitly
+      // in _app.tsx.
+      throw Boom.forbidden('Forbidden', session.sessionDebugInfo());
+    }
+
+    const ViewUserInfo = require('../services/cobra/ViewUserInfo').default;
+    const viewUserInfoService = new ViewUserInfo(cobraClient);
+    
+    try {
+      console.log('[ViewUserInfo resolver] Starting request for query_string:', query_string);
+      const response = await viewUserInfoService.process({ query_string });
+      console.log('[ViewUserInfo resolver] Successfully received response, count:', response.length);
+      
+      // Validate the response structure before returning
+      if (!Array.isArray(response)) {
+        console.error('[ViewUserInfo resolver] Response is not an array:', typeof response);
+        throw new Error('Invalid response type - expected array');
+      }
+      
+      // Check each item has required fields
+      response.forEach((item, index) => {
+        if (!item.uid || !item.email) {
+          console.warn(`[ViewUserInfo resolver] Item ${index} missing required fields:`, {
+            hasUid: !!item.uid,
+            hasEmail: !!item.email
+          });
+        }
+      });
+      
+      console.log('[ViewUserInfo resolver] Returning', response.length, 'valid items');
+      return response;
+    } catch (error) {
+      console.error('[ViewUserInfo resolver] Error:', {
+        message: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : 'No stack trace',
+        query_string
+      });
+      throw new Error(
+        error instanceof Error 
+          ? `Failed to fetch user info: ${error.message}`
+          : 'An unexpected error occurred while fetching user info'
+      );
+    }
+  },
 };
 
 const mutationResolvers: MutationResolvers = {
-  changePassword: changePasswordMutation,
-  resetPassword: resetPasswordMutation,
+  changePassword: cobraChangePasswordMutation,
+  resetPassword: cobraResetPasswordMutation,
   addMfaDevice: addMfaDeviceMutation,
   verifyMfaDevice: verifyMfaDeviceMutation,
 };

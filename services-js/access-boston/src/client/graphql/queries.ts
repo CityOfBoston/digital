@@ -43,7 +43,6 @@ export interface ChangePassword {
 }
 
 export interface ChangePasswordVariables {
-  currentPassword: string;
   newPassword: string;
   confirmPassword: string;
 }
@@ -153,7 +152,6 @@ export interface ResetPassword {
 export interface ResetPasswordVariables {
   newPassword: string;
   confirmPassword: string;
-  token: string;
 }
 
 /* tslint:disable */

@@ -9,7 +9,6 @@ import { formatPhoneNumber } from '../../helpers/formUtils';
 import { $ReviewControlHeader, $ReviewFieldValuePair } from './components';
 
 interface Props {
-  appointmentDateTime: string;
   requestInformation: {
     email: string;
     dayPhone: string;
@@ -25,7 +24,7 @@ export default class ContactUX extends Component<Props> {
   }
 
   public render() {
-    const { appointmentDateTime, requestInformation } = this.props;
+    const { requestInformation } = this.props;
 
     return (
       <div>
@@ -49,11 +48,6 @@ export default class ContactUX extends Component<Props> {
             {$ReviewFieldValuePair({
               field: `Phone #`,
               value: `${formatPhoneNumber(requestInformation.dayPhone)}`,
-            })}
-
-            {$ReviewFieldValuePair({
-              field: `Appointment Date`,
-              value: `${appointmentDateTime}`,
             })}
           </div>
         </div>
