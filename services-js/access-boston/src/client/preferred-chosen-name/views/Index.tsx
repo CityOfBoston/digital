@@ -24,17 +24,28 @@ interface Props {
 }
 
 export default function Index(props: Props) {
+  console.log('[Index] Component rendering, props:', props);
+  
   const { accountState } = props;
 
   const [state, dispatchState] = useReducer(stateReducer, accountState);
-  const fetchedViews: Array<string> = getViews();
+  
+  console.log('[Index] After useReducer, state:', state);
+  
+  const fetchedViews: Array<string> = getViews(state.altWorkflow);
+  
+  console.log('[Index] Fetched views:', fetchedViews);
+  console.log('[Index] Current view index:', state.view);
+  console.log('[Index] Current view name:', fetchedViews[state.view]);
 
   const closeTab = () => {
     if (window) window.close();
   };
 
-  const changeView = (newView: any) =>
+  const changeView = (newView: any) => {
+    console.log('[changeView] Changing to view:', newView);
     dispatchState({ type: 'APP/CHANGE_VIEW', view: newView });
+  };
 
   const stepBack = (): void => {
     const prevView = state.view - 1;
@@ -47,7 +58,13 @@ export default function Index(props: Props) {
   };
 
   const advanceStep = () => {
+    console.log('[advanceStep] FUNCTION CALLED!');
     const nextView = state.view + 1;
+    
+    console.log('[advanceStep] Current view:', state.view);
+    console.log('[advanceStep] Next view index:', nextView);
+    console.log('[advanceStep] Fetched views:', fetchedViews);
+    console.log('[advanceStep] Next view name:', fetchedViews[nextView]);
 
     if (nextView < fetchedViews.length) {
       changeView(fetchedViews[nextView]);
@@ -67,8 +84,8 @@ export default function Index(props: Props) {
 
     const retObj = await preferredNameRequest({
       id: state.employeeId,
-      preferredFirstName: FName,
-      preferredLastName: LName,
+      preferredFirstName: FName.trim(),
+      preferredLastName: LName.trim(),
     });
 
     if (retObj['attributes']) {
@@ -98,8 +115,8 @@ export default function Index(props: Props) {
     const { Id, FName, LName, Email } = data;
     let subObj = {
       id: state.employeeId,
-      preferredFirstName: FName,
-      preferredLastName: LName,
+      preferredFirstName: FName.trim(),
+      preferredLastName: LName.trim(),
     };
     if (
       Email &&

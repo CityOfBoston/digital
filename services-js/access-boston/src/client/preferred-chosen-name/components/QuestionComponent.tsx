@@ -91,7 +91,19 @@ export default function QuestionComponent(props: Props): JSX.Element {
           <button
             type="button"
             className="btn btn--b-sm"
-            onClick={handleProceed}
+            onClick={(e) => {
+              console.log('[QuestionComponent] Button clicked!', e);
+              console.log('[QuestionComponent] handleProceed:', handleProceed);
+              console.log('[QuestionComponent] allowProceed:', allowProceed);
+              console.log('[QuestionComponent] Disabled?', 
+                !allowProceed ||
+                (props.useLoadingSpinner &&
+                  props.useLoadingSpinner === true &&
+                  props.loading &&
+                  props.loading === true)
+              );
+              handleProceed(e);
+            }}
             disabled={
               !allowProceed ||
               (props.useLoadingSpinner &&
@@ -102,6 +114,7 @@ export default function QuestionComponent(props: Props): JSX.Element {
             tabIndex={0}
             title={nextButtonText || 'Continue'}
             onKeyDown={event => {
+              console.log('[QuestionComponent] Key pressed:', event.keyCode);
               if (event.keyCode === 13 || event.keyCode === 32) {
                 handleProceed(event);
               }

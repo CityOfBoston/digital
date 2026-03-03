@@ -1,73 +1,9 @@
-import fetch from 'node-fetch';
+// DEPRECATED: IdentityIQ workflow functions have been removed.
+// The preferred name flow now uses COBRA services:
+// - CreateUniqueEmail (cobra/CreateUniqueEmail.ts) for generating unique email addresses
+// - PreferredNameService (cobra/PreferredName.ts) for updating preferred name
 
-export interface workflowReqArgs {
-  id: string;
-  preferredFirstName?: string;
-  preferredLastName?: string;
-  email?: string;
-}
-
-export interface workflowArgs {
-  identityName: string;
-  preferredFirstName?: string;
-  preferredLastName?: string;
-  email?: string;
-}
-
-export interface requestWorkflow {
-  workflowArgs: workflowArgs;
-}
-
-export const basicAuthBase64Str = (
-  user: string = '',
-  pass: string = ''
-): string => {
-  return 'Basic ' + Buffer.from(user + ':' + pass).toString('base64');
-};
-
-export const requestNewNameEmail = async (params: {
-  endpoint: string;
-  requestJson: requestWorkflow;
-  authStr: string;
-}) => {
-  const { endpoint, requestJson, authStr } = params;
-
-  return await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: authStr,
-    },
-    body: JSON.stringify(requestJson),
-  })
-    .then(response => response.json())
-    .then(response => response)
-    .catch(error => {
-      console.log('/preferred-name Error(requestNewNameEmail):', error);
-      return {};
-    });
-};
-
-export const $preferredNameRequest = async (data: {
-  id: string;
-  preferredFirstName: string;
-  preferredLastName: string;
-}) => {
-  const { id, preferredFirstName, preferredLastName } = data;
-  return await fetch(`/preferred-name-request` as string, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ id, preferredFirstName, preferredLastName }),
-  })
-    .then(response => response.json())
-    .then(response => response)
-    .catch(error => {
-      console.log('/preferred-name Error(requestNewNameEmail):', error);
-      return {};
-    });
-};
+// This file is kept for client-side wrapper functions and security validation
 
 export const allowPreferredNameEndpointReq = (
   req: {
@@ -83,6 +19,10 @@ export const allowPreferredNameEndpointReq = (
   );
 };
 
+/**
+ * Client-side wrapper for /preferred-name-request endpoint
+ * This now calls COBRA EmailCheckService on the backend
+ */
 export const preferredNameRequest = async (data: {
   id: string;
   preferredFirstName: string;
@@ -108,6 +48,10 @@ export const preferredNameRequest = async (data: {
     });
 };
 
+/**
+ * Client-side wrapper for /preferred-name-submit endpoint
+ * This now calls COBRA PreferredNameService on the backend
+ */
 export const preferredNameSubmit = async (data: {
   id: string;
   preferredFirstName?: string;
@@ -139,3 +83,4 @@ export const preferredNameSubmit = async (data: {
       return {};
     });
 };
+

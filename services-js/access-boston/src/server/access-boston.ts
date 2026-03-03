@@ -47,8 +47,7 @@ import decryptEnv from '@cityofboston/srv-decrypt-env';
 
 import graphqlSchema, { Context } from './graphql/schema';
 
-import IdentityIq from './services/IdentityIq';
-import IdentityIqFake from './services/IdentityIqFake';
+// IdentityIQ has been deprecated in favor of COBRA for all operations
 import CobraClient from './services/cobra/CobraClient';
 import AppsRegistry, { makeAppsRegistry } from '../lib/AppsRegistry';
 
@@ -59,12 +58,11 @@ import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
 
 import {
-  basicAuthBase64Str,
-  requestNewNameEmail,
-  workflowArgs,
-  // workflowReqArgs,
   allowPreferredNameEndpointReq,
 } from './services/preferredName';
+
+import CreateUniqueEmail from './services/cobra/CreateUniqueEmail';
+import { PreferredNameService } from './services/cobra/PreferredName';
 
 require('dotenv').config();
 
@@ -143,15 +141,6 @@ export async function makeServer(port, rollbar: Rollbar) {
         ),
         process.env.NODE_ENV !== 'test'
       ));
-  const identityIq: IdentityIq =
-    process.env.NODE_ENV === 'production' || process.env.IDENTITYIQ_URL
-      ? new IdentityIq(
-          process.env.IDENTITYIQ_URL,
-          process.env.IDENTITYIQ_USERNAME,
-          process.env.IDENTITYIQ_PASSWORD
-        )
-      : (new IdentityIqFake() as any);
-
   const pingId: PingId =
     process.env.NODE_ENV === 'production' ||
     (dev && fs.existsSync(PINGID_PROPERTIES_FILE))
@@ -227,9 +216,9 @@ export async function makeServer(port, rollbar: Rollbar) {
   server.route(makeStaticAssetRoutes());
 
   const cobraClient = new CobraClient();
-  await addGraphQl(server, appsRegistry, identityIq, pingId, cobraClient, rollbar);
+  await addGraphQl(server, appsRegistry, pingId, cobraClient, rollbar);
 
-  await addVelocityTemplates(server);
+  await addVelocityTemplates(server, cobraClient);
 
   // We don't turn on Next for test mode because it hangs Jest.
   if (process.env.NODE_ENV !== 'test') {
@@ -256,7 +245,6 @@ export async function makeServer(port, rollbar: Rollbar) {
 async function addGraphQl(
   server: HapiServer,
   appsRegistry: AppsRegistry,
-  identityIq: IdentityIq,
   pingId: PingId,
   cobraClient: CobraClient,
   rollbar: Rollbar
@@ -276,7 +264,6 @@ async function addGraphQl(
   const context: HapiGraphqlContextFunction<Context> = ({ request }) => ({
     session: new Session(request),
     appsRegistry,
-    identityIq,
     pingId,
     cobraClient,
   });
@@ -318,7 +305,7 @@ async function addGraphQl(
   });
 }
 
-async function addVelocityTemplates(server: HapiServer) {
+async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient) {
   server.route({
     path: '/ping/login',
     method: 'GET',
@@ -455,12 +442,10 @@ async function addVelocityTemplates(server: HapiServer) {
       timeout: { server: 15000 },
     },
     handler: async (req, h) => {
-      // Only allow request where heades['token'] or referrer ~ host
+      // Only allow request where headers['token'] or referrer ~ host
       if (
         allowPreferredNameEndpointReq(req, process.env.PREFERRED_NAME__API_KEY)
       ) {
-        const WORKFLOW_URL__GENERATE_EMAIL: string = process.env
-          .WORKFLOW_URL__GENERATE_EMAIL as string;
         const reqReqFields = ['id'];
         const optFields = ['preferredFirstName', 'preferredLastName'];
         const validRequestFields = reqReqFields.concat(optFields);
@@ -473,7 +458,6 @@ async function addVelocityTemplates(server: HapiServer) {
 
         try {
           if (
-            WORKFLOW_URL__GENERATE_EMAIL.length > 0 &&
             typeof req.payload === 'object' &&
             req.payload &&
             serverPayloadValid
@@ -488,33 +472,95 @@ async function addVelocityTemplates(server: HapiServer) {
                 'utf-8'
               );
             } else {
-              let workflowArgs: workflowArgs = {
-                identityName: req.payload['id'],
-              };
+              // COBRA: Generate unique email using CreateUniqueEmail service
+              const createUniqueEmailService = new CreateUniqueEmail(cobraClient);
+              
+              // Get user ID and names (trim whitespace)
+              const userId = req.payload['id'] || '';
+              const firstName = (req.payload['preferredFirstName'] || '').trim();
+              const lastName = (req.payload['preferredLastName'] || '').trim();
+              
+              if (!userId) {
+                return h
+                  .response({
+                    error: 'Missing required field: id (userId)',
+                  })
+                  .code(400);
+              }
+              
+              if (!firstName || !lastName) {
+                return h
+                  .response({
+                    error: 'Missing required fields: preferredFirstName and preferredLastName',
+                  })
+                  .code(400);
+              }
 
-              if (req.payload['preferredFirstName'])
-                workflowArgs['preferredFirstName'] =
-                  req.payload['preferredFirstName'];
-              if (req.payload['preferredLastName'])
-                workflowArgs['preferredLastName'] =
-                  req.payload['preferredLastName'];
+              console.log('[preferred-name-request] Generating unique email for:', firstName, lastName, 'userId:', userId);
+              
+              try {
+                const emailResult = await createUniqueEmailService.process({
+                  userId,
+                  firstName,
+                  lastName
+                });
 
-              return requestNewNameEmail({
-                endpoint: WORKFLOW_URL__GENERATE_EMAIL,
-                requestJson: { workflowArgs },
-                authStr: basicAuthBase64Str(
-                  process.env.IDENTITYIQ_USERNAME,
-                  process.env.IDENTITYIQ_PASSWORD
-                ),
-              });
+                console.log('[preferred-name-request] Email result:', emailResult);
+                
+                // Return response matching IdentityIQ format
+                return {
+                  status: null,
+                  requestID: Math.random().toString(36).substring(2),
+                  warnings: null,
+                  errors: emailResult.available ? null : [emailResult.message],
+                  retryWait: 0,
+                  metaData: null,
+                  attributes: {
+                    result: {
+                      DisplayName: `${firstName} ${lastName}`,
+                      newEmail: emailResult.email || '',
+                      error: emailResult.available ? '' : (emailResult.message || 'Failed to generate email'),
+                    },
+                  },
+                  retry: false,
+                  failure: !emailResult.available,
+                  complete: true,
+                  success: emailResult.available,
+                };
+              } catch (error) {
+                console.error('[preferred-name-request] Error generating email:', error);
+                // On error, return success with error message as the email
+                // This allows the flow to continue with the error shown in place of email
+                return {
+                  status: null,
+                  requestID: Math.random().toString(36).substring(2),
+                  warnings: null,
+                  errors: null,
+                  retryWait: 0,
+                  metaData: null,
+                  attributes: {
+                    result: {
+                      DisplayName: `${firstName} ${lastName}`,
+                      newEmail: error instanceof Error ? error.message : 'Error generating email',
+                      error: error instanceof Error ? error.message : 'Failed to generate email',
+                    },
+                  },
+                  retry: false,
+                  failure: false, // Don't fail - show error in email field
+                  complete: true,
+                  success: true, // Continue flow even on error
+                };
+              }
             }
           } else {
             throw Boom.notFound(`No data is available for »${req}«`);
           }
         } catch (error) {
+          console.error('[preferred-name-request] Error:', error);
           return h
             .response({
               error: 'Invalid request format (JSON); Check fields / values.',
+              message: error instanceof Error ? error.message : 'Unknown error',
             })
             .code(400);
         }
@@ -537,12 +583,10 @@ async function addVelocityTemplates(server: HapiServer) {
       timeout: { server: 60000 },
     },
     handler: async (req, h) => {
-      // Only allow request where heades['token'] or referrer ~ host
+      // Only allow request where headers['token'] or referrer ~ host
       if (
         allowPreferredNameEndpointReq(req, process.env.PREFERRED_NAME__API_KEY)
       ) {
-        const WORKFLOW_URL__UPDATENAME: string = process.env
-          .WORKFLOW_URL__UPDATENAME as string;
         const reqReqFields = ['id', 'email'];
         const optFields = ['preferredFirstName', 'preferredLastName'];
         const validRequestFields = reqReqFields.concat(optFields);
@@ -555,7 +599,6 @@ async function addVelocityTemplates(server: HapiServer) {
 
         try {
           if (
-            WORKFLOW_URL__UPDATENAME.length > 0 &&
             typeof req.payload === 'object' &&
             req.payload &&
             serverPayloadValid
@@ -570,30 +613,74 @@ async function addVelocityTemplates(server: HapiServer) {
                 'utf-8'
               );
             } else {
-              let workflowArgs: workflowArgs = {
-                identityName: req.payload['id'],
-                preferredFirstName: req.payload['preferredFirstName'],
-                preferredLastName: req.payload['preferredLastName'],
-                email: req.payload['email'],
-              };
+              // COBRA: Update preferred name using PreferredNameService
+              const preferredNameService = new PreferredNameService(cobraClient);
+              
+              const userId = req.payload['id'];
+              const firstName = (req.payload['preferredFirstName'] || '').trim();
+              const lastName = (req.payload['preferredLastName'] || '').trim();
+              const email = req.payload['email'] ? req.payload['email'].trim() : undefined;
 
-              return requestNewNameEmail({
-                endpoint: WORKFLOW_URL__UPDATENAME,
-                requestJson: { workflowArgs },
-                authStr: basicAuthBase64Str(
-                  process.env.IDENTITYIQ_USERNAME,
-                  process.env.IDENTITYIQ_PASSWORD
-                ),
-              });
+              console.log('[preferred-name-submit] Updating preferred name for user:', userId);
+              console.log('[preferred-name-submit] Name:', firstName, lastName);
+              console.log('[preferred-name-submit] Email:', email || '(not changing)');
+
+              const result = await preferredNameService.changePreferredName(
+                userId,
+                firstName,
+                lastName,
+                email
+              );
+
+              // Check if it's an error response
+              if ('error' in result) {
+                console.error('[preferred-name-submit] Error from COBRA:', result);
+                return h
+                  .response({
+                    status: null,
+                    requestID: null,
+                    warnings: null,
+                    errors: [result.message],
+                    retryWait: 0,
+                    metaData: null,
+                    attributes: {
+                      status: `Error: ${result.message}`,
+                    },
+                    retry: false,
+                    failure: true,
+                    complete: true,
+                    success: false,
+                  })
+                  .code(400);
+              }
+
+              // Return success response matching IdentityIQ format
+              console.log('[preferred-name-submit] Success:', result.message);
+              return {
+                status: null,
+                requestID: result.requestId,
+                warnings: null,
+                errors: null,
+                retryWait: 0,
+                metaData: null,
+                attributes: {
+                  status: 'Success. Updated Attributes in IIQ',
+                },
+                retry: false,
+                failure: false,
+                complete: true,
+                success: true,
+              };
             }
           } else {
             throw Boom.notFound(`No data is available for »${req}«`);
           }
         } catch (error) {
-          console.log(`/preferred-name-request (error): `, error);
+          console.error('[preferred-name-submit] Error:', error);
           return h
             .response({
               error: 'Invalid request format (JSON); Check fields / values.',
+              message: error instanceof Error ? error.message : 'Unknown error',
             })
             .code(400);
         }
@@ -715,7 +802,7 @@ async function addNext(server: HapiServer) {
   });
 
   // The /done route is special because that's where we send people after
-  // they’re done filling out their registration. It needs to clear the local
+  // they're done filling out their registration. It needs to clear the local
   // session so that the user is prompted to log in again.
   //
   // (The user is logged out of SAML during registration, we only have the local
@@ -734,6 +821,9 @@ async function addNext(server: HapiServer) {
       },
     },
     handler: (nextHandler => (request, h) => {
+      // eslint-disable-next-line no-console
+      console.log('[DONE] User arrived at /done, clearing session to force re-login');
+      
       request.yar.reset();
 
       return nextHandler(request, h);

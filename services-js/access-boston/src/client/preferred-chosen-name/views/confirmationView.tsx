@@ -66,13 +66,16 @@ export const ConfirmationView = ({
       FName: FName,
       LName: LName,
     };
+    // Only include email if user chose to change it to a new email
     if (
       useNewEmail &&
       newEmail &&
       typeof newEmail === 'string' &&
       newEmail.length > 0
-    )
+    ) {
       subObj['Email'] = state.newEmail;
+    }
+    // If keeping current email, omit the Email field entirely
 
     handleProceed(subObj);
   };

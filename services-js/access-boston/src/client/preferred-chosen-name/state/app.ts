@@ -39,12 +39,18 @@ export const reducer = (state: any, action: Partial<Action>) => {
 
   switch (action.type) {
     case 'APP/CHANGE_VIEW':
+      console.log('[reducer] APP/CHANGE_VIEW action:', action);
+      console.log('[reducer] Current state:', state);
+      console.log('[reducer] Fetched views:', fetchedViews);
       if (action.view) {
+        const newViewIndex = fetchedViews.indexOf(action.view);
+        console.log('[reducer] New view index:', newViewIndex);
         return {
           ...state,
-          view: fetchedViews.indexOf(action.view),
+          view: newViewIndex,
         };
       } else {
+        console.log('[reducer] No action.view, resetting to 0');
         return { ...state, view: 0 };
       }
     case 'APP/RESET_STATE':

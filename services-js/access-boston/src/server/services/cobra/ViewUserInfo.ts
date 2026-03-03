@@ -20,6 +20,7 @@ export interface CobraAttributes {
   location?: string;
   status: string;
   identityState: string;
+  cloudLifecycleState?: string;
   cloudStatus: string;
   isRegistered: string;
   isEmployee: string;
@@ -64,6 +65,7 @@ export interface ViewUserInfoResponse {
   employmentStatus?: string;
   accountStatus?: string;
   identityState?: string;
+  cloudLifecycleState?: string;
   vpnStatus?: string;
   userRegistered?: string;
   passwordExpiresOn?: string;
@@ -207,6 +209,7 @@ export default class ViewUserInfo {
         attrs.cloudStatus || 'Unknown'
       )),
       identityState: toNullable(attrs.identityState),
+      cloudLifecycleState: toNullable(attrs.cloudLifecycleState),
       vpnStatus: toNullable(safeGet('vpnStatus', () => {
         // Handle boolean or string values - use any to handle runtime types
         const vpn: any = attrs.vpnStatus;

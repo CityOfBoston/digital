@@ -20,6 +20,7 @@ export interface CobraErrorResponse {
 }
 
 export interface CreateUniqueEmailArgs {
+  userId: string;
   firstName: string;
   lastName: string;
 }
@@ -35,8 +36,8 @@ export interface GetUserDetailsArgs {
 }
 
 export interface IsUserRegisteredArgs {
-  sAMAccountName: string;
-  isUserRegistered: string;
+  SAMACCOUNTNAME: string;
+  ISUSERREGISTERED: string;
 }
 
 export interface OtpAuthRequiredArgs {
@@ -46,7 +47,7 @@ export interface OtpAuthRequiredArgs {
 
 export interface PwdResetArgs {
   SAMACCOUNTNAME: string;
-  pwdreset: string;
+  PWDRESET: string;
 }
 
 export interface LockAccountArgs {
@@ -208,6 +209,7 @@ export default class CobraClient {
   }
 
   async viewUserInfo(args: { id_or_displayname: string }): Promise<any> {
+    // Changed to POST request to follow REST best practices
     return this.post<any>('/api/sailpoint/viewuserinfo', {
       body: args
     });
@@ -226,7 +228,7 @@ export default class CobraClient {
   }
 
   async isUserRegistered(args: IsUserRegisteredArgs): Promise<any> {
-    return this.post<any>('/api/isuserregistered', {
+    return this.post<any>('/api/ldap/users/isUserRegistered', {
       body: args
     });
   }
@@ -238,7 +240,7 @@ export default class CobraClient {
   }
 
   async pwdReset(args: PwdResetArgs): Promise<any> {
-    return this.post<any>('/api/pwdreset', {
+    return this.post<any>('/api/ldap/users/pwdreset', {
       body: args
     });
   }

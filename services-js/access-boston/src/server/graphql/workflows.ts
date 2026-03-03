@@ -1,6 +1,7 @@
-import { LaunchedWorkflowResponse } from '../services/IdentityIq';
-
-import { MutationResolvers, QueryRootResolvers } from './schema';
+// This file contains type definitions and deprecated IdentityIQ-based functions.
+// The type definitions (WorkflowStatus, Workflow, PasswordError) are still used by COBRA implementations.
+// The functions (changePasswordMutation, resetPasswordMutation, workflowQuery) are DEPRECATED.
+// Use cobra-workflows.ts and cobra-reset-password.ts instead.
 
 export enum WorkflowStatus {
   SUCCESS = 'SUCCESS',
@@ -21,126 +22,36 @@ export enum PasswordError {
   UNKNOWN_ERROR = 'UNKNOWN_ERROR',
 }
 
+// DEPRECATED: Use cobraChangePasswordMutation from cobra-workflows.ts instead
+// This function is kept for reference only and should not be used
+/*
 export const changePasswordMutation: MutationResolvers['changePassword'] = async (
   _root,
   { newPassword, confirmPassword },
   { identityIq, session }
 ) => {
-  const { loginAuth, loginSession } = session;
-
-  if (!loginAuth) {
-    return {
-      caseId: null,
-      error: PasswordError.NO_SESSION,
-      messages: [],
-      status: WorkflowStatus.ERROR,
-    };
-  }
-
-  if (newPassword !== confirmPassword) {
-    return {
-      caseId: null,
-      error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
-      messages: [],
-      status: WorkflowStatus.ERROR,
-    };
-  }
-
-  const workflowResponse = await identityIq.changePassword(
-    loginAuth.userId,
-    newPassword,
-    confirmPassword
-  );
-
-  const out = launchedWorkflowResponseToWorkflow(workflowResponse);
-
-  if (out.status === WorkflowStatus.SUCCESS) {
-    loginSession!.needsNewPassword = false;
-    session.save();
-  }
-
-  return out;
+  // ... old IdentityIQ implementation ...
 };
+*/
 
+// DEPRECATED: Use cobraResetPasswordMutation from cobra-reset-password.ts instead
+// This function is kept for reference only and should not be used
+/*
 export const resetPasswordMutation: MutationResolvers['resetPassword'] = async (
   _root,
   { newPassword, confirmPassword },
   { identityIq, session }
 ) => {
-  const { forgotPasswordAuth } = session;
-
-  if (!forgotPasswordAuth) {
-    return {
-      caseId: null,
-      error: PasswordError.NO_SESSION,
-      messages: [],
-      status: WorkflowStatus.ERROR,
-    };
-  }
-
-  if (newPassword !== confirmPassword) {
-    return {
-      caseId: null,
-      error: PasswordError.NEW_PASSWORDS_DONT_MATCH,
-      messages: [],
-      status: WorkflowStatus.ERROR,
-    };
-  }
-
-  const workflowResponse = await identityIq.resetPassword(
-    forgotPasswordAuth.userId,
-    newPassword,
-    forgotPasswordAuth.resetPasswordToken
-  );
-
-  if (workflowResponse.completionStatus === 'Success') {
-    // If the password was changed successfully, clear the session so they
-    // can't reset again.
-    //
-    // Note that in the non-JS case, this "clear" doesn't actually delete the
-    // cookie, since it's called via an "inject" and we don't attempt to
-    // propagate Set-Cookie headers back up. But, since the session is stored
-    // server-side, we can still invalidate it. The cookie will match to
-    // nothing.
-    session.reset();
-  }
-
-  return launchedWorkflowResponseToWorkflow(workflowResponse);
+  // ... old IdentityIQ implementation ...
 };
+*/
 
+// DEPRECATED: Workflow polling is no longer needed with COBRA
+// COBRA operations complete synchronously and don't require polling
+/*
 export const workflowQuery: QueryRootResolvers['workflow'] = async (
   _root,
   { caseId },
   { identityIq }
 ) => launchedWorkflowResponseToWorkflow(await identityIq.fetchWorkflow(caseId));
-
-function launchedWorkflowResponseToWorkflow(
-  workflowResponse: LaunchedWorkflowResponse
-): Workflow {
-  let status: WorkflowStatus;
-
-  switch (workflowResponse.completionStatus) {
-    case 'Error':
-      status = WorkflowStatus.ERROR;
-      break;
-    case 'Success':
-      status = WorkflowStatus.SUCCESS;
-      break;
-    default:
-      status = WorkflowStatus.UNKNOWN;
-  }
-
-  const messages = workflowResponse.messages;
-  let error: PasswordError | string | null = null;
-
-  if (status === WorkflowStatus.ERROR) {
-    error = messages.join('\n');
-  }
-
-  return {
-    caseId: workflowResponse.id,
-    messages,
-    error,
-    status,
-  };
-}
+*/

@@ -15,6 +15,10 @@ interface welcomeProps {
 }
 
 export const WelcomeView = ({ handleProceed, state }: welcomeProps) => {
+  console.log('[WelcomeView] Rendering, handleProceed type:', typeof handleProceed);
+  console.log('[WelcomeView] handleProceed:', handleProceed);
+  console.log('[WelcomeView] state:', state);
+  
   return (
     <div css={PREFERRED_NAME_STYLING}>
       <h2 className="headerBlock">Update Chosen Name</h2>

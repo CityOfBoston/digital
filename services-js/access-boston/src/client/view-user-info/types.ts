@@ -22,6 +22,7 @@ export interface Identity {
   employmentStatus?: string;
   accountStatus?: string;
   identityState?: string;
+  cloudLifecycleState?: string;
   vpnStatus?: string;
   userRegistered?: string;
   passwordExpiresOn?: string;

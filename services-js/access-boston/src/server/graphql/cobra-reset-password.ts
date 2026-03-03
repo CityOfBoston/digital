@@ -1,5 +1,6 @@
 import { MutationResolvers } from './schema';
 import { ChangePasswordService } from '../services/cobra/ChangePassword';
+import { PwdResetService } from '../services/cobra/PwdReset';
 import { WorkflowStatus, PasswordError, Workflow } from './workflows';
 
 export const cobraResetPasswordMutation: MutationResolvers['resetPassword'] = async (
@@ -55,6 +56,28 @@ export const cobraResetPasswordMutation: MutationResolvers['resetPassword'] = as
     };
 
     if (result.status === WorkflowStatus.SUCCESS) {
+      // Clear the password reset flag in LDAP
+      console.log('[ResetPassword] Clearing password reset flag for user:', forgotPasswordAuth.userId);
+      try {
+        const pwdResetService = new PwdResetService(context.cobraClient);
+        const pwdResetResult = await pwdResetService.clearPwdResetFlag(forgotPasswordAuth.userId);
+        
+        if (pwdResetResult.success) {
+          console.log('[ResetPassword] Password reset flag cleared successfully');
+          
+          // Wait 5 seconds for LDAP changes to propagate
+          console.log('[ResetPassword] Waiting 5 seconds for LDAP propagation...');
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          console.log('[ResetPassword] LDAP propagation wait complete');
+        } else {
+          console.warn('[ResetPassword] Failed to clear password reset flag:', pwdResetResult.message);
+          // Don't fail the whole operation - password was already changed
+        }
+      } catch (pwdResetError) {
+        console.error('[ResetPassword] Error clearing password reset flag:', pwdResetError);
+        // Don't fail the whole operation - password was already changed
+      }
+
       // Clear the forgot password session on success
       context.session.reset();
     }

@@ -283,9 +283,9 @@ const CARD_ACTIONS_STYLING = css({
 const DEPT_INFO_STYLING = css({
   textAlign: 'right',
   minWidth: 0,
-  maxWidth: '200px',
+  maxWidth: '150px',
   '& > div': {
-    wordWrap: 'break-word',
+    wordBreak: 'break-word',
     overflowWrap: 'break-word',
   },
   '@media (max-width: 768px)': {
@@ -294,18 +294,35 @@ const DEPT_INFO_STYLING = css({
 });
 
 const STATUS_BADGE_STYLING = (status: string) => {
-  const isActive = (status || 'active').toLowerCase() === 'active';
+  const lower = (status || '').toLowerCase();
+  const isActive = lower === 'active';
+  const isPending = lower === 'pending';
+
+  let bgColor = COLORS.grayLight;
+  let textColor = '#4B5563';
+  let borderColor = COLORS.border;
+
+  if (isActive) {
+    bgColor = COLORS.greenLight;
+    textColor = '#065F46';
+    borderColor = '#10B981';
+  } else if (isPending) {
+    bgColor = '#FEF3C7';
+    textColor = '#92400E';
+    borderColor = '#F59E0B';
+  }
+
   return css({
     padding: '0.25rem 0.75rem',
     borderRadius: '9999px',
     fontSize: '0.75rem',
     fontFamily: MONTSERRAT_FONT,
     fontWeight: 600,
-    textTransform: 'uppercase',
+    textTransform: 'none',
     letterSpacing: '0.05em',
-    backgroundColor: isActive ? COLORS.greenLight : COLORS.grayLight,
-    color: isActive ? '#065F46' : '#4B5563',
-    border: `1px solid ${isActive ? '#10B981' : COLORS.border}`,
+    backgroundColor: bgColor,
+    color: textColor,
+    border: `1px solid ${borderColor}`,
   });
 };
 
@@ -462,6 +479,12 @@ interface Props {
   fetchGraphql: FetchGraphql;
 }
 
+// Helper function to format a string to normal case (first letter uppercase, rest lowercase)
+const toNormalCase = (str: string): string => {
+  if (!str) return str;
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+};
+
 // Helper function to format email values
 const formatEmail = (email: string | undefined): string | undefined => {
   if (!email) return undefined;
@@ -487,11 +510,27 @@ const formatUserRegistered = (registered: string | undefined): string | undefine
 
 // Helper function to format VPN status
 const formatVpnStatus = (vpnStatus: string | undefined): string => {
-  if (!vpnStatus) return 'False';
+  if (!vpnStatus) return 'Inactive';
   const lowerStatus = vpnStatus.toLowerCase();
-  if (lowerStatus === 'true') return 'True';
-  if (lowerStatus === 'false') return 'False';
+  if (lowerStatus === 'true') return 'Active';
+  if (lowerStatus === 'false') return 'Inactive';
   return vpnStatus;
+};
+
+// Helper function to format application names
+const formatApplicationName = (appName: string): string => {
+  const appMappings: { [key: string]: string } = {
+    'COB-Application-CityHall': 'City Hall AD',
+    'COB-Application-Gapps': 'Google/boston.gov',
+    'COB-Application-Gapps-BPD': 'Google/pd.boston.gov',
+    'COB-Application-Slack': 'Slack',
+    'COB-Application-BPS': 'BPS AD',
+    'COB-Application-Assessing': 'Assessing AD',
+    'COB-Application-BPD': 'BPD AD',
+    'COB-Application-BFD': 'BFD AD',
+  };
+
+  return appMappings[appName] || appName;
 };
 
 // Helper function to get display name (preferred if available, otherwise legal)
@@ -581,7 +620,7 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
             <input
               type="text"
               css={SEARCH_INPUT_STYLING}
-              placeholder="Search by User ID or Name..."
+              placeholder="Search by User ID or Legal Name..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -651,8 +690,8 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <span css={STATUS_BADGE_STYLING(identity.identityState || 'active')}>
-                        {identity.identityState || 'Unknown'}
+                      <span css={STATUS_BADGE_STYLING(identity.cloudLifecycleState || '')}>
+                        {identity.cloudLifecycleState ? toNormalCase(identity.cloudLifecycleState) : 'Unknown'}
                       </span>
                       <svg css={CHEVRON_STYLING(isExpanded)} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -755,7 +794,7 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                               <tbody css={TABLE_BODY_STYLING}>
                                 {identity.accounts.map((acc, idx) => (
                                   <tr key={idx}>
-                                    <td css={TABLE_CELL_STYLING}>{acc.name}</td>
+                                    <td css={TABLE_CELL_STYLING}>{formatApplicationName(acc.name)}</td>
                                     <td css={TABLE_CELL_STYLING}>
                                       <span css={ACCOUNT_STATUS_BADGE_STYLING(acc.disabled)}>
                                         {acc.disabled ? 'Inactive' : 'Active'}

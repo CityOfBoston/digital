@@ -1,8 +1,8 @@
 import { gql, FetchGraphql } from '@cityofboston/next-client-common';
 import { Identity } from './types';
 
-const VIEW_USER_INFO_QUERY = gql`
-  query ViewUserInfo($query_string: String!) {
+const VIEW_USER_INFO_MUTATION = gql`
+  mutation ViewUserInfo($query_string: String!) {
     viewUserInfo(query_string: $query_string) {
       id
       uid
@@ -22,6 +22,7 @@ const VIEW_USER_INFO_QUERY = gql`
       employmentStatus
       accountStatus
       identityState
+      cloudLifecycleState
       vpnStatus
       userRegistered
       passwordExpiresOn
@@ -47,7 +48,7 @@ export default async function fetchViewUserInfo(
   query_string: string
 ): Promise<Identity[]> {
   try {
-    const response = await fetchGraphql(VIEW_USER_INFO_QUERY, { query_string });
+    const response = await fetchGraphql(VIEW_USER_INFO_MUTATION, { query_string });
     return response.viewUserInfo || [];
   } catch (error) {
     console.error('[fetchViewUserInfo] Caught error:', error);
@@ -91,4 +92,3 @@ export default async function fetchViewUserInfo(
     throw error;
   }
 }
-

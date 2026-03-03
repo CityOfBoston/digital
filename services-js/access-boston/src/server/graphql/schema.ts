@@ -18,13 +18,9 @@ import { Resolvers } from '@cityofboston/graphql-typescript';
 
 import AppsRegistry from '../../lib/AppsRegistry';
 import Session from '../Session';
-import IdentityIq from '../services/IdentityIq';
 import PingId, { VerificationType } from '../services/PingId';
 
-import {
-  Workflow,
-  workflowQuery,
-} from './workflows';
+import { Workflow } from './workflows';
 
 import { cobraResetPasswordMutation } from './cobra-reset-password';
 
@@ -47,8 +43,6 @@ export interface Query {
   notice: Notice;
   account: Account;
   apps: Apps;
-  workflow(args: { caseId: string }): Workflow;
-  viewUserInfo(args: { query_string: string }): ViewUserInfoResult[];
 }
 
 export interface ViewUserInfoResult {
@@ -70,6 +64,7 @@ export interface ViewUserInfoResult {
   employmentStatus?: string | null;
   accountStatus?: string | null;
   identityState?: string | null;
+  cloudLifecycleState?: string | null;
   vpnStatus?: string | null;
   userRegistered?: string | null;
   passwordExpiresOn?: string | null;
@@ -115,6 +110,8 @@ export interface Mutation {
     sessionId: string;
     pairingCode: string;
   }): VerifyMfaDeviceResponse;
+
+  viewUserInfo(args: { query_string: string }): ViewUserInfoResult[];
 }
 
 export interface Account {
@@ -172,7 +169,6 @@ import CobraClient from '../services/cobra/CobraClient';
 export interface Context {
   session: Session;
   appsRegistry: AppsRegistry;
-  identityIq: IdentityIq;
   pingId: PingId;
   cobraClient: CobraClient;
 }
@@ -298,9 +294,14 @@ const queryRootResolvers: QueryRootResolvers = {
         }),
     };
   },
+};
 
-  workflow: workflowQuery,
-
+const mutationResolvers: MutationResolvers = {
+  changePassword: cobraChangePasswordMutation,
+  resetPassword: cobraResetPasswordMutation,
+  addMfaDevice: addMfaDeviceMutation,
+  verifyMfaDevice: verifyMfaDeviceMutation,
+  
   viewUserInfo: async (_root, { query_string }, { cobraClient, session }) => {
     // Require authentication - user must be logged in to view user info
     const { loginAuth, loginSession } = session;
@@ -350,13 +351,6 @@ const queryRootResolvers: QueryRootResolvers = {
       );
     }
   },
-};
-
-const mutationResolvers: MutationResolvers = {
-  changePassword: cobraChangePasswordMutation,
-  resetPassword: cobraResetPasswordMutation,
-  addMfaDevice: addMfaDeviceMutation,
-  verifyMfaDevice: verifyMfaDeviceMutation,
 };
 
 export default makeExecutableSchema({

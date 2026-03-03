@@ -327,26 +327,84 @@ export default class SamlAuth {
     body: SamlRequestPostBody | SamlResponsePostBody
   ): Promise<SamlAssertResult> {
     return new Promise((resolve, reject) => {
+      // Log the incoming SAML response for debugging
+      // eslint-disable-next-line no-console
+      console.log('[SAML] handlePostAssert: Received SAML response body keys:', Object.keys(body));
+      
+      // Try to decode and log the actual SAML response if present
+      if ('SAMLResponse' in body && body.SAMLResponse) {
+        try {
+          const decodedSaml = Buffer.from(body.SAMLResponse, 'base64').toString('utf-8');
+          // eslint-disable-next-line no-console
+          console.log('[SAML] Decoded SAMLResponse XML (first 1000 chars):', decodedSaml.substring(0, 1000));
+          
+          // Look for Status elements in the XML
+          const statusMatch = decodedSaml.match(/<samlp?:Status[^>]*>[\s\S]*?<\/samlp?:Status>/i);
+          if (statusMatch) {
+            // eslint-disable-next-line no-console
+            console.log('[SAML] Status section from SAML response:', statusMatch[0]);
+          }
+        } catch (decodeErr) {
+          // eslint-disable-next-line no-console
+          console.error('[SAML] Failed to decode SAMLResponse:', decodeErr);
+        }
+      }
+      
       this.serviceProvider.post_assert(
         this.identityProvider,
         { request_body: body },
         (err, saml: SamlAssertion) => {
           if (err) {
             // eslint-disable-next-line no-console
-            console.debug(
-              '(DEBUG) handlePostAssert: SAML assert error(err):',
-              err
-            );
+            console.error('============ SAML ASSERTION ERROR - START ============');
             // eslint-disable-next-line no-console
-            console.log('(LOG) handlePostAssert: SAML assert error(err):', err);
+            console.error('[SAML ERROR] Error name:', err.name);
+            // eslint-disable-next-line no-console
+            console.error('[SAML ERROR] Error message:', err.message);
+            
+            // Use Object.getOwnPropertyNames to properly serialize error objects
+            // eslint-disable-next-line no-console
+            console.error('[SAML ERROR] Full error object:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
+            
+            // Specifically extract and log the status details
+            if (err.extra && err.extra.status) {
+              // eslint-disable-next-line no-console
+              console.error('[SAML ERROR] Status object keys:', Object.keys(err.extra.status));
+              
+              // Log each status code and its nested values
+              Object.keys(err.extra.status).forEach(statusCode => {
+                // eslint-disable-next-line no-console
+                console.error(`[SAML ERROR] Status[${statusCode}]:`, JSON.stringify(err.extra.status[statusCode], null, 2));
+              });
+            }
+            
+            // Log additional error properties
+            if (err.extra) {
+              // eslint-disable-next-line no-console
+              console.error('[SAML ERROR] Extra properties:', JSON.stringify(err.extra, null, 2));
+            }
+            
+            // Log stack trace if available
+            if (err.stack) {
+              // eslint-disable-next-line no-console
+              console.error('[SAML ERROR] Stack trace:', err.stack);
+            }
+            
+            // eslint-disable-next-line no-console
+            console.error('============ SAML ASSERTION ERROR - END ============');
 
             reject(err);
             return;
           }
 
+          // eslint-disable-next-line no-console
+          console.log('[SAML] handlePostAssert: Successfully processed SAML assertion, type:', saml.type);
+
           try {
             resolve(this.processSamlAssertion(saml));
           } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error('[SAML] handlePostAssert: Error processing SAML assertion:', e);
             reject(e);
           }
         }
@@ -358,31 +416,63 @@ export default class SamlAuth {
     [key: string]: string | string[];
   }): Promise<SamlAssertResult> {
     return new Promise((resolve, reject) => {
+      // eslint-disable-next-line no-console
+      console.log('[SAML] handleGetAssert: Received query keys:', Object.keys(query));
+      
       this.serviceProvider.redirect_assert(
         this.identityProvider,
         { request_body: query },
         (err, saml: SamlAssertion) => {
           if (err) {
             // eslint-disable-next-line no-console
-            console.debug(
-              '(DEBUG) handleGetAssert: SAML assert error(err/query)',
-              err,
-              query
-            );
+            console.error('============ SAML GET ASSERTION ERROR - START ============');
             // eslint-disable-next-line no-console
-            console.log(
-              '(LOG) handleGetAssert: SAML assert error(err/query):',
-              err,
-              query
-            );
+            console.error('[SAML GET ERROR] Error name:', err.name);
+            // eslint-disable-next-line no-console
+            console.error('[SAML GET ERROR] Error message:', err.message);
+            
+            // Use Object.getOwnPropertyNames to properly serialize error objects
+            // eslint-disable-next-line no-console
+            console.error('[SAML GET ERROR] Full error object:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
+            
+            // Specifically extract and log the status details
+            if (err.extra && err.extra.status) {
+              // eslint-disable-next-line no-console
+              console.error('[SAML GET ERROR] Status codes found:', Object.keys(err.extra.status));
+              
+              Object.keys(err.extra.status).forEach(statusCode => {
+                // eslint-disable-next-line no-console
+                console.error(`[SAML GET ERROR] Status[${statusCode}]:`, JSON.stringify(err.extra.status[statusCode], null, 2));
+              });
+            }
+            
+            // Log the query with better serialization
+            // eslint-disable-next-line no-console
+            console.error('[SAML GET ERROR] Query keys:', Object.keys(query));
+            // eslint-disable-next-line no-console
+            console.error('[SAML GET ERROR] Query that caused error:', JSON.stringify(query, null, 2));
+            
+            // If query is empty, it might be from the logout pixel tracker
+            if (Object.keys(query).length === 0) {
+              // eslint-disable-next-line no-console
+              console.error('[SAML GET ERROR] Empty query detected - this may be from the /ext/idplogout pixel tracker on /register page');
+            }
+            
+            // eslint-disable-next-line no-console
+            console.error('============ SAML GET ASSERTION ERROR - END ============');
 
             reject(err);
             return;
           }
 
+          // eslint-disable-next-line no-console
+          console.log('[SAML] handleGetAssert: Successfully processed assertion, type:', saml.type);
+
           try {
             resolve(this.processSamlAssertion(saml));
           } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error('[SAML] handleGetAssert: Error processing assertion:', e);
             reject(e);
           }
         }

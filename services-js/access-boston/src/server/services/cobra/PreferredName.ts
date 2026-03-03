@@ -4,7 +4,7 @@ export interface PreferredNameRequest {
   samaccountname: string;
   cobPreferredFirstname: string;
   cobPreferredLastname: string;
-  preferredEmail: string;
+  preferredEmail?: string;  // Optional - omit when keeping current email
   type: 'preferred_name';
 }
 
@@ -33,21 +33,26 @@ export class PreferredNameService {
    * @param userId The user's ID (samaccountname)
    * @param firstName Preferred first name
    * @param lastName Preferred last name
-   * @param email Preferred email
+   * @param email Optional preferred email (omit to keep current email unchanged)
    */
   async changePreferredName(
     userId: string,
     firstName: string,
     lastName: string,
-    email: string
+    email?: string
   ): Promise<PreferredNameResponse> {
     const requestBody: PreferredNameRequest = {
       samaccountname: userId,
       cobPreferredFirstname: firstName,
       cobPreferredLastname: lastName,
-      preferredEmail: email || '',  // Ensure empty string if email is undefined
       type: 'preferred_name'
     };
+
+    // Only include preferredEmail if a new email is provided
+    if (email && email.length > 0) {
+      requestBody.preferredEmail = email;
+    }
+    // If email is not provided or empty, omit the field entirely
 
     try {
       const response = await this.client.post<PreferredNameResponse>(
