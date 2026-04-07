@@ -15,7 +15,22 @@ if (
 
 const appInsights = require('applicationinsights');
 try {
-  appInsights.setup().start();
+  appInsights
+    .setup()
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true, true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectConsole(true, false)
+    .setUseDiskRetryCaching(true)
+    .setAutoCollectPreAggregatedMetrics(true)
+    .setSendLiveMetrics(false)
+    .setAutoCollectHeartbeat(false)
+    .setAutoCollectIncomingRequestAzureFunctions(true)
+    .setInternalLogging(false, true)
+    .setDistributedTracingMode(appInsights.DistributedTracingModes.AI_AND_W3C)
+    .enableWebInstrumentation(false)
+    .start();
 
   const client = appInsights.defaultClient;
   if (client && client.config && client.config.connectionString) {
