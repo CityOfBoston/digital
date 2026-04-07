@@ -11,7 +11,7 @@ import { PageDependencies, GetInitialProps } from '../../pages/_app';
 import Order, { OrderInfo } from '../models/Order';
 import CertifiedMail from '../models/CertifiedMail';
 import CardType, { CARDTYPE } from '../models/CardType';
-import { CERTIFICATE_COST } from '../../lib/costs';
+import { CERTIFICATE_COST, certifiedMailTrackingInUI } from '../../lib/costs';
 
 import ShippingContent from '../common/checkout/ShippingContent';
 import PaymentContent from '../common/checkout/PaymentContent';
@@ -242,7 +242,9 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
     const orderId = await checkoutDao.submitBirthCertificateRequest(
       birthCertificateRequest,
       order,
-      certMail ? certMail.certMailInfo.certMailForBirth : false
+      certifiedMailTrackingInUI(
+        certMail ? certMail.certMailInfo.certMailForBirth : false
+      )
     );
 
     const confirmationUrl = `/birth/checkout?page=confirmation&orderId=${encodeURIComponent(
@@ -378,13 +380,13 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
-            tracking={
+            tracking={certifiedMailTrackingInUI(
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
                 ? certMail.certMailInfo.certMailForBirth
                 : false
-            }
+            )}
             cardType={
               this.props.cardTypeVal
                 ? this.props.cardTypeVal
@@ -409,13 +411,13 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
-            tracking={
+            tracking={certifiedMailTrackingInUI(
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
                 ? certMail.certMailInfo.certMailForBirth
                 : false
-            }
+            )}
             cardType={
               this.props.cardTypeVal
                 ? this.props.cardTypeVal
@@ -432,13 +434,13 @@ export default class BirthCheckoutPage extends React.Component<Props, State> {
             certificateType="birth"
             birthCertificateRequest={birthCertificateRequest}
             order={order}
-            tracking={
+            tracking={certifiedMailTrackingInUI(
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
                 ? certMail.certMailInfo.certMailForBirth
                 : false
-            }
+            )}
             cardType={
               this.props.cardTypeVal
                 ? this.props.cardTypeVal

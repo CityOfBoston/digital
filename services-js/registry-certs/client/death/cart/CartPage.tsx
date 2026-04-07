@@ -15,6 +15,7 @@ import { PageDependencies } from '../../../pages/_app';
 import PageLayout from '../../PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
+import { certifiedMailTrackingInUI } from '../../../lib/costs';
 
 import CartItem from './CartItem';
 import CostSummary from '../../common/CostSummary';
@@ -185,12 +186,12 @@ class CartPage extends React.Component<Props, State> {
                   newServiceFeeType={card_type}
                   setCardType={cardTypeChangeHandler}
                   getCardType={deathCertificateCart.getCardType}
-                  tracking={
-                    this.state.certMail &&
-                    this.state.certMail.certMailInfo.certMailForDeath === true
-                      ? true
-                      : false
-                  }
+                  tracking={certifiedMailTrackingInUI(
+                    !!(
+                      this.state.certMail &&
+                      this.state.certMail.certMailInfo.certMailForDeath === true
+                    )
+                  )}
                 />
 
                 <div className="g">

@@ -20,6 +20,18 @@ export const RESEARCH_FEE = 10 * 100;
 // DIG-5688: Certified Mail Tracking
 export const TRACKING_FEE: number = 5 * 100;
 
+/**
+ * When false, hides the “Need A Tracking Number?” opt-in and excludes USPS
+ * Tracking® from checkout totals; orders submit with certified mail off. Set
+ * true to restore the full flow.
+ */
+export const SHOW_CERTIFIED_MAIL_TRACKING_UI = false;
+
+/** Use for checkout/cart/review pricing and for submit mutations while the UI is hidden. */
+export function certifiedMailTrackingInUI(storedValue: boolean): boolean {
+  return SHOW_CERTIFIED_MAIL_TRACKING_UI && storedValue;
+}
+
 // CC == “credit card”
 export const FIXED_CC_SERVICE_FEE = 25;
 export const PERCENTAGE_CC_SERVICE_FEE = 0.021;

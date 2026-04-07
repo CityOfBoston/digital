@@ -10,6 +10,8 @@ import {
   AddRemoveRadioBtn,
   MEDIA_SMALL_MAX,
 } from '@cityofboston/react-fleet';
+
+import { SHOW_CERTIFIED_MAIL_TRACKING_UI } from '../../lib/costs';
 // import { ReactKeyIndexStr } from '../../utils/helpers';
 
 interface Props {
@@ -20,6 +22,10 @@ interface Props {
 }
 
 export const CertMailTracking = (props: Props): JSX.Element => {
+  if (!SHOW_CERTIFIED_MAIL_TRACKING_UI) {
+    return <></>;
+  }
+
   const { name = 'AddRemove', action, value, onClickHandler } = props;
   const elemName = `CertMailTracking-Input--${hash(name)}`;
   // const elemName = ReactKeyIndexStr({

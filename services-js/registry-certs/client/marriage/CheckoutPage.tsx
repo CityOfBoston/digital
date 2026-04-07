@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { getParam } from '@cityofboston/next-client-common';
 
 import { PageDependencies, GetInitialProps } from '../../pages/_app';
+import { certifiedMailTrackingInUI } from '../../lib/costs';
 import Order, { OrderInfo } from '../models/Order';
 import CertifiedMail from '../models/CertifiedMail';
 import CardType, { CARDTYPE } from '../models/CardType';
@@ -199,7 +200,9 @@ export default class MarriageCheckoutPage extends React.Component<
     const orderId = await checkoutDao.submitMarriageCertificateRequest(
       marriageCertificateRequest,
       order,
-      certMail ? certMail.certMailInfo.certMailForMarriage : false
+      certifiedMailTrackingInUI(
+        certMail ? certMail.certMailInfo.certMailForMarriage : false
+      )
     );
 
     const confirmationUrl = `/marriage/checkout?page=confirmation&orderId=${encodeURIComponent(
@@ -297,9 +300,9 @@ export default class MarriageCheckoutPage extends React.Component<
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
-            tracking={
+            tracking={certifiedMailTrackingInUI(
               certMail ? certMail.certMailInfo.certMailForMarriage : false
-            }
+            )}
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
@@ -319,9 +322,9 @@ export default class MarriageCheckoutPage extends React.Component<
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
-            tracking={
+            tracking={certifiedMailTrackingInUI(
               certMail ? certMail.certMailInfo.certMailForMarriage : false
-            }
+            )}
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
@@ -339,13 +342,13 @@ export default class MarriageCheckoutPage extends React.Component<
               currentStepCompleted: false,
               totalSteps: progressSteps,
             }}
-            tracking={
+            tracking={certifiedMailTrackingInUI(
               this.props.trackingVal
                 ? this.props.trackingVal
                 : certMail
                 ? certMail.certMailInfo.certMailForMarriage
                 : false
-            }
+            )}
             cardType={
               this.props.cardTypeVal
                 ? this.props.cardTypeVal

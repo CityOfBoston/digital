@@ -10,6 +10,8 @@ import { observer } from 'mobx-react';
 
 import { PageDependencies } from '../../pages/_app';
 
+import { certifiedMailTrackingInUI } from '../../lib/costs';
+
 import PageWrapper from '../PageWrapper';
 
 import ReviewCertificateRequest from '../common/ReviewCertificateRequest';
@@ -119,12 +121,12 @@ export default class ReviewRequestPage extends Component<Props, State> {
           <ReviewCertificateRequest
             certificateType="marriage"
             certificateRequest={this.props.marriageCertificateRequest}
-            tracking={
-              this.state.certMail &&
-              this.state.certMail.certMailInfo.certMailForMarriage === true
-                ? true
-                : false
-            }
+            tracking={certifiedMailTrackingInUI(
+              !!(
+                this.state.certMail &&
+                this.state.certMail.certMailInfo.certMailForMarriage === true
+              )
+            )}
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
             cardTypeChangeHandler={cardTypeChangeHandler}
           >

@@ -11,7 +11,7 @@ import Order, { OrderInfo } from '../../models/Order';
 import CertifiedMail from '../../models/CertifiedMail';
 import CardType from '../../models/CardType';
 
-import { CERTIFICATE_COST } from '../../../lib/costs';
+import { CERTIFICATE_COST, certifiedMailTrackingInUI } from '../../../lib/costs';
 
 import ShippingContent from '../../common/checkout/ShippingContent';
 import PaymentContent from '../../common/checkout/PaymentContent';
@@ -215,7 +215,9 @@ export default class CheckoutPageController extends React.Component<
     const orderId = await checkoutDao.submitDeathCertificateCart(
       deathCertificateCart,
       order,
-      certMail ? certMail.certMailInfo.certMailForDeath : false
+      certifiedMailTrackingInUI(
+        certMail ? certMail.certMailInfo.certMailForDeath : false
+      )
     );
 
     deathCertificateCart.trackCartItems();
@@ -268,7 +270,9 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.advanceToPayment}
-            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
+            tracking={certifiedMailTrackingInUI(
+              certMail ? certMail.certMailInfo.certMailForDeath : false
+            )}
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
@@ -281,7 +285,9 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.advanceToReview}
-            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
+            tracking={certifiedMailTrackingInUI(
+              certMail ? certMail.certMailInfo.certMailForDeath : false
+            )}
             cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
@@ -293,7 +299,9 @@ export default class CheckoutPageController extends React.Component<
             deathCertificateCart={deathCertificateCart}
             order={order}
             submit={this.submitOrder}
-            tracking={certMail ? certMail.certMailInfo.certMailForDeath : false}
+            tracking={certifiedMailTrackingInUI(
+              certMail ? certMail.certMailInfo.certMailForDeath : false
+            )}
           />
         );
 
