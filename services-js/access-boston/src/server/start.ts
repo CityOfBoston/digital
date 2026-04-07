@@ -13,6 +13,23 @@ if (
   require('dotenv').config();
 }
 
+const appInsights = require('applicationinsights');
+try {
+  appInsights.setup().start();
+
+  const client = appInsights.defaultClient;
+  if (client && client.config && client.config.connectionString) {
+    console.log('Application Insights initialized.');
+
+    // test that we can send a test trace to Application Insights
+    client.trackTrace({ message: 'Application Insights test trace' });
+  } else {
+    console.error('Application insights is not configured properly.');
+  }
+} catch (err) {
+  console.error('Application Insights failed to start', err);
+}
+
 const Rollbar = require('rollbar');
 const rollbar = new Rollbar({
   accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
