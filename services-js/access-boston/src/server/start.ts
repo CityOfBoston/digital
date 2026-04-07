@@ -18,7 +18,7 @@ try {
   appInsights.setup().start();
 
   const client = appInsights.defaultClient;
-  if (client && client.config && client.config.connectionString) {
+  if (client) {
     console.log('Application Insights initialized.');
 
     // test that we can send a test trace to Application Insights
