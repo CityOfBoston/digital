@@ -56,7 +56,7 @@ export const COUNTRIES = [
   { label: 'Bulgaria', value: 'BGR' },
   { label: 'Burkina Faso', value: 'BFA' },
   { label: 'Burundi', value: 'BDI' },
-  { label: 'Cabo Verde', value: 'CPV' },
+  { label: 'Cape Verde', value: 'CPV' },
   { label: 'Cambodia', value: 'KHM' },
   { label: 'Cameroon', value: 'CMR' },
   { label: 'Canada', value: 'CAN' },

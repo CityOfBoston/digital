@@ -66,7 +66,6 @@ export const chunkArray = (arr: Array<any> = [], size: Number) => {
  *        cn: '100992',
  *        ismemberof: [],
  *        nsaccountlock: 'FALSE',
- *        isSponsor: 'TRUE',
  *      },
  *     );
  *     returns {
@@ -74,7 +73,6 @@ export const chunkArray = (arr: Array<any> = [], size: Number) => {
  *       cn: '100992',
  *       ismemberof: [],
  *       nsaccountlock: 'FALSE',
- *       isSponsor: 'TRUE',
  *     }
  */
 export const renameObjectKeys = (keysMap: object, obj) => {

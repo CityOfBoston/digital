@@ -31,7 +31,10 @@ ADD . /app/
 
 RUN /app/scripts/generate-ssl-key.sh /app/services-js/$WORKSPACE
 
-RUN yarn install
+# Skip default lifecycle scripts so flaky third-party postinstalls (e.g. ngrok binary
+# download from bin.equinox.io) do not fail the image; then run the monorepo prepare
+# so @cityofboston/* workspace packages still build.
+RUN yarn install --ignore-scripts && yarn run prepare
 
 # This is the time consuming step +/-300secs
 WORKDIR /app/services-js/$WORKSPACE

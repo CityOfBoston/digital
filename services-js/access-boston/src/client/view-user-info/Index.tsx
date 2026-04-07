@@ -485,6 +485,13 @@ const toNormalCase = (str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
 
+/** Optional directory fields: omit blank/whitespace so we do not show placeholder text when absent. */
+const optionalDisplayText = (value: string | undefined | null): string | undefined => {
+  if (value == null) return undefined;
+  const t = String(value).trim();
+  return t.length ? t : undefined;
+};
+
 // Helper function to format email values
 const formatEmail = (email: string | undefined): string | undefined => {
   if (!email) return undefined;
@@ -530,7 +537,12 @@ const formatApplicationName = (appName: string): string => {
     'COB-Application-BFD': 'BFD AD',
   };
 
-  return appMappings[appName] || appName;
+  if (appMappings[appName]) return appMappings[appName];
+
+  const lower = appName.toLowerCase();
+  if (lower === 'servicenow - prod' || lower === 'servicenow') return 'Beacon';
+
+  return appName;
 };
 
 // Helper function to get display name (preferred if available, otherwise legal)
@@ -658,6 +670,7 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
 
           {results.map((identity, index) => {
             const uniqueKey = `${identity.uid}-${index}`;
+            const locationDisplay = optionalDisplayText(identity.location);
             const isExpanded = expandedRow === uniqueKey;
 
             return (
@@ -684,9 +697,11 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                       <div style={{ fontSize: '0.875rem', fontWeight: 'normal', color: COLORS.text }}>
                         {identity.departmentName || 'No Dept'}
                       </div>
-                      <div style={{ fontSize: '0.75rem', fontWeight: 'normal', color: COLORS.text }}>
-                        {identity.location || 'No Location'}
-                      </div>
+                      {locationDisplay && (
+                        <div style={{ fontSize: '0.75rem', fontWeight: 'normal', color: COLORS.text }}>
+                          {locationDisplay}
+                        </div>
+                      )}
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -756,20 +771,24 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                             ['Legal Last Name', identity.legalLastName],
                             ['Email', formatEmail(identity.email)],
                             ['Personal Email', formatEmail(identity.personalEmail)],
-                            ['Manager', identity.manager],
+                            ['Manager', optionalDisplayText(identity.manager)],
                             ['Department', identity.departmentName],
-                            ['Location', identity.location],
+                            ['Location', optionalDisplayText(identity.location)],
                             ['Employment Status', formatEmploymentStatus(identity.employmentStatus)],
                             ['VPN Status', formatVpnStatus(identity.vpnStatus)],
                             ['User Registered', formatUserRegistered(identity.userRegistered)],
                             ['Password Expires On', identity.passwordExpiresOn],
+                            ['Start Date', identity.startDate],
+                            ['End Date', identity.endDate] as [string, string | undefined],
                             ...(identity.isVip
                               ? [['VIP', identity.isVip] as [string, string | undefined]]
                               : []),
-                            ...(!identity.isEmployee
+                            ...(!identity.isEmployee || optionalDisplayText(identity.sponsor)
                               ? [
-                                  ['End Date', identity.endDate] as [string, string | undefined],
-                                  ['Sponsor', identity.sponsor] as [string, string | undefined],
+                                  ['Sponsor', optionalDisplayText(identity.sponsor)] as [
+                                    string,
+                                    string | undefined,
+                                  ],
                                 ]
                               : []),
                           ].map(([label, val]) => (

@@ -31,7 +31,8 @@ export interface CobraAttributes {
   displayName?: string;
   vpnStatus?: boolean;
   endDate?: string;
-  isSponsor?: string;
+  /** Human-readable sponsor label from Cobra (optional). */
+  cobSponsorDisplayName?: string;
   isVip?: string;
   [key: string]: any;
 }
@@ -39,11 +40,31 @@ export interface CobraAttributes {
 export interface CobraViewUserInfoResponse {
   attributes: CobraAttributes;
   access: string[];
+  /** Present on some payloads at the item level instead of inside `attributes`. */
+  cobSponsorDisplayName?: string;
+  [key: string]: unknown;
 }
 
 export interface Account {
   name: string;
   disabled: boolean;
+}
+
+/** Sponsor label from `cobSponsorDisplayName` on `attributes` or parent row; keys vary by serializer. */
+function resolveCobSponsorDisplayNameRaw(
+  attrs: CobraAttributes,
+  item: CobraViewUserInfoResponse
+): unknown {
+  const a = attrs as Record<string, unknown>;
+  const row = item as Record<string, unknown>;
+  return (
+    a.cobSponsorDisplayName ??
+    a.CobSponsorDisplayName ??
+    a.cob_sponsor_display_name ??
+    row.cobSponsorDisplayName ??
+    row.CobSponsorDisplayName ??
+    row.cob_sponsor_display_name
+  );
 }
 
 export interface ViewUserInfoResponse {
@@ -184,6 +205,13 @@ export default class ViewUserInfo {
     // Helper to convert undefined to null for GraphQL (allowUndefinedInResolve: false requires this)
     const toNullable = (value: any) => value !== undefined ? value : null;
 
+    /** Trimmed non-empty string, else undefined — Cobra may omit or send blank optional attributes. */
+    const optionalString = (value: unknown): string | undefined => {
+      if (value === undefined || value === null) return undefined;
+      const s = String(value).trim();
+      return s.length ? s : undefined;
+    };
+
     return {
       id: attrs.cloudAuthoritativeSource || attrs.uid,
       uid: attrs.uid,
@@ -197,9 +225,9 @@ export default class ViewUserInfo {
       personalEmail: toNullable(attrs.personalEmail),
       workPhone: toNullable(attrs.workPhone),
       phone: toNullable(attrs.phone),
-      manager: toNullable(safeGet('manager', () => attrs.managerName || attrs.managerEmail, null)),
+      manager: toNullable(optionalString(attrs.managerName)),
       departmentName: toNullable(attrs.departmentName),
-      location: toNullable(attrs.location),
+      location: toNullable(optionalString(attrs.location)),
       employmentStatus: toNullable(safeGet('employmentStatus', () => 
         attrs.status === 'A' ? 'ACTIVE' : attrs.status || 'UNKNOWN', 
         'UNKNOWN'
@@ -232,7 +260,7 @@ export default class ViewUserInfo {
       isVip: toNullable(safeGet('isVip', () => attrs.isVip === 'true' ? 'Yes' : null, null)),
       isEmployee: safeGet('isEmployee', () => attrs.isEmployee === 'true', false),
       endDate: attrs.endDate || null,
-      sponsor: toNullable(safeGet('sponsor', () => attrs.isSponsor === 'true' ? 'Yes' : null, null)),
+      sponsor: toNullable(optionalString(resolveCobSponsorDisplayNameRaw(attrs, cobraData))),
       accounts: accounts,
     };
   }

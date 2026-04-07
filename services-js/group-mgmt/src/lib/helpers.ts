@@ -91,7 +91,6 @@ export const numbericPairToBool = (
  *        cn: '100992',
  *        ismemberof: [],
  *        nsaccountlock: 'FALSE',
- *        isSponsor: 'TRUE',
  *      },
  *     );
  *
@@ -100,7 +99,6 @@ export const numbericPairToBool = (
  *       cn: '100992',
  *       ismemberof: [],
  *       nsaccountlock: 'FALSE',
- *       isSponsor: 'TRUE',
  *     }
  */
 export const renameObjectKeys = (keysMap: object, obj) => {
