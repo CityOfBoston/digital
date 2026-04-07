@@ -13,6 +13,9 @@ if (
   require('dotenv').config();
 }
 
+let appInsights = require('applicationinsights');
+appInsights.setup().start();
+
 const Rollbar = require('rollbar');
 const rollbar = new Rollbar({
   accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
