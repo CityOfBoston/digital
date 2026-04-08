@@ -24,7 +24,7 @@ try {
     .setAutoCollectConsole(true, false)
     .setUseDiskRetryCaching(true)
     .setAutoCollectPreAggregatedMetrics(true)
-    .setSendLiveMetrics(false)
+    .setSendLiveMetrics(true)
     .setAutoCollectHeartbeat(false)
     .setAutoCollectIncomingRequestAzureFunctions(true)
     .setInternalLogging(false, true)
