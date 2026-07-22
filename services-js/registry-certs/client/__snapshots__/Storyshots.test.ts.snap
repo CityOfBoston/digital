@@ -2315,7 +2315,7 @@ Array [
                             Age: 
                           </label>
                           <span>
-                            57
+                            58
                           </span>
                         </div>
                         <div>
@@ -2372,27 +2372,13 @@ Array [
                       <div
                         className="col"
                       >
-                        USPS Tracking®
-                      </div>
-                      <div
-                        className="col"
-                      >
-                        $ 5.00
-                      </div>
-                    </div>
-                    <div
-                      className="row"
-                    >
-                      <div
-                        className="col"
-                      >
                         Service fee
                       </div>
                       <div
                         className="col"
                       >
                         $ 
-                        1.18
+                        1.11
                       </div>
                     </div>
                     <div
@@ -2407,7 +2393,7 @@ Array [
                         className="col total-cost"
                       >
                         $ 
-                        62.18
+                        57.11
                       </div>
                     </div>
                   </div>
@@ -10387,7 +10373,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation birth too rece
               <input
                 className="txt-f"
                 id="dob-year"
-                max={2025}
+                max={2026}
                 maxLength={4}
                 min={1870}
                 name="year"
@@ -10986,7 +10972,7 @@ exports[`Storyshots Birth/Question Components/PersonalInformation default 1`] = 
               <input
                 className="txt-f"
                 id="dob-year"
-                max={2025}
+                max={2026}
                 maxLength={4}
                 min={1870}
                 name="year"
@@ -14636,7 +14622,7 @@ Array [
                         <input
                           className="txt-f"
                           id="dob-year"
-                          max={2025}
+                          max={2026}
                           maxLength={4}
                           min={1870}
                           name="year"
@@ -26846,7 +26832,7 @@ Array [
                             Age: 
                           </label>
                           <span>
-                            57
+                            58
                           </span>
                         </div>
                         <div>
@@ -42095,7 +42081,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
           <input
             className="year-field txt-f "
             id="date1year"
-            max={2025}
+            max={2026}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -42154,7 +42140,7 @@ exports[`Storyshots Common Components/DateRangePicker default 1`] = `
           <input
             className="year-field txt-f "
             id="date2year"
-            max={2025}
+            max={2026}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -42306,7 +42292,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
           <input
             className="year-field txt-f "
             id="date1year"
-            max={2025}
+            max={2026}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -42365,7 +42351,7 @@ exports[`Storyshots Common Components/DateRangePicker range too vast 1`] = `
           <input
             className="year-field txt-f "
             id="date2year"
-            max={2025}
+            max={2026}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -42517,7 +42503,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
           <input
             className="year-field txt-f "
             id="date1year"
-            max={2025}
+            max={2026}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -42576,7 +42562,7 @@ exports[`Storyshots Common Components/DateRangePicker with values 1`] = `
           <input
             className="year-field txt-f "
             id="date2year"
-            max={2025}
+            max={2026}
             min={1870}
             onBlur={[Function]}
             onChange={[Function]}
@@ -42678,7 +42664,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent default 1`] 
         <input
           className="year-field txt-f "
           id="date1year"
-          max={2025}
+          max={2026}
           min={1870}
           onBlur={[Function]}
           onChange={[Function]}
@@ -42779,7 +42765,7 @@ exports[`Storyshots Common Components/DateRangePicker/DateComponent with values 
         <input
           className="year-field txt-f "
           id="date2year"
-          max={2025}
+          max={2026}
           min={1870}
           onBlur={[Function]}
           onChange={[Function]}
@@ -43262,7 +43248,7 @@ exports[`Storyshots Common Components/Order Details OrderDetails: birth 1`] = `
           Age: 
         </label>
         <span>
-          57
+          58
         </span>
       </div>
       <div>
@@ -44450,7 +44436,7 @@ exports[`Storyshots Common Components/Order Details OrderDetailsDropdown: birth 
                   Age: 
                 </label>
                 <span>
-                  57
+                  58
                 </span>
               </div>
               <div>
@@ -52344,7 +52330,7 @@ Array [
                 Age: 
               </label>
               <span>
-                57
+                58
               </span>
             </div>
             <div>
@@ -57466,7 +57452,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-8 {
+.emotion-6 {
   font-weight: 700;
 }
 
@@ -57515,85 +57501,7 @@ Array [
   top: 12px;
 }
 
-.emotion-5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  border-color: transparent;
-  background: transparent;
-}
-
-.emotion-5 .wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 8px 3px 8px 5px;
-  border: 3px solid transparent;
-}
-
-.emotion-5 .wrapper input[type='radio'] {
-  display: none;
-}
-
-.emotion-5 .wrapper label::before {
-  content: 'Add';
-  color: #1871bd;
-  font-family: Lora;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  padding: 0.15em calc(0.6em + 0.75rem) 0 0;
-  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%231871BD%22%2F%3E%0A%3C%2Fsvg%3E");
-  background-repeat: no-repeat;
-  background-position: center right;
-  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-  cursor: pointer;
-}
-
-.emotion-5 .wrapper label:hover::before {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-5:focus:not(:focus-visible) .wrapper {
-  border-color: transparrent;
-}
-
-.emotion-5[data-state='disabled'] .wrapper label::before {
-  color: #d2d2d2;
-  background-image: url("data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M12%202.25C10.0716%202.25%208.18657%202.82183%206.58319%203.89317C4.97982%204.96451%203.73013%206.48726%202.99218%208.26884C2.25422%2010.0504%202.06114%2012.0108%202.43735%2013.9021C2.81355%2015.7934%203.74215%2017.5307%205.10571%2018.8943C6.46928%2020.2579%208.20656%2021.1865%2010.0979%2021.5627C11.9892%2021.9389%2013.9496%2021.7458%2015.7312%2021.0078C17.5127%2020.2699%2019.0355%2019.0202%2020.1068%2017.4168C21.1782%2015.8134%2021.75%2013.9284%2021.75%2012C21.7473%209.41498%2020.7192%206.93661%2018.8913%205.10872C17.0634%203.28084%2014.585%202.25273%2012%202.25ZM12%2020.25C10.3683%2020.25%208.77326%2019.7661%207.41655%2018.8596C6.05984%2017.9531%205.00242%2016.6646%204.378%2015.1571C3.75358%2013.6496%203.5902%2011.9908%203.90853%2010.3905C4.22685%208.79016%205.01259%207.32015%206.16637%206.16637C7.32016%205.01259%208.79017%204.22685%2010.3905%203.90852C11.9909%203.59019%2013.6497%203.75357%2015.1571%204.37799C16.6646%205.00242%2017.9531%206.05984%2018.8596%207.41655C19.7661%208.77325%2020.25%2010.3683%2020.25%2012C20.2475%2014.1873%2019.3775%2016.2843%2017.8309%2017.8309C16.2843%2019.3775%2014.1873%2020.2475%2012%2020.25ZM16.5%2012C16.5%2012.1989%2016.421%2012.3897%2016.2803%2012.5303C16.1397%2012.671%2015.9489%2012.75%2015.75%2012.75H12.75V15.75C12.75%2015.9489%2012.671%2016.1397%2012.5303%2016.2803C12.3897%2016.421%2012.1989%2016.5%2012%2016.5C11.8011%2016.5%2011.6103%2016.421%2011.4697%2016.2803C11.329%2016.1397%2011.25%2015.9489%2011.25%2015.75V12.75H8.25C8.05109%2012.75%207.86033%2012.671%207.71967%2012.5303C7.57902%2012.3897%207.5%2012.1989%207.5%2012C7.5%2011.8011%207.57902%2011.6103%207.71967%2011.4697C7.86033%2011.329%208.05109%2011.25%208.25%2011.25H11.25V8.25C11.25%208.05109%2011.329%207.86032%2011.4697%207.71967C11.6103%207.57902%2011.8011%207.5%2012%207.5C12.1989%207.5%2012.3897%207.57902%2012.5303%207.71967C12.671%207.86032%2012.75%208.05109%2012.75%208.25V11.25H15.75C15.9489%2011.25%2016.1397%2011.329%2016.2803%2011.4697C16.421%2011.6103%2016.5%2011.8011%2016.5%2012Z%22%20fill%3D%22%23D2D2D2%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.emotion-5[data-state='disabled']:active .wrapper,
-.emotion-5[data-state='disabled']:focus .wrapper {
-  border-color: #d2d2d2;
-}
-
-.emotion-5[data-state='focused'] .wrapper {
-  border-color: #1871bd;
-}
-
-.emotion-5[data-action='add'] label::before {
-  content: attr(data-content-default);
-}
-
-.emotion-5[data-action='remove'] label::before {
-  content: attr(data-content-alt);
-  background: none;
-  padding-right: 3px;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-5[data-action='remove']:hover label::before {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-7 .m-b500 a {
+.emotion-5 .m-b500 a {
   color: #1871bd;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -57602,61 +57510,9 @@ Array [
   text-underline-offset: 0.15em;
 }
 
-.emotion-7 .m-b500 a:hover {
+.emotion-5 .m-b500 a:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.emotion-6 {
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 18px;
-  font-weight: normal;
-  line-height: 1.5em;
-  padding: 1rem 0 1.5rem 0;
-  border-color: #d2d2d2;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-}
-
-.emotion-6 h1 {
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.emotion-6 span.bold {
-  font-weight: 700;
-}
-
-.emotion-6 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.emotion-6 .row .col:first-of-type {
-  padding-top: 0.75rem;
-  max-width: 75%;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-6 .row .col:first-of-type {
-    padding-top: 0.75rem;
-    max-width: 85%;
-  }
 }
 
 <div
@@ -57853,7 +57709,7 @@ Array [
           className="b-ff"
         >
           <div
-            className="b-ff b-c b-c--nbp emotion-7"
+            className="b-ff b-c b-c--nbp emotion-5"
           >
             <div>
               <div
@@ -57884,58 +57740,6 @@ Array [
                 Loading your cart…
               </div>
             </div>
-            <div
-              className="emotion-6"
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col"
-                >
-                  <h1>
-                    Need A Tracking Number?
-                  </h1>
-                  You can add 
-                  <span
-                    className="bold"
-                  >
-                    USPS Tracking®
-                  </span>
-                   services for an additional fee of $5.00. After your purchase the Registry will follow-up with a tracking number.
-                </div>
-                <div
-                  className="col"
-                >
-                  <div
-                    className="emotion-5"
-                    data-action="add"
-                    id="checkoutAddRemove"
-                    onClick={[Function]}
-                    onKeyUp={[Function]}
-                    onTouchEnd={[Function]}
-                    tabIndex={0}
-                  >
-                    <div
-                      className="wrapper"
-                    >
-                      <label
-                        aria-label="Add / Remove Button"
-                        data-content-alt="Remove"
-                        data-content-default="Add"
-                        htmlFor="checkoutAddRemove"
-                        title="Add / Remove Button"
-                      />
-                      <input
-                        name="hidden-CertMailTracking-Input--2526058632"
-                        type="hidden"
-                        value="0"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             className="b--g m-t700"
@@ -57946,7 +57750,7 @@ Array [
             >
               * 
               <span
-                className="emotion-8"
+                className="emotion-6"
               >
                 Note:
               </span>
@@ -58093,7 +57897,7 @@ Array [
   color: #d22d23;
 }
 
-.emotion-23 {
+.emotion-21 {
   font-weight: 700;
 }
 
@@ -58449,7 +58253,7 @@ Array [
   text-decoration: none;
 }
 
-.emotion-22 .m-b500 a {
+.emotion-20 .m-b500 a {
   color: #1871bd;
   font-family: Lora,Georgia,serif;
   font-size: 1.125em;
@@ -58458,61 +58262,9 @@ Array [
   text-underline-offset: 0.15em;
 }
 
-.emotion-22 .m-b500 a:hover {
+.emotion-20 .m-b500 a:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.emotion-21 {
-  color: #091f2f;
-  font-family: Lora,Georgia,serif;
-  font-size: 18px;
-  font-weight: normal;
-  line-height: 1.5em;
-  padding: 1rem 0 1.5rem 0;
-  border-color: #d2d2d2;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-}
-
-.emotion-21 h1 {
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.emotion-21 span.bold {
-  font-weight: 700;
-}
-
-.emotion-21 .row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.emotion-21 .row .col:first-of-type {
-  padding-top: 0.75rem;
-  max-width: 75%;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-21 .row .col:first-of-type {
-    padding-top: 0.75rem;
-    max-width: 85%;
-  }
 }
 
 <div
@@ -58709,7 +58461,7 @@ Array [
           className="b-ff"
         >
           <div
-            className="b-ff b-c b-c--nbp emotion-22"
+            className="b-ff b-c b-c--nbp emotion-20"
           >
             <div>
               <div
@@ -59548,58 +59300,6 @@ Array [
                 </div>
               </div>
             </div>
-            <div
-              className="emotion-21"
-            >
-              <div
-                className="row"
-              >
-                <div
-                  className="col"
-                >
-                  <h1>
-                    Need A Tracking Number?
-                  </h1>
-                  You can add 
-                  <span
-                    className="bold"
-                  >
-                    USPS Tracking®
-                  </span>
-                   services for an additional fee of $5.00. After your purchase the Registry will follow-up with a tracking number.
-                </div>
-                <div
-                  className="col"
-                >
-                  <div
-                    className="emotion-6"
-                    data-action="add"
-                    id="checkoutAddRemove"
-                    onClick={[Function]}
-                    onKeyUp={[Function]}
-                    onTouchEnd={[Function]}
-                    tabIndex={0}
-                  >
-                    <div
-                      className="wrapper"
-                    >
-                      <label
-                        aria-label="Add / Remove Button"
-                        data-content-alt="Remove"
-                        data-content-default="Add"
-                        htmlFor="checkoutAddRemove"
-                        title="Add / Remove Button"
-                      />
-                      <input
-                        name="hidden-CertMailTracking-Input--2526058632"
-                        type="hidden"
-                        value="0"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div
             className="b--g m-t700"
@@ -59610,7 +59310,7 @@ Array [
             >
               * 
               <span
-                className="emotion-23"
+                className="emotion-21"
               >
                 Note:
               </span>
@@ -63457,6 +63157,20 @@ Array [
                   #
                   123-4444-5
                 </strong>
+                .
+              </p>
+              <p>
+                As of July 1st, 2026, a new Massachusetts state law went into effect regarding public records. To protect estates and families against identity theft, all standard certified death certificates are now issued with masked (redacted) Social Security numbers.
+              </p>
+              <p>
+                If you do require the SSN to be shown, please reply to your order's confirmation email with the required documentation that can be found 
+                <a
+                  href="https://www.boston.gov/departments/registry/how-get-death-certificate#social-security-numbers"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  here
+                </a>
                 .
               </p>
               <p>
@@ -68517,6 +68231,34 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
+        As of July 1st, 2026, a new Massachusetts state law went into effect regarding public records. To protect estates and families against identity theft, all standard certified death certificates are now issued with masked (redacted) Social Security numbers.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
+        If you do require the SSN to be shown, please reply to your order's confirmation email with the required documentation that can be found <a href=\\"https://www.boston.gov/departments/registry/how-get-death-certificate#social-security-numbers\\">here</a>.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
+      >
         Your order will be shipped within 1-2 business days via the U.S. Postal Service.
       </div>
     
@@ -68768,6 +68510,23 @@ Your order:
   Subtotal  $140.00
   Card processing fee*  $1.32
   Total  $146.32
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
+
+As of July 1st, 2026, a new Massachusetts state law went 
+into effect regarding public records. To protect estates and 
+families against identity theft, all standard certified 
+death certificates are now issued with masked (redacted) 
+Social Security numbers.
+
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
+
+If you do require the SSN to be shown, please reply to your 
+order&#x27;s confirmation email with the required 
+documentation that can be found here 
+[https://www.boston.gov/departments/registry/how-get-death-certificate#social-security-numbers].
 
 
 If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
@@ -71352,11 +71111,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
   opacity: 0;
 }
 
-.css-12yp9t2 .emotion-245:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
 .css-1ttcwo2 .emotion-245:after {
   content: '&nbsp;';
   opacity: 0;
@@ -71481,7 +71235,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
           <input
             className="txt-f"
             id="dob-year"
-            max={2025}
+            max={2026}
             maxLength={4}
             min="1000"
             name="year"
@@ -71771,7 +71525,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
             className="emotion-4"
             value="CPV"
           >
-            Cabo Verde
+            Cape Verde
           </option>
           <option
             className="emotion-4"
@@ -73319,11 +73073,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
   opacity: 0;
 }
 
-.css-12yp9t2 .emotion-299:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
 .css-1ttcwo2 .emotion-299:after {
   content: '&nbsp;';
   opacity: 0;
@@ -73479,7 +73228,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
           <input
             className="txt-f"
             id="dob-year"
-            max={2025}
+            max={2026}
             maxLength={4}
             min="1000"
             name="year"
@@ -73769,7 +73518,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
             className="emotion-4"
             value="CPV"
           >
-            Cabo Verde
+            Cape Verde
           </option>
           <option
             className="emotion-4"
@@ -75773,7 +75522,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
           <input
             className="txt-f"
             id="dob-year"
-            max={2025}
+            max={2026}
             maxLength={4}
             min="1000"
             name="year"
@@ -76063,7 +75812,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Birth 
             className="emotion-4"
             value="CPV"
           >
-            Cabo Verde
+            Cape Verde
           </option>
           <option
             className="emotion-4"
@@ -78487,11 +78236,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
   opacity: 0;
 }
 
-.css-12yp9t2 .emotion-1:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
 .css-1ttcwo2 .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
@@ -79216,11 +78960,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Naming
 }
 
 .css-1nb9jwk .emotion-1:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
-.css-12yp9t2 .emotion-1:after {
   content: '&nbsp;';
   opacity: 0;
 }
@@ -80041,11 +79780,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
   opacity: 0;
 }
 
-.css-12yp9t2 .emotion-296:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
 .css-1ttcwo2 .emotion-296:after {
   content: '&nbsp;';
   opacity: 0;
@@ -80392,7 +80126,7 @@ exports[`Storyshots Marriage Intention/Form Components Step 2. Person 1 - Reside
               className="emotion-2"
               value="CPV"
             >
-              Cabo Verde
+              Cape Verde
             </option>
             <option
               className="emotion-2"
@@ -82323,21 +82057,6 @@ exports[`Storyshots Marriage Intention/Form Components Step 5. Review - Contact 
           className="value"
         >
           (617) 000-1111
-        </span>
-      </div>
-      <div
-        className="field-value-pair"
-      >
-        <label
-          className="field"
-        >
-          Appointment Date
-          : 
-        </label>
-        <span
-          className="value"
-        >
-          Sep 23, 1982
         </span>
       </div>
     </div>
@@ -85565,7 +85284,7 @@ Array [
                             <input
                               className="txt-f"
                               id="dob-year"
-                              max={2025}
+                              max={2026}
                               maxLength={4}
                               min="1000"
                               name="year"
@@ -85854,7 +85573,7 @@ Array [
                               className="emotion-11"
                               value="CPV"
                             >
-                              Cabo Verde
+                              Cape Verde
                             </option>
                             <option
                               className="emotion-11"
@@ -87375,7 +87094,7 @@ Array [
                                 className="emotion-11"
                                 value="CPV"
                               >
-                                Cabo Verde
+                                Cape Verde
                               </option>
                               <option
                                 className="emotion-11"
@@ -91181,7 +90900,7 @@ Array [
                             <input
                               className="txt-f"
                               id="dob-year"
-                              max={2025}
+                              max={2026}
                               maxLength={4}
                               min="1000"
                               name="year"
@@ -91470,7 +91189,7 @@ Array [
                               className="emotion-11"
                               value="CPV"
                             >
-                              Cabo Verde
+                              Cape Verde
                             </option>
                             <option
                               className="emotion-11"
@@ -92991,7 +92710,7 @@ Array [
                                 className="emotion-11"
                                 value="CPV"
                               >
-                                Cabo Verde
+                                Cape Verde
                               </option>
                               <option
                                 className="emotion-11"
@@ -94961,40 +94680,40 @@ Array [
   color: #d22d23;
 }
 
-.emotion-14 fieldset + fieldset {
+.emotion-10 fieldset + fieldset {
   margin-top: 2rem;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-14 fieldset + fieldset {
+  .emotion-10 fieldset + fieldset {
     margin-top: 4rem;
   }
 
-  .emotion-14 fieldset + fieldset .lnk {
+  .emotion-10 fieldset + fieldset .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-13 {
+.emotion-9 {
   margin: 0;
   padding: 0;
   border: none;
 }
 
-.emotion-13 legend {
+.emotion-9 legend {
   padding-left: 0;
   padding-right: 0;
   width: 100%;
 }
 
-.emotion-13 h2 {
+.emotion-9 h2 {
   margin-bottom: 0;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
   color: #091f2f;
 }
 
-.emotion-13 .desc {
+.emotion-9 .desc {
   margin: 0.5rem 0 0.75rem;
   font-family: Lora,Georgia,serif;
   font-size: 0.9375em;
@@ -95003,103 +94722,35 @@ Array [
   line-height: 1.2em;
 }
 
-.emotion-16 {
+.emotion-12 {
   text-align: center;
 }
 
 @media screen and (min-width:480px) {
-  .emotion-16 {
+  .emotion-12 {
     margin-top: 2.5rem;
     text-align: left;
   }
 
-  .emotion-16 > div {
+  .emotion-12 > div {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
   }
 
-  .emotion-16 > div.ta-r > button {
+  .emotion-12 > div.ta-r > button {
     margin-left: auto;
   }
 
-  .emotion-16 .lnk {
+  .emotion-12 .lnk {
     padding-left: 0;
   }
 }
 
-.emotion-15 {
+.emotion-11 {
   padding: 1.25rem !important;
   padding-left: 0 !important;
-}
-
-.emotion-10 {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.emotion-10 legend {
-  padding-left: 0;
-  font-size: 120%;
-}
-
-.emotion-9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-transition: opacity 0.1s;
-  transition: opacity 0.1s;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-9 > div {
-    -webkit-flex: 0 0 24%;
-    -ms-flex: 0 0 24%;
-    flex: 0 0 24%;
-  }
-
-  .emotion-9 > div:last-of-type {
-    -webkit-flex: 0 0 50%;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-  }
-}
-
-.emotion-9 input {
-  -moz-appearance: textfield;
-}
-
-.emotion-9 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-.emotion-9 input::-ms-clear {
-  display: none;
-}
-
-.emotion-9 label {
-  margin-top: 0.5rem;
-}
-
-.emotion-9.disabled {
-  opacity: 0.4;
-}
-
-.emotion-9.disabled * {
-  cursor: not-allowed;
-}
-
-@media screen and (max-width:480px) {
-  .emotion-9 {
-    display: block;
-  }
 }
 
 .emotion-2 {
@@ -95245,7 +94896,7 @@ Array [
   }
 }
 
-.emotion-17 {
+.emotion-13 {
   padding: 0px;
 }
 
@@ -95294,50 +94945,12 @@ Array [
   padding-bottom: 0.25em;
 }
 
-.emotion-12 h2 {
+.emotion-8 h2 {
   font-size: 1.5rem;
 }
 
-.emotion-12 h4 {
+.emotion-8 h4 {
   font-size: 1.25rem;
-}
-
-@media screen and (min-width:768px) {
-  .emotion-7 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.emotion-7 > div {
-  text-align: left;
-}
-
-@media screen and (min-width:768px) {
-  .emotion-7 > div {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-  }
-}
-
-@media screen and (min-width:768px) {
-  .emotion-7 > div {
-    width: 50%;
-  }
-
-  .emotion-7 .txt-f {
-    width: 90%;
-  }
 }
 
 @media screen and (min-width:768px) {
@@ -95399,86 +95012,6 @@ Array [
 
 .emotion-6 .contact-fields input.txt-f {
   width: 100%;
-}
-
-@media screen and (min-width:480px) {
-  .emotion-6 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-
-  .emotion-6 .contact-fields {
-    width: calc(50% - 10px);
-  }
-}
-
-@media screen and (min-width:768px) {
-  .emotion-11 {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-.emotion-11 .ra-l {
-  font-size: 0.9375em;
-}
-
-.emotion-11 > div {
-  text-align: left;
-}
-
-@media screen and (min-width:768px) {
-  .emotion-11 > div {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-  }
-}
-
-.emotion-11 > .RADIOGROUP label {
-  display: block;
-}
-
-.emotion-11 h3 {
-  font-family: Montserrat,Arial,sans-serif !important;
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-.emotion-11 .notice {
-  font-size: 0.8125em;
-  clear: both;
-  min-height: 1px;
-  overflow: hidden;
-  display: block;
-  margin: 0.25em 0 0.75em 0;
-  line-height: 1.5em;
-}
-
-.emotion-11 .emotion-5:after {
-  content: '&nbsp;';
-  opacity: 0;
-}
-
-.emotion-8 {
-  padding-bottom: 0.25rem;
-  marginBottom: 0;
-  font-weight: 700;
-  color: #091f2f;
-  border-bottom: 4px solid #091f2f;
-  text-transform: uppercase;
-  font-family: Montserrat,Arial,sans-serif;
-  font-size: 1.125rem !important;
 }
 
 <div
@@ -95759,13 +95292,13 @@ Array [
             className="m-t500"
           >
             <div
-              className="b-c b-c--nbp emotion-17"
+              className="b-c b-c--nbp emotion-13"
             >
               <div
-                className="emotion-14"
+                className="emotion-10"
               >
                 <fieldset
-                  className=" emotion-13"
+                  className=" emotion-9"
                 >
                   <legend>
                     <h2
@@ -95780,7 +95313,7 @@ Array [
                     Please share the best email and phone number to get in contact with you. This will be used to contact you about your appointment.
                   </div>
                   <div
-                    className="emotion-12"
+                    className="emotion-8"
                   >
                     <div
                       className="emotion-7"
@@ -95964,154 +95497,17 @@ Array [
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="emotion-11"
-                      style={
-                        Object {
-                          "marginBottom": "1em",
-                          "paddingTop": "1.5rem",
-                        }
-                      }
-                    >
-                      <fieldset
-                        className="emotion-10"
-                      >
-                        <div>
-                          <legend
-                            style={
-                              Object {
-                                "width": "100%",
-                              }
-                            }
-                          >
-                            <h2
-                              className="emotion-8"
-                              style={
-                                Object {
-                                  "marginBottom": "1.5rem",
-                                }
-                              }
-                            >
-                              Appointment Date
-                            </h2>
-                          </legend>
-                          <div
-                            className=" emotion-9"
-                          >
-                            <div>
-                              <label
-                                className="txt-l"
-                                htmlFor="appointmentDate-month"
-                              >
-                                Month
-                                <span
-                                  aria-hidden="true"
-                                  className="t--req"
-                                  style={
-                                    Object {
-                                      "marginLeft": "0.35em",
-                                    }
-                                  }
-                                >
-                                  Required
-                                </span>
-                              </label>
-                              <input
-                                className="txt-f"
-                                id="appointmentDate-month"
-                                max="12"
-                                maxLength={2}
-                                min="1"
-                                name="month"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                placeholder="MM"
-                                type="number"
-                                value=""
-                              />
-                            </div>
-                            <div>
-                              <label
-                                className="txt-l"
-                                htmlFor="appointmentDate-day"
-                              >
-                                Day
-                                <span
-                                  aria-hidden="true"
-                                  className="t--req"
-                                  style={
-                                    Object {
-                                      "marginLeft": "0.35em",
-                                    }
-                                  }
-                                >
-                                  Required
-                                </span>
-                              </label>
-                              <input
-                                className="txt-f"
-                                id="appointmentDate-day"
-                                max="31"
-                                maxLength={2}
-                                min="1"
-                                name="day"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                placeholder="DD"
-                                type="number"
-                                value=""
-                              />
-                            </div>
-                            <div>
-                              <label
-                                className="txt-l"
-                                htmlFor="appointmentDate-year"
-                              >
-                                Year
-                                <span
-                                  aria-hidden="true"
-                                  className="t--req"
-                                  style={
-                                    Object {
-                                      "marginLeft": "0.35em",
-                                    }
-                                  }
-                                >
-                                  Required
-                                </span>
-                              </label>
-                              <input
-                                className="txt-f"
-                                id="appointmentDate-year"
-                                max="9999"
-                                maxLength={4}
-                                min={2025}
-                                name="year"
-                                onBlur={[Function]}
-                                onChange={[Function]}
-                                onFocus={[Function]}
-                                placeholder="YYYY"
-                                type="number"
-                                value=""
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div>
                   </div>
                 </fieldset>
               </div>
               <div
-                className="g g--mr emotion-16"
+                className="g g--mr emotion-12"
               >
                 <div
                   className="t--info g--6 m-b500"
                 >
                   <button
-                    className="lnk emotion-15"
+                    className="lnk emotion-11"
                     onClick={[Function]}
                     type="button"
                   >
@@ -97554,21 +96950,6 @@ Array [
                             className="field"
                           >
                             Phone #
-                            : 
-                          </label>
-                          <span
-                            className="value"
-                          >
-                            
-                          </span>
-                        </div>
-                        <div
-                          className="field-value-pair"
-                        >
-                          <label
-                            className="field"
-                          >
-                            Appointment Date
                             : 
                           </label>
                           <span
@@ -102432,27 +101813,13 @@ Array [
                       <div
                         className="col"
                       >
-                        USPS Tracking®
-                      </div>
-                      <div
-                        className="col"
-                      >
-                        $ 5.00
-                      </div>
-                    </div>
-                    <div
-                      className="row"
-                    >
-                      <div
-                        className="col"
-                      >
                         Service fee
                       </div>
                       <div
                         className="col"
                       >
                         $ 
-                        0.66
+                        0.56
                       </div>
                     </div>
                     <div
@@ -102467,7 +101834,7 @@ Array [
                         className="col total-cost"
                       >
                         $ 
-                        19.66
+                        14.56
                       </div>
                     </div>
                   </div>
@@ -104734,7 +104101,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
               <input
                 className="year-field txt-f "
                 id="date1year"
-                max={2025}
+                max={2026}
                 min={1870}
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -104793,7 +104160,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage date range too v
               <input
                 className="year-field txt-f "
                 id="date2year"
-                max={2025}
+                max={2026}
                 min={1870}
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -105749,7 +105116,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage knows exact date
               <input
                 className="txt-f"
                 id="dateOfMarriageStart-year"
-                max={2025}
+                max={2026}
                 maxLength={4}
                 min={1870}
                 name="year"
@@ -106326,7 +105693,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage marriage too rec
               <input
                 className="txt-f"
                 id="dateOfMarriageStart-year"
-                max={2025}
+                max={2026}
                 maxLength={4}
                 min={1870}
                 name="year"
@@ -106877,7 +106244,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
               <input
                 className="year-field txt-f "
                 id="date1year"
-                max={2025}
+                max={2026}
                 min={1870}
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -106936,7 +106303,7 @@ exports[`Storyshots Marriage/Question Components/DateOfMarriage unsure of date 1
               <input
                 className="year-field txt-f "
                 id="date2year"
-                max={2025}
+                max={2026}
                 min={1870}
                 onBlur={[Function]}
                 onChange={[Function]}
