@@ -11,7 +11,7 @@ exports[`charge.captured sends a birth shipped email 1`] = `
         "fixedFee": 25,
         "items": Array [
           Object {
-            "cost": 8400,
+            "cost": 7900,
             "date": 1976-10-06T04:00:00.000Z,
             "name": "Carol Danvers",
             "quantity": 6,
@@ -29,8 +29,8 @@ exports[`charge.captured sends a birth shipped email 1`] = `
         "shippingName": "Squirrel Girl",
         "shippingState": "NY",
         "shippingZip": "10001",
-        "subtotal": 8400,
-        "total": 8666,
+        "subtotal": 7900,
+        "total": 8166,
       },
     ],
   ],
@@ -54,7 +54,7 @@ exports[`charge.captured sends a marriage shipped email 1`] = `
         "fixedFee": 25,
         "items": Array [
           Object {
-            "cost": 1400,
+            "cost": 900,
             "date": "",
             "name": "undefined & undefined;",
             "quantity": 1,
@@ -72,8 +72,8 @@ exports[`charge.captured sends a marriage shipped email 1`] = `
         "shippingName": "Squirrel Girl",
         "shippingState": "NY",
         "shippingZip": "10001",
-        "subtotal": 1400,
-        "total": 1666,
+        "subtotal": 900,
+        "total": 1166,
       },
     ],
   ],
@@ -97,7 +97,7 @@ exports[`charge.created sends birth email 1`] = `
         "fixedFee": 25,
         "items": Array [
           Object {
-            "cost": 8400,
+            "cost": 7900,
             "date": 1976-10-06T04:00:00.000Z,
             "name": "Carol Danvers",
             "quantity": 6,
@@ -115,8 +115,8 @@ exports[`charge.created sends birth email 1`] = `
         "shippingName": "Squirrel Girl",
         "shippingState": "NY",
         "shippingZip": "10001",
-        "subtotal": 8400,
-        "total": 8666,
+        "subtotal": 7900,
+        "total": 8166,
       },
     ],
     Array [
@@ -127,7 +127,7 @@ exports[`charge.created sends birth email 1`] = `
         "fixedFee": 25,
         "items": Array [
           Object {
-            "cost": 8400,
+            "cost": 7900,
             "date": 1976-10-06T04:00:00.000Z,
             "name": "Carol Danvers",
             "quantity": 6,
@@ -145,8 +145,8 @@ exports[`charge.created sends birth email 1`] = `
         "shippingName": "Squirrel Girl",
         "shippingState": "NY",
         "shippingZip": "10001",
-        "subtotal": 8400,
-        "total": 8666,
+        "subtotal": 7900,
+        "total": 8166,
       },
     ],
   ],
@@ -263,7 +263,7 @@ exports[`charge.created sends marriage email 1`] = `
         "fixedFee": 25,
         "items": Array [
           Object {
-            "cost": 1400,
+            "cost": 900,
             "date": "",
             "name": "undefined & undefined;",
             "quantity": 1,
@@ -281,8 +281,8 @@ exports[`charge.created sends marriage email 1`] = `
         "shippingName": "Squirrel Girl",
         "shippingState": "NY",
         "shippingZip": "10001",
-        "subtotal": 1400,
-        "total": 1666,
+        "subtotal": 900,
+        "total": 1166,
       },
     ],
   ],
