@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
 
-import AppsRegistry from './AppsRegistry';
+import AppsRegistry, { NoticeClass } from './AppsRegistry';
 
 describe('appsForUserTypeAndGroups', () => {
   let appsRegistry: AppsRegistry;
@@ -46,5 +46,35 @@ describe('appsForUserTypeAndGroups', () => {
   it('returns apps that require an MFA device', () => {
     // This checks that categories with no apps are not returned
     expect(appsRegistry.appsForGroups([], true, 'CH')).toMatchSnapshot();
+  });
+
+  it('returns only birthright apps for onboarding users', () => {
+    expect(
+      appsRegistry.appsForGroups(['SG_AB_ESS'], true, 'CH', true)
+    ).toMatchSnapshot();
+  });
+
+  it('hides notice for onboarding users when not birthright', () => {
+    expect(appsRegistry.appsForNotice(true)).toEqual(new NoticeClass({}));
+  });
+
+  it('shows notice for onboarding users when birthright', () => {
+    const onboardingRegistry = new AppsRegistry({
+      notice: {
+        label: 'Welcome',
+        text: 'Onboarding notice',
+        type: 'info',
+        birthright: true,
+      },
+      categories: [],
+    });
+
+    expect(onboardingRegistry.appsForNotice(true)).toEqual({
+      label: 'Welcome',
+      text: 'Onboarding notice',
+      type: 'info',
+      exclusions: [''],
+      birthright: true,
+    });
   });
 });

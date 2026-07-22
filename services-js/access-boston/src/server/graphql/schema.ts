@@ -177,14 +177,18 @@ export type QueryRootResolvers = Resolvers<Query, Context>;
 export type MutationResolvers = Resolvers<Mutation, Context>;
 
 const queryRootResolvers: QueryRootResolvers = {
-  notice: (_root, _arg, { appsRegistry }) => {
-    const notice = appsRegistry.appsForNotice();
+  notice: (_root, _arg, { appsRegistry, session }) => {
+    const isOnboarding =
+      session.loginSession != null && session.loginSession.isOnboarding != null
+        ? session.loginSession.isOnboarding
+        : false;
+    const notice = appsRegistry.appsForNotice(isOnboarding);
 
     return {
-      label: notice['label'],
-      text: notice['text'],
-      type: notice['type'] ? notice['type'] : 'info',
-      exclusions: notice['exclusions'] ? notice['exclusions'] : [''],
+      label: notice.label,
+      text: notice.text,
+      type: notice.type ? notice.type : 'info',
+      exclusions: notice.exclusions ? notice.exclusions : [''],
     };
   },
 
@@ -265,7 +269,8 @@ const queryRootResolvers: QueryRootResolvers = {
         .appsForGroups(
           loginSession.groups,
           loginSession.hasMfaDevice,
-          loginSession.cobAgency || null
+          loginSession.cobAgency || null,
+          loginSession.isOnboarding
         )
         .map(({ apps, icons, showRequestAccessLink, title }) => {
           const retObj = {
@@ -301,7 +306,7 @@ const mutationResolvers: MutationResolvers = {
   resetPassword: cobraResetPasswordMutation,
   addMfaDevice: addMfaDeviceMutation,
   verifyMfaDevice: verifyMfaDeviceMutation,
-  
+
   viewUserInfo: async (_root, { query_string }, { cobraClient, session }) => {
     // Require authentication - user must be logged in to view user info
     const { loginAuth, loginSession } = session;
@@ -314,38 +319,54 @@ const mutationResolvers: MutationResolvers = {
 
     const ViewUserInfo = require('../services/cobra/ViewUserInfo').default;
     const viewUserInfoService = new ViewUserInfo(cobraClient);
-    
+
     try {
-      console.log('[ViewUserInfo resolver] Starting request for query_string:', query_string);
+      console.log(
+        '[ViewUserInfo resolver] Starting request for query_string:',
+        query_string
+      );
       const response = await viewUserInfoService.process({ query_string });
-      console.log('[ViewUserInfo resolver] Successfully received response, count:', response.length);
-      
+      console.log(
+        '[ViewUserInfo resolver] Successfully received response, count:',
+        response.length
+      );
+
       // Validate the response structure before returning
       if (!Array.isArray(response)) {
-        console.error('[ViewUserInfo resolver] Response is not an array:', typeof response);
+        console.error(
+          '[ViewUserInfo resolver] Response is not an array:',
+          typeof response
+        );
         throw new Error('Invalid response type - expected array');
       }
-      
+
       // Check each item has required fields
       response.forEach((item, index) => {
         if (!item.uid || !item.email) {
-          console.warn(`[ViewUserInfo resolver] Item ${index} missing required fields:`, {
-            hasUid: !!item.uid,
-            hasEmail: !!item.email
-          });
+          console.warn(
+            `[ViewUserInfo resolver] Item ${index} missing required fields:`,
+            {
+              hasUid: !!item.uid,
+              hasEmail: !!item.email,
+            }
+          );
         }
       });
-      
-      console.log('[ViewUserInfo resolver] Returning', response.length, 'valid items');
+
+      console.log(
+        '[ViewUserInfo resolver] Returning',
+        response.length,
+        'valid items'
+      );
       return response;
     } catch (error) {
       console.error('[ViewUserInfo resolver] Error:', {
         message: error instanceof Error ? error.message : 'Unknown error',
         stack: error instanceof Error ? error.stack : 'No stack trace',
-        query_string
+        query_string,
       });
       throw new Error(
-        error instanceof Error 
+        error instanceof Error
           ? `Failed to fetch user info: ${error.message}`
           : 'An unexpected error occurred while fetching user info'
       );

@@ -58,16 +58,16 @@ export const preferredNameSubmit = async (data: {
   preferredLastName?: string;
   email?: string;
 }) => {
-  const { id, preferredFirstName, preferredLastName, email } = data;
-  let workflowArgsObj = { id };
+  const { id, preferredFirstName = '', preferredLastName = '', email } = data;
+  const workflowArgsObj: Record<string, string> = {
+    id,
+    preferredFirstName,
+    preferredLastName,
+  };
 
-  if (preferredFirstName && preferredFirstName.length > 1)
-    workflowArgsObj['preferredFirstName'] = preferredFirstName;
-
-  if (preferredLastName && preferredLastName.length > 1)
-    workflowArgsObj['preferredLastName'] = preferredLastName;
-
-  if (email && email.length > 1) workflowArgsObj['email'] = email;
+  if (email && email.trim().length > 0) {
+    workflowArgsObj['email'] = email.trim();
+  }
 
   return await fetch(`/preferred-name-submit` as string, {
     method: 'POST',
@@ -83,4 +83,3 @@ export const preferredNameSubmit = async (data: {
       return {};
     });
 };
-

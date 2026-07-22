@@ -38,18 +38,10 @@ ENV USE_SSL=1
 
 COPY --from=build_phase /app /app
 
-ENV PYTHONUNBUFFERED=1
-RUN apk add --no-cache git openssl \
-   && apk add --update --no-cache python3 curl unzip \
-   && ln -sf python3 /usr/bin/python \
-   && python3 -m ensurepip \
-   && pip3 install --no-cache --upgrade pip setuptools \
-   && cd /tmp \
-   && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip" \
-   && unzip awscli-bundle.zip \
-   && ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
-   && rm awscli-bundle.zip \
-   && rm -rf awscli-bundle
+# awscli-bundle installer now requires Python 3.10+; node:14-alpine ships 3.9.
+# Pin awscli v1 via pip (last line that supports Python 3.9 on Alpine 3.15).
+RUN apk add --no-cache git openssl python3 py3-pip \
+   && pip3 install --no-cache-dir 'awscli==1.33.44'
 
 WORKDIR /app/services-js/${WORKSPACE}
 RUN yarn global add yarn@^1.22.19

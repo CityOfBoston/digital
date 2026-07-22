@@ -3,7 +3,6 @@ import Hapi from 'hapi';
 import Inert from 'inert';
 import fs from 'fs';
 import cleanup from 'node-cleanup';
-import { loggingPlugin } from '@cityofboston/hapi-common';
 import { makeExecutableSchema, ApolloServer } from 'apollo-server-hapi';
 import ldap from 'ldapjs';
 import {
@@ -28,10 +27,23 @@ import {
 } from '../lib/helpers';
 import { typeDefs } from './graphql/typeDefs';
 import decryptEnv from '@cityofboston/srv-decrypt-env';
-import { Source } from './graphql';
+import { Context } from './graphql';
+import {
+  AB_USER_ID_HEADER,
+  attachIamdirSearchStreamLogging,
+  IAMDIR_HEALTH_CHECK,
+  IAMDIR_UNKNOWN,
+  IamdirLogContext,
+  logGraphqlError,
+  logIamdirError,
+  logIamdirRequest,
+  logIamdirResponse,
+  setIamdirLdapUrl,
+} from './iamdir-logger';
 
 require('dotenv').config();
 const env = new LDAPEnvClass(process.env);
+setIamdirLdapUrl(env.LDAP_URL);
 
 let tlsOptions = {};
 if (
@@ -58,7 +70,7 @@ const ldap_client = () => {
 let ldapClient = ldap_client();
 
 type Credentials = {
-  source: Source;
+  source: 'web' | 'fulfillment' | 'unknown';
 };
 
 declare module 'hapi' {
@@ -69,40 +81,88 @@ declare module 'hapi' {
 
 const port = parseInt(process.env.PORT || env.LDAP_PORT, 10);
 
-const bindLdapClient = (_force: Boolean = false) => {
+const bindLdapClient = (
+  _force: Boolean = false,
+  iamdir: IamdirLogContext = IAMDIR_UNKNOWN
+) => {
   if (env.LDAP_BIN_DN !== 'cn=admin,dc=boston,dc=cob' || _force) {
+    logIamdirRequest(iamdir, 'bind', env.LDAP_BASE_DN, {
+      bindDn: env.LDAP_BIN_DN,
+    });
     ldapClient.bind(env.LDAP_BIN_DN, env.LDAP_PASSWORD, function(err) {
       if (err) {
-        console.log('ldapClient.bind err: ', err);
-        unbindLdapClient();
+        logIamdirError(
+          iamdir,
+          'bind',
+          env.LDAP_BASE_DN,
+          typeof (err as { code?: number }).code === 'number'
+            ? ((err as { code?: number }).code as number)
+            : null,
+          {
+            message: err.message,
+          }
+        );
+        unbindLdapClient(iamdir);
+      } else {
+        logIamdirResponse(iamdir, 'bind', env.LDAP_BASE_DN, 0, {
+          success: true,
+        });
       }
     });
   }
 };
 
-export const unbindLdapClient = () => {
+export const unbindLdapClient = (iamdir: IamdirLogContext = IAMDIR_UNKNOWN) => {
+  logIamdirRequest(iamdir, 'unbind', env.LDAP_BASE_DN, {});
   ldapClient.unbind(err => {
     if (err) {
-      console.log('ldapClient.unBind err: ', err);
+      logIamdirError(
+        iamdir,
+        'unbind',
+        env.LDAP_BASE_DN,
+        typeof (err as { code?: number }).code === 'number'
+          ? ((err as { code?: number }).code as number)
+          : null,
+        {
+          message: err.message,
+        }
+      );
+    } else {
+      logIamdirResponse(iamdir, 'unbind', env.LDAP_BASE_DN, 0, {
+        success: true,
+      });
     }
   });
 };
 
+function iamdirCtx(context: Context): IamdirLogContext {
+  return { userId: context.userId };
+}
+
+function resolveUserId(request: {
+  headers: Record<string, unknown>;
+  payload?: { variables?: Record<string, unknown> };
+}): string {
+  const header = request.headers[AB_USER_ID_HEADER];
+  if (typeof header === 'string' && header.length > 0) {
+    return header;
+  }
+  const variables = request.payload && request.payload.variables;
+  const employeeId = variables && variables.employeeId;
+  if (typeof employeeId === 'string' && employeeId.length > 0) {
+    return employeeId;
+  }
+  return 'unknown';
+}
+
 const get_groupMembers = (
-  err: ldap.Error | null,
+  _err: ldap.Error | null,
   // res: ldap.SearchCallbackResponse,
   res: any,
   sort: { direction: string; field: string },
   pageSize: number = 1000,
   type: string = 'PERSON'
-  // _callback: any,
-  // _paging: boolean,
-  // _pagePause: boolean
 ) => {
-  if (err) {
-    console.log('[err]: ', err);
-  }
-
   return new Promise((resolve, reject) => {
     // let count = 0;
     let entries: object[] = Array();
@@ -166,30 +226,19 @@ const get_groupMembers = (
       ) {
         sortEntries();
         res.finished = true;
-        // console.log('page:finished? 2> ', res.finished);
-        console.log('AT CAPACITY: ', entries.length);
         resolve(entries);
       }
     });
 
-    res.on('error', err => {
-      console.error('error: get_groupMembers | ', err.message, ' | err:', err);
-      reject();
-    });
-
+    res.on('error', () => reject());
     res.on('end', () => {
       sortEntries();
-      console.log('CAPACITY: ', entries.length);
       resolve(entries);
     });
   });
 };
 
-const search_promise = (err, res) => {
-  if (err) {
-    console.log('[err]: ', err);
-  }
-
+const search_promise = (_err: ldap.Error | null, res: any) => {
   return new Promise((resolve, reject) => {
     const entries: object[] = Array();
     const refInstance = new objectClassArray({});
@@ -232,15 +281,8 @@ const search_promise = (err, res) => {
       }
     });
 
-    res.on('error', err => {
-      console.error('error: search_promise | ', err.message, ' | err:', err);
-      reject();
-    });
-
-    res.on('end', () => {
-      // console.log('search_promise > entries[0]: ', entries[0]);
-      resolve(entries);
-    });
+    res.on('error', () => reject());
+    res.on('end', () => resolve(entries));
   });
 };
 
@@ -259,13 +301,6 @@ const setAttributes = (attr = [''], type = 'group') => {
   } else {
     attr.forEach(element => {
       if (type === 'group') {
-        console.log(`setAttributes > type(group) > element: ${element}`);
-        console.log(
-          `setAttributes > is elem in GroupClass: ${Object.keys(
-            new GroupClass({})
-          )}`
-        );
-
         if (
           Object.keys(new GroupClass({})).indexOf(element) > -1 &&
           attrSet.indexOf(element) === -1
@@ -291,16 +326,8 @@ const setAttributes = (attr = [''], type = 'group') => {
   // Custom Attributes
   switch (attr[0]) {
     case 'all':
-      console.log(
-        'setAttributes > switch(all) > CustomAttributes.all',
-        CustomAttributes.all
-      );
       return CustomAttributes.all;
     default:
-      console.log(
-        'setAttributes > switch(default) > CustomAttributes.all',
-        CustomAttributes.all
-      );
       return CustomAttributes.default;
   }
 };
@@ -387,9 +414,14 @@ const getFilterValue = (filter: FilterOptions) => {
   }
 };
 
-const getDnsSearchResults = async (base_dn, filter, filterQryParams) => {
+const getDnsSearchResults = async (
+  base_dn,
+  filter,
+  filterQryParams,
+  iamdir: IamdirLogContext = IAMDIR_UNKNOWN
+) => {
   const results = new Promise(function(resolve, reject) {
-    bindLdapClient();
+    bindLdapClient(false, iamdir);
     if (
       filter.filterType === 'person' &&
       filter.field === 'cn' &&
@@ -397,9 +429,21 @@ const getDnsSearchResults = async (base_dn, filter, filterQryParams) => {
     ) {
       reject();
     }
+    logIamdirRequest(iamdir, 'search', base_dn, filterQryParams);
     ldapClient.search(base_dn, filterQryParams, function(err, res) {
       if (err) {
-        console.log('ldapsearch error: ', err);
+        logIamdirError(
+          iamdir,
+          'search',
+          base_dn,
+          typeof (err as { code?: number }).code === 'number'
+            ? ((err as { code?: number }).code as number)
+            : null,
+          { message: err.message, request: filterQryParams }
+        );
+      }
+      if (res) {
+        attachIamdirSearchStreamLogging(res, iamdir, base_dn, filterQryParams);
       }
       resolve(search_promise(err, res));
     });
@@ -408,12 +452,17 @@ const getDnsSearchResults = async (base_dn, filter, filterQryParams) => {
   return results;
 };
 
-const getFilteredResults = async (filter: FilterOptions, filterQryParams) => {
+const getFilteredResults = async (
+  filter: FilterOptions,
+  filterQryParams,
+  iamdir: IamdirLogContext = IAMDIR_UNKNOWN
+) => {
   const promises = filter.dns.map(async value => {
     return await getDnsSearchResults(
       value.group.dn.toLowerCase(),
       filter,
-      filterQryParams
+      filterQryParams,
+      iamdir
     );
   });
   const promisedRes = await Promise.all(promises);
@@ -428,14 +477,15 @@ const searchGroupMemberAttributes = async (opts: {
   sort: { direction: string; field: string };
   pageSize: number;
   type: string;
+  iamdir?: IamdirLogContext;
 }) => {
+  const iamdir = opts.iamdir || IAMDIR_UNKNOWN;
   let results: any = [{ givenname: 'First Name', sn: 'Last Name' }];
   if (!opts.type) opts.type = 'GROUP';
   if (!opts.pageSize) opts.pageSize = 1000;
 
   results = new Promise(function(resolve, reject) {
-    bindLdapClient();
-    // console.log('opts.filter: ', opts.filter);
+    bindLdapClient(false, iamdir);
     const filterParams = {
       scope: 'sub',
       filter: opts.filter,
@@ -444,14 +494,24 @@ const searchGroupMemberAttributes = async (opts: {
         pagePause: true,
       },
       attributes: ['*'],
-      // attributes: ['*', 'cOBUserAgency'],
-      // getPersonMemberAttributes
     };
 
+    logIamdirRequest(iamdir, 'search', opts.baseDn, filterParams);
     ldapClient.search(opts.baseDn, filterParams, function(err, res) {
       if (err) {
-        console.log('ldapsearch error: ', err);
+        logIamdirError(
+          iamdir,
+          'search',
+          opts.baseDn,
+          typeof (err as { code?: number }).code === 'number'
+            ? ((err as { code?: number }).code as number)
+            : null,
+          { message: err.message, request: filterParams }
+        );
         reject();
+      }
+      if (res) {
+        attachIamdirSearchStreamLogging(res, iamdir, opts.baseDn, filterParams);
       }
       resolve(get_groupMembers(err, res, opts.sort, opts.pageSize, opts.type));
     });
@@ -469,7 +529,8 @@ const searchWrapper = async (
     allowInactive: true,
     dns: [],
     by: '',
-  }
+  },
+  iamdir: IamdirLogContext = IAMDIR_UNKNOWN
 ) => {
   const base_dn = env.LDAP_BASE_DN;
   const filterValue = getFilterValue(filter);
@@ -493,19 +554,18 @@ const searchWrapper = async (
 
   if (filter.dns.length > 0) {
     try {
-      results = await getFilteredResults(filter, filterQryParams);
-    } catch (err) {
-      console.log('filteredResults > err: ', err);
+      results = await getFilteredResults(filter, filterQryParams, iamdir);
+    } catch (_err) {
+      /* logged at ldap layer */
     }
   } else {
     results = new Promise(function(resolve, reject) {
-      bindLdapClient();
+      bindLdapClient(false, iamdir);
       if (
         filter.filterType === 'person' &&
         filter.field === 'cn' &&
         filter.value.length < 2
       ) {
-        console.log('searchWrapper > promise > reject');
         reject();
       }
 
@@ -515,9 +575,21 @@ const searchWrapper = async (
         baseDn = `OU=Groups,${baseDn}`;
       }
 
+      logIamdirRequest(iamdir, 'search', baseDn, filterQryParams);
       ldapClient.search(baseDn, filterQryParams, function(err, res) {
         if (err) {
-          console.log('ldapsearch error: ', err);
+          logIamdirError(
+            iamdir,
+            'search',
+            baseDn,
+            typeof (err as { code?: number }).code === 'number'
+              ? ((err as { code?: number }).code as number)
+              : null,
+            { message: err.message, request: filterQryParams }
+          );
+        }
+        if (res) {
+          attachIamdirSearchStreamLogging(res, iamdir, baseDn, filterQryParams);
         }
         resolve(search_promise(err, res));
       });
@@ -529,10 +601,10 @@ const searchWrapper = async (
 
 const convertDnsToGroupDNs = async (
   dns: Array<string>,
-  mode: string = 'filtered'
+  mode: string = 'filtered',
+  iamdir: IamdirLogContext = IAMDIR_UNKNOWN
 ) => {
   const CNs = dns.map(str => str.split('SG_AB_GRPMGMT_')[1]);
-  // console.log('convertDnsToGroupDNs > CNs: ', CNs);
   const promises = CNs.map(async value => {
     const filterParams: FilterOptions = new FilterOptionsClass({
       filterType: 'group',
@@ -541,7 +613,7 @@ const convertDnsToGroupDNs = async (
       allowInactive: false,
     });
 
-    const group: any = await searchWrapper(['all'], filterParams);
+    const group: any = await searchWrapper(['all'], filterParams, iamdir);
     let retObj: any = {};
     let groupRetObj: any = {};
 
@@ -578,30 +650,37 @@ const convertDnsToGroupDNs = async (
   });
 };
 
-const getGroupChildren = async (parentDn: string = '') => {
+const getGroupChildren = async (
+  parentDn: string = '',
+  iamdir: IamdirLogContext = IAMDIR_UNKNOWN
+) => {
   const $abstractDN = abstractDN(parentDn);
   const parentCN = $abstractDN[Object.keys($abstractDN)[0]][0];
-  // console.log('getGroupChildren > parentDn: ', parentDn);
-  // console.log('getGroupChildren > parentCN: ', parentCN);
 
   const filterQryParams = {
     scope: 'sub',
     attrs: '',
-    // filter: `(&(|(objectClass=group)(objectClass=organizationalUnit))(!(${
-    //   Object.keys($abstractDN)[0]
-    // }=${parentCN})))`,
     filter: `(&(|(objectClass=groupOfUniqueNames)(objectClass=container)(objectClass=organizationalRole)(objectClass=group)(objectClass=organizationalUnit))(!(ou=${parentCN})))`,
   };
-  // console.log('getGroupChildren > filterQryParams: ', filterQryParams);
   const results = new Promise(function(resolve, reject) {
-    bindLdapClient();
-    // console.log('getGroupChildren > results(promise)');
+    bindLdapClient(false, iamdir);
+    logIamdirRequest(iamdir, 'search', parentDn, filterQryParams);
     ldapClient.search(parentDn, filterQryParams, function(err, res) {
       if (err) {
-        console.log('ldapsearch error: ', err);
+        logIamdirError(
+          iamdir,
+          'search',
+          parentDn,
+          typeof (err as { code?: number }).code === 'number'
+            ? ((err as { code?: number }).code as number)
+            : null,
+          { message: err.message, request: filterQryParams }
+        );
         reject();
       }
-      // console.log('getGroupChildren > results(promise) > callback: ', res);
+      if (res) {
+        attachIamdirSearchStreamLogging(res, iamdir, parentDn, filterQryParams);
+      }
       resolve(search_promise(err, res));
     });
   });
@@ -642,9 +721,6 @@ export async function makeServer() {
       source: 'web',
     };
   }
-  if (process.env.NODE_ENV !== 'test') {
-    await server.register(loggingPlugin);
-  }
 
   await server.register(Inert);
 
@@ -668,19 +744,11 @@ export async function makeServer() {
         dns: [],
       });
 
-      let groups: any = await searchWrapper(
+      await searchWrapper(
         ['cn', 'dn', 'displayname', 'objectclass'],
-        filterParams
+        filterParams,
+        IAMDIR_HEALTH_CHECK
       );
-      let mapGrp = {};
-      if (groups.length > 0 && typeof groups[0] === 'object') {
-        ['cn', 'dn', 'displayname', 'objectclass'].forEach(key => {
-          if (key in groups[0]) {
-            mapGrp[key] = groups[0][key];
-          }
-        });
-      }
-      console.log(`/admin/ok > groups QRY: `, mapGrp['displayname']);
       return 'ok';
     },
     options: {
@@ -699,20 +767,16 @@ export async function makeServer() {
 
 const resolvers = {
   Mutation: {
-    async updateGroupMembers() {
-      // console.log('updateGroupMembers: ', arguments[1]);
+    async updateGroupMembers(_p: any, opts: any, context: Context) {
+      const iamdir = iamdirCtx(context);
       try {
-        const opts = arguments[1];
         let dns: any = [];
         let dn_list: any = [];
 
         if (opts.dns && opts.dns.length > 0) {
-          dns = await convertDnsToGroupDNs(opts.dns);
+          dns = await convertDnsToGroupDNs(opts.dns, 'filtered', iamdir);
           dn_list = dns.map(entry => entry.group.dn);
-          const is_DNInOUs = isDNInOUs(opts.dn, dn_list);
-          console.log('is_DNInOUs: ', is_DNInOUs);
-          if (!is_DNInOUs) {
-            // return new ResponseClass({});
+          if (!isDNInOUs(opts.dn, dn_list)) {
             return new ResponseClass({
               message: '400',
               code: 400,
@@ -733,25 +797,50 @@ const resolvers = {
             member: members,
           },
         });
+        const modifyBody = {
+          dn: opts.dn,
+          operation: opts.operation,
+          modification: { member: members },
+        };
 
-        console.log('memberCheck: ', memberCheck);
-        console.log('members: ', members);
-        // console.log('changeOpts: ', changeOpts);
-
-        bindLdapClient(true);
-        // req, res, next
-        ldapClient.modify(opts.dn, changeOpts, async () => {});
+        logIamdirRequest(iamdir, 'modify', opts.dn, modifyBody);
+        bindLdapClient(true, iamdir);
+        ldapClient.modify(opts.dn, changeOpts, function(err) {
+          if (err) {
+            logIamdirError(
+              iamdir,
+              'modify',
+              opts.dn,
+              typeof (err as { code?: number }).code === 'number'
+                ? ((err as { code?: number }).code as number)
+                : null,
+              { message: err.message, request: modifyBody }
+            );
+          } else {
+            logIamdirResponse(iamdir, 'modify', opts.dn, 0, { success: true });
+          }
+        });
       } catch (err) {
-        console.log('Mutation > updateGroupMembers > err: ', err);
+        logIamdirError(iamdir, 'modify', opts.dn || env.LDAP_BASE_DN, null, {
+          message: err instanceof Error ? err.message : String(err),
+        });
       }
 
       return new ResponseClass({});
     },
   },
   Query: {
-    async getMinimumUserGroups(_parent: any, args: { dns: Array<string> }) {
-      // console.log('getMinimumUserGroups > TOP: ', args);
-      const convertedDNs = await convertDnsToGroupDNs(args.dns, 'group');
+    async getMinimumUserGroups(
+      _parent: any,
+      args: { dns: Array<string> },
+      context: Context
+    ) {
+      const iamdir = iamdirCtx(context);
+      const convertedDNs = await convertDnsToGroupDNs(
+        args.dns,
+        'group',
+        iamdir
+      );
       const maxMinimum = 9;
       let groups: any = [];
       let currDisplayCount = 0;
@@ -759,12 +848,7 @@ const resolvers = {
       while (currDisplayCount < maxMinimum) {
         if (convertedDNs.length > 0) {
           const thisArr = convertedDNs.shift();
-          const groupChildren: any = await getGroupChildren(thisArr.dn);
-          // console.log(
-          //   'getMinimumUserGroups > getGroupChildren(thisArr.dn) > groupChildren: ',
-          //   thisArr.dn,
-          //   groupChildren
-          // );
+          const groupChildren: any = await getGroupChildren(thisArr.dn, iamdir);
           if (currDisplayCount < maxMinimum && groupChildren.length > 0) {
             const remainingFromMax = maxMinimum - currDisplayCount;
             if (groupChildren.length < remainingFromMax) {
@@ -779,22 +863,32 @@ const resolvers = {
         currDisplayCount++;
       }
       return groups;
-      // return [];
     },
-    async getGroupChildren(_parent: any, args: { parentDn: string }) {
-      console.log('resolvers > getGroupChildren: args: ', args);
-      return await getGroupChildren(args.parentDn);
+    async getGroupChildren(
+      _parent: any,
+      args: { parentDn: string },
+      context: Context
+    ) {
+      return await getGroupChildren(args.parentDn, iamdirCtx(context));
     },
-    async convertOUsToContainers(_parent, args: { ous: Array<string> }) {
-      const dns = await convertDnsToGroupDNs(args.ous);
-      const dn_list = dns.map(entry => entry.group.dn);
-      return dn_list;
+    async convertOUsToContainers(
+      _parent: any,
+      args: { ous: Array<string> },
+      context: Context
+    ) {
+      const dns = await convertDnsToGroupDNs(
+        args.ous,
+        'filtered',
+        iamdirCtx(context)
+      );
+      return dns.map(entry => entry.group.dn);
     },
-    async isPersonInactive(_parent: any, args: any) {
+    async isPersonInactive(_parent: any, args: any, context: Context) {
+      const iamdir = iamdirCtx(context);
       const retArr: Array<[]> = [];
       const promises = await args.people.map(async (cn: any) => {
         const value = cn.indexOf('=') > -1 ? abstractDN(cn)['cn'][0] : cn;
-        const in_active = await isMemberActive(value);
+        const in_active = await isMemberActive(value, iamdir);
         if (in_active === false) {
           retArr.push(cn);
         }
@@ -810,18 +904,17 @@ const resolvers = {
         _dns: Array<string>;
         allowInactive: Boolean;
         by: string;
-      }
+      },
+      context: Context
     ) {
-      const term = args.term;
       const filterParams: FilterOptions = new FilterOptionsClass({
         filterType: 'person',
         field: 'search',
-        value: term,
+        value: args.term,
         allowInactive: args.allowInactive ? args.allowInactive : false,
         by: args.by ? args.by : '',
       });
-      const persons = await searchWrapper(['all'], filterParams);
-      return persons;
+      return await searchWrapper(['all'], filterParams, iamdirCtx(context));
     },
     async person(
       _parent: any,
@@ -829,7 +922,8 @@ const resolvers = {
         cn: string;
         _dns: Array<string>;
         by: string;
-      }
+      },
+      context: Context
     ) {
       const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
       const filterParams: FilterOptions = new FilterOptionsClass({
@@ -839,17 +933,18 @@ const resolvers = {
         allowInactive: false,
         by: args.by ? args.by : '',
       });
-      const person: any = await searchWrapper(['all'], filterParams);
-      return person;
+      return await searchWrapper(['all'], filterParams, iamdirCtx(context));
     },
     async group(
       _parent: any,
-      args: { cn: string; dns: Array<string>; fetchgroupmember: boolean }
+      args: { cn: string; dns: Array<string>; fetchgroupmember: boolean },
+      context: Context
     ) {
+      const iamdir = iamdirCtx(context);
       let dns: any = [];
 
       if (args.dns) {
-        dns = await convertDnsToGroupDNs(args.dns);
+        dns = await convertDnsToGroupDNs(args.dns, 'filtered', iamdir);
       }
 
       const value = args.cn.indexOf('=') > -1 ? args.cn.split('=')[1] : args.cn;
@@ -860,7 +955,7 @@ const resolvers = {
         dns,
       });
 
-      return await searchWrapper(['all'], filterParams);
+      return await searchWrapper(['all'], filterParams, iamdir);
     },
     async groupSearch(
       _parent: any,
@@ -869,12 +964,14 @@ const resolvers = {
         dns: Array<string>;
         activemembers: any;
         allowInactive: Boolean;
-      }
+      },
+      context: Context
     ) {
+      const iamdir = iamdirCtx(context);
       let dns: any = [];
       let dn_list: any = [];
       if (args.dns && args.dns.length > 0) {
-        dns = await convertDnsToGroupDNs(args.dns);
+        dns = await convertDnsToGroupDNs(args.dns, 'filtered', iamdir);
         dn_list = dns.map(entry => entry.group.dn);
       }
 
@@ -890,7 +987,7 @@ const resolvers = {
         dns,
       });
 
-      let groups: any = await searchWrapper(['all'], filterParams);
+      let groups: any = await searchWrapper(['all'], filterParams, iamdir);
       groups = groups.filter(entry => dn_list.indexOf(entry.dn) === -1);
       if (args.activemembers && args.activemembers === true) {
         await groups.forEach(async group => {
@@ -902,7 +999,7 @@ const resolvers = {
             group.uniquemember.forEach(async (memberSt: any) => {
               const value =
                 memberSt.indexOf('=') > -1 ? memberSt.split('=')[1] : memberSt;
-              const in_active = await isMemberActive(value);
+              const in_active = await isMemberActive(value, iamdir);
               if (in_active === false) {
                 activemembers.push(memberSt);
               }
@@ -910,11 +1007,14 @@ const resolvers = {
           }
         });
         return groups;
-      } else {
-        return groups;
       }
+      return groups;
     },
-    async getGroupMemberAttributes(_parent: any, args: any = []) {
+    async getGroupMemberAttributes(
+      _parent: any,
+      args: any = [],
+      context: Context
+    ) {
       const dn = `OU=Active,${env.LDAP_BASE_DN}`;
       return await searchGroupMemberAttributes({
         baseDn: dn,
@@ -922,9 +1022,14 @@ const resolvers = {
         sort: { direction: 'desc', field: 'sn' },
         pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
         type: 'PERSON',
+        iamdir: iamdirCtx(context),
       });
     },
-    async getPersonMemberAttributes(_parent: any, args: any = []) {
+    async getPersonMemberAttributes(
+      _parent: any,
+      args: any = [],
+      context: Context
+    ) {
       const dn = `OU=Groups,${env.LDAP_BASE_DN}`;
       return await searchGroupMemberAttributes({
         baseDn: dn,
@@ -932,59 +1037,95 @@ const resolvers = {
         sort: { direction: 'desc', field: 'cn' },
         pageSize: parseInt(env.LDAP_QRY_PAGESIZE) || 1000,
         type: 'GROUP',
+        iamdir: iamdirCtx(context),
       });
     },
   },
 };
 
-const isMemberActive = async (cn: String) => {
+const isMemberActive = async (
+  cn: String,
+  iamdir: IamdirLogContext = IAMDIR_UNKNOWN
+) => {
   const filterParams: FilterOptions = new FilterOptionsClass({
     filterType: 'person',
     field: '',
     value: cn,
     allowInactive: false,
   });
-  const person: any = await searchWrapper(['all'], filterParams);
+  const person: any = await searchWrapper(['all'], filterParams, iamdir);
   if (person && typeof person === 'object' && person.length > 0) {
     return returnBool(person[0].nsaccountlock);
-  } else {
-    return true;
   }
+  return true;
 };
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 async function addGraphQl(server: Hapi.Server) {
-  const context = _req => {
-    const token = _req.request.headers.token;
+  const context = ({ request }: { request: any }): Context => {
+    const token = request.headers.token;
+    const apiClientId =
+      token && typeof token === 'string' && token.length > 0
+        ? `…${token.slice(-6)}`
+        : 'no-token';
+    const userId = resolveUserId(request);
     if (
       env.GROUP_MGMT_API_KEYS &&
       env.GROUP_MGMT_API_KEYS.length > 0 &&
       env.GROUP_MGMT_API_KEYS.indexOf(',') > -1
     ) {
       if (!token || env.GROUP_MGMT_API_KEYS.indexOf(token) === -1) {
-        const err = {
+        throw {
           code: 401,
           statusCode: 401,
           error: 'Invalid or missing API Key',
           message: 'Unauthorized',
         };
-        throw err;
       }
     }
+    return { userId, apiClientId };
   };
 
   const apolloServer = new ApolloServer({
     schema,
     context,
-    formatError: () => {
-      return {
-        message: 'Internal Server Error',
-        locations: [],
-        path: [],
-        extensions: {},
-      };
-    },
+    formatError: () => ({
+      message: 'Internal Server Error',
+      locations: [],
+      path: [],
+      extensions: {},
+    }),
+    extensions: [
+      () => {
+        let userId = 'unknown';
+        let variables: unknown;
+        let operationName: string | undefined;
+
+        return {
+          requestDidStart({
+            context: reqContext,
+            variables: vars,
+            operationName: opName,
+          }: {
+            context: Context;
+            variables?: unknown;
+            operationName?: string;
+          }) {
+            userId = reqContext.userId;
+            variables = vars;
+            operationName = opName;
+          },
+          didEncounterErrors(errors: ReadonlyArray<{ message?: string }>) {
+            logGraphqlError(userId, {
+              operation: operationName,
+              variables,
+              errors: [...errors],
+            });
+          },
+        };
+      },
+    ],
   });
 
   await apolloServer.applyMiddleware({

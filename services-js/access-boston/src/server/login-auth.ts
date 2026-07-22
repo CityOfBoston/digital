@@ -118,8 +118,6 @@ export async function addLoginAuth(
     options: { auth: false },
     handler: async (_, h) => {
       const loginUrl = await samlAuth.makeLoginUrl();
-      // eslint-disable-next-line no-console
-      console.log('[LOGIN] Redirecting to SAML IdP (Ping Federate) for authentication');
       return h.redirect(loginUrl);
     },
   });
@@ -172,18 +170,11 @@ export async function addLoginAuth(
       },
     },
     handler: async (request, h) => {
-      // eslint-disable-next-line no-console
-      console.log('[LOGIN] POST /assert: Starting SAML assertion handling');
-      
-      try {
-        const assertResult = await samlAuth.handlePostAssert(
-          request.payload as any
-        );
+      const assertResult = await samlAuth.handlePostAssert(
+        request.payload as any
+      );
 
-        // eslint-disable-next-line no-console
-        console.log('[LOGIN] POST /assert: SAML assertion successful, type:', assertResult.type);
-
-        if (assertResult.type === 'login') {
+      if (assertResult.type === 'login') {
         const {
           nameId,
           sessionIndex,
@@ -196,6 +187,7 @@ export async function addLoginAuth(
           hasMfaDevice,
           userMfaRegistrationDate,
           cobAgency,
+          isOnboarding,
           // displayName,
         } = assertResult;
 
@@ -224,12 +216,9 @@ export async function addLoginAuth(
               .tz(new Date(userMfaRegistrationDate), 'America/New_York')
               .toISOString();
           } catch (e) {
-            rollbar.error(
-              e instanceof Error ? e : new Error(String(e)),
-              {
-                extra: { userId: nameId, userMfaRegistrationDate },
-              }
-            );
+            rollbar.error(e instanceof Error ? e : new Error(String(e)), {
+              extra: { userId: nameId, userMfaRegistrationDate },
+            });
           }
         }
 
@@ -249,6 +238,7 @@ export async function addLoginAuth(
           // string because we’re serializing in Redis.
           mfaRequiredDate,
           cobAgency,
+          isOnboarding,
           // displayName,
         };
 
@@ -268,15 +258,6 @@ export async function addLoginAuth(
       } else {
         throw new Error(`Unexpected assert result in POST handler`);
       }
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error('[LOGIN] POST /assert: FATAL ERROR during SAML assertion');
-        // eslint-disable-next-line no-console
-        console.error('[LOGIN] POST /assert: Full error:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
-        
-        // Re-throw to let Hapi handle it
-        throw err;
-      }
     },
   });
 
@@ -292,34 +273,20 @@ export async function addLoginAuth(
     handler: async (request, h) => {
       const query = request.query as RequestQuery;
 
-      // eslint-disable-next-line no-console
-      console.log('[LOGIN] GET /assert: Starting SAML assertion handling for logout');
+      const assertResult = await samlAuth.handleGetAssert(query);
 
-      try {
-        const assertResult = await samlAuth.handleGetAssert(query);
-
-        // eslint-disable-next-line no-console
-        console.log('[LOGIN] GET /assert: SAML assertion successful, type:', assertResult.type);
-
-        if (assertResult.type !== 'logout') {
+      if (assertResult.type !== 'logout') {
         throw new Error(
           `Unexpected assert result in GET handler: ${assertResult.type}`
         );
       }
 
-        return handleLogoutRequest(
-          request,
-          h,
-          assertResult,
-          query.RelayState as string
-        );
-      } catch (err) {
-        // eslint-disable-next-line no-console
-        console.error('[LOGIN] GET /assert: ERROR during SAML assertion');
-        // eslint-disable-next-line no-console
-        console.error('[LOGIN] GET /assert: Error:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
-        throw err;
-      }
+      return handleLogoutRequest(
+        request,
+        h,
+        assertResult,
+        query.RelayState as string
+      );
     },
   });
 

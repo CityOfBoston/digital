@@ -30,6 +30,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
 
   handlePostAssert(body: any): Promise<SamlAssertResult> {
     const userId = body.userId;
+    const isOnboarding = body.isOnboarding === 'true';
 
     if (!userId) {
       throw new Error('userId is blank');
@@ -74,6 +75,7 @@ export default class SamlAuthFake implements Required<SamlAuth> {
       // cobAgency: 'BPHC',
       // cobAgency: 'BPL',
       cobAgency: 'CH',
+      isOnboarding,
       // cobAgency: 'BPD',
       // displayName: '',
     };
@@ -96,6 +98,7 @@ export function makeFakeLoginHandler(path: string, userId: string) {
     `<form action="${path}" method="POST">
           <div>${path}</div>
           <input type="text" name="userId" value="${userId}" />
+          <label><input type="checkbox" name="isOnboarding" value="true" /> isOnboarding</label>
           <input type="submit" value="Log In" />
         </form>`;
 }

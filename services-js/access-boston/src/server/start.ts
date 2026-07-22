@@ -15,16 +15,31 @@ if (
 
 const appInsights = require('applicationinsights');
 try {
-  appInsights.setup().start();
+  appInsights
+    .setup()
+    .setAutoCollectRequests(true)
+    .setAutoCollectPerformance(true, true)
+    .setAutoCollectExceptions(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectConsole(true, false)
+    .setUseDiskRetryCaching(true)
+    .setAutoCollectPreAggregatedMetrics(true)
+    .setSendLiveMetrics(true)
+    .setAutoCollectHeartbeat(false)
+    .setAutoCollectIncomingRequestAzureFunctions(true)
+    .setInternalLogging(false, true)
+    .setDistributedTracingMode(appInsights.DistributedTracingModes.AI_AND_W3C)
+    .enableWebInstrumentation(false)
+    .start();
 
   const client = appInsights.defaultClient;
-  if (client && client.config && client.config.connectionString) {
+  if (client) {
     console.log('Application Insights initialized.');
 
     // test that we can send a test trace to Application Insights
     client.trackTrace({ message: 'Application Insights test trace' });
   } else {
-    console.error('Application insights is not configured properly.');
+    console.error('Application Insights is not configured properly.');
   }
 } catch (err) {
   console.error('Application Insights failed to start', err);

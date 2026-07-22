@@ -32,7 +32,7 @@ export const EnterNameView = ({
   const [FName, setFirstName] = useState(chosenFirstName);
   const [LName, setLastName] = useState(chosenLastName);
   const nextBtnStr: string = altWorkflow ? 'Submit' : 'Continue';
-  const allowProceed: boolean = FName.trim() !== '' || LName.trim() !== '';
+  const allowProceed: boolean = FName.trim() !== '' && LName.trim() !== '';
 
   const handle_proceed = () => {
     const { employeeId } = state;
@@ -77,34 +77,63 @@ export const EnterNameView = ({
               loading={loading}
             >
               <div className="FormBox" css={FORM_STYLING}>
-                Use the fields below to update your chosen first name, last
-                name, or both.
+                <p css={INSTRUCTION_STYLING}>
+                  Enter your chosen first and last name as you would like them
+                  to appear. Both fields are required. Even if you are not
+                  making changes, please re-enter your current name to confirm.
+                </p>
                 <div
                   className="ChosenFirstNameInput"
                   css={INPUT_HEADER_CONTAINER_STYLING}
                 >
-                  <label css={LABEL_STYLING}>Chosen First Name</label>
+                  <label
+                    css={LABEL_STYLING}
+                    htmlFor="preferred-chosen-first-name"
+                  >
+                    Chosen First Name
+                    <span css={REQUIRED_ASTERISK_STYLING} aria-hidden="true">
+                      {' '}
+                      *
+                    </span>
+                  </label>
                   <input
+                    id="preferred-chosen-first-name"
                     value={FName}
                     onChange={e => setFirstName(e.target.value)}
                     css={INPUT_STYLING}
+                    required
+                    aria-required="true"
+                    autoComplete="given-name"
                     tabIndex={0}
-                    title={`Enter your Chosen First Name`}
-                    alt={`Enter your Chosen First Name`}
+                    title="Enter your Chosen First Name"
+                    alt="Enter your Chosen First Name"
                   />
                 </div>
                 <div
                   className="ChosenLastNameInput"
                   css={INPUT_HEADER_CONTAINER_STYLING}
                 >
-                  <label css={LABEL_STYLING}>Chosen Last Name</label>
+                  <label
+                    css={LABEL_STYLING}
+                    htmlFor="preferred-chosen-last-name"
+                  >
+                    Chosen Last Name
+                    <span css={REQUIRED_ASTERISK_STYLING} aria-hidden="true">
+                      {' '}
+                      *
+                    </span>
+                  </label>
                   <input
+                    id="preferred-chosen-last-name"
                     value={LName}
                     onChange={e => setLastName(e.target.value)}
                     css={INPUT_STYLING}
+                    required
+                    aria-required="true"
+                    autoComplete="family-name"
                     tabIndex={0}
-                    title={`Enter your Chosen Last Name`}
-                    alt={`Enter your Chosen Last Name`}
+                    title="Enter your Chosen Last Name"
+                    alt="Enter your Chosen Last Name"
                   />
                 </div>
                 For more information, see the{' '}
@@ -150,6 +179,16 @@ const FORM_STYLING = css({
   '@media (max-width: 600px)': {
     padding: '25px 15px',
   },
+});
+
+const INSTRUCTION_STYLING = css({
+  margin: '0 0 1em 0',
+  lineHeight: 1.5,
+});
+
+const REQUIRED_ASTERISK_STYLING = css({
+  color: '#B50909',
+  fontWeight: 'bold',
 });
 
 const CURRENT_NAME_STYLING = css({

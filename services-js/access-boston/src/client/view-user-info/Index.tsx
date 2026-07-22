@@ -363,7 +363,9 @@ const TAB_BUTTON_STYLING = (isActive: boolean) =>
     cursor: 'pointer',
     background: 'none',
     border: 'none',
-    borderBottom: isActive ? `2px solid ${COLORS.primary}` : '2px solid transparent',
+    borderBottom: isActive
+      ? `2px solid ${COLORS.primary}`
+      : '2px solid transparent',
     '&:hover': {
       color: isActive ? COLORS.primary : COLORS.text,
     },
@@ -486,7 +488,9 @@ const toNormalCase = (str: string): string => {
 };
 
 /** Optional directory fields: omit blank/whitespace so we do not show placeholder text when absent. */
-const optionalDisplayText = (value: string | undefined | null): string | undefined => {
+const optionalDisplayText = (
+  value: string | undefined | null
+): string | undefined => {
   if (value == null) return undefined;
   const t = String(value).trim();
   return t.length ? t : undefined;
@@ -500,7 +504,9 @@ const formatEmail = (email: string | undefined): string | undefined => {
 };
 
 // Helper function to format employment status
-const formatEmploymentStatus = (status: string | undefined): string | undefined => {
+const formatEmploymentStatus = (
+  status: string | undefined
+): string | undefined => {
   if (!status) return 'N/A';
   const upperStatus = status.toUpperCase();
   if (upperStatus === 'UNKNOWN') return 'N/A';
@@ -509,7 +515,9 @@ const formatEmploymentStatus = (status: string | undefined): string | undefined 
 };
 
 // Helper function to format user registered status
-const formatUserRegistered = (registered: string | undefined): string | undefined => {
+const formatUserRegistered = (
+  registered: string | undefined
+): string | undefined => {
   if (!registered) return undefined;
   if (registered.toLowerCase() === 'false') return 'Not Registered';
   return registered;
@@ -547,7 +555,8 @@ const formatApplicationName = (appName: string): string => {
 
 // Helper function to get display name (preferred if available, otherwise legal)
 const getDisplayName = (identity: Identity): string => {
-  const firstName = identity.preferredFirstName || identity.legalFirstName || '';
+  const firstName =
+    identity.preferredFirstName || identity.legalFirstName || '';
   const lastName = identity.preferredLastName || identity.legalLastName || '';
   return `${firstName} ${lastName}`.trim() || 'Unknown';
 };
@@ -575,11 +584,16 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
       // Call the real API with User ID or Name (returns array)
       const userInfoResults = await fetchViewUserInfo(fetchGraphql, searchTerm);
       console.log('[ViewUserInfoIndex] Received results:', userInfoResults);
-      console.log('[ViewUserInfoIndex] Results count:', userInfoResults ? userInfoResults.length : 0);
+      console.log(
+        '[ViewUserInfoIndex] Results count:',
+        userInfoResults ? userInfoResults.length : 0
+      );
       setResults(userInfoResults);
     } catch (err) {
       console.error('[ViewUserInfoIndex] Error during search:', err);
-      setError('User not found or failed to fetch results. Please try again with a valid User ID or Name.');
+      setError(
+        'User not found or failed to fetch results. Please try again with a valid User ID or Name.'
+      );
     } finally {
       setLoading(false);
     }
@@ -607,8 +621,19 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
         <div css={HEADER_ROW_STYLING}>
           <Link href="/">
             <a css={EXIT_BUTTON_STYLING}>
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
               </svg>
               Back to Home
             </a>
@@ -620,7 +645,13 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
         <div css={SEARCH_SECTION_STYLING}>
           <form onSubmit={handleSearch} css={SEARCH_FORM_STYLING}>
             <div css={SEARCH_ICON_STYLING}>
-              <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -634,7 +665,7 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
               css={SEARCH_INPUT_STYLING}
               placeholder="Search by User ID or Legal Name..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={e => setSearchTerm(e.target.value)}
             />
             {searchTerm && !loading && (
               <button
@@ -643,12 +674,27 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                 onClick={handleClearSearch}
                 aria-label="Clear search"
               >
-                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             )}
-            <button type="submit" disabled={loading} css={SEARCH_BUTTON_STYLING}>
+            <button
+              type="submit"
+              disabled={loading}
+              css={SEARCH_BUTTON_STYLING}
+            >
               {loading ? 'Searching...' : 'Search'}
             </button>
           </form>
@@ -656,8 +702,21 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
 
         {error && (
           <div css={ERROR_MESSAGE_STYLING}>
-            <p style={{ fontFamily: MONTSERRAT_FONT, fontWeight: 500, textTransform: 'uppercase', margin: '0 0 0.25rem 0' }}>Error</p>
-            <p style={{ fontSize: '0.875rem', fontWeight: 'normal', margin: 0 }}>{error}</p>
+            <p
+              style={{
+                fontFamily: MONTSERRAT_FONT,
+                fontWeight: 500,
+                textTransform: 'uppercase',
+                margin: '0 0 0.25rem 0',
+              }}
+            >
+              Error
+            </p>
+            <p
+              style={{ fontSize: '0.875rem', fontWeight: 'normal', margin: 0 }}
+            >
+              {error}
+            </p>
           </div>
         )}
 
@@ -675,10 +734,16 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
 
             return (
               <div key={uniqueKey} css={IDENTITY_CARD_STYLING(isExpanded)}>
-                <div css={CARD_HEADER_STYLING} onClick={() => toggleRow(uniqueKey)}>
+                <div
+                  css={CARD_HEADER_STYLING}
+                  onClick={() => toggleRow(uniqueKey)}
+                >
                   <div css={USER_INFO_STYLING}>
                     <div css={AVATAR_STYLING}>
-                      {(((identity.preferredFirstName || identity.legalFirstName || identity.uid || '?')[0])).toUpperCase()}
+                      {(identity.preferredFirstName ||
+                        identity.legalFirstName ||
+                        identity.uid ||
+                        '?')[0].toUpperCase()}
                     </div>
                     <div css={USER_DETAILS_STYLING}>
                       <h3 css={USER_NAME_STYLING}>
@@ -694,22 +759,56 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
 
                   <div css={CARD_ACTIONS_STYLING}>
                     <div css={DEPT_INFO_STYLING}>
-                      <div style={{ fontSize: '0.875rem', fontWeight: 'normal', color: COLORS.text }}>
+                      <div
+                        style={{
+                          fontSize: '0.875rem',
+                          fontWeight: 'normal',
+                          color: COLORS.text,
+                        }}
+                      >
                         {identity.departmentName || 'No Dept'}
                       </div>
                       {locationDisplay && (
-                        <div style={{ fontSize: '0.75rem', fontWeight: 'normal', color: COLORS.text }}>
+                        <div
+                          style={{
+                            fontSize: '0.75rem',
+                            fontWeight: 'normal',
+                            color: COLORS.text,
+                          }}
+                        >
                           {locationDisplay}
                         </div>
                       )}
                     </div>
 
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <span css={STATUS_BADGE_STYLING(identity.cloudLifecycleState || '')}>
-                        {identity.cloudLifecycleState ? toNormalCase(identity.cloudLifecycleState) : 'Unknown'}
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                      }}
+                    >
+                      <span
+                        css={STATUS_BADGE_STYLING(
+                          identity.cloudLifecycleState || ''
+                        )}
+                      >
+                        {identity.cloudLifecycleState
+                          ? toNormalCase(identity.cloudLifecycleState)
+                          : 'Unknown'}
                       </span>
-                      <svg css={CHEVRON_STYLING(isExpanded)} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <svg
+                        css={CHEVRON_STYLING(isExpanded)}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -720,7 +819,7 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                     <div css={TABS_CONTAINER_STYLING}>
                       <button
                         css={TAB_BUTTON_STYLING(activeTab === 'attributes')}
-                        onClick={(e) => {
+                        onClick={e => {
                           e.stopPropagation();
                           setActiveTab('attributes');
                         }}
@@ -730,7 +829,7 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                       </button>
                       <button
                         css={TAB_BUTTON_STYLING(activeTab === 'accounts')}
-                        onClick={(e) => {
+                        onClick={e => {
                           e.stopPropagation();
                           setActiveTab('accounts');
                         }}
@@ -759,43 +858,91 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                           {[
                             ['User ID', identity.uid],
                             ...(identity.preferredFirstName
-                              ? [['Preferred First Name', identity.preferredFirstName] as [string, string | undefined]]
+                              ? [
+                                  [
+                                    'Preferred First Name',
+                                    identity.preferredFirstName,
+                                  ] as [string, string | undefined],
+                                ]
                               : []),
                             ...(identity.preferredLastName
-                              ? [['Preferred Last Name', identity.preferredLastName] as [string, string | undefined]]
+                              ? [
+                                  [
+                                    'Preferred Last Name',
+                                    identity.preferredLastName,
+                                  ] as [string, string | undefined],
+                                ]
                               : []),
                             ['Legal First Name', identity.legalFirstName],
                             ...(identity.middleName
-                              ? [['Middle Name', identity.middleName] as [string, string | undefined]]
+                              ? [
+                                  ['Middle Name', identity.middleName] as [
+                                    string,
+                                    string | undefined
+                                  ],
+                                ]
                               : []),
                             ['Legal Last Name', identity.legalLastName],
                             ['Email', formatEmail(identity.email)],
-                            ['Personal Email', formatEmail(identity.personalEmail)],
-                            ['Manager', optionalDisplayText(identity.manager)],
+                            [
+                              'Personal Email',
+                              formatEmail(identity.personalEmail),
+                            ],
+                            ...(optionalDisplayText(identity.manager)
+                              ? [
+                                  [
+                                    'Manager',
+                                    optionalDisplayText(identity.manager),
+                                  ] as [string, string | undefined],
+                                ]
+                              : []),
                             ['Department', identity.departmentName],
-                            ['Location', optionalDisplayText(identity.location)],
-                            ['Employment Status', formatEmploymentStatus(identity.employmentStatus)],
+                            ...(optionalDisplayText(identity.location)
+                              ? [
+                                  [
+                                    'Location',
+                                    optionalDisplayText(identity.location),
+                                  ] as [string, string | undefined],
+                                ]
+                              : []),
+                            [
+                              'Employment Status',
+                              formatEmploymentStatus(identity.employmentStatus),
+                            ],
                             ['VPN Status', formatVpnStatus(identity.vpnStatus)],
-                            ['User Registered', formatUserRegistered(identity.userRegistered)],
+                            [
+                              'User Registered',
+                              formatUserRegistered(identity.userRegistered),
+                            ],
                             ['Password Expires On', identity.passwordExpiresOn],
                             ['Start Date', identity.startDate],
-                            ['End Date', identity.endDate] as [string, string | undefined],
+                            ['End Date', identity.endDate] as [
+                              string,
+                              string | undefined
+                            ],
                             ...(identity.isVip
-                              ? [['VIP', identity.isVip] as [string, string | undefined]]
-                              : []),
-                            ...(!identity.isEmployee || optionalDisplayText(identity.sponsor)
                               ? [
-                                  ['Sponsor', optionalDisplayText(identity.sponsor)] as [
+                                  ['VIP', identity.isVip] as [
                                     string,
-                                    string | undefined,
+                                    string | undefined
                                   ],
+                                ]
+                              : []),
+                            ...(optionalDisplayText(identity.sponsor)
+                              ? [
+                                  [
+                                    'Sponsor',
+                                    optionalDisplayText(identity.sponsor),
+                                  ] as [string, string | undefined],
                                 ]
                               : []),
                           ].map(([label, val]) => (
                             <div key={label} css={ATTRIBUTE_ITEM_STYLING}>
                               <div css={ATTRIBUTE_LABEL_STYLING}>{label}</div>
                               <div css={ATTRIBUTE_VALUE_STYLING}>
-                                {val || <span css={ATTRIBUTE_NA_STYLING}>N/A</span>}
+                                {val || (
+                                  <span css={ATTRIBUTE_NA_STYLING}>N/A</span>
+                                )}
                               </div>
                             </div>
                           ))}
@@ -806,16 +953,26 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                             <table css={TABLE_STYLING}>
                               <thead css={TABLE_HEAD_STYLING}>
                                 <tr>
-                                  <th css={TABLE_HEADER_CELL_STYLING}>Application</th>
-                                  <th css={TABLE_HEADER_CELL_STYLING}>Status</th>
+                                  <th css={TABLE_HEADER_CELL_STYLING}>
+                                    Application
+                                  </th>
+                                  <th css={TABLE_HEADER_CELL_STYLING}>
+                                    Status
+                                  </th>
                                 </tr>
                               </thead>
                               <tbody css={TABLE_BODY_STYLING}>
                                 {identity.accounts.map((acc, idx) => (
                                   <tr key={idx}>
-                                    <td css={TABLE_CELL_STYLING}>{formatApplicationName(acc.name)}</td>
                                     <td css={TABLE_CELL_STYLING}>
-                                      <span css={ACCOUNT_STATUS_BADGE_STYLING(acc.disabled)}>
+                                      {formatApplicationName(acc.name)}
+                                    </td>
+                                    <td css={TABLE_CELL_STYLING}>
+                                      <span
+                                        css={ACCOUNT_STATUS_BADGE_STYLING(
+                                          acc.disabled
+                                        )}
+                                      >
                                         {acc.disabled ? 'Inactive' : 'Active'}
                                       </span>
                                     </td>
@@ -824,7 +981,9 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
                               </tbody>
                             </table>
                           ) : (
-                            <div css={NO_ACCOUNTS_STYLING}>No accounts found for this identity.</div>
+                            <div css={NO_ACCOUNTS_STYLING}>
+                              No accounts found for this identity.
+                            </div>
                           )}
                         </div>
                       )}
@@ -839,4 +998,3 @@ export default function ViewUserInfoIndex({ fetchGraphql }: Props) {
     </div>
   );
 }
-

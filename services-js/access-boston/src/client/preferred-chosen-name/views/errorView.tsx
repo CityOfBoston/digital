@@ -17,14 +17,11 @@ export const ErrorView = (_props: ErrorProps) => {
   const errorTag = () => {
     return (
       <>
-        An error occurred while processing your request, go the{' '}
-        <a
-          target="_blank"
-          href="https://www.boston.gov/departments/innovation-and-technology/access-boston-portal-help"
-        >
-          Access Boston Help
-        </a>{' '}
-        page for more information
+        An error occurred while processing your request, Please submit a ticket
+        with the DoIT Service Desk -{' '}
+        <a href="mailto:doitservicedesk@boston.gov">
+          doitservicedesk@boston.gov
+        </a>
       </>
     );
   };
@@ -43,17 +40,9 @@ export const ErrorView = (_props: ErrorProps) => {
             <QuestionComponent quitBtn={true} quitBtnText="Close">
               <div className="row" css={BODY_TEXT_STYLING}>
                 <div className="bodyText">
-                  <button
-                    onClick={() =>
-                      window.open(
-                        'https://www.boston.gov/departments/innovation-and-technology/access-boston-portal-help',
-                        '_blank'
-                      )
-                    }
-                    className={`btn`}
-                  >
-                    Help Page
-                  </button>
+                  <a className={`btn`} href="mailto:doitservicedesk@boston.gov">
+                    Email DoIT Service Desk
+                  </a>
                 </div>
               </div>
             </QuestionComponent>

@@ -7,6 +7,10 @@ import mjml2html from 'mjml';
 import moment from 'moment-timezone';
 
 import { capitalize } from '../../lib/helpers';
+import {
+  DEATH_SSN_NOTICE_PARAGRAPH_1,
+  DEATH_SSN_NOTICE_PARAGRAPH_2_EMAIL_HTML,
+} from '../../lib/deathSsnNotice';
 
 import { PACKAGE_SRC_ROOT } from '../util';
 
@@ -139,6 +143,8 @@ export class EmailTemplates {
             : receipt.total,
 
         belowOrderText: [
+          DEATH_SSN_NOTICE_PARAGRAPH_1,
+          DEATH_SSN_NOTICE_PARAGRAPH_2_EMAIL_HTML,
           'Your order will be shipped within 1-2 business days via the U.S. Postal Service.',
         ],
       },

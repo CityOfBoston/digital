@@ -5,6 +5,11 @@ import { observer } from 'mobx-react';
 
 import PageLayout from '../../PageLayout';
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
+import {
+  DEATH_SSN_DOCUMENTATION_URL,
+  DEATH_SSN_NOTICE_PARAGRAPH_1,
+  DEATH_SSN_NOTICE_PARAGRAPH_2_BEFORE_LINK,
+} from '../../../lib/deathSsnNotice';
 
 import Cart from '../../store/DeathCertificateCart';
 
@@ -44,6 +49,13 @@ export default class ConfirmationContent extends React.Component<Props> {
             <CONFIRMATION_RECEIPT_SUCCESS>
               <p>
                 Your order number is <strong>#{orderId}</strong>.
+              </p>
+
+              <p>{DEATH_SSN_NOTICE_PARAGRAPH_1}</p>
+
+              <p>
+                {DEATH_SSN_NOTICE_PARAGRAPH_2_BEFORE_LINK}
+                <Link href={DEATH_SSN_DOCUMENTATION_URL}>here</Link>.
               </p>
 
               <p>

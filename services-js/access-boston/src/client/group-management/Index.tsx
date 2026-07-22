@@ -26,11 +26,13 @@ import {
   fetchPersonSearch,
   fetchPersonSearchRemaining,
 } from './data-fetching/fetch-person-data';
+import { setGroupMgmtActorEmployeeId } from './data-fetching/fetchGraphql';
 import { renameObjectKeys, chunkArray } from './fixtures/helpers';
 import { pageSize } from './types';
 
 interface Props {
   groups: any;
+  employeeId: string;
 }
 
 /**
@@ -40,7 +42,7 @@ interface Props {
  * - person: item representing a City person
  */
 export default function Index(props: Props) {
-  const { groups } = props;
+  const { groups, employeeId } = props;
   const [state, dispatchState] = useReducer(stateReducer, initialState);
   const [list, dispatchList] = useReducer(listReducer, []);
   const [loading, setLoading] = useState<boolean>(false);
@@ -150,6 +152,12 @@ export default function Index(props: Props) {
       }
     });
   };
+
+  useEffect(() => {
+    if (employeeId) {
+      setGroupMgmtActorEmployeeId(employeeId);
+    }
+  }, [employeeId]);
 
   useEffect(() => {
     // Update the document title using the browser API

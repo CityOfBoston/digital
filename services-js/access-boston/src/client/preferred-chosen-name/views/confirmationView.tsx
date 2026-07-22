@@ -57,8 +57,9 @@ export const ConfirmationView = ({
     if (event.keyCode === 13 || event.keyCode === 32) handleStepBack(event);
   };
 
-  // Enable the continue button only if an option is selected and the checkbox is checked
-  const allowProceed = checkboxChecked;
+  // Require both chosen name parts (after fallback), acknowledgement, and email choice
+  const allowProceed =
+    checkboxChecked && FName.trim() !== '' && LName.trim() !== '';
 
   const handle_proceed = () => {
     let subObj = {

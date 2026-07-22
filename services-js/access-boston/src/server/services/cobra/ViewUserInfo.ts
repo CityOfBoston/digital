@@ -33,6 +33,8 @@ export interface CobraAttributes {
   endDate?: string;
   /** Human-readable sponsor label from Cobra (optional). */
   cobSponsorDisplayName?: string;
+  /** Sponsor location label from Cobra (optional). */
+  cobSponsorLocationName?: string;
   isVip?: string;
   [key: string]: any;
 }
@@ -42,6 +44,8 @@ export interface CobraViewUserInfoResponse {
   access: string[];
   /** Present on some payloads at the item level instead of inside `attributes`. */
   cobSponsorDisplayName?: string;
+  cobSponsorLocationName?: string;
+  managerName?: string;
   [key: string]: unknown;
 }
 
@@ -50,21 +54,29 @@ export interface Account {
   disabled: boolean;
 }
 
-/** Sponsor label from `cobSponsorDisplayName` on `attributes` or parent row; keys vary by serializer. */
-function resolveCobSponsorDisplayNameRaw(
+/** Read optional Cobra fields from `attributes` or parent row; keys vary by serializer. */
+function resolveCobraFieldRaw(
   attrs: CobraAttributes,
-  item: CobraViewUserInfoResponse
+  item: CobraViewUserInfoResponse,
+  keys: string[]
 ): unknown {
-  const a = attrs as Record<string, unknown>;
-  const row = item as Record<string, unknown>;
-  return (
-    a.cobSponsorDisplayName ??
-    a.CobSponsorDisplayName ??
-    a.cob_sponsor_display_name ??
-    row.cobSponsorDisplayName ??
-    row.CobSponsorDisplayName ??
-    row.cob_sponsor_display_name
-  );
+  const sources = [
+    attrs as Record<string, unknown>,
+    item as Record<string, unknown>,
+  ];
+  for (const source of sources) {
+    for (const key of keys) {
+      const value = source[key];
+      if (
+        value !== undefined &&
+        value !== null &&
+        String(value).trim() !== ''
+      ) {
+        return value;
+      }
+    }
+  }
+  return undefined;
 }
 
 export interface ViewUserInfoResponse {
@@ -111,33 +123,55 @@ export default class ViewUserInfo {
 
   async process(args: ViewUserInfoArgs): Promise<ViewUserInfoResponse[]> {
     try {
-      console.log('[ViewUserInfo.process] Calling CobraClient.viewUserInfo with search term:', args.query_string);
+      console.log(
+        '[ViewUserInfo.process] Calling CobraClient.viewUserInfo with search term:',
+        args.query_string
+      );
       // Cobra API now expects 'id_or_displayname' parameter and returns an array
-      const response = await this.client.viewUserInfo({ id_or_displayname: args.query_string });
-      console.log('[ViewUserInfo.process] Received response with', Array.isArray(response) ? response.length : 0, 'items');
-      
+      const response = await this.client.viewUserInfo({
+        id_or_displayname: args.query_string,
+      });
+      console.log(
+        '[ViewUserInfo.process] Received response with',
+        Array.isArray(response) ? response.length : 0,
+        'items'
+      );
+
       // Validate response structure - now expecting an array
       if (!response || !Array.isArray(response)) {
-        console.error('[ViewUserInfo.process] Invalid response structure - expected array, got:', typeof response);
-        throw new Error('Invalid response structure from Cobra API - expected array');
+        console.error(
+          '[ViewUserInfo.process] Invalid response structure - expected array, got:',
+          typeof response
+        );
+        throw new Error(
+          'Invalid response structure from Cobra API - expected array'
+        );
       }
-      
+
       // Transform each result in the array, handling errors gracefully
       const results: ViewUserInfoResponse[] = [];
       response.forEach((item: CobraViewUserInfoResponse, index: number) => {
         try {
           if (!item.attributes) {
-            console.error(`[ViewUserInfo.process] Item ${index} missing attributes, skipping`);
+            console.error(
+              `[ViewUserInfo.process] Item ${index} missing attributes, skipping`
+            );
             return;
           }
           const transformed = this.transformResponse(item, index);
           results.push(transformed);
         } catch (itemError) {
-          console.error(`[ViewUserInfo.process] Error transforming item ${index}:`, {
-            error: itemError instanceof Error ? itemError.message : 'Unknown error',
-            stack: itemError instanceof Error ? itemError.stack : undefined,
-            itemSample: JSON.stringify(item).substring(0, 200)
-          });
+          console.error(
+            `[ViewUserInfo.process] Error transforming item ${index}:`,
+            {
+              error:
+                itemError instanceof Error
+                  ? itemError.message
+                  : 'Unknown error',
+              stack: itemError instanceof Error ? itemError.stack : undefined,
+              itemSample: JSON.stringify(item).substring(0, 200),
+            }
+          );
           // Continue processing other items instead of failing completely
         }
       });
@@ -147,13 +181,17 @@ export default class ViewUserInfo {
         throw new Error('Failed to transform any response items');
       }
 
-      console.log('[ViewUserInfo.process] Successfully transformed', results.length, 'items');
+      console.log(
+        '[ViewUserInfo.process] Successfully transformed',
+        results.length,
+        'items'
+      );
       return results;
     } catch (err) {
       console.error('[ViewUserInfo.process] Error details:', {
         message: err instanceof Error ? err.message : 'Unknown error',
         query_string: args.query_string,
-        error: err
+        error: err,
       });
       throw new Error(
         err instanceof Error ? err.message : 'Failed to get user info'
@@ -183,12 +221,19 @@ export default class ViewUserInfo {
     }
 
     // Helper function to safely parse fields
-    const safeGet = (fieldName: string, getValue: () => any, fallback: any = undefined) => {
+    const safeGet = (
+      fieldName: string,
+      getValue: () => any,
+      fallback: any = undefined
+    ) => {
       try {
         const value = getValue();
         return value !== undefined ? value : fallback;
       } catch (error) {
-        console.warn(`[ViewUserInfo.transformResponse] Error parsing ${fieldName} for ${itemLabel}:`, error instanceof Error ? error.message : 'Unknown error');
+        console.warn(
+          `[ViewUserInfo.transformResponse] Error parsing ${fieldName} for ${itemLabel}:`,
+          error instanceof Error ? error.message : 'Unknown error'
+        );
         return fallback;
       }
     };
@@ -198,12 +243,15 @@ export default class ViewUserInfo {
     try {
       accounts = this.parseAccounts(cobraData.access || []);
     } catch (error) {
-      console.error(`[ViewUserInfo.transformResponse] Error parsing accounts for ${itemLabel}:`, error instanceof Error ? error.message : 'Unknown error');
+      console.error(
+        `[ViewUserInfo.transformResponse] Error parsing accounts for ${itemLabel}:`,
+        error instanceof Error ? error.message : 'Unknown error'
+      );
       accounts = [];
     }
 
     // Helper to convert undefined to null for GraphQL (allowUndefinedInResolve: false requires this)
-    const toNullable = (value: any) => value !== undefined ? value : null;
+    const toNullable = (value: any) => (value !== undefined ? value : null);
 
     /** Trimmed non-empty string, else undefined — Cobra may omit or send blank optional attributes. */
     const optionalString = (value: unknown): string | undefined => {
@@ -225,31 +273,62 @@ export default class ViewUserInfo {
       personalEmail: toNullable(attrs.personalEmail),
       workPhone: toNullable(attrs.workPhone),
       phone: toNullable(attrs.phone),
-      manager: toNullable(optionalString(attrs.managerName)),
+      manager: toNullable(
+        optionalString(
+          resolveCobraFieldRaw(attrs, cobraData, [
+            'managerName',
+            'ManagerName',
+            'manager_name',
+          ])
+        )
+      ),
       departmentName: toNullable(attrs.departmentName),
-      location: toNullable(optionalString(attrs.location)),
-      employmentStatus: toNullable(safeGet('employmentStatus', () => 
-        attrs.status === 'A' ? 'ACTIVE' : attrs.status || 'UNKNOWN', 
-        'UNKNOWN'
-      )),
-      accountStatus: toNullable(safeGet('accountStatus', () => 
-        attrs.cloudStatus === 'ACTIVE' ? 'Active' : 'Inactive',
-        attrs.cloudStatus || 'Unknown'
-      )),
+      location: toNullable(
+        optionalString(
+          (() => {
+            const sponsorLocation = resolveCobraFieldRaw(attrs, cobraData, [
+              'cobSponsorLocationName',
+              'CobSponsorLocationName',
+              'cob_sponsor_location_name',
+            ]);
+            return sponsorLocation != null ? sponsorLocation : attrs.location;
+          })()
+        )
+      ),
+      employmentStatus: toNullable(
+        safeGet(
+          'employmentStatus',
+          () => (attrs.status === 'A' ? 'ACTIVE' : attrs.status || 'UNKNOWN'),
+          'UNKNOWN'
+        )
+      ),
+      accountStatus: toNullable(
+        safeGet(
+          'accountStatus',
+          () => (attrs.cloudStatus === 'ACTIVE' ? 'Active' : 'Inactive'),
+          attrs.cloudStatus || 'Unknown'
+        )
+      ),
       identityState: toNullable(attrs.identityState),
       cloudLifecycleState: toNullable(attrs.cloudLifecycleState),
-      vpnStatus: toNullable(safeGet('vpnStatus', () => {
-        // Handle boolean or string values - use any to handle runtime types
-        const vpn: any = attrs.vpnStatus;
-        if (typeof vpn === 'boolean') {
-          return vpn ? 'true' : 'false';
-        }
-        if (typeof vpn === 'string') {
-          const lower = vpn.toLowerCase();
-          if (lower === 'true' || lower === 'false') return lower;
-        }
-        return 'false'; // Default to false if undefined or invalid
-      }, 'false')),
+      vpnStatus: toNullable(
+        safeGet(
+          'vpnStatus',
+          () => {
+            // Handle boolean or string values - use any to handle runtime types
+            const vpn: any = attrs.vpnStatus;
+            if (typeof vpn === 'boolean') {
+              return vpn ? 'true' : 'false';
+            }
+            if (typeof vpn === 'string') {
+              const lower = vpn.toLowerCase();
+              if (lower === 'true' || lower === 'false') return lower;
+            }
+            return 'false'; // Default to false if undefined or invalid
+          },
+          'false'
+        )
+      ),
       userRegistered: toNullable(attrs.isRegistered),
       passwordExpiresOn: toNullable(attrs.passwordExpireDate),
       hireDate: toNullable(attrs.hireDate),
@@ -257,17 +336,34 @@ export default class ViewUserInfo {
       isManager: toNullable(attrs.isManager),
       positionNumber: toNullable(attrs.positionNumber),
       jobCode: toNullable(attrs.jobCode),
-      isVip: toNullable(safeGet('isVip', () => attrs.isVip === 'true' ? 'Yes' : null, null)),
-      isEmployee: safeGet('isEmployee', () => attrs.isEmployee === 'true', false),
+      isVip: toNullable(
+        safeGet('isVip', () => (attrs.isVip === 'true' ? 'Yes' : null), null)
+      ),
+      isEmployee: safeGet(
+        'isEmployee',
+        () => attrs.isEmployee === 'true',
+        false
+      ),
       endDate: attrs.endDate || null,
-      sponsor: toNullable(optionalString(resolveCobSponsorDisplayNameRaw(attrs, cobraData))),
+      sponsor: toNullable(
+        optionalString(
+          resolveCobraFieldRaw(attrs, cobraData, [
+            'cobSponsorDisplayName',
+            'CobSponsorDisplayName',
+            'cob_sponsor_display_name',
+          ])
+        )
+      ),
       accounts: accounts,
     };
   }
 
   private parseAccounts(access: string[]): Account[] {
     if (!Array.isArray(access)) {
-      console.warn('[ViewUserInfo.parseAccounts] Access is not an array:', typeof access);
+      console.warn(
+        '[ViewUserInfo.parseAccounts] Access is not an array:',
+        typeof access
+      );
       return [];
     }
 
@@ -275,14 +371,17 @@ export default class ViewUserInfo {
     access.forEach((accessString, index) => {
       try {
         if (typeof accessString !== 'string') {
-          console.warn(`[ViewUserInfo.parseAccounts] Item ${index} is not a string:`, typeof accessString);
+          console.warn(
+            `[ViewUserInfo.parseAccounts] Item ${index} is not a string:`,
+            typeof accessString
+          );
           return;
         }
 
         // Extract name and status from "App Name (Enabled/Disabled)"
         const match = accessString.match(/^(.+?)\s*\((Enabled|Disabled)\)$/);
         let account: Account;
-        
+
         if (match) {
           account = {
             name: match[1].trim(),
@@ -301,7 +400,12 @@ export default class ViewUserInfo {
         account.name = this.formatAccountName(account.name);
         results.push(account);
       } catch (error) {
-        console.error(`[ViewUserInfo.parseAccounts] Error parsing account ${index}:`, error instanceof Error ? error.message : 'Unknown error', 'Value:', accessString);
+        console.error(
+          `[ViewUserInfo.parseAccounts] Error parsing account ${index}:`,
+          error instanceof Error ? error.message : 'Unknown error',
+          'Value:',
+          accessString
+        );
         // Continue processing other accounts
       }
     });
@@ -325,4 +429,3 @@ export default class ViewUserInfo {
     return name;
   }
 }
-

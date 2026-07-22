@@ -36,7 +36,7 @@ export default class GroupManagement extends React.Component<Props> {
         </Head>
 
         <AppWrapper account={account}>
-          <Index groups={account.groups} />
+          <Index groups={account.groups} employeeId={account.employeeId} />
         </AppWrapper>
       </>
     );

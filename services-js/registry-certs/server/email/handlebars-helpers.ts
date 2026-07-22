@@ -38,3 +38,9 @@ Handlebars.registerHelper('wrap', function(options) {
     indent: '',
   });
 });
+
+Handlebars.registerHelper('plainText', (html: string) =>
+  html
+    .replace(/<a href="([^"]+)">([^<]+)<\/a>/g, '$2 [$1]')
+    .replace(/<[^>]+>/g, '')
+);

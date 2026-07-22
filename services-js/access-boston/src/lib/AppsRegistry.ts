@@ -5,6 +5,7 @@ export interface Notice {
   text: string;
   type: string;
   exclusions: string[];
+  birthright: boolean;
 }
 
 export interface AppsCategory {
@@ -26,6 +27,7 @@ export interface App {
   agencies: string[] | null;
   target: string;
   exclusions: string[];
+  birthright: boolean;
 }
 
 export class NoticeClass implements Notice {
@@ -33,17 +35,20 @@ export class NoticeClass implements Notice {
   text: string = '';
   type: string = 'info';
   exclusions: string[] = [''];
+  birthright: boolean = false;
 
   constructor(opts: {
     label?: any;
     text?: any;
     type?: string;
     exclusions?: string[];
+    birthright?: boolean;
   }) {
     (this.label = opts.label ? opts.label : ''),
       (this.type = opts.type ? opts.type : 'info'),
       (this.exclusions = opts.exclusions ? opts.exclusions : ['']),
       (this.text = opts.text ? opts.text : '');
+    this.birthright = opts.birthright === true;
   }
 }
 
@@ -54,7 +59,7 @@ export class NoticeClass implements Notice {
 export default class AppsRegistry {
   showAll: boolean;
   allCategories: AppsCategory[];
-  noticeMsg: Notice[];
+  noticeMsg: Notice;
 
   constructor(appsYaml: any, showAll = false) {
     this.showAll = showAll;
@@ -65,7 +70,15 @@ export default class AppsRegistry {
       throw new Error('Missing categories array');
     }
 
-    this.noticeMsg = yamlNotice ? yamlNotice : new NoticeClass({});
+    this.noticeMsg = yamlNotice
+      ? {
+          label: yamlNotice.label || '',
+          text: yamlNotice.text || '',
+          type: yamlNotice.type || 'info',
+          exclusions: yamlNotice.exclusions || [''],
+          birthright: yamlNotice.birthright === true,
+        }
+      : new NoticeClass({});
 
     this.allCategories = yamlCategories.map(c => {
       const { title, apps: yamlApps, show_request_access_link, icons } = c;
@@ -89,6 +102,7 @@ export default class AppsRegistry {
           agencies,
           target,
           exclusions,
+          birthright,
         } = a;
         // const exclusion = exclusions || [];
         // console.log(
@@ -125,6 +139,7 @@ export default class AppsRegistry {
           agencies: agencies || null,
           target: target || '',
           exclusions: exclusions || null,
+          birthright: birthright === true,
         };
       });
 
@@ -137,20 +152,25 @@ export default class AppsRegistry {
     });
   }
 
-  appsForNotice(): Notice[] {
+  appsForNotice(isOnboarding: boolean = false): Notice {
+    if (isOnboarding && !this.noticeMsg.birthright) {
+      return new NoticeClass({});
+    }
+
     return this.noticeMsg;
   }
 
   appsForGroups(
     userGroups: string[],
     hasMfaDevice: boolean,
-    cobAgency: string | null
+    cobAgency: string | null,
+    isOnboarding: boolean = false
   ): AppsCategory[] {
     const retObj = this.allCategories
       .map(c => ({
         ...c,
         apps: c.apps.filter(
-          ({ groups, mfaDeviceRequired, agencies, exclusions }) => {
+          ({ groups, mfaDeviceRequired, agencies, exclusions, birthright }) => {
             this.showAll = false;
 
             const mfaRequirementMet = !mfaDeviceRequired || hasMfaDevice;
@@ -176,10 +196,19 @@ export default class AppsRegistry {
               (groupsRequirementMet || agencyRequirementMet) &&
               mfaRequirementMet;
 
-            return (
+            const isVisible =
               (this.showAll || (!groups && !agencies) || isGroupOrAgencies) &&
-              !agencyExcusionMet
-            );
+              !agencyExcusionMet;
+
+            if (!isVisible) {
+              return false;
+            }
+
+            if (isOnboarding && !birthright) {
+              return false;
+            }
+
+            return true;
           }
         ),
       }))

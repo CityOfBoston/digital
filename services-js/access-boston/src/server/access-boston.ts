@@ -57,9 +57,7 @@ import Session from './Session';
 import PingId, { pingIdFromProperties } from './services/PingId';
 import PingIdFake from './services/PingIdFake';
 
-import {
-  allowPreferredNameEndpointReq,
-} from './services/preferredName';
+import { allowPreferredNameEndpointReq } from './services/preferredName';
 
 import CreateUniqueEmail from './services/cobra/CreateUniqueEmail';
 import { PreferredNameService } from './services/cobra/PreferredName';
@@ -305,7 +303,10 @@ async function addGraphQl(
   });
 }
 
-async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient) {
+async function addVelocityTemplates(
+  server: HapiServer,
+  cobraClient: CobraClient
+) {
   server.route({
     path: '/ping/login',
     method: 'GET',
@@ -473,13 +474,17 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
               );
             } else {
               // COBRA: Generate unique email using CreateUniqueEmail service
-              const createUniqueEmailService = new CreateUniqueEmail(cobraClient);
-              
+              const createUniqueEmailService = new CreateUniqueEmail(
+                cobraClient
+              );
+
               // Get user ID and names (trim whitespace)
               const userId = req.payload['id'] || '';
-              const firstName = (req.payload['preferredFirstName'] || '').trim();
+              const firstName = (
+                req.payload['preferredFirstName'] || ''
+              ).trim();
               const lastName = (req.payload['preferredLastName'] || '').trim();
-              
+
               if (!userId) {
                 return h
                   .response({
@@ -487,30 +492,42 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
                   })
                   .code(400);
               }
-              
+
               if (!firstName || !lastName) {
                 return h
                   .response({
-                    error: 'Missing required fields: preferredFirstName and preferredLastName',
+                    error:
+                      'Missing required fields: preferredFirstName and preferredLastName',
                   })
                   .code(400);
               }
 
-              console.log('[preferred-name-request] Generating unique email for:', firstName, lastName, 'userId:', userId);
-              
+              console.log(
+                '[preferred-name-request] Generating unique email for:',
+                firstName,
+                lastName,
+                'userId:',
+                userId
+              );
+
               try {
                 const emailResult = await createUniqueEmailService.process({
                   userId,
                   firstName,
-                  lastName
+                  lastName,
                 });
 
-                console.log('[preferred-name-request] Email result:', emailResult);
-                
+                console.log(
+                  '[preferred-name-request] Email result:',
+                  emailResult
+                );
+
                 // Return response matching IdentityIQ format
                 return {
                   status: null,
-                  requestID: Math.random().toString(36).substring(2),
+                  requestID: Math.random()
+                    .toString(36)
+                    .substring(2),
                   warnings: null,
                   errors: emailResult.available ? null : [emailResult.message],
                   retryWait: 0,
@@ -519,7 +536,9 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
                     result: {
                       DisplayName: `${firstName} ${lastName}`,
                       newEmail: emailResult.email || '',
-                      error: emailResult.available ? '' : (emailResult.message || 'Failed to generate email'),
+                      error: emailResult.available
+                        ? ''
+                        : emailResult.message || 'Failed to generate email',
                     },
                   },
                   retry: false,
@@ -528,12 +547,17 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
                   success: emailResult.available,
                 };
               } catch (error) {
-                console.error('[preferred-name-request] Error generating email:', error);
+                console.error(
+                  '[preferred-name-request] Error generating email:',
+                  error
+                );
                 // On error, return success with error message as the email
                 // This allows the flow to continue with the error shown in place of email
                 return {
                   status: null,
-                  requestID: Math.random().toString(36).substring(2),
+                  requestID: Math.random()
+                    .toString(36)
+                    .substring(2),
                   warnings: null,
                   errors: null,
                   retryWait: 0,
@@ -541,8 +565,14 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
                   attributes: {
                     result: {
                       DisplayName: `${firstName} ${lastName}`,
-                      newEmail: error instanceof Error ? error.message : 'Error generating email',
-                      error: error instanceof Error ? error.message : 'Failed to generate email',
+                      newEmail:
+                        error instanceof Error
+                          ? error.message
+                          : 'Error generating email',
+                      error:
+                        error instanceof Error
+                          ? error.message
+                          : 'Failed to generate email',
                     },
                   },
                   retry: false,
@@ -614,16 +644,45 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
               );
             } else {
               // COBRA: Update preferred name using PreferredNameService
-              const preferredNameService = new PreferredNameService(cobraClient);
-              
-              const userId = req.payload['id'];
-              const firstName = (req.payload['preferredFirstName'] || '').trim();
-              const lastName = (req.payload['preferredLastName'] || '').trim();
-              const email = req.payload['email'] ? req.payload['email'].trim() : undefined;
+              const preferredNameService = new PreferredNameService(
+                cobraClient
+              );
 
-              console.log('[preferred-name-submit] Updating preferred name for user:', userId);
+              const userId = req.payload['id'];
+              const firstName = (
+                req.payload['preferredFirstName'] || ''
+              ).trim();
+              const lastName = (req.payload['preferredLastName'] || '').trim();
+              const email = req.payload['email']
+                ? req.payload['email'].trim()
+                : undefined;
+
+              if (!userId) {
+                return h
+                  .response({
+                    error: 'Missing required field: id (userId)',
+                  })
+                  .code(400);
+              }
+
+              if (!firstName || !lastName) {
+                return h
+                  .response({
+                    error:
+                      'Missing required fields: preferredFirstName and preferredLastName',
+                  })
+                  .code(400);
+              }
+
+              console.log(
+                '[preferred-name-submit] Updating preferred name for user:',
+                userId
+              );
               console.log('[preferred-name-submit] Name:', firstName, lastName);
-              console.log('[preferred-name-submit] Email:', email || '(not changing)');
+              console.log(
+                '[preferred-name-submit] Email:',
+                email || '(not changing)'
+              );
 
               const result = await preferredNameService.changePreferredName(
                 userId,
@@ -634,7 +693,10 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
 
               // Check if it's an error response
               if ('error' in result) {
-                console.error('[preferred-name-submit] Error from COBRA:', result);
+                console.error(
+                  '[preferred-name-submit] Error from COBRA:',
+                  result
+                );
                 return h
                   .response({
                     status: null,
@@ -702,10 +764,16 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
       },
       timeout: { server: 15000 },
     },
-    handler: async _req => {
-      const fetchQ = async this_req => {
-        const query = this_req.payload.query;
-        const variables = this_req.payload.variables;
+    handler: async req => {
+      const userIdHeader = req.headers['x-ab-user-id'];
+      const userId =
+        typeof userIdHeader === 'string' && userIdHeader.length > 0
+          ? userIdHeader
+          : undefined;
+
+      const fetchQ = async (thisReq: any) => {
+        const query = thisReq.payload.query;
+        const variables = thisReq.payload.variables;
 
         return await fetch(
           `${process.env.GROUP_MANAGEMENT_API_URL}` as string,
@@ -714,6 +782,7 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
             headers: {
               'Content-Type': 'application/json',
               token: `${process.env.GROUP_MGMT_API_KEY}` as string,
+              ...(userId ? { 'x-ab-user-id': userId } : {}),
             },
             body: JSON.stringify({
               query,
@@ -725,7 +794,7 @@ async function addVelocityTemplates(server: HapiServer, cobraClient: CobraClient
           .then(response => response);
       };
 
-      return await fetchQ(_req);
+      return await fetchQ(req);
     },
   });
 }
@@ -822,8 +891,10 @@ async function addNext(server: HapiServer) {
     },
     handler: (nextHandler => (request, h) => {
       // eslint-disable-next-line no-console
-      console.log('[DONE] User arrived at /done, clearing session to force re-login');
-      
+      console.log(
+        '[DONE] User arrived at /done, clearing session to force re-login'
+      );
+
       request.yar.reset();
 
       return nextHandler(request, h);

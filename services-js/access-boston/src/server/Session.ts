@@ -9,7 +9,7 @@ export const FORGOT_PASSWORD_SESSION_KEY = 'loginSession';
 
 // Increase this to invalidate existing logins. Necessary when we need sessions
 // to get new data from the SAML login assertion.
-export const CURRENT_SESSION_VERSION = 2;
+export const CURRENT_SESSION_VERSION = 3;
 
 export interface LoginAuth {
   type: 'login';
@@ -60,6 +60,8 @@ export interface LoginSession {
   mfaPhoneNumber: string | null;
 
   cobAgency: string | null;
+
+  isOnboarding: boolean;
 
   // DIG-5136: Preferred/Chosen Name front end to back end workflow
   // displayName: string | null;
