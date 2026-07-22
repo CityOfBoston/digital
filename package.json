@@ -30,8 +30,6 @@
   "scripts": {
     "lint": "eslint .",
     "prepare": "lerna run --scope @cityofboston/* prepare",
-    "precommit": "lint-staged && lerna run --since HEAD --stream --no-sort precommit",
-    "prepush": "jest --clearCache && lerna run --no-sort --stream --since origin/develop --ignore templates.* test",
     "watch": "lerna run --parallel --scope @cityofboston/* watch"
   },
   "lint-staged": {
