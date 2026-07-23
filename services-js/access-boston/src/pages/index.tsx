@@ -240,7 +240,7 @@ export default class IndexPage extends React.Component<Props> {
           key={title + url}
           href={url}
           id={`app-icon-${title}`}
-          className="m-t200 g--3 g--3--sl lwi"
+          className="m-t200 g--2 g--2--sl lwi"
           target={hrefTarget}
         >
           <span className="lwi-ic">

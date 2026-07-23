@@ -40,6 +40,15 @@ const ERROR_PASSWORD_ROW = css({
   },
 });
 
+const PASSWORD_HISTORY_NOTICE = css({
+  backgroundColor: '#D4E8FA',
+  borderRadius: 0,
+  fontWeight: 'bold',
+  marginTop: '1rem',
+  marginBottom: '1rem',
+  padding: '0.75rem 1rem',
+});
+
 interface Props {
   password: string;
   showFailedAsErrors?: boolean;
@@ -97,11 +106,14 @@ export default function PasswordPolicy({
         </li>
       </ul>
 
-      <div className="t--subinfo m-v300 m-b200">
+      <div className={PASSWORD_HISTORY_NOTICE}>
+        Your new password will have to be different than your last 5 passwords.
+      </div>
+
+      <div className="t--subinfo m-b200">
         Don't use personal info, like your name, ID or address. If you use just
         two consecutive characters from your name or ID in your password, it
-        will fail. Your new password will have to be different than your last 5
-        passwords.
+        will fail.
       </div>
     </>
   );
