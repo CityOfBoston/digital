@@ -119,7 +119,11 @@ export default class ShippingContent extends React.Component<Props> {
     return (
       <CheckoutPageLayout
         certificateType={certificateType}
-        title={certificateType !== 'death' ? 'Shipping' : 'Checkout'}
+        title={certificateType !== 'death' ? 'Shipping' : undefined}
+        sectionTitle={
+          certificateType === 'death' ? 'Contact and shipping' : undefined
+        }
+        currentStep={certificateType === 'death' ? 5 : undefined}
         progress={
           this.props.certificateType === 'death'
             ? undefined

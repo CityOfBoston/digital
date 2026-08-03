@@ -1,9 +1,11 @@
 import { observable, computed, action, autorun } from 'mobx';
+import uuidv4 from 'uuid/v4';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
 import { DeathCertificate } from '../types';
 import DeathCertificatesDao from '../dao/DeathCertificatesDao';
+import UploadableFile, { UploadableFileRecord } from '../models/UploadableFile';
 
 import { CERTIFICATE_COST } from '../../lib/costs';
 
@@ -11,15 +13,197 @@ const DEATH_CERTIFICATE_COST = CERTIFICATE_COST.DEATH;
 
 type CardTypes = '-1' | '0' | '1';
 
+/**
+ * Source of truth for selectable relationships + dynamic required-document copy.
+ * Keys are the values submitted / stored on the cart line item.
+ */
+export const DEATH_RELATIONSHIP_OPTIONS = {
+  spouse: {
+    label: 'Spouse / Domestic Partner',
+    requiredDocument:
+      'Marriage certificate or registered domestic partnership record that lists the decedent.',
+  },
+  child: {
+    label: 'Child',
+    requiredDocument:
+      'Birth certificate listing you and the decedent, or other proof of parent/child relationship.',
+  },
+  parent: {
+    label: 'Parent',
+    requiredDocument:
+      'Birth certificate listing you and the decedent, or other proof of parent/child relationship.',
+  },
+  familyMember: {
+    label: 'Other Family Member',
+    requiredDocument: 'Proof of your family relationship to the decedent.',
+  },
+  friend: {
+    label: 'Friend',
+    requiredDocument:
+      'Documentation showing your authority to request this certificate.',
+  },
+  client: {
+    label: 'Client (Attorney / Authorized)',
+    requiredDocument:
+      'Documentation showing your legal authority to request this certificate.',
+  },
+  other: {
+    label: 'Other',
+    requiredDocument:
+      'Documentation showing your relationship or authority to request this certificate.',
+  },
+} as const;
+
+/**
+ * Source of truth for selectable identity document types + dynamic required-document copy.
+ */
+export const DEATH_IDENTITY_DOCUMENT_OPTIONS = {
+  'drivers-license': {
+    label: "Driver's License",
+    requiredDocument:
+      'Upload clear images of the front and back of your driver’s license.',
+  },
+  'state-id': {
+    label: 'State ID',
+    requiredDocument:
+      'Upload clear images of the front and back of your state ID.',
+  },
+  passport: {
+    label: 'Passport',
+    requiredDocument: 'Upload a clear image of your passport.',
+  },
+  'military-id': {
+    label: 'Military ID',
+    requiredDocument: 'Upload clear images of your military ID.',
+  },
+  other: {
+    label: 'Other',
+    requiredDocument:
+      'Upload clear images of an accepted government-issued photo ID.',
+  },
+} as const;
+
+export type DeathCertificateRelationship = keyof typeof DEATH_RELATIONSHIP_OPTIONS;
+export type DeathCertificateIdentityDocumentType =
+  | keyof typeof DEATH_IDENTITY_DOCUMENT_OPTIONS
+  | '';
+
+/** @deprecated Prefer DEATH_RELATIONSHIP_OPTIONS[key].label */
+export const DEATH_RELATIONSHIP_LABELS: {
+  [K in DeathCertificateRelationship]: string;
+} = (Object.keys(DEATH_RELATIONSHIP_OPTIONS) as DeathCertificateRelationship[]).reduce(
+  (acc, key) => {
+    acc[key] = DEATH_RELATIONSHIP_OPTIONS[key].label;
+    return acc;
+  },
+  {} as { [K in DeathCertificateRelationship]: string }
+);
+
+/** @deprecated Prefer DEATH_IDENTITY_DOCUMENT_OPTIONS[key].label */
+export const DEATH_IDENTITY_DOCUMENT_LABELS: {
+  [K in Exclude<DeathCertificateIdentityDocumentType, ''>]: string;
+} = (Object.keys(
+  DEATH_IDENTITY_DOCUMENT_OPTIONS
+) as Array<Exclude<DeathCertificateIdentityDocumentType, ''>>).reduce(
+  (acc, key) => {
+    acc[key] = DEATH_IDENTITY_DOCUMENT_OPTIONS[key].label;
+    return acc;
+  },
+  {} as {
+    [K in Exclude<DeathCertificateIdentityDocumentType, ''>]: string;
+  }
+);
+
+export function deathRelationshipSelectOptions(): Array<{
+  label: string;
+  value: DeathCertificateRelationship;
+}> {
+  return (Object.keys(
+    DEATH_RELATIONSHIP_OPTIONS
+  ) as DeathCertificateRelationship[]).map(value => ({
+    value,
+    label: DEATH_RELATIONSHIP_OPTIONS[value].label,
+  }));
+}
+
+export function deathIdentityDocumentSelectOptions(): Array<{
+  label: string;
+  value: Exclude<DeathCertificateIdentityDocumentType, ''>;
+}> {
+  return (Object.keys(DEATH_IDENTITY_DOCUMENT_OPTIONS) as Array<
+    Exclude<DeathCertificateIdentityDocumentType, ''>
+  >).map(value => ({
+    value,
+    label: DEATH_IDENTITY_DOCUMENT_OPTIONS[value].label,
+  }));
+}
+
+export interface DeathCertificateItemOptions {
+  includeSsn: boolean | null;
+  relationship: DeathCertificateRelationship | '';
+  identityDocumentType: DeathCertificateIdentityDocumentType;
+  uploadSessionId: string;
+  relationshipDocuments: UploadableFile[];
+  identityDocuments: UploadableFile[];
+}
+
 interface LocalStorageEntry {
   id: string;
   quantity: number;
+  includeSsn?: boolean | null;
+  relationship?: DeathCertificateRelationship | '';
+  identityDocumentType?: DeathCertificateIdentityDocumentType;
+  uploadSessionId?: string;
+  relationshipDocuments?: UploadableFileRecord[];
+  identityDocuments?: UploadableFileRecord[];
+}
+
+/**
+ * Attachment @label is a free-text description of the uploaded file (DB stores
+ * it as-is; Registry may later standardize options). Birth uses values like
+ * "id front" / "id back". Death has no separate document-type column, so we
+ * encode relationship / identity context in the label for fulfillment review.
+ *
+ * Examples:
+ *   "relationship:Spouse / Domestic Partner"
+ *   "identity:Driver's License"
+ */
+export function deathRelationshipAttachmentLabel(
+  relationship: DeathCertificateRelationship | ''
+): string {
+  const relationshipLabel =
+    relationship && DEATH_RELATIONSHIP_OPTIONS[relationship]
+      ? DEATH_RELATIONSHIP_OPTIONS[relationship].label
+      : relationship || 'unknown';
+  return `relationship:${relationshipLabel}`;
+}
+
+export function deathIdentityAttachmentLabel(
+  identityDocumentType: DeathCertificateIdentityDocumentType
+): string {
+  const typeLabel =
+    identityDocumentType && DEATH_IDENTITY_DOCUMENT_OPTIONS[identityDocumentType]
+      ? DEATH_IDENTITY_DOCUMENT_OPTIONS[identityDocumentType].label
+      : identityDocumentType || 'unknown';
+  return `identity:${typeLabel}`;
+}
+
+export function createDeathCertificateUploadSessionId(): string {
+  return uuidv4();
 }
 
 export class DeathCertificateCartEntry {
   id: string = '';
   @observable.ref cert: DeathCertificate | null = null;
   @observable quantity: number = 0;
+
+  /** null = not answered yet (should not appear on submitted cart lines). */
+  @observable includeSsn: boolean | null = null;
+  @observable relationship: DeathCertificateRelationship | '' = '';
+  @observable identityDocumentType: DeathCertificateIdentityDocumentType = '';
+  @observable uploadSessionId: string = '';
+  @observable.ref relationshipDocuments: UploadableFile[] = [];
+  @observable.ref identityDocuments: UploadableFile[] = [];
 }
 
 export default class DeathCertificateCart {
@@ -51,22 +235,19 @@ export default class DeathCertificateCart {
           .map(
             action(
               'hydrate entry from local storage start',
-              ({ id, quantity }: LocalStorageEntry) => {
-                const entry = new DeathCertificateCartEntry();
-                entry.id = id;
-                entry.cert = null;
-                entry.quantity = quantity;
+              (saved: LocalStorageEntry) => {
+                const entry = this.createEntryFromStorage(saved);
 
                 this.pendingFetches += 1;
 
-                deathCertificatesDao.get(id).then(
+                deathCertificatesDao.get(saved.id).then(
                   action(
                     'hydrate item from local storage complete',
                     (cert: DeathCertificate | null) => {
                       if (cert) {
                         entry.cert = cert;
                       } else {
-                        this.remove(id);
+                        this.remove(saved.id);
                       }
                       this.pendingFetches -= 1;
                     }
@@ -87,9 +268,19 @@ export default class DeathCertificateCart {
             'cart',
             JSON.stringify(
               this.entries.map(
-                ({ id, quantity }): LocalStorageEntry => ({
-                  id,
-                  quantity,
+                (entry): LocalStorageEntry => ({
+                  id: entry.id,
+                  quantity: entry.quantity,
+                  includeSsn: entry.includeSsn,
+                  relationship: entry.relationship,
+                  identityDocumentType: entry.identityDocumentType,
+                  uploadSessionId: entry.uploadSessionId,
+                  relationshipDocuments: entry.relationshipDocuments
+                    .map(file => file.record)
+                    .filter((r): r is UploadableFileRecord => !!r),
+                  identityDocuments: entry.identityDocuments
+                    .map(file => file.record)
+                    .filter((r): r is UploadableFileRecord => !!r),
                 })
               )
             )
@@ -100,6 +291,39 @@ export default class DeathCertificateCart {
         }
       );
     }
+  }
+
+  private createEntryFromStorage(
+    saved: LocalStorageEntry
+  ): DeathCertificateCartEntry {
+    const entry = new DeathCertificateCartEntry();
+    entry.id = saved.id;
+    entry.cert = null;
+    entry.quantity = saved.quantity;
+    entry.includeSsn =
+      typeof saved.includeSsn === 'boolean' ? saved.includeSsn : null;
+    entry.relationship = saved.relationship || '';
+    entry.identityDocumentType = saved.identityDocumentType || '';
+    entry.uploadSessionId =
+      saved.uploadSessionId || createDeathCertificateUploadSessionId();
+
+    entry.relationshipDocuments = (saved.relationshipDocuments || []).map(
+      rec =>
+        UploadableFile.fromRecord(
+          rec,
+          entry.uploadSessionId,
+          deathRelationshipAttachmentLabel(entry.relationship)
+        )
+    );
+    entry.identityDocuments = (saved.identityDocuments || []).map(rec =>
+      UploadableFile.fromRecord(
+        rec,
+        entry.uploadSessionId,
+        deathIdentityAttachmentLabel(entry.identityDocumentType)
+      )
+    );
+
+    return entry;
   }
 
   @action
@@ -144,18 +368,16 @@ export default class DeathCertificateCart {
     return this.pendingFetches > 0;
   }
 
+  @action
   setCardType(type: '-1' | '0' | '1'): void {
     if (this && this.cardType) this.cardType = type;
-    // if (this && this.getCardType) {
-    //   console.log(
-    //     `deathCertificateCart > getCardType: `,
-    //     type,
-    //     this.getCardType()
-    //   );
-    // }
-    // this.cardType = type;
   }
 
+  getEntry(certId: string): DeathCertificateCartEntry | undefined {
+    return this.entries.find(({ id }) => id === certId);
+  }
+
+  @action
   setQuantity(cert: DeathCertificate, quantity: number) {
     const { siteAnalytics } = this;
 
@@ -184,11 +406,40 @@ export default class DeathCertificateCart {
       item.id = cert.id;
       item.cert = cert;
       item.quantity = filteredQuantity;
+      item.uploadSessionId = createDeathCertificateUploadSessionId();
 
       this.entries.push(item);
     }
   }
 
+  /**
+   * Adds or updates a cart line with STEP 3 certificate options.
+   * Each line item gets its own uploadSessionId for attachment association.
+   */
+  @action
+  setCertificateOptions(
+    cert: DeathCertificate,
+    quantity: number,
+    options: DeathCertificateItemOptions
+  ) {
+    this.setQuantity(cert, quantity);
+
+    const entry = this.entries.find(({ id }) => id === cert.id);
+
+    if (!entry) {
+      return;
+    }
+
+    entry.includeSsn = options.includeSsn;
+    entry.relationship = options.relationship;
+    entry.identityDocumentType = options.identityDocumentType;
+    entry.uploadSessionId =
+      options.uploadSessionId || createDeathCertificateUploadSessionId();
+    entry.relationshipDocuments = options.relationshipDocuments;
+    entry.identityDocuments = options.identityDocuments;
+  }
+
+  @action
   remove(certId: string) {
     const { siteAnalytics } = this;
     const idx = this.entries.findIndex(({ id }) => id === certId);
@@ -212,7 +463,6 @@ export default class DeathCertificateCart {
   getCardType() {
     let retVal: CardTypes = '0';
     if (this && this.cardType) retVal = this.cardType;
-    // console.log(`deathCertificateCart > getCardType: `, retVal);
     return retVal;
   }
 
@@ -226,6 +476,7 @@ export default class DeathCertificateCart {
     }
   }
 
+  @action
   clean() {
     this.entries = this.entries.filter(({ quantity }) => quantity > 0);
   }

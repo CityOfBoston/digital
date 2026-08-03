@@ -106,16 +106,17 @@ describe('content', () => {
   });
 
   it('defaults to the passed-in query', () => {
-    const queryField = wrapper.find('input[name="q"]');
+    const queryField = wrapper.find({ name: 'q' });
     expect(queryField.prop('value')).toEqual('Jayn Doe');
   });
 
   it('changes query input and submits it', () => {
-    const form = wrapper.find('form');
-    const queryField = wrapper.find('input[name="q"]');
+    const queryField = wrapper.find({ name: 'q' });
 
     queryField.simulate('change', { target: { value: 'Monkey Joe' } });
-    form.simulate('submit', { preventDefault: jest.fn() });
+    wrapper.find({ action: '/death' }).simulate('submit', {
+      preventDefault: jest.fn(),
+    });
 
     expect(Router.push).toHaveBeenCalledWith('/death?q=Monkey%20Joe');
   });

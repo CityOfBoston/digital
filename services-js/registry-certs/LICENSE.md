@@ -10,6 +10,7 @@ Additionally, we waive copyright and related rights in the work worldwide throug
 
   * `sprites`
   * `static/images`
+  * `static/assets/images`
 
 ## CC0 1.0 Universal Summary
 

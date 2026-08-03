@@ -1,5 +1,7 @@
 import { gql, FetchGraphql } from '@cityofboston/next-client-common';
-import Cart from '../store/DeathCertificateCart';
+import Cart, {
+  DEATH_RELATIONSHIP_OPTIONS,
+} from '../store/DeathCertificateCart';
 import Order from '../models/Order';
 
 import {
@@ -98,7 +100,6 @@ export default async function submitDeathCertificateOrder(
     billingZip,
     idempotencyKey,
   } = order;
-  // console.log(`submitDeathCertificateOrder(tracking)`, tracking);
 
   if (!cardToken || !cardLast4) {
     throw new Error(
@@ -132,11 +133,25 @@ export default async function submitDeathCertificateOrder(
     billingState,
     billingCity,
     billingZip,
-    items: cart.entries.map(e => ({
-      id: e.id,
-      quantity: e.quantity,
-      name: e.cert ? `${e.cert.firstName} ${e.cert.lastName}` : 'Unknown Name',
-    })),
+    items: cart.entries.map(e => {
+      const includeSsn = !!e.includeSsn;
+      const relationshipLabel =
+        e.relationship && DEATH_RELATIONSHIP_OPTIONS[e.relationship]
+          ? DEATH_RELATIONSHIP_OPTIONS[e.relationship].label
+          : e.relationship || null;
+
+      return {
+        id: e.id,
+        quantity: e.quantity,
+        name: e.cert
+          ? `${e.cert.firstName} ${e.cert.lastName}`
+          : 'Unknown Name',
+        includeSsn,
+        requesterRelationship: includeSsn ? relationshipLabel : null,
+        uploadSessionId:
+          includeSsn && e.uploadSessionId ? e.uploadSessionId : null,
+      };
+    }),
     tracking,
     idempotencyKey,
   };

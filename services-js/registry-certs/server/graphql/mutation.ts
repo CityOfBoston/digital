@@ -27,6 +27,19 @@ interface DeathCertificateOrderItemInput {
   id: string;
   name: string;
   quantity: Int;
+  /** Whether the decedent SSN should be printed on the certificate. */
+  includeSsn: boolean;
+  /**
+   * Human-readable relationship label for fulfillment when includeSsn is true.
+   * Must be populated when includeSsn is true; null when SSN is not requested.
+   */
+  requesterRelationship?: string | null;
+  /**
+   * Per–line-item upload session (unique SessionUID). Associated to the
+   * OrderItem after insert via Commerce.sp_AssociateOrderAttachments when
+   * includeSsn is true.
+   */
+  uploadSessionId?: string | null;
 }
 
 /**
@@ -332,11 +345,26 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
 
     let totalQuantity = 0;
 
-    items.forEach(({ quantity }) => {
+    items.forEach(({ quantity, includeSsn, requesterRelationship, uploadSessionId }) => {
       if (quantity <= 0) {
         throw new Error('Certificate quantity may not be less than 0');
       } else {
         totalQuantity += quantity;
+      }
+
+      // SSN = 1 → relationship + verification documents (unique sessionUID).
+      // SSN = 0 → no relationship value / no attachment association.
+      if (includeSsn) {
+        if (!requesterRelationship || !String(requesterRelationship).trim()) {
+          throw new Error(
+            'Requester relationship is required when SSN is included on a death certificate'
+          );
+        }
+        if (!uploadSessionId || !String(uploadSessionId).trim()) {
+          throw new Error(
+            'Supporting verification documents are required when SSN is included on a death certificate'
+          );
+        }
       }
     });
 
@@ -390,14 +418,43 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     );
 
     await Promise.all(
-      items.map(({ id, name, quantity }) =>
-        registryDb.addDeathCertificateItem(
-          orderKey,
-          parseInt(id, 10),
+      items.map(
+        async ({
+          id,
           name,
           quantity,
-          CERTIFICATE_COST.DEATH / 100
-        )
+          includeSsn,
+          requesterRelationship,
+          uploadSessionId,
+        }) => {
+          const orderItemKey = await registryDb.addDeathCertificateItem(
+            orderKey,
+            parseInt(id, 10),
+            name,
+            quantity,
+            CERTIFICATE_COST.DEATH / 100,
+            !!includeSsn,
+            includeSsn && requesterRelationship
+              ? requesterRelationship
+              : null
+          );
+
+          // One unique sessionUID per certificate line item; associate to
+          // OrderItemKey via Commerce.sp_AssociateOrderAttachments.
+          if (includeSsn) {
+            if (!uploadSessionId) {
+              throw new Error(
+                'Supporting verification documents are required when SSN is included on a death certificate'
+              );
+            }
+
+            await registryDb.addUploadsToOrder(
+              OrderType.DeathCertificate,
+              orderItemKey,
+              uploadSessionId
+            );
+          }
+        }
       )
     );
 
@@ -962,14 +1019,23 @@ const mutationResolvers: Resolvers<Mutation, Context> = {
     }
   },
 
+  /**
+   * Removes a not-yet-associated attachment from its upload session. Birth,
+   * marriage, and death all use the same delete path; marriage intention
+   * (MIC) has no attachment SPs.
+   */
   async deleteUpload(
     _root,
     { type, uploadSessionID, attachmentKey },
     { registryDb }
   ): Promise<DeleteUploadResult> {
-    if (type === OrderType.DeathCertificate) {
+    if (
+      type !== OrderType.BirthCertificate &&
+      type !== OrderType.MarriageCertificate &&
+      type !== OrderType.DeathCertificate
+    ) {
       throw new Error(
-        'Can only delete birth or marriage certificate attachments'
+        'Can only delete birth, marriage, or death certificate attachments'
       );
     }
 

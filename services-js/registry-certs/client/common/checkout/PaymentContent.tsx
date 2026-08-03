@@ -251,7 +251,11 @@ export default class PaymentContent extends React.Component<Props, State> {
     return (
       <CheckoutPageLayout
         certificateType={this.props.certificateType}
-        title="Payment"
+        title={this.props.certificateType !== 'death' ? 'Payment' : undefined}
+        sectionTitle={
+          this.props.certificateType === 'death' ? 'Payment' : undefined
+        }
+        currentStep={this.props.certificateType === 'death' ? 6 : undefined}
         progress={
           this.props.certificateType === 'death'
             ? undefined

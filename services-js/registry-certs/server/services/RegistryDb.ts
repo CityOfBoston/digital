@@ -26,7 +26,7 @@ export enum OrderType {
   MarriageIntentionCertificate = 'MIC',
 }
 
-type RestrictedOrderType = 'BC' | 'MC' | 'MIC';
+type AttachmentOrderType = 'BC' | 'MC' | 'DC';
 
 export interface DeathCertificate {
   CertificateID: number;
@@ -435,16 +435,25 @@ export default class RegistryDb {
     certificateId: number,
     certificateName: string,
     quantity: number,
-    certificateCost: number
-  ): Promise<void> {
-    const resp: IProcedureResult<Object> = await this.pool
+    certificateCost: number,
+    includeSsn: boolean = false,
+    requesterRelationship: string | null = null
+  ): Promise<number> {
+    const unitCost = `$${certificateCost.toFixed(2)}`;
+
+    const resp: IProcedureResult<{
+      OrderItemKey?: number;
+      ErrorMessage?: string;
+    }> = await this.pool
       .request()
       .input('orderKey', orderKey)
       .input('orderType', OrderType.DeathCertificate)
       .input('certificateID', certificateId)
       .input('certificateName', certificateName)
       .input('quantity', quantity)
-      .input('unitCost', `$${certificateCost.toFixed(2)}`)
+      .input('unitCost', unitCost)
+      .input('includeSsn', includeSsn)
+      .input('requesterRelationship', requesterRelationship)
       .execute('Commerce.sp_AddOrderItem');
 
     const { recordset } = resp;
@@ -454,6 +463,21 @@ export default class RegistryDb {
         `Could not add item to order ${orderKey}. Likely no certificate ID ${certificateId} in the database.`
       );
     }
+
+    const row: any = recordset[0];
+
+    if (row && row.ErrorMessage) {
+      throw new Error(row.ErrorMessage);
+    }
+
+    // SCOPE_IDENTITY() on Commerce.sp_AddOrderItem returns the new OrderItemKey.
+    if (row && row.OrderItemKey != null && row.OrderItemKey !== '') {
+      return Number(row.OrderItemKey);
+    }
+
+    throw new Error(
+      `Could not add item to order ${orderKey}: OrderItemKey was not returned.`
+    );
   }
 
   async addMarriageIntentionCertificateRequest({
@@ -911,10 +935,14 @@ export default class RegistryDb {
 
   /**
    * Uploads a file if the user is required to submit ID images and/or
-   * supporting documents with their Birth or Marriage certificate request.
+   * supporting documents with their Birth, Marriage, or Death certificate request.
+   *
+   * Attachment @label is stored as a free-text description of the file
+   * (Registry may later standardize options). Birth uses values like
+   * "id front" / "id back"; death encodes relationship/identity context.
    */
   async uploadFileAttachment(
-    orderType: RestrictedOrderType,
+    orderType: AttachmentOrderType,
     uploadSessionId: string,
     label: string | null,
     file: AnnotatedFilePart
@@ -923,64 +951,104 @@ export default class RegistryDb {
     const uploadStoreProcedure =
       orderType === 'BC'
         ? 'Commerce.sp_AddBirthRequestAttachment'
-        : 'Commerce.sp_AddMarriageRequestAttachment';
+        : orderType === 'MC'
+          ? 'Commerce.sp_AddMarriageRequestAttachment'
+          : 'Commerce.sp_AddDeathRequestAttachment';
     const contentType =
       headers['content-type'] ||
       mime.lookup(filename) ||
       'application/octet-stream';
+
     const out: any = await this.pool
       .request()
-      .input('sessionUID', uploadSessionId)
-      .input('contentType', contentType)
-      .input('fileName', filename)
-      .input('label', label)
+      .input('sessionUID', mssql.NVarChar(100), uploadSessionId)
+      .input('contentType', mssql.NVarChar(100), contentType)
+      .input('fileName', mssql.NVarChar(255), filename)
+      .input(
+        'label',
+        mssql.NVarChar(255),
+        label ? String(label).slice(0, 255) : null
+      )
       .input('attachmentData', mssql.VarBinary(mssql.MAX), payload)
       .execute(uploadStoreProcedure);
-    const result = out.recordset[0];
+    const result = out.recordset && out.recordset[0];
 
-    if (!result || out.returnValue !== 0) {
+    // Some attachment SPs omit an explicit RETURN code. Treat a missing
+    // returnValue as success and rely on ErrorMessage / AttachmentKey.
+    if (
+      out.returnValue != null &&
+      out.returnValue !== 0 &&
+      out.returnValue !== '0'
+    ) {
       throw new Error(
         `Did not get a successful result from SqlServer: ${out.returnValue}`
       );
     }
 
-    if (result.ErrorMessage) {
+    if (!result) {
+      throw new Error(
+        `Did not get a result set from ${uploadStoreProcedure}`
+      );
+    }
+
+    if (result.ErrorMessage && String(result.ErrorMessage).trim()) {
       throw new Error(result.ErrorMessage);
+    }
+
+    if (
+      result.AttachmentKey == null ||
+      result.AttachmentKey === '' ||
+      Number(result.AttachmentKey) === 0
+    ) {
+      throw new Error(
+        `Did not get AttachmentKey from ${uploadStoreProcedure}`
+      );
     }
 
     return result.AttachmentKey.toString();
   }
 
   /**
-   * Allow a user to remove an uploaded file for their Birth or Marriage
+   * Allow a user to remove an uploaded file for their Birth, Marriage, or Death
    * certificate request.
    *
    * Returns string on DB error, null on success.
    */
   async deleteFileAttachment(
-    orderType: RestrictedOrderType,
+    orderType: AttachmentOrderType,
     uploadSessionId: string,
     attachmentKey: string
   ): Promise<string | null> {
+    const procedureName =
+      orderType === 'BC'
+        ? 'Commerce.sp_DeleteBirthRequestAttachment'
+        : orderType === 'MC'
+          ? 'Commerce.sp_DeleteMarriageRequestAttachment'
+          : 'Commerce.sp_DeleteDeathRequestAttachment';
+
     const out: IProcedureResult<{ ErrorMessage: string }> = await this.pool
       .request()
-      .input('sessionUID', uploadSessionId)
-      .input('attachmentKey', parseInt(attachmentKey, 10))
-      .execute(
-        orderType === 'BC'
-          ? 'Commerce.sp_DeleteBirthRequestAttachment'
-          : 'Commerce.sp_DeleteMarriageRequestAttachment'
-      );
+      .input('sessionUID', mssql.NVarChar(100), uploadSessionId)
+      .input('attachmentKey', mssql.Int, parseInt(attachmentKey, 10))
+      .execute(procedureName);
 
-    const result = out.recordset[0];
+    const result = out.recordset && out.recordset[0];
 
-    if (!result || out.returnValue !== 0) {
+    if (
+      out.returnValue != null &&
+      out.returnValue !== 0 &&
+      out.returnValue !== '0'
+    ) {
       throw new Error(
         `Did not get a successful result from SqlServer: ${out.returnValue}`
       );
     }
 
-    if (result.ErrorMessage) {
+    if (!result) {
+      throw new Error(`Did not get a result set from ${procedureName}`);
+    }
+
+    if (result.ErrorMessage && String(result.ErrorMessage).trim()) {
       return result.ErrorMessage;
     } else {
       return null;
@@ -988,35 +1056,51 @@ export default class RegistryDb {
   }
 
   /**
-   * Associate uploaded files with a particular Birth or Marriage
-   * certificate request.
+   * Associate uploaded files with a Birth/Marriage request item or a Death
+   * order item. Death uses Commerce.sp_AssociateOrderAttachments with
+   * @orderItemKey (from sp_AddOrderItem) + @sessionUID.
    */
   async addUploadsToOrder(
-    orderType: RestrictedOrderType,
-    requestItemKey: number,
+    orderType: AttachmentOrderType,
+    itemKey: number,
     uploadSessionId: string
   ): Promise<void> {
-    const out: IProcedureResult<any> = await this.pool
+    const isDeath = orderType === 'DC';
+    const procedureName = isDeath
+      ? 'Commerce.sp_AssociateOrderAttachments'
+      : orderType === 'BC'
+        ? 'Commerce.sp_AssociateBirthAttachments'
+        : 'Commerce.sp_AssociateMarriageAttachments';
+
+    const request = this.pool
       .request()
-      .input('requestItemKey', requestItemKey)
-      .input('sessionUID', uploadSessionId)
-      .execute(
-        orderType === 'BC'
-          ? 'Commerce.sp_AssociateBirthAttachments'
-          : 'Commerce.sp_AssociateMarriageAttachments'
-      );
+      .input('sessionUID', mssql.NVarChar(100), uploadSessionId);
 
-    const result = out.recordset[0];
-    // eslint-disable-next-line no-console
-    // console.log(JSON.stringify(result, null, 2));
+    if (isDeath) {
+      request.input('orderItemKey', mssql.Int, itemKey);
+    } else {
+      request.input('requestItemKey', itemKey);
+    }
 
-    if (!result || out.returnValue !== 0) {
+    const out: IProcedureResult<any> = await request.execute(procedureName);
+
+    const result = out.recordset && out.recordset[0];
+
+    if (
+      out.returnValue != null &&
+      out.returnValue !== 0 &&
+      out.returnValue !== '0'
+    ) {
       throw new Error(
         `Did not get a successful result from SqlServer: ${out.returnValue}`
       );
     }
 
-    if (result.ErrorMessage) {
+    if (!result) {
+      throw new Error(`Did not get a result set from ${procedureName}`);
+    }
+
+    if (result.ErrorMessage && String(result.ErrorMessage).trim()) {
       throw new Error(result.ErrorMessage);
     }
   }

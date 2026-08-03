@@ -302,6 +302,7 @@ export default class CheckoutPageController extends React.Component<
             tracking={certifiedMailTrackingInUI(
               certMail ? certMail.certMailInfo.certMailForDeath : false
             )}
+            cardType={cardType ? cardType.cardTypeInfo.cardType : '0'}
           />
         );
 

@@ -83,6 +83,9 @@ test('submitDeathCertificateOrder', async () => {
         id: '000002',
         name: 'BRUCE BANNER',
         quantity: 10,
+        includeSsn: false,
+        requesterRelationship: null,
+        uploadSessionId: null,
       },
     ],
 

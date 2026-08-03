@@ -7,11 +7,11 @@ import {
   makeFetchGraphql,
 } from '@cityofboston/next-client-common';
 
-import { UploadResponse } from '../../lib/upload-types';
 import { CertificateType } from '../types';
 
 import deleteBirthCertificateUploadedFile from '../queries/delete-birth-certificate-uploaded-file';
 import deleteMarriageCertificateUploadedFile from '../queries/delete-marriage-certificate-uploaded-file';
+import deleteDeathCertificateUploadedFile from '../queries/delete-death-certificate-uploaded-file';
 
 export type Status =
   | 'idle'
@@ -88,11 +88,13 @@ export default class UploadableFile {
 
   @computed
   get record(): UploadableFileRecord | null {
-    // We only want to save files that have uploaded.
+    // We only want to save files that have uploaded. Use `this.name` (not
+    // `this.file.name`) so records rehydrated from localStorage keep their
+    // original filename after the next autorun rewrite.
     if (this.status === 'success') {
       return {
         attachmentKey: this.attachmentKey || null,
-        name: this.file ? this.file.name : null,
+        name: this.name || null,
       };
     } else {
       return null;
@@ -109,7 +111,12 @@ export default class UploadableFile {
 
     const uploadRequest = new XMLHttpRequest();
     const formData = new FormData();
-    const orderType = certificateType === 'marriage' ? 'MC' : 'BC';
+    const orderType =
+      certificateType === 'marriage'
+        ? 'MC'
+        : certificateType === 'death'
+          ? 'DC'
+          : 'BC';
 
     // Explicitly setting the filename keeps IE from sending the whole file’s
     // path as the file name.
@@ -130,6 +137,8 @@ export default class UploadableFile {
 
     this.progress = 0;
     this.status = 'uploading';
+    this.errorMessage = null;
+    this.uploadRequest = uploadRequest;
 
     uploadRequest.open('POST', '/upload');
     uploadRequest.send(formData);
@@ -156,11 +165,17 @@ export default class UploadableFile {
               this.uploadSessionId,
               this.attachmentKey
             )
-          : await deleteMarriageCertificateUploadedFile(
-              this.fetchGraphql,
-              this.uploadSessionId,
-              this.attachmentKey
-            );
+          : certificateType === 'death'
+            ? await deleteDeathCertificateUploadedFile(
+                this.fetchGraphql,
+                this.uploadSessionId,
+                this.attachmentKey
+              )
+            : await deleteMarriageCertificateUploadedFile(
+                this.fetchGraphql,
+                this.uploadSessionId,
+                this.attachmentKey
+              );
 
       if (result.success) {
         runInAction(() => {
@@ -183,7 +198,7 @@ export default class UploadableFile {
   @action.bound
   handleLoad(ev: ProgressEvent) {
     const xhr = ev.target;
-    let json: UploadResponse | null = null;
+    let json: any = null;
 
     if (!(xhr instanceof XMLHttpRequest)) {
       return;
@@ -206,13 +221,18 @@ export default class UploadableFile {
       return;
     }
 
-    if (xhr.status >= 200 && xhr.status <= 299 && json) {
+    if (xhr.status >= 200 && xhr.status <= 299 && json && json.attachmentKey) {
       this.status = 'success';
       this.attachmentKey = json.attachmentKey;
+      this.errorMessage = null;
     } else {
+      const serverMessage =
+        (json && (json.message || (json.error && json.error.message))) || '';
       const statMessage = getStatusText(xhr);
       this.status = 'uploadError';
-      this.errorMessage = `Upload failed${statMessage}`;
+      this.errorMessage = serverMessage
+        ? String(serverMessage)
+        : `Upload failed${statMessage}`;
     }
   }
 
@@ -225,10 +245,14 @@ export default class UploadableFile {
 
   @action.bound
   handleError(ev: ProgressEvent | null) {
-    this.status = 'uploadError';
-    if (!ev || ev.target !== this.uploadRequest || !this.uploadRequest) {
+    // Ignore events from a request we’ve already finished with, otherwise a
+    // trailing `error` event would clobber the `success` that `handleLoad`
+    // just recorded.
+    if (!ev || !this.uploadRequest || ev.target !== this.uploadRequest) {
       return;
     }
+
+    this.status = 'uploadError';
 
     if (this.uploadRequest.status !== XMLHttpRequest.UNSENT) {
       this.errorMessage = 'Network error';

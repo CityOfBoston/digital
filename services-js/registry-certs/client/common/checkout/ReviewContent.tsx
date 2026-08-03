@@ -27,7 +27,6 @@ import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import Order from '../../models/Order';
-import CertificateRow from '../CertificateRow';
 
 import CostSummary from '../CostSummary';
 import { OrderErrorCause } from '../../queries/graphql-types';
@@ -231,23 +230,25 @@ export default class ReviewContent extends React.Component<Props, State> {
 
     const certEntries = () => {
       if (this.props.certificateType === 'death') {
-        return this.props[cartTypeStr].entries.map(
-          ({ cert, quantity }, i) =>
+        return this.props.deathCertificateCart.entries.map(
+          ({ cert, quantity, includeSsn }, i) =>
             cert && (
               <div
                 key={`div--rev-content-${keyIndex}#${i}`}
-                className={'certRow'}
+                className="death-order-item"
               >
-                <CertificateRow
-                  type={this.props.certificateType}
-                  key={cert.id}
-                  certificate={cert}
-                  borderTop={i !== 0}
-                  borderBottom={true}
-                  quantity={quantity}
-                  showQuantity={true}
-                  keyIndex={`${keyIndex}__${i}`}
-                />
+                <p>
+                  <span className="death-order-item-label">Name: </span>
+                  {cert.firstName} {cert.lastName}
+                </p>
+                <p>
+                  <span className="death-order-item-label">SS Included: </span>
+                  {includeSsn === true ? 'Yes' : 'No'}
+                </p>
+                <p>
+                  <span className="death-order-item-label">Quantity: </span>
+                  {quantity}
+                </p>
               </div>
             )
         );
@@ -277,7 +278,11 @@ export default class ReviewContent extends React.Component<Props, State> {
     return (
       <CheckoutPageLayout
         certificateType={certificateType}
-        title="Review Order"
+        title={certificateType !== 'death' ? 'Review Order' : undefined}
+        sectionTitle={
+          certificateType === 'death' ? 'Review order' : undefined
+        }
+        currentStep={certificateType === 'death' ? 7 : undefined}
         progress={
           this.props.certificateType === 'death'
             ? undefined
@@ -296,7 +301,14 @@ export default class ReviewContent extends React.Component<Props, State> {
           </div>
         }
       >
-        <div key={keyIndex} css={REVIEW_CSS}>
+        <div
+          key={keyIndex}
+          css={
+            certificateType === 'death'
+              ? [REVIEW_CSS, DEATH_REVIEW_CSS]
+              : REVIEW_CSS
+          }
+        >
           <div className="t--info m-v500">
             Your order is not yet complete. Please check the information below,
             then click the <b>Submit Order</b> button.
@@ -328,19 +340,17 @@ export default class ReviewContent extends React.Component<Props, State> {
                 <label className={'header'}>Shipping Address</label>
 
                 {shippingIsComplete ? (
-                  <div>
-                    {shippingName}
-                    <br />
-                    {shippingCompanyName
-                      ? [shippingCompanyName, <br key="br" />]
-                      : null}
-                    {shippingAddress1}
-                    <br />
-                    {shippingAddress2
-                      ? [shippingAddress2, <br key="br" />]
-                      : null}
-                    {`${shippingCity}, ${shippingState} ${shippingZip}`}
-                  </div>
+                  <>
+                    <div>{shippingName}</div>
+                    {shippingCompanyName ? (
+                      <div>{shippingCompanyName}</div>
+                    ) : null}
+                    <div>{shippingAddress1}</div>
+                    {shippingAddress2 ? <div>{shippingAddress2}</div> : null}
+                    <div>
+                      {`${shippingCity}, ${shippingState} ${shippingZip}`}
+                    </div>
+                  </>
                 ) : (
                   <div className="t--err t--info">
                     You need to edit your shipping info to fix some errors
@@ -361,18 +371,15 @@ export default class ReviewContent extends React.Component<Props, State> {
                 <label className={'header'}>Payment Information</label>
 
                 {paymentIsComplete ? (
-                  <div>
-                    {cardholderName}
-                    <br />
-                    •••• •••• •••• {cardLast4 || ''}
-                    <br />
-                    {billingAddress1}
-                    <br />
-                    {billingAddress2
-                      ? [billingAddress2, <br key="br" />]
-                      : null}
-                    {billingCity}, {billingState} {billingZip}
-                  </div>
+                  <>
+                    <div>{cardholderName}</div>
+                    <div>•••• •••• •••• {cardLast4 || ''}</div>
+                    <div>{billingAddress1}</div>
+                    {billingAddress2 ? <div>{billingAddress2}</div> : null}
+                    <div>
+                      {billingCity}, {billingState} {billingZip}
+                    </div>
+                  </>
                 ) : (
                   <div className="t--err t--info">
                     You need to edit your payment info to fix some errors
@@ -388,9 +395,16 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </Link>
               </div>
             </div>
-            <div className={'row'}>
+            <div
+              className={
+                certificateType === 'death' ? 'row info-row' : 'row'
+              }
+            >
               <div className={'col'}>
                 <label className={'header'}>Order Details</label>
+                {certificateType === 'death' && (
+                  <div className="death-order-items">{certEntries()}</div>
+                )}
               </div>
 
               <div className={'col'}>
@@ -408,7 +422,7 @@ export default class ReviewContent extends React.Component<Props, State> {
               </div>
             </div>
 
-            {certEntries()}
+            {certificateType !== 'death' && certEntries()}
 
             <div className="m-v500">
               <h1 className={'summary'}>Order Summary</h1>
@@ -423,9 +437,11 @@ export default class ReviewContent extends React.Component<Props, State> {
 
             {this.renderAcceptCheckboxes()}
             {this.props.certificateType === 'death' && (
-              <div className="t--info m-v300" id="charge-message">
-                Pressing the “Submit Order” button will charge the total amount
-                to your card and place an order with the Registry.
+              <div className="t--info m-v300 death-charge-note" id="charge-message">
+                <strong>Note:</strong> Selecting <strong>Submit Order</strong>{' '}
+                will place a temporary authorization hold on your payment card.
+                Your order will be reviewed by the Registry, and your card will
+                be charged only if your order is approved.
               </div>
             )}
             {this.props.certificateType === 'birth' && (
@@ -508,51 +524,68 @@ export default class ReviewContent extends React.Component<Props, State> {
     const containsPending =
       this.props.certificateType === 'death' &&
       this.props.deathCertificateCart.containsPending;
+    const isDeath = this.props.certificateType === 'death';
 
     const { acceptNonRefundable, acceptPendingCertificates } = this.state;
 
-    return (
-      <div className="m-v700">
-        <div className="t--info">
-          {containsPending
-            ? 'You have to read and accept these checkboxes before you place your order:'
-            : 'You have to read and accept this checkbox before you place your order:'}
-        </div>
+    const headingId = 'review-accept-heading';
 
-        <div className="m-v300">
-          <label className="cb">
+    const heading = containsPending
+      ? 'You have to read and accept these checkboxes before you place your order:'
+      : isDeath
+        ? 'Please read and accept before placing your order.'
+        : 'You have to read and accept this checkbox before you place your order:';
+
+    const checkboxes = (
+      <>
+        <div className={isDeath ? 'death-accept-box m-v300' : 'm-v300'}>
+          <label
+            className={isDeath ? 'cb death-accept-label' : 'cb'}
+            htmlFor="acceptNonRefundableInput"
+          >
             <input
               id="acceptNonRefundableInput"
               name="acceptNonRefundable"
               type="checkbox"
               value="true"
               checked={acceptNonRefundable}
-              className="cb-f"
+              className={isDeath ? 'cb-f death-accept-checkbox' : 'cb-f'}
+              aria-required="true"
               onChange={this.handleAcceptNonRefundable}
             />
-            <span className="cb-l">
-              I understand that{' '}
-              <strong>
-                {this.props.certificateType} certificates are non-refundable
-              </strong>
-              .
+            <span className={isDeath ? 'cb-l death-accept-text' : 'cb-l'}>
+              {isDeath ? (
+                'I understand that certificate fees are non-refundable once my order is submitted.'
+              ) : (
+                <>
+                  I understand that{' '}
+                  <strong>
+                    {this.props.certificateType} certificates are non-refundable
+                  </strong>
+                  .
+                </>
+              )}
             </span>
           </label>
         </div>
 
         {containsPending && (
-          <div className="m-v300">
-            <label className="cb">
+          <div className={isDeath ? 'death-accept-box m-v300' : 'm-v300'}>
+            <label
+              className={isDeath ? 'cb death-accept-label' : 'cb'}
+              htmlFor="acceptPendingCertificatesInput"
+            >
               <input
                 id="acceptPendingCertificatesInput"
                 name="acceptPendingCertificates"
                 type="checkbox"
                 value="true"
                 checked={acceptPendingCertificates}
-                className="cb-f"
+                className={isDeath ? 'cb-f death-accept-checkbox' : 'cb-f'}
+                aria-required="true"
                 onChange={this.handleAcceptPendingCertificates}
               />
-              <span className="cb-l">
+              <span className={isDeath ? 'cb-l death-accept-text' : 'cb-l'}>
                 I understand that this order has{' '}
                 <strong>pending death certificates</strong>, which may not be
                 accepted by insurance or banking companies.
@@ -560,6 +593,29 @@ export default class ReviewContent extends React.Component<Props, State> {
             </label>
           </div>
         )}
+      </>
+    );
+
+    if (isDeath) {
+      return (
+        <fieldset
+          className="m-v700 death-accept-fieldset"
+          aria-labelledby={headingId}
+        >
+          <legend id={headingId} className="t--info death-accept-legend">
+            {heading}
+          </legend>
+          {checkboxes}
+        </fieldset>
+      );
+    }
+
+    return (
+      <div className="m-v700">
+        <div className="t--info" id={headingId}>
+          {heading}
+        </div>
+        {checkboxes}
       </div>
     );
   }
@@ -642,5 +698,167 @@ const REVIEW_CSS = css`
         color: ${WHITE};
       }
     }
+  }
+`;
+
+/** Death STEP 7 review — padding, order-item fields, bordered accept checkbox */
+const DEATH_REVIEW_CSS = css`
+  .info-row {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid ${GRAY_400};
+  }
+
+  .info-row .col:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+    font-family: ${SERIF};
+    font-size: 1.125rem;
+    line-height: 1.3;
+    color: ${CHARLES_BLUE};
+  }
+
+  .info-row .info {
+    margin-bottom: 0;
+  }
+
+  .row label.header {
+    margin: 0;
+    /* Keep section titles distinct from body copy below */
+    font-size: 24px;
+    line-height: normal;
+  }
+
+  .death-order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .death-order-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid ${GRAY_400};
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+
+    p {
+      margin: 0;
+    }
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  .death-order-item-label {
+    font-weight: 700;
+  }
+
+  .death-accept-box {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #d2d2d2;
+    padding: 0;
+    background: ${WHITE};
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .death-accept-box:hover {
+    background: #f2f2f2;
+    border-color: ${OPTIMISTIC_BLUE_DARK};
+    cursor: pointer;
+  }
+
+  .death-accept-box:active {
+    background: #e8e8e8;
+  }
+
+  .death-accept-box:focus-within {
+    outline: 2px solid ${OPTIMISTIC_BLUE_DARK};
+    outline-offset: 2px;
+  }
+
+  .death-accept-fieldset {
+    border: 0;
+    margin: 2.5rem 0;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .death-accept-legend {
+    display: block;
+    padding: 0;
+    float: none;
+    width: 100%;
+  }
+
+  .death-accept-label.cb {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  /*
+   * Fleet paints .cb-f:before absolute to .cb (top-left of the label).
+   * Make the input the positioning context so the visual sits on the
+   * control, then center that control in the bordered box.
+   */
+  .death-accept-checkbox.cb-f {
+    position: relative;
+    flex-shrink: 0;
+    align-self: center;
+    width: 22px;
+    height: 22px;
+    margin: 0 12px 0 0;
+    padding: 0;
+    transform: none;
+  }
+
+  .death-accept-checkbox.cb-f:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    border-width: 2px;
+    background-size: 70% !important;
+  }
+
+  .death-accept-text.cb-l {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    margin-left: 0;
+    font-family: ${SERIF};
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: ${CHARLES_BLUE};
+    white-space: normal;
+  }
+
+  .death-charge-note {
+    font-size: 1rem !important;
+    line-height: 1.4;
   }
 `;

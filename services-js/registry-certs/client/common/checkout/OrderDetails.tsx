@@ -33,7 +33,9 @@ import {
 
 import { CertificateType, DeathCertificate } from '../../types';
 
-import DeathCertificateCart from '../../store/DeathCertificateCart';
+import DeathCertificateCart, {
+  DEATH_RELATIONSHIP_OPTIONS,
+} from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
@@ -42,9 +44,8 @@ import {
   researchFeeDisclosureText,
 } from '../FeeDisclosures';
 
-import CertificateRow from '../../common/CertificateRow';
-
 import CertItem from '../components/CertItem';
+import { $CartItem } from '../../death/cart/NewCartItem';
 import {
   // capFirstLetterOfStr,
   formatCheckoutDate,
@@ -79,96 +80,76 @@ type OrderDetailsProps = {
 export const OrderDetails = observer(function OrderDetails(
   props: OrderDetailsProps
 ) {
-  const makeWrapRow = _quantity => certificateDiv => <>{certificateDiv}</>;
-
+  /**
+   * Only birth and marriage expose quantity UI here — they hold a single
+   * request whose quantity can be edited inline. A death order is a list of
+   * per-decedent line items, so its quantities are set on the certificate page
+   * (STEP 2) and the cart (STEP 4) instead.
+   */
   const handleQuantityChange = action(
-    'CartItem > handleQuantityChange',
+    'OrderDetails > handleQuantityChange',
     (quantity: string | number | null): void => {
-      const {
-        siteAnalytics,
-        birthCertificateRequest,
-        marriageCertificateRequest,
-        deathCertificateCart,
-      } = this.props;
-
-      if (!quantity) return;
-      if (typeof quantity === 'string') return;
-
-      if (!isNaN(quantity)) {
-        switch (props.type) {
-          case 'birth':
-            birthCertificateRequest.setQuantity(quantity);
-            break;
-          case 'marriage':
-            marriageCertificateRequest.setQuantity(quantity);
-            break;
-          case 'death':
-            deathCertificateCart.setQuantity(quantity);
-            break;
-        }
+      if (typeof quantity !== 'number' || isNaN(quantity) || !quantity) {
+        return;
       }
 
-      if (siteAnalytics && siteAnalytics.sendEvent) {
-        siteAnalytics.sendEvent('input', {
-          category: 'UX',
-          label: 'update quantity',
-        });
+      switch (props.type) {
+        case 'birth':
+          props.birthCertificateRequest.setQuantity(quantity);
+          break;
+        case 'marriage':
+          props.marriageCertificateRequest.setQuantity(quantity);
+          break;
       }
     }
   );
 
   const deathCertEntry = (data: {
     cert: DeathCertificate;
-    cart: { entries: string | any[] };
+    cart: DeathCertificateCart;
     quantity: number;
     index: string;
+    includeSsn: boolean | null;
+    relationship: string;
+    relationshipDocuments: { status: string }[];
+    identityDocuments: { status: string }[];
   }) => {
-    const { cert, cart, quantity = 1, index = '0' } = data;
+    const {
+      cert,
+      quantity = 1,
+      index = '0',
+      includeSsn,
+      relationship,
+      relationshipDocuments,
+      identityDocuments,
+    } = data;
     const {
       keyIndex = ReactKeyIndexStr({
         seedStr: `order-details--key`,
         max: 10000,
       }),
     } = props;
-    // const { firstName, lastName, deathDate, deathYear } = cart.entries[index];
-    // const subinfo = `Date of death: `;
+
+    const relationshipLabel =
+      relationship && DEATH_RELATIONSHIP_OPTIONS[relationship]
+        ? DEATH_RELATIONSHIP_OPTIONS[relationship].label
+        : null;
+
+    const supportingDocumentsUploaded =
+      includeSsn === true &&
+      relationshipDocuments.some(file => file.status === 'success') &&
+      identityDocuments.some(file => file.status === 'success');
 
     return (
-      <div key={keyIndex}>
-        {/* <CertItem
-          type={props.type}
-          quantity={quantity}
-          showNameLabel={true}
-          pending={false}
-          fullNames={`${firstName} ${lastName}`}
-          subinfo={subinfo}
-          dateStr={formatCheckoutDate(deathDate || deathYear)}
-          key={
-            index ||
-            ReactKeyIndexStr({
-              seedStr: `${props.type}Cert_row`,
-              max: 1000,
-            })
-          }
-          handleQuantityChange={handleQuantityChange}
-        /> */}
-
-        <CertificateRow
-          type="death"
-          key={
-            cert.id || ReactKeyIndexStr({ seedStr: 'deathCert_row', max: 1000 })
-          }
-          certificate={cert}
-          borderTop={parseInt(index) !== 0}
-          borderBottom={parseInt(index) === cart.entries.length - 1}
-          thin={props.thin}
-          children={makeWrapRow(quantity)}
-          quantity={quantity}
-          showQuantity={true}
-          showSeal={true}
-          showNameLabel={true}
-          keyIndex={keyIndex}
-        />
+      <div key={`${keyIndex}-${index}`}>
+        {$CartItem({
+          type: 'death',
+          cert,
+          quantity,
+          relationshipLabel,
+          includeSsn,
+          supportingDocumentsUploaded,
+        })}
       </div>
     );
   };
@@ -176,15 +157,29 @@ export const OrderDetails = observer(function OrderDetails(
   switch (props.type) {
     case 'death':
       return (
-        <div>
+        <div css={DEATH_ORDER_ITEMS_STYLING}>
           {props.deathCertificateCart.entries.map(
-            ({ cert, quantity }, i) =>
+            (
+              {
+                cert,
+                quantity,
+                includeSsn,
+                relationship,
+                relationshipDocuments,
+                identityDocuments,
+              },
+              i
+            ) =>
               cert &&
               deathCertEntry({
-                cert: cert,
+                cert,
                 cart: props.deathCertificateCart,
-                quantity: quantity,
+                quantity,
                 index: `${i}`,
+                includeSsn,
+                relationship,
+                relationshipDocuments,
+                identityDocuments,
               })
           )}
         </div>
@@ -417,17 +412,33 @@ export class OrderDetailsDropdown extends Component<
             >
               {open && (
                 <>
-                  <div className={`summary__qty`}>
-                    {quantity} {quantity === 1 ? 'item' : 'items'}
-                  </div>
+                  {orderType !== 'death' && (
+                    <div className={`summary__qty`}>
+                      {quantity} {quantity === 1 ? 'item' : 'items'}
+                    </div>
+                  )}
 
-                  <div className={`order_items`}>{children}</div>
+                  <div
+                    className={`order_items${
+                      orderType === 'death' ? ' order_items--death' : ''
+                    }`}
+                  >
+                    {children}
+                  </div>
 
                   <div className={`cost_summary`}>
                     <$OrderSummary
-                      certQuantityLabel={`Subtotal: ${quantity} ${
-                        quantity === 1 ? 'certificate' : 'certificates'
-                      } × ${CERTIFICATE_COST_STRING[orderType.toUpperCase()]}`}
+                      certQuantityLabel={
+                        orderType === 'death'
+                          ? `Subtotal x ${
+                              CERTIFICATE_COST_STRING[orderType.toUpperCase()]
+                            }`
+                          : `Subtotal: ${quantity} ${
+                              quantity === 1 ? 'certificate' : 'certificates'
+                            } × ${
+                              CERTIFICATE_COST_STRING[orderType.toUpperCase()]
+                            }`
+                      }
                       totalCost={`${(subtotal / 100).toFixed(2)}`}
                       researchFee={``}
                       tracking={tracking}
@@ -515,6 +526,12 @@ export default function RenderOrderDetails(props: {
   }
 }
 
+const DEATH_ORDER_ITEMS_STYLING = css({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '2rem',
+});
+
 const DRAWER_CSS = css`
   width: 100%;
 
@@ -573,7 +590,7 @@ const DRAWER_CSS = css`
   }
 
   .drawerHeader[aria-expanded='true'] {
-    margin-bottom: 1em;
+    margin-bottom: 0;
     color: ${WHITE};
     background: ${CHARLES_BLUE};
 
@@ -605,10 +622,30 @@ const DRAWER_CSS = css`
       margin-bottom: 1.5rem;
     }
 
+    .order_items--death {
+      margin-bottom: 0;
+    }
+
     .cost_summary,
     .notes {
       padding-bottom: 1.115rem;
       font-style: normal;
     }
+  }
+
+  .drawerHeader[aria-expanded='true'] + .body {
+    padding: 24px;
+  }
+
+  .drawerHeader[aria-expanded='true'] + .body .order_items--death {
+    margin-bottom: 2rem;
+  }
+
+  .drawerHeader[aria-expanded='true'] + .body .cost_summary {
+    padding-bottom: 2rem;
+  }
+
+  .drawerHeader[aria-expanded='true'] + .body .notes {
+    padding-bottom: 0;
   }
 `;

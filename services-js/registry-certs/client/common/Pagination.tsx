@@ -21,7 +21,15 @@ export default function Pagination({ page, pageCount, hrefFunc }: Props) {
     numberBoxCount -= 1;
   }
 
-  const startNum = Math.max(1, page - Math.floor(numberBoxCount / 2) + 1);
+  // Keep a full window of page numbers; when near the end, shift the window
+  // left so earlier pages (e.g. 1) stay visible instead of falling off.
+  const startNum = Math.max(
+    1,
+    Math.min(
+      page - Math.floor(numberBoxCount / 2) + 1,
+      pageCount - numberBoxCount + 1
+    )
+  );
   const endNum = Math.min(pageCount, startNum + numberBoxCount - 1);
 
   const boxes: JSX.Element[] = [];

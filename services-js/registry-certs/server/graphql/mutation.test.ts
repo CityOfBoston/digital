@@ -39,6 +39,9 @@ const DEFAULT_DEATH_ITEMS: Array<DeathCertificateOrderItemInput> = [
     id: '12345',
     name: '',
     quantity: 10,
+    includeSsn: false,
+    requesterRelationship: null,
+    uploadSessionId: null,
   },
 ];
 

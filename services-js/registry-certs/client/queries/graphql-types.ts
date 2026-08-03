@@ -50,6 +50,29 @@ export interface DeleteMarriageCertificateUploadedFileVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: DeleteDeathCertificateUploadedFile
+// ====================================================
+
+export interface DeleteDeathCertificateUploadedFile_deleteUpload {
+  message: string | null;
+  success: boolean;
+}
+
+export interface DeleteDeathCertificateUploadedFile {
+  deleteUpload: DeleteDeathCertificateUploadedFile_deleteUpload;
+}
+
+export interface DeleteDeathCertificateUploadedFileVariables {
+  attachmentKey: string;
+  uploadSessionId: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: FetchDeathCertificates
 // ====================================================
 
@@ -453,6 +476,9 @@ export interface DeathCertificateOrderItemInput {
   id: string;
   name: string;
   quantity: number;
+  includeSsn: boolean;
+  requesterRelationship: string | null;
+  uploadSessionId: string | null;
 }
 
 export interface MarriageCertificateOrderItemInput {

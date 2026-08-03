@@ -1,5 +1,6 @@
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 import DeathCertificateCart from './DeathCertificateCart';
+import UploadableFile from '../models/UploadableFile';
 
 jest.mock('../dao/DeathCertificatesDao');
 const DeathCertificatesDao = require('../dao/DeathCertificatesDao').default;
@@ -166,9 +167,93 @@ describe('attach', () => {
     cart.attach(localStorage, deathCertificatesDao, siteAnalytics);
 
     cart.setQuantity(CERT_1, 5);
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      'cart',
-      JSON.stringify([{ id: CERT_1.id, quantity: 5 }])
-    );
+
+    expect(localStorage.setItem).toHaveBeenCalledWith('cart', expect.any(String));
+    expect(JSON.parse(lastSavedCart())).toEqual([
+      {
+        id: CERT_1.id,
+        quantity: 5,
+        // STEP 3 options ride along with the line item so a reloaded cart keeps
+        // its SSN answer and its attachment upload session.
+        includeSsn: null,
+        relationship: '',
+        identityDocumentType: '',
+        uploadSessionId: expect.any(String),
+        relationshipDocuments: [],
+        identityDocuments: [],
+      },
+    ]);
   });
+
+  it('round-trips certificate options through local storage', async () => {
+    cart.attach(localStorage, deathCertificatesDao, siteAnalytics);
+
+    const relationshipDoc = UploadableFile.fromRecord(
+      { attachmentKey: '11', name: 'marriage.pdf' },
+      'session-1',
+      'relationship:Spouse / Domestic Partner'
+    );
+    const identityDoc = UploadableFile.fromRecord(
+      { attachmentKey: '22', name: 'passport.jpg' },
+      'session-1',
+      'identity:Passport'
+    );
+
+    cart.setCertificateOptions(CERT_1, 2, {
+      includeSsn: true,
+      relationship: 'spouse',
+      identityDocumentType: 'passport',
+      uploadSessionId: 'session-1',
+      relationshipDocuments: [relationshipDoc],
+      identityDocuments: [identityDoc],
+    });
+
+    const saved = JSON.parse(lastSavedCart());
+
+    expect(saved).toEqual([
+      {
+        id: CERT_1.id,
+        quantity: 2,
+        includeSsn: true,
+        relationship: 'spouse',
+        identityDocumentType: 'passport',
+        uploadSessionId: 'session-1',
+        relationshipDocuments: [
+          { attachmentKey: '11', name: 'marriage.pdf' },
+        ],
+        identityDocuments: [{ attachmentKey: '22', name: 'passport.jpg' }],
+      },
+    ]);
+
+    const rehydrated = new DeathCertificateCart();
+    localStorage.getItem.mockReturnValue(JSON.stringify(saved));
+    rehydrated.attach(localStorage, deathCertificatesDao, siteAnalytics);
+
+    expect(rehydrated.entries[0]).toMatchObject({
+      id: CERT_1.id,
+      quantity: 2,
+      includeSsn: true,
+      relationship: 'spouse',
+      identityDocumentType: 'passport',
+      uploadSessionId: 'session-1',
+    });
+    expect(rehydrated.entries[0].relationshipDocuments[0].name).toBe(
+      'marriage.pdf'
+    );
+    expect(rehydrated.entries[0].identityDocuments[0].name).toBe(
+      'passport.jpg'
+    );
+
+    // Autorun rewrite must not wipe the restored filenames.
+    expect(JSON.parse(lastSavedCart())[0].relationshipDocuments[0].name).toBe(
+      'marriage.pdf'
+    );
+
+    rehydrated.detach();
+  });
+
+  function lastSavedCart(): string {
+    const { calls } = localStorage.setItem.mock;
+    return calls[calls.length - 1][1];
+  }
 });

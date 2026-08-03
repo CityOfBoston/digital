@@ -6,23 +6,28 @@ import React from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Router from 'next/router';
 
 import { getParam } from '@cityofboston/next-client-common';
+import {
+  ProgressBar,
+  CHARLES_BLUE,
+  MEDIA_SMALL,
+  OPTIMISTIC_BLUE_DARK,
+  SANS,
+  SERIF,
+  WHITE,
+} from '@cityofboston/react-fleet';
 
 import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import { DeathCertificate } from '../../types';
-
-import { CERTIFICATE_COST_STRING } from '../../../lib/costs';
 
 import PageLayout from '../../PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
-import { serviceFeeDisclosureText } from '../../common/FeeDisclosures';
-import QuantityDropdown from '../../common/QuantityDropdown';
-import { MEDIA_MEDIUM } from '@cityofboston/react-fleet';
+import DeathCertificateDetailsTable from './DeathCertificateDetailsTable';
+import DeathQuantitySelect from './DeathQuantitySelect';
 
 interface InitialProps {
   id: string;
@@ -38,10 +43,16 @@ interface State {
   quantity: number | null;
 }
 
+/**
+ * STEP 2 — Quantity / certificate details.
+ * Layout and copy follow Figma “STEP 2- QUANTITY”.
+ *
+ * Reuses ProgressBar and standard `btn` primary. Details table and quantity
+ * control are custom for this step.
+ */
 @observer
 class CertificatePage extends React.Component<Props, State> {
   state: State;
-  quantityField: HTMLInputElement | null = null;
 
   static getInitialProps: GetInitialProps<
     InitialProps,
@@ -98,13 +109,26 @@ class CertificatePage extends React.Component<Props, State> {
             label: 'add to cart',
           });
         } else {
-          deathCertificateCart.setQuantity(certificate, quantity);
+          // Quantity is chosen here (STEP 2); certificate options (STEP 3)
+          // collect SSN / relationship / uploads before the item is added.
+          const { backUrl } = this.props;
+          const query: { [key: string]: string } = {
+            id: certificate.id,
+            quantity: String(quantity),
+          };
+          if (backUrl) {
+            query.backUrl = backUrl;
+          }
+
           siteAnalytics.sendEvent('click', {
             category: 'UX',
-            label: 'add to cart',
+            label: 'continue to certificate options',
           });
 
-          await Router.push('/death/cart');
+          await Router.push({
+            pathname: '/death/certificate-options',
+            query,
+          });
           window.scroll(0, 0);
         }
       }
@@ -117,32 +141,33 @@ class CertificatePage extends React.Component<Props, State> {
     });
   };
 
-  handleAddToCart = (ev: React.FormEvent<HTMLFormElement>) => {
+  handleContinue = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
     const { quantity } = this.state;
 
-    if (typeof quantity !== 'number') {
+    if (typeof quantity !== 'number' || quantity < 1) {
       return;
     }
 
     this.setCartQuantity(quantity);
   };
 
-  setQuantityField = (quantityField: HTMLInputElement | null) => {
-    this.quantityField = quantityField;
+  handleBack = () => {
+    const { backUrl } = this.props;
+
+    if (backUrl) {
+      Router.push(backUrl);
+    } else {
+      Router.push('/death');
+    }
   };
 
   render() {
-    const { id, certificate, backUrl, deathCertificateCart } = this.props;
-
-    const { firstName, lastName } = certificate || {
-      firstName: null,
-      lastName: null,
-    };
+    const { id, certificate, deathCertificateCart } = this.props;
 
     const fullName = certificate
-      ? `${firstName || ''} ${lastName || ''}`
+      ? `${certificate.firstName || ''} ${certificate.lastName || ''}`.trim()
       : null;
 
     return (
@@ -151,149 +176,79 @@ class CertificatePage extends React.Component<Props, State> {
         cart={deathCertificateCart}
         breadcrumbNav={BREADCRUMB_NAV_LINKS.death}
       >
-        <div className="b-ff">
+        <div className="b-c b-c--nbp" css={PAGE_STYLING}>
           <Head>
             <title>
-              Boston.gov — Death Certificates — {fullName || `#${id}`}
+              Boston.gov — Death Certificates — {fullName || `#${id}`}
             </title>
           </Head>
 
-          <div className="b-c b-c--nbp b-ff">
-            <div className="sh sh--b0">
-              <h1 className="sh-title">
-                {fullName || 'Certificate not found'}
-              </h1>
-            </div>
+          <h1 css={PAGE_TITLE_STYLING}>Request a death certificate</h1>
 
-            {certificate && certificate.pending && (
-              <div className="br br--r br-a200 m-v300 p-a300 t--info">
-                This certificate is <strong>pending</strong> and will not
-                include the cause of death. Some insurance and banking companies
-                won’t accept a death certificate if it is still pending.
-              </div>
-            )}
-
-            <div className="m-v300 b-ff">
-              {certificate && this.renderCertificate(certificate)}
-              {!certificate && (
-                <div className="t--info">
-                  We could not find a certificate with ID #{id}.
-                </div>
-              )}
-            </div>
-
-            <div className="g g--r g--vc">
-              <div className="g--5 m-v300">
-                {certificate && this.renderAddToCart()}
-              </div>
-
-              <div className="g--7 m-v300">
-                {backUrl ? (
-                  <Link href={backUrl}>
-                    <a style={{ fontStyle: 'italic' }}>
-                      ← Back to search results
-                    </a>
-                  </Link>
-                ) : (
-                  <Link href="/death">
-                    <a style={{ fontStyle: 'italic' }}>← Go to search</a>
-                  </Link>
-                )}
-              </div>
-            </div>
+          <div css={PROGRESS_WRAP_STYLING}>
+            <ProgressBar totalSteps={7} currentStep={2} currentStepCompleted />
           </div>
 
-          <div className="b--g m-t700">
-            <div className="b-c b-c--smv t--subinfo">
-              Death certificates cost {CERTIFICATE_COST_STRING.DEATH} each. That
-              price includes shipping. {serviceFeeDisclosureText()}
+          {certificate && certificate.pending && (
+            <div className="br br--r br-a200 m-v300 p-a300 t--info">
+              This certificate is <strong>pending</strong> and will not include
+              the cause of death. Some insurance and banking companies won’t
+              accept a death certificate if it is still pending.
             </div>
-          </div>
+          )}
+
+          {!certificate && (
+            <div className="t--info m-v300">
+              We could not find a certificate with ID #{id}.
+            </div>
+          )}
+
+          {certificate && this.renderContent(certificate)}
         </div>
       </PageLayout>
     );
   }
 
-  renderCertificate({
-    firstName,
-    lastName,
-    age,
-    deathDate,
-    deathYear,
-    birthDate,
-  }: DeathCertificate) {
-    return (
-      <div css={CERTIFICATE_STYLE}>
-        <ul className="dl">
-          <li className="dl-i" css={LIST_ITEM_STYLE}>
-            <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
-              First name
-            </span>
-            <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
-              {firstName}
-            </span>
-          </li>
-          <li className="dl-i" css={LIST_ITEM_STYLE}>
-            <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
-              Last name
-            </span>
-            <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
-              {lastName}
-            </span>
-          </li>
-          {birthDate && (
-            <li className="dl-i" css={LIST_ITEM_STYLE}>
-              <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
-                Date of birth
-              </span>
-              <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
-                {birthDate}
-              </span>
-            </li>
-          )}
-          <li className="dl-i" css={LIST_ITEM_STYLE}>
-            <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
-              Date of death
-            </span>
-            <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
-              {deathDate || deathYear}
-            </span>
-          </li>
-          {age && (
-            <li className="dl-i" css={LIST_ITEM_STYLE}>
-              <span className="dl-t" css={LIST_ITEM_TITLE_STYLE}>
-                Age
-              </span>
-              <span className="dl-d" css={LIST_ITEM_ELEMENT_STYLE}>
-                {age}
-              </span>
-            </li>
-          )}
-        </ul>
-      </div>
-    );
-  }
-
-  renderAddToCart() {
-    const { deathCertificateCart, id } = this.props;
+  renderContent(certificate: DeathCertificate) {
     const { quantity } = this.state;
 
-    const cartQuantity = deathCertificateCart.getQuantity(id);
-
     return (
-      <form onSubmit={this.handleAddToCart} css={ADD_TO_CART_FORM_STYLE}>
-        <QuantityDropdown
-          quantity={quantity as any}
-          handleQuantityChange={this.handleQuantity}
-        />
+      <form onSubmit={this.handleContinue} css={FORM_STYLING}>
+        <DeathCertificateDetailsTable certificate={certificate} />
 
-        <button
-          type="submit"
-          className="btn btn--row"
-          disabled={quantity === cartQuantity || quantity === null}
-        >
-          {cartQuantity ? 'Update Cart' : 'Add to Cart'}
-        </button>
+        <p css={NOTE_STYLING}>
+          Note: If this is not the right person go back to search
+        </p>
+
+        <div css={QUANTITY_SECTION_STYLING}>
+          <h2 css={SECTION_TITLE_STYLING}>How many certificates do you need?</h2>
+
+          <div css={QUANTITY_ROW_STYLING}>
+            <p css={PRODUCT_LABEL_STYLING}>Death Certificate (Paper copy)</p>
+            <DeathQuantitySelect
+              quantity={quantity}
+              onChange={this.handleQuantity}
+            />
+          </div>
+        </div>
+
+        <div css={BUTTON_ROW_STYLING}>
+          <button
+            type="button"
+            css={SECONDARY_BUTTON_STYLING}
+            onClick={this.handleBack}
+          >
+            Back
+          </button>
+          <button
+            type="submit"
+            className="btn"
+            css={PRIMARY_BUTTON_STYLING}
+            disabled={typeof quantity !== 'number' || quantity < 1}
+          >
+            Continue
+          </button>
+        </div>
       </form>
     );
   }
@@ -303,43 +258,120 @@ export default (CertificatePage as any) as React.ComponentClass<Props> & {
   getInitialProps: (typeof CertificatePage)['getInitialProps'];
 };
 
-const CERTIFICATE_STYLE = css({
+const PAGE_STYLING = css({
+  maxWidth: '45rem',
+});
+
+const PAGE_TITLE_STYLING = css({
+  fontFamily: SANS,
+  fontWeight: 700,
+  fontSize: '2rem',
+  lineHeight: 1.2,
+  textTransform: 'uppercase',
+  color: CHARLES_BLUE,
+  margin: '0 0 1.5rem',
+});
+
+const PROGRESS_WRAP_STYLING = css({
+  marginBottom: '2rem',
+});
+
+const FORM_STYLING = css({
   display: 'flex',
   flexDirection: 'column',
-  flexGrow: 1,
-  justifyContent: 'space-between',
+  gap: '1.5rem',
 });
 
-const LIST_ITEM_STYLE = css({
+const NOTE_STYLING = css({
+  margin: 0,
+  fontFamily: SERIF,
+  fontWeight: 700,
+  fontSize: '1.125rem',
+  lineHeight: 1.4,
+  color: CHARLES_BLUE,
+});
+
+const QUANTITY_SECTION_STYLING = css({
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
+  flexDirection: 'column',
+  gap: '1.5rem',
+  paddingTop: '40px',
 });
 
-const LIST_ITEM_ELEMENT_STYLE = css({
-  lineHeight: '1rem',
-  verticalAlign: 'center',
+const SECTION_TITLE_STYLING = css({
+  margin: 0,
+  fontFamily: SANS,
+  fontWeight: 700,
+  fontSize: '1.125rem',
+  lineHeight: 1.2,
+  textTransform: 'uppercase',
+  color: CHARLES_BLUE,
 });
 
-const LIST_ITEM_TITLE_STYLE = css(LIST_ITEM_ELEMENT_STYLE, {
-  paddingRight: '1em',
-  width: '30%',
-});
-
-const ADD_TO_CART_FORM_STYLE = css({
+const QUANTITY_ROW_STYLING = css({
   display: 'flex',
-  alignItems: 'center',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: '1rem',
 
-  '> div': {
-    flexBasis: '30%',
-    marginRight: '1.25rem',
-
-    [MEDIA_MEDIUM]: {
-      marginRight: '0.75rem',
-    },
+  [MEDIA_SMALL]: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '1.25rem',
   },
+});
 
-  button: {
-    // flexBasis: '60%'
+const PRODUCT_LABEL_STYLING = css({
+  margin: 0,
+  fontFamily: SERIF,
+  fontWeight: 500,
+  fontSize: '1.125rem',
+  lineHeight: 1.2,
+  color: CHARLES_BLUE,
+});
+
+const BUTTON_ROW_STYLING = css({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  marginTop: '0.5rem',
+  marginBottom: '2rem',
+
+  [MEDIA_SMALL]: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: '1.5rem',
+  },
+});
+
+const SECONDARY_BUTTON_STYLING = css({
+  appearance: 'none',
+  background: WHITE,
+  border: '1px solid #d2d2d2',
+  color: OPTIMISTIC_BLUE_DARK,
+  fontFamily: SANS,
+  fontWeight: 700,
+  fontSize: '1rem',
+  textTransform: 'uppercase',
+  minHeight: '55px',
+  minWidth: '10rem',
+  padding: '0.625rem 1rem',
+  cursor: 'pointer',
+
+  '&:hover, &:focus': {
+    background: '#f3f3f3',
+  },
+});
+
+const PRIMARY_BUTTON_STYLING = css({
+  minHeight: '55px',
+  minWidth: '10rem',
+  textTransform: 'uppercase',
+  fontWeight: 700,
+
+  '&:disabled': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
   },
 });

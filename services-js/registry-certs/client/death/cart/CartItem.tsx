@@ -5,10 +5,7 @@ import {
   jsx,
 } from '@emotion/core';
 
-import {
-  // ChangeEvent,
-  Component,
-} from 'react';
+import { Component } from 'react';
 import { computed, action } from 'mobx';
 import { observer } from 'mobx-react';
 
@@ -16,6 +13,7 @@ import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
 import DeathCertificateCart, {
   DeathCertificateCartEntry,
+  DEATH_RELATIONSHIP_OPTIONS,
 } from '../../store/DeathCertificateCart';
 
 import { $CartItem } from './NewCartItem';
@@ -51,38 +49,6 @@ export default class CartItem extends Component<Props, State> {
     }
   }
 
-  handleQuantityFocus = () => {
-    this.setState({ quantityHasFocus: true });
-  };
-
-  handleQuantityBlur = () => {
-    this.setState({ quantityHasFocus: false });
-  };
-
-  handleQuantityChange2 = action(
-    'CartItem > handleQuantityChange',
-    (quantity: number) => {
-      const {
-        cart,
-        siteAnalytics,
-        entry: { cert },
-      } = this.props;
-
-      if (!cert) {
-        return;
-      }
-
-      if (!isNaN(quantity)) {
-        cart.setQuantity(cert, quantity);
-      }
-
-      siteAnalytics.sendEvent('input', {
-        category: 'UX',
-        label: 'update quantity',
-      });
-    }
-  );
-
   handleRemove = action('CartItem > handleRemove', () => {
     const { cart, entry, siteAnalytics } = this.props;
     cart.remove(entry.id);
@@ -94,52 +60,51 @@ export default class CartItem extends Component<Props, State> {
 
   render() {
     const {
-      entry: { cert },
-      // lastRow,
+      entry: {
+        id,
+        cert,
+        relationship,
+        includeSsn,
+        relationshipDocuments,
+        identityDocuments,
+      },
     } = this.props;
 
     if (!cert) {
       return null;
     }
 
-    // We define this here because if we put it in the CertificateRow callback
-    // MobX doesn't capture it as a dependency, due to an intermediary render.
     const { quantityValue } = this;
+    const quantity = parseInt(quantityValue, 10);
+
+    const relationshipLabel =
+      relationship && DEATH_RELATIONSHIP_OPTIONS[relationship]
+        ? DEATH_RELATIONSHIP_OPTIONS[relationship].label
+        : null;
+
+    const supportingDocumentsUploaded =
+      includeSsn === true &&
+      relationshipDocuments.some(file => file.status === 'success') &&
+      identityDocuments.some(file => file.status === 'success');
+
+    const editHref = `/death/certificate-options?id=${encodeURIComponent(
+      id
+    )}&quantity=${quantity}&backUrl=${encodeURIComponent('/death/cart')}`;
 
     return (
       <div>
-        {parseInt(quantityValue) > 0 &&
+        {quantity > 0 &&
           $CartItem({
             type: 'death',
             cert: cert,
-            quantity: parseInt(quantityValue),
-            handleQuantityChange: this.handleQuantityChange2,
+            quantity,
             handleRemove: this.handleRemove,
+            relationshipLabel,
+            includeSsn,
+            supportingDocumentsUploaded,
+            editHref,
           })}
       </div>
     );
   }
 }
-
-// const QUANTITY_BOX_STYLE = css({
-//   width: '2.5rem',
-//   height: '2.5rem',
-//   marginRight: '1rem',
-//   fontFamily: 'inherit',
-//   fontStyle: 'italic',
-//   fontSize: '1rem',
-//   background: OPTIMISTIC_BLUE_DARK,
-//   color: WHITE,
-//   textAlign: 'right',
-//   padding: '0.5rem',
-// });
-
-// const REMOVE_BUTTON_STYLE = css({
-//   border: 'none',
-//   background: 'transparent',
-//   color: FREEDOM_RED_DARK,
-//   fontSize: '2.5rem',
-//   verticalAlign: 'middle',
-//   cursor: 'pointer',
-//   padding: '0 0 0.2em',
-// });

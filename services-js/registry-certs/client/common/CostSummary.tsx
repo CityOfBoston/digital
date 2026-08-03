@@ -32,7 +32,6 @@ interface Props {
   tracking?: boolean;
   newServiceFeeType?: NewServiceFeeType;
   setCardType?: any;
-  getCardType?: any;
   useInDrawer?: boolean;
 }
 
@@ -58,10 +57,18 @@ export default class CostSummary extends Component<Props, State> {
     };
   }
 
-  async componentDidMount() {
-    this.state = {
+  componentDidMount() {
+    this.setState({
       newServiceFeeType: this.props.newServiceFeeType || '0',
-    };
+    });
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (prevProps.newServiceFeeType !== this.props.newServiceFeeType) {
+      this.setState({
+        newServiceFeeType: this.props.newServiceFeeType || '0',
+      });
+    }
   }
 
   handleCardOptChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
@@ -238,9 +245,10 @@ const ORDERSUMMARY = css`
 
   .row {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     margin-bottom: 12px;
     line-height: 1.25rem;
+    min-height: 1.25rem;
 
     .col {
       white-space: 'rap';
@@ -250,6 +258,22 @@ const ORDERSUMMARY = css`
     .col:nth-of-type(2) {
       text-align: right;
       max-width: 30%;
+    }
+
+    /* Keep Service fee select row the same height as plain formula rows */
+    .labeled-select {
+      line-height: 1.25rem;
+
+      label {
+        line-height: 1.25rem;
+      }
+
+      select {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 1.25rem;
+        height: 1.25rem;
+      }
     }
 
     &:nth-last-of-type(-n + 1) {

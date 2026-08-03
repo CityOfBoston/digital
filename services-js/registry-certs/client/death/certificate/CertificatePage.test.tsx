@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import Router from 'next/router';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
@@ -63,6 +64,7 @@ describe('getInitialProps', () => {
       beforeEach(() => {
         cart = new DeathCertificateCart();
         siteAnalytics = new GaSiteAnalytics();
+        (Router.push as jest.Mock).mockClear();
 
         component = mount(
           <CertificatePage
@@ -75,9 +77,17 @@ describe('getInitialProps', () => {
         ).instance();
       });
 
-      it('adds 5 things to the cart', () => {
-        component.setCartQuantity(5);
-        expect(cart.size).toEqual(5);
+      it('navigates to certificate options with quantity', async () => {
+        await component.setCartQuantity(5);
+        expect(cart.size).toEqual(0);
+        expect(Router.push).toHaveBeenCalledWith({
+          pathname: '/death/certificate-options',
+          query: {
+            id: TYPICAL_CERTIFICATE.id,
+            quantity: '5',
+            backUrl: '/search?q=jayne',
+          },
+        });
       });
 
       it('removes certificates when set to 0', () => {

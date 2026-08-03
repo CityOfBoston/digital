@@ -8,7 +8,6 @@ import { DeathCertificate } from '../../types';
 
 import {
   CHARLES_BLUE,
-  GRAY_000,
   OPTIMISTIC_BLUE_DARK,
   SANS,
   SERIF,
@@ -19,6 +18,10 @@ export interface Props {
   backUrl: string;
 }
 
+/**
+ * Search result card for death STEP 1 — Figma “Person” card style (not the
+ * old bottom-border list row). Entire card is the hit target.
+ */
 export default function SearchResult({ backUrl, certificate }: Props) {
   const {
     id,
@@ -30,72 +33,101 @@ export default function SearchResult({ backUrl, certificate }: Props) {
     pending,
   } = certificate;
 
-  const ageStr = age
-    ? `${age}${
-        !age.includes('days') && !age.includes('yr') && !age.includes('yrs')
-          ? ''
-          : ''
-      }`
-    : '';
-  // ? `${age}${!age.includes('days') && !age.includes('yr') ? ' yrs' : ''}`
-  // const ageStr = age;
+  const href = `/death/certificate?id=${id}&backUrl=${encodeURIComponent(
+    backUrl
+  )}`;
+  const as = `/death/certificate/${id}`;
+  const deathDateDisplay = deathDate || deathYear;
 
   return (
-    <div css={LINK_CSS}>
-      <Link
-        href={`/death/certificate?id=${id}&backUrl=${encodeURIComponent(
-          backUrl
-        )}`}
-        prefetch={process.env.NODE_ENV !== 'test'}
-        as={`/death/certificate/${id}`}
-      >
-        <a>
-          {`${firstName.toUpperCase()} ${lastName.toUpperCase()}`}
-          {pending && (
-            <span style={{ color: CHARLES_BLUE, fontFamily: SERIF }}>
-              {' - '}
-              <span
-                className="t--sans tt-u"
-                style={{ fontStyle: 'normal', fontWeight: 'bold' }}
-              >
-                pending
+    <Link href={href} prefetch={process.env.NODE_ENV !== 'test'} as={as}>
+      <a css={CARD_STYLING}>
+        <div css={CONTENT_STYLING}>
+          <div className="search-result-name" css={NAME_STYLING}>
+            {`${firstName.toUpperCase()} ${lastName.toUpperCase()}`}
+            {pending && (
+              <span className="search-result-pending" css={PENDING_STYLING}>
+                {' — '}
+                <span className="t--sans tt-u">pending</span>
               </span>
-            </span>
+            )}
+          </div>
+
+          {deathDateDisplay && (
+            <p className="search-result-detail" css={DETAIL_STYLING}>
+              <span css={LABEL_STYLING}>Date of death:</span> {deathDateDisplay}
+            </p>
           )}
-        </a>
-      </Link>
 
-      {deathDate && deathDate.length > 0 && deathYear && deathYear.length > 0 && (
-        <p>
-          <span className="label">Date of death:</span> {deathDate || deathYear}
-        </p>
-      )}
-
-      {ageStr.length > 0 && (
-        <p>
-          <span className="label">Age:</span> {ageStr}
-        </p>
-      )}
-    </div>
+          {age && (
+            <p className="search-result-detail" css={DETAIL_STYLING}>
+              <span css={LABEL_STYLING}>Age:</span> {age}
+            </p>
+          )}
+        </div>
+      </a>
+    </Link>
   );
 }
 
-const LINK_CSS = css`
-  font-weight: normal;
-  font-size: 1em;
-  font-family: ${SERIF};
-  padding: 1.5rem 0 0.25rem;
-  border-bottom: 1px solid ${GRAY_000};
-  
-  a {
-    font-weight: 700;
-    color: ${OPTIMISTIC_BLUE_DARK}
-    font-size: 1.125em;
-    font-family: ${SANS};
-    cursor: pointer;
-  }
+const CARD_STYLING = css({
+  display: 'block',
+  boxSizing: 'border-box',
+  width: '100%',
+  padding: '8px',
+  border: '1px solid #d2d2d2',
+  backgroundColor: '#fff',
+  textDecoration: 'none',
+  cursor: 'pointer',
+  color: 'inherit',
 
-  span.label {
-    font-weight: 700;
-  }
-`;
+  '&:hover, &:focus': {
+    backgroundColor: '#1871bd',
+    borderColor: '#1871bd',
+
+    '.search-result-name, .search-result-pending, .search-result-detail, .search-result-detail *': {
+      color: '#fff',
+    },
+  },
+});
+
+const CONTENT_STYLING = css({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '8px',
+  minWidth: 0,
+});
+
+const NAME_STYLING = css({
+  fontFamily: SANS,
+  fontWeight: 700,
+  fontSize: '1.125rem',
+  lineHeight: 1.2,
+  color: OPTIMISTIC_BLUE_DARK,
+});
+
+const PENDING_STYLING = css({
+  color: CHARLES_BLUE,
+  fontFamily: SERIF,
+  fontWeight: 400,
+  fontSize: '1rem',
+
+  '.tt-u': {
+    fontStyle: 'normal',
+    fontWeight: 700,
+    fontFamily: SANS,
+  },
+});
+
+const DETAIL_STYLING = css({
+  margin: 0,
+  fontFamily: SERIF,
+  fontWeight: 400,
+  fontSize: '1rem',
+  lineHeight: 1.2,
+  color: CHARLES_BLUE,
+});
+
+const LABEL_STYLING = css({
+  fontWeight: 600,
+});

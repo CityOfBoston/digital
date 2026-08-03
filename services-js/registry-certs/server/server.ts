@@ -357,15 +357,22 @@ export async function makeServer({ rollbar }: ServerArgs) {
     },
   });
 
+  // Death attachments allow 25MB (DB limit); birth/marriage stay at 10MB.
+  const BIRTH_MARRIAGE_UPLOAD_MAX_BYTES = 10 * 1024 * 1024;
+  const DEATH_UPLOAD_MAX_BYTES = 25 * 1024 * 1024;
+
   server.route({
     method: 'POST',
     path: '/upload',
     options: {
+      auth: false,
       payload: {
         output: 'stream',
         parse: true,
         allow: 'multipart/form-data',
-        maxBytes: 10 * 1024 * 1024,
+        // Ceiling for the largest accepted type (death). Per-type limits are
+        // enforced in the handler below.
+        maxBytes: DEATH_UPLOAD_MAX_BYTES,
         // We don't want to time out these uploads in particular. The socket
         // will timeout after 2 mins of inactivity, which is fine.
         timeout: 30000,
@@ -382,9 +389,9 @@ export async function makeServer({ rollbar }: ServerArgs) {
         uploadSessionId,
       }: UploadPayload<AnnotatedFilePart> = req.payload as any;
 
-      if (type === 'DC') {
+      if (type !== 'BC' && type !== 'MC' && type !== 'DC') {
         throw Boom.badData(
-          'Can only upload attachments for birth or marriage certificates'
+          'Can only upload attachments for birth, marriage, or death certificates'
         );
       }
 
@@ -392,19 +399,53 @@ export async function makeServer({ rollbar }: ServerArgs) {
         throw Boom.badData('No uploadSessionId provided');
       }
 
+      if (!file || !file.payload) {
+        throw Boom.badData('No file provided');
+      }
+
+      const maxBytes =
+        type === 'DC'
+          ? DEATH_UPLOAD_MAX_BYTES
+          : BIRTH_MARRIAGE_UPLOAD_MAX_BYTES;
+      const fileBytes =
+        typeof (file.payload as any).length === 'number'
+          ? (file.payload as Buffer | { length: number }).length
+          : 0;
+
+      if (fileBytes > maxBytes) {
+        throw Boom.entityTooLarge(
+          `Attachment exceeds the ${
+            type === 'DC' ? '25MB' : '10MB'
+          } size limit for this certificate type`
+        );
+      }
+
       const db = registryDbFactory.registryDb();
 
-      const attachmentKey = await db.uploadFileAttachment(
-        type as any,
-        uploadSessionId,
-        label || null,
-        file
-      );
+      try {
+        // `label` is stored verbatim as the Commerce attachment description.
+        // Birth sends "id front" / "id back"; death encodes relationship or
+        // identity context (see DeathCertificateCart attachment label helpers).
+        const attachmentKey = await db.uploadFileAttachment(
+          type,
+          uploadSessionId,
+          label || null,
+          file
+        );
 
-      return {
-        attachmentKey,
-        filename: file.filename,
-      };
+        return {
+          attachmentKey,
+          filename: file.filename,
+        };
+      } catch (err) {
+        rollbar.error(err as any, req.raw.req);
+
+        // badImplementation strips the message from the client payload;
+        // badGateway keeps it so UploadableFile can surface the DB error.
+        throw Boom.badGateway(
+          (err as Error).message || 'Attachment upload failed'
+        );
+      }
     },
   });
 
